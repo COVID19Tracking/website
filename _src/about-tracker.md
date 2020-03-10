@@ -1,9 +1,8 @@
 ---
 layout: base.njk
-title: home
+title: About the Tracker
+nav: About
 ---
-
-## Contextualizing the data
 
 * Paragraph contextualizing the data, including inline links to articles on The A.
 * Link to Prod sheet

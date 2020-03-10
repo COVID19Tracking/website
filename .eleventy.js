@@ -9,6 +9,14 @@ module.exports = function(eleventyConfig) {
 		code => new CleanCSS({}).minify(code).styles
 	);
 
+	// All posts:
+	eleventyConfig.addCollection("posts", function(collection) {
+		return collection.getAllSorted().filter(function(item) {
+			return item;
+		});
+	});
+
+
 	return {
 		templateFormats: [
 			"md",
