@@ -1,3 +1,8 @@
+backend:
+  name: github
+  repo: Wilto/ctracker
+  branch: master # Branch to update (optional; defaults to master)
+
 # Uncomment below to enable drafts
 # publish_mode: editorial_workflow
 
