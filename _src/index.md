@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: home
+title: Homepage
 ---
 
 ## Contextualizing the data
