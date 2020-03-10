@@ -3,6 +3,7 @@ module.exports = function(eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy("_src/_assets");
 	eleventyConfig.addPassthroughCopy("_src/sw.js");
+	eleventyConfig.addPassthroughCopy("_src/admin/");
 
 	eleventyConfig.addFilter(
 		'cssmin',
@@ -15,7 +16,6 @@ module.exports = function(eleventyConfig) {
 			return item;
 		});
 	});
-
 
 	return {
 		templateFormats: [
