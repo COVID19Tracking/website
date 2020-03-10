@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: About the Team
-nav: The Team
+nav: About Us
 ---
 
 This is where we write about the team.
