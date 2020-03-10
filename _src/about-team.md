@@ -4,5 +4,4 @@ title: About the Team
 nav: The Team
 ---
 
-## Contextualizing the data
-
+This is where we write about the team.
