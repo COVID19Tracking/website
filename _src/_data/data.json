@@ -1,0 +1,11 @@
+{
+  "title": "COVID19 Tracker",
+  "name": "ctracker",
+  "shortname": "ctracker",
+  "url": "https://covidtracking.com",
+  "description": "COVID19 Tracker.",
+  "author": {
+    "name": "Mat Marquis",
+    "email": "mat@matmarquis.com"
+  }
+}

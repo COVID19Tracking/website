@@ -1,0 +1,11 @@
+<a href="#main" class="a11y-only focusable">Skip to main content</a>
+<header class="hero">
+
+	<h1 class="hero-hed"></h1>
+
+	<ul>
+	{%- for post in collections.post -%}
+		<li{% if page.url == post.url %} class="active"{% endif %}>{{ post.data.title }}</li>
+	{%- endfor -%}
+	</ul>
+</header>
