@@ -65,7 +65,7 @@
 
 		<main id="main">
 			<div class="body">
-				<h2>{{ title }}</h2>
+				{% if page.url != "/" %}<h2>{{ title }}</h2>{% endif %}
 				{{ layoutContent | safe }}
 			</div>
 		</main>
