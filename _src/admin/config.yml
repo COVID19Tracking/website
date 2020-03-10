@@ -8,8 +8,8 @@ backend:
 media_folder: "_assets/img" # Media files will be stored in the repo under images/uploads
 
 collections:
-  - name: "pages"
-    label: "Page"
+  - name: "posts"
+    label: "Pages"
     folder: "_src/"
     create: false # Change to true to allow editors to create new pages
     slug: "{{slug}}"
