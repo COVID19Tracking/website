@@ -1,7 +1,3 @@
-backend:
-  name: github
-  repo: Wilto/ctracker
-
 # Uncomment below to enable drafts
 # publish_mode: editorial_workflow
 
