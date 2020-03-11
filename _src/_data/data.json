@@ -3,10 +3,10 @@
   "name": "ctracker",
   "shortname": "ctracker",
   "url": "https://covidtracking.com",
-  "description": "COVID19 Tracker.",
+  "description": "The COVID Tracking Project collects information from 50 US states and the District of Columbia to provide the most comprehensive public data we can on state-level testing for the novel coronavirus, SARS-CoV-2.",
   "author": {
-    "name": "Mat Marquis",
-    "email": "mat@matmarquis.com"
+    "name": "The COVID19 Tracking Project",
+    "email": "null@null.com"
   },
   "feed": {
     "subtitle": "COVID19 Tracker.",

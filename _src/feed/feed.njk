@@ -10,6 +10,10 @@ layout: null
 	<link href="{{ data.url }}"/>
 	<updated>{{ collections.posts | rssLastUpdatedDate }}</updated>
 	<id>{{ data.feed.id }}</id>
+	<author>
+		<name>{{ metadata.author.name }}</name>
+		<email>{{ metadata.author.email }}</email>
+	</author>
 	{%- for post in collections.posts %}
 	{% if post.data.title %}
 	{% set absolutePostUrl %}{{ post.url | url | absoluteUrl(data.url) }}{% endset %}
