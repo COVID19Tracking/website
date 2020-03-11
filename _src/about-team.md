@@ -9,7 +9,7 @@ The website and data are now maintained by a volunteer team of coders, journalis
 * [Stanley Bishop](https://mltogether.la/)
 * Kai Curry
 * Shima Dastgheib
-* [Katerina Dimitratos](http://https://twitter.com/kdimitratos)
+* [Katerina Dimitratos](https://twitter.com/kdimitratos)
 * Josh Ellington
 * Nancy Ge
 * [Lucas Gonze](http://gonze.com)
