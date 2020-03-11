@@ -4,10 +4,11 @@ nav: The Data
 ---
 <p class="updated">Last updated: March 11</p>
 
-For an overview of how our project works, please check About the Tracker. This page will dig into the specific data issues we’ve seen with various states, and document the data sources we’re using for each of them. 
+For an overview of how our project works, please check [About the Tracker](/about-tracker). This page will dig into the specific data issues we’ve seen with various states, and document the data sources we’re using for each of them. 
 
-Here’s What We Know About States
-As mentioned in About the Tracker, different states make data available in different ways. Below is a list of all the states with links to where they report information about test and case counts, and details about the data where it departs from how we’re trying to report it.
+## Here’s What We Know About States 
+
+As mentioned in [About the Tracker](/about-tracker), different states make data available in different ways. Below is a list of all the states with links to where they report information about test and case counts, and details about the data where it departs from how we’re trying to report it.
 
 Alabama (https://www.alabamapublichealth.gov/infectiousdiseases/2019-coronavirus.html) Data is in text in the paragraph under the Cases and Testing header.
 
@@ -17,8 +18,7 @@ Arizona (https://www.azdhs.gov/preparedness/epidemiology-disease-control/infecti
 
 Arkansas (https://www.healthy.arkansas.gov/programs-services/topics/novel-coronavirus)
 
-California (https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/Immunization/ncov2019.aspx) 
-We are currently carrying over an old number (690) for negative tests that we got by inferring from a total number we got through reporting on 3/7. This number is necessarily inaccurate, but less inaccurate than a 0 in that cell. For now, enter a 690 in the Negative column each update. 
+California (https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/Immunization/ncov2019.aspx)  We are currently carrying over an old number (690) for negative tests that we got by inferring from a total number we got through reporting on 3/7. This number is necessarily inaccurate, but less inaccurate than a 0 in that cell. For now, enter a 690 in the Negative column each update. 
 
 Also, California has started reporting “positive cases” (133) alongside deaths (1). It’s unclear if the death is included in the positive case number. We’re not including it until we get further clarification.
 
