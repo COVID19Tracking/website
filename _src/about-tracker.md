@@ -1,7 +1,7 @@
 ---
 title: About the Tracker
 nav: About the Tracker
-lede: The COVID Tracking Project collects information from 50 US states and the District of Columbia to provide the most comprehensive public data we can on state-level testing for the novel coronavirus, SARS-CoV-2. We use technical tools to alert us to changes in the information states are reporting, but all the information we publish has been collected and double-checked by humans.
+summary: The COVID Tracking Project collects information from 50 US states and the District of Columbia to provide the most comprehensive public data we can on state-level testing for the novel coronavirus, SARS-CoV-2. We use technical tools to alert us to changes in the information states are reporting, but all the information we publish has been collected and double-checked by humans.
 ---
 The COVID Tracking Project collects information from 50 US states and the District of Columbia to provide the most comprehensive public data we can on state-level testing for the novel coronavirus, SARS-CoV-2. We use technical tools to alert us to changes in the information states are reporting, but all the information we publish has been collected and double-checked by humans.
 
