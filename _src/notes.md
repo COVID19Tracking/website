@@ -231,7 +231,7 @@ Click to expand the Situation in Oregon section.
 
 (<https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx>)
 
-Only positives are being reported. There appears to be a discrepancy in the Totals provided on the website and our data as we are just summing the numbers provided.
+As of 3/11, Pennsylvania now reports all numbers we track. Thank you, PA!
 
 ### Rhode Island
 
