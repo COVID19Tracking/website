@@ -149,13 +149,13 @@ We’re inferring the negative from by subtracting the POSITIVES from the TOTAL,
 
 ([https://msdh.ms.gov/msdhsite/_static/14,0,420.html](https://msdh.ms.gov/msdhsite/_static/14,0,420.html))
 
-We’re inferring the negative from by subtracting the POSITIVES from the TOTAL and no pending test data is provided. No "update time" provided so we code our entries with the date provided and 0:00 for the time.
+We’re inferring the negative from by subtracting the POSITIVES from the TOTAL and no pending test data is provided. 
 
 ### Missouri
 
 (<https://health.mo.gov/living/healthcondiseases/communicable/novel-coronavirus/>)
 
-Only positives are being reported.
+Only positives are being reported on their site, but media reports from 3/11 [citing health officials](https://www.kmov.com/news/missouri-residents-test-negative-for-coronavirus-health-officials-say/article_fee2fbc4-6322-11ea-bb3a-671ae423cb2a.html) say 11 negative tests have been performed. Missouri is providing no time and date, but based on these reports, we're using a last update time of 3/10 00:00, until the state is more explicit.
 
 ### Montana
 
