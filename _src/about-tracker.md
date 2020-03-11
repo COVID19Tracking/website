@@ -1,5 +1,4 @@
 ---
-layout: base.njk
 title: About the Tracker
 nav: About the Tracker
 ---
