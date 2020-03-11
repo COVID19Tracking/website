@@ -5,7 +5,7 @@ summary: ''
 ---
 For an overview of how our project works, please check [About the Tracker](/about-tracker). This page will dig into the specific data issues we’ve seen with various states, and document the data sources we’re using for each of them.
 
-<p class="updated">Last updated: March 11 3:41 pm ET</p>
+<p class="updated">Last updated: March 11 4:01 pm ET by EK</p>
 
 ## Here’s What We Know About States
 
