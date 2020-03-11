@@ -43,6 +43,16 @@
     margin-bottom: 15px;
   }
 
+  // Temporary style for emphasis
+  h3 a {
+    color: white;
+    font-size: $size-5;
+    text-decoration: none;
+    background-color: black;
+    padding: 15px;
+    display: inline-block;
+  }
+
   p, li {
     color: $text-color-dark;
     font-size: $size-3;
@@ -72,7 +82,12 @@
     @media (min-width: $viewport-md) {
       font-size: $size-5;
       line-height: 1.6;
-      width: 100%;
+      width: 90%;
     } 
+  }
+
+  p.updated {
+    font-size: $size-2;
+    color: $alert-color;
   }
 }
