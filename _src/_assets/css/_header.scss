@@ -1,0 +1,23 @@
+.site-header {
+  border-bottom: 3px solid $border-color;
+  padding: 30px 0;
+
+  @media (min-width: $viewport-md) {
+    padding: 50px 0;
+  }
+
+    a {
+      font-size: $size-2;
+      font-weight: 700;
+
+      @media (min-width: $viewport-md) {
+        font-size: $size-4;
+      }
+      color: black;
+      text-decoration: none;
+      transition: opacity 0.3s;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+}

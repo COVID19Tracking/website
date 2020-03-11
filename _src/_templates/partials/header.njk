@@ -1,12 +1,6 @@
 <a href="#main" class="a11y-only focusable">Skip to main content</a>
-<header class="hero">
-	<h1><a href="/">{{ data.title }}</a></h1>
-
-	<ul>
-	{%- for post in collections.posts -%}
-		{% if post.data.nav %}
-		<li{% if page.url == post.url %} class="active"{% endif %}><a href="{{ post.url | url }}">{{ post.data.nav }}</a></li>
-		{% endif %}
-	{%- endfor -%}
-	</ul>
+<header class="site-header">
+	<div class="container">
+		<a href="/">{{ data.title }}</a>
+	</div>
 </header>
