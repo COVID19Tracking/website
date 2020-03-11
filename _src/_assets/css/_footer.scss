@@ -45,5 +45,9 @@
     li + li {
       margin-left: 15px;
     }
+
+    .active a {
+      text-decoration: underline;
+    }
   }
 }
