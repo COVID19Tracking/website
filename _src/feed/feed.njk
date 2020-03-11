@@ -1,0 +1,35 @@
+---
+permalink: feed/feed.xml
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>{{ data.title }}</title>
+	<subtitle>{{ data.feed.subtitle }}</subtitle>
+	<link href="{{ data.feed.url }}" rel="self"/>
+	<link href="{{ data.url }}"/>
+	<updated>{{ collections.posts | rssLastUpdatedDate }}</updated>
+	<id>{{ data.feed.id }}</id>
+	<author>
+		<name>{{ data.author.name }}</name>
+		<email>{{ data.author.email }}</email>
+	</author>
+	{%- for post in collections.posts %}
+	{% if post.data.type %}
+	{% if post.data.type == "recipe" or post.data.type == "article" or post.data.type == "review" %}
+	{% set absolutePostUrl %}{{ post.url | url | absoluteUrl(data.url) }}{% endset %}
+	<entry>
+		<title>{{ post.data.title }}</title>
+		<link href="{{ absolutePostUrl }}"/>
+		<updated>{{ post.date | rssDate }}</updated>
+		<id>{{ absolutePostUrl }}</id>
+		<content type="html">
+			{% if post.data.img %}<![CDATA[<img src="https://wiltomakesfood.com/img/{{post.data.img }}-5.jpg">]]>{% endif %}
+			{% if post.data.lede %}{{ post.data.lede }}{% endif %}
+			{{ post.templateContent | truncate(250) | striptags }}
+		</content>
+	</entry>
+	{% endif %}
+	{% endif %}
+	{%- endfor %}
+</feed>

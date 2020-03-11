@@ -7,5 +7,12 @@
   "author": {
     "name": "Mat Marquis",
     "email": "mat@matmarquis.com"
+  },
+  "feed": {
+    "subtitle": "COVID19 Tracker.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "url": "https://covidtracking.com/feed.xml",
+    "id": "https://covidtracking.com"
   }
 }

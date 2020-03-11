@@ -1,5 +1,14 @@
+const { DateTime } = require("luxon");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
+
 module.exports = function(eleventyConfig) {
 	const CleanCSS = require('clean-css');
+
+	eleventyConfig.addPlugin(pluginRss);
+
+	eleventyConfig.addFilter("readableDate", dateObj => {
+		return DateTime.fromJSDate(dateObj).toFormat("dd LLL yyyy");
+	});
 
 	eleventyConfig.addPassthroughCopy("_src/_assets");
 	eleventyConfig.addPassthroughCopy("_src/sw.js");
