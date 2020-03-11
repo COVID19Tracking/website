@@ -6,14 +6,13 @@
     padding: 50px 0;
   }
 
-  h1 {
-    font-size: $size-2;
-
-    @media (min-width: $viewport-md) {
-      font-size: $size-4;
-    }
-
     a {
+      font-size: $size-2;
+      font-weight: 700;
+
+      @media (min-width: $viewport-md) {
+        font-size: $size-4;
+      }
       color: black;
       text-decoration: none;
       transition: opacity 0.3s;
@@ -21,5 +20,4 @@
         opacity: 0.5;
       }
     }
-  }
 }
