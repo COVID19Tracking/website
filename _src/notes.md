@@ -69,7 +69,7 @@ We’re including both Florida residents and repatriated people from other state
 
 (<https://dph.georgia.gov/novelcoronavirus>)
 
-Data is in text. We’ve combined the “confirmed” and “presumptive positive” numbers. Only positives are being reported.
+On 3/11 Georgia pulled its numbers from the web. We'll roll over their old number positive number of 22 and hope they update. 
 
 ### Hawaii
 
