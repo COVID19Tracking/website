@@ -12,7 +12,6 @@
 		"/"
 	];
 	const staticAssets = [
-		'/_assets/css/fonts/Webfont.woff2'
 	];
 
 	function updateStaticCache() {
