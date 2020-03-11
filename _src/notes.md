@@ -1,10 +1,11 @@
 ---
 title: Notes on State Data
 nav: The Data
+summary: ''
 ---
-<p class="updated">Last updated: March 11 3:41 pm ET</p>
+For an overview of how our project works, please check [About the Tracker](/about-tracker). This page will dig into the specific data issues we’ve seen with various states, and document the data sources we’re using for each of them.
 
-For an overview of how our project works, please check [About the Tracker](/about-tracker). This page will dig into the specific data issues we’ve seen with various states, and document the data sources we’re using for each of them. 
+<p class="updated">Last updated: March 11 3:41 pm ET</p>
 
 ## Here’s What We Know About States
 
@@ -42,7 +43,7 @@ Also, California has started reporting “positive cases” (133) alongside deat
 
 (<https://docs.google.com/document/d/e/2PACX-1vRSxDeeJEaDxir0cCd9Sfji8ZPKzNaCPZnvRCbG63Oa1ztz4B4r7xG_wsoC9ucd_ei3--Pz7UD50yQD/pub>)
 
-Colorado is providing the number of tests, not the number of people tested. That test count should probably be divided by two, per the rough rule of thumb ratio for specimens tested, but we will change this method once we find out more from CO. Also, we’re lumping “indeterminate treated as positive” with the positives. 
+Colorado has switched to providing numbers for people tested, not tests completed, this is great news. Also, we’re lumping “indeterminate treated as positive” with the positives. 
 
 ### Connecticut
 
