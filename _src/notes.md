@@ -2,7 +2,7 @@
 title: Notes on State Data
 nav: The Data
 ---
-<p class="updated">Last updated: March 11</p>
+<p class="updated">Last updated: March 11 2:06pm ET</p>
 
 For an overview of how our project works, please check [About the Tracker](/about-tracker). This page will dig into the specific data issues we’ve seen with various states, and document the data sources we’re using for each of them. 
 
