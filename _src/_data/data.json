@@ -6,10 +6,10 @@
   "description": "The COVID Tracking Project collects information from 50 US states and the District of Columbia to provide the most comprehensive public data we can on state-level testing for the novel coronavirus, SARS-CoV-2.",
   "author": {
     "name": "The COVID19 Tracking Project",
-    "email": "null@null.com"
+    "email": "info@covidtracking.com"
   },
   "feed": {
-    "subtitle": "COVID19 Tracker.",
+    "subtitle": "The COVID Tracking Project collects information from 50 US states and the District of Columbia to provide the most comprehensive public data we can on state-level testing for the novel coronavirus, SARS-CoV-2.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "url": "https://covidtracking.com/feed.xml",
