@@ -36,3 +36,34 @@ That would be great! They have started providing some information about testing 
 ## If I cite numbers from this site, how should I credit the source?
 
 The COVID Tracking Project.
+
+## What do the various components of the spreadsheet mean?
+
+#### States daily tab
+
+* One row per day per state
+* There’s a filter active that only shows today’s data
+* We collapse positive and presumptive positive tests into the “positive” column
+* The numbers for each day are finalized near the end of my work day, between 4 and 5 pm Eastern
+* The numbers are cumulative over time, not per day
+* Most numbers are pulled directly from the state public health website listed in the “States” tab
+* Some numbers are derived from other sources; we’ve tried to put a comment on the field to indicate the alternative source
+
+#### US daily tab
+
+* We use the [QUERY function](https://support.google.com/docs/answer/3093343?hl=en) to summarize the “Data” sheet by day
+
+#### States tab
+
+* One row per state (including DC, because it should be a state!)
+* “COVID-19 site” is the state’s public health landing page for the outbreak
+* “Data site” is populated when the state puts their test data on a separate site
+* “PUI” means person under investigation, and is meant to capture positive, negative, and pending test results
+* “PUM” means person under monitoring; we don’t collect these numbers as they are reported far less consistently across states
+* “Last update” is the time the state website claims data to have been last updated
+* “Last checked” is the time we last visited their website
+* “Checked by” has my initials for each row; in the future, others can claim a row
+
+#### Counties tab
+
+* Because WA inconsistently reports total tests, we decided to look for county-level data. This may not be needed in the future.
