@@ -66,8 +66,9 @@
 		{% include "partials/header.njk" %}
 
 		<main id="main">
-			<div class="body">
-				{% if page.url != "/" %}<h2>{{ title }}</h2>{% endif %}
+			<div class="body container">
+				{% if page.url != "/" %}<h1>{{ title }}</h1>{% endif %}
+				<p class="lede">{{ lede }}</p>
 				{{ layoutContent | safe }}
 			</div>
 		</main>
