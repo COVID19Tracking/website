@@ -97,6 +97,8 @@ We are subtracting the positives from the total tested, as it appears they are n
 
 ### Iowa
 
+Iowa currently has two timestamps. We are interpreting the one higher up the page as applying to monitoring (which we don't track) and lower down the page as applying to testing.
+
 (<https://idph.iowa.gov/Emerging-Health-Issues/Novel-Coronavirus>)
 
 ### Kansas
