@@ -57,7 +57,7 @@ Colorado has switched to providing numbers for people tested, not tests complete
 
 (<https://coronavirus.dc.gov/page/coronavirus-data>)
 
-We are lumping all presumptive positive cases together, including “Number of presumptive positive results from other lab”
+We are lumping all presumptive positive cases together, including “Number of presumptive positive results from other lab.” DC dropped negatives on 3/11. We are carrying over our negative number from 3/10 of 20 negative tests.
 
 ### Florida
 
