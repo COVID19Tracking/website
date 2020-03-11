@@ -1,3 +1,22 @@
-<footer class="site-foot">
-	
+<footer class="site-footer">
+  <div class="container">
+    <ul class="pages">
+	  {%- for post in collections.posts -%}
+	  	{% if post.data.nav %}
+	  	<li{% if page.url == post.url %} class="active"{% endif %}><a href="{{ post.url | url }}">{{ post.data.nav }}</a></li>
+	  	{% endif %}
+	  {%- endfor -%}
+	  </ul>
+    <ul class="follow">
+      <li>
+        <a href="https://twitter.com/COVID19Tracking">Twitter</a>
+      </li>
+      <li>
+        <a href="/feed/feed.xml">RSS</a>
+      </li>
+      {# <li>
+        <a href="#">JSON</a>
+      </li> #}
+    </ul>
+  </div>
 </footer>
