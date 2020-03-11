@@ -7,7 +7,7 @@ This project combines two initial independent efforts. Jeff Hammerbacher, Founde
 The website and data are now maintained by a volunteer team of coders, journalists, data people, visualization specialists, analysts, and other people willing to help maintain this as a public resource, including:
 
 * [Stanley Bishop](https://mltogether.la/)
-* Kai Curry
+* [Kai Curry](https://github.com/webmasterkai)
 * Shima Dastgheib
 * [Katerina Dimitratos](https://twitter.com/kdimitratos)
 * Josh Ellington
@@ -25,6 +25,3 @@ The website and data are now maintained by a volunteer team of coders, journalis
 * Katherine Paur
 * [Matt Shapiro](http://matthiasshapiro.com)
 * Jeff Silver
-
-
-
