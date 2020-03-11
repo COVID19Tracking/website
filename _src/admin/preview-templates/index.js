@@ -1,6 +1,6 @@
 import Page from "/admin/preview-templates/page.js";
 
-CMS.registerPreviewTemplate("pages", Page);
+CMS.registerPreviewTemplate("posts", Page);
 
 fetch("/")
   .then(response => response.text())
