@@ -43,7 +43,7 @@ Also, California has started reporting deaths alongside “positive cases”. De
 
 (<https://docs.google.com/document/d/e/2PACX-1vRSxDeeJEaDxir0cCd9Sfji8ZPKzNaCPZnvRCbG63Oa1ztz4B4r7xG_wsoC9ucd_ei3--Pz7UD50yQD/pub>)
 
-Colorado has switched to providing numbers for people tested, not tests completed, this is great news. Also, we’re lumping “indeterminate treated as positive” with the positives. 
+Colorado has switched to providing numbers for people tested, not tests completed, this is great news. Also, we’re lumping “indeterminate treated as positive” with the positives. We are currently adding up their hard numbers and ignoring their "approximate" number, though we appreciate it. 
 
 ### Connecticut
 
@@ -173,7 +173,7 @@ No time provided by state, our entries are coded with the date provided and 0:00
 
 (<http://dpbh.nv.gov/coronavirus/>) 
 
-Very rare updates from Nevada, we’re watching reports from news outlets as well. Four positives from [this media report](https://thenevadaindependent.com/article/coronavirus-cases-in-nevada-rise-to-4-after-patients-in-clark-washoe-counties-test-presumptively-positive)
+Very rare updates from Nevada, we’re watching reports from news outlets as well. Nevada's site is down now, so we are [relying on the Nevada Independent's report](https://thenevadaindependent.com/article/live-blog-no-more-coronavirus-cases-in-washoe-reported-as-health-officials-identify-test-close-contacts) for numbers.
 
 ### New Hampshire
 
