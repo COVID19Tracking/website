@@ -63,7 +63,7 @@ We are lumping all presumptive positive cases together, including “Number of p
 
 (<http://www.floridahealth.gov/diseases-and-conditions/COVID-19/>)
 
-We’re including both Florida residents and repatriated people from other states, but not the non-Florida resident(s). We’re assuming that the Deaths are included in the Positive Cases count.
+We’re including both Florida residents and repatriated people from other states, but not the non-Florida resident(s). We’re subtracting the 2 deaths from the Positive Cases count, until further guidance from the state. 
 
 ### Georgia
 
@@ -273,7 +273,7 @@ Data is in text. Only positives are being reported.
 
 (<https://www.healthvermont.gov/response/infectious-disease/2019-novel-coronavirus>)
 
-They say "This table is updated daily by 1:00 p.m. Last updated: \[date]" Use date provided and time =  13:00.
+Text (2) and table (1) disagree about the number of positives. Text is obviously right as of 3/11. They say "This table is updated daily by 1:00 p.m. Last updated: \[date]" Use date provided and time =  13:00.
 
 ### Virginia
 
