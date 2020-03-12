@@ -36,7 +36,9 @@ layout: base.njk
     </table>
 
     {% if state.notes %}
-    <p class="state-notes">{{ state.notes }}</p>
+    <div class="state-notes">
+      {{ state.notes | markdownify | safe }}
+    </div>
     {% endif %}
 
     {% if state.comments %}
