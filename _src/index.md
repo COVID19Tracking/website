@@ -1,6 +1,6 @@
 ---
 title: Homepage
-summary: ''
+summary: 'test'
 ---
 The COVID Tracking Project collects information from 50 US states and the District of Columbia to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2. We attempt to include **positive and negative results**, **pending tests**, and **total people tested for** each state or district currently reporting that data.
 
