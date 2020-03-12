@@ -27,6 +27,13 @@ module.exports = function(eleventyConfig) {
 		});
 	});
 
+	const md = require('markdown-it')({
+		html: false,
+		breaks: true,
+		linkify: true
+	});
+	eleventyConfig.addNunjucksFilter("markdownify", markdownString => md.render(markdownString));
+
 	return {
 		templateFormats: [
 			"md",
