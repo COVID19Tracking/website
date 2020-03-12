@@ -1,0 +1,37 @@
+---
+layout: base.njk
+title: States info from Google Sheet
+---
+
+<ul>
+{% for state in sheets.states %}
+  <div>
+    <h3><a href="{{ state.covid19Site }}">{{ state.state }}</a></h3>
+    <a href="https://twitter.com/{{ state.twitter }}">{{ state.twitter }}</a>
+    <table>
+      <caption>Last updated: {{ state.lastUpdateEt }} ET</caption>
+      <thead>
+        <tr>
+         <th>Positive</th>
+         <th>Negative</th>
+         <th>Pending</th>
+         <th>Death</th>
+         <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+         <td>{{ state.positive }}</td>
+         <td>{{ state.negative }}</td>
+         <td>{{ state.pending }}</td>
+         <td>{{ state.dealth }}</td>
+         <td>{{ state.total }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>{{ state.comments }}</p>
+  </div>
+{% else %}
+  <li>No state information found</li>
+{% endfor %}
+</ul>
