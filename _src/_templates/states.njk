@@ -13,9 +13,6 @@ layout: base.njk
         <img alt="{{ state.stateName }} on Twitter" src="https://img.icons8.com/android/24/000000/twitter.png" />
       </a>
     </div>
-    {% if state.notes %}
-    <p>{{ state.notes }}</p>
-    {% endif %}
     <table class="state-table">
       <caption><span class="a11y-only">{{ state.stateName }} data</span> Last updated: {{ state.lastUpdateEt }} ET</caption>
       <thead>
@@ -37,6 +34,11 @@ layout: base.njk
         </tr>
       </tbody>
     </table>
+
+    {% if state.notes %}
+    <p class="state-notes">{{ state.notes }}</p>
+    {% endif %}
+
     {% if state.comments %}
     <small>{{ state.comments }}</small>
     {% endif %}

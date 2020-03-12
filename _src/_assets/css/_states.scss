@@ -64,4 +64,11 @@
       font-weight: normal;
     }
   }
+
+  .state-notes {
+    color: $text-color-light;
+    font-size: $size-2;
+    max-width: 26rem;
+    width: inherit;
+  }
 }
