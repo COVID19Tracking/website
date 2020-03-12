@@ -2,7 +2,8 @@ const _ = require('lodash/fp')
 const { setFieldWith } = require('prairie')
 // Using fetch() because it matches native use in browser. Easier copy/paste.
 const fetch = require('node-fetch')
-
+// https://date-fns.org/v2.10.0/docs/format
+const { format } = require('date-fns')
 const getJson = (url) => fetch(url).then(res => res.json())
 
 const getStateName = _.propertyOf({
@@ -78,7 +79,7 @@ module.exports = function() {
     getJson('https://covid.cape.io/states'),
     getJson('https://covid.cape.io/states/info'),
   ]).then(([stateTest, stateInfo]) => ({
-    updated: new Date().toISOString(),
+    updated: format(new Date(), "M/dd HH:mm 'ET'"),
     states: mergeStateInfo([stateTest, stateInfo]),
   }))
 }
