@@ -161,7 +161,7 @@ Only positives are being reported on their site, but media reports from 3/11 [ci
 
 (<https://dphhs.mt.gov/publichealth/cdepi/diseases/coronavirusmt>)
 
-No update time provided, so our entries are coded for 19:30 on the previous weekday. The website claims to provide updates M-F by 5:30pm Mountain Time (17:30 ET).
+No update time provided, so our entries are coded for 19:00 on the previous weekday. The website claims to provide updates M-F by 5:00pm Mountain Time (17:00 ET).
 
 ### Nebraska
 
