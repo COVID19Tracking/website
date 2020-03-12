@@ -1,0 +1,74 @@
+// Specificity hack is specific
+.states-list {
+  max-width: 60em;
+  @media (min-width: $viewport-md) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(26em, 1fr));
+    grid-gap: $size-5;
+  }
+
+  .state-item {
+    list-style: none;
+    margin-bottom: $size-5;
+    max-width: 26em;
+    width: inherit;
+    @media (min-width: $viewport-md) {
+      margin-bottom: $size-3;
+    }
+    @supports (display: grid) {
+      max-width: inherit;
+    }
+  }
+  .state-header {
+    display: flex;
+    margin-bottom: $size-1;
+  }
+  .state-link {
+    color: inherit;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+  .state-name {
+    flex: 1;
+    margin: 0;
+  }
+
+  .state-table {
+    border-collapse: collapse;
+    font-size: $size-1;
+    @media (min-width: $viewport-md) {
+      font-size: $size-2;
+    }
+    width: 100%;
+
+    &,
+    th,
+    td {
+      border: 1px solid #AAA;
+    }
+    caption,
+    th,
+    td {
+      padding: 0.25em;
+      @media (min-width: $viewport-md) {
+        padding: 0.45em;
+      }
+    }
+    caption {
+      font-size: $size-1;
+      caption-side: bottom;
+    }
+    th {
+      font-weight: normal;
+    }
+  }
+
+  .state-notes {
+    color: $text-color-light;
+    font-size: $size-2;
+    max-width: 26rem;
+    width: inherit;
+  }
+}

@@ -4,23 +4,24 @@ layout: base.njk
 
 {{ layoutContent | safe }}
 <p class="updated">Last updated: {{ sheets.updated }}</p>
-<ul>
+<ul class="states-list">
 {% for state in sheets.states %}
-  <div>
-    <h3><a href="{{ state.covid19Site }}">{{ state.stateName }}</a></h3>
-    <a href="https://twitter.com/{{ state.twitter }}" title="{{ state.twitter }}">
-      <img src="https://img.icons8.com/android/24/000000/twitter.png"/>
-    </a>
-    <p>{{ state.notes }}</p>
-    <table>
-      <caption>Last updated: {{ state.lastUpdateEt }} ET</caption>
+  <li class="state-item">
+    <div class="state-header">
+      <h2 class="state-name"><a class="state-link" href="{{ state.covid19Site }}">{{ state.stateName }}</a></h2>
+      <a class="state-link" href="https://twitter.com/{{ state.twitter }}">
+        <img alt="{{ state.stateName }} on Twitter" src="https://img.icons8.com/android/24/000000/twitter.png" />
+      </a>
+    </div>
+    <table class="state-table">
+      <caption><span class="a11y-only">{{ state.stateName }} data</span> Last updated: {{ state.lastUpdateEt }} ET</caption>
       <thead>
         <tr>
-         <th>Positive</th>
-         <th>Negative</th>
-         <th>Pending</th>
-         <th>Deaths</th>
-         <th>Total</th>
+         <th scope="col">Positive</th>
+         <th scope="col">Negative</th>
+         <th scope="col">Pending</th>
+         <th scope="col">Deaths</th>
+         <th scope="col">Total</th>
         </tr>
       </thead>
       <tbody>
@@ -33,8 +34,15 @@ layout: base.njk
         </tr>
       </tbody>
     </table>
+
+    {% if state.notes %}
+    <p class="state-notes">{{ state.notes }}</p>
+    {% endif %}
+
+    {% if state.comments %}
     <small>{{ state.comments }}</small>
-  </div>
+    {% endif %}
+  </li>
 {% else %}
   <li>No state information found</li>
 {% endfor %}
