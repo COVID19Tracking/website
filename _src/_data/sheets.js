@@ -3,11 +3,12 @@ const { setFieldWith } = require('prairie')
 // Using fetch() because it matches native use in browser. Easier copy/paste.
 const fetch = require('node-fetch')
 // https://date-fns.org/v2.10.0/docs/format
-const { format } = require('date-fns-tz')
+const { format, utcToZonedTime } = require('date-fns-tz')
 const getJson = (url) => fetch(url).then(res => res.json())
-function dateStr(zonedDate) {
+function dateStr(date) {
   const pattern = "M/dd HH:mm 'ET'"
   const timeZone = 'America/New_York'
+  const zonedDate = utcToZonedTime(date, timeZone)
   return format(zonedDate, pattern, { timeZone })
 }
 const getStateName = _.propertyOf({
