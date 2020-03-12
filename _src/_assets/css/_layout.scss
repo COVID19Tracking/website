@@ -78,12 +78,22 @@
     }
   }
 
+  li ul {
+	margin-left: 15px;
+    margin-top: 10px;
+    li {
+	  @media (min-width: $viewport-md) {
+		width: auto;
+	  }
+    }
+  }
+
   p.lede {
     @media (min-width: $viewport-md) {
       font-size: $size-5;
       line-height: 1.6;
       width: 90%;
-    } 
+    }
   }
 
   p.updated {
