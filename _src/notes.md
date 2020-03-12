@@ -35,9 +35,9 @@ We’ve combined the “Confirmed” and “Presumed Positive” numbers. Negati
 
 (<https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/Immunization/ncov2019.aspx>)  
 
-We are currently carrying over an old number (690) for negative tests that we got by inferring from a total number we got through reporting on 3/7. This number is necessarily inaccurate, but less inaccurate than a 0 in that cell. For now, enter a 690 in the Negative column each update. 
+The state website only reports positives, but we have confirmation from the state that there were 916 people who tested negative, as of 3/10. When the state updates the positive number, our numbers fall of out alignment. This number is necessarily inaccurate, but less inaccurate than a 0 in that cell. So, enter 916.
 
-Also, California has started reporting “positive cases” (133) alongside deaths (1). It’s unclear if the death is included in the positive case number. We’re not including it until we get further clarification.
+Also, California has started reporting deaths alongside “positive cases”. Deaths are not included in California's positive number. We include them in a separate column. 
 
 ### Colorado
 
@@ -201,7 +201,7 @@ Only positives are being reported.
 
 (<https://www.ncdhhs.gov/covid-19-case-count-north-carolina>)
 
-Only positives are being reported. "Updated regularly as information becomes available." Code entries with today's date with a time of 00:00.
+Only positives are being reported by state; we have independent reporting that on 3/10 there had been 37 negatives. "Updated regularly as information becomes available." Code entries with today's date with a time of 00:00.
 
 ### North Dakota
 

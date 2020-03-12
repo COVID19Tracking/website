@@ -19,9 +19,12 @@ The website and data are now maintained by a volunteer team of coders, journalis
 * [Erin Kissane](http://incisive.nu)
 * [Sam Klein](https://twitter.com/metasj)
 * [Elliott Klug](http://elliottklug.com)
+* [Julia Kodysh](https://twitter.com/JuliaKodysh)
+* [Zach Lipton](https://twitter.com/zachlipton)
 * [JD Maresco](https://twitter.com/jdmaresco)
 * [Mat Marquis](https://hire.wil.to)
 * [Ryan Panchadsaram](https://twitter.com/rypan)
 * Katherine Paur
+* [Alex Rubinsteyn](https://twitter.com/iskander)
 * [Matt Shapiro](http://matthiasshapiro.com)
 * Jeff Silver
