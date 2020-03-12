@@ -3,9 +3,13 @@ const { setFieldWith } = require('prairie')
 // Using fetch() because it matches native use in browser. Easier copy/paste.
 const fetch = require('node-fetch')
 // https://date-fns.org/v2.10.0/docs/format
-const { format } = require('date-fns')
+const { format } = require('date-fns-tz')
 const getJson = (url) => fetch(url).then(res => res.json())
-
+function dateStr(zonedDate) {
+  const pattern = "M/dd HH:mm 'ET'"
+  const timeZone = 'America/New_York'
+  return format(zonedDate, pattern, { timeZone })
+}
 const getStateName = _.propertyOf({
     "AL": "Alabama",
     "AK": "Alaska",
@@ -79,7 +83,7 @@ module.exports = function() {
     getJson('https://covid.cape.io/states'),
     getJson('https://covid.cape.io/states/info'),
   ]).then(([stateTest, stateInfo]) => ({
-    updated: format(new Date(), "M/dd HH:mm 'ET'"),
+    updated: dateStr(new Date()),
     states: mergeStateInfo([stateTest, stateInfo]),
   }))
 }
