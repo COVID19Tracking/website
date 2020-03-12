@@ -78,6 +78,7 @@ module.exports = function() {
     getJson('https://covid.cape.io/states'),
     getJson('https://covid.cape.io/states/info'),
   ]).then(([stateTest, stateInfo]) => ({
+    updated: new Date().toISOString(),
     states: mergeStateInfo([stateTest, stateInfo]),
   }))
 }

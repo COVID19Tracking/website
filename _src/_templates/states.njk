@@ -3,6 +3,7 @@ layout: base.njk
 ---
 
 {{ layoutContent | safe }}
+<p class="updated">Last updated: {{ sheets.updated }}</p>
 <ul>
 {% for state in sheets.states %}
   <div>
