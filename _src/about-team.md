@@ -28,3 +28,4 @@ The website and data are now maintained by a volunteer team of coders, journalis
 * [Alex Rubinsteyn](https://twitter.com/iskander)
 * [Matt Shapiro](http://matthiasshapiro.com)
 * Jeff Silver
+* [Dylan Smith](http://TucsonSentinel.com)
