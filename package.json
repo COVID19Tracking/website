@@ -37,6 +37,7 @@
     "grunt-sass": "^3.0.2",
     "lodash": "^4.17.15",
     "node-fetch": "^2.6.0",
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.12.0",
+    "prairie": "^3.10.2"
   }
 }

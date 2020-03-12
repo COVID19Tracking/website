@@ -1,13 +1,16 @@
 ---
 layout: base.njk
-title: States info from Google Sheet
 ---
 
+{{ layoutContent | safe }}
 <ul>
 {% for state in sheets.states %}
   <div>
-    <h3><a href="{{ state.covid19Site }}">{{ state.state }}</a></h3>
-    <a href="https://twitter.com/{{ state.twitter }}">{{ state.twitter }}</a>
+    <h3><a href="{{ state.covid19Site }}">{{ state.stateName }}</a></h3>
+    <a href="https://twitter.com/{{ state.twitter }}" title="{{ state.twitter }}">
+      <img src="https://img.icons8.com/android/24/000000/twitter.png"/>
+    </a>
+    <p>{{ state.notesAboutTheData }}</p>
     <table>
       <caption>Last updated: {{ state.lastUpdateEt }} ET</caption>
       <thead>
@@ -15,7 +18,7 @@ title: States info from Google Sheet
          <th>Positive</th>
          <th>Negative</th>
          <th>Pending</th>
-         <th>Death</th>
+         <th>Deaths</th>
          <th>Total</th>
         </tr>
       </thead>
@@ -29,7 +32,6 @@ title: States info from Google Sheet
         </tr>
       </tbody>
     </table>
-    <p>{{ state.comments }}</p>
   </div>
 {% else %}
   <li>No state information found</li>
