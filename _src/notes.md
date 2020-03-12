@@ -195,7 +195,7 @@ Data in a table in the Spotlight section. New Jersey reports full results (posit
 
 (<https://www.health.ny.gov/diseases/communicable/coronavirus/>)
 
-Only positives are being reported.
+Only positives are being reported. Last New York negative number was 145 from 3/6. We have not included it so far, and will not as it becomes increasingly out of date. 
 
 ### North Carolina
 
