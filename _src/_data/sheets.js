@@ -83,8 +83,10 @@ module.exports = function() {
   return Promise.all([
     getJson('https://covid.cape.io/states'),
     getJson('https://covid.cape.io/states/info'),
-  ]).then(([stateTest, stateInfo]) => ({
+    getJson('https://covid.cape.io/us'),
+  ]).then(([stateTest, stateInfo, us]) => ({
     updated: dateStr(new Date()),
+    us: us[0],
     states: mergeStateInfo([stateTest, stateInfo]),
   }))
 }
