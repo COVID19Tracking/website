@@ -21,3 +21,7 @@ From here, you can [view the most recent data](https://docs.google.com/spreadshe
 [The Dangerous Delays in U.S. Coronavirus Testing Haven’t Stopped](https://www.theatlantic.com/health/archive/2020/03/coronavirus-testing-numbers/607714/), The Atlantic, March 9, 2020
 
 [Key Source of COVID-19 Testing & Infection Data](https://talkingpointsmemo.com/edblog/key-source-of-covid-19-testing-infection-data), TPM, March 7, 2020
+
+## Best Practices
+
+[State Testing Data Release - Best Practices](https://docs.google.com/document/d/1OyN6_1UeDePwPwKi6UKZB8GwNC7-kSf1-BO2af8kqVA/edit)
