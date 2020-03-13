@@ -4,6 +4,32 @@ layout: base.njk
 
 {{ layoutContent | safe }}
 <p class="updated">Last updated: {{ sheets.updated }}</p>
+
+<div class="us-totals">
+  <table>
+    <caption>US Totals</caption>
+    <thead>
+      <tr>
+       <th scope="col">Positive</th>
+       <th scope="col">Negative</th>
+       <th scope="col">Pos + Neg</th>
+       <th scope="col">Pending</th>
+       <th scope="col">Death</th>
+       <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+       <td>{{ sheets.us.positive }}</td>
+       <td>{{ sheets.us.negative }}</td>
+       <td>{{ sheets.us.posNeg }}</td>
+       <td>{{ sheets.us.pending }}</td>
+       <td>{{ sheets.us.death }}</td>
+       <td>{{ sheets.us.total }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <ul class="states-list">
 {% for state in sheets.states %}
   <li class="state-item">
@@ -36,7 +62,9 @@ layout: base.njk
     </table>
 
     {% if state.notes %}
-    <p class="state-notes">{{ state.notes }}</p>
+    <div class="state-notes">
+      {{ state.notes | markdownify | safe }}
+    </div>
     {% endif %}
 
     {% if state.comments %}

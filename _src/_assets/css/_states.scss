@@ -1,4 +1,38 @@
 // Specificity hack is specific
+
+// Please fix to be how you want? Just a temporary thing to get totals to show up.
+.us-totals {
+  table {
+    border-collapse: collapse;
+    font-size: $size-1;
+    @media (min-width: $viewport-md) {
+      font-size: $size-2;
+    }
+    max-width: 60em;
+    width: 100%;
+    margin-bottom: 4em;
+    &,
+    th,
+    td {
+      border: 1px solid #AAA;
+    }
+    caption {
+      font-weight: bold;
+    }
+    caption,
+    th,
+    td {
+      padding: 0.25em;
+      @media (min-width: $viewport-md) {
+        padding: 0.45em;
+      }
+    }
+    th {
+      font-weight: normal;
+    }
+  }
+}
+
 .states-list {
   max-width: 60em;
   @media (min-width: $viewport-md) {
