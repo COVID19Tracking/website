@@ -4,6 +4,11 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 module.exports = function(eleventyConfig) {
 	const CleanCSS = require('clean-css');
 
+	eleventyConfig.setBrowserSyncConfig({
+		ghostMode: false,
+		open: true
+	});
+
 	eleventyConfig.addPlugin(pluginRss);
 
 	eleventyConfig.addFilter("readableDate", dateObj => {
