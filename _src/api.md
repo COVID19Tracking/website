@@ -4,7 +4,7 @@ nav: API
 summary: Information about accessing the data via JSON or CSV.
 ---
 
-The default response is JSON using normal GET requests. If you'd like CSV just append `.csv` at the end of the url. For example https://covid.cape.io/states.csv
+The default response is JSON using normal GET requests. If you'd like CSV just append `.csv` at the end of the url. For example https://covidtracking.com/api/states.csv
 
 The API format could and probably will change slightly in the future.
 
