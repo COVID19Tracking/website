@@ -4,7 +4,7 @@ nav: About Us
 ---
 This project combines two initial independent efforts. Jeff Hammerbacher, Founder and General Partner at [Related Sciences](https://www.related.vc/), built a tracking spreadsheet. Separately, two journalists, Robinson Meyer and Alexis Madrigal, had built a tracker for [a story in The Atlantic](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/). They came together March 7, and made a call for volunteers to help keep the data updated, tune processes, work on scrapers, and make a website.
 
-The website and data are now maintained by a volunteer team of coders, journalists, data people, visualization specialists, analysts, and other people willing to help maintain this as a public resource, including:
+The website and data are now maintained by a volunteer team of coders, journalists, data people, visualization specialists, analysts, and other people willing to help maintain this as a public resource. [Erin Kissane](http://incisive.nu) is the managing editor.
 
 * [Stanley Bishop](https://mltogether.la/)
 * [Kai Curry](https://github.com/webmasterkai)
@@ -15,8 +15,7 @@ The website and data are now maintained by a volunteer team of coders, journalis
 * [Lucas Gonze](http://gonze.com)
 * Adra Graves
 * [Randall Helms](https://www.linkedin.com/in/randallhelms/)
-* Luke Herman
-* [Erin Kissane](http://incisive.nu)
+* Luke Herma
 * [Sam Klein](https://twitter.com/metasj)
 * [Elliott Klug](http://elliottklug.com)
 * [Julia Kodysh](https://twitter.com/JuliaKodysh)
