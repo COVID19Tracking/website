@@ -22,6 +22,6 @@ From here, you can [view the most recent data](https://docs.google.com/spreadshe
 
 [Key Source of COVID-19 Testing & Infection Data](https://talkingpointsmemo.com/edblog/key-source-of-covid-19-testing-infection-data), TPM, March 7, 2020
 
-## Best Practices
+## Data Release Best Practices
 
 [State Testing Data Release - Best Practices](https://docs.google.com/document/d/1OyN6_1UeDePwPwKi6UKZB8GwNC7-kSf1-BO2af8kqVA/edit)
