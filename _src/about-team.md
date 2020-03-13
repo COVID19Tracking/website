@@ -14,7 +14,7 @@ The website and data are now maintained by a volunteer team of coders, journalis
 * Nancy Ge
 * [Lucas Gonze](http://gonze.com)
 * Adra Graves
-* Randall Helms
+* [Randall Helms](https://www.linkedin.com/in/randallhelms/)
 * Luke Herman
 * [Erin Kissane](http://incisive.nu)
 * [Sam Klein](https://twitter.com/metasj)
@@ -22,9 +22,11 @@ The website and data are now maintained by a volunteer team of coders, journalis
 * [Julia Kodysh](https://twitter.com/JuliaKodysh)
 * [Zach Lipton](https://twitter.com/zachlipton)
 * [JD Maresco](https://twitter.com/jdmaresco)
+* [Ethan Marcotte](https://ethanmarcotte.com/)
 * [Mat Marquis](https://hire.wil.to)
 * [Ryan Panchadsaram](https://twitter.com/rypan)
 * Katherine Paur
+* [Prajakta Ranade](https://twitter.com/Prajakta_RD)
 * [Alex Rubinsteyn](https://twitter.com/iskander)
 * [Matt Shapiro](http://matthiasshapiro.com)
 * Jeff Silver
