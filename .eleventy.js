@@ -41,7 +41,7 @@ module.exports = function(eleventyConfig) {
 
 	eleventyConfig.addNunjucksFilter(
 		"thousands",
-		x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+		x => x ? x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : x,
 	)
 
 	return {
