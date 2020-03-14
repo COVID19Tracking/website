@@ -20,12 +20,12 @@ layout: base.njk
     </thead>
     <tbody>
       <tr>
-       <td>{{ sheets.us.positive }}</td>
-       <td>{{ sheets.us.negative }}</td>
-       <td>{{ sheets.us.posNeg }}</td>
-       <td>{{ sheets.us.pending }}</td>
-       <td>{{ sheets.us.death }}</td>
-       <td>{{ sheets.us.total }}</td>
+       <td>{{ sheets.us.positive | thousands }}</td>
+       <td>{{ sheets.us.negative | thousands }}</td>
+       <td>{{ sheets.us.posNeg | thousands }}</td>
+       <td>{{ sheets.us.pending | thousands }}</td>
+       <td>{{ sheets.us.death | thousands }}</td>
+       <td>{{ sheets.us.total | thousands }}</td>
       </tr>
     </tbody>
   </table>
@@ -52,11 +52,11 @@ layout: base.njk
       </thead>
       <tbody>
         <tr>
-         <td>{{ state.positive }}</td>
-         <td>{{ state.negative }}</td>
-         <td>{{ state.pending }}</td>
-         <td>{{ state.death }}</td>
-         <td>{{ state.total }}</td>
+         <td>{{ state.positive | thousands }}</td>
+         <td>{{ state.negative | thousands }}</td>
+         <td>{{ state.pending | thousands }}</td>
+         <td>{{ state.death | thousands }}</td>
+         <td>{{ state.total | thousands }}</td>
         </tr>
       </tbody>
     </table>

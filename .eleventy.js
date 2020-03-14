@@ -39,6 +39,11 @@ module.exports = function(eleventyConfig) {
 	});
 	eleventyConfig.addNunjucksFilter("markdownify", markdownString => md.render(markdownString));
 
+	eleventyConfig.addNunjucksFilter(
+		"thousands",
+		x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+	)
+
 	return {
 		templateFormats: [
 			"md",
