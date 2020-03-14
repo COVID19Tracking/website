@@ -20,11 +20,11 @@ From here, you can [view the most recent data](https://docs.google.com/spreadshe
 
 [How to Understand Your State’s Coronavirus Numbers](https://www.theatlantic.com/technology/archive/2020/03/how-understand-your-states-coronavirus-numbers/607921/), The Atlantic, March 12, 2020
 
-[The Strongest Evidence Yet That America Is Botching Coronavirus Testing](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/), The Atlantic, March 6, 2020
-
 [The Dangerous Delays in U.S. Coronavirus Testing Haven’t Stopped](https://www.theatlantic.com/health/archive/2020/03/coronavirus-testing-numbers/607714/), The Atlantic, March 9, 2020
 
 [Key Source of COVID-19 Testing & Infection Data](https://talkingpointsmemo.com/edblog/key-source-of-covid-19-testing-infection-data), TPM, March 7, 2020
+
+[The Strongest Evidence Yet That America Is Botching Coronavirus Testing](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/), The Atlantic, March 6, 2020
 
 ## Best Practices for Data Release
 
