@@ -3,7 +3,7 @@ title: Software used
 nav: Software
 summary: 'Overview of software used in this project.'
 ---
-COVID19 Tracker is comprised of the following software: 
+The COVID Tracking Project is comprised of the following software: 
 
 * [Covid Tracking](https://github.com/COVID19Tracking/covid-tracking), developed by [Zach Lipton](https://github.com/zachlipton), [Josh Ellington](https://github.com/joshellington), and [Ken Riley](https://github.com/nodots).
     * This project uses [URL Watch](https://github.com/thp/urlwatch) to notify us when a state publishes new numbers.
