@@ -15,3 +15,8 @@ The API format could and probably will change slightly in the future.
 * US daily - [/api/us/daily](http://covidtracking.com/api/us/daily) | [CSV](http://covidtracking.com/api/us/daily.csv)
 * Counties- [/api/counties](http://covidtracking.com/api/counties) | [CSV](http://covidtracking.com/api/counties.csv)
 * Tracker URLs - [/api/urls](http://covidtracking.com/api/urls)
+
+## GraphQL API
+
+* Playground - [/api/playground](http://covidtracking.com/api/playground)
+* GraphQL API - [/api/graphql](http://covidtracking.com/api/graphql)
