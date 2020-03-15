@@ -1,1 +1,2 @@
 /api/*  https://covid.cape.io/:splat  200
+/notes/ /data/

@@ -1,5 +1,5 @@
 ---
-title: Notes on State Data
+title: State Data
 nav: The Data
 layout: states.njk
 summary: ''
