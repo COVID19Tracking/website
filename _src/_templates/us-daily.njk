@@ -9,25 +9,25 @@ layout: base.njk
   <ul class="day-list">
     <table class="day-table">
       <caption>
-        <span class="a11y-only">US Daily data</span> Last updated: {{ sheets.updated }}
+        US Daily Cumulative Totals - 4 pm ET
       </caption>
       <thead>
         <tr>
-          {# Positive	Negative	Pos + Neg	Pending	Death	Total #}
-
+          <th scope="col">Date</th>
           <th scope="col">States Tracked</th>
           <th scope="col">Positive</th>
           <th scope="col">Negative</th>
           <th scope="col">Pos + Neg</th>
           <th scope="col">Pending</th>
           <th scope="col">Deaths</th>
-          <th scope="col">Total #</th>
+          <th scope="col">Total Tests</th>
         </tr>
       </thead>
       <tbody>
         {% for day in sheets.usDaily %}
           <tr>
             {# [{"date":20200304,"states":14,"positive":118,"negative":748,"posNeg":866,"pending":103,"death":null,"total":969}, #}
+            <td>{{ day.date }}</td>
             <td>{{ day.states | thousands }}</td>
             <td>{{ day.positive | thousands }}</td>
             <td>{{ day.negative | thousands }}</td>
