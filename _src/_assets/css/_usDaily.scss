@@ -1,0 +1,84 @@
+// Specificity hack is specific
+.us-days {
+  max-width: 60em;
+  table {
+    margin-bottom: 4em;
+  }
+  caption {
+    padding-left: 0;
+    text-align: left;
+  }
+}
+
+.day-list {
+  max-width: 60em;
+  @media (min-width: $viewport-md) {
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(26em, 1fr));
+    grid-gap: $size-5;
+    */
+  }
+
+  .day-item {
+    list-style: none;
+    margin-bottom: $size-5;
+    max-width: 26em;
+    width: inherit;
+    @media (min-width: $viewport-md) {
+      margin-bottom: $size-3;
+    }
+    @supports (display: grid) {
+      max-width: inherit;
+    }
+  }
+  .day-header {
+    display: flex;
+    margin-bottom: $size-1;
+  }
+  .day-link {
+    color: inherit;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+    img {
+      vertical-align: bottom;
+    }
+  }
+  .day-name {
+    margin: 0 0.75em 0 0;
+  }
+
+  .day-table {
+    width: 100%;
+
+    &,
+    th,
+    td {
+      border: 1px solid #aaa;
+    }
+    caption,
+    th,
+    td {
+      padding: 0.25em;
+      @media (min-width: $viewport-md) {
+        padding: 0.45em;
+      }
+    }
+    caption {
+      caption-side: bottom;
+      font-size: $size-1;
+      font-weight: normal;
+      text-align: right;
+    }
+  }
+
+  .day-notes {
+    max-width: 26rem;
+    & > * {
+      color: $text-color-light;
+      font-size: $size-2;
+      width: inherit;
+    }
+  }
+}

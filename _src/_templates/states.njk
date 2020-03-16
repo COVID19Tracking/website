@@ -10,68 +10,71 @@ layout: base.njk
     <caption>US Totals</caption>
     <thead>
       <tr>
-       <th scope="col">Positive</th>
-       <th scope="col">Negative</th>
-       <th scope="col">Pos + Neg</th>
-       <th scope="col">Pending</th>
-       <th scope="col">Death</th>
-       <th scope="col">Total</th>
+        <th scope="col">Positive</th>
+        <th scope="col">Negative</th>
+        <th scope="col">Pos + Neg</th>
+        <th scope="col">Pending</th>
+        <th scope="col">Death</th>
+        <th scope="col">Total</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-       <td>{{ sheets.us.positive | thousands }}</td>
-       <td>{{ sheets.us.negative | thousands }}</td>
-       <td>{{ sheets.us.posNeg | thousands }}</td>
-       <td>{{ sheets.us.pending | thousands }}</td>
-       <td>{{ sheets.us.death | thousands }}</td>
-       <td>{{ sheets.us.total | thousands }}</td>
+        <td>{{ sheets.us.positive | thousands }}</td>
+        <td>{{ sheets.us.negative | thousands }}</td>
+        <td>{{ sheets.us.posNeg | thousands }}</td>
+        <td>{{ sheets.us.pending | thousands }}</td>
+        <td>{{ sheets.us.death | thousands }}</td>
+        <td>{{ sheets.us.total | thousands }}</td>
       </tr>
     </tbody>
   </table>
 </div>
 <ul class="states-list">
-{% for state in sheets.states %}
-  <li class="state-item">
-    <div class="state-header">
-      <h2 class="state-name"><a class="state-link" href="{{ state.covid19Site }}">{{ state.stateName }}</a></h2>
-      <a class="state-link" href="https://twitter.com/{{ state.twitter }}">
-        <img alt="{{ state.stateName }} on Twitter" src="https://img.icons8.com/android/24/000000/twitter.png" />
-      </a>
-    </div>
-    <table class="state-table">
-      <caption><span class="a11y-only">{{ state.stateName }} data</span> Last updated: {{ state.lastUpdateEt }} ET</caption>
-      <thead>
-        <tr>
-         <th scope="col">Positive</th>
-         <th scope="col">Negative</th>
-         <th scope="col">Pending</th>
-         <th scope="col">Deaths</th>
-         <th scope="col">Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-         <td>{{ state.positive | thousands }}</td>
-         <td>{{ state.negative | thousands }}</td>
-         <td>{{ state.pending | thousands }}</td>
-         <td>{{ state.death | thousands }}</td>
-         <td>{{ state.total | thousands }}</td>
-        </tr>
-      </tbody>
-    </table>
+  {% for state in sheets.states %}
+    <li class="state-item">
+      <div class="state-header">
+        <h2 class="state-name">
+          <a class="state-link" href="{{ state.covid19Site }}">{{ state.stateName }}</a>
+        </h2>
+        <a class="state-link" href="https://twitter.com/{{ state.twitter }}">
+          <img alt="{{ state.stateName }} on Twitter" src="https://img.icons8.com/android/24/000000/twitter.png"/>
+        </a>
+      </div>
+      <table class="state-table">
+        <caption>
+          <span class="a11y-only">{{ state.stateName }} data</span> Last updated: {{ state.lastUpdateEt }} ET</caption>
+        <thead>
+          <tr>
+            <th scope="col">Positive</th>
+            <th scope="col">Negative</th>
+            <th scope="col">Pending</th>
+            <th scope="col">Deaths</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ state.positive | thousands }}</td>
+            <td>{{ state.negative | thousands }}</td>
+            <td>{{ state.pending | thousands }}</td>
+            <td>{{ state.death | thousands }}</td>
+            <td>{{ state.total | thousands }}</td>
+          </tr>
+        </tbody>
+      </table>
 
-    {% if state.notes %}
-    <div class="state-notes">
-      {{ state.notes | markdownify | safe }}
-    </div>
-    {% endif %}
+      {% if state.notes %}
+        <div class="state-notes">
+          {{ state.notes | markdownify | safe }}
+        </div>
+      {% endif %}
 
-    {% if state.comments %}
-    <small>{{ state.comments }}</small>
-    {% endif %}
-  </li>
-{% else %}
-  <li>No state information found</li>
-{% endfor %}
+      {% if state.comments %}
+        <small>{{ state.comments }}</small>
+      {% endif %}
+    </li>
+  {% else %}
+    <li>No state information found</li>
+  {% endfor %}
 </ul>
