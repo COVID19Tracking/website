@@ -63,6 +63,7 @@ const getStateName = _.propertyOf({
     "SD": "South Dakota",
     "TN": "Tennessee",
     "TX": "Texas",
+    "USVI": "US Virgin Islands",
     "UT": "Utah",
     "VT": "Vermont",
     "VI": "Virgin Islands",
