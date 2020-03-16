@@ -2,7 +2,7 @@
 title: Homepage
 summary: ''
 ---
-The COVID Tracking Project collects information from 50 US states and the District of Columbia to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2. We attempt to include **positive and negative results**, **pending tests**, and **total people tested for** each state or district currently reporting that data.
+The COVID Tracking Project collects information from 50 US states, the District of Columbia, and 5 other U.S. territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2. We attempt to include **positive and negative results**, **pending tests**, and **total people tested for** each state or district currently reporting that data.
 
 ### [TAKE ME TO THE DATA](/data)
 
@@ -16,7 +16,10 @@ From here, you can [view the most recent data](https://docs.google.com/spreadshe
 
 ## In the Press
 
-[The 4 Key Reasons the U.S. Is So Behind on Coronavirus Testing](https://www.theatlantic.com/health/archive/2020/03/why-coronavirus-testing-us-so-delayed/607954/), The Atlantic, March 13, 2020
+[The 4 Key Reasons the 
+
+
+Is So Behind on Coronavirus Testing](https://www.theatlantic.com/health/archive/2020/03/why-coronavirus-testing-us-so-delayed/607954/), The Atlantic, March 13, 2020
 
 [America Isn’t Testing for the Most Alarming Coronavirus Cases](https://www.theatlantic.com/science/archive/2020/03/who-gets-tested-coronavirus/607999/), The Atlantic, March 13, 2020
 
