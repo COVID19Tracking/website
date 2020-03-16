@@ -66,7 +66,7 @@ const getStateName = _.propertyOf({
     "USVI": "US Virgin Islands",
     "UT": "Utah",
     "VT": "Vermont",
-    "VI": "Virgin Islands",
+    "VI": "US Virgin Islands",
     "VA": "Virginia",
     "WA": "Washington",
     "WV": "West Virginia",
