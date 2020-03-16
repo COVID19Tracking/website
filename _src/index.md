@@ -16,10 +16,7 @@ From here, you can [view the most recent data](https://docs.google.com/spreadshe
 
 ## In the Press
 
-[The 4 Key Reasons the 
-
-
-Is So Behind on Coronavirus Testing](https://www.theatlantic.com/health/archive/2020/03/why-coronavirus-testing-us-so-delayed/607954/), The Atlantic, March 13, 2020
+[The 4 Key Reasons the U.S. Is So Behind on Coronavirus Testing](https://www.theatlantic.com/health/archive/2020/03/why-coronavirus-testing-us-so-delayed/607954/), The Atlantic, March 13, 2020
 
 [America Isn’t Testing for the Most Alarming Coronavirus Cases](https://www.theatlantic.com/science/archive/2020/03/who-gets-tested-coronavirus/607999/), The Atlantic, March 13, 2020
 
