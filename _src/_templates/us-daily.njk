@@ -1,0 +1,42 @@
+---
+layout: base.njk
+---
+
+{{ layoutContent | safe }}
+<p class="updated">Last updated: {{ sheets.updated }}</p>
+
+<div class="us-days">
+  <ul class="day-list">
+    <table class="day-table">
+      <caption>
+        <span class="a11y-only">US Daily data</span> Last updated: {{ sheets.updated }}
+      </caption>
+      <thead>
+        <tr>
+          {# Positive	Negative	Pos + Neg	Pending	Death	Total #}
+
+          <th scope="col">States Tracked</th>
+          <th scope="col">Positive</th>
+          <th scope="col">Negative</th>
+          <th scope="col">Pos + Neg</th>
+          <th scope="col">Pending</th>
+          <th scope="col">Deaths</th>
+          <th scope="col">Total #</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for day in sheets.usDaily %}
+          <tr>
+            {# [{"date":20200304,"states":14,"positive":118,"negative":748,"posNeg":866,"pending":103,"death":null,"total":969}, #}
+            <td>{{ day.states | thousands }}</td>
+            <td>{{ day.positive | thousands }}</td>
+            <td>{{ day.negative | thousands }}</td>
+            <td>{{ day.posNeg | thousands }}</td>
+            <td>{{ day.pending | thousands }}</td>
+            <td>{{ day.death | thousands }}</td>
+            <td>{{ day.total | thousands }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
