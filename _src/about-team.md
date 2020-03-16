@@ -15,7 +15,7 @@ The website and data are now maintained by a volunteer team of coders, journalis
 * [Lucas Gonze](http://gonze.com)
 * Adra Graves
 * [Randall Helms](https://www.linkedin.com/in/randallhelms/)
-* Luke Herma
+* Luke Herman
 * [Sam Klein](https://twitter.com/metasj)
 * [Elliott Klug](http://elliottklug.com)
 * [Julia Kodysh](https://twitter.com/JuliaKodysh)
