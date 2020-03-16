@@ -78,6 +78,7 @@ const mergeStateInfo = _.flow(
   _.map(_.keyBy('state')),
   _.mergeAll,
   _.map(setFieldWith('stateName', 'state', getStateName)),
+  _.sortBy('name'),
 )
 
 module.exports = function() {
