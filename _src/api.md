@@ -20,7 +20,7 @@ The API format could and probably will change slightly in the future.
 * Counties- [/api/counties](http://covidtracking.com/api/counties) | [CSV](http://covidtracking.com/api/counties.csv)
 * Tracker URLs - [/api/urls](http://covidtracking.com/api/urls)
 
-If you want to filter the `/api/us/daily` you can add a query param like `?state=NY` to only show cases in New York. Or `?state=NY&date=20200316` to show the result of a specific date.
+If you want to filter the `/api/states/daily` you can add a query param like `?state=NY` to only show cases in New York. Or `/api/states/daily?state=NY&date=20200316` to show the result of a specific date. Or to access the most recent value `/api/states?state=NY`.
 
 ## GraphQL API
 
