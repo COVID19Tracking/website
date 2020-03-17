@@ -3,7 +3,7 @@
   "name": "ctracker",
   "shortname": "ctracker",
   "url": "https://covidtracking.com",
-  "description": "The COVID Tracking Project collects information from 50 US states and the District of Columbia to provide the most comprehensive public data we can on state-level testing for the novel coronavirus, SARS-CoV-2.",
+  "description": "The COVID Tracking Project collects information from 50 US states, the District of Columbia, and 5 other U.S. territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2.",
   "repoUrl": "https://github.com/COVID19Tracking/website",
   "twitter": "COVID19Tracking",
   "author": {
