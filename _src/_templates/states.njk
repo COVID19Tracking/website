@@ -16,6 +16,7 @@ layout: base.njk
         <th scope="col">Pending</th>
         <th scope="col">Death</th>
         <th scope="col">Total</th>
+        <th scope="col">Total Since Yesterday</th.
       </tr>
     </thead>
     <tbody>
@@ -26,6 +27,7 @@ layout: base.njk
         <td>{{ sheets.us.pending | thousands }}</td>
         <td>{{ sheets.us.death | thousands }}</td>
         <td>{{ sheets.us.total | thousands }}</td>
+        <td>{{ (sheets.usDaily[0].total - sheets.usDaily[1].total) | thousands }}</td>
       </tr>
     </tbody>
   </table>
