@@ -23,6 +23,10 @@ Other states provide some or none of these numbers on an ongoing basis. Some cru
 
 Then there’s Nevada, which is currently updating once a week.
 
+## Is your data represent cumulative cases or new cases each day?
+
+Our data represents the cumulative known cases to date. You can calculate new cases per day from our data but we don't provide it.
+
 ## Are there other data problems?
 
 Because the US testing response has lagged behind the outbreak, university and commercial laboratories are now rushing to bring testing capacity online. This has already created some data reporting problems, as the heroes at the University of Washington Virology Lab report separately from the state health department. We don’t yet know how other university labs or private testing companies will report data.
