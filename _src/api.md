@@ -12,17 +12,17 @@ Please be aware that each state has its own set of caveats, which we have docume
 
 The API format could and probably will change slightly in the future.
 
-* States current - [/api/states](http://covidtracking.com/api/states) | [CSV](http://covidtracking.com/api/states.csv)
-* States daily 4 pm ET - [/api/states/daily](http://covidtracking.com/api/states/daily) | [CSV](http://covidtracking.com/api/states/daily.csv)
-* States info - [/api/states/info](http://covidtracking.com/api/states/info) | [CSV](http://covidtracking.com/api/states/info.csv)
-* US current - [/api/us](http://covidtracking.com/api/us) | [CSV](http://covidtracking.com/api/us.csv)
-* US daily - [/api/us/daily](http://covidtracking.com/api/us/daily) | [CSV](http://covidtracking.com/api/us/daily.csv)
-* Counties- [/api/counties](http://covidtracking.com/api/counties) | [CSV](http://covidtracking.com/api/counties.csv)
-* Tracker URLs - [/api/urls](http://covidtracking.com/api/urls)
+* States current - [/api/states](https://covidtracking.com/api/states) | [CSV](https://covidtracking.com/api/states.csv)
+* States daily 4 pm ET - [/api/states/daily](https://covidtracking.com/api/states/daily) | [CSV](http://covidtracking.com/api/states/daily.csv)
+* States info - [/api/states/info](https://covidtracking.com/api/states/info) | [CSV](https://covidtracking.com/api/states/info.csv)
+* US current - [/api/us](http://covidtracking.com/api/us) | [CSV](https://covidtracking.com/api/us.csv)
+* US daily - [/api/us/daily](https://covidtracking.com/api/us/daily) | [CSV](https://covidtracking.com/api/us/daily.csv)
+* Counties- [/api/counties](https://covidtracking.com/api/counties) | [CSV](https://covidtracking.com/api/counties.csv)
+* Tracker URLs - [/api/urls](https://covidtracking.com/api/urls)
 
 If you want to filter the `/api/states/daily` you can add a query param like `?state=NY` to only show cases in New York. Or `/api/states/daily?state=NY&date=20200316` to show the result of a specific date. Or to access the most recent value `/api/states?state=NY`.
 
 ## GraphQL API
 
-* Playground - [/api/playground](http://covidtracking.com/api/playground)
-* GraphQL API - [/api/graphql](http://covidtracking.com/api/graphql)
+* Playground - [/api/playground](https://covidtracking.com/api/playground)
+* GraphQL API - [/api/graphql](https://covidtracking.com/api/graphql)
