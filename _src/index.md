@@ -16,6 +16,8 @@ From here, you can [view the most recent data](https://docs.google.com/spreadshe
 
 ## In the Press
 
+[U.S. Lags in Coronavirus Testing After Slow Response to Outbreak](https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html), The New York Times, March 17, 2020
+
 [The 4 Key Reasons the U.S. Is So Behind on Coronavirus Testing](https://www.theatlantic.com/health/archive/2020/03/why-coronavirus-testing-us-so-delayed/607954/), The Atlantic, March 13, 2020
 
 [America Isn’t Testing for the Most Alarming Coronavirus Cases](https://www.theatlantic.com/science/archive/2020/03/who-gets-tested-coronavirus/607999/), The Atlantic, March 13, 2020
