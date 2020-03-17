@@ -6,6 +6,10 @@ summary: Information about accessing the data via JSON or CSV.
 
 The default response is JSON using normal GET requests. If you'd like CSV just append `.csv` at the end of the url. For example https://covidtracking.com/api/states.csv
 
+All data is cumulative, so you should not see any counts going down over time. If you do, please get in touch as it is likely an error. As you might be able to tell from the key names, date time values are in ET.
+
+Please be aware that each state has its own set of caveats, which we have documented on our [data page](/data/).
+
 The API format could and probably will change slightly in the future.
 
 * States current - [/api/states](http://covidtracking.com/api/states) | [CSV](http://covidtracking.com/api/states.csv)
