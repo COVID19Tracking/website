@@ -2,9 +2,12 @@
 title: About the Team
 nav: About Us
 ---
-This project combines two initial independent efforts. Jeff Hammerbacher, Founder and General Partner at [Related Sciences](https://www.related.vc/), built a tracking spreadsheet. Separately, two journalists, Robinson Meyer and Alexis Madrigal, had built a tracker for [a story in The Atlantic](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/). They came together March 7, and made a call for volunteers to help keep the data updated, tune processes, work on scrapers, and make a website.
+## History
+This project combines two initial independent efforts. Jeff Hammerbacher, Founder and General Partner at [Related Sciences](https://www.related.vc/), built a tracking spreadsheet. Separately, two journalists, [Robinson Meyer](https://twitter.com/yayitsrob) and [Alexis Madrigal](https://twitter.com/alexismadrigal), built a tracker for [a story in The Atlantic](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/). The two efforts came together March 7, and made a call for volunteers to help keep the data updated, tune processes, work on scrapers, and make a website.
 
-The website and data are now maintained by a volunteer team of coders, journalists, data people, visualization specialists, analysts, and other people willing to help maintain this as a public resource. [Erin Kissane](https://twitter.com/kissane) is the managing editor.
+## Current status
+
+[Alexis Madrigal](https://twitter.com/alexismadrigal) continues to lead the overall project. Jeff Hammerbacher has returned to his work at [Related Sciences](https://www.related.vc/), we send eternal gratitude his way.  [Erin Kissane](https://twitter.com/kissane) is our managing editor. Our team of volunteer data-grabbers, journalists, scientists, visualization specialists, designers, project managers, and other great people includes:
 
 * [Stanley Bishop](https://mltogether.la/)
 * [Kai Curry](https://github.com/webmasterkai)
@@ -31,6 +34,7 @@ The website and data are now maintained by a volunteer team of coders, journalis
 * [Ryan Panchadsaram](https://twitter.com/rypan)
 * Katherine Paur
 * [Colin Popell](https://twitter.com/cpopell)
+* Dustin Preisler
 * [Prajakta Ranade](https://twitter.com/Prajakta_RD)
 * [Alex Rubinsteyn](https://twitter.com/iskander)
 * [Matt Shapiro](http://matthiasshapiro.com)
