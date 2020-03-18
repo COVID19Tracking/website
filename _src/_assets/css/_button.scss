@@ -1,0 +1,27 @@
+.btn {
+  display: inline-block;
+  padding: .75em 1.25em;
+  font-size: 1em;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: $link-color;
+  border: 1px solid $link-color;
+  border-radius: .5em;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    border-color: darken($link-color, 5%);
+  }
+
+  &:active {
+    color: #fff;
+    background-color: darken($link-color, 5%);
+    border-color: darken($link-color, 5%);
+  }
+}

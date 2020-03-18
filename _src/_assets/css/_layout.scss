@@ -1,132 +1,78 @@
 .container {
-  margin: 0 30px;
+  margin-right: 2rem;
+  margin-left: 2rem;
 
   @media (min-width: $viewport-md) {
-    margin: 0 auto;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   @media (min-width: $viewport-md) { width: 80%; }
   @media (min-width: $viewport-lg) { width: 95%; }
   @media (min-width: $viewport-xl) { max-width: 1200px; }
-  
 }
 
-.body {
-  padding: 30px 0;
-  @media (min-width: $viewport-md) { padding: 50px 0; }
+h1 {
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-size: $size-4;
 
-  h1 {
-    text-transform: uppercase;
-    font-size: $size-4;
-    margin-bottom: 30px;
-
-    @media (min-width: $viewport-md) {
-      font-size: $size-5;
-      margin-bottom: 50px;
-    }
-  }
-
-  h2 {
-    font-size: $size-3;
-    margin-top: 30px;
-    margin-bottom: 15px;
-
-    @media (min-width: $viewport-md) {
-      margin-top: 50px;
-      margin-bottom: 15px;
-    }
-  }
-
-  h3, h4 {
-    font-size: $size-2;
-    margin-top: 30px;
-    margin-bottom: 15px;
-  }
-
-  // Temporary style for emphasis
-  h3 a {
-    color: white;
-    font-size: $size-5;
-    text-decoration: none;
-    background-color: black;
-    padding: 15px;
-    display: inline-block;
-  }
-
-  p, li {
-    color: $text-color-dark;
-    font-size: $size-3;
-    line-height: 1.4;
-
-    margin-bottom: 15px;
-
-    @media (min-width: $viewport-md) {
-      margin-bottom: 30px;
-      width: 75%;
-    }
-
-    a {
-      color: $text-color-dark;
-      text-decoration-color: $text-color-light;
-    }
-  }
-
-  li {
-    margin-bottom: 7px;
-    @media (min-width: $viewport-md) {
-      margin-bottom: 15px;
-    }
-  }
-
-  li ul {
-    margin-left: 15px;
-    margin-top: 10px;
-    li {
-	  @media (min-width: $viewport-md) {
-		width: auto;
-	  }
-    }
-  }
-
-  p.lede {
-    @media (min-width: $viewport-md) {
-      font-size: $size-5;
-      line-height: 1.6;
-      width: 90%;
-    }
-  }
-
-  p.updated {
-    color: $alert-color;
-  }
-}
-
-table {
-  border-collapse: collapse;
-  font-size: $size-1;
   @media (min-width: $viewport-md) {
-    font-size: $size-2;
+    margin-bottom: 3rem;
+    font-size: $size-5;
   }
-  width: 100%;
+}
 
-  &,
-  th,
-  td {
-    border: 1px solid #AAA;
+h2 {
+  font-size: $size-3;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: $viewport-md) {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
   }
-  caption,
-  th,
-  td {
-    padding: 0.25em;
+}
+
+h3, h4 {
+  font-size: $size-2;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+
+  @media (min-width: $viewport-md) {
+    width: 75%;
+    margin-bottom: 2rem;
+  }
+}
+
+.lede {
+  @media (min-width: $viewport-md) {
+    width: 90%;
+    font-size: $size-5;
+    line-height: 1.6;
+  }
+}
+
+.updated {
+  color: $alert-color;
+}
+
+// Limit some styles to .body to avoid nav collision
+.body {
+  li {
+    margin-bottom: .5rem;
+
     @media (min-width: $viewport-md) {
-      padding: 0.45em;
+      margin-bottom: 1rem;
     }
-  }
-  caption {
-    font-size: $size-3;
-    font-weight: bold;
-  }
-  th {
-    font-weight: normal;
+
+    ul {
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+    }
   }
 }
