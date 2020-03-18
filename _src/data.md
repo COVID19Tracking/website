@@ -1,6 +1,6 @@
 ---
-title: State Data
-nav: The Data
+title: Most Recent Data
+nav: Most Recent Data
 layout: states.njk
 summary: ''
 ---
