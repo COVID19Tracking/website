@@ -1,6 +1,6 @@
 ---
 title: How the Project Works
-nav: How the Project Works
+nav: About the Tracker
 summary: >
   This project is made by hand. We use technical tools to alert us to changes in
   the information states report, but all the information we publish has been
