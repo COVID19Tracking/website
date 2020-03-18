@@ -1,4 +1,5 @@
-/api/*        https://covid.cape.io/:splat  200
-/charts/dash  http://35.212.27.3:8050/  200
-/graphql      /api/graphql
-/notes/       /data/
+/api/*              https://covid.cape.io/:splat  200
+/charts/dash        http://35.212.27.3:8050/
+/graphql            /api/graphql
+/notes/             /data/
+/screenshots/*      https://covid-data-archive.s3.us-east-2.amazonaws.com/state_screenshots/:splat
