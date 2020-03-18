@@ -16,7 +16,21 @@ From here, you can [view the most recent data](https://docs.google.com/spreadshe
 
 ## In the Press
 
+<div class="press-logos-container">
+
+![The Atlantic logo](/_assets/img/press-logos/the-atlantic.png)
+![Politico logo](/_assets/img/press-logos/politico.jpg)
+![Vox logo](/_assets/img/press-logos/vox.png)
+![New York Times logo](/_assets/img/press-logos/nyt.png)
+![Talking Points Memo logo](/_assets/img/press-logos/tpm.png)
+![Minnesota Public Radio logo](/_assets/img/press-logos/mpr.jpg)
+
+
+</div>
+
 - [U.S. Lags in Coronavirus Testing After Slow Response to Outbreak](https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html), The New York Times, March 17, 2020
+
+- [Comparing COVID-19 in Minnesota and its neighbors in Upper Midwest](https://www.mprnews.org/story/2020/03/17/comparing-covid19-in-minnesota-and-its-neighbors-in-upper-midwest), Minnesota Public Radio, March 17, 2020
 
 - [Live tracker: How many coronavirus cases have been reported in each U.S. state?](https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/), Politico, March 16, 2020
 
