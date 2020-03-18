@@ -67,7 +67,11 @@
 
 		<main id="main">
 			<div class="body container">
-				{% if page.url != "/" %}<h1>{{ title }}</h1>{% endif %}
+				{% if page.url != "/" %}
+					{% if title %}
+					  <h1>{{ title }}</h1>
+					{% endif %}
+				{% endif %}
 				{% if summary %}<p class="lede">{{ summary }}</p>{% endif %}
 				{{ layoutContent | safe }}
 			</div>
