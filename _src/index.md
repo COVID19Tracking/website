@@ -4,7 +4,7 @@ summary: ''
 ---
 The COVID Tracking Project collects information from 50 US states, the District of Columbia, and 5 other U.S. territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2. We attempt to include **positive and negative results**, **pending tests**, and **total people tested for** each state or district currently reporting that data.
 
-<a class="btn" href="/data">View data</a>
+<a class="btn" href="/data">View the data</a>
 
 [Show me the raw data (spreadsheet)](https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml) or [hook me up with the API (JSON and CSV)](https://covidtracking.com/api/).
 
