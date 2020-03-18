@@ -2,4 +2,4 @@
 /charts/dash        http://35.212.27.3:8050/
 /graphql            /api/graphql
 /notes/             /data/
-/screenshots/*      https://covid-data-archive.s3.us-east-2.amazonaws.com/state_screenshots/:splat
+/screenshots/*      https://covid-data-archive.s3.us-east-2.amazonaws.com/state_screenshots/:splat 200
