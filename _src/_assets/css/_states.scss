@@ -1,6 +1,7 @@
 // Specificity hack is specific
 .us-totals {
-  max-width: 60em;
+  max-width: 60rem;
+
   table {
     margin-bottom: 4em;
   }
@@ -11,10 +12,11 @@
 }
 
 .states-list {
-  max-width: 60em;
+  max-width: 60rem;
+
   @media (min-width: $viewport-md) {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(26em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: $size-5;
   }
 
@@ -23,6 +25,7 @@
     margin-bottom: $size-5;
     max-width: 26em;
     width: inherit;
+
     @media (min-width: $viewport-md) {
       margin-bottom: $size-3;
     }
@@ -46,30 +49,6 @@
   }
   .state-name {
     margin: 0 0.75em 0 0;
-  }
-
-  .state-table {
-    width: 100%;
-
-    &,
-    th,
-    td {
-      border: 1px solid #AAA;
-    }
-    caption,
-    th,
-    td {
-      padding: 0.25em;
-      @media (min-width: $viewport-md) {
-        padding: 0.45em;
-      }
-    }
-    caption {
-      caption-side: bottom;
-      font-size: $size-1;
-      font-weight: normal;
-      text-align: right;
-    }
   }
 
   .state-notes {

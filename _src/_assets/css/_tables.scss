@@ -1,0 +1,41 @@
+table {
+  width: 100%;
+  font-size: $size-1;
+  border-collapse: collapse;
+
+  @media (min-width: $viewport-md) {
+  font-size: $size-2;
+  }
+}
+
+caption,
+th,
+td {
+  padding: 0.25em;
+
+  @media (min-width: $viewport-md) {
+  padding: 0.5em;
+  }
+}
+
+th,
+td {
+  text-align: right;
+  border: 1px solid #ddd;
+}
+
+thead th {
+  background-color: #eee;
+  border-bottom: 1px solid #999;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+caption {
+  font-size: $size-1;
+  font-weight: normal;
+  text-align: right;
+  caption-side: bottom;
+}
