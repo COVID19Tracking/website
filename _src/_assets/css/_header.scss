@@ -1,23 +1,60 @@
 .site-header {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
   border-bottom: 3px solid $border-color;
-  padding: 30px 0;
 
   @media (min-width: $viewport-md) {
-    padding: 50px 0;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
   }
 
-    a {
-      font-size: $size-2;
-      font-weight: 700;
-
-      @media (min-width: $viewport-md) {
-        font-size: $size-4;
-      }
-      color: black;
-      text-decoration: none;
-      transition: opacity 0.3s;
-      &:hover {
-        opacity: 0.5;
-      }
+  .container {
+    @media (min-width: $viewport-md) {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
     }
+  }
+}
+
+.site-title {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: $size-3;
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+  transition: opacity 0.3s;
+
+  @media (min-width: $viewport-md) {
+    font-size: $size-4;
+    margin-bottom: 0;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
+}
+
+.site-nav {
+  display: flex;
+  list-style-type: none;
+
+  li + li {
+    margin-left: 1rem;
+  }
+
+  a {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    font-weight: 700;
+
+    &:hover,
+    &:focus {
+      opacity: .5;
+    }
+  }
 }
