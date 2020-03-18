@@ -10,7 +10,7 @@ If you’re on a newsroom data team and still have questions, we have someone an
 
 ## Does your data represent cumulative cases or new cases each day?
 
-Our data represents thecumulative known cases to date. You can calculate new cases per day from our data, but we don't provide it directly.
+Our data represents the cumulative known cases to date. You can calculate new cases per day from our data, but we don't provide it directly.
 
 ## I have a question about how you handle data for State X
 
@@ -42,7 +42,7 @@ We’ve seen some cases where states appear to be reporting them as mutually exc
 
 ## Are you reporting people tested or specimens tested?
 
-We attempt to report the number of people being tested, not specimens submitted. To oversimplify, laboratories often require two specimens, so if you see “specimens” or “tests run” used to report on testing data, youmaybe able to infer the number of people tested by dividing by two. The math isn’t quite that simple, but the main implication is: if you have 100 tests, you can really only test 50 people.
+We attempt to report the number of people being tested, not specimens submitted. To oversimplify, laboratories often require two specimens, so if you see “specimens” or “tests run” used to report on testing data, you may be able to infer the number of people tested by dividing by two. The math isn’t quite that simple, but the main implication is: if you have 100 tests, you can really only test 50 people.
 
 ## How should we understand the timestamps?
 
@@ -52,7 +52,7 @@ Our goal is to provide a consistently up-to-date dataset on COVID-19 testing. We
 
 **“Last Update”** is the time the data was last updated by the state.**†** Where official state websites are missing numbers or are lagging behind numbers reported in the press, we supplement data from the state websites with numbers that have been vetted and reported by trusted news organizations. In this case we use the later of the “last updated” timestamp on the website and the time the article was published.
 
-**†** Some states (like California, currently) post updates with timestamps like "as of 10 am on 3/12," but the state website isn’t updated toincludethat data until, say, 2pm. In this case, we try to use the number that appears to refer to thedata update itself, rather than the time the state pushes the update to its website, so for this example, we use 10am, not 2pm, as the update time.
+**†** Some states (like California, currently) post updates with timestamps like "as of 10 am on 3/12," but the state website isn’t updated to include that data until, say, 2pm. In this case, we try to use the number that appears to refer to the data update itself, rather than the time the state pushes the update to its website, so for this example, we use 10am, not 2pm, as the update time.
 
 **“Check Time”** is the last time we reviewed the state data source and updated our data.
 
@@ -76,7 +76,7 @@ Our goal is to provide a consistently up-to-date dataset on COVID-19 testing. We
 
 #### US daily tab
 
-* We use the[QUERY function](https://support.google.com/docs/answer/3093343?hl=en)to summarize the “Data” sheet by day
+* We use the [QUERY function](https://support.google.com/docs/answer/3093343?hl=en)to summarize the “Data” sheet by day
 
 #### States tab
 
