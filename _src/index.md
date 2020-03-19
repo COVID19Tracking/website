@@ -14,6 +14,10 @@ Testing is a crucial part of any public health response, and sharing test data i
 
 From here, you can also [learn about our methodology](/about-tracker/), [see who makes this](/about-team/), and [find out what information states provide and how we handle it](/notes/).
 
+## Best Practices for Data Release
+
+[State Testing Data Release - Best Practices](https://docs.google.com/document/d/1OyN6_1UeDePwPwKi6UKZB8GwNC7-kSf1-BO2af8kqVA/edit)—Our recommendations on what data state public health authorities should be releasing, and how.
+
 ## Our Data In the Press
 
 * [U.S. Lags in Coronavirus Testing After Slow Response to Outbreak](https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html), The New York Times, March 17, 2020
@@ -24,6 +28,3 @@ From here, you can also [learn about our methodology](/about-tracker/), [see who
 * [Key Source of COVID-19 Testing & Infection Data](https://talkingpointsmemo.com/edblog/key-source-of-covid-19-testing-infection-data), TPM, March 7, 2020
 * [The Strongest Evidence Yet That America Is Botching Coronavirus Testing](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/), The Atlantic, March 6, 2020
 
-## Best Practices for Data Release
-
-[State Testing Data Release - Best Practices](https://docs.google.com/document/d/1OyN6_1UeDePwPwKi6UKZB8GwNC7-kSf1-BO2af8kqVA/edit)—Our recommendations on what data state public health authorities should be releasing, and how.
