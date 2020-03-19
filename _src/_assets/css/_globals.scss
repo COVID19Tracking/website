@@ -57,11 +57,12 @@ body {
 }
 
 a {
-  color: $link-color;
+  color: $color-link;
 
   &:hover,
   &:focus {
-    color: darken($link-color, 10%);
+    color: $color-link--active;
+    text-decoration: none;
   }
 }
 
