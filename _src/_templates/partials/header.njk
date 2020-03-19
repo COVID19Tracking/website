@@ -5,9 +5,15 @@
 
 		<nav>
 			<ul class="site-nav">
-				<li><a{% if page.url == "/" %} class="active"{% endif %} href="/">Home</a></li>
-				<li><a{% if page.url == "/us-daily/" %} class="active"{% endif %} href="/us-daily">US Daily</a></li>
-				<li><a{% if page.url == "/data/" %} class="active"{% endif %} href="/data">States</a></li>
+				<li{% if page.url == "/" %} aria-describedby="current-page"{% endif %}>
+          <a{% if page.url == "/" %} aria-current="page" class="active"{% endif %} href="/">Home</a>
+        </li>
+				<li{% if page.url == "/us-daily/" %} aria-describedby="current-page"{% endif %}>
+          <a{% if page.url == "/us-daily/" %} aria-current="page" class="active"{% endif %} href="/us-daily">US Daily</a>
+        </li>
+				<li{% if page.url == "/data/" %} aria-describedby="current-page"{% endif %}>
+          <a{% if page.url == "/data/" %} aria-current="page" class="active"{% endif %} href="/data">States</a>
+        </li>
 			</ul>
 		</nav>
 	</div>

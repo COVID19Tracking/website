@@ -36,6 +36,7 @@ img, svg {
   position: static;
   width: auto;
 }
+.hidden,
 [aria-hidden="true"] {
   display: none;
 }
