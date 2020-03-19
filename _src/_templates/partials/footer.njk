@@ -3,7 +3,7 @@
     <ul class="pages">
 	  {%- for post in collections.posts -%}
 	  	{% if post.data.nav %}
-	  	<li{% if page.url == post.url %} class="active"{% endif %}><a href="{{ post.url | url }}">{{ post.data.nav }}</a></li>
+	  	<li{% if page.url == post.url %} aria-describedby="current-page" class="active"{% endif %}><a{% if page.url == post.url %} aria-current="page"{% endif %} href="{{ post.url | url }}">{{ post.data.nav }}</a></li>
 	  	{% endif %}
 	  {%- endfor -%}
 	  </ul>
