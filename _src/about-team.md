@@ -17,6 +17,7 @@ This project combines two initial independent efforts. Jeff Hammerbacher, Founde
 * [J. Peter Donald](https://https://twitter.com/JPeterDonald)
 * Josh Ellington
 * Nancy Ge
+* [Daniel Gilbert](https://www.tall-dog.com/)
 * [Lucas Gonze](http://gonze.com)
 * Adra Graves
 * [Randall Helms](https://www.linkedin.com/in/randallhelms/)
@@ -27,12 +28,15 @@ This project combines two initial independent efforts. Jeff Hammerbacher, Founde
 * [Sam Klein](https://twitter.com/metasj)
 * [Elliott Klug](http://elliottklug.com)
 * [Julia Kodysh](https://twitter.com/JuliaKodysh)
-* [Júlia Ledur](https://https://julialedur.com.br/)
+* [Olivier Lacan](https://twitter.com/olivierlacan)
+* [Júlia Ledur](https://julialedur.com.br/)
 * [Zach Lipton](https://twitter.com/zachlipton)
+* [Sara Llanes](https://twitter.com/SaraLlanes)
 * [Sharon Machlis](https://twitter.com/sharon000)
 * [JD Maresco](https://twitter.com/jdmaresco)
 * [Ethan Marcotte](https://ethanmarcotte.com/)
 * [Mat Marquis](https://hire.wil.to)
+* [Kara Oehler](https://twitter.com/karaoehler)
 * [Ryan Panchadsaram](https://twitter.com/rypan)
 * Katherine Paur
 * [Colin Popell](https://twitter.com/cpopell)
