@@ -8,11 +8,10 @@ layout: base.njk
     <ul class="state-links">
         {% if state.twitter %}
             <li>
-                <strong>Twitter:</strong>
-                <a href="https://twitter.com/{{ state.twitter }}">{{ state.twitter}}</a>
+                <a href="https://twitter.com/{{ state.twitter }}">Twitter</a>
             </li>
         {% endif %}
-        {% if state.dataSite %}
+        {% if state.covid19Site %}
             <li>
                 <a href="{{state.covid19Site}}">COVID19 website</a>
             </li>
