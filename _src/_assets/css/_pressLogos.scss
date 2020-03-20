@@ -1,0 +1,27 @@
+.press-logos-container p {
+  align-items: center;
+  display: flex;
+
+  img {
+    background-color: white;
+    filter: grayscale(1);
+    margin-right: 1.3rem;
+    width: 100px;
+  }
+
+  img[alt*="Vox"] {
+    width: 50px;
+  }
+
+  img[alt*="New York Times"] {
+    width: 135px;
+  }
+
+  img[alt*="Talking Points"] {
+    width: 85px;
+  }
+
+  img:last-child {
+    margin-right: 0;
+  }
+}
