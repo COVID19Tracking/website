@@ -1,0 +1,79 @@
+---
+layout: base.njk
+---
+
+{{ layoutContent | safe }}
+<div class="state">
+    <h1>{{ state.stateName }}</h1>
+    <ul class="state-links">
+        {% if state.twitter %}
+            <li>
+                <a href="https://twitter.com/{{ state.twitter }}">Twitter</a>
+            </li>
+        {% endif %}
+        {% if state.covid19Site %}
+            <li>
+                <a href="{{state.covid19Site}}">Best current data source</a>
+            </li>
+        {% endif %}
+        {% if state.dataSite %}
+            <li>
+                <a href="{{state.dataSite}}">Data source</a>
+            </li>
+        {% endif %}
+    </ul>
+    <p>{{ state.notes }}</p>
+
+    <table class="state-table">
+        <caption>
+            <span class="a11y-only">{{ state.stateName }} data</span> Last updated: {{ state.lastUpdateEt }} ET</caption>
+        <thead>
+            <tr>
+                <th scope="col">Positive</th>
+                <th scope="col">Negative</th>
+                <th scope="col">Pending</th>
+                <th scope="col">Deaths</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ state.positive | thousands }}</td>
+                <td>{{ state.negative | thousands }}</td>
+                <td>{{ state.pending | thousands }}</td>
+                <td>{{ state.death | thousands }}</td>
+                <td>{{ state.total | thousands }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>History</h2>
+
+    <table class="state-table">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Positive</th>
+                <th scope="col">Negative</th>
+                <th scope="col">Pending</th>
+                <th scope="col">Deaths</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stateDay in sheets.stateDaily %}
+                {% if stateDay.state == state.state %}
+                    <tr>
+                        <td>{{ stateDay.date | readableYYYYMMDD }}</td>
+                        <td>{{ stateDay.positive | thousands }}</td>
+                        <td>{{ stateDay.negative | thousands }}</td>
+                        <td>{{ stateDay.pending | thousands }}</td>
+                        <td>{{ stateDay.death | thousands }}</td>
+                        <td>{{ stateDay.total | thousands }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>

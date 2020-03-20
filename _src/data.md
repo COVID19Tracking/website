@@ -1,8 +1,7 @@
 ---
-title: State Data
-nav: The Data
+title: Most Recent Data
+nav: Most Recent Data
 layout: states.njk
-summary: ""
+summary: ''
 ---
-
-For an overview of how our project works, please check [About the Tracker](/about-tracker). This page will dig into the specific data issues we’ve seen with various states, and document the data sources we’re using for each of them.
+Our most up-to-date data and annotations. [](https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml)We also have [cumulative daily totals for the US](https://covidtracking.com/us-daily/) on this site. Get the entire dataset as a [spreadsheet](https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml) or via [API (JSON and CSV)](https://covidtracking.com/api/), [learn how this project works](https://covidtracking.com/about-tracker/), or [dig into detailed documentation on the data itself](https://covidtracking.com/newsroom-expert-faq/).

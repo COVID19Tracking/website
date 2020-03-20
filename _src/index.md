@@ -2,9 +2,9 @@
 title: Homepage
 summary: ''
 ---
-The COVID Tracking Project collects information from 50 US states, the District of Columbia, and 5 other U.S. territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2. We attempt to include **positive and negative results**, **pending tests**, and **total people tested for** each state or district currently reporting that data.
+The COVID Tracking Project collects information from 50 US states, the District of Columbia, and 5 other US territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2. We attempt to include **positive and negative results**, **pending tests**, and **total people tested for** each state or district currently reporting that data.
 
-<a class="btn" href="/data">View data</a>
+<a class="btn" href="/data">View the data</a>
 
 [Show me the raw data (spreadsheet)](https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml) or [hook me up with the API (JSON and CSV)](https://covidtracking.com/api/).
 
@@ -41,3 +41,4 @@ From here, you can also [learn about our methodology](/about-tracker/), [see who
 * [The Dangerous Delays in U.S. Coronavirus Testing Haven’t Stopped](https://www.theatlantic.com/health/archive/2020/03/coronavirus-testing-numbers/607714/), The Atlantic, March 9, 2020
 * [Key Source of COVID-19 Testing & Infection Data](https://talkingpointsmemo.com/edblog/key-source-of-covid-19-testing-infection-data), TPM, March 7, 2020
 * [The Strongest Evidence Yet That America Is Botching Coronavirus Testing](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/), The Atlantic, March 6, 2020
+

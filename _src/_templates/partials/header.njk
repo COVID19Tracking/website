@@ -1,13 +1,19 @@
 <a href="#main" class="a11y-only focusable">Skip to main content</a>
 <header class="site-header">
 	<div class="container">
-		<a class="site-title" href="/">{{ data.title }}</a>
+		<a class="site-title{% if page.url == "/" %} active{% endif %}" href="/">{{ data.title }}</a>
 
 		<nav>
 			<ul class="site-nav">
-				<li><a href="/">Home</a></li>
-				<li><a href="/us-daily">US Daily</a></li>
-				<li><a href="/data">States</a></li>
+				<li{% if page.url == "/" %} aria-describedby="current-page"{% endif %}>
+          <a{% if page.url == "/" %} aria-current="page" class="active"{% endif %} href="/">Home</a>
+        </li>
+				<li{% if page.url == "/us-daily/" %} aria-describedby="current-page"{% endif %}>
+          <a{% if page.url == "/us-daily/" %} aria-current="page" class="active"{% endif %} href="/us-daily">US Historical Data</a>
+        </li>
+				<li{% if page.url == "/data/" %} aria-describedby="current-page"{% endif %}>
+          <a{% if page.url == "/data/" %} aria-current="page" class="active"{% endif %} href="/data">Most Recent Data</a>
+        </li>
 			</ul>
 		</nav>
 	</div>

@@ -24,7 +24,6 @@
   margin-bottom: 1rem;
   font-size: $size-3;
   font-weight: 700;
-  color: #000;
   text-decoration: none;
   transition: opacity 0.3s;
 
@@ -37,6 +36,10 @@
   &:focus {
     opacity: 0.5;
   }
+  &.active {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 .site-nav {
@@ -48,13 +51,13 @@
   }
 
   a {
-    padding-top: .5em;
-    padding-bottom: .5em;
     font-weight: 700;
+    padding-bottom: .5em;
+    padding-top: .5em;
+    text-decoration: none;
 
-    &:hover,
-    &:focus {
-      opacity: .5;
+    &.active {
+      color: inherit;
     }
   }
 }

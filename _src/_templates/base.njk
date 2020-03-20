@@ -67,13 +67,22 @@
 
 		<main id="main">
 			<div class="body container">
-				{% if page.url != "/" %}<h1>{{ title }}</h1>{% endif %}
+				{% if page.url != "/" %}
+					{% if title %}
+					  <h1>{{ title }}</h1>
+					{% endif %}
+				{% endif %}
 				{% if summary %}<p class="lede">{{ summary }}</p>{% endif %}
 				{{ layoutContent | safe }}
 			</div>
 		</main>
 
 		{% include "partials/footer.njk" %}
+
+    <!-- Current page, as referenced by `aria-describedby` -->
+    <div id="wayfinding" class="hidden">
+      <span id="current-page">Current page</span>
+    </div>
 
 		<script>
 			if( 'serviceWorker' in navigator && window.location.hostname !== "localhost" ) {

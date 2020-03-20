@@ -19,6 +19,7 @@ The API format could and probably will change slightly in the future.
 * US daily - [/api/us/daily](https://covidtracking.com/api/us/daily) | [CSV](https://covidtracking.com/api/us/daily.csv)
 * Counties- [/api/counties](https://covidtracking.com/api/counties) | [CSV](https://covidtracking.com/api/counties.csv)
 * Tracker URLs - [/api/urls](https://covidtracking.com/api/urls)
+* State Website Screenshots - [/api/screenshots](https://covidtracking.com/api/screenshots)
 
 If you want to filter the `/api/states/daily` you can add a query param like `?state=NY` to only show cases in New York. Or `/api/states/daily?state=NY&date=20200316` to show the result of a specific date. Or to access the most recent value `/api/states?state=NY`.
 
