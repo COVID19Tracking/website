@@ -5,7 +5,7 @@ summary: ''
 ---
 ## What We're Made Of
 
-Our website is [generously hosted by Netlify](https://www.netlify.com/) and we use the [Netlify CMS](https://www.netlifycms.org/).
+Our website is [generously hosted by Netlify](https://www.netlify.com/) and we use the [Netlify CMS](https://www.netlifycms.org/) and the [Eleventy static site generator](https://www.11ty.dev/).
 
 The COVID Tracking Project is based on a group developer effort, with code hosted on GitHub including but not limited to these repositories:
 
