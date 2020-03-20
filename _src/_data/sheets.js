@@ -88,11 +88,13 @@ module.exports = function() {
     getJson('https://covid.cape.io/states/daily'),
     getJson('https://covid.cape.io/us'),
     getJson('https://covid.cape.io/us/daily'),
-  ]).then(([stateTest, stateInfo, stateDaily, us, usDaily]) => ({
+    getJson('https://covid.cape.io/screenshots'),
+  ]).then(([stateTest, stateInfo, stateDaily, us, usDaily, screenshots]) => ({
     updated: dateStr(new Date()),
     us: us[0],
     states: mergeStateInfo([stateTest, stateInfo]),
     stateDaily: _.orderBy(['date'], ['desc'], stateDaily),
+    screenshots: screenshots,
     usDaily: _.orderBy(['date'], ['desc'], usDaily),
   }))
 }

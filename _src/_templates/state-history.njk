@@ -1,0 +1,21 @@
+---
+layout: base.njk
+---
+
+{{ layoutContent | safe }}
+<div class="state-history">
+    <h1>{{ state.stateName }}</h1>
+    <p>These are screenshots of the official state COVID 19 website as we check it for new information.</p>
+    <ul class="screenshots">
+        {% for screenshot in sheets.screenshots[state.state] %}
+            <li>
+                <a href="{{ screenshot.url }}">
+                    <div class="screenshot-wrapper">
+                        <img src="{{ screenshot.url }}" alt="Screenshot on [date]"/>
+                    </div>
+                </a>
+                <p>[date]</p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

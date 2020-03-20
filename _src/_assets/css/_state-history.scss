@@ -1,0 +1,27 @@
+.state-history {
+  .screenshot-wrapper {
+    max-height: 250px;
+    overflow: hidden;
+  }
+  .screenshots {
+    @media (min-width: $viewport-md) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      grid-gap: $size-5;
+    }
+
+    li {
+      list-style: none;
+      margin-bottom: $size-5;
+      max-width: 26em;
+      width: inherit;
+
+      @media (min-width: $viewport-md) {
+        margin-bottom: $size-3;
+      }
+      @supports (display: grid) {
+        max-width: inherit;
+      }
+    }
+  }
+}

@@ -8,4 +8,34 @@
       margin: 0;
     }
   }
+
+  .state-info {
+    margin-bottom: 2rem;
+    @media (min-width: $viewport-md) {
+      display: grid;
+      grid-template-columns: 7fr 3fr;
+      grid-gap: $size-5;
+      grid-template-areas: 'note metadata';
+    }
+    .state-note {
+      @supports (display: grid) {
+        grid-area: note;
+      }
+      p {
+        width: 100%;
+      }
+    }
+
+    .state-metadata {
+      @supports (display: grid) {
+        grid-area: metadata;
+      }
+    }
+  }
+
+  .state-screenshot {
+    max-height: 200px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
 }

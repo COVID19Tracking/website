@@ -4,28 +4,41 @@ layout: base.njk
 
 {{ layoutContent | safe }}
 <div class="state">
-    <h1>{{ state.stateName }}</h1>
-    <ul class="state-links">
-        {% if state.twitter %}
-            <li>
-                <a href="https://twitter.com/{{ state.twitter }}">{{ state.stateName }} on Twitter</a>
-            </li>
-        {% endif %}
-        {% if state.covid19Site %}
-            <li>
-                <a href="{{state.covid19Site}}">Best current data source</a>
-            </li>
-        {% endif %}
-        {% if state.dataSite %}
-            <li>
-                <a href="{{state.dataSite}}">Data source</a>
-            </li>
-        {% endif %}
-    </ul>
-
-    {% if state.notes %}
-         <p>{{ state.notes | markdownify | safe }}</p>
-    {% endif %}
+    <div class="state-info">
+        <div class="state-note">
+            <h1>{{ state.stateName }}</h1>
+            {% if state.notes %}
+                <p>{{ state.notes | markdownify | safe }}</p>
+            {% endif %}
+        </div>
+        <div class="state-metadata">
+            <div class="state-screenshot">
+                <a href="/data/state/{{ state.stateName | slug }}/history" aria-label="View crawl history of state website">
+                    <img src="{{ sheets.screenshots[state.state].pop().url }}" alt="Latest screenshot of state COVID website"/>
+                </a>
+            </div>
+            <ul class="state-links">
+                {% if state.twitter %}
+                    <li>
+                        <a href="https://twitter.com/{{ state.twitter }}">{{ state.stateName }} on Twitter</a>
+                    </li>
+                {% endif %}
+                {% if state.covid19Site %}
+                    <li>
+                        <a href="{{ state.covid19Site }}">Best current data source</a>
+                    </li>
+                {% endif %}
+                {% if state.dataSite %}
+                    <li>
+                        <a href="{{ state.dataSite }}">Data source</a>
+                    </li>
+                {% endif %}
+                <li>
+                    <a href="/data/state/{{ state.stateName | slug }}/history">View crawl history</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <table class="state-table">
         <caption>
