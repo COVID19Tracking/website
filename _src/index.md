@@ -6,7 +6,7 @@ The COVID Tracking Project collects information from 50 US states, the District 
 
 <a class="btn" href="/data">View the data</a>
 
-[Show me the raw data (spreadsheet)](https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml) or [hook me up with the API (JSON and CSV)](https://covidtracking.com/api/).
+[Show me the raw data (spreadsheet)](https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml) or [hook me up with the API (JSON and CSV)](/api/).
 
 ## What and Why
 
