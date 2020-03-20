@@ -7,7 +7,11 @@
 		<meta property="og:site_name" content="{{ data.title }}">
 		<link rel="canonical" href="{{ data.url }}">
 
-		<title>{{ data.title }}</title>
+		{% if title %}
+			<title>{{ data.title }} - {{ title }}</title>
+		{% else %}
+		  <title>{{ data.title }}</title>
+		{% endif %}
 		<meta name="description" content="{{ data.description }}">
 
 		<meta name="application-name" content="{{ data.title }}">
