@@ -3,19 +3,39 @@ title: Software and Credits
 nav: Software & Credits
 summary: ''
 ---
-The COVID Tracking Project is made with: 
+## What We're Made Of
 
-* [Covid Tracking](https://github.com/COVID19Tracking/covid-tracking), developed by [Zach Lipton](https://github.com/zachlipton), [Josh Ellington](https://github.com/joshellington), and [Ken Riley](https://github.com/nodots).
+Our website is [generously hosted by Netlify](https://www.netlify.com/) and we use the [Netlify CMS](https://www.netlifycms.org/).
 
-  * This project uses [URL Watch](https://github.com/thp/urlwatch) to notify us when a state publishes new numbers.
-* [Covid Tracking API](https://github.com/COVID19Tracking/covid-tracking-api), developed by [Kai Curry](https://github.com/webmasterkai).
+The COVID Tracking Project is based on a group developer effort, with code hosted on GitHub including but not limited to these repositories:
 
-  * This project uses [Cloudflare Workers](https://developers.cloudflare.com/workers) to expose our data as JSON over HTTP. If you'd like to include our data in your visualization, take a look at this project!
-* [Covid 19 Crawler](https://github.com/COVID19Tracking/covid-19-crawler), developed by [Danny Yang](https://github.com/huuep).
+* [COVID Tracking](https://github.com/COVID19Tracking/covid-tracking)
+  * Developed by Zach Lipton, Josh Ellington and Ken Riley.
+  * Detects changes to health department pages using (our fork of) URL Watch and reports them to a Slack channel to notify us for further analysis.
+* [URL Watch](https://github.com/thp/urlwatch)
+  * Developed by Zach Lipton and Josh Ellington.
+  * Fork of original urlwatch repo, which includes headless browser mode and custom reporting functions specific to our project.
+* [COVID Tracking API](https://github.com/COVID19Tracking/covid-tracking-api)
+  * Developed by Kai Curry.
+  * Cloudflare Worker that exposes our data as JSON or CSV over HTTP.
+* [The COVID Tracking Project website](https://github.com/COVID19Tracking/website)
+  * Developed by Mat Marquis, Lucas Gonze, and Ethan Marcotte with boosts from Kai Curry.
+  * Our public website
+* [COVID Tracking data pipeline](https://github.com/COVID19Tracking/covid-data-pipeline)
+  * Developed by Joshua Ellinger and in small part by Julia Kodysh.
+  * HTML scanner/extraction pipeline that processes state data sites and saves the data to [the repo](https://github.com/COVID19Tracking/covid-data-archive). Additionally, backs up screenshot images of state data sites to Amazon S3 for later reference.
+* [URLWatch proxies](https://github.com/COVID19Tracking/urlwatch-proxies)
+  * Developed by Joshua Ellinger.
+  * A flask website that provides several services in support of the HTML scanner/extraction pipeline for state data: caching, another view on parts of the public Google spreadsheet, ability to view historical HTML data.
+* [COVID Tracking data](https://github.com/COVID19Tracking/covid-tracking-data)
+  * Developed by Julia Kodysh.
+  * GitHub backup for versioning the contents of our public Google spreadsheet data in CSV format.
+* [COVID 19 crawler](https://github.com/COVID19Tracking/covid-19-crawler)
+  * Developed by Danny Yang.
+  * Uses Ruby to crawl state websites and publish data to <http://coronavirusapi.com/>
+* [COVID Tracking dash app](https://github.com/COVID19Tracking/covid-tracking-dash)
+  * Owner: Eric Czech
 
-  * This project uses Ruby to crawl state websites and update data regularly at [Coronavirus (COVID-19) Testing Data](http://coronavirusapi.com). We compare our manually curated data to this data to be sure our numbers look right.
-
-Our website is [hosted by Netlify](https://www.netlify.com/), built and maintained by [Mat Marquis](https://hire.wil.to/), [Lucas Gonze](http://some.gonze.com/about-me/), and [Ethan Marcotte](https://ethanmarcotte.com/) with boosts from [Kai Curry](https://github.com/webmasterkai). We use the [Netlify CMS](https://www.netlifycms.org/).
 
 ## Satellite Projects
 
