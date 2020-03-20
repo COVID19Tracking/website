@@ -18,6 +18,8 @@
     }
     a {
       align-self: flex-end;
+      text-align: right;
+      flex-basis: 31px; /* this adds 5px to the left side */
     }
   }
 }
