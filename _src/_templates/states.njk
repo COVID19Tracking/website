@@ -3,7 +3,7 @@ layout: base.njk
 ---
 
 {{ layoutContent | safe }}
-<p class="updated">Last updated: {{ sheets.updated }}</p>
+<p class="updated">Last synced with our spreadsheet: {{ sheets.updated }}</p>
 
 <div class="us-totals">
   <table>
@@ -35,20 +35,20 @@ layout: base.njk
     <li class="state-item">
       <div class="state-header">
         <h2 class="state-name">
-          <a class="state-link" href="/data/state/{{ state.stateName | slug }}">
-            {{ state.stateName }}
+          <a class="state-link" href="/data/state/{{ state.name | slug }}">
+            {{ state.name }}
           </a>
         </h2>
         <a class="state-link" href="https://twitter.com/{{ state.twitter }}">
-          <img alt="{{ state.stateName }} on Twitter" src="https://img.icons8.com/android/24/000000/twitter.png"/>
-        </a>
-        <a style="padding-left:0.5em" href="{{ state.covid19Site }}">
-          Best current data source
+          <img alt="{{ state.name }} on Twitter" src="/_assets/img/twitter-logo-black.svg" width="26px"/>
         </a>
       </div>
       <table class="state-table">
         <caption>
-          <span class="a11y-only">{{ state.stateName }} data</span> Last updated: {{ state.lastUpdateEt }} ET</caption>
+            <span class="a11y-only">{{ state.name }} data</span>
+            <span title="The time the data was last updated by the state.">Last updated: {{ state.lastUpdateEt }} ET</span> &bull;
+            <span title="The last time we reviewed the state data source and updated our data">Last checked: {{ state.checkTimeEt }} ET</span>
+        </caption>
         <thead>
           <tr>
             <th scope="col">Positive</th>
@@ -69,11 +69,16 @@ layout: base.njk
         </tbody>
       </table>
 
-      {% if state.notes %}
-        <div class="state-notes">
+      <div class="state-notes">
+        <p>
+          <a href="{{ state.covid19Site }}">
+            Best current data source for {{ state.name }}.
+          </a>
+        </p>
+        {% if state.notes %}
           {{ state.notes | markdownify | safe }}
-        </div>
-      {% endif %}
+        {% endif %}
+      </div>
 
       {% if state.comments %}
         <small>{{ state.comments }}</small>

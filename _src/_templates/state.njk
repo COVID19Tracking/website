@@ -6,21 +6,21 @@ layout: base.njk
 <div class="state">
     <div class="state-info">
         <div class="state-note">
-            <h1>{{ state.stateName }}</h1>
+            <h1>{{ state.name }}</h1>
             {% if state.notes %}
                 <p>{{ state.notes | markdownify | safe }}</p>
             {% endif %}
         </div>
         <div class="state-metadata">
             <div class="state-screenshot">
-                <a href="/data/state/{{ state.stateName | slug }}/history" aria-label="View crawl history of state website">
+                <a href="/data/state/{{ state.name | slug }}/history" aria-label="View crawl history of state website">
                     <img src="{{ sheets.screenshots[state.state].pop().url }}" alt="Latest screenshot of state COVID website"/>
                 </a>
             </div>
             <ul class="state-links">
                 {% if state.twitter %}
                     <li>
-                        <a href="https://twitter.com/{{ state.twitter }}">{{ state.stateName }} on Twitter</a>
+                        <a href="https://twitter.com/{{ state.twitter }}">{{ state.name }} on Twitter</a>
                     </li>
                 {% endif %}
                 {% if state.covid19Site %}
@@ -34,15 +34,19 @@ layout: base.njk
                     </li>
                 {% endif %}
                 <li>
-                    <a href="/data/state/{{ state.stateName | slug }}/history">View crawl history</a>
+                    <a href="/data/state/{{ state.name | slug }}/history">View crawl history</a>
                 </li>
             </ul>
         </div>
     </div>
 
+
     <table class="state-table">
         <caption>
-            <span class="a11y-only">{{ state.stateName }} data</span> Last updated: {{ state.lastUpdateEt }} ET</caption>
+            <span class="a11y-only">{{ state.name }} data</span>
+            <span title="The time the data was last updated by the state.">Last updated: {{ state.lastUpdateEt }} ET</span> &bull;
+            <span title="The last time we reviewed the state data source and updated our data">Last checked: {{ state.checkTimeEt }} ET</span>
+        </caption>
         <thead>
             <tr>
                 <th scope="col">Positive</th>

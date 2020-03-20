@@ -4,3 +4,4 @@
 /graphql/           /api/graphql
 /notes/             /data/
 /screenshots/*      https://covid-data-archive.s3.us-east-2.amazonaws.com/state_screenshots/:splat 200
+/best-practices     https://docs.google.com/document/d/1OyN6_1UeDePwPwKi6UKZB8GwNC7-kSf1-BO2af8kqVA/edit
