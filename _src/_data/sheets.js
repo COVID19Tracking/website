@@ -25,11 +25,13 @@ module.exports = function() {
     getJson('https://covid.cape.io/states/daily'),
     getJson('https://covid.cape.io/us'),
     getJson('https://covid.cape.io/us/daily'),
-  ]).then(([stateTest, stateInfo, stateDaily, us, usDaily]) => ({
+    getJson('https://covidtracking.com/api/press'),
+  ]).then(([stateTest, stateInfo, stateDaily, us, usDaily, pressArticles]) => ({
     updated: dateStr(new Date()),
     us: us[0],
     states: mergeStateInfo([stateTest, stateInfo]),
     stateDaily: _.orderBy(['date'], ['desc'], stateDaily),
     usDaily: _.orderBy(['date'], ['desc'], usDaily),
+    press: _.orderBy(['date'], ['desc'], pressArticles) // todo fix this -- date is as a string now
   }))
 }
