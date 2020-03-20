@@ -35,12 +35,12 @@ layout: base.njk
     <li class="state-item">
       <div class="state-header">
         <h2 class="state-name">
-          <a class="state-link" href="/data/state/{{ state.stateName | slug }}">
-            {{ state.stateName }}
+          <a class="state-link" href="/data/state/{{ state.name | slug }}">
+            {{ state.name }}
           </a>
         </h2>
         <a class="state-link" href="https://twitter.com/{{ state.twitter }}">
-          <img alt="{{ state.stateName }} on Twitter" src="https://img.icons8.com/android/24/000000/twitter.png"/>
+          <img alt="{{ state.name }} on Twitter" src="https://img.icons8.com/android/24/000000/twitter.png"/>
         </a>
         <a style="padding-left:0.5em" href="{{ state.covid19Site }}">
           Best current data source
@@ -48,7 +48,7 @@ layout: base.njk
       </div>
       <table class="state-table">
         <caption>
-          <span class="a11y-only">{{ state.stateName }} data</span> Last updated: {{ state.lastUpdateEt }} ET</caption>
+          <span class="a11y-only">{{ state.name }} data</span> Last updated: {{ state.lastUpdateEt }} ET</caption>
         <thead>
           <tr>
             <th scope="col">Positive</th>

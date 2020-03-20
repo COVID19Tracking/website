@@ -4,11 +4,11 @@ layout: base.njk
 
 {{ layoutContent | safe }}
 <div class="state">
-    <h1>{{ state.stateName }}</h1>
+    <h1>{{ state.name }}</h1>
     <ul class="state-links">
         {% if state.twitter %}
             <li>
-                <a href="https://twitter.com/{{ state.twitter }}">{{ state.stateName }} on Twitter</a>
+                <a href="https://twitter.com/{{ state.twitter }}">{{ state.name }} on Twitter</a>
             </li>
         {% endif %}
         {% if state.covid19Site %}
@@ -29,7 +29,7 @@ layout: base.njk
 
     <table class="state-table">
         <caption>
-            <span class="a11y-only">{{ state.stateName }} data</span> Last updated: {{ state.lastUpdateEt }} ET</caption>
+            <span class="a11y-only">{{ state.name }} data</span> Last updated: {{ state.lastUpdateEt }} ET</caption>
         <thead>
             <tr>
                 <th scope="col">Positive</th>
