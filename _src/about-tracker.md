@@ -7,11 +7,11 @@ summary: >
   collected and double-checked by humans. We prize accuracy over speed while
   also trying to keep the data fresh.
 ---
-We update [the full dataset](https://covidtracking.com/data/) each day between 4pm and 5pm EDT and do additional updates throughout the day as new information arrives.
+We update [the full dataset](/data/) each day between 4pm and 5pm EDT and do additional updates throughout the day as new information arrives.
 
 ## Where do you get your data?
 
-All our information comes from state/district/territory public health authorities—or, occasionally, from trusted news reporting, official press conferences, or (very occasionally) tweets or Facebook updates from state public health authorities or governors. We cite all sources in the spreadsheet and discuss the dataset’s constantly fluctuating oddities in the annotations that accompany each state’s data on [our website](https://covidtracking.com/data/) and [in the spreadsheet](https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml#).
+All our information comes from state/district/territory public health authorities—or, occasionally, from trusted news reporting, official press conferences, or (very occasionally) tweets or Facebook updates from state public health authorities or governors. We cite all sources in the spreadsheet and discuss the dataset’s constantly fluctuating oddities in the annotations that accompany each state’s data on [our website](/data/) and [in the spreadsheet](https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml#).
 
 ## How trustworthy are your numbers?
 
@@ -33,7 +33,7 @@ The COVID Tracking Project.
 
 ## But I want to know literally everything about your dataset and spreadsheet
 
-Great! We made an [FAQ for newsrooms](https://covidtracking.com/newsroom-expert-faq/) and other organizations who want to work with the data, dive right in.
+Great! We made an [FAQ for newsrooms](/newsroom-expert-faq/) and other organizations who want to work with the data, dive right in.
 
 ## What software/tools are you using?
 
