@@ -42,9 +42,6 @@ layout: base.njk
         <a class="state-link" href="https://twitter.com/{{ state.twitter }}">
           <img alt="{{ state.stateName }} on Twitter" src="https://img.icons8.com/android/24/000000/twitter.png"/>
         </a>
-        <a style="padding-left:0.5em" href="{{ state.covid19Site }}">
-          Best current data source
-        </a>
       </div>
       <table class="state-table">
         <caption>
@@ -69,11 +66,16 @@ layout: base.njk
         </tbody>
       </table>
 
-      {% if state.notes %}
-        <div class="state-notes">
+      <div class="state-notes">
+        <p>
+          <a href="{{ state.covid19Site }}">
+            Best current data source for {{ state.stateName }}.
+          </a>
+        </p>
+        {% if state.notes %}
           {{ state.notes | markdownify | safe }}
-        </div>
-      {% endif %}
+        {% endif %}
+      </div>
 
       {% if state.comments %}
         <small>{{ state.comments }}</small>
