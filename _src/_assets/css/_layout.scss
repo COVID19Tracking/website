@@ -66,13 +66,12 @@ p {
   li {
     margin-bottom: .5rem;
 
-    @media (min-width: $viewport-md) {
+    ul {
       margin-bottom: 1rem;
     }
-
-    ul {
-      margin-left: 1rem;
-      margin-bottom: 1rem;
+    // This is a _very_ hack-y fix for a spacing issue on the software page. (Each top-level title is getting wrapped in a paragraph.)
+    & > p:first-child + ul {
+      margin-top: -1em;
     }
   }
 }
