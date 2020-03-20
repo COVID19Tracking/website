@@ -39,8 +39,8 @@ layout: base.njk
             {{ state.name }}
           </a>
         </h2>
-        <a style="padding-left:0.5em" href="{{ state.covid19Site }}">
-          Best current data source
+        <a class="state-link" href="https://twitter.com/{{ state.twitter }}">
+          <img alt="{{ state.name }} on Twitter" src="/_assets/img/twitter-logo-black.svg" width="26px"/>
         </a>
       </div>
       <table class="state-table">
