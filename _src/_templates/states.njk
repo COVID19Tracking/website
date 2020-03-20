@@ -45,7 +45,10 @@ layout: base.njk
       </div>
       <table class="state-table">
         <caption>
-          <span class="a11y-only">{{ state.name }} data</span> Last updated: {{ state.lastUpdateEt }} ET</caption>
+          <span class="a11y-only">{{ state.name }} data</span> 
+          Data quality grade: <strong>{{ state.grade }}</strong>
+          Last updated: {{ state.lastUpdateEt }} ET
+        </caption>
         <thead>
           <tr>
             <th scope="col">Positive</th>
