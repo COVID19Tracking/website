@@ -28,9 +28,13 @@ layout: base.njk
          <p>{{ state.notes | markdownify | safe }}</p>
     {% endif %}
 
+
     <table class="state-table">
         <caption>
-            <span class="a11y-only">{{ state.name }} data</span> Last updated: {{ state.lastUpdateEt }} ET</caption>
+            <span class="a11y-only">{{ state.name }} data</span>
+            <span title="The time the data was last updated by the state.">Last updated: {{ state.lastUpdateEt }} ET</span> &bull;
+            <span title="The last time we reviewed the state data source and updated our data">Last checked: {{ state.checkTimeEt }} ET</span>
+        </caption>
         <thead>
             <tr>
                 <th scope="col">Positive</th>
