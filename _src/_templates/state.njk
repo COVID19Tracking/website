@@ -4,13 +4,15 @@ layout: base.njk
 
 {{ layoutContent | safe }}
 <div class="state">
-    <h1>{{ state.name }}</h1>
-    <ul class="state-links">
+    <div class="state-header">
+        <h1>{{ state.name }}</h1>
         {% if state.twitter %}
-            <li>
-                <a href="https://twitter.com/{{ state.twitter }}">{{ state.name }} on Twitter</a>
-            </li>
+            <a href="https://twitter.com/{{ state.twitter }}">
+                <img alt="{{ state.name }} on Twitter" src="/_assets/img/twitter-logo-black.svg" width="26px"/>
+            </a>
         {% endif %}
+    </div>
+    <ul class="state-links">
         {% if state.covid19Site %}
             <li>
                 <a href="{{state.covid19Site}}">Best current data source</a>
