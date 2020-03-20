@@ -7,7 +7,7 @@ open itself in your browser, and watch for any changes to reload your browser au
 
 ## Development
 
-When you push a change to GitHub or open a Pull Request, the CI will get kicked off at https://app.netlify.com/sites/upbeat-lovelace-3e9fff/deploys
+When you make a change in the CMS, push a change to GitHub or merge a Pull Request, the CI will get kicked off at https://app.netlify.com/sites/upbeat-lovelace-3e9fff/deploys
 
 ## Formatting
 
