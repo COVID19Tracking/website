@@ -22,7 +22,10 @@ layout: base.njk
             </li>
         {% endif %}
     </ul>
-    <p>{{ state.notes }}</p>
+
+    {% if state.notes %}
+         <p>{{ state.notes | markdownify | safe }}</p>
+    {% endif %}
 
     <table class="state-table">
         <caption>
