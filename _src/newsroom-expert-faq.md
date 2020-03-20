@@ -6,7 +6,7 @@ nav: Newsroom FAQ
 
 We would love to, but we are at capacity handling the data right now. These docs are our most current information, so please start by reading everything we’ve published here.
 
-If you’re on a newsroom data team and still have questions, we have someone answering them in the #covid channel of the News Nerdery slack. If that doesn’t help, please feel free to [open an issue in our public repo on GitHub](https://github.com/COVID19Tracking/issues/issues) and we’ll get eyes on it as soon as possible. Once we establish more ways to contact us for help, we’ll post them here.
+If you’re on a newsroom data team and still have questions, we have someone answering them in the #covid19 channel of [the News Nerdery slack](https://newsnerdery.org/). If that doesn’t help, please feel free to [open an issue in our public repo on GitHub](https://github.com/COVID19Tracking/issues/issues) and we’ll get eyes on it as soon as possible. Once we establish more ways to contact us for help, we’ll post them here.
 
 ## Does your data represent cumulative cases or new cases each day?
 
