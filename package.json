@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "dev": "grunt watch & eleventy --serve",
+    "dev": "grunt & grunt watch & eleventy --serve",
     "prod": "grunt & eleventy"
   },
   "repository": {
