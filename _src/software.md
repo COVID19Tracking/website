@@ -39,4 +39,4 @@ The COVID Tracking Project is based on a group developer effort, with code hoste
 
 ## Satellite Projects
 
-* [R package that wraps the COVID Tracking Project API](https://github.com/aedobbyn/covid) from [Amanda Dobbyn](https://github.com/aedobbyn)
+* [R package that wraps the COVID Tracking Project API](https://github.com/aedobbyn/covid19us) from [Amanda Dobbyn](https://github.com/aedobbyn)
