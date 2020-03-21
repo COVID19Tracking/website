@@ -4,6 +4,7 @@ layout: base.njk
 
 {{ layoutContent | safe }}
 <div class="state">
+
     <div class="state-header">
         <h1>{{ state.name }}</h1>
         {% if state.twitter %}
@@ -29,7 +30,6 @@ layout: base.njk
     {% if state.notes %}
          <p>{{ state.notes | markdownify | safe }}</p>
     {% endif %}
-
 
     <table class="state-table">
         <caption>
@@ -63,6 +63,7 @@ layout: base.njk
         <thead>
             <tr>
                 <th scope="col">Date</th>
+                <th scope="col">Screenshot</th>
                 <th scope="col">Positive</th>
                 <th scope="col">Negative</th>
                 <th scope="col">Pending</th>
@@ -75,6 +76,15 @@ layout: base.njk
                 {% if stateDay.state == state.state %}
                     <tr>
                         <td>{{ stateDay.date | readableYYYYMMDD }}</td>
+                        <td>
+                            {% for screenshot in stateDay.screenshots %}
+
+                                <a target="_blank" class="screenshot-link" href="{{ screenshot.url }}">
+                                    <span class="a11y-only">View screenshot at </span>
+                                    {{ screenshot.dateChecked | readableTime }}
+                                </a>
+                            {% endfor %}
+                        </td>
                         <td>{{ stateDay.positive | thousands }}</td>
                         <td>{{ stateDay.negative | thousands }}</td>
                         <td>{{ stateDay.pending | thousands }}</td>

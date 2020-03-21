@@ -5,5 +5,5 @@ pagination:
     alias: state
 permalink: "data/state/{{ state.name | slug }}/"
 layout: state.njk
-summary: ""
+summary: ''
 ---
