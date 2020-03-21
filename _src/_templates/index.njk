@@ -1,0 +1,34 @@
+---
+layout: base.njk
+---
+
+{{ layoutContent | safe }}
+
+<h2 id="press">In the Press</h2>
+
+<div class="press-logos-container">
+    <p>
+        <img alt="The Atlantic logo" src="/_assets/img/press-logos/the-atlantic.png">
+        <img alt="Politico logo" src="/_assets/img/press-logos/politico.jpg">
+        <img alt="Vox logo" src="/_assets/img/press-logos/vox.png">
+        <img alt="New York Times logo" src="/_assets/img/press-logos/nyt.png">
+        <img alt="Talking Points Memo logo" src="/_assets/img/press-logos/tpm.png">
+        <img alt="Minnesota Public Radio logo" src="/_assets/img/press-logos/mpr.jpg">
+    </p>
+</div>
+
+
+<ul>
+{% for article in sheets.press %}
+    {# [{"title":"article title","url":"article url","addToCovidTrackingProjectWebsite":false,"aboutCovidTrackingProject":null,"publishDate":"2020-03-12","continuallyUpdated":true,"publication":"Vox","author":"German Lopez","doesThisSourceHaveADataVisualization":true,"dataSource":"Covid Tracking project (CTP), The Atlantic, Business Insider, Taiwan CDC","usesCovidTrackingData":"Yes"}, #}
+    <li>
+        <a href="{{article.url}}">{{article.title}}</a>
+        {%- if article.publication -%}
+            , {{article.publication}}
+        {%- endif -%}
+        {%- if article.publishDate -%}
+            , {{ article.publishDate | pressDate }}
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>

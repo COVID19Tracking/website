@@ -27,6 +27,17 @@ module.exports = function(eleventyConfig) {
     }
   })
 
+  eleventyConfig.addFilter('pressDate', date => {
+    try {
+      return DateTime.fromFormat(date, 'yyyy-MM-dd').toFormat(
+        'd MMMM yyyy',
+      )
+    } catch (e) {
+      console.error(`Couldn't parse date ${date}`)
+      return date
+    }
+  }) // todo make a parent method for these two date ops
+
   eleventyConfig.addPassthroughCopy('_src/_assets')
   eleventyConfig.addPassthroughCopy('_src/sw.js')
   eleventyConfig.addPassthroughCopy('_src/admin/')
