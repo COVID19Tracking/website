@@ -18,6 +18,7 @@ layout: base.njk
         <th scope="col">Negative</th>
         <th scope="col">Pos + Neg</th>
         <th scope="col">Pending</th>
+        <th scope="col">Hospitalized</th>
         <th scope="col">Deaths</th>
         <th scope="col">Total Tests</th>
       </tr>
@@ -32,6 +33,7 @@ layout: base.njk
           <td>{{ day.negative | thousands }}</td>
           <td>{{ day.posNeg | thousands }}</td>
           <td>{{ day.pending | thousands }}</td>
+          <td>{{ day.hospitalized | thousands }}</td>
           <td>{{ day.death | thousands }}</td>
           <td>{{ day.total | thousands }}</td>
         </tr>
