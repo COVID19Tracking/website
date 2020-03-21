@@ -1,0 +1,35 @@
+.side-by-side {
+  display: flex;
+  justify-content: space-between;
+
+  .graphic {
+    flex-grow: 1;
+    width: 45%;
+  }
+}
+
+.chart-hed {
+  text-align: center;
+}
+
+.chart-source {
+  p {
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+  }
+}
+
+.britechart.bar-chart {
+  .tick text {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; 
+  }
+
+  .y-axis-group .tick text {
+    transform: translate(-1em, 0);
+  }
+
+  .x-axis-group .tick text {
+    transform: rotate(90deg) translate(3em, -1.25em);
+  }
+
+}
