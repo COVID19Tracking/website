@@ -42,6 +42,7 @@ layout: base.njk
                 <th scope="col">Positive</th>
                 <th scope="col">Negative</th>
                 <th scope="col">Pending</th>
+                <th scope="col">Hospitalized</th>
                 <th scope="col">Deaths</th>
                 <th scope="col">Total</th>
             </tr>
@@ -51,6 +52,7 @@ layout: base.njk
                 <td>{{ state.positive | thousands }}</td>
                 <td>{{ state.negative | thousands }}</td>
                 <td>{{ state.pending | thousands }}</td>
+                <td>{{ state.hospitalized | thousands }}</td>
                 <td>{{ state.death | thousands }}</td>
                 <td>{{ state.total | thousands }}</td>
             </tr>
@@ -67,6 +69,7 @@ layout: base.njk
                 <th scope="col">Positive</th>
                 <th scope="col">Negative</th>
                 <th scope="col">Pending</th>
+                <th scope="col">Hospitalized</th>
                 <th scope="col">Deaths</th>
                 <th scope="col">Total</th>
             </tr>
@@ -88,6 +91,7 @@ layout: base.njk
                         <td>{{ stateDay.positive | thousands }}</td>
                         <td>{{ stateDay.negative | thousands }}</td>
                         <td>{{ stateDay.pending | thousands }}</td>
+                        <td>{{ stateDay.hospitalized | thousands }}</td>
                         <td>{{ stateDay.death | thousands }}</td>
                         <td>{{ stateDay.total | thousands }}</td>
                     </tr>
