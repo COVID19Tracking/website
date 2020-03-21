@@ -15,6 +15,10 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(dateObj).toFormat('dd LLL yyyy')
   })
 
+  eleventyConfig.addFilter('readableTime', dateObj => {
+    return DateTime.fromISO(dateObj).toFormat('h:mm a')
+  })
+
   eleventyConfig.addFilter('readableYYYYMMDD', day => {
     let dayStr = day + '' // It looks like these values are getting passed as an integer
     try {

@@ -9,6 +9,10 @@
     }
   }
 
+  .screenshot-link {
+    margin-right: 1rem;
+  }
+
   .state-info {
     margin-bottom: 2rem;
     @media (min-width: $viewport-md) {
@@ -23,6 +27,9 @@
       }
       p {
         width: 100%;
+        &:first-child {
+          margin-top: 0;
+        }
       }
     }
 
@@ -31,11 +38,5 @@
         grid-area: metadata;
       }
     }
-  }
-
-  .state-screenshot {
-    max-height: 200px;
-    overflow: hidden;
-    margin-bottom: 1rem;
   }
 }
