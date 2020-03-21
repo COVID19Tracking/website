@@ -19,6 +19,10 @@ const mergeStateInfo = _.flow(
   _.sortBy('name'),
 )
 
+const pressLinks = _.flow(
+  _.filter({ addToCovidTrackingProjectWebsite: true }),
+  _.orderBy(['publishDate'], ['desc']),
+)
 module.exports = function() {
   return Promise.all([
     getJson('https://covidtracking.com/api/states'),
@@ -33,6 +37,6 @@ module.exports = function() {
     states: mergeStateInfo([stateTest, stateInfo]),
     stateDaily: _.orderBy(['date'], ['desc'], stateDaily),
     usDaily: _.orderBy(['date'], ['desc'], usDaily),
-    press: _.filter({ addToCovidTrackingProjectWebsite: true }, press),
+    press: pressLinks(press),
   }))
 }

@@ -8,6 +8,7 @@
       margin: 0;
     }
   }
+  
   .state-grade {
     border: solid #7391b0;
     border-radius: 6px;
@@ -16,5 +17,20 @@
     background-color: #8badd340;
     color: #3d4f70;
     margin-left: 5px;
+  }
+  
+  .state-header {
+    display: flex;
+    margin-bottom: $size-2;
+    align-items: center;
+
+    h1 {
+      margin: 0;
+    }
+    a {
+      align-self: flex-end;
+      text-align: right;
+      flex-basis: 31px; /* this adds 5px to the left side */
+    }
   }
 }
