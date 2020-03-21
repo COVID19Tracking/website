@@ -19,6 +19,25 @@ We get the bulk of our data directly from state public health authorities, so we
 
 Other states provide some or none of these numbers on an ongoing basis. Some crucial states in this outbreak, notably California, Washington, and New York, have not been regularly reporting their total number of people tested. For these, we have to use other reporting tools: directly asking state officials, watching news conferences, gleaning information from trusted news sources, and whatever else it takes to present reliable numbers. Our hope is that all the states will begin providing comprehensive statistics, including negatives and totals from commercial and university labs.
 
+Each state has a data quality grade associated with it based on the reliability of their reporting. This grading system is described below.
+
+<h3 id="data-quality-grade">State data quality grades</h3>
+
+A number score is tallied based on 4 simple components:
+
+1. +1 for reporting positives reliably (only NV fails)
+2. +1 for reporting negatives sometimes
+3. +1 for reporting negatives reliably
+4. +1 for reporting all commercial tests
+
+The total score for each state corresponds to a letter grade:
+
+4: A, 3: B, 2: C, 1: D
+
+If you are calculating positive rates, it should only be with states that have an A grade. And be careful going back in time because almost all the states have changed their level of reporting at different times.
+
+This is not a grade for the _testing effort itself_ — but rather for the comprehensiveness and regularity of each state's reporting.
+
 ## What if the CDC starts releasing this information?
 
 That would be great! They have started providing some information about testing capacity by sample, but they’re still not reporting people tested or test results. If they do start publishing full data, we’ll keep our effort going for a while to make sure the data matches up, and then publicly archive our work for reference.
