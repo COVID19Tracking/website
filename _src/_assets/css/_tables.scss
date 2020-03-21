@@ -46,6 +46,29 @@ tbody tr:nth-child(even) {
   /* todo: for non-mobile devices, make this row */
 }
 
+.state-first-header {
+  border-top: 1px solid #ddd;
+}
+
+.state-flex-header,
+.state-flex-data {
+  text-align: center;
+  font-size: 13px;
+  padding: 0.5em;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.state-flex-data {
+  border-bottom: 1px solid #ddd;
+}
+
+.state-flex-header {
+  font-weight: bold;
+  background-color: #eee;
+  border-bottom: 1px solid #999;
+}
+
 caption {
   font-size: $size-1;
   font-weight: normal;

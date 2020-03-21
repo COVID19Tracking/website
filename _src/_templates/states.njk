@@ -57,7 +57,7 @@ layout: base.njk
       </table>
       <div class="state-flex-contaianer">
         <div class="state-flex-row">
-          <div class="state-flex-header">Positive</div>
+          <div class="state-flex-header state-first-header">Positive</div>
           <div class="state-flex-data">
             {% if state.positive %}{{ state.positive | thousands }}{% else %}N/A{% endif %}
           </div>
