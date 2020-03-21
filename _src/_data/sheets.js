@@ -22,7 +22,6 @@ const mergeStateInfo = _.flow(
 
 const mergeStateDaily = (stateDaily, screenshots) => {
   stateDaily = _.orderBy(['date'], ['desc'], stateDaily)
-  console.log(stateDaily)
   stateDaily.forEach(daily => {
     daily.screenshots = []
     if (typeof screenshots[daily.state] !== 'undefined') {
@@ -53,12 +52,14 @@ module.exports = function() {
     getJson('https://covid.cape.io/us/daily'),
     getJson('https://covid.cape.io/screenshots'),
     getJson('https://covidtracking.com/api/press'),
-  ]).then(([stateTest, stateInfo, stateDaily, us, usDaily, screenshots, press]) => ({
-    updated: dateStr(new Date()),
-    us: us[0],
-    states: mergeStateInfo([stateTest, stateInfo]),
-    stateDaily: mergeStateDaily(stateDaily, screenshots),
-    usDaily: _.orderBy(['date'], ['desc'], usDaily),
-    press: pressLinks(press),
-  }))
+  ]).then(
+    ([stateTest, stateInfo, stateDaily, us, usDaily, screenshots, press]) => ({
+      updated: dateStr(new Date()),
+      us: us[0],
+      states: mergeStateInfo([stateTest, stateInfo]),
+      stateDaily: mergeStateDaily(stateDaily, screenshots),
+      usDaily: _.orderBy(['date'], ['desc'], usDaily),
+      press: pressLinks(press),
+    }),
+  )
 }
