@@ -4,36 +4,32 @@ layout: base.njk
 
 {{ layoutContent | safe }}
 <div class="state">
-    <h1>{{ state.name }}</h1>
-    <div class="state-info">
-        <div class="state-note">
-            {% if state.notes %}
-                {{ state.notes | markdownify | safe }}
-            {% endif %}
-        </div>
-        <div class="state-metadata">
-            <ul class="state-links">
-                {% if state.twitter %}
-                    <li>
-                        <a href="https://twitter.com/{{ state.twitter }}">{{ state.name }} on Twitter</a>
-                    </li>
-                {% endif %}
-                {% if state.covid19Site %}
-                    <li>
-                        <a href="{{ state.covid19Site }}">Best current data source</a>
-                    </li>
-                {% endif %}
-                {% if state.dataSite %}
-                    <li>
-                        <a href="{{ state.dataSite }}">Data source</a>
-                    </li>
-                {% endif %}
-                <li>
-                    <a href="/data/state/{{ state.name | slug }}/history">View crawl history</a>
-                </li>
-            </ul>
-        </div>
+
+    <div class="state-header">
+        <h1>{{ state.name }}</h1>
+        {% if state.twitter %}
+            <a href="https://twitter.com/{{ state.twitter }}">
+                <img alt="{{ state.name }} on Twitter" src="/_assets/img/twitter-logo-black.svg" width="26px"/>
+            </a>
+        {% endif %}
     </div>
+    <ul class="state-links">
+        {% if state.covid19Site %}
+            <li>
+                <a href="{{state.covid19Site}}">Best current data source</a>
+            </li>
+        {% endif %}
+        {% if state.dataSite %}
+            <li>
+                <a href="{{state.dataSite}}">Data source</a>
+            </li>
+        {% endif %}
+        <li>Data quality grade: <strong>{{ state.grade }}</strong></li>
+    </ul>
+
+    {% if state.notes %}
+         <p>{{ state.notes | markdownify | safe }}</p>
+    {% endif %}
 
     <table class="state-table">
         <caption>

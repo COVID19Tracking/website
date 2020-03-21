@@ -8,35 +8,23 @@
       margin: 0;
     }
   }
-
+  
   .screenshot-link {
     margin-right: 1rem;
   }
 
-  .state-info {
-    margin-bottom: 2rem;
-    @media (min-width: $viewport-md) {
-      display: grid;
-      grid-template-columns: 7fr 3fr;
-      grid-gap: $size-5;
-      grid-template-areas: 'note metadata';
-    }
-    .state-note {
-      @supports (display: grid) {
-        grid-area: note;
-      }
-      p {
-        width: 100%;
-        &:first-child {
-          margin-top: 0;
-        }
-      }
-    }
+  .state-header {
+    display: flex;
+    margin-bottom: $size-2;
+    align-items: center;
 
-    .state-metadata {
-      @supports (display: grid) {
-        grid-area: metadata;
-      }
+    h1 {
+      margin: 0;
+    }
+    a {
+      align-self: flex-end;
+      text-align: right;
+      flex-basis: 31px; /* this adds 5px to the left side */
     }
   }
 }

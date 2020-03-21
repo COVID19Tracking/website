@@ -5,6 +5,7 @@ const { setFieldWith } = require('prairie')
 const fetch = require('node-fetch')
 // https://date-fns.org/v2.10.0/docs/format
 const { format, utcToZonedTime } = require('date-fns-tz')
+
 const getJson = url => fetch(url).then(res => res.json())
 function dateStr(date) {
   const pattern = "M/dd HH:mm 'ET'"
@@ -38,6 +39,11 @@ const mergeStateDaily = (stateDaily, screenshots) => {
   return stateDaily
 }
 
+const pressLinks = _.flow(
+  _.filter({ addToCovidTrackingProjectWebsite: true }),
+  _.orderBy(['publishDate'], ['desc']),
+)
+
 module.exports = function() {
   return Promise.all([
     getJson('https://covid.cape.io/states'),
@@ -46,11 +52,13 @@ module.exports = function() {
     getJson('https://covid.cape.io/us'),
     getJson('https://covid.cape.io/us/daily'),
     getJson('https://covid.cape.io/screenshots'),
-  ]).then(([stateTest, stateInfo, stateDaily, us, usDaily, screenshots]) => ({
+    getJson('https://covidtracking.com/api/press'),
+  ]).then(([stateTest, stateInfo, stateDaily, us, usDaily, screenshots, press]) => ({
     updated: dateStr(new Date()),
     us: us[0],
     states: mergeStateInfo([stateTest, stateInfo]),
     stateDaily: mergeStateDaily(stateDaily, screenshots),
     usDaily: _.orderBy(['date'], ['desc'], usDaily),
+    press: pressLinks(press),
   }))
 }
