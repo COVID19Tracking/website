@@ -14,6 +14,7 @@ layout: base.njk
         <th scope="col">Negative</th>
         <th scope="col">Pos + Neg</th>
         <th scope="col">Pending</th>
+        <th scope="col">Hospitalized</th>
         <th scope="col">Death</th>
         <th scope="col">Total</th>
       </tr>
@@ -24,6 +25,7 @@ layout: base.njk
         <td>{{ sheets.us.negative | thousands }}</td>
         <td>{{ sheets.us.posNeg | thousands }}</td>
         <td>{{ sheets.us.pending | thousands }}</td>
+        <td>{{ sheets.us.hospitalized | thousands }}</td>
         <td>{{ sheets.us.death | thousands }}</td>
         <td>{{ sheets.us.total | thousands }}</td>
       </tr>
@@ -56,6 +58,7 @@ layout: base.njk
             <th scope="col">Positive</th>
             <th scope="col">Negative</th>
             <th scope="col">Pending</th>
+            <th scope="col">Hospitalized</th>
             <th scope="col">Deaths</th>
             <th scope="col">Total</th>
           </tr>
@@ -65,6 +68,7 @@ layout: base.njk
             <td>{{ state.positive | thousands }}</td>
             <td>{{ state.negative | thousands }}</td>
             <td>{{ state.pending | thousands }}</td>
+            <td>{{ state.hospitalized | thousands }}</td>
             <td>{{ state.death | thousands }}</td>
             <td>{{ state.total | thousands }}</td>
           </tr>
