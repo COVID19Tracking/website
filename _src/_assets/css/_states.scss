@@ -59,4 +59,14 @@
       margin-bottom: 1.25em;
     }
   }
+  .state-grade {
+    display: inline-block;
+    border: solid #7391b0;
+    border-radius: 6px;
+    font-weight: 500;
+    padding: 0 5px 1px;
+    background-color: #8badd340;
+    color: #3d4f70;
+    margin-left: 5px;
+  }
 }

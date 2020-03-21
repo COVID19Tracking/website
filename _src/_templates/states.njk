@@ -46,7 +46,6 @@ layout: base.njk
       <table class="state-table">
         <caption>
             <span class="a11y-only">{{ state.name }} data</span>
-            <span title="The quality of data from the state.">Grade: <strong>{{ state.grade }}</strong></span> &bull;
             <span title="The time the data was last updated by the state.">Last updated: {{ state.lastUpdateEt }} ET</span> &bull;
             <span title="The last time we reviewed the state data source and updated our data">Last checked: {{ state.checkTimeEt }} ET</span>
 
@@ -77,6 +76,15 @@ layout: base.njk
             Best current data source for {{ state.name }}.
           </a>
         </p>
+
+        {% if state.grade %}
+        <p>
+          <a href="https://twitter.com/COVID19Tracking/status/1240409388176666624">
+            Data quality grade:</a>
+          <span class="state-grade"> {{state.grade}} </span>
+        </p>
+        {% endif %}
+
         {% if state.notes %}
           {{ state.notes | markdownify | safe }}
         {% endif %}
