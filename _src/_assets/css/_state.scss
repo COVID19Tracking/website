@@ -8,4 +8,18 @@
       margin: 0;
     }
   }
+  .state-header {
+    display: flex;
+    margin-bottom: $size-2;
+    align-items: center;
+
+    h1 {
+      margin: 0;
+    }
+    a {
+      align-self: flex-end;
+      text-align: right;
+      flex-basis: 31px; /* this adds 5px to the left side */
+    }
+  }
 }
