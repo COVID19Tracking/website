@@ -26,7 +26,6 @@ layout: base.njk
     <tbody>
       {% for day in sheets.usDaily %}
         <tr>
-          {# [{"date":20200304,"states":14,"positive":118,"negative":748,"posNeg":866,"pending":103,"death":null,"total":969}, #}
           <td class="text-left">{{ day.date | readableYYYYMMDD }}</td>
           <td>{{ day.states | thousands }}</td>
           <td>{{ day.positive | thousands }}</td>
