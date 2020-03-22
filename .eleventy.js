@@ -44,13 +44,22 @@ module.exports = function(eleventyConfig) {
     })
   })
 
-  const md = require('markdown-it')({
+  let markdownIt = require("markdown-it");
+  let markdownOptions = {
     html: false,
     breaks: true,
     linkify: true,
-  })
+  };
+  let markdownItAnchor = require('markdown-it-anchor');
+  let markdownItOptions = {
+    level: 1
+  }
+  const markdownLib = markdownIt(markdownOptions).use(markdownItAnchor, markdownItOptions)
+
+  eleventyConfig.setLibrary("md", markdownLib);
+
   eleventyConfig.addNunjucksFilter('markdownify', markdownString =>
-    md.render(markdownString),
+    markdownLib.render(markdownString),
   )
 
   eleventyConfig.addNunjucksFilter('thousands', x =>
@@ -62,7 +71,7 @@ module.exports = function(eleventyConfig) {
 
     pathPrefix: '/',
     markdownTemplateEngine: 'njk',
-    htmlTemplateEngine: 'njk',
+    htmlTemplateEngine: 'md, njk',
     dataTemplateEngine: 'njk',
     passthroughFileCopy: true,
     dir: {
