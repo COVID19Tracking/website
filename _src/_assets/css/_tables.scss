@@ -35,6 +35,7 @@ tbody tr:nth-child(even) {
 
 .state-flex-container {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   @media (min-width: $viewport-md) {
     flex-direction: row;
@@ -47,8 +48,17 @@ tbody tr:nth-child(even) {
   flex-grow: 1;
 }
 
-.state-first-header {
+.state-first-row .state-flex-header {
   border-top: 1px solid #ddd;
+  @media (min-width: $viewport-md) {
+    border-top: 0.5px solid #ddd;
+  }
+}
+
+.state-first-row {
+  @media (min-width: $viewport-md) {
+    border-left: 0.5px solid #ddd;
+  }
 }
 
 .state-flex-header,
@@ -58,16 +68,25 @@ tbody tr:nth-child(even) {
   padding: 0.5em;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
+  @media (min-width: $viewport-md) {
+    border: 0.5px solid #ddd;
+  }
 }
 
 .state-flex-data {
   border-bottom: 1px solid #ddd;
+  @media (min-width: $viewport-md) {
+    border-bottom: 0.5px solid #ddd;
+  }
 }
 
 .state-flex-header {
   font-weight: bold;
   background-color: #eee;
   border-bottom: 1px solid #999;
+  @media (min-width: $viewport-md) {
+    border-bottom: 0.5px solid #999;
+  }
 }
 
 caption {
