@@ -89,10 +89,10 @@ tbody tr:nth-child(even) {
 .state-flex-header {
   font-weight: bold;
   background-color: #eee;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #999;
 
   @media (min-width: $viewport-md) {
-    border-bottom: 0.5px solid #ddd;
+    border-bottom: 0.5px solid #999;
   }
 }
 
