@@ -32,7 +32,12 @@ A number score is tallied based on 4 simple components:
 
 The total score for each state corresponds to a letter grade:
 
-4: A, 3: B, 2: C, 1: D
+| Score | Grade |
+|-------|-------|
+| 4     | A     |
+| 3     | B     |
+| 2     | C     |
+| 1     | D     |
 
 If you are calculating positive rates, it should only be with states that have an A grade. And be careful going back in time because almost all the states have changed their level of reporting at different times.
 
