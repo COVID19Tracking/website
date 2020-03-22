@@ -25,6 +25,7 @@
   "homepage": "https://covidtracking.com",
   "dependencies": {
     "@11ty/eleventy-plugin-rss": "^1.0.5",
+    "jest-util": "^25.1.0",
     "markdown-it": "^10.0.0"
   },
   "devDependencies": {
