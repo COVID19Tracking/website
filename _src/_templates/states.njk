@@ -109,16 +109,6 @@ layout: base.njk
       </div>
       <div class="state-table-caption">
           <span class="a11y-only">{{ state.name }} data</span>
-          <span title="The quality of data from the state.">
-              Grade:
-              <strong>
-                {% if state.grade %}
-                    {{ state.grade }}
-                {% else %}
-                    N/A
-                {% endif %}
-              </strong>
-            </span>
           <span title="The time the data was last updated by the state.">Last updated: {{ state.lastUpdateEt }} ET</span>
           <span title="The last time we reviewed the state data source and updated our data">Last checked: {{ state.checkTimeEt }} ET</span>
       </div>
