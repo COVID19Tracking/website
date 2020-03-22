@@ -8,7 +8,7 @@ table {
   }
 }
 
-caption,
+.state-table-caption,
 th,
 td {
   padding: 0.25em;
@@ -37,6 +37,7 @@ tbody tr:nth-child(even) {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+
   @media (min-width: $viewport-md) {
     flex-direction: row;
   }
@@ -50,12 +51,14 @@ tbody tr:nth-child(even) {
 
 .state-first-row .state-flex-header {
   border-top: 1px solid #ddd;
+
   @media (min-width: $viewport-md) {
     border-top: 0.5px solid #ddd;
   }
 }
 
 .state-first-row {
+
   @media (min-width: $viewport-md) {
     border-left: 0.5px solid #ddd;
   }
@@ -68,6 +71,7 @@ tbody tr:nth-child(even) {
   padding: 0.5em;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
+
   @media (min-width: $viewport-md) {
     border: 0.5px solid #ddd;
   }
@@ -75,6 +79,7 @@ tbody tr:nth-child(even) {
 
 .state-flex-data {
   border-bottom: 1px solid #ddd;
+
   @media (min-width: $viewport-md) {
     border-bottom: 0.5px solid #ddd;
   }
@@ -84,14 +89,37 @@ tbody tr:nth-child(even) {
   font-weight: bold;
   background-color: #eee;
   border-bottom: 1px solid #999;
+
   @media (min-width: $viewport-md) {
     border-bottom: 0.5px solid #999;
   }
 }
 
-caption {
+.state-table-caption {
+  :not(:last-child)::after { /* add bullets between children */
+    content: " \2022 ";
+
+    @media (max-width: $viewport-md) {
+      content: none;
+    }
+
+  }
+
+  @media (max-width: $viewport-md) {
+    span {
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+caption,
+.state-table-caption {
   font-size: $size-1;
   font-weight: normal;
   text-align: right;
+}
+
+caption {
   caption-side: bottom;
 }
