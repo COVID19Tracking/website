@@ -18,6 +18,7 @@ layout: base.njk
         <th scope="col">Negative</th>
         <th scope="col">Pos + Neg</th>
         <th scope="col">Pending</th>
+        <th scope="col">Hospitalized</th>
         <th scope="col">Deaths</th>
         <th scope="col">Total Tests</th>
       </tr>
@@ -25,13 +26,13 @@ layout: base.njk
     <tbody>
       {% for day in sheets.usDaily %}
         <tr>
-          {# [{"date":20200304,"states":14,"positive":118,"negative":748,"posNeg":866,"pending":103,"death":null,"total":969}, #}
           <td class="text-left">{{ day.date | readableYYYYMMDD }}</td>
           <td>{{ day.states | thousands }}</td>
           <td>{{ day.positive | thousands }}</td>
           <td>{{ day.negative | thousands }}</td>
           <td>{{ day.posNeg | thousands }}</td>
           <td>{{ day.pending | thousands }}</td>
+          <td>{{ day.hospitalized | thousands }}</td>
           <td>{{ day.death | thousands }}</td>
           <td>{{ day.total | thousands }}</td>
         </tr>

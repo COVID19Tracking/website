@@ -8,7 +8,7 @@ table {
   }
 }
 
-caption,
+.state-table-caption,
 th,
 td {
   padding: 0.25em;
@@ -33,9 +33,93 @@ tbody tr:nth-child(even) {
   background-color: #f5f5f5;
 }
 
-caption {
+.state-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  @media (min-width: $viewport-md) {
+    flex-direction: row;
+  }
+}
+
+.state-flex-row {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.state-first-row .state-flex-header {
+  border-top: 1px solid #ddd;
+
+  @media (min-width: $viewport-md) {
+    border-top: 0.5px solid #ddd;
+  }
+}
+
+.state-first-row {
+
+  @media (min-width: $viewport-md) {
+    border-left: 0.5px solid #ddd;
+  }
+}
+
+.state-flex-header,
+.state-flex-data {
+  text-align: center;
+  font-size: 16px;
+  padding: 0.5em;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+
+  @media (min-width: $viewport-md) {
+    border: 0.5px solid #ddd;
+  }
+}
+
+.state-flex-data {
+  border-bottom: 1px solid #ddd;
+
+  @media (min-width: $viewport-md) {
+    border-bottom: 0.5px solid #ddd;
+  }
+}
+
+.state-flex-header {
+  font-weight: bold;
+  background-color: #eee;
+  border-bottom: 1px solid #999;
+
+  @media (min-width: $viewport-md) {
+    border-bottom: 0.5px solid #999;
+  }
+}
+
+.state-table-caption {
+  :not(:last-child)::after { /* add bullets between children */
+    content: " \2022 ";
+
+    @media (max-width: $viewport-md) {
+      content: none;
+    }
+
+  }
+
+  @media (max-width: $viewport-md) {
+    span {
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+caption,
+.state-table-caption {
   font-size: $size-1;
   font-weight: normal;
   text-align: right;
+}
+
+caption {
   caption-side: bottom;
 }

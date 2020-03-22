@@ -4,6 +4,7 @@ layout: base.njk
 
 {{ layoutContent | safe }}
 <div class="state">
+
     <div class="state-header">
         <h1>{{ state.name }}</h1>
         {% if state.twitter %}
@@ -23,13 +24,21 @@ layout: base.njk
                 <a href="{{state.dataSite}}">Data source</a>
             </li>
         {% endif %}
-        <li>Data quality grade: <strong>{{ state.grade }}</strong></li>
+        <li>
+            Data quality grade:
+                <strong>
+                    {% if state.grade %}
+                        {{ state.grade }}
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </strong>
+        </li>
     </ul>
 
     {% if state.notes %}
          <p>{{ state.notes | markdownify | safe }}</p>
     {% endif %}
-
 
     <table class="state-table">
         <caption>
@@ -42,6 +51,7 @@ layout: base.njk
                 <th scope="col">Positive</th>
                 <th scope="col">Negative</th>
                 <th scope="col">Pending</th>
+                <th scope="col">Hospitalized</th>
                 <th scope="col">Deaths</th>
                 <th scope="col">Total</th>
             </tr>
@@ -51,6 +61,7 @@ layout: base.njk
                 <td>{{ state.positive | thousands }}</td>
                 <td>{{ state.negative | thousands }}</td>
                 <td>{{ state.pending | thousands }}</td>
+                <td>{{ state.hospitalized | thousands }}</td>
                 <td>{{ state.death | thousands }}</td>
                 <td>{{ state.total | thousands }}</td>
             </tr>
@@ -59,13 +70,15 @@ layout: base.njk
 
     <h2>History</h2>
 
-    <table class="state-table">
+    <table class="state-history-table">
         <thead>
             <tr>
                 <th scope="col">Date</th>
+                <th scope="col">Screenshot</th>
                 <th scope="col">Positive</th>
                 <th scope="col">Negative</th>
                 <th scope="col">Pending</th>
+                <th scope="col">Hospitalized</th>
                 <th scope="col">Deaths</th>
                 <th scope="col">Total</th>
             </tr>
@@ -75,9 +88,19 @@ layout: base.njk
                 {% if stateDay.state == state.state %}
                     <tr>
                         <td>{{ stateDay.date | readableYYYYMMDD }}</td>
+                        <td>
+                            {% for screenshot in stateDay.screenshots %}
+
+                                <a target="_blank" class="screenshot-link" href="{{ screenshot.url }}">
+                                    <span class="a11y-only">View screenshot at </span>
+                                    {{ screenshot.dateChecked | readableTime }}
+                                </a>
+                            {% endfor %}
+                        </td>
                         <td>{{ stateDay.positive | thousands }}</td>
                         <td>{{ stateDay.negative | thousands }}</td>
                         <td>{{ stateDay.pending | thousands }}</td>
+                        <td>{{ stateDay.hospitalized | thousands }}</td>
                         <td>{{ stateDay.death | thousands }}</td>
                         <td>{{ stateDay.total | thousands }}</td>
                     </tr>
