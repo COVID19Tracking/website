@@ -2,142 +2,154 @@
 layout: base.njk
 ---
 
-{{ layoutContent | safe }}
-<p class="updated">Last synced with our spreadsheet: {{ sheets.updated }}</p>
 
-<div class="us-totals">
-  <div class="state-flex-container">
-      <div class="state-flex-row state-first-row">
-        <div class="state-flex-header">Positive</div>
-        <div class="state-flex-data">
-          {{ sheets.us.positive | thousands }}
-        </div>
-      </div>
-      <div class="state-flex-row">
-        <div class="state-flex-header">Negative</div>
-        <div class="state-flex-data">
-          {{ sheets.us.negative | thousands }}
-        </div>
-      </div>
-      <div class="state-flex-row">
-        <div class="state-flex-header">Pos + Neg</div>
-        <div class="state-flex-data">
-          {{ sheets.us.posNeg | thousands }}
-        </div>
-      </div>
-      <div class="state-flex-row">
-        <div class="state-flex-header">Pending</div>
-        <div class="state-flex-data">
-          {{ sheets.us.pending | thousands }}
-        </div>
-      </div>
-      <div class="state-flex-row">
-        <div class="state-flex-header">Hospitalized</div>
-        <div class="state-flex-data">
-          {{ sheets.us.hospitalized | thousands }}
-        </div>
-      </div>
-      <div class="state-flex-row">
-        <div class="state-flex-header">Death</div>
-        <div class="state-flex-data">
-          {{ sheets.us.death | thousands }}
-        </div>
-      </div>
-      <div class="state-flex-row">
-        <div class="state-flex-header">Total</div>
-        <div class="state-flex-data">
-          {{ sheets.us.total | thousands }}
-        </div>
-      </div>
-  </div>
-  <div class="state-table-caption">
-    <span>US Totals</span>
-  </div>
-</div>
+<div class="us-totals-and-states">
+  {{ layoutContent | safe }}
+  <p class="updated">Last synced with our spreadsheet: {{ sheets.updated }}</p>
 
-
-<ul class="states-list">
-  {% for state in sheets.states %}
-    <li class="state-item">
-      <div class="state-header">
-        <h2 class="state-name">
-          <a class="state-link" href="/data/state/{{ state.name | slug }}">
-            {{ state.name }}
-          </a>
-        </h2>
-        <a class="state-link" href="https://twitter.com/{{ state.twitter }}">
-          <img alt="{{ state.name }} on Twitter" src="/_assets/img/twitter-logo-black.svg" width="26px"/>
-        </a>
-      </div>
-      <div class="state-flex-container">
+  <div class="us-totals">
+    <div class="state-flex-container">
         <div class="state-flex-row state-first-row">
           <div class="state-flex-header">Positive</div>
           <div class="state-flex-data">
-            {% if state.positive %}{{ state.positive | thousands }}{% else %}N/A{% endif %}
+            {{ sheets.us.positive | thousands }}
           </div>
         </div>
         <div class="state-flex-row">
           <div class="state-flex-header">Negative</div>
           <div class="state-flex-data">
-            {% if state.negative %}{{ state.negative | thousands }}{% else %}N/A{% endif %}
+            {{ sheets.us.negative | thousands }}
+          </div>
+        </div>
+        <div class="state-flex-row">
+          <div class="state-flex-header">Pos + Neg</div>
+          <div class="state-flex-data">
+            {{ sheets.us.posNeg | thousands }}
           </div>
         </div>
         <div class="state-flex-row">
           <div class="state-flex-header">Pending</div>
           <div class="state-flex-data">
-            {% if state.pending %}{{ state.pending | thousands }}{% else %}N/A{% endif %}
+            {{ sheets.us.pending | thousands }}
           </div>
         </div>
         <div class="state-flex-row">
           <div class="state-flex-header">Hospitalized</div>
           <div class="state-flex-data">
-            {% if state.hospitalized %}{{ state.hospitalized | thousands }}{% else %}N/A{% endif %}
+            {{ sheets.us.hospitalized | thousands }}
           </div>
         </div>
         <div class="state-flex-row">
-          <div class="state-flex-header">Deaths</div>
+          <div class="state-flex-header">Death</div>
           <div class="state-flex-data">
-            {% if state.death %}{{ state.death | thousands }}{% else %}N/A{% endif %}
+            {{ sheets.us.death | thousands }}
           </div>
         </div>
         <div class="state-flex-row">
           <div class="state-flex-header">Total</div>
           <div class="state-flex-data">
-            {% if state.total %}{{ state.total | thousands }}{% else %}N/A{% endif %}
+            {{ sheets.us.total | thousands }}
           </div>
         </div>
-      </div>
-      <div class="state-table-caption">
-          <span class="a11y-only">{{ state.name }} data</span>
-          <span title="The time the data was last updated by the state.">Last updated: {{ state.lastUpdateEt }} ET</span>
-          <span title="The last time we reviewed the state data source and updated our data">Last checked: {{ state.checkTimeEt }} ET</span>
-      </div>
+    </div>
+    <div class="state-table-caption">
+      <span>US Totals</span>
+    </div>
+  </div>
 
-      <div class="state-notes">
-        <p>
-          <a href="{{ state.covid19Site }}">
-            Best current data source for {{ state.name }}.
+  <ul class="states-list">
+    {% for state in sheets.states %}
+      <li class="state-item">
+        <div id="{{ state.state }}" class="state-header">
+  	<a class="top-link" href="#main" title="top"><img alt="arrow" src="/_assets/img/up-arrow.png" width="15" height="15"></a>
+          <h2 class="state-name" >
+            <a class="state-link" href="/data/state/{{ state.name | slug }}">
+              {{ state.name }}
+            </a>
+          </h2>
+          <a class="state-link" href="https://twitter.com/{{ state.twitter }}">
+            <img alt="{{ state.name }} on Twitter" src="/_assets/img/twitter-logo-black.svg" width="26px"/>
           </a>
-        </p>
+        </div>
+        <div class="state-flex-container">
+          <div class="state-flex-row state-first-row">
+            <div class="state-flex-header">Positive</div>
+            <div class="state-flex-data">
+              {% if state.positive %}{{ state.positive | thousands }}{% else %}N/A{% endif %}
+            </div>
+          </div>
+          <div class="state-flex-row">
+            <div class="state-flex-header">Negative</div>
+            <div class="state-flex-data">
+              {% if state.negative %}{{ state.negative | thousands }}{% else %}N/A{% endif %}
+            </div>
+          </div>
+          <div class="state-flex-row">
+            <div class="state-flex-header">Pending</div>
+            <div class="state-flex-data">
+              {% if state.pending %}{{ state.pending | thousands }}{% else %}N/A{% endif %}
+            </div>
+          </div>
+          <div class="state-flex-row">
+            <div class="state-flex-header">Hospitalized</div>
+            <div class="state-flex-data">
+              {% if state.hospitalized %}{{ state.hospitalized | thousands }}{% else %}N/A{% endif %}
+            </div>
+          </div>
+          <div class="state-flex-row">
+            <div class="state-flex-header">Deaths</div>
+            <div class="state-flex-data">
+              {% if state.death %}{{ state.death | thousands }}{% else %}N/A{% endif %}
+            </div>
+          </div>
+          <div class="state-flex-row">
+            <div class="state-flex-header">Total</div>
+            <div class="state-flex-data">
+              {% if state.total %}{{ state.total | thousands }}{% else %}N/A{% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="state-table-caption">
+            <span class="a11y-only">{{ state.name }} data</span>
+            <span title="The time the data was last updated by the state.">Last updated: {{ state.lastUpdateEt }} ET</span>
+            <span title="The last time we reviewed the state data source and updated our data">Last checked: {{ state.checkTimeEt }} ET</span>
+        </div>
 
-        {% if state.grade %}
-        <p>
-          <a href="/about-tracker#data-quality-grade">
-            Data quality grade:</a>
-          <span class="state-grade"> {{state.grade}} </span>
-        </p>
+        <div class="state-notes">
+          <p>
+            <a href="{{ state.covid19Site }}">
+              Best current data source for {{ state.name }}.
+            </a>
+          </p>
+
+          {% if state.grade %}
+          <p>
+            <a href="/about-tracker#data-quality-grade">
+              Data quality grade:</a>
+            <span class="state-grade"> {{state.grade}} </span>
+          </p>
+          {% endif %}
+
+          {% if state.notes %}
+            {{ state.notes | markdownify | safe }}
+          {% endif %}
+        </div>
+
+        {% if state.comments %}
+          <small>{{ state.comments }}</small>
         {% endif %}
+      </li>
+    {% else %}
+      <li>No state information found</li>
+    {% endfor %}
+  </ul>
+</div>
 
-        {% if state.notes %}
-          {{ state.notes | markdownify | safe }}
-        {% endif %}
-      </div>
+<nav class="states-nav">
+  <ul>
+    {% for state in sheets.states %}
+      <li><a href="#{{ state.state }}">{{ state.state | slug }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
 
-      {% if state.comments %}
-        <small>{{ state.comments }}</small>
-      {% endif %}
-    </li>
-  {% else %}
-    <li>No state information found</li>
-  {% endfor %}
-</ul>
