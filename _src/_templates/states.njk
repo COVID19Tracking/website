@@ -52,12 +52,11 @@ layout: base.njk
             <span title="The quality of data from the state.">Grade: <strong>{{ state.grade }}</strong></span> &bull;
             <span title="The time the data was last updated by the state.">Last updated: {{ state.lastUpdateEt }} ET</span> &bull;
             <span title="The last time we reviewed the state data source and updated our data">Last checked: {{ state.checkTimeEt }} ET</span>
-
         </caption>
       </table>
-      <div class="state-flex-contaianer">
-        <div class="state-flex-row">
-          <div class="state-flex-header state-first-header">Positive</div>
+      <div class="state-flex-container">
+        <div class="state-flex-row state-first-row">
+          <div class="state-flex-header">Positive</div>
           <div class="state-flex-data">
             {% if state.positive %}{{ state.positive | thousands }}{% else %}N/A{% endif %}
           </div>
