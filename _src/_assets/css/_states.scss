@@ -1,11 +1,9 @@
 // Specificity hack is specific
 .us-totals {
   max-width: 60rem;
+  margin-bottom: 3em;
 
-  table {
-    margin-bottom: 4em;
-  }
-  caption {
+  .state-table-caption {
     padding-left: 0;
     text-align: left;
   }

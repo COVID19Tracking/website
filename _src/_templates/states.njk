@@ -6,32 +6,56 @@ layout: base.njk
 <p class="updated">Last synced with our spreadsheet: {{ sheets.updated }}</p>
 
 <div class="us-totals">
-  <table>
-    <caption>US Totals</caption>
-    <thead>
-      <tr>
-        <th scope="col">Positive</th>
-        <th scope="col">Negative</th>
-        <th scope="col">Pos + Neg</th>
-        <th scope="col">Pending</th>
-        <th scope="col">Hospitalized</th>
-        <th scope="col">Death</th>
-        <th scope="col">Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{ sheets.us.positive | thousands }}</td>
-        <td>{{ sheets.us.negative | thousands }}</td>
-        <td>{{ sheets.us.posNeg | thousands }}</td>
-        <td>{{ sheets.us.pending | thousands }}</td>
-        <td>{{ sheets.us.hospitalized | thousands }}</td>
-        <td>{{ sheets.us.death | thousands }}</td>
-        <td>{{ sheets.us.total | thousands }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="state-flex-container">
+      <div class="state-flex-row state-first-row">
+        <div class="state-flex-header">Positive</div>
+        <div class="state-flex-data">
+          {{ sheets.us.positive | thousands }}
+        </div>
+      </div>
+      <div class="state-flex-row">
+        <div class="state-flex-header">Negative</div>
+        <div class="state-flex-data">
+          {{ sheets.us.negative | thousands }}
+        </div>
+      </div>
+      <div class="state-flex-row">
+        <div class="state-flex-header">Pos + Neg</div>
+        <div class="state-flex-data">
+          {{ sheets.us.posNeg | thousands }}
+        </div>
+      </div>
+      <div class="state-flex-row">
+        <div class="state-flex-header">Pending</div>
+        <div class="state-flex-data">
+          {{ sheets.us.pending | thousands }}
+        </div>
+      </div>
+      <div class="state-flex-row">
+        <div class="state-flex-header">Hospitalized</div>
+        <div class="state-flex-data">
+          {{ sheets.us.hospitalized | thousands }}
+        </div>
+      </div>
+      <div class="state-flex-row">
+        <div class="state-flex-header">Death</div>
+        <div class="state-flex-data">
+          {{ sheets.us.death | thousands }}
+        </div>
+      </div>
+      <div class="state-flex-row">
+        <div class="state-flex-header">Total</div>
+        <div class="state-flex-data">
+          {{ sheets.us.total | thousands }}
+        </div>
+      </div>
+  </div>
+  <div class="state-table-caption">
+    <span>US Totals</span>
+  </div>
 </div>
+
+
 <ul class="states-list">
   {% for state in sheets.states %}
     <li class="state-item">
