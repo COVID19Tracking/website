@@ -17,9 +17,13 @@
   max-width: 17rem;
   padding-left: 5px;
   position: absolute;
-  right: 0;
+  right: 1vw;
   top: 150px;
-  overflow-y: scroll;
+
+  ul {
+    padding-left: 0;
+  }
+
   li {
     list-style-type: none;
     text-transform: uppercase;
