@@ -70,7 +70,6 @@ layout: base.njk
     {% for state in sheets.states %}
     <li class="state-item">
       <div id="{{ state.state }}" class="state-header">
-       <a class="top-link" href="#main" title="top"><img alt="arrow" src="/_assets/img/up-arrow.png" width="15" height="15"></a>
        <h2 class="state-name" >
         <a class="state-link" href="/data/state/{{ state.name | slug }}">
           {{ state.name }}
@@ -142,6 +141,7 @@ layout: base.njk
       {% if state.notes %}
       {{ state.notes | markdownify | safe }}
       {% endif %}
+      <a class="top-link" href="#main" title="top">&uarr; (return to top)</a>
     </div>
 
     {% if state.comments %}
