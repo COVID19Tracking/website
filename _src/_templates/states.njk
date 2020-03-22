@@ -57,7 +57,7 @@ layout: base.njk
     </div>
   </div>
 
-  <nav class="states-nav">
+  <nav id="states-nav" class="states-nav">
     <h4>Jump to:</h4>
     <ul>
       {% for state in sheets.states %}
@@ -141,7 +141,7 @@ layout: base.njk
       {% if state.notes %}
       {{ state.notes | markdownify | safe }}
       {% endif %}
-      <a class="top-link" href="#main" title="top">&uarr; (return to top)</a>
+      <a class="top-link" href="#states-nav" title="top">&uarr; (return to top)</a>
     </div>
 
     {% if state.comments %}
