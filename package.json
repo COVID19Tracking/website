@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "grunt & grunt watch & eleventy --serve",
-    "prod": "npm run test-api & grunt & eleventy & npm run test-build",
+    "prod": "npm run test-api & grunt & eleventy",
     "test": "jest",
     "test-api": "jest -- ./_src/__tests__/api.js",
     "test-build": "jest -- ./_src/__tests__/build.js"
