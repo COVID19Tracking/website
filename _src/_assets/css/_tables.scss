@@ -33,17 +33,18 @@ tbody tr:nth-child(even) {
   background-color: #f5f5f5;
 }
 
-
 .state-flex-container {
   display: flex;
   flex-direction: column;
-  /* todo: for non-mobile devices, make this row */
+  @media (min-width: $viewport-md) {
+    flex-direction: row;
+  }
 }
 
 .state-flex-row {
   display: flex;
   flex-direction: column;
-  /* todo: for non-mobile devices, make this row */
+  flex-grow: 1;
 }
 
 .state-first-header {
