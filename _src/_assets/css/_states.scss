@@ -1,5 +1,8 @@
 .us-totals-and-states {
   max-width: 94vw;
+  @media (max-width: $viewport-md) {
+    max-width: 100vw;
+  }
 }
 
 // Specificity hack is specific
@@ -20,16 +23,43 @@
   right: 1vw;
   top: 150px;
 
-  ul {
+  @media (max-width: $viewport-md) {
+    max-width: 100%;
     padding-left: 0;
+    position: inherit;
   }
 
-  li {
-    list-style-type: none;
-    text-transform: uppercase;
-    padding: 1px;
-    margin: 1px;
+  h4 {
+    margin-bottom: 0px;
+    text-align: center;
+    margin-top: 0px;
   }
+
+  ul {
+    margin-top: .5em;
+    padding-left: 0;
+
+    @media (max-width: $viewport-md) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    li {
+      list-style-type: none;
+      text-transform: uppercase;
+      padding: 1px;
+      margin: 1px;
+      text-align: center;
+
+      @media (max-width: $viewport-md) {
+        display: inline-block;
+        margin: 4px 14px;
+        flex-grow: 1;
+      }
+    }
+  }
+
 }
 
 .states-list {

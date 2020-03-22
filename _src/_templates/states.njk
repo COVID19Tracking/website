@@ -57,6 +57,15 @@ layout: base.njk
     </div>
   </div>
 
+<nav class="states-nav">
+  <h4>Jump to:</h4>
+  <ul>
+    {% for state in sheets.states %}
+      <li><a href="#{{ state.state }}">{{ state.state | slug }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
+
   <ul class="states-list">
     {% for state in sheets.states %}
       <li class="state-item">
@@ -144,12 +153,3 @@ layout: base.njk
     {% endfor %}
   </ul>
 </div>
-
-<nav class="states-nav">
-  <ul>
-    {% for state in sheets.states %}
-      <li><a href="#{{ state.state }}">{{ state.state | slug }}</a></li>
-    {% endfor %}
-  </ul>
-</nav>
-
