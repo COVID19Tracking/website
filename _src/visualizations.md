@@ -18,5 +18,5 @@ After Slow Response to Outbreak](https://www.nytimes.com/interactive/2020/03/17/
 * [U.S. COVID-19 Case Statistic Tracking](http://bit.ly/covid-tracking-dash) by [Eric Czech](https://github.com/eric-czech)
 * [Coronavirus USA Map](https://public.tableau.com/profile/peter.james.walker#!/vizhome/shared/ZCDYCJ4TF) by [Peter James Walker](https://public.tableau.com/profile/peter.james.walker)
 * [Estimating COVID-19 cases from US deaths](https://covid19-us.github.io/) by Luke Hewitt
-* [Kaiyu Hsu](https://covid.kyh.io/)
+* [US COVID-19 Growth](https://covid-19.kyh.io/) by Kaiyu Hsu
 * [Yiqin Fu](https://twitter.com/yiqinfu/status/1238621836100784128)
