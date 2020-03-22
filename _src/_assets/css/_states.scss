@@ -1,3 +1,7 @@
+.us-totals-and-states {
+  max-width: 87%;
+}
+
 // Specificity hack is specific
 .us-totals {
   max-width: 60rem;
@@ -6,6 +10,21 @@
   .state-table-caption {
     padding-left: 0;
     text-align: left;
+  }
+}
+
+.states-nav {
+  max-width: 17rem;
+  padding-left: 5px;
+  position: absolute;
+  right: 0;
+  top: 150px;
+  overflow-y: scroll;
+  li {
+    list-style-type: none;
+    text-transform: uppercase;
+    padding: 1px;
+    margin: 1px;
   }
 }
 
@@ -21,7 +40,7 @@
   .state-item {
     list-style: none;
     margin-bottom: 4em;
-    max-width: 26em;
+    max-width: 22em;
     width: inherit;
 
     @media (min-width: $viewport-md) {
@@ -40,6 +59,15 @@
       vertical-align: bottom;
     }
   }
+
+  .top-link {
+    display: inline-block;
+    margin-right: 5px;
+    img {
+      vertical-align: middle;
+    }
+  }
+
   .state-name {
     font-size: $size-4;
     @media (min-width: $viewport-md) {
