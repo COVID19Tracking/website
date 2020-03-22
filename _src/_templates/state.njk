@@ -24,16 +24,13 @@ layout: base.njk
                 <a href="{{state.dataSite}}">Data source</a>
             </li>
         {% endif %}
-        <li>
-            Data quality grade:
-                <strong>
-                    {% if state.grade %}
-                        {{ state.grade }}
-                    {% else %}
-                        N/A
-                    {% endif %}
-                </strong>
-        </li>
+        {% if state.grade %}
+            <li>
+                <a href="/about-tracker#data-quality-grade">
+                    Data quality grade:</a>
+                <span class="state-grade"> {{state.grade}} </span>
+            </li>
+        {% endif %}
     </ul>
 
     {% if state.notes %}

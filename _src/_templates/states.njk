@@ -69,7 +69,6 @@ layout: base.njk
           <img alt="{{ state.name }} on Twitter" src="/_assets/img/twitter-logo-black.svg" width="26px"/>
         </a>
       </div>
-
       <div class="state-flex-container">
         <div class="state-flex-row state-first-row">
           <div class="state-flex-header">Positive</div>
@@ -110,16 +109,6 @@ layout: base.njk
       </div>
       <div class="state-table-caption">
           <span class="a11y-only">{{ state.name }} data</span>
-          <span title="The quality of data from the state.">
-              Grade:
-              <strong>
-                {% if state.grade %}
-                    {{ state.grade }}
-                {% else %}
-                    N/A
-                {% endif %}
-              </strong>
-            </span>
           <span title="The time the data was last updated by the state.">Last updated: {{ state.lastUpdateEt }} ET</span>
           <span title="The last time we reviewed the state data source and updated our data">Last checked: {{ state.checkTimeEt }} ET</span>
       </div>
@@ -130,6 +119,15 @@ layout: base.njk
             Best current data source for {{ state.name }}.
           </a>
         </p>
+
+        {% if state.grade %}
+        <p>
+          <a href="/about-tracker#data-quality-grade">
+            Data quality grade:</a>
+          <span class="state-grade"> {{state.grade}} </span>
+        </p>
+        {% endif %}
+
         {% if state.notes %}
           {{ state.notes | markdownify | safe }}
         {% endif %}
