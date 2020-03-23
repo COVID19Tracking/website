@@ -125,6 +125,12 @@ layout: base.njk
 
     <div class="state-notes">
       <p>
+        <a href="/data/state/{{ state.name | slug }}#history">
+          Historical data for {{ state.name }}.
+        </a>
+      </p>
+
+      <p>
         <a href="{{ state.covid19Site }}">
           Best current data source for {{ state.name }}.
         </a>
