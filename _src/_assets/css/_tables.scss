@@ -8,6 +8,10 @@ table {
   }
 }
 
+.table-scroll {
+  overflow-x: scroll;
+}
+
 .state-table-caption,
 th,
 td {
