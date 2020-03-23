@@ -16,7 +16,7 @@ This project combines two initial independent efforts. Jeff Hammerbacher, Founde
 * [Erin Kissane](http://incisive.nu)
 * [Shima Dastgheib](https://twitter.com/shimadastgheib)
 * [Katerina Dimitratos](https://twitter.com/kdimitratos)
-* [J. Peter Donald](https://https://twitter.com/JPeterDonald)
+* [J. Peter Donald](https://twitter.com/JPeterDonald)
 * [Josh Ellington](https://joshellington.com)
 * Nancy Ge
 * [Daniel Gilbert](https://www.tall-dog.com/)
