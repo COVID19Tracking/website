@@ -13,10 +13,11 @@ This project combines two initial independent efforts. Jeff Hammerbacher, Founde
 
 * [Stanley Bishop](https://mltogether.la/)
 * [Kai Curry](https://github.com/webmasterkai)
-* Shima Dastgheib
+* [Erin Kissane](incisive.nu)
+* [Shima Dastgheib](twitter.com/shimadastgheib)
 * [Katerina Dimitratos](https://twitter.com/kdimitratos)
 * [J. Peter Donald](https://https://twitter.com/JPeterDonald)
-* Josh Ellington
+* [Josh Ellington](https://joshellington.com)
 * Nancy Ge
 * [Daniel Gilbert](https://www.tall-dog.com/)
 * [Lucas Gonze](http://gonze.com)
@@ -25,7 +26,7 @@ This project combines two initial independent efforts. Jeff Hammerbacher, Founde
 * Luke Herman
 * [Ed Hodder](https://www.linkedin.com/in/edhodder/)
 * [Esther Kim](https://www.linkedin.com/in/esther-kim-9544201a)
-* [Jeremia Kimelman](https://twitter.com/jeremiak)
+* [Jeremia Kimelman](https://www.jeremiak.com)
 * [Sam Klein](https://twitter.com/metasj)
 * [Elliott Klug](http://elliottklug.com)
 * [Julia Kodysh](https://twitter.com/JuliaKodysh)
@@ -47,3 +48,13 @@ This project combines two initial independent efforts. Jeff Hammerbacher, Founde
 * [Matt Shapiro](http://matthiasshapiro.com)
 * Jeff Silver
 * [Dylan Smith](http://TucsonSentinel.com)
+* [Justin Hendrix](twitter.com/justinhendrix)
+* [Amanda French](http://amandafrench.net)
+* [Andrew Schwartz](aschwartz.me/)
+* Harrison David Frank
+* [Casey Faist](twitter.com/cfactoid)
+* [Alan Wilson](https://twitter.com/alangwilson)
+* [Kevin Miller](https://kevee.net)
+* [Gabe O'Leary](https://gabeoleary.com)
+* [Jason Santa Maria](https://jasonsantamaria.com)
+* [Eric Czech](https://www.linkedin.com/in/eric-czech-2029928/)
