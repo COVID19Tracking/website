@@ -1,12 +1,14 @@
 <footer class="site-footer">
   <div class="container">
     <ul class="pages">
-	  {%- for post in collections.posts -%}
-	  	{% if post.data.nav %}
-	  	<li{% if page.url == post.url %} aria-describedby="current-page" class="active"{% endif %}><a{% if page.url == post.url %} aria-current="page"{% endif %} href="{{ post.url | url }}">{{ post.data.nav }}</a></li>
-	  	{% endif %}
-	  {%- endfor -%}
-	  </ul>
+      {%- for post in collections.posts -%}
+        {% if post.data.nav %}
+          <li{% if page.url == post.url %} aria-describedby="current-page" class="active"{% endif %}>
+            <a{% if page.url == post.url %} aria-current="page"{% endif %} href="{{ post.url | url }}">{{ post.data.nav }}</a>
+          </li>
+        {% endif %}
+      {%- endfor -%}
+    </ul>
     <ul class="follow">
       <li>
         <a href="{{ data.repoUrl }}">GitHub</a>
