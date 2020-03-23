@@ -6,6 +6,9 @@
   <a class="site-title{% if page.url == "/" %} active{% endif %}" href="/">{{ data.title }}</a>
   <nav>
     <ul class="site-nav">
+      <li{% if page.url == "/data/" %} aria-describedby="current-page"{% endif %}>
+        <a{% if page.url == "/data/" %} aria-current="page" class="active"{% endif %} href="/data">Get the Data</a>
+      </li>
       <li{% if page.url == "/us-daily/" %} aria-describedby="current-page"{% endif %}>
         <a{% if page.url == "/us-daily/" %} aria-current="page" class="active"{% endif %} href="/us-daily">US Historical Data</a>
       </li>
