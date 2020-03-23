@@ -1,31 +1,56 @@
+/*
+
+Chart title: all caps #000000 - bold size 16pt
+Chart subhead: #000000 - size 13pt
+Grids: #8FA3AD - stroke 0.5pt
+Axes labels: #505F69 - size 12pt
+Annotations: #00000 - size 13pt
+Annotation lines: #000000 - size 0.5pt
+Note/sources/*: #000000 - size 15pt
+Byline/publish date: #8FA3AD - size 13pt
+
+*/
+
 .side-by-side {
-  display: flex;
-  justify-content: space-between;
 
-  .graphic {
-    flex-grow: 1;
-    width: 45%;
-  }
-}
-
-.chart-legend {
-  display: flex;
-  justify-content: center;
 }
 
 .chart-hed {
-  text-align: center;
+  color: #000000;
+  display: block;
+  font-size: 16pt;
+  margin-bottom: 0;
+  margin-top: 2rem;
+  min-height: 4rem;
+  text-transform: uppercase;
 }
 
 .chart-source {
   p {
+    color: #000000;
+    font-size: 15pt;
     margin-top: .2rem;
     margin-bottom: .2rem;
   }
 }
 
+.no-y-axis-domain .y-axis-group .domain {
+  display: none;
+}
+
 .britechart {
+  .legend-container-group {
+    transform: translate(0);
+  }
+
+  .axis .domain,
+  .axis .tick line {
+    stroke: #8FA3AD;
+  }
+
   .tick text {
+    fill: #505F69;
+    font-size: 12pt;
     font-family: -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; 
   }
 
@@ -34,7 +59,7 @@
   }
 
   .x-axis-group .tick text {
-    transform: rotate(90deg) translate(3em, -1.25em);
+    transform: rotate(90deg) translate(2.2em, -1em);
   }
 
 }

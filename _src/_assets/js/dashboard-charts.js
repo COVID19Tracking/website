@@ -24,27 +24,34 @@
 
     const chartContainer = d3.select('#chart-daily-positive-total')
     const hed = chartContainer.append('h3').classed('chart-hed', true)
-    const chart = chartContainer.append('div').classed('chart', true)
     const legend = chartContainer.append('div').classed('chart-legend', true)
+    const chart = chartContainer.append('div')
+      .classed('chart', true)
+      .classed('no-y-axis-domain', true)
     const source = chartContainer.append('div').classed('chart-source', true)
     const barChart = britecharts.groupedBar()
     const legendChart = britecharts.legend()
 
+    const width = chartContainer.node().clientWidth * 0.9
+
     barChart
       .margin({
-        left: 60,
+        left: 90,
         right: 20,
         top: 20,
-        bottom: 60,
+        bottom: 80,
       })
       .height(400)
-      .width(chartContainer.node().clientWidth)
+      .width(width)
       .colorSchema(['#546D8E', 'orange'])
 
     legendChart
       .colorSchema(['orange', '#546D8E'])
       .height(50)
       .isHorizontal(true)
+      .margin({
+        left: 0,
+      })
 
     chart.datum(transformedData).call(barChart)
     legend.datum([
@@ -76,31 +83,39 @@
 
     const chartContainer = d3.select('#chart-daily-death-total')
     const hed = chartContainer.append('h3').classed('chart-hed', true)
-    const chart = chartContainer.append('div').classed('chart', true)
     const legend = chartContainer.append('div').classed('chart-legend', true)
+    const chart = chartContainer
+      .append('div')
+      .classed('chart', true)
+      .classed('no-y-axis-domain', true)
     const source = chartContainer.append('div').classed('chart-source', true)
     const barChart = britecharts.bar()
     const legendChart = britecharts.legend()
+
+    const width = chartContainer.node().clientWidth * 0.9
 
     barChart
       .margin({
         left: 60,
         right: 20,
         top: 20,
-        bottom: 60,
+        bottom: 80,
       })
       .colorSchema(['#546D8E'])
       .highlightBarFunction(function(bar) {
         bar.attr('fill', 'orange')
       })
       .height(400)
-      .width(chartContainer.node().clientWidth)
+      .width(width)
       .xAxisLabel('Date')
 
     legendChart
       .colorSchema(['#546D8E'])
       .height(50)
       .isHorizontal(true)
+      .margin({
+        left: 0,
+      })
 
     legend
       .datum([
