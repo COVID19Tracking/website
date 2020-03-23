@@ -13,8 +13,8 @@ This project combines two initial independent efforts. Jeff Hammerbacher, Founde
 
 * [Stanley Bishop](https://mltogether.la/)
 * [Kai Curry](https://github.com/webmasterkai)
-* [Erin Kissane](incisive.nu)
-* [Shima Dastgheib](twitter.com/shimadastgheib)
+* [Erin Kissane](http://incisive.nu)
+* [Shima Dastgheib](https://twitter.com/shimadastgheib)
 * [Katerina Dimitratos](https://twitter.com/kdimitratos)
 * [J. Peter Donald](https://https://twitter.com/JPeterDonald)
 * [Josh Ellington](https://joshellington.com)
@@ -48,11 +48,11 @@ This project combines two initial independent efforts. Jeff Hammerbacher, Founde
 * [Matt Shapiro](http://matthiasshapiro.com)
 * Jeff Silver
 * [Dylan Smith](http://TucsonSentinel.com)
-* [Justin Hendrix](twitter.com/justinhendrix)
+* [Justin Hendrix](https://twitter.com/justinhendrix)
 * [Amanda French](http://amandafrench.net)
-* [Andrew Schwartz](aschwartz.me/)
+* [Andrew Schwartz](https://aschwartz.me/)
 * Harrison David Frank
-* [Casey Faist](twitter.com/cfactoid)
+* [Casey Faist](https://twitter.com/cfactoid)
 * [Alan Wilson](https://twitter.com/alangwilson)
 * [Kevin Miller](https://kevee.net)
 * [Gabe O'Leary](https://gabeoleary.com)
