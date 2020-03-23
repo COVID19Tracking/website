@@ -9,11 +9,11 @@
       <li{% if page.url == "/data/" %} aria-describedby="current-page"{% endif %}>
         <a{% if page.url == "/data/" %} aria-current="page" class="active"{% endif %} href="/data">Get the Data</a>
       </li>
-      <li{% if page.url == "/us-daily/" %} aria-describedby="current-page"{% endif %}>
-        <a{% if page.url == "/us-daily/" %} aria-current="page" class="active"{% endif %} href="/us-daily">US Historical Data</a>
+      <li{% if page.url == "/#/" %} aria-describedby="current-page"{% endif %}>   {# todo make these links real #}
+        <a{% if page.url == "/#/" %} aria-current="page" class="active"{% endif %} href="/#">About the Data</a>
       </li>
-      <li{% if isDataURL.test(page.url) %} aria-describedby="current-page"{% endif %}>
-        <a{% if isDataURL.test(page.url) %} aria-current="page" class="active"{% endif %} href="/data">Most Recent Data</a>
+      <li{% if page.url == "/#/" %} aria-describedby="current-page"{% endif %}>   {# todo make these links real #}
+        <a{% if page.url == "/#/" %} aria-current="page" class="active"{% endif %} href="/#">How Can I Help?</a>
       </li>
     </ul>
   </nav>
