@@ -8,6 +8,11 @@
   }
 }
 
+.chart-legend {
+  display: flex;
+  justify-content: center;
+}
+
 .chart-hed {
   text-align: center;
 }
@@ -19,7 +24,7 @@
   }
 }
 
-.britechart.bar-chart {
+.britechart {
   .tick text {
     font-family: -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; 
   }
