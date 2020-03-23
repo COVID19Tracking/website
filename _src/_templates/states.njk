@@ -115,6 +115,14 @@ layout: base.njk
         <div class="state-flex-data">
           {% if state.total %}{{ state.total | thousands }}{% else %}N/A{% endif %}
         </div>
+        {% if state.total %}
+        <div class="state-flex-data statistics">
+          <div class="statistic">
+            <strong>Positive Test Rate</strong>:
+            {{ state.positive }}/{{ state.positive+state.negative }} = {{ ((state.positive / (state.positive+state.negative))*100) | round(1) }}%
+          </div>
+        </div>
+        {% endif %}
       </div>
     </div>
     <div class="state-table-caption">
