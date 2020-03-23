@@ -9,7 +9,8 @@ nav: Dashboard
     <div class="graphic" id="chart-daily-positive-total"></div>
     <div class="graphic" id="chart-daily-death-total"></div>
   </div>
-  <div class="map" id="state-map">
+  <br />
+  <div class="map" title="State Positive Cases / million people" id="state-map">
 </div>
 
 <link rel="stylesheet" href="/_assets/css/c3.css" >
