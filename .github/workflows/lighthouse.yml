@@ -1,10 +1,18 @@
-name: Audit pull request
+name: Lighthouse audit
 on: pull_request
 
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
+      - name: 'Wait for deploy preview to finish'
+        uses: 'WyriHaximus/github-action-wait-for-status@master'
+        with:
+          # We care only about the Netlify checks finishing
+          ignoreActions: 'Lighthouse audit'
+          checkInterval: 20
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
       - name: Audit Netlify deploy preview
         uses: jakejarvis/lighthouse-action@master
         with:
