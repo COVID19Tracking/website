@@ -7,9 +7,9 @@
 
   const colorLimits = [5, 10, 25, 50, 100, 250, 500]
 
-  const getOldColor = d3.scaleThreshold(colorLimits, d3.schemeYlOrRd[8])
+  const getColor = d3.scaleThreshold(colorLimits, d3.schemeYlOrRd[8])
   //const getColor = d3.scaleSequential([0, 500], d3.interpolateViridis);
-  const getColor = d => {
+  const getOldColor = d => {
     return d > colorLimits[7]
       ? '#800026'
       : d > colorLimits[6]
@@ -90,7 +90,7 @@
     map.touchZoom.disable()
     map.doubleClickZoom.disable()
     map.scrollWheelZoom.disable()
-    
+
     //tile layer unneeded for map
     /*
     L.tileLayer(
@@ -122,18 +122,16 @@
 
     // method that we will use to update the control based on feature properties passed
     info.update = function(props) {
-      this._div.innerHTML =
-        '<h4>Cases per Million</h4>' +
-        (props
-          ? '<b>' +
-            props.NAME +
-            '</b><br />' +
-            formatter.format(props.casesPerMil) +
-            ' cases / million' +
-            '<br / >' +
-            formatter.format(props.positive) +
-            ' total cases'
-          : 'Hover over a state')
+      this._div.innerHTML = props
+        ? '<b>' +
+          props.NAME +
+          '</b><br />' +
+          formatter.format(props.casesPerMil) +
+          ' cases / million' +
+          '<br / >' +
+          formatter.format(props.positive) +
+          ' total cases'
+        : 'Hover over a state'
     }
 
     return info.addTo(map)
@@ -216,9 +214,10 @@
   // add legend
   d3.select('#map-legend').append(() =>
     d3Legend({
-      color: getOldColor,
-      height: 60,
-      title: 'Cases / million',
+      color: getColor,
+      height: 65,
+      width: 200,
+      title: 'Cases per one million people',
       tickFormat: '.0f',
     }),
   )
