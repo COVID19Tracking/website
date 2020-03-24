@@ -11,10 +11,6 @@ Byline/publish date: #8FA3AD - size 13pt
 
 */
 
-.side-by-side {
-
-}
-
 .chart-hed {
   color: #000000;
   display: block;
@@ -34,24 +30,25 @@ Byline/publish date: #8FA3AD - size 13pt
   }
 }
 
+.y-axis .domain,
 .no-y-axis-domain .y-axis-group .domain {
   display: none;
+}
+
+.axis .domain,
+.axis .tick line {
+  stroke: #8FA3AD;
+}
+
+.tick text {
+  fill: #505F69;
+  font-size: 10pt;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; 
 }
 
 .britechart {
   .legend-container-group {
     transform: translate(0);
-  }
-
-  .axis .domain,
-  .axis .tick line {
-    stroke: #8FA3AD;
-  }
-
-  .tick text {
-    fill: #505F69;
-    font-size: 12pt;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; 
   }
 
   .y-axis-group .tick text {
@@ -62,4 +59,18 @@ Byline/publish date: #8FA3AD - size 13pt
     transform: rotate(90deg) translate(2.2em, -1em);
   }
 
+  .area-outline {
+    fill: none;
+  }
+}
+
+#chart-state-small-multiples {
+  display: flex;
+  flex-wrap: wrap;
+
+  [data-state] {
+    flex-grow: 1;
+    margin-right: 2rem;
+    width: 250px;
+  }
 }
