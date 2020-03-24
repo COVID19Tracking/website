@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
+    "acorn": ">=5.7.4",
     "babel-eslint": "^10.1.0",
     "date-fns": "^2.11.0",
     "date-fns-tz": "^1.0.10",
