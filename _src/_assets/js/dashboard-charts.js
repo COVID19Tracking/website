@@ -196,15 +196,24 @@
   }
 
   function addStateLevelSmallMultiples(data) {
-    const groupedByState = d3.nest()
-      .key(function(d) { return d.state })
+    // the data we fetched is all the states in one array
+    // instead we need to group the data by state
+    const groupedByState = d3
+      .nest()
+      .key(function(d) {
+        return d.state
+      })
       .entries(data)
 
-    console.log({ groupedByState })
+    // this is where everything's gonna land!
+    const chartContainer = d3.select('#chart-state-small-multiples div')
 
-    const chartContainer = d3.select('#chart-state-small-multiples')
+    // we need to go through the data and figure out the maximum
+    // numbers that we're dealing with here
     const totals = data
-      .map(function(d) { return d.total })
+      .map(function(d) {
+        return d.total
+      })
       .sort(function(a, b) {
         return b - a
       })
@@ -216,7 +225,7 @@
     const margin = {
       left: 52,
       top: 0,
-      right: 50,
+      right: 55,
       bottom: 40,
     }
     const chartHeight = 200
@@ -229,7 +238,7 @@
       .range([0, chartWidth - totalXMargin])
     const yScale = d3
       .scaleLinear()
-      .domain([0, totals[3]])
+      .domain([0, totals[3]]) // don't use the greatest, it throws off all the other charts
       .range([chartHeight - totalYMargin, 0])
 
     const area = d3
@@ -242,15 +251,39 @@
       })
       .y1(chartHeight - totalYMargin)
 
-    groupedByState.forEach(function(state) {
-      const data = state.values.map(function(d) {
-        const date = parseDate(d.date)
+    const totalColor = '#585BC1' 
+    const positiveColor = '#FFA270'
 
-        return Object.assign({}, d, { date: date })
+    d3.select('#small-multiples-positive-span').style(
+      'background-color',
+      positiveColor,
+    )
+    d3.select('#small-multiples-total-span').style(
+      'background-color',
+      totalColor,
+    )
+
+    // go through each state's data and add a chart
+    groupedByState.forEach(function(state) {
+      // because we're just charting two variables we make them here
+      // we do this instead of creating two different area chart generators
+      const positive = state.values.map(function(d) {
+        return {
+          date: parseDate(d.date),
+          value: d.positive,
+        }
+      })
+      const total = state.values.map(function(d) {
+        return {
+          date: parseDate(d.date),
+          value: d.total,
+        }
       })
 
+      // this will hold the chart
       const stateContainer = chartContainer
         .append('div')
+        .classed('small-multiple-chart', true)
         .attr('data-state', state.key)
       const stateName = getStateName(state.key)
       const stateHed = stateContainer.append('h3').text(stateName)
@@ -258,36 +291,43 @@
         .append('div')
         .classed('chart', true)
         .classed('no-y-axis-domain', true)
+      const svg = svgContainer.append('svg')
       const stateLinkContainer = stateContainer
         .append('div')
         .classed('chart-state-link', true)
-      
+
       stateLinkContainer
         .append('a')
-        .attr('href', '/data/state/' + stateName.toLowerCase().replace(/\s/g, '-'))
+        .attr(
+          'href',
+          '/data/state/' + stateName.toLowerCase().replace(/\s/g, '-'),
+        )
         .text('See all data from state')
 
-      const svg = svgContainer.append('svg').attr('height', chartHeight)
+      const stateMax = d3.max(total, function(d) {
+        return d.value
+      })
 
-      const positive = data.map(function(d) {
-        return {
-          date: d.date,
-          value: d.positive,
-        }
-      })
-      const total = data.map(function(d) {
-        return {
-          date: d.date,
-          value: d.total
-        }
-      })
-      
+      const stateMaxY = yScale(stateMax)
+      let stateChartHeight = chartHeight
+      let transformTopValue = margin.top
+
+      if (stateMaxY < 0) {
+        stateChartHeight = chartHeight + Math.abs(stateMaxY)
+        transformTopValue = Math.abs(stateMaxY)
+        svg.attr('transform', 'translateY(' + stateMaxY + ')')
+      }
+
+      svg.attr('height', stateChartHeight)
+
+      console.log({ state, stateMaxY })
+
       // make a group to hold the axi (axises?)
-      const axi = svg.append('g')
-        .attr('transform', `translate(${margin.left} ${margin.top})`)
+      const axi = svg
+        .append('g')
+        .attr('transform', `translate(${margin.left} ${transformTopValue})`)
       // and a container for our gridlines
-      const grid = axi.append('g')
-        .classed('chart-grid', true)
+      const grid = axi.append('g').classed('chart-grid', true)
 
       const xAxis = d3
         .axisBottom()
@@ -297,7 +337,7 @@
       const yAxis = d3
         .axisLeft()
         .scale(yScale)
-        .ticks(6)
+        .ticks(4)
       const xAxisG = axi
         .append('g')
         .classed('axis x-axis', true)
@@ -308,6 +348,7 @@
         .classed('axis y-axis', true)
         .call(yAxis)
 
+      // go through, get the Y axis ticks and add gridlines for them
       yAxisG.selectAll('.tick').each(function(d, i) {
         d3.select(this)
           .select('line')
@@ -322,21 +363,22 @@
           .attr('stroke', '#cccccc')
       })
 
-      svg.append('g')
-        .attr('transform', `translate(${margin.left} ${margin.top})`)
+      // actually add the areas to the chart!
+      svg
+        .append('g')
+        .attr('transform', `translate(${margin.left} ${transformTopValue})`)
         .selectAll('path')
         .data([total, positive])
         .enter()
         .append('path')
-          .attr('d', function(d) {
-            return area(d)
-          })
-          .attr('opacity', .8)
-          .attr('fill', function(d, i) {
-            if (i === 0) return '#585BC1'
-            return '#FFA270'
-          })
-
+        .attr('d', function(d) {
+          return area(d)
+        })
+        .attr('opacity', 0.8)
+        .attr('fill', function(d, i) {
+          if (i === 0) return totalColor
+          return positiveColor
+        })
     })
   }
 

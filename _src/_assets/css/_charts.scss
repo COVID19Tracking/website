@@ -65,12 +65,107 @@ Byline/publish date: #8FA3AD - size 13pt
 }
 
 #chart-state-small-multiples {
-  display: flex;
-  flex-wrap: wrap;
+  position: relative;
+
+  h2 {
+    background-color: white;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  #small-multiples-positive-span,
+  #small-multiples-total-span {
+    display: inline-block;
+    padding: .2rem .5rem;
+  }
+
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
 
   [data-state] {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+    justify-content: space-between;
     margin-right: 2rem;
+    margin-bottom: 1rem;
+    height: 250px;
+    position: relative;
     width: 250px;
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+
+  svg {
+    position: absolute;
+    top: 2.5rem;
+  }
+
+  [data-state="NY"] svg {
+    top: -187px;
+  }
+  
+  .chart-state-link {
+    font-size: 12pt;
+  }
+
+  /* crazy nth-child stuff to hide specific y axis labels */
+
+  [data-state] {
+    .y-axis text {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    [data-state]:nth-child(even) {
+      .y-axis text {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    [data-state]:nth-child(even) {
+      .y-axis text {
+        display: block;
+      }
+    }
+
+    [data-state]:not(:nth-child(3n+1)) {
+      .y-axis text {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    [data-state]:nth-child(even) {
+      .y-axis text {
+        display: block;
+      }
+    }
+
+    [data-state]:not(:nth-child(3n+1)) {
+      .y-axis text {
+        display: block;
+      }
+    }
+
+    [data-state]:not(:nth-child(4n+1)) {
+      .y-axis text {
+        display: none;
+      }
+    }
   }
 }
