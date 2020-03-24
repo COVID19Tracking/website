@@ -1,6 +1,8 @@
 name: header
 items:
   - title: Data
-    link: data
+    link: /data
   - title: Historical data
-    link: data/historical
+    link: /data/historical
+  - title: How you can help
+    link: /help

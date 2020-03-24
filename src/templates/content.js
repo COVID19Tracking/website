@@ -20,7 +20,7 @@ const ContentPage = ({ pageContext }) => {
           <h1>{frontmatter.title}</h1>
         </>
       )}
-      {navigation && navigation.length && (
+      {navigation && navigation.length > 0 && (
         <SubNavigation navigation={navigation} />
       )}
       {isMdx ? (
