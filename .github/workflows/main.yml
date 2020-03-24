@@ -3,7 +3,7 @@ name: Update site
 # Run action twice per hour (at the 29th and 59th minutes)
 on:
   schedule:
-    - cron: "29,59 * * * *"
+    - cron: "19,39,59 * * * *"
 jobs:
   trigger:
     runs-on: ubuntu-latest
