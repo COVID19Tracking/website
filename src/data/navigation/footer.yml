@@ -1,0 +1,6 @@
+name: footer
+items:
+  - title: About the data
+    link: about
+  - title: About the project
+    link: project

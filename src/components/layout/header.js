@@ -1,31 +1,50 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react'
+import { Link, StaticQuery, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import DevelopmentWarning from './development-warning'
+import '../../scss/components/header.scss'
+
+const HeaderNavigation = ({ navigation }) => (
+  <nav>
+    <ul>
+      {navigation.map(item => (
+        <li key={item.link}>
+          <Link to={item.link}>{item.title}</Link>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)
 
 const Header = ({ siteTitle }) => (
   <>
-    <a href="#main" className="a11y-only focusable">
-      Skip to main content
-    </a>
+    <DevelopmentWarning />
     <header className="site-header">
       <div className="container">
         <a className="site-title" href="/">
-          🚨Test SITE, NOT FOR USE!🚨 {siteTitle}
+          {siteTitle}
         </a>
-
-        <nav>
-          <ul className="site-nav">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/us-daily">US Historical Data</Link>
-            </li>
-            <li>
-              <Link to="/data">Most Recent Data</Link>
-            </li>
-          </ul>
-        </nav>
+        <StaticQuery
+          query={graphql`
+            query {
+              allNavigationYaml(filter: { name: { eq: "header" } }) {
+                edges {
+                  node {
+                    items {
+                      link
+                      title
+                    }
+                  }
+                }
+              }
+            }
+          `}
+          render={data => (
+            <HeaderNavigation
+              navigation={data.allNavigationYaml.edges[0].node.items}
+            />
+          )}
+        ></StaticQuery>
       </div>
     </header>
   </>

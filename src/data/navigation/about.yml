@@ -1,0 +1,6 @@
+name: about
+items:
+  - title: About the data
+    link: /about
+  - title: The Software
+    link: /about/software

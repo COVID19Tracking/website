@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { DateTime } from 'luxon'
-import Layout from '../components/layout'
-import Footer from '../components/layout/footer'
+import Layout from '../../components/layout'
+import BuildTime from '../../components/common/build-time'
 
 const ContentPage = ({ data }) => (
   <Layout>
@@ -12,7 +12,7 @@ const ContentPage = ({ data }) => (
       }}
     />
 
-    <p class="updated">Last synced with our spreadsheet: 3/23 15:33 ET</p>
+    <BuildTime />
 
     <div className="us-days">
       <div className="table-scroll">
@@ -59,8 +59,6 @@ const ContentPage = ({ data }) => (
         </table>
       </div>
     </div>
-
-    <Footer />
   </Layout>
 )
 
