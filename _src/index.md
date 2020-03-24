@@ -22,12 +22,12 @@ From here, you can also [learn about our methodology](/about-tracker/), [see who
 
 <div class="press-logos-container">
 
-![The Atlantic logo](/_assets/img/press-logos/the-atlantic.png)
-![Politico logo](/_assets/img/press-logos/politico.jpg)
-![Vox logo](/_assets/img/press-logos/vox.png)
-![New York Times logo](/_assets/img/press-logos/nyt.png)
-![Talking Points Memo logo](/_assets/img/press-logos/tpm.png)
-![Minnesota Public Radio logo](/_assets/img/press-logos/mpr.jpg)
+![The Atlantic logo](/_assets/img/press-logos/the-atlantic.svg)
+![Politico logo](/_assets/img/press-logos/politico.svg)
+![Vox logo](/_assets/img/press-logos/vox.svg)
+![New York Times logo](/_assets/img/press-logos/nyt.svg)
+![Talking Points Memo logo](/_assets/img/press-logos/tpm.svg)
+![Minnesota Public Radio News logo](/_assets/img/press-logos/mprnews.svg)
 ![The Washington Post logo](/_assets/img/press-logos/wapo.svg)
 
 </div>
