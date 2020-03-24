@@ -267,7 +267,7 @@
     })
 
     const margin = {
-      left: 52,
+      left: 55,
       top: 0,
       right: 55,
       bottom: 40,
@@ -336,7 +336,7 @@
         .classed('small-multiple-chart', true)
         .attr('data-state', state.key)
       const stateName = getStateName(state.key)
-      const stateHed = stateContainer.append('h3').text(stateName)
+      const stateHed = stateContainer.append('h4').text(stateName)
       const svgContainer = stateContainer
         .append('div')
         .classed('chart', true)
