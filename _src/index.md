@@ -31,6 +31,7 @@ From here, you can also [learn about our methodology](/about-tracker/), [see who
 
 </div>
 
+* [Huge testing discrepancies among states muddles the meaning of results](https://www.washingtonpost.com/health/2020/03/23/huge-testing-discrepancies-among-states-muddles-meaning-results), The Washington Post, March 23rd, 2020
 * [U.S. Lags in Coronavirus Testing After Slow Response to Outbreak](https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html), The New York Times, March 17, 2020
 * [Comparing COVID-19 in Minnesota and its neighbors in Upper Midwest](https://www.mprnews.org/story/2020/03/17/comparing-covid19-in-minnesota-and-its-neighbors-in-upper-midwest), Minnesota Public Radio, March 17, 2020
 * [Live tracker: How many coronavirus cases have been reported in each U.S. state?](https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/), Politico, March 16, 2020
