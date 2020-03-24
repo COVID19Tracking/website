@@ -5,7 +5,7 @@ export default {
   title: 'Accessibility utilities',
 }
 
-export const VisuallyHiddenStory = () => (
+export const visuallyHideComponent = () => (
   <p>
     This is a paragraph with some hidden text{' '}
     <a href="/">

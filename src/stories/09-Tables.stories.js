@@ -92,7 +92,7 @@ export default {
   title: 'Tables',
 }
 
-export const TableStory = () => (
+export const simpleTable = () => (
   <Table>
     <ExampleTable />
   </Table>

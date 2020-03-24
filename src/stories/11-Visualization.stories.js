@@ -8,13 +8,13 @@ export default {
   title: 'Visualizations',
 }
 
-export const VisualizationWrapperStory = () => (
+export const visualizationWrapper = () => (
   <VisualizationWrapper>
     <p>Insert cool chart here</p>
   </VisualizationWrapper>
 )
 
-export const VisualizationLinkStory = () => (
+export const linkToVisualization = () => (
   <p>
     <VisualizationLink href="https://covidtracking.com">
       View visualization

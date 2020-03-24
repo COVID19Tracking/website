@@ -5,6 +5,4 @@ export default {
   title: 'Header',
 }
 
-export const HeaderStory = () => (
-  <Header siteTitle="The COVID Tracking Project" />
-)
+export const regular = () => <Header siteTitle="The COVID Tracking Project" />

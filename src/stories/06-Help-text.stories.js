@@ -5,11 +5,11 @@ export default {
   title: 'Detail text',
   parameters: {
     info: {
-      text: 'Used for ',
+      text: 'Used for smaller textual elements',
     },
   },
 }
 
-export const DetailStory = () => (
+export const detailText = () => (
   <DetailText>This only applies to 50% of cases.</DetailText>
 )

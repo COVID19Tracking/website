@@ -2,7 +2,7 @@ import React from 'react'
 import SkipNavigation from '../components/common/skip-navigation'
 
 export default {
-  title: 'SkipNavigation',
+  title: 'Skip Navigation',
 }
 
-export const SkipNavigationStory = () => <SkipNavigation />
+export const skipNavigationLink = () => <SkipNavigation />

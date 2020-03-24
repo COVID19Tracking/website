@@ -20,6 +20,6 @@ export default {
   title: 'Secondary navigation',
 }
 
-export const SecondaryNavigationStory = () => (
+export const regular = () => (
   <SecondaryNavigation navigation={exampleNavigation} />
 )

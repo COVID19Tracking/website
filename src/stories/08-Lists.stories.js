@@ -21,19 +21,19 @@ export default {
   title: 'Lists',
 }
 
-export const UnorderedListStory = () => (
+export const unorderedList = () => (
   <UnorderedList>
     <ExampleList />
   </UnorderedList>
 )
 
-export const OrderedListStory = () => (
+export const orderedList = () => (
   <OrderedList>
     <ExampleList />
   </OrderedList>
 )
 
-export const UnstyledListStory = () => (
+export const unstyledList = () => (
   <UnstyledList>
     <ExampleList />
   </UnstyledList>

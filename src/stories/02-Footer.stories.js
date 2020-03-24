@@ -5,4 +5,4 @@ export default {
   title: 'Footer',
 }
 
-export const FooterStory = () => <Footer />
+export const regular = () => <Footer />
