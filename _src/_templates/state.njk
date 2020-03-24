@@ -28,13 +28,15 @@ layout: base.njk
             <li>
                 <a href="/about-tracker#data-quality-grade">
                     Data quality grade:</a>
-                <span class="state-grade"> {{state.grade}} </span>
+                <span class="state-grade">
+                    {{state.grade}}
+                </span>
             </li>
         {% endif %}
     </ul>
 
     {% if state.notes %}
-         <p>{{ state.notes | markdownify | safe }}</p>
+        <p>{{ state.notes | markdownify | safe }}</p>
     {% endif %}
 
     <table class="state-table">
@@ -65,45 +67,45 @@ layout: base.njk
         </tbody>
     </table>
 
-    <h2>History</h2>
+    <h2 id="history">History</h2>
+    <div class="table-scroll">
+        <table class="state-history-table">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Screenshot</th>
+                    <th scope="col">Positive</th>
+                    <th scope="col">Negative</th>
+                    <th scope="col">Pending</th>
+                    <th scope="col">Hospitalized</th>
+                    <th scope="col">Deaths</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stateDay in sheets.stateDaily %}
+                    {% if stateDay.state == state.state %}
+                        <tr>
+                            <td>{{ stateDay.date | readableYYYYMMDD }}</td>
+                            <td>
+                                {% for screenshot in stateDay.screenshots %}
 
-    <table class="state-history-table">
-        <thead>
-            <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Screenshot</th>
-                <th scope="col">Positive</th>
-                <th scope="col">Negative</th>
-                <th scope="col">Pending</th>
-                <th scope="col">Hospitalized</th>
-                <th scope="col">Deaths</th>
-                <th scope="col">Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for stateDay in sheets.stateDaily %}
-                {% if stateDay.state == state.state %}
-                    <tr>
-                        <td>{{ stateDay.date | readableYYYYMMDD }}</td>
-                        <td>
-                            {% for screenshot in stateDay.screenshots %}
-
-                                <a target="_blank" class="screenshot-link" href="{{ screenshot.url }}">
-                                    <span class="a11y-only">View screenshot at </span>
-                                    {{ screenshot.dateChecked | readableTime }}
-                                </a>
-                            {% endfor %}
-                        </td>
-                        <td>{{ stateDay.positive | thousands }}</td>
-                        <td>{{ stateDay.negative | thousands }}</td>
-                        <td>{{ stateDay.pending | thousands }}</td>
-                        <td>{{ stateDay.hospitalized | thousands }}</td>
-                        <td>{{ stateDay.death | thousands }}</td>
-                        <td>{{ stateDay.total | thousands }}</td>
-                    </tr>
-                {% endif %}
-            {% endfor %}
-        </tbody>
-    </table>
-
+                                    <a target="_blank" class="screenshot-link" href="{{ screenshot.url }}">
+                                        <span class="a11y-only">View screenshot at </span>
+                                        {{ screenshot.dateChecked | readableTime }}
+                                    </a>
+                                {% endfor %}
+                            </td>
+                            <td>{{ stateDay.positive | thousands }}</td>
+                            <td>{{ stateDay.negative | thousands }}</td>
+                            <td>{{ stateDay.pending | thousands }}</td>
+                            <td>{{ stateDay.hospitalized | thousands }}</td>
+                            <td>{{ stateDay.death | thousands }}</td>
+                            <td>{{ stateDay.total | thousands }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>

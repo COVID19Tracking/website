@@ -8,6 +8,10 @@ table {
   }
 }
 
+.table-scroll {
+  overflow-x: scroll;
+}
+
 .state-table-caption,
 th,
 td {
@@ -79,6 +83,7 @@ tbody tr:nth-child(even) {
 
 .state-flex-data {
   border-bottom: 1px solid #ddd;
+  flex-grow: 1;
 
   @media (min-width: $viewport-md) {
     border-bottom: 0.5px solid #ddd;

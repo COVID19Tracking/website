@@ -16,7 +16,7 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addFilter('readableTime', dateObj => {
-    return DateTime.fromISO(dateObj).toFormat('h:mm a')
+    return DateTime.fromISO(dateObj).setZone('America/New_York').toFormat('h:mm a')
   })
 
   eleventyConfig.addFilter('readableYYYYMMDD', day => {
