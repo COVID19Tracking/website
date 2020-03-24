@@ -13,7 +13,6 @@ This project combines two initial independent efforts. Jeff Hammerbacher, Founde
 
 * [Stanley Bishop](https://mltogether.la/)
 * [Kai Curry](https://github.com/webmasterkai)
-* [Erin Kissane](http://incisive.nu)
 * [Shima Dastgheib](https://twitter.com/shimadastgheib)
 * [Katerina Dimitratos](https://twitter.com/kdimitratos)
 * [J. Peter Donald](https://twitter.com/JPeterDonald)
