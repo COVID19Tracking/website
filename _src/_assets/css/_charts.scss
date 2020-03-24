@@ -11,6 +11,15 @@ Byline/publish date: #8FA3AD - size 13pt
 
 */
 
+.side-by-side {
+  display: flex;
+
+  .graphic {
+    flex-grow: 1;
+    width: 45%;
+  }
+}
+
 .chart-hed {
   color: #000000;
   display: block;
@@ -28,6 +37,11 @@ Byline/publish date: #8FA3AD - size 13pt
     margin-top: .2rem;
     margin-bottom: .2rem;
   }
+}
+
+.x-axis .domain,
+.x-axis-group .domain {
+  display: none;
 }
 
 .y-axis .domain,
@@ -112,7 +126,7 @@ Byline/publish date: #8FA3AD - size 13pt
   }
 
   [data-state="NY"] svg {
-    top: -187px;
+    top: -120px;
   }
   
   .chart-state-link {

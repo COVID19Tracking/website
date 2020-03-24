@@ -6,6 +6,9 @@
   const usDailyReq = d3.json('https://covidtracking.com/api/us/daily')
   const stateDailyReq = d3.json('https://covidtracking.com/api/states/daily')
 
+  const totalColor = '#585BC1'
+  const positiveColor = '#FFA270'
+
   function calculateTotal(d) {
     return d.positive + (d.negative || 0)
   }
@@ -110,10 +113,10 @@
       })
       .height(400)
       .width(width)
-      .colorSchema(['#546D8E', 'orange'])
+      .colorSchema([positiveColor, totalColor])
 
     legendChart
-      .colorSchema(['orange', '#546D8E'])
+      .colorSchema([positiveColor, totalColor])
       .height(50)
       .isHorizontal(true)
       .margin({
@@ -216,8 +219,7 @@
 
     // we need to go through the data and figure out the maximum
     // numbers that we're dealing with here
-    const totals = data
-      .map(function(d) {
+    const totals = data.map(function(d) {
         return calculateTotal(d)
       })
       .sort(function(a, b) {
@@ -256,9 +258,6 @@
         return yScale(d.value)
       })
       .y1(chartHeight - totalYMargin)
-
-    const totalColor = '#585BC1' 
-    const positiveColor = '#FFA270'
 
     d3.select('#small-multiples-positive-span').style(
       'background-color',
@@ -401,8 +400,16 @@
     .then(data => {
       const usDaily = data[0]
       const stateDaily = data[1]
-      addUsDailyPositiveBarChart(usDaily)
-      addUsDailyDeathBarChart(usDaily)
+
+      const sortedUsDaily = usDaily.sort(function(a, b) {
+        const aDate = parseDate(a.date)
+        const bDate = parseDate(b.date)
+
+        return aDate - bDate
+      })
+
+      addUsDailyPositiveBarChart(sortedUsDaily)
+      addUsDailyDeathBarChart(sortedUsDaily)
       addStateLevelSmallMultiples(stateDaily)
     })
     .catch(err => {
