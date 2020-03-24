@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby'
 import formatDate from '../utilities/format-date'
 import thousands from '../utilities/format-thousands'
 import { UnstyledList } from '../components/common/lists'
+import { DayTime, DateTime } from 'luxon'
 import marked from 'marked'
 import DetailText from '../components/common/detail-text'
 import SummaryTable from '../components/common/summary-table'
@@ -31,7 +32,37 @@ const StateLinks = ({ name, twitter, covid19Site, dataSource }) => (
   </UnstyledList>
 )
 
-const StateHistory = ({ history }) => (
+const Screenshots = ({ date, screenshots }) => {
+  const dateScreenshots = []
+  const currentDate = DateTime.fromISO(date)
+  screenshots.forEach(({ node }) => {
+    if (DateTime.fromISO(node.dateChecked).hasSame(currentDate, 'day')) {
+      dateScreenshots.push(node)
+    }
+  })
+  if (dateScreenshots.length === 0) {
+    return null
+  }
+  return (
+    <ul>
+      {dateScreenshots.map(screenshot => (
+        <li key={`screenshot-${screenshot.ETag}`}>
+          <a href={screenshot.url} target="_blank">
+            {screenshot.dateChecked && (
+              <>
+                {DateTime.fromISO(screenshot.dateChecked)
+                  .toFormat('h:mm a')
+                  .toLowerCase()}
+              </>
+            )}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+const StateHistory = ({ history, screenshots }) => (
   <Table>
     <thead>
       <tr>
@@ -47,9 +78,11 @@ const StateHistory = ({ history }) => (
     </thead>
     <tbody>
       {history.map(({ node }) => (
-        <tr key={`history-${node.date}`}>
-          <td>{formatDate(node.date)}</td>
-          <td></td>
+        <tr key={`history-${node.dateChecked}`}>
+          <td>{formatDate(node.dateChecked)}</td>
+          <td>
+            <Screenshots date={node.dateChecked} screenshots={screenshots} />
+          </td>
           <td>{thousands(node.positive)}</td>
           <td>{thousands(node.negative)}</td>
           <td>{thousands(node.pending)}</td>
@@ -80,7 +113,10 @@ const StatePage = ({ pageContext, data }) => {
       <SummaryTable data={summary} />
       <DetailText>Last updated {summary.lastUpdateEt}</DetailText>
       <h2>History</h2>
-      <StateHistory history={data.allCovidStateDaily.edges} />
+      <StateHistory
+        history={data.allCovidStateDaily.edges}
+        screenshots={data.allCovidScreenshot.edges}
+      />
     </Layout>
   )
 }
@@ -118,6 +154,20 @@ export const query = graphql`
           hospitalized
           death
           dateChecked
+        }
+      }
+    }
+    allCovidScreenshot(
+      filter: { state: { eq: $state } }
+      sort: { fields: dateChecked, order: DESC }
+    ) {
+      edges {
+        node {
+          size
+          url
+          state
+          dateChecked
+          ETag
         }
       }
     }
