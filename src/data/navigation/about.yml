@@ -2,5 +2,7 @@ name: about
 items:
   - title: About the data
     link: /about
+  - title: Data API
+    link: /about/api
   - title: The Software
     link: /about/software

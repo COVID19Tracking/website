@@ -29,7 +29,12 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-mdx`,
     `gatsby-transformer-yaml`,
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-autolink-headers`],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

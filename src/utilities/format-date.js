@@ -7,5 +7,5 @@ export default (date, format) => {
   if (!format) {
     format = 'dd LLL yyyy ccc'
   }
-  return DateTime.fromFormat(date + '', 'yyyyMMdd').toFormat(format)
+  return DateTime.fromISO(date).toFormat(format)
 }
