@@ -1,3 +1,3 @@
 [build]
   publish = "public"
-  command = "gatsby build"
+  command = "npm run build"
