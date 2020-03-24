@@ -69,11 +69,13 @@ const StatePage = ({ pageContext, data }) => {
     <Layout title={state.name}>
       <h1>{state.name}</h1>
       <StateLinks {...state} />
-      <div
-        dangerouslySetInnerHTML={{
-          __html: marked(state.notes),
-        }}
-      />
+      {state.notes && (
+        <div
+          dangerouslySetInnerHTML={{
+            __html: marked(state.notes),
+          }}
+        />
+      )}
       <BuildTime />
       <SummaryTable data={summary} />
       <DetailText>Last updated {summary.lastUpdateEt}</DetailText>
