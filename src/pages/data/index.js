@@ -4,6 +4,7 @@ import Layout from '../../components/layout'
 import BuildTime from '../../components/common/build-time'
 import slug from '../../utilities/slug'
 import SummaryTable from '../../components/common/summary-table'
+import PressList from '../../components/common/press'
 
 const StateList = ({ states }) => (
   <ul>
@@ -25,6 +26,8 @@ export default ({ data }) => (
     />
     <BuildTime />
     <SummaryTable data={data.allCovidUs.edges[0].node} />
+    <h2>In The Press</h2>
+    <PressList press={data.allCovidPress.edges} />
     <h2>States</h2>
     <StateList states={data.allCovidStateInfo.edges} />
   </Layout>
@@ -62,6 +65,17 @@ export const query = graphql`
         node {
           name
           state
+        }
+      }
+    }
+    allCovidPress(filter: {addToCovidTrackingProjectWebsite: {eq: true}}) {
+      edges {
+        node {
+          title
+          url
+          publishDate(formatString: "DD MMMM YYYY")
+          id
+          publication
         }
       }
     }
