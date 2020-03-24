@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
+import DevelopmentWarning from './development-warning'
 
 const Header = ({ siteTitle }) => (
   <>
+    <DevelopmentWarning />
     <header className="site-header">
       <div className="container">
         <a className="site-title" href="/">
-          🚨Test SITE, NOT FOR USE!🚨 {siteTitle}
+          {siteTitle}
         </a>
 
         <nav>

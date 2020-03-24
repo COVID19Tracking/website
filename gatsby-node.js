@@ -3,7 +3,7 @@ const path = require('path')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `MarkdownRemark` || node.internal.type === `Mdx`) {
     const slug = createFilePath({ node, getNode, basePath: `content` })
     createNodeField({
       node,
@@ -27,6 +27,24 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             id
+            html
+            frontmatter {
+              title
+            }
+            fields {
+              slug
+            }
+          }
+        }
+      }
+      allMdx(filter: { fields: { isPage: { eq: true } } }) {
+        edges {
+          node {
+            id
+            body
+            frontmatter {
+              title
+            }
             fields {
               slug
             }
@@ -40,7 +58,19 @@ exports.createPages = async ({ graphql, actions }) => {
       path: node.fields.slug,
       component: path.resolve(`./src/templates/content.js`),
       context: {
-        id: node.id,
+        page: node,
+        isMdx: false,
+      },
+    })
+  })
+
+  result.data.allMdx.edges.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/content.js`),
+      context: {
+        page: node,
+        isMdx: true,
       },
     })
   })
