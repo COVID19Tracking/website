@@ -5,8 +5,9 @@ nav: Dashboard
 
 <div class="dashboard">
   <div class="graphic" id=""></div>
+  <div id="map-legend"></div>
   <div class="map" title="State Positive Cases / million people" id="state-map"></div>
-  <div class="side-by-side">
+  <p class="a11y-only"><a href="/data">Access data by state</a></p>  <div class="side-by-side">
     <div class="graphic" id="chart-daily-positive-total"></div>
     <div class="graphic" id="chart-daily-death-total"></div>
   </div>
@@ -21,6 +22,7 @@ nav: Dashboard
 </div>
 
 <script src="/_assets/js/d3.js"></script>
+<script src="/_assets/js/d3-legend.js"></script>
 <script src="/_assets/js/britecharts.js"></script>
 
 <!-- map resources -->
