@@ -6,6 +6,10 @@
   const usDailyReq = d3.json('https://covidtracking.com/api/us/daily')
   const stateDailyReq = d3.json('https://covidtracking.com/api/states/daily')
 
+  function calculateTotal(d) {
+    return d.positive + (d.negative || 0)
+  }
+
   function getStateName(abbr) {
     const names = {
       'AK': 'Alaska',
@@ -35,6 +39,7 @@
       'MI': 'Michigan',
       'MN': 'Minnesota',
       'MO': 'Missouri',
+      'MP': 'Marshall Islands',
       'MS': 'Mississippi',
       'MT': 'Montana',
       'NC': 'North Carolina',
@@ -57,6 +62,7 @@
       'TX': 'Texas',
       'UT': 'Utah',
       'VA': 'Virginia',
+      'VI': 'Virgin Islands',
       'VT': 'Vermont',
       'WA': 'Washington',
       'WI': 'Wisconsin',
@@ -78,7 +84,7 @@
         {
           name: formatDate(date),
           group: 'Total',
-          value: d.total,
+          value: calculateTotal(d),
         },
       ]
     }).flat()
@@ -212,7 +218,7 @@
     // numbers that we're dealing with here
     const totals = data
       .map(function(d) {
-        return d.total
+        return calculateTotal(d)
       })
       .sort(function(a, b) {
         return b - a
@@ -263,8 +269,17 @@
       totalColor,
     )
 
+    const sortedGroupedByState = groupedByState.sort(function(a, b) {
+      const lastA = a.values[0]
+      const lastB = b.values[0]
+
+      const lastATotal = calculateTotal(lastA)
+      const lastBTotal = calculateTotal(lastB)
+      return lastBTotal - lastATotal
+    })
+
     // go through each state's data and add a chart
-    groupedByState.forEach(function(state) {
+    sortedGroupedByState.forEach(function(state) {
       // because we're just charting two variables we make them here
       // we do this instead of creating two different area chart generators
       const positive = state.values.map(function(d) {
@@ -276,7 +291,7 @@
       const total = state.values.map(function(d) {
         return {
           date: parseDate(d.date),
-          value: d.total,
+          value: calculateTotal(d),
         }
       })
 

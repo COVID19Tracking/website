@@ -12,7 +12,10 @@ nav: Dashboard
   </div>
   <div id="chart-state-small-multiples">
     <h2>Cumulative <span id="small-multiples-positive-span">positive</span> and <span id="small-multiples-total-span">total</span> tests per state</h2>
-    <div><!-- where the graphics end up --></div>
+    <div class="charts"><!-- where the graphics end up --></div>
+    <div class="charts-notes">
+      <p><strong>Note:</strong> We derive the <code>total</code> value by adding together the <code>positive</code> and <code>negative</code> value for each state. This is to account for differences in how states reporting <code>pending</code> tests.</p>
+    </div>
   </div>
 </div>
 
