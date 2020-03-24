@@ -98,7 +98,7 @@
     const chart = chartContainer.append('div')
       .classed('chart', true)
       .classed('no-y-axis-domain', true)
-    const source = chartContainer.append('div').classed('chart-source', true)
+    const source = chartContainer.append('div').classed('chart-api-note', true)
     const barChart = britecharts.groupedBar()
     const legendChart = britecharts.legend()
 
@@ -109,11 +109,11 @@
         left: 90,
         right: 20,
         top: 20,
-        bottom: 80,
+        bottom: 20,
       })
-      .height(400)
+      .height(350)
       .width(width)
-      .colorSchema([positiveColor, totalColor])
+      .colorSchema([totalColor, positiveColor])
 
     legendChart
       .colorSchema([positiveColor, totalColor])
@@ -137,8 +137,7 @@
 
     hed.text('Positive tests and total tests per in the US')
     source.html(`
-      <p><strong>Notes:</strong></p>
-      <p>Source: <a href="https://covidtracking.com/api/us/daily">COVID Tracking Project</a></p>
+      <p><a href="https://covidtracking.com/api/us/daily">Get this data from our API</a></p>
     `)
   }
 
@@ -158,7 +157,7 @@
       .append('div')
       .classed('chart', true)
       .classed('no-y-axis-domain', true)
-    const source = chartContainer.append('div').classed('chart-source', true)
+    const source = chartContainer.append('div').classed('chart-api-note', true)
     const barChart = britecharts.bar()
     const legendChart = britecharts.legend()
 
@@ -169,13 +168,13 @@
         left: 60,
         right: 20,
         top: 20,
-        bottom: 80,
+        bottom: 20,
       })
       .colorSchema(['#546D8E'])
       .highlightBarFunction(function(bar) {
         bar.attr('fill', 'orange')
       })
-      .height(400)
+      .height(350)
       .width(width)
       .xAxisLabel('Date')
 
@@ -199,9 +198,26 @@
     hed.text('Total cumulative deaths by day in the US')
     chart.datum(transformedData).call(barChart)
     source.html(`
-      <p><strong>Notes:</strong></p>
-      <p>Source: <a href="https://covidtracking.com/api/us/daily">COVID Tracking Project</a></p>
+      <p><a href="https://covidtracking.com/api/us/daily">Get this data from our API</a></p>
     `)
+  }
+
+  function addGridLinesToBriteChartCharts() {
+    const ids = ['#chart-daily-positive-total', '#chart-daily-death-total']
+
+    ids.forEach(function(id) {
+      const container = d3.select(id)
+      const tickSelector = id + ' .y-axis-group .tick'
+      const chart = container.select('.chart-group')
+      d3.selectAll(tickSelector).each(function(d) {
+        const tick = d3.select(this)
+        const line = tick.select('line')
+
+        line.attr('x1', container.node().clientWidth * .78)
+      })
+      
+      chart.raise()
+    })
   }
 
   function addStateLevelSmallMultiples(data) {
@@ -334,8 +350,6 @@
 
       svg.attr('height', stateChartHeight)
 
-      console.log({ state, stateMaxY })
-
       // make a group to hold the axi (axises?)
       const axi = svg
         .append('g')
@@ -388,7 +402,7 @@
         .attr('d', function(d) {
           return area(d)
         })
-        .attr('opacity', 0.8)
+        .attr('opacity', 0.9)
         .attr('fill', function(d, i) {
           if (i === 0) return totalColor
           return positiveColor
@@ -411,6 +425,9 @@
       addUsDailyPositiveBarChart(sortedUsDaily)
       addUsDailyDeathBarChart(sortedUsDaily)
       addStateLevelSmallMultiples(stateDaily)
+      setTimeout(function() {
+        addGridLinesToBriteChartCharts()
+      }, 300)
     })
     .catch(err => {
       console.error({ err })

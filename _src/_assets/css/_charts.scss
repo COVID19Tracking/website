@@ -30,12 +30,14 @@ Byline/publish date: #8FA3AD - size 13pt
   text-transform: uppercase;
 }
 
-.chart-source {
+.chart-api-note {
   p {
     color: #000000;
-    font-size: 15pt;
+    font-size: 10pt;
     margin-top: .2rem;
     margin-bottom: .2rem;
+    text-align: right;
+    width: 86%;
   }
 }
 
@@ -69,19 +71,30 @@ Byline/publish date: #8FA3AD - size 13pt
     transform: translate(-1em, 0);
   }
 
-  .x-axis-group .tick text {
-    transform: rotate(90deg) translate(2.2em, -1em);
-  }
+  // .x-axis-group .tick text {
+  //   transform: rotate(90deg) translate(2.2em, -1em);
+  // }
 
   .area-outline {
     fill: none;
   }
 }
 
+#chart-daily-positive-total,
+#chart-daily-death-total {
+  .x-axis-group .tick:not(:nth-child(3n+1)) {
+    display: none;
+  }
+
+  .y-axis-group .tick:not(:nth-child(even)) {
+    display: none;
+  }
+}
+
 #chart-state-small-multiples {
   position: relative;
 
-  h2 {
+  .chart-dek {
     background-color: white;
     padding-top: .5rem;
     padding-bottom: .5rem;
