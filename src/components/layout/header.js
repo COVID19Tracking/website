@@ -1,12 +1,9 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react'
+import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
 
 const Header = ({ siteTitle }) => (
   <>
-    <a href="#main" className="a11y-only focusable">
-      Skip to main content
-    </a>
     <header className="site-header">
       <div className="container">
         <a className="site-title" href="/">
