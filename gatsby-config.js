@@ -82,7 +82,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'screenshots',
-        url: `https://covidtracking.com/screenshots`,
+        url: `https://covidtracking.com/api/screenshots`,
       },
     },
     {
