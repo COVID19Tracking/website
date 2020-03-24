@@ -64,3 +64,6 @@ typings/
 # Gatsby
 public
 .cache
+
+# MacOS
+.DS_Store
