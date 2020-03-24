@@ -202,11 +202,13 @@
     `)
   }
 
-  function addGridLinesToBriteChartCharts() {
+  function alterBriteChartStyles() {
     const ids = ['#chart-daily-positive-total', '#chart-daily-death-total']
 
     ids.forEach(function(id) {
       const container = d3.select(id)
+      
+      // set up grid lines
       const tickSelector = id + ' .y-axis-group .tick'
       const chart = container.select('.chart-group')
       d3.selectAll(tickSelector).each(function(d) {
@@ -217,6 +219,24 @@
       })
       
       chart.raise()
+
+      // change circle legend indicators to squares
+
+      const entries = container.selectAll('.legend-entry')
+
+      entries.each(function(d) {
+        const entry = d3.select(this)
+        const circle = entry.select('.legend-circle')
+
+        entry.append('rect')
+          .attr('fill', circle.style('fill'))
+          .attr('x', 0)
+          .attr('y', -13)
+          .attr('width', 16)
+          .attr('height', 16)
+
+        circle.remove()
+      })
     })
   }
 
@@ -426,8 +446,8 @@
       addUsDailyDeathBarChart(sortedUsDaily)
       addStateLevelSmallMultiples(stateDaily)
       setTimeout(function() {
-        addGridLinesToBriteChartCharts()
-      }, 300)
+        alterBriteChartStyles()
+      }, 200)
     })
     .catch(err => {
       console.error({ err })
