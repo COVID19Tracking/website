@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { DateTime } from 'luxon'
-import Layout from '../components/layout'
+import Layout from '../../components/layout'
 
 const ContentPage = ({ data }) => (
   <Layout>

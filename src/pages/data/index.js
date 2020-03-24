@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { DateTime } from 'luxon'
-import Layout from '../components/layout'
-import Table from '../components/common/table'
-import thousands from '../utilities/format-thousands'
+import Layout from '../../components/layout'
+import Table from '../../components/common/table'
+import thousands from '../../utilities/format-thousands'
 
 const USData = ({ data }) => (
   <Table>
