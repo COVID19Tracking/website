@@ -5,6 +5,7 @@ import Header from './header'
 import Footer from './footer'
 import SkipNavigation from '../common/skip-navigation'
 import { SkipNavContent } from '@reach/skip-nav'
+import '../../scss/global.scss'
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
