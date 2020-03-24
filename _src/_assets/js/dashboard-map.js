@@ -5,8 +5,10 @@
     maximumFractionDigits: 1,
   })
 
-  const colorLimits = [1, 5, 10, 25, 50, 100, 250, 500]
+  const colorLimits = [5, 10, 25, 50, 100, 250, 500]
 
+  const getOldColor = d3.scaleThreshold(colorLimits, d3.schemeYlOrRd[8])
+  //const getColor = d3.scaleSequential([0, 500], d3.interpolateViridis);
   const getColor = d => {
     return d > colorLimits[7]
       ? '#800026'
@@ -24,6 +26,7 @@
       ? '#FED976'
       : '#FFEDA0'
   }
+
   const joinDataToGeoJson = (geoJSON, stateArray) => {
     //in addition to joining latest state data to their shapes this also calculates positive cases per million people
     const stateObject = Object.assign(
@@ -191,37 +194,18 @@
     }).addTo(map)
   }
 
-  const addLegend = () => {
-    // add legend
-    var legend = L.control({ position: 'bottomright' })
-
-    legend.onAdd = function(map) {
-      var div = L.DomUtil.create('div', 'map-info map-legend'),
-        labels = []
-
-      // loop through our density intervals and generate a label with a colored square for each interval
-      for (var i = 0; i < colorLimits.length; i++) {
-        div.innerHTML +=
-          '<i style="background:' +
-          getColor(colorLimits[i] + 1) +
-          '"></i> ' +
-          formatter.format(colorLimits[i]) +
-          (colorLimits[i + 1]
-            ? '&ndash;' + formatter.format(colorLimits[i + 1]) + '<br>'
-            : '+')
-      }
-
-      return div
-    }
-
-    legend.addTo(map)
-  }
-
   // addDataToMap() relies on map & info being defined within scope
   const map = initializeMap()
   const info = addInfoBox()
-
-  addLegend()
+  // add legend
+  d3.select('#map-legend').append(() =>
+    d3Legend({
+      color: getOldColor,
+      height: 60,
+      title: 'Cases / million',
+      tickFormat: '.0f',
+    }),
+  )
 
   Promise.all([
     d3.json(`../_assets/json/state-populations.json`), // state population data comes from USCB American Community Survey
