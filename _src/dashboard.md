@@ -10,11 +10,14 @@ nav: Dashboard
     <div class="graphic" id="chart-daily-death-total"></div>
   </div>
   <br />
-  <div class="map" title="State Positive Cases / million people" id="state-map">
+  <div id="map-legend"></div>
+  <div class="map" title="State Positive Cases / million people" id="state-map"></div>
+  <p class="a11y-only"><a href="/data">Access data by state</a></p>
 </div>
 
 <link rel="stylesheet" href="/_assets/css/c3.css" >
 <script src="/_assets/js/d3.js"></script>
+<script src="/_assets/js/d3-legend.js"></script>
 <script src="/_assets/js/britecharts.js"></script>
 
 <!-- map resources -->

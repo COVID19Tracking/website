@@ -5,9 +5,11 @@
     maximumFractionDigits: 1,
   })
 
-  const colorLimits = [1, 5, 10, 25, 50, 100, 250, 500]
+  const colorLimits = [5, 10, 25, 50, 100, 250, 500]
 
-  const getColor = d => {
+  const getColor = d3.scaleThreshold(colorLimits, d3.schemeYlOrRd[8])
+  //const getColor = d3.scaleSequential([0, 500], d3.interpolateViridis);
+  const getOldColor = d => {
     return d > colorLimits[7]
       ? '#800026'
       : d > colorLimits[6]
@@ -24,6 +26,7 @@
       ? '#FED976'
       : '#FFEDA0'
   }
+
   const joinDataToGeoJson = (geoJSON, stateArray) => {
     //in addition to joining latest state data to their shapes this also calculates positive cases per million people
     const stateObject = Object.assign(
@@ -47,13 +50,12 @@
     return { ...geoJSON, features: joinedFeatures }
   }
   const initializeMap = () => {
-    const map = L.map('state-map').setView([38.617379, -101.318915], 3)
+    //const map = L.map('state-map').setView([38.617379, -101.318915], 3)
     // code below is to use albers us projection
-    /*
     var proj = d3
       .geoAlbersUsa()
       // .translate([0, 0])
-      .scale(0.5)
+      .scale(0.7)
 
     var AlbersProjection = {
       project: function(latLng) {
@@ -72,9 +74,25 @@
       infinite: true,
     })
 
-    var center = [37.8, -96]
-    const map = new L.Map('state-map', { crs: AlbersCRS }).setView(center, 2)
-*/
+    var center = [39, -98]
+    const map = new L.Map('state-map', {
+      crs: AlbersCRS,
+      attribution: 'test',
+    }).setView(center, 2)
+
+    // Attribution options
+    map.attributionControl.addAttribution(
+      `<a href="https://www.census.gov/programs-surveys/acs/">USCB ACS 2018</a>`,
+    )
+
+    map.removeControl(map.zoomControl)
+    map.dragging.disable()
+    map.touchZoom.disable()
+    map.doubleClickZoom.disable()
+    map.scrollWheelZoom.disable()
+
+    //tile layer unneeded for map
+    /*
     L.tileLayer(
       'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
       {
@@ -88,6 +106,7 @@
           'pk.eyJ1IjoiZ29sZWFyeSIsImEiOiJjaXJmNWh5YmgwMDd6ZzNuZXVsOHplYXRmIn0.41N9r7fWdPMGEz60wv5eZw',
       },
     ).addTo(map)
+    */
     return map
   }
 
@@ -103,18 +122,16 @@
 
     // method that we will use to update the control based on feature properties passed
     info.update = function(props) {
-      this._div.innerHTML =
-        '<h4>Cases per Million</h4>' +
-        (props
-          ? '<b>' +
-            props.NAME +
-            '</b><br />' +
-            formatter.format(props.casesPerMil) +
-            ' cases / million' +
-            '<br / >' +
-            formatter.format(props.positive) +
-            ' total cases'
-          : 'Hover over a state')
+      this._div.innerHTML = props
+        ? '<b>' +
+          props.NAME +
+          '</b><br />' +
+          formatter.format(props.casesPerMil) +
+          ' cases / million' +
+          '<br / >' +
+          formatter.format(props.positive) +
+          ' total cases'
+        : 'Hover over a state'
     }
 
     return info.addTo(map)
@@ -191,37 +208,19 @@
     }).addTo(map)
   }
 
-  const addLegend = () => {
-    // add legend
-    var legend = L.control({ position: 'bottomright' })
-
-    legend.onAdd = function(map) {
-      var div = L.DomUtil.create('div', 'map-info map-legend'),
-        labels = []
-
-      // loop through our density intervals and generate a label with a colored square for each interval
-      for (var i = 0; i < colorLimits.length; i++) {
-        div.innerHTML +=
-          '<i style="background:' +
-          getColor(colorLimits[i] + 1) +
-          '"></i> ' +
-          formatter.format(colorLimits[i]) +
-          (colorLimits[i + 1]
-            ? '&ndash;' + formatter.format(colorLimits[i + 1]) + '<br>'
-            : '+')
-      }
-
-      return div
-    }
-
-    legend.addTo(map)
-  }
-
   // addDataToMap() relies on map & info being defined within scope
   const map = initializeMap()
   const info = addInfoBox()
-
-  addLegend()
+  // add legend
+  d3.select('#map-legend').append(() =>
+    d3Legend({
+      color: getColor,
+      height: 65,
+      width: 200,
+      title: 'Cases per one million people',
+      tickFormat: '.0f',
+    }),
+  )
 
   Promise.all([
     d3.json(`../_assets/json/state-populations.json`), // state population data comes from USCB American Community Survey
