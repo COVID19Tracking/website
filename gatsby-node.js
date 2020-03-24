@@ -30,6 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
             html
             frontmatter {
               title
+              navigation
             }
             fields {
               slug
@@ -44,6 +45,7 @@ exports.createPages = async ({ graphql, actions }) => {
             body
             frontmatter {
               title
+              navigation
             }
             fields {
               slug
@@ -51,14 +53,35 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allNavigationYaml {
+        edges {
+          node {
+            name
+            items {
+              title
+              link
+            }
+          }
+        }
+      }
     }
   `)
+  const navigation = {}
+  result.data.allNavigationYaml.edges.forEach(({ node }) => {
+    navigation[node.name] = node.items
+  })
+
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/templates/content.js`),
       context: {
         page: node,
+        navigation:
+          node.frontmatter.navigation &&
+          typeof navigation[node.frontmatter.navigation] !== 'undefined'
+            ? navigation[node.frontmatter.navigation]
+            : [],
         isMdx: false,
       },
     })
@@ -70,6 +93,11 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/content.js`),
       context: {
         page: node,
+        navigation:
+          node.frontmatter.navigation &&
+          typeof navigation[node.frontmatter.navigation] !== 'undefined'
+            ? navigation[node.frontmatter.navigation]
+            : [],
         isMdx: true,
       },
     })

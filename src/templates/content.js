@@ -5,11 +5,12 @@ import Footer from '../components/layout/footer'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Link } from 'gatsby'
+import SubNavigation from '../components/common/sub-navigation'
 
 const shortcodes = { Link }
 
 const ContentPage = ({ pageContext }) => {
-  const { isMdx, page } = pageContext
+  const { isMdx, page, navigation } = pageContext
   const { frontmatter } = page
   return (
     <Layout>
@@ -18,6 +19,9 @@ const ContentPage = ({ pageContext }) => {
           <SEO title={frontmatter.title} />
           <h1>{frontmatter.title}</h1>
         </>
+      )}
+      {navigation && navigation.length && (
+        <SubNavigation navigation={navigation} />
       )}
       {isMdx ? (
         <MDXProvider components={shortcodes}>

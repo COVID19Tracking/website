@@ -39,6 +39,14 @@ module.exports = {
     },
     `gatsby-transformer-remark`,
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `navigation`,
+        path: `${__dirname}/src/data/navigation`,
+      },
+    },
+    `gatsby-transformer-yaml`,
+    {
       resolve: 'gatsby-source-apiserver',
       options: {
         typePrefix: 'covid__',

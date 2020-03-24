@@ -1,0 +1,8 @@
+name: about-project
+items:
+  - title: About the project
+    link: /project
+  - title: FAQ
+    link: /project/faq
+  - title: The team
+    link: /project/team
