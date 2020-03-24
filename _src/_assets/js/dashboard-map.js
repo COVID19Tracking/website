@@ -48,6 +48,33 @@
   }
   const initializeMap = () => {
     const map = L.map('state-map').setView([38.617379, -101.318915], 3)
+    // code below is to use albers us projection
+    /*
+    var proj = d3
+      .geoAlbersUsa()
+      // .translate([0, 0])
+      .scale(0.5)
+
+    var AlbersProjection = {
+      project: function(latLng) {
+        var point = proj([latLng.lng, latLng.lat])
+        return point ? new L.Point(point[0], point[1]) : new L.Point(0, 0)
+      },
+      unproject: function(point) {
+        var latLng = proj.invert([point.x, point.y])
+        return new L.LatLng(latLng[1], latLng[0])
+      },
+    }
+
+    var AlbersCRS = L.extend({}, L.CRS, {
+      projection: AlbersProjection,
+      transformation: new L.Transformation(1, 0, 1, 0),
+      infinite: true,
+    })
+
+    var center = [37.8, -96]
+    const map = new L.Map('state-map', { crs: AlbersCRS }).setView(center, 2)
+*/
     L.tileLayer(
       'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
       {
@@ -82,11 +109,11 @@
           ? '<b>' +
             props.NAME +
             '</b><br />' +
-            formatter.format(props.positive) +
-            ' people' +
-            '<br / >' +
             formatter.format(props.casesPerMil) +
-            ' cases / million'
+            ' cases / million' +
+            '<br / >' +
+            formatter.format(props.positive) +
+            ' total cases'
           : 'Hover over a state')
     }
 
@@ -99,10 +126,8 @@
       var layer = e.target
 
       layer.setStyle({
-        weight: 4,
-        dashArray: '',
+        weight: 2,
         fillOpacity: 0.9,
-        color: '#666',
       })
 
       if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -132,7 +157,6 @@
       weight: 1,
       fillOpacity: 0.7,
       color: 'white',
-      dashArray: '3',
     }
 
     // only used for lines & shapes
