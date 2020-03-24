@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { DateTime } from 'luxon'
 import Layout from '../components/layout'
-import Footer from '../components/layout/footer'
 
 const ContentPage = ({ data }) => (
   <Layout>
@@ -59,8 +58,6 @@ const ContentPage = ({ data }) => (
         </table>
       </div>
     </div>
-
-    <Footer />
   </Layout>
 )
 

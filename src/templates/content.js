@@ -1,7 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import Footer from '../components/layout/footer'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Link } from 'gatsby'
@@ -30,7 +29,6 @@ const ContentPage = ({ pageContext }) => {
       ) : (
         <div dangerouslySetInnerHTML={{ __html: page.html }} />
       )}
-      <Footer />
     </Layout>
   )
 }
