@@ -28,6 +28,7 @@ From here, you can also [learn about our methodology](/about-tracker/), [see who
 ![New York Times logo](/_assets/img/press-logos/nyt.png)
 ![Talking Points Memo logo](/_assets/img/press-logos/tpm.png)
 ![Minnesota Public Radio logo](/_assets/img/press-logos/mpr.jpg)
+![The Washington Post logo](/_assets/img/press-logos/wapo.svg)
 
 </div>
 
