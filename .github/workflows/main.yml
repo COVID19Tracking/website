@@ -1,6 +1,6 @@
 name: Update site
 
-# Run action twice per hour (at the 29th and 59th minutes)
+# Run action three times per hour.
 on:
   schedule:
     - cron: "19,39,59 * * * *"
