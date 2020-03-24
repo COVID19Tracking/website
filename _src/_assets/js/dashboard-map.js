@@ -50,13 +50,12 @@
     return { ...geoJSON, features: joinedFeatures }
   }
   const initializeMap = () => {
-    const map = L.map('state-map').setView([38.617379, -101.318915], 3)
+    //const map = L.map('state-map').setView([38.617379, -101.318915], 3)
     // code below is to use albers us projection
-    /*
     var proj = d3
       .geoAlbersUsa()
       // .translate([0, 0])
-      .scale(0.5)
+      .scale(0.7)
 
     var AlbersProjection = {
       project: function(latLng) {
@@ -75,9 +74,25 @@
       infinite: true,
     })
 
-    var center = [37.8, -96]
-    const map = new L.Map('state-map', { crs: AlbersCRS }).setView(center, 2)
-*/
+    var center = [39, -98]
+    const map = new L.Map('state-map', {
+      crs: AlbersCRS,
+      attribution: 'test',
+    }).setView(center, 2)
+
+    // Attribution options
+    map.attributionControl.addAttribution(
+      `<a href="https://www.census.gov/programs-surveys/acs/">USCB ACS 2018</a>`,
+    )
+
+    map.removeControl(map.zoomControl)
+    map.dragging.disable()
+    map.touchZoom.disable()
+    map.doubleClickZoom.disable()
+    map.scrollWheelZoom.disable()
+    
+    //tile layer unneeded for map
+    /*
     L.tileLayer(
       'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
       {
@@ -91,6 +106,7 @@
           'pk.eyJ1IjoiZ29sZWFyeSIsImEiOiJjaXJmNWh5YmgwMDd6ZzNuZXVsOHplYXRmIn0.41N9r7fWdPMGEz60wv5eZw',
       },
     ).addTo(map)
+    */
     return map
   }
 
