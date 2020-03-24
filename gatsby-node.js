@@ -1,5 +1,6 @@
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const path = require('path')
+const slugify = require('slugify')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -64,13 +65,27 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allCovidStateInfo(sort: { fields: state }) {
+        edges {
+          node {
+            covid19Site
+            covid19SiteSecondary
+            notes
+            name
+            state
+            twitter
+          }
+        }
+      }
     }
   `)
+  // Store all the navigation items into an object for later use
   const navigation = {}
   result.data.allNavigationYaml.edges.forEach(({ node }) => {
     navigation[node.name] = node.items
   })
 
+  // Create all the pages based on Markdown files in src/content/pages
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
@@ -87,6 +102,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  // Create all the pages based on MDX files in src/content/pages
   result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
@@ -100,6 +116,14 @@ exports.createPages = async ({ graphql, actions }) => {
             : [],
         isMdx: true,
       },
+    })
+  })
+
+  result.data.allCovidStateInfo.edges.forEach(({ node }) => {
+    createPage({
+      path: `/data/state/${slugify(node.name, { strict: true, lower: true })}`,
+      component: path.resolve(`./src/templates/state.js`),
+      context: node,
     })
   })
 }

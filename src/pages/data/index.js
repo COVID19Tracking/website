@@ -1,35 +1,18 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import { DateTime } from 'luxon'
+import { graphql, Link } from 'gatsby'
 import Layout from '../../components/layout'
-import Table from '../../components/common/table'
-import thousands from '../../utilities/format-thousands'
+import BuildTime from '../../components/common/build-time'
+import slug from '../../utilities/slug'
+import SummaryTable from '../../components/common/summary-table'
 
-const USData = ({ data }) => (
-  <Table>
-    <thead>
-      <tr>
-        <th>Positive</th>
-        <th>Negative</th>
-        <th>Positive + Negative</th>
-        <th>Pending</th>
-        <th>Hospitalized</th>
-        <th>Death</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{thousands(data.positive)}</td>
-        <td>{thousands(data.negative)}</td>
-        <td>{thousands(data.posNeg)}</td>
-        <td>{thousands(data.pending)}</td>
-        <td>{thousands(data.hospitalized)}</td>
-        <td>{thousands(data.death)}</td>
-        <td>{thousands(data.total)}</td>
-      </tr>
-    </tbody>
-  </Table>
+const StateList = ({ states }) => (
+  <ul>
+    {states.map(({ node }) => (
+      <li key={`state-${node.state}`}>
+        <Link to={`/data/state/${slug(node.name)}`}>{node.name}</Link>
+      </li>
+    ))}
+  </ul>
 )
 
 // The top-level content of this page is from 'src/content/snippets/data.md'
@@ -40,7 +23,10 @@ export default ({ data }) => (
         __html: data.allMarkdownRemark.edges[0].node.html,
       }}
     />
-    <USData data={data.allCovidUs.edges[0].node} />
+    <BuildTime />
+    <SummaryTable data={data.allCovidUs.edges[0].node} />
+    <h2>States</h2>
+    <StateList states={data.allCovidStateInfo.edges} />
   </Layout>
 )
 
@@ -68,6 +54,14 @@ export const query = graphql`
           posNeg
           hospitalized
           total
+        }
+      }
+    }
+    allCovidStateInfo(sort: { fields: state }) {
+      edges {
+        node {
+          name
+          state
         }
       }
     }

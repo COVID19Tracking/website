@@ -1,8 +1,13 @@
+const { DateTime } = require('luxon')
+
 module.exports = {
   siteMetadata: {
     title: 'The COVID Tracking Project',
     name: 'ctracker',
     shortname: 'ctracker',
+    buildDate: DateTime.fromObject({ zone: 'America/New_York' }).toFormat(
+      "M/dd HH:mm 'ET'",
+    ),
     url: 'https://covidtracking.com',
     description:
       'The COVID Tracking Project collects information from 50 US states, the District of Columbia, and 5 other U.S. territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2.',
@@ -23,6 +28,8 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-mdx`,
+    `gatsby-transformer-yaml`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -37,7 +44,6 @@ module.exports = {
         path: `${__dirname}/src/content/snippets/`,
       },
     },
-    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -45,7 +51,6 @@ module.exports = {
         path: `${__dirname}/src/data/navigation`,
       },
     },
-    `gatsby-transformer-yaml`,
     {
       resolve: 'gatsby-source-apiserver',
       options: {
