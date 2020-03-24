@@ -2,9 +2,9 @@
 
 ## Development
 
-    Navigate into your new site’s directory and start it up.
+    Install dependencies and run a development server
 
     ```shell
-    cd my-default-starter/
+    npm i
     gatsby develop
     ```
