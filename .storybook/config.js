@@ -1,7 +1,11 @@
 import { addDecorator } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
-addDecorator(withInfo)
+addDecorator(
+  withInfo({
+    inline: true,
+  }),
+)
 
 global.__PATH_PREFIX__ = ''
 

@@ -1,17 +1,17 @@
 import React from 'react'
-import { ButtonAnchor, Button } from '../components/common/button'
+import { ButtonAnchor, ButtonLink, Button } from '../components/common/button'
 
 export default {
   title: 'Buttons',
 }
 
 export const anchorButton = () => (
-  <ButtonAnchor href="/">Gatsby Link </ButtonAnchor>
+  <ButtonAnchor href="/">Regular link </ButtonAnchor>
 )
 
 export const bigAnchorButton = () => (
   <ButtonAnchor href="/" big>
-    Gatsby Link{' '}
+    Regular link{' '}
   </ButtonAnchor>
 )
 
@@ -21,6 +21,13 @@ export const anchorButtonWithEmoji = () => (
       😀 😎 👍 💯
     </span>
   </ButtonAnchor>
+)
+export const linkButton = () => <ButtonLink to="/">Gatsby link</ButtonLink>
+
+export const bigLinkButton = () => (
+  <ButtonLink to="/" big>
+    Gatsby link
+  </ButtonLink>
 )
 
 export const button = () => <Button>Hello Button</Button>
