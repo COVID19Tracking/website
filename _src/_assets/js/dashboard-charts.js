@@ -170,16 +170,13 @@
         top: 20,
         bottom: 20,
       })
-      .colorSchema(['#546D8E'])
-      .highlightBarFunction(function(bar) {
-        bar.attr('fill', 'orange')
-      })
+      .colorSchema(['rgb(165,75,101)'])
       .height(350)
       .width(width)
       .xAxisLabel('Date')
 
     legendChart
-      .colorSchema(['#546D8E'])
+      .colorSchema(['rgb(165,75,101)'])
       .height(50)
       .isHorizontal(true)
       .margin({
