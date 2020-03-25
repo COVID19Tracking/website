@@ -13,10 +13,19 @@ Byline/publish date: #8FA3AD - size 13pt
 
 .side-by-side {
   display: flex;
+  flex-direction: column;
 
   .graphic {
     flex-grow: 1;
-    width: 50%;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 500px) {
+    flex-direction: row;
+    
+    .graphic {
+      width: 50%;
+    }
   }
 }
 

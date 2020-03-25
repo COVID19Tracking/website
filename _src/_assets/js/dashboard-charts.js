@@ -270,7 +270,7 @@
       bottom: 40,
     }
     const chartHeight = 200
-    const chartWidth = 300
+    const chartWidth = window.innerWidth > 320 ? 300 : 250
     const totalXMargin = margin.left + margin.right
     const totalYMargin = margin.top + margin.bottom
     const xScale = d3
