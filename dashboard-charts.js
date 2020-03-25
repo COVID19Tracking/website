@@ -80,10 +80,9 @@
   }
 
   const transformCDCData = data => {
-    const parseCdcDate = d3.timeParse('%Y %m/%d')
     const result = data.feed.entry.map(
       ({ gsx$datecollected, gsx$dailytotal }) => ({
-        name: formatDate(parseCdcDate('2020 ' + gsx$datecollected.$t)),
+        name: gsx$datecollected.$t,
         group: 'Tests',
         value: gsx$dailytotal.$t,
       }),
@@ -92,29 +91,28 @@
   }
 
   function addCDCTestComparison(rawCtData, rawCdcData) {
-    //cutting off the first 20 values
-    const cutOff = 20
-    const cdcData = transformCDCData(rawCdcData).slice(cutOff)
+    const cdcData = transformCDCData(rawCdcData)
+    debugger
     //fill with 0s & lop off the end so it's the same length as CDC data
     const ctData = [
-      ...cdcData.slice(0, 46 - cutOff).map(e => ({ ...e, value: 0 })),
+      ...cdcData.slice(0, 46).map(e => ({ ...e, value: 0 })),
       ...rawCtData.map(d => ({
         name: formatDate(parseDate(d.date)),
         group: 'Tests',
         value: d.positiveIncrease + d.negativeIncrease,
       })),
     ].slice(0, cdcData.length)
-    debugger
+
     const cdcChartContainer = d3.select('#cdc-test-chart')
     const ctChartContainer = d3.select('#ct-test-chart')
     const yMax = d3.max(ctData, d => d.value)
+
     cdcChartContainer.append(() =>
       d3BarChart({
         data: cdcData,
         yMax,
-        color: totalColor,
-        formatDate,
-        width: cdcChartContainer.node().clientWidth,
+        color: positiveColor,
+        width: 300,
         height: 300,
       }),
     )
@@ -122,11 +120,55 @@
       d3BarChart({
         data: ctData,
         useYAxis: false,
-        color: totalColor,
-        width: ctChartContainer.node().clientWidth,
+        color: positiveColor,
+        width: 300,
         height: 300,
       }),
     )
+
+    /*
+    //const hed = chartContainer.append('h3').classed('chart-hed', true)
+    //const legend = chartContainer.append('div').classed('chart-legend', true)
+
+    const ctChart = ctChartContainer
+      .append('div')
+      .classed('chart', true)
+      .classed('no-y-axis-domain', true)
+
+    ctChart.datum(transformedData).call(
+      britecharts
+        .bar()
+        .margin({
+          left: 90,
+          right: 20,
+          top: 20,
+          bottom: 20,
+        })
+        .height(350)
+        .width(cdcChartContainer.node().clientWidth)
+        .colorSchema([totalColor])
+        .yAxisPaddingBetweenChart(0),
+    )
+
+    const cdcChart = cdcChartContainer
+      .append('div')
+      .classed('chart', true)
+      .classed('no-y-axis-domain', true)
+
+    cdcChart.datum(cdcData).call(
+      britecharts
+        .bar()
+        .margin({
+          left: 90,
+          right: 20,
+          top: 20,
+          bottom: 20,
+        })
+        .height(350)
+        .width(cdcChartContainer.node().clientWidth)
+        .colorSchema([totalColor]),
+    )
+    */
   }
 
   function addUsDailyPositiveBarChart(data) {
