@@ -72,7 +72,10 @@ const StateHistory = ({ history, screenshots }) => (
         <th scope="col">Pending</th>
         <th scope="col">Hospitalized</th>
         <th scope="col">Deaths</th>
-        <th scope="col">Total</th>
+        <th scope="col">
+          Total test results{' '}
+          <DetailText isBlock>(Positive + negative</DetailText>
+        </th>
       </tr>
     </thead>
     <tbody>
