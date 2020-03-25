@@ -1,15 +1,10 @@
 ---
 title: 'Newsroom/Expert FAQ '
 nav: Newsroom FAQ
-summary: >-
-  These docs are our most current information. If you read them and still have
-  questions, we usually have someone answering them in the #covid19 channel of
-  the [News Nerdery slack](https://newsnerdery.org/). If that doesn’t help,
-  please feel free to [open an issue in our public repo on
-  GitHub](https://github.com/COVID19Tracking/issues/issues) and we’ll get eyes
-  on it as soon as possible. Once we establish more ways to contact us for help,
-  we’ll post them here.
+summary: ''
 ---
+These docs are our most current information. If you read them and still have questions, we usually have someone answering them in the #covid19 channel of the [News Nerdery slack](https://newsnerdery.org/). If that doesn’t help, please feel free to [open an issue in our public repo on GitHub](https://github.com/COVID19Tracking/issues/issues) and we’ll get eyes on it as soon as possible. Once we establish more ways to contact us for help, we’ll post them here.
+
 ## Does your data represent cumulative cases or new cases each day?
 
 Our data represents the cumulative known cases to date. You can calculate new cases per day from our data, but we don't provide it directly.
