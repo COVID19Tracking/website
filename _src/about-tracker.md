@@ -19,13 +19,13 @@ We get the bulk of our data directly from state public health authorities, so we
 
 Other states provide some or none of these numbers on an ongoing basis. Some crucial states in this outbreak, notably California, Washington, and New York, have not been regularly reporting their total number of people tested. For these, we have to use other reporting tools: directly asking state officials, watching news conferences, gleaning information from trusted news sources, and whatever else it takes to present reliable numbers. Our hope is that all the states will begin providing comprehensive statistics, including negatives and totals from commercial and university labs.
 
-Each state has a data quality grade associated with it based on the reliability of their reporting. This grading system is described below.
+Each state has a data-quality grade associated with it based on the reliability of their reporting. This grading system is described below.
 
-<h3 id="data-quality-grade">State data quality grades</h3>
+<h2 id="data-quality-grade">State data-quality grades</h2>
 
-A number score is tallied based on 4 simple components:
+A number score is tallied based on four simple components:
 
-1. +1 for reporting positives reliably (only NV fails)
+1. +1 for reporting positives reliably
 2. +1 for reporting negatives sometimes
 3. +1 for reporting negatives reliably
 4. +1 for reporting all commercial tests
