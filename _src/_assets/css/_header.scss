@@ -1,9 +1,10 @@
 .site-header {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 1rem 0;
   margin-bottom: 2rem;
   border-bottom: 3px solid $border-color;
-
+  @media (min-width: $viewport-md) {
+    padding: 2rem 0;
+  }
   @media (min-width: $viewport-md) {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -11,7 +12,9 @@
   }
 
   .container {
+    margin: 0 0.5rem;
     @media (min-width: $viewport-md) {
+      margin: 0 2rem;
       display: flex;
       justify-content: space-between;
       align-items: baseline;
@@ -52,8 +55,8 @@
 
   a {
     font-weight: 700;
-    padding-bottom: .5em;
-    padding-top: .5em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
     text-decoration: none;
 
     &.active {
