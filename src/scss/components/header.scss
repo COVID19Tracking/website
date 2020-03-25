@@ -7,19 +7,19 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 2vw 4vw;
-  }
 
-  nav ul {
-    padding-left: 0;
-    margin: 0 1em;
+    nav ul {
+      padding-left: 0;
+      margin: 0 1em;
 
-    li {
-      display: inline-block;
-      padding-right: 3vw;
-    }
+      li {
+        display: inline-block;
+        padding-right: 3vw;
+      }
 
-    li:last-child {
-      padding-right: 0;
+      li:last-child {
+        padding-right: 0;
+      }
     }
   }
 }
