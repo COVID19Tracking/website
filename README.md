@@ -22,6 +22,18 @@ gatsby develop
 
 The site is now running at `http://localhost:8000`. Any changes you make to code is live-updated. There is a GraphQL preview tool available at `http://localhost:8000/___graphql` to see what data is exposed to the website.
 
+## Storybook
+
+All common components throughout the site are documented in [Storybook](https://storybook.js.org/). You can find all our component stories in `/src/stories`.
+
+To preview the storybook locally, just run:
+
+```shell
+npm run storybook
+```
+
+The storybook is now available at `http://localhost:6006`.
+
 ## How to contribute
 
 No matter how you choose to help, we would love to have you as part of the project. Check our Contributing Guide for information on how to file issues and make pull requests.
