@@ -5,8 +5,13 @@ nav: Dashboard
 
 <div class="dashboard">
   <div class="graphic" id=""></div>
-  <div id="map-legend"></div>
-  <div class="map" title="State Positive Cases / million people" id="state-map"></div>
+  <div class="map-container">
+    <div class="map-column">
+      <h3>Cases per one million people</h3>
+      <div id="map-legend"></div>
+      <div class="map" title="State Positive Cases / million people" id="state-map"></div>
+    </div>
+  </div>
   <p class="a11y-only"><a href="/data">Access data by state</a></p>  <div class="side-by-side">
     <div class="graphic" id="chart-daily-positive-total"></div>
     <div class="graphic" id="chart-daily-death-total"></div>

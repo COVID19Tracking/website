@@ -112,7 +112,9 @@
 
   const addInfoBox = () => {
     // describes info box that shows details of hovered states
-    const info = L.control()
+    const info = L.control({
+      position: 'topleft',
+    })
 
     info.onAdd = function(map) {
       this._div = L.DomUtil.create('div', 'map-info') // create a div with a class "info"
@@ -217,7 +219,6 @@
       color: getColor,
       height: 65,
       width: 200,
-      title: 'Cases per one million people',
       tickFormat: '.0f',
     }),
   )
