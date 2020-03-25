@@ -292,11 +292,11 @@
       })
       .y1(chartHeight - totalYMargin)
 
-    d3.select('#small-multiples-positive-span').style(
+    d3.select('#small-multiples-positive-legend').style(
       'background-color',
       positiveColor,
     )
-    d3.select('#small-multiples-total-span').style(
+    d3.select('#small-multiples-total-legend').style(
       'background-color',
       totalColor,
     )

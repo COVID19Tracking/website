@@ -72,6 +72,31 @@ Byline/publish date: #8FA3AD - size 13pt
     Arial, sans-serif;
 }
 
+.legend-entry-name,
+ul.chart-legend {
+  font-size: 14px !important;
+}
+
+ul.chart-legend {
+  display: flex;
+  list-style-type: none;
+  padding-left: 1rem;
+  width: 300px;
+}
+
+.chart-legend li {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+}
+
+.chart-legend li span {
+  display: inline-block;
+  height: 1rem;
+  margin-right: .5rem;
+  width: 1rem;
+}
+
 .britechart {
   .legend-container-group {
     transform: translate(0);
@@ -81,9 +106,7 @@ Byline/publish date: #8FA3AD - size 13pt
     transform: translate(-1em, 0);
   }
 
-  .legend-entry-name {
-    font-size: 14px !important;
-  }
+
 
   // .x-axis-group .tick text {
   //   transform: rotate(90deg) translate(2.2em, -1em);
@@ -135,6 +158,7 @@ Byline/publish date: #8FA3AD - size 13pt
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 8rem;
     width: 100%;
   }
 

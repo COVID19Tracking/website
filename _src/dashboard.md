@@ -19,7 +19,10 @@ nav: Dashboard
   </div>
   <div id="chart-state-small-multiples">
     <h3 class="chart-hed">Cumulative tests per state</h3>
-    <p class="chart-dek">We track <span id="small-multiples-positive-span">positive</span> and <span id="small-multiples-total-span">total</span> tests per state, each day.</p>
+    <ul class="chart-legend chart-dek">
+      <li><span id="small-multiples-positive-legend"></span> Positive tests</li>
+      <li><span id="small-multiples-total-legend"></span> Total tests</li>
+    </ul>
     <div class="charts"><!-- where the graphics end up --></div>
     <div class="charts-notes">
       <p><strong>Note:</strong> We derive the <code>total</code> value by adding together the <code>positive</code> and <code>negative</code> value for each state. This is to account for differences in how states reporting <code>pending</code> tests.</p>
