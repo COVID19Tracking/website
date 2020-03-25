@@ -7,7 +7,7 @@ nav: Dashboard
   <div class="graphic" id=""></div>
   <div class="map-container">
     <div class="map-column">
-      <h3>Cases per one million people</h3>
+      <h2>Cases per one million people</h2>
       <div id="map-legend"></div>
       <div class="map" title="State Positive Cases / million people" id="state-map"></div>
     </div>
