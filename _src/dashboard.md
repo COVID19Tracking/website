@@ -1,10 +1,11 @@
 ---
-title: Dashboard
 nav: Dashboard
 ---
 
 <div class="dashboard">
-  <div class="graphic" id=""></div>
+  <div class="title-container">
+    <h1 class="title">Visual dashboard</h1>
+  </div>
   <div class="map-container">
     <div class="map-column">
       <h2>Cases per one million people</h2>

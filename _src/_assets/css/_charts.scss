@@ -22,7 +22,7 @@ Byline/publish date: #8FA3AD - size 13pt
 
   @media screen and (min-width: 500px) {
     flex-direction: row;
-    
+
     .graphic {
       width: 50%;
     }
@@ -32,7 +32,7 @@ Byline/publish date: #8FA3AD - size 13pt
 .chart-hed {
   color: #000000;
   display: block;
-  font-size: 16pt;
+  font-size: 13pt;
   margin-bottom: 0;
   margin-top: 3rem;
   min-height: 4rem;
@@ -43,8 +43,8 @@ Byline/publish date: #8FA3AD - size 13pt
   p {
     color: #000000;
     font-size: 10pt;
-    margin-top: .2rem;
-    margin-bottom: .2rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
     text-align: right;
     width: 86%;
   }
@@ -62,13 +62,14 @@ Byline/publish date: #8FA3AD - size 13pt
 
 .axis .domain,
 .axis .tick line {
-  stroke: #8FA3AD;
+  stroke: #8fa3ad;
 }
 
 .tick text {
-  fill: #505F69;
+  fill: #505f69;
   font-size: 10pt;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; 
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica,
+    Arial, sans-serif;
 }
 
 .britechart {
@@ -91,7 +92,7 @@ Byline/publish date: #8FA3AD - size 13pt
 
 #chart-daily-positive-total,
 #chart-daily-death-total {
-  .x-axis-group .tick:not(:nth-child(3n+1)) {
+  .x-axis-group .tick:not(:nth-child(3n + 1)) {
     display: none;
   }
 
@@ -105,8 +106,8 @@ Byline/publish date: #8FA3AD - size 13pt
 
   .chart-dek {
     background-color: white;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -115,9 +116,8 @@ Byline/publish date: #8FA3AD - size 13pt
   #small-multiples-positive-span,
   #small-multiples-total-span {
     display: inline-block;
-    padding: .2rem .5rem;
+    padding: 0.2rem 0.5rem;
   }
-
 
   .charts {
     display: flex;
@@ -132,7 +132,7 @@ Byline/publish date: #8FA3AD - size 13pt
     flex-grow: 1;
     justify-content: space-between;
     margin-right: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     height: 250px;
     position: relative;
     width: 250px;
@@ -147,10 +147,10 @@ Byline/publish date: #8FA3AD - size 13pt
     top: 2.5rem;
   }
 
-  [data-state="NY"] svg {
+  [data-state='NY'] svg {
     top: -120px;
   }
-  
+
   .chart-state-link {
     font-size: 12pt;
   }
@@ -178,7 +178,7 @@ Byline/publish date: #8FA3AD - size 13pt
       }
     }
 
-    [data-state]:not(:nth-child(3n+1)) {
+    [data-state]:not(:nth-child(3n + 1)) {
       .y-axis text {
         display: none;
       }
@@ -192,16 +192,20 @@ Byline/publish date: #8FA3AD - size 13pt
       }
     }
 
-    [data-state]:not(:nth-child(3n+1)) {
+    [data-state]:not(:nth-child(3n + 1)) {
       .y-axis text {
         display: block;
       }
     }
 
-    [data-state]:not(:nth-child(4n+1)) {
+    [data-state]:not(:nth-child(4n + 1)) {
       .y-axis text {
         display: none;
       }
     }
   }
+}
+
+.charts-notes {
+  font-size: 14px;
 }

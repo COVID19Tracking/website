@@ -1,3 +1,9 @@
+.title-container {
+  text-align: center;
+}
+.title-container .title {
+  text-transform: none;
+}
 .map-container {
   display: flex;
   justify-content: center;
@@ -5,6 +11,7 @@
 .map-column {
   display: flex;
   flex-direction: column;
+  text-align: left;
   width: 100%;
   max-width: 800px;
 }
