@@ -11,16 +11,29 @@ In early March, two journalists at *[The Atlantic](https://www.theatlantic.com/h
 
 [Alexis Madrigal](https://twitter.com/alexismadrigal) now leads the project. Jeff Hammerbacher has [returned to his work](https://www.related.vc/) and we send eternal gratitude his way. [Erin Kissane](https://twitter.com/kissane) is our managing editor. Our team now includes more than 100 volunteer data-grabbers, journalists, scientists, visualization specialists, designers, project managers, and many other great people. We can't list them all for privacy reasons, but here are some of our stalwart contributors:
 
-* [Stanley Bishop](https://mltogether.la/)
+## Team leads
 * [Kai Curry](https://github.com/webmasterkai)
+* [J. Peter Donald](https://twitter.com/JPeterDonald)
+* [Amanda French](http://amandafrench.net)
+* [Jeremia Kimelman](https://www.jeremiak.com)
+* [Elliott Klug](http://elliottklug.com)
+* [Julia Kodysh](https://twitter.com/JuliaKodysh)
+* [Júlia Ledur](https://julialedur.com.br/)
+* [Zach Lipton](https://twitter.com/zachlipton)
+* [JD Maresco](https://twitter.com/jdmaresco)
+* [Ethan Marcotte](https://ethanmarcotte.com/)
+* [Kevin Miller](https://kevee.net)
+* [Kara Oehler](https://twitter.com/karaoehler)
+* [Dustin Preisler](https://www.linkedin.com/in/dustinpreisler/)
+
+## Contributors
+* [Stanley Bishop](https://mltogether.la/)
 * [Eric Czech](https://www.linkedin.com/in/eric-czech-2029928/)
 * [Shima Dastgheib](https://twitter.com/shimadastgheib)
 * [Katerina Dimitratos](https://twitter.com/kdimitratos)
-* [J. Peter Donald](https://twitter.com/JPeterDonald)
 * [Josh Ellington](https://joshellington.com)
 * [Casey Faist](https://twitter.com/cfactoid)
 * Harrison David Frank
-* [Amanda French](http://amandafrench.net)
 * Nancy Ge
 * [Daniel Gilbert](https://www.tall-dog.com/)
 * [Lucas Gonze](http://gonze.com)
@@ -30,25 +43,15 @@ In early March, two journalists at *[The Atlantic](https://www.theatlantic.com/h
 * Luke Herman
 * [Ed Hodder](https://www.linkedin.com/in/edhodder/)
 * [Esther Kim](https://www.linkedin.com/in/esther-kim-9544201a)
-* [Jeremia Kimelman](https://www.jeremiak.com)
 * [Sam Klein](https://twitter.com/metasj)
-* [Elliott Klug](http://elliottklug.com)
-* [Julia Kodysh](https://twitter.com/JuliaKodysh)
 * [Olivier Lacan](https://twitter.com/olivierlacan)
-* [Júlia Ledur](https://julialedur.com.br/)
-* [Zach Lipton](https://twitter.com/zachlipton)
 * [Sara Llanes](https://twitter.com/SaraLlanes)
 * [Sharon Machlis](https://twitter.com/sharon000)
-* [JD Maresco](https://twitter.com/jdmaresco)
-* [Ethan Marcotte](https://ethanmarcotte.com/)
 * [Mat Marquis](https://hire.wil.to)
-* [Kevin Miller](https://kevee.net)
 * [Gabe O'Leary](https://gabeoleary.com)
-* [Kara Oehler](https://twitter.com/karaoehler)
 * [Ryan Panchadsaram](https://twitter.com/rypan)
 * Katherine Paur
 * [Colin Popell](https://twitter.com/cpopell)
-* [Dustin Preisler](https://www.linkedin.com/in/dustinpreisler/)
 * [Prajakta Ranade](https://twitter.com/Prajakta_RD)
 * [Alex Rubinsteyn](https://twitter.com/iskander)
 * [Jason Santa Maria](https://jasonsantamaria.com)
