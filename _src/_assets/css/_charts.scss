@@ -12,7 +12,12 @@ Byline/publish date: #8FA3AD - size 13pt
 */
 
 .side-by-side {
+  display: flex;
 
+  .graphic {
+    flex-grow: 1;
+    width: 50%;
+  }
 }
 
 .chart-hed {
@@ -20,22 +25,41 @@ Byline/publish date: #8FA3AD - size 13pt
   display: block;
   font-size: 16pt;
   margin-bottom: 0;
-  margin-top: 2rem;
+  margin-top: 3rem;
   min-height: 4rem;
   text-transform: uppercase;
 }
 
-.chart-source {
+.chart-api-note {
   p {
     color: #000000;
-    font-size: 15pt;
+    font-size: 10pt;
     margin-top: .2rem;
     margin-bottom: .2rem;
+    text-align: right;
+    width: 86%;
   }
 }
 
+.x-axis .domain,
+.x-axis-group .domain {
+  display: none;
+}
+
+.y-axis .domain,
 .no-y-axis-domain .y-axis-group .domain {
   display: none;
+}
+
+.axis .domain,
+.axis .tick line {
+  stroke: #8FA3AD;
+}
+
+.tick text {
+  fill: #505F69;
+  font-size: 10pt;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; 
 }
 
 .britechart {
@@ -43,23 +67,132 @@ Byline/publish date: #8FA3AD - size 13pt
     transform: translate(0);
   }
 
-  .axis .domain,
-  .axis .tick line {
-    stroke: #8FA3AD;
-  }
-
-  .tick text {
-    fill: #505F69;
-    font-size: 12pt;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; 
-  }
-
   .y-axis-group .tick text {
     transform: translate(-1em, 0);
   }
 
-  .x-axis-group .tick text {
-    transform: rotate(90deg) translate(2.2em, -1em);
+  // .x-axis-group .tick text {
+  //   transform: rotate(90deg) translate(2.2em, -1em);
+  // }
+
+  .area-outline {
+    fill: none;
+  }
+}
+
+#chart-daily-positive-total,
+#chart-daily-death-total {
+  .x-axis-group .tick:not(:nth-child(3n+1)) {
+    display: none;
   }
 
+  .y-axis-group .tick:not(:nth-child(even)) {
+    display: none;
+  }
+}
+
+#chart-state-small-multiples {
+  position: relative;
+
+  .chart-dek {
+    background-color: white;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  #small-multiples-positive-span,
+  #small-multiples-total-span {
+    display: inline-block;
+    padding: .2rem .5rem;
+  }
+
+
+  .charts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  [data-state] {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    height: 250px;
+    position: relative;
+    width: 250px;
+  }
+
+  h4 {
+    margin-top: 0;
+  }
+
+  svg {
+    position: absolute;
+    top: 2.5rem;
+  }
+
+  [data-state="NY"] svg {
+    top: -120px;
+  }
+  
+  .chart-state-link {
+    font-size: 12pt;
+  }
+
+  /* crazy nth-child stuff to hide specific y axis labels */
+
+  [data-state] {
+    .y-axis text {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    [data-state]:nth-child(even) {
+      .y-axis text {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    [data-state]:nth-child(even) {
+      .y-axis text {
+        display: block;
+      }
+    }
+
+    [data-state]:not(:nth-child(3n+1)) {
+      .y-axis text {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    [data-state]:nth-child(even) {
+      .y-axis text {
+        display: block;
+      }
+    }
+
+    [data-state]:not(:nth-child(3n+1)) {
+      .y-axis text {
+        display: block;
+      }
+    }
+
+    [data-state]:not(:nth-child(4n+1)) {
+      .y-axis text {
+        display: none;
+      }
+    }
+  }
 }
