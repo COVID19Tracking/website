@@ -55,7 +55,7 @@
     var proj = d3
       .geoAlbersUsa()
       // .translate([0, 0])
-      .scale(0.7)
+      .scale(window.innerWidth > 500 ? 0.7 : 0.45)
 
     var AlbersProjection = {
       project: function(latLng) {
@@ -152,11 +152,11 @@
       if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront()
       }
-      info.update(layer.feature.properties)
+      info && info.update(layer.feature.properties)
     }
     function resetHighlight(e) {
       geojson.resetStyle(e.target)
-      info.update()
+      info && info.update()
     }
 
     // unused, enables clicks on states to zoom to that shape
@@ -212,7 +212,8 @@
 
   // addDataToMap() relies on map & info being defined within scope
   const map = initializeMap()
-  const info = addInfoBox()
+  var info = null
+  if (window.innerWidth > 500) info = addInfoBox()
   // add legend
   d3.select('#map-legend').append(() =>
     d3Legend({
