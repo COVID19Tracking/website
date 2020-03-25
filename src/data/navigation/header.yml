@@ -1,10 +1,12 @@
 name: header
 items:
-  - title: Data
+  - title: Get the Data
     link: /data
-  - title: Historical data
-    link: /data/historical
-  - title: Why it matters
-    link: /why-it-matters
-  - title: How you can help
+  - title: About the Data
+    link: /about
+  - title: About Us
+    link: /project
+  - title: How You Can Help
     link: /help
+  - title: FAQs for Newsrooms (link broken)
+    link: \#
