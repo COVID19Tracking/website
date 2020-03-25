@@ -1,8 +1,8 @@
 ---
-title: How the Project Works
+title: About the Data
 nav: About the Tracker
 summary: >
-  This project is made by hand. We use technical tools to alert us to changes in
+  This dataset is made by hand. We use technical tools to alert us to changes in
   the information states report, but all the information we publish has been
   collected and double-checked by humans. We prize accuracy over speed while
   also trying to keep the data fresh.
