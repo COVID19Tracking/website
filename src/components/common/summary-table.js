@@ -1,5 +1,5 @@
 import React from 'react'
-import Table from '../../components/common/table'
+import Table from './table'
 import thousands from '../../utilities/format-thousands'
 
 export default ({ data }) => (

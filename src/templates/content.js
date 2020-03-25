@@ -1,10 +1,10 @@
 import React from 'react'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Link } from 'gatsby'
 import SubNavigation from '../components/common/sub-navigation'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 const shortcodes = { Link }
 
