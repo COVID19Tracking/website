@@ -3,6 +3,7 @@ import { Link, StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import DevelopmentWarning from './development-warning'
 import '../../scss/components/header.scss'
+import ProjectLogo from '../../images/project-logo.svg'
 
 const HeaderNavigation = ({ navigation }) => (
   <nav>
@@ -22,7 +23,7 @@ const Header = ({ siteTitle }) => (
     <header className="site-header">
       <div className="container">
         <a className="site-title" href="/">
-          {siteTitle}
+          <img src={ProjectLogo} alt="The COVID Tracking Project" width="170px"/>
         </a>
         <StaticQuery
           query={graphql`
