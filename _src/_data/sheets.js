@@ -51,7 +51,7 @@ module.exports = function() {
     getJson('https://covid.cape.io/us'),
     getJson('https://covid.cape.io/us/daily'),
     getJson('https://covid.cape.io/screenshots'),
-    getJson('https://covidtracking.com/api/press'),
+    getJson('https://covid.cape.io/press'),
   ]).then(
     ([stateTest, stateInfo, stateDaily, us, usDaily, screenshots, press]) => ({
       updated: dateStr(new Date()),
