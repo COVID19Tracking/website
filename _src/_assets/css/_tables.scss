@@ -4,7 +4,7 @@ table {
   border-collapse: collapse;
 
   @media (min-width: $viewport-md) {
-  font-size: $size-2;
+    font-size: $size-2;
   }
 }
 
@@ -18,7 +18,7 @@ td {
   padding: 0.25em;
 
   @media (min-width: $viewport-md) {
-  padding: 0.5em;
+    padding: 0.5em;
   }
 }
 
@@ -62,7 +62,6 @@ tbody tr:nth-child(even) {
 }
 
 .state-first-row {
-
   @media (min-width: $viewport-md) {
     border-left: 0.5px solid #ddd;
   }
@@ -101,13 +100,13 @@ tbody tr:nth-child(even) {
 }
 
 .state-table-caption {
-  :not(:last-child)::after { /* add bullets between children */
-    content: " \2022 ";
+  :not(:last-child)::after {
+    /* add bullets between children */
+    content: ' \2022 ';
 
     @media (max-width: $viewport-md) {
       content: none;
     }
-
   }
 
   @media (max-width: $viewport-md) {
@@ -127,4 +126,8 @@ caption,
 
 caption {
   caption-side: bottom;
+}
+
+.total-info {
+  font-size: 0.8rem;
 }
