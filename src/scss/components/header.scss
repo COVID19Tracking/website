@@ -1,5 +1,25 @@
-header {
+.site-header {
   margin-bottom: 1rem;
   border-bottom: 2px solid black;
-  padding-bottom: 1rem;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2vw 4vw;
+  }
+
+  nav ul {
+    padding-left: 0;
+    margin: 0 1em;
+
+    li {
+      display: inline-block;
+      padding-right: 3vw;
+    }
+
+    li:last-child {
+      padding-right: 0;
+    }
+  }
 }
