@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="640" height="640" viewBox="0 0 640 640">
+  <defs>
+    <rect id="bg-a" width="640" height="640" x="0" y="0"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="bg-b" fill="#fff">
+      <use xlink:href="#bg-a"/>
+    </mask>
+    <use fill="#5667AD" fill-opacity="0" xlink:href="#bg-a"/>
+    <circle cx="320" cy="320" r="320" fill="#000" mask="url(#bg-b)" opacity=".05" style="mix-blend-mode:multiply"/>
+    <circle cy="320" r="320" fill="#000" mask="url(#bg-b)" opacity=".05" style="mix-blend-mode:multiply"/>
+    <circle cx="640" cy="320" r="320" fill="#000" mask="url(#bg-b)" opacity=".05" style="mix-blend-mode:multiply"/>
+  </g>
+</svg>
