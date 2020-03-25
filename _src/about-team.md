@@ -7,13 +7,11 @@ summary: >-
   States. We will do this work until official sources take over and make their
   data complete and public.
 ---
-## About the Team
-
-This project combines two initial independent efforts. Jeff Hammerbacher, Founder and General Partner at [Related Sciences](https://www.related.vc/), built a tracking spreadsheet. Separately, two journalists, [Robinson Meyer](https://twitter.com/yayitsrob) and [Alexis Madrigal](https://twitter.com/alexismadrigal), built a tracker for [a story in The Atlantic](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/). The two efforts came together March 7, and made a call for volunteers to help keep the data updated, tune processes, work on scrapers, and make a website.
+This project combines two initial independent efforts. Two journalists at [The Atlantic](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/), [Robinson Meyer](https://twitter.com/yayitsrob) and [Alexis Madrigal](https://twitter.com/alexismadrigal), built a tracker for [COVID-19 testing investigation](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/). Separately, Jeff Hammerbacher, Founder and General Partner at [Related Sciences](https://www.related.vc/), built a tracking spreadsheet. The two efforts came together March 7, and made a call for volunteers.
 
 [Alexis Madrigal](https://twitter.com/alexismadrigal) currently leads the COVID Tracking Project. Jeff Hammerbacher has [returned to his work](https://www.related.vc/) and we send eternal gratitude his way. [Erin Kissane](https://twitter.com/kissane) is our managing editor. 
 
-Our team now includes volunteer data-grabbers, journalists, scientists, visualization specialists, designers, project managers, and many other great people. We can't list them all for privacy reasons, but here are some of our stalwart contributors:
+Our team now includes more than 100 volunteer data-grabbers, journalists, scientists, visualization specialists, designers, project managers, and many other great people. We can't list them all for privacy reasons, but here are some of our stalwart contributors:
 
 * [Stanley Bishop](https://mltogether.la/)
 * [Kai Curry](https://github.com/webmasterkai)
