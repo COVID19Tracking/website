@@ -14,7 +14,10 @@ nav: Dashboard
       <p>Testing is a crucial part of any public health response, and sharing test data is essential to understanding this outbreak. The CDC is currently not publishing complete testing data, so we're doing our best to collect it from each state and provide it to the public.</p>
       <p>As of today, the CDC has tested XX number of specimens, and we have tracked that there have been at least YY tests administered across the country. It is important to note that testing numbers are likely an undercount because of the lack of universal testing, and that a multiple specimen tests can be conducted from a single person’s sample.</p>
     </div>
-    <div class="graphic" id="cdc-versus-project-data-chart">CDC bar charts go here</div>
+    <div class="graphic" id="cdc-comparison-chart-container">
+      <div class="cdc-comparison-chart" id="cdc-test-chart"></div>
+      <div class="cdc-comparison-chart" id="ct-test-chart"></div>
+    </div>
   </div>
 
   <div class="map-container">
@@ -61,6 +64,7 @@ nav: Dashboard
 </div>
 
 <script src="/_assets/js/d3.js"></script>
+<script src="/_assets/js/d3-chart.js"></script>
 <script src="/_assets/js/d3-legend.js"></script>
 <script src="/_assets/js/britecharts.js"></script>
 
