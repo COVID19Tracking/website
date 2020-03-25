@@ -14,6 +14,7 @@
   text-align: left;
   width: 100%;
   max-width: 800px;
+  text-transform: uppercase;
 }
 
 #state-map {
@@ -40,4 +41,9 @@
 .map-info h4 {
   margin: 0 0 5px;
   color: #777;
+}
+
+.by-line {
+  font-size: 14px;
+  color: #546d8e;
 }

@@ -23,7 +23,9 @@ nav: Dashboard
     <div class="charts"><!-- where the graphics end up --></div>
     <div class="charts-notes">
       <p><strong>Note:</strong> We derive the <code>total</code> value by adding together the <code>positive</code> and <code>negative</code> value for each state. This is to account for differences in how states reporting <code>pending</code> tests.</p>
+      <p><strong>Source:</strong> The COVID Tracking Data </p>
     </div>
+    <div class="by-line">By Daniel Gilbert, <a href="https://gabeoleary.com">Gabe O'Leary</a>, Jeremia Kimelman, Júlia Ledur and Melba Madrigal.</div>
   </div>
 </div>
 
