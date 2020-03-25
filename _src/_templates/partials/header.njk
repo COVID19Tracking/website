@@ -2,21 +2,20 @@
 
 <a href="#main" class="a11y-only focusable">Skip to main content</a>
 <header class="site-header">
-	<div class="container">
-		<a class="site-title{% if page.url == "/" %} active{% endif %}" href="/">{{ data.title }}</a>
-
-		<nav>
-			<ul class="site-nav">
-				<li{% if page.url == "/" %} aria-describedby="current-page"{% endif %}>
-          <a{% if page.url == "/" %} aria-current="page" class="active"{% endif %} href="/">Home</a>
-        </li>
-				<li{% if page.url == "/us-daily/" %} aria-describedby="current-page"{% endif %}>
-          <a{% if page.url == "/us-daily/" %} aria-current="page" class="active"{% endif %} href="/us-daily">US Historical Data</a>
-        </li>
-				<li{% if isDataURL.test(page.url) %} aria-describedby="current-page"{% endif %}>
-          <a{% if isDataURL.test(page.url) %} aria-current="page" class="active"{% endif %} href="/data">Most Recent Data</a>
-        </li>
-			</ul>
-		</nav>
-	</div>
+<div class="container">
+  <a class="site-title{% if page.url == "/" %} active{% endif %}" href="/">{{ data.title }}</a>
+  <nav>
+    <ul class="site-nav">
+      <li{% if page.url == "/data/" %} aria-describedby="current-page"{% endif %}>
+        <a{% if page.url == "/data/" %} aria-current="page" class="active"{% endif %} href="/data/">Get the Data</a>
+      </li>
+      <li{% if page.url == "/about-tracker/" %} aria-describedby="current-page"{% endif %}>   {# todo make these links real #}
+        <a{% if page.url == "/about-tracker/" %} aria-current="page" class="active"{% endif %} href="/about-tracker/">About the Data</a>
+      </li>
+      <li{% if page.url == "/how-you-can-help/" %} aria-describedby="current-page"{% endif %}>   {# todo make these links real #}
+        <a{% if page.url == "/how-you-can-help/" %} aria-current="page" class="active"{% endif %} href="/how-you-can-help/">How You Can Help</a>
+      </li>
+    </ul>
+  </nav>
+</div>
 </header>

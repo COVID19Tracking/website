@@ -1,12 +1,26 @@
 <footer class="site-footer">
   <div class="container">
     <ul class="pages">
-	  {%- for post in collections.posts -%}
-	  	{% if post.data.nav %}
-	  	<li{% if page.url == post.url %} aria-describedby="current-page" class="active"{% endif %}><a{% if page.url == post.url %} aria-current="page"{% endif %} href="{{ post.url | url }}">{{ post.data.nav }}</a></li>
-	  	{% endif %}
-	  {%- endfor -%}
-	  </ul>
+      <li{% if page.url == "/data/" %} aria-describedby="current-page" class="active"{% endif %}>
+        <a{% if page.url == "/data/" %} aria-current="page"{% endif %} href="/data/">Get the Data</a>
+      </li>
+
+      <li{% if page.url == "/about-tracker/" %} aria-describedby="current-page" class="active"{% endif %}>
+        <a{% if page.url == "/about-tracker/" %} aria-current="page"{% endif %} href="/about-tracker/">About the Data</a>
+      </li>
+
+      <li{% if page.url == "/about-team/" %} aria-describedby="current-page" class="active"{% endif %}>
+        <a{% if page.url == "/about-team/" %} aria-current="page"{% endif %} href="/about-team/">About the Project</a>
+      </li>
+
+      <li{% if page.url == "/newsroom-expert-faq/" %} aria-describedby="current-page" class="active"{% endif %}>
+        <a{% if page.url == "/newsroom-expert-faq/" %} aria-current="page"{% endif %} href="/newsroom-expert-faq/">Newsroom FAQ</a>
+      </li>
+
+      <li{% if page.url == "/how-you-can-help/" %} aria-describedby="current-page" class="active"{% endif %}>
+        <a{% if page.url == "/how-you-can-help/" %} aria-current="page"{% endif %} href="/how-you-can-help/">How You Can Help</a>
+      </li>
+    </ul>
     <ul class="follow">
       <li>
         <a href="{{ data.repoUrl }}">GitHub</a>
