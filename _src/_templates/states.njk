@@ -6,32 +6,56 @@ layout: base.njk
 <p class="updated">Last synced with our spreadsheet: {{ sheets.updated }}</p>
 
 <div class="us-totals">
-  <table>
-    <caption>US Totals</caption>
-    <thead>
-      <tr>
-        <th scope="col">Positive</th>
-        <th scope="col">Negative</th>
-        <th scope="col">Pos + Neg</th>
-        <th scope="col">Pending</th>
-        <th scope="col">Hospitalized</th>
-        <th scope="col">Death</th>
-        <th scope="col">Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{ sheets.us.positive | thousands }}</td>
-        <td>{{ sheets.us.negative | thousands }}</td>
-        <td>{{ sheets.us.posNeg | thousands }}</td>
-        <td>{{ sheets.us.pending | thousands }}</td>
-        <td>{{ sheets.us.hospitalized | thousands }}</td>
-        <td>{{ sheets.us.death | thousands }}</td>
-        <td>{{ sheets.us.total | thousands }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="state-flex-container">
+      <div class="state-flex-row state-first-row">
+        <div class="state-flex-header">Positive</div>
+        <div class="state-flex-data">
+          {{ sheets.us.positive | thousands }}
+        </div>
+      </div>
+      <div class="state-flex-row">
+        <div class="state-flex-header">Negative</div>
+        <div class="state-flex-data">
+          {{ sheets.us.negative | thousands }}
+        </div>
+      </div>
+      <div class="state-flex-row">
+        <div class="state-flex-header">Pos + Neg</div>
+        <div class="state-flex-data">
+          {{ sheets.us.posNeg | thousands }}
+        </div>
+      </div>
+      <div class="state-flex-row">
+        <div class="state-flex-header">Pending</div>
+        <div class="state-flex-data">
+          {{ sheets.us.pending | thousands }}
+        </div>
+      </div>
+      <div class="state-flex-row">
+        <div class="state-flex-header">Hospitalized</div>
+        <div class="state-flex-data">
+          {{ sheets.us.hospitalized | thousands }}
+        </div>
+      </div>
+      <div class="state-flex-row">
+        <div class="state-flex-header">Death</div>
+        <div class="state-flex-data">
+          {{ sheets.us.death | thousands }}
+        </div>
+      </div>
+      <div class="state-flex-row">
+        <div class="state-flex-header">Total</div>
+        <div class="state-flex-data">
+          {{ sheets.us.total | thousands }}
+        </div>
+      </div>
+  </div>
+  <div class="state-table-caption">
+    <span>US Totals</span>
+  </div>
 </div>
+
+
 <ul class="states-list">
   {% for state in sheets.states %}
     <li class="state-item">
@@ -45,35 +69,49 @@ layout: base.njk
           <img alt="{{ state.name }} on Twitter" src="/_assets/img/twitter-logo-black.svg" width="26px"/>
         </a>
       </div>
-      <table class="state-table">
-        <caption>
-            <span class="a11y-only">{{ state.name }} data</span>
-            <span title="The quality of data from the state.">Grade: <strong>{{ state.grade }}</strong></span> &bull;
-            <span title="The time the data was last updated by the state.">Last updated: {{ state.lastUpdateEt }} ET</span> &bull;
-            <span title="The last time we reviewed the state data source and updated our data">Last checked: {{ state.checkTimeEt }} ET</span>
-
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">Positive</th>
-            <th scope="col">Negative</th>
-            <th scope="col">Pending</th>
-            <th scope="col">Hospitalized</th>
-            <th scope="col">Deaths</th>
-            <th scope="col">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{ state.positive | thousands }}</td>
-            <td>{{ state.negative | thousands }}</td>
-            <td>{{ state.pending | thousands }}</td>
-            <td>{{ state.hospitalized | thousands }}</td>
-            <td>{{ state.death | thousands }}</td>
-            <td>{{ state.total | thousands }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="state-flex-container">
+        <div class="state-flex-row state-first-row">
+          <div class="state-flex-header">Positive</div>
+          <div class="state-flex-data">
+            {% if state.positive %}{{ state.positive | thousands }}{% else %}N/A{% endif %}
+          </div>
+        </div>
+        <div class="state-flex-row">
+          <div class="state-flex-header">Negative</div>
+          <div class="state-flex-data">
+            {% if state.negative %}{{ state.negative | thousands }}{% else %}N/A{% endif %}
+          </div>
+        </div>
+        <div class="state-flex-row">
+          <div class="state-flex-header">Pending</div>
+          <div class="state-flex-data">
+            {% if state.pending %}{{ state.pending | thousands }}{% else %}N/A{% endif %}
+          </div>
+        </div>
+        <div class="state-flex-row">
+          <div class="state-flex-header">Hospitalized</div>
+          <div class="state-flex-data">
+            {% if state.hospitalized %}{{ state.hospitalized | thousands }}{% else %}N/A{% endif %}
+          </div>
+        </div>
+        <div class="state-flex-row">
+          <div class="state-flex-header">Deaths</div>
+          <div class="state-flex-data">
+            {% if state.death %}{{ state.death | thousands }}{% else %}N/A{% endif %}
+          </div>
+        </div>
+        <div class="state-flex-row">
+          <div class="state-flex-header">Total</div>
+          <div class="state-flex-data">
+            {% if state.total %}{{ state.total | thousands }}{% else %}N/A{% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="state-table-caption">
+          <span class="a11y-only">{{ state.name }} data</span>
+          <span title="The time the data was last updated by the state.">Last updated: {{ state.lastUpdateEt }} ET</span>
+          <span title="The last time we reviewed the state data source and updated our data">Last checked: {{ state.checkTimeEt }} ET</span>
+      </div>
 
       <div class="state-notes">
         <p>
@@ -81,6 +119,15 @@ layout: base.njk
             Best current data source for {{ state.name }}.
           </a>
         </p>
+
+        {% if state.grade %}
+        <p>
+          <a href="/about-tracker#data-quality-grade">
+            Data quality grade:</a>
+          <span class="state-grade"> {{state.grade}} </span>
+        </p>
+        {% endif %}
+
         {% if state.notes %}
           {{ state.notes | markdownify | safe }}
         {% endif %}
