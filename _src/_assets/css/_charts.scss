@@ -95,6 +95,14 @@ Byline/publish date: #8FA3AD - size 13pt
   .x-axis-group .tick:not(:nth-child(3n + 1)) {
     display: none;
   }
+  @media screen and (max-width: 500px) {
+    .x-axis-group .tick:not(:nth-child(3n + 1)) {
+      display: initial;
+    }
+    .x-axis-group .tick:not(:nth-child(5n + 1)) {
+      display: none;
+    }
+  }
 
   .y-axis-group .tick:not(:nth-child(even)) {
     display: none;
