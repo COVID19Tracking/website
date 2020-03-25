@@ -14,8 +14,10 @@ Byline/publish date: #8FA3AD - size 13pt
 .side-by-side {
   display: flex;
   flex-direction: column;
+  margin-top: 3rem;
 
-  .graphic {
+  .graphic,
+  .graphic-text {
     flex-grow: 1;
     width: 100%;
   }
@@ -23,7 +25,8 @@ Byline/publish date: #8FA3AD - size 13pt
   @media screen and (min-width: 500px) {
     flex-direction: row;
 
-    .graphic {
+    .graphic,
+    .graphic-text {
       width: 50%;
     }
   }
@@ -34,7 +37,6 @@ Byline/publish date: #8FA3AD - size 13pt
   display: block;
   font-size: 13pt;
   margin-bottom: 0;
-  margin-top: 3rem;
   min-height: 4rem;
   text-transform: uppercase;
 }

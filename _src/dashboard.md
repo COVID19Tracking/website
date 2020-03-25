@@ -6,6 +6,17 @@ nav: Dashboard
   <div class="title-container">
     <h1 class="title">Visual dashboard</h1>
   </div>
+  <p>The COVID Tracking Project collects information from 50 US states, the District of Columbia, and 5 other US territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2. We attempt to include positive and negative results, pending tests, and total people tested for each state or district currently reporting that data.</p>
+  <p>Tracking testing data in the U.S. has been a challenge for public authorities. The Center for Disease Control, the US federal public health agency, is currently publishing incomplete data that lags several days behind state reports.</p>
+
+  <div class="side-by-side">
+    <div class="graphic-text">
+      <p>Testing is a crucial part of any public health response, and sharing test data is essential to understanding this outbreak. The CDC is currently not publishing complete testing data, so we're doing our best to collect it from each state and provide it to the public.</p>
+      <p>As of today, the CDC has tested XX number of specimens, and we have tracked that there have been at least YY tests administered across the country. It is important to note that testing numbers are likely an undercount because of the lack of universal testing, and that a multiple specimen tests can be conducted from a single person’s sample.</p>
+    </div>
+    <div class="graphic" id="cdc-versus-project-data-chart">CDC bar charts go here</div>
+  </div>
+
   <div class="map-container">
     <div class="map-column">
       <h2>Cases per one million people</h2>
@@ -13,12 +24,29 @@ nav: Dashboard
       <div class="map" title="State Positive Cases / million people" id="state-map"></div>
     </div>
   </div>
-  <p class="a11y-only"><a href="/data">Access data by state</a></p>  <div class="side-by-side">
+  <p class="a11y-only">
+    <a href="/data">Access data by state</a>
+  </p>
+  <div class="side-by-side">
+    <div class="graphic-text">
+      <p>Testing is one of the most important tools in controlling an outbreak. When universal testing is implemented, people who are infected with the virus can be isolated from folks who test negative. This functions as a sort of targeted social distancing technique and can help slow the outbreak.</p>
+    </div>
     <div class="graphic" id="chart-daily-positive-total"></div>
+  </div>
+  <div class="side-by-side">
     <div class="graphic" id="chart-daily-death-total"></div>
+    <div class="graphic-text">
+      <p>
+        The entire point of the response to the novel coronavirus is to save lives. One metric, though a sober one, we can use to measure the response’s effectiveness is the number of deaths attributed to the virus per day, and even per state.
+      </p>
+      <p>
+        We recommend using virus attributed deaths as the most meaningful measure to compare one US state against another. This is because ZZZZ
+      </p>
+    </div>
   </div>
   <div id="chart-state-small-multiples">
     <h3 class="chart-hed">Cumulative tests per state</h3>
+    <p>By comparing the positive tests to the total tests in each state, we can get a sense of how widespread a state’s testing regime might be (though always remember to consider population densities vary wildly across the country) and if the number of positive tests is tracking roughly against the total number of tests. If it is, then we might consider that the state isn’t necessarily just getting new infections every day but that they’re also giving more tests.</p>
     <ul class="chart-legend chart-dek">
       <li><span id="small-multiples-positive-legend"></span> Positive tests</li>
       <li><span id="small-multiples-total-legend"></span> Total tests</li>
