@@ -19,16 +19,25 @@
   .ctas {
     display: flex;
     margin-top: 5vh;
+    color: white;
+    font-family: sans-serif;
+    align-items: center;
+
+    .cta-spacer {
+      margin: 0 1em;
+    }
 
     a {
-      background: #179EDB;
-      margin: 0.25em 1em;
-      padding: 1.25em 4em;
       color: white;
-      text-decoration: none;
       font-size: 16px;
       font-family: sans-serif;
       font-weight: bold;
+    }
+
+    .button {
+      background: #179EDB;
+      text-decoration: none;
+      padding: 1.25em 3.5em;
     }
 
     :first-child {
