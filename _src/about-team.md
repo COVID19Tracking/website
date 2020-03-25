@@ -7,7 +7,7 @@ summary: >-
   States. We will do this work until official sources take over and make their
   data complete and public.
 ---
-This project combines two initial independent efforts. Two journalists at [The Atlantic](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/), [Robinson Meyer](https://twitter.com/yayitsrob) and [Alexis Madrigal](https://twitter.com/alexismadrigal), built a tracker for [COVID-19 testing investigation](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/). Separately, Jeff Hammerbacher, Founder and General Partner at [Related Sciences](https://www.related.vc/), built a tracking spreadsheet. The two efforts came together March 7, and made a call for volunteers.
+This project combines two initial independent efforts. Two journalists at *[The Atlantic](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/)*, [Robinson Meyer](https://twitter.com/yayitsrob) and [Alexis Madrigal](https://twitter.com/alexismadrigal), built a tracker for a [COVID-19 testing investigation](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/). Separately, Jeff Hammerbacher, Founder and General Partner at [Related Sciences](https://www.related.vc/), built a tracking spreadsheet. The two efforts came together March 7, and made a call for volunteers.
 
 [Alexis Madrigal](https://twitter.com/alexismadrigal) currently leads the COVID Tracking Project. Jeff Hammerbacher has [returned to his work](https://www.related.vc/) and we send eternal gratitude his way. [Erin Kissane](https://twitter.com/kissane) is our managing editor. 
 
