@@ -1,12 +1,20 @@
 .site-header {
   margin-bottom: 1rem;
-  border-bottom: 2px solid black;
 
   .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 2vw 4vw;
+    padding: 2vw 4vw;
+    background: #4d5c9c;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-family: sans-serif;
+      font-weight: bold;
+    }
 
     nav ul {
       padding-left: 0;
