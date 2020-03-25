@@ -1,12 +1,9 @@
 ---
 title: 'Newsroom/Expert FAQ '
 nav: Newsroom FAQ
+summary: ''
 ---
-## Can we have a video call to talk through the data?
-
-We would love to, but we are at capacity handling the data right now. These docs are our most current information, so please start by reading everything we’ve published here.
-
-If you’re on a newsroom data team and still have questions, we have someone answering them in the #covid19 channel of [the News Nerdery slack](https://newsnerdery.org/). If that doesn’t help, please feel free to [open an issue in our public repo on GitHub](https://github.com/COVID19Tracking/issues/issues) and we’ll get eyes on it as soon as possible. Once we establish more ways to contact us for help, we’ll post them here.
+These docs are our most current information. If you read them and still have questions, we usually have someone answering them in the #covid19 channel of the [News Nerdery slack](https://newsnerdery.org/). If that doesn’t help, please feel free to [open an issue in our public repo on GitHub](https://github.com/COVID19Tracking/issues/issues) and we’ll get eyes on it as soon as possible. Once we establish more ways to contact us for help, we’ll post them here.
 
 ## Does your data represent cumulative cases or new cases each day?
 
@@ -59,8 +56,6 @@ Our goal is to provide a consistently up-to-date dataset on COVID-19 testing. We
 **Using Target Update Times:** There are some states that don’t report an official update time, but provide guidance that they update “by” or “around” the same time each day (e.g. Massachusetts and Wisconsin). In these cases, we use their “target update time” as the “Last Update.”
 
 **No Update Time Provided:** One exception is when a state does not report an update time on their official site. In this case, we standardize and just report the given date and a time of 00:00, without any particular timezone conversion.
-
-
 
 ## What do all the tabs do?
 

@@ -9,7 +9,7 @@ The COVID Tracking Project was [founded by three people](https://covidtracking.c
 
 For everyone who can afford to make a financial contribution: Please subscribe to your local newspaper. If you can, maybe subscribe to a few.
 
-Without the  labor of local reporters, we wouldn't have a lot of the data we now receive from state public health authorities—and without financial support from people who care about transparency and governance, many vital news organizations won't make it through an economic crisis. 
+Without the  labor of local reporters, we wouldn't have a lot of the data we now receive from state public health authorities—and without significant financial support from people who care about transparency and governance, [many vital news organizations won't make it through an economic crisis](https://www.theatlantic.com/ideas/archive/2020/03/coronavirus-killing-local-news/608695/). 
 
 ## 2. Push your state public health authority to share more data
 
