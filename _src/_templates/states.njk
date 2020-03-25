@@ -116,7 +116,7 @@ layout: base.njk
             <div class="state-flex-header">Total test results<div class="total-info">Positive + Negative</div>
             </div>
             <div class="state-flex-data">
-              {% if state.posNeg %}{{ state.posNeg | thousands }}
+              {% if state.positive and state.negative %}{{ (state.positive + state.negative) | thousands }}
               {% else %}N/A{% endif %}
             </div>
           </div>
