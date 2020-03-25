@@ -1,8 +1,5 @@
-.title-container {
-  text-align: center;
-}
 .title-container .title {
-  text-transform: none;
+  text-transform: uppercase;
 }
 .map-container {
   display: flex;

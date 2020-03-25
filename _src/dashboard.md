@@ -5,16 +5,23 @@ nav: Dashboard
 <div class="dashboard">
   <div class="title-container">
     <h1 class="title">Visual dashboard</h1>
-  </div>
-  <p>The COVID Tracking Project collects information from 50 US states, the District of Columbia, and 5 other US territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2. We attempt to include positive and negative results, pending tests, and total people tested for each state or district currently reporting that data.</p>
-  <p>Tracking testing data in the U.S. has been a challenge for public authorities. The Center for Disease Control, the US federal public health agency, is currently publishing incomplete data that lags several days behind state reports.</p>
+    <p>Tracking testing data has become crucial to fight the coronavirus. Considering the lag in data reports by public organizations, The COVID Tracking Project has been collecting more accurate information since March 4. On this dashboard, we present some of our data visualized and walk you through the common misconceptions when charting coronavirus numbers.</p>
 
-  <div class="side-by-side">
-    <div class="graphic-text">
-      <p>Testing is a crucial part of any public health response, and sharing test data is essential to understanding this outbreak. The CDC is currently not publishing complete testing data, so we're doing our best to collect it from each state and provide it to the public.</p>
-      <p>As of today, the CDC has tested XX number of specimens, and we have tracked that there have been at least YY tests administered across the country. It is important to note that testing numbers are likely an undercount because of the lack of universal testing, and that a multiple specimen tests can be conducted from a single person’s sample.</p>
-    </div>
-    <div class="graphic" id="cdc-versus-project-data-chart">CDC bar charts go here</div>
+  </div>
+
+  <p>Testing is a crucial part of any public health response, and sharing test data is essential to understanding this outbreak. The Center for Disease Control, the US national public health agency, is currently publishing incomplete data that lags several days behind state reports. So the COVID Tracking Project is collecting and double-checking daily data by hand based on information reported by authorities. </p>
+
+  <p>We gather information from 50 US states, the District of Columbia, and 5 other US territories to provide the most comprehensive testing data of the novel coronavirus, SARS-CoV-2. We attempt to include positive and negative results, pending tests, and total people tested for each state or district currently reporting that data.</p>
+
+  <h2>Differences between this data and the CDC data</h2>
+
+  <p>As of today, the C.D.C. has tested XX number of specimens, and we have tracked that there have been at least YY tests administered across the country. It is important to note that testing numbers are likely an undercount because of the lack of universal testing and state reporting, and that multiple specimen tests can be conducted from a single person’s sample.</p>
+  
+  <img src="/_assets/img/placeholder-data-viz.jpg" width="500">
+
+  <div class="side-by-side" id="cdc-versus-project-data-chart">
+    <div class="graphic">CDC bar charts go here</div>
+    <div class="graphic">Our data bar charts go here</div>
   </div>
 
   <div class="map-container">
@@ -36,12 +43,9 @@ nav: Dashboard
   <div class="side-by-side">
     <div class="graphic" id="chart-daily-death-total"></div>
     <div class="graphic-text">
-      <p>
-        The entire point of the response to the novel coronavirus is to save lives. One metric, though a sober one, we can use to measure the response’s effectiveness is the number of deaths attributed to the virus per day, and even per state.
-      </p>
-      <p>
-        We recommend using virus attributed deaths as the most meaningful measure to compare one US state against another. This is because ZZZZ
-      </p>
+      <p>Organized, collective, and timely response from the government and other authorities is a key factor in saving lives. One metric, though a sober one, we can use to measure the response’s effectiveness is the number of deaths attributed to the virus per day, and even per state.</p>
+      <p>We recommend using virus attributed deaths normalized for population as the most meaningful measure to compare one U.S. state against another. Using confirmed cases to track the severity of the virus in one state is misleading as some states are not reporting positive cases due to lack of testing.</p>
+      <p>Though this is a national crisis each state is reporting data differently. We are tracking numbers from each state, though the quality and frequency of reports varies significantly.</p>
     </div>
   </div>
   <div id="chart-state-small-multiples">
