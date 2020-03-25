@@ -21,11 +21,11 @@ Other states provide some or none of these numbers on an ongoing basis. Some cru
 
 Each state has a data quality grade associated with it based on the reliability of their reporting. This grading system is described below.
 
-<h3 id="data-quality-grade">State data quality grades</h3>
+<h2 id="data-quality-grade">State data quality grades</h2>
 
 A number score is tallied based on 4 simple components:
 
-1. +1 for reporting positives reliably (only NV fails)
+1. +1 for reporting positives reliably
 2. +1 for reporting negatives sometimes
 3. +1 for reporting negatives reliably
 4. +1 for reporting all commercial tests
