@@ -80,14 +80,16 @@
       const date = parseDate(d.date)
       return [
         {
-          name: formatDate(date),
-          group: 'Positive',
-          value: d.positive,
+          date: date,
+          topicName: 'Total',
+          name: 'Total',
+          value: calculateTotal(d),
         },
         {
-          name: formatDate(date),
-          group: 'Total',
-          value: calculateTotal(d),
+          date: date,
+          topicName: 'Positive',
+          name: 'Positive',
+          value: d.positive,
         },
       ]
     }).flat()
@@ -99,7 +101,7 @@
       .classed('chart', true)
       .classed('no-y-axis-domain', true)
     const source = chartContainer.append('div').classed('chart-api-note', true)
-    const barChart = britecharts.groupedBar()
+    const barChart = britecharts.line()
     const legendChart = britecharts.legend()
 
     const width = chartContainer.node().clientWidth * 0.9
@@ -109,8 +111,11 @@
         left: 90,
         right: 20,
         top: 20,
-        bottom: 20,
+        bottom: 30,
       })
+      .xAxisFormat('%b. %e')
+      .grid('full')
+      .lineCurve('basis')
       .height(350)
       .width(width)
       .colorSchema([totalColor, positiveColor])
@@ -123,14 +128,14 @@
         left: 0,
       })
 
-    chart.datum(transformedData).call(barChart)
+    chart.datum({ data: transformedData }).call(barChart)
     legend.datum([
       {
-        id: 1,
+        id: 2,
         name: 'Positive tests',
       },
       {
-        id: 2,
+        id: 1,
         name: 'Total tests',
       },
     ]).call(legendChart)

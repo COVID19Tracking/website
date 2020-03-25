@@ -113,7 +113,7 @@ ul.chart-legend {
   // .x-axis-group .tick text {
   //   transform: rotate(90deg) translate(2.2em, -1em);
   // }
-
+  &.line-chart .line,
   .area-outline {
     fill: none;
   }
