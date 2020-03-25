@@ -1,17 +1,19 @@
 ---
-title: About the Team
+title: About the COVID Tracking Project
 nav: About Us
+summary: >-
+  The COVID Tracking Project obtains, organizes, and publishes high-quality data
+  required to understand and respond to the COVID-19 outbreak in the United
+  States. We will do this work until official sources take over and make their
+  data complete and public.
 ---
-## History
+## About the Team
 
 This project combines two initial independent efforts. Jeff Hammerbacher, Founder and General Partner at [Related Sciences](https://www.related.vc/), built a tracking spreadsheet. Separately, two journalists, [Robinson Meyer](https://twitter.com/yayitsrob) and [Alexis Madrigal](https://twitter.com/alexismadrigal), built a tracker for [a story in The Atlantic](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/). The two efforts came together March 7, and made a call for volunteers to help keep the data updated, tune processes, work on scrapers, and make a website.
 
 [Alexis Madrigal](https://twitter.com/alexismadrigal) currently leads the COVID Tracking Project. Jeff Hammerbacher has [returned to his work](https://www.related.vc/) and we send eternal gratitude his way. [Erin Kissane](https://twitter.com/kissane) is our managing editor. 
 
-Our team now includes volunteer data-grabbers, journalists, scientists, visualization specialists, designers, project managers, and many other great people.
-
-
-## Contributors
+Our team now includes volunteer data-grabbers, journalists, scientists, visualization specialists, designers, project managers, and many other great people. We can't list them all for privacy reasons, but here are some of our stalwart contributors:
 
 * [Stanley Bishop](https://mltogether.la/)
 * [Kai Curry](https://github.com/webmasterkai)
@@ -60,3 +62,4 @@ Our team now includes volunteer data-grabbers, journalists, scientists, visualiz
 * [Dylan Smith](http://TucsonSentinel.com)
 * [Alan Wilson](https://twitter.com/alangwilson)
 
+We run on Netlify, Slack, GitHub, and intense volunteer effort. Check out our [software repositories and credits](https://covidtracking.com/software/).
