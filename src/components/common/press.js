@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-export default ({ press }) => (
+export const PressList = ({ press }) => (
   <ul>
     {press.map(({ node }) => (
       <li key={`press-${node.id}`}>
