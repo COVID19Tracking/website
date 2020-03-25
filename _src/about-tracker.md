@@ -2,9 +2,9 @@
 title: About the Data
 nav: About the Tracker
 summary: >-
-  Although we use technical tools to alert us to changes in the information
-  states report, all the data we publish is collected and double-checked by
-  humans. We prize accuracy and completeness over speed.
+  All the data we publish is collected and double-checked by humans consulting
+  official state/territory data sources. We prize accuracy and completeness over
+  speed.
 ---
 We update [the full dataset](/data/) each day between 4pm and 5pm EDT, with limited updates as new information arrives.
 
