@@ -6,8 +6,6 @@ import Footer from './footer'
 import SkipNavigation from '../common/skip-navigation'
 import { SkipNavContent } from '@reach/skip-nav'
 import '../../scss/global.scss'
-import '../../scss/normalize.css'
-
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
