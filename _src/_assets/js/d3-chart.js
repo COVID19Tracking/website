@@ -5,7 +5,7 @@ function d3BarChart({
   color,
   width,
   height,
-  margin = { top: 30, right: 0, bottom: 30, left: 40 },
+  margin = { top: 30, right: 0, bottom: 30, left: 60 },
 }) {
   const x = d3
     .scaleBand()
@@ -23,8 +23,7 @@ function d3BarChart({
     g.attr('transform', `translate(0,${height - margin.bottom})`).call(
       d3
         .axisBottom(x)
-        .ticks(3)
-        .tickFormat(i => (i % 15 !== 0 ? ' ' : data[i].name)) // only show every x tick
+        .tickFormat(i => (i % 13 !== 0 ? ' ' : data[i].name)) // only show every x tick
         .tickSizeOuter(0),
     )
   const yAxis = g =>
@@ -34,7 +33,7 @@ function d3BarChart({
         d3
           .axisLeft(y)
           .ticks(5)
-          .tickFormat(d3.format('.2s')),
+          .tickFormat(d3.format(',')),
       )
       .call(g => g.select('.domain').remove())
       .call(g =>

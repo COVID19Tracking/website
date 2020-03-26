@@ -94,7 +94,8 @@
   function addCDCTestComparison(rawCtData, rawCdcData) {
     //cutting off the first 20 values
     const cutOff = 20
-    const cdcData = transformCDCData(rawCdcData).slice(cutOff)
+    const transformedCdcData = transformCDCData(rawCdcData)
+    const cdcData = transformedCdcData.slice(cutOff)
     //fill with 0s & lop off the end so it's the same length as CDC data
     const ctData = [
       ...cdcData.slice(0, 46 - cutOff).map(e => ({ ...e, value: 0 })),
@@ -104,10 +105,27 @@
         value: d.positiveIncrease + d.negativeIncrease,
       })),
     ].slice(0, cdcData.length)
-    // debugger
     const cdcChartContainer = d3.select('#cdc-test-chart')
     const ctChartContainer = d3.select('#ct-test-chart')
     const yMax = d3.max(ctData, d => d.value)
+    const cdcSpeciumSum = d3.sum(transformedCdcData, d => {
+      return +d.value
+    })
+    const ctTotalTestSum = d3.sum(rawCtData, d => {
+      return d.negative + d.positive
+    })
+
+    d3.select('#cdc-speciman-count').text(d3.format(',')(cdcSpeciumSum))
+    d3.select('#project-total-count').text(d3.format(',')(ctTotalTestSum))
+
+    cdcChartContainer
+      .append('h4')
+      .text('Specimans tested by CDC')
+    ctChartContainer
+      .append('h4')
+      .style('padding-left', '3rem')
+      .text('Tests tracked')
+
     cdcChartContainer.append(() =>
       d3BarChart({
         data: cdcData,

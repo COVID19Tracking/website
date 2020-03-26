@@ -14,7 +14,6 @@ Byline/publish date: #8FA3AD - size 13pt
 .side-by-side {
   display: flex;
   flex-direction: column;
-  margin-top: 3rem;
 
   .graphic,
   .graphic-text {
@@ -99,6 +98,10 @@ ul.chart-legend {
   width: 1rem;
 }
 
+.dashboard h4 {
+  margin-top: 0;
+}
+
 .britechart {
   .legend-container-group {
     transform: translate(0);
@@ -172,10 +175,6 @@ ul.chart-legend {
     height: 250px;
     position: relative;
     width: 250px;
-  }
-
-  h4 {
-    margin-top: 0;
   }
 
   svg {
