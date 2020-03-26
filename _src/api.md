@@ -82,7 +82,7 @@ Entries saved each day at 4 pm ET.
 * `name` - Full state or territory name.
 * `fips` - Federal Information Processing Standard state code
 * `covid19Site` - Webpage dedicated to making results available to the public. More likely to contain numbers. We make regular screenshots of this URL.
-* `covid19SiteSecondary` - More informational.
+* `covid19SiteSecondary` - Typically more informational.
 * `twitter` - Twitter for the State Health Department
 * `pui` - Person Under Investigation; it is meant to capture positive, negative, and pending test results.
 * `pum` - Person Under Monitoring; we don’t collect these numbers as they are reported far less consistently across states
