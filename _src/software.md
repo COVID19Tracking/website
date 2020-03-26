@@ -48,3 +48,7 @@ The COVID Tracking Project is based on a group developer effort, with code hoste
 ## Satellite Projects
 
 * [R package that wraps the COVID Tracking Project API](https://github.com/aedobbyn/covid19us) from [Amanda Dobbyn](https://github.com/aedobbyn)
+
+## Projects Built with Our Data
+
+* [The COVID-19 Testing Gap](https://testing.predictcovid.com) by [Lachlan Campbell](https://lachlanjc.me).
