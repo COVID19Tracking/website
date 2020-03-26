@@ -5,6 +5,9 @@ module.exports = {
     title: 'The COVID Tracking Project',
     name: 'ctracker',
     shortname: 'ctracker',
+    production:
+      typeof process.env.BRANCH !== 'undefined' &&
+      process.env.BRANCH === 'master',
     buildDate: DateTime.fromObject({ zone: 'America/New_York' }).toFormat(
       "M/dd HH:mm 'ET'",
     ),
