@@ -42,13 +42,13 @@ nav: Dashboard
     <div class="graphic" id="chart-daily-death-total"></div>
     <div class="graphic-text">
       <p>Organized, collective, and timely response from the government and other authorities is a key factor in saving lives. One metric, though a sober one, we can use to measure the response’s effectiveness is the number of deaths attributed to the virus per day, and even per state.</p>
-       <p>We recommend using total numbers for plotting deaths to compare one U.S. state against another. In this case, adjusting per capita adds a layer of abstraction to the story, making the numbers less graspable and powerful. It’s easier to picture 200 fatalities than 0.0001 fatalities per capita, as John Burn-Murdoch, a data journalist at the Financial Times, pointed out.</p>
+       <p>We recommend using total numbers for plotting deaths to compare one U.S. state against another. In this case, adjusting per capita adds a layer of abstraction to the story, making the numbers less graspable and powerful. It’s easier to picture 200 fatalities than 0.0001 fatalities per capita, as John Burn-Murdoch, a data journalist at the Financial Times, <a href="https://twitter.com/jburnmurdoch/status/1242904971311529985">pointed out.</a></p>
       <p>On the other hand, using confirmed cases to track the severity of the virus in one state is misleading as some states are not reporting positive cases due to lack of testing.</p>
-      <p>Though this is a national crisis each state is reporting data differently. We are tracking numbers from each state, though the quality and frequency of reports varies significantly.</p>
     </div>
   </div>
   <div class="side-by-side">
     <div class="graphic-text">
+       <p>Though this is a national crisis, each state is reporting data differently. We are tracking numbers from each state, though the quality and frequency of reports varies significantly.</p>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
