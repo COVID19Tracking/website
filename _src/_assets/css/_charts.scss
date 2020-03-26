@@ -95,7 +95,7 @@ ul.chart-legend {
 .chart-legend li span {
   display: inline-block;
   height: 1rem;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   width: 1rem;
 }
 
@@ -107,8 +107,6 @@ ul.chart-legend {
   .y-axis-group .tick text {
     transform: translate(-1em, 0);
   }
-
-
 
   // .x-axis-group .tick text {
   //   transform: rotate(90deg) translate(2.2em, -1em);
@@ -246,4 +244,13 @@ ul.chart-legend {
 
 .charts-notes {
   font-size: 14px;
+}
+
+#cdc-comparison-chart-container {
+  display: flex;
+  height: 300px;
+  flex-grow: 1;
+  .cdc-comparison-chart {
+    width: 50%;
+  }
 }
