@@ -12,7 +12,7 @@ nav: Dashboard
   <div class="side-by-side">
     <div class="graphic-text">
       <h2 class="chart-hed">Differences between this data and the CDC data</h2>
-      <p>As of today, the C.D.C. has tested <span id="cdc-speciman-count">--</span> specimens, and we have tracked that there have been at least <span id="project-total-count">--</span> tests administered across the country. It is important to note that testing numbers are likely an undercount because of the lack of universal testing and state reporting, and that multiple specimen tests can be conducted from a single person’s sample.</p>
+      <p>As of today, the C.D.C. has tested <span id="cdc-specimen-count">--</span> specimens, and we have tracked that there have been at least <span id="project-total-count">--</span> tests administered across the country. It is important to note that testing numbers are likely an undercount because of the lack of universal testing and state reporting, and that multiple specimen tests can be conducted from a single person’s sample.</p>
     </div>
     <div class="graphic" id="cdc-comparison-chart-container">
       <div class="cdc-comparison-chart" id="cdc-test-chart"></div>
