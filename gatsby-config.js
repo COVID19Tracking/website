@@ -28,10 +28,11 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-mdx`,
-    `gatsby-transformer-yaml`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
+    'gatsby-plugin-mdx',
+    'gatsby-transformer-yaml',
+    'gatsby-plugin-eslint',
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -41,27 +42,27 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [`gatsby-remark-autolink-headers`],
+        plugins: ['gatsby-remark-autolink-headers'],
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `content`,
+        name: 'content',
         path: `${__dirname}/src/content/pages/`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `snippets`,
+        name: 'snippets',
         path: `${__dirname}/src/content/snippets/`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `navigation`,
+        name: 'navigation',
         path: `${__dirname}/src/data/navigation`,
       },
     },
@@ -70,7 +71,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'state',
-        url: `https://covidtracking.com/api/states`,
+        url: 'https://covidtracking.com/api/states',
       },
     },
     {
@@ -78,7 +79,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'stateInfo',
-        url: `https://covidtracking.com/api/states/info`,
+        url: 'https://covidtracking.com/api/states/info',
       },
     },
     {
@@ -86,7 +87,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'stateDaily',
-        url: `https://covidtracking.com/api/states/daily`,
+        url: 'https://covidtracking.com/api/states/daily',
       },
     },
     {
@@ -94,7 +95,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'us',
-        url: `https://covidtracking.com/api/us`,
+        url: 'https://covidtracking.com/api/us',
       },
     },
     {
@@ -102,7 +103,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'usDaily',
-        url: `https://covidtracking.com/api/us/daily`,
+        url: 'https://covidtracking.com/api/us/daily',
       },
     },
     {
@@ -110,7 +111,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'screenshots',
-        url: `https://covidtracking.com/api/screenshots`,
+        url: 'https://covidtracking.com/api/screenshots',
       },
     },
     {
@@ -118,19 +119,19 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'press',
-        url: `https://covidtracking.com/api/press`,
+        url: 'https://covidtracking.com/api/press',
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `The COVID Tracking Project`,
-        short_name: `COVID Tracking Project`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#ffffff`,
-        display: `minimal-ui`,
-        icon: `src/images/icons/icon-512.png`, // This path is relative to the root of the site.
+        name: 'The COVID Tracking Project',
+        short_name: 'COVID Tracking Project',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
+        display: 'minimal-ui',
+        icon: 'src/images/icons/icon-512.png', // This path is relative to the root of the site.
       },
     },
   ],
