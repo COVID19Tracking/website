@@ -37,7 +37,8 @@ const State = ({ state }) => (
       </li>
       {state.stateData.grade && (
         <li>
-          Data quality grade: <span className="state-grade">{state.stateData.grade}</span>
+          Data quality grade:{' '}
+          <span className="state-grade">{state.stateData.grade}</span>
         </li>
       )}
     </UnstyledList>
@@ -54,12 +55,13 @@ const State = ({ state }) => (
 const StateList = ({ states, stateData }) => {
   const stateList = []
   states.forEach(({ node }) => {
+    const state = node
     stateData.forEach(data => {
-      if (data.node.state === node.state) {
-        node.stateData = data.node
+      if (data.node.state === state.state) {
+        state.stateData = data.node
       }
     })
-    stateList.push(node)
+    stateList.push(state)
   })
   return (
     <Flex flexWrap="wrap">

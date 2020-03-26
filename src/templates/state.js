@@ -1,12 +1,11 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import { DateTime } from 'luxon'
+import marked from 'marked'
 import Layout from '../components/layout'
-import SEO from '../components/seo'
-import { Link, graphql } from 'gatsby'
 import formatDate from '../utilities/format-date'
 import thousands from '../utilities/format-thousands'
 import { UnstyledList } from '../components/common/lists'
-import { DayTime, DateTime } from 'luxon'
-import marked from 'marked'
 import DetailText from '../components/common/detail-text'
 import SummaryTable from '../components/common/summary-table'
 import BuildTime from '../components/common/build-time'
@@ -47,7 +46,7 @@ const Screenshots = ({ date, screenshots }) => {
     <ul>
       {dateScreenshots.map(screenshot => (
         <li key={`screenshot-${screenshot.ETag}`}>
-          <a href={screenshot.url} target="_blank">
+          <a href={screenshot.url} target="_blank" rel="noopener noreferrer">
             {screenshot.dateChecked && (
               <>
                 {DateTime.fromISO(screenshot.dateChecked)

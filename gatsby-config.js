@@ -32,6 +32,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-mdx`,
     `gatsby-transformer-yaml`,
+    'gatsby-plugin-eslint',
     {
       resolve: `gatsby-plugin-typography`,
       options: {

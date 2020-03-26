@@ -37,7 +37,7 @@ const ContentPage = ({ data }) => (
             {data.allCovidUsDaily.edges.map(({ node }) => (
               <tr>
                 <td className="text-left">
-                  {DateTime.fromFormat(node.date + '', 'yyyyMMdd').toFormat(
+                  {DateTime.fromFormat(node.date, 'yyyyMMdd').toFormat(
                     'dd LLL yyyy ccc',
                   )}
                 </td>

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import PropTypes from 'prop-types'
 import DevelopmentWarning from './development-warning'
 import '../../scss/components/header.scss'
 import ProjectLogo from '../../images/project-logo.svg'
@@ -49,7 +48,7 @@ const Header = () => (
               navigation={data.allNavigationYaml.edges[0].node.items}
             />
           )}
-        ></StaticQuery>
+        />
       </div>
     </header>
   </>
