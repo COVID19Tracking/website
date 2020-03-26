@@ -33,6 +33,12 @@ module.exports = {
     `gatsby-plugin-mdx`,
     `gatsby-transformer-yaml`,
     {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utilities/typography`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [`gatsby-remark-autolink-headers`],
