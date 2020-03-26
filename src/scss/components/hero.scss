@@ -7,6 +7,10 @@
   padding-left: 8vw;
   padding-right: 24vw;
 
+  @media only screen and (max-width: 480px) {
+    padding: 3vh 4vw 0;
+  }
+
   .header {
     color: white;
     font-family: sans-serif;
@@ -14,6 +18,11 @@
     line-height: 48px;
     font-weight: bold;
     margin-bottom: 0;
+
+    @media only screen and (max-width: 480px) {
+      font-size: 24px;
+      line-height: 30px;
+    }
   }
 
   .ctas {
@@ -23,8 +32,16 @@
     font-family: sans-serif;
     align-items: center;
 
+    @media only screen and (max-width: 480px) {
+      flex-direction: column;
+    }
+
     .cta-spacer {
       margin: 0 1em;
+
+      @media only screen and (max-width: 480px) {
+        margin: 1em;
+      }
     }
 
     a {
@@ -38,6 +55,10 @@
       background: #179EDB;
       text-decoration: none;
       padding: 1.25em 3.5em;
+
+      @media only screen and (max-width: 480px) {
+        padding: .75em 2em;
+      }
     }
 
     :first-child {
