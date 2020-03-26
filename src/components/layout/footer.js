@@ -36,7 +36,7 @@ const Footer = () => (
           navigation={data.allNavigationYaml.edges[0].node.items}
         />
       )}
-    />
+    ></StaticQuery>
     External links:
     <ul>
       <li>

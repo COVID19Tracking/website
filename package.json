@@ -13,7 +13,6 @@
     "@storybook/addon-info": "^5.3.17",
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
-    "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-plugin-manifest": "^2.2.48",
     "gatsby-plugin-mdx": "^1.1.1",
     "gatsby-plugin-offline": "^3.0.41",
@@ -46,11 +45,6 @@
     "@storybook/addons": "^5.3.17",
     "@storybook/react": "^5.3.17",
     "babel-loader": "^8.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-loader": "^3.0.3",
-    "eslint-plugin-prettier": "^3.1.2",
     "prettier": "^1.19.1"
   },
   "keywords": [
