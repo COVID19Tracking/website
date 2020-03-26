@@ -112,7 +112,7 @@ const StatePage = ({ pageContext, data }) => {
       <BuildTime />
       <SummaryTable data={summary} />
       <DetailText>Last updated {summary.lastUpdateEt}</DetailText>
-      <h2>History</h2>
+      <h2 id="historical">History</h2>
       <StateHistory
         history={data.allCovidStateDaily.edges}
         screenshots={data.allCovidScreenshot.edges}

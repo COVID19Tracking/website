@@ -21,9 +21,13 @@ const Header = ({ siteTitle }) => (
   <>
     <DevelopmentWarning />
     <header className="site-header">
-      <div className="container">
+      <div className="header-container">
         <a className="site-title" href="/">
-          <img src={ProjectLogo} alt="The COVID Tracking Project" width="170px"/>
+          <img
+            src={ProjectLogo}
+            alt="The COVID Tracking Project"
+            width="170px"
+          />
         </a>
         <StaticQuery
           query={graphql`

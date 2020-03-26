@@ -12,7 +12,7 @@ const ContentPage = ({ pageContext }) => {
   const { isMdx, page, navigation } = pageContext
   const { frontmatter } = page
   return (
-    <Layout>
+    <Layout noContainer={frontmatter.noContainer}>
       {frontmatter && (
         <>
           <SEO title={frontmatter.title} />
