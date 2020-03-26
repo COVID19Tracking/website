@@ -345,22 +345,24 @@
   }
 
   function alterBriteChartStyles() {
-    const ids = ['#chart-daily-positive-total', '#chart-daily-death-total']
+    const ids = ['#chart-daily-positive-total', '#chart-daily-death-total', '#chart-states-current-death-total']
 
     ids.forEach(function(id) {
       const container = d3.select(id)
 
       // set up grid lines
-      const tickSelector = id + ' .y-axis-group .tick'
-      const chart = container.select('.chart-group')
-      d3.selectAll(tickSelector).each(function(d) {
-        const tick = d3.select(this)
-        const line = tick.select('line')
-
-        line.attr('x1', container.node().clientWidth * 0.78)
-      })
-
-      chart.raise()
+      if(id === '#chart-daily-positive-total' || id === '#chart-daily-death-total') {
+        const tickSelector = id + ' .y-axis-group .tick'
+        const chart = container.select('.chart-group')
+        d3.selectAll(tickSelector).each(function(d) {
+          const tick = d3.select(this)
+          const line = tick.select('line')
+  
+          line.attr('x1', container.node().clientWidth * 0.78)
+        })
+  
+        chart.raise()
+      }
 
       // change circle legend indicators to squares
 
