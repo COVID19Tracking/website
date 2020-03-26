@@ -253,13 +253,13 @@
         top: 20,
         bottom: 20,
       })
-      .colorSchema(['rgb(165,75,101)'])
+      .colorSchema([totalColor])
       .height(350)
       .width(width)
       .xAxisLabel('Date')
 
     legendChart
-      .colorSchema(['rgb(165,75,101)'])
+      .colorSchema([totalColor])
       .height(50)
       .isHorizontal(true)
       .margin({
@@ -316,13 +316,13 @@
         bottom: 20,
       })
       .isHorizontal(true)
-      .colorSchema(['rgb(165,75,101)'])
+      .colorSchema([totalColor])
       .height(1000)
       .width(width)
       .xAxisLabel('Deaths')
 
     legendChart
-      .colorSchema(['rgb(165,75,101)'])
+      .colorSchema([totalColor])
       .height(50)
       .isHorizontal(true)
       .margin({
