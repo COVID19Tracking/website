@@ -14,7 +14,7 @@ const State = ({ state }) => (
     <h3>
       <Link to={`/data/state/${slug(state.name)}`}>{state.name}</Link>
     </h3>
-    <SummaryTable data={state._stateData} />
+    <SummaryTable data={state.stateData} />
     <UnstyledList>
       {state.twitter && (
         <li>
@@ -35,9 +35,9 @@ const State = ({ state }) => (
           Historical data for {state.name}
         </Link>
       </li>
-      {state._stateData.grade && (
+      {state.stateData.grade && (
         <li>
-          Data quality grade: <span className="state-grade">{state._stateData.grade}</span>
+          Data quality grade: <span className="state-grade">{state.stateData.grade}</span>
         </li>
       )}
     </UnstyledList>
@@ -56,7 +56,7 @@ const StateList = ({ states, stateData }) => {
   states.forEach(({ node }) => {
     stateData.forEach(data => {
       if (data.node.state === node.state) {
-        node._stateData = data.node
+        node.stateData = data.node
       }
     })
     stateList.push(node)
@@ -65,7 +65,7 @@ const StateList = ({ states, stateData }) => {
     <Flex flexWrap="wrap">
       {stateList.map(state => (
         <Box width={[1, 1 / 2]} mb={['1rem', '1.5rem']} className="data-state">
-          <State state={state} stateData={state._stateData} />
+          <State state={state} stateData={state.stateData} />
         </Box>
       ))}
     </Flex>

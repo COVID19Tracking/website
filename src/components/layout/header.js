@@ -17,7 +17,7 @@ const HeaderNavigation = ({ navigation }) => (
   </nav>
 )
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <>
     <DevelopmentWarning />
     <header className="site-header">
@@ -54,13 +54,5 @@ const Header = ({ siteTitle }) => (
     </header>
   </>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
