@@ -21,7 +21,7 @@ const Header = ({ siteTitle }) => (
   <>
     <DevelopmentWarning />
     <header className="site-header">
-      <div className="container">
+      <div className="header-container">
         <a className="site-title" href="/">
           <img
             src={ProjectLogo}
