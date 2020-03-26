@@ -58,7 +58,7 @@ layout: base.njk
   </div>
 
   <nav id="states-nav" class="states-nav">
-    <h4>Jump to:</h4>
+    <h4>Jump to State</h4>
     <ul>
       {% for state in sheets.states | sort(false, false, 'state') %}
       <li><a href="#{{ state.state }}">{{ state.state | slug }}</a></li>

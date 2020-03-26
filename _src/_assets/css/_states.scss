@@ -17,9 +17,8 @@
 }
 
 .states-nav {
-  max-width: 6vw;
   padding-left: 5px;
-  position: absolute;
+  position: fixed;
   right: 1vw;
   top: 150px;
 
@@ -38,11 +37,12 @@
   ul {
     margin-top: 0.5em;
     padding-left: 0;
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
 
     @media (max-width: $viewport-md) {
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
     }
 
     li {
@@ -51,13 +51,21 @@
       padding: 1px;
       margin: 1px;
       text-align: center;
-
-      @media (max-width: $viewport-md) {
-        display: inline-block;
-        margin: 4px 14px;
-        flex-grow: 1;
-      }
+      display: inline-block;
+      margin: 4px 14px;
+      flex-grow: 1;
     }
+  }
+}
+
+.states-nav:hover {
+  h4 {
+    display: none;
+  }
+
+  ul {
+    display: flex;
+    width: 400px;
   }
 }
 
