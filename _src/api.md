@@ -10,7 +10,7 @@ All data is cumulative, so you should not see any counts going down over time. I
 
 Please be aware that each state has its own set of caveats, which we have documented on our [data page](/data/).
 
-The API format could and probably will change slightly in the future.
+The API format will change slightly in the future. Please see fields marked _DEPRECATED_ below.
 
 * States Current Values - [/api/states](/api/states) | [CSV](/api/states.csv)
 * States Historical Data - [/api/states/daily](/api/states/daily) | [CSV](http://covidtracking.com/api/states/daily.csv)
