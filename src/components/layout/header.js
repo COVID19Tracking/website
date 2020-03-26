@@ -44,7 +44,7 @@ const Header = ({ siteTitle }) => (
               navigation={data.allNavigationYaml.edges[0].node.items}
             />
           )}
-        ></StaticQuery>
+        />
       </div>
     </header>
   </>

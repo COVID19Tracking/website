@@ -13,3 +13,9 @@ export default {
 export const detailText = () => (
   <DetailText>This only applies to 50% of cases.</DetailText>
 )
+
+export const detailTextBlock = () => (
+  <DetailText isBlock>
+    This only applies to 50% of cases. A display:block element.
+  </DetailText>
+)

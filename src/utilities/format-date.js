@@ -1,11 +1,8 @@
 import { DateTime } from 'luxon'
 
-export default (date, format) => {
+export default (date, format = 'dd LLL yyyy ccc') => {
   if (typeof date === 'undefined') {
     return ''
-  }
-  if (!format) {
-    format = 'dd LLL yyyy ccc'
   }
   return DateTime.fromISO(date).toFormat(format)
 }
