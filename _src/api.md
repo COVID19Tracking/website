@@ -14,7 +14,7 @@ The API format could and probably will change slightly in the future.
 
 * States Current Values - [/api/states](/api/states) | [CSV](/api/states.csv)
 * States Historical Data - [/api/states/daily](/api/states/daily) | [CSV](http://covidtracking.com/api/states/daily.csv)
-* States info - [/api/states/info](/api/states/info) | [CSV](/api/states/info.csv)
+* States Information - [/api/states/info](/api/states/info) | [CSV](/api/states/info.csv)
 * US Current Values - [/api/us](http://covidtracking.com/api/us) | [CSV](/api/us.csv)
 * US Historical Data - [/api/us/daily](/api/us/daily) | [CSV](/api/us/daily.csv)
 * Counties- [/api/counties](/api/counties) | [CSV](/api/counties.csv)
@@ -73,6 +73,20 @@ Entries saved each day at 4 pm ET.
 * `deathIncrease` - Increase from the day before.
 * `dateChecked` - ISO 8601 date of the time we saved visited their website
 * `total` - _DEPRECATED_ Will be removed in the future. (`positive` + `negative` + `pending`). Pending has been an unstable value and should not count in any totals.
+
+### /api/states/info - States Information
+
+[/api/states/info](/api/states/info) | [CSV](/api/states/info.csv)
+
+* `state` - State or territory postal code abbreviation.
+* `name` - Full state or territory name.
+* `fips` - Federal Information Processing Standard state code
+* `covid19Site` - Webpage dedicated to making results available to the public.
+* `covid19SiteSecondary` - More information.
+* `twitter` - Twitter for the State Health Department
+* `pui` - Person Under Investigation; it is meant to capture positive, negative, and pending test results.
+* `pum` - Person Under Monitoring; we don’t collect these numbers as they are reported far less consistently across states
+* `notes` - Notes about the information available and how we collect or record it.
 
 ### /api/us - US Current Values
 
