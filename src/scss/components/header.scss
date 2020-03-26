@@ -1,5 +1,42 @@
-header {
-  margin-bottom: 1rem;
-  border-bottom: 2px solid black;
-  padding-bottom: 1rem;
+.site-header {
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2vw 8vw;
+    background: #5667AD;
+
+    img {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-family: sans-serif;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+
+      ul {
+        padding-left: 0;
+        margin: 0;
+
+        li {
+          display: inline-block;
+          padding-right: 3vw;
+          margin-bottom: 0;
+          line-height: 16px;
+        }
+
+        li:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
 }

@@ -2,14 +2,14 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { DateTime } from 'luxon'
 import marked from 'marked'
+import Layout from '../components/layout'
+import formatDate from '../utilities/format-date'
+import thousands from '../utilities/format-thousands'
 import { UnstyledList } from '../components/common/lists'
 import DetailText from '../components/common/detail-text'
 import SummaryTable from '../components/common/summary-table'
 import BuildTime from '../components/common/build-time'
 import Table from '../components/common/table'
-import Layout from '../components/layout'
-import formatDate from '../utilities/format-date'
-import thousands from '../utilities/format-thousands'
 
 const StateLinks = ({ name, twitter, covid19Site, dataSource }) => (
   <UnstyledList>
@@ -72,10 +72,7 @@ const StateHistory = ({ history, screenshots }) => (
         <th scope="col">Pending</th>
         <th scope="col">Hospitalized</th>
         <th scope="col">Deaths</th>
-        <th scope="col">
-          Total test results{' '}
-          <DetailText isBlock>(Positive + negative</DetailText>
-        </th>
+        <th scope="col">Total</th>
       </tr>
     </thead>
     <tbody>
@@ -114,7 +111,7 @@ const StatePage = ({ pageContext, data }) => {
       <BuildTime />
       <SummaryTable data={summary} />
       <DetailText>Last updated {summary.lastUpdateEt}</DetailText>
-      <h2>History</h2>
+      <h2 id="historical">History</h2>
       <StateHistory
         history={data.allCovidStateDaily.edges}
         screenshots={data.allCovidScreenshot.edges}

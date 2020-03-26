@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import PropTypes from 'prop-types'
 import DevelopmentWarning from './development-warning'
 import '../../scss/components/header.scss'
+import ProjectLogo from '../../images/project-logo.svg'
 
 const HeaderNavigation = ({ navigation }) => (
   <nav>
@@ -16,13 +16,17 @@ const HeaderNavigation = ({ navigation }) => (
   </nav>
 )
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <>
     <DevelopmentWarning />
     <header className="site-header">
-      <div className="container">
+      <div className="header-container">
         <a className="site-title" href="/">
-          {siteTitle}
+          <img
+            src={ProjectLogo}
+            alt="The COVID Tracking Project"
+            width="170px"
+          />
         </a>
         <StaticQuery
           query={graphql`
@@ -49,13 +53,5 @@ const Header = ({ siteTitle }) => (
     </header>
   </>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

@@ -14,7 +14,7 @@ const ButtonAnchor = ({ big, href, children }) => (
 )
 
 const Button = ({ big, children }) => (
-  <button type="button" className={big ? 'button button-big' : 'button'}>
+  <button className={big ? 'button button-big' : 'button'} type="button">
     {children}
   </button>
 )

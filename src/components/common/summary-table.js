@@ -1,7 +1,6 @@
 import React from 'react'
 import Table from './table'
 import thousands from '../../utilities/format-thousands'
-import DetailText from './detail-text'
 
 export default ({ data }) => (
   <Table>
@@ -13,20 +12,18 @@ export default ({ data }) => (
         <th>Pending</th>
         <th>Hospitalized</th>
         <th>Death</th>
-        <th>
-          Total test results{' '}
-          <DetailText isBlock>(Positive + negative</DetailText>
-        </th>
+        <th>Total</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>{thousands(data.positive)}</td>
-        <td>{thousands(data.negative)}</td>
-        <td>{thousands(data.pending)}</td>
-        <td>{thousands(data.hospitalized)}</td>
-        <td>{thousands(data.death)}</td>
-        <td>{thousands(data.posNeg)}</td>
+        <td>{data.positive ? thousands(data.positive) : 'N/A'}</td>
+        <td>{data.negative ? thousands(data.negative) : 'N/A'}</td>
+        <td>{data.posNeg ? thousands(data.posNeg) : 'N/A'}</td>
+        <td>{data.pending ? thousands(data.pending) : 'N/A'}</td>
+        <td>{data.hospitalized ? thousands(data.hospitalized) : 'N/A'}</td>
+        <td>{data.death ? thousands(data.death) : 'N/A'}</td>
+        <td>{data.total ? thousands(data.total) : 'N/A'}</td>
       </tr>
     </tbody>
   </Table>
