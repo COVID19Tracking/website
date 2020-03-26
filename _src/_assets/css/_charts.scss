@@ -244,9 +244,31 @@ ul.chart-legend {
 
 #cdc-comparison-chart-container {
   display: flex;
+  align-items: flex-end;
   height: 300px;
   flex-grow: 1;
   .cdc-comparison-chart {
-    width: 50%;
+    &:nth-child(1) {
+      width: 55%;
+    }
+    &:nth-child(2) {
+      width: 45%;
+    }
+    height: 100%;
+    .x-axis-group .tick:not(:nth-child(15n + 1)) {
+      display: none;
+    }
+    svg {
+      overflow: visible;
+    }
+
+    @media screen and (max-width: 600px) {
+      .x-axis-group .tick:not(:nth-child(15n + 1)) {
+        display: initial;
+      }
+      .x-axis-group .tick:not(:nth-child(20n + 1)) {
+        display: none;
+      }
+    }
   }
 }

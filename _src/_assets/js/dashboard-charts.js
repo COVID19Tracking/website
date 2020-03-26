@@ -126,11 +126,11 @@
     d3.select('#cdc-specimen-count').text(d3.format(',')(cdcSpeciumSum))
     d3.select('#project-total-count').text(d3.format(',')(ctTotalTestSum))
 
-    cdcChartContainer.append('h4').text('Specimens tested by CDC')
+    cdcChartContainer.append('h4').text('CDC')
     ctChartContainer
       .append('h4')
       .style('padding-left', '3rem')
-      .text('Tests tracked')
+      .text(window.innerWidth < 500 ? 'CTP' : 'COVID Tracking Project')
 
     cdcChartContainer.append(() =>
       d3BarChart({
@@ -139,7 +139,7 @@
         color: totalColor,
         formatDate,
         width: cdcChartContainer.node().clientWidth,
-        height: 300,
+        height: cdcChartContainer.node().clientHeight,
       }),
     )
     ctChartContainer.append(() =>
@@ -148,7 +148,8 @@
         showYAxis: false,
         color: totalColor,
         width: ctChartContainer.node().clientWidth,
-        height: 300,
+        height: ctChartContainer.node().clientHeight,
+        margin: { top: 30, right: 10, bottom: 30, left: 20 },
       }),
     )
   }
