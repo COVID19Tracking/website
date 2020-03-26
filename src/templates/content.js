@@ -16,7 +16,7 @@ const ContentPage = ({ pageContext }) => {
       {frontmatter && (
         <>
           <SEO title={frontmatter.title} />
-          <h1>{frontmatter.title}</h1>
+          {frontmatter.title && <h1>{frontmatter.title}</h1>}
         </>
       )}
       {navigation && navigation.length > 0 && (
