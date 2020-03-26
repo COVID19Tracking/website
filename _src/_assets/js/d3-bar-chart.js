@@ -2,7 +2,7 @@ function d3BarChart({
   data,
   showYAxis = true,
   yMax = null,
-  color,
+  fill,
   width,
   height,
   margin = { top: 30, right: 0, bottom: 30, left: 60 },
@@ -49,7 +49,7 @@ function d3BarChart({
 
   svg
     .append('g')
-    .attr('fill', color)
+    .attr('fill', fill)
     .selectAll('rect')
     .data(data)
     .join('rect')

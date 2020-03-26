@@ -131,7 +131,7 @@
       d3BarChart({
         data: cdcData,
         yMax,
-        color: totalColor,
+        fill: totalColor,
         formatDate,
         width: cdcChartContainer.node().clientWidth,
         height: 300,
@@ -141,87 +141,54 @@
       d3BarChart({
         data: ctData,
         showYAxis: false,
-        color: totalColor,
+        fill: totalColor,
         width: ctChartContainer.node().clientWidth,
         height: 300,
       }),
     )
   }
 
-  function addUsDailyPositiveBarChart(data) {
+  function addUsDailyPositiveAreaChart(data) {
+    function fillFn(d) {
+        if (d === 'Total') return totalColor
+        return positiveColor
+      }
+    const margin = {
+      left: 65,
+      top: 10,
+      right: 30,
+      bottom: 20,
+    }
     const transformedData = data
       .map(function(d) {
         const date = parseDate(d.date)
         return [
           {
             date: date,
-            topicName: 'Total',
-            name: 'Total',
+            label: 'Total',
             value: calculateTotal(d),
           },
           {
             date: date,
-            topicName: 'Positive',
-            name: 'Positive',
+            label: 'Positive',
             value: d.positive,
           },
         ]
       })
       .flat()
-
-    const chartContainer = d3.select('#chart-daily-positive-total')
-    const hed = chartContainer.append('h2').classed('chart-hed', true)
-    const legend = chartContainer.append('div').classed('chart-legend', true)
-    const chart = chartContainer
-      .append('div')
-      .classed('chart', true)
-      .classed('no-y-axis-domain', true)
-    const source = chartContainer.append('div').classed('chart-api-note', true)
-    const barChart = britecharts.line()
-    const legendChart = britecharts.legend()
-
-    const width = chartContainer.node().clientWidth * 0.9
-
-    barChart
-      .margin({
-        left: 90,
-        right: 20,
-        top: 20,
-        bottom: 30,
-      })
-      .xAxisFormat('%b. %e')
-      .grid('full')
-      .lineCurve('basis')
-      .height(350)
-      .width(width)
-      .colorSchema([totalColor, positiveColor])
-
-    legendChart
-      .colorSchema([positiveColor, totalColor])
-      .height(50)
-      .isHorizontal(true)
-      .margin({
-        left: 0,
-      })
-
-    chart.datum({ data: transformedData }).call(barChart)
-    legend
-      .datum([
-        {
-          id: 2,
-          name: 'Positive tests',
-        },
-        {
-          id: 1,
-          name: 'Total tests',
-        },
-      ])
-      .call(legendChart)
-
-    hed.text('Positive tests and total tests per in the US')
-    source.html(`
-      <p><a href="https://covidtracking.com/api/us/daily">Get this data from our API</a></p>
-    `)
+    const chart = d3.select('#chart-daily-positive-total .chart')
+    const svg = d3AreaChart({
+      data: transformedData,
+      fill: fillFn,
+      height: 400,
+      labelOrder: ['Total', 'Positive'],
+      margin,
+      width: chart.node().clientWidth * .9,
+      yMax: d3.max(transformedData, function(d) {
+        return d.value
+      }),
+    })
+    chart.node().appendChild(svg)
   }
 
   function addUsDailyDeathBarChart(data) {
@@ -398,20 +365,6 @@
     // this is where everything's gonna land!
     const chartContainer = d3.select('#chart-state-small-multiples div')
 
-    // we need to go through the data and figure out the maximum
-    // numbers that we're dealing with here
-    const totals = data
-      .map(function(d) {
-        return calculateTotal(d)
-      })
-      .sort(function(a, b) {
-        return b - a
-      })
-
-    const dateExtent = d3.extent(data, function(d) {
-      return parseDate(d.date)
-    })
-
     const margin = {
       left: 55,
       top: 5,
@@ -420,35 +373,6 @@
     }
     const chartHeight = 200
     const chartWidth = window.innerWidth > 320 ? 300 : 250
-    const totalXMargin = margin.left + margin.right
-    const totalYMargin = margin.top + margin.bottom
-    const xScale = d3
-      .scaleTime()
-      .domain(dateExtent)
-      .range([0, chartWidth - totalXMargin])
-    const yScale = d3
-      .scaleLinear()
-      .domain([0, totals[3]]) // don't use the greatest, it throws off all the other charts
-      .range([chartHeight - totalYMargin, 0])
-
-    const area = d3
-      .area()
-      .x(function(d) {
-        return xScale(d.date)
-      })
-      .y0(function(d) {
-        return yScale(d.value)
-      })
-      .y1(chartHeight - totalYMargin)
-
-    d3.select('#small-multiples-positive-legend').style(
-      'background-color',
-      positiveColor,
-    )
-    d3.select('#small-multiples-total-legend').style(
-      'background-color',
-      totalColor,
-    )
 
     const sortedGroupedByState = groupedByState.sort(function(a, b) {
       const lastA = a.values[0]
@@ -463,17 +387,21 @@
     sortedGroupedByState.forEach(function(state) {
       // because we're just charting two variables we make them here
       // we do this instead of creating two different area chart generators
-      const positive = state.values.map(function(d) {
-        return {
-          date: parseDate(d.date),
-          value: d.positive,
-        }
-      })
-      const total = state.values.map(function(d) {
-        return {
-          date: parseDate(d.date),
-          value: calculateTotal(d),
-        }
+      const data = []
+      state.values.forEach(function(d) {
+        const date = parseDate(d.date)
+
+        data.push({
+          date,
+          label: 'Positive',
+          value: d.positive
+        })
+
+        data.push({
+          date,
+          label: 'Total',
+          value: calculateTotal(d)
+        })
       })
 
       // this will hold the chart
@@ -482,16 +410,29 @@
         .classed('small-multiple-chart', true)
         .attr('data-state', state.key)
       const stateName = getStateName(state.key)
-      const stateHed = stateContainer.append('h4').text(stateName)
+      const stateHed = stateContainer.append('h4')
       const svgContainer = stateContainer
         .append('div')
         .classed('chart', true)
         .classed('no-y-axis-domain', true)
-      const svg = svgContainer.append('svg')
+      const chart = d3AreaChart({
+        data,
+        fill: function(d) {
+          if (d === 'Total') return totalColor
+          return positiveColor
+        },
+        height: chartHeight,
+        margin,
+        labelOrder: ['Total', 'Positive'],
+        width: chartWidth,
+        yMax: 20000,
+      })
       const stateLinkContainer = stateContainer
-        .append('div')
-        .classed('chart-state-link', true)
-
+      .append('div')
+      .classed('chart-state-link', true)
+      
+      stateHed.text(stateName)
+      svgContainer.node().appendChild(chart)
       stateLinkContainer
         .append('a')
         .attr(
@@ -500,94 +441,39 @@
         )
         .text('See all data from state')
 
-      const stateMax = d3.max(total, function(d) {
-        return d.value
-      })
+      // const stateMax = d3.max(total, function(d) {
+      //   return d.value
+      // })
 
-      const stateMaxY = yScale(stateMax)
-      let stateChartHeight = chartHeight
-      let transformTopValue = margin.top
+      // const stateMaxY = yScale(stateMax)
+      // let stateChartHeight = chartHeight
+      // let transformTopValue = margin.top
 
-      if (stateMaxY < 0) {
-        stateChartHeight = chartHeight + Math.abs(stateMaxY)
-        transformTopValue = Math.abs(stateMaxY)
-        console.log(
-          {
-            stateName,
-            stateMaxY,
-            stateChartHeight,
-            transformTopValue,
-            chartHeight,
-          },
-          chartHeight - transformTopValue,
-        )
-        svg.attr(
-          'transform',
-          'translateY(' + (chartHeight - transformTopValue - 10) + ')',
-        )
+      // if (stateMaxY < 0) {
+      //   stateChartHeight = chartHeight + Math.abs(stateMaxY)
+      //   transformTopValue = Math.abs(stateMaxY)
+      //   console.log(
+      //     {
+      //       stateName,
+      //       stateMaxY,
+      //       stateChartHeight,
+      //       transformTopValue,
+      //       chartHeight,
+      //     },
+      //     chartHeight - transformTopValue,
+      //   )
+      //   svg.attr(
+      //     'transform',
+      //     'translateY(' + (chartHeight - transformTopValue - 10) + ')',
+      //   )
 
-        svg.style('top', -1 * (chartHeight - transformTopValue - 32) + 'px')
-      }
+      //   svg.style('top', -1 * (chartHeight - transformTopValue - 32) + 'px')
+      // }
 
-      svg.attr('height', stateChartHeight)
+      // svg.attr('height', stateChartHeight)
 
       // make a group to hold the axi (axises?)
-      const axi = svg
-        .append('g')
-        .attr('transform', `translate(${margin.left} ${transformTopValue})`)
-      // and a container for our gridlines
-      const grid = axi.append('g').classed('chart-grid', true)
-
-      const xAxis = d3
-        .axisBottom()
-        .scale(xScale)
-        .tickFormat(d3.timeFormat('%b. %e'))
-        .ticks(3)
-      const yAxis = d3
-        .axisLeft()
-        .scale(yScale)
-        .ticks(4)
-      const xAxisG = axi
-        .append('g')
-        .classed('axis x-axis', true)
-        .attr('transform', 'translate(0 ' + (chartHeight - totalYMargin) + ')')
-        .call(xAxis)
-      const yAxisG = axi
-        .append('g')
-        .classed('axis y-axis', true)
-        .call(yAxis)
-
-      // go through, get the Y axis ticks and add gridlines for them
-      yAxisG.selectAll('.tick').each(function(d, i) {
-        d3.select(this)
-          .select('line')
-          .style('display', 'none')
-
-        grid
-          .append('line')
-          .attr('x1', 0)
-          .attr('x2', chartWidth - totalXMargin)
-          .attr('y1', yScale(d))
-          .attr('y2', yScale(d))
-          .attr('stroke', '#cccccc')
-      })
-
-      // actually add the areas to the chart!
-      svg
-        .append('g')
-        .attr('transform', `translate(${margin.left} ${transformTopValue})`)
-        .selectAll('path')
-        .data([total, positive])
-        .enter()
-        .append('path')
-        .attr('d', function(d) {
-          return area(d)
-        })
-        .attr('opacity', 0.9)
-        .attr('fill', function(d, i) {
-          if (i === 0) return totalColor
-          return positiveColor
-        })
+      
     })
   }
 
@@ -605,11 +491,19 @@
         return aDate - bDate
       })
       addCDCTestComparison(sortedUsDaily, cdcDailyTests)
-      addUsDailyPositiveBarChart(sortedUsDaily)
+      addUsDailyPositiveAreaChart(sortedUsDaily)
       addUsDailyDeathBarChart(sortedUsDaily)
       addUsStatesCurrentDeathBarChart(states)      
       addStateLevelSmallMultiples(stateDaily)
       setTimeout(function() {
+        d3.selectAll('.chart-legend-positive-color').style(
+          'background-color',
+          positiveColor,
+        )
+        d3.selectAll('.chart-legend-total-color').style(
+          'background-color',
+          totalColor,
+        )
         alterBriteChartStyles()
       }, 200)
     })
