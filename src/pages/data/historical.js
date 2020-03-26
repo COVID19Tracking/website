@@ -5,7 +5,7 @@ import Layout from '../../components/layout'
 import BuildTime from '../../components/common/build-time'
 
 const ContentPage = ({ data }) => (
-  <Layout>
+  <Layout title="US Historical Data">
     <div
       dangerouslySetInnerHTML={{
         __html: data.allMarkdownRemark.edges[0].node.html,
