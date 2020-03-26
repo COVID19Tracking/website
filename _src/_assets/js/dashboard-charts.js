@@ -104,7 +104,7 @@
         value: d.positiveIncrease + d.negativeIncrease,
       })),
     ].slice(0, cdcData.length)
-    debugger
+    // debugger
     const cdcChartContainer = d3.select('#cdc-test-chart')
     const ctChartContainer = d3.select('#ct-test-chart')
     const yMax = d3.max(ctData, d => d.value)
@@ -121,7 +121,7 @@
     ctChartContainer.append(() =>
       d3BarChart({
         data: ctData,
-        useYAxis: false,
+        showYAxis: false,
         color: totalColor,
         width: ctChartContainer.node().clientWidth,
         height: 300,

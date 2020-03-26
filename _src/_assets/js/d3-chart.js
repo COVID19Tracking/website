@@ -1,6 +1,6 @@
 function d3BarChart({
   data,
-  useYAxis = true,
+  showYAxis = true,
   yMax = null,
   color,
   width,
@@ -23,6 +23,7 @@ function d3BarChart({
     g.attr('transform', `translate(0,${height - margin.bottom})`).call(
       d3
         .axisBottom(x)
+        .ticks(3)
         .tickFormat(i => (i % 15 !== 0 ? ' ' : data[i].name)) // only show every x tick
         .tickSizeOuter(0),
     )
@@ -60,7 +61,37 @@ function d3BarChart({
 
   svg.append('g').call(xAxis)
 
-  useYAxis && svg.append('g').call(yAxis)
+  // if (useYAxis) {
+  svg
+    .append('g')
+    .classed('axis y-axis', true)
+    .call(yAxis)
+
+  const grid = svg.append('g')
+
+  grid.lower()
+  svg
+    .select('g.y-axis')
+    .selectAll('.tick')
+    .each(function(d) {
+      // crazy thing about D3 is that it uses `this` in a significant way
+      const tick = d3.select(this)
+
+      if (showYAxis) {
+        tick.select('line').remove()
+      } else {
+        tick.remove()
+      }
+
+      grid
+        .append('line')
+        .attr('x1', margin.left)
+        .attr('x2', width)
+        .attr('y1', height - y(d))
+        .attr('y2', height - y(d))
+        .attr('stroke', '#cccccc')
+    })
+  // }
 
   return svg.node()
 }

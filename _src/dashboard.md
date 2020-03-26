@@ -9,12 +9,14 @@ nav: Dashboard
 
   </div>
 
+  <p>Testing is a crucial part of any public health response, and sharing test data is essential to understanding this outbreak. The Center for Disease Control, the US national public health agency, is currently publishing incomplete data that lags several days behind state reports. So the COVID Tracking Project is collecting and double-checking daily data by hand based on information reported by authorities. </p>
+  <p>We gather information from 50 US states, the District of Columbia, and 5 other US territories to provide the most comprehensive testing data of the novel coronavirus, SARS-CoV-2. We attempt to include positive and negative results, pending tests, and total people tested for each state or district currently reporting that data.</p>
+  
+  <h2>Differences between this data and the CDC data</h2>
+
   <div class="side-by-side">
     <div class="graphic-text">
-        <p>Testing is a crucial part of any public health response, and sharing test data is essential to understanding this outbreak. The Center for Disease Control, the US national public health agency, is currently publishing incomplete data that lags several days behind state reports. So the COVID Tracking Project is collecting and double-checking daily data by hand based on information reported by authorities. </p>
-        <p>We gather information from 50 US states, the District of Columbia, and 5 other US territories to provide the most comprehensive testing data of the novel coronavirus, SARS-CoV-2. We attempt to include positive and negative results, pending tests, and total people tested for each state or district currently reporting that data.</p>
-        <h2>Differences between this data and the CDC data</h2>
-        <p>As of today, the C.D.C. has tested XX number of specimens, and we have tracked that there have been at least YY tests administered across the country. It is important to note that testing numbers are likely an undercount because of the lack of universal testing and state reporting, and that multiple specimen tests can be conducted from a single person’s sample.</p>
+      <p>As of today, the C.D.C. has tested XX number of specimens, and we have tracked that there have been at least YY tests administered across the country. It is important to note that testing numbers are likely an undercount because of the lack of universal testing and state reporting, and that multiple specimen tests can be conducted from a single person’s sample.</p>
     </div>
     <div class="graphic" id="cdc-comparison-chart-container">
       <div class="cdc-comparison-chart" id="cdc-test-chart"></div>
