@@ -17,13 +17,13 @@ export default ({ data }) => (
     </thead>
     <tbody>
       <tr>
-        <td>{thousands(data.positive)}</td>
-        <td>{thousands(data.negative)}</td>
-        <td>{thousands(data.posNeg)}</td>
-        <td>{thousands(data.pending)}</td>
-        <td>{thousands(data.hospitalized)}</td>
-        <td>{thousands(data.death)}</td>
-        <td>{thousands(data.total)}</td>
+        <td>{data.positive ? thousands(data.positive) : 'N/A'}</td>
+        <td>{data.negative ? thousands(data.negative) : 'N/A'}</td>
+        <td>{data.posNeg ? thousands(data.posNeg) : 'N/A'}</td>
+        <td>{data.pending ? thousands(data.pending) : 'N/A'}</td>
+        <td>{data.hospitalized ? thousands(data.hospitalized) : 'N/A'}</td>
+        <td>{data.death ? thousands(data.death) : 'N/A'}</td>
+        <td>{data.total ? thousands(data.total) : 'N/A'}</td>
       </tr>
     </tbody>
   </Table>
