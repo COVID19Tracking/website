@@ -35,9 +35,9 @@ const State = ({ state }) => (
           Historical data for {state.name}
         </Link>
       </li>
-      {state.grade && (
+      {state._stateData.grade && (
         <li>
-          Data quality grade: <span className="state-grade">{state.grade}</span>
+          Data quality grade: <span className="state-grade">{state._stateData.grade}</span>
         </li>
       )}
     </UnstyledList>
