@@ -5,14 +5,14 @@ nav: Dashboard
 <div class="dashboard">
   <div class="title-container">
     <h1 class="title">Visual dashboard</h1>
-    <p>Tracking testing data has become crucial to fight the coronavirus. Considering the lag in data reports by public organizations, The COVID Tracking Project has been collecting more accurate information since March 4. On this dashboard, we present some of our data visualized and walk you through the common misconceptions when charting coronavirus numbers.</p>
+    <p>Tracking testing data has become crucial to fight the coronavirus. Considering the lag in data reports by public organizations, The COVID Tracking Project has been collecting more accurate information since March 4. On this dashboard, we present some of our data visualized and walk you through the most common misconceptions when charting coronavirus numbers.</p>
 
   </div>
 
   <div class="side-by-side">
     <div class="graphic-text">
       <h2 class="chart-hed">Differences between this data and the CDC data</h2>
-      <p>As of today, the C.D.C. has tested <span id="cdc-specimen-count">--</span> specimens, and we have tracked that there have been at least <span id="project-total-count">--</span> tests administered across the country. It is important to note that testing numbers are likely an undercount because of the lack of universal testing and state reporting, and that multiple specimen tests can be conducted from a single person’s sample.</p>
+      <p>As of today, the C.D.C. has tested <span id="cdc-specimen-count">--</span> specimens, and we have tracked at least <span id="project-total-count">--</span> tests administered across the country. It is important to note that testing numbers are likely an undercount because of the lack of universal testing and state reporting, and that multiple specimen tests can be conducted from a single person’s sample.</p>
     </div>
     <div class="graphic" id="cdc-comparison-chart-container">
       <div class="cdc-comparison-chart" id="cdc-test-chart"></div>
@@ -21,7 +21,7 @@ nav: Dashboard
   </div>
 
   <div class="map-container">
-    <h2 class="chart-hed">Cases per one million people</h2>
+    <h2 class="chart-hed">Positive tests per one million people</h2>
     <div class="map-column">
       <div id="map-legend"></div>
       <div class="map" title="State Positive Cases / million people" id="state-map"></div>
@@ -42,7 +42,8 @@ nav: Dashboard
     <div class="graphic" id="chart-daily-death-total"></div>
     <div class="graphic-text">
       <p>Organized, collective, and timely response from the government and other authorities is a key factor in saving lives. One metric, though a sober one, we can use to measure the response’s effectiveness is the number of deaths attributed to the virus per day, and even per state.</p>
-      <p>We recommend using virus attributed deaths normalized for population as the most meaningful measure to compare one U.S. state against another. Using confirmed cases to track the severity of the virus in one state is misleading as some states are not reporting positive cases due to lack of testing.</p>
+       <p>We recommend using total numbers for plotting deaths to compare one U.S. state against another. In this case, adjusting per capita adds a layer of abstraction to the story, making the numbers less graspable and powerful. It’s easier to picture 200 fatalities than 0.0001 fatalities per capita, as John Burn-Murdoch, a data journalist at the Financial Times, pointed out.</p>
+      <p>On the other hand, using confirmed cases to track the severity of the virus in one state is misleading as some states are not reporting positive cases due to lack of testing.</p>
       <p>Though this is a national crisis each state is reporting data differently. We are tracking numbers from each state, though the quality and frequency of reports varies significantly.</p>
     </div>
   </div>
@@ -55,7 +56,7 @@ nav: Dashboard
     <div class="graphic" id="chart-states-current-death-total"></div>    
   </div>  
   <div id="chart-state-small-multiples">
-    <h3 class="chart-hed">Cumulative tests per state</h3>
+    <h3 class="chart-hed">Cumulative tests by state</h3>
     <p>By comparing the positive tests to the total tests in each state, we can get a sense of how widespread a state’s testing regime might be (though always remember to consider population densities vary wildly across the country) and if the number of positive tests is tracking roughly against the total number of tests. If it is, then we might consider that the state isn’t necessarily just getting new infections every day but that they’re also giving more tests.</p>
     <ul class="chart-legend chart-dek">
       <li><span id="small-multiples-positive-legend"></span> Positive tests</li>
@@ -66,7 +67,7 @@ nav: Dashboard
       <p><strong>Note:</strong> We derive the <code>total</code> value by adding together the <code>positive</code> and <code>negative</code> value for each state. This is to account for differences in how states reporting <code>pending</code> tests.</p>
       <p><strong>Source:</strong> The COVID Tracking Project</p>
     </div>
-    <div class="by-line">By Daniel Gilbert, <a href="https://gabeoleary.com">Gabe O'Leary</a>, Jeremia Kimelman, Júlia Ledur and Melba Madrigal.</div>
+    <div class="by-line">By Daniel Gilbert, <a href="https://gabeoleary.com">Gabe O'Leary</a>, Jeremia Kimelman, <a href="https://julialedur.com.br">Júlia Ledur</a> and Melba Madrigal.</div>
   </div>
 </div>
 
