@@ -446,7 +446,22 @@
       if (stateMaxY < 0) {
         stateChartHeight = chartHeight + Math.abs(stateMaxY)
         transformTopValue = Math.abs(stateMaxY)
-        svg.attr('transform', 'translateY(' + stateMaxY + ')')
+        console.log(
+          {
+            stateName,
+            stateMaxY,
+            stateChartHeight,
+            transformTopValue,
+            chartHeight,
+          },
+          chartHeight - transformTopValue,
+        )
+        svg.attr(
+          'transform',
+          'translateY(' + (chartHeight - transformTopValue - 10) + ')',
+        )
+
+        svg.style('top', -1 * (chartHeight - transformTopValue - 22) + 'px')
       }
 
       svg.attr('height', stateChartHeight)
