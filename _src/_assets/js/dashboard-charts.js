@@ -414,7 +414,7 @@
 
     const margin = {
       left: 55,
-      top: 0,
+      top: 5,
       right: 55,
       bottom: 40,
     }
@@ -526,7 +526,7 @@
           'translateY(' + (chartHeight - transformTopValue - 10) + ')',
         )
 
-        svg.style('top', -1 * (chartHeight - transformTopValue - 22) + 'px')
+        svg.style('top', -1 * (chartHeight - transformTopValue - 32) + 'px')
       }
 
       svg.attr('height', stateChartHeight)
