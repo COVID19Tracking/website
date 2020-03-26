@@ -9,14 +9,10 @@ nav: Dashboard
 
   </div>
 
-  <p>Testing is a crucial part of any public health response, and sharing test data is essential to understanding this outbreak. The Center for Disease Control, the US national public health agency, is currently publishing incomplete data that lags several days behind state reports. So the COVID Tracking Project is collecting and double-checking daily data by hand based on information reported by authorities. </p>
-  <p>We gather information from 50 US states, the District of Columbia, and 5 other US territories to provide the most comprehensive testing data of the novel coronavirus, SARS-CoV-2. We attempt to include positive and negative results, pending tests, and total people tested for each state or district currently reporting that data.</p>
-  
-  <h2>Differences between this data and the CDC data</h2>
-
   <div class="side-by-side">
     <div class="graphic-text">
-      <p>As of today, the C.D.C. has tested XX number of specimens, and we have tracked that there have been at least YY tests administered across the country. It is important to note that testing numbers are likely an undercount because of the lack of universal testing and state reporting, and that multiple specimen tests can be conducted from a single person’s sample.</p>
+      <h2 class="chart-hed">Differences between this data and the CDC data</h2>
+      <p>As of today, the C.D.C. has tested <span id="cdc-speciman-count">--</span> specimens, and we have tracked that there have been at least <span id="project-total-count">--</span> tests administered across the country. It is important to note that testing numbers are likely an undercount because of the lack of universal testing and state reporting, and that multiple specimen tests can be conducted from a single person’s sample.</p>
     </div>
     <div class="graphic" id="cdc-comparison-chart-container">
       <div class="cdc-comparison-chart" id="cdc-test-chart"></div>
@@ -25,15 +21,17 @@ nav: Dashboard
   </div>
 
   <div class="map-container">
+    <h2 class="chart-hed">Cases per one million people</h2>
     <div class="map-column">
-      <h2>Cases per one million people</h2>
       <div id="map-legend"></div>
       <div class="map" title="State Positive Cases / million people" id="state-map"></div>
     </div>
   </div>
+
   <p class="a11y-only">
     <a href="/data">Access data by state</a>
   </p>
+
   <div class="side-by-side">
     <div class="graphic-text">
       <p>Testing is one of the most important tools in controlling an outbreak. When universal testing is implemented, people who are infected with the virus can be isolated from folks who test negative. This functions as a sort of targeted social distancing technique and can help slow the outbreak.</p>

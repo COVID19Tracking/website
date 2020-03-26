@@ -14,7 +14,7 @@ Byline/publish date: #8FA3AD - size 13pt
 .side-by-side {
   display: flex;
   flex-direction: column;
-  margin-top: 3rem;
+  margin-bottom: 2rem;
 
   .graphic,
   .graphic-text {
@@ -37,7 +37,6 @@ Byline/publish date: #8FA3AD - size 13pt
   display: block;
   font-size: 13pt;
   margin-bottom: 0;
-  min-height: 4rem;
   text-transform: uppercase;
 }
 
@@ -97,6 +96,11 @@ ul.chart-legend {
   height: 1rem;
   margin-right: 0.5rem;
   width: 1rem;
+}
+
+.dashboard h2,
+.dashboard h4 {
+  margin-top: 0;
 }
 
 .britechart {
@@ -172,10 +176,6 @@ ul.chart-legend {
     height: 250px;
     position: relative;
     width: 250px;
-  }
-
-  h4 {
-    margin-top: 0;
   }
 
   svg {

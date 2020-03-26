@@ -2,18 +2,18 @@
   text-transform: uppercase;
 }
 .map-container {
-  display: flex;
   justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
 }
+
 .map-column {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  max-width: 800px;
   text-align: left;
   width: 100%;
-  max-width: 800px;
-}
-.map-column h2 {
-  text-transform: uppercase;
 }
 
 #state-map {
