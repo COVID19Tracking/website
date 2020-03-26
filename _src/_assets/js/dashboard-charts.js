@@ -5,6 +5,7 @@
   const parseDate = d3.timeParse('%Y%m%d')
   const usDailyReq = d3.json('https://covidtracking.com/api/us/daily')
   const stateDailyReq = d3.json('https://covidtracking.com/api/states/daily')
+  const usStatesReq = d3.json(`https://covidtracking.com/api/states`)
 
   const cdcDailyReq = d3.json(
     'https://spreadsheets.google.com/feeds/list/16gBHQ7dCJK1psqEMasmLKiFlzoNKcfNujVpmHLHldSY/od6/public/values?alt=json',
@@ -281,6 +282,68 @@
     `)
   }
 
+  function addUsStatesCurrentDeathBarChart(data) {
+    const transformedData = data
+      .map(function(d) {
+        return {
+          name: getStateName(d.state),
+          value: d.death,
+        }
+      })
+      .filter(d => d !== null)
+      .sort(function(a, b) {
+        return a.value - b.value
+      })
+
+
+    const chartContainer = d3.select('#chart-states-current-death-total')
+    const hed = chartContainer.append('h3').classed('chart-hed', true)
+    const legend = chartContainer.append('div').classed('chart-legend', true)    
+    const chart = chartContainer
+      .append('div')
+      .classed('chart', true)
+      .classed('no-y-axis-domain', true)
+    const source = chartContainer.append('div').classed('chart-api-note', true)
+    const barChart = britecharts.bar()
+    const legendChart = britecharts.legend()
+    const width = chartContainer.node().clientWidth * 0.9
+
+    barChart
+      .margin({
+        left: 140,
+        right: 20,
+        top: 20,
+        bottom: 20,
+      })
+      .isHorizontal(true)
+      .colorSchema(['rgb(165,75,101)'])
+      .height(1000)
+      .width(width)
+      .xAxisLabel('Deaths')
+
+    legendChart
+      .colorSchema(['rgb(165,75,101)'])
+      .height(50)
+      .isHorizontal(true)
+      .margin({
+        left: 0,
+      })
+
+    hed.text('Total deaths by State')
+    chart.datum(transformedData).call(barChart)
+    legend
+      .datum([
+        {
+          id: 1,
+          name: 'Deaths',
+        },
+      ])
+      .call(legendChart)
+    source.html(`
+      <p><a href="https://covidtracking.com/api/states">Get this data from our API</a></p>
+    `)
+  }
+
   function alterBriteChartStyles() {
     const ids = ['#chart-daily-positive-total', '#chart-daily-death-total']
 
@@ -511,11 +574,12 @@
     })
   }
 
-  Promise.all([usDailyReq, stateDailyReq, cdcDailyReq])
+  Promise.all([usDailyReq, stateDailyReq, cdcDailyReq, usStatesReq])
     .then(data => {
       const usDaily = data[0]
       const stateDaily = data[1]
       const cdcDailyTests = data[2]
+      const states = data[3]
 
       const sortedUsDaily = usDaily.sort(function(a, b) {
         const aDate = parseDate(a.date)
@@ -526,6 +590,7 @@
       addCDCTestComparison(sortedUsDaily, cdcDailyTests)
       addUsDailyPositiveBarChart(sortedUsDaily)
       addUsDailyDeathBarChart(sortedUsDaily)
+      addUsStatesCurrentDeathBarChart(states)      
       addStateLevelSmallMultiples(stateDaily)
       setTimeout(function() {
         alterBriteChartStyles()

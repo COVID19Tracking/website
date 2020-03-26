@@ -46,6 +46,14 @@ nav: Dashboard
       <p>Though this is a national crisis each state is reporting data differently. We are tracking numbers from each state, though the quality and frequency of reports varies significantly.</p>
     </div>
   </div>
+  <div class="side-by-side">
+    <div class="graphic-text">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+    <div class="graphic" id="chart-states-current-death-total"></div>    
+  </div>  
   <div id="chart-state-small-multiples">
     <h3 class="chart-hed">Cumulative tests per state</h3>
     <p>By comparing the positive tests to the total tests in each state, we can get a sense of how widespread a state’s testing regime might be (though always remember to consider population densities vary wildly across the country) and if the number of positive tests is tracking roughly against the total number of tests. If it is, then we might consider that the state isn’t necessarily just getting new infections every day but that they’re also giving more tests.</p>
