@@ -27,6 +27,81 @@
       : '#FFEDA0'
   }
 
+  Promise.all([
+    d3.json('/_assets/json/states.json'),
+    d3.json('https://covidtracking.com/api/states'),
+  ]).then((responses) => {
+    const geojson = responses[0]
+    const data = responses[1]
+
+    const margin = {
+      bottom: 10,
+      left: 10,
+      right: 10,
+      top: 10,
+    }
+    const height = 400
+    const width = 700
+    const projection = d3
+      .geoAlbersUsa()
+      .fitExtent([[margin.left, margin.top], [width - margin.right, height - margin.bottom]], geojson)
+    const path = d3.geoPath().projection(projection)
+
+    const svg = d3.select('#state-map')
+      .append('svg')
+      .attr('height', height)
+      .attr('width', width)
+
+    const r = d3.scaleLinear()
+      .domain([
+        0,
+        d3.max(data, d => d.positive + d.negative )
+      ])
+      .range([0, 30])
+    const map = svg.append('g')
+    const bubbles = svg.append('g')
+
+    map.selectAll('path')
+      .data(geojson.features)
+      .enter()
+      .append('path')
+        .attr('d', path)
+        .attr('stroke', '#ababab')
+        .attr('fill', 'none')
+
+    bubbles.selectAll('circle')
+      .data(geojson.features)
+      .enter()
+      .append('circle')
+      .attr('r', d => {
+        const match = data.filter(dd => {
+          return dd.state === d.properties.STUSPS
+        })[0]
+
+        const total = match.positive + match.negative
+
+        return r(total)
+      })
+      .attr('cx', d => {
+        const point = path.centroid(d)
+
+        return point[0]
+      })
+      .attr('cy', d => {
+        const point = path.centroid(d)
+
+        return point[1]
+      })
+      .attr('stroke', '#585BC1')
+      .attr('fill', '#585BC1')
+      .attr('fill-opacity', 0.2)
+      .style('pointer-events', 'none')
+
+  })
+
+  return
+
+
   const joinDataToGeoJson = (geoJSON, stateArray) => {
     //in addition to joining latest state data to their shapes this also calculates positive cases per million people
     const stateObject = Object.assign(
