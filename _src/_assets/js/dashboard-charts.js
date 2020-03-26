@@ -109,19 +109,15 @@
     const cdcChartContainer = d3.select('#cdc-test-chart')
     const ctChartContainer = d3.select('#ct-test-chart')
     const yMax = d3.max(ctData, d => d.value)
-    const cdcSpeciumSum = d3.sum(transformedCdcData, d => {
-      return +d.value
-    })
-    const ctTotalTestSum = d3.sum(rawCtData, d => {
-      return d.negative + d.positive
-    })
+    const cdcSpeciumSum = d3.sum(transformedCdcData, d => d.value)
+    const ctTotalTestSum = d3.sum(rawCtData, d => d.negative + d.positive)
 
-    d3.select('#cdc-speciman-count').text(d3.format(',')(cdcSpeciumSum))
+    d3.select('#cdc-specimen-count').text(d3.format(',')(cdcSpeciumSum))
     d3.select('#project-total-count').text(d3.format(',')(ctTotalTestSum))
 
     cdcChartContainer
       .append('h4')
-      .text('Specimans tested by CDC')
+      .text('Specimens tested by CDC')
     ctChartContainer
       .append('h4')
       .style('padding-left', '3rem')
