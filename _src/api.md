@@ -124,6 +124,20 @@ Entries saved each day at 4 pm ET.
 * `posNeg` - _DEPRECATED_ Renamed to `totalTestResults`.
 * `total` - _DEPRECATED_ Will be removed in the future. (`positive` + `negative` + `pending`). Pending has been an unstable value and should not count in any totals.
 
+### /api/urls - Tracker URLs
+
+[/api/urls](/api/urls)
+
+* `name`: State Name
+* `stateId`: State or territory postal code abbreviation.
+* `url`: String
+* `kind`: String
+* `filter`: String
+* `headers`: Object
+* `navigate`: String
+* `options`: Object
+* `ssl_no_verify`: Boolean
+
 ### /api/cdc/daily - CDC Reported Tests
 
 [/api/cdc/daily](/api/cdc/daily) | [CSV](/api/cdc/daily.csv)
