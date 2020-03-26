@@ -23,9 +23,9 @@ const State = ({ state }) => (
           </a>
         </li>
       )}
-      {state.cocovid19Site && (
+      {state.covid19Site && (
         <li>
-          <a href={state.cocovid19Site}>
+          <a href={state.covid19Site}>
             Best current data source for {state.name}
           </a>
         </li>
