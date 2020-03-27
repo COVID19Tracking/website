@@ -67,6 +67,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `press-logos`,
+        path: `${__dirname}/src/data/homepage-press.yml`,
+      },
+    },
+    {
       resolve: 'gatsby-source-apiserver',
       options: {
         typePrefix: 'covid__',
