@@ -1,4 +1,5 @@
 import React from 'react'
+import LeadParagraph from '../components/common/lead-paragraph'
 
 const sampleText = `Testing is a crucial part of any public health response, 
 and sharing test data is essential to understanding this outbreak. The CDC is 
@@ -60,3 +61,5 @@ inlineStyles.story = {
     },
   },
 }
+
+export const leadParagraph = () => <LeadParagraph>{sampleText}</LeadParagraph>
