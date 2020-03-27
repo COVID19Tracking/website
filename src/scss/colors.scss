@@ -1,0 +1,10 @@
+$text: #000;
+
+$color-link: #546d8e;
+$color-link--active: #4a5f85;
+
+:export {
+  text: $text;
+  link: $color-link;
+  linkActive: $color-link--active;
+}

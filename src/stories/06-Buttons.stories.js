@@ -22,6 +22,16 @@ export const anchorButtonWithEmoji = () => (
     </span>
   </ButtonAnchor>
 )
+
+anchorButton.story = anchorButtonWithEmoji.story = bigAnchorButton.story = {
+  parameters: {
+    info: {
+      text:
+        'An anchor element `<a>` that is styled to look like a button. Use for external links.',
+    },
+  },
+}
+
 export const linkButton = () => <ButtonLink to="/">Gatsby link</ButtonLink>
 
 export const bigLinkButton = () => (
@@ -30,6 +40,24 @@ export const bigLinkButton = () => (
   </ButtonLink>
 )
 
+linkButton.story = bigLinkButton.story = {
+  parameters: {
+    info: {
+      text:
+        'A Gatsby `<Link>` component that is styled to look like a button. Use for internal links.',
+    },
+  },
+}
+
 export const button = () => <Button>Hello Button</Button>
 
 export const bigButton = () => <Button big>Hello Button</Button>
+
+button.story = bigButton.story = {
+  parameters: {
+    info: {
+      text:
+        'A regular `<button>` element. Use for interactions that will not load a new page.',
+    },
+  },
+}
