@@ -1,0 +1,274 @@
+/*
+
+Chart title: all caps #000000 - bold size 16pt
+Chart subhead: #000000 - size 13pt
+Grids: #8FA3AD - stroke 0.5pt
+Axes labels: #505F69 - size 12pt
+Annotations: #00000 - size 13pt
+Annotation lines: #000000 - size 0.5pt
+Note/sources/*: #000000 - size 15pt
+Byline/publish date: #8FA3AD - size 13pt
+
+*/
+
+.side-by-side {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+
+  .graphic,
+  .graphic-text {
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 500px) {
+    flex-direction: row;
+
+    .graphic,
+    .graphic-text {
+      width: 50%;
+    }
+  }
+}
+
+.chart-hed {
+  color: #000000;
+  display: block;
+  font-size: 13pt;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.chart-api-note {
+  p {
+    color: #000000;
+    font-size: 10pt;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    text-align: right;
+    width: 86%;
+  }
+}
+
+.x-axis .domain,
+.x-axis-group .domain {
+  display: none;
+}
+
+.y-axis .domain,
+.no-y-axis-domain .y-axis-group .domain {
+  display: none;
+}
+
+.axis .domain,
+.axis .tick line {
+  stroke: #8fa3ad;
+}
+
+.tick text {
+  fill: #505f69;
+  font-size: 10pt;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+.legend-entry-name,
+ul.chart-legend {
+  font-size: 14px !important;
+}
+
+ul.chart-legend {
+  display: flex;
+  list-style-type: none;
+  padding-left: 1rem;
+  width: 300px;
+}
+
+.chart-legend li {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+}
+
+.chart-legend li span {
+  display: inline-block;
+  height: 1rem;
+  margin-right: 0.5rem;
+  width: 1rem;
+}
+
+.dashboard h2,
+.dashboard h4 {
+  margin-top: 0;
+}
+
+.britechart {
+  .legend-container-group {
+    transform: translate(0);
+  }
+
+  .y-axis-group .tick text {
+    transform: translate(-1em, 0);
+  }
+
+  // .x-axis-group .tick text {
+  //   transform: rotate(90deg) translate(2.2em, -1em);
+  // }
+  &.line-chart .line,
+  .area-outline {
+    fill: none;
+  }
+}
+
+#chart-daily-positive-total,
+#chart-daily-death-total {
+  .x-axis-group .tick:not(:nth-child(3n + 1)) {
+    display: none;
+  }
+  @media screen and (max-width: 500px) {
+    .x-axis-group .tick:not(:nth-child(3n + 1)) {
+      display: initial;
+    }
+    .x-axis-group .tick:not(:nth-child(5n + 1)) {
+      display: none;
+    }
+  }
+
+  .y-axis-group .tick:not(:nth-child(even)) {
+    display: none;
+  }
+}
+
+#chart-state-small-multiples {
+  position: relative;
+
+  .chart-dek {
+    background-color: white;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  #small-multiples-positive-span,
+  #small-multiples-total-span {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .charts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8rem;
+    width: 100%;
+  }
+
+  [data-state] {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    height: 250px;
+    position: relative;
+    width: 250px;
+  }
+
+  svg {
+    position: absolute;
+    top: 2.5rem;
+  }
+
+  .chart-state-link {
+    font-size: 12pt;
+  }
+
+  /* crazy nth-child stuff to hide specific y axis labels */
+
+  [data-state] {
+    .y-axis text {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    [data-state]:nth-child(even) {
+      .y-axis text {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    [data-state]:nth-child(even) {
+      .y-axis text {
+        display: block;
+      }
+    }
+
+    [data-state]:not(:nth-child(3n + 1)) {
+      .y-axis text {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    [data-state]:nth-child(even) {
+      .y-axis text {
+        display: block;
+      }
+    }
+
+    [data-state]:not(:nth-child(3n + 1)) {
+      .y-axis text {
+        display: block;
+      }
+    }
+
+    [data-state]:not(:nth-child(4n + 1)) {
+      .y-axis text {
+        display: none;
+      }
+    }
+  }
+}
+
+.charts-notes {
+  font-size: 14px;
+}
+
+#cdc-comparison-chart-container {
+  display: flex;
+  align-items: flex-end;
+  height: 300px;
+  flex-grow: 1;
+  .cdc-comparison-chart {
+    &:nth-child(1) {
+      width: 55%;
+    }
+    &:nth-child(2) {
+      width: 45%;
+    }
+    height: 100%;
+    .x-axis-group .tick:not(:nth-child(15n + 1)) {
+      display: none;
+    }
+    svg {
+      overflow: visible;
+    }
+
+    @media screen and (max-width: 600px) {
+      .x-axis-group .tick:not(:nth-child(15n + 1)) {
+        display: initial;
+      }
+      .x-axis-group .tick:not(:nth-child(20n + 1)) {
+        display: none;
+      }
+    }
+  }
+}
