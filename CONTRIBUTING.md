@@ -40,7 +40,7 @@ Merges should only be made by the core website team, after a PR was reviewed and
 
 ## Commit messages and pull request titles
 
-Write your commit messages and PR titles following the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.3/) format. They should be both concise and specific. Examples of good commit messages are:
+Write your commit messages and PR titles following the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.3/) format. The pattern is `<type>([optional scope]): Message,`, for example: `fix(docs): Fixed typos in contributor documentation`. They should be both concise and specific. Examples of good commit messages are:
 
 - fix(design): Added more padding to buttons
 - chore(docs): Copy edit the contributing page
