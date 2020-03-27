@@ -5,30 +5,30 @@ import syncIcon from '../../images/infobox-icons/sync.svg'
 import alertIcon from '../../images/infobox-icons/alert.svg'
 import questionIcon from '../../images/infobox-icons/question.svg'
 
-const InfoboxInner = ({ header, content }) => (
+const InfoboxInner = ({ header, children }) => (
   <div>
     <p className="info-header">{header}</p>
-    <p className="info-content">{content}</p>
+    <div className="info-content">{children}</div>
   </div>
 )
 
-const Infobox = ({ header, content }) => (
+const Infobox = ({ header, children }) => (
   <div className="infobox">
-    <InfoboxInner header={header} content={content} />
+    <InfoboxInner header={header}>{children}</InfoboxInner>
   </div>
 )
 
-const AlertInfobox = ({ header, content }) => (
+const AlertInfobox = ({ header, children }) => (
   <div className="infobox infobox-alert">
     <img src={alertIcon} alt="Alert icon" />
-    <InfoboxInner header={header} content={content} />
+    <InfoboxInner header={header}>{children}</InfoboxInner>
   </div>
 )
 
-const QuestionInfobox = ({ header, content }) => (
+const QuestionInfobox = ({ header, children }) => (
   <div className="infobox infobox-question">
     <img src={questionIcon} alt="Question icon" />
-    <InfoboxInner header={header} content={content} />
+    <InfoboxInner header={header}>{children}</InfoboxInner>
   </div>
 )
 
@@ -47,10 +47,9 @@ const SyncInfobox = () => (
       <div className="infobox infobox-sync">
         <img src={syncIcon} alt="Sync icon" />
         <div>
-          <InfoboxInner
-            header="Last synced with our spreadsheet:"
-            content={data.site.siteMetadata.buildDate}
-          />
+          <InfoboxInner header="Last synced with our spreadsheet:">
+            {data.site.siteMetadata.buildDate}
+          </InfoboxInner>
         </div>
       </div>
     )}
