@@ -23,7 +23,8 @@
     width: 50px;
   }
 
-  img[alt="New York Times logo"] {
+  img[alt="The New York Times logo"],
+  img[alt="The Washington Post logo"] {
     width: 180px;
   }
 
@@ -33,10 +34,6 @@
 
   img[alt="Minnesota Public Radio News logo"] {
     width: 110px;
-  }
-
-  img[alt="The Washington Post logo"] {
-    width: 180px;
   }
 
   img:last-child {
