@@ -39,7 +39,7 @@ const mergeStateDaily = (stateDaily, screenshots) => {
 }
 
 const pressLinks = _.flow(
-  _.filter({ addToCovidTrackingProjectWebsite: true }),
+  _.filter(item => item.addToCovidTrackingProjectWebsite && item.title),
   _.orderBy(['publishDate'], ['desc']),
 )
 
