@@ -145,8 +145,7 @@
       var layer = e.target
 
       layer.setStyle({
-        weight: 2,
-        fillOpacity: 0.9,
+        weight: 3,
       })
 
       if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -174,7 +173,7 @@
 
     const defaultStyle = {
       weight: 1,
-      fillOpacity: 0.7,
+      fillOpacity: 1,
       color: 'white',
     }
 

@@ -109,23 +109,28 @@
     const cdcChartContainer = d3.select('#cdc-test-chart')
     const ctChartContainer = d3.select('#ct-test-chart')
     const yMax = d3.max(ctData, d => d.value)
-    const cdcSpeciumSum = d3.sum(transformedCdcData, d => {
-      return +d.value
-    })
-    const ctTotalTestSum = d3.sum(rawCtData, d => {
-      return d.negative + d.positive
-    })
+    const cdcSpeciumSum = d3.sum(transformedCdcData, d => d.value)
 
-    d3.select('#cdc-speciman-count').text(d3.format(',')(cdcSpeciumSum))
+    const ctTotalTestSum =
+      rawCtData[rawCtData.length - 1].positive +
+      rawCtData[rawCtData.length - 1].negative
+
+    // below method ends up with slighly differetn number than last days test count so were going with that
+    /*
+    const ctTotalTestSum = d3.sum(
+      rawCtData,
+      d => d.negativeIncrease + d.positiveIncrease,
+    )
+    */
+
+    d3.select('#cdc-specimen-count').text(d3.format(',')(cdcSpeciumSum))
     d3.select('#project-total-count').text(d3.format(',')(ctTotalTestSum))
 
-    cdcChartContainer
-      .append('h4')
-      .text('Specimans tested by CDC')
+    cdcChartContainer.append('h4').text('CDC')
     ctChartContainer
       .append('h4')
       .style('padding-left', '3rem')
-      .text('Tests tracked')
+      .text(window.innerWidth < 500 ? 'CTP' : 'COVID Tracking Project')
 
     cdcChartContainer.append(() =>
       d3BarChart({
@@ -134,7 +139,7 @@
         fill: totalColor,
         formatDate,
         width: cdcChartContainer.node().clientWidth,
-        height: 300,
+        height: cdcChartContainer.node().clientHeight,
       }),
     )
     ctChartContainer.append(() =>
@@ -143,7 +148,8 @@
         showYAxis: false,
         fill: totalColor,
         width: ctChartContainer.node().clientWidth,
-        height: 300,
+        height: ctChartContainer.node().clientHeight,
+        margin: { top: 30, right: 10, bottom: 30, left: 20 },
       }),
     )
   }
@@ -262,10 +268,9 @@
         return a.value - b.value
       })
 
-
     const chartContainer = d3.select('#chart-states-current-death-total')
     const hed = chartContainer.append('h3').classed('chart-hed', true)
-    const legend = chartContainer.append('div').classed('chart-legend', true)    
+    const legend = chartContainer.append('div').classed('chart-legend', true)
     const chart = chartContainer
       .append('div')
       .classed('chart', true)
@@ -312,22 +317,29 @@
   }
 
   function alterBriteChartStyles() {
-    const ids = ['#chart-daily-positive-total', '#chart-daily-death-total', '#chart-states-current-death-total']
+    const ids = [
+      '#chart-daily-positive-total',
+      '#chart-daily-death-total',
+      '#chart-states-current-death-total',
+    ]
 
     ids.forEach(function(id) {
       const container = d3.select(id)
 
       // set up grid lines
-      if(id === '#chart-daily-positive-total' || id === '#chart-daily-death-total') {
+      if (
+        id === '#chart-daily-positive-total' ||
+        id === '#chart-daily-death-total'
+      ) {
         const tickSelector = id + ' .y-axis-group .tick'
         const chart = container.select('.chart-group')
         d3.selectAll(tickSelector).each(function(d) {
           const tick = d3.select(this)
           const line = tick.select('line')
-  
+
           line.attr('x1', container.node().clientWidth * 0.78)
         })
-  
+
         chart.raise()
       }
 
@@ -493,7 +505,7 @@
       addCDCTestComparison(sortedUsDaily, cdcDailyTests)
       addUsDailyPositiveAreaChart(sortedUsDaily)
       addUsDailyDeathBarChart(sortedUsDaily)
-      addUsStatesCurrentDeathBarChart(states)      
+      addUsStatesCurrentDeathBarChart(states)
       addStateLevelSmallMultiples(stateDaily)
       setTimeout(function() {
         d3.selectAll('.chart-legend-positive-color').style(

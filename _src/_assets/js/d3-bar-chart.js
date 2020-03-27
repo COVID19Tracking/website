@@ -20,12 +20,15 @@ function d3BarChart({
     .range([height - margin.bottom, margin.top])
 
   const xAxis = g =>
-    g.attr('transform', `translate(0,${height - margin.bottom})`).call(
-      d3
-        .axisBottom(x)
-        .tickFormat(i => (i % 13 !== 0 ? ' ' : data[i].name)) // only show every x tick
-        .tickSizeOuter(0),
-    )
+    g
+      .attr('class', 'x-axis-group')
+      .attr('transform', `translate(0,${height - margin.bottom})`)
+      .call(
+        d3
+          .axisBottom(x)
+          .tickFormat(i => data[i].name) // only show every x tick
+          .tickSizeOuter(0),
+      )
   const yAxis = g =>
     g
       .attr('transform', `translate(${margin.left},0)`)
