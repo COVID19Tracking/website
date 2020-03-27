@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Wilto/ctracker.git"
+    "url": "git@github.com:COVID19Tracking/website.git"
   },
   "author": {
     "name": "Mat Marquis",
@@ -20,7 +20,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Wilto/ctracker/issues"
+    "url": "https://github.com/COVID19Tracking/website/issues"
   },
   "homepage": "https://covidtracking.com",
   "dependencies": {
