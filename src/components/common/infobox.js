@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import '../../scss/components/common/infobox.scss'
 import syncIcon from '../../images/infobox-icons/sync.svg'
 
-const InfoboxInner = ({header, content}) => (
+const InfoboxInner = ({ header, content }) => (
   <div>
     <p className="info-header">{header}</p>
     <p className="info-content">{content}</p>
