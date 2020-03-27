@@ -80,9 +80,15 @@ ul.chart-legend {
 
 ul.chart-legend {
   display: flex;
+  flex-direction: column;
   list-style-type: none;
   padding-left: 1rem;
-  width: 520px;
+  width: 100%;
+
+  @media screen and (min-width: 550px) {
+    flex-direction: row;
+    width: 550px;
+  }
 }
 
 .chart-legend li {
@@ -179,8 +185,13 @@ ul.chart-legend {
   }
 
   svg {
+    left: 15%;
     position: absolute;
     top: 2.5rem;
+
+    @media screen and (min-width: 550px) {
+      left: 0;
+    }
   }
 
   .chart-state-link {
