@@ -1,5 +1,13 @@
 @import './normalize.css';
+@import './colors.scss';
 
 #gatsby-noscript {
   display: none;
+}
+
+a {
+  color: $color-link;
+  &:active {
+    color: $color-link--active;
+  }
 }
