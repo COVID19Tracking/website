@@ -3,17 +3,20 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 export default () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       allCovidPress(
-        filter: { featureOnCovidTrackingProjectHomepage: { eq: true } }
+        filter: {
+          addToCovidTrackingProjectWebsite: { eq: true }
+          title: { ne: "null" }
+        }
         sort: { fields: publishDate, order: DESC }
       ) {
         edges {
           node {
-            id
             title
             url
             publication
+            publishDate(formatString: "MMMM D YYYY")
           }
         }
       }
@@ -23,7 +26,8 @@ export default () => {
     <ul className="press-list">
       {data.allCovidPress.edges.map(({ node }) => (
         <li key={`homepage-press-${node.id}`}>
-          {node.publication} - <a href={node.url}>{node.title}</a>
+          <a href={node.url}>{node.title}</a> — <em>{node.publication}</em>,{' '}
+          {node.publishDate}
         </li>
       ))}
     </ul>
