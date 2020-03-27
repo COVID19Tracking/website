@@ -1,5 +1,5 @@
 import React from 'react'
-import { Infobox, SyncInfobox, AlertInfobox } from '../components/common/infobox'
+import { Infobox, SyncInfobox, QuestionInfobox, AlertInfobox } from '../components/common/infobox'
 
 export default {
   title: 'Infobox',
@@ -13,7 +13,7 @@ infobox.story = {
   parameters: {
     info: {
       text:
-        'This is a blank infobox. See below for specifically styled infoboxes.',
+        'This is a blank infobox. See below for specifically styled infoboxes. Content is an optional parameter.',
     },
   },
 }
@@ -33,4 +33,8 @@ syncinfobox.story = {
 
 export const alertinfobox = () => (
   <AlertInfobox header="Oh no! This is an alert" content="Something is broken..."/>
+)
+
+export const questioninfobox = () => (
+  <QuestionInfobox header="What does this mean?"/>
 )
