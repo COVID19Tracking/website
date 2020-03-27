@@ -1,0 +1,33 @@
+.infobox {
+  display: inline-flex;
+  padding: 0.5em;
+  padding-right: 2em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  margin: 1em;
+
+  img {
+    width: 16px;
+    margin: 4px 12px 4px 8px;
+    align-self: flex-start;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .info-header {
+    font-weight: bold;
+  }
+
+  .info-content {
+    margin-top: 0.25em;
+  }
+
+  &.infobox-sync {
+    margin-left: 0;
+    background-color: #bde1fb;
+    color: #264a8c;
+  }
+}
+
