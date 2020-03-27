@@ -8,7 +8,7 @@ import thousands from '../utilities/format-thousands'
 import { UnstyledList } from '../components/common/lists'
 import DetailText from '../components/common/detail-text'
 import SummaryTable from '../components/common/summary-table'
-import BuildTime from '../components/common/build-time'
+import { SyncInfobox } from '../components/common/infobox'
 import Table from '../components/common/table'
 
 const StateLinks = ({ name, twitter, covid19Site, dataSource }) => (
@@ -108,7 +108,7 @@ const StatePage = ({ pageContext, data }) => {
           }}
         />
       )}
-      <BuildTime />
+      <SyncInfobox />
       <SummaryTable data={summary} />
       <DetailText>Last updated {summary.lastUpdateEt}</DetailText>
       <h2 id="historical">History</h2>
