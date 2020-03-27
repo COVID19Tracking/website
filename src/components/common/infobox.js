@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import '../../scss/components/common/infobox.scss'
 import syncIcon from '../../images/infobox-icons/sync.svg'
 import alertIcon from '../../images/infobox-icons/alert.svg'
+import questionIcon from '../../images/infobox-icons/question.svg'
 
 const InfoboxInner = ({ header, content }) => (
   <div>
@@ -20,6 +21,13 @@ const Infobox = ({ header, content }) => (
 const AlertInfobox = ({ header, content }) => (
   <div className="infobox infobox-alert">
     <img src={alertIcon} alt="Alert icon" />
+    <InfoboxInner header={header} content={content} />
+  </div>
+)
+
+const QuestionInfobox = ({ header, content }) => (
+  <div className="infobox infobox-question">
+    <img src={questionIcon} alt="Question icon" />
     <InfoboxInner header={header} content={content} />
   </div>
 )
@@ -49,4 +57,4 @@ const SyncInfobox = () => (
   />
 )
 
-export { Infobox, SyncInfobox, AlertInfobox }
+export { Infobox, SyncInfobox, AlertInfobox, QuestionInfobox }
