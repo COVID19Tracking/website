@@ -36,7 +36,19 @@ nav: Dashboard
     <div class="graphic-text">
       <p>Testing is one of the most important tools in controlling an outbreak. When universal testing is implemented, people who are infected with the virus can be isolated from folks who test negative. This functions as a sort of targeted social distancing technique and can help slow the outbreak.</p>
     </div>
-    <div class="graphic" id="chart-daily-positive-total"></div>
+    <div class="graphic" id="chart-daily-positive-total">
+      <h2 class="chart-hed">Positive tests and total tests per in the US</h2>
+      <ul class="chart-legend chart-dek">
+        <li><span class="chart-legend-positive-color"></span> Positive tests</li>
+        <li><span class="chart-legend-total-color"></span> Total tests</li>
+      </ul>
+      <div class="chart"></div>
+      <div class="chart-api-note">
+        <p>
+          <a href="https://covidtracking.com/api/us/daily">Get this data from our API</a>
+        </p>
+      </div>
+    </div>
   </div>
   <div class="side-by-side">
     <div class="graphic" id="chart-daily-death-total"></div>
@@ -60,8 +72,8 @@ nav: Dashboard
   </div>  
   <div id="chart-state-small-multiples">
     <p>By comparing the positive tests to the total tests in each state, we can get a sense of how widespread a state’s testing regime might be (though always remember to consider population densities vary wildly across the country) and if the number of positive tests is tracking roughly against the total number of tests. If it is, then we might consider that the state isn’t necessarily just getting new infections every day but that they’re also giving more tests.</p>
-       <h3 class="chart-hed">Cumulative tests by state</h3>
-  <ul class="chart-legend chart-dek">
+    <h3 class="chart-hed">Cumulative tests by state</h3>
+    <ul class="chart-legend chart-dek">
       <li><span id="small-multiples-positive-legend"></span> Positive tests</li>
       <li><span id="small-multiples-total-legend"></span> Total tests</li>
     </ul>
@@ -75,7 +87,8 @@ nav: Dashboard
 </div>
 
 <script src="/_assets/js/d3.js"></script>
-<script src="/_assets/js/d3-chart.js"></script>
+<script src="/_assets/js/d3-area-chart.js"></script>
+<script src="/_assets/js/d3-bar-chart.js"></script>
 <script src="/_assets/js/d3-legend.js"></script>
 <script src="/_assets/js/britecharts.js"></script>
 
