@@ -1,9 +1,21 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "covid-tracking-project",
+  "version": "0.0.1",
+  "description": "Collects information from 50 US states, the District of Columbia, and 5 other US territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2.",
+  "author": "The COVID Tracking Project",
+  "homepage": "https://covidtracking.com",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:COVID19Tracking/website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/COVID19Tracking/website/issues"
+  },
+  "license": "Apache",
+  "keywords": [
+    "coronavirus",
+    "COVID19"
+  ],
   "dependencies": {
     "@mdx-js/mdx": "^1.5.7",
     "@mdx-js/react": "^1.5.7",
@@ -51,10 +63,6 @@
     "eslint-config-prettier": "^6.10.1",
     "prettier": "^1.19.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
   "scripts": {
     "build": "gatsby build; build-storybook -o ./public/__storybook",
     "develop": "gatsby develop",
@@ -65,12 +73,5 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
