@@ -4,7 +4,7 @@ import { Flex, Box } from 'reflexbox'
 import marked from 'marked'
 import { UnstyledList } from '../../components/common/lists'
 import Layout from '../../components/layout'
-import BuildTime from '../../components/common/build-time'
+import { SyncInfobox } from '../../components/common/infobox'
 import slug from '../../utilities/slug'
 import SummaryTable from '../../components/common/summary-table'
 import '../../scss/pages/data.scss'
@@ -82,7 +82,7 @@ export default ({ data }) => (
         __html: data.allMarkdownRemark.edges[0].node.html,
       }}
     />
-    <BuildTime />
+    <SyncInfobox />
     <SummaryTable data={data.allCovidUs.edges[0].node} />
     <h2>States</h2>
     <StateList

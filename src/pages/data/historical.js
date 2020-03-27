@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { DateTime } from 'luxon'
 import Layout from '../../components/layout'
-import BuildTime from '../../components/common/build-time'
+import { SyncInfobox } from '../../components/common/infobox'
 
 const ContentPage = ({ data }) => (
   <Layout title="US Historical Data">
@@ -12,7 +12,7 @@ const ContentPage = ({ data }) => (
       }}
     />
 
-    <BuildTime />
+    <SyncInfobox />
 
     <div className="us-days">
       <div className="table-scroll">

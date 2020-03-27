@@ -1,0 +1,43 @@
+.infobox {
+  display: inline-flex;
+  padding: 0.5em;
+  padding-right: 2em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  margin: 1em;
+
+  img {
+    width: 16px;
+    margin: 2px 12px 4px 8px;
+    align-self: flex-start;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .info-header {
+    font-weight: bold;
+  }
+
+  .info-content {
+    margin-top: 0.25em;
+  }
+
+  &.infobox-sync {
+    margin-left: 0;
+    background-color: #def0fd;
+    color: #264a8c;
+  }
+
+  &.infobox-alert {
+    background-color: #ffded3;
+    color: #802509;
+  }
+
+  &.infobox-question {
+    background-color: #ffface;
+    color: #5e4f24;
+  }
+}
+
