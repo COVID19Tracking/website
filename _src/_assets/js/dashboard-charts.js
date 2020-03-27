@@ -14,6 +14,19 @@
   const totalColor = '#585BC1'
   const positiveColor = '#FFA270'
 
+  const stayAtHomeOrders = {
+    CA: 20200319,
+    CT: 20200320,
+    DE: 20200322,
+    IL: 20200320,
+    LA: 20200322,
+    MI: 20200323,
+    NJ: 20200321,
+    NY: 20200320,
+    OH: 20200322,
+    OR: 20200323,
+  }
+
   function calculateTotal(d) {
     return d.positive + (d.negative || 0)
   }
@@ -192,7 +205,7 @@
       width: chart.node().clientWidth * .9,
       yMax: d3.max(transformedData, function(d) {
         return d.value
-      }),
+      })
     })
     chart.node().appendChild(svg)
   }
@@ -427,7 +440,10 @@
         .append('div')
         .classed('chart', true)
         .classed('no-y-axis-domain', true)
+      const stayAtHomeOrder = stayAtHomeOrders[state.key]
+      const annotations = stayAtHomeOrder ? [{ date: parseDate(stayAtHomeOrder) }] : null
       const chart = d3AreaChart({
+        annotations,
         data,
         fill: function(d) {
           if (d === 'Total') return totalColor

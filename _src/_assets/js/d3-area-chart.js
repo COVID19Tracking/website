@@ -22,6 +22,7 @@ function d3AreaChart({
     right: 55,
     bottom: 40,
   },
+  annotations = [],
 }) {
   const grouped = d3.nest()
     .key(function(d) {
@@ -132,6 +133,22 @@ function d3AreaChart({
     })
     .attr('opacity', 0.9)
     .attr('fill', fillArgument)
+
+  if (annotations) {
+    svg
+      .append('g')
+      .attr('transform', `translate(${margin.left} ${margin.top})`)
+      .selectAll('line')
+      .data(annotations)
+      .enter()
+      .append('line')
+      .attr('x1', d => xScale(d.date))
+      .attr('x2', d => xScale(d.date))
+      .attr('y1', 0)
+      .attr('y2', height - margin.top - margin.bottom)
+      .attr('stroke', 'black')
+      .attr('stroke-width', '1px')
+  }
 
   return svg.node()
 }

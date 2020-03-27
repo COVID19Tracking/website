@@ -74,8 +74,9 @@ nav: Dashboard
     <p>By comparing the positive tests to the total tests in each state, we can get a sense of how widespread a state’s testing regime might be (though always remember to consider population densities vary wildly across the country) and if the number of positive tests is tracking roughly against the total number of tests. If it is, then we might consider that the state isn’t necessarily just getting new infections every day but that they’re also giving more tests.</p>
     <h3 class="chart-hed">Cumulative tests by state</h3>
     <ul class="chart-legend chart-dek">
-      <li><span id="small-multiples-positive-legend"></span> Positive tests</li>
-      <li><span id="small-multiples-total-legend"></span> Total tests</li>
+      <li><span class="chart-legend-positive-color"></span> Positive tests</li>
+      <li><span class="chart-legend-total-color"></span> Total tests</li>
+      <li><span class="chart-legend-stay-at-home" style="background-color: black; width: 2px"></span> Date of statewide stay at home order</li>
     </ul>
     <div class="charts"><!-- where the graphics end up --></div>
     <div class="charts-notes">
