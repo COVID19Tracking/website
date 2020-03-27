@@ -21,3 +21,4 @@ After Slow Response to Outbreak](https://www.nytimes.com/interactive/2020/03/17/
 * [Estimating COVID-19 cases from US deaths](https://covid19-us.github.io/) by Luke Hewitt
 * [US COVID-19 Growth](https://covid-19.kyh.io/) by Kaiyu Hsu
 * [Yiqin Fu](https://twitter.com/yiqinfu/status/1238621836100784128)
+* [The U.S. COVID-19 Testing Gap](https://testing.predictcovid.com) by [Lachlan Campbell](https://lachlanjc.me)
