@@ -3,6 +3,8 @@
   display: flex;
   margin: 0;
   flex-wrap: wrap;
+  max-width: 800px;
+  justify-content: center;
 
   img {
     background-color: white;
