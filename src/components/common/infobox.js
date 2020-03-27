@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import '../../scss/components/common/infobox.scss'
 import syncIcon from '../../images/infobox-icons/sync.svg'
+import alertIcon from '../../images/infobox-icons/alert.svg'
 
 const InfoboxInner = ({ header, content }) => (
   <div>
@@ -12,6 +13,13 @@ const InfoboxInner = ({ header, content }) => (
 
 const Infobox = ({ header, content }) => (
   <div className="infobox">
+    <InfoboxInner header={header} content={content} />
+  </div>
+)
+
+const AlertInfobox = ({ header, content }) => (
+  <div className="infobox infobox-alert">
+    <img src={alertIcon} alt="Alert icon" />
     <InfoboxInner header={header} content={content} />
   </div>
 )
@@ -41,4 +49,4 @@ const SyncInfobox = () => (
   />
 )
 
-export { Infobox, SyncInfobox }
+export { Infobox, SyncInfobox, AlertInfobox }
