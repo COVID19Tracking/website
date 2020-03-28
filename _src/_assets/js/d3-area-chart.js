@@ -34,7 +34,6 @@ function d3AreaChart({
     ? grouped
     : labelOrder.map(function(label) {
         const match = grouped.filter(function(d) {
-          console.log('dd', d)
           return d.key === label
         })[0]
         return match
