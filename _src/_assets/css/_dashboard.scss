@@ -10,6 +10,10 @@ Note/sources/*: #000000 - size 15pt
 Byline/publish date: #8FA3AD - size 13pt
 
 */
+.by-line {
+  font-size: 14px;
+  color: #546d8e;
+}
 
 .side-by-side {
   display: flex;
@@ -282,4 +286,22 @@ ul.chart-legend {
       }
     }
   }
+}
+
+#map-start-stop {
+  position: absolute;
+  opacity: 0;
+}
+
+#map-start-stop ~ label:before {
+  content: 'Start ►';
+  display: inline-block;
+}
+
+#map-start-stop:checked ~ label:before {
+  content: 'Stop ■';
+}
+
+#state-map {
+  margin-bottom: 2rem;
 }
