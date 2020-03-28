@@ -28,6 +28,7 @@ const Layout = ({ title, children, noContainer, showTabbedNavigation }) => {
         siteTitle={data.site.siteMetadata.title}
         title={title}
         showTabbedNavigation={showTabbedNavigation}
+        noContainer={noContainer}
       />
       <main id="main">
         <SkipNavContent />

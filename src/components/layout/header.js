@@ -34,7 +34,7 @@ const HeaderNavigation = () => {
   )
 }
 
-const Header = ({ title, showTabbedNavigation }) => {
+const Header = ({ title, showTabbedNavigation, noContainer }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
   return (
@@ -44,6 +44,7 @@ const Header = ({ title, showTabbedNavigation }) => {
         className={
           showMobileMenu ? 'site-header show-mobile-menu' : 'site-header'
         }
+        style={noContainer && { marginBottom: 0 }}
       >
         <div className="header-container">
           <Flex flexWrap="wrap">
@@ -75,7 +76,11 @@ const Header = ({ title, showTabbedNavigation }) => {
               order={[2, 1]}
               py={['0.5rem', 0]}
             >
-              {title && <h1>{title}</h1>}
+              {title && (
+                <h1 className={!showTabbedNavigation && 'extra-space'}>
+                  {title}
+                </h1>
+              )}
             </Box>
             {showTabbedNavigation && (
               <Box
