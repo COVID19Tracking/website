@@ -4,9 +4,7 @@ items:
     link: /data
   - title: About the Data
     link: /about
-  - title: About Us
-    link: /project
   - title: How You Can Help
     link: /help
-  - title: FAQs for Newsrooms (link broken)
-    link: \#
+  - title: FAQs for Newsrooms
+    link: /project/faq

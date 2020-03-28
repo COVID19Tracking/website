@@ -5,7 +5,7 @@ import Layout from '../../components/layout'
 import { SyncInfobox } from '../../components/common/infobox'
 
 const ContentPage = ({ data }) => (
-  <Layout title="US Historical Data">
+  <Layout title="US Historical Data" showTabbedNavigation>
     <div
       dangerouslySetInnerHTML={{
         __html: data.allMarkdownRemark.edges[0].node.html,

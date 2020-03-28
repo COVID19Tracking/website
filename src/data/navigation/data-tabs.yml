@@ -1,0 +1,8 @@
+name: data-tabs
+items:
+  - name: Totals for the U.S.
+    link: /data/historical
+  - name: State by state
+    link: /data
+  - name: Methodology
+    link: /about/faq
