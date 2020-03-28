@@ -1,3 +1,5 @@
+@import '../../colors.scss';
+
 .infobox {
   display: inline-flex;
   padding: 0.5em;
@@ -26,18 +28,17 @@
 
   &.infobox-sync {
     margin-left: 0;
-    background-color: #def0fd;
-    color: #264a8c;
+    background-color: $color-infobox-sync-light;
+    color: $color-infobox-sync-dark;
   }
 
   &.infobox-alert {
-    background-color: #ffded3;
-    color: #802509;
+    background-color: $color-infobox-alert-light;
+    color: $color-infobox-alert-dark;
   }
 
   &.infobox-question {
-    background-color: #ffface;
-    color: #5e4f24;
+    background-color: $color-infobox-question-light;
+    color: $color-infobox-question-dark;
   }
 }
-
