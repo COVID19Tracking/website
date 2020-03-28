@@ -16,6 +16,10 @@
   .header-container {
     padding: 2vw 8vw 0 8vw;
     background: #5667ad;
+    &.show-background {
+      background-image: url(../../images/hero-bg.svg);
+      background-size: auto 300%;
+    }
     .mobile-toggle {
       float: right;
       background: transparent;

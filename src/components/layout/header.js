@@ -46,7 +46,13 @@ const Header = ({ title, showTabbedNavigation, noContainer }) => {
         }
         style={noContainer && { marginBottom: 0 }}
       >
-        <div className="header-container">
+        <div
+          className={
+            noContainer
+              ? 'header-container'
+              : 'header-container show-background'
+          }
+        >
           <Flex flexWrap="wrap">
             <Box width={[1, 1 / 3]}>
               <button
