@@ -81,6 +81,7 @@ function d3AreaChart({
   // make a group to hold the axi (axises?)
   const axi = svg
     .append('g')
+    .classed('axis-group', true)
     .attr('transform', `translate(${margin.left} ${margin.top})`)
   // and a container for our gridlines
   const grid = axi.append('g').classed('chart-grid', true)
@@ -122,6 +123,7 @@ function d3AreaChart({
   // actually add the areas to the chart!
   svg
     .append('g')
+    .classed('chart-area-group', true)
     .attr('transform', `translate(${margin.left} ${margin.top})`)
     .selectAll('path')
     .data(sorted)
@@ -133,9 +135,10 @@ function d3AreaChart({
     .attr('opacity', 0.9)
     .attr('fill', fillArgument)
 
-  if (annotations) {
+  if (annotations && annotations.length) {
     svg
       .append('g')
+      .classed('chart-annotations-group', true)
       .attr('transform', `translate(${margin.left} ${margin.top})`)
       .selectAll('line')
       .data(annotations)
@@ -149,5 +152,8 @@ function d3AreaChart({
       .attr('stroke-width', '1px')
   }
 
-  return svg.node()
+  return {
+    svg: svg.node(),
+    yScale: yScale,
+  }
 }
