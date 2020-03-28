@@ -1,11 +1,31 @@
 @import '../colors.scss';
+@import '../breakpoints.scss';
 
 .site-header {
   margin-bottom: 1.5rem;
+  &.show-mobile-menu {
+    .header-container {
+      nav {
+        display: block;
+        @media (min-width: $viewport-md) {
+          display: block;
+        }
+      }
+    }
+  }
   .header-container {
     padding: 2vw 8vw 0 8vw;
     background: #5667ad;
-
+    .mobile-toggle {
+      float: right;
+      background: transparent;
+      border: none;
+      font-weight: bold;
+      color: white;
+      @media (min-width: $viewport-md) {
+        display: none;
+      }
+    }
     img {
       margin-bottom: 0;
     }
@@ -24,17 +44,27 @@
     }
 
     nav {
-      align-items: center;
-      float: right;
+      display: none;
+      margin-top: 1rem;
+      @media (min-width: $viewport-md) {
+        display: block;
+        margin-top: 0;
+        align-items: center;
+        float: right;
+      }
       ul {
         padding-left: 0;
         margin: 0;
+        list-style-type: none;
 
         li {
-          display: inline-block;
-          padding-right: 3vw;
-          margin-bottom: 0;
-          line-height: 16px;
+          margin-bottom: 0.5rem;
+          @media (min-width: $viewport-md) {
+            display: inline-block;
+            padding-right: 3vw;
+            margin-bottom: 0;
+            line-height: 16px;
+          }
         }
 
         a[aria-current] {
@@ -48,22 +78,48 @@
     }
 
     .header-tabs {
-      background: $color-main-lightest;
-      display: inline-block;
+      display: block;
+      @media (min-width: $viewport-md) {
+        display: inline-block;
+      }
       ul {
         list-style-type: none;
         margin: 0;
         a {
+          background: $color-main-lightest;
           color: $color-main-mid;
-          padding: 1rem;
           display: block;
+          padding: 0.4rem 0.6rem;
+
+          @media (min-width: $viewport-md) {
+            padding: 1rem;
+          }
+
           &[aria-current] {
             background: white;
           }
         }
         li {
           display: inline-block;
-          margin: 0;
+          &:last-child a {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+          }
+          &:first-child a {
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+          }
+          @media (min-width: $viewport-md) {
+            margin: 0;
+            &:last-child a {
+              border-top-right-radius: 4px;
+              border-bottom-right-radius: 0px;
+            }
+            &:first-child a {
+              border-top-left-radius: 4px;
+              border-bottom-left-radius: 0px;
+            }
+          }
         }
       }
     }

@@ -76,7 +76,7 @@ const StateList = ({ states, stateData }) => {
 
 // The top-level content of this page is from 'src/content/snippets/data.md'
 export default ({ data }) => (
-  <Layout title="Most recent data">
+  <Layout title="Most recent data" showTabbedNavigation>
     <div
       dangerouslySetInnerHTML={{
         __html: data.allMarkdownRemark.edges[0].node.html,

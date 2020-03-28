@@ -2,6 +2,26 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 const path = require('path')
 const slugify = require('slugify')
 
+exports.sourceNodes = ({ createNodeId, actions }) => {
+  const { createNode } = actions
+  const node = {
+    id: createNodeId(`covidScreenshot >>> dummy`),
+    children: [],
+    parent: null,
+    ETag: '',
+    size: 0,
+    url: '',
+    state: '',
+    dateChecked: '2020-03-15T06:13:15Z',
+    internal: {
+      type: `covidScreenshot`,
+      contentDigest: 'screenshot-dummy',
+    },
+  }
+
+  createNode(node)
+}
+
 exports.onCreateNode = ({ node, getNode, createNodeId, actions }) => {
   const { createNodeField, createNode } = actions
   if (node.internal.type === 'covid__screenshots') {
