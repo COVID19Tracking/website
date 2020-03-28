@@ -26,6 +26,8 @@ $color-secondary-mid: #3a91eb;
 $color-secondary-light: #8cc7f4;
 $color-secondary-lightest: #e2f1fc;
 
+$color-muted-mid: #5b5650;
+
 //Referred to as "slate"
 $color-grey-1: #313538;
 $color-grey-2: #3d4245;
@@ -52,6 +54,7 @@ $color-grey-10: #edf1f2;
   secondaryMid: $color-secondary-mid;
   secondaryLight: $color-secondary-light;
   secondaryLightest: $color-secondary-lightest;
+  mutedMid: $color-muted-mid;
   grey1: $color-grey-1;
   grey2: $color-grey-2;
   grey3: $color-grey-3;

@@ -65,6 +65,8 @@ export const secondaryColors = () => (
   />
 )
 
+export const mutedColors = () => <ColorSwatch colors={[colors.mutedMid]} />
+
 export const greys = () => (
   <ColorSwatch
     colors={[

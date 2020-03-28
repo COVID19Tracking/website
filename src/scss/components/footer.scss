@@ -1,5 +1,25 @@
+@import '../colors.scss';
+@import '../breakpoints.scss';
 footer {
+  background-image: url(../../images/hero-bg.svg);
+  background-size: auto 300%;
+  background-color: $color-muted-mid;
+  color: white;
   margin-top: 1rem;
-  border-top: 2px solid black;
-  padding-top: 1rem;
+  padding: 1rem 0;
+  img {
+    max-width: 200px;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    li {
+      display: inline-block;
+      margin-right: 1.5rem;
+      a {
+        color: white;
+        font-weight: bold;
+      }
+    }
+  }
 }
