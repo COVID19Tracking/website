@@ -48,6 +48,7 @@
     h1 {
       margin: 0;
       color: white;
+      font-size: 2.2em;
       &.extra-space {
         margin-bottom: 1rem;
       }
@@ -89,36 +90,63 @@
 
     .header-tabs {
       display: block;
+
       @media (min-width: $viewport-md) {
         display: inline-block;
       }
+
+      @media (max-width: $viewport-sm) {
+        div {
+          width: 92vw; /* extend to the far right edge */
+          overflow-x: scroll;
+          -ms-overflow-style: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+      }
+
       ul {
         list-style-type: none;
         margin: 0;
+        background: $color-main-lightest;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+
+        @media (max-width: $viewport-sm) {
+          display: inline-flex;
+          flex-wrap: nowrap;
+          border-radius: 3px;
+
+          a {
+            border-radius: 3px;
+            white-space: nowrap;
+          }
+
+          li {
+            margin-bottom: 0;
+          }
+        }
+
         a {
-          background: $color-main-lightest;
           color: $color-main-mid;
           display: block;
           padding: 0.4rem 0.6rem;
 
           @media (min-width: $viewport-md) {
-            padding: 1rem;
+            padding: 0.8rem 1rem;
           }
 
           &[aria-current] {
+            border-top-right-radius: 3px;
+            border-top-left-radius: 3px;
             background: white;
+            color: black;
           }
         }
         li {
           display: inline-block;
-          &:last-child a {
-            border-top-right-radius: 3px;
-            border-bottom-right-radius: 3px;
-          }
-          &:first-child a {
-            border-top-left-radius: 3px;
-            border-bottom-left-radius: 3px;
-          }
           @media (min-width: $viewport-md) {
             margin: 0;
             &:last-child a {

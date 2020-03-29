@@ -7,13 +7,15 @@ import '../../scss/components/header.scss'
 
 const HeaderTabs = ({ navigation }) => (
   <div className="header-tabs">
-    <ul>
-      {navigation.map(item => (
-        <li key={item.link}>
-          <Link to={item.link}>{item.title}</Link>
-        </li>
-      ))}
-    </ul>
+    <div>
+      <ul>
+        {navigation.map(item => (
+          <li key={item.link}>
+            <Link to={item.link}>{item.title}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 )
 
