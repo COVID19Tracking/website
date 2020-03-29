@@ -9,10 +9,10 @@ const Footer = () => (
       <img src={logo} alt="The COVID Tracking Project" />
       <ul>
         <li>
-          <a href="https://github.com/">GitHub</a>
+          <a href="https://github.com/COVID19Tracking">GitHub</a>
         </li>
         <li>
-          <a href="https://twitter.com/{{ data.twitter }}">Twitter</a>
+          <a href="https://twitter.com/COVID19Tracking">Twitter</a>
         </li>
       </ul>
     </Container>
