@@ -5,7 +5,7 @@ summary: >-
   The COVID Tracking Project obtains, organizes, and publishes high-quality data
   required to understand and respond to the COVID-19 outbreak in the United
   States. We will do this work until official national sources take over and
-  publish comprehensive state-level testing and outcomes data.
+  publish comprehensive testing and outcomes data.
 ---
 In early March, two journalists at *[The Atlantic](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/)*, [Robinson Meyer](https://twitter.com/yayitsrob) and [Alexis Madrigal](https://twitter.com/alexismadrigal), built a tracker for their [COVID-19 testing investigation](https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/). Separately, Jeff Hammerbacher, Founder and General Partner at [Related Sciences](https://www.related.vc/), built a tracking spreadsheet. The two efforts came together March 7, and made a call for volunteers, and the COVID Tracking Project was born.
 
