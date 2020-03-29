@@ -1,6 +1,7 @@
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const path = require('path')
 const slugify = require('slugify')
+const objectHash = require('object-hash')
 
 exports.onCreateNode = ({ node, getNode, createNodeId, actions }) => {
   const { createNodeField, createNode } = actions
@@ -20,7 +21,7 @@ exports.onCreateNode = ({ node, getNode, createNodeId, actions }) => {
           parent: null,
           internal: {
             type: `covidScreenshot`,
-            contentDigest: screenshot.ETag,
+            contentDigest: objectHash(screenshot),
           },
         }
         createNode({ ...node, ...screenshot })
