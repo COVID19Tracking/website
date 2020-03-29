@@ -320,7 +320,6 @@ d => d.negativeIncrease + d.positiveIncrease,
     const hed = chartContainer
       .append('h3')
       .classed('chart-hed', true)
-    // adding expand div container following same pattern as source 
     const expand = chartContainer
       .append('div')
       .classed('chart-expand-note', true)
