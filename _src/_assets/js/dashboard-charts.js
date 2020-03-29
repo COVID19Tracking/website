@@ -268,9 +268,6 @@ d => d.negativeIncrease + d.positiveIncrease,
     const hed = chartContainer
       .append('h2')
       .classed('chart-hed', true)
-    const legend = chartContainer
-      .append('div')
-      .classed('chart-legend', true)
     const chart = chartContainer
       .append('div')
       .classed('chart', true)
@@ -279,7 +276,6 @@ d => d.negativeIncrease + d.positiveIncrease,
       .append('div')
       .classed('chart-api-note', true)
     const barChart = britecharts.bar()
-    const legendChart = britecharts.legend()
 
     const width =
       chartContainer.node().clientWidth * 0.9
@@ -295,23 +291,6 @@ d => d.negativeIncrease + d.positiveIncrease,
       .height(350)
       .width(width)
       .xAxisLabel('Date')
-
-    legendChart
-      .colorSchema([totalColor])
-      .height(50)
-      .isHorizontal(true)
-      .margin({
-        left: 0,
-      })
-
-    legend
-      .datum([
-        {
-          id: 1,
-          name: 'Deaths',
-        },
-      ])
-      .call(legendChart)
 
     hed.text(
       'Total cumulative deaths by day in the US',
@@ -341,9 +320,6 @@ d => d.negativeIncrease + d.positiveIncrease,
     const hed = chartContainer
       .append('h3')
       .classed('chart-hed', true)
-    const legend = chartContainer
-      .append('div')
-      .classed('chart-legend', true)
     const chart = chartContainer
       .append('div')
       .classed('chart', true)
@@ -352,7 +328,6 @@ d => d.negativeIncrease + d.positiveIncrease,
       .append('div')
       .classed('chart-api-note', true)
     const barChart = britecharts.bar()
-    const legendChart = britecharts.legend()
     const width =
       chartContainer.node().clientWidth * 0.9
 
@@ -369,24 +344,8 @@ d => d.negativeIncrease + d.positiveIncrease,
       .width(width)
       .xAxisLabel('Deaths')
 
-    legendChart
-      .colorSchema([totalColor])
-      .height(50)
-      .isHorizontal(true)
-      .margin({
-        left: 0,
-      })
-
     hed.text('Total deaths by State')
     chart.datum(transformedData).call(barChart)
-    legend
-      .datum([
-        {
-          id: 1,
-          name: 'Deaths',
-        },
-      ])
-      .call(legendChart)
     source.html(`
 <p><a href="https://covidtracking.com/api/states">Get this data from our API</a></p>
 `)
