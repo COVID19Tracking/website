@@ -320,6 +320,11 @@ d => d.negativeIncrease + d.positiveIncrease,
     const hed = chartContainer
       .append('h3')
       .classed('chart-hed', true)
+    // adding expand div container following same pattern as source 
+    const expand = chartContainer
+      .append('div')
+      .classed('chart-expand-note', true)
+
     const chart = chartContainer
       .append('div')
       .classed('chart', true)
@@ -330,7 +335,11 @@ d => d.negativeIncrease + d.positiveIncrease,
     const barChart = britecharts.bar()
     const width =
       chartContainer.node().clientWidth * 0.9
-
+    const isExpanded = () => expand.classed('expanded-true')
+    const getHeight = () => isExpanded() ? 1000 : 400
+    const formatExpandedChartData = () => isExpanded() ? transformedData : transformedData.slice(-10)
+    const getExpandText = () => isExpanded() ? 'Collapse' : 'Expand' 
+    
     barChart
       .margin({
         left: 140,
@@ -340,15 +349,31 @@ d => d.negativeIncrease + d.positiveIncrease,
       })
       .isHorizontal(true)
       .colorSchema([totalColor])
-      .height(1000)
+      .height(getHeight())
       .width(width)
       .xAxisLabel('Deaths')
 
+    const expandContainer = expand
+      .on('click', function() {
+        if(isExpanded()) {
+          expand.classed('expanded-true', false)
+          barChart.height(getHeight())
+          chart.datum(formatExpandedChartData()).call(barChart)
+          expand.html(`<p>${getExpandText()}</p>`)
+        } else {
+          expand.classed('expanded-true', true)
+          barChart.height(getHeight())
+          chart.datum(formatExpandedChartData()).call(barChart)
+          expand.html(`<p>${getExpandText()}</p>`)
+        }
+      })          
+
     hed.text('Total deaths by State')
-    chart.datum(transformedData).call(barChart)
+    expand.html(`<p>${getExpandText()}</p>`)
+    chart.datum(formatExpandedChartData()).call(barChart)
     source.html(`
-<p><a href="https://covidtracking.com/api/states">Get this data from our API</a></p>
-`)
+      <p><a href="https://covidtracking.com/api/states">Get this data from our API</a></p>
+    `)
   }
 
   function alterBriteChartStyles() {

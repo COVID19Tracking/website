@@ -283,3 +283,15 @@ ul.chart-legend {
     }
   }
 }
+
+.chart-expand-note {
+  cursor: pointer;
+  p {
+    color: #000000;
+    font-size: 12pt;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    text-align: right;
+    width: 86%;
+  }
+}
