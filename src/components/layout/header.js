@@ -35,15 +35,24 @@ const HeaderNavigation = () => {
     }
   `)
   return (
-    <nav>
-      <ul>
-        {data.allNavigationYaml.edges[0].node.items.map(item => (
-          <li key={item.link}>
-            <Link to={item.link}>{item.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <>
+      <noscript>
+        <style>
+          {`.site-header nav {
+          display: block !important;
+        }`}
+        </style>
+      </noscript>
+      <nav>
+        <ul>
+          {data.allNavigationYaml.edges[0].node.items.map(item => (
+            <li key={item.link}>
+              <Link to={item.link}>{item.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </>
   )
 }
 
