@@ -33,6 +33,7 @@ module.exports = {
     `gatsby-plugin-mdx`,
     `gatsby-transformer-yaml`,
     'gatsby-plugin-eslint',
+    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {

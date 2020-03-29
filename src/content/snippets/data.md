@@ -1,3 +1,7 @@
+---
+title: Data page preamble
+---
+
 See also:
 
 - [Cumulative daily totals for the US](/us-daily/)
