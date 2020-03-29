@@ -73,7 +73,6 @@ exports.createPages = async ({ graphql, actions }) => {
             frontmatter {
               title
               navigation
-              noContainer
             }
             fields {
               slug

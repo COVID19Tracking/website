@@ -9,7 +9,7 @@ import Container from '../common/container'
 import SkipNavigation from '../common/skip-navigation'
 import '../../scss/global.scss'
 
-const Layout = ({ title, children, noContainer, showTabbedNavigation }) => {
+const Layout = ({ title, children, navigation, noMargin, hasHero }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -27,18 +27,15 @@ const Layout = ({ title, children, noContainer, showTabbedNavigation }) => {
       <Header
         siteTitle={data.site.siteMetadata.title}
         title={title}
-        showTabbedNavigation={showTabbedNavigation}
-        noContainer={noContainer}
+        navigation={navigation}
+        noMargin={noMargin}
+        hasHero={hasHero}
       />
       <main id="main">
         <SkipNavContent />
-        {noContainer ? (
+        <Container>
           <div className="body">{children}</div>
-        ) : (
-          <Container>
-            <div className="body">{children}</div>
-          </Container>
-        )}
+        </Container>
       </main>
       <Footer />
     </>

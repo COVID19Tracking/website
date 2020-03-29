@@ -4,7 +4,6 @@ import { Flex, Box } from 'reflexbox'
 import DevelopmentWarning from './development-warning'
 import ProjectLogo from '../../images/project-logo.svg'
 import '../../scss/components/header.scss'
-import NavigationContext from '../../contexts/navigation'
 
 const HeaderTabs = ({ navigation }) => (
   <div className="header-tabs">
@@ -46,76 +45,64 @@ const HeaderNavigation = () => {
   )
 }
 
-const Header = ({ title, noContainer }) => {
+const Header = ({ title, noMargin, hasHero, navigation }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
   return (
-    <NavigationContext.Consumer>
-      {navigation => (
-        <>
-          <DevelopmentWarning />
-          <header
-            className={
-              showMobileMenu ? 'site-header show-mobile-menu' : 'site-header'
-            }
-            style={noContainer && { marginBottom: 0 }}
-          >
-            <div
-              className={
-                noContainer
-                  ? 'header-container'
-                  : 'header-container show-background'
-              }
+    <>
+      <DevelopmentWarning />
+      <header
+        className={`site-header ${showMobileMenu &&
+          'show-mobile-menu'} ${noMargin && 'no-margin'}`}
+      >
+        <div className={`header-container ${!hasHero && 'show-background'}`}>
+          <Flex flexWrap="wrap">
+            <Box width={[1, 1 / 3]}>
+              <button
+                className="mobile-toggle"
+                type="button"
+                onClick={() => {
+                  setShowMobileMenu(!showMobileMenu)
+                }}
+              >
+                Menu
+              </button>
+              <a className="site-title" href="/">
+                <img
+                  src={ProjectLogo}
+                  alt="The COVID Tracking Project"
+                  width="170px"
+                />
+              </a>
+            </Box>
+            <Box width={[1, 2 / 3]}>
+              <HeaderNavigation showMobileMenu={showMobileMenu} />
+            </Box>
+          </Flex>
+          <Flex flexWrap="wrap" mt={['1.5rem']}>
+            <Box
+              width={navigation ? [1, 1 / 2] : 1}
+              order={[2, 1]}
+              py={['0.5rem', 0]}
             >
-              <Flex flexWrap="wrap">
-                <Box width={[1, 1 / 3]}>
-                  <button
-                    className="mobile-toggle"
-                    type="button"
-                    onClick={() => {
-                      setShowMobileMenu(!showMobileMenu)
-                    }}
-                  >
-                    Menu
-                  </button>
-                  <a className="site-title" href="/">
-                    <img
-                      src={ProjectLogo}
-                      alt="The COVID Tracking Project"
-                      width="170px"
-                    />
-                  </a>
-                </Box>
-                <Box width={[1, 2 / 3]}>
-                  <HeaderNavigation showMobileMenu={showMobileMenu} />
-                </Box>
-              </Flex>
-              <Flex flexWrap="wrap" mt={['1.5rem']}>
-                <Box
-                  width={navigation ? [1, 1 / 2] : 1}
-                  order={[2, 1]}
-                  py={['0.5rem', 0]}
-                >
-                  {title && (
-                    <h1 className={!navigation && 'extra-space'}>{title}</h1>
-                  )}
-                </Box>
-                {navigation && (
-                  <Box
-                    width={[1, 1 / 2]}
-                    order={[1, 2]}
-                    px={[0]}
-                    textAlign={['left', 'right']}
-                  >
-                    <HeaderTabs navigation={navigation} />
-                  </Box>
-                )}
-              </Flex>
-            </div>
-          </header>
-        </>
-      )}
-    </NavigationContext.Consumer>
+              {title && (
+                <h1 className={!navigation && 'extra-space'}>{title}</h1>
+              )}
+            </Box>
+            {navigation && (
+              <Box
+                width={[1, 1 / 2]}
+                order={[1, 2]}
+                px={[0]}
+                textAlign={['left', 'right']}
+              >
+                <HeaderTabs navigation={navigation} />
+              </Box>
+            )}
+          </Flex>
+        </div>
+      </header>
+    </>
   )
 }
 

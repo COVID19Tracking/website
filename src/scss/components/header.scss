@@ -3,6 +3,9 @@
 
 .site-header {
   margin-bottom: 1.5rem;
+  &.no-margin {
+    margin-bottom: 0;
+  }
   &.show-mobile-menu {
     .header-container {
       nav {

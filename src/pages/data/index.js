@@ -7,7 +7,6 @@ import Layout from '../../components/layout'
 import { SyncInfobox } from '../../components/common/infobox'
 import slug from '../../utilities/slug'
 import SummaryTable from '../../components/common/summary-table'
-import NavigationContext from '../../contexts/navigation'
 import '../../scss/pages/data.scss'
 
 const State = ({ state }) => (
@@ -77,24 +76,23 @@ const StateList = ({ states, stateData }) => {
 
 // The top-level content of this page is from 'src/content/snippets/data.md'
 export default ({ data }) => (
-  <NavigationContext.Provider
-    value={data.allNavigationYaml.edges[0].node.items}
+  <Layout
+    title="Most recent data"
+    navigation={data.allNavigationYaml.edges[0].node.items}
   >
-    <Layout title="Most recent data" showTabbedNavigation>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: data.allMarkdownRemark.edges[0].node.html,
-        }}
-      />
-      <SyncInfobox />
-      <SummaryTable data={data.allCovidUs.edges[0].node} />
-      <h2>States</h2>
-      <StateList
-        states={data.allCovidStateInfo.edges}
-        stateData={data.allCovidState.edges}
-      />
-    </Layout>
-  </NavigationContext.Provider>
+    <div
+      dangerouslySetInnerHTML={{
+        __html: data.allMarkdownRemark.edges[0].node.html,
+      }}
+    />
+    <SyncInfobox />
+    <SummaryTable data={data.allCovidUs.edges[0].node} />
+    <h2>States</h2>
+    <StateList
+      states={data.allCovidStateInfo.edges}
+      stateData={data.allCovidState.edges}
+    />
+  </Layout>
 )
 
 export const query = graphql`

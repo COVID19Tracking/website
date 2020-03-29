@@ -1,5 +1,5 @@
 ---
-title: Initial Basic API & CSV Downloads
+title: Data API
 navigation: about
 ---
 
