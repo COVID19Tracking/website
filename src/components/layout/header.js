@@ -109,6 +109,7 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
                 order={[1, 2]}
                 px={[0]}
                 textAlign={['left', 'right']}
+                className="header-tabs-container"
               >
                 <HeaderTabs navigation={navigation} />
               </Box>
