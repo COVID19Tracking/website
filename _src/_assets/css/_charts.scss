@@ -258,6 +258,13 @@ ul.chart-legend {
   align-items: flex-end;
   height: 300px;
   flex-grow: 1;
+  h4 {
+    margin-bottom: 4px;
+  }
+  p {
+    font-size: 12px;
+    margin: 0;
+  }
   .cdc-comparison-chart {
     &:nth-child(1) {
       width: 55%;
