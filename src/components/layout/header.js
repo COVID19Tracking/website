@@ -89,7 +89,9 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
               py={['0.5rem', 0]}
             >
               {title && (
-                <h1 className={!navigation && 'extra-space'}>{title}</h1>
+                <h1 className={`${navigation ? '' : 'extra-space'}`}>
+                  {title}
+                </h1>
               )}
             </Box>
             {navigation && (
