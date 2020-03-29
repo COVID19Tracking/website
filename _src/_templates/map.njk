@@ -1,0 +1,56 @@
+---
+layout: base.njk
+---
+<div class="layout-content">
+  {{ layoutContent | safe }}
+</div>
+
+{% include "../_assets/img/us.svg" %}
+
+<div class="state-map-data-list">
+  {% for state in sheets.states %}
+    <div id="{{ state.state }}-map-data" class="state-map-data hidden" data-positive="{{ state.positive }}">
+      <h2>{{ state.name }}</h2>
+      <dl>
+        <dt>Positive</dt>
+        <dd>
+          {% if state.positive %}{{ state.positive | thousands }}
+          {% else %}N/A{% endif %}
+        </dd>
+        <dt>Negative</dt>
+        <dd>
+          {% if state.negative %}{{ state.negative | thousands }}
+          {% else %}N/A{% endif %}
+        </dd>
+        <dt>Pending</dt>
+        <dd>
+          {% if state.pending %}{{ state.pending | thousands }}
+          {% else %}N/A{% endif %}
+        </dd>
+        <dt>
+          Hospitalized
+        </dt>
+        <dd>
+          {% if state.hospitalized %}{{ state.hospitalized | thousands }}
+          {% else %}N/A{% endif %}
+        </dd>
+        <dt>Deaths</dt>
+        <dd>
+          {% if state.death %}{{ state.death | thousands }}
+          {% else %}N/A{% endif %}
+        </dd>
+        <dt>Positive + Negative</dt>
+        <dd>
+          {% if state.positive and state.negative %}{{ (state.positive + state.negative) | thousands }}
+          {% else %}N/A{% endif %}
+        </dd>
+      </dl>
+    </div>
+  {% endfor %}
+</div>
+
+<p class="small">Map credit: <a href="https://simplemaps.com/resources/svg-us">https://simplemaps.com/resources/svg-us</a></p>
+
+{% block js %}
+<script src="../_assets/js/map.js"></script>
+{% endblock %}
