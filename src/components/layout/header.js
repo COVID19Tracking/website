@@ -52,8 +52,9 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
     <>
       <DevelopmentWarning />
       <header
-        className={`site-header ${showMobileMenu &&
-          'show-mobile-menu'} ${noMargin && 'no-margin'}`}
+        className={`site-header ${showMobileMenu ? 'show-mobile-menu' : ''} ${
+          noMargin ? 'no-margin' : ''
+        }`}
       >
         <div className={`header-container ${!hasHero && 'show-background'}`}>
           <Flex flexWrap="wrap">
