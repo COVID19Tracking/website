@@ -95,13 +95,15 @@
         display: inline-block;
       }
 
-      div {
-        width: 92vw; /* extend to the far right edge */
-        overflow-x: scroll;
-        -ms-overflow-style: none;
+      @media (max-width: $viewport-sm) {
+        div {
+          width: 92vw; /* extend to the far right edge */
+          overflow-x: scroll;
+          -ms-overflow-style: none;
 
-        &::-webkit-scrollbar {
-          display: none;
+          &::-webkit-scrollbar {
+            display: none;
+          }
         }
       }
 
