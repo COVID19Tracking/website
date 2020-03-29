@@ -3,9 +3,16 @@
 ;(async function loadMap() {
   const button = d3.select('#map-start-stop')
   const slider = d3.select('#map-time-scrubber [type="range"]')
-  const colorLimits = [5, 10, 25, 50, 100, 250, 500]
-  const formatDate = d3.timeFormat('%A, %b. %d')
+  const formatDate = d3.timeFormat('%b. %d')
+  const formatNumber = d3.format(',')
   const parseDate = d3.timeParse('%Y%m%d')
+
+  const valueLabel = 'positive tests'
+  function getValue(d) {
+    return d.positive
+  }
+
+  let currentData = null
 
   Promise.all([
     d3.json('/_assets/json/states.json'),
@@ -48,10 +55,15 @@
       .attr('height', height)
       .attr('width', width)
 
+    const tooltip = d3.select('#state-map')
+      .append('div')
+      .attr('id', 'map-tooltip')
+      .style('display', 'none')
+
     const r = d3
       .scaleLinear()
-      .domain([0, d3.max(responses[1], d => d.positive + d.negative)])
-      .range([0, 30])
+      .domain([0, d3.max(responses[1], d => getValue(d))])
+      .range([0, 50])
     const map = svg.append('g')
     const bubbles = svg.append('g')
 
@@ -62,14 +74,33 @@
       .append('path')
       .attr('d', path)
       .attr('stroke', '#ababab')
-      .attr('fill', 'none')
+      .attr('fill', 'white')
+      .on('mouseenter', function(d) {
+        const date = formatDate(parseDate(currentData.key))
+        const match = currentData.values.filter(dd => {
+          return dd.state === d.properties.STUSPS
+        })[0]
+        const value = getValue(match)
+        tooltip
+          .style('display', 'block')
+          .style('top', d3.event.layerY + 20 + 'px')
+          .style('left', d3.event.layerX - 135 + 'px').html(`
+            <strong>${d.properties.NAME}</strong>
+            <p>There were ${formatNumber(value)} ${valueLabel} in ${d.properties.NAME} on ${date}.</p>
+          `)
+      })
+      // .on('mouseleave', function() {
+      //   tooltip.style('display', 'none')
+      // })
 
     function drawDate (data) {
       const date = parseDate(data.key)
-      const totalOnDate = d3.sum(data.values, function(d) { return d.positive })
+      const totalOnDate = d3.sum(data.values, getValue)
       
+      currentData = data
+
       hed.text(formatDate(date))
-      dek.text(`${d3.format(',')(totalOnDate)} across the country`)
+      dek.text(`${formatNumber(totalOnDate)} across the country`)
 
       const circles = bubbles
         .selectAll('circle')
@@ -99,24 +130,23 @@
         .attr('fill-opacity', 0.2)
         .style('pointer-events', 'none')
         .attr('r', d => {
-          const total = d.positive + d.negative
+          const value = getValue(d)
 
-          return r(total)
+          return r(value)
         })
 
       circles.transition().duration(200).attr('r', d => {
-        const total = d.positive + d.negative
+        const value = getValue(d)
 
-        return r(total)
+        return r(value)
       })
     }
 
-    let currentIndex = 0
+    let currentIndex = groupedByDate.length - 1
     let interval = null
 
     function start() {
       interval = setInterval(function() {
-        console.log({ currentIndex }, groupedByDate.length)
         if (currentIndex === groupedByDate.length) {
           currentIndex = 0
         }

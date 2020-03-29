@@ -21,7 +21,13 @@ nav: Dashboard
   </div>
 
   <div class="map-container">
-    <h2 class="chart-hed">Positive tests in each state per day</h2>
+    <h2 class="chart-hed">
+      <select>
+        <option value="positive">Positive tests</option>
+        <option value="total">Total tests</option>
+      </select>
+      in each state per day
+    </h2>
     <div class="map-column">
       <div id="map-time-scrubber">
         <input type="range"></input>
@@ -29,7 +35,7 @@ nav: Dashboard
         <label for="map-start-stop"></label>
       </div>
       <div id="map-legend"></div>
-      <div class="map" title="State positive cases" id="state-map"></div>
+      <div class="map" id="state-map"></div>
     </div>
   </div>
 
