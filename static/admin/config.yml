@@ -1,0 +1,22 @@
+backend:
+  name: git-gateway
+  branch: gatsbyjs
+
+media_folder: 'satic/images'
+
+collections:
+  - name: 'pages'
+    label: 'Pages'
+    folder: 'src/content/pages/'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+  - name: 'snippets'
+    label: 'Snippets'
+    folder: 'src/content/snippets/'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }
