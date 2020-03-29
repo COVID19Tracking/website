@@ -90,15 +90,43 @@
 
     .header-tabs {
       display: block;
+
       @media (min-width: $viewport-md) {
         display: inline-block;
       }
+
+      div {
+        width: 92vw; /* extend to the far right edge */
+        overflow-x: scroll;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
       ul {
         list-style-type: none;
         margin: 0;
         background: $color-main-lightest;
         border-top-right-radius: 3px;
         border-top-left-radius: 3px;
+
+        @media (max-width: $viewport-sm) {
+          display: inline-flex;
+          flex-wrap: nowrap;
+          border-radius: 3px;
+
+          a {
+            border-radius: 3px;
+            white-space: nowrap;
+          }
+
+          li {
+            margin-bottom: 0;
+          }
+        }
+
         a {
           color: $color-main-mid;
           display: block;
