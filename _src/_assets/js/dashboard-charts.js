@@ -3,9 +3,15 @@
 ;(function loadAllCharts() {
   const formatDate = d3.timeFormat('%b. %e')
   const parseDate = d3.timeParse('%Y%m%d')
-  const usDailyReq = d3.json('https://covidtracking.com/api/us/daily')
-  const stateDailyReq = d3.json('https://covidtracking.com/api/states/daily')
-  const usStatesReq = d3.json(`https://covidtracking.com/api/states`)
+  const usDailyReq = d3.json(
+    'https://covidtracking.com/api/us/daily',
+  )
+  const stateDailyReq = d3.json(
+    'https://covidtracking.com/api/states/daily',
+  )
+  const usStatesReq = d3.json(
+    `https://covidtracking.com/api/states`,
+  )
 
   const cdcDailyReq = d3.json(
     'https://spreadsheets.google.com/feeds/list/16gBHQ7dCJK1psqEMasmLKiFlzoNKcfNujVpmHLHldSY/od6/public/values?alt=json',
@@ -13,6 +19,21 @@
 
   const totalColor = '#585BC1'
   const positiveColor = '#FFA270'
+
+  // these come from this google spreadsheet owned by Júlia Ledur
+  // https://docs.google.com/spreadsheets/d/1mD_NhlJR1fM2Pv_pY8YixUrX2p2F8rAE0xPTtsTJOiM/edit#gid=0
+  const stayAtHomeOrders = {
+    CA: 20200319,
+    CT: 20200320,
+    DE: 20200322,
+    IL: 20200320,
+    LA: 20200322,
+    MI: 20200323,
+    NJ: 20200321,
+    NY: 20200320,
+    OH: 20200322,
+    OR: 20200323,
+  }
 
   function calculateTotal(d) {
     return d.positive + (d.negative || 0)
@@ -84,7 +105,11 @@
     const parseCdcDate = d3.timeParse('%Y %m/%d')
     const result = data.feed.entry.map(
       ({ gsx$datecollected, gsx$dailytotal }) => ({
-        name: formatDate(parseCdcDate('2020 ' + gsx$datecollected.$t)),
+        name: formatDate(
+          parseCdcDate(
+            '2020 ' + gsx$datecollected.$t,
+          ),
+        ),
         group: 'Tests',
         value: gsx$dailytotal.$t,
       }),
@@ -92,24 +117,39 @@
     return result
   }
 
-  function addCDCTestComparison(rawCtData, rawCdcData) {
+  function addCDCTestComparison(
+    rawCtData,
+    rawCdcData,
+  ) {
     //cutting off the first 20 values
     const cutOff = 20
-    const transformedCdcData = transformCDCData(rawCdcData)
+    const transformedCdcData = transformCDCData(
+      rawCdcData,
+    )
     const cdcData = transformedCdcData.slice(cutOff)
     //fill with 0s & lop off the end so it's the same length as CDC data
     const ctData = [
-      ...cdcData.slice(0, 46 - cutOff).map(e => ({ ...e, value: 0 })),
+      ...cdcData
+        .slice(0, 46 - cutOff)
+        .map(e => ({ ...e, value: 0 })),
       ...rawCtData.map(d => ({
         name: formatDate(parseDate(d.date)),
         group: 'Tests',
-        value: d.positiveIncrease + d.negativeIncrease,
+        value:
+          d.positiveIncrease + d.negativeIncrease,
       })),
     ].slice(0, cdcData.length)
-    const cdcChartContainer = d3.select('#cdc-test-chart')
-    const ctChartContainer = d3.select('#ct-test-chart')
+    const cdcChartContainer = d3.select(
+      '#cdc-test-chart',
+    )
+    const ctChartContainer = d3.select(
+      '#ct-test-chart',
+    )
     const yMax = d3.max(ctData, d => d.value)
-    const cdcSpeciumSum = d3.sum(transformedCdcData, d => d.value)
+    const cdcSpeciumSum = d3.sum(
+      transformedCdcData,
+      d => d.value,
+    )
 
     const ctTotalTestSum =
       rawCtData[rawCtData.length - 1].positive +
@@ -117,20 +157,28 @@
 
     // below method ends up with slighly differetn number than last days test count so were going with that
     /*
-    const ctTotalTestSum = d3.sum(
-      rawCtData,
-      d => d.negativeIncrease + d.positiveIncrease,
-    )
-    */
+const ctTotalTestSum = d3.sum(
+rawCtData,
+d => d.negativeIncrease + d.positiveIncrease,
+)
+*/
 
-    d3.select('#cdc-specimen-count').text(d3.format(',')(cdcSpeciumSum))
-    d3.select('#project-total-count').text(d3.format(',')(ctTotalTestSum))
+    d3.select('#cdc-specimen-count').text(
+      d3.format(',')(cdcSpeciumSum),
+    )
+    d3.select('#project-total-count').text(
+      d3.format(',')(ctTotalTestSum),
+    )
 
     cdcChartContainer.append('h4').text('CDC')
     ctChartContainer
       .append('h4')
       .style('padding-left', '3rem')
-      .text(window.innerWidth < 500 ? 'CTP' : 'COVID Tracking Project')
+      .text(
+        window.innerWidth < 500
+          ? 'CTP'
+          : 'COVID Tracking Project',
+      )
 
     cdcChartContainer.append(() =>
       d3BarChart({
@@ -139,7 +187,8 @@
         fill: totalColor,
         formatDate,
         width: cdcChartContainer.node().clientWidth,
-        height: cdcChartContainer.node().clientHeight,
+        height: cdcChartContainer.node()
+          .clientHeight,
       }),
     )
     ctChartContainer.append(() =>
@@ -149,16 +198,21 @@
         fill: totalColor,
         width: ctChartContainer.node().clientWidth,
         height: ctChartContainer.node().clientHeight,
-        margin: { top: 30, right: 10, bottom: 30, left: 20 },
+        margin: {
+          top: 30,
+          right: 10,
+          bottom: 30,
+          left: 20,
+        },
       }),
     )
   }
 
   function addUsDailyPositiveAreaChart(data) {
     function fillFn(d) {
-        if (d === 'Total') return totalColor
-        return positiveColor
-      }
+      if (d === 'Total') return totalColor
+      return positiveColor
+    }
     const margin = {
       left: 65,
       top: 10,
@@ -182,19 +236,21 @@
         ]
       })
       .flat()
-    const chart = d3.select('#chart-daily-positive-total .chart')
-    const svg = d3AreaChart({
+    const chart = d3.select(
+      '#chart-daily-positive-total .chart',
+    )
+    const areaChart = d3AreaChart({
       data: transformedData,
       fill: fillFn,
       height: 400,
       labelOrder: ['Total', 'Positive'],
       margin,
-      width: chart.node().clientWidth * .9,
+      width: chart.node().clientWidth * 0.9,
       yMax: d3.max(transformedData, function(d) {
         return d.value
       }),
     })
-    chart.node().appendChild(svg)
+    chart.node().appendChild(areaChart.svg)
   }
 
   function addUsDailyDeathBarChart(data) {
@@ -206,18 +262,27 @@
       }
     })
 
-    const chartContainer = d3.select('#chart-daily-death-total')
-    const hed = chartContainer.append('h2').classed('chart-hed', true)
-    const legend = chartContainer.append('div').classed('chart-legend', true)
+    const chartContainer = d3.select(
+      '#chart-daily-death-total',
+    )
+    const hed = chartContainer
+      .append('h2')
+      .classed('chart-hed', true)
+    const legend = chartContainer
+      .append('div')
+      .classed('chart-legend', true)
     const chart = chartContainer
       .append('div')
       .classed('chart', true)
       .classed('no-y-axis-domain', true)
-    const source = chartContainer.append('div').classed('chart-api-note', true)
+    const source = chartContainer
+      .append('div')
+      .classed('chart-api-note', true)
     const barChart = britecharts.bar()
     const legendChart = britecharts.legend()
 
-    const width = chartContainer.node().clientWidth * 0.9
+    const width =
+      chartContainer.node().clientWidth * 0.9
 
     barChart
       .margin({
@@ -248,11 +313,13 @@
       ])
       .call(legendChart)
 
-    hed.text('Total cumulative deaths by day in the US')
+    hed.text(
+      'Total cumulative deaths by day in the US',
+    )
     chart.datum(transformedData).call(barChart)
     source.html(`
-      <p><a href="https://covidtracking.com/api/us/daily">Get this data from our API</a></p>
-    `)
+<p><a href="https://covidtracking.com/api/us/daily">Get this data from our API</a></p>
+`)
   }
 
   function addUsStatesCurrentDeathBarChart(data) {
@@ -268,17 +335,26 @@
         return a.value - b.value
       })
 
-    const chartContainer = d3.select('#chart-states-current-death-total')
-    const hed = chartContainer.append('h3').classed('chart-hed', true)
-    const legend = chartContainer.append('div').classed('chart-legend', true)
+    const chartContainer = d3.select(
+      '#chart-states-current-death-total',
+    )
+    const hed = chartContainer
+      .append('h3')
+      .classed('chart-hed', true)
+    const legend = chartContainer
+      .append('div')
+      .classed('chart-legend', true)
     const chart = chartContainer
       .append('div')
       .classed('chart', true)
       .classed('no-y-axis-domain', true)
-    const source = chartContainer.append('div').classed('chart-api-note', true)
+    const source = chartContainer
+      .append('div')
+      .classed('chart-api-note', true)
     const barChart = britecharts.bar()
     const legendChart = britecharts.legend()
-    const width = chartContainer.node().clientWidth * 0.9
+    const width =
+      chartContainer.node().clientWidth * 0.9
 
     barChart
       .margin({
@@ -312,8 +388,8 @@
       ])
       .call(legendChart)
     source.html(`
-      <p><a href="https://covidtracking.com/api/states">Get this data from our API</a></p>
-    `)
+<p><a href="https://covidtracking.com/api/states">Get this data from our API</a></p>
+`)
   }
 
   function alterBriteChartStyles() {
@@ -331,13 +407,19 @@
         id === '#chart-daily-positive-total' ||
         id === '#chart-daily-death-total'
       ) {
-        const tickSelector = id + ' .y-axis-group .tick'
-        const chart = container.select('.chart-group')
+        const tickSelector =
+          id + ' .y-axis-group .tick'
+        const chart = container.select(
+          '.chart-group',
+        )
         d3.selectAll(tickSelector).each(function(d) {
           const tick = d3.select(this)
           const line = tick.select('line')
 
-          line.attr('x1', container.node().clientWidth * 0.78)
+          line.attr(
+            'x1',
+            container.node().clientWidth * 0.78,
+          )
         })
 
         chart.raise()
@@ -345,7 +427,9 @@
 
       // change circle legend indicators to squares
 
-      const entries = container.selectAll('.legend-entry')
+      const entries = container.selectAll(
+        '.legend-entry',
+      )
 
       entries.each(function(d) {
         const entry = d3.select(this)
@@ -375,7 +459,9 @@
       .entries(data)
 
     // this is where everything's gonna land!
-    const chartContainer = d3.select('#chart-state-small-multiples div')
+    const chartContainer = d3.select(
+      '#chart-state-small-multiples div',
+    )
 
     const margin = {
       left: 55,
@@ -384,16 +470,24 @@
       bottom: 40,
     }
     const chartHeight = 200
-    const chartWidth = window.innerWidth > 320 ? 300 : 250
+    const chartWidth =
+      window.innerWidth > 320 ? 300 : 250
 
-    const sortedGroupedByState = groupedByState.sort(function(a, b) {
-      const lastA = a.values[0]
-      const lastB = b.values[0]
+    const sortedGroupedByState = groupedByState.sort(
+      function(a, b) {
+        const lastA = a.values[0]
+        const lastB = b.values[0]
 
-      const lastATotal = calculateTotal(lastA)
-      const lastBTotal = calculateTotal(lastB)
-      return lastBTotal - lastATotal
-    })
+        const lastATotal = calculateTotal(lastA)
+        const lastBTotal = calculateTotal(lastB)
+        return lastBTotal - lastATotal
+      },
+    )
+
+    const secondMaxTotal = d3.max(
+      sortedGroupedByState[1].values,
+      d => calculateTotal(d),
+    )
 
     // go through each state's data and add a chart
     sortedGroupedByState.forEach(function(state) {
@@ -406,13 +500,13 @@
         data.push({
           date,
           label: 'Positive',
-          value: d.positive
+          value: d.positive,
         })
 
         data.push({
           date,
           label: 'Total',
-          value: calculateTotal(d)
+          value: calculateTotal(d),
         })
       })
 
@@ -427,7 +521,13 @@
         .append('div')
         .classed('chart', true)
         .classed('no-y-axis-domain', true)
+      const stayAtHomeOrder =
+        stayAtHomeOrders[state.key]
+      const annotations = stayAtHomeOrder
+        ? [{ date: parseDate(stayAtHomeOrder) }]
+        : null
       const chart = d3AreaChart({
+        annotations,
         data,
         fill: function(d) {
           if (d === 'Total') return totalColor
@@ -437,85 +537,117 @@
         margin,
         labelOrder: ['Total', 'Positive'],
         width: chartWidth,
-        yMax: 20000,
+        yMax: secondMaxTotal,
       })
       const stateLinkContainer = stateContainer
-      .append('div')
-      .classed('chart-state-link', true)
-      
+        .append('div')
+        .classed('chart-state-link', true)
+
       stateHed.text(stateName)
-      svgContainer.node().appendChild(chart)
+      svgContainer.node().appendChild(chart.svg)
       stateLinkContainer
         .append('a')
         .attr(
           'href',
-          '/data/state/' + stateName.toLowerCase().replace(/\s/g, '-'),
+          '/data/state/' +
+            stateName
+              .toLowerCase()
+              .replace(/\s/g, '-'),
         )
         .text('See all data from state')
 
-      // const stateMax = d3.max(total, function(d) {
-      //   return d.value
-      // })
+      const stateMax = d3.max(data, function(d) {
+        return d.value
+      })
 
-      // const stateMaxY = yScale(stateMax)
-      // let stateChartHeight = chartHeight
-      // let transformTopValue = margin.top
+      const stateMaxY = chart.yScale(stateMax)
+      let stateChartHeight = chartHeight
+      let transformTopValue = margin.top
 
-      // if (stateMaxY < 0) {
-      //   stateChartHeight = chartHeight + Math.abs(stateMaxY)
-      //   transformTopValue = Math.abs(stateMaxY)
-      //   console.log(
-      //     {
-      //       stateName,
-      //       stateMaxY,
-      //       stateChartHeight,
-      //       transformTopValue,
-      //       chartHeight,
-      //     },
-      //     chartHeight - transformTopValue,
-      //   )
-      //   svg.attr(
-      //     'transform',
-      //     'translateY(' + (chartHeight - transformTopValue - 10) + ')',
-      //   )
+      if (stateMaxY < 0) {
+        stateChartHeight =
+          chartHeight + Math.abs(stateMaxY)
+        transformTopValue = Math.abs(stateMaxY)
 
-      //   svg.style('top', -1 * (chartHeight - transformTopValue - 32) + 'px')
-      // }
+        ;[
+          '.chart-area-group',
+          '.axis-group',
+          '.chart-annotations-group',
+        ].forEach(function(sel) {
+          const el = d3
+            .select(chart.svg)
+            .selectAll(sel)
 
-      // svg.attr('height', stateChartHeight)
+          if (el.nodes().length === 0) return
 
-      // make a group to hold the axi (axises?)
-      
+          const currentTransform = el.attr(
+            'transform',
+          )
+          const split = currentTransform.split(
+            'translate(',
+          )[1]
+          const splitAgain = split.split(' ')
+          const currentTranslateX = splitAgain[0]
+
+          el.attr(
+            'transform',
+            'translate(' +
+              currentTranslateX +
+              ' ' +
+              transformTopValue +
+              ')',
+          )
+        })
+
+        d3.select(chart.svg).style(
+          'top',
+          -1 * (transformTopValue - 40) + 'px',
+        )
+      }
+
+      d3.select(chart.svg).attr(
+        'height',
+        stateChartHeight,
+      )
     })
   }
 
-  Promise.all([usDailyReq, stateDailyReq, cdcDailyReq, usStatesReq])
+  Promise.all([
+    usDailyReq,
+    stateDailyReq,
+    cdcDailyReq,
+    usStatesReq,
+  ])
     .then(data => {
       const usDaily = data[0]
       const stateDaily = data[1]
       const cdcDailyTests = data[2]
       const states = data[3]
 
-      const sortedUsDaily = usDaily.sort(function(a, b) {
+      const sortedUsDaily = usDaily.sort(function(
+        a,
+        b,
+      ) {
         const aDate = parseDate(a.date)
         const bDate = parseDate(b.date)
 
         return aDate - bDate
       })
-      addCDCTestComparison(sortedUsDaily, cdcDailyTests)
+      addCDCTestComparison(
+        sortedUsDaily,
+        cdcDailyTests,
+      )
       addUsDailyPositiveAreaChart(sortedUsDaily)
       addUsDailyDeathBarChart(sortedUsDaily)
       addUsStatesCurrentDeathBarChart(states)
       addStateLevelSmallMultiples(stateDaily)
       setTimeout(function() {
-        d3.selectAll('.chart-legend-positive-color').style(
-          'background-color',
-          positiveColor,
-        )
-        d3.selectAll('.chart-legend-total-color').style(
-          'background-color',
-          totalColor,
-        )
+        d3.selectAll(
+          '.chart-legend-positive-color',
+        ).style('background-color', positiveColor)
+        d3.selectAll(
+          '.chart-legend-total-color',
+        ).style('background-color', totalColor)
         alterBriteChartStyles()
       }, 200)
     })

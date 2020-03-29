@@ -7,6 +7,10 @@
   margin-top: 3rem;
 }
 
+.map-container h2 {
+  text-align: center;
+}
+
 .map-column {
   display: flex;
   flex-direction: column;

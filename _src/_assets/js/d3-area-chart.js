@@ -22,6 +22,7 @@ function d3AreaChart({
     right: 55,
     bottom: 40,
   },
+  annotations = [],
 }) {
   const grouped = d3.nest()
     .key(function(d) {
@@ -33,7 +34,6 @@ function d3AreaChart({
     ? grouped
     : labelOrder.map(function(label) {
         const match = grouped.filter(function(d) {
-          console.log('dd', d)
           return d.key === label
         })[0]
         return match
@@ -81,6 +81,7 @@ function d3AreaChart({
   // make a group to hold the axi (axises?)
   const axi = svg
     .append('g')
+    .classed('axis-group', true)
     .attr('transform', `translate(${margin.left} ${margin.top})`)
   // and a container for our gridlines
   const grid = axi.append('g').classed('chart-grid', true)
@@ -122,6 +123,7 @@ function d3AreaChart({
   // actually add the areas to the chart!
   svg
     .append('g')
+    .classed('chart-area-group', true)
     .attr('transform', `translate(${margin.left} ${margin.top})`)
     .selectAll('path')
     .data(sorted)
@@ -133,5 +135,25 @@ function d3AreaChart({
     .attr('opacity', 0.9)
     .attr('fill', fillArgument)
 
-  return svg.node()
+  if (annotations && annotations.length) {
+    svg
+      .append('g')
+      .classed('chart-annotations-group', true)
+      .attr('transform', `translate(${margin.left} ${margin.top})`)
+      .selectAll('line')
+      .data(annotations)
+      .enter()
+      .append('line')
+      .attr('x1', d => xScale(d.date))
+      .attr('x2', d => xScale(d.date))
+      .attr('y1', 0)
+      .attr('y2', height - margin.top - margin.bottom)
+      .attr('stroke', 'black')
+      .attr('stroke-width', '1px')
+  }
+
+  return {
+    svg: svg.node(),
+    yScale: yScale,
+  }
 }
