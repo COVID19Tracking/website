@@ -1,8 +1,9 @@
 ---
 title: How you can help
 ---
-
 The COVID Tracking Project was [founded by three people](https://covidtracking.com/about-team/) working very quickly to collect urgently needed data, and has grown to include over [100 volunteer contributors](https://covidtracking.com/about-team/). We are currently sorting and welcoming a new rush of wonderful volunteers, and have briefly paused our intake form until we catch up. We plan to reopen it within 48 hours. In the meantime, we have two requests.
+
+Testing CMS
 
 ## 1. Support local newsrooms
 
