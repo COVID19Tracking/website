@@ -1,0 +1,31 @@
+@import '../colors.scss';
+
+.homepage-visualizations {
+  margin-bottom: 1rem;
+  img {
+    margin-bottom: 0.8rem;
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    font-weight: bold;
+  }
+}
+
+.homepage-get-involved {
+  a {
+    height: 100%;
+    background: $color-secondary-light;
+    font-size: 1.2rem;
+    display: block;
+    color: $color-secondary-darkest;
+    padding: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
