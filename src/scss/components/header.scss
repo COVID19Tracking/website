@@ -180,8 +180,10 @@
           color: $color-main-mid;
           display: block;
           padding: 0.4rem 0.6rem;
+          font-size: 0.72rem;
 
           @media (min-width: $viewport-sm) {
+            font-size: 16px;
             padding: 0.8rem 1rem;
           }
 
