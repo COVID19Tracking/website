@@ -1,24 +1,43 @@
 import React from 'react'
-import { MDXProvider } from '@mdx-js/react'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 
-const shortcodes = { Link }
-const ContentPage = ({ pageContext }) => {
-  const { isMdx, page, navigation } = pageContext
-  const { frontmatter } = page
+const ContentPage = ({ data }) => {
+  const page = data.allContentfulPage.edges[0].node
   return (
-    <Layout navigation={navigation} title={frontmatter.title}>
-      {isMdx ? (
-        <MDXProvider components={shortcodes}>
-          <MDXRenderer>{page.body}</MDXRenderer>
-        </MDXProvider>
-      ) : (
-        <div dangerouslySetInnerHTML={{ __html: page.html }} />
-      )}
+    <Layout
+      title={page.title}
+      navigation={page.navigationGroup ? page.navigationGroup.pages : false}
+    >
+      <div
+        dangerouslySetInnerHTML={{ __html: page.body.childMarkdownRemark.html }}
+      />
     </Layout>
   )
 }
 
 export default ContentPage
+
+export const query = graphql`
+  query($id: String!) {
+    allContentfulPage(filter: { id: { eq: $id } }) {
+      edges {
+        node {
+          title
+          slug
+          body {
+            childMarkdownRemark {
+              html
+            }
+          }
+          navigationGroup {
+            pages {
+              title
+              link: slug
+            }
+          }
+        }
+      }
+    }
+  }
+`

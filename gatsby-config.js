@@ -33,7 +33,6 @@ module.exports = {
     `gatsby-plugin-mdx`,
     `gatsby-transformer-yaml`,
     'gatsby-plugin-eslint',
-    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -135,6 +134,13 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_BLOG_SPACE,
         accessToken: process.env.CONTENTFUL_BLOG_TOKEN,
+      },
+    },
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: process.env.CONTENTFUL_PAGE_SPACE,
+        accessToken: process.env.CONTENTFUL_PAGE_TOKEN,
       },
     },
     {

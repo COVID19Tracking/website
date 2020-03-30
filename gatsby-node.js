@@ -54,47 +54,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
-      allMarkdownRemark(filter: { fields: { isPage: { eq: true } } }) {
-        edges {
-          node {
-            id
-            html
-            frontmatter {
-              title
-              navigation
-            }
-            fields {
-              slug
-            }
-          }
-        }
-      }
-      allMdx(filter: { fields: { isPage: { eq: true } } }) {
-        edges {
-          node {
-            id
-            body
-            frontmatter {
-              title
-              navigation
-            }
-            fields {
-              slug
-            }
-          }
-        }
-      }
-      allNavigationYaml {
-        edges {
-          node {
-            name
-            items {
-              title
-              link
-            }
-          }
-        }
-      }
       allCovidStateInfo(
         filter: { name: { ne: null } }
         sort: { fields: state }
@@ -110,6 +69,14 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allContentfulPage {
+        edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
       allContentfulBlogPost(sort: { fields: updatedAt }) {
         edges {
           node {
@@ -120,43 +87,13 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  // Store all the navigation items into an object for later use
-  const navigation = {}
-  result.data.allNavigationYaml.edges.forEach(({ node }) => {
-    navigation[node.name] = node.items
-  })
 
   // Create all the pages based on Markdown files in src/content/pages
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allContentfulPage.edges.forEach(({ node }) => {
     createPage({
-      path: node.fields.slug,
+      path: node.slug,
       component: path.resolve(`./src/templates/content.js`),
-      context: {
-        page: node,
-        navigation:
-          node.frontmatter.navigation &&
-          typeof navigation[node.frontmatter.navigation] !== 'undefined'
-            ? navigation[node.frontmatter.navigation]
-            : [],
-        isMdx: false,
-      },
-    })
-  })
-
-  // Create all the pages based on MDX files in src/content/pages
-  result.data.allMdx.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: path.resolve(`./src/templates/content.js`),
-      context: {
-        page: node,
-        navigation:
-          node.frontmatter.navigation &&
-          typeof navigation[node.frontmatter.navigation] !== 'undefined'
-            ? navigation[node.frontmatter.navigation]
-            : [],
-        isMdx: true,
-      },
+      context: node,
     })
   })
 
@@ -169,7 +106,6 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   result.data.allContentfulBlogPost.edges.forEach(({ node }) => {
-    console.log(node)
     createPage({
       path: `/blog/${node.slug}`,
       component: path.resolve(`./src/templates/blog-post.js`),
