@@ -88,8 +88,14 @@
       }
     }
 
+    .header-tabs-container {
+      display: flex;
+    }
+
     .header-tabs {
       display: block;
+      align-self: flex-end;
+      margin-left: auto;
 
       @media (min-width: $viewport-md) {
         display: inline-block;
