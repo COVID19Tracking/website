@@ -24,8 +24,26 @@
 - name: National Public Radio
   logo: national-public-radio.svg
   width: 85
+- name: Columbia Journalism Review
+  logo: columbia-journalism-review.svg
+  width: 90
+- name: CNN
+  logo: cnn.svg
+  width: 80
+- name: Los Angeles Times
+  logo: la-times.svg
+  width: 180
+- name: San Francisco Chronicle
+  logo: sf-chronicle.svg
+  width: 180
+- name: Propublica
+  logo: pro-publica.svg
+  width: 100
 - name: Business Insider
   logo: business-insider.svg
+- name: Five thirty eight
+  logo: five-thirty-eight.svg
+  width: 150
 - name: Gizmodo logo
   logo: gizmodo.svg
 - name: CBS News
