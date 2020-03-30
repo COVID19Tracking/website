@@ -109,7 +109,7 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
             </Box>
             {navigation && (
               <Box
-                width={[1, 1 / 2]}
+                width={[1]}
                 order={[1, 2]}
                 px={[0]}
                 textAlign={['left', 'right']}
