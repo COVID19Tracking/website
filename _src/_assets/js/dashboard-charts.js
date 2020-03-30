@@ -320,14 +320,13 @@ d => d.negativeIncrease + d.positiveIncrease,
     const hed = chartContainer
       .append('h3')
       .classed('chart-hed', true)
-    const expand = chartContainer
-      .append('div')
-      .classed('chart-expand-note', true)
-
     const chart = chartContainer
       .append('div')
       .classed('chart', true)
       .classed('no-y-axis-domain', true)
+    const expand = chartContainer
+      .append('div')
+      .classed('chart-expand-note', true)
     const source = chartContainer
       .append('div')
       .classed('chart-api-note', true)
