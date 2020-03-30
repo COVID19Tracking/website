@@ -83,7 +83,7 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
                 <img
                   src={ProjectLogo}
                   alt="The COVID Tracking Project"
-                  width="170px"
+                  width="176px"
                 />
               </a>
             </Box>
