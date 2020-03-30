@@ -1,11 +1,18 @@
-/api/*              https://covid.cape.io/:splat  200 
-/charts/dash        http://35.212.27.3:8050/
-/graphql            /api/graphql
-/graphql/           /api/graphql
-/notes/             /data/
-/screenshots/*      https://covid-data-archive.s3.us-east-2.amazonaws.com/state_screenshots/:splat 200
-/best-practices     https://docs.google.com/document/d/1OyN6_1UeDePwPwKi6UKZB8GwNC7-kSf1-BO2af8kqVA/edit
-/sheets             https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml
-/states/            /data/
-/data/state/        /data/
-/github             https://github.com/COVID19Tracking/website
+/api/*                https://covid.cape.io/:splat  200 
+/charts/dash          http://35.212.27.3:8050/
+/graphql              /api/graphql
+/graphql/             /api/graphql
+/notes/               /data/
+/screenshots/*        https://covid-data-archive.s3.us-east-2.amazonaws.com/state_screenshots/:splat 200
+/best-practices       https://docs.google.com/document/d/1OyN6_1UeDePwPwKi6UKZB8GwNC7-kSf1-BO2af8kqVA/edit
+/sheets               https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml
+/states/              /data/
+/data/state/          /data/
+/github               https://github.com/COVID19Tracking/website
+/about-tracker        /about
+/how-you-can-help/    /help
+/us-daily/            /data/us-daily
+/about-team/          /project/team
+/api/                 /about/api
+/newsroom-expert-faq  /project/faq
+/software             /about/software
