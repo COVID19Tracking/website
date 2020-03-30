@@ -46,7 +46,13 @@
     }
 
     h1 {
-      margin: 0;
+      margin: 70px 0 35px;
+
+      @media (max-width: $viewport-md) {
+        margin: 35px 0 17.5px;
+      }
+
+
       color: white;
       font-size: 2.2em;
       &.extra-space {
