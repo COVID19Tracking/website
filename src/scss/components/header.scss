@@ -47,14 +47,14 @@
 
     h1 {
       margin: 70px 0 35px;
+      font-size: 2.2em;
+      color: white;
 
       @media (max-width: $viewport-md) {
         margin: 35px 0 17.5px;
+        font-size: 1.56rem;
       }
 
-
-      color: white;
-      font-size: 2.2em;
       &.extra-space {
         margin-bottom: 1rem;
       }
