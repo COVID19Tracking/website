@@ -102,6 +102,14 @@
       }
     }
 
+    .title-subnav-container {
+      @media (max-width: $viewport-sm) {
+        flex-direction: column-reverse;
+        margin-top: 0;
+        padding-bottom: 35px;
+      }
+    }
+
     .header-tabs-container {
       display: flex;
     }

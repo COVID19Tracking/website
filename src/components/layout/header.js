@@ -91,7 +91,11 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
               <HeaderNavigation showMobileMenu={showMobileMenu} />
             </Box>
           </Flex>
-          <Flex flexWrap="wrap" mt={['1.5rem']}>
+          <Flex
+            flexWrap="wrap"
+            className="title-subnav-container"
+            mt={['1.5rem']}
+          >
             <Box
               width={navigation ? [1, 1 / 2] : 1}
               order={[2, 1]}
