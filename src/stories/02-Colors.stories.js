@@ -3,30 +3,67 @@ import colors from '../scss/colors.scss'
 import contrast from 'get-contrast'
 
 const ColorSwatch = ({ colors }) => (
-  <div>
-    {colors.map(color => (
-      <div
-        key={color}
-        style={{
-          background: color,
-          width: '100px',
-          height: '100px',
-          display: 'inline-block',
-          textAlign: 'center',
-          padding: '1rem',
-        }}
-      >
-        <p
-          style={{ color: '#fff', marginBottom: '0.5rem', fontWeight: 'bold' }}
+  <>
+    <div>
+      {colors.map(color => (
+        <div
+          key={`color-${color}`}
+          style={{
+            width: '150px',
+            display: 'inline-block',
+            textAlign: 'center',
+            padding: '1rem',
+          }}
         >
-          {contrast.score(color, '#ffffff')}
-        </p>
-        <p style={{ color: '#000', marginBottom: 0, fontWeight: 'bold' }}>
-          {contrast.score(color, '#000000')}
-        </p>
+          <code>{color}</code>
+        </div>
+      ))}
+    </div>
+    <div>
+      {colors.map(color => (
+        <div
+          key={color}
+          style={{
+            background: color,
+            width: '150px',
+            height: '150px',
+            display: 'inline-block',
+            textAlign: 'center',
+            padding: '1rem',
+          }}
+        >
+          <p
+            style={{
+              color: '#fff',
+              marginBottom: '0.5rem',
+              fontWeight: 'bold',
+            }}
+          >
+            {contrast.score(color, '#ffffff')}
+          </p>
+          <p style={{ color: '#000', marginBottom: 0, fontWeight: 'bold' }}>
+            {contrast.score(color, '#000000')}
+          </p>
+        </div>
+      ))}
+      <div>
+        {colors.map(color => (
+          <div
+            key={`color-${color}`}
+            style={{
+              width: '150px',
+              display: 'inline-block',
+              textAlign: 'center',
+              padding: '1rem',
+            }}
+          >
+            <p style={{ color: color }}>Sample text</p>
+            <p style={{ color: color, fontWeight: 'bold' }}>Bold text</p>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
+    </div>
+  </>
 )
 
 export default {
