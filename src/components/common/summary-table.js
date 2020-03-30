@@ -5,7 +5,7 @@ import thousands from '../../utilities/format-thousands'
 
 export default ({ data }) => (
   <div className="tablesaw-overflow">
-    <Table>
+    <Table className="full tablesaw" tablesawMode="columntoggle">
       <caption className="sr-only">{/* todo include captions */}</caption>
       <thead>
         <tr>
