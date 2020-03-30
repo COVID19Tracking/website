@@ -12,7 +12,7 @@ import PressList from '../components/pages/homepage/press-list'
 
 export default ({ data }) => (
   <>
-    <SEO title="The COVID Tracking Project" />
+    <SEO />
     <SkipNavigation />
     <Header siteTitle="The COVID Tracking Project" noMargin hasHero />
     <Hero />
