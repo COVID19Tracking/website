@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from '../common/flexbox'
 import DevelopmentWarning from './development-warning'
 import ProjectLogo from '../../images/project-logo.svg'
 import '../../scss/components/header.scss'
