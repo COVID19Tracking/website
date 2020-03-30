@@ -6,7 +6,6 @@ import Header from '../components/layout/header'
 import Container from '../components/common/container'
 import SEO from '../components/layout/seo'
 import Footer from '../components/layout/footer'
-import Hero from '../components/common/hero'
 import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/pages/homepage/press-list'
 
@@ -15,7 +14,6 @@ export default ({ data }) => (
     <SEO />
     <SkipNavigation />
     <Header siteTitle="The COVID Tracking Project" noMargin hasHero />
-    <Hero />
     <main id="main">
       <SkipNavContent />
       <Container>

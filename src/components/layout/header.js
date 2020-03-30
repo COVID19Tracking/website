@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import { Flex, Box } from 'reflexbox'
 import DevelopmentWarning from './development-warning'
+import Hero from '../common/hero'
 import ProjectLogo from '../../images/project-logo.svg'
 import '../../scss/components/header.scss'
 
@@ -59,7 +60,7 @@ const HeaderNavigation = () => {
 const Header = ({ title, noMargin, hasHero, navigation }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
-  return (
+  const header = (
     <>
       <DevelopmentWarning />
       <header
@@ -122,6 +123,14 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
         </div>
       </header>
     </>
+  )
+
+  return hasHero ? (
+    <div className="circles-container">
+      {header} <Hero />
+    </div>
+  ) : (
+    header
   )
 }
 
