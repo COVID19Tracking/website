@@ -32,7 +32,7 @@ export default () => (
       <Container>
         <h2>From visualization gallery</h2>
         <Flex flexWrap="wrap" className="homepage-visualizations">
-          <Box width={[1, 1 / 2]} pr={[0, 3]}>
+          <Box width={[1, 1 / 3]} pr={[0, '0.5rem']}>
             <img src={pbsMap} alt="PBS COVID Map" />
             <p>
               <a href="https://www.pbs.org/newshour/features/coronavirus/us/">
@@ -41,7 +41,16 @@ export default () => (
             </p>
             <DetailText>Source: PBS</DetailText>
           </Box>
-          <Box width={[1, 1 / 2]} pl={[0, 5]}>
+          <Box width={[1, 1 / 3]} px={[0, '0.5rem']}>
+            <img src={nytGraph} alt="New York Times chart" />
+            <p>
+              <a href="https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html">
+                U.S. Lags in Coronavirus Testing After Slow Response to Outbreak
+              </a>
+            </p>
+            <DetailText>Source: New York Times</DetailText>
+          </Box>
+          <Box width={[1, 1 / 3]} pl={[0, '0.5rem']}>
             <img src={nytGraph} alt="New York Times chart" />
             <p>
               <a href="https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html">
@@ -51,8 +60,8 @@ export default () => (
             <DetailText>Source: New York Times</DetailText>
           </Box>
         </Flex>
-        <Flex flexWrap="wrap">
-          <Box width={[1, 1 / 2]} pr={[0, 3]}>
+        <Flex flexWrap="wrap" mt={['1rem', '2rem']}>
+          <Box width={[1, 2 / 3]} pr={[0, '1rem']}>
             <h2>Why this data matters</h2>
             <p>
               The{' '}
@@ -71,35 +80,20 @@ export default () => (
               more” link, styled in a way that is pleasing to the designers)
             </p>
             <h2>Get involved</h2>
-            <Flex flexWrap="wrap">
-              <Box
-                width={[1, 1 / 2]}
-                my={[2, 0]}
-                pr={[0, 2]}
-                className="homepage-get-involved"
-              >
-                <Link to="/data">
-                  Check your state&apos;s testing data report card
-                </Link>
-              </Box>
-              <Box
-                width={[1, 1 / 2]}
-                my={[2, 0]}
-                className="homepage-get-involved"
-              >
-                <Link to="/help">Help us get better data</Link>
-              </Box>
-            </Flex>
+            <Link to="/data" className="hompeage-get-involved">
+              Check your state&apos;s testing data report card
+            </Link>
+            <Link to="/help" className="hompeage-get-involved">
+              Help us get better data
+            </Link>
           </Box>
-          <Box width={[1, 1 / 2]}>
+          <Box width={[1, 1 / 3]}>
+            <Link to="/about/in-the-press" className="homepage-press-list-more">
+              More news
+            </Link>
             <h2>In the Press</h2>
 
             <PressList />
-            <p>
-              <Link to="/about/in-the-press">
-                View more articles that use our data
-              </Link>
-            </p>
           </Box>
         </Flex>
       </Container>

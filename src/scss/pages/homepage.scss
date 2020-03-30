@@ -1,7 +1,6 @@
 @import '../colors.scss';
 
 .homepage-visualizations {
-  margin-bottom: 1rem;
   img {
     margin-bottom: 0.8rem;
   }
@@ -11,6 +10,11 @@
   a {
     font-weight: bold;
   }
+}
+
+.homepage-press-list-more {
+  font-weight: bold;
+  float: right;
 }
 
 .homepage-get-involved {

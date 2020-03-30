@@ -19,7 +19,8 @@ const fonts = [
 
 const typography = new Typography({
   baseFontSize: '18px',
-  baseLineHeight: 1.666,
+  baseLineHeight: 1.8,
+  headerLineHeight: 2,
   headerFontFamily: fonts,
   bodyFontFamily: fonts,
 })
