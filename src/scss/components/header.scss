@@ -10,7 +10,7 @@
     .header-container {
       nav {
         display: block;
-        @media (min-width: 1080px) {
+        @media (min-width: $viewport-lg) {
           display: block;
         }
       }
@@ -30,7 +30,7 @@
       border: none;
       font-weight: bold;
       color: white;
-      @media (min-width: 1080px) {
+      @media (min-width: $viewport-lg) {
         display: none;
       }
     }
@@ -74,7 +74,7 @@
       align-self: center;
       break-before: always;
 
-      @media (min-width: 1080px) {
+      @media (min-width: $viewport-lg) {
         break-before: auto;
         margin-left: auto;
         display: block;
@@ -90,7 +90,7 @@
 
         li {
           margin-bottom: 0.5rem;
-          @media (min-width: 1080px) {
+          @media (min-width: $viewport-lg) {
             display: inline-block;
             padding-right: 30px;
             margin-bottom: 0;
