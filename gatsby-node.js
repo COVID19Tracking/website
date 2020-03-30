@@ -30,6 +30,9 @@ exports.onCreateNode = ({ node, getNode, createNodeId, actions }) => {
   }
   if (node.internal.type === `MarkdownRemark` || node.internal.type === `Mdx`) {
     const slug = createFilePath({ node, getNode, basePath: `content` })
+    if (!slug) {
+      return
+    }
     createNodeField({
       node,
       name: `slug`,
@@ -71,7 +74,6 @@ exports.createPages = async ({ graphql, actions }) => {
             frontmatter {
               title
               navigation
-              noContainer
             }
             fields {
               slug
@@ -90,7 +92,10 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allCovidStateInfo(sort: { fields: state }) {
+      allCovidStateInfo(
+        filter: { name: { ne: null } }
+        sort: { fields: state }
+      ) {
         edges {
           node {
             covid19Site

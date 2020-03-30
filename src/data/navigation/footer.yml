@@ -1,8 +1,0 @@
-name: footer
-items:
-  - title: API
-    link: /about/api
-  - title: About the data
-    link: /about
-  - title: About the project
-    link: /project

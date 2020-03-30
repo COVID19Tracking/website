@@ -1,6 +1,13 @@
+@import '../../breakpoints.scss';
+
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  @media (min-width: $viewport-md) {
+    margin-left: auto;
+    margin-right: auto;
+  }
   &.container-narrow {
     max-width: 900px;
   }

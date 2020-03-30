@@ -76,7 +76,10 @@ const StateList = ({ states, stateData }) => {
 
 // The top-level content of this page is from 'src/content/snippets/data.md'
 export default ({ data }) => (
-  <Layout title="Most recent data">
+  <Layout
+    title="Most recent data"
+    navigation={data.allNavigationYaml.edges[0].node.items}
+  >
     <div
       dangerouslySetInnerHTML={{
         __html: data.allMarkdownRemark.edges[0].node.html,
@@ -144,6 +147,17 @@ export const query = graphql`
           hospitalized
           grade
           death
+        }
+      }
+    }
+    allNavigationYaml(filter: { name: { eq: "data" } }) {
+      edges {
+        node {
+          name
+          items {
+            title
+            link
+          }
         }
       }
     }

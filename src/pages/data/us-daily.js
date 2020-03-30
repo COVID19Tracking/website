@@ -5,7 +5,10 @@ import Layout from '../../components/layout'
 import { SyncInfobox } from '../../components/common/infobox'
 
 const ContentPage = ({ data }) => (
-  <Layout title="US Historical Data">
+  <Layout
+    title="US Historical Data"
+    navigation={data.allNavigationYaml.edges[0].node.items}
+  >
     <div
       dangerouslySetInnerHTML={{
         __html: data.allMarkdownRemark.edges[0].node.html,
@@ -92,6 +95,17 @@ export const query = graphql`
           hospitalized
           death
           date
+        }
+      }
+    }
+    allNavigationYaml(filter: { name: { eq: "data" } }) {
+      edges {
+        node {
+          name
+          items {
+            title
+            link
+          }
         }
       }
     }

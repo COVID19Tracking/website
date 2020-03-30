@@ -1,5 +1,5 @@
 ---
-title: Software and Credits
+title: The software
 navigation: about
 ---
 
