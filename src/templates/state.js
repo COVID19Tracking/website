@@ -45,7 +45,7 @@ const Screenshots = ({ date, screenshots }) => {
   return (
     <ul>
       {dateScreenshots.map(screenshot => (
-        <li key={`screenshot-${screenshot.ETag}`}>
+        <li key={screenshot.url}>
           <a href={screenshot.url} target="_blank" rel="noopener noreferrer">
             {screenshot.dateChecked && (
               <>
@@ -166,7 +166,6 @@ export const query = graphql`
           url
           state
           dateChecked
-          ETag
         }
       }
     }
