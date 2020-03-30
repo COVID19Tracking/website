@@ -11,7 +11,7 @@ export default () => {
           title: { ne: "null" }
         }
         sort: { fields: publishDate, order: DESC }
-        limit: 6
+        limit: 4
       ) {
         edges {
           node {
