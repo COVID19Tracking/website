@@ -2,10 +2,12 @@
   background: #5667ad;
   background-image: url(../../images/hero-bg.svg);
   background-size: auto 100%;
-  padding: 10vh 24vw 20vh 8vw;
+  padding: 10vh 24vw 140px 8vw;
   margin-bottom: 1.5rem;
+
   @media only screen and (max-width: 480px) {
     padding: 3vh 4vw 0;
+    padding-bottom: 70px;
   }
 
   .header {
@@ -24,7 +26,7 @@
 
   .ctas {
     display: flex;
-    margin-top: 10vh;
+    margin-top: 70px;
     color: white;
     font-family: sans-serif;
     align-items: center;
@@ -32,6 +34,7 @@
 
     @media only screen and (max-width: 480px) {
       flex-direction: column;
+      margin-top: 35px;
     }
 
     .cta-spacer {
