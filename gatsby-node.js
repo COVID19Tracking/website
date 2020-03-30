@@ -28,7 +28,10 @@ exports.onCreateNode = ({ node, getNode, createNodeId, actions }) => {
       })
     })
   }
-  if (node.internal.type === `MarkdownRemark` || node.internal.type === `Mdx`) {
+  if (
+    (node.internal.type === `MarkdownRemark` || node.internal.type === `Mdx`) &&
+    typeof node.fileAbsolutePath !== 'undefined'
+  ) {
     const slug = createFilePath({ node, getNode, basePath: `content` })
     if (!slug) {
       return
@@ -107,6 +110,14 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allContentfulBlogPost(sort: { fields: updatedAt }) {
+        edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
     }
   `)
   // Store all the navigation items into an object for later use
@@ -153,6 +164,15 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/data/state/${slugify(node.name, { strict: true, lower: true })}`,
       component: path.resolve(`./src/templates/state.js`),
+      context: node,
+    })
+  })
+
+  result.data.allContentfulBlogPost.edges.forEach(({ node }) => {
+    console.log(node)
+    createPage({
+      path: `/blog/${node.slug}`,
+      component: path.resolve(`./src/templates/blog-post.js`),
       context: node,
     })
   })

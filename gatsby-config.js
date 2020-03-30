@@ -131,6 +131,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: process.env.CONTENTFUL_BLOG_SPACE,
+        accessToken: process.env.CONTENTFUL_BLOG_TOKEN,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `The COVID Tracking Project`,
