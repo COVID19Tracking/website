@@ -428,6 +428,7 @@ d => d.negativeIncrease + d.positiveIncrease,
       calculateTotal(d),
     )
 
+    const dateExtent = d3.extent(data, d => parseDate(d.date))
     // go through each state's data and add a chart
     sortedGroupedByState.forEach(function(state) {
       // because we're just charting two variables we make them here
@@ -472,8 +473,9 @@ d => d.negativeIncrease + d.positiveIncrease,
           return positiveColor
         },
         height: chartHeight,
-        margin,
         labelOrder: ['Total', 'Positive'],
+        margin,
+        xExtent: dateExtent,
         width: chartWidth,
         yMax: secondMaxTotal,
       })
