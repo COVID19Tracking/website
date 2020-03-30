@@ -1,0 +1,9 @@
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <style>.cls-1{fill:#fff;}.cls-2,.cls-3{fill:#575aad;}.cls-2{fill-rule:evenodd;}</style>
+ </defs>
+ <g>
+  <path id="svg_2" d="m250,438.6c-104.1609,0 -188.6,-84.4391 -188.6,-188.6s84.4391,-188.6 188.6,-188.6l0,-41.4c-127.0256,0 -230,102.9744 -230,230s102.9744,230 230,230l0,-41.4z" class="cls-2"/>
+  <circle id="svg_3" r="147.2" cy="250.0002" cx="249.9999" class="cls-3"/>
+ </g>
+</svg>
