@@ -5,22 +5,30 @@ import thousands from '../../utilities/format-thousands'
 
 export default ({ data }) => (
   <Table>
-    <caption class="sr-only">{/* todo include captions */}</caption>
+    <caption className="sr-only">{/* todo include captions */}</caption>
     <thead>
-      <colgroup span="3"></colgroup>
-      <colgroup span="2"></colgroup>
-      <colgroup span="2"></colgroup>
-      <colgroup span="2"></colgroup>
-      <col></col>
-      <col></col>
-      <col></col>
-      <col></col>
+      <colgroup span="3" />
+      <colgroup span="2" />
+      <colgroup span="2" />
+      <colgroup span="2" />
+      <col />
+      <col />
+      <col />
+      <col />
       <tr>
-        <th scope="colgroup" colspan="3">Tests</th>
-        <th scope="colgroup" colspan="2">Hospitalized</th>
-        <th scope="colgroup" colspan="2">In ICU</th>
-        <th scope="colgroup" colspan="2">On Ventilator</th>
-        <td colspan="2"></td>
+        <th scope="colgroup" colSpan="3">
+          Tests
+        </th>
+        <th scope="colgroup" colSpan="2">
+          Hospitalized
+        </th>
+        <th scope="colgroup" colSpan="2">
+          In ICU
+        </th>
+        <th scope="colgroup" colSpan="2">
+          On Ventilator
+        </th>
+        <td colSpan="2" />
       </tr>
       <tr>
         <th scope="col">Positive</th>
@@ -33,7 +41,9 @@ export default ({ data }) => (
         <th scope="col">Recovered</th>
         <th scope="col">Discharged</th>
         <th scope="col">Deaths</th>
-        <th scope="col">Total test results <span>(Positive + Negative)</span></th>
+        <th scope="col">
+          Total test results <span>(Positive + Negative)</span>
+        </th>
       </tr>
     </thead>
     <tbody>
