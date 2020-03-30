@@ -20,12 +20,6 @@ export default () => (
     <main id="main">
       <SkipNavContent />
       <Container>
-        <LeadParagraph>
-          The COVID Tracking Project obtains, organizes, and publishes
-          high-quality, state-level data required to understand and respond to
-          the COVID-19 outbreak in the United States.
-        </LeadParagraph>
-
         <PressLogos />
         <h2>Why this data matters</h2>
         <p>
