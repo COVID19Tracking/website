@@ -3,6 +3,7 @@
   width: 80
 - name: The New York Times
   logo: nyt.svg
+  width: 180
 - name: Ars Technica logo
   logo: ars-technica.svg
 - name: The Wall Street Journal

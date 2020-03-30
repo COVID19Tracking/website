@@ -1,0 +1,42 @@
+backend:
+  name: git-gateway
+  branch: gatsbyjs
+
+media_folder: 'static/images'
+
+collections:
+  - name: 'pages'
+    label: 'Pages'
+    folder: 'src/content/pages/'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Navigation group', name: 'navigation', widget: 'string', required: false }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+  - name: 'aboutpages'
+    label: 'About the data'
+    folder: 'src/content/pages/about'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Navigation group', name: 'navigation', widget: 'string', required: false }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+  - name: 'projectpages'
+    label: 'About the project'
+    folder: 'src/content/pages/project'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Navigation group', name: 'navigation', widget: 'string', required: false }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+  - name: 'snippets'
+    label: 'Snippets'
+    folder: 'src/content/snippets/'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }

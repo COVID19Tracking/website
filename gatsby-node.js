@@ -16,7 +16,7 @@ exports.onCreateNode = ({ node, getNode, createNodeId, actions }) => {
       }
       node[key].forEach(screenshot => {
         const node = {
-          id: createNodeId(`covidScreenshot >>> ${screenshot.ETag}`),
+          id: createNodeId(`covidScreenshot >>> ${screenshot.url}`),
           children: [],
           parent: null,
           internal: {

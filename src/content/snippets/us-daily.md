@@ -1,3 +1,7 @@
+---
+title: US History preamble
+---
+
 See also:
 
 - [Most recent data broken out by state](/data/)
