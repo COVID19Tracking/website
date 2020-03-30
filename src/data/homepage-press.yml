@@ -11,16 +11,17 @@
 - name: The Wall Street Journal
   logo: the-wall-street-journal.svg
   width: 200
+  featured: true
 - name: Politico
   logo: politico.svg
   width: 100
-  featured: true
 - name: The New Yorker
   logo: the-new-yorker.svg
   width: 160
 - name: Vox
   logo: vox.svg
   width: 50
+  featured: true
 - name: The Washington Post
   logo: wapo.svg
   width: 180
@@ -44,6 +45,7 @@
 - name: Propublica
   logo: pro-publica.svg
   width: 100
+  featured: true
 - name: Business Insider
   logo: business-insider.svg
 - name: Five thirty eight

@@ -18,18 +18,14 @@
 }
 
 .homepage-get-involved {
+  flex-wrap: nowrap;
+  display: flex;
+  .homepage-get-involved-icon {
+    width: 50px;
+    color: $color-main-dark;
+    font-size: 1.3rem;
+  }
   a {
-    height: 100%;
-    background: $color-secondary-light;
-    font-size: 1.2rem;
-    display: block;
-    color: $color-secondary-darkest;
-    padding: 1rem;
     font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }

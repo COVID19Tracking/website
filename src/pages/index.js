@@ -24,6 +24,7 @@ export default () => (
 
     <div className="homepage-press-logos-wrapper">
       <Container>
+        <h2>Our data has been cited by</h2>
         <PressLogos onlyFeatured />
       </Container>
     </div>
@@ -79,13 +80,25 @@ export default () => (
               outbreaks to make sound decisions about interventions. (“Read
               more” link, styled in a way that is pleasing to the designers)
             </p>
-            <h2>Get involved</h2>
-            <Link to="/data" className="hompeage-get-involved">
-              Check your state&apos;s testing data report card
-            </Link>
-            <Link to="/help" className="hompeage-get-involved">
-              Help us get better data
-            </Link>
+            <div className="homepage-get-involved">
+              <div className="homepage-get-involved-icon">→</div>
+              <p>
+                <Link to="/data">
+                  Check your state&apos;s testing data report card
+                </Link>{' '}
+                to see the quality of the data they are providing.
+              </p>
+            </div>
+            <div className="homepage-get-involved">
+              <div className="homepage-get-involved-icon">→</div>
+              <p>
+                Want to get involved?{' '}
+                <Link to="/help" className="hompeage-get-involved">
+                  Help us get better data
+                </Link>
+                .
+              </p>
+            </div>
           </Box>
           <Box width={[1, 1 / 3]}>
             <Link to="/about/in-the-press" className="homepage-press-list-more">
