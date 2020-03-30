@@ -69,16 +69,7 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
       >
         <div className={`header-container ${!hasHero && 'show-background'}`}>
           <Flex flexWrap="wrap">
-            <Box width={[1, 1 / 3]}>
-              <button
-                className="mobile-toggle"
-                type="button"
-                onClick={() => {
-                  setShowMobileMenu(!showMobileMenu)
-                }}
-              >
-                Menu
-              </button>
+            <Box width={[1, 1 / 3]} className="site-title-container">
               <a className="site-title" href="/">
                 <img
                   src={ProjectLogo}
@@ -88,8 +79,17 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
               </a>
             </Box>
             <Box width={[1, 2 / 3]} className="header-nav-container">
-              <HeaderNavigation showMobileMenu={showMobileMenu} />
+              <button
+                className="mobile-toggle"
+                type="button"
+                onClick={() => {
+                  setShowMobileMenu(!showMobileMenu)
+                }}
+              >
+                Menu
+              </button>
             </Box>
+            <HeaderNavigation showMobileMenu={showMobileMenu} />
           </Flex>
           <Flex
             flexWrap="wrap"

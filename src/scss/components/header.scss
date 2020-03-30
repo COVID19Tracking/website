@@ -10,7 +10,7 @@
     .header-container {
       nav {
         display: block;
-        @media (min-width: $viewport-md) {
+        @media (min-width: 1080px) {
           display: block;
         }
       }
@@ -25,14 +25,16 @@
     }
     .mobile-toggle {
       float: right;
+      margin-left: auto;
       background: transparent;
       border: none;
       font-weight: bold;
       color: white;
-      @media (min-width: $viewport-md) {
+      @media (min-width: 1080px) {
         display: none;
       }
     }
+
     img {
       margin-bottom: 0;
     }
@@ -62,14 +64,18 @@
 
     .header-nav-container {
       display: flex;
+      width: auto;
+      margin-left: auto;
     }
 
     nav {
       display: none;
       margin-top: 1rem;
       align-self: center;
+      break-before: always;
 
-      @media (min-width: $viewport-md) {
+      @media (min-width: 1080px) {
+        break-before: auto;
         margin-left: auto;
         display: block;
         margin-top: 0;
@@ -84,7 +90,7 @@
 
         li {
           margin-bottom: 0.5rem;
-          @media (min-width: $viewport-md) {
+          @media (min-width: 1080px) {
             display: inline-block;
             padding-right: 30px;
             margin-bottom: 0;
@@ -100,6 +106,10 @@
           padding-right: 0;
         }
       }
+    }
+
+    .site-title-container {
+      width: auto;
     }
 
     .title-subnav-container {
