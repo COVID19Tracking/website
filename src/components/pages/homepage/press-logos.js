@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import '../../../scss/components/pages/homepage/press-logos.scss'
 
-export default () => {
+export default ({ onlyFeatured }) => {
   const data = useStaticQuery(graphql`
     query {
       allHomepagePressYaml {
@@ -11,6 +11,7 @@ export default () => {
             name
             logo
             width
+            featured
           }
         }
       }
@@ -18,15 +19,19 @@ export default () => {
   `)
 
   return (
-    <p className="homepage-press-logos">
+    <div className="homepage-press-logos">
       {data.allHomepagePressYaml.edges.map(({ node }) => (
-        <img
-          key={`homepage-press-${node.name}`}
-          alt={`${node.name} logo`}
-          src={`/images/press-logos/${node.logo}`}
-          style={node.width && { width: `${node.width}px` }}
-        />
+        <>
+          {(!onlyFeatured || node.featured) && (
+            <img
+              key={`homepage-press-${node.name}`}
+              alt={`${node.name} logo`}
+              src={`/images/press-logos/${node.logo}`}
+              style={node.width && { width: `${node.width}px` }}
+            />
+          )}
+        </>
       ))}
-    </p>
+    </div>
   )
 }

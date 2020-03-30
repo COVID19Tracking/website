@@ -21,6 +21,12 @@ export default () => (
     <SkipNavigation />
     <Header siteTitle="The COVID Tracking Project" noMargin hasHero />
     <Hero />
+
+    <div className="homepage-press-logos-wrapper">
+      <Container>
+        <PressLogos onlyFeatured />
+      </Container>
+    </div>
     <main id="main">
       <SkipNavContent />
       <Container>
@@ -45,7 +51,6 @@ export default () => (
             <DetailText>Source: New York Times</DetailText>
           </Box>
         </Flex>
-        <PressLogos />
         <Flex flexWrap="wrap">
           <Box width={[1, 1 / 2]} pr={[0, 3]}>
             <h2>Why this data matters</h2>

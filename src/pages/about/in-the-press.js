@@ -1,9 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import PressLogos from '../../components/pages/homepage/press-logos'
 import Layout from '../../components/layout'
 
 export default ({ data }) => (
   <Layout title="In the press">
+    <PressLogos />
     <ul className="press-list">
       {data.allCovidPress.edges.map(({ node }) => (
         <li key={`homepage-press-${node.id}`}>
