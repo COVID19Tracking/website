@@ -8,28 +8,25 @@ export default ({ data }) => (
     <Table>
       <caption className="sr-only">{/* todo include captions */}</caption>
       <thead>
-        <colgroup span="3" />
-        <colgroup span="2" />
-        <colgroup span="2" />
-        <colgroup span="2" />
-        <col />
-        <col />
-        <col />
-        <col />
         <tr>
-          <th scope="colgroup" colSpan="3">
+          <th colSpan="3" data-tablesaw-priority="1" scope="col">
             Tests
           </th>
-          <th scope="colgroup" colSpan="2">
+          <th colSpan="2" data-tablesaw-priority="2" scope="colgroup">
             Hospitalized
           </th>
-          <th scope="colgroup" colSpan="2">
+          <th colSpan="2" data-tablesaw-priority="2" scope="colgroup">
             In ICU
           </th>
-          <th scope="colgroup" colSpan="2">
+          <th colSpan="2" data-tablesaw-priority="1" scope="colgroup">
             On Ventilator
           </th>
-          <td colSpan="2" />
+          <th rowSpan="2" data-tablesaw-priority="persist" scope="col">
+            Deaths
+          </th>
+          <th rowSpan="2" data-tablesaw-priority="persist" scope="col">
+            Total test results (Positive + Negative)
+          </th>
         </tr>
         <tr>
           <th scope="col">Positive</th>
@@ -41,10 +38,6 @@ export default ({ data }) => (
           <th scope="col">Cumulative</th>
           <th scope="col">Recovered</th>
           <th scope="col">Discharged</th>
-          <th scope="col">Deaths</th>
-          <th scope="col">
-            Total test results <span>(Positive + Negative)</span>
-          </th>
         </tr>
       </thead>
       <tbody>
