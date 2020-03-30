@@ -12,7 +12,7 @@ collections:
     slug: '{{slug}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Navigation group', name: 'navigation', widget: 'string' }
+      - { label: 'Navigation group', name: 'navigation', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
   - name: 'aboutpages'
     label: 'About the data'
@@ -21,7 +21,7 @@ collections:
     slug: '{{slug}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Navigation group', name: 'navigation', widget: 'string' }
+      - { label: 'Navigation group', name: 'navigation', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
   - name: 'projectpages'
     label: 'About the project'
@@ -30,7 +30,7 @@ collections:
     slug: '{{slug}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Navigation group', name: 'navigation', widget: 'string' }
+      - { label: 'Navigation group', name: 'navigation', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
   - name: 'snippets'
     label: 'Snippets'
