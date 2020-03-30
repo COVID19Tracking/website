@@ -315,6 +315,16 @@ ul.chart-legend {
 //   content: 'Stop ■';
 // }
 
+.map-column {
+  position: relative;
+}
+
+#map-legend {
+  left: 14%;
+  position: absolute;
+  top: -3%;
+}
+
 #state-map {
   margin-bottom: 3rem;
   position: relative;

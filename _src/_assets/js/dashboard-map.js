@@ -46,6 +46,7 @@
     )
     const path = d3.geoPath().projection(projection)
 
+    const legend = d3.select('#map-legend').append('svg')
     const hedAndDek =  d3.select('#state-map').append('div')
     const hed = hedAndDek.append('h3')
     const dek = hedAndDek.append('p')
@@ -60,12 +61,60 @@
       .attr('id', 'map-tooltip')
       .style('display', 'none')
 
+    const maxValue = d3.max(responses[1], d => getValue(d))
+
     const r = d3
       .scaleLinear()
-      .domain([0, d3.max(responses[1], d => getValue(d))])
+      .domain([0, maxValue])
       .range([0, 50])
     const map = svg.append('g')
     const bubbles = svg.append('g')
+
+    const legendData = [
+      parseInt(maxValue * 0.1),
+      parseInt(maxValue * 0.5),
+      maxValue,
+    ]
+
+    legend
+      .attr('height', 150)
+      .attr('width', 150)
+      .append('g')
+      .selectAll('circle')
+      .data(legendData)
+      .enter()
+      .append('circle')
+      .attr('r', d => r(d))
+      .attr('cx', 52)
+      .attr('cy', d => 145 - r(d))
+      .attr('stroke', '#ababab')
+      .attr('fill', 'none')
+
+    legend
+      .append('g')
+      .selectAll('line')
+      .data(legendData)
+      .enter()
+      .append('line')
+      .attr('x1', 52)
+      .attr('x2', 130)
+      .attr('y1', d => 145 - 2 * r(d))
+      .attr('y2', d => 145 - 2 * r(d))
+      .attr('stroke', '#ababab')
+      .attr('stroke-dasharray', '5 5')
+
+    legend
+      .append('g')
+      .selectAll('text')
+      .data(legendData)
+      .enter()
+      .append('text')
+      .attr('font-size', '10pt')
+      .attr('x', 105)
+      .attr('y', d => {
+        return 140 - 2 * r(d)
+      })
+      .text(d => formatNumber(d))
 
     map
       .selectAll('path')

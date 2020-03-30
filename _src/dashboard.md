@@ -22,11 +22,11 @@ nav: Dashboard
 
   <div class="map-container">
     <h2 class="chart-hed">
-      <select>
+      <!-- <select>
         <option value="positive">Positive tests</option>
         <option value="total">Total tests</option>
-      </select>
-      in each state per day
+      </select> -->
+      Positive tests in each state per day
     </h2>
     <div class="map-column">
       <div id="map-time-scrubber">
