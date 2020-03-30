@@ -126,11 +126,7 @@
     }
 
     .title-subnav-container {
-      @media (max-width: $viewport-lg) and (min-width: $viewport-sm) {
-        flex-direction: column;
-      }
-
-      @media (max-width: $viewport-sm) {
+      @media (max-width: $viewport-ms) {
         flex-direction: column-reverse;
         margin-top: 0;
         padding-bottom: 35px;
@@ -147,15 +143,15 @@
       align-self: flex-end;
       margin-left: auto;
 
-      @media (max-width: $viewport-lg) and (min-width: $viewport-sm) {
+      @media (max-width: $viewport-lg) and (min-width: $viewport-ms) {
         margin-left: 0;
       }
 
-      @media (min-width: $viewport-sm) {
+      @media (min-width: $viewport-ms) {
         display: inline-block;
       }
 
-      @media (max-width: $viewport-sm) {
+      @media (max-width: $viewport-ms) {
         div {
           width: 92vw; /* extend to the far right edge */
           overflow-x: scroll;
@@ -174,7 +170,7 @@
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;
 
-        @media (max-width: $viewport-sm) {
+        @media (max-width: $viewport-ms) {
           display: inline-flex;
           flex-wrap: nowrap;
           border-radius: 5px;
@@ -195,7 +191,7 @@
           padding: 0.4rem 0.6rem;
           font-size: 0.72rem;
 
-          @media (min-width: $viewport-sm) {
+          @media (min-width: $viewport-ms) {
             font-size: 16px;
             padding: 0.8rem 1rem;
           }
@@ -209,7 +205,7 @@
         }
         li {
           display: inline-block;
-          @media (min-width: $viewport-sm) {
+          @media (min-width: $viewport-ms) {
             margin: 0;
             &:last-child a {
               border-top-right-radius: 5px;
