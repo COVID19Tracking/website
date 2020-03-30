@@ -87,7 +87,7 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
                 />
               </a>
             </Box>
-            <Box width={[1, 2 / 3]}>
+            <Box width={[1, 2 / 3]} className="header-nav-container">
               <HeaderNavigation showMobileMenu={showMobileMenu} />
             </Box>
           </Flex>
