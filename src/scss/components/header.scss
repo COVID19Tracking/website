@@ -125,14 +125,19 @@
       width: auto;
     }
 
-    .title-subnav-container {
-      @media (max-width: $viewport-ms) {
-        flex-direction: column-reverse;
-        margin-top: 0;
-        padding-bottom: 35px;
+    div.title-subnav-container {
+      @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
+        flex-direction: column;
       }
 
-      @media (max-width: $viewport-lg) {
+      @media (max-width: $viewport-sm) {
+        flex-direction: column-reverse;
+      }
+
+      @media (max-width: $viewport-ms) {
+        margin-top: 0;
+        padding-bottom: 35px;
+
         div {
           width: 100%;
         }
