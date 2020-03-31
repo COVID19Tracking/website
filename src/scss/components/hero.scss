@@ -3,21 +3,20 @@
 
 .hero {
   padding: 10vh 24vw 140px 8vw;
-  @media only screen and (max-width: $viewport-sm) {
+  @media only screen and (max-width: $viewport-ms) {
     padding: 3vh 4vw 0;
     padding-bottom: 70px;
   }
 
   .header {
     color: white;
-    font-size: 48px;
-    line-height: 1.3;
+    font-size: 2.2rem;
+    line-height: 1.25;
     font-weight: bold;
     margin-bottom: 0;
 
-    @media only screen and (max-width: $viewport-sm) {
-      font-size: 24px;
-      line-height: 30px;
+    @media only screen and (max-width: $viewport-ms) {
+      font-size: 1.3rem;
     }
   }
 
@@ -26,17 +25,18 @@
     margin-top: 70px;
     color: white;
     align-items: center;
+    font-size: 1.1rem;
 
-    @media only screen and (max-width: $viewport-sm) {
+    @media only screen and (max-width: $viewport-ms) {
       flex-direction: column;
       margin-top: 35px;
     }
 
     .cta-spacer {
-      margin: 0 1em;
+      margin: 0 1rem;
 
-      @media only screen and (max-width: $viewport-sm) {
-        margin: 1em;
+      @media only screen and (max-width: $viewport-ms) {
+        margin: 1rem;
       }
     }
 
@@ -48,7 +48,7 @@
     .button {
       background: $color-secondary-light;
       text-decoration: none;
-      padding: 1.25em 0;
+      padding: 1rem 0;
       width: 25%;
       text-align: center;
       color: $color-secondary-darkest;
@@ -58,7 +58,7 @@
       }
       @media only screen and (max-width: $viewport-sm) {
         width: 100%;
-        padding: 0.75em 2em;
+        padding: 0.75rem 2rem;
       }
     }
 

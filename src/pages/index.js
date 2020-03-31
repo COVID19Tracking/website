@@ -17,9 +17,10 @@ import '../scss/pages/homepage.scss'
 
 export default () => (
   <>
-    <SEO />
+    <SEO title="The COVID Tracking Project" />
     <SkipNavigation />
     <Header siteTitle="The COVID Tracking Project" noMargin hasHero />
+    <h1 className="a11y-only">The COVID Tracking Project</h1>
 
     <div className="homepage-press-logos-wrapper">
       <Container>
@@ -29,9 +30,10 @@ export default () => (
     </div>
     <main id="main">
       <SkipNavContent />
-      <Container>
-        <h2>From visualization gallery</h2>
-        <Flex flexWrap="wrap" className="homepage-visualizations">
+      <div className="homepage-visualizations-wrapper">
+        <Container>
+          <h2>From visualization gallery</h2>
+          <Flex flexWrap="wrap" className="homepage-visualizations">
           <Box width={[1, 1, 1 / 3]} pr={[0, '0.5rem']}>
             <img src={wsjMap} alt="WSJ COVID Map" />
             <p>
@@ -62,10 +64,13 @@ export default () => (
             <DetailText>Source: New York Times</DetailText>
           </Box>
         </Flex>
+        </Container>
+      </div>
+      <Container>
         <Flex flexWrap="wrap" mt={['1rem', '2rem']}>
-          <Box width={[1, 1, 2 / 3]} pr={[0, '1rem']}>
+          <Box width={[1, 1, 2 / 3]} pr={[0, '1rem', '5rem']}>
             <h2>Why this data matters</h2>
-            <p>
+            <p className="paragraph-big">
               The{' '}
               <a href="https://coronavirus.jhu.edu/">
                 heroes at Johns Hopkins University

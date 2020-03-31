@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import '../../../scss/components/pages/homepage/press-list.scss'
+import DetailText from '../../common/detail-text'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -15,6 +16,7 @@ export default () => {
       ) {
         edges {
           node {
+            id
             title
             url
             publication
@@ -29,9 +31,9 @@ export default () => {
       {data.allCovidPress.edges.map(({ node }) => (
         <li key={`homepage-press-${node.id}`}>
           <a href={node.url}>{node.title}</a>
-          <div>
+          <DetailText>
             <em>{node.publication}</em>, {node.publishDate}
-          </div>
+          </DetailText>
         </li>
       ))}
     </ul>

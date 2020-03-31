@@ -1,8 +1,12 @@
 .press-list {
   list-style-type: none;
   margin: 0;
+  line-height: 1.3;
+
+
   a {
     font-weight: bold;
     display: block;
+    margin-bottom: 0.25rem;
   }
 }

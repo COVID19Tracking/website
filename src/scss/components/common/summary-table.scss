@@ -33,16 +33,16 @@ table {
   caption {
     font-weight: bold;
     font-size: 1.25rem;
-    padding: 0.75em 0;
+    padding: 0.75rem 0;
   }
 
   th, td {
     border: 1px solid #C0C0C0;
-    padding: 0.25em;
+    padding: 0.25rem;
   }
 
   th:last-child {
-    padding-right: 0.25em;
+    padding-right: 0.25rem;
   }
 
   th {
@@ -50,7 +50,7 @@ table {
 
     span {
       display: block;
-      font-size: 0.9em;
+      font-size: 0.9rem;
     }
 
     &[scope="colgroup"] {

@@ -21,7 +21,7 @@ export default ({ onlyFeatured }) => {
   return (
     <div className="homepage-press-logos">
       {data.allHomepagePressYaml.edges.map(({ node }) => (
-        <>
+        <React.Fragment key={node.name}>
           {(!onlyFeatured || node.featured) && (
             <img
               key={`homepage-press-${node.name}`}
@@ -29,7 +29,7 @@ export default ({ onlyFeatured }) => {
               src={`/images/press-logos/${node.logo}`}
             />
           )}
-        </>
+        </React.Fragment>
       ))}
     </div>
   )
