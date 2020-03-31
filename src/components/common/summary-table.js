@@ -5,6 +5,14 @@ import thousands from '../../utilities/format-thousands'
 
 export default ({ data }) => (
   <Table>
+    <colgroup span="3" />
+    <colgroup span="2" />
+    <colgroup span="2" />
+    <colgroup span="2" />
+    <col />
+    <col />
+    <col />
+    <col />
     <caption className="sr-only">{/* todo include captions */}</caption>
     <thead>
       <tr>
