@@ -86,11 +86,13 @@ const StateList = ({ states, stateData }) => {
 export default ({ data }) => (
   <Layout
     title="Most recent data"
-    navigation={data.allNavigationYaml.edges[0].node.items}
+    navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
     <div
       dangerouslySetInnerHTML={{
-        __html: data.allMarkdownRemark.edges[0].node.html,
+        __html:
+          data.allContentfulSnippet.edges[0].node
+            .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
       }}
     />
     <SyncInfobox />
@@ -105,16 +107,14 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
-    allMarkdownRemark(
-      filter: { fields: { slug: { eq: "/data/" }, isPage: { eq: false } } }
-    ) {
+    allContentfulSnippet(filter: { slug: { eq: "data-preamble" } }) {
       edges {
         node {
-          id
-          fields {
-            slug
+          childContentfulSnippetContentTextNode {
+            childMarkdownRemark {
+              html
+            }
           }
-          html
         }
       }
     }
@@ -158,13 +158,14 @@ export const query = graphql`
         }
       }
     }
-    allNavigationYaml(filter: { name: { eq: "data" } }) {
+    allContentfulNavigationGroup(filter: { slug: { eq: "data" } }) {
       edges {
         node {
-          name
-          items {
-            title
-            link
+          pages {
+            ... on ContentfulNavigationLink {
+              link: url
+              title
+            }
           }
         }
       }

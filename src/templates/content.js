@@ -32,8 +32,14 @@ export const query = graphql`
           }
           navigationGroup {
             pages {
-              title
-              link: slug
+              ... on ContentfulPage {
+                title
+                link: slug
+              }
+              ... on ContentfulNavigationLink {
+                title
+                link: url
+              }
             }
           }
         }

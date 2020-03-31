@@ -7,11 +7,13 @@ import { SyncInfobox } from '../../components/common/infobox'
 const ContentPage = ({ data }) => (
   <Layout
     title="US Historical Data"
-    navigation={data.allNavigationYaml.edges[0].node.items}
+    navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
     <div
       dangerouslySetInnerHTML={{
-        __html: data.allMarkdownRemark.edges[0].node.html,
+        __html:
+          data.allContentfulSnippet.edges[0].node
+            .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
       }}
     />
 
@@ -70,16 +72,14 @@ export default ContentPage
 
 export const query = graphql`
   query {
-    allMarkdownRemark(
-      filter: { fields: { slug: { eq: "/us-daily/" }, isPage: { eq: false } } }
-    ) {
+    allContentfulSnippet(filter: { slug: { eq: "us-daily" } }) {
       edges {
         node {
-          id
-          fields {
-            slug
+          childContentfulSnippetContentTextNode {
+            childMarkdownRemark {
+              html
+            }
           }
-          html
         }
       }
     }
@@ -98,13 +98,14 @@ export const query = graphql`
         }
       }
     }
-    allNavigationYaml(filter: { name: { eq: "data" } }) {
+    allContentfulNavigationGroup(filter: { slug: { eq: "data" } }) {
       edges {
         node {
-          name
-          items {
-            title
-            link
+          pages {
+            ... on ContentfulNavigationLink {
+              link: url
+              title
+            }
           }
         }
       }
