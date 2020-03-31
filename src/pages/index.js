@@ -10,9 +10,9 @@ import SEO from '../components/layout/seo'
 import Footer from '../components/layout/footer'
 import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/pages/homepage/press-list'
-import wsjMap from '../images/homepage-visualizations/wsj.png'
 import nytGraph from '../images/homepage-visualizations/nyt.png'
-import politicoGraph from '../images/homepage-visualizations/politico.png'
+import politicoMap from '../images/homepage-visualizations/politico-map.png'
+import wsjGraph from '../images/homepage-visualizations/wsj.png'
 import '../scss/pages/homepage.scss'
 
 export default () => (
@@ -34,26 +34,6 @@ export default () => (
         <Container>
           <h2>From visualization gallery</h2>
           <Flex flexWrap="wrap" className="homepage-visualizations">
-            <Box width={[1, 1, 1 / 3]} pr={[0, '0.5rem']}>
-              <img src={wsjMap} alt="WSJ COVID Map" />
-              <p>
-                <a href="https://www.wsj.com/articles/how-the-cdcs-restrictive-testing-guidelines-hid-the-coronavirus-epidemic-11584882001">
-                  How the CDC’s Restrictive Testing Guidelines Hid the
-                  Coronavirus Epidemic
-                </a>
-              </p>
-              <DetailText>Source: Wall Street Journal</DetailText>
-            </Box>
-            <Box width={[1, 1, 1 / 3]} pl={[0, '0.5rem']}>
-              <img src={politicoGraph} alt="Politico chart" />
-              <p>
-                <a href="https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/">
-                  How many coronavirus cases have been reported in each U.S.
-                  state?
-                </a>
-              </p>
-              <DetailText>Source: Politico</DetailText>
-            </Box>
             <Box width={[1, 1, 1 / 3]} px={[0, '0.5rem']}>
               <img src={nytGraph} alt="New York Times chart" />
               <p>
@@ -62,7 +42,25 @@ export default () => (
                   Outbreak
                 </a>
               </p>
-              <DetailText>Source: New York Times</DetailText>
+              <DetailText>Source: The New York Times</DetailText>
+            </Box>
+            <Box width={[1, 1, 1 / 3]} pr={[0, '0.5rem']}>
+              <img src={politicoMap} alt="Politico COVID Map" />
+              <p>
+                <a href="https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/">
+                  Coronavirus by State Map
+                </a>
+              </p>
+              <DetailText>Source: Politico</DetailText>
+            </Box>
+            <Box width={[1, 1, 1 / 3]} pl={[0, '0.5rem']}>
+              <img src={wsjGraph} alt="Wall Street Journal chart" />
+              <p>
+                <a href="https://www.wsj.com/articles/how-the-cdcs-restrictive-testing-guidelines-hid-the-coronavirus-epidemic-11584882001">
+                  Number of tests performed versus positive cases
+                </a>
+              </p>
+              <DetailText>Source: The Wall Street Journal</DetailText>
             </Box>
           </Flex>
         </Container>
