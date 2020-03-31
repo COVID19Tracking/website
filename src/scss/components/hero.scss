@@ -2,10 +2,9 @@
 @import '../breakpoints.scss';
 
 .hero {
-  padding: 10vh 24vw 140px 8vw;
+  padding: 70px 20% 140px 0;
   @media only screen and (max-width: $viewport-ms) {
-    padding: 3vh 4vw 0;
-    padding-bottom: 70px;
+    padding: 35px 0 70px;
   }
 
   .header {
@@ -36,7 +35,7 @@
       margin: 0 1rem;
 
       @media only screen and (max-width: $viewport-ms) {
-        margin: 1rem;
+        margin: 0.5rem 1rem;
       }
     }
 
