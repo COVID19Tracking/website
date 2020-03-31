@@ -30,10 +30,8 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-mdx`,
     `gatsby-transformer-yaml`,
     'gatsby-plugin-eslint',
-    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -44,20 +42,6 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [`gatsby-remark-autolink-headers`],
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `content`,
-        path: `${__dirname}/src/content/pages/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `snippets`,
-        path: `${__dirname}/src/content/snippets/`,
       },
     },
     {
@@ -128,6 +112,20 @@ module.exports = {
         typePrefix: 'covid__',
         name: 'press',
         url: `https://covidtracking.com/api/press`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: process.env.CONTENTFUL_BLOG_SPACE,
+        accessToken: process.env.CONTENTFUL_BLOG_TOKEN,
+      },
+    },
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: process.env.CONTENTFUL_PAGE_SPACE,
+        accessToken: process.env.CONTENTFUL_PAGE_TOKEN,
       },
     },
     {
