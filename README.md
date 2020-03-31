@@ -10,7 +10,7 @@ The website is built on [GatsbyJS](https://www.gatsbyjs.org/). If you are not fa
 
 ### Environment Variables
 
-Our contnet is managed in Contentful, and you will need the following environment variables set in your local environment. Contact a member of our team for these values:
+Our contnet is managed in Contentful, and you will need the following environment variables set in your local environment. [Read our documentation](https://gatsbyjs--upbeat-lovelace-3e9fff.netlify.com/__storybook) for the values.
 
 ```
 CONTENTFUL_BLOG_SPACE
@@ -18,6 +18,7 @@ CONTENTFUL_BLOG_TOKEN
 CONTENTFUL_PAGE_SPACE
 CONTENTFUL_PAGE_TOKEN
 ```
+
 You can put these values in your bash profile, or you can create a .env file in the project root.
 
 ### Install
