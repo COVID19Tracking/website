@@ -20,7 +20,7 @@ export default () => {
             title
             url
             publication
-            publishDate(formatString: "MMMM D YYYY")
+            publishDate(formatString: "MMMM D, YYYY")
           }
         }
       }
@@ -32,7 +32,7 @@ export default () => {
         <li key={`homepage-press-${node.id}`}>
           <a href={node.url}>{node.title}</a>
           <DetailText>
-            <em>{node.publication}</em>, {node.publishDate}
+            {node.publication} • {node.publishDate}
           </DetailText>
         </li>
       ))}
