@@ -67,7 +67,7 @@ const StateList = ({ states, stateData }) => {
     stateList.push(state)
   })
   return (
-    <Flex flexWrap="wrap">
+    <Flex flexWrap="wrap" m="0 -10px">
       {stateList.map(state => (
         <Box
           width={[1, 1, 1, 1 / 2]}
