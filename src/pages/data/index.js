@@ -49,6 +49,9 @@ const State = ({ state }) => (
         }}
       />
     )}
+    <a className="top-link" href="#states-top" title="top">
+      ↑ (return to top)
+    </a>
   </>
 )
 
@@ -66,7 +69,12 @@ const StateList = ({ states, stateData }) => {
   return (
     <Flex flexWrap="wrap">
       {stateList.map(state => (
-        <Box width={[1]} mb={['1rem', '1.5rem']} className="data-state">
+        <Box
+          width={[1, 1, 1, 1 / 2]}
+          mb={['1rem', '1.5rem']}
+          p="0 10px"
+          className="data-state"
+        >
           <State state={state} stateData={state.stateData} />
         </Box>
       ))}
@@ -87,7 +95,7 @@ export default ({ data }) => (
     />
     <SyncInfobox />
     <SummaryTable data={data.allCovidUs.edges[0].node} />
-    <h2>States</h2>
+    <h2 id="states-top">States</h2>
     <StateList
       states={data.allCovidStateInfo.edges}
       stateData={data.allCovidState.edges}
