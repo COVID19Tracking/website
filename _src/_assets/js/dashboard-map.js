@@ -2,28 +2,80 @@
 
 ;(async function loadMap() {
   const button = d3.select('#map-start-stop')
+  const chloroButton = d3.select('#map-chloro-button')
+  const propertyDropdown = d3.select('#map-property-select')
   const slider = d3.select('#map-time-scrubber [type="range"]')
   const formatDate = d3.timeFormat('%b. %d')
   const formatNumber = d3.format(',')
   const parseDate = d3.timeParse('%Y%m%d')
 
-  const valueLabel = 'positive tests'
-  function getValue(d) {
-    return d.positive
+  // duplicated from dashboard-chart.js - should have common lib
+
+  const colors = {
+    totalTestResults: '#585BC1',
+    positive: '#FFA270',
+    death: 'black',
   }
 
-  let currentData = null
+  const getValue = (d, field = currentField) =>
+    (d.properties.dailyData[currentDate] &&
+      d.properties.dailyData[currentDate][field]) ||
+    0
+
+  // holds all data in geojson objects
+  let joinedData = null
+  // holds the date of the displayed day
+  let currentDate = ''
+  // holds the field we are currently viewing
+  let currentField = 'positive'
+
+  let useChloropleth = false
+
+  // this should be dynamic, espcially with the toggleable fields
+  const colorLimits = [5, 10, 25, 50, 100, 250, 500]
+
+  const getColor = d3.scaleThreshold(colorLimits, d3.schemeYlOrRd[8])
+
+  const createMapFromArray = (array, keyField, valueField = null) => {
+    return Object.assign(
+      {},
+      ...array.map(a => ({ [a[keyField]]: valueField ? a[valueField] : a })),
+    )
+  }
+
+  const joinDataToGeoJson = (geoJSON, stateArray, path) => {
+    const groupedByState = d3
+      .nest()
+      .key(d => d.state)
+      .entries(stateArray)
+    const stateMap = createMapFromArray(groupedByState, 'key', 'values')
+    const joinedFeatures = geoJSON.features.map(feature => ({
+      ...feature,
+      properties: {
+        ...feature.properties,
+        centroidCoordinates: path.centroid(feature), //should get rid of turf and use d3 for the centroid
+        dailyData: createMapFromArray(
+          stateMap[feature.properties.STUSPS],
+          'date',
+        ),
+      },
+    }))
+    return { ...geoJSON, features: joinedFeatures }
+  }
 
   Promise.all([
-    d3.json('/_assets/json/states.json'),
+    d3.json('/_assets/json/state-populations.json'),
     d3.json('https://covidtracking.com/api/states/daily'),
-  ]).then(responses => {
-    const geojson = responses[0]
-    const groupedByDate = d3.nest()
-    .key(function(d) { return d.date })
-    .entries(responses[1])
-    .reverse()
-
+  ]).then(([geojson, stateData]) => {
+    // set currentDate to the latest day
+    currentDate = stateData[0].date
+    const groupedByDate = d3
+      .nest()
+      .key(function(d) {
+        return d.date
+      })
+      .entries(stateData)
+      .reverse()
     slider
       .attr('min', 0)
       .attr('max', groupedByDate.length - 1)
@@ -46,8 +98,11 @@
     )
     const path = d3.geoPath().projection(projection)
 
-    const legend = d3.select('#map-legend').append('svg')
-    const hedAndDek =  d3.select('#state-map').append('div')
+    joinedData = joinDataToGeoJson(geojson, stateData, path)
+
+    const hedAndDek = d3
+      .select('#state-map')
+      .insert('div', 'div#map-time-scrubber')
     const hed = hedAndDek.append('h3')
     const dek = hedAndDek.append('p')
     const svg = d3
@@ -56,151 +111,194 @@
       .attr('height', height)
       .attr('width', width)
 
-    const tooltip = d3.select('#state-map')
+    const tooltip = d3
+      .select('#state-map')
       .append('div')
       .attr('id', 'map-tooltip')
       .style('display', 'none')
 
-    const maxValue = d3.max(responses[1], d => getValue(d))
+    const maxValue = d3.max(joinedData.features, d => getValue(d))
 
     const r = d3
-      .scaleLinear()
+      .scaleSqrt()
       .domain([0, maxValue])
       .range([0, 50])
     const map = svg.append('g')
     const bubbles = svg.append('g')
+    const deathBubbles = svg.append('g')
 
-    const legendData = [
-      parseInt(maxValue * 0.1),
-      parseInt(maxValue * 0.5),
-      maxValue,
-    ]
+    updateMap()
 
-    legend
-      .attr('height', 150)
-      .attr('width', 150)
-      .append('g')
-      .selectAll('circle')
-      .data(legendData)
-      .enter()
-      .append('circle')
-      .attr('r', d => r(d))
-      .attr('cx', 52)
-      .attr('cy', d => 145 - r(d))
-      .attr('stroke', '#ababab')
-      .attr('fill', 'none')
+    // .on('mouseleave', function() {
+    //   tooltip.style('display', 'none')
+    // })
 
-    legend
-      .append('g')
-      .selectAll('line')
-      .data(legendData)
-      .enter()
-      .append('line')
-      .attr('x1', 52)
-      .attr('x2', 130)
-      .attr('y1', d => 145 - 2 * r(d))
-      .attr('y2', d => 145 - 2 * r(d))
-      .attr('stroke', '#ababab')
-      .attr('stroke-dasharray', '5 5')
+    function updateLegend() {
+      if (useChloropleth) {
+        d3.select('#map-legend')
+          .selectAll('*')
+          .remove()
+        return
+      }
+      const legendData = [
+        parseInt(maxValue * 0.1),
+        parseInt(maxValue * 0.5),
+        maxValue,
+      ]
+      const legend = d3.select('#map-legend').append('svg')
 
-    legend
-      .append('g')
-      .selectAll('text')
-      .data(legendData)
-      .enter()
-      .append('text')
-      .attr('font-size', '10pt')
-      .attr('x', 105)
-      .attr('y', d => {
-        return 140 - 2 * r(d)
-      })
-      .text(d => formatNumber(d))
-
-    map
-      .selectAll('path')
-      .data(geojson.features)
-      .enter()
-      .append('path')
-      .attr('d', path)
-      .attr('stroke', '#ababab')
-      .attr('fill', 'white')
-      .on('mouseenter', function(d) {
-        const date = formatDate(parseDate(currentData.key))
-        const match = currentData.values.filter(dd => {
-          return dd.state === d.properties.STUSPS
-        })[0]
-        const value = getValue(match)
-        tooltip
-          .style('display', 'block')
-          .style('top', d3.event.layerY + 20 + 'px')
-          .style('left', d3.event.layerX - 135 + 'px').html(`
-            <strong>${d.properties.NAME}</strong>
-            <p>There were ${formatNumber(value)} ${valueLabel} in ${d.properties.NAME} on ${date}.</p>
-          `)
-      })
-      // .on('mouseleave', function() {
-      //   tooltip.style('display', 'none')
-      // })
-
-    function drawDate (data) {
-      const date = parseDate(data.key)
-      const totalOnDate = d3.sum(data.values, getValue)
-      
-      currentData = data
-
-      hed.text(formatDate(date))
-      dek.text(`${formatNumber(totalOnDate)} across the country`)
-
-      const circles = bubbles
+      legend
+        .attr('height', 150)
+        .attr('width', 150)
+        .append('g')
         .selectAll('circle')
-        .data(data.values, function(d) { return d.state })
-
-      circles
+        .data(legendData)
         .enter()
         .append('circle')
-        .attr('cx', d => {
-          const match = geojson.features.filter(dd => {
-            return d.state === dd.properties.STUSPS
-          })[0]
-          const point = path.centroid(match)
+        .attr('r', d => r(d))
+        .attr('cx', 52)
+        .attr('cy', d => 145 - r(d))
+        .attr('stroke', '#ababab')
+        .attr('fill', 'none')
 
-          return point[0]
-        })
-        .attr('cy', d => {
-          const match = geojson.features.filter(dd => {
-            return d.state === dd.properties.STUSPS
-          })[0]
-          const point = path.centroid(match)
+      legend
+        .append('g')
+        .selectAll('line')
+        .data(legendData)
+        .enter()
+        .append('line')
+        .attr('x1', 52)
+        .attr('x2', 130)
+        .attr('y1', d => 145 - 2 * r(d))
+        .attr('y2', d => 145 - 2 * r(d))
+        .attr('stroke', '#ababab')
+        .attr('stroke-dasharray', '5 5')
 
-          return point[1]
-        })
-        .attr('stroke', '#585BC1')
-        .attr('fill', '#585BC1')
-        .attr('fill-opacity', 0.2)
-        .style('pointer-events', 'none')
-        .attr('r', d => {
-          const value = getValue(d)
-
-          return r(value)
-        })
-
-      circles.transition().duration(200).attr('r', d => {
-        const value = getValue(d)
-
-        return r(value)
-      })
+      legend
+        .append('g')
+        .selectAll('text')
+        .data(legendData)
+        .enter()
+        .append('text')
+        .attr('font-size', '10pt')
+        .attr('x', 105)
+        .attr('y', d => 140 - 2 * r(d))
+        .text(d => formatNumber(d))
     }
 
-    let currentIndex = groupedByDate.length - 1
+    function updateMap() {
+      const getColorFromFeature = d => {
+        if (!useChloropleth) return 'white'
+        const normalizationPopulation = 1000000 // 1 million;
+
+        const normalizedValue = d.properties.dailyData[currentDate]
+          ? d.properties.dailyData[currentDate][currentField] /
+            (d.properties.population / normalizationPopulation)
+          : 0
+        return getColor(normalizedValue)
+      }
+      updateLegend()
+      const states = map.selectAll('path').data(joinedData.features)
+      states.enter().append('path')
+      states
+        .attr('d', path)
+        .attr('stroke', '#ababab')
+        .transition()
+        .duration(200)
+        .attr('fill', getColorFromFeature)
+
+      states
+        .on('mouseenter', function(d) {
+          const positive = getValue(d, 'positive')
+          const totalTestResults = getValue(d, 'totalTestResults')
+          const death = getValue(d, 'death')
+          tooltip
+            .style('display', 'block')
+            .style('top', d3.event.layerY + 20 + 'px')
+            .style('left', d3.event.layerX - 135 + 'px').html(`
+              <strong>${d.properties.NAME}</strong>
+              <p>${formatNumber(death)} deaths</p>
+              <p>${formatNumber(positive)} positive tests</p>
+              <p>${formatNumber(totalTestResults)} total tests</p>
+            `)
+        })
+        .on('mouseleave', d => tooltip.style('display', 'none'))
+      drawCircles(useChloropleth)
+    }
+
+    function drawCircles(remove = false) {
+      //todo: complete sum
+      const totalOnDate = d3.sum(joinedData.features, d => getValue(d))
+
+      hed.text(formatDate(parseDate(currentDate)))
+      dek.text(`${formatNumber(totalOnDate)} across the country`)
+
+      const circles = bubbles.selectAll('circle').data(joinedData.features)
+      const deathCircles = deathBubbles
+        .selectAll('circle')
+        .data(joinedData.features)
+
+      if (remove) {
+        circles.remove()
+        deathCircles.remove()
+      } else {
+        circles
+          .enter()
+          .append('circle')
+          .attr('cx', d => d.properties.centroidCoordinates[0])
+          .attr('cy', d => d.properties.centroidCoordinates[1])
+          .attr('stroke', colors.positive)
+          .attr('fill', colors.positive)
+          .attr('fill-opacity', 0.2)
+          .style('pointer-events', 'none')
+          .attr('r', d => {
+            const value = getValue(d, 'positive')
+            return r(value)
+          })
+        deathCircles
+          .enter()
+          .append('circle')
+          .attr('cx', d => d.properties.centroidCoordinates[0])
+          .attr('cy', d => d.properties.centroidCoordinates[1])
+          .attr('stroke', colors.death)
+          .attr('fill', colors.death)
+          .attr('fill-opacity', 0.2)
+          .style('pointer-events', 'none')
+          .attr('r', d => {
+            const value = getValue(d, 'death')
+            return r(value)
+          })
+
+        circles
+          .transition()
+          .duration(200)
+          .attr('r', d => {
+            const value = getValue(d, 'positive')
+            return r(value)
+          })
+        deathCircles
+          .transition()
+          .duration(200)
+          .attr('r', d => {
+            const value = getValue(d, 'death')
+            return r(value)
+          })
+      }
+    }
+
+    let currentIndex = groupedByDate.length
     let interval = null
 
     function start() {
-      interval = setInterval(function() {
+      if (currentIndex === groupedByDate.length) {
+        currentIndex = 0
+      }
+      interval = setInterval(() => {
         if (currentIndex === groupedByDate.length) {
-          currentIndex = 0
+          return stop()
         }
-
-        drawDate(groupedByDate[currentIndex])
+        currentDate = groupedByDate[currentIndex].key
+        updateMap()
         slider.property('value', currentIndex)
         currentIndex += 1
       }, 500)
@@ -208,14 +306,14 @@
 
     function stop() {
       clearInterval(interval)
+      button.property('checked', false)
     }
 
     slider.property('value', currentIndex)
-    drawDate(groupedByDate[currentIndex])
+    updateMap()
 
     button.on('change', function() {
       const isChecked = button.property('checked')
-
       if (isChecked) {
         start()
       } else {
@@ -223,9 +321,39 @@
       }
     })
 
-    slider.on('change', function() {
+    chloroButton.on('change', () => {
+      useChloropleth = chloroButton.property('checked')
+      updateMap()
+    })
+
+    const propertyOptions = [
+      {
+        value: 'positive',
+        name: 'Positive Cases',
+      },
+      {
+        value: 'death',
+        name: 'Deaths',
+      },
+    ]
+    // set up property selector
+    propertyDropdown
+      .selectAll('option')
+      .data(propertyOptions)
+      .enter()
+      .append('option')
+      .text(d => d.name)
+      .attr('value', d => d.value)
+
+    propertyDropdown.on('change', () => {
+      currentField = propertyDropdown.property('value')
+      updateMap()
+    })
+
+    slider.on('input', function() {
       const value = (currentIndex = +slider.property('value'))
-      drawDate(groupedByDate[currentIndex])
+      currentDate = groupedByDate[currentIndex].key
+      updateMap()
     })
   })
 

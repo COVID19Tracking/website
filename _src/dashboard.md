@@ -29,13 +29,19 @@ nav: Dashboard
       Positive tests in each state per day
     </h2>
     <div class="map-column">
-      <div id="map-time-scrubber">
-        <input type="range"></input>
-        <input type="checkbox" id="map-start-stop"></input>
-        <label for="map-start-stop"></label>
+      <div id="map-controls">
+          <input type="checkbox" id="map-chloro-button"></input>
+          <label for="map-chloro-button"></label>
+          <select  id="map-property-select"></select>
       </div>
       <div id="map-legend"></div>
-      <div class="map" id="state-map"></div>
+      <div class="map" id="state-map">
+        <div id="map-time-scrubber">
+          <input type="checkbox" id="map-start-stop"></input>
+          <label for="map-start-stop"></label>
+          <input type="range"></input>
+        </div>
+      </div>
     </div>
   </div>
 

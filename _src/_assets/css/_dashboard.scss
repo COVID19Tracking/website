@@ -294,11 +294,13 @@ ul.chart-legend {
     }
   }
 }
+#map-controls {
+  display: flex;
+}
 
-#map-time-scrubber [type="range"] {
-  display: block;
+#map-time-scrubber [type='range'] {
   margin: 0 auto;
-  width: 30%;
+  width: 50%;
 }
 
 #map-start-stop {
@@ -306,14 +308,39 @@ ul.chart-legend {
   opacity: 0;
 }
 
-// #map-start-stop ~ label:before {
-//   content: 'Start ►';
-//   display: inline-block;
-// }
+#map-start-stop ~ label:before {
+  content: 'Start ►';
+  display: inline-block;
+}
 
-// #map-start-stop:checked ~ label:before {
-//   content: 'Stop ■';
-// }
+#map-start-stop:checked ~ label:before {
+  content: 'Stop ■';
+}
+
+#map-chloro-button {
+  position: absolute;
+  opacity: 0;
+  border: solid lightgray 1px;
+  border-radius: 5px;
+  padding: 2px 6px;
+}
+#map-chloro-button ~ label:before {
+  content: 'Bubble Map';
+  display: inline-block;
+  border: solid lightgray 1px;
+  border-radius: 5px;
+  padding: 2px 6px;
+}
+
+#map-chloro-button:checked ~ label:before {
+  content: 'Chloropleth';
+}
+#map-chloro-button ~ #map-property-select {
+  display: none;
+}
+#map-chloro-button:checked ~ #map-property-select {
+  display: initial;
+}
 
 .map-column {
   position: relative;
@@ -328,8 +355,12 @@ ul.chart-legend {
 #state-map {
   margin-bottom: 3rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  p, h3 {
+  p,
+  h3 {
     margin-bottom: 0;
     margin-top: 0;
     text-align: center;
