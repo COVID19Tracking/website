@@ -49,6 +49,9 @@ const State = ({ state }) => (
         }}
       />
     )}
+    <a className="top-link" href="#states-top" title="top">
+      ↑ (return to top)
+    </a>
   </>
 )
 
@@ -87,7 +90,7 @@ export default ({ data }) => (
     />
     <SyncInfobox />
     <SummaryTable data={data.allCovidUs.edges[0].node} />
-    <h2>States</h2>
+    <h2 id="states-top">States</h2>
     <StateList
       states={data.allCovidStateInfo.edges}
       stateData={data.allCovidState.edges}
