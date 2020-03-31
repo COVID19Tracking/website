@@ -87,7 +87,7 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
                   setShowMobileMenu(!showMobileMenu)
                 }}
               >
-                Menu
+                {showMobileMenu ? <>Close</> : <>Menu</>}
               </button>
             </Box>
             <HeaderNavigation showMobileMenu={showMobileMenu} />
