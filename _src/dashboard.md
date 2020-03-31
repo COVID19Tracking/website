@@ -26,7 +26,7 @@ nav: Dashboard
         <option value="positive">Positive tests</option>
         <option value="total">Total tests</option>
       </select> -->
-      Positive tests in each state per day
+      The spread of coronavirus in the U.S.
     </h2>
     <div class="map-column">
       <div id="map-controls">
