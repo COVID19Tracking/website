@@ -34,36 +34,37 @@ export default () => (
         <Container>
           <h2>From visualization gallery</h2>
           <Flex flexWrap="wrap" className="homepage-visualizations">
-          <Box width={[1, 1, 1 / 3]} pr={[0, '0.5rem']}>
-            <img src={wsjMap} alt="WSJ COVID Map" />
-            <p>
-              <a href="https://www.wsj.com/articles/how-the-cdcs-restrictive-testing-guidelines-hid-the-coronavirus-epidemic-11584882001">
-                How the CDC’s Restrictive Testing Guidelines Hid the Coronavirus
-                Epidemic
-              </a>
-            </p>
-            <DetailText>Source: Wall Street Journal</DetailText>
-          </Box>
-          <Box width={[1, 1, 1 / 3]} pl={[0, '0.5rem']}>
-            <img src={politicoGraph} alt="Politico chart" />
-            <p>
-              <a href="https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/">
-                How many coronavirus cases have been reported in each U.S.
-                state?
-              </a>
-            </p>
-            <DetailText>Source: Politico</DetailText>
-          </Box>
-          <Box width={[1, 1, 1 / 3]} px={[0, '0.5rem']}>
-            <img src={nytGraph} alt="New York Times chart" />
-            <p>
-              <a href="https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html">
-                U.S. Lags in Coronavirus Testing After Slow Response to Outbreak
-              </a>
-            </p>
-            <DetailText>Source: New York Times</DetailText>
-          </Box>
-        </Flex>
+            <Box width={[1, 1, 1 / 3]} pr={[0, '0.5rem']}>
+              <img src={wsjMap} alt="WSJ COVID Map" />
+              <p>
+                <a href="https://www.wsj.com/articles/how-the-cdcs-restrictive-testing-guidelines-hid-the-coronavirus-epidemic-11584882001">
+                  How the CDC’s Restrictive Testing Guidelines Hid the
+                  Coronavirus Epidemic
+                </a>
+              </p>
+              <DetailText>Source: Wall Street Journal</DetailText>
+            </Box>
+            <Box width={[1, 1, 1 / 3]} pl={[0, '0.5rem']}>
+              <img src={politicoGraph} alt="Politico chart" />
+              <p>
+                <a href="https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/">
+                  How many coronavirus cases have been reported in each U.S.
+                  state?
+                </a>
+              </p>
+              <DetailText>Source: Politico</DetailText>
+            </Box>
+            <Box width={[1, 1, 1 / 3]} px={[0, '0.5rem']}>
+              <img src={nytGraph} alt="New York Times chart" />
+              <p>
+                <a href="https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html">
+                  U.S. Lags in Coronavirus Testing After Slow Response to
+                  Outbreak
+                </a>
+              </p>
+              <DetailText>Source: New York Times</DetailText>
+            </Box>
+          </Flex>
         </Container>
       </div>
       <Container>
