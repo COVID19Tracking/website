@@ -1,7 +1,11 @@
+@import '../colors.scss';
+
 .hero {
   padding: 10vh 24vw 140px 8vw;
   margin-bottom: 1.5rem;
-
+  background: #5667ad;
+  background-image: url(../../images/hero-bg.svg);
+  background-size: auto 100%;
   @media only screen and (max-width: 480px) {
     padding: 3vh 4vw 0;
     padding-bottom: 70px;
@@ -11,7 +15,7 @@
     color: white;
     font-family: sans-serif;
     font-size: 48px;
-    line-height: 48px;
+    line-height: 1.3;
     font-weight: bold;
     margin-bottom: 0;
 
@@ -27,7 +31,6 @@
     color: white;
     font-family: sans-serif;
     align-items: center;
-    font-size: 20px;
 
     @media only screen and (max-width: 480px) {
       flex-direction: column;
@@ -44,18 +47,17 @@
 
     a {
       color: white;
-      font-size: 16px;
       font-family: sans-serif;
       font-weight: bold;
     }
 
     .button {
-      background: #179edb;
+      background: $color-secondary-light;
       text-decoration: none;
       padding: 1.25em 0;
       width: 25%;
       text-align: center;
-
+      color: $color-secondary-darkest;
       @media only screen and (max-width: 480px) {
         width: 100%;
         padding: 0.75em 2em;

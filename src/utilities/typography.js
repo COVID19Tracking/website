@@ -1,9 +1,17 @@
 import Typography from 'typography'
 
 const fonts = [
-  'Avenir Next',
-  'Helvetica Neue',
+  'system-ui',
+  '-apple-system',
+  'BlinkMacSystemFont',
   'Segoe UI',
+  'Roboto',
+  'Oxygen',
+  'Ubuntu',
+  'Cantarell',
+  'Fira Sans',
+  'Droid Sans',
+  'Helvetica Neue',
   'Helvetica',
   'Arial',
   'sans-serif',
@@ -11,7 +19,8 @@ const fonts = [
 
 const typography = new Typography({
   baseFontSize: '18px',
-  baseLineHeight: 1.666,
+  baseLineHeight: 1.8,
+  headerLineHeight: 2,
   headerFontFamily: fonts,
   bodyFontFamily: fonts,
 })

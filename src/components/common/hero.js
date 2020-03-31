@@ -6,8 +6,9 @@ import { ButtonLink } from './button'
 export default () => (
   <div className="hero">
     <p className="header">
-      The COVID Tracking Project aims to provide the most comprehensive testing
-      data we can collect for the novel coronavirus, SARS-CoV-2.
+      The COVID Tracking Project obtains, organizes, and publishes high-quality,
+      state-level data required to understand and respond to the COVID-19
+      outbreak in the United States.
     </p>
     <div className="ctas">
       <ButtonLink big to="/data">
