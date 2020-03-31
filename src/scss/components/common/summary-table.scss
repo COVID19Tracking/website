@@ -9,14 +9,17 @@
 }
 
 table {
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
   border-collapse: collapse;
   margin: 2rem 0;
   font-size: 0.9em;
   font-variant-numeric: lining-nums tabular-nums;
   width: 100%;
+
+  @media only screen and (max-width: 640px) {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 
   caption, th {
     text-align: left;
@@ -36,6 +39,10 @@ table {
   th, td {
     border: 1px solid #C0C0C0;
     padding: 0.25em;
+  }
+
+  th:last-child {
+    padding-right: 0.25em;
   }
 
   th {
