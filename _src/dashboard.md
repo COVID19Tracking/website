@@ -30,8 +30,9 @@ nav: Dashboard
     </h2>
     <div class="map-column">
       <div id="map-controls">
-          <input type="checkbox" id="map-chloro-button">use chloropleth</input>
+          <input type="checkbox" id="map-chloro-button"></input>
           <label for="map-chloro-button"></label>
+          <select  id="map-property-select"></select>
       </div>
       <div id="map-legend"></div>
       <div class="map" id="state-map">

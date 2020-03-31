@@ -3,12 +3,11 @@
 ;(async function loadMap() {
   const button = d3.select('#map-start-stop')
   const chloroButton = d3.select('#map-chloro-button')
+  const propertyDropdown = d3.select('#map-property-select')
   const slider = d3.select('#map-time-scrubber [type="range"]')
   const formatDate = d3.timeFormat('%b. %d')
   const formatNumber = d3.format(',')
   const parseDate = d3.timeParse('%Y%m%d')
-
-  const valueLabel = 'positive tests'
 
   function getValue(d, field = currentField) {
     return (
@@ -24,6 +23,8 @@
   let currentDate = ''
   // holds the field we are currently viewing
   let currentField = 'positive'
+
+  let useChloropleth = false
 
   // this should be dynamic, espcially with the toggleable fields
   const colorLimits = [5, 10, 25, 50, 100, 250, 500]
@@ -94,7 +95,6 @@
 
     joinedData = joinDataToGeoJson(geojson, stateData, path)
 
-    const legend = d3.select('#map-legend').append('svg')
     const hedAndDek = d3
       .select('#state-map')
       .insert('div', 'div#map-time-scrubber')
@@ -120,59 +120,65 @@
       .range([0, 50])
     const map = svg.append('g')
     const bubbles = svg.append('g')
-    let useChloropleth = false
-
-    const legendData = [
-      parseInt(maxValue * 0.1),
-      parseInt(maxValue * 0.5),
-      maxValue,
-    ]
-
-    legend
-      .attr('height', 150)
-      .attr('width', 150)
-      .append('g')
-      .selectAll('circle')
-      .data(legendData)
-      .enter()
-      .append('circle')
-      .attr('r', d => r(d))
-      .attr('cx', 52)
-      .attr('cy', d => 145 - r(d))
-      .attr('stroke', '#ababab')
-      .attr('fill', 'none')
-
-    legend
-      .append('g')
-      .selectAll('line')
-      .data(legendData)
-      .enter()
-      .append('line')
-      .attr('x1', 52)
-      .attr('x2', 130)
-      .attr('y1', d => 145 - 2 * r(d))
-      .attr('y2', d => 145 - 2 * r(d))
-      .attr('stroke', '#ababab')
-      .attr('stroke-dasharray', '5 5')
-
-    legend
-      .append('g')
-      .selectAll('text')
-      .data(legendData)
-      .enter()
-      .append('text')
-      .attr('font-size', '10pt')
-      .attr('x', 105)
-      .attr('y', d => {
-        return 140 - 2 * r(d)
-      })
-      .text(d => formatNumber(d))
 
     updateMap()
 
     // .on('mouseleave', function() {
     //   tooltip.style('display', 'none')
     // })
+
+    function updateLegend() {
+      d3.select('#map-legend')
+        .selectAll('*')
+        .remove()
+      if (useChloropleth) return
+      const legendData = [
+        parseInt(maxValue * 0.1),
+        parseInt(maxValue * 0.5),
+        maxValue,
+      ]
+      const legend = d3.select('#map-legend').append('svg')
+
+      legend
+        .attr('height', 150)
+        .attr('width', 150)
+        .append('g')
+        .selectAll('circle')
+        .data(legendData)
+        .enter()
+        .append('circle')
+        .attr('r', d => r(d))
+        .attr('cx', 52)
+        .attr('cy', d => 145 - r(d))
+        .attr('stroke', '#ababab')
+        .attr('fill', 'none')
+
+      legend
+        .append('g')
+        .selectAll('line')
+        .data(legendData)
+        .enter()
+        .append('line')
+        .attr('x1', 52)
+        .attr('x2', 130)
+        .attr('y1', d => 145 - 2 * r(d))
+        .attr('y2', d => 145 - 2 * r(d))
+        .attr('stroke', '#ababab')
+        .attr('stroke-dasharray', '5 5')
+
+      legend
+        .append('g')
+        .selectAll('text')
+        .data(legendData)
+        .enter()
+        .append('text')
+        .attr('font-size', '10pt')
+        .attr('x', 105)
+        .attr('y', d => {
+          return 140 - 2 * r(d)
+        })
+        .text(d => formatNumber(d))
+    }
 
     function updateMap() {
       const getColorFromFeature = d => {
@@ -185,6 +191,7 @@
           : 0
         return getColor(normalizedValue)
       }
+      updateLegend()
       const states = map.selectAll('path').data(joinedData.features)
       states.enter().append('path')
       states
@@ -285,6 +292,30 @@
 
     chloroButton.on('change', () => {
       useChloropleth = chloroButton.property('checked')
+      updateMap()
+    })
+
+    const propertyOptions = [
+      {
+        value: 'positive',
+        name: 'Positive Cases',
+      },
+      {
+        value: 'death',
+        name: 'Deaths',
+      },
+    ]
+    // set up property selector
+    propertyDropdown
+      .selectAll('option')
+      .data(propertyOptions)
+      .enter()
+      .append('option')
+      .text(d => d.name)
+      .attr('value', d => d.value)
+
+    propertyDropdown.on('change', () => {
+      currentField = propertyDropdown.property('value')
       updateMap()
     })
 

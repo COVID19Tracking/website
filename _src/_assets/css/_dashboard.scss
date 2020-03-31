@@ -296,7 +296,6 @@ ul.chart-legend {
 }
 #map-controls {
   display: flex;
-  flex-direction: row-reverse;
 }
 
 #map-time-scrubber [type='range'] {
@@ -317,9 +316,30 @@ ul.chart-legend {
 #map-start-stop:checked ~ label:before {
   content: 'Stop ■';
 }
+
 #map-chloro-button {
-  content: 'Cholorpleth';
+  position: absolute;
+  opacity: 0;
+  border: solid lightgray 1px;
+  border-radius: 5px;
+  padding: 2px 6px;
+}
+#map-chloro-button ~ label:before {
+  content: 'Bubble Map';
   display: inline-block;
+  border: solid lightgray 1px;
+  border-radius: 5px;
+  padding: 2px 6px;
+}
+
+#map-chloro-button:checked ~ label:before {
+  content: 'Chloropleth';
+}
+#map-chloro-button ~ #map-property-select {
+  display: none;
+}
+#map-chloro-button:checked ~ #map-property-select {
+  display: initial;
 }
 
 .map-column {
