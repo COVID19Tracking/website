@@ -9,6 +9,14 @@
   const formatNumber = d3.format(',')
   const parseDate = d3.timeParse('%Y%m%d')
 
+  // duplicated from dashboard-chart.js - should have common lib
+
+  const colors = {
+    totalTestResults: '#585BC1',
+    positive: '#FFA270',
+    death: 'black',
+  }
+
   function getValue(d, field = currentField) {
     return (
       (d.properties.dailyData[currentDate] &&
@@ -120,6 +128,7 @@
       .range([0, 50])
     const map = svg.append('g')
     const bubbles = svg.append('g')
+    const deathBubbles = svg.append('g')
 
     updateMap()
 
@@ -228,20 +237,38 @@
       dek.text(`${formatNumber(totalOnDate)} across the country`)
 
       const circles = bubbles.selectAll('circle').data(joinedData.features)
+      const deathCircles = deathBubbles
+        .selectAll('circle')
+        .data(joinedData.features)
+
       if (remove) {
         circles.remove()
+        deathCircles.remove()
       } else {
         circles
           .enter()
           .append('circle')
           .attr('cx', d => d.properties.centroidCoordinates[0])
           .attr('cy', d => d.properties.centroidCoordinates[1])
-          .attr('stroke', '#585BC1')
-          .attr('fill', '#585BC1')
+          .attr('stroke', colors.positive)
+          .attr('fill', colors.positive)
           .attr('fill-opacity', 0.2)
           .style('pointer-events', 'none')
           .attr('r', d => {
-            const value = getValue(d)
+            const value = getValue(d, 'positive')
+            return r(value)
+          })
+        deathCircles
+          .enter()
+          .append('circle')
+          .attr('cx', d => d.properties.centroidCoordinates[0])
+          .attr('cy', d => d.properties.centroidCoordinates[1])
+          .attr('stroke', colors.death)
+          .attr('fill', colors.death)
+          .attr('fill-opacity', 0.2)
+          .style('pointer-events', 'none')
+          .attr('r', d => {
+            const value = getValue(d, 'death')
             return r(value)
           })
 
@@ -249,7 +276,14 @@
           .transition()
           .duration(200)
           .attr('r', d => {
-            const value = getValue(d)
+            const value = getValue(d, 'positive')
+            return r(value)
+          })
+        deathCircles
+          .transition()
+          .duration(200)
+          .attr('r', d => {
+            const value = getValue(d, 'death')
             return r(value)
           })
       }
