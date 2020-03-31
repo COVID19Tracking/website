@@ -7,14 +7,6 @@ export default ({ data }) => (
   <Table>
     <caption className="sr-only">{/* todo include captions */}</caption>
     <thead>
-      <colgroup span="3" />
-      <colgroup span="2" />
-      <colgroup span="2" />
-      <colgroup span="2" />
-      <col />
-      <col />
-      <col />
-      <col />
       <tr>
         <th scope="colgroup" colSpan="3">
           Tests
