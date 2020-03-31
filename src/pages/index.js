@@ -11,7 +11,7 @@ import Footer from '../components/layout/footer'
 import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/pages/homepage/press-list'
 import nytGraph from '../images/homepage-visualizations/nyt.png'
-import pbsMap from '../images/homepage-visualizations/pbs-map.png'
+import politicoMap from '../images/homepage-visualizations/politico-map.png'
 import politicoGraph from '../images/homepage-visualizations/politico.png'
 import '../scss/pages/homepage.scss'
 
@@ -45,13 +45,13 @@ export default () => (
               <DetailText>Source: New York Times</DetailText>
             </Box>
             <Box width={[1, 1, 1 / 3]} pr={[0, '0.5rem']}>
-              <img src={pbsMap} alt="PBS COVID Map" />
+              <img src={politicoMap} alt="Politico COVID Map" />
               <p>
-                <a href="https://www.pbs.org/newshour/features/coronavirus/us/">
-                  Real-time Coronavirus Map
+                <a href="https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/">
+                  Coronavirus by State Map
                 </a>
               </p>
-              <DetailText>Source: PBS</DetailText>
+              <DetailText>Source: Politico</DetailText>
             </Box>
             <Box width={[1, 1, 1 / 3]} pl={[0, '0.5rem']}>
               <img src={politicoGraph} alt="Politico chart" />
