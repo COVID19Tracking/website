@@ -3,5 +3,11 @@
 .detail-text {
   font-size: 0.8rem;
   margin-bottom: 0.3rem;
-  color: $color-grey-6;
+  color: $color-grey-3;
+}
+
+.dot-separator {
+  display: inline-block;
+  margin: 0 0.4rem;
+  opacity: 0.4;
 }
