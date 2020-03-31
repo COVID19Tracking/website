@@ -18,8 +18,9 @@ CONTENTFUL_BLOG_TOKEN
 CONTENTFUL_PAGE_SPACE
 CONTENTFUL_PAGE_TOKEN
 ```
+You can put these values in your bash profile, or you can create a .env file in the project root.
 
-### Intsall
+### Install
 
 Make sure you have Gatsby installed globally:
 
