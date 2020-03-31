@@ -68,9 +68,9 @@ export default () => (
       </div>
       <Container>
         <Flex flexWrap="wrap" mt={['1rem', '2rem']}>
-          <Box width={[1, 1, 2 / 3]} pr={[0, '1rem']}>
+          <Box width={[1, 1, 2 / 3]} pr={[0, '1rem', '5rem']}>
             <h2>Why this data matters</h2>
-            <p>
+            <p className="paragraph-big">
               The{' '}
               <a href="https://coronavirus.jhu.edu/">
                 heroes at Johns Hopkins University

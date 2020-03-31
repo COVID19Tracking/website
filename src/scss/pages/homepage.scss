@@ -1,4 +1,19 @@
 @import '../colors.scss';
+@import '../breakpoints.scss';
+
+h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.paragraph-big {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+a {
+  color: $color-main-mid;
+}
 
 .homepage-visualizations-wrapper {
   background: $color-grey-10;
@@ -13,6 +28,7 @@
   }
   p {
     margin: 0;
+    line-height: 1.3;
   }
   a {
     font-weight: bold;
@@ -20,15 +36,20 @@
 }
 
 .homepage-press-list-more {
+  font-size: 0.9rem;
   font-weight: bold;
   float: right;
+  margin-top: 0.6rem;
 }
 
 .homepage-get-involved {
   flex-wrap: nowrap;
   display: flex;
+  font-size: 1.2rem;
+  line-height: 1.4;
+
   .homepage-get-involved-icon {
-    width: 50px;
+    width: 40px;
     color: $color-main-dark;
     font-size: 1.3rem;
   }
