@@ -130,6 +130,7 @@
     const map = svg.append('g')
     const bubbles = svg.append('g')
     const testBubbles = svg.append('g')
+    const legend = d3.select('#map-legend').append('svg')
 
     updateMap()
 
@@ -139,9 +140,7 @@
 
     function updateLegend() {
       if (useChloropleth) {
-        d3.select('#map-legend')
-          .selectAll('*')
-          .remove()
+        legend.selectAll('*').remove()
         return
       }
       const legendData = [
@@ -149,8 +148,6 @@
         parseInt(maxValue * 0.5),
         maxValue,
       ]
-      const legend = d3.select('#map-legend').append('svg')
-
       legend
         .attr('height', 150)
         .attr('width', 150)
