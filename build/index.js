@@ -1,7 +1,7 @@
 // const _ = require('lodash/fp')
+const { forEachP } = require('understory')
 const handler = require('./handlers')
 const resources = require('./datasources')
 
-// _.forEach(handler, resources)
-
-handler(resources[0]).catch(console.error)
+// forEachP(handler, resources).catch(console.error)
+handler(resources[3])

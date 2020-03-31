@@ -87,18 +87,13 @@ const cdcTests = {
   ...sheets,
   name: 'CDC Tests',
   worksheetId: '16gBHQ7dCJK1psqEMasmLKiFlzoNKcfNujVpmHLHldSY',
-  serialize: value => [
-    {
-      path: 'cdc/daily',
-      value,
-    },
-  ],
+  path: 'cdc/daily',
 }
 const press = {
   ...sheets,
   worksheetId: '1-lvGZ3NgVlda4EcF5t_AVFLnBqz-TOl4YZxYH_mJF_4',
   fixItems: _.orderBy(['publishDate'], ['desc']),
-  ttl: 180, // 3 minutes.
+  path: 'press',
 }
 const fixUsCurrent = _.flow(
   _.set(
@@ -134,7 +129,9 @@ const usCurrent = {
 
 const counties = {
   ...sheets,
+  name: 'County Information',
   sheetName: 'Counties',
+  path: 'counties',
 }
 
 module.exports = {

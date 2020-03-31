@@ -1,4 +1,4 @@
-const { outputFile } = require('fs-extra')
+const { emptyDir, outputFile } = require('fs-extra')
 const _ = require('lodash/fp')
 const { forEachP } = require('understory')
 const toCSV = require('./csv')
@@ -20,7 +20,14 @@ function saveJSON({ path, value }) {
 const saveFiles = _.flow(_.over([saveCSV, saveJSON]), x => Promise.all(x))
 
 function saveAll(files) {
-  forEachP(saveFiles, files)
+  return forEachP(saveFiles, files)
 }
 
-module.exports = saveAll
+function clearDir() {
+  console.log('Removing contents from data directory.')
+  return emptyDir(DATA_DIR)
+}
+module.exports = {
+  clearDir,
+  saveAll,
+}

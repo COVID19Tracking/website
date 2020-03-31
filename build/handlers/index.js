@@ -3,7 +3,7 @@ const { getSheet } = require('./sheets')
 const getXml = require('./xml')
 const getYaml = require('./yaml')
 const { getJson } = require('./fetch')
-const saveAll = require('./save')
+const { saveAll } = require('./save')
 
 const handlers = {
   json: getJson,
@@ -16,14 +16,22 @@ function processResult(fixItems, oldValue) {
   if (!_.isFunction(fixItems)) return _.identity
   return newValue => fixItems(newValue, oldValue)
 }
-
-const handleResponse = ({ fixItems, serialize }) =>
-  _.flow(processResult(fixItems), serialize, saveAll)
+function defaultPage(path) {
+  return value => [
+    {
+      path,
+      value,
+    },
+  ]
+}
+const handleResponse = ({ fixItems, createPages, path }) =>
+  _.flow(processResult(fixItems), createPages || defaultPage(path), saveAll)
 
 function handleRequest(resource) {
-  const { app } = resource
-  const handler = handlers[app]
-  if (!_.isFunction(handler)) throw new Error(`Handler not found: ${app}`)
+  const { app, fetch } = resource
+  const handler = fetch || handlers[app]
+  if (!_.isFunction(handler))
+    throw new Error(`Handler not found: ${resource.app}`)
   return handler(resource).then(handleResponse(resource))
 }
 

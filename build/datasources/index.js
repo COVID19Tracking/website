@@ -17,14 +17,14 @@ const resources = [
   counties,
   press,
   screenshots,
-  states,
-  statesDaily,
-  statesInfo,
-  grade,
-  statesPop,
-  urls,
-  usCurrent,
-  usDaily,
+  // states,
+  // statesDaily,
+  // statesInfo,
+  // grade,
+  // statesPop,
+  // urls,
+  // usCurrent,
+  // usDaily,
 ]
 
 module.exports = resources

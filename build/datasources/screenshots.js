@@ -69,22 +69,16 @@ async function getPages(previousItems = [], marker) {
   return hasMore(result) ? getPages(items, getMarker(result)) : items
 }
 
-const getScreenshots = args =>
-  loadOrUpdateCached(
-    {
-      ...args,
-      ext: 'json',
-      search: null,
-      cacheId: 'screenshots',
-    },
-    () => getPages(),
-  )
+const statePages = _.flow(
+  _.groupBy('state'),
+  _.map(value => ({ path: `state/${value[0].state}/screenshots`, value })),
+)
 
-function finalPrep({ search }) {
-  return value => (_.isEmpty(search) ? _.groupBy('state', value) : value)
+function createPages(value) {
+  return [{ path: '/states/screenshots', value }, ...statePages(value)]
 }
 
-module.exports = (event, args) => {
-  const updateData = () => getScreenshots(args).then(finalPrep(args))
-  return handleCacheRequest(event, args, updateData, handleResponse2)
+module.exports = {
+  fetch: () => getPages(),
+  createPages,
 }
