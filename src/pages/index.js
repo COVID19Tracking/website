@@ -40,7 +40,7 @@ export default () => (
                 Epidemic
               </a>
             </p>
-            <DetailText>Source: Wal Street Journal</DetailText>
+            <DetailText>Source: Wall Street Journal</DetailText>
           </Box>
           <Box width={[1, 1, 1 / 3]} pl={[0, '0.5rem']}>
             <img src={politicoGraph} alt="Politico chart" />
