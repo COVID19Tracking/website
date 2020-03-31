@@ -29,6 +29,7 @@ nav: Dashboard
       in each state per day
     </h2>
     <div class="map-column">
+      <input type="checkbox" id="map-chloro-button">use chloropleth</input>
       <div id="map-time-scrubber">
         <input type="range"></input>
         <input type="checkbox" id="map-start-stop"></input>
