@@ -21,4 +21,4 @@ The work of continuously evaluating ever-changing official state/territory data 
 
 When we started the project, building on two independently made reporting spreadsheets, we expected to be updating the dataset for a few days—maybe a week—until complete federal data emerged. It never did, so we’re still here, and we’ll keep at it till we’re replaced by something better.
 
-We also recognize that part of our work is the creation and maintenance of a historical record of the US government’s response, now with the accompanying patient outcomes. As the pandemic imprints itself on the country, we are building an accurate record of what actually happened, day by day, state by state. Until that function is being served elsewhere, we'll keep doing the counts.
+We also recognize that part of our work is the creation and maintenance of a historical record of the US government’s response, now with the accompanying patient outcomes. As the pandemic imprints itself on the country, we are building an accurate record of what actually happened, day by day, state by state. Until that gets done elsewhere, we'll keep doing the counts.
