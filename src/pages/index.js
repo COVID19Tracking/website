@@ -1,7 +1,7 @@
 import React from 'react'
 import { SkipNavContent } from '@reach/skip-nav'
 import { Link } from 'gatsby'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from '../components/common/flexbox'
 import SkipNavigation from '../components/common/skip-navigation'
 import Header from '../components/layout/header'
 import DetailText from '../components/common/detail-text'
@@ -32,7 +32,7 @@ export default () => (
       <Container>
         <h2>From visualization gallery</h2>
         <Flex flexWrap="wrap" className="homepage-visualizations">
-          <Box width={[1, 1 / 3]} pr={[0, '0.5rem']}>
+          <Box width={[1, 1, 1 / 3]} pr={[0, '0.5rem']}>
             <img src={pbsMap} alt="PBS COVID Map" />
             <p>
               <a href="https://www.pbs.org/newshour/features/coronavirus/us/">
@@ -41,7 +41,7 @@ export default () => (
             </p>
             <DetailText>Source: PBS</DetailText>
           </Box>
-          <Box width={[1, 1 / 3]} px={[0, '0.5rem']}>
+          <Box width={[1, 1, 1 / 3]} px={[0, '0.5rem']}>
             <img src={nytGraph} alt="New York Times chart" />
             <p>
               <a href="https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html">
@@ -50,7 +50,7 @@ export default () => (
             </p>
             <DetailText>Source: New York Times</DetailText>
           </Box>
-          <Box width={[1, 1 / 3]} pl={[0, '0.5rem']}>
+          <Box width={[1, 1, 1 / 3]} pl={[0, '0.5rem']}>
             <img src={politicoGraph} alt="Politico chart" />
             <p>
               <a href="https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/">
@@ -62,7 +62,7 @@ export default () => (
           </Box>
         </Flex>
         <Flex flexWrap="wrap" mt={['1rem', '2rem']}>
-          <Box width={[1, 2 / 3]} pr={[0, '1rem']}>
+          <Box width={[1, 1, 2 / 3]} pr={[0, '1rem']}>
             <h2>Why this data matters</h2>
             <p>
               The{' '}
@@ -100,7 +100,7 @@ export default () => (
               </p>
             </div>
           </Box>
-          <Box width={[1, 1 / 3]}>
+          <Box width={[1, 1, 1 / 3]}>
             <Link to="/about/in-the-press" className="homepage-press-list-more">
               More news
             </Link>
