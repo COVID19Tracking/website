@@ -1,5 +1,5 @@
 import React from 'react'
-import colors from '../scss/colors.scss'
+import colors from '../../scss/colors.scss'
 import contrast from 'get-contrast'
 
 const ColorSwatch = ({ colors, names }) => (

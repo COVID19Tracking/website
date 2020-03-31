@@ -1,6 +1,6 @@
 import React from 'react'
 import { Flex, Box } from 'reflexbox'
-import Container from '../components/common/container'
+import Container from '../../components/common/container'
 
 export default {
   title: 'Layout',
