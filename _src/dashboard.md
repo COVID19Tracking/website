@@ -30,9 +30,14 @@ nav: Dashboard
     </h2>
     <div class="map-column">
       <div id="map-controls">
+        <div id="chloro-toggle">
           <input type="checkbox" id="map-chloro-button"></input>
-          <label for="map-chloro-button"></label>
-          <select  id="map-property-select"></select>
+          <label for="map-chloro-button" >
+            <span id="bubble">Bubble Map</span>
+            <span id="chloro">Chloropleth</span>
+          </label>
+        </div>
+        <select  id="map-property-select"></select>
       </div>
       <div id="map-legend"></div>
       <div class="map" id="state-map">

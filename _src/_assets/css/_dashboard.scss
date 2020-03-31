@@ -302,9 +302,103 @@ ul.chart-legend {
   display: flex;
 }
 
+#map-time-scrubber {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+}
+
 #map-time-scrubber [type='range'] {
-  margin: 0 auto;
-  width: 50%;
+  margin-left: 8px;
+  flex-grow: 1;
+}
+input[type='range'] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+}
+input[type='range']:focus {
+  outline: none;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: lightgray;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type='range']::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 18px;
+  width: 8px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+input[type='range']:focus::-webkit-slider-runnable-track {
+  background: lightgray;
+}
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: lightgray;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type='range']::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 18px;
+  width: 8px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type='range']::-ms-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type='range']::-ms-fill-lower {
+  background: gray;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type='range']::-ms-fill-upper {
+  background: gray;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type='range']::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 18px;
+  width: 8px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type='range']:focus::-ms-fill-lower {
+  background: gray;
+}
+input[type='range']:focus::-ms-fill-upper {
+  background: gray;
 }
 
 #map-start-stop {
@@ -313,32 +407,35 @@ ul.chart-legend {
 }
 
 #map-start-stop ~ label:before {
-  content: 'Start ►';
+  content: '►';
   display: inline-block;
 }
 
 #map-start-stop:checked ~ label:before {
-  content: 'Stop ■';
+  content: '■';
 }
 
 #map-chloro-button {
-  position: absolute;
-  opacity: 0;
-  border: solid lightgray 1px;
-  border-radius: 5px;
-  padding: 2px 6px;
+  display: none;
 }
-#map-chloro-button ~ label:before {
-  content: 'Bubble Map';
+#map-chloro-button ~ label span {
   display: inline-block;
   border: solid lightgray 1px;
   border-radius: 5px;
   padding: 2px 6px;
+  z-index: 50000;
 }
 
-#map-chloro-button:checked ~ label:before {
-  content: 'Chloropleth';
+#map-chloro-button:checked ~ label #bubble {
+  background-color: lightgray;
 }
+#map-chloro-button ~ label #chloro {
+  background-color: lightgray;
+}
+#map-chloro-button:checked ~ label #chloro {
+  background-color: initial;
+}
+
 #map-chloro-button ~ #map-property-select {
   display: none;
 }
@@ -353,7 +450,14 @@ ul.chart-legend {
 #map-legend {
   left: 14%;
   position: absolute;
-  top: -3%;
+  top: 0%;
+  margin-top: 33px;
+  @media screen and (max-width: 500px) {
+    margin-top: initial;
+    left: initial;
+    right: 0%;
+    top: -10%;
+  }
 }
 
 #state-map {
@@ -362,6 +466,9 @@ ul.chart-legend {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 500px) {
+    margin-top: 20px;
+  }
 
   p,
   h3 {
@@ -378,6 +485,14 @@ ul.chart-legend {
 
   path:hover {
     fill: #ebebeb;
+  }
+  #map-dek {
+    width: 100%;
+    @media screen and (max-width: 500px) {
+      * {
+        text-align: left;
+      }
+    }
   }
 }
 
