@@ -1,5 +1,5 @@
 name: Lighthouse audit
-#on: pull_request
+on: pull_request.master
 
 jobs:
   audit:
