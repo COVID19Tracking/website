@@ -30,7 +30,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-mdx`,
     `gatsby-transformer-yaml`,
     'gatsby-plugin-eslint',
     {
@@ -43,20 +42,6 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [`gatsby-remark-autolink-headers`],
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `content`,
-        path: `${__dirname}/src/content/pages/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `snippets`,
-        path: `${__dirname}/src/content/snippets/`,
       },
     },
     {

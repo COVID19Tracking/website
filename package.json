@@ -30,7 +30,6 @@
     "gatsby-image": "^2.2.44",
     "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-plugin-manifest": "^2.2.48",
-    "gatsby-plugin-mdx": "^1.1.1",
     "gatsby-plugin-netlify-cms": "^4.2.1",
     "gatsby-plugin-offline": "^3.0.41",
     "gatsby-plugin-page-creator": "^2.2.1",
