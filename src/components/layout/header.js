@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from '../common/flexbox'
 import DevelopmentWarning from './development-warning'
+import Hero from '../common/hero'
 import ProjectLogo from '../../images/project-logo.svg'
 import '../../scss/components/header.scss'
 
@@ -59,7 +60,7 @@ const HeaderNavigation = () => {
 const Header = ({ title, noMargin, hasHero, navigation }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
-  return (
+  const header = (
     <>
       <DevelopmentWarning />
       <header
@@ -69,7 +70,16 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
       >
         <div className={`header-container ${!hasHero && 'show-background'}`}>
           <Flex flexWrap="wrap">
-            <Box width={[1, 1 / 3]}>
+            <Box width={[1, 1 / 3]} className="site-title-container">
+              <a className="site-title" href="/">
+                <img
+                  src={ProjectLogo}
+                  alt="The COVID Tracking Project"
+                  width="176px"
+                />
+              </a>
+            </Box>
+            <Box width={[1, 2 / 3]} className="header-nav-container">
               <button
                 className="mobile-toggle"
                 type="button"
@@ -79,23 +89,19 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
               >
                 Menu
               </button>
-              <a className="site-title" href="/">
-                <img
-                  src={ProjectLogo}
-                  alt="The COVID Tracking Project"
-                  width="170px"
-                />
-              </a>
             </Box>
-            <Box width={[1, 2 / 3]}>
-              <HeaderNavigation showMobileMenu={showMobileMenu} />
-            </Box>
+            <HeaderNavigation showMobileMenu={showMobileMenu} />
           </Flex>
-          <Flex flexWrap="wrap" mt={['1.5rem']}>
+          <Flex
+            flexWrap="wrap"
+            className="title-subnav-container"
+            mt={['1.5rem']}
+          >
             <Box
               width={navigation ? [1, 1 / 2] : 1}
               order={[2, 1]}
               py={['0.5rem', 0]}
+              className="header-title"
             >
               {title && (
                 <h1 className={`${navigation ? '' : 'extra-space'}`}>
@@ -105,7 +111,7 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
             </Box>
             {navigation && (
               <Box
-                width={[1, 1 / 2]}
+                width={[1]}
                 order={[1, 2]}
                 px={[0]}
                 textAlign={['left', 'right']}
@@ -118,6 +124,14 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
         </div>
       </header>
     </>
+  )
+
+  return hasHero ? (
+    <div className="circles-container">
+      {header} <Hero />
+    </div>
+  ) : (
+    header
   )
 }
 

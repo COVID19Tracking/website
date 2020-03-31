@@ -1,6 +1,8 @@
 import React from 'react'
 import '../../scss/components/common/detail-text.scss'
 
-const DetailText = ({ children }) => <p className="detail-text">{children}</p>
+const DetailText = ({ children }) => (
+  <div className="detail-text">{children}</div>
+)
 
 export default DetailText

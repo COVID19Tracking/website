@@ -1,12 +1,11 @@
+@import '../colors.scss';
+
 .data-state {
-  table {
-    font-size: 0.8rem;
-    th,
-    td {
-      padding: 0;
-    }
-  }
   .state-notes {
     font-size: 0.8rem;
   }
+}
+
+.top-link {
+  color: $color-grey-4;
 }

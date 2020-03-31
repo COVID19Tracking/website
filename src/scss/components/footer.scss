@@ -3,22 +3,42 @@
 footer {
   background-image: url(../../images/hero-bg.svg);
   background-size: auto 300%;
-  background-color: $color-muted-mid;
+  background-color: #5667ad;
   color: white;
   margin-top: 1rem;
   padding: 1rem 0;
+  .container {
+    display: flex;
+    align-items: center;
+    margin: 0 8vw 1.66rem;
+
+    @media (max-width: $viewport-sm) {
+      align-items: normal;
+      flex-direction: column;
+    }
+  }
   img {
-    max-width: 200px;
+    width: 176px;
+    margin: 0;
   }
   ul {
     list-style-type: none;
     margin: 0;
+    margin-left: auto;
+
+    @media (max-width: $viewport-sm) {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+
     li {
       display: inline-block;
       margin-right: 1.5rem;
+      margin-bottom: 0;
       a {
         color: white;
         font-weight: bold;
+        text-decoration: none;
       }
     }
   }

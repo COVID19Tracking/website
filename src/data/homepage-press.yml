@@ -1,14 +1,17 @@
 - name: The Atlantic
   logo: the-atlantic.svg
   width: 80
+  featured: true
 - name: The New York Times
   logo: nyt.svg
   width: 180
+  featured: true
 - name: Ars Technica logo
   logo: ars-technica.svg
 - name: The Wall Street Journal
   logo: the-wall-street-journal.svg
   width: 200
+  featured: true
 - name: Politico
   logo: politico.svg
   width: 100
@@ -18,12 +21,15 @@
 - name: Vox
   logo: vox.svg
   width: 50
+  featured: true
 - name: The Washington Post
   logo: wapo.svg
   width: 180
+  featured: true
 - name: National Public Radio
   logo: national-public-radio.svg
   width: 85
+  featured: true
 - name: Columbia Journalism Review
   logo: columbia-journalism-review.svg
   width: 90
@@ -39,6 +45,7 @@
 - name: Propublica
   logo: pro-publica.svg
   width: 100
+  featured: true
 - name: Business Insider
   logo: business-insider.svg
 - name: Five thirty eight

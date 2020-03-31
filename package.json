@@ -24,6 +24,7 @@
     "@reach/skip-nav": "^0.9.0",
     "@reach/visually-hidden": "^0.9.0",
     "@storybook/addon-info": "^5.3.17",
+    "emotion-theming": "^10.0.27",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-loader": "^3.0.3",
     "gatsby": "^2.19.45",
@@ -70,7 +71,7 @@
     "prettier": "^1.19.1"
   },
   "scripts": {
-    "build": "gatsby build; build-storybook -o ./public/__storybook",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
