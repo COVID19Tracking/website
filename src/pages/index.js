@@ -13,6 +13,7 @@ import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/pages/homepage/press-list'
 import pbsMap from '../images/homepage-visualizations/pbs-map.png'
 import nytGraph from '../images/homepage-visualizations/nyt.png'
+import politicoGraph from '../images/homepage-visualizations/politico.png'
 import '../scss/pages/homepage.scss'
 
 export default () => (
@@ -52,13 +53,14 @@ export default () => (
             <DetailText>Source: New York Times</DetailText>
           </Box>
           <Box width={[1, 1 / 3]} pl={[0, '0.5rem']}>
-            <img src={nytGraph} alt="New York Times chart" />
+            <img src={politicoGraph} alt="Politico chart" />
             <p>
-              <a href="https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html">
-                U.S. Lags in Coronavirus Testing After Slow Response to Outbreak
+              <a href="https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/">
+                How many coronavirus cases have been reported in each U.S.
+                state?
               </a>
             </p>
-            <DetailText>Source: New York Times</DetailText>
+            <DetailText>Source: Politico</DetailText>
           </Box>
         </Flex>
         <Flex flexWrap="wrap" mt={['1rem', '2rem']}>
