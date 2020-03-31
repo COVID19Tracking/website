@@ -17,7 +17,7 @@ import '../scss/pages/homepage.scss'
 
 export default () => (
   <>
-    <SEO />
+    <SEO title="The COVID Tracking Project" />
     <SkipNavigation />
     <Header siteTitle="The COVID Tracking Project" noMargin hasHero />
 
