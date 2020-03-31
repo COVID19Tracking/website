@@ -83,6 +83,7 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
               <button
                 className="mobile-toggle"
                 type="button"
+                aria-expanded={showMobileMenu}
                 onClick={() => {
                   setShowMobileMenu(!showMobileMenu)
                 }}

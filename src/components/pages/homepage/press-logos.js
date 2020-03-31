@@ -27,11 +27,6 @@ export default ({ onlyFeatured }) => {
               key={`homepage-press-${node.name}`}
               alt={`${node.name} logo`}
               src={`/images/press-logos/${node.logo}`}
-              style={
-                node.width && {
-                  width: `${onlyFeatured ? node.width + 50 : node.width}px`,
-                }
-              }
             />
           )}
         </React.Fragment>
