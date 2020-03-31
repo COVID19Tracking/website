@@ -37,25 +37,23 @@
     )
   }
 
-  const joinDataToGeoJson = (geoJSON, stateArray) => {
+  const joinDataToGeoJson = (geoJSON, stateArray, path) => {
     const groupedByState = d3
       .nest()
       .key(d => d.state)
       .entries(stateArray)
     const stateMap = createMapFromArray(groupedByState, 'key', 'values')
-    const joinedFeatures = geoJSON.features.map(feature => {
-      return {
-        ...feature,
-        properties: {
-          ...feature.properties,
-          centroidCoordinates: turf.centroid(feature).geometry.coordinates, //should get rid of turf and use d3 for the centroid
-          dailyData: createMapFromArray(
-            stateMap[feature.properties.STUSPS],
-            'date',
-          ),
-        },
-      }
-    })
+    const joinedFeatures = geoJSON.features.map(feature => ({
+      ...feature,
+      properties: {
+        ...feature.properties,
+        centroidCoordinates: path.centroid(feature), //should get rid of turf and use d3 for the centroid
+        dailyData: createMapFromArray(
+          stateMap[feature.properties.STUSPS],
+          'date',
+        ),
+      },
+    }))
     return { ...geoJSON, features: joinedFeatures }
   }
 
@@ -72,7 +70,6 @@
       })
       .entries(stateData)
       .reverse()
-    joinedData = joinDataToGeoJson(geojson, stateData)
     slider
       .attr('min', 0)
       .attr('max', groupedByDate.length - 1)
@@ -95,7 +92,12 @@
     )
     const path = d3.geoPath().projection(projection)
 
-    const hedAndDek = d3.select('#state-map').append('div')
+    joinedData = joinDataToGeoJson(geojson, stateData, path)
+
+    const legend = d3.select('#map-legend').append('svg')
+    const hedAndDek = d3
+      .select('#state-map')
+      .insert('div', 'div#map-time-scrubber')
     const hed = hedAndDek.append('h3')
     const dek = hedAndDek.append('p')
     const svg = d3
@@ -110,13 +112,61 @@
       .attr('id', 'map-tooltip')
       .style('display', 'none')
 
+    const maxValue = d3.max(joinedData.features, d => getValue(d))
+
     const r = d3
       .scaleSqrt()
-      .domain([0, d3.max(joinedData.features, d => getValue(d))])
+      .domain([0, maxValue])
       .range([0, 50])
     const map = svg.append('g')
     const bubbles = svg.append('g')
     let useChloropleth = false
+
+    const legendData = [
+      parseInt(maxValue * 0.1),
+      parseInt(maxValue * 0.5),
+      maxValue,
+    ]
+
+    legend
+      .attr('height', 150)
+      .attr('width', 150)
+      .append('g')
+      .selectAll('circle')
+      .data(legendData)
+      .enter()
+      .append('circle')
+      .attr('r', d => r(d))
+      .attr('cx', 52)
+      .attr('cy', d => 145 - r(d))
+      .attr('stroke', '#ababab')
+      .attr('fill', 'none')
+
+    legend
+      .append('g')
+      .selectAll('line')
+      .data(legendData)
+      .enter()
+      .append('line')
+      .attr('x1', 52)
+      .attr('x2', 130)
+      .attr('y1', d => 145 - 2 * r(d))
+      .attr('y2', d => 145 - 2 * r(d))
+      .attr('stroke', '#ababab')
+      .attr('stroke-dasharray', '5 5')
+
+    legend
+      .append('g')
+      .selectAll('text')
+      .data(legendData)
+      .enter()
+      .append('text')
+      .attr('font-size', '10pt')
+      .attr('x', 105)
+      .attr('y', d => {
+        return 140 - 2 * r(d)
+      })
+      .text(d => formatNumber(d))
 
     updateMap()
 
@@ -146,8 +196,6 @@
 
       states
         .on('mouseenter', function(d) {
-          debugger
-          const date = formatDate(parseDate(currentDate))
           const positive = getValue(d, 'positive')
           const totalTestResults = getValue(d, 'totalTestResults')
           const death = getValue(d, 'death')
@@ -155,7 +203,7 @@
             .style('display', 'block')
             .style('top', d3.event.layerY + 20 + 'px')
             .style('left', d3.event.layerX - 135 + 'px').html(`
-              <strong>${d.properties.NAME}</strong> - ${date}
+              <strong>${d.properties.NAME}</strong>
               <p>${formatNumber(death)} deaths</p>
               <p>${formatNumber(positive)} positive tests</p>
               <p>${formatNumber(totalTestResults)} total tests</p>
@@ -167,7 +215,7 @@
 
     function drawCircles(remove = false) {
       //todo: complete sum
-      const totalOnDate = d3.sum(joinedData.features, getValue)
+      const totalOnDate = d3.sum(joinedData.features, d => getValue(d))
 
       hed.text(formatDate(parseDate(currentDate)))
       dek.text(`${formatNumber(totalOnDate)} across the country`)
@@ -179,18 +227,8 @@
         circles
           .enter()
           .append('circle')
-          .attr(
-            'cx',
-            d =>
-              projection(d.properties.centroidCoordinates) &&
-              projection(d.properties.centroidCoordinates)[0],
-          )
-          .attr(
-            'cy',
-            d =>
-              projection(d.properties.centroidCoordinates) &&
-              projection(d.properties.centroidCoordinates)[1],
-          )
+          .attr('cx', d => d.properties.centroidCoordinates[0])
+          .attr('cy', d => d.properties.centroidCoordinates[1])
           .attr('stroke', '#585BC1')
           .attr('fill', '#585BC1')
           .attr('fill-opacity', 0.2)
