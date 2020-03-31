@@ -21,6 +21,7 @@
 - name: CNN
   logo: cnn.svg
   width: 80
+  featured: true
 - name: The Wall Street Journal
   logo: the-wall-street-journal.svg
   width: 200
