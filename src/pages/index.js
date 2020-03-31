@@ -10,8 +10,8 @@ import SEO from '../components/layout/seo'
 import Footer from '../components/layout/footer'
 import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/pages/homepage/press-list'
-import pbsMap from '../images/homepage-visualizations/pbs-map.png'
 import nytGraph from '../images/homepage-visualizations/nyt.png'
+import pbsMap from '../images/homepage-visualizations/pbs-map.png'
 import politicoGraph from '../images/homepage-visualizations/politico.png'
 import '../scss/pages/homepage.scss'
 
@@ -34,15 +34,6 @@ export default () => (
         <Container>
           <h2>From visualization gallery</h2>
           <Flex flexWrap="wrap" className="homepage-visualizations">
-            <Box width={[1, 1, 1 / 3]} pr={[0, '0.5rem']}>
-              <img src={pbsMap} alt="PBS COVID Map" />
-              <p>
-                <a href="https://www.pbs.org/newshour/features/coronavirus/us/">
-                  Real-time Coronavirus Map
-                </a>
-              </p>
-              <DetailText>Source: PBS</DetailText>
-            </Box>
             <Box width={[1, 1, 1 / 3]} px={[0, '0.5rem']}>
               <img src={nytGraph} alt="New York Times chart" />
               <p>
@@ -52,6 +43,15 @@ export default () => (
                 </a>
               </p>
               <DetailText>Source: New York Times</DetailText>
+            </Box>
+            <Box width={[1, 1, 1 / 3]} pr={[0, '0.5rem']}>
+              <img src={pbsMap} alt="PBS COVID Map" />
+              <p>
+                <a href="https://www.pbs.org/newshour/features/coronavirus/us/">
+                  Real-time Coronavirus Map
+                </a>
+              </p>
+              <DetailText>Source: PBS</DetailText>
             </Box>
             <Box width={[1, 1, 1 / 3]} pl={[0, '0.5rem']}>
               <img src={politicoGraph} alt="Politico chart" />
