@@ -33,9 +33,7 @@ const Layout = ({ title, children, navigation, noMargin, hasHero }) => {
       />
       <main id="main">
         <SkipNavContent />
-        <Container>
-          <div className="body">{children}</div>
-        </Container>
+        <Container>{children}</Container>
       </main>
       <Footer />
     </>

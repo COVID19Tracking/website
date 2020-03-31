@@ -1,0 +1,31 @@
+@import '../colors.scss';
+
+.homepage-visualizations {
+  img {
+    margin-bottom: 0.8rem;
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    font-weight: bold;
+  }
+}
+
+.homepage-press-list-more {
+  font-weight: bold;
+  float: right;
+}
+
+.homepage-get-involved {
+  flex-wrap: nowrap;
+  display: flex;
+  .homepage-get-involved-icon {
+    width: 50px;
+    color: $color-main-dark;
+    font-size: 1.3rem;
+  }
+  a {
+    font-weight: bold;
+  }
+}
