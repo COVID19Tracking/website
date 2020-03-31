@@ -9,9 +9,10 @@
 }
 
 table {
+  line-height: 1rem;
   border-collapse: collapse;
   margin: 2rem 0;
-  font-size: 0.9em;
+  font-size: 0.85em;
   font-variant-numeric: lining-nums tabular-nums;
   width: 100%;
 
@@ -50,7 +51,7 @@ table {
 
     span {
       display: block;
-      font-size: 0.9rem;
+      font-size: 0.75rem;
     }
 
     &[scope="colgroup"] {
