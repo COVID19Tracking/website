@@ -8,7 +8,6 @@ import DetailText from '../components/common/detail-text'
 import Container from '../components/common/container'
 import SEO from '../components/layout/seo'
 import Footer from '../components/layout/footer'
-import Hero from '../components/common/hero'
 import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/pages/homepage/press-list'
 import pbsMap from '../images/homepage-visualizations/pbs-map.png'
@@ -21,7 +20,6 @@ export default () => (
     <SEO />
     <SkipNavigation />
     <Header siteTitle="The COVID Tracking Project" noMargin hasHero />
-    <Hero />
 
     <div className="homepage-press-logos-wrapper">
       <Container>

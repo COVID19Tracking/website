@@ -24,6 +24,7 @@
     "@reach/skip-nav": "^0.9.0",
     "@reach/visually-hidden": "^0.9.0",
     "@storybook/addon-info": "^5.3.17",
+    "emotion-theming": "^10.0.27",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-loader": "^3.0.3",
     "gatsby": "^2.19.45",

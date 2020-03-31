@@ -1,6 +1,20 @@
 @import '../colors.scss';
 @import '../breakpoints.scss';
 
+.circles-container {
+  background: #5667ad;
+  background-image: url(../../images/hero-bg.svg);
+  background-size: auto 100%;
+
+  .header-container {
+    background: none;
+  }
+}
+
+.header-container {
+  background: #5667ad;
+}
+
 .site-header {
   margin-bottom: 1.5rem;
   &.no-margin {
@@ -10,7 +24,7 @@
     .header-container {
       nav {
         display: block;
-        @media (min-width: $viewport-md) {
+        @media (min-width: $viewport-lg) {
           display: block;
         }
       }
@@ -18,21 +32,22 @@
   }
   .header-container {
     padding: 2vw 8vw 0 8vw;
-    background: #5667ad;
     &.show-background {
       background-image: url(../../images/hero-bg.svg);
       background-size: auto 300%;
     }
     .mobile-toggle {
       float: right;
+      margin-left: auto;
       background: transparent;
       border: none;
       font-weight: bold;
       color: white;
-      @media (min-width: $viewport-md) {
+      @media (min-width: $viewport-lg) {
         display: none;
       }
     }
+
     img {
       margin-bottom: 0;
     }
@@ -46,18 +61,35 @@
     }
 
     h1 {
-      margin: 0;
-      color: white;
+      margin: 35px 0 17.5px;
       font-size: 2.2em;
+      color: white;
+
+      @media (max-width: $viewport-md) {
+        margin: 17.5px 0 17.5px;
+        font-size: 1.56rem;
+      }
+
       &.extra-space {
         margin-bottom: 1rem;
       }
     }
 
+    .header-nav-container {
+      display: flex;
+      width: auto;
+      margin-left: auto;
+    }
+
     nav {
       display: none;
       margin-top: 1rem;
-      @media (min-width: $viewport-md) {
+      align-self: center;
+      break-before: always;
+
+      @media (min-width: $viewport-lg) {
+        break-before: auto;
+        margin-left: auto;
         display: block;
         margin-top: 0;
         align-items: center;
@@ -66,13 +98,14 @@
       ul {
         padding-left: 0;
         margin: 0;
+        line-height: 16px;
         list-style-type: none;
 
         li {
           margin-bottom: 0.5rem;
-          @media (min-width: $viewport-md) {
+          @media (min-width: $viewport-lg) {
             display: inline-block;
-            padding-right: 3vw;
+            padding-right: 30px;
             margin-bottom: 0;
             line-height: 16px;
           }
@@ -88,20 +121,59 @@
       }
     }
 
-    .header-tabs-container {
-      display: flex;
+    .site-title-container {
+      width: auto;
     }
+
+    div.title-subnav-container {
+      @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
+        flex-direction: column;
+      }
+
+      @media (max-width: $viewport-sm) {
+        flex-direction: column-reverse;
+      }
+
+      @media (max-width: $viewport-ms) {
+        margin-top: 0;
+        padding-bottom: 17.5px;
+      }
+
+      @media (max-width: $viewport-lg) {
+        .header-title {
+          width: 100%;
+        }
+      }
+
+      .header-tabs-container {
+        display: flex;
+
+        @media (min-width: $viewport-lg) {
+          width: auto;
+          margin-left: auto;
+        }
+      }
+    }
+
 
     .header-tabs {
       display: block;
       align-self: flex-end;
       margin-left: auto;
 
-      @media (min-width: $viewport-md) {
+      div {
+        text-align: left;
+      }
+
+      @media (max-width: $viewport-lg) and (min-width: $viewport-ms) {
+        margin-left: 0;
+      }
+
+      @media (min-width: $viewport-ms) {
         display: inline-block;
       }
 
-      @media (max-width: $viewport-sm) {
+      @media (max-width: $viewport-ms) {
         div {
           width: 92vw; /* extend to the far right edge */
           overflow-x: scroll;
@@ -116,17 +188,18 @@
       ul {
         list-style-type: none;
         margin: 0;
+        text-align: left;
         background: $color-main-lightest;
-        border-top-right-radius: 3px;
-        border-top-left-radius: 3px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
 
-        @media (max-width: $viewport-sm) {
+        @media (max-width: $viewport-ms) {
           display: inline-flex;
           flex-wrap: nowrap;
-          border-radius: 3px;
+          border-radius: 5px;
 
           a {
-            border-radius: 3px;
+            border-radius: 5px;
             white-space: nowrap;
           }
 
@@ -139,28 +212,30 @@
           color: $color-main-mid;
           display: block;
           padding: 0.4rem 0.6rem;
+          font-size: 0.72rem;
 
-          @media (min-width: $viewport-md) {
+          @media (min-width: $viewport-ms) {
+            font-size: 16px;
             padding: 0.8rem 1rem;
           }
 
           &[aria-current] {
-            border-top-right-radius: 3px;
-            border-top-left-radius: 3px;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
             background: white;
             color: black;
           }
         }
         li {
           display: inline-block;
-          @media (min-width: $viewport-md) {
+          @media (min-width: $viewport-ms) {
             margin: 0;
             &:last-child a {
-              border-top-right-radius: 4px;
+              border-top-right-radius: 5px;
               border-bottom-right-radius: 0px;
             }
             &:first-child a {
-              border-top-left-radius: 4px;
+              border-top-left-radius: 5px;
               border-bottom-left-radius: 0px;
             }
           }
