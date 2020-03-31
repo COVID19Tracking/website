@@ -3,7 +3,7 @@ const { setField, setFieldWith } = require('prairie')
 const hash = require('object-hash')
 const { sheets } = require('./sheets')
 const { addFips, addOldTotal, addTotalResults, totalDate } = require('./utils')
-const { sheetVals } = require('../handlers/sheets')
+const { fetchParseFix } = require('../handlers')
 
 const fixState = _.flow(
   addOldTotal,
@@ -25,6 +25,7 @@ const states = {
 const grade = {
   ...sheets,
   worksheetId: '1_6zwoekv0Mzpp6KEp4OziZizaWxGOxMoDT2C-iBvyEg',
+  path: 'states/grades',
   fixItems: _.flow(
     _.filter(x => x.state && x.grade),
     _.map(
@@ -35,7 +36,7 @@ const grade = {
         'doubleChecker',
       ]),
     ),
-    _.keyBy('state'),
+    // _.keyBy('state'),
   ),
 }
 
@@ -44,19 +45,23 @@ const prepResult = _.flow(
   _.map(setField('hash', hash)),
   _.filter('state'),
 )
-const updateFunc = args =>
-  Promise.all([
-    sheetVals(grade, '/states/grade', args),
-    sheetVals(states, 'states', args),
-  ]).then(prepResult)
+const updateFunc = () =>
+  Promise.all([fetchParseFix(grade), fetchParseFix(states)]).then(prepResult)
 
-function getStates(event, args) {
-  const updateData = () => updateFunc(args)
-  return handleCacheRequest(event, args, updateData, handleResponse2)
+const statePages = _.map(value => ({
+  path: `state/${value.state}/current`,
+  value,
+}))
+
+function createPages(value) {
+  return [{ path: '/states/current', value }, ...statePages(value)]
 }
 
 module.exports = {
   grade,
-  statesUpdate: updateFunc,
-  states: getStates,
+  states: {
+    fetch: updateFunc,
+    path: 'states/current',
+    createPages,
+  },
 }

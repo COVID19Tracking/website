@@ -24,15 +24,23 @@ function defaultPage(path) {
     },
   ]
 }
-const handleResponse = ({ fixItems, createPages, path }) =>
-  _.flow(processResult(fixItems), createPages || defaultPage(path), saveAll)
 
-function handleRequest(resource) {
+function fetchParseFix(resource) {
   const { app, fetch } = resource
   const handler = fetch || handlers[app]
   if (!_.isFunction(handler))
     throw new Error(`Handler not found: ${resource.app}`)
-  return handler(resource).then(handleResponse(resource))
+  return handler(resource).then(processResult(resource.fixItems))
 }
 
-module.exports = handleRequest
+function fetchSave(resource) {
+  const save = resource.createPages || defaultPage(resource.path)
+  return fetchParseFix(resource)
+    .then(save)
+    .then(saveAll)
+}
+
+module.exports = {
+  fetchParseFix,
+  fetchSave,
+}

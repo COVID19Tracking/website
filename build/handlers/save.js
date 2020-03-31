@@ -6,7 +6,9 @@ const toCSV = require('./csv')
 const DATA_DIR = 'data'
 
 const saveFile = _.curry((fileName, data) =>
-  outputFile(`${DATA_DIR}/${fileName}`, data),
+  outputFile(`${DATA_DIR}/${fileName}`, data).then(() =>
+    console.log(`Saved file ${fileName}`),
+  ),
 )
 
 function saveCSV({ path, value }) {
