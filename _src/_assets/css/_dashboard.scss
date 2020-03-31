@@ -10,6 +10,10 @@ Note/sources/*: #000000 - size 15pt
 Byline/publish date: #8FA3AD - size 13pt
 
 */
+$positive-color: #e5a968;
+$total-color: #696dc2;
+$death-color: #404856;
+
 .by-line {
   font-size: 14px;
   color: #546d8e;
@@ -398,5 +402,15 @@ ul.chart-legend {
     margin-bottom: 0.2rem;
     text-align: left;
     width: 86%;
+  }
+}
+
+.legend-text {
+  border-bottom: solid 3px;
+  &.total {
+    border-color: $total-color;
+  }
+  &.positive {
+    border-color: $positive-color;
   }
 }

@@ -12,9 +12,9 @@
   // duplicated from dashboard-chart.js - should have common lib
 
   const colors = {
-    totalTestResults: '#585BC1',
-    positive: '#FFA270',
-    death: 'black',
+    totalTestResults: '#696DC2',
+    positive: '#E5A968',
+    death: '#404856',
   }
 
   const getValue = (d, field = currentField) =>
@@ -103,8 +103,10 @@
     const hedAndDek = d3
       .select('#state-map')
       .insert('div', 'div#map-time-scrubber')
+      .attr('id', 'map-dek')
     const hed = hedAndDek.append('h3')
-    const dek = hedAndDek.append('p')
+    const dek1 = hedAndDek.append('p')
+    const dek2 = hedAndDek.append('p')
     const svg = d3
       .select('#state-map')
       .append('svg')
@@ -117,7 +119,9 @@
       .attr('id', 'map-tooltip')
       .style('display', 'none')
 
-    const maxValue = d3.max(joinedData.features, d => getValue(d))
+    const maxValue = d3.max(joinedData.features, d =>
+      getValue(d, 'totalTestResults'),
+    )
 
     const r = d3
       .scaleSqrt()
@@ -125,7 +129,7 @@
       .range([0, 50])
     const map = svg.append('g')
     const bubbles = svg.append('g')
-    const deathBubbles = svg.append('g')
+    const testBubbles = svg.append('g')
 
     updateMap()
 
@@ -228,19 +232,33 @@
 
     function drawCircles(remove = false) {
       //todo: complete sum
-      const totalOnDate = d3.sum(joinedData.features, d => getValue(d))
+      const totalTests = d3.sum(joinedData.features, d =>
+        getValue(d, 'totalTestResults'),
+      )
+      const totalPositive = d3.sum(joinedData.features, d =>
+        getValue(d, 'positive'),
+      )
 
       hed.text(formatDate(parseDate(currentDate)))
-      dek.text(`${formatNumber(totalOnDate)} across the country`)
+      dek1.html(
+        `${formatNumber(
+          totalTests,
+        )} <span class="legend-text total">tests conducted</span>`,
+      )
+      dek2.html(
+        `${formatNumber(
+          totalPositive,
+        )} <span class="legend-text positive">positive tests</span>`,
+      )
 
       const circles = bubbles.selectAll('circle').data(joinedData.features)
-      const deathCircles = deathBubbles
+      const testCircles = testBubbles
         .selectAll('circle')
         .data(joinedData.features)
 
       if (remove) {
         circles.remove()
-        deathCircles.remove()
+        testCircles.remove()
       } else {
         circles
           .enter()
@@ -255,20 +273,19 @@
             const value = getValue(d, 'positive')
             return r(value)
           })
-        deathCircles
+        testCircles
           .enter()
           .append('circle')
           .attr('cx', d => d.properties.centroidCoordinates[0])
           .attr('cy', d => d.properties.centroidCoordinates[1])
-          .attr('stroke', colors.death)
-          .attr('fill', colors.death)
+          .attr('stroke', colors.totalTestResults)
+          .attr('fill', colors.totalTestResults)
           .attr('fill-opacity', 0.2)
           .style('pointer-events', 'none')
           .attr('r', d => {
-            const value = getValue(d, 'death')
+            const value = getValue(d, 'totalTestResults')
             return r(value)
           })
-
         circles
           .transition()
           .duration(200)
@@ -276,11 +293,11 @@
             const value = getValue(d, 'positive')
             return r(value)
           })
-        deathCircles
+        testCircles
           .transition()
           .duration(200)
           .attr('r', d => {
-            const value = getValue(d, 'death')
+            const value = getValue(d, 'totalTestResults')
             return r(value)
           })
       }
