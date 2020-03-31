@@ -106,7 +106,9 @@
             line-height: 16px;
           }
         }
-
+        a:hover {
+          color: $color-secondary-light;
+        }
         a[aria-current] {
           border-bottom: 3px solid $color-secondary-light;
           padding-bottom: 4px;
