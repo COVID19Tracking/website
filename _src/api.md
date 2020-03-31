@@ -51,6 +51,7 @@ These numbers are updated periodically throughout the day.
 * `death` - Total cumulative number of people that have died.
 * `dateModified` - ISO 8601 date of the time the data was last updated by the state.
 * `dateChecked` - ISO 8601 date of the time we last visited their website
+* `hash` - A unique ID changed every time the data updates.
 * `total` - _DEPRECATED_ Will be removed in the future. (`positive` + `negative` + `pending`). Pending has been an unstable value and should not count in any totals.
 
 ### /api/states/daily - States Historical Data
@@ -99,6 +100,9 @@ These numbers are updated periodically throughout the day.
 * `totalTestResults` - Calculated value (`positive` + `negative`) of total test results.
 * `hospitalized` - Total cumulative number of people hospitalized.
 * `death` - Total cumulative number of people that have died.
+* `hash` - A unique ID changed every time the data updates. Survives a cache reset.
+* `lastModified` - The date the _API cache_ was last updated. Even if the values didn't change but the cache was manually cleared or reset the date will reflect that time of reset and doesn't necessarily indicate an update was made. Manual cache clearing is rare however.
+
 * `posNeg` - _DEPRECATED_ Renamed to `totalTestResults`.
 * `total` - _DEPRECATED_ Will be removed in the future. (`positive` + `negative` + `pending`). Pending has been an unstable value and should not count in any totals.
 
