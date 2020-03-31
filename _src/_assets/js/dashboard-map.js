@@ -17,13 +17,10 @@
     death: 'black',
   }
 
-  function getValue(d, field = currentField) {
-    return (
-      (d.properties.dailyData[currentDate] &&
-        d.properties.dailyData[currentDate][field]) ||
-      0
-    )
-  }
+  const getValue = (d, field = currentField) =>
+    (d.properties.dailyData[currentDate] &&
+      d.properties.dailyData[currentDate][field]) ||
+    0
 
   // holds all data in geojson objects
   let joinedData = null
@@ -137,10 +134,12 @@
     // })
 
     function updateLegend() {
-      d3.select('#map-legend')
-        .selectAll('*')
-        .remove()
-      if (useChloropleth) return
+      if (useChloropleth) {
+        d3.select('#map-legend')
+          .selectAll('*')
+          .remove()
+        return
+      }
       const legendData = [
         parseInt(maxValue * 0.1),
         parseInt(maxValue * 0.5),
@@ -183,9 +182,7 @@
         .append('text')
         .attr('font-size', '10pt')
         .attr('x', 105)
-        .attr('y', d => {
-          return 140 - 2 * r(d)
-        })
+        .attr('y', d => 140 - 2 * r(d))
         .text(d => formatNumber(d))
     }
 
