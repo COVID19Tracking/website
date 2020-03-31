@@ -1,8 +1,9 @@
 @import '../colors.scss';
+@import '../breakpoints.scss';
 
 .hero {
   padding: 10vh 24vw 140px 8vw;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: $viewport-md) {
     padding: 3vh 4vw 0;
     padding-bottom: 70px;
   }
@@ -15,7 +16,7 @@
     font-weight: bold;
     margin-bottom: 0;
 
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: $viewport-md) {
       font-size: 24px;
       line-height: 30px;
     }
@@ -28,7 +29,7 @@
     font-family: sans-serif;
     align-items: center;
 
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: $viewport-md) {
       flex-direction: column;
       margin-top: 35px;
     }
@@ -36,7 +37,7 @@
     .cta-spacer {
       margin: 0 1em;
 
-      @media only screen and (max-width: 480px) {
+      @media only screen and (max-width: $viewport-md) {
         margin: 1em;
       }
     }
@@ -54,7 +55,7 @@
       width: 25%;
       text-align: center;
       color: $color-secondary-darkest;
-      @media only screen and (max-width: 480px) {
+      @media only screen and (max-width: $viewport-md) {
         width: 100%;
         padding: 0.75em 2em;
       }
