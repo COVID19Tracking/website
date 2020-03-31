@@ -32,7 +32,9 @@ export default () => {
         <li key={`homepage-press-${node.id}`}>
           <a href={node.url}>{node.title}</a>
           <DetailText>
-            {node.publication} • {node.publishDate}
+            {node.publication}
+            <span className="dot-separator">•</span>
+            {node.publishDate}
           </DetailText>
         </li>
       ))}
