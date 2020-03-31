@@ -10,13 +10,13 @@
 
   .header {
     color: white;
-    font-size: 40px;
+    font-size: 2.2rem;
     line-height: 1.25;
     font-weight: bold;
     margin-bottom: 0;
 
     @media only screen and (max-width: $viewport-ms) {
-      font-size: 24px;
+      font-size: 1.3rem;
     }
   }
 
@@ -25,7 +25,7 @@
     margin-top: 70px;
     color: white;
     align-items: center;
-    font-size: 20px;
+    font-size: 1.1rem;
 
     @media only screen and (max-width: $viewport-ms) {
       flex-direction: column;
@@ -33,10 +33,10 @@
     }
 
     .cta-spacer {
-      margin: 0 1em;
+      margin: 0 1rem;
 
       @media only screen and (max-width: $viewport-ms) {
-        margin: 1em;
+        margin: 1rem;
       }
     }
 
@@ -54,7 +54,7 @@
       color: $color-secondary-darkest;
       @media only screen and (max-width: $viewport-ms) {
         width: 100%;
-        padding: 0.75em 2em;
+        padding: 0.75rem 2rem;
       }
     }
 
