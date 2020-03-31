@@ -149,6 +149,10 @@
       align-self: flex-end;
       margin-left: auto;
 
+      div {
+        text-align: left;
+      }
+
       @media (max-width: $viewport-lg) and (min-width: $viewport-ms) {
         margin-left: 0;
       }
