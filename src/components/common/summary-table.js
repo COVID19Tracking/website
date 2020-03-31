@@ -13,7 +13,7 @@ export default ({ data }) => (
     <col />
     <col />
     <col />
-    <caption className="sr-only">{/* todo include captions */}</caption>
+    <caption className="sr-only">Summary data table</caption>
     <thead>
       <tr>
         <th scope="colgroup" colSpan="3">
