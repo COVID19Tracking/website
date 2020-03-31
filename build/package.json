@@ -1,0 +1,19 @@
+{
+  "name": "covid-website-build",
+  "version": "1.0.0",
+  "description": "Build scripts for The Covid Tracking Project website/API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/COVID19Tracking/website.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/COVID19Tracking/website/issues"
+  },
+  "homepage": "https://github.com/COVID19Tracking/website#readme"
+}
