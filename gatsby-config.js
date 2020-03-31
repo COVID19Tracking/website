@@ -7,7 +7,7 @@ module.exports = {
     shortname: 'ctracker',
     production:
       typeof process.env.BRANCH !== 'undefined' &&
-      process.env.BRANCH === 'master',
+      (process.env.BRANCH === 'master' || process.env.BRANCH === 'gatsbyjs'),
     buildDate: DateTime.fromObject({ zone: 'America/New_York' }).toFormat(
       "M/dd HH:mm 'ET'",
     ),
