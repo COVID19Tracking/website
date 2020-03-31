@@ -10,10 +10,9 @@
 */
 
 function d3AreaChart({
+  annotations = [],
   data,
-  yMax = null,
   fill,
-  width,
   height,
   labelOrder = null,
   margin = {
@@ -22,9 +21,12 @@ function d3AreaChart({
     right: 55,
     bottom: 40,
   },
-  annotations = [],
+  xExtent = null,
+  width,
+  yMax = null,
 }) {
-  const grouped = d3.nest()
+  const grouped = d3
+    .nest()
     .key(function(d) {
       return d.label
     })
@@ -39,9 +41,12 @@ function d3AreaChart({
         return match
       })
 
-  const dateExtent = d3.extent(data, function(d) {
-    return d.date
-  })
+  const dateExtent =
+    xExtent ||
+    d3.extent(data, function(d) {
+      return d.date
+    })
+
   const valueMax = d3.max(data, function(d) {
     return d.value
   })
@@ -73,7 +78,10 @@ function d3AreaChart({
     })
     .y1(height - totalYMargin)
 
-  const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  const svgElement = document.createElementNS(
+    'http://www.w3.org/2000/svg',
+    'svg',
+  )
   const svg = d3.select(svgElement)
 
   svg.attr('height', height).attr('width', width)
