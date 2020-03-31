@@ -11,7 +11,7 @@ export default ({ data }) => (
           <Link to={`/blog/${node.slug}`}>{node.title}</Link>
         </h3>
         <DetailText>
-          <strong>Posted on:</strong>
+          <strong>Posted on: </strong>
           {node.updatedAt}
         </DetailText>
         <div
