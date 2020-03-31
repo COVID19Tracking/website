@@ -15,6 +15,7 @@ export default () => {
       ) {
         edges {
           node {
+            id
             title
             url
             publication

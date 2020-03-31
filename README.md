@@ -8,6 +8,25 @@ This repository is for the **website** of the project, available at http://covid
 
 The website is built on [GatsbyJS](https://www.gatsbyjs.org/). If you are not familiar with Gatsby, we suggest checking out their [excellent documentation](hhttps://www.gatsbyjs.org/docs).
 
+### Environment Variables
+
+Our contnet is managed in Contentful, and you will need the following environment variables set in your local environment. Contact a member of our team for these values:
+
+```
+CONTENTFUL_BLOG_SPACE
+CONTENTFUL_BLOG_TOKEN
+CONTENTFUL_PAGE_SPACE
+CONTENTFUL_PAGE_TOKEN
+```
+
+### Intsall
+
+Make sure you have Gatsby installed globally:
+
+```shell
+npm install -g gatsby-cli
+```
+
 You can get the website setup in your local dev environment by running:
 
 ```shell
