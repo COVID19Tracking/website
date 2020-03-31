@@ -3,7 +3,6 @@
 ;(async function loadMap() {
   const button = d3.select('#map-start-stop')
   const chloroButton = d3.select('#map-chloro-button')
-  const propertyDropdown = d3.select('#map-property-select')
   const slider = d3.select('#map-time-scrubber [type="range"]')
   const formatDate = d3.timeFormat('%b. %d')
   const formatNumber = d3.format(',')
@@ -107,6 +106,47 @@
     const hed = hedAndDek.append('h3')
     const dek1 = hedAndDek.append('p')
     const dek2 = hedAndDek.append('p')
+    dek1.html(
+      `<span id="dek-tests"></span> <span class="legend-text total">tests conducted</span>`,
+    )
+    dek2.html(
+      `<span id="dek-positive"></span> <span class="legend-text legend">positive tests</span>`,
+    )
+    function setupDropdown() {
+      const propertyDropdown = dek1
+        .append('select')
+        .attr('id', 'map-property-select')
+        .attr('value', currentField)
+
+      const propertyOptions = [
+        {
+          value: 'positive',
+          name: 'Positive Cases',
+        },
+        {
+          value: 'totalTestResults',
+          name: 'Total Tests',
+        },
+        {
+          value: 'death',
+          name: 'Deaths',
+        },
+      ]
+      // set up property selector
+      propertyDropdown
+        .selectAll('option')
+        .data(propertyOptions)
+        .enter()
+        .append('option')
+        .text(d => d.name)
+        .attr('value', d => d.value)
+      propertyDropdown.on('change', () => {
+        currentField = propertyDropdown.property('value')
+        updateMap()
+      })
+    }
+    setupDropdown()
+
     const svg = d3
       .select('#state-map')
       .append('svg')
@@ -225,29 +265,34 @@
         })
         .on('mouseleave', d => tooltip.style('display', 'none'))
       drawCircles(useChloropleth)
+      updateHedAndDek()
+    }
+
+    function updateHedAndDek() {
+      //todo: complete sum
+      hed.text(formatDate(parseDate(currentDate)))
+      if (useChloropleth) {
+        const totalChloro = d3.sum(joinedData.features, d => getValue(d))
+        d3.select('.legend-text').attr('style', 'display:none')
+        dek2.attr('style', 'display:none')
+        d3.select('#map-property-select').attr('style', '')
+        d3.select('#dek-tests').text(formatNumber(totalChloro))
+      } else {
+        const totalTests = d3.sum(joinedData.features, d =>
+          getValue(d, 'totalTestResults'),
+        )
+        const totalPositive = d3.sum(joinedData.features, d =>
+          getValue(d, 'positive'),
+        )
+        d3.select('.legend-text').attr('style', '')
+        dek2.attr('style', '')
+        d3.select('#map-property-select').attr('style', 'display:none')
+        d3.select('#dek-tests').text(formatNumber(totalTests))
+        d3.select('#dek-positive').text(formatNumber(totalPositive))
+      }
     }
 
     function drawCircles(remove = false) {
-      //todo: complete sum
-      const totalTests = d3.sum(joinedData.features, d =>
-        getValue(d, 'totalTestResults'),
-      )
-      const totalPositive = d3.sum(joinedData.features, d =>
-        getValue(d, 'positive'),
-      )
-
-      hed.text(formatDate(parseDate(currentDate)))
-      dek1.html(
-        `${formatNumber(
-          totalTests,
-        )} <span class="legend-text total">tests conducted</span>`,
-      )
-      dek2.html(
-        `${formatNumber(
-          totalPositive,
-        )} <span class="legend-text positive">positive tests</span>`,
-      )
-
       const circles = bubbles.selectAll('circle').data(joinedData.features)
       const testCircles = testBubbles
         .selectAll('circle')
@@ -337,30 +382,6 @@
 
     chloroButton.on('change', () => {
       useChloropleth = chloroButton.property('checked')
-      updateMap()
-    })
-
-    const propertyOptions = [
-      {
-        value: 'positive',
-        name: 'Positive Cases',
-      },
-      {
-        value: 'death',
-        name: 'Deaths',
-      },
-    ]
-    // set up property selector
-    propertyDropdown
-      .selectAll('option')
-      .data(propertyOptions)
-      .enter()
-      .append('option')
-      .text(d => d.name)
-      .attr('value', d => d.value)
-
-    propertyDropdown.on('change', () => {
-      currentField = propertyDropdown.property('value')
       updateMap()
     })
 

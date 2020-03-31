@@ -37,7 +37,6 @@ nav: Dashboard
             <span id="chloro">Chloropleth</span>
           </label>
         </div>
-        <select  id="map-property-select"></select>
       </div>
       <div id="map-legend"></div>
       <div class="map" id="state-map">
