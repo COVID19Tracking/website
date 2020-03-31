@@ -140,13 +140,18 @@
       }
 
       @media (max-width: $viewport-lg) {
-        div {
+        .header-title {
           width: 100%;
         }
       }
 
       .header-tabs-container {
         display: flex;
+
+        @media (min-width: $viewport-lg) {
+          width: auto;
+          margin-left: auto;
+        }
       }
     }
 

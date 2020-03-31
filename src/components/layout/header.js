@@ -101,6 +101,7 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
               width={navigation ? [1, 1 / 2] : 1}
               order={[2, 1]}
               py={['0.5rem', 0]}
+              className="header-title"
             >
               {title && (
                 <h1 className={`${navigation ? '' : 'extra-space'}`}>
