@@ -137,7 +137,9 @@
       @media (max-width: $viewport-ms) {
         margin-top: 0;
         padding-bottom: 35px;
+      }
 
+      @media (max-width: $viewport-lg) {
         div {
           width: 100%;
         }
