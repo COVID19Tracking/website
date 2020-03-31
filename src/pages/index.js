@@ -12,7 +12,7 @@ import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/pages/homepage/press-list'
 import nytGraph from '../images/homepage-visualizations/nyt.png'
 import politicoMap from '../images/homepage-visualizations/politico-map.png'
-import politicoGraph from '../images/homepage-visualizations/politico.png'
+import wsjGraph from '../images/homepage-visualizations/wsj.png'
 import '../scss/pages/homepage.scss'
 
 export default () => (
@@ -54,14 +54,13 @@ export default () => (
               <DetailText>Source: Politico</DetailText>
             </Box>
             <Box width={[1, 1, 1 / 3]} pl={[0, '0.5rem']}>
-              <img src={politicoGraph} alt="Politico chart" />
+              <img src={wsjGraph} alt="Wall Street Journal chart" />
               <p>
-                <a href="https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/">
-                  How many coronavirus cases have been reported in each U.S.
-                  state?
+                <a href="https://www.wsj.com/articles/how-the-cdcs-restrictive-testing-guidelines-hid-the-coronavirus-epidemic-11584882001">
+                  Number of tests performed versus positive cases
                 </a>
               </p>
-              <DetailText>Source: Politico</DetailText>
+              <DetailText>Source: The Wall Street Journal</DetailText>
             </Box>
           </Flex>
         </Container>
