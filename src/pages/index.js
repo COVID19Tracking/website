@@ -42,7 +42,7 @@ export default () => (
                   Outbreak
                 </a>
               </p>
-              <DetailText>Source: New York Times</DetailText>
+              <DetailText>Source: The New York Times</DetailText>
             </Box>
             <Box width={[1, 1, 1 / 3]} pr={[0, '0.5rem']}>
               <img src={politicoMap} alt="Politico COVID Map" />
