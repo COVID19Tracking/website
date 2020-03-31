@@ -30,42 +30,47 @@ export default () => (
     </div>
     <main id="main">
       <SkipNavContent />
+      <div className="homepage-visualizations-wrapper">
+        <Container>
+          <h2>From visualization gallery</h2>
+          <Flex flexWrap="wrap" className="homepage-visualizations">
+            <Box width={[1, 1, 1 / 3]} pr={[0, '0.5rem']}>
+              <img src={pbsMap} alt="PBS COVID Map" />
+              <p>
+                <a href="https://www.pbs.org/newshour/features/coronavirus/us/">
+                  Real-time Coronavirus Map
+                </a>
+              </p>
+              <DetailText>Source: PBS</DetailText>
+            </Box>
+            <Box width={[1, 1, 1 / 3]} px={[0, '0.5rem']}>
+              <img src={nytGraph} alt="New York Times chart" />
+              <p>
+                <a href="https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html">
+                  U.S. Lags in Coronavirus Testing After Slow Response to
+                  Outbreak
+                </a>
+              </p>
+              <DetailText>Source: New York Times</DetailText>
+            </Box>
+            <Box width={[1, 1, 1 / 3]} pl={[0, '0.5rem']}>
+              <img src={politicoGraph} alt="Politico chart" />
+              <p>
+                <a href="https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/">
+                  How many coronavirus cases have been reported in each U.S.
+                  state?
+                </a>
+              </p>
+              <DetailText>Source: Politico</DetailText>
+            </Box>
+          </Flex>
+        </Container>
+      </div>
       <Container>
-        <h2>From visualization gallery</h2>
-        <Flex flexWrap="wrap" className="homepage-visualizations">
-          <Box width={[1, 1, 1 / 3]} pr={[0, '0.5rem']}>
-            <img src={pbsMap} alt="PBS COVID Map" />
-            <p>
-              <a href="https://www.pbs.org/newshour/features/coronavirus/us/">
-                Real-time Coronavirus Map
-              </a>
-            </p>
-            <DetailText>Source: PBS</DetailText>
-          </Box>
-          <Box width={[1, 1, 1 / 3]} px={[0, '0.5rem']}>
-            <img src={nytGraph} alt="New York Times chart" />
-            <p>
-              <a href="https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html">
-                U.S. Lags in Coronavirus Testing After Slow Response to Outbreak
-              </a>
-            </p>
-            <DetailText>Source: New York Times</DetailText>
-          </Box>
-          <Box width={[1, 1, 1 / 3]} pl={[0, '0.5rem']}>
-            <img src={politicoGraph} alt="Politico chart" />
-            <p>
-              <a href="https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/">
-                How many coronavirus cases have been reported in each U.S.
-                state?
-              </a>
-            </p>
-            <DetailText>Source: Politico</DetailText>
-          </Box>
-        </Flex>
         <Flex flexWrap="wrap" mt={['1rem', '2rem']}>
-          <Box width={[1, 1, 2 / 3]} pr={[0, '1rem']}>
+          <Box width={[1, 1, 2 / 3]} pr={[0, '1rem', '5rem']}>
             <h2>Why this data matters</h2>
-            <p>
+            <p className="paragraph-big">
               The{' '}
               <a href="https://coronavirus.jhu.edu/">
                 heroes at Johns Hopkins University

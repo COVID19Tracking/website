@@ -2,11 +2,11 @@
 
 .infobox {
   display: inline-flex;
-  padding: 0.5em;
-  padding-right: 2em;
+  padding: 0.5rem;
+  padding-right: 2rem;
   border-radius: 4px;
-  font-size: 0.9em;
-  margin: 1em;
+  font-size: 0.9rem;
+  margin: 1rem;
 
   img {
     width: 16px;
@@ -23,7 +23,7 @@
   }
 
   .info-content {
-    margin-top: 0.25em;
+    margin-top: 0.25rem;
   }
 
   &.infobox-sync {
