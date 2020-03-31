@@ -21,10 +21,27 @@ nav: Dashboard
   </div>
 
   <div class="map-container">
-    <h2 class="chart-hed">Positive tests per one million people</h2>
+    <h2 class="chart-hed">
+      <!-- <select>
+        <option value="positive">Positive tests</option>
+        <option value="total">Total tests</option>
+      </select> -->
+      Positive tests in each state per day
+    </h2>
     <div class="map-column">
+      <div id="map-controls">
+          <input type="checkbox" id="map-chloro-button"></input>
+          <label for="map-chloro-button"></label>
+          <select  id="map-property-select"></select>
+      </div>
       <div id="map-legend"></div>
-      <div class="map" title="State Positive Cases / million people" id="state-map"></div>
+      <div class="map" id="state-map">
+        <div id="map-time-scrubber">
+          <input type="checkbox" id="map-start-stop"></input>
+          <label for="map-start-stop"></label>
+          <input type="range"></input>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -90,21 +107,5 @@ nav: Dashboard
 <script src="/_assets/js/d3-legend.js"></script>
 <script src="/_assets/js/britecharts.js"></script>
 
-<!-- map resources -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
-<script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
-
-<!-- scripts below are for Albers US map projections (currently unused) -->
-<!--
-<script src="https://unpkg.com/proj4leaflet@1.0.2/src/proj4leaflet.js"></script>
-<script src="https://unpkg.com/proj4@2.6.0/dist/proj4-src.js"></script>
--->
-
-<link rel="stylesheet" href="/_assets/css/_dashboard.css" >
 <script src="/_assets/js/dashboard-charts.js"></script>
 <script src="/_assets/js/dashboard-map.js"></script>
