@@ -219,7 +219,7 @@
             marginTop: 8,
             tickFormat: '~s',
             spaceBetween: 2,
-            tickSize: 0
+            tickSize: 0,
           }),
         )
       } else {
@@ -384,7 +384,7 @@
           .append('circle')
           .attr('cx', d => d.properties.centroidCoordinates[0])
           .attr('cy', d => d.properties.centroidCoordinates[1])
-          .attr('stroke', colors.positive)
+          .attr('stroke', '#D18F4B')
           .attr('fill', colors.positive)
           .attr('fill-opacity', 0.8)
           .style('pointer-events', 'none')
