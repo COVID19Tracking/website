@@ -4,8 +4,7 @@ const {
   addFips,
   addHash,
   addName,
-  addTotalResults,
-  addOldTotal,
+  compatibility,
 } = require('./utils')
 
 const sheets = {
@@ -44,18 +43,11 @@ function fixDaily(items) {
   return _.flow(
     _.orderBy(['date'], ['asc']),
     _.map(
-      _.flow(
-        addHash,
-        addDailyDateChecked,
-        addTotalResults,
-        addOldTotal,
-        addFips,
-        item => {
-          const increases = getNewVals(item, previous)
-          previous = item
-          return { ...item, ...increases }
-        },
-      ),
+      _.flow(addHash, addDailyDateChecked, compatibility, addFips, item => {
+        const increases = getNewVals(item, previous)
+        previous = item
+        return { ...item, ...increases }
+      }),
     ),
     _.orderBy(['date'], ['desc']),
   )(items)
