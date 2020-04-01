@@ -4,15 +4,12 @@ import { Link } from 'gatsby'
 import { Flex, Box } from '../components/common/flexbox'
 import SkipNavigation from '../components/common/skip-navigation'
 import Header from '../components/layout/header'
-import DetailText from '../components/common/detail-text'
 import Container from '../components/common/container'
 import SEO from '../components/layout/seo'
 import Footer from '../components/layout/footer'
 import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/pages/homepage/press-list'
-import nytGraph from '../images/homepage-visualizations/nyt.png'
-import politicoMap from '../images/homepage-visualizations/politico-map.png'
-import wsjGraph from '../images/homepage-visualizations/wsj.png'
+import Visualizations from '../components/pages/homepage/visualizations'
 import '../scss/pages/homepage.scss'
 
 export default () => (
@@ -30,41 +27,7 @@ export default () => (
     </div>
     <main id="main">
       <SkipNavContent />
-      <div className="homepage-visualizations-wrapper">
-        <Container>
-          <h2>From visualization gallery</h2>
-          <Flex flexWrap="wrap" className="homepage-visualizations">
-            <Box width={[1, 1, 1 / 3]} px={[0, '0.5rem']}>
-              <img src={nytGraph} alt="New York Times chart" />
-              <p>
-                <a href="https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html">
-                  U.S. Lags in Coronavirus Testing After Slow Response to
-                  Outbreak
-                </a>
-              </p>
-              <DetailText>Source: The New York Times</DetailText>
-            </Box>
-            <Box width={[1, 1, 1 / 3]} pr={[0, '0.5rem']}>
-              <img src={politicoMap} alt="Politico COVID Map" />
-              <p>
-                <a href="https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/">
-                  Coronavirus by State Map
-                </a>
-              </p>
-              <DetailText>Source: Politico</DetailText>
-            </Box>
-            <Box width={[1, 1, 1 / 3]} pl={[0, '0.5rem']}>
-              <img src={wsjGraph} alt="Wall Street Journal chart" />
-              <p>
-                <a href="https://www.wsj.com/articles/how-the-cdcs-restrictive-testing-guidelines-hid-the-coronavirus-epidemic-11584882001">
-                  Number of tests performed versus positive cases
-                </a>
-              </p>
-              <DetailText>Source: The Wall Street Journal</DetailText>
-            </Box>
-          </Flex>
-        </Container>
-      </div>
+      <Visualizations />
       <Container>
         <Flex flexWrap="wrap" mt={['1rem', '2rem']}>
           <Box width={[1, 1, 2 / 3]} pr={[0, '1rem', '5rem']}>
