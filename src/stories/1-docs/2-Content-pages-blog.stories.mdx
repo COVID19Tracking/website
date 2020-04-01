@@ -1,0 +1,47 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Content pages & blog" />
+
+# Content pages & blog
+
+There is an [excellent recipe](https://www.gatsbyjs.org/docs/recipes/sourcing-data/#sourcing-data-from-contentful) in the Gatsby docs about how Gatsby integrates with Contentful and builds pages.
+
+There are two **Spaces** in our Contentful instance: **Blogs** and **Pages**. The following environment variables are needed to let Gatsby connect to Contentful's API. These should be the **content delivery**, read-only API keys:
+
+- `CONTENTFUL_BLOG_SPACE` - Space ID for the Blog space
+- `CONTENTFUL_BLOG_TOKEN` - Token for the Blog space
+- `CONTENTFUL_PAGE_SPACE` - Space ID for the Pages space
+- `CONTENTFUL_PAGE_TOKEN` - Token for the Page space
+
+Gatsby then exposes the content from Contentful to the GraphQL interface for pages to query.
+
+## Static content pages
+
+**Content pages** are pages like the [How you can help](https://covidtracking.com/how-you-can-help/) page that are built using content from Contentful. If you are looking for a page that's on the website, like `https://covidtracking.com/something`, and there's no `/src/pages/something.js`, then it's likely built automatically from Contentful content. Within `gatsby-node.js` you will see a query like this under `exports.createPages()`:
+
+```graphql
+allContentfulPage {
+        edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
+```
+
+This selects all the contentful "Page" entities, and creates a new page using the `slug` field as the URL, and passes the `id` to the template at `/src/templates/content.js`. That template is pretty straight-forward and just includes the core `<Layout/>` component and places the Contentful HTML into the page.
+
+### Navigation
+
+The secondary navigation (i.e. the "tabs" on the top of some pages) are controlled using **Navigation Groups** in Contentful. You will see queries for these in the `/src/templates/content.js` template, where we pull the current page's navigation and pass it to the `<Layout>` component.
+
+## Blog
+
+The blog is a list of content pulled from the **Blog** Contentful space. It is pulled from the `allContentfulBlog` entities in GraphQL.
+
+### Blog listing
+
+The blog listing page at `/blog` is built by the file `/src/pages/blog.js`, which runs a simple GraphQL query of all blog posts and outputs a list of blogs in reverse-chronological order.
+
+Each blog page is built using a similar method to the static content pages above, by being queried for in `gatsby-node.js` and run through the template at `/src/templates/blog-post.js`.

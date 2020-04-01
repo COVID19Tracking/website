@@ -1,0 +1,45 @@
+@import './normalize.css';
+@import './colors.scss';
+
+#gatsby-noscript {
+  display: none;
+}
+
+.a11y-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.a11y-only.focusable:active,
+.a11y-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+a {
+  color: $color-link;
+  &:active {
+    color: $color-link--active;
+  }
+  &:hover,
+  &:focus {
+    color: $color-link--hover;
+    text-decoration: none;
+  }
+  &:focus {
+    outline: 2px dotted;
+  }
+}
+
+* {
+  transition: color 0.2s ease;
+}

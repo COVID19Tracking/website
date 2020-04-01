@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Press logos" />
+
+# Press logos
+
+The press logos that appear on the homepage are maintained in a YAML file at `/src/data/homepage-data.yml`. The actual logo SVG files are stored in `/static/images/press-logos/`. The YAML file is in the following format:
+
+```yaml
+- name: The Wall Street Journal
+  logo: the-wall-street-journal.svg
+  width: 200
+  featured: true
+```
+
+Where:
+
+- `name` - The name of the publication
+- `logo` - The filename of the logo (relative to `/static/images/press-logos/`)
+- `width` - Override the width of the logo (helpful for really wide logos)
+- `featured` - Set to `true` to make the logo appear on the homepage.
+
+All logos, regardless of their `featured` option appear in the page `/about/in-the-press`, which you can find in `/src/pages/about/in-the-press.js`.

@@ -1,0 +1,83 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Using Contentful" />
+
+# Using Contentful
+
+The COVID Project website maintains content in Contentful. While Contentful [has exhaustive documentation](https://www.contentful.com/developers/docs/), this document covers how to manage content for the project website.
+
+There are two “Spaces” in Contentful: **Blog** and **Pages**. While the former is self-explanatory, the latter contains static web pages like the “About our Data” page, along with navigation and parts of special pages. Both spaces have a similar editing experience.
+
+## Managing content
+
+In either space, you manage content in the **Content** tab on top of the screen. This will list all the content on the site. You can search and filter to find existing content. To add content, use the **Add a...** button on the upper-right.
+
+Note that there is no **Save** button when editing content, it’s all saved automatically and only makes it to the website when you hit the Action Button in the upper-right when editing a page. This might read **Published**, **Changed**, or **Draft**, depending on what state the content is in. When you click on it, you will see several possible actions: Publish, Unpublish, or Archive. The first two are self-explanatory. **Set Schedule** lets you publish or unpublish content automatically at a set time.
+
+Content is either **Published**, in **Draft**, or **Archived**. Only the published version of content makes it to the public website. Any piece of content can have a Published version, while there could be newer Drafts available for authors to edit and collaborate on. This content will show as **Changed**, and you can view all the history of the content on the right-side pane while editing.
+
+When editing things like the body of a page or blog post, you are editing in **Markdown**. There are the standard editing tools available to you, but it will look a little like computer code. Use the Preview tab to make sure your edits will look as you expect.
+
+To add images, click the **Insert Media** button. You can add existing media, or upload a new one. When adding media, there are options to crop and resize the image so it’s not huge.
+
+## Slug?
+
+You will see the term “slug” all over Contentful. We use it as a short-hand for a URL-compatible string. Some content uses the slug for the page URL (i.e. “about”), while others use it as a unique ID.
+
+## How content makes it to the website
+
+The website is automatically rebuilt twice an hour, and any changes in Contentful that are published will make it to the website during that time.
+
+Whenever you Publish or Unpublish/archive a piece of content, the website is asked to rebuild automatically. It can take several minutes for this to happen.
+
+## Managing the Blog
+
+To edit blog posts, select the Blog space by clicking the space name in the upper-left. When you click the Content button on top of the screen, you’ll see a list of all blog posts.
+
+<div style={{padding: '1rem', background: '#efbbab'}}>
+<strong>IMPORTANT:</strong> The website always expects there to be at least one blog post. If you unpublish all of them, the website won’t build. As of the start of this project, there is a boilerplate blog post you can edit or remove after publishing your first “real” post.
+</div>
+
+Blog posts have the following fields:
+
+- Title - The title
+- Teaser - Used for the blog listing page, feel free to copy/paste the first paragraph, or fine tune the teaser.
+- Body - The blog content
+- Slug - Slug
+
+The last updated date of the content is the date that appears on the blog page.
+
+## Managing pages
+
+Regular web pages, like “About our Data” are managed in the Pages space. You can filter the Content area to show just pages to make it easier to find them.
+
+Pages have the following fields:
+
+- Title - The page Title
+- Body - The page body
+- Slug - Slug
+
+Navigation Group - (optional) - Assign this page to a navigation group, see below
+
+## Navigation groups
+
+Use a Navigation Group to define the relationships between several pages in the header navigation. Navigation groups build this interface in the header:
+
+Pages should be assigned to a group both in the Page editing screen (using the Navigation Group field), and in the Navigation Group itself.
+
+When you edit a Navigation Group, you will see a list of all the pages in the group. You can drag them around to re-order them.
+
+You can either add a Page in Contentful to a Navigation gorup, or a Navigation Link. Navigation Links are a simple navigation item that links to an external resource, or a page in the website that is not managed in Contetful (i.e. the “/data” page). To add a new Navigation link to a Navigation Group, just click the Create new Entry and Link button under its list of pages, and select Navigation Link. You will see a Title and a URL field. To add a link to a page on the project website, start the URL with a “/” character.
+
+## Snippets
+
+Snippets are pieces of content that live on a page not managed in Contentful. Several pages like the “Data” or “US Totals” pages are special pieces of content that are built using the project data, and are not managed in Contentful. However, we want things like preambles in those pages to be easily editable.
+
+When you search for Snippets in the Content pane of the Pages space, you will see they have descriptive titles. Each snippet has the following fields:
+
+- Name - A description of where the snippet goes
+- Slug - Slug
+- Description - A longer description for editors and authors about the snippet
+- Content - The snippet content.
+
+New snippets must be assigned by a developer to a place on the website. Unlike blog posts, pages, or navigation, any new snippets do not appear on the website automatically. Edits to snippets get pushed to the website like all the rest of the content.
