@@ -64,7 +64,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'state',
-        url: `https://covidtracking.com/api/states`,
+        url: `https://covid.cape.io/states`,
       },
     },
     {
@@ -72,7 +72,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'stateInfo',
-        url: `https://covidtracking.com/api/states/info`,
+        url: `https://covid.cape.io/states/info`,
       },
     },
     {
@@ -80,7 +80,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'stateDaily',
-        url: `https://covidtracking.com/api/states/daily`,
+        url: `https://covid.cape.io/states/daily`,
       },
     },
     {
@@ -88,7 +88,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'us',
-        url: `https://covidtracking.com/api/us`,
+        url: `https://covid.cape.io/us`,
       },
     },
     {
@@ -96,7 +96,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'usDaily',
-        url: `https://covidtracking.com/api/us/daily`,
+        url: `https://covid.cape.io/us/daily`,
       },
     },
     {
@@ -104,7 +104,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'screenshots',
-        url: `https://covidtracking.com/api/screenshots`,
+        url: `https://covid.cape.io/screenshots`,
       },
     },
     {
@@ -112,7 +112,7 @@ module.exports = {
       options: {
         typePrefix: 'covid__',
         name: 'press',
-        url: `https://covidtracking.com/api/press`,
+        url: `https://covid.cape.io/press`,
       },
     },
     {
