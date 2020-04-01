@@ -1,0 +1,18 @@
+.state-historical {
+  th:last-child,
+  td:last-child {
+    padding-right: 0.25em;
+  }
+
+  ul {
+    color: green;
+    list-style: none;
+    display: inline list-item;
+  }
+
+  li {
+    display: inline;
+    padding: 0.8em;
+    padding-right: 0;
+  }
+}
