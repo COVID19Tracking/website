@@ -30,8 +30,13 @@ a {
   &:active {
     color: $color-link--active;
   }
-  &:hover {
+  &:hover,
+  &:focus {
     color: $color-link--hover;
+    text-decoration: none;
+  }
+  &:focus {
+    outline: 2px dotted;
   }
 }
 

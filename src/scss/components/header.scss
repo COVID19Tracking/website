@@ -106,7 +106,8 @@
             line-height: 16px;
           }
         }
-        a:hover {
+        a:hover,
+        a:focus {
           color: $color-secondary-lightest;
         }
         a[aria-current] {
