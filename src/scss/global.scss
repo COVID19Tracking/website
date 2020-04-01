@@ -30,4 +30,11 @@ a {
   &:active {
     color: $color-link--active;
   }
+  &:hover {
+    color: $color-link--hover;
+  }
+}
+
+* {
+  transition: color 0.2s ease;
 }

@@ -107,11 +107,11 @@
           }
         }
         a:hover {
-          color: $color-secondary-light;
+          color: $color-secondary-lightest;
         }
         a[aria-current] {
-          border-bottom: 3px solid $color-secondary-light;
-          padding-bottom: 4px;
+          border-bottom: 3px solid $color-secondary-lightest;
+          padding-bottom: 2px;
         }
 
         li:last-child {
