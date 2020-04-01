@@ -89,9 +89,9 @@ ul.chart-legend {
   padding-left: 1rem;
   width: 100%;
 
-  @media screen and (min-width: 550px) {
+  @media screen and (min-width: 660px) {
     flex-direction: row;
-    width: 550px;
+    width: 660px;
   }
 }
 
