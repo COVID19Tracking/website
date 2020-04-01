@@ -459,13 +459,44 @@ input[type='range']::-moz-range-thumb {
 #map-tooltip {
   background: white;
   border: 1px solid black;
-  padding: 1rem;
   pointer-events: none;
   position: absolute;
   width: 270px;
+  table {
+    border: 1px solid #333;
+    border-collapse: collapse;
+    margin: -1px;
+  }
+  td {
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+  }
+  thead {
+    td {
+      text-align: left;
+      color: #000;
+      font-weight: 600;
+      margin: 10px 10px;
+      font-size: 18px;
+    }
+  }
 
-  p {
-    text-align: left;
+  tbody {
+    td {
+      text-align: center;
+      padding: 2px 4px;
+    }
+    tr:nth-child(1) {
+      background-color: #e8eff6;
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background-color: initial;
+    }
+    td:nth-child(1) {
+      background-color: #e8eff6;
+      font-weight: 600;
+    }
   }
 }
 .chart-expand-note {

@@ -5,8 +5,7 @@
   const choroButton = d3.select('#map-choro-button')
   const slider = d3.select('#map-time-scrubber [type="range"]')
   const formatDate = d3.timeFormat('%b. %d')
-  const formatNumber = d3.format(',')
-  const formatDecimal = d3.format(',.1f')
+  const formatNumber = d3.format(',.0f')
   const parseDate = d3.timeParse('%Y%m%d')
 
   // duplicated from dashboard-chart.js - should have common lib
@@ -32,7 +31,7 @@
   let usechoropleth = false
 
   // this should be dynamic, espcially with the toggleable fields
-
+  // for now there is just a scale for each of the fields.
   const limit = [1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000]
   const colorLimits = {
     death: [1, 2, 5, 10, 25, 50, 100],
@@ -302,21 +301,42 @@
           const totalTestResultsNorm = getValue(d, 'totalTestResults', true)
           const death = getValue(d, 'death')
           const deathNorm = getValue(d, 'death', true)
+          const tooltipHtml = `
+            <table>
+              <thead>
+                <tr>
+                  <td colspan="3">${d.properties.NAME}</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>Total</td>
+           	      <td>Per capita*</td>
+                </tr>
+                <tr>
+                  <td>Tests</td>
+                  <td>${formatNumber(totalTestResults)}</td>
+           	      <td>${formatNumber(totalTestResultsNorm)}</td>
+                </tr>
+                <tr>
+                  <td>Positive tests</td>
+                  <td>${formatNumber(positive)}</td>
+           	      <td>${formatNumber(positiveNorm)}</td>
+              </tr>
+              <tr>
+                <td>Deaths</td>
+                <td>${formatNumber(death)}</td>
+                <td>${formatNumber(deathNorm)}</td>
+              </tr>
+            </tbody>
+          </table>
+          `
           tooltip
             .style('display', 'block')
             .style('top', d3.event.layerY + 20 + 'px')
-            .style('left', d3.event.layerX - 135 + 'px').html(`
-              <strong>${d.properties.NAME}</strong>
-              <p>${formatNumber(
-                death,
-              )} deaths (${formatDecimal(deathNorm)} / M) </p>
-              <p>${formatNumber(
-                positive,
-              )} positive tests (${formatDecimal(positiveNorm)} / M)</p>
-              <p>${formatNumber(
-                totalTestResults,
-              )} total tests (${formatDecimal(totalTestResultsNorm)} / M)</p>
-            `)
+            .style('left', d3.event.layerX - 135 + 'px')
+            .html(tooltipHtml)
         })
         .on('mouseleave', d => tooltip.style('display', 'none'))
       drawCircles(usechoropleth)
