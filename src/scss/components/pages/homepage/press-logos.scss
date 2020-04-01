@@ -1,0 +1,25 @@
+@import '../../../colors.scss';
+
+.homepage-press-logos-wrapper {
+  margin: 1.5rem 0;
+  padding: 2rem 0;
+  h2 {
+    color: $color-grey-3;
+    font-size: 1rem;
+    text-align: center;
+    font-variant: all-small-caps;
+    margin-bottom: 0.2rem;
+  }
+}
+.homepage-press-logos {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  img {
+    filter: grayscale(1);
+    height: 40px;
+    margin: 1rem 2rem;
+  }
+}

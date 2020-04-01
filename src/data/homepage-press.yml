@@ -1,0 +1,64 @@
+- name: The Atlantic
+  logo: the-atlantic.svg
+  width: 80
+  featured: true
+- name: The New York Times
+  logo: nyt.svg
+  width: 180
+  featured: true
+- name: Propublica
+  logo: pro-publica.svg
+  width: 100
+  featured: true
+- name: Vox
+  logo: vox.svg
+  width: 50
+  featured: true
+- name: The Washington Post
+  logo: wapo.svg
+  width: 180
+  featured: true
+- name: CNN
+  logo: cnn.svg
+  width: 80
+  featured: true
+- name: The Wall Street Journal
+  logo: the-wall-street-journal.svg
+  width: 200
+  featured: true
+- name: Politico
+  logo: politico.svg
+  width: 100
+- name: The New Yorker
+  logo: the-new-yorker.svg
+  width: 160
+- name: National Public Radio
+  logo: national-public-radio.svg
+  width: 85
+- name: Ars Technica logo
+  logo: ars-technica.svg
+- name: Columbia Journalism Review
+  logo: columbia-journalism-review.svg
+  width: 90
+- name: Los Angeles Times
+  logo: la-times.svg
+  width: 180
+- name: San Francisco Chronicle
+  logo: sf-chronicle.svg
+  width: 180
+- name: Business Insider
+  logo: business-insider.svg
+- name: Five thirty eight
+  logo: five-thirty-eight.svg
+  width: 150
+- name: Gizmodo logo
+  logo: gizmodo.svg
+- name: CBS News
+  logo: cbs-news.svg
+  width: 60
+- name: Talking Points Memo
+  logo: tpm.svg
+  width: 80
+- name: Minnesota Public Radio News
+  logo: mprnews.svg
+  width: 110

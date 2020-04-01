@@ -1,0 +1,66 @@
+$text: #000;
+
+$color-link: #575aad;
+$color-link--active: #8b8dc7;
+$color-link--hover: #8B8DC7;
+
+$color-infobox-question-light: #fef9cd;
+$color-infobox-question-dark: #5e4f24;
+
+$color-infobox-sync-light: #ddeffc;
+$color-infobox-sync-dark: #264a8c;
+
+$color-infobox-alert-light: #fedcd2;
+$color-infobox-alert-dark: #802509;
+
+//Referred to as "plumb"
+$color-main-darkest: #111354;
+$color-main-dark: #31347a;
+$color-main-mid: #575aad;
+$color-main-light: #8b8dc7;
+$color-main-lightest: #d1d1e8;
+
+//Referred to as "blueberry"
+$color-secondary-darkest: #012656;
+$color-secondary-dark: #004399;
+$color-secondary-mid: #0091ea;
+$color-secondary-light: #8cc7f4;
+$color-secondary-lightest: #e2f1fc;
+
+//Referred to as "slate"
+$color-grey-1: #313638;
+$color-grey-2: #3d4245;
+$color-grey-3: #4c5559;
+$color-grey-4: #5b666b;
+$color-grey-5: #6f7e85;
+$color-grey-6: #849096;
+$color-grey-7: #95a0a6;
+$color-grey-8: #b2bbbf;
+$color-grey-9: #d0d7db;
+$color-grey-10: #edf1f2;
+
+:export {
+  text: $text;
+  link: $color-link;
+  linkActive: $color-link--active;
+  mainDarkest: $color-main-darkest;
+  mainDark: $color-main-dark;
+  mainMid: $color-main-mid;
+  mainLight: $color-main-light;
+  mainLightest: $color-main-lightest;
+  secondaryDarkest: $color-secondary-darkest;
+  secondaryDark: $color-secondary-dark;
+  secondaryMid: $color-secondary-mid;
+  secondaryLight: $color-secondary-light;
+  secondaryLightest: $color-secondary-lightest;
+  grey1: $color-grey-1;
+  grey2: $color-grey-2;
+  grey3: $color-grey-3;
+  grey4: $color-grey-4;
+  grey5: $color-grey-5;
+  grey6: $color-grey-6;
+  grey7: $color-grey-7;
+  grey8: $color-grey-8;
+  grey9: $color-grey-9;
+  grey10: $color-grey-10;
+}
