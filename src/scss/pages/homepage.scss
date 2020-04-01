@@ -1,18 +1,16 @@
 @import '../colors.scss';
 @import '../breakpoints.scss';
 
-h2 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+.homepage {
+  h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
-.paragraph-big {
+.homepage-content p {
   font-size: 1.2rem;
   line-height: 1.5;
-}
-
-a {
-  color: $color-main-mid;
 }
 
 .homepage-visualizations-wrapper {

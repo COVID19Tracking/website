@@ -25,29 +25,21 @@ export default ({ data }) => (
         <PressLogos onlyFeatured />
       </Container>
     </div>
-    <main id="main">
+    <main id="main" className="homepage">
       <SkipNavContent />
       <Visualizations />
       <Container>
         <Flex flexWrap="wrap" mt={['1rem', '2rem']}>
           <Box width={[1, 1, 2 / 3]} pr={[0, '1rem', '5rem']}>
-            <h2>Why this data matters</h2>
-            <p className="paragraph-big">
-              The{' '}
-              <a href="https://coronavirus.jhu.edu/">
-                heroes at Johns Hopkins University
-              </a>{' '}
-              maintain a{' '}
-              <a href="https://coronavirus.jhu.edu/map.html">
-                comprehensive case count
-              </a>
-              , but no governmental or institutional source is publishing
-              complete testing data—including not just identified cases, but how
-              many people have been tested and how many tests are pending.
-              Without this data, we cannot understand enough about regional
-              outbreaks to make sound decisions about interventions. (“Read
-              more” link, styled in a way that is pleasing to the designers)
-            </p>
+            <div
+              className="homepage-content"
+              dangerouslySetInnerHTML={{
+                __html:
+                  data.allContentfulSnippet.edges[0].node
+                    .childContentfulSnippetContentTextNode.childMarkdownRemark
+                    .html,
+              }}
+            />
             <div className="homepage-get-involved">
               <div className="homepage-get-involved-icon">→</div>
               <p>
@@ -100,6 +92,18 @@ export const query = graphql`
           url
           publication
           publishDate(formatString: "MMMM D, YYYY")
+        }
+      }
+    }
+
+    allContentfulSnippet(filter: { slug: { eq: "homepage-main" } }) {
+      edges {
+        node {
+          childContentfulSnippetContentTextNode {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }
