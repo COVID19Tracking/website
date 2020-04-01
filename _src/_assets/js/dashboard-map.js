@@ -193,8 +193,8 @@
       .domain([0, maxValue])
       .range([0, 50])
     const map = svg.append('g')
-    const bubbles = svg.append('g')
-    const testBubbles = svg.append('g')
+    const testBubbles = svg.append('g').attr('id', 'testBubbles')
+    const bubbles = svg.append('g').attr('id', 'bubbles')
 
     updateMap()
 
