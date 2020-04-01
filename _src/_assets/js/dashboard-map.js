@@ -307,7 +307,13 @@
             <table>
               <thead>
                 <tr>
-                  <td colspan="3">${d.properties.NAME}</td>
+                  <td colspan="3">
+                  ${d.properties.NAME}
+                  <br />
+                  <span class="date">
+                    ${formatDate(parseDate(currentDate))}
+                  </span>
+                  </td>
                 </tr>
               </thead>
               <tbody>

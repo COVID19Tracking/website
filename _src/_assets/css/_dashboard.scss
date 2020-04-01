@@ -456,7 +456,6 @@ input[type='range']::-moz-range-thumb {
 
 #map-tooltip {
   background: white;
-  border: 1px solid black;
   pointer-events: none;
   position: absolute;
   width: 270px;
@@ -476,6 +475,11 @@ input[type='range']::-moz-range-thumb {
       font-weight: 600;
       margin: 10px 10px;
       font-size: 18px;
+      span.date {
+        font-size: 14px;
+        color: gray;
+        text-transform: uppercase;
+      }
     }
   }
 
