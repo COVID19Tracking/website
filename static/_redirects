@@ -1,4 +1,4 @@
-/api/*                /api/v1/:splat 
+/api/*                https://covid.cape.io/:splat  200 
 /charts/dash          http://35.212.27.3:8050/
 /graphql              /api/graphql
 /graphql/             /api/graphql
