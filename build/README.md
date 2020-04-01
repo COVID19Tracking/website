@@ -8,7 +8,15 @@ Resource definitions have these fields
 - `path` string that defines the path where the file should be saved. Omit file extensions.
 - `createPages` function alternative that allows creating many pages. Should return an array of `{ path, value }`
 
-`npm run build`
+### Running Locally
+
+```shell
+cd build
+npm install
+npm run build
+```
+
+Files are saved to /build/data
 
 You'll need to add a Google API key to your env vars as `GOOGLE_API_KEY`.
 
