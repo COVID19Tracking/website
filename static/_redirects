@@ -9,10 +9,11 @@
 /states/              /data/
 /data/state/          /data/
 /github               https://github.com/COVID19Tracking/website
-/about-tracker        /about
+/about-tracker        /about-data
 /how-you-can-help/    /help
 /us-daily/            /data/us-daily
-/about-team/          /project/team
+/about-team/          /about-project
 /api/                 /about/api
 /newsroom-expert-faq  /project/faq
 /software             /about/software
+/about                /about-data
