@@ -303,7 +303,7 @@ ul.chart-legend {
 }
 
 #map-time-scrubber {
-  margin-top: 6px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
 }
@@ -346,6 +346,7 @@ input[type='range']::-moz-range-thumb {
 }
 
 #map-start-stop ~ label {
+  cursor: pointer;
   border-style: solid;
   border-width: 8px 0px 8px 16px;
   border-color: transparent transparent transparent #202020;
@@ -361,17 +362,24 @@ input[type='range']::-moz-range-thumb {
   display: none;
 }
 
-$map-toggle-color: #040538;
-$map-toggle-background-color: #8BADD3;
+%map-toggle-active {
+  color: #040538;
+  border-color: #040538;
+  background-color: #e8eff6;
+  font-weight: 500;
+}
+%map-toggle-inactive {
+  color: gray;
+  border: solid gray 2px;
+  background-color: white;
+  font-weight: initial;
+}
 
 #map-choro-button ~ label span {
+  @extend %map-toggle-inactive;
   display: inline-block;
-  color: $map-toggle-color;
-  background-color: $map-toggle-background-color;
-  border: solid $map-toggle-color 2px;
   margin: -4px;
   padding: 2px 6px;
-  z-index: 50000;
   &:nth-child(1) {
     border-radius: 8px 0 0 8px;
   }
@@ -379,21 +387,16 @@ $map-toggle-background-color: #8BADD3;
     border-radius: 0 8px 8px 0;
   }
 }
-
 #map-choro-button:checked ~ label #bubble {
-  background-color: white;
-  color: gray;
-  border-color: gray;
+  @extend %map-toggle-inactive;
 }
-#map-choro-button ~ label #choro {
-  background-color: white;
-  color: gray;
-  border-color: gray;
+
+#map-choro-button ~ label #bubble {
+  @extend %map-toggle-active;
 }
+
 #map-choro-button:checked ~ label #choro {
-  border-color: $map-toggle-color;
-  color: $map-toggle-color;
-  background-color: $map-toggle-background-color;
+  @extend %map-toggle-active;
 }
 
 #map-property-select {
