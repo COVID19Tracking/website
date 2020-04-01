@@ -67,7 +67,7 @@ const statesInfo = {
   ...sheets,
   fixItems: fixStatesInfo,
   sheetName: 'States',
-  ttl: 900, // 15 minutes
+  path: 'states/info',
 }
 const usDaily = {
   ...sheets,

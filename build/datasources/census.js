@@ -7,12 +7,10 @@ const fixItem = _.flow(
 
 const statesPop = {
   app: 'json',
-  url: 'https://api.census.gov/data/2019/pep/population?get=POP,LASTUPDATE&for=state',
-  ttl: false,
-  fixItems: _.flow(
-    _.tail,
-    _.map(fixItem),
-  ),
+  url:
+    'https://api.census.gov/data/2019/pep/population?get=POP,LASTUPDATE&for=state',
+  fixItems: _.flow(_.tail, _.map(fixItem)),
+  path: 'states/population',
 }
 
 module.exports = {
