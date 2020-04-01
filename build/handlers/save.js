@@ -15,7 +15,7 @@ function saveCSV({ path, value }) {
   return toCSV(value).then(saveFile(`${path}.csv`))
 }
 function saveJSON({ path, value }) {
-  return saveFile(`${path}.json`, JSON.stringify(value))
+  return saveFile(`${path}.json`, JSON.stringify(value, null, 2))
 }
 
 // fs.writeFileSync

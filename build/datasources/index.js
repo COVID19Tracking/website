@@ -18,7 +18,7 @@ const resources = [
   press,
   screenshots,
   states,
-  // statesDaily,
+  statesDaily,
   // statesInfo,
   grade,
   // statesPop,

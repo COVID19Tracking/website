@@ -4,4 +4,4 @@ const { fetchSave } = require('./handlers')
 const resources = require('./datasources')
 
 // forEachP(fetchSave, resources).catch(console.error)
-fetchSave(resources[4])
+fetchSave(resources[5])

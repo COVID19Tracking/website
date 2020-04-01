@@ -1,13 +1,13 @@
 const _ = require('lodash/fp')
-const { setField, setFieldWith } = require('prairie')
+const { copy, setField, setFieldWith } = require('prairie')
 const hash = require('object-hash')
 const { sheets } = require('./sheets')
-const { addFips, addOldTotal, addTotalResults, totalDate } = require('./utils')
+const { addFips, compatibility, totalDate } = require('./utils')
 const { fetchParseFix } = require('../handlers')
 
+// OLD SHEET
 const fixState = _.flow(
-  addOldTotal,
-  addTotalResults,
+  compatibility,
   addFips,
   setFieldWith('dateModified', 'lastUpdateEt', totalDate),
   setFieldWith('dateChecked', 'checkTimeEt', totalDate),
@@ -16,10 +16,25 @@ const fixState = _.flow(
     'Please stop using the "total" field. Use "totalTestResults" instead.',
   ),
 )
-const states = {
+
+// const states = {
+//   ...sheets,
+//   sheetName: 'States current',
+//   fixItems: _.flow(_.map(fixState), _.keyBy('state')),
+// }
+
+// NEW SHEET
+
+const fixState2 = _.flow(
+  copy('deaths', 'death'),
+  copy('hospitalizedCumulative', 'hospitalized'),
+  fixState,
+)
+const states2 = {
   ...sheets,
-  sheetName: 'States current',
-  fixItems: _.flow(_.map(fixState), _.keyBy('state')),
+  worksheetId: '1MvvbHfnjF67GnYUDJJiNYUmGco5KQ9PW0ZRnEP9ndlU',
+  sheetName: 'States Current New!A:N',
+  fixItems: _.flow(_.map(fixState2), _.keyBy('state')),
 }
 
 const grade = {
@@ -46,7 +61,10 @@ const prepResult = _.flow(
   _.filter('state'),
 )
 const updateFunc = () =>
-  Promise.all([fetchParseFix(grade), fetchParseFix(states)]).then(prepResult)
+  Promise.all([
+    fetchParseFix(grade).then(_.keyBy('state')),
+    fetchParseFix(states2),
+  ]).then(prepResult)
 
 const statePages = _.map(value => ({
   path: `state/${value.state}/current`,
@@ -64,4 +82,5 @@ module.exports = {
     path: 'states/current',
     createPages,
   },
+  // states2,
 }

@@ -71,6 +71,7 @@ const statesDaily = {
     _.orderBy(['date', 'state'], ['desc', 'asc']),
   ),
   sheetName: 'States daily 4 pm ET',
+  path: 'states/daily',
 }
 const statesInfo = {
   ...sheets,

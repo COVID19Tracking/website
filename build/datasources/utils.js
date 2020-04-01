@@ -1,5 +1,5 @@
 const _ = require('lodash/fp')
-const { setField, setFieldWith } = require('prairie')
+const { copy, move, setField, setFieldWith } = require('prairie')
 const { addHours, formatISO, parse } = require('date-fns/fp')
 const { zonedTimeToUtc } = require('date-fns-tz/fp')
 const hash = require('object-hash')
@@ -35,6 +35,12 @@ const addOldTotal = setField(
 )
 const addHash = setField('hash', hash)
 
+const compatibility = _.flow(
+  move('deaths', 'death'),
+  copy('hospitalizedCumulative', 'hospitalized'),
+  addOldTotal,
+  addTotalResults,
+)
 module.exports = {
   addDailyDateChecked,
   addFips,
@@ -42,6 +48,7 @@ module.exports = {
   addName,
   addOldTotal,
   addTotalResults,
+  compatibility,
   dailyDate,
   screenshotDate,
   totalDate,
