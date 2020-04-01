@@ -3,7 +3,6 @@ import '../../scss/components/common/press-list.scss'
 import DetailText from './detail-text'
 
 export default ({ items }) => {
-  console.log(items)
   return (
     <ul className="press-list">
       {items.map(({ node }) => (
