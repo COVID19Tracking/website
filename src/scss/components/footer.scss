@@ -39,6 +39,11 @@ footer {
       }
       a {
         color: white;
+
+        &:hover,
+        &:focus {
+          color: $color-main-lightest;
+        }
         &.footer-return-top {
           font-weight: bold;
         }
