@@ -214,10 +214,12 @@
         d3.select('#map-legend').append(() =>
           d3Legend({
             color: getColor[currentField],
-            height: 67,
-            width: 296,
+            height: 40,
+            width: 300,
             marginTop: 8,
-            tickFormat: ',.0f',
+            tickFormat: '~s',
+            spaceBetween: 2,
+            tickSize: 0
           }),
         )
       } else {
