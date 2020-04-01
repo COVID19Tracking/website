@@ -4,7 +4,7 @@ const usCurrent = require('./usCurrent')
 const usDaily = require('./usDaily')
 const { grade, states } = require('./states')
 const urls = require('./urls')
-const { statesPop } = require('./census')
+// const { statesPop } = require('./census')
 const screenshots = require('./screenshots')
 
 const resources = [
@@ -16,7 +16,7 @@ const resources = [
   statesDaily,
   statesInfo,
   grade,
-  statesPop,
+  // statesPop, This needs to be static.
   urls,
   usCurrent,
   usDaily,
