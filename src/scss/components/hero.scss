@@ -42,6 +42,10 @@
     a {
       color: white;
       font-weight: bold;
+
+      &:hover {
+        color: $color-secondary-lightest;
+      }
     }
 
     .button {
