@@ -34,3 +34,7 @@ a {
     color: $color-link--hover;
   }
 }
+
+* {
+  transition: color 0.2s ease;
+}
