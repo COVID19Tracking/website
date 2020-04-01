@@ -30,4 +30,7 @@ a {
   &:active {
     color: $color-link--active;
   }
+  &:hover {
+    color: $color-link--hover;
+  }
 }
