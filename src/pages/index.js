@@ -1,6 +1,6 @@
 import React from 'react'
 import { SkipNavContent } from '@reach/skip-nav'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { Flex, Box } from '../components/common/flexbox'
 import SkipNavigation from '../components/common/skip-navigation'
 import Header from '../components/layout/header'
@@ -8,11 +8,11 @@ import Container from '../components/common/container'
 import SEO from '../components/layout/seo'
 import Footer from '../components/layout/footer'
 import PressLogos from '../components/pages/homepage/press-logos'
-import PressList from '../components/pages/homepage/press-list'
+import PressList from '../components/common/press-list'
 import Visualizations from '../components/pages/homepage/visualizations'
 import '../scss/pages/homepage.scss'
 
-export default () => (
+export default ({ data }) => (
   <>
     <SEO title="The COVID Tracking Project" />
     <SkipNavigation />
@@ -74,7 +74,7 @@ export default () => (
             </Link>
             <h2>In the Press</h2>
 
-            <PressList />
+            <PressList items={data.allCovidPress.edges} />
           </Box>
         </Flex>
       </Container>
@@ -82,3 +82,26 @@ export default () => (
     <Footer />
   </>
 )
+
+export const query = graphql`
+  query {
+    allCovidPress(
+      filter: {
+        addToCovidTrackingProjectWebsite: { eq: true }
+        title: { ne: "null" }
+      }
+      sort: { fields: publishDate, order: DESC }
+      limit: 4
+    ) {
+      edges {
+        node {
+          id
+          title
+          url
+          publication
+          publishDate(formatString: "MMMM D, YYYY")
+        }
+      }
+    }
+  }
+`
