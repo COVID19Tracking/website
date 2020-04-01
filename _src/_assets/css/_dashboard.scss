@@ -363,22 +363,20 @@ input[type='range']::-moz-range-thumb {
 }
 
 %map-toggle-active {
-  color: #040538;
-  border-color: #040538;
-  background-color: #e8eff6;
+  color: black;
+  border-color: black;
   font-weight: 500;
 }
 %map-toggle-inactive {
-  color: gray;
-  border: solid gray 2px;
-  background-color: white;
+  color: lightgray;
+  border: solid lightgray 2px;
   font-weight: initial;
 }
 
 #map-choro-button ~ label span {
   @extend %map-toggle-inactive;
   display: inline-block;
-  margin: -4px;
+  margin: -3px;
   padding: 2px 6px;
   &:nth-child(1) {
     border-radius: 8px 0 0 8px;
