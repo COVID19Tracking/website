@@ -56,8 +56,10 @@
       text-align: center;
       color: $color-secondary-darkest;
       &:hover,
+      &:focus,
       &:active {
         background: $color-secondary-lightest;
+        color: $color-secondary-darkest;
       }
       @media only screen and (max-width: $viewport-sm) {
         width: 100%;
