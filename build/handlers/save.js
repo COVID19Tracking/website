@@ -6,16 +6,17 @@ const toCSV = require('./csv')
 const DATA_DIR = 'data'
 
 const saveFile = _.curry((fileName, data) =>
-  outputFile(`${DATA_DIR}/${fileName}`, data).then(() =>
-    console.log(`Saved file ${fileName}`),
-  ),
+  outputFile(fileName, data).then(() => console.log(`Saved file ${fileName}`)),
 )
 
-function saveCSV({ path, value }) {
-  return toCSV(value).then(saveFile(`${path}.csv`))
+const getFileName = (ext, path, version) =>
+  `${DATA_DIR}/v${version || 1}/${path}.${ext}`
+
+function saveCSV({ path, value, version }) {
+  return toCSV(value).then(saveFile(getFileName('csv', path, version)))
 }
-function saveJSON({ path, value }) {
-  return saveFile(`${path}.json`, JSON.stringify(value))
+function saveJSON({ path, value, version }) {
+  return saveFile(getFileName('json', path, version), JSON.stringify(value))
 }
 
 // fs.writeFileSync
