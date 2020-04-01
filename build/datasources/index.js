@@ -12,7 +12,7 @@ const resources = [
   counties,
   press,
   screenshots,
-  states,
+  states, // States Current
   statesDaily,
   statesInfo,
   grade,

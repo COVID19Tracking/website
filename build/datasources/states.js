@@ -30,6 +30,7 @@ const fixState2 = _.flow(
   copy('hospitalizedCumulative', 'hospitalized'),
   fixState,
 )
+
 const states2 = {
   ...sheets,
   worksheetId: '1MvvbHfnjF67GnYUDJJiNYUmGco5KQ9PW0ZRnEP9ndlU',

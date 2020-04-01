@@ -47,5 +47,7 @@ module.exports = {
   ...sheets,
   fixItems,
   sheetName: 'States daily 4 pm ET',
+  // worksheetId: '1MvvbHfnjF67GnYUDJJiNYUmGco5KQ9PW0ZRnEP9ndlU',
+  // sheetName: 'States Daily New!A:M',
   createPages,
 }

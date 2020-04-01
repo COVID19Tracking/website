@@ -7,7 +7,7 @@ const fixUsCurrent = _.flow(
   compatibility,
   _.set(
     'notes',
-    'Please stop using the "total" and "posNeg" fields. Use "totalTestResults" instead.',
+    'NOTE: "total", "posNeg", "hospitalized" will be removed in the future.',
   ),
 )
 
@@ -24,8 +24,11 @@ function fixUsCurrentItems(newValues, oldVals) {
   return oldVals
 }
 
+// const STAGING_WORKSHEETS = '1tGIvo6-Onz7EUMzaMbHm0yJK9gWj1Z5sFWAsnqU4S2Y'
+
 module.exports = {
   ...sheets,
+  // worksheetId: STAGING_WORKSHEETS, // Comment this line out to switch back to "live".
   sheetName: 'US current',
   fixItems: fixUsCurrentItems,
   path: 'us/current',
