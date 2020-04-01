@@ -1,5 +1,5 @@
 import React from 'react'
-import Disclosure from '../components/common/disclosure'
+import Disclosure from '../../components/common/disclosure'
 
 export default {
   title: 'Disclosure',

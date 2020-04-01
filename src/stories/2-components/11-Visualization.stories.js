@@ -2,7 +2,7 @@ import React from 'react'
 import {
   VisualizationWrapper,
   VisualizationLink,
-} from '../components/common/visualization'
+} from '../../components/common/visualization'
 
 export default {
   title: 'Visualizations',

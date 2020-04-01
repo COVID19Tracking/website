@@ -1,5 +1,9 @@
 import React from 'react'
-import { ButtonAnchor, ButtonLink, Button } from '../components/common/button'
+import {
+  ButtonAnchor,
+  ButtonLink,
+  Button,
+} from '../../components/common/button'
 
 export default {
   title: 'Buttons',

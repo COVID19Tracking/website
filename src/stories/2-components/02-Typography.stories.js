@@ -1,5 +1,10 @@
 import React from 'react'
-import LeadParagraph from '../components/common/lead-paragraph'
+import LeadParagraph from '../../components/common/lead-paragraph'
+import {
+  UnorderedList,
+  OrderedList,
+  UnstyledList,
+} from '../../components/common/lists'
 
 const sampleText = `Testing is a crucial part of any public health response, 
 and sharing test data is essential to understanding this outbreak. The CDC is 
@@ -8,6 +13,18 @@ collect it from each state and provide it to the public. The information is
 patchy and inconsistent, so we’re being transparent about what we find and 
 how we handle it—the spreadsheet includes our live comments about changing 
 data and how we’re working with incomplete information.`
+
+const ExampleList = () => (
+  <>
+    <li>More information</li>
+    <li>
+      <a href="/">A link to more information</a>
+    </li>
+    <li>
+      <strong>Highlight</strong> - A list item that starts with a bold word
+    </li>
+  </>
+)
 
 export default {
   title: 'Typography',
@@ -58,6 +75,32 @@ inlineStyles.story = {
   parameters: {
     info: {
       text: 'An example of `strong`, `em`, `strike`, and `code` elements.',
+    },
+  },
+}
+
+export const unorderedList = () => (
+  <UnorderedList>
+    <ExampleList />
+  </UnorderedList>
+)
+
+export const orderedList = () => (
+  <OrderedList>
+    <ExampleList />
+  </OrderedList>
+)
+
+export const unstyledList = () => (
+  <UnstyledList>
+    <ExampleList />
+  </UnstyledList>
+)
+
+unstyledList.story = {
+  parameters: {
+    info: {
+      text: 'An unordered list styled to remove any margin or bullets.',
     },
   },
 }
