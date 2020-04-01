@@ -22,7 +22,7 @@ const resources = [
   statesInfo,
   grade,
   statesPop,
-  // urls,
+  urls,
   // usCurrent,
   // usDaily,
 ]
