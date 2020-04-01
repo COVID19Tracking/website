@@ -2,11 +2,11 @@ const {
   cdcTests,
   counties,
   press,
-  statesDaily,
   statesInfo,
   usCurrent,
   usDaily,
 } = require('./sheets')
+const statesDaily = require('./statesDaily')
 const { grade, states } = require('./states')
 const urls = require('./urls')
 const { statesPop } = require('./census')

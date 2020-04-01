@@ -63,16 +63,6 @@ function fixDaily(items) {
 }
 const fixStatesInfo = _.map(_.flow(addFips, addName))
 
-const statesDaily = {
-  ...sheets,
-  fixItems: _.flow(
-    _.groupBy('state'),
-    _.flatMap(fixDaily),
-    _.orderBy(['date', 'state'], ['desc', 'asc']),
-  ),
-  sheetName: 'States daily 4 pm ET',
-  path: 'states/daily',
-}
 const statesInfo = {
   ...sheets,
   fixItems: fixStatesInfo,
@@ -138,9 +128,9 @@ const counties = {
 module.exports = {
   cdcTests,
   counties,
+  fixDaily,
   press,
   sheets,
-  statesDaily,
   statesInfo,
   usCurrent,
   usDaily,
