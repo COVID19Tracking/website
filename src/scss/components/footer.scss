@@ -6,11 +6,10 @@ footer {
   background-color: #5667ad;
   color: white;
   margin-top: 3rem;
-  padding: 1.5rem 0;
+  padding: 3rem 0;
   .container {
     display: flex;
     align-items: center;
-    margin-bottom: 1.5rem;
 
     @media (max-width: $viewport-sm) {
       align-items: normal;
@@ -35,11 +34,14 @@ footer {
       display: inline-block;
       margin-right: 1.5rem;
       margin-bottom: 0;
-      &:last-of-type { margin-right: 0; }
+      &:last-of-type {
+        margin-right: 0;
+      }
       a {
         color: white;
-        font-weight: bold;
-        text-decoration: none;
+        &.footer-return-top {
+          font-weight: bold;
+        }
       }
     }
   }
