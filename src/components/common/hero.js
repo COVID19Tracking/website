@@ -8,9 +8,8 @@ export default () => (
   <Container>
     <div className="hero">
       <p className="header">
-        The COVID Tracking Project obtains, organizes, and publishes
-        high-quality, state-level data required to understand and respond to the
-        COVID-19 outbreak in the United States.
+        The COVID Tracking Project collects and publishes the most complete
+        testing data available for US states and territories.
       </p>
       <div className="ctas">
         <ButtonLink big to="/data">
