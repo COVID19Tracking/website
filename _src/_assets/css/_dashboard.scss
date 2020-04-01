@@ -309,138 +309,95 @@ ul.chart-legend {
 }
 
 #map-time-scrubber [type='range'] {
-  margin-left: 8px;
-  flex-grow: 1;
-}
-input[type='range'] {
   -webkit-appearance: none;
-  margin: 18px 0;
   width: 100%;
-}
-input[type='range']:focus {
+  height: 5px;
+  background: #d3d3d3;
   outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
 }
-input[type='range']::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 4px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: lightgray;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
+
 input[type='range']::-webkit-slider-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 18px;
-  width: 8px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -7px;
-}
-input[type='range']:focus::-webkit-slider-runnable-track {
-  background: lightgray;
-}
-input[type='range']::-moz-range-track {
-  width: 100%;
-  height: 4px;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 13px;
+  border: solid lightgray 1px;
+  background: white;
   cursor: pointer;
-  animate: 0.2s;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: lightgray;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
 }
+
 input[type='range']::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 18px;
-  width: 8px;
-  border-radius: 3px;
-  background: #ffffff;
+  width: 20px;
+  height: 20px;
+  border-radius: 13px;
+  border: solid lightgray 1px;
+  background: white;
   cursor: pointer;
-}
-input[type='range']::-ms-track {
-  width: 100%;
-  height: 4px;
-  cursor: pointer;
-  animate: 0.2s;
-  background: transparent;
-  border-color: transparent;
-  border-width: 16px 0;
-  color: transparent;
-}
-input[type='range']::-ms-fill-lower {
-  background: gray;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type='range']::-ms-fill-upper {
-  background: gray;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type='range']::-ms-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 18px;
-  width: 8px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-}
-input[type='range']:focus::-ms-fill-lower {
-  background: gray;
-}
-input[type='range']:focus::-ms-fill-upper {
-  background: gray;
 }
 
 #map-start-stop {
+  margin-top: 10px;
   position: absolute;
   opacity: 0;
 }
 
-#map-start-stop ~ label:before {
-  content: '►';
+#map-start-stop ~ label {
+  border-style: solid;
+  border-width: 8px 0px 8px 16px;
+  border-color: transparent transparent transparent #202020;
   display: inline-block;
+  margin-right: 5px;
 }
 
-#map-start-stop:checked ~ label:before {
-  content: '■';
+#map-start-stop:checked ~ label {
+  border: solid black 8px;
 }
 
-#map-chloro-button {
+#map-choro-button {
   display: none;
 }
-#map-chloro-button ~ label span {
+
+$map-toggle-color: #5d0182e0;
+$map-toggle-background-color: #366dc757;
+
+#map-choro-button ~ label span {
   display: inline-block;
-  border: solid lightgray 1px;
-  border-radius: 5px;
+  color: $map-toggle-color;
+  background-color: $map-toggle-background-color;
+  border: solid $map-toggle-color 2px;
+  margin: -4px;
   padding: 2px 6px;
   z-index: 50000;
+  &:nth-child(1) {
+    border-radius: 8px 0 0 8px;
+  }
+  &:nth-child(2) {
+    border-radius: 0 8px 8px 0;
+  }
 }
 
-#map-chloro-button:checked ~ label #bubble {
-  background-color: lightgray;
+#map-choro-button:checked ~ label #bubble {
+  background-color: white;
+  color: gray;
+  border-color: gray;
 }
-#map-chloro-button ~ label #chloro {
-  background-color: lightgray;
+#map-choro-button ~ label #choro {
+  background-color: white;
+  color: gray;
+  border-color: gray;
 }
-#map-chloro-button:checked ~ label #chloro {
-  background-color: initial;
+#map-choro-button:checked ~ label #choro {
+  border-color: $map-toggle-color;
+  color: $map-toggle-color;
+  background-color: $map-toggle-background-color;
 }
 
-#map-chloro-button ~ #map-property-select {
-  display: none;
-}
-#map-chloro-button:checked ~ #map-property-select {
-  display: initial;
+#map-property-select {
+  font-size: medium;
 }
 
 .map-column {
@@ -471,7 +428,7 @@ input[type='range']:focus::-ms-fill-upper {
   }
 
   p,
-  h3 {
+  h2 {
     margin-bottom: 0;
     margin-top: 0;
     text-align: center;

@@ -2,7 +2,7 @@
 
 ;(async function loadMap() {
   const button = d3.select('#map-start-stop')
-  const chloroButton = d3.select('#map-chloro-button')
+  const choroButton = d3.select('#map-choro-button')
   const slider = d3.select('#map-time-scrubber [type="range"]')
   const formatDate = d3.timeFormat('%b. %d')
   const formatNumber = d3.format(',')
@@ -29,7 +29,7 @@
   // holds the field we are currently viewing
   let currentField = 'positive'
 
-  let useChloropleth = false
+  let usechoropleth = false
 
   // this should be dynamic, espcially with the toggleable fields
 
@@ -128,7 +128,7 @@
       .select('#state-map')
       .insert('div', 'div#map-time-scrubber')
       .attr('id', 'map-dek')
-    const hed = hedAndDek.append('h3')
+    const hed = hedAndDek.append('h2')
     const dek1 = hedAndDek.append('p')
     const dek2 = hedAndDek.append('p')
     dek1.html(
@@ -207,7 +207,7 @@
       d3.select('#map-legend')
         .selectAll('*')
         .remove()
-      if (useChloropleth) {
+      if (usechoropleth) {
         d3.select('#map-legend')
           .append('span')
           .attr('style', 'font-weight: 600')
@@ -275,7 +275,7 @@
 
     function updateMap() {
       const getColorFromFeature = d => {
-        if (!useChloropleth) return 'white'
+        if (!usechoropleth) return 'white'
         const normalizationPopulation = 1000000 // 1 million;
 
         const normalizedValue = d.properties.dailyData[currentDate]
@@ -319,19 +319,19 @@
             `)
         })
         .on('mouseleave', d => tooltip.style('display', 'none'))
-      drawCircles(useChloropleth)
+      drawCircles(usechoropleth)
       updateHedAndDek()
     }
 
     function updateHedAndDek() {
       //todo: complete sum
       hed.text(formatDate(parseDate(currentDate)))
-      if (useChloropleth) {
-        const totalChloro = d3.sum(joinedData.features, d => getValue(d))
+      if (usechoropleth) {
+        const totalchoro = d3.sum(joinedData.features, d => getValue(d))
         d3.select('.legend-text').attr('style', 'display:none')
         dek2.attr('style', 'display:none')
         d3.select('#map-property-select').attr('style', '')
-        d3.select('#dek-tests').text(formatNumber(totalChloro))
+        d3.select('#dek-tests').text(formatNumber(totalchoro))
       } else {
         const totalTests = d3.sum(joinedData.features, d =>
           getValue(d, 'totalTestResults'),
@@ -364,7 +364,7 @@
           .attr('cy', d => d.properties.centroidCoordinates[1])
           .attr('stroke', colors.positive)
           .attr('fill', colors.positive)
-          .attr('fill-opacity', 0.2)
+          .attr('fill-opacity', 0.8)
           .style('pointer-events', 'none')
           .attr('r', d => {
             const value = getValue(d, 'positive')
@@ -435,8 +435,8 @@
       }
     })
 
-    chloroButton.on('change', () => {
-      useChloropleth = chloroButton.property('checked')
+    choroButton.on('change', () => {
+      usechoropleth = choroButton.property('checked')
       updateMap()
     })
 
