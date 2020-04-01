@@ -4,6 +4,7 @@
   "description": "Build scripts for The Covid Tracking Project website/API",
   "main": "index.js",
   "scripts": {
+    "build": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,5 +1,4 @@
 const _ = require('lodash/fp')
-const hash = require('object-hash')
 const {
   addDailyDateChecked,
   addFips,
@@ -69,11 +68,7 @@ const statesInfo = {
   sheetName: 'States',
   path: 'states/info',
 }
-const usDaily = {
-  ...sheets,
-  fixItems: fixDaily,
-  sheetName: 'US daily 4 pm ET',
-}
+
 const cdcTests = {
   ...sheets,
   name: 'CDC Tests',
@@ -86,37 +81,8 @@ const press = {
   fixItems: _.orderBy(['publishDate'], ['desc']),
   path: 'press',
 }
-const fixUsCurrent = _.flow(
-  _.set(
-    'notes',
-    'Please stop using the "total" and "posNeg" fields. Use "totalTestResults" instead.',
-  ),
-  addTotalResults,
-  addOldTotal,
-)
 
 // lastIncrementalUpdate
-
-function fixUsCurrentItems(newValues, oldVals) {
-  const newHash = hash(newValues[0])
-  const oldHash = oldVals && oldVals[0].hash
-  if (oldHash !== newHash) {
-    return [
-      fixUsCurrent({
-        ...newValues[0],
-        hash: newHash,
-        lastModified: new Date(),
-      }),
-    ]
-  }
-  return oldVals
-}
-
-const usCurrent = {
-  ...sheets,
-  sheetName: 'US current',
-  fixItems: fixUsCurrentItems,
-}
 
 const counties = {
   ...sheets,
@@ -132,6 +98,4 @@ module.exports = {
   press,
   sheets,
   statesInfo,
-  usCurrent,
-  usDaily,
 }

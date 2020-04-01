@@ -1,12 +1,7 @@
-const {
-  cdcTests,
-  counties,
-  press,
-  statesInfo,
-  usCurrent,
-  usDaily,
-} = require('./sheets')
+const { cdcTests, counties, press, statesInfo } = require('./sheets')
 const statesDaily = require('./statesDaily')
+const usCurrent = require('./usCurrent')
+const usDaily = require('./usDaily')
 const { grade, states } = require('./states')
 const urls = require('./urls')
 const { statesPop } = require('./census')
@@ -23,8 +18,8 @@ const resources = [
   grade,
   statesPop,
   urls,
-  // usCurrent,
-  // usDaily,
+  usCurrent,
+  usDaily,
 ]
 
 module.exports = resources
