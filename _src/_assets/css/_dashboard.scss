@@ -10,6 +10,12 @@ Note/sources/*: #000000 - size 15pt
 Byline/publish date: #8FA3AD - size 13pt
 
 */
+
+.dashboard {
+  margin: 0 auto;
+  width: 80%;
+}
+
 .by-line {
   font-size: 14px;
   color: #546d8e;
@@ -17,20 +23,20 @@ Byline/publish date: #8FA3AD - size 13pt
 
 .side-by-side {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
+  margin: 0 auto;
   margin-bottom: 2rem;
+  width: 80%;
 
-  .graphic,
-  .graphic-text {
+  .graphic {
     flex-grow: 1;
     width: 100%;
   }
 
   @media screen and (min-width: 500px) {
-    flex-direction: row;
+    // flex-direction: row;
 
-    .graphic,
-    .graphic-text {
+    .graphic {
       width: 50%;
     }
   }
@@ -260,8 +266,9 @@ ul.chart-legend {
 #cdc-comparison-chart-container {
   display: flex;
   align-items: flex-end;
-  height: 300px;
+  height: 500px;
   flex-grow: 1;
+
   h4 {
     margin-bottom: 4px;
   }

@@ -175,6 +175,8 @@ d => d.negativeIncrease + d.positiveIncrease,
       .attr('class', 'subtitle')
       .text('People tested')
 
+    const height = 300 //cdcChartContainer.node().clientHeight
+
     cdcChartContainer.append(() =>
       d3BarChart({
         data: cdcData,
@@ -182,7 +184,7 @@ d => d.negativeIncrease + d.positiveIncrease,
         fill: totalColor,
         formatDate,
         width: cdcChartContainer.node().clientWidth,
-        height: cdcChartContainer.node().clientHeight - 20,
+        height,
       }),
     )
     ctChartContainer.append(() =>
@@ -191,7 +193,7 @@ d => d.negativeIncrease + d.positiveIncrease,
         showYAxis: false,
         fill: totalColor,
         width: ctChartContainer.node().clientWidth,
-        height: ctChartContainer.node().clientHeight - 20,
+        height,
         margin: {
           top: 30,
           right: 10,
@@ -208,7 +210,7 @@ d => d.negativeIncrease + d.positiveIncrease,
       return positiveColor
     }
     const margin = {
-      left: 65,
+      left: 85,
       top: 10,
       right: 30,
       bottom: 20,
@@ -257,6 +259,7 @@ d => d.negativeIncrease + d.positiveIncrease,
     const chartContainer = d3.select(
       '#chart-daily-death-total',
     )
+
     const hed = chartContainer
       .append('h2')
       .classed('chart-hed', true)

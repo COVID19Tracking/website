@@ -7,6 +7,7 @@ function d3BarChart({
   height,
   margin = { top: 30, right: 0, bottom: 30, left: 60 },
 }) {
+
   const x = d3
     .scaleBand()
     .domain(d3.range(data.length))
@@ -24,10 +25,9 @@ function d3BarChart({
       .attr('class', 'x-axis-group')
       .attr('transform', `translate(0,${height - margin.bottom})`)
       .call(
-        d3
-          .axisBottom(x)
-          .tickFormat(i => data[i].name) // only show every x tick
-          .tickSizeOuter(0),
+        d3.axisBottom(x)
+          .tickValues(d3.range(0, data.length, 12))
+          .tickFormat(i => data[i].name), // only show every x tick
       )
   const yAxis = g =>
     g
@@ -79,6 +79,8 @@ function d3BarChart({
       // crazy thing about D3 is that it uses `this` in a significant way
       const tick = d3.select(this)
 
+      console.log(tick.node(), height, margin)
+
       if (showYAxis) {
         tick.select('line').remove()
       } else {
@@ -89,8 +91,8 @@ function d3BarChart({
         .append('line')
         .attr('x1', margin.left)
         .attr('x2', width)
-        .attr('y1', height - y(d))
-        .attr('y2', height - y(d))
+        .attr('y1', height - y(d) + 22)
+        .attr('y2', height - y(d) + 22)
         .attr('stroke', '#cccccc')
     })
   // }
