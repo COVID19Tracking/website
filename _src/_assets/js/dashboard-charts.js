@@ -309,28 +309,15 @@ d => d.negativeIncrease + d.positiveIncrease,
     const chartContainer = d3.select(
       '#chart-states-current-death-total',
     )
-    const hed = chartContainer
-      .append('h3')
-      .classed('chart-hed', true)
 
-    const chart = chartContainer
-      .append('div')
-      .classed('chart', true)
-      .classed('no-y-axis-domain', true)
-
-    const expand = chartContainer
-      .append('div')
-      .classed('chart-expand-note', true)
-    const source = chartContainer
-      .append('div')
-      .classed('chart-api-note', true)
+    const chart = chartContainer.select('.chart')
+    const expand = chartContainer.select('.graphic-footer').select('.chart-expand-button')
     const barChart = britecharts.bar()
-    const width =
-      chartContainer.node().clientWidth * 0.9
+    const width = chartContainer.node().clientWidth * 0.9
     const isExpanded = () => expand.classed('expanded-true')
     const getHeight = () => isExpanded() ? 1000 : 400
     const formatExpandedChartData = () => isExpanded() ? transformedData : transformedData.slice(-10)
-    const getExpandText = () => isExpanded() ? 'Collapse' : 'Expand' 
+    const getExpandText = () => isExpanded() ? 'Collapse' : 'Show all states' 
 
     barChart
       .margin({
@@ -360,12 +347,8 @@ d => d.negativeIncrease + d.positiveIncrease,
         }
       })          
 
-    hed.text('Total deaths by State')
     expand.html(`<p>${getExpandText()}</p>`)
     chart.datum(formatExpandedChartData()).call(barChart)
-    source.html(`
-      <p><a href="https://covidtracking.com/api/states">Get this data from our API</a></p>
-    `)
   }
 
   function alterBriteChartStyles() {
@@ -379,21 +362,22 @@ d => d.negativeIncrease + d.positiveIncrease,
       const container = d3.select(id)
 
       // set up grid lines
+      const tickSelector = id + ' .y-axis-group .tick'
+      const chart = container.select('.chart-group')
+      
+      // grid lines for vertical bar charts only
       if (
         id === '#chart-daily-positive-total' ||
         id === '#chart-daily-death-total'
       ) {
-        const tickSelector = id + ' .y-axis-group .tick'
-        const chart = container.select('.chart-group')
         d3.selectAll(tickSelector).each(function(d) {
           const tick = d3.select(this)
           const line = tick.select('line')
-
           line.attr('x1', container.node().clientWidth * 0.78)
         })
+      }
 
         chart.raise()
-      }
 
       // change circle legend indicators to squares
 
