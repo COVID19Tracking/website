@@ -10,7 +10,7 @@ The website is built on [GatsbyJS](https://www.gatsbyjs.org/). If you are not fa
 
 ### Environment Variables
 
-Our contnet is managed in Contentful, and you will need the following environment variables set in your local environment. [Read our documentation](https://gatsbyjs--upbeat-lovelace-3e9fff.netlify.com/__storybook) for the values.
+Our contnet is managed in Contentful, and you will need the following environment variables set in your local environment. [Read our documentation](https://covidtracking.com/__storybook/?path=/docs/getting-started--page) for the values.
 
 ```
 CONTENTFUL_BLOG_SPACE
