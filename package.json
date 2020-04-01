@@ -72,7 +72,7 @@
     "prettier": "^1.19.1"
   },
   "scripts": {
-    "build": "gatsby build; build-storybook -o ./public/__storybook",
+    "build": "fetch-data; gatsby build; build-storybook -o ./public/__storybook; cp -R build/data/* public/api/",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
@@ -80,6 +80,8 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "fetch-data": "cd build && npm run build",
+    "postinstall": "cd build && npm install"
   }
 }
