@@ -160,7 +160,7 @@ export const query = graphql`
       }
     }
     allCovidScreenshot(
-      filter: { state: { eq: $state } }
+      filter: { state: { eq: $state }, secondary: { eq: false } }
       sort: { fields: dateChecked, order: DESC }
     ) {
       edges {
