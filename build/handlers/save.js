@@ -7,7 +7,11 @@ const toHTML = require('./html')
 const DATA_DIR = '_data'
 
 const saveFile = _.curry((fileName, data) =>
-  outputFile(fileName, data).then(() => console.log(`Saved file ${fileName}`)),
+  outputFile(fileName, data).then(() => {
+    if (typeof process.env.NETLIFY === 'undefined' || !process.env.NETLIFY) {
+      console.log(`Saved file ${fileName}`)
+    }
+  }),
 )
 
 const getFileName = (ext, { path, version }) =>
