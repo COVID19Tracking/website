@@ -52,10 +52,7 @@ export default ({ data }) => (
               <div className="homepage-get-involved-icon">→</div>
               <p>
                 Want to get involved?{' '}
-                <Link to="/help" className="hompeage-get-involved">
-                  Help us get better data
-                </Link>
-                .
+                <Link to="/help">Help us get better data</Link>.
               </p>
             </div>
           </Box>

@@ -10,12 +10,13 @@ import DetailText from '../components/common/detail-text'
 import SummaryTable from '../components/common/summary-table'
 import { SyncInfobox } from '../components/common/infobox'
 import Table from '../components/common/table'
+import '../scss/templates/state.scss'
 
 const StateLinks = ({ name, twitter, covid19Site, dataSource }) => (
   <UnstyledList>
     {twitter && (
       <li>
-        <a href={twitter}>{name} on Twitter</a>
+        <a href={`https://twitter.com/${twitter}`}>{name} on Twitter</a>
       </li>
     )}
     {covid19Site && (
@@ -62,7 +63,7 @@ const Screenshots = ({ date, screenshots }) => {
 }
 
 const StateHistory = ({ history, screenshots }) => (
-  <Table>
+  <Table className="state-historical">
     <thead>
       <tr>
         <th scope="col">Date</th>
