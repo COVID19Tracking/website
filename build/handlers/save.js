@@ -4,7 +4,7 @@ const { forEachP } = require('understory')
 const toCSV = require('./csv')
 const toHTML = require('./html')
 
-const DATA_DIR = 'data'
+const DATA_DIR = '_data'
 
 const saveFile = _.curry((fileName, data) =>
   outputFile(fileName, data).then(() => console.log(`Saved file ${fileName}`)),
