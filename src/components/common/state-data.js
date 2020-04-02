@@ -5,15 +5,21 @@ import slug from '../../utilities/slug'
 import { UnstyledList } from './lists'
 import StateGrade from './state-grade'
 import SummaryTable from './summary-table'
+import '../../scss/components/common/state-data.scss'
 
 const State = ({ state }) => (
   <>
-    <h3>
-      <Link to={`/data/state/${slug(state.name)}`} id={`state-${state.state}`}>
-        {state.name}
-      </Link>
-    </h3>
-    <StateGrade letterGrade={state.stateData.grade} />
+    <div className="state-header">
+      <h3>
+        <Link
+          to={`/data/state/${slug(state.name)}`}
+          id={`state-${state.state}`}
+        >
+          {state.name}
+        </Link>
+      </h3>
+      <StateGrade letterGrade={state.stateData.grade} />
+    </div>
     <SummaryTable data={state.stateData} />
     <UnstyledList>
       {state.twitter && (
