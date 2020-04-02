@@ -1,66 +1,10 @@
-.state-grade {
-  display: flex;
-  align-items: center;
+.state-grade div {
+  display: inline;
 
-  div[data-grade=A] {
-    color: #57ad79;
-    border: solid 4px #57ad79;
-  }
-
-  div[data-grade=B] {
-    padding-top: 3px;
-    padding-bottom: 7px;
-    color: #3e7c83;
-    border: solid 4px #3e7c83;
-  }
-
-  div[data-grade=C] {
-    color: #25498b;
-    border: solid 4px #25498b;
-  }
-
-  div[data-grade=D] {
-    padding-left: 6px;
-    padding-right: 4px;
-    color: #6a518d;
-    border: solid 4px #6a518d;
-  }
-
-  div[data-grade=F] {
-    color: #ad568f;
-    border: solid 4px #ad568f;
-  }
-
-  div {
-    display: inline-block;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    padding: 5px;
-    padding-top: 2px;
-    padding-bottom: 8px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 1;
-    box-sizing: content-box;
-    white-space: nowrap;
-    margin-left: .25rem;
-
-    &:before {
-      content: "";
-      display: inline-block;
-      padding-top: 100%;
-      height: 0;
-    }
-
-    span {
-      display: inline-block;
-      font-size: 20px;
-    }
-  }
-
-
-  span {
+  img {
+    margin-top: -2px;
     display: inline;
+    vertical-align: middle;
+    margin-left: 0.25em;
   }
 }
