@@ -13,6 +13,7 @@
 
   const totalColor = '#585BC1'
   const positiveColor = '#FFA270'
+  const deathsBarColor = '#3F4856'
 
   // these come from this google spreadsheet owned by Júlia Ledur
   // https://docs.google.com/spreadsheets/d/1mD_NhlJR1fM2Pv_pY8YixUrX2p2F8rAE0xPTtsTJOiM/edit#gid=0
@@ -240,8 +241,9 @@ d => d.negativeIncrease + d.positiveIncrease,
       width: chart.node().clientWidth * 0.9,
       yMax: d3.max(transformedData, function(d) {
         return d.value
-      }),
+      })
     })
+    // d3.format('.2s')
     chart.node().appendChild(areaChart.svg)
   }
 
@@ -277,7 +279,7 @@ d => d.negativeIncrease + d.positiveIncrease,
         top: 20,
         bottom: 20,
       })
-      .colorSchema([totalColor])
+      .colorSchema([deathsBarColor])
       .height(350)
       .width(width)
       .xAxisLabel('Date')
@@ -327,7 +329,7 @@ d => d.negativeIncrease + d.positiveIncrease,
         bottom: 20,
       })
       .isHorizontal(true)
-      .colorSchema([totalColor])
+      .colorSchema([deathsBarColor])
       .height(getHeight())
       .width(width)
       .xAxisLabel('Deaths')
@@ -365,17 +367,21 @@ d => d.negativeIncrease + d.positiveIncrease,
       const tickSelector = id + ' .y-axis-group .tick'
       const chart = container.select('.chart-group')
       
-      // grid lines for vertical bar charts only
-      if (
-        id === '#chart-daily-positive-total' ||
-        id === '#chart-daily-death-total'
-      ) {
         d3.selectAll(tickSelector).each(function(d) {
           const tick = d3.select(this)
           const line = tick.select('line')
-          line.attr('x1', container.node().clientWidth * 0.78)
+          
+          // grid lines for vertical bar charts only
+          if (
+            id === '#chart-daily-positive-total' ||
+            id === '#chart-daily-death-total'
+          ) {
+            line.attr('x1', container.node().clientWidth * 0.78)
+          } else {
+            line.attr('x2', 0)
+          }
         })
-      }
+      
 
         chart.raise()
 
