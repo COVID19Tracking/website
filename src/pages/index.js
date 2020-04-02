@@ -17,6 +17,7 @@ export default ({ data }) => (
     <SEO title="The COVID Tracking Project" />
     <SkipNavigation />
     <Header siteTitle="The COVID Tracking Project" noMargin hasHero />
+    <SkipNavContent />
     <h1 className="a11y-only">The COVID Tracking Project</h1>
     <div className="homepage-press-logos-wrapper">
       <Container>
@@ -25,7 +26,6 @@ export default ({ data }) => (
       </Container>
     </div>
     <main id="main" className="homepage">
-      <SkipNavContent />
       <Visualizations />
       <Container>
         <Flex flexWrap="wrap" mt={['1rem', '2rem']}>
