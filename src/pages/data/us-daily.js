@@ -50,7 +50,7 @@ const ContentPage = ({ data }) => (
                 <td>{node.states}</td>
                 <td>{node.positive.toLocaleString()}</td>
                 <td>{node.negative.toLocaleString()}</td>
-                <td>{node.posNeg.toLocaleString()}</td>
+                <td>{(node.positive + node.negative).toLocaleString()}</td>
                 <td>{node.pending.toLocaleString()}</td>
                 <td>
                   {node.hospitalized
@@ -58,7 +58,7 @@ const ContentPage = ({ data }) => (
                     : 'N/A'}
                 </td>
                 <td>{node.death ? node.death.toLocaleString() : 'N/A'}</td>
-                <td>{node.total.toLocaleString()}</td>
+                <td>{node.totalTestResults.toLocaleString()}</td>
               </tr>
             ))}
           </tbody>
@@ -86,11 +86,10 @@ export const query = graphql`
     allCovidUsDaily(sort: { order: DESC, fields: date }) {
       edges {
         node {
-          total
+          totalTestResults
           states
           positive
           pending
-          posNeg
           negative
           hospitalized
           death
@@ -102,9 +101,13 @@ export const query = graphql`
       edges {
         node {
           pages {
-            ... on ContentfulNavigationLink {
-              link: url
+            ... on ContentfulPage {
               title
+              link: slug
+            }
+            ... on ContentfulNavigationLink {
+              title
+              link: url
             }
           }
         }

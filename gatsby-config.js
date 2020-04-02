@@ -34,6 +34,55 @@ module.exports = {
     `gatsby-transformer-yaml`,
     'gatsby-plugin-eslint',
     {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/v1/press.json',
+        type: 'CovidPress',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/v1/us/current.json',
+        type: 'CovidUs',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/v1/us/daily.json',
+        type: 'CovidUsDaily',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/v1/states/current.json',
+        type: 'CovidState',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/v1/states/info.json',
+        type: 'CovidStateInfo',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/v1/states/daily.json',
+        type: 'CovidStateDaily',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/v1/states/screenshots.json',
+        type: 'CovidScreenshot',
+      },
+    },
+    {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utilities/typography`,
@@ -57,62 +106,6 @@ module.exports = {
       options: {
         name: `press-logos`,
         path: `${__dirname}/src/data/homepage-press.yml`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-apiserver',
-      options: {
-        typePrefix: 'covid__',
-        name: 'state',
-        url: `https://covid.cape.io/states`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-apiserver',
-      options: {
-        typePrefix: 'covid__',
-        name: 'stateInfo',
-        url: `https://covid.cape.io/states/info`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-apiserver',
-      options: {
-        typePrefix: 'covid__',
-        name: 'stateDaily',
-        url: `https://covid.cape.io/states/daily`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-apiserver',
-      options: {
-        typePrefix: 'covid__',
-        name: 'us',
-        url: `https://covid.cape.io/us`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-apiserver',
-      options: {
-        typePrefix: 'covid__',
-        name: 'usDaily',
-        url: `https://covid.cape.io/us/daily`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-apiserver',
-      options: {
-        typePrefix: 'covid__',
-        name: 'screenshots',
-        url: `https://covid.cape.io/screenshots`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-apiserver',
-      options: {
-        typePrefix: 'covid__',
-        name: 'press',
-        url: `https://covid.cape.io/press`,
       },
     },
     {

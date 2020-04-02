@@ -3,13 +3,23 @@ import marked from 'marked'
 import { Link } from 'gatsby'
 import slug from '../../utilities/slug'
 import { UnstyledList } from './lists'
+import StateGrade from './state-grade'
 import SummaryTable from './summary-table'
+import '../../scss/components/common/state-data.scss'
 
 const State = ({ state }) => (
   <>
-    <h3>
-      <Link to={`/data/state/${slug(state.name)}`}>{state.name}</Link>
-    </h3>
+    <div className="state-header">
+      <h3>
+        <Link
+          to={`/data/state/${slug(state.name)}`}
+          id={`state-${state.state}`}
+        >
+          {state.name}
+        </Link>
+      </h3>
+      <StateGrade letterGrade={state.stateData.grade} />
+    </div>
     <SummaryTable data={state.stateData} />
     <UnstyledList>
       {state.twitter && (
@@ -31,12 +41,6 @@ const State = ({ state }) => (
           Historical data for {state.name}
         </Link>
       </li>
-      {state.stateData.grade && (
-        <li>
-          Data quality grade:{' '}
-          <span className="state-grade">{state.stateData.grade}</span>
-        </li>
-      )}
     </UnstyledList>
     {state.notes && (
       <div

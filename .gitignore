@@ -1,4 +1,4 @@
-# Built Site
+# Old Built Site
 
 _site
 
@@ -67,3 +67,9 @@ public
 
 # MacOS
 .DS_Store
+
+# Data API build directory
+_data
+
+# Storybook build
+storybook-static

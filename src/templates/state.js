@@ -7,15 +7,17 @@ import formatDate from '../utilities/format-date'
 import thousands from '../utilities/format-thousands'
 import { UnstyledList } from '../components/common/lists'
 import DetailText from '../components/common/detail-text'
+import StateGrade from '../components/common/state-grade'
 import SummaryTable from '../components/common/summary-table'
 import { SyncInfobox } from '../components/common/infobox'
 import Table from '../components/common/table'
+import '../scss/templates/state.scss'
 
 const StateLinks = ({ name, twitter, covid19Site, dataSource }) => (
   <UnstyledList>
     {twitter && (
       <li>
-        <a href={twitter}>{name} on Twitter</a>
+        <a href={`https://twitter.com/${twitter}`}>{name} on Twitter</a>
       </li>
     )}
     {covid19Site && (
@@ -62,7 +64,7 @@ const Screenshots = ({ date, screenshots }) => {
 }
 
 const StateHistory = ({ history, screenshots }) => (
-  <Table>
+  <Table className="state-historical">
     <thead>
       <tr>
         <th scope="col">Date</th>
@@ -87,7 +89,7 @@ const StateHistory = ({ history, screenshots }) => (
           <td>{thousands(node.pending)}</td>
           <td>{thousands(node.hospitalized)}</td>
           <td>{thousands(node.death)}</td>
-          <td>{thousands(node.total)}</td>
+          <td>{thousands(node.totalTestResults)}</td>
         </tr>
       ))}
     </tbody>
@@ -101,6 +103,7 @@ const StatePage = ({ pageContext, data }) => {
     <Layout title={state.name}>
       <h1>{state.name}</h1>
       <StateLinks {...state} />
+      <StateGrade letterGrade={summary.grade} />
       {state.notes && (
         <div
           dangerouslySetInnerHTML={{
@@ -127,7 +130,7 @@ export const query = graphql`
     allCovidState(sort: {}, filter: { state: { eq: $state } }) {
       edges {
         node {
-          total
+          totalTestResults
           state
           score
           positive
@@ -146,7 +149,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          total
+          totalTestResults
           positive
           pending
           negative
@@ -157,7 +160,7 @@ export const query = graphql`
       }
     }
     allCovidScreenshot(
-      filter: { state: { eq: $state } }
+      filter: { state: { eq: $state }, secondary: { eq: false } }
       sort: { fields: dateChecked, order: DESC }
     ) {
       edges {

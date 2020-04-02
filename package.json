@@ -1,6 +1,9 @@
 {
   "name": "covid-tracking-project",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=10.13"
+  },
   "description": "Collects information from 50 US states, the District of Columbia, and 5 other US territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2.",
   "author": "The COVID Tracking Project",
   "homepage": "https://covidtracking.com",
@@ -11,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/COVID19Tracking/website/issues"
   },
-  "license": "Apache",
+  "license": "Apache-2.0",
   "keywords": [
     "coronavirus",
     "COVID19"
@@ -25,9 +28,12 @@
     "@reach/visually-hidden": "^0.9.0",
     "@storybook/addon-docs": "^5.3.18",
     "@storybook/addon-info": "^5.3.17",
+    "date-fns": "^2.11.1",
+    "date-fns-tz": "^1.0.10",
     "emotion-theming": "^10.0.27",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-loader": "^3.0.3",
+    "fast-xml-parser": "^3.16.0",
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
     "gatsby-plugin-eslint": "^2.0.8",
@@ -40,16 +46,21 @@
     "gatsby-plugin-sharp": "^2.4.13",
     "gatsby-plugin-typography": "^2.4.1",
     "gatsby-remark-autolink-headers": "^2.2.1",
-    "gatsby-source-apiserver": "^2.1.4",
     "gatsby-source-contentful": "^2.2.5",
     "gatsby-source-filesystem": "^2.1.56",
     "gatsby-transformer-remark": "^2.7.0",
     "gatsby-transformer-yaml": "^2.3.1",
+    "html-tableify": "0.0.2",
+    "js-yaml": "^3.13.1",
+    "jsonexport": "^2.4.1",
+    "lodash": "^4.17.15",
     "luxon": "^1.22.0",
     "marked": "^0.8.2",
     "netlify-cms-app": "^2.11.32",
+    "node-fetch": "^2.6.0",
     "node-sass": "^4.13.1",
     "object-hash": "^2.0.3",
+    "prairie": "^3.10.2",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -57,7 +68,8 @@
     "react-typography": "^0.16.19",
     "reflexbox": "^4.0.6",
     "slugify": "^1.4.0",
-    "typography": "^0.16.19"
+    "typography": "^0.16.19",
+    "understory": "^1.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -68,11 +80,15 @@
     "babel-loader": "^8.1.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
+    "fs-extra": "^9.0.0",
     "get-contrast": "^2.0.0",
+    "gh-pages": "^2.2.0",
+    "jest": "^25.2.6",
     "prettier": "^1.19.1"
   },
   "scripts": {
-    "build": "gatsby build; build-storybook -o ./public/__storybook",
+    "build": "npm run fetch-data && gatsby build && npm run copy-api-data && npm run build-test",
+    "copy-api-data": "cp -R _data/* public/api/ && tar -czf public/api/archive.tar.gz _data/",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
@@ -80,6 +96,10 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "fetch-data": "node build/index.js",
+    "deploy-storybook": "build-storybook; gh-pages -d storybook-static -r https://github.com/COVID19Tracking/website-docs",
+    "build-test": "jest -- src/__tests__/build-test.js",
+    "setup": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz"
   }
 }

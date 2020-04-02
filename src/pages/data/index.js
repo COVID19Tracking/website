@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { Flex, Box } from '../../components/common/flexbox'
 import State from '../../components/common/state-data'
 import Layout from '../../components/layout'
@@ -34,6 +34,19 @@ const StateList = ({ states, stateData }) => {
   )
 }
 
+const StatesNav = ({ stateList }) => (
+  <Box width={[1, 1, 1, 1 / 2]} className="state-nav" m="0 auto 1rem">
+    <h2>Jump to a state:</h2>
+    <ul>
+      {stateList.map(state => (
+        <li key={state.node.state}>
+          <Link to={`/data#state-${state.node.state}`}>{state.node.state}</Link>
+        </li>
+      ))}
+    </ul>
+  </Box>
+)
+
 // The top-level content of this page is from 'src/content/snippets/data.md'
 export default ({ data }) => (
   <Layout
@@ -50,6 +63,7 @@ export default ({ data }) => (
     <SyncInfobox />
     <SummaryTable data={data.allCovidUs.edges[0].node} />
     <h2 id="states-top">States</h2>
+    <StatesNav stateList={data.allCovidState.edges} />
     <StateList
       states={data.allCovidStateInfo.edges}
       stateData={data.allCovidState.edges}
@@ -76,9 +90,8 @@ export const query = graphql`
           death
           negative
           positive
-          posNeg
           hospitalized
-          total
+          totalTestResults
         }
       }
     }
@@ -97,7 +110,7 @@ export const query = graphql`
     allCovidState {
       edges {
         node {
-          total
+          totalTestResults
           state
           score
           positive
@@ -114,9 +127,13 @@ export const query = graphql`
       edges {
         node {
           pages {
-            ... on ContentfulNavigationLink {
-              link: url
+            ... on ContentfulPage {
               title
+              link: slug
+            }
+            ... on ContentfulNavigationLink {
+              title
+              link: url
             }
           }
         }

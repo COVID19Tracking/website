@@ -17,8 +17,8 @@ export default ({ data }) => (
     <SEO title="The COVID Tracking Project" />
     <SkipNavigation />
     <Header siteTitle="The COVID Tracking Project" noMargin hasHero />
+    <SkipNavContent />
     <h1 className="a11y-only">The COVID Tracking Project</h1>
-
     <div className="homepage-press-logos-wrapper">
       <Container>
         <h2>Our data has been cited by</h2>
@@ -26,7 +26,6 @@ export default ({ data }) => (
       </Container>
     </div>
     <main id="main" className="homepage">
-      <SkipNavContent />
       <Visualizations />
       <Container>
         <Flex flexWrap="wrap" mt={['1rem', '2rem']}>
@@ -53,10 +52,7 @@ export default ({ data }) => (
               <div className="homepage-get-involved-icon">→</div>
               <p>
                 Want to get involved?{' '}
-                <Link to="/help" className="hompeage-get-involved">
-                  Help us get better data
-                </Link>
-                .
+                <Link to="/help">Help us get better data</Link>.
               </p>
             </div>
           </Box>

@@ -14,6 +14,11 @@ const Footer = () => (
         <li>
           <a href="https://twitter.com/COVID19Tracking">Twitter</a>
         </li>
+        <li>
+          <a href="#reach-skip-nav" className="footer-return-top">
+            Back to top
+          </a>
+        </li>
       </ul>
     </Container>
   </footer>

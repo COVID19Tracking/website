@@ -42,7 +42,9 @@ export default ({ data }) => (
         <td>{data.pending ? thousands(data.pending) : 'N/A'}</td>
         <td>{data.hospitalized ? thousands(data.hospitalized) : 'N/A'}</td>
         <td>{data.death ? thousands(data.death) : 'N/A'}</td>
-        <td>{data.total ? thousands(data.total) : 'N/A'}</td>
+        <td>
+          {data.totalTestResults ? thousands(data.totalTestResults) : 'N/A'}
+        </td>
       </tr>
     </tbody>
   </Table>

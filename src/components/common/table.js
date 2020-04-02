@@ -1,5 +1,7 @@
 import React from 'react'
 
-const Table = ({ children }) => <table>{children}</table>
+const Table = ({ children, className }) => (
+  <table className={className}>{children}</table>
+)
 
 export default Table
