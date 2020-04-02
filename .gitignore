@@ -67,3 +67,6 @@ public
 
 # MacOS
 .DS_Store
+
+# Storybook build
+storybook-static
