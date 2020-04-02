@@ -3,6 +3,7 @@ import marked from 'marked'
 import { Link } from 'gatsby'
 import slug from '../../utilities/slug'
 import { UnstyledList } from './lists'
+import StateGrade from './state-grade'
 import SummaryTable from './summary-table'
 
 const State = ({ state }) => (
@@ -12,6 +13,7 @@ const State = ({ state }) => (
         {state.name}
       </Link>
     </h3>
+    <StateGrade letterGrade={state.stateData.grade} />
     <SummaryTable data={state.stateData} />
     <UnstyledList>
       {state.twitter && (
