@@ -67,10 +67,16 @@ const updateFunc = () =>
     fetchParseFix(states2),
   ]).then(prepResult)
 
-const statePages = _.map(value => ({
-  path: `state/${value.state}/current`,
-  value,
-}))
+const statePages = _.flatMap(value => [
+  {
+    path: `states/${value.state}/current`,
+    value,
+  },
+  {
+    path: `states/${value.state.toLowerCase()}/current`,
+    value,
+  },
+])
 
 function createPages(value) {
   return [{ path: '/states/current', value }, ...statePages(value)]
