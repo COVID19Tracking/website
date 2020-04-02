@@ -88,7 +88,7 @@ const StateHistory = ({ history, screenshots }) => (
           <td>{thousands(node.pending)}</td>
           <td>{thousands(node.hospitalized)}</td>
           <td>{thousands(node.death)}</td>
-          <td>{thousands(node.total)}</td>
+          <td>{thousands(node.totalTestResults)}</td>
         </tr>
       ))}
     </tbody>
@@ -128,7 +128,7 @@ export const query = graphql`
     allCovidState(sort: {}, filter: { state: { eq: $state } }) {
       edges {
         node {
-          total
+          totalTestResults
           state
           score
           positive
@@ -147,7 +147,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          total
+          totalTestResults
           positive
           pending
           negative

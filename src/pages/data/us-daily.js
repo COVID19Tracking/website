@@ -58,7 +58,7 @@ const ContentPage = ({ data }) => (
                     : 'N/A'}
                 </td>
                 <td>{node.death ? node.death.toLocaleString() : 'N/A'}</td>
-                <td>{node.total.toLocaleString()}</td>
+                <td>{node.totalTestResults.toLocaleString()}</td>
               </tr>
             ))}
           </tbody>
@@ -86,7 +86,7 @@ export const query = graphql`
     allCovidUsDaily(sort: { order: DESC, fields: date }) {
       edges {
         node {
-          total
+          totalTestResults
           states
           positive
           pending
