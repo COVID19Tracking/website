@@ -25,6 +25,7 @@ function d3Legend({
   ticks = width / 64,
   tickFormat,
   tickValues,
+  spaceBetween = 0,
 } = {}) {
   const svg = d3
     .create('svg')
@@ -34,8 +35,7 @@ function d3Legend({
     .style('overflow', 'visible')
     .style('display', 'block')
 
-  let tickAdjust = g =>
-    g.selectAll('.tick line').attr('y1', 0)
+  let tickAdjust = g => g.selectAll('.tick line').attr('y1', 0)
   let x
 
   // Continuous
@@ -126,7 +126,7 @@ function d3Legend({
       .join('rect')
       .attr('x', (d, i) => x(i - 1))
       .attr('y', marginTop)
-      .attr('width', (d, i) => x(i) - x(i - 1))
+      .attr('width', (d, i) => x(i) - x(i - 1) - spaceBetween)
       .attr('height', height - marginTop - marginBottom)
       .attr('fill', d => d)
 

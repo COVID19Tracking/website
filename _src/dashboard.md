@@ -22,19 +22,24 @@ nav: Dashboard
         <option value="positive">Positive tests</option>
         <option value="total">Total tests</option>
       </select> -->
-      Positive tests in each state per day
+      The spread of coronavirus in the U.S.
     </h2>
     <div class="map-column">
       <div id="map-controls">
-          <input type="checkbox" id="map-chloro-button"></input>
-          <label for="map-chloro-button"></label>
-          <select  id="map-property-select"></select>
+        <div id="choro-toggle">
+          <input type="checkbox" id="map-choro-button"></input>
+          <label for="map-choro-button" >
+            <span id="bubble">Bubble Map</span>
+            <span id="choro">Choropleth</span>
+          </label>
+        </div>
       </div>
       <div id="map-legend"></div>
       <div class="map" id="state-map">
         <div id="map-time-scrubber">
           <input type="checkbox" id="map-start-stop"></input>
-          <label for="map-start-stop"></label>
+          <label for="map-start-stop">
+          </label>
           <input type="range"></input>
         </div>
       </div>
@@ -74,7 +79,18 @@ nav: Dashboard
   <div>
       <p>Though this is a national crisis, each state is reporting data differently. We are tracking numbers from each state, though the quality and frequency of reports varies significantly.</p>
   </div>
-  <div class="graphic" id="chart-states-current-death-total"></div>
+  <div class="graphic" id="chart-states-current-death-total">
+    <h3 class="chart-hed">Total deaths by State</h3>
+    <div class="chart no-y-axis-domain"></div>
+    <div class="graphic-footer">
+      <div class="chart-expand-button"></div>
+      <div class="chart-api-note">
+        <p>
+          <a href="https://covidtracking.com/api/states">Get this data from our API</a>
+        </p>
+      </div>
+    </div>
+  </div>
 
   <div id="chart-state-small-multiples">
     <p>By comparing the positive tests to the total tests in each state, we can get a sense of how widespread a state’s testing regime might be (though always remember to consider population densities vary wildly across the country) and if the number of positive tests is tracking roughly against the total number of tests. If it is, then we might consider that the state isn’t necessarily just getting new infections every day but that they’re also giving more tests.</p>
@@ -82,11 +98,11 @@ nav: Dashboard
     <ul class="chart-legend chart-dek">
       <li><span class="chart-legend-positive-color"></span> Positive tests</li>
       <li><span class="chart-legend-total-color"></span> Total tests</li>
-      <li><span class="chart-legend-stay-at-home" style="background-color: black; width: 2px"></span> Date of statewide stay at home order</li>
+      <li><span class="chart-legend-stay-at-home" style="background-color: black; width: 2px"></span>Date the statewide stay-at-home order was implemented.</li>
     </ul>
     <div class="charts"><!-- where the graphics end up --></div>
     <div class="charts-notes">
-      <p><strong>Note:</strong> We derive the <code>total</code> value by adding together the <code>positive</code> and <code>negative</code> value for each state. This is to account for differences in how states reporting <code>pending</code> tests.</p>
+      <p><strong>Notes:</strong> We derive the <code>total</code> value by adding together the <code>positive</code> and <code>negative</code> value for each state. This is to account for differences in how states reporting <code>pending</code> tests. Only statewide stay-at-home orders were considered. The dates indicate when the order went into effect.
       <p><strong>Source:</strong> The COVID Tracking Project</p>
     </div>
 
