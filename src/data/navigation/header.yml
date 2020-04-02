@@ -6,5 +6,7 @@ items:
     link: /about-data
   - title: How You Can Help
     link: /help
+  - title: Data API
+    link: /api
   - title: FAQs for Newsrooms
     link: /project/faq
