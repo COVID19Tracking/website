@@ -14,7 +14,13 @@ Our content is managed in Contentful. All required environment variables are lis
 
 ### Download sample data
 
-Every time the website builds, it pulls information from Google spreadsheets and writes them to API output files. For local development purposes, [download an archive of our most recent data here](http://covidtracking.com/api/archive.tar.gz), then expand it to the directory `_data` in your repository.
+Every time the website builds, it pulls information from Google spreadsheets and writes them to API output files. You can download a copy of our latest API files by running:
+
+```shell
+npm run setup
+```
+
+Or, [download an archive of our most recent data here](http://covidtracking.com/api/archive.tar.gz), then expand it to the directory `_data` in your repository.
 
 ### Install
 
