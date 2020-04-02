@@ -90,11 +90,11 @@ nav: Dashboard
     <ul class="chart-legend chart-dek">
       <li><span class="chart-legend-positive-color"></span> Positive tests</li>
       <li><span class="chart-legend-total-color"></span> Total tests</li>
-      <li><span class="chart-legend-stay-at-home" style="background-color: black; width: 2px"></span> Date of statewide stay at home order</li>
+      <li><span class="chart-legend-stay-at-home" style="background-color: black; width: 2px"></span>Date the statewide stay-at-home order was implemented.</li>
     </ul>
     <div class="charts"><!-- where the graphics end up --></div>
     <div class="charts-notes">
-      <p><strong>Note:</strong> We derive the <code>total</code> value by adding together the <code>positive</code> and <code>negative</code> value for each state. This is to account for differences in how states reporting <code>pending</code> tests.</p>
+      <p><strong>Notes:</strong> We derive the <code>total</code> value by adding together the <code>positive</code> and <code>negative</code> value for each state. This is to account for differences in how states reporting <code>pending</code> tests. Only statewide stay-at-home orders were considered. The dates indicate when the order went into effect.
       <p><strong>Source:</strong> The COVID Tracking Project</p>
     </div>
     <div class="by-line">By Daniel Gilbert, <a href="https://gabeoleary.com">Gabe O'Leary</a>, Jeremia Kimelman, <a href="https://julialedur.com.br">Júlia Ledur</a> and Melba Madrigal.</div>
