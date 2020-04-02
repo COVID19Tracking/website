@@ -89,7 +89,11 @@ const statePages = _.flow(
 )
 
 function createPages(value) {
-  return [{ path: 'states/screenshots', value }, ...statePages(value)]
+  return [
+    { path: 'states/screenshots', value },
+    { path: 'states/screenshots-state', value: _.groupBy('state', value) },
+    ...statePages(value),
+  ]
 }
 
 module.exports = {

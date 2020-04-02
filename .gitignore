@@ -70,3 +70,6 @@ public
 
 # Data API build directory
 _data
+
+# Storybook build
+storybook-static

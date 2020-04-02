@@ -90,7 +90,6 @@ export const query = graphql`
           death
           negative
           positive
-          posNeg
           hospitalized
           totalTestResults
         }
