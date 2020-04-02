@@ -8,7 +8,9 @@ import SummaryTable from './summary-table'
 const State = ({ state }) => (
   <>
     <h3>
-      <Link to={`/data/state/${slug(state.name)}`}>{state.name}</Link>
+      <Link to={`/data/state/${slug(state.name)}`} id={`state-${state.state}`}>
+        {state.name}
+      </Link>
     </h3>
     <SummaryTable data={state.stateData} />
     <UnstyledList>
