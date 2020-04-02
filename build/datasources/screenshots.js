@@ -7,7 +7,7 @@ const {
   setField,
   setFieldWith,
 } = require('prairie')
-const { screenshotDate } = require('./utils')
+const { screenshotDate, toDailyDate } = require('./utils')
 const getXml = require('../handlers/xml')
 
 const isScreenshot = _.overEvery([
@@ -22,16 +22,18 @@ const addUrl = setField(
     `https://covidtracking.com/screenshots/${state}/${filename}`,
 )
 
-const addDate = setFieldWith(
-  'dateChecked',
+const addDate = mergeFieldsWith(
   'filename',
   _.flow(
     _.split('-'), // state-date-time.png
-    x => {
-      const dateStr = (x[1] + x[2]).split('.')[0]
-      if (/^\d+/.test(dateStr)) return screenshotDate(dateStr)
-      console.error('INVALID DATE', dateStr)
-      return null
+    parts => {
+      const secondary = parts[1] === 'secondary'
+      const filename = secondary ? parts[2] + parts[3] : parts[1] + parts[2]
+      const dateStr = filename.split('.')[0]
+      return {
+        dateChecked: screenshotDate(dateStr),
+        secondary,
+      }
     },
   ),
 )
@@ -47,6 +49,7 @@ const fixItem = _.flow(
       addDate,
     ),
   ),
+  setFieldWith('date', 'dateChecked', toDailyDate),
   _.omit(['ETag', 'StorageClass', 'Key', 'LastModified', 'filename']),
   move('Size', 'size'),
 )
@@ -71,11 +74,24 @@ async function getPages(previousItems = [], marker) {
 
 const statePages = _.flow(
   _.groupBy('state'),
-  _.map(value => ({ path: `state/${value[0].state}/screenshots`, value })),
+  _.flatMap(value => [
+    { path: `states/${value[0].state}/screenshots`, value },
+    { path: `states/${value[0].state.toLowerCase()}/screenshots`, value },
+  ]),
 )
+const dateStatePages = _.map(value => ({
+  path: `states/${value.state}/${value.date}/screenshots`,
+  value,
+}))
+// dateChecked
+const datePages = _.flow(_.groupBy('date'), _.flatMap(dateStatePages))
 
 function createPages(value) {
-  return [{ path: 'states/screenshots', value }, ...statePages(value)]
+  return [
+    { path: 'states/screenshots', value },
+    ...statePages(value),
+    ...datePages(value),
+  ]
 }
 
 module.exports = {
