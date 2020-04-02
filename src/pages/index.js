@@ -18,7 +18,6 @@ export default ({ data }) => (
     <SkipNavigation />
     <Header siteTitle="The COVID Tracking Project" noMargin hasHero />
     <h1 className="a11y-only">The COVID Tracking Project</h1>
-
     <div className="homepage-press-logos-wrapper">
       <Container>
         <h2>Our data has been cited by</h2>
