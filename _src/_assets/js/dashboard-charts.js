@@ -243,7 +243,7 @@ d => d.negativeIncrease + d.positiveIncrease,
         return d.value
       })
     })
-    // d3.format('.2s')
+
     chart.node().appendChild(areaChart.svg)
   }
 
