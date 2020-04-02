@@ -10,9 +10,7 @@ The website is built on [GatsbyJS](https://www.gatsbyjs.org/). If you are not fa
 
 ### Environment Variables
 
-Our content is managed in Contentful. All required environment variables are listed (with dummy values) in `.env.example` and you can easily duplicate this file with `cp .env.example .env`, then replace each value with the values you'll find in [our storybook documentation][storybook].
-
-[storybook]: https://covidtracking.com/__storybook/?path=/docs/getting-started--page
+Our content is managed in Contentful. All required environment variables are listed (with dummy values) in `.env.example` and you can easily duplicate this file with `cp .env.example .env`, then replace each value with the values you'll find in [our storybook documentation](https://covid19tracking.github.io/website-docs).
 
 ### Install
 
