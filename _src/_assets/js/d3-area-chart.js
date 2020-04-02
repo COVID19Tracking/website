@@ -103,6 +103,13 @@ function d3AreaChart({
     .axisLeft()
     .scale(yScale)
     .ticks(4)
+    .tickFormat(function(d){
+      if(d/1000000 < 1){
+        return d/1000000;
+      } else {
+        return d/1000000 + " Million";
+      }
+    })
   const xAxisG = axi
     .append('g')
     .classed('axis x-axis', true)
