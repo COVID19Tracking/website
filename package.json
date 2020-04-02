@@ -88,7 +88,8 @@
     "prettier": "^1.19.1"
   },
   "scripts": {
-    "build": "npm run fetch-data; gatsby build; cp -R build/data/* public/api/; npm run build-test",
+    "build": "npm run fetch-data && gatsby build && npm run copy-api-data && npm run build-test",
+    "copy-api-data": "cp -R _data/* public/api/ && tar -czf public/api/archive.tar.gz _data/",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
@@ -97,8 +98,9 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "fetch-data": "cd build && npm run build",
+    "fetch-data": "node build/index.js",
     "deploy-storybook": "build-storybook; gh-pages -d storybook-static -r https://github.com/COVID19Tracking/website-docs",
-    "build-test": "jest -- src/__tests__/build-test.js"
+    "build-test": "jest -- src/__tests__/build-test.js",
+    "setup": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz"
   }
 }
