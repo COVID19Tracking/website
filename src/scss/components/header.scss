@@ -53,13 +53,6 @@
       margin-bottom: 0;
     }
 
-    a {
-      color: white;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: bold;
-    }
-
     h1 {
       margin: 35px 0 17.5px;
       font-size: 2.2rem;
@@ -75,6 +68,13 @@
       display: flex;
       width: auto;
       margin-left: auto;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: bold;
     }
 
     nav {
@@ -110,9 +110,13 @@
         a:focus {
           color: $color-secondary-lightest;
         }
+        a:hover,
         a[aria-current] {
-          border-bottom: 3px solid $color-secondary-lightest;
+          border-bottom: 3px solid $color-secondary-light;
           padding-bottom: 2px;
+        }
+        a[aria-current] {
+          color: white;
         }
 
         li:last-child {
