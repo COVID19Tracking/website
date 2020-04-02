@@ -101,7 +101,6 @@ const StatePage = ({ pageContext, data }) => {
   const summary = data.allCovidState.edges[0].node
   return (
     <Layout title={state.name}>
-      <h1>{state.name}</h1>
       <StateLinks {...state} />
       <StateGrade letterGrade={summary.grade} />
       {state.notes && (
