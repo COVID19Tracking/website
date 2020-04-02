@@ -2,16 +2,23 @@ const _ = require('lodash/fp')
 const { fixDaily, sheets } = require('./sheets')
 
 // Each state, specific date.
-const stateDatePages = _.map(value => ({
-  path: `state/${value.state}/${value.date}`,
-  value,
-}))
+const stateDatePages = _.flatMap(value => [
+  {
+    path: `states/${value.state}/${value.date}`,
+    value,
+  },
+  {
+    path: `states/${value.state.toLowerCase()}/${value.date}`,
+    value,
+  },
+])
 
 // Each state with all dates.
 const statePages = _.flow(
   _.groupBy('state'),
   _.flatMap(value => [
-    { path: `state/${value[0].state}/daily`, value },
+    { path: `states/${value[0].state}/daily`, value },
+    { path: `states/${value[0].state.toLowerCase()}/daily`, value },
     ...stateDatePages(value),
   ]),
 )

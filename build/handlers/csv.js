@@ -1,8 +1,9 @@
 const jsonexport = require('jsonexport')
+const { alwaysArray } = require('./utils')
 
-const toCSV = value =>
+const toCSV = values =>
   new Promise((resolve, reject) => {
-    jsonexport(value, (err, csv) => {
+    jsonexport(alwaysArray(values), (err, csv) => {
       if (err) return reject(err.stack || err)
       return resolve(csv)
     })

@@ -15,11 +15,13 @@ function fixUsCurrentItems(newValues, oldVals) {
   const newHash = hash(newValues[0])
   const oldHash = oldVals && oldVals[0].hash
   if (oldHash !== newHash) {
-    return fixUsCurrent({
-      ...newValues[0],
-      hash: newHash,
-      lastModified: new Date(),
-    })
+    return [
+      fixUsCurrent({
+        ...newValues[0],
+        hash: newHash,
+        lastModified: new Date(),
+      }),
+    ]
   }
   return oldVals
 }

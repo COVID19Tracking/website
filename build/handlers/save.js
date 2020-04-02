@@ -2,6 +2,7 @@ const { emptyDir, outputFile } = require('fs-extra')
 const _ = require('lodash/fp')
 const { forEachP } = require('understory')
 const toCSV = require('./csv')
+const toHTML = require('./html')
 
 const DATA_DIR = 'data'
 
@@ -9,18 +10,22 @@ const saveFile = _.curry((fileName, data) =>
   outputFile(fileName, data).then(() => console.log(`Saved file ${fileName}`)),
 )
 
-const getFileName = (ext, path, version) =>
+const getFileName = (ext, { path, version }) =>
   `${DATA_DIR}/v${version || 1}/${path}.${ext}`
 
-function saveCSV({ path, value, version }) {
-  return toCSV(value).then(saveFile(getFileName('csv', path, version)))
+function saveCSV({ value, ...info }) {
+  return toCSV(value).then(saveFile(getFileName('csv', info)))
 }
-function saveJSON({ path, value, version }) {
-  return saveFile(getFileName('json', path, version), JSON.stringify(value))
+function saveJSON({ value, ...info }) {
+  return saveFile(getFileName('json', info), JSON.stringify(value))
+}
+function saveHTML({ value, ...info }) {
+  return saveFile(getFileName('html', info), toHTML(value))
 }
 
-// fs.writeFileSync
-const saveFiles = _.flow(_.over([saveCSV, saveJSON]), x => Promise.all(x))
+const saveFiles = _.flow(_.over([saveCSV, saveJSON, saveHTML]), x =>
+  Promise.all(x),
+)
 
 function saveAll(files) {
   return forEachP(saveFiles, files)
