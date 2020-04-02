@@ -7,6 +7,7 @@ import formatDate from '../utilities/format-date'
 import thousands from '../utilities/format-thousands'
 import { UnstyledList } from '../components/common/lists'
 import DetailText from '../components/common/detail-text'
+import StateGrade from '../components/common/state-grade'
 import SummaryTable from '../components/common/summary-table'
 import { SyncInfobox } from '../components/common/infobox'
 import Table from '../components/common/table'
@@ -102,6 +103,7 @@ const StatePage = ({ pageContext, data }) => {
     <Layout title={state.name}>
       <h1>{state.name}</h1>
       <StateLinks {...state} />
+      <StateGrade letterGrade={summary.grade} />
       {state.notes && (
         <div
           dangerouslySetInnerHTML={{
