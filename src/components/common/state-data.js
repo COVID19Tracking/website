@@ -35,12 +35,6 @@ const State = ({ state }) => (
           Historical data for {state.name}
         </Link>
       </li>
-      {state.stateData.grade && (
-        <li>
-          Data quality grade:{' '}
-          <span className="state-grade">{state.stateData.grade}</span>
-        </li>
-      )}
     </UnstyledList>
     {state.notes && (
       <div
