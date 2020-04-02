@@ -2,25 +2,24 @@
 
 ;(async function loadMap() {
   const button = d3.select('#map-start-stop')
-  const chloroButton = d3.select('#map-chloro-button')
-  const propertyDropdown = d3.select('#map-property-select')
+  const choroButton = d3.select('#map-choro-button')
   const slider = d3.select('#map-time-scrubber [type="range"]')
   const formatDate = d3.timeFormat('%b. %d')
-  const formatNumber = d3.format(',')
+  const formatNumber = d3.format(',.0f')
   const parseDate = d3.timeParse('%Y%m%d')
 
   // duplicated from dashboard-chart.js - should have common lib
 
   const colors = {
-    totalTestResults: '#585BC1',
-    positive: '#FFA270',
-    death: 'black',
+    totalTestResults: '#696DC2',
+    positive: '#E5A968',
+    death: '#404856',
   }
 
-  const getValue = (d, field = currentField) =>
-    (d.properties.dailyData[currentDate] &&
+  const getValue = (d, field = currentField, normalized = false) =>
+    ((d.properties.dailyData[currentDate] &&
       d.properties.dailyData[currentDate][field]) ||
-    0
+      0) / (normalized ? d.properties.population / 1000000 : 1)
 
   // holds all data in geojson objects
   let joinedData = null
@@ -29,12 +28,36 @@
   // holds the field we are currently viewing
   let currentField = 'positive'
 
-  let useChloropleth = false
+  let usechoropleth = false
 
   // this should be dynamic, espcially with the toggleable fields
-  const colorLimits = [5, 10, 25, 50, 100, 250, 500]
+  // for now there is just a scale for each of the fields.
+  const limit = [1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000]
+  const colorLimits = {
+    death: [1, 2, 5, 10, 25, 50, 100],
+    positive: [50, 100, 250, 500, 1000, 2500, 5000],
+    totalTestResults: [100, 250, 500, 1000, 2500, 5000, 10000],
+  }
 
-  const getColor = d3.scaleThreshold(colorLimits, d3.schemeYlOrRd[8])
+  const mapColorScale = [
+    '#E5A968',
+    '#ED9C42',
+    '#DC8C3A',
+    '#CA7B32',
+    '#B96A2A',
+    '#A75922',
+    '#96491A',
+    '#843812',
+  ]
+
+  const getColor = {
+    death: d3.scaleThreshold(colorLimits.death, d3.schemeGreys[8]),
+    positive: d3.scaleThreshold(colorLimits.positive, d3.schemeOranges[8]),
+    totalTestResults: d3.scaleThreshold(
+      colorLimits.totalTestResults,
+      d3.schemePurples[8],
+    ),
+  }
 
   const createMapFromArray = (array, keyField, valueField = null) => {
     return Object.assign(
@@ -103,8 +126,51 @@
     const hedAndDek = d3
       .select('#state-map')
       .insert('div', 'div#map-time-scrubber')
-    const hed = hedAndDek.append('h3')
-    const dek = hedAndDek.append('p')
+      .attr('id', 'map-dek')
+    const hed = hedAndDek.append('h2')
+    const dek1 = hedAndDek.append('p')
+    const dek2 = hedAndDek.append('p')
+    dek1.html(
+      `<span id="dek-tests"></span> <span class="legend-text total">tests conducted</span>`,
+    )
+    dek2.html(
+      `<span id="dek-positive"></span> <span class="legend-text positive">positive tests</span>`,
+    )
+    function setupDropdown() {
+      const propertyDropdown = dek1
+        .append('select')
+        .attr('id', 'map-property-select')
+        .attr('value', currentField)
+
+      const propertyOptions = [
+        {
+          value: 'positive',
+          name: 'Positive Cases',
+        },
+        {
+          value: 'totalTestResults',
+          name: 'Total Tests',
+        },
+        {
+          value: 'death',
+          name: 'Deaths',
+        },
+      ]
+      // set up property selector
+      propertyDropdown
+        .selectAll('option')
+        .data(propertyOptions)
+        .enter()
+        .append('option')
+        .text(d => d.name)
+        .attr('value', d => d.value)
+      propertyDropdown.on('change', () => {
+        currentField = propertyDropdown.property('value')
+        updateMap()
+      })
+    }
+    setupDropdown()
+
     const svg = d3
       .select('#state-map')
       .append('svg')
@@ -117,15 +183,17 @@
       .attr('id', 'map-tooltip')
       .style('display', 'none')
 
-    const maxValue = d3.max(joinedData.features, d => getValue(d))
+    const maxValue = d3.max(joinedData.features, d =>
+      getValue(d, 'totalTestResults'),
+    )
 
     const r = d3
       .scaleSqrt()
       .domain([0, maxValue])
       .range([0, 50])
     const map = svg.append('g')
-    const bubbles = svg.append('g')
-    const deathBubbles = svg.append('g')
+    const testBubbles = svg.append('g').attr('id', 'testBubbles')
+    const bubbles = svg.append('g').attr('id', 'bubbles')
 
     updateMap()
 
@@ -134,68 +202,88 @@
     // })
 
     function updateLegend() {
-      if (useChloropleth) {
+      //miggt be better to add both legends once and toggle
+      d3.select('#map-legend')
+        .selectAll('*')
+        .remove()
+      if (usechoropleth) {
         d3.select('#map-legend')
-          .selectAll('*')
-          .remove()
-        return
+          .append('span')
+          .attr('style', 'font-weight: 600')
+          .text(`per million residents`)
+        d3.select('#map-legend').append(() =>
+          d3Legend({
+            color: getColor[currentField],
+            height: 40,
+            width: 300,
+            marginTop: 8,
+            tickFormat: '~s',
+            spaceBetween: 2,
+            tickSize: 0,
+          }),
+        )
+      } else {
+        //bubble legend
+        const legend = d3
+          .select('#map-legend')
+          .append('svg')
+          .attr('style', 'overflow:visible')
+        const formatLegendEntry = d => parseInt(d3.format('.1r')(d))
+        const legendData = [
+          formatLegendEntry(maxValue * 0.1),
+          formatLegendEntry(maxValue * 0.5),
+          formatLegendEntry(maxValue),
+        ]
+        legend
+          .attr('height', 150)
+          .attr('width', 150)
+          .append('g')
+          .selectAll('circle')
+          .data(legendData)
+          .enter()
+          .append('circle')
+          .attr('r', d => r(d))
+          .attr('cx', 52)
+          .attr('cy', d => 145 - r(d))
+          .attr('stroke', '#ababab')
+          .attr('fill', 'none')
+
+        legend
+          .append('g')
+          .selectAll('line')
+          .data(legendData)
+          .enter()
+          .append('line')
+          .attr('x1', 52)
+          .attr('x2', 130)
+          .attr('y1', d => 145 - 2 * r(d))
+          .attr('y2', d => 145 - 2 * r(d))
+          .attr('stroke', '#ababab')
+          .attr('stroke-dasharray', '5 5')
+
+        legend
+          .append('g')
+          .selectAll('text')
+          .data(legendData)
+          .enter()
+          .append('text')
+          .attr('font-size', '10pt')
+          .attr('x', 105)
+          .attr('y', d => 140 - 2 * r(d))
+          .text(d => formatNumber(d))
       }
-      const legendData = [
-        parseInt(maxValue * 0.1),
-        parseInt(maxValue * 0.5),
-        maxValue,
-      ]
-      const legend = d3.select('#map-legend').append('svg')
-
-      legend
-        .attr('height', 150)
-        .attr('width', 150)
-        .append('g')
-        .selectAll('circle')
-        .data(legendData)
-        .enter()
-        .append('circle')
-        .attr('r', d => r(d))
-        .attr('cx', 52)
-        .attr('cy', d => 145 - r(d))
-        .attr('stroke', '#ababab')
-        .attr('fill', 'none')
-
-      legend
-        .append('g')
-        .selectAll('line')
-        .data(legendData)
-        .enter()
-        .append('line')
-        .attr('x1', 52)
-        .attr('x2', 130)
-        .attr('y1', d => 145 - 2 * r(d))
-        .attr('y2', d => 145 - 2 * r(d))
-        .attr('stroke', '#ababab')
-        .attr('stroke-dasharray', '5 5')
-
-      legend
-        .append('g')
-        .selectAll('text')
-        .data(legendData)
-        .enter()
-        .append('text')
-        .attr('font-size', '10pt')
-        .attr('x', 105)
-        .attr('y', d => 140 - 2 * r(d))
-        .text(d => formatNumber(d))
     }
 
     function updateMap() {
       const getColorFromFeature = d => {
-        if (!useChloropleth) return 'white'
+        if (!usechoropleth) return 'white'
         const normalizationPopulation = 1000000 // 1 million;
 
         const normalizedValue = d.properties.dailyData[currentDate]
           ? d.properties.dailyData[currentDate][currentField] /
             (d.properties.population / normalizationPopulation)
           : 0
-        return getColor(normalizedValue)
+        return getColor[currentField](normalizedValue)
       }
       updateLegend()
       const states = map.selectAll('path').data(joinedData.features)
@@ -210,65 +298,119 @@
       states
         .on('mouseenter', function(d) {
           const positive = getValue(d, 'positive')
+          const positiveNorm = getValue(d, 'positive', true)
           const totalTestResults = getValue(d, 'totalTestResults')
+          const totalTestResultsNorm = getValue(d, 'totalTestResults', true)
           const death = getValue(d, 'death')
+          const deathNorm = getValue(d, 'death', true)
+          const tooltipHtml = `
+            <table>
+              <thead>
+                <tr>
+                  <td colspan="3">
+                  ${d.properties.NAME}
+                  <br />
+                  <span class="date">
+                    ${formatDate(parseDate(currentDate))}
+                  </span>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>Total</td>
+           	      <td>Per capita*</td>
+                </tr>
+                <tr>
+                  <td>Tests</td>
+                  <td>${formatNumber(totalTestResults)}</td>
+           	      <td>${formatNumber(totalTestResultsNorm)}</td>
+                </tr>
+                <tr>
+                  <td>Positive tests</td>
+                  <td>${formatNumber(positive)}</td>
+           	      <td>${formatNumber(positiveNorm)}</td>
+              </tr>
+              <tr>
+                <td>Deaths</td>
+                <td>${formatNumber(death)}</td>
+                <td>${formatNumber(deathNorm)}</td>
+              </tr>
+            </tbody>
+          </table>
+          `
           tooltip
             .style('display', 'block')
             .style('top', d3.event.layerY + 20 + 'px')
-            .style('left', d3.event.layerX - 135 + 'px').html(`
-              <strong>${d.properties.NAME}</strong>
-              <p>${formatNumber(death)} deaths</p>
-              <p>${formatNumber(positive)} positive tests</p>
-              <p>${formatNumber(totalTestResults)} total tests</p>
-            `)
+            .style('left', d3.event.layerX - 135 + 'px')
+            .html(tooltipHtml)
         })
         .on('mouseleave', d => tooltip.style('display', 'none'))
-      drawCircles(useChloropleth)
+      drawCircles(usechoropleth)
+      updateHedAndDek()
+    }
+
+    function updateHedAndDek() {
+      //todo: complete sum
+      hed.text(formatDate(parseDate(currentDate)))
+      if (usechoropleth) {
+        const totalchoro = d3.sum(joinedData.features, d => getValue(d))
+        d3.select('.legend-text').attr('style', 'display:none')
+        dek2.attr('style', 'display:none')
+        d3.select('#map-property-select').attr('style', '')
+        d3.select('#dek-tests').text(formatNumber(totalchoro))
+      } else {
+        const totalTests = d3.sum(joinedData.features, d =>
+          getValue(d, 'totalTestResults'),
+        )
+        const totalPositive = d3.sum(joinedData.features, d =>
+          getValue(d, 'positive'),
+        )
+        d3.select('.legend-text').attr('style', '')
+        dek2.attr('style', '')
+        d3.select('#map-property-select').attr('style', 'display:none')
+        d3.select('#dek-tests').text(formatNumber(totalTests))
+        d3.select('#dek-positive').text(formatNumber(totalPositive))
+      }
     }
 
     function drawCircles(remove = false) {
-      //todo: complete sum
-      const totalOnDate = d3.sum(joinedData.features, d => getValue(d))
-
-      hed.text(formatDate(parseDate(currentDate)))
-      dek.text(`${formatNumber(totalOnDate)} across the country`)
-
       const circles = bubbles.selectAll('circle').data(joinedData.features)
-      const deathCircles = deathBubbles
+      const testCircles = testBubbles
         .selectAll('circle')
         .data(joinedData.features)
 
       if (remove) {
         circles.remove()
-        deathCircles.remove()
+        testCircles.remove()
       } else {
         circles
           .enter()
           .append('circle')
           .attr('cx', d => d.properties.centroidCoordinates[0])
           .attr('cy', d => d.properties.centroidCoordinates[1])
-          .attr('stroke', colors.positive)
+          .attr('stroke', '#D18F4B')
           .attr('fill', colors.positive)
-          .attr('fill-opacity', 0.2)
+          .attr('fill-opacity', 0.8)
           .style('pointer-events', 'none')
           .attr('r', d => {
             const value = getValue(d, 'positive')
             return r(value)
           })
-        deathCircles
+        testCircles
           .enter()
           .append('circle')
           .attr('cx', d => d.properties.centroidCoordinates[0])
           .attr('cy', d => d.properties.centroidCoordinates[1])
-          .attr('stroke', colors.death)
-          .attr('fill', colors.death)
+          .attr('stroke', colors.totalTestResults)
+          .attr('fill', colors.totalTestResults)
           .attr('fill-opacity', 0.2)
           .style('pointer-events', 'none')
           .attr('r', d => {
-            const value = getValue(d, 'death')
+            const value = getValue(d, 'totalTestResults')
             return r(value)
           })
-
         circles
           .transition()
           .duration(200)
@@ -276,11 +418,11 @@
             const value = getValue(d, 'positive')
             return r(value)
           })
-        deathCircles
+        testCircles
           .transition()
           .duration(200)
           .attr('r', d => {
-            const value = getValue(d, 'death')
+            const value = getValue(d, 'totalTestResults')
             return r(value)
           })
       }
@@ -321,32 +463,8 @@
       }
     })
 
-    chloroButton.on('change', () => {
-      useChloropleth = chloroButton.property('checked')
-      updateMap()
-    })
-
-    const propertyOptions = [
-      {
-        value: 'positive',
-        name: 'Positive Cases',
-      },
-      {
-        value: 'death',
-        name: 'Deaths',
-      },
-    ]
-    // set up property selector
-    propertyDropdown
-      .selectAll('option')
-      .data(propertyOptions)
-      .enter()
-      .append('option')
-      .text(d => d.name)
-      .attr('value', d => d.value)
-
-    propertyDropdown.on('change', () => {
-      currentField = propertyDropdown.property('value')
+    choroButton.on('change', () => {
+      usechoropleth = choroButton.property('checked')
       updateMap()
     })
 
