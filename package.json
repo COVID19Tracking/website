@@ -72,6 +72,7 @@
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
     "get-contrast": "^2.0.0",
+    "gh-pages": "^2.2.0",
     "prettier": "^1.19.1"
   },
   "scripts": {
@@ -84,6 +85,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "fetch-data": "cd build && npm run build"
+    "fetch-data": "cd build && npm run build",
+    "deploy-storybook": "build-storybook; gh-pages -d storybook-static -r https://github.com/COVID19Tracking/website-docs"
   }
 }
