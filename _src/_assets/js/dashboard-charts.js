@@ -13,15 +13,19 @@
 
   const totalColor = '#585BC1'
   const positiveColor = '#FFA270'
+  const deathsBarColor = '#3F4856'
 
   // these come from this google spreadsheet owned by Júlia Ledur
   // https://docs.google.com/spreadsheets/d/1mD_NhlJR1fM2Pv_pY8YixUrX2p2F8rAE0xPTtsTJOiM/edit#gid=0
   const stayAtHomeOrders = {
     AK: 20200328,
+    AZ: 20200331,
     CA: 20200319,
     CO: 20200326,
     CT: 20200323,
+    DC: 20200401,
     DE: 20200324,
+    FL: 20200403,
     HI: 20200325,
     ID: 20200325,
     IL: 20200321,
@@ -29,12 +33,15 @@
     KS: 20200330,
     LA: 20200323,
     MA: 20200324,
+    MD: 20200330,
     MI: 20200324,
     MN: 20200327,
     MT: 20200328,
+    NC: 20200330,
     NH: 20200327,
     NJ: 20200321,
     NM: 20200324,
+    NV: 20200401,
     NY: 20200322,
     NC: 20200330,
     OH: 20200323,
@@ -240,8 +247,9 @@ d => d.negativeIncrease + d.positiveIncrease,
       width: chart.node().clientWidth * 0.9,
       yMax: d3.max(transformedData, function(d) {
         return d.value
-      }),
+      })
     })
+
     chart.node().appendChild(areaChart.svg)
   }
 
@@ -277,7 +285,7 @@ d => d.negativeIncrease + d.positiveIncrease,
         top: 20,
         bottom: 20,
       })
-      .colorSchema([totalColor])
+      .colorSchema([deathsBarColor])
       .height(350)
       .width(width)
       .xAxisLabel('Date')
@@ -309,28 +317,15 @@ d => d.negativeIncrease + d.positiveIncrease,
     const chartContainer = d3.select(
       '#chart-states-current-death-total',
     )
-    const hed = chartContainer
-      .append('h3')
-      .classed('chart-hed', true)
 
-    const chart = chartContainer
-      .append('div')
-      .classed('chart', true)
-      .classed('no-y-axis-domain', true)
-
-    const expand = chartContainer
-      .append('div')
-      .classed('chart-expand-note', true)
-    const source = chartContainer
-      .append('div')
-      .classed('chart-api-note', true)
+    const chart = chartContainer.select('.chart')
+    const expand = chartContainer.select('.graphic-footer').select('.chart-expand-button')
     const barChart = britecharts.bar()
-    const width =
-      chartContainer.node().clientWidth * 0.9
+    const width = chartContainer.node().clientWidth * 0.9
     const isExpanded = () => expand.classed('expanded-true')
     const getHeight = () => isExpanded() ? 1000 : 400
     const formatExpandedChartData = () => isExpanded() ? transformedData : transformedData.slice(-10)
-    const getExpandText = () => isExpanded() ? 'Collapse' : 'Expand' 
+    const getExpandText = () => isExpanded() ? 'Collapse' : 'Show all states' 
 
     barChart
       .margin({
@@ -340,7 +335,7 @@ d => d.negativeIncrease + d.positiveIncrease,
         bottom: 20,
       })
       .isHorizontal(true)
-      .colorSchema([totalColor])
+      .colorSchema([deathsBarColor])
       .height(getHeight())
       .width(width)
       .xAxisLabel('Deaths')
@@ -360,12 +355,8 @@ d => d.negativeIncrease + d.positiveIncrease,
         }
       })          
 
-    hed.text('Total deaths by State')
     expand.html(`<p>${getExpandText()}</p>`)
     chart.datum(formatExpandedChartData()).call(barChart)
-    source.html(`
-      <p><a href="https://covidtracking.com/api/states">Get this data from our API</a></p>
-    `)
   }
 
   function alterBriteChartStyles() {
@@ -379,21 +370,26 @@ d => d.negativeIncrease + d.positiveIncrease,
       const container = d3.select(id)
 
       // set up grid lines
-      if (
-        id === '#chart-daily-positive-total' ||
-        id === '#chart-daily-death-total'
-      ) {
-        const tickSelector = id + ' .y-axis-group .tick'
-        const chart = container.select('.chart-group')
+      const tickSelector = id + ' .y-axis-group .tick'
+      const chart = container.select('.chart-group')
+      
         d3.selectAll(tickSelector).each(function(d) {
           const tick = d3.select(this)
           const line = tick.select('line')
-
-          line.attr('x1', container.node().clientWidth * 0.78)
+          
+          // grid lines for vertical bar charts only
+          if (
+            id === '#chart-daily-positive-total' ||
+            id === '#chart-daily-death-total'
+          ) {
+            line.attr('x1', container.node().clientWidth * 0.78)
+          } else {
+            line.attr('x2', 0)
+          }
         })
+      
 
         chart.raise()
-      }
 
       // change circle legend indicators to squares
 

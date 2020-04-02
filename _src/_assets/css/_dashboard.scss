@@ -93,9 +93,9 @@ ul.chart-legend {
   padding-left: 1rem;
   width: 100%;
 
-  @media screen and (min-width: 550px) {
+  @media screen and (min-width: 660px) {
     flex-direction: row;
-    width: 550px;
+    width: 660px;
   }
 }
 
@@ -501,15 +501,22 @@ input[type='range']::-moz-range-thumb {
     }
   }
 }
-.chart-expand-note {
+
+.chart-expand-button {
+  background-color: #F2F5FC;
+  border: 0.08rem solid #788598;
+  border-radius: 8px;
   cursor: pointer;
+  text-align: center;
+  padding: 0.4rem;
+  float: left;
+
   p {
-    color: #000000;
+    color: #585F65;
     font-size: 10pt;
-    top: -0.2rem;
-    margin-bottom: 0.2rem;
-    text-align: left;
-    width: 86%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 }
 
