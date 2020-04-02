@@ -72,26 +72,24 @@ async function getPages(previousItems = [], marker) {
   return hasMore(result) ? getPages(items, getMarker(result)) : items
 }
 
+const dateStatePages = value => ({
+  path: `states/${value[0].state}/${value[0].date}/screenshots`,
+  value,
+})
+// dateChecked
+const datePages = _.flow(_.groupBy('date'), _.map(dateStatePages))
+
 const statePages = _.flow(
   _.groupBy('state'),
   _.flatMap(value => [
     { path: `states/${value[0].state}/screenshots`, value },
     { path: `states/${value[0].state.toLowerCase()}/screenshots`, value },
+    ...datePages(value),
   ]),
 )
-const dateStatePages = _.map(value => ({
-  path: `states/${value.state}/${value.date}/screenshots`,
-  value,
-}))
-// dateChecked
-const datePages = _.flow(_.groupBy('date'), _.flatMap(dateStatePages))
 
 function createPages(value) {
-  return [
-    { path: 'states/screenshots', value },
-    ...statePages(value),
-    ...datePages(value),
-  ]
+  return [{ path: 'states/screenshots', value }, ...statePages(value)]
 }
 
 module.exports = {
