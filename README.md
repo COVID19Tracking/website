@@ -1,8 +1,8 @@
 # COVID Tracking Project
 
-The COVID Tracking Project collects information from 50 US states, the District of Columbia, and 5 other US territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2
+The COVID Tracking Project collects information from 50 U.S. states, the District of Columbia, and 5 other U.S. territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2.
 
-This repository is for the **website** of the project, available at http://covidtracking.com/
+This repository is for the project's **website**: https://covidtracking.com/.
 
 ## Development
 
@@ -10,26 +10,19 @@ The website is built on [GatsbyJS](https://www.gatsbyjs.org/). If you are not fa
 
 ### Environment Variables
 
-Our contnet is managed in Contentful, and you will need the following environment variables set in your local environment. [Read our documentation](https://covidtracking.com/__storybook/?path=/docs/getting-started--page) for the values.
+Our content is managed in Contentful. All required environment variables are listed (with dummy values) in `.env.example` and you can easily duplicate this file with `cp .env.example .env`, then replace each value with the values you'll find in [our storybook documentation][storybook].
 
-```
-CONTENTFUL_BLOG_SPACE
-CONTENTFUL_BLOG_TOKEN
-CONTENTFUL_PAGE_SPACE
-CONTENTFUL_PAGE_TOKEN
-```
-
-You can put these values in your bash profile, or you can create a .env file in the project root.
+[storybook]: https://covidtracking.com/__storybook/?path=/docs/getting-started--page
 
 ### Install
 
-Make sure you have Gatsby installed globally:
+First, you'll need the Gatsby command line interface installed globally:
 
 ```shell
 npm install -g gatsby-cli
 ```
 
-You can get the website setup in your local dev environment by running:
+Then, install all dependencies by running:
 
 ```shell
 npm install
