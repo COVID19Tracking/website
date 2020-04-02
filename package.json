@@ -59,6 +59,7 @@
     "netlify-cms-app": "^2.11.32",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
     "object-hash": "^2.0.3",
     "prairie": "^3.10.2",
     "prop-types": "^15.7.2",
@@ -87,8 +88,13 @@
     "prettier": "^1.19.1"
   },
   "scripts": {
-    "build": "npm run fetch-data && npm run data-quality-test && gatsby build && npm run copy-api-data && npm run build-test",
-    "copy-api-data": "cp -R _data/* public/api/ && tar -czf public/api/archive.tar.gz _data/",
+    "build": "run-s build:fetch-data build:test-data build:gatsby build:test-gatsby build:copy-api build:api-archive",
+    "build:fetch-data": "node build/index.js",
+    "build:test-data": "jest -- src/__tests__/api-test.js",
+    "build:gatsby": "gatsby build",
+    "build:test-gatsby": "jest -- src/__tests__/build-test.js",
+    "build:copy-api": "cp -R _data/* public/api/",
+    "build:api-archive": "tar -czf public/api/archive.tar.gz _data/",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
@@ -97,10 +103,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "fetch-data": "node build/index.js",
     "deploy-storybook": "build-storybook; gh-pages -d storybook-static -r https://github.com/COVID19Tracking/website-docs",
-    "build-test": "jest -- src/__tests__/build-test.js",
-    "data-quality-test": "jest -- src/__tests__/api-test.js",
     "setup": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz"
   }
 }
