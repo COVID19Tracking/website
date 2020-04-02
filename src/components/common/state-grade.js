@@ -31,9 +31,7 @@ const StateGrade = ({ letterGrade }) => {
       <span>
         Current <Link to="about-data#data-quality-grade">data grade</Link>:
       </span>
-      <div title={`Grade ${letterGrade || 'not available'}`}>
-        {svgElement(letterGrade)}
-      </div>
+      <div>{svgElement(letterGrade)}</div>
     </p>
   )
 }
