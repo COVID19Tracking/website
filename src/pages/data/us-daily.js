@@ -101,9 +101,13 @@ export const query = graphql`
       edges {
         node {
           pages {
-            ... on ContentfulNavigationLink {
-              link: url
+            ... on ContentfulPage {
               title
+              link: slug
+            }
+            ... on ContentfulNavigationLink {
+              title
+              link: url
             }
           }
         }
