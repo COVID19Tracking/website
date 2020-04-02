@@ -33,8 +33,7 @@ const fixState2 = _.flow(
 
 const states2 = {
   ...sheets,
-  worksheetId: '1MvvbHfnjF67GnYUDJJiNYUmGco5KQ9PW0ZRnEP9ndlU',
-  sheetName: 'States Current New!A:N',
+  sheetName: 'States current',
   fixItems: _.flow(_.map(fixState2), _.keyBy('state')),
 }
 
