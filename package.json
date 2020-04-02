@@ -81,7 +81,6 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "fetch-data": "cd build && npm run build",
-    "postinstall": "cd build && npm install"
+    "fetch-data": "cd build && npm run build"
   }
 }
