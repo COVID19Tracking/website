@@ -2,7 +2,7 @@
 name: Content issues
 about: Find a typo, or a better way communicate something?
 title: ''
-labels: ''
+labels: CONTENT/EDITORIAL
 assignees: ''
 
 ---
