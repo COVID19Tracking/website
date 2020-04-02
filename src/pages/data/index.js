@@ -92,7 +92,7 @@ export const query = graphql`
           positive
           posNeg
           hospitalized
-          total
+          totalTestResults
         }
       }
     }
@@ -111,7 +111,7 @@ export const query = graphql`
     allCovidState {
       edges {
         node {
-          total
+          totalTestResults
           state
           score
           positive
