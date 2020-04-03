@@ -26,6 +26,13 @@ Then, install all dependencies by running:
 npm install
 ```
 
+After, you will need to pull the most recent data files to your machine.
+
+```shell
+npm run setup
+```
+
+
 To run the website locally, use:
 
 ```shell
