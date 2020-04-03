@@ -37,8 +37,8 @@ export default ({ data, lastUpdated }) => (
         <th scope="col">Cumulative</th>
         <th scope="col">Currently</th>
         <th scope="col">Cumulative</th>
-        <th scope="col">Recovered</th>
-        <th scope="col">Discharged</th>
+        <th scope="col">Currently</th>
+        <th scope="col">Cumulative</th>
         <th scope="col">Deaths</th>
         <th scope="col">
           Total test results <span>(Positive + Negative)</span>
