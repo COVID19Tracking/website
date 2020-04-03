@@ -11,6 +11,8 @@ import { timeFormat, timeParse } from 'd3-time-format'
 
 import { StatesWithPopulation } from './_state-populations'
 
+import '../../scss/components/pages/dashboard/map.scss'
+
 // static d3 setup
 const margin = {
   bottom: 10,
@@ -77,6 +79,8 @@ export default function Map() {
 
   const [useChoropleth, setUseChoropleth] = useState(true)
 
+  const [hoveredState, setHoveredState] = useState(null)
+
   const getValue = useMemo(
     () => (d, field = currentField, normalized = false) =>
       ((d.properties.dailyData[currentDate] &&
@@ -129,9 +133,6 @@ export default function Map() {
     [maxValue],
   )
 
-  console.log('maxValue:', maxValue)
-  console.log('r:', r)
-
   useEffect(() => {
     const fetchData = async () => {
       const stateData = await json('https://covidtracking.com/api/states/daily')
@@ -161,6 +162,7 @@ export default function Map() {
               useChoropleth={useChoropleth}
               currentDate={currentDate}
               currentField={currentField}
+              setHoveredState={setHoveredState}
             />
             {!useChoropleth && (
               <Bubbles geoJson={joinedData} getValue={getValue} r={r} />
@@ -168,11 +170,20 @@ export default function Map() {
           </React.Fragment>
         )}
       </svg>
+      {hoveredState && (
+        <Tooltip hoveredState={hoveredState} getValue={getValue} />
+      )}
     </div>
   )
 }
 
-const States = ({ geoJson, useChoropleth, currentDate, currentField }) => {
+const States = ({
+  geoJson,
+  useChoropleth,
+  currentDate,
+  currentField,
+  setHoveredState,
+}) => {
   //below function should use getValue
   const getColorFromFeature = d => {
     if (!useChoropleth) return 'white'
@@ -184,6 +195,7 @@ const States = ({ geoJson, useChoropleth, currentDate, currentField }) => {
       : 0
     return getColor[currentField](normalizedValue)
   }
+
   const states = geoJson.features.map((d, i) => (
     <path
       key={'path' + i}
@@ -191,6 +203,13 @@ const States = ({ geoJson, useChoropleth, currentDate, currentField }) => {
       className="countries"
       fill={getColorFromFeature(d)}
       stroke="#ababab"
+      onMouseEnter={event => {
+        setHoveredState({
+          coordinates: [event.pageX, event.pageY],
+          state: d,
+        })
+      }}
+      onMouseLeave={() => setHoveredState(null)}
     />
   ))
   return <g>{states}</g>
@@ -233,7 +252,6 @@ const Bubbles = ({ geoJson, r, getValue }) => {
 }
 
 const BubbleLegend = ({ r, maxValue }) => {
-  console.log('BubbleLegend maxValue: ', maxValue)
   const formatLegendEntry = d => parseInt(format('.1r')(d))
   const legendData = [
     formatLegendEntry(maxValue * 0.1),
@@ -272,5 +290,54 @@ const BubbleLegend = ({ r, maxValue }) => {
       {legendLines}
       {legendText}
     </svg>
+  )
+}
+
+const Tooltip = ({ hoveredState, currentDate, getValue }) => {
+  const { coordinates, state } = hoveredState
+  const d = state
+  const [x, y] = coordinates
+  const positive = getValue(d, 'positive')
+  const positiveNorm = getValue(d, 'positive', true)
+  const totalTestResults = getValue(d, 'totalTestResults')
+  const totalTestResultsNorm = getValue(d, 'totalTestResults', true)
+  const death = getValue(d, 'death')
+  const deathNorm = getValue(d, 'death', true)
+  return (
+    <div id="map-tooltip" style={{ top: y, left: x }}>
+      <table>
+        <thead>
+          <tr>
+            <td colSpan="3">
+              {d.properties.NAME}
+              <br />
+              <span className="date">{formatDate(parseDate(currentDate))}</span>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>Total</td>
+            <td>Per capita*</td>
+          </tr>
+          <tr>
+            <td>Tests</td>
+            <td>{formatNumber(totalTestResults)}</td>
+            <td>{formatNumber(totalTestResultsNorm)}</td>
+          </tr>
+          <tr>
+            <td>Positive tests</td>
+            <td>{formatNumber(positive)}</td>
+            <td>{formatNumber(positiveNorm)}</td>
+          </tr>
+          <tr>
+            <td>Deaths</td>
+            <td>{formatNumber(death)}</td>
+            <td>{formatNumber(deathNorm)}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   )
 }
