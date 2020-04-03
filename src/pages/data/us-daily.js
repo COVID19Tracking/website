@@ -50,7 +50,7 @@ const ContentPage = ({ data }) => (
                 <td>{node.states}</td>
                 <td>{node.positive.toLocaleString()}</td>
                 <td>{node.negative.toLocaleString()}</td>
-                <td>{node.posNeg.toLocaleString()}</td>
+                <td>{(node.positive + node.negative).toLocaleString()}</td>
                 <td>{node.pending.toLocaleString()}</td>
                 <td>
                   {node.hospitalized
@@ -90,7 +90,6 @@ export const query = graphql`
           states
           positive
           pending
-          posNeg
           negative
           hospitalized
           death
@@ -102,9 +101,13 @@ export const query = graphql`
       edges {
         node {
           pages {
-            ... on ContentfulNavigationLink {
-              link: url
+            ... on ContentfulPage {
               title
+              link: slug
+            }
+            ... on ContentfulNavigationLink {
+              title
+              link: url
             }
           }
         }

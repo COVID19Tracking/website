@@ -50,6 +50,7 @@ const compatibility = _.flow(
   copy('hospitalizedCumulative', 'hospitalized'),
   addOldTotal,
   addTotalResults,
+  copy('totalTestResults', 'posNeg'),
 )
 module.exports = {
   addDailyDateChecked,
