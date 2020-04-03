@@ -55,13 +55,17 @@ export default ({ data }) => (
   >
     <div
       dangerouslySetInnerHTML={{
-        __html:
-          data.allContentfulSnippet.edges[0].node
-            .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
+        __html: data.dataPreamble.nodes[0].content.childMarkdownRemark.html,
       }}
     />
     <SyncInfobox />
     <SummaryTable data={data.allCovidUs.edges[0].node} />
+    <div
+      dangerouslySetInnerHTML={{
+        __html:
+          data.dataSummaryFootnote.nodes[0].content.childMarkdownRemark.html,
+      }}
+    />
     <h2 id="states-top">States</h2>
     <StatesNav stateList={data.allCovidState.edges} />
     <StateList
@@ -73,13 +77,28 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
-    allContentfulSnippet(filter: { slug: { eq: "data-preamble" } }) {
-      edges {
-        node {
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
+    dataSummaryFootnote: allContentfulSnippet(
+      filter: { name: { eq: "Data summary footnote" } }
+    ) {
+      nodes {
+        id
+        name
+        content {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+    }
+    dataPreamble: allContentfulSnippet(
+      filter: { slug: { eq: "data-preamble" } }
+    ) {
+      nodes {
+        id
+        name
+        content {
+          childMarkdownRemark {
+            html
           }
         }
       }
