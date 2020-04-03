@@ -17,7 +17,7 @@ const wrapBody = x => `<html>
 const getConfig = _.flow(
   _.head,
   _.keys,
-  _.map(x => ({ name: x, title: _.startCase(x) })),
+  _.map(x => ({ name: x, title: `<pre>${x}</pre>` })),
   createObj('headers'),
 )
 const makeTable = x => tableify(x, getConfig(x))
