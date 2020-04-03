@@ -1,3 +1,5 @@
+/* eslint jsx-a11y/label-has-associated-control: 0 */
+
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import {
@@ -73,11 +75,7 @@ const StatesNav = ({ stateList }) => {
     }
     const results = []
     stateList.forEach(({ node }) => {
-      if (
-        `${node.state} - ${node.name}`
-          .toLowerCase()
-          .search(term.toLowerCase()) > -1
-      ) {
+      if (node.name.toLowerCase().search(term.toLowerCase()) > -1) {
         results.push(node)
       }
     })
@@ -95,32 +93,36 @@ const StatesNav = ({ stateList }) => {
     }
     `}</style>
       </noscript>
-      <strong id="jump-to-state">Jump to state</strong>
+      <label htmlFor="jump-to-state">
+        Type a state&apos;s name to jump to it
+      </label>
       <Combobox
-        onSelect={item => {
-          if (typeof window !== 'undefined') {
-            window.location.hash = `state-${item.toLowerCase()}`
+        openOnFocus
+        onSelect={selectedItem => {
+          const stateId = stateList.find(({ node }) => {
+            return node.name === selectedItem
+          })
+          if (stateId && typeof window !== 'undefined') {
+            window.location.hash = `state-${stateId.node.state.toLowerCase()}`
           }
         }}
       >
         <ComboboxInput
-          aria-labelledby="jump-to-state"
+          id="jump-to-state"
           placeholder="State or territory"
           onChange={event => {
             setSearchTerm(event.target.value)
           }}
         />
-        {results && (
-          <ComboboxPopover>
+        {results ? (
+          <ComboboxPopover className="state-combobox-popover">
             {results.length > 0 ? (
-              <ComboboxList aria-label="Cities">
+              <ComboboxList aria-label="States">
                 {results.slice(0, 10).map(result => (
                   <ComboboxOption
                     key={`state-search-${result.state}`}
-                    value={result.state}
-                  >
-                    {`${result.state} - ${result.name}`}
-                  </ComboboxOption>
+                    value={result.name}
+                  />
                 ))}
               </ComboboxList>
             ) : (
@@ -128,6 +130,17 @@ const StatesNav = ({ stateList }) => {
                 No states found
               </span>
             )}
+          </ComboboxPopover>
+        ) : (
+          <ComboboxPopover className="state-combobox-popover">
+            <ComboboxList>
+              {stateList.map(({ node }) => (
+                <ComboboxOption
+                  key={`state-search-${node.state}`}
+                  value={node.name}
+                />
+              ))}
+            </ComboboxList>
           </ComboboxPopover>
         )}
       </Combobox>
@@ -156,10 +169,10 @@ export default ({ data }) => (
       className="data-states-header"
       my={['0.5rem', '2rem']}
     >
-      <Box width={[1, 1, 2 / 3]}>
+      <Box width={[1, 1, 1 / 2]}>
         <h2 id="states-top">Totals by state</h2>
       </Box>
-      <Box width={[1, 1, 1 / 3]} textAlign={['left', 'left', 'right']}>
+      <Box width={[1, 1, 1 / 2]} textAlign={['left', 'left', 'right']}>
         <StatesNav stateList={data.allCovidStateInfo.edges} />
       </Box>
     </Flex>
