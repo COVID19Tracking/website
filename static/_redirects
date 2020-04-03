@@ -1,13 +1,13 @@
+/api/states/daily state=:state                /api/v1/states/:state/daily.json
+/api/states/daily state=:state date=:date     /api/v1/states/:state/:date.json
+/api/us/daily date=:date                      /api/v1/us/:date.json
+/api/states state:state                       /api/v1/states/:state/current.json
+
 /api/states                                   /api/v1/states/current.json
 /api/states/daily                             /api/v1/states/daily.json
 /api/states/info                              /api/v1/states/info.json
 /api/us                                       /api/v1/us/current.json
 /api/us/daily                                 /api/v1/us/daily.json
-
-/api/us/daily date=:date                      /api/v1/us/:date.json
-/api/states state:state                       /api/v1/states/:state/current.json
-/api/states/daily state=:state                /api/v1/states/:state/daily.json
-/api/states/daily state=:state date=:date     /api/v1/states/:state/:date.json
 
 /api/*                                        https://covid.cape.io/:splat  200 
 /charts/dash                                  http://35.212.27.3:8050/
