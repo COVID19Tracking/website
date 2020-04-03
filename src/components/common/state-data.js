@@ -13,7 +13,7 @@ const State = ({ state }) => (
       <h3>
         <Link
           to={`/data/state/${slug(state.name)}`}
-          id={`state-${state.state}`}
+          id={`state-${state.state.toLowerCase()}`}
         >
           {state.name}
         </Link>
