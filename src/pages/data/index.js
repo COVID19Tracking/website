@@ -141,12 +141,17 @@ export const query = graphql`
           totalTestResults
           state
           score
-          positive
-          pending
-          negative
-          lastUpdateEt
-          hospitalized
           grade
+          lastUpdateEt
+          positive
+          negative
+          pending
+          hospitalizedCurrently
+          hospitalizedCumulative
+          inIcuCurrently
+          inIcuCumulative
+          onVentilatorCurrently
+          onVentilatorCumulative
           death
         }
       }
