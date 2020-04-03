@@ -1,6 +1,6 @@
 /api/states state=:state                      /api/v1/states/:state/current.json
-/api/states/daily state=:state                /api/v1/states/:state/daily.json
 /api/states/daily state=:state date=:date     /api/v1/states/:state/:date.json
+/api/states/daily state=:state                /api/v1/states/:state/daily.json
 /api/states/info state=:state                 /api/v1/states/:state/info.json
 /api/us/daily date=:date                      /api/v1/us/:date.json
 /api/states state:state                       /api/v1/states/:state/current.json
