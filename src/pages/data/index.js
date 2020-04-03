@@ -14,6 +14,7 @@ import { Flex, Box } from '../../components/common/flexbox'
 import State from '../../components/common/state-data'
 import Layout from '../../components/layout'
 import { SyncInfobox } from '../../components/common/infobox'
+import DetailText from '../../components/common/detail-text'
 import SummaryTable from '../../components/common/summary-table'
 import '../../scss/pages/data.scss'
 
@@ -32,7 +33,7 @@ const StateList = ({ states, stateData }) => {
     <Flex flexWrap="wrap" m="0 -10px">
       {stateList.map(state => (
         <Box
-          width={[1, 1, 1, 1 / 2]}
+          width={1}
           mb={['1rem', '1.5rem']}
           p="0 10px"
           className="data-state"
@@ -156,27 +157,21 @@ export default ({ data }) => (
   >
     <div
       dangerouslySetInnerHTML={{
-        __html:
-          data.allContentfulSnippet.edges[0].node
-            .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
+        __html: data.dataPreamble.nodes[0].content.childMarkdownRemark.html,
       }}
     />
     <SyncInfobox />
     <SummaryTable data={data.allCovidUs.edges[0].node} />
-    <Flex
-      flexWrap="wrap"
-      alignItems="baseline"
-      className="data-states-header"
-      my={['0.5rem', '2rem']}
-    >
-      <Box width={[1, 1, 1 / 2]}>
-        <h2 id="states-top">Totals by state</h2>
-      </Box>
-      <Box width={[1, 1, 1 / 2]} textAlign={['left', 'left', 'right']}>
-        <StatesNav stateList={data.allCovidStateInfo.edges} />
-      </Box>
-    </Flex>
-    <StatesNoScriptNav stateList={data.allCovidStateInfo.edges} />
+    <DetailText>
+      <span
+        dangerouslySetInnerHTML={{
+          __html:
+            data.dataSummaryFootnote.nodes[0].content.childMarkdownRemark.html,
+        }}
+      />
+    </DetailText>
+    <h2 id="states-top">States</h2>
+    <StatesNav stateList={data.allCovidState.edges} />
     <StateList
       states={data.allCovidStateInfo.edges}
       stateData={data.allCovidState.edges}
@@ -186,13 +181,28 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
-    allContentfulSnippet(filter: { slug: { eq: "data-preamble" } }) {
-      edges {
-        node {
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
+    dataSummaryFootnote: allContentfulSnippet(
+      filter: { name: { eq: "Data summary footnote" } }
+    ) {
+      nodes {
+        id
+        name
+        content {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+    }
+    dataPreamble: allContentfulSnippet(
+      filter: { slug: { eq: "data-preamble" } }
+    ) {
+      nodes {
+        id
+        name
+        content {
+          childMarkdownRemark {
+            html
           }
         }
       }
@@ -200,10 +210,16 @@ export const query = graphql`
     allCovidUs {
       edges {
         node {
-          death
-          negative
           positive
-          hospitalized
+          negative
+          pending
+          hospitalizedCurrently
+          hospitalizedCumulative
+          inIcuCurrently
+          inIcuCumulative
+          onVentilatorCurrently
+          onVentilatorCumulative
+          death
           totalTestResults
         }
       }
@@ -226,12 +242,17 @@ export const query = graphql`
           totalTestResults
           state
           score
-          positive
-          pending
-          negative
-          lastUpdateEt
-          hospitalized
           grade
+          lastUpdateEt
+          positive
+          negative
+          pending
+          hospitalizedCurrently
+          hospitalizedCumulative
+          inIcuCurrently
+          inIcuCumulative
+          onVentilatorCurrently
+          onVentilatorCumulative
           death
         }
       }

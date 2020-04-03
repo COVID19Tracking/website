@@ -127,16 +127,19 @@ export const query = graphql`
     allCovidState(sort: {}, filter: { state: { eq: $state } }) {
       edges {
         node {
-          totalTestResults
-          state
-          score
           positive
-          pending
           negative
-          lastUpdateEt
-          hospitalized
-          grade
+          pending
+          hospitalizedCurrently
+          hospitalizedCumulative
+          inIcuCurrently
+          inIcuCumulative
+          onVentilatorCurrently
+          onVentilatorCumulative
           death
+          totalTestResults
+          lastUpdateEt
+          grade
         }
       }
     }
