@@ -77,7 +77,7 @@ export default function Map() {
   // holds the field we are currently viewing
   const [currentField, setCurrentField] = useState('positive')
 
-  const [useChoropleth, setUseChoropleth] = useState(true)
+  const [useChoropleth, setUseChoropleth] = useState(false)
 
   const [hoveredState, setHoveredState] = useState(null)
 
