@@ -28,6 +28,7 @@
     "@reach/visually-hidden": "^0.9.0",
     "@storybook/addon-docs": "^5.3.18",
     "@storybook/addon-info": "^5.3.17",
+    "d3-array": "^2.4.0",
     "d3-collection": "^1.0.7",
     "d3-fetch": "^1.1.2",
     "d3-format": "^1.4.4",
