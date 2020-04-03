@@ -20,7 +20,10 @@ const State = ({ state }) => (
       </h3>
       <StateGrade letterGrade={state.stateData.grade} />
     </div>
-    <SummaryTable data={state.stateData} />
+    <SummaryTable
+      data={state.stateData}
+      lastUpdated={state.stateData.lastUpdateEt}
+    />
     <UnstyledList>
       {state.twitter && (
         <li>

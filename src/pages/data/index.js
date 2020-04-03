@@ -36,7 +36,7 @@ const StateList = ({ states, stateData }) => {
 
 const StatesNav = ({ stateList }) => (
   <Box width={[1, 1, 1, 1 / 2]} className="state-nav" m="0 auto 1rem">
-    <h2>Jump to a state:</h2>
+    <h3>Jump to a state:</h3>
     <ul>
       {stateList.map(state => (
         <li key={state.node.state}>
