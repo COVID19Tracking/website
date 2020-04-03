@@ -22,7 +22,7 @@ const StateList = ({ states, stateData }) => {
     <Flex flexWrap="wrap" m="0 -10px">
       {stateList.map(state => (
         <Box
-          width={[1, 1, 1, 1 / 2]}
+          width={1}
           mb={['1rem', '1.5rem']}
           p="0 10px"
           className="data-state"
