@@ -4,6 +4,7 @@ import { Flex, Box } from '../../components/common/flexbox'
 import State from '../../components/common/state-data'
 import Layout from '../../components/layout'
 import { SyncInfobox } from '../../components/common/infobox'
+import DetailText from '../../components/common/detail-text'
 import SummaryTable from '../../components/common/summary-table'
 import '../../scss/pages/data.scss'
 
@@ -60,12 +61,14 @@ export default ({ data }) => (
     />
     <SyncInfobox />
     <SummaryTable data={data.allCovidUs.edges[0].node} />
-    <div
-      dangerouslySetInnerHTML={{
-        __html:
-          data.dataSummaryFootnote.nodes[0].content.childMarkdownRemark.html,
-      }}
-    />
+    <DetailText>
+      <span
+        dangerouslySetInnerHTML={{
+          __html:
+            data.dataSummaryFootnote.nodes[0].content.childMarkdownRemark.html,
+        }}
+      />
+    </DetailText>
     <h2 id="states-top">States</h2>
     <StatesNav stateList={data.allCovidState.edges} />
     <StateList
