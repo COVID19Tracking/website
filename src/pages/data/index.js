@@ -87,10 +87,16 @@ export const query = graphql`
     allCovidUs {
       edges {
         node {
-          death
-          negative
           positive
-          hospitalized
+          negative
+          pending
+          hospitalizedCurrently
+          hospitalizedCumulative
+          inIcuCurrently
+          inIcuCumulative
+          onVentilatorCurrently
+          onVentilatorCumulative
+          death
           totalTestResults
         }
       }
