@@ -1,6 +1,7 @@
 External resources are listed in array within datasources/index.js
 
 Resource definitions have these fields
+
 - `fetch` function that returns a promise optional. Not used if `app` and `url` are defined.
 - `app` string that defines how to fetch and parse resource
 - `url` url of item to fetch

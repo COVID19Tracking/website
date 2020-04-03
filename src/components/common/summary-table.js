@@ -3,8 +3,8 @@ import Table from './table'
 import '../../scss/components/common/summary-table.scss'
 import thousands from '../../utilities/format-thousands'
 
-export default ({ data }) => (
-  <Table>
+export default ({ data, lastUpdated }) => (
+  <Table tableLabel={lastUpdated && `Last updated: ${lastUpdated} ET`}>
     <colgroup span="3" />
     <colgroup span="2" />
     <colgroup span="2" />

@@ -6,7 +6,6 @@ import Layout from '../components/layout'
 import formatDate from '../utilities/format-date'
 import thousands from '../utilities/format-thousands'
 import { UnstyledList } from '../components/common/lists'
-import DetailText from '../components/common/detail-text'
 import StateGrade from '../components/common/state-grade'
 import SummaryTable from '../components/common/summary-table'
 import { SyncInfobox } from '../components/common/infobox'
@@ -101,7 +100,6 @@ const StatePage = ({ pageContext, data }) => {
   const summary = data.allCovidState.edges[0].node
   return (
     <Layout title={state.name}>
-      <h1>{state.name}</h1>
       <StateLinks {...state} />
       <StateGrade letterGrade={summary.grade} />
       {state.notes && (
@@ -112,8 +110,7 @@ const StatePage = ({ pageContext, data }) => {
         />
       )}
       <SyncInfobox />
-      <SummaryTable data={summary} />
-      <DetailText>Last updated {summary.lastUpdateEt}</DetailText>
+      <SummaryTable data={summary} lastUpdated={summary.lastUpdateEt} />
       <h2 id="historical">History</h2>
       <StateHistory
         history={data.allCovidStateDaily.edges}
@@ -160,7 +157,7 @@ export const query = graphql`
       }
     }
     allCovidScreenshot(
-      filter: { state: { eq: $state } }
+      filter: { state: { eq: $state }, secondary: { eq: false } }
       sort: { fields: dateChecked, order: DESC }
     ) {
       edges {
