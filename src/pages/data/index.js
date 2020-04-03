@@ -88,6 +88,13 @@ const StatesNav = ({ stateList }) => {
 
   return (
     <div className="state-combobox-nav">
+      <noscript>
+        <style>{`
+    .state-combobox-nav {
+      display: none !important;
+    }
+    `}</style>
+      </noscript>
       <strong id="jump-to-state">Jump to state</strong>
       <Combobox
         onSelect={item => {
