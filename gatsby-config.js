@@ -32,6 +32,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-yaml`,
+    'gatsby-plugin-eslint',
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {

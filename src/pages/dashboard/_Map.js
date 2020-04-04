@@ -9,7 +9,7 @@ import { scaleSqrt, scaleThreshold } from 'd3-scale'
 import { schemeOranges, schemeGreys, schemePurples } from 'd3-scale-chromatic'
 import { timeFormat, timeParse } from 'd3-time-format'
 
-import { StatesWithPopulation } from './_state-populations'
+import StatesWithPopulation from './_state-populations'
 
 import '../../scss/components/pages/dashboard/map.scss'
 
@@ -32,12 +32,13 @@ const projection = geoAlbersUsa().fitExtent(
 const path = geoPath().projection(projection)
 // this should be dynamic, espcially with the toggleable fields
 // for now there is just a scale for each of the fields.
-const limit = [1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000]
+// const limit = [1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000]
 const colorLimits = {
   death: [1, 2, 5, 10, 25, 50, 100],
   positive: [50, 100, 250, 500, 1000, 2500, 5000],
   totalTestResults: [100, 250, 500, 1000, 2500, 5000, 10000],
 }
+/*
 const mapColorScale = [
   '#E5A968',
   '#ED9C42',
@@ -48,7 +49,7 @@ const mapColorScale = [
   '#96491A',
   '#843812',
 ]
-
+*/
 const getColor = {
   death: scaleThreshold(colorLimits.death, schemeGreys[8]),
   positive: scaleThreshold(colorLimits.positive, schemeOranges[8]),
@@ -58,7 +59,7 @@ const getColor = {
   ),
 }
 
-//should be imported from constants file
+// should be imported from constants file
 const colors = {
   totalTestResults: '#696DC2',
   positive: '#E5A968',
@@ -75,9 +76,9 @@ export default function Map() {
   // holds the date of the displayed day
   const [currentDate, setCurrentDate] = useState('20200401')
   // holds the field we are currently viewing
-  const [currentField, setCurrentField] = useState('positive')
+  const [currentField /* setCurrentField */] = useState('positive')
 
-  const [useChoropleth, setUseChoropleth] = useState(false)
+  const [useChoropleth /* setUseChoropleth */] = useState(false)
 
   const [hoveredState, setHoveredState] = useState(null)
 
@@ -107,7 +108,7 @@ export default function Map() {
       ...feature,
       properties: {
         ...feature.properties,
-        centroidCoordinates: path.centroid(feature), //should get rid of turf and use d3 for the centroid
+        centroidCoordinates: path.centroid(feature), // should get rid of turf and use d3 for the centroid
         dailyData: createMapFromArray(
           stateMap[feature.properties.STUSPS],
           'date',
@@ -138,25 +139,26 @@ export default function Map() {
       const stateData = await json('https://covidtracking.com/api/states/daily')
       setRawStateData(stateData)
       setCurrentDate(stateData[0].date)
+      /*
       const groupedByDate = nest()
         .key(function(d) {
           return d.date
         })
         .entries(stateData)
         .reverse()
+        */
     }
     fetchData()
   }, [])
 
   return (
-    <div className="test">
-      Test
+    <div className="map-container">
       {joinedData && !useChoropleth && (
         <BubbleLegend joinedData={joinedData} r={r} maxValue={maxValue} />
       )}
       <svg width={width} height={height}>
         {joinedData && (
-          <React.Fragment>
+          <>
             <States
               geoJson={joinedData}
               useChoropleth={useChoropleth}
@@ -167,7 +169,7 @@ export default function Map() {
             {!useChoropleth && (
               <Bubbles geoJson={joinedData} getValue={getValue} r={r} />
             )}
-          </React.Fragment>
+          </>
         )}
       </svg>
       {hoveredState && (
@@ -184,7 +186,7 @@ const States = ({
   currentField,
   setHoveredState,
 }) => {
-  //below function should use getValue
+  // below function should use getValue
   const getColorFromFeature = d => {
     if (!useChoropleth) return 'white'
     const normalizationPopulation = 1000000 // 1 million;
@@ -195,10 +197,9 @@ const States = ({
       : 0
     return getColor[currentField](normalizedValue)
   }
-
-  const states = geoJson.features.map((d, i) => (
+  const states = geoJson.features.map(d => (
     <path
-      key={'path' + i}
+      key={`path${d.properties.NAME}`}
       d={path(d)}
       className="countries"
       fill={getColorFromFeature(d)}
@@ -244,23 +245,23 @@ const Bubbles = ({ geoJson, r, getValue }) => {
   )
   const positiveBubbles = features.map((d, i) => createBubble(d, i, 'positive'))
   return (
-    <React.Fragment>
+    <>
       <g id="testBubbles">{testBubbles}</g>
       <g id="positiveBubble">{positiveBubbles}</g>
-    </React.Fragment>
+    </>
   )
 }
 
 const BubbleLegend = ({ r, maxValue }) => {
-  const formatLegendEntry = d => parseInt(format('.1r')(d))
+  const formatLegendEntry = d => parseInt(format('.1r')(d), 10)
   const legendData = [
     formatLegendEntry(maxValue * 0.1),
     formatLegendEntry(maxValue * 0.5),
     formatLegendEntry(maxValue),
   ]
-  const legendBubbles = legendData.map((d, i) => (
+  const legendBubbles = legendData.map(d => (
     <circle
-      key={'legendBubbles' + i}
+      key={`legendBubbles${d}`}
       cx={52}
       cy={145 - r(d)}
       r={r(d)}
@@ -268,9 +269,9 @@ const BubbleLegend = ({ r, maxValue }) => {
       fill="none"
     />
   ))
-  const legendLines = legendData.map((d, i) => (
+  const legendLines = legendData.map(d => (
     <line
-      key={'legendLines' + i}
+      key={`legendLines${d}`}
       x1={52}
       y1={145 - 2 * r(d)}
       x2={130}
@@ -279,8 +280,8 @@ const BubbleLegend = ({ r, maxValue }) => {
       strokeDasharray="5 5"
     />
   ))
-  const legendText = legendData.map((d, i) => (
-    <text key={'legendText' + i} x={110} y={140 - 2 * r(d)}>
+  const legendText = legendData.map(d => (
+    <text key={`legendText${d}`} x={110} y={140 - 2 * r(d)}>
       {formatNumber(d)}
     </text>
   ))
@@ -317,7 +318,7 @@ const Tooltip = ({ hoveredState, currentDate, getValue }) => {
         </thead>
         <tbody>
           <tr>
-            <td></td>
+            <td />
             <td>Total</td>
             <td>Per capita*</td>
           </tr>

@@ -1,4 +1,4 @@
-export const StatesWithPopulation = {
+export default {
   type: 'FeatureCollection',
   features: [
     {
