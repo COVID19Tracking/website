@@ -1,7 +1,7 @@
 import React from 'react'
 import Table from './table'
+import formatNumber from '../../utilities/format-number'
 import '../../scss/components/common/summary-table.scss'
-import thousands from '../../utilities/format-thousands'
 
 export default ({ data, lastUpdated }) => (
   <Table tableLabel={lastUpdated && `Last updated: ${lastUpdated} ET`}>
@@ -48,38 +48,18 @@ export default ({ data, lastUpdated }) => (
     </thead>
     <tbody>
       <tr>
-        <td>{data.positive ? thousands(data.positive) : 'N/A'}</td>
-        <td>{data.negative ? thousands(data.negative) : 'N/A'}</td>
-        <td>{data.pending ? thousands(data.pending) : 'N/A'}</td>
-        <td>
-          {data.hospitalizedCurrently
-            ? thousands(data.hospitalizedCurrently)
-            : 'N/A'}
-        </td>
-        <td>
-          {data.hospitalizedCumulative
-            ? thousands(data.hospitalizedCumulative)
-            : 'N/A'}
-        </td>
-        <td>{data.inIcuCurrently ? thousands(data.inIcuCurrently) : 'N/A'}</td>
-        <td>
-          {data.inIcuCumulative ? thousands(data.inIcuCumulative) : 'N/A'}
-        </td>
-        <td>
-          {data.onVentilatorCurrently
-            ? thousands(data.onVentilatorCurrently)
-            : 'N/A'}
-        </td>
-        <td>
-          {data.onVentilatorCumulative
-            ? thousands(data.onVentilatorCumulative)
-            : 'N/A'}
-        </td>
-        <td>{data.recovered ? thousands(data.recovered) : 'N/A'}</td>
-        <td>{data.death ? thousands(data.death) : 'N/A'}</td>
-        <td>
-          {data.totalTestResults ? thousands(data.totalTestResults) : 'N/A'}
-        </td>
+        <td>{formatNumber(data.positive)}</td>
+        <td>{formatNumber(data.negative)}</td>
+        <td>{formatNumber(data.pending)}</td>
+        <td>{formatNumber(data.hospitalizedCurrently)}</td>
+        <td>{formatNumber(data.hospitalizedCumulative)}</td>
+        <td>{formatNumber(data.inIcuCurrently)}</td>
+        <td>{formatNumber(data.inIcuCumulative)}</td>
+        <td>{formatNumber(data.onVentilatorCurrently)}</td>
+        <td>{formatNumber(data.onVentilatorCumulative)}</td>
+        <td>{formatNumber(data.recovered)}</td>
+        <td>{formatNumber(data.death)}</td>
+        <td>{formatNumber(data.totalTestResults)}</td>
       </tr>
     </tbody>
   </Table>

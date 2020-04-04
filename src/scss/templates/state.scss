@@ -7,12 +7,14 @@
   ul {
     color: green;
     list-style: none;
-    display: inline list-item;
+    display: inline;
   }
 
   li {
     display: inline;
-    padding: 0.8em;
     padding-right: 0;
+    &::after {
+      content: ' ';
+    }
   }
 }
