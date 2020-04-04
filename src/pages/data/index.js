@@ -8,7 +8,6 @@ import SummaryTable from '../../components/common/summary-table'
 import { SyncInfobox } from '../../components/common/infobox'
 import '../../scss/pages/data.scss'
 
-// The top-level content of this page is from 'src/content/snippets/data.md'
 export default ({ data }) => (
   <Layout
     title="Most recent data"
