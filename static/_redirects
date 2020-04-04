@@ -5,7 +5,7 @@
 /api/us/daily date=:date                      /api/v1/us/:date.json
 /api/states state:state                       /api/v1/states/:state/current.json
 /api/screenshots state:state                  /api/v1/states/:state/screenshots.json
-/api/press                                    /api/v1/press.json
+#/api/press                                    /api/v1/press.json
 #/api/states                                   /api/v1/states/current.json
 #/api/states/daily                             /api/v1/states/daily.json
 /api/states/info                              /api/v1/states/info.json
