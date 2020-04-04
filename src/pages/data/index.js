@@ -1,25 +1,12 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
-import { Box } from '../../components/common/flexbox'
-import StateList from '../../components/pages/data/state-list'
-import Layout from '../../components/layout'
-import { SyncInfobox } from '../../components/common/infobox'
+import { graphql } from 'gatsby'
 import DetailText from '../../components/common/detail-text'
+import Layout from '../../components/layout'
+import StateList from '../../components/pages/data/state-list'
+import StateNav from '../../components/pages/data/state-nav'
 import SummaryTable from '../../components/common/summary-table'
+import { SyncInfobox } from '../../components/common/infobox'
 import '../../scss/pages/data.scss'
-
-const StatesNav = ({ stateList }) => (
-  <Box width={[1, 1, 1, 1 / 2]} className="state-nav" m="0 auto 1rem">
-    <h3>Jump to a state:</h3>
-    <ul>
-      {stateList.map(state => (
-        <li key={state.node.state}>
-          <Link to={`/data#state-${state.node.state}`}>{state.node.state}</Link>
-        </li>
-      ))}
-    </ul>
-  </Box>
-)
 
 // The top-level content of this page is from 'src/content/snippets/data.md'
 export default ({ data }) => (
@@ -43,7 +30,7 @@ export default ({ data }) => (
       />
     </DetailText>
     <h2 id="states-top">States</h2>
-    <StatesNav stateList={data.allCovidState.edges} />
+    <StateNav stateList={data.allCovidState.edges} />
     <StateList
       states={data.allCovidStateInfo.edges}
       stateData={data.allCovidState.edges}
