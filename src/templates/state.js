@@ -2,48 +2,12 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import marked from 'marked'
 import Layout from '../components/layout'
-import formatDate from '../utilities/format-date'
-import thousands from '../utilities/format-thousands'
-import Screenshots from '../components/pages/state/screenshots'
 import StateGrade from '../components/common/state-grade'
+import StateHistory from '../components/pages/state/state-history'
 import StateLinks from '../components/pages/state/state-links'
 import SummaryTable from '../components/common/summary-table'
 import { SyncInfobox } from '../components/common/infobox'
-import Table from '../components/common/table'
 import '../scss/templates/state.scss'
-
-const StateHistory = ({ history, screenshots }) => (
-  <Table className="state-historical">
-    <thead>
-      <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Screenshot</th>
-        <th scope="col">Positive</th>
-        <th scope="col">Negative</th>
-        <th scope="col">Pending</th>
-        <th scope="col">Hospitalized</th>
-        <th scope="col">Deaths</th>
-        <th scope="col">Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      {history.map(({ node }) => (
-        <tr key={`history-${node.dateChecked}`}>
-          <td>{formatDate(node.dateChecked)}</td>
-          <td>
-            <Screenshots date={node.dateChecked} screenshots={screenshots} />
-          </td>
-          <td>{thousands(node.positive)}</td>
-          <td>{thousands(node.negative)}</td>
-          <td>{thousands(node.pending)}</td>
-          <td>{thousands(node.hospitalized)}</td>
-          <td>{thousands(node.death)}</td>
-          <td>{thousands(node.totalTestResults)}</td>
-        </tr>
-      ))}
-    </tbody>
-  </Table>
-)
 
 const StatePage = ({ pageContext, data }) => {
   const state = pageContext
