@@ -27,7 +27,7 @@ export default ({ data, lastUpdated }) => (
         <th scope="colgroup" colSpan="2">
           On Ventilator
         </th>
-        <td colSpan="2"> </td>
+        <td colSpan="3"> </td>
       </tr>
       <tr>
         <th scope="col">Positive</th>
@@ -37,8 +37,9 @@ export default ({ data, lastUpdated }) => (
         <th scope="col">Cumulative</th>
         <th scope="col">Currently</th>
         <th scope="col">Cumulative</th>
+        <th scope="col">Currently</th>
+        <th scope="col">Cumulative</th>
         <th scope="col">Recovered</th>
-        <th scope="col">Discharged</th>
         <th scope="col">Deaths</th>
         <th scope="col">
           Total test results <span>(Positive + Negative)</span>
@@ -74,6 +75,7 @@ export default ({ data, lastUpdated }) => (
             ? thousands(data.onVentilatorCumulative)
             : 'N/A'}
         </td>
+        <td>{data.recovered ? thousands(data.recovered) : 'N/A'}</td>
         <td>{data.death ? thousands(data.death) : 'N/A'}</td>
         <td>
           {data.totalTestResults ? thousands(data.totalTestResults) : 'N/A'}
