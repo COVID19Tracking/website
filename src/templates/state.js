@@ -5,32 +5,12 @@ import marked from 'marked'
 import Layout from '../components/layout'
 import formatDate from '../utilities/format-date'
 import thousands from '../utilities/format-thousands'
-import { UnstyledList } from '../components/common/lists'
 import StateGrade from '../components/common/state-grade'
+import StateLinks from '../components/pages/state/state-links'
 import SummaryTable from '../components/common/summary-table'
 import { SyncInfobox } from '../components/common/infobox'
 import Table from '../components/common/table'
 import '../scss/templates/state.scss'
-
-const StateLinks = ({ name, twitter, covid19Site, dataSource }) => (
-  <UnstyledList>
-    {twitter && (
-      <li>
-        <a href={`https://twitter.com/${twitter}`}>{name} on Twitter</a>
-      </li>
-    )}
-    {covid19Site && (
-      <li>
-        <a href={covid19Site}>Best current data source</a>
-      </li>
-    )}
-    {dataSource && (
-      <li>
-        <a href={dataSource}>Data source</a>
-      </li>
-    )}
-  </UnstyledList>
-)
 
 const Screenshots = ({ date, screenshots }) => {
   const dateScreenshots = []
