@@ -8,7 +8,7 @@
 #/api/press                                    /api/v1/press.json
 #/api/states                                   /api/v1/states/current.json
 #/api/states/daily                             /api/v1/states/daily.json
-/api/states/info                              /api/v1/states/info.json
+#/api/states/info                              /api/v1/states/info.json
 /api/us                                       /api/v1/us/current.json
 #/api/us/daily                                 /api/v1/us/daily.json
 
