@@ -76,7 +76,7 @@ const StatesNav = ({ stateList }) => {
     }
     const results = []
     stateList.forEach(({ node }) => {
-      if (node.name.toLowerCase().search(term.toLowerCase()) > -1) {
+      if (node.name.toLowerCase().search(term.toLowerCase().trim()) === 0) {
         results.push(node)
       }
     })
@@ -111,6 +111,7 @@ const StatesNav = ({ stateList }) => {
         <ComboboxInput
           id="jump-to-state"
           placeholder="State or territory"
+          autoComplete="off"
           onChange={event => {
             setSearchTerm(event.target.value)
           }}
@@ -170,8 +171,20 @@ export default ({ data }) => (
         }}
       />
     </DetailText>
-    <h2 id="states-top">States</h2>
-    <StatesNav stateList={data.allCovidState.edges} />
+    <Flex
+      flexWrap="wrap"
+      alignItems="baseline"
+      className="data-states-header"
+      my={['0.5rem', '2rem']}
+    >
+      <Box width={[1, 1, 1 / 2]}>
+        <h2 id="states-top">Totals by state</h2>
+      </Box>
+      <Box width={[1, 1, 1 / 2]} textAlign={['left', 'left', 'right']}>
+        <StatesNav stateList={data.allCovidStateInfo.edges} />
+      </Box>
+    </Flex>
+    <StatesNoScriptNav stateList={data.allCovidStateInfo.edges} />
     <StateList
       states={data.allCovidStateInfo.edges}
       stateData={data.allCovidState.edges}
