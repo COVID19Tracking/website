@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { Flex, Box } from '../../components/common/flexbox'
-import State from '../../components/common/state-data'
+import State from '../../components/pages/data/state-data'
 import Layout from '../../components/layout'
 import { SyncInfobox } from '../../components/common/infobox'
 import DetailText from '../../components/common/detail-text'
