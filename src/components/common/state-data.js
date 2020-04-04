@@ -10,13 +10,8 @@ import '../../scss/components/common/state-data.scss'
 const State = ({ state }) => (
   <>
     <div className="state-header">
-      <h3>
-        <Link
-          to={`/data/state/${slug(state.name)}`}
-          id={`state-${state.state.toLowerCase()}`}
-        >
-          {state.name}
-        </Link>
+      <h3 id={`state-${state.state.toLowerCase()}`}>
+        <Link to={`/data/state/${slug(state.name)}`}>{state.name}</Link>
       </h3>
       <StateGrade letterGrade={state.stateData.grade} />
     </div>
