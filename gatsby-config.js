@@ -8,13 +8,13 @@ module.exports = {
     shortname: 'ctracker',
     production:
       typeof process.env.BRANCH !== 'undefined' &&
-      (process.env.BRANCH === 'master' || process.env.BRANCH === 'gatsbyjs'),
+      process.env.BRANCH === 'master',
     buildDate: DateTime.fromObject({ zone: 'America/New_York' }).toFormat(
       "M/dd HH:mm 'ET'",
     ),
     url: 'https://covidtracking.com',
     description:
-      'The COVID Tracking Project collects information from 50 US states, the District of Columbia, and 5 other U.S. territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2.',
+      'The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.',
     repoUrl: 'https://github.com/COVID19Tracking/website',
     twitter: 'COVID19Tracking',
     author: {
@@ -29,9 +29,9 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
-    `gatsby-transformer-yaml`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
+    'gatsby-transformer-yaml',
     'gatsby-plugin-eslint',
     {
       resolve: 'gatsby-source-covid-tracking-api',
@@ -83,28 +83,28 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: `src/utilities/typography`,
+        pathToConfigModule: 'src/utilities/typography',
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: [`gatsby-remark-autolink-headers`],
+        plugins: ['gatsby-remark-autolink-headers'],
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `navigation`,
+        name: 'navigation',
         path: `${__dirname}/src/data/navigation`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `press-logos`,
+        name: 'press-logos',
         path: `${__dirname}/src/data/homepage-press.yml`,
       },
     },
@@ -123,15 +123,15 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `The COVID Tracking Project`,
-        short_name: `COVID Tracking Project`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#ffffff`,
-        display: `minimal-ui`,
-        icon: `src/images/icon.svg`,
+        name: 'The COVID Tracking Project',
+        short_name: 'COVID Tracking Project',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
+        display: 'minimal-ui',
+        icon: 'src/images/icon.svg',
       },
     },
   ],

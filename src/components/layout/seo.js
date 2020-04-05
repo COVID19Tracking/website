@@ -11,6 +11,7 @@ function SEO({ lang, meta, title }) {
         site {
           siteMetadata {
             title
+            description
           }
         }
       }
@@ -58,6 +59,10 @@ function SEO({ lang, meta, title }) {
         {
           name: `twitter:creator`,
           content: '@COVID19Tracking',
+        },
+        {
+          name: 'description',
+          content: site.siteMetadata.description,
         },
       ].concat(meta)}
     />
