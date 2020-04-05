@@ -1,0 +1,10 @@
+.sub-navigation {
+  float: right;
+  width: 200px;
+  [aria-current='page'] {
+    font-weight: bold;
+    &:after {
+      content: '👈';
+    }
+  }
+}

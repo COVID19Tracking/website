@@ -1,18 +1,13 @@
-# This is a basic workflow to help you get started with Actions
+name: Update site
 
-name: AutoWebUpdate
-
-# Controls when the action will run. Triggers the workflow on push or pull request 
-# events but only for the master branch
+# Run action three times per hour.
 on:
   schedule:
-    - cron: "*/29 * * * *"
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+    - cron: "19,39,59 * * * *"
 jobs:
-  curl:
+  trigger:
     runs-on: ubuntu-latest
     steps:
-    - name: curl
-      uses: wei/curl@master
-      with:
-        args: -X POST -d {} https://api.netlify.com/build_hooks/5e6bf671fb5f313507961732
+    - name: Trigger Netlify build hook
+      run: |
+        curl -X POST -d {} https://api.netlify.com/build_hooks/5e6bf671fb5f313507961732

@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Main navigation" />
+
+# Main navigation
+
+The main navigation in the header is pulled from the YAML file at `/src/data/navigation/header.yml`. It's in the following format:
+
+```YAML
+name: header
+items:
+  - title: Get the Data
+    link: /data
+  - title: About the Data
+    link: /about-data
+```
+
+The title is the name of the link in navigation, and link is the base-relative link to a page on the site.

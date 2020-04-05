@@ -1,4 +1,4 @@
-# Built Site
+# Old Built Site
 
 _site
 
@@ -61,5 +61,15 @@ typings/
 # dotenv environment variables file
 .env
 
-# next.js build output
-.next
+# Gatsby
+public
+.cache
+
+# MacOS
+.DS_Store
+
+# Data API build directory
+_data
+
+# Storybook build
+storybook-static
