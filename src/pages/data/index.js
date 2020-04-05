@@ -83,7 +83,7 @@ export const query = graphql`
         }
       }
     }
-    allCovidStateInfo(sort: { fields: state }) {
+    allCovidStateInfo(sort: { fields: name }) {
       edges {
         node {
           name
