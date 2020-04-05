@@ -55,6 +55,18 @@ export default ({ stateList }) => {
           id="jump-to-state"
           placeholder="State or territory"
           autoComplete="off"
+          onKeyDown={event => {
+            if (event.key !== 'Enter') {
+              return
+            }
+            if (
+              results &&
+              results.length === 1 &&
+              typeof window !== 'undefined'
+            ) {
+              window.location.hash = `state-${results[0].state.toLowerCase()}`
+            }
+          }}
           onChange={event => {
             setSearchTerm(event.target.value)
           }}
