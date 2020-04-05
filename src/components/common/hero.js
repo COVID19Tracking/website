@@ -16,7 +16,7 @@ export default () => (
           Get the Data
         </ButtonLink>
         <p className="cta-spacer">or</p>
-        <Link to="/about">Learn About the Data</Link>
+        <Link to="/about-data">Learn About the Data</Link>
       </div>
     </div>
   </Container>
