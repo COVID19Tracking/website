@@ -14,7 +14,7 @@ module.exports = {
     ),
     url: 'https://covidtracking.com',
     description:
-      'The COVID Tracking Project collects information from 50 US states, the District of Columbia, and 5 other U.S. territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2.',
+      'The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.',
     repoUrl: 'https://github.com/COVID19Tracking/website',
     twitter: 'COVID19Tracking',
     author: {
