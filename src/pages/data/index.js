@@ -19,7 +19,7 @@ export default ({ data }) => (
       }}
     />
     <SyncInfobox />
-    <SummaryTable data={data.allCovidUs.edges[0].node} />
+    <SummaryTable data={data.allCovidUs.edges[0].node} showOutcomes={false} />
     <DetailText>
       <span
         dangerouslySetInnerHTML={{
