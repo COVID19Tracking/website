@@ -1,17 +1,15 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useMemo } from 'react'
 
 import { format } from 'd3-format'
 import { geoPath, geoAlbersUsa } from 'd3-geo'
-import { json } from 'd3-fetch'
 import { max } from 'd3-array'
-import { nest } from 'd3-collection'
 import { scaleSqrt, scaleThreshold } from 'd3-scale'
 import { schemeOranges, schemeGreys, schemePurples } from 'd3-scale-chromatic'
 import { timeFormat, timeParse } from 'd3-time-format'
 
-import StatesWithPopulation from './_state-populations'
+import StatesWithPopulation from '../data/_state-populations'
 
-import '../../scss/components/pages/dashboard/map.scss'
+import './map.scss'
 
 // static d3 setup
 const margin = {
@@ -70,16 +68,12 @@ const formatNumber = format(',.0f')
 const formatDate = timeFormat('%b. %d')
 const parseDate = timeParse('%Y%m%d')
 
-export default function Map() {
-  const StatesJson = StatesWithPopulation
-
-  // holds the date of the displayed day
-  const [currentDate, setCurrentDate] = useState('20200401')
-  // holds the field we are currently viewing
-  const [currentField /* setCurrentField */] = useState('positive')
-
-  const [useChoropleth /* setUseChoropleth */] = useState(false)
-
+export default function Map({
+  data,
+  currentDate,
+  currentField,
+  useChoropleth,
+}) {
   const [hoveredState, setHoveredState] = useState(null)
 
   const getValue = useMemo(
@@ -90,39 +84,9 @@ export default function Map() {
     [currentDate, currentField],
   )
 
-  const [rawStateData, setRawStateData] = useState(null)
-
-  const joinedData = useMemo(() => {
-    if (!rawStateData || !path) return null
-    const createMapFromArray = (array, keyField, valueField = null) => {
-      return Object.assign(
-        {},
-        ...array.map(a => ({ [a[keyField]]: valueField ? a[valueField] : a })),
-      )
-    }
-    const groupedByState = nest()
-      .key(d => d.state)
-      .entries(rawStateData)
-    const stateMap = createMapFromArray(groupedByState, 'key', 'values')
-    const joinedFeatures = StatesJson.features.map(feature => ({
-      ...feature,
-      properties: {
-        ...feature.properties,
-        centroidCoordinates: path.centroid(feature), // should get rid of turf and use d3 for the centroid
-        dailyData: createMapFromArray(
-          stateMap[feature.properties.STUSPS],
-          'date',
-        ),
-      },
-    }))
-    return { ...StatesJson, features: joinedFeatures }
-  }, [rawStateData])
-
   const maxValue = useMemo(
-    () =>
-      joinedData &&
-      max(joinedData.features, d => getValue(d, 'totalTestResults')),
-    [joinedData, getValue],
+    () => data && max(data.features, d => getValue(d, 'totalTestResults')),
+    [data, getValue],
   )
 
   const r = useMemo(
@@ -134,40 +98,23 @@ export default function Map() {
     [maxValue],
   )
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const stateData = await json('https://covidtracking.com/api/states/daily')
-      setRawStateData(stateData)
-      setCurrentDate(stateData[0].date)
-      /*
-      const groupedByDate = nest()
-        .key(function(d) {
-          return d.date
-        })
-        .entries(stateData)
-        .reverse()
-        */
-    }
-    fetchData()
-  }, [])
-
   return (
     <div className="map-container">
-      {joinedData && !useChoropleth && (
-        <BubbleLegend joinedData={joinedData} r={r} maxValue={maxValue} />
+      {data && !useChoropleth && (
+        <BubbleLegend data={data} r={r} maxValue={maxValue} />
       )}
       <svg width={width} height={height}>
-        {joinedData && (
+        {data && (
           <>
             <States
-              geoJson={joinedData}
+              geoJson={data}
               useChoropleth={useChoropleth}
               currentDate={currentDate}
               currentField={currentField}
               setHoveredState={setHoveredState}
             />
             {!useChoropleth && (
-              <Bubbles geoJson={joinedData} getValue={getValue} r={r} />
+              <Bubbles geoJson={data} getValue={getValue} r={r} />
             )}
           </>
         )}
@@ -342,3 +289,5 @@ const Tooltip = ({ hoveredState, currentDate, getValue }) => {
     </div>
   )
 }
+
+export { path }
