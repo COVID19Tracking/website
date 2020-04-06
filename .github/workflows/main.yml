@@ -9,5 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Trigger Netlify build hook
+      env:
+        NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
       run: |
-        curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
+        curl -X POST -d {} $NETLIFY_BUILD_HOOK
