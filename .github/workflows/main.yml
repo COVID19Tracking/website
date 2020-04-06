@@ -3,11 +3,11 @@ name: Update site
 # Run action three times per hour.
 on:
   schedule:
-    - cron: "19,39,59 * * * *"
+    - cron: "15 * * * *"
 jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
     - name: Trigger Netlify build hook
       run: |
-        curl -X POST -d {} https://api.netlify.com/build_hooks/5e6bf671fb5f313507961732
+        curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
