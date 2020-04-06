@@ -9,7 +9,7 @@ import wsjGraph from '../../../images/homepage-visualizations/wsj.png'
 const Visualizations = () => (
   <div className="homepage-visualizations-wrapper">
     <Container>
-      <h2>From the visualization gallery</h2>
+      <h2>From the [visualization gallery](https://covidtracking.com/visualizations)</h2>
       <Flex flexWrap="wrap" className="homepage-visualizations">
         <Visualization
           image={nytGraph}
