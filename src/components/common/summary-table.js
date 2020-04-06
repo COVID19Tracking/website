@@ -6,11 +6,14 @@ import thousands from '../../utilities/format-thousands'
 export default ({ data, lastUpdated, showOutcomes = true }) => (
   <Table tableLabel={lastUpdated && `Last updated: ${lastUpdated} ET`}>
     <colgroup span="3" />
-    <colgroup span="2" />
-    <colgroup span="2" />
-    <colgroup span="2" />
-    <col />
-    <col />
+    {showOutcomes && (
+      <>
+        <colgroup span="2" />
+        <colgroup span="2" />
+        <colgroup span="2" />
+        <col />
+      </>
+    )}
     <col />
     <col />
     <thead>
