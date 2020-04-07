@@ -4,3 +4,27 @@
   background: lightgrey;
   text-align: center;
 }
+
+.small-multiples-chart-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+ul.chart-legend {
+  background-color: white;
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  margin-left: 0;
+  padding: .2rem;
+  position: sticky;
+  top: 0rem;
+  width: 70%;
+}
+
+.chart-legend-color {
+  display: inline-block;
+  height: .7rem;
+  width: .7rem;
+}

@@ -6,7 +6,7 @@ import { scaleLinear, scaleTime } from 'd3-scale'
 import { area } from 'd3-shape'
 import React from 'react'
 
-import { formatDate } from './util'
+import { formatDate, formatNumber } from './util'
 
 export default function AreaChart({
   data,
@@ -55,13 +55,7 @@ export default function AreaChart({
     .y1(height - totalYMargin)
 
   return (
-    <svg
-      style={{
-        border: '1px solid black',
-      }}
-      height={height}
-      width={width}
-    >
+    <svg height={height} width={width}>
       <g
         className="axis-group"
         transform={`translate(${marginLeft} ${marginTop})`}
@@ -80,7 +74,7 @@ export default function AreaChart({
           {yScale.ticks(yTicks).map(tick => (
             <g key={tick}>
               <text y={yScale(tick) + 6} x={`${tick}`.length * -11}>
-                {tick}
+                {formatNumber(tick)}
               </text>
               <line
                 stroke="black"

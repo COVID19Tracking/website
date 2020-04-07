@@ -1,15 +1,29 @@
+import { nest } from 'd3-collection'
 import { json } from 'd3-fetch'
-import { timeParse } from 'd3-time-format'
 
 import React, { useState, useEffect } from 'react'
 import Layout from '../../components/layout'
 import AreaChart from './_AreaChart'
+import SmallMultiplesAreaCharts from './_SmallMultiplesAreaCharts'
 // import Map from './_Map'
 
-const parseDate = timeParse('%Y%m%d')
+import { calculateTotal, parseDate } from './util'
 
-function calculateTotal(d) {
-  return d.positive + (d.negative || 0)
+import '../../scss/components/common/visualization.scss'
+
+function groupAndSortStateDaily(data) {
+  const grouped = nest()
+    .key(d => d.state)
+    .entries(data)
+
+  return grouped.sort((a, b) => {
+    const lastA = a.values[0]
+    const lastB = b.values[0]
+
+    const lastATotal = calculateTotal(lastA)
+    const lastBTotal = calculateTotal(lastB)
+    return lastBTotal - lastATotal
+  })
 }
 
 function transformUsDaily(data) {
@@ -33,19 +47,24 @@ function transformUsDaily(data) {
 }
 
 const DashboardPage = () => {
-  const [data, setData] = useState([])
+  const [usDaily, setUsDaily] = useState([])
+  const [stateDaily, setStateDaily] = useState([])
 
   useEffect(() => {
     async function fetchData() {
-      const usDaily = await json('https://covidtracking.com/api/us/daily')
-      const sortedUsDaily = usDaily.sort(function sortByDate(a, b) {
+      const usDailyReq = await json('https://covidtracking.com/api/us/daily')
+      const stateDailyReq = await json(
+        'https://covidtracking.com/api/v1/states/daily.json',
+      )
+      const sortedUsDaily = usDailyReq.sort(function sortByDate(a, b) {
         const aDate = parseDate(a.date)
         const bDate = parseDate(b.date)
 
         return aDate - bDate
       })
-      const transformed = transformUsDaily(sortedUsDaily)
-      setData(transformed)
+
+      setUsDaily(transformUsDaily(sortedUsDaily))
+      setStateDaily(groupAndSortStateDaily(stateDailyReq))
     }
     fetchData()
   }, [])
@@ -55,7 +74,7 @@ const DashboardPage = () => {
       <p>Test</p>
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       <AreaChart
-        data={data}
+        data={usDaily}
         fill={d => {
           if (d === 'Total') return '#585BC1'
           return '#FFA270'
@@ -69,6 +88,8 @@ const DashboardPage = () => {
         xTicks={2}
         width={400}
       />
+      <SmallMultiplesAreaCharts data={stateDaily} />
+
       {/* <Map /> */}
     </Layout>
   )
