@@ -5,11 +5,13 @@ import { geoPath, geoAlbersUsa } from 'd3-geo'
 import { max } from 'd3-array'
 import { scaleSqrt, scaleThreshold } from 'd3-scale'
 import { schemeOranges, schemeGreys, schemePurples } from 'd3-scale-chromatic'
-import { timeFormat, timeParse } from 'd3-time-format'
 
+import { formatNumber, formatDate, parseDate } from '../.utils'
 import StatesWithPopulation from '../data/_state-populations'
 
 import './map.scss'
+
+import ChoroLegend from './_ChoroLegend'
 
 // static d3 setup
 const margin = {
@@ -64,25 +66,14 @@ const colors = {
   death: '#404856',
 }
 
-const formatNumber = format(',.0f')
-const formatDate = timeFormat('%b. %d')
-const parseDate = timeParse('%Y%m%d')
-
 export default function Map({
   data,
   currentDate,
   currentField,
+  getValue,
   useChoropleth,
 }) {
   const [hoveredState, setHoveredState] = useState(null)
-
-  const getValue = useMemo(
-    () => (d, field = currentField, normalized = false) =>
-      ((d.properties.dailyData[currentDate] &&
-        d.properties.dailyData[currentDate][field]) ||
-        0) / (normalized ? d.properties.population / 1000000 : 1),
-    [currentDate, currentField],
-  )
 
   const maxValue = useMemo(
     () => data && max(data.features, d => getValue(d, 'totalTestResults')),
@@ -100,12 +91,28 @@ export default function Map({
 
   return (
     <div className="map-container">
-      {data && !useChoropleth && (
-        <BubbleLegend data={data} r={r} maxValue={maxValue} />
-      )}
+      <div className="map-legend">
+        {data &&
+          (useChoropleth ? (
+            <ChoroLegend
+              color={getColor[currentField]}
+              height={40}
+              width={300}
+              marginTop={8}
+              tickFormat="~s"
+              spaceBetween={2}
+              tickSize={0}
+            />
+          ) : (
+            <BubbleLegend data={data} r={r} maxValue={maxValue} />
+          ))}
+      </div>
       <svg width={width} height={height}>
         {data && (
           <>
+            {!useChoropleth && (
+              <Bubbles geoJson={data} getValue={getValue} r={r} />
+            )}
             <States
               geoJson={data}
               useChoropleth={useChoropleth}
@@ -113,9 +120,6 @@ export default function Map({
               currentField={currentField}
               setHoveredState={setHoveredState}
             />
-            {!useChoropleth && (
-              <Bubbles geoJson={data} getValue={getValue} r={r} />
-            )}
           </>
         )}
       </svg>
@@ -135,7 +139,7 @@ const States = ({
 }) => {
   // below function should use getValue
   const getColorFromFeature = d => {
-    if (!useChoropleth) return 'white'
+    if (!useChoropleth) return 'transparent'
     const normalizationPopulation = 1000000 // 1 million;
 
     const normalizedValue = d.properties.dailyData[currentDate]
