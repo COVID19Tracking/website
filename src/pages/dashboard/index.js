@@ -1,11 +1,10 @@
 import React from 'react'
 import Layout from '../../components/layout'
-import Map from './_Map'
+import MapContainer from './_MapContaner'
 
 const DashboardPage = () => (
   <Layout title="Visual Dashboard">
-    <p>Test</p>
-    <Map />
+    <MapContainer />
   </Layout>
 )
 
