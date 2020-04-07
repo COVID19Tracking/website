@@ -33,7 +33,6 @@ const ContentPage = ({ data }) => (
               <th scope="col">Negative</th>
               <th scope="col">Pos + Neg</th>
               <th scope="col">Pending</th>
-              <th scope="col">Hospitalized</th>
               <th scope="col">Deaths</th>
               <th scope="col">Total Tests</th>
             </tr>
@@ -52,11 +51,6 @@ const ContentPage = ({ data }) => (
                 <td>{node.negative.toLocaleString()}</td>
                 <td>{(node.positive + node.negative).toLocaleString()}</td>
                 <td>{node.pending.toLocaleString()}</td>
-                <td>
-                  {node.hospitalized
-                    ? node.hospitalized.toLocaleString()
-                    : 'N/A'}
-                </td>
                 <td>{node.death ? node.death.toLocaleString() : 'N/A'}</td>
                 <td>{node.totalTestResults.toLocaleString()}</td>
               </tr>
