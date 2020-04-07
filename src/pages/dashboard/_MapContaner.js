@@ -4,14 +4,14 @@ import { json } from 'd3-fetch'
 import { nest, set } from 'd3-collection'
 import { sum } from 'd3-array'
 
-import _Map, { path } from './charts/_Map'
+import Map, { path } from './charts/_Map'
 import StatesWithPopulation from './data/_state-populations'
 
-import { formatDate, formatNumber, parseDate } from './.utils'
+import { formatDate, formatNumber, parseDate } from './_utils'
 
-import './.Map.scss'
+import './map-container.scss'
 
-const Map = () => {
+const MapContainer = () => {
   const [dates, setDates] = useState([])
   const [sliderIndex, setSliderIndex] = useState(0)
 
@@ -98,6 +98,7 @@ const Map = () => {
     if (sliderIndex === dates.length - 1) {
       return stop()
     }
+    return
   }, [sliderIndex, dates])
   useEffect(() => {
     const start = () => {
@@ -112,7 +113,7 @@ const Map = () => {
     }
     if (playing && !sliderInterval) start()
     else stop()
-    return () => clearInterval(sliderInterval)
+    return
   }, [playing])
   const propertyOptions = [
     {
@@ -128,12 +129,22 @@ const Map = () => {
       name: 'Deaths',
     },
   ]
+  const togglePlaying = event => {
+    console.log('togglePlaying: ', event)
+    setPlaying(p => !p)
+  }
+
+  const toggleMapStyle = () => setUseChoropleth(u => !u)
 
   return (
     <div id="state-map">
       <div
         id="map-style-button"
-        onClick={() => setUseChoropleth(!useChoropleth)}
+        onClick={toggleMapStyle}
+        onKeyPress={toggleMapStyle}
+        role="switch"
+        aria-checked={useChoropleth}
+        tabIndex={0}
       >
         <span className={useChoropleth ? '' : 'active'}>Bubble Map</span>
         <span className={useChoropleth ? 'active' : ''}>Choropleth</span>
@@ -168,19 +179,24 @@ const Map = () => {
           <div
             id="map-start-stop"
             className={playing ? 'stop' : 'start'}
-            onClick={() => setPlaying(!playing)}
-          ></div>
+            onClick={() => togglePlaying()}
+            onKeyDown={() => togglePlaying()}
+            role="switch"
+            label={playing ? 'stop' : 'start'}
+            aria-checked={playing}
+            tabIndex={0}
+          />
           <input
-            onChange={event => setSliderIndex(parseInt(event.target.value))}
+            onChange={event => setSliderIndex(parseInt(event.target.value, 10))}
             min={0}
             max={dates.length - 1}
             value={sliderIndex}
             type="range"
-          ></input>
+          />
         </div>
       </div>
       {joinedData && (
-        <_Map
+        <Map
           data={joinedData}
           getValue={getValue}
           currentDate={currentDate}
@@ -192,4 +208,4 @@ const Map = () => {
   )
 }
 
-export default Map
+export default MapContainer

@@ -6,7 +6,7 @@ import { max } from 'd3-array'
 import { scaleSqrt, scaleThreshold } from 'd3-scale'
 import { schemeOranges, schemeGreys, schemePurples } from 'd3-scale-chromatic'
 
-import { formatNumber, formatDate, parseDate } from '../.utils'
+import { formatNumber, formatDate, parseDate } from '../_utils'
 import StatesWithPopulation from '../data/_state-populations'
 
 import './map.scss'
