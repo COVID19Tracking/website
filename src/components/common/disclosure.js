@@ -11,7 +11,9 @@ export default ({ title, children }) => (
     <DisclosureButton
       className={`disclosure-button ${disclosureStyle.disclosureButton}`}
     >
-      <span className={`disclosure-button-toggle ${disclosureStyle.disclosureButtonTogle}`></span>
+      <span
+        className={`disclosure-button-toggle ${disclosureStyle.disclosureButtonTogle}`}
+      ></span>
       {title}
     </DisclosureButton>
     <DisclosurePanel>{children}</DisclosurePanel>
