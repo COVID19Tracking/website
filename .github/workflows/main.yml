@@ -1,9 +1,9 @@
-name: Update site
+name: Hourly site build
 
-# Run action three times per hour.
+# Build site once an hour
 on:
   schedule:
-    - cron: "15 * * * *"
+    - cron: "10 * * * *"
 jobs:
   trigger:
     runs-on: ubuntu-latest
