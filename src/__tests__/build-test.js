@@ -28,7 +28,6 @@ describe('Website build', () => {
 
   it('has a /public/API/us endpoint with over 33 items in array', () => {
     const exists = fs.readFileSync('./public/api/v1/us/daily.json', 'utf8')
-    console.log(JSON.parse(exists).length)
     expect(JSON.parse(exists).length).toBeGreaterThan(33)
   })
 
