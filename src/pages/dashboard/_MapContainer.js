@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-useless-return */
 import React, { useState, useMemo, useEffect } from 'react'
 
 import { json } from 'd3-fetch'

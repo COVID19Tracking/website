@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import Layout from '../../components/layout'
 import AreaChart from './_AreaChart'
 import SmallMultiplesAreaCharts from './_SmallMultiplesAreaCharts'
-import MapContainer from './_MapContaner'
+import MapContainer from './_MapContainer'
 
 import { calculateTotal, parseDate } from './_util'
 
@@ -70,8 +70,8 @@ const DashboardPage = () => {
   }, [])
 
   return (
-  <Layout title="Visual Dashboard">
-    <AreaChart
+    <Layout title="Visual Dashboard">
+      <AreaChart
         data={usDaily}
         fill={d => {
           if (d === 'Total') return '#585BC1'
@@ -86,9 +86,9 @@ const DashboardPage = () => {
         xTicks={2}
         width={400}
       />
-    <MapContainer />
-    <SmallMultiplesAreaCharts data={stateDaily} />
-  </Layout>
+      <MapContainer />
+      <SmallMultiplesAreaCharts data={stateDaily} />
+    </Layout>
   )
 }
 
