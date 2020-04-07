@@ -1,26 +1,31 @@
 import React, { useState, useMemo, useEffect } from 'react'
 
 import { json } from 'd3-fetch'
-import { nest } from 'd3-collection'
+import { nest, set } from 'd3-collection'
 import { sum } from 'd3-array'
 
-import _Map from './charts/_Map'
-import { path } from './charts/_Map'
+import _Map, { path } from './charts/_Map'
 import StatesWithPopulation from './data/_state-populations'
 
-import { formatDate, formatNumber } from './.utils'
+import { formatDate, formatNumber, parseDate } from './.utils'
 
 import './.Map.scss'
 
 const Map = () => {
+  const [dates, setDates] = useState([])
+  const [sliderIndex, setSliderIndex] = useState(0)
+
+  const [sliderInterval, setSliderInterval] = useState(null)
   // holds the date of the displayed day
-  const [currentDate, setCurrentDate] = useState('20200401')
+  const currentDate = useMemo(() => dates[sliderIndex], [dates, sliderIndex])
   // holds the field we are currently viewing
   const [currentField, setCurrentField] = useState('positive')
 
   const [useChoropleth, setUseChoropleth] = useState(false)
 
   const [rawStateData, setRawStateData] = useState(null)
+
+  const [playing, setPlaying] = useState(false)
 
   const getValue = useMemo(
     () => (d, field = currentField, normalized = false) =>
@@ -76,19 +81,39 @@ const Map = () => {
     const fetchData = async () => {
       const stateData = await json('https://covidtracking.com/api/states/daily')
       setRawStateData(stateData)
-      setCurrentDate(stateData[0].date)
-      /*
-      const groupedByDate = nest()
-        .key(function(d) {
-          return d.date
-        })
-        .entries(stateData)
+      const tempDates = set(stateData.map(s => s.date))
+        .values()
         .reverse()
-        */
+      setDates(tempDates)
+      setSliderIndex(tempDates.length - 1)
     }
     fetchData()
   }, [])
-
+  const stop = () => {
+    clearInterval(sliderInterval)
+    setPlaying(false)
+    setSliderInterval(null)
+  }
+  useEffect(() => {
+    if (sliderIndex === dates.length - 1) {
+      return stop()
+    }
+  }, [sliderIndex, dates])
+  useEffect(() => {
+    const start = () => {
+      if (sliderIndex === dates.length - 1) {
+        setSliderIndex(0)
+      }
+      setSliderInterval(
+        setInterval(() => {
+          setSliderIndex(i => i + 1)
+        }, 500),
+      )
+    }
+    if (playing && !sliderInterval) start()
+    else stop()
+    return () => clearInterval(sliderInterval)
+  }, [playing])
   const propertyOptions = [
     {
       value: 'positive',
@@ -114,7 +139,7 @@ const Map = () => {
         <span className={useChoropleth ? 'active' : ''}>Choropleth</span>
       </div>
       <div id="map-dek">
-        <h2>{formatDate(currentDate)}</h2>
+        <h2>{formatDate(parseDate(currentDate))}</h2>
         {useChoropleth ? (
           <div>
             <span>{formatNumber(sumChoro)}</span>{' '}
@@ -139,15 +164,30 @@ const Map = () => {
             </div>
           </>
         )}
+        <div id="map-time-scrubber">
+          <div
+            id="map-start-stop"
+            className={playing ? 'stop' : 'start'}
+            onClick={() => setPlaying(!playing)}
+          ></div>
+          <input
+            onChange={event => setSliderIndex(parseInt(event.target.value))}
+            min={0}
+            max={dates.length - 1}
+            value={sliderIndex}
+            type="range"
+          ></input>
+        </div>
       </div>
-      <div id="map-time-scrubber"></div>
-      <_Map
-        data={joinedData}
-        getValue={getValue}
-        currentDate={currentDate}
-        currentField={currentField}
-        useChoropleth={useChoropleth}
-      />
+      {joinedData && (
+        <_Map
+          data={joinedData}
+          getValue={getValue}
+          currentDate={currentDate}
+          currentField={currentField}
+          useChoropleth={useChoropleth}
+        />
+      )}
     </div>
   )
 }

@@ -30,11 +30,13 @@ const projection = geoAlbersUsa().fitExtent(
   StatesWithPopulation,
 )
 const path = geoPath().projection(projection)
-// this should be dynamic, espcially with the toggleable fields
+
+// this should be dynamic, espcially with the numbers only growing each day.
 // for now there is just a scale for each of the fields.
 // const limit = [1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000]
+
 const colorLimits = {
-  death: [1, 2, 5, 10, 25, 50, 100],
+  death: [1, 5, 10, 25, 50, 100, 250],
   positive: [50, 100, 250, 500, 1000, 2500, 5000],
   totalTestResults: [100, 250, 500, 1000, 2500, 5000, 10000],
 }
@@ -76,10 +78,16 @@ export default function Map({
   const [hoveredState, setHoveredState] = useState(null)
 
   const maxValue = useMemo(
-    () => data && max(data.features, d => getValue(d, 'totalTestResults')),
-    [data, getValue],
+    () =>
+      data &&
+      max(
+        data.features
+          .map(d => Object.values(d.properties.dailyData))
+          .flat()
+          .map(d => d.totalTestResults),
+      ),
+    [data],
   )
-
   const r = useMemo(
     () =>
       maxValue &&
@@ -88,6 +96,9 @@ export default function Map({
         .range([0, 50]),
     [maxValue],
   )
+
+  // not ready
+  if (r === 0) return null
 
   return (
     <div className="map-container">
@@ -157,7 +168,7 @@ const States = ({
       stroke="#ababab"
       onMouseEnter={event => {
         setHoveredState({
-          coordinates: [event.pageX, event.pageY],
+          coordinates: [event.clientX, event.clientY],
           state: d,
         })
       }}

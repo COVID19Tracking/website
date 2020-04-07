@@ -1,7 +1,7 @@
 #map-tooltip {
   background: white;
   pointer-events: none;
-  position: absolute;
+  position: fixed;
   width: 270px;
   table {
     border: 1px solid #333;
@@ -48,6 +48,6 @@
 
 .map-legend {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 42px;
+  left: 0;
 }

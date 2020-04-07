@@ -9,6 +9,7 @@ $death-color: #404856;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   @media screen and (max-width: 500px) {
     margin-top: 20px;
   }
@@ -56,6 +57,7 @@ $death-color: #404856;
 
 #map-style-button {
   cursor: pointer;
+  width: 100%;
   span {
     @extend %map-toggle-inactive;
     display: inline-block;
@@ -81,5 +83,59 @@ $death-color: #404856;
   }
   &.positive {
     border-color: $positive-color;
+  }
+}
+#map-time-scrubber {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 10px;
+  #map-start-stop {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+
+    &.start {
+      border-style: solid;
+      border-width: 8px 0px 8px 16px;
+      border-color: transparent transparent transparent #202020;
+    }
+
+    &.stop {
+      border: solid black 8px;
+    }
+  }
+  &[type='range'] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+  }
+  input {
+    flex-grow: 1;
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 13px;
+      border: solid lightgray 1px;
+      background: white;
+      cursor: pointer;
+    }
+    &::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 13px;
+      border: solid lightgray 1px;
+      background: white;
+      cursor: pointer;
+    }
   }
 }
