@@ -4,10 +4,10 @@ import { extent, max } from 'd3-array'
 import { nest } from 'd3-collection'
 import { scaleLinear, scaleTime } from 'd3-scale'
 import { area } from 'd3-shape'
-import { timeFormat } from 'd3-time-format'
 import React from 'react'
 
-const formatDate = timeFormat('%b. %e')
+import { formatDate } from './util'
+
 export default function AreaChart({
   data,
   fill,

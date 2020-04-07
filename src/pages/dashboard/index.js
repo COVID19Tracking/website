@@ -33,21 +33,21 @@ function transformUsDaily(data) {
 }
 
 const DashboardPage = () => {
-  const [data, updateData] = useState([])
+  const [data, setData] = useState([])
 
   useEffect(() => {
-    async function fetch() {
+    async function fetchData() {
       const usDaily = await json('https://covidtracking.com/api/us/daily')
-      const sortedUsDaily = usDaily.sort(function(a, b) {
+      const sortedUsDaily = usDaily.sort(function sortByDate(a, b) {
         const aDate = parseDate(a.date)
         const bDate = parseDate(b.date)
 
         return aDate - bDate
       })
       const transformed = transformUsDaily(sortedUsDaily)
-      updateData(transformed)
+      setData(transformed)
     }
-    fetch()
+    fetchData()
   }, [])
 
   return (
