@@ -6,7 +6,7 @@ import { scaleLinear, scaleTime } from 'd3-scale'
 import { area } from 'd3-shape'
 import React from 'react'
 
-import { formatDate, formatNumber } from './util'
+import { formatDate, formatNumber } from './_util'
 
 export default function AreaChart({
   data,

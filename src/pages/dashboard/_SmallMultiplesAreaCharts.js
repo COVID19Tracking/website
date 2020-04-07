@@ -9,9 +9,9 @@ import {
   parseDate,
   totalColor,
   positiveColor,
-} from './util'
+} from './_util'
 
-import '../../scss/components/common/visualization.scss'
+import './dashboard.scss'
 
 const SmallMultiplesAreaCharts = ({ data }) => {
   const secondMaxTotal = useMemo(() => {

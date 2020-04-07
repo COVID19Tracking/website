@@ -7,9 +7,9 @@ import AreaChart from './_AreaChart'
 import SmallMultiplesAreaCharts from './_SmallMultiplesAreaCharts'
 // import Map from './_Map'
 
-import { calculateTotal, parseDate } from './util'
+import { calculateTotal, parseDate } from './_util'
 
-import '../../scss/components/common/visualization.scss'
+import './dashboard.scss'
 
 function groupAndSortStateDaily(data) {
   const grouped = nest()
