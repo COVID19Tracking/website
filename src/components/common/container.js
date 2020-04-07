@@ -1,8 +1,11 @@
 import React from 'react'
-import '../../scss/components/common/container.scss'
+import containerStyles from '../../scss/components/common/container.module.scss'
 
 export default ({ children, narrow }) => (
-  <div className={`container${narrow ? ' container-narrow' : ''}`}>
+  <div
+    className={`container ${containerStyles.container} ${narrow &&
+      containerStyles.narrow}`}
+  >
     {children}
   </div>
 )

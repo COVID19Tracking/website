@@ -5,12 +5,13 @@ import Container from '../../common/container'
 import nytGraph from '../../../images/homepage-visualizations/nyt.png'
 import politicoMap from '../../../images/homepage-visualizations/politico-map.png'
 import wsjGraph from '../../../images/homepage-visualizations/wsj.png'
+import homepageStyles from '../../../scss/pages/homepage.module.scss'
 
 const Visualizations = () => (
-  <div className="homepage-visualizations-wrapper">
+  <div className={homepageStyles.visualizationsWrapper}>
     <Container>
       <h2>From the visualization gallery</h2>
-      <Flex flexWrap="wrap" className="homepage-visualizations">
+      <Flex flexWrap="wrap" className={homepageStyles.visualization}>
         <Visualization
           image={nytGraph}
           altText="New York Times chart"

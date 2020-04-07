@@ -6,7 +6,6 @@ import StateList from '../../components/pages/data/state-list'
 import StateNav from '../../components/pages/data/state-nav'
 import SummaryTable from '../../components/common/summary-table'
 import { SyncInfobox } from '../../components/common/infobox'
-import '../../scss/pages/data.scss'
 
 export default ({ data }) => (
   <Layout

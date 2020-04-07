@@ -4,12 +4,14 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@reach/disclosure'
-import '../../scss/components/common/disclosure.scss'
+import disclosureStyle from '../../scss/components/common/disclosure.module.scss'
 
 export default ({ title, children }) => (
   <Disclosure>
-    <DisclosureButton className="disclosure-button">
-      <span className="disclosure-button-toggle"></span>
+    <DisclosureButton
+      className={`disclosure-button ${disclosureStyle.disclosureButton}`}
+    >
+      <span className={`disclosure-button-toggle ${disclosureStyle.disclosureButtonTogle}`></span>
       {title}
     </DisclosureButton>
     <DisclosurePanel>{children}</DisclosurePanel>

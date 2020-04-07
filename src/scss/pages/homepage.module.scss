@@ -1,26 +1,26 @@
 @import '../colors.scss';
 @import '../breakpoints.scss';
 
-.homepage {
+.main {
   h2 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
   }
 }
 
-.homepage-content p {
+.content p {
   font-size: 1.2rem;
   line-height: 1.5;
 }
 
-.homepage-visualizations-wrapper {
+.visualizations-wrapper {
   background: $color-grey-10;
   padding: 2rem 0;
   border-top: 1px solid $color-grey-8;
   border-bottom: 1px solid $color-grey-8;
 }
 
-.homepage-visualizations {
+.visualization {
   img {
     margin-bottom: 0.8rem;
   }
@@ -33,25 +33,37 @@
   }
 }
 
-.homepage-press-list-more {
+.press-list-more {
   font-size: 0.9rem;
   font-weight: bold;
   float: right;
   margin-top: 0.6rem;
 }
 
-.homepage-get-involved {
+.get-involved {
   flex-wrap: nowrap;
   display: flex;
   font-size: 1.2rem;
   line-height: 1.4;
 
-  .homepage-get-involved-icon {
+  .get-involved-icon {
     flex: 0 0 30px;
     color: $color-main-dark;
     font-size: 1.3rem;
   }
   a {
     font-weight: bold;
+  }
+}
+
+.press-logos {
+  margin: 1.5rem 0;
+  padding: 2rem 0;
+  h2 {
+    color: $color-grey-3;
+    font-size: 1rem;
+    text-align: center;
+    font-variant: all-small-caps;
+    margin-bottom: 0.2rem;
   }
 }

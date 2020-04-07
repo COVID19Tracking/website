@@ -1,9 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { Box } from '../../common/flexbox'
+import stateNavStyle from '../../../scss/components/pages/data/state-nav.module.scss'
 
 export default ({ stateList }) => (
-  <Box width={[1, 1, 1, 1 / 2]} className="state-nav" m="0 auto 1rem">
+  <Box
+    width={[1, 1, 1, 1 / 2]}
+    className={`state-navigation ${stateNavStyle.stateNav}`}
+    m="0 auto 1rem"
+  >
     <h3>Jump to a state:</h3>
     <ul>
       {stateList.map(state => (

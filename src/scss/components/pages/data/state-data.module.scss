@@ -1,6 +1,7 @@
+@import '../../../colors.scss';
 @import '../../../breakpoints.scss';
 
-.state-header {
+.header {
   display: flex;
   flex-direction: column;
 
@@ -17,4 +18,16 @@
     align-items: first baseline;
     justify-content: space-between;
   }
+}
+
+.notes {
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.top-link {
+  color: $color-grey-4;
+  margin-top: 1.8rem;
+  display: inline-block;
 }

@@ -7,7 +7,6 @@ import StateHistory from '../components/pages/state/state-history'
 import StateLinks from '../components/pages/state/state-links'
 import SummaryTable from '../components/common/summary-table'
 import { SyncInfobox } from '../components/common/infobox'
-import '../scss/templates/state.scss'
 
 const StatePage = ({ pageContext, data }) => {
   const state = pageContext

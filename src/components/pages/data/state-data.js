@@ -5,11 +5,11 @@ import slug from '../../../utilities/slug'
 import { UnstyledList } from '../../common/lists'
 import StateGrade from '../../common/state-grade'
 import SummaryTable from '../../common/summary-table'
-import '../../../scss/components/pages/data/state-data.scss'
+import stateDataStyles from '../../../scss/components/pages/data/state-data.module.scss'
 
 const State = ({ state }) => (
   <>
-    <div className="state-header">
+    <div className={`state-header ${stateDataStyles.header}`}>
       <h3>
         <Link
           to={`/data/state/${slug(state.name)}`}
@@ -47,12 +47,13 @@ const State = ({ state }) => (
     </UnstyledList>
     {state.notes && (
       <div
+        className={stateDataStyles.notes}
         dangerouslySetInnerHTML={{
           __html: marked(state.notes),
         }}
       />
     )}
-    <a className="top-link" href="#states-top" title="top">
+    <a className={stateDataStyles.topLink} href="#states-top" title="top">
       ↑ (return to top)
     </a>
   </>

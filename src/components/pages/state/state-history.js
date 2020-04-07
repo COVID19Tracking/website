@@ -3,9 +3,10 @@ import Screenshots from './screenshots'
 import Table from '../../common/table'
 import formatDate from '../../../utilities/format-date'
 import thousands from '../../../utilities/format-thousands'
+import stateHistoryStyle from '../../../scss/components/pages/state/history.module.scss'
 
 export default ({ history, screenshots }) => (
-  <Table className="state-historical">
+  <Table>
     <thead>
       <tr>
         <th scope="col">Date</th>
@@ -18,7 +19,7 @@ export default ({ history, screenshots }) => (
         <th scope="col">Total</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody className={`state-history-table ${stateHistoryStyle.history}`}>
       {history.map(({ node }) => (
         <tr key={`history-${node.dateChecked}`}>
           <td>{formatDate(node.dateChecked)}</td>
