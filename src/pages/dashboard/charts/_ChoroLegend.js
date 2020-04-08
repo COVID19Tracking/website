@@ -36,7 +36,7 @@ export default function ChoroLegend({
   const ticks = (
     <g width="100%" y={0} height="20" fontSize="11" textAnchor="middle">
       {color.domain().map((tick, i) => (
-        <g className="tick" transform={`translate(${x(i)})`}>
+        <g className="tick" key={tick} transform={`translate(${x(i)})`}>
           <text fill="currentColor" y={36}>
             {formatTick(tick)}
           </text>
