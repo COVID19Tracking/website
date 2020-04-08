@@ -88,7 +88,7 @@ function groupAndSortStateDaily(query) {
   })
 }
 
-const SmallMultiplesContainer = () => {
+export default function CumulativeTestsByStateContainer() {
   const query = useStaticQuery(graphql`
     {
       allCovidStateDaily {
@@ -217,5 +217,3 @@ const SmallMultiplesContainer = () => {
     </div>
   )
 }
-
-export default SmallMultiplesContainer
