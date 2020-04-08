@@ -5,8 +5,8 @@ import { parseDate } from './_util'
 
 export default function UsAreaChartContainer() {
   const transformData = data => {
-    const transformedData = data.allCovidUsDaily.edges
-      .map(({ node }) => [
+    const transformedData = data.allCovidUsDaily.nodes
+      .map(node => [
         {
           date: parseDate(node.date),
           label: 'Total',
@@ -20,12 +20,10 @@ export default function UsAreaChartContainer() {
   const data = useStaticQuery(graphql`
     {
       allCovidUsDaily {
-        edges {
-          node {
-            totalTestResults
-            positive
-            date
-          }
+        nodes {
+          totalTestResults
+          positive
+          date
         }
       }
     }
