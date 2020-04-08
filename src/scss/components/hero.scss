@@ -45,22 +45,22 @@
 
       &:hover,
       &:focus {
-        color: $color-secondary-lightest;
+        color: $color-blueberry-5;
       }
     }
 
     .button {
-      background: $color-secondary-light;
+      background: $color-blueberry-4;
       text-decoration: none;
       padding: 1rem 0;
       width: 25%;
       text-align: center;
-      color: $color-secondary-darkest;
+      color: $color-blueberry-1;
       &:hover,
       &:focus,
       &:active {
-        background: $color-secondary-lightest;
-        color: $color-secondary-darkest;
+        background: $color-blueberry-5;
+        color: $color-blueberry-1;
       }
       @media only screen and (max-width: $viewport-sm) {
         width: 100%;
