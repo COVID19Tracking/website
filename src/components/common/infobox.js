@@ -7,8 +7,8 @@ import questionIcon from '../../images/infobox-icons/question.svg'
 
 const InfoboxInner = ({ header, children }) => (
   <div>
-    <p className="info-header">{header}</p>
-    <div className="info-content">{children}</div>
+    <p className={infoBoxStyle.infoHeader}>{header}</p>
+    <div className={infoBoxStyle.infoContent}>{children}</div>
   </div>
 )
 

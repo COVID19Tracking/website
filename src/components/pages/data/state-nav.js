@@ -1,3 +1,5 @@
+/* eslint jsx-a11y/label-has-associated-control: 0 */
+
 import React, { useState } from 'react'
 import {
   Combobox,
@@ -7,6 +9,7 @@ import {
   ComboboxOption,
 } from '@reach/combobox'
 import '@reach/combobox/styles.css'
+import stateNavStyles from '../../../scss/components/pages/data/state-nav.module.scss'
 
 export default ({ stateList }) => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -27,10 +30,10 @@ export default ({ stateList }) => {
   const results = searchStates(searchTerm)
 
   return (
-    <div className="state-combobox-nav">
+    <div className={`state-nav-combobox ${stateNavStyles.stateNavCombobox}`}>
       <noscript>
         <style>{`
-    .state-combobox-nav {
+    .state-nav {
       display: none !important;
     }
     `}</style>
@@ -70,7 +73,7 @@ export default ({ stateList }) => {
           }}
         />
         {results ? (
-          <ComboboxPopover className="state-combobox-popover">
+          <ComboboxPopover className={stateNavStyles.popover}>
             {results.length > 0 ? (
               <ComboboxList aria-label="States">
                 {results.slice(0, 10).map(result => (
@@ -87,7 +90,7 @@ export default ({ stateList }) => {
             )}
           </ComboboxPopover>
         ) : (
-          <ComboboxPopover className="state-combobox-popover">
+          <ComboboxPopover className={stateNavStyles.popover}>
             <ComboboxList>
               {stateList.map(({ node }) => (
                 <ComboboxOption
