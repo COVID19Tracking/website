@@ -131,10 +131,7 @@ const MapContainer = () => {
       name: 'Deaths',
     },
   ]
-  const togglePlaying = event => {
-    console.log('togglePlaying: ', event)
-    setPlaying(p => !p)
-  }
+  const togglePlaying = () => setPlaying(p => !p)
 
   const toggleMapStyle = () => setUseChoropleth(u => !u)
 
@@ -149,7 +146,7 @@ const MapContainer = () => {
         tabIndex={0}
       >
         <span className={useChoropleth ? '' : 'active'}>Bubble Map</span>
-        <span className={useChoropleth ? 'active' : ''}>Choropleth</span>
+        <span className={useChoropleth ? 'active' : ''}>Choropleth Map</span>
       </div>
       <div id="map-dek">
         <h2>{formatDate(parseDate(currentDate))}</h2>
@@ -164,6 +161,7 @@ const MapContainer = () => {
                 <option value={value}>{name}</option>
               ))}
             </select>
+            <div className="label">per one million people</div>
           </div>
         ) : (
           <>
