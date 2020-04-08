@@ -14,9 +14,9 @@ We use the [Airbnb style guide](https://github.com/airbnb/javascript), except wi
 
 ### Style and SCSS Modules
 
-We use Gatsby's [CSS modules](https://www.gatsbyjs.org/docs/css-modules/), but with Sass files. Every Sass file in `/src/scss` should be in a file that mirrors the structure of their parent component. For example, a component at `/src/components/beetle.js` that needs styling should have a corresponding SCSS file at `/src/scss/components/beetle.module.scss`.
+We use Gatsby's [CSS modules](https://www.gatsbyjs.org/docs/css-modules/), but with Sass files. Every Sass file should be in the same directory as its related component. There are also common colors and breakpoints defined in `/src/sass`.
 
-We also use [stable class names](https://www.gatsbyjs.org/docs/css-modules/#enabling-user-stylesheets-with-a-stable-class-name) to enable users to override style sheets for their own accessibility or usability needs. Make sure to scope your class name to match your component's path, so `/src/components/beetle.js` would use the class name `component--beetle`.
+We also use [stable class names](https://www.gatsbyjs.org/docs/css-modules/#enabling-user-stylesheets-with-a-stable-class-name) to enable users to override style sheets for their own accessibility or usability needs.
 
 ## How to file an issue
 
