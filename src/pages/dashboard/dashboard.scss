@@ -12,11 +12,12 @@
 ul.chart-legend {
   background-color: #fff;
   display: flex;
+  font-size: 14px;
   flex-direction: column;
   list-style-type: none;
   justify-content: flex-start;
   margin-left: 0;
-  padding: 0.2rem 0 1rem;
+  padding: 0.1rem 0 0.5rem;
   position: sticky;
   top: 0rem;
   width: 100%;
@@ -39,7 +40,7 @@ ul.chart-legend {
 .chart-legend-color {
   display: inline-block;
   height: 0.7rem;
-  margin: 0.2rem 0.5rem 0 0;
+  margin: 0.1rem 0.5rem 0 0;
   width: 0.7rem;
 }
 
