@@ -27,7 +27,7 @@ ul.chart-legend {
 
   li {
     display: flex;
-    line-height: 1;
+    line-height: 1.2;
     margin: 1rem 2rem 0 0;
 
     @media screen and (min-width: 960px) {
@@ -45,15 +45,29 @@ ul.chart-legend {
 
 .small-multiples-chart {
   padding: 0 1%;
-  width: 100%;
+  width: 50%;
 
-  @media screen and (min-width: 960px) {
-    width: 50%;
+  @media screen and (min-width: 480px) {
+    width: calc(100% / 4);
+  }
+
+  @media screen and (min-width: 800px) {
+    width: calc(100% / 5);
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: calc(100% / 7);
   }
 
   h4 {
+    font-size: 12px;
+    line-height: 1.2;
     margin-bottom: 0.4rem;
   }
+}
+
+.small-multiples-chart__see-all-link {
+  font-size: 12px;
 }
 
 .small-multiples__y-tick-label {

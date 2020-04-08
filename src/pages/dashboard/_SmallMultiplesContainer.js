@@ -193,7 +193,7 @@ const SmallMultiplesContainer = () => {
                   if (d === 'Total') return '#585BC1'
                   return '#FFA270'
                 }}
-                height={250}
+                height={500}
                 labelOrder={['Total', 'Positive']}
                 marginBottom={40}
                 marginLeft={80}
@@ -206,6 +206,7 @@ const SmallMultiplesContainer = () => {
               />
               <p>
                 <a
+                  className="small-multiples-chart__see-all-link"
                   href={`/data/state/${stateName
                     .toLowerCase()
                     .replace(/\s/g, '-')}`}
