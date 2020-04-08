@@ -8,10 +8,6 @@ This repository is for the project's **website**: https://covidtracking.com/.
 
 The website is built on [GatsbyJS](https://www.gatsbyjs.org/). If you are not familiar with Gatsby, we suggest checking out their [excellent documentation](hhttps://www.gatsbyjs.org/docs).
 
-### Environment Variables
-
-Our content is managed in Contentful. All required environment variables are listed (with dummy values) in `.env.example` and you can easily duplicate this file with `cp .env.example .env`. When you run the setup step below, you will download the most recent API keys to your local machine.
-
 ### Install
 
 First, you'll need the Gatsby command line interface installed globally:
@@ -26,11 +22,13 @@ Then, install all dependencies by running:
 npm install
 ```
 
-After, you will need to pull the most recent data files to your machine and grab the Contentful API keys.
+The website is built from two separate data sources: our own API for COVID data, and Contentful for content. To download the most recent COVID data and setup a `.env` file with a copy of read-only API keys to Contentful, run:
 
 ```shell
 npm run setup
 ```
+
+You can also run `npm run setup:api-data` if you just want to download data and not touch the `.env` file.
 
 To run the website locally, use:
 
