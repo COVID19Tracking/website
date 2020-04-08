@@ -34,6 +34,7 @@ module.exports = {
     'gatsby-transformer-yaml',
     'gatsby-plugin-eslint',
     `gatsby-plugin-remove-trailing-slashes`,
+    'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
@@ -112,15 +113,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: {
-        spaceId: process.env.CONTENTFUL_BLOG_SPACE,
-        accessToken: process.env.CONTENTFUL_BLOG_TOKEN,
-      },
-    },
-    {
-      resolve: 'gatsby-source-contentful',
-      options: {
-        spaceId: process.env.CONTENTFUL_PAGE_SPACE,
-        accessToken: process.env.CONTENTFUL_PAGE_TOKEN,
+        spaceId: process.env.CONTENTFUL_SPACE,
+        accessToken: process.env.CONTENTFUL_TOKEN,
       },
     },
     {
