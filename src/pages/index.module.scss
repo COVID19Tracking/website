@@ -1,5 +1,5 @@
-@import '../colors.scss';
-@import '../breakpoints.scss';
+@import '../scss/colors.scss';
+@import '../scss/breakpoints.scss';
 
 .main {
   h2 {
@@ -11,26 +11,6 @@
 .content p {
   font-size: 1.2rem;
   line-height: 1.5;
-}
-
-.visualizations-wrapper {
-  background: $color-grey-10;
-  padding: 2rem 0;
-  border-top: 1px solid $color-grey-8;
-  border-bottom: 1px solid $color-grey-8;
-}
-
-.visualization {
-  img {
-    margin-bottom: 0.8rem;
-  }
-  p {
-    margin: 0;
-    line-height: 1.3;
-  }
-  a {
-    font-weight: bold;
-  }
 }
 
 .press-list-more {

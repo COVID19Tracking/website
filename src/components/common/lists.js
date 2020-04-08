@@ -1,5 +1,5 @@
 import React from 'react'
-import listsStyles from '../../scss/components/common/lists.module.scss'
+import listsStyles from './lists.module.scss'
 
 const UnorderedList = ({ children }) => <ul>{children}</ul>
 

@@ -10,7 +10,7 @@ import Footer from '../components/layout/footer'
 import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/common/press-list'
 import Visualizations from '../components/pages/homepage/visualizations'
-import homepageStyles from '../scss/pages/homepage.module.scss'
+import homepageStyles from './index.module.scss'
 
 export default ({ data }) => (
   <>

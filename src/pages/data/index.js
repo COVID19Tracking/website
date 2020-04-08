@@ -8,7 +8,7 @@ import StatesNoScriptNav from '../../components/pages/data/state-nav-no-script'
 import StatesNav from '../../components/pages/data/state-nav'
 import SummaryTable from '../../components/common/summary-table'
 import { SyncInfobox } from '../../components/common/infobox'
-import stateNavStyles from '../../scss/components/pages/data/state-nav.module.scss'
+import stateNavStyles from './index.module.scss'
 
 export default ({ data }) => (
   <Layout

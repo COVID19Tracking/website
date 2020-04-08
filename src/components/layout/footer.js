@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from '../common/container'
 import logo from '../../images/project-logo.svg'
-import footerStyles from '../../scss/components/layout/footer.module.scss'
+import footerStyles from './footer.module.scss'
 
 const Footer = () => (
   <footer className={footerStyles.footer}>

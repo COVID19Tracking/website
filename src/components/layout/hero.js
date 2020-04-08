@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Container from '../common/container'
-import heroStyle from '../../scss/components/layout/hero.module.scss'
+import heroStyle from './hero.module.scss'
 
 export default () => (
   <Container>

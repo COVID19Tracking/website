@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from '../../common/flexbox'
 import DetailText from '../../common/detail-text'
-import publicationFormattingStyle from '../../../scss/components/common/publication-formatting.module.scss'
+import { PublicationTitle, PublicationSource } from '../../common/publication'
 
 const Visualization = ({
   image,
@@ -13,15 +13,12 @@ const Visualization = ({
   <Box width={[1, 1, 1 / 3]} px={[0, '0.5rem']}>
     <img src={image} alt={altText} />
     <p>
-      <cite className={publicationFormattingStyle.title}>
+      <PublicationTitle>
         <a href={sourceLink}>{sourceTitle}</a>
-      </cite>
+      </PublicationTitle>
     </p>
     <DetailText>
-      Source:{' '}
-      <span className={publicationFormattingStyle.source}>
-        {publicationName}
-      </span>
+      Source: <PublicationSource>{publicationName}</PublicationSource>
     </DetailText>
   </Box>
 )

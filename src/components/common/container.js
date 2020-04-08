@@ -1,5 +1,5 @@
 import React from 'react'
-import containerStyles from '../../scss/components/common/container.module.scss'
+import containerStyles from './container.module.scss'
 
 export default ({ children, narrow }) => (
   <div

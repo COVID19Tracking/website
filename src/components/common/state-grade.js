@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import stateGradeStyle from '../../scss/components/common/state-grade.module.scss'
+import stateGradeStyle from './state-grade.module.scss'
 import gradeA from '../../images/state-grades/grade-a.svg'
 import gradeB from '../../images/state-grades/grade-b.svg'
 import gradeC from '../../images/state-grades/grade-c.svg'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { Box } from '../../common/flexbox'
-import stateNavNoJsStyle from '../../../scss/components/pages/data/state-nav-no-js.module.scss'
+import stateNavNoJsStyle from './state-nav-no-js.module.scss'
 
 export default ({ stateList }) => (
   <>

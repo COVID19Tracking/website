@@ -3,7 +3,7 @@ import Screenshots from './screenshots'
 import Table from '../../common/table'
 import formatDate from '../../../utilities/format-date'
 import thousands from '../../../utilities/format-thousands'
-import stateHistoryStyle from '../../../scss/components/pages/state/history.module.scss'
+import stateHistoryStyle from './state-history.module.scss'
 
 export default ({ history, screenshots }) => (
   <Table>

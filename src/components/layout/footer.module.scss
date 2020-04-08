@@ -1,7 +1,7 @@
-@import '../../colors.scss';
-@import '../../breakpoints.scss';
+@import '../../scss/colors.scss';
+@import '../../scss/breakpoints.scss';
 .footer {
-  background-image: url(../../../images/hero-bg.svg);
+  background-image: url(../../images/hero-bg.svg);
   background-size: auto 300%;
   background-color: #5667ad;
   color: white;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import infoBoxStyle from '../../scss/components/common/infobox.module.scss'
+import infoBoxStyle from './infobox.module.scss'
 import syncIcon from '../../images/infobox-icons/sync.svg'
 import alertIcon from '../../images/infobox-icons/alert.svg'
 import questionIcon from '../../images/infobox-icons/question.svg'

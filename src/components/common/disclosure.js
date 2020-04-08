@@ -4,7 +4,7 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@reach/disclosure'
-import disclosureStyle from '../../scss/components/common/disclosure.module.scss'
+import disclosureStyle from './disclosure.module.scss'
 
 export default ({ title, children }) => (
   <Disclosure>

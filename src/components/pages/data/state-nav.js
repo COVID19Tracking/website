@@ -9,7 +9,7 @@ import {
   ComboboxOption,
 } from '@reach/combobox'
 import '@reach/combobox/styles.css'
-import stateNavStyles from '../../../scss/components/pages/data/state-nav.module.scss'
+import stateNavStyles from './state-nav.module.scss'
 
 export default ({ stateList }) => {
   const [searchTerm, setSearchTerm] = useState('')

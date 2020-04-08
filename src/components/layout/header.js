@@ -5,7 +5,7 @@ import Container from '../common/container'
 import DevelopmentWarning from './development-warning'
 import Hero from './hero'
 import ProjectLogo from '../../images/project-logo.svg'
-import headerStyle from '../../scss/components/header.module.scss'
+import headerStyle from './header.module.scss'
 
 const HeaderTabs = ({ navigation }) => (
   <div className={`site-header-tabs ${headerStyle.headerTabs}`}>
