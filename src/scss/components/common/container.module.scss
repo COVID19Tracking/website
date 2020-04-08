@@ -1,7 +1,7 @@
 @import '../../breakpoints.scss';
 
 .container {
-  max-width: 1140px;
+  max-width: 1000px;
   margin-right: 1.5rem;
   margin-left: 1.5rem;
   @media (min-width: $viewport-md) {
@@ -12,7 +12,10 @@
     margin-left: auto;
     margin-right: auto;
   }
-  &.narrow {
+  @media (min-width: $viewport-xl) {
+    max-width: 1140px;
+  }
+  &.container-narrow {
     max-width: 900px;
   }
 }

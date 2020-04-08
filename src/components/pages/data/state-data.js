@@ -10,13 +10,8 @@ import stateDataStyles from '../../../scss/components/pages/data/state-data.modu
 const State = ({ state }) => (
   <>
     <div className={`state-header ${stateDataStyles.header}`}>
-      <h3>
-        <Link
-          to={`/data/state/${slug(state.name)}`}
-          id={`state-${state.state}`}
-        >
-          {state.name}
-        </Link>
+      <h3 id={`state-${state.state.toLowerCase()}`}>
+        <Link to={`/data/state/${slug(state.name)}`}>{state.name}</Link>
       </h3>
       <StateGrade letterGrade={state.stateData.grade} />
     </div>
@@ -53,7 +48,11 @@ const State = ({ state }) => (
         }}
       />
     )}
-    <a className={stateDataStyles.topLink} href="#states-top" title="top">
+    <a
+      className={`state-top-link ${stateDataStyles.topLink}`}
+      href="#reach-skip-nav"
+      title="top"
+    >
       ↑ (return to top)
     </a>
   </>

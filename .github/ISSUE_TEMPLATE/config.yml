@@ -3,3 +3,6 @@ contact_links:
   - name: Data quality
     url: https://github.com/COVID19Tracking/issues/issues
     about: Issues regarding data quality should be filed here
+  - name: Security
+    url: https://covidtracking.com/
+    about: Please email security concerns to infosec@covidtracking.com

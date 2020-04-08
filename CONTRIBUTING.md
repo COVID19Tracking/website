@@ -20,6 +20,8 @@ We also use [stable class names](https://www.gatsbyjs.org/docs/css-modules/#enab
 
 ## How to file an issue
 
+If you find a security vulnerability, **do NOT open** an issue. Email infosec@covidtracking.com instead.
+
 The issue queue is the place for bug reports or feature requests. To make sure your issue is resolved quickly, here are a few suggestions:
 
 - Make sure you are in the right place! If you have an issue with data or data quality, please file it in the separate issues repository.
