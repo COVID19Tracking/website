@@ -12,7 +12,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: '/__developer/env-vars',
       toPath: process.env.DEV_ENVIRONMENT_VARIABLE_FILE,
-      isPermanent: true,
+      statusCode: 200,
     })
   }
 
