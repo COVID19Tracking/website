@@ -27,7 +27,7 @@ li {
     background: white;
     position: sticky;
     top: 0;
-    width: 100%;
+    width: calc(100% + 1px); // this hides the table borders that otherwise appear on the top right
   }
   @media (min-width: $viewport-md) and (max-width: $viewport-lg) {
     width: calc(100vw - 3rem);
