@@ -1,9 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Flex, Box } from '../../components/common/flexbox'
 import DetailText from '../../components/common/detail-text'
 import Layout from '../../components/layout'
 import StateList from '../../components/pages/data/state-list'
-import StateNav from '../../components/pages/data/state-nav'
+import StatesNoScriptNav from '../../components/pages/data/state-nav-no-script'
+import StatesNav from '../../components/pages/data/state-nav'
 import SummaryTable from '../../components/common/summary-table'
 import { SyncInfobox } from '../../components/common/infobox'
 import '../../scss/pages/data.scss'
@@ -28,8 +30,21 @@ export default ({ data }) => (
         }}
       />
     </DetailText>
-    <h2 id="states-top">States</h2>
-    <StateNav stateList={data.allCovidState.edges} />
+    <Flex my={['0.5rem', '2rem']} className="data-states-header">
+      <Flex
+        flexWrap="wrap"
+        alignItems="baseline"
+        className="inner-data-states-header"
+      >
+        <Box width={[1, 1, 1 / 2]}>
+          <h2 id="states-top">Totals by state</h2>
+        </Box>
+        <Box width={[1, 1, 1 / 2]} textAlign={['left', 'left', 'right']}>
+          <StatesNav stateList={data.allCovidStateInfo.edges} />
+        </Box>
+      </Flex>
+    </Flex>
+    <StatesNoScriptNav stateList={data.allCovidStateInfo.edges} />
     <StateList
       states={data.allCovidStateInfo.edges}
       stateData={data.allCovidState.edges}

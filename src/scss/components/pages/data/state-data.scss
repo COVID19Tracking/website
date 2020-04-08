@@ -3,13 +3,17 @@
 .state-header {
   display: flex;
   flex-direction: column;
-
   p {
     margin-bottom: 0;
   }
 
   h3 {
     margin-bottom: 0.5rem;
+    @media (min-width: $viewport-md) {
+      margin-top: -70px;
+      padding-top: 70px;
+      display: inline-block;
+    }
   }
 
   @media (min-width: $viewport-md) {
