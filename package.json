@@ -107,6 +107,8 @@
     "storybook:build": "build-storybook",
     "storybook:pages": "gh-pages -d storybook-static -r https://github.com/COVID19Tracking/website-docs",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "setup": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz && curl -L https://covidtracking.com/__developer/env-vars > .env"
+    "setup": "run-s setup:api-data setup:env-vars",
+    "setup:api-data": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz",
+    "setup:env-vars": "curl -L https://covidtracking.com/__developer/env-vars > .env"
   }
 }
