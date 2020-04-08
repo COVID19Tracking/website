@@ -9,6 +9,7 @@ import React from 'react'
 import { formatDate, formatNumber } from './_util'
 
 export default function AreaChart({
+  annotations = null,
   data,
   fill,
   height,
@@ -95,6 +96,24 @@ export default function AreaChart({
           <path key={d.key} d={a(d.values)} opacity={0.8} fill={fillFn(d)} />
         ))}
       </g>
+      {annotations && (
+        <g
+          className="chart-annotations-group"
+          transform={`translate(${marginLeft} ${marginTop})`}
+        >
+          {annotations.map(d => (
+            <line
+              key={d.date}
+              stroke="black"
+              strokeWidth="1px"
+              x1={xScale(d.date)}
+              x2={xScale(d.date)}
+              y1="0"
+              y2={height - marginTop - marginBottom}
+            />
+          ))}
+        </g>
+      )}
     </svg>
   )
 }
