@@ -4,7 +4,7 @@ import { format } from 'd3-format'
 import { geoPath, geoAlbersUsa } from 'd3-geo'
 import { max } from 'd3-array'
 import { scaleSqrt, scaleThreshold } from 'd3-scale'
-import { schemeOranges, schemeGreys, schemePurples } from 'd3-scale-chromatic'
+import { schemeGreys, schemePurples } from 'd3-scale-chromatic'
 
 import { formatNumber, formatDate, parseDate } from '../_utils'
 import StatesWithPopulation from '../data/_state-populations'
@@ -58,6 +58,18 @@ const colorLimits = {
   positive: [100, 250, 500, 1000, 2500, 5000, 10000],
   totalTestResults: [250, 500, 1000, 2500, 5000, 10000, 25000],
 }
+
+const customSchemeOranges = [
+  '#fcf9eb',
+  '#fbe8a9',
+  '#f6ce7a',
+  '#f3b05d',
+  '#e2894e',
+  '#c66b3e',
+  '#924f34',
+  '#753c2d',
+]
+
 /*
 const mapColorScale = [
   '#E5A968',
@@ -70,9 +82,10 @@ const mapColorScale = [
   '#843812',
 ]
 */
+
 const getColor = {
   death: scaleThreshold(colorLimits.death, schemeGreys[8]),
-  positive: scaleThreshold(colorLimits.positive, schemeOranges[8]),
+  positive: scaleThreshold(colorLimits.positive, customSchemeOranges),
   totalTestResults: scaleThreshold(
     colorLimits.totalTestResults,
     schemePurples[8],

@@ -45,17 +45,14 @@ export default function ChoroLegend({
     </g>
   )
   return (
-    <>
-      <h5 style={{ marginBottom: 0 }}>per million residents</h5>
-      <svg
-        width={width}
-        height={height}
-        viewBox={[0, 0, width, height]}
-        style={{ overflow: 'visible', display: 'block' }}
-      >
-        {rectangles}
-        {ticks}
-      </svg>
-    </>
+    <svg
+      width={width}
+      height={height}
+      viewBox={[0, 0, width, height]}
+      style={{ overflow: 'visible', display: 'block' }}
+    >
+      {rectangles}
+      {ticks}
+    </svg>
   )
 }
