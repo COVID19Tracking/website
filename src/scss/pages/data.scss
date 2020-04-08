@@ -22,12 +22,12 @@ li {
 }
 
 .data-states-header {
-  border-bottom: 2px solid $color-grey-6;
   position: relative;
   @media (min-width: $viewport-ms) {
     background: white;
     position: sticky;
     top: 0;
+    width: 100%;
   }
   @media (min-width: $viewport-md) and (max-width: $viewport-lg) {
     width: calc(100vw - 3rem);
@@ -39,6 +39,10 @@ li {
   }
   h2 {
     margin: 0;
+  }
+  .inner-data-states-header {
+    border-bottom: 2px solid $color-grey-6;
+    width: 100%;
   }
 }
 

@@ -30,18 +30,19 @@ export default ({ data }) => (
         }}
       />
     </DetailText>
-    <Flex
-      flexWrap="wrap"
-      alignItems="baseline"
-      className="data-states-header"
-      my={['0.5rem', '2rem']}
-    >
-      <Box width={[1, 1, 1 / 2]}>
-        <h2 id="states-top">Totals by state</h2>
-      </Box>
-      <Box width={[1, 1, 1 / 2]} textAlign={['left', 'left', 'right']}>
-        <StatesNav stateList={data.allCovidStateInfo.edges} />
-      </Box>
+    <Flex my={['0.5rem', '2rem']} className="data-states-header">
+      <Flex
+        flexWrap="wrap"
+        alignItems="baseline"
+        className="inner-data-states-header"
+      >
+        <Box width={[1, 1, 1 / 2]}>
+          <h2 id="states-top">Totals by state</h2>
+        </Box>
+        <Box width={[1, 1, 1 / 2]} textAlign={['left', 'left', 'right']}>
+          <StatesNav stateList={data.allCovidStateInfo.edges} />
+        </Box>
+      </Flex>
     </Flex>
     <StatesNoScriptNav stateList={data.allCovidStateInfo.edges} />
     <StateList
