@@ -31,16 +31,22 @@ $death-color: #404856;
     stroke: black;
     stroke-width: 2px;
   }
-  #map-dek {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    @media screen and (max-width: 500px) {
-      * {
-        text-align: left;
-      }
+}
+
+#map-dek {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (max-width: 500px) {
+    * {
+      text-align: left;
     }
+  }
+
+  .label {
+    text-align: center;
   }
 }
 

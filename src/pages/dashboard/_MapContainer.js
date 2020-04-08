@@ -161,6 +161,7 @@ const MapContainer = () => {
                 <option value={value}>{name}</option>
               ))}
             </select>
+            <div className="label">per one million people</div>
           </div>
         ) : (
           <>
