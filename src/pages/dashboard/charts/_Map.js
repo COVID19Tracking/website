@@ -33,7 +33,25 @@ const path = geoPath().projection(projection)
 
 // this should be dynamic, espcially with the numbers only growing each day.
 // for now there is just a scale for each of the fields.
-// const limit = [1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000,25000]
+
+/*
+const limit = [
+  1,
+  5,
+  10,
+  25,
+  50,
+  100,
+  250,
+  500,
+  1000,
+  2500,
+  5000,
+  10000,
+  25000,
+  50000,
+]
+*/
 
 const colorLimits = {
   death: [1, 5, 10, 25, 50, 100, 250],
@@ -112,25 +130,28 @@ export default function Map({ data, currentField, getValue, useChoropleth }) {
             <BubbleLegend data={data} r={r} maxValue={maxValue} />
           ))}
       </div>
-      <svg width={width} height={height}>
-        {data && (
-          <>
-            {!useChoropleth && (
-              <Bubbles geoJson={data} getValue={getValue} r={r} />
-            )}
-            <States
-              geoJson={data}
-              useChoropleth={useChoropleth}
-              currentField={currentField}
-              getValue={getValue}
-              setHoveredState={setHoveredState}
-            />
-          </>
+
+      <div className="map-contents">
+        <svg width={width} height={height}>
+          {data && (
+            <>
+              {!useChoropleth && (
+                <Bubbles geoJson={data} getValue={getValue} r={r} />
+              )}
+              <States
+                geoJson={data}
+                useChoropleth={useChoropleth}
+                currentField={currentField}
+                getValue={getValue}
+                setHoveredState={setHoveredState}
+              />
+            </>
+          )}
+        </svg>
+        {hoveredState && (
+          <Tooltip hoveredState={hoveredState} getValue={getValue} />
         )}
-      </svg>
-      {hoveredState && (
-        <Tooltip hoveredState={hoveredState} getValue={getValue} />
-      )}
+      </div>
     </div>
   )
 }
@@ -158,9 +179,12 @@ const States = ({
       className="countries"
       fill={getColorFromFeature(d)}
       stroke="#ababab"
-      onMouseEnter={event => {
+      onMouseEnter={() => {
         setHoveredState({
-          coordinates: [event.clientX, event.clientY],
+          coordinates: [
+            d.properties.centroidCoordinates[0],
+            d.properties.centroidCoordinates[1],
+          ],
           state: d,
         })
       }}
@@ -261,33 +285,58 @@ const Tooltip = ({ hoveredState, currentDate, getValue }) => {
   return (
     <div id="map-tooltip" style={{ top: y, left: x }}>
       <table>
+        <caption>
+          {d.properties.NAME}
+          <br />
+          <span className="date">{formatDate(parseDate(currentDate))}</span>
+        </caption>
         <thead>
           <tr>
-            <td colSpan="3">
-              {d.properties.NAME}
-              <br />
-              <span className="date">{formatDate(parseDate(currentDate))}</span>
-            </td>
+            <th scope="col">Metric</th>
+            <th scope="col">Total</th>
+            <th scope="col">Per capita*</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td />
-            <td>Total</td>
-            <td>Per capita*</td>
-          </tr>
-          <tr>
-            <td>Tests</td>
+            <th scope="row">
+              <span
+                style={{
+                  display: 'inline',
+                  borderBottom: `2px solid ${colors.totalTestResults}`,
+                }}
+              >
+                Tests
+              </span>
+            </th>
             <td>{formatNumber(totalTestResults)}</td>
             <td>{formatNumber(totalTestResultsNorm)}</td>
           </tr>
           <tr>
-            <td>Positive tests</td>
+            <th scope="col">
+              <span
+                style={{
+                  display: 'inline',
+                  borderBottom: `2px solid ${colors.positive}`,
+                }}
+              >
+                Positive tests
+              </span>
+            </th>
             <td>{formatNumber(positive)}</td>
             <td>{formatNumber(positiveNorm)}</td>
           </tr>
           <tr>
-            <td>Deaths</td>
+            <th scope="col">
+              <span
+                style={{
+                  display: 'inline',
+                  borderBottom: `2px solid ${colors.death}`,
+                }}
+              >
+                Deaths
+              </span>
+            </th>
             <td>{formatNumber(death)}</td>
             <td>{formatNumber(deathNorm)}</td>
           </tr>
