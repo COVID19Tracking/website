@@ -8,7 +8,7 @@ import ProjectLogo from '../../images/project-logo.svg'
 import headerStyle from '../../scss/components/header.module.scss'
 
 const HeaderTabs = ({ navigation }) => (
-  <div className={headerStyle.headerTabs}>
+  <div className={`site-header-tabs ${headerStyle.headerTabs}`}>
     <div>
       <ul>
         {navigation.map(item => (
@@ -65,7 +65,7 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
     <>
       <DevelopmentWarning />
       <header
-        className={`${headerStyle.siteHeader} ${
+        className={`site-header ${headerStyle.siteHeader} ${
           showMobileMenu ? headerStyle.showMobileMenu : ''
         } ${noMargin ? headerStyle.noMargin : ''}`}
       >
