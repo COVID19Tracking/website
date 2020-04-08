@@ -7,7 +7,7 @@ import { nest, set } from 'd3-collection'
 import { sum } from 'd3-array'
 
 import Map, { path } from './charts/_Map'
-import StatesWithPopulation from './data/_state-populations'
+import StatesWithPopulation from '../../data/visualization/state-populations.json'
 
 import { formatDate, formatNumber, parseDate } from './_utils'
 
@@ -37,7 +37,7 @@ const MapContainer = () => {
 
   const [sliderInterval, setSliderInterval] = useState(null)
 
-  // holds the date of the displayed day this is calculated using the range slider
+  // holds the date of the displayed day. calculated using the slider index
   const currentDate = useMemo(() => dates[sliderIndex], [dates, sliderIndex])
 
   // holds the field we are currently viewing
