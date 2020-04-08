@@ -1,47 +1,48 @@
+.map-contents {
+  position: relative;
+}
+
 #map-tooltip {
   background: white;
   pointer-events: none;
-  position: fixed;
-  width: 270px;
+  position: absolute;
+  border: 2px solid #000;
   table {
-    border: 1px solid #333;
+    table-layout: fixed;
+    width: 270px;
     border-collapse: collapse;
     margin: -1px;
   }
-  td {
-    border: 1px solid lightgray;
+  caption {
+    font-size: 16px;
+    padding: 6px 12px;
+    span.date {
+      font-size: 11px;
+      color: gray;
+      text-transform: uppercase;
+    }
+  }
+  td,
+  th {
+    border: 1px solid #000;
     border-collapse: collapse;
+    text-align: center;
+    background: none;
   }
-  thead {
-    td {
-      text-align: left;
-      color: #000;
-      font-weight: 600;
-      margin: 10px 10px;
-      font-size: 18px;
-      span.date {
-        font-size: 14px;
-        color: gray;
-        text-transform: uppercase;
-      }
+  td {
+    font-size: 12px;
+  }
+  th {
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+    span {
+      font-size: 11px;
     }
   }
-
   tbody {
-    td {
-      text-align: center;
-      padding: 2px 4px;
-    }
-    tr:nth-child(1) {
-      background-color: #e8eff6;
-      font-weight: 600;
-    }
-    tr:nth-child(even) {
-      background-color: initial;
-    }
-    td:nth-child(1) {
-      background-color: #e8eff6;
-      font-weight: 600;
+    th {
+      font-size: 11px;
     }
   }
 }
