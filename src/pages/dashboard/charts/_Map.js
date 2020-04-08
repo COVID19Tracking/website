@@ -88,7 +88,6 @@ const colors = {
 
 export default function Map({ data, currentField, getValue, useChoropleth }) {
   const [hoveredState, setHoveredState] = useState(null)
-
   const maxValue = useMemo(
     () =>
       data &&
@@ -109,44 +108,38 @@ export default function Map({ data, currentField, getValue, useChoropleth }) {
     [maxValue],
   )
 
-  // not ready
-  if (r === 0) return null
-
   return (
     <div className="map-container">
       <div className="map-legend">
-        {data &&
-          (useChoropleth ? (
-            <ChoroLegend
-              color={getColor[currentField]}
-              height={40}
-              width={300}
-              marginTop={8}
-              tickFormat="~s"
-              spaceBetween={2}
-              tickSize={0}
-            />
-          ) : (
-            <BubbleLegend data={data} r={r} maxValue={maxValue} />
-          ))}
+        {useChoropleth ? (
+          <ChoroLegend
+            color={getColor[currentField]}
+            height={40}
+            width={300}
+            marginTop={8}
+            tickFormat="~s"
+            spaceBetween={2}
+            tickSize={0}
+          />
+        ) : (
+          <BubbleLegend data={data} r={r} maxValue={maxValue} />
+        )}
       </div>
 
       <div className="map-contents">
         <svg width={width} height={height}>
-          {data && (
-            <>
-              {!useChoropleth && (
-                <Bubbles geoJson={data} getValue={getValue} r={r} />
-              )}
-              <States
-                geoJson={data}
-                useChoropleth={useChoropleth}
-                currentField={currentField}
-                getValue={getValue}
-                setHoveredState={setHoveredState}
-              />
-            </>
-          )}
+          <>
+            {!useChoropleth && (
+              <Bubbles geoJson={data} getValue={getValue} r={r} />
+            )}
+            <States
+              geoJson={data}
+              useChoropleth={useChoropleth}
+              currentField={currentField}
+              getValue={getValue}
+              setHoveredState={setHoveredState}
+            />
+          </>
         </svg>
         {hoveredState && (
           <Tooltip hoveredState={hoveredState} getValue={getValue} />
@@ -166,7 +159,7 @@ const States = ({
   // below function should use getValue
   const getColorFromFeature = d => {
     if (!useChoropleth) return 'transparent'
-    const value = getValue(d) ? getValue(d) : 0
+    const value = getValue(d) ? getValue(d) : 0 // account for undefined values
     const normalizationPopulation = 1000000 // 1 million;
     const normalizedValue =
       value / (d.properties.population / normalizationPopulation)
@@ -195,8 +188,6 @@ const States = ({
 }
 
 const Bubbles = ({ geoJson, r, getValue }) => {
-  if (!r) return null
-
   // filter out "states" outside of render area (should be hoisted)
   const features = geoJson.features.filter(
     d => d.properties.centroidCoordinates[0],
