@@ -1,7 +1,7 @@
 import { max } from 'd3-array'
 import React, { useMemo } from 'react'
 
-import AreaChart from './_AreaChart'
+import AreaChart from './charts/_AreaChart'
 
 import {
   calculateTotal,

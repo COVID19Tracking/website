@@ -131,10 +131,7 @@ const MapContainer = () => {
       name: 'Deaths',
     },
   ]
-  const togglePlaying = event => {
-    console.log('togglePlaying: ', event)
-    setPlaying(p => !p)
-  }
+  const togglePlaying = () => setPlaying(p => !p)
 
   const toggleMapStyle = () => setUseChoropleth(u => !u)
 
