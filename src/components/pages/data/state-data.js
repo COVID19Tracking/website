@@ -47,7 +47,7 @@ const State = ({ state }) => (
         }}
       />
     )}
-    <a className="top-link" href="#states-top" title="top">
+    <a className="top-link" href="#reach-skip-nav" title="top">
       ↑ (return to top)
     </a>
   </>
