@@ -99,7 +99,13 @@ const colors = {
   death: '#404856',
 }
 
-export default function Map({ data, currentField, getValue, useChoropleth }) {
+export default function Map({
+  data,
+  currentField,
+  currentDate,
+  getValue,
+  useChoropleth,
+}) {
   const [hoveredState, setHoveredState] = useState(null)
   const maxValue = useMemo(
     () =>
@@ -155,7 +161,11 @@ export default function Map({ data, currentField, getValue, useChoropleth }) {
           </>
         </svg>
         {hoveredState && (
-          <Tooltip hoveredState={hoveredState} getValue={getValue} />
+          <Tooltip
+            hoveredState={hoveredState}
+            getValue={getValue}
+            currentDate={currentDate}
+          />
         )}
       </div>
     </div>
