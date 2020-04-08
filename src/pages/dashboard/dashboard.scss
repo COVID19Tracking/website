@@ -1,3 +1,8 @@
+.us-area-chart-container {
+  margin: 50px auto;
+  max-width: 800px;
+}
+
 .small-multiples-chart-container {
   display: flex;
   flex-wrap: wrap;
@@ -5,23 +10,57 @@
 }
 
 ul.chart-legend {
-  background-color: white;
+  background-color: #fff;
   display: flex;
+  flex-direction: column;
   list-style-type: none;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-left: 0;
-  padding: .2rem;
+  padding: 0.2rem 0 1rem;
   position: sticky;
   top: 0rem;
-  width: 70%;
+  width: 100%;
+
+  @media screen and (min-width: 960px) {
+    flex-direction: row;
+  }
+
+  li {
+    display: flex;
+    line-height: 1;
+    margin: 1rem 2rem 0 0;
+
+    @media screen and (min-width: 960px) {
+      flex-direction: row;
+    }
+  }
 }
 
 .chart-legend-color {
   display: inline-block;
-  height: .7rem;
-  width: .7rem;
+  height: 0.7rem;
+  margin: 0.2rem 0.5rem 0 0;
+  width: 0.7rem;
 }
 
-.small-multiples-chart h4 {
-  margin-bottom: .4rem;
+.small-multiples-chart {
+  padding: 0 1%;
+  width: 100%;
+
+  @media screen and (min-width: 960px) {
+    width: 50%;
+  }
+
+  h4 {
+    margin-bottom: 0.4rem;
+  }
+}
+
+.small-multiples__y-tick-label {
+  font-size: 14px;
+  overflow: visible !important;
+}
+
+.small-multiples__x-tick-label {
+  font-size: 14px;
 }

@@ -29,20 +29,23 @@ export default function UsAreaChartContainer() {
     }
   `)
   return (
-    <AreaChart
-      data={transformData(data)}
-      fill={d => {
-        if (d === 'Total') return '#585BC1'
-        return '#FFA270'
-      }}
-      height={400}
-      labelOrder={['Total', 'Positive']}
-      marginBottom={40}
-      marginLeft={80}
-      marginRight={10}
-      marginTop={10}
-      xTicks={2}
-      width={400}
-    />
+    <div className="us-area-chart-container">
+      <AreaChart
+        data={transformData(data)}
+        fill={d => {
+          if (d === 'Total') return '#585BC1'
+          return '#FFA270'
+        }}
+        height={250}
+        labelOrder={['Total', 'Positive']}
+        marginBottom={40}
+        marginLeft={80}
+        marginRight={10}
+        marginTop={10}
+        xTicks={4}
+        yTicks={4}
+        width={750}
+      />
+    </div>
   )
 }

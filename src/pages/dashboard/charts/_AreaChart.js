@@ -56,7 +56,7 @@ export default function AreaChart({
     .y1(height - totalYMargin)
 
   return (
-    <svg height={height} width={width}>
+    <svg viewBox={`0 0 ${width} ${height}`}>
       <g
         className="axis-group"
         transform={`translate(${marginLeft} ${marginTop})`}
@@ -66,7 +66,12 @@ export default function AreaChart({
           transform={`translate(0 ${height - totalYMargin})`}
         >
           {xScale.ticks(xTicks).map(tick => (
-            <text key={tick} x={xScale(tick)} y={20}>
+            <text
+              className="small-multiples__x-tick-label"
+              key={tick}
+              x={xScale(tick)}
+              y={20}
+            >
               {formatDate(tick)}
             </text>
           ))}
@@ -74,11 +79,15 @@ export default function AreaChart({
         <g className="chart-grid">
           {yScale.ticks(yTicks).map(tick => (
             <g key={tick}>
-              <text y={yScale(tick) + 6} x={`${tick}`.length * -11}>
-                {formatNumber(tick)}
-              </text>
+              <svg
+                y={yScale(tick) + 4}
+                x="-10"
+                className="small-multiples__y-tick-label"
+              >
+                <text textAnchor="end">{formatNumber(tick)}</text>
+              </svg>
               <line
-                stroke="black"
+                stroke="#b2bbbf"
                 x1={0}
                 x2={width - totalXMargin}
                 y1={yScale(tick)}
@@ -105,7 +114,7 @@ export default function AreaChart({
             <line
               key={d.date}
               stroke="black"
-              strokeWidth="1px"
+              strokeWidth="2px"
               x1={xScale(d.date)}
               x2={xScale(d.date)}
               y1="0"

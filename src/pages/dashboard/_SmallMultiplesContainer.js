@@ -105,11 +105,12 @@ const SmallMultiplesContainer = () => {
   `)
 
   const data = groupAndSortStateDaily(query)
-  const secondMaxTotal = useMemo(() => {
-    if (!data[1] && !data[0]) return
-    // eslint-disable-next-line consistent-return
-    return max(data[1].values, d => calculateTotal(d))
-  }, [data.length])
+
+  const maxStateTests = useMemo(() => {
+    return max(data, stateData => {
+      return max(stateData.values, d => calculateTotal(d))
+    })
+  })
 
   return (
     <div>
@@ -143,7 +144,9 @@ const SmallMultiplesContainer = () => {
             className="chart-legend-color"
             style={{
               backgroundColor: 'black',
-              marginRight: '.3rem',
+              height: '20px',
+              margin: '0 14px 0 0',
+              verticalAlign: 'middle',
               width: '2px',
             }}
           />
@@ -196,10 +199,10 @@ const SmallMultiplesContainer = () => {
                 marginLeft={80}
                 marginRight={10}
                 marginTop={10}
-                xTicks={2}
-                width={250}
-                yMax={secondMaxTotal}
-                yTicks={2}
+                xTicks={4}
+                width={750}
+                yMax={maxStateTests}
+                yTicks={4}
               />
               <p>
                 <a
