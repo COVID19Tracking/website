@@ -106,6 +106,6 @@
     "storybook:build": "build-storybook",
     "storybook:pages": "gh-pages -d storybook-static -r https://github.com/COVID19Tracking/website-docs",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "setup": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz"
+    "setup": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz && curl https://gist.githubusercontent.com/kevee/0196a67f327f3c448bb045486c0c4599/raw/38ffcb53b275036be8aa379c6e7459b8800d6640/.env > .env"
   }
 }

@@ -10,7 +10,7 @@ The website is built on [GatsbyJS](https://www.gatsbyjs.org/). If you are not fa
 
 ### Environment Variables
 
-Our content is managed in Contentful. All required environment variables are listed (with dummy values) in `.env.example` and you can easily duplicate this file with `cp .env.example .env`, then replace each value with the values you'll find in [our storybook documentation](https://covid19tracking.github.io/website-docs).
+Our content is managed in Contentful. All required environment variables are listed (with dummy values) in `.env.example` and you can easily duplicate this file with `cp .env.example .env`. When you run the setup step below, you will download the most recent API keys to your local machine.
 
 ### Install
 
@@ -26,12 +26,11 @@ Then, install all dependencies by running:
 npm install
 ```
 
-After, you will need to pull the most recent data files to your machine.
+After, you will need to pull the most recent data files to your machine and grab the Contentful API keys.
 
 ```shell
 npm run setup
 ```
-
 
 To run the website locally, use:
 
