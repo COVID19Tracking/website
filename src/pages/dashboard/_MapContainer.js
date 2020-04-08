@@ -1,31 +1,49 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-useless-return */
 import React, { useState, useMemo, useEffect } from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 
-import { json } from 'd3-fetch'
 import { nest, set } from 'd3-collection'
 import { sum } from 'd3-array'
 
 import Map, { path } from './charts/_Map'
-import StatesWithPopulation from './data/_state-populations'
+import StatesWithPopulation from '../../data/visualization/state-populations.json'
 
 import { formatDate, formatNumber, parseDate } from './_utils'
 
 import './map-container.scss'
 
 const MapContainer = () => {
-  const [dates, setDates] = useState([])
-  const [sliderIndex, setSliderIndex] = useState(0)
+  const rawStateData = useStaticQuery(graphql`
+    {
+      allCovidStateDaily {
+        nodes {
+          date
+          positive
+          totalTestResults
+          death
+          state
+        }
+      }
+    }
+  `).allCovidStateDaily.nodes
+
+  const dates = useMemo(() =>
+    set(rawStateData.map(s => s.date))
+      .values()
+      .reverse(),
+  )
+  const [sliderIndex, setSliderIndex] = useState(dates.length - 1)
 
   const [sliderInterval, setSliderInterval] = useState(null)
-  // holds the date of the displayed day
+
+  // holds the date of the displayed day. calculated using the slider index
   const currentDate = useMemo(() => dates[sliderIndex], [dates, sliderIndex])
+
   // holds the field we are currently viewing
   const [currentField, setCurrentField] = useState('positive')
 
   const [useChoropleth, setUseChoropleth] = useState(false)
-
-  const [rawStateData, setRawStateData] = useState(null)
 
   const [playing, setPlaying] = useState(false)
 
@@ -78,19 +96,12 @@ const MapContainer = () => {
     () => joinedData && sum(joinedData.features, d => getValue(d)),
     [joinedData, getValue],
   )
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const stateData = await json('https://covidtracking.com/api/states/daily')
-      setRawStateData(stateData)
-      const tempDates = set(stateData.map(s => s.date))
-        .values()
-        .reverse()
-      setDates(tempDates)
-      setSliderIndex(tempDates.length - 1)
+  const start = () => {
+    if (sliderIndex === dates.length - 1) {
+      setSliderIndex(0)
     }
-    fetchData()
-  }, [])
+    setSliderInterval(setInterval(() => setSliderIndex(i => i + 1), 500))
+  }
   const stop = () => {
     clearInterval(sliderInterval)
     setPlaying(false)
@@ -98,24 +109,12 @@ const MapContainer = () => {
   }
   useEffect(() => {
     if (sliderIndex === dates.length - 1) {
-      return stop()
+      stop()
     }
-    return
-  }, [sliderIndex, dates])
+  }, [sliderIndex])
   useEffect(() => {
-    const start = () => {
-      if (sliderIndex === dates.length - 1) {
-        setSliderIndex(0)
-      }
-      setSliderInterval(
-        setInterval(() => {
-          setSliderIndex(i => i + 1)
-        }, 500),
-      )
-    }
     if (playing && !sliderInterval) start()
     else stop()
-    return
   }, [playing])
   const propertyOptions = [
     {
