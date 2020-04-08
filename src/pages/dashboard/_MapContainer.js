@@ -157,7 +157,9 @@ const MapContainer = () => {
               onChange={e => setCurrentField(e.target.value)}
             >
               {propertyOptions.map(({ value, name }) => (
-                <option value={value}>{name}</option>
+                <option key={value} value={value}>
+                  {name}
+                </option>
               ))}
             </select>
             <div className="label">per one million people</div>
