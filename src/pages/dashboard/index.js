@@ -1,9 +1,10 @@
 import { nest } from 'd3-collection'
 import { json } from 'd3-fetch'
 
-import React, { useState, useEffect } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import Layout from '../../components/layout'
 import AreaChart from './_AreaChart'
+import BarChart from './_BarChart'
 import SmallMultiplesAreaCharts from './_SmallMultiplesAreaCharts'
 import MapContainer from './_MapContainer'
 
@@ -52,7 +53,9 @@ const DashboardPage = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const usDailyReq = await json('https://covidtracking.com/api/us/daily')
+      const usDailyReq = await json(
+        'https://covidtracking.com/api/v1/us/daily.json',
+      )
       const stateDailyReq = await json(
         'https://covidtracking.com/api/v1/states/daily.json',
       )
@@ -69,8 +72,25 @@ const DashboardPage = () => {
     fetchData()
   }, [])
 
+  const positives = useMemo(() => {
+    return usDaily
+      .filter(d => d.label === 'Positive')
+      .map(({ date, value }) => ({ date, value }))
+  }, [usDaily.length])
+
   return (
     <Layout title="Visual Dashboard">
+      <BarChart
+        data={positives}
+        fill="#585BC1"
+        height={400}
+        marginBottom={40}
+        marginLeft={80}
+        marginRight={10}
+        marginTop={10}
+        xTicks={2}
+        width={400}
+      />
       <AreaChart
         data={usDaily}
         fill={d => {
