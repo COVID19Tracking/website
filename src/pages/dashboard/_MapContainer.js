@@ -175,23 +175,33 @@ const MapContainer = () => {
           </>
         )}
         <div id="map-time-scrubber">
-          <div
-            id="map-start-stop"
-            className={playing ? 'stop' : 'start'}
-            onClick={() => togglePlaying()}
-            onKeyDown={() => togglePlaying()}
-            role="switch"
-            label={playing ? 'stop' : 'start'}
-            aria-checked={playing}
-            tabIndex={0}
-          />
-          <input
-            onChange={event => setSliderIndex(parseInt(event.target.value, 10))}
-            min={0}
-            max={dates.length - 1}
-            value={sliderIndex}
-            type="range"
-          />
+          <div>
+            <div
+              id="map-start-stop"
+              className={playing ? 'stop' : 'start'}
+              onClick={() => togglePlaying()}
+              onKeyDown={() => togglePlaying()}
+              role="switch"
+              label={playing ? 'stop' : 'start'}
+              aria-checked={playing}
+              tabIndex={0}
+            />
+            <input
+              onChange={event =>
+                setSliderIndex(parseInt(event.target.value, 10))
+              }
+              min={0}
+              max={dates.length - 1}
+              value={sliderIndex}
+              type="range"
+            />
+          </div>
+          <div id="map-start-stop-label">
+            <div className="column">{formatDate(parseDate(dates[0]))}</div>
+            <div className="column">
+              {formatDate(parseDate(dates[dates.length - 1]))}
+            </div>
+          </div>
         </div>
       </div>
       {joinedData && (
