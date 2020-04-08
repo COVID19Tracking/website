@@ -33,12 +33,12 @@ const path = geoPath().projection(projection)
 
 // this should be dynamic, espcially with the numbers only growing each day.
 // for now there is just a scale for each of the fields.
-// const limit = [1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000]
+// const limit = [1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000,25000]
 
 const colorLimits = {
   death: [1, 5, 10, 25, 50, 100, 250],
-  positive: [50, 100, 250, 500, 1000, 2500, 5000],
-  totalTestResults: [100, 250, 500, 1000, 2500, 5000, 10000],
+  positive: [100, 250, 500, 1000, 2500, 5000, 10000],
+  totalTestResults: [250, 500, 1000, 2500, 5000, 10000, 25000],
 }
 /*
 const mapColorScale = [
@@ -68,13 +68,7 @@ const colors = {
   death: '#404856',
 }
 
-export default function Map({
-  data,
-  currentDate,
-  currentField,
-  getValue,
-  useChoropleth,
-}) {
+export default function Map({ data, currentField, getValue, useChoropleth }) {
   const [hoveredState, setHoveredState] = useState(null)
 
   const maxValue = useMemo(
@@ -127,8 +121,8 @@ export default function Map({
             <States
               geoJson={data}
               useChoropleth={useChoropleth}
-              currentDate={currentDate}
               currentField={currentField}
+              getValue={getValue}
               setHoveredState={setHoveredState}
             />
           </>
@@ -144,19 +138,17 @@ export default function Map({
 const States = ({
   geoJson,
   useChoropleth,
-  currentDate,
   currentField,
   setHoveredState,
+  getValue,
 }) => {
   // below function should use getValue
   const getColorFromFeature = d => {
     if (!useChoropleth) return 'transparent'
+    const value = getValue(d) ? getValue(d) : 0
     const normalizationPopulation = 1000000 // 1 million;
-
-    const normalizedValue = d.properties.dailyData[currentDate]
-      ? d.properties.dailyData[currentDate][currentField] /
-        (d.properties.population / normalizationPopulation)
-      : 0
+    const normalizedValue =
+      value / (d.properties.population / normalizationPopulation)
     return getColor[currentField](normalizedValue)
   }
   const states = geoJson.features.map(d => (
