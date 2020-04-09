@@ -131,14 +131,14 @@ export const colorsHoney = () => (
       colors.colorHoney800,
     ]}
     names={[
-      '$color-honey-1',
-      '$color-honey-2',
-      '$color-honey-3',
-      '$color-honey-4',
-      '$color-honey-5',
-      '$color-honey-6',
-      '$color-honey-7',
-      '$color-honey-8',
+      '$color-honey-100',
+      '$color-honey-200',
+      '$color-honey-300',
+      '$color-honey-400',
+      '$color-honey-500',
+      '$color-honey-600',
+      '$color-honey-700',
+      '$color-honey-800',
     ]}
   />
 )
