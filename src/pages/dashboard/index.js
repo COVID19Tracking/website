@@ -1,50 +1,31 @@
-import { nest } from 'd3-collection'
-import { json } from 'd3-fetch'
-
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Layout from '../../components/layout'
-import SmallMultiplesAreaCharts from './_SmallMultiplesAreaCharts'
+import CDCComparisonContainer from './_CDCComparisonContainer'
 import MapContainer from './_MapContainer'
-
-import UsAreaChartContainer from './_UsAreaChartContainer'
-import { calculateTotal } from './_util'
+import StateCumulativeTestsContainer from './_StateCumulativeTestsContainer'
+import StateTotalDeathsContainer from './_StateTotalDeathsContainer'
+import UsCumulativeDeathsContainer from './_UsCumulativeDeathsContainer'
+import UsPositiveAndTotalTestsContainer from './_UsPositiveAndTotalTestsContainer'
 
 import './dashboard.scss'
 
-function groupAndSortStateDaily(data) {
-  const grouped = nest()
-    .key(d => d.state)
-    .entries(data)
-
-  return grouped.sort((a, b) => {
-    const lastA = a.values[0]
-    const lastB = b.values[0]
-
-    const lastATotal = calculateTotal(lastA)
-    const lastBTotal = calculateTotal(lastB)
-    return lastBTotal - lastATotal
-  })
-}
-
 const DashboardPage = () => {
-  const [stateDaily, setStateDaily] = useState([])
-
-  useEffect(() => {
-    async function fetchData() {
-      const stateDailyReq = await json(
-        'https://covidtracking.com/api/v1/states/daily.json',
-      )
-
-      setStateDaily(groupAndSortStateDaily(stateDailyReq))
-    }
-    fetchData()
-  }, [])
-
   return (
     <Layout title="Visual Dashboard">
-      <UsAreaChartContainer />
+      <p>
+        Tracking testing data has become crucial to fight the coronavirus.
+        Considering the lag in data reports by public organizations, The COVID
+        Tracking Project has been collecting more accurate information since
+        March 4. On this dashboard, we present some of our data visualized and
+        walk you through the most common misconceptions when charting
+        coronavirus numbers.
+      </p>
+      <CDCComparisonContainer />
       <MapContainer />
-      <SmallMultiplesAreaCharts data={stateDaily} />
+      <UsPositiveAndTotalTestsContainer />
+      <UsCumulativeDeathsContainer />
+      <StateTotalDeathsContainer />
+      <StateCumulativeTestsContainer />
     </Layout>
   )
 }

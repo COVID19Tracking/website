@@ -1,4 +1,6 @@
 import { max } from 'd3-array'
+import { nest } from 'd3-collection'
+import { graphql, useStaticQuery } from 'gatsby'
 import React, { useMemo } from 'react'
 
 import AreaChart from './charts/_AreaChart'
@@ -9,7 +11,7 @@ import {
   parseDate,
   totalColor,
   positiveColor,
-} from './_util'
+} from './_utils'
 
 import './dashboard.scss'
 
@@ -59,12 +61,56 @@ const stayAtHomeOrders = {
   WI: 20200325,
 }
 
-const SmallMultiplesAreaCharts = ({ data }) => {
+function groupAndSortStateDaily(query) {
+  const data = query.allCovidStateDaily.edges.map(edge => {
+    const { node } = edge
+    return node
+  })
+  const grouped = nest()
+    .key(d => d.state)
+    .sortValues((a, b) => {
+      const aDate = parseDate(a.date)
+      const bDate = parseDate(b.date)
+
+      if (aDate > bDate) return -1
+      if (bDate > aDate) return 1
+      return 0
+    })
+    .entries(data)
+
+  return grouped.sort((a, b) => {
+    const lastA = a.values[0]
+    const lastB = b.values[0]
+
+    const lastATotal = calculateTotal(lastA)
+    const lastBTotal = calculateTotal(lastB)
+    return lastBTotal - lastATotal
+  })
+}
+
+export default function CumulativeTestsByStateContainer() {
+  const query = useStaticQuery(graphql`
+    {
+      allCovidStateDaily {
+        edges {
+          node {
+            date
+            state
+            positive
+            negative
+          }
+        }
+      }
+    }
+  `)
+
+  const data = groupAndSortStateDaily(query)
   const secondMaxTotal = useMemo(() => {
     if (!data[1] && !data[0]) return
     // eslint-disable-next-line consistent-return
     return max(data[1].values, d => calculateTotal(d))
   }, [data.length])
+
   return (
     <div>
       <p>
@@ -171,5 +217,3 @@ const SmallMultiplesAreaCharts = ({ data }) => {
     </div>
   )
 }
-
-export default SmallMultiplesAreaCharts

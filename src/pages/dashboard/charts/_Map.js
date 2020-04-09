@@ -4,7 +4,6 @@ import { format } from 'd3-format'
 import { geoPath, geoAlbersUsa } from 'd3-geo'
 import { max } from 'd3-array'
 import { scaleSqrt, scaleThreshold } from 'd3-scale'
-import { schemeOranges, schemeGreys, schemePurples } from 'd3-scale-chromatic'
 
 import { formatNumber, formatDate, parseDate } from '../_utils'
 import StatesWithPopulation from '../data/_state-populations'
@@ -33,57 +32,105 @@ const path = geoPath().projection(projection)
 
 // this should be dynamic, espcially with the numbers only growing each day.
 // for now there is just a scale for each of the fields.
-// const limit = [1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000]
+
+/*
+const limit = [
+  1,
+  5,
+  10,
+  25,
+  50,
+  100,
+  250,
+  500,
+  1000,
+  2500,
+  5000,
+  10000,
+  25000,
+  50000,
+]
+*/
 
 const colorLimits = {
   death: [1, 5, 10, 25, 50, 100, 250],
-  positive: [50, 100, 250, 500, 1000, 2500, 5000],
-  totalTestResults: [100, 250, 500, 1000, 2500, 5000, 10000],
+  positive: [100, 250, 500, 1000, 2500, 5000, 10000],
+  totalTestResults: [250, 500, 1000, 2500, 5000, 10000, 25000],
 }
-/*
-const mapColorScale = [
-  '#E5A968',
-  '#ED9C42',
-  '#DC8C3A',
-  '#CA7B32',
-  '#B96A2A',
-  '#A75922',
-  '#96491A',
-  '#843812',
+
+const customSchemeHoney = [
+  '#fcf9eb',
+  '#fbe8a9',
+  '#f6ce7a',
+  '#f3b05d',
+  '#e2894e',
+  '#c66b3e',
+  '#924f34',
+  '#753c2d',
 ]
-*/
+
+const customSchemePlum = [
+  '#f2f2ff',
+  '#d1d1e8',
+  '#b6b7db',
+  '#8b8dc7',
+  '#6164ba',
+  '#575aad',
+  '#31347a',
+  '#111354',
+]
+
+const customSchemeGrey = [
+  '#d0d7db',
+  '#b2bbbf',
+  '#95a0a6',
+  '#849096',
+  '#6f7e85',
+  '#5b666b',
+  '#4c5559',
+  '#3d4245',
+]
+
+const strokeGrey = '#ababab'
+const strokeWhite = '#fff'
+
 const getColor = {
-  death: scaleThreshold(colorLimits.death, schemeGreys[8]),
-  positive: scaleThreshold(colorLimits.positive, schemeOranges[8]),
+  death: scaleThreshold(colorLimits.death, customSchemeGrey),
+  positive: scaleThreshold(colorLimits.positive, customSchemeHoney),
   totalTestResults: scaleThreshold(
     colorLimits.totalTestResults,
-    schemePurples[8],
+    customSchemePlum,
   ),
+}
+
+const getStrokeColor = {
+  death: strokeWhite,
+  positive: strokeGrey,
+  totalTestResults: strokeGrey,
 }
 
 // should be imported from constants file
 const colors = {
-  totalTestResults: '#696DC2',
-  positive: '#E5A968',
-  death: '#404856',
+  totalTestResults: customSchemePlum[5],
+  positive: customSchemeHoney[4],
+  death: customSchemeGrey[6],
 }
 
 export default function Map({
   data,
-  currentDate,
   currentField,
+  currentDate,
   getValue,
   useChoropleth,
 }) {
   const [hoveredState, setHoveredState] = useState(null)
-
   const maxValue = useMemo(
     () =>
       data &&
       max(
         data.features
           .map(d => Object.values(d.properties.dailyData))
-          .flat()
+          .reduce((acc, val) => acc.concat(val), [])
           .map(d => d.totalTestResults),
       ),
     [data],
@@ -97,29 +144,26 @@ export default function Map({
     [maxValue],
   )
 
-  // not ready
-  if (r === 0) return null
-
   return (
     <div className="map-container">
       <div className="map-legend">
-        {data &&
-          (useChoropleth ? (
-            <ChoroLegend
-              color={getColor[currentField]}
-              height={40}
-              width={300}
-              marginTop={8}
-              tickFormat="~s"
-              spaceBetween={2}
-              tickSize={0}
-            />
-          ) : (
-            <BubbleLegend data={data} r={r} maxValue={maxValue} />
-          ))}
+        {useChoropleth ? (
+          <ChoroLegend
+            color={getColor[currentField]}
+            height={40}
+            width={300}
+            marginTop={8}
+            tickFormat="~s"
+            spaceBetween={2}
+            tickSize={0}
+          />
+        ) : (
+          <BubbleLegend data={data} r={r} maxValue={maxValue} />
+        )}
       </div>
-      <svg width={width} height={height}>
-        {data && (
+
+      <div className="map-contents">
+        <svg width={width} height={height}>
           <>
             {!useChoropleth && (
               <Bubbles geoJson={data} getValue={getValue} r={r} />
@@ -127,16 +171,20 @@ export default function Map({
             <States
               geoJson={data}
               useChoropleth={useChoropleth}
-              currentDate={currentDate}
               currentField={currentField}
+              getValue={getValue}
               setHoveredState={setHoveredState}
             />
           </>
+        </svg>
+        {hoveredState && (
+          <Tooltip
+            hoveredState={hoveredState}
+            getValue={getValue}
+            currentDate={currentDate}
+          />
         )}
-      </svg>
-      {hoveredState && (
-        <Tooltip hoveredState={hoveredState} getValue={getValue} />
-      )}
+      </div>
     </div>
   )
 }
@@ -144,31 +192,33 @@ export default function Map({
 const States = ({
   geoJson,
   useChoropleth,
-  currentDate,
   currentField,
   setHoveredState,
+  getValue,
 }) => {
   // below function should use getValue
   const getColorFromFeature = d => {
     if (!useChoropleth) return 'transparent'
+    const value = getValue(d) ? getValue(d) : 0 // account for undefined values
     const normalizationPopulation = 1000000 // 1 million;
-
-    const normalizedValue = d.properties.dailyData[currentDate]
-      ? d.properties.dailyData[currentDate][currentField] /
-        (d.properties.population / normalizationPopulation)
-      : 0
+    const normalizedValue =
+      value / (d.properties.population / normalizationPopulation)
     return getColor[currentField](normalizedValue)
   }
+  const strokeColor = useChoropleth ? getStrokeColor[currentField] : strokeGrey
   const states = geoJson.features.map(d => (
     <path
       key={`path${d.properties.NAME}`}
       d={path(d)}
       className="countries"
       fill={getColorFromFeature(d)}
-      stroke="#ababab"
-      onMouseEnter={event => {
+      stroke={strokeColor}
+      onMouseEnter={() => {
         setHoveredState({
-          coordinates: [event.clientX, event.clientY],
+          coordinates: [
+            d.properties.centroidCoordinates[0],
+            d.properties.centroidCoordinates[1],
+          ],
           state: d,
         })
       }}
@@ -179,8 +229,6 @@ const States = ({
 }
 
 const Bubbles = ({ geoJson, r, getValue }) => {
-  if (!r) return null
-
   // filter out "states" outside of render area (should be hoisted)
   const features = geoJson.features.filter(
     d => d.properties.centroidCoordinates[0],
@@ -269,33 +317,58 @@ const Tooltip = ({ hoveredState, currentDate, getValue }) => {
   return (
     <div id="map-tooltip" style={{ top: y, left: x }}>
       <table>
+        <caption>
+          {d.properties.NAME}
+          <br />
+          <span className="date">{formatDate(parseDate(currentDate))}</span>
+        </caption>
         <thead>
           <tr>
-            <td colSpan="3">
-              {d.properties.NAME}
-              <br />
-              <span className="date">{formatDate(parseDate(currentDate))}</span>
-            </td>
+            <th scope="col">Metric</th>
+            <th scope="col">Total</th>
+            <th scope="col">Per capita*</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td />
-            <td>Total</td>
-            <td>Per capita*</td>
-          </tr>
-          <tr>
-            <td>Tests</td>
+            <th scope="row">
+              <span
+                style={{
+                  display: 'inline',
+                  borderBottom: `2px solid ${colors.totalTestResults}`,
+                }}
+              >
+                Tests
+              </span>
+            </th>
             <td>{formatNumber(totalTestResults)}</td>
             <td>{formatNumber(totalTestResultsNorm)}</td>
           </tr>
           <tr>
-            <td>Positive tests</td>
+            <th scope="col">
+              <span
+                style={{
+                  display: 'inline',
+                  borderBottom: `2px solid ${colors.positive}`,
+                }}
+              >
+                Positive tests
+              </span>
+            </th>
             <td>{formatNumber(positive)}</td>
             <td>{formatNumber(positiveNorm)}</td>
           </tr>
           <tr>
-            <td>Deaths</td>
+            <th scope="col">
+              <span
+                style={{
+                  display: 'inline',
+                  borderBottom: `2px solid ${colors.death}`,
+                }}
+              >
+                Deaths
+              </span>
+            </th>
             <td>{formatNumber(death)}</td>
             <td>{formatNumber(deathNorm)}</td>
           </tr>
