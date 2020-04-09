@@ -1,0 +1,21 @@
+@import '../../../scss/colors.scss';
+
+.visualizations-wrapper {
+  background: $color-slate-10;
+  padding: 2rem 0;
+  border-top: 1px solid $color-slate-8;
+  border-bottom: 1px solid $color-slate-8;
+}
+
+.visualization {
+  img {
+    margin-bottom: 0.8rem;
+  }
+  p {
+    margin: 0;
+    line-height: 1.3;
+  }
+  a {
+    font-weight: bold;
+  }
+}

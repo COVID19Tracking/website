@@ -93,69 +93,100 @@ export const textColors = () => (
   </>
 )
 
-export const mainColors = () => (
+export const colorsPlum = () => (
   <ColorSwatch
     colors={[
-      colors.mainDarkest,
-      colors.mainDark,
-      colors.mainMid,
-      colors.mainLight,
-      colors.mainLightest,
+      colors.colorPlum01,
+      colors.colorPlum02,
+      colors.colorPlum03,
+      colors.colorPlum04,
+      colors.colorPlum05,
+      colors.colorPlum06,
+      colors.colorPlum07,
+      colors.colorPlum08,
     ]}
     names={[
-      '$color-main-darkest',
-      '$color-main-dark',
-      '$color-main-mid',
-      '$color-main-light',
-      '$color-main-lightest',
+      '$color-plum-1',
+      '$color-plum-2',
+      '$color-plum-3',
+      '$color-plum-4',
+      '$color-plum-5',
+      '$color-plum-6',
+      '$color-plum-7',
+      '$color-plum-8',
     ]}
   />
 )
 
-export const secondaryColors = () => (
+export const colorsHoney = () => (
   <ColorSwatch
     colors={[
-      colors.secondaryDarkest,
-      colors.secondaryDark,
-      colors.secondaryMid,
-      colors.secondaryLight,
-      colors.secondaryLightest,
+      colors.colorHoney01,
+      colors.colorHoney02,
+      colors.colorHoney03,
+      colors.colorHoney04,
+      colors.colorHoney05,
+      colors.colorHoney06,
+      colors.colorHoney07,
+      colors.colorHoney08,
     ]}
     names={[
-      '$color-secondary-darkest',
-      '$color-secondary-dark',
-      '$color-secondary-mid',
-      '$color-secondary-light',
-      '$color-secondary-lightest',
+      '$color-honey-1',
+      '$color-honey-2',
+      '$color-honey-3',
+      '$color-honey-4',
+      '$color-honey-5',
+      '$color-honey-6',
+      '$color-honey-7',
+      '$color-honey-8',
     ]}
   />
 )
 
-export const greys = () => (
+export const colorsBlueberry = () => (
   <ColorSwatch
     colors={[
-      colors.grey1,
-      colors.grey2,
-      colors.grey3,
-      colors.grey4,
-      colors.grey5,
-      colors.grey6,
-      colors.grey7,
-      colors.grey8,
-      colors.grey9,
-      colors.grey10,
+      colors.colorBlueberry01,
+      colors.colorBlueberry02,
+      colors.colorBlueberry03,
+      colors.colorBlueberry04,
+      colors.colorBlueberry05,
     ]}
     names={[
-      '$color-grey-1',
-      '$color-grey-2',
-      '$color-grey-3',
-      '$color-grey-4',
-      '$color-grey-5',
-      '$color-grey-6',
-      '$color-grey-7',
-      '$color-grey-8',
-      '$color-grey-9',
-      '$color-grey-10',
+      '$color-blueberry-1',
+      '$color-blueberry-2',
+      '$color-blueberry-3',
+      '$color-blueberry-4',
+      '$color-blueberry-5',
+    ]}
+  />
+)
+
+export const colorsSlate = () => (
+  <ColorSwatch
+    colors={[
+      colors.colorSlate01,
+      colors.colorSlate02,
+      colors.colorSlate03,
+      colors.colorSlate04,
+      colors.colorSlate05,
+      colors.colorSlate06,
+      colors.colorSlate07,
+      colors.colorSlate08,
+      colors.colorSlate09,
+      colors.colorSlate10,
+    ]}
+    names={[
+      '$color-slate-1',
+      '$color-slate-2',
+      '$color-slate-3',
+      '$color-slate-4',
+      '$color-slate-5',
+      '$color-slate-6',
+      '$color-slate-7',
+      '$color-slate-8',
+      '$color-slate-9',
+      '$color-slate-10',
     ]}
   />
 )

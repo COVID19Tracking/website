@@ -3,7 +3,6 @@ const {
   addDailyDateChecked,
   addFips,
   addHash,
-  addName,
   compatibility,
 } = require('./utils')
 
@@ -52,14 +51,6 @@ function fixDaily(items) {
     _.orderBy(['date'], ['desc']),
   )(items)
 }
-const fixStatesInfo = _.map(_.flow(addFips, addName))
-
-const statesInfo = {
-  ...sheets,
-  fixItems: fixStatesInfo,
-  sheetName: 'States',
-  path: 'states/info',
-}
 
 const cdcTests = {
   ...sheets,
@@ -89,5 +80,4 @@ module.exports = {
   fixDaily,
   press,
   sheets,
-  statesInfo,
 }
