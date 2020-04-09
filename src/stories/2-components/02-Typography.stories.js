@@ -5,6 +5,7 @@ import {
   OrderedList,
   UnstyledList,
 } from '../../components/common/lists'
+import { FormatDate, FormatNumber } from '../../components/common/format'
 
 const sampleText = `Testing is a crucial part of any public health response, 
 and sharing test data is essential to understanding this outbreak. The CDC is 
@@ -106,3 +107,43 @@ unstyledList.story = {
 }
 
 export const leadParagraph = () => <LeadParagraph>{sampleText}</LeadParagraph>
+
+export const numberFormat = () => (
+  <>
+    <p>
+      <strong>Number:</strong> <FormatNumber number={13022} />
+    </p>
+    <p>
+      <strong>Number:</strong> <FormatNumber number={false} />
+    </p>
+  </>
+)
+
+numberFormat.story = {
+  parameters: {
+    info: {
+      text:
+        'Use the FormatNumber component to add commas to "thousands" and use a default palceholder if the number doesn\'t exist.',
+    },
+  },
+}
+
+export const dateFormat = () => (
+  <>
+    <p>
+      <strong>Without defined format:</strong> <FormatDate date={20200101} />
+    </p>
+    <p>
+      <strong>With the format "yyyy MM d":</strong>{' '}
+      <FormatDate date={20200101} format="yyyy MM d" />
+    </p>
+  </>
+)
+
+dateFormat.story = {
+  parameters: {
+    info: {
+      text: `Use the DateFormat component to consistently format dates. We use [Luxon to format dates](https://moment.github.io/luxon/docs/manual/formatting.html#table-of-tokens)`,
+    },
+  },
+}
