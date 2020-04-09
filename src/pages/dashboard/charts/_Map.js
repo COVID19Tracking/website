@@ -91,6 +91,9 @@ const customSchemeGrey = [
   '#3d4245',
 ]
 
+const strokeGrey = '#ababab'
+const strokeWhite = '#fff'
+
 const getColor = {
   death: scaleThreshold(colorLimits.death, customSchemeGrey),
   positive: scaleThreshold(colorLimits.positive, customSchemeHoney),
@@ -98,6 +101,12 @@ const getColor = {
     colorLimits.totalTestResults,
     customSchemePlum,
   ),
+}
+
+const getStrokeColor = {
+  death: strokeWhite,
+  positive: strokeGrey,
+  totalTestResults: strokeGrey,
 }
 
 // should be imported from constants file
@@ -121,7 +130,7 @@ export default function Map({
       max(
         data.features
           .map(d => Object.values(d.properties.dailyData))
-          .flat()
+          .reduce((acc, val) => acc.concat(val), [])
           .map(d => d.totalTestResults),
       ),
     [data],
@@ -196,13 +205,14 @@ const States = ({
       value / (d.properties.population / normalizationPopulation)
     return getColor[currentField](normalizedValue)
   }
+  const strokeColor = useChoropleth ? getStrokeColor[currentField] : strokeGrey
   const states = geoJson.features.map(d => (
     <path
       key={`path${d.properties.NAME}`}
       d={path(d)}
       className="countries"
       fill={getColorFromFeature(d)}
-      stroke="#ababab"
+      stroke={strokeColor}
       onMouseEnter={() => {
         setHoveredState({
           coordinates: [

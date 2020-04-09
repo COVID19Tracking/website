@@ -25,7 +25,7 @@ export default function UsAreaChartContainer() {
         },
         { date: parseDate(node.date), label: 'Positive', value: node.positive },
       ])
-      .flat()
+      .reduce((acc, val) => acc.concat(val), [])
   }, [data.allCovidUsDaily.nodes.length])
   return (
     <section style={{ display: 'flex' }}>
