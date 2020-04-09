@@ -48,7 +48,10 @@ export default function BarChart({
           <g className="chart-grid">
             {yScale.ticks(yTicks).map(tick => (
               <g key={tick}>
-                <text y={yScale(tick) + 6} x={`${tick}`.length * -11}>
+                <text
+                  y={yScale(tick) + 6}
+                  x={`${formatNumber(tick)}`.length * -10}
+                >
                   {formatNumber(tick)}
                 </text>
                 <line

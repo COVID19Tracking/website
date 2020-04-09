@@ -200,6 +200,7 @@ export default function CumulativeTestsByStateContainer() {
                 width={250}
                 yMax={secondMaxTotal}
                 yTicks={2}
+                formatY="thousands"
               />
               <p>
                 <a

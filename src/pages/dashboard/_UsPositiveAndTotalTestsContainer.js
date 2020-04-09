@@ -52,6 +52,7 @@ export default function UsAreaChartContainer() {
           marginTop={10}
           xTicks={2}
           width={400}
+          formatY="millions"
         />
       </div>
     </section>

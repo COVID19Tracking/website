@@ -6,7 +6,7 @@ import { scaleLinear, scaleTime } from 'd3-scale'
 import { area } from 'd3-shape'
 import React from 'react'
 
-import { formatDate, formatNumber } from '../_utils'
+import { formatDate, formatNumber, formatMillionShort } from '../_utils'
 
 export default function AreaChart({
   annotations = null,
@@ -23,6 +23,7 @@ export default function AreaChart({
   width,
   yMax = null,
   yTicks = 4,
+  formatY,
 }) {
   const grouped = nest()
     .key(d => d.label)
@@ -72,10 +73,25 @@ export default function AreaChart({
           ))}
         </g>
         <g className="chart-grid">
-          {yScale.ticks(yTicks).map(tick => (
+          {yScale.ticks(yTicks).map((tick, i) => (
             <g key={tick}>
-              <text y={yScale(tick) + 6} x={`${tick}`.length * -11}>
-                {formatNumber(tick)}
+              <text
+                y={yScale(tick) + 6}
+                x={
+                  `${
+                    formatY === 'millions'
+                      ? formatMillionShort(tick)
+                      : formatNumber(tick)
+                  }`.length - 10
+                }
+                textAnchor="end"
+              >
+                {formatY === 'millions'
+                  ? formatMillionShort(
+                      tick,
+                      i === yScale.ticks(yTicks).length - 1,
+                    )
+                  : formatNumber(tick)}
               </text>
               <line
                 stroke="black"
