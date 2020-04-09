@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { DateTime } from 'luxon'
 import Layout from '../../components/layout'
+import { FormatDate, FormatNumber } from '../../components/common/format'
 import { SyncInfobox } from '../../components/common/infobox'
 import Table from '../../components/common/table'
 
@@ -38,17 +39,29 @@ const ContentPage = ({ data }) => (
         {data.allCovidUsDaily.edges.map(({ node }) => (
           <tr>
             <td>
-              {DateTime.fromFormat(node.date.toString(), 'yyyyMMdd').toFormat(
-                'dd LLL yyyy ccc',
-              )}
+              <FormatDate
+                date={DateTime.fromFormat(node.date.toString(), 'yyyyMMdd')}
+              />
             </td>
             <td>{node.states}</td>
-            <td>{node.positive.toLocaleString()}</td>
-            <td>{node.negative.toLocaleString()}</td>
-            <td>{(node.positive + node.negative).toLocaleString()}</td>
-            <td>{node.pending.toLocaleString()}</td>
-            <td>{node.death ? node.death.toLocaleString() : 'N/A'}</td>
-            <td>{node.totalTestResults.toLocaleString()}</td>
+            <td>
+              <FormatNumber number={node.positive} />
+            </td>
+            <td>
+              <FormatNumber number={node.negative} />
+            </td>
+            <td>
+              <FormatNumber number={node.positive + node.negative} />
+            </td>
+            <td>
+              <FormatNumber number={node.pending} />
+            </td>
+            <td>
+              <FormatNumber number={node.death} />
+            </td>
+            <td>
+              <FormatNumber number={node.totalTestResults} />
+            </td>
           </tr>
         ))}
       </tbody>

@@ -61,44 +61,44 @@ export default ({ data, lastUpdated, showOutcomes = true }) => (
     <tbody>
       <tr>
         <td>
-          <FormatNumber FormatNumber={data.positive} />
+          <FormatNumber number={data.positive} />
         </td>
         <td>
-          <FormatNumber FormatNumber={data.negative} />
+          <FormatNumber number={data.negative} />
         </td>
         <td>
-          <FormatNumber FormatNumber={data.pending} />
+          <FormatNumber number={data.pending} />
         </td>
         {showOutcomes && (
           <>
             <td>
-              <FormatNumber FormatNumber={data.hospitalizedCurrently} />
+              <FormatNumber number={data.hospitalizedCurrently} />
             </td>
             <td>
-              <FormatNumber FormatNumber={data.hospitalizedCumulative} />
+              <FormatNumber number={data.hospitalizedCumulative} />
             </td>
             <td>
-              <FormatNumber FormatNumber={data.inIcuCurrently} />
+              <FormatNumber number={data.inIcuCurrently} />
             </td>
             <td>
-              <FormatNumber FormatNumber={data.inIcuCumulative} />
+              <FormatNumber number={data.inIcuCumulative} />
             </td>
             <td>
-              <FormatNumber FormatNumber={data.onVentilatorCurrently} />
+              <FormatNumber number={data.onVentilatorCurrently} />
             </td>
             <td>
-              <FormatNumber FormatNumber={data.onVentilatorCumulative} />
+              <FormatNumber number={data.onVentilatorCumulative} />
             </td>
             <td>
-              <FormatNumber FormatNumber={data.recovered} />
+              <FormatNumber number={data.recovered} />
             </td>
           </>
         )}
         <td>
-          <FormatNumber FormatNumber={data.death} />
+          <FormatNumber number={data.death} />
         </td>
         <td>
-          <FormatNumber FormatNumber={data.totalTestResults} />
+          <FormatNumber number={data.totalTestResults} />
         </td>
       </tr>
     </tbody>
