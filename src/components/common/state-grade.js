@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import '../../scss/components/common/state-grade.scss'
+import stateGradeStyle from './state-grade.module.scss'
 import gradeA from '../../images/state-grades/grade-a.svg'
 import gradeB from '../../images/state-grades/grade-b.svg'
 import gradeC from '../../images/state-grades/grade-c.svg'
@@ -19,7 +19,7 @@ const StateGrade = ({ letterGrade = 'na' }) => {
   }
 
   return (
-    <p className="state-grade">
+    <p className={`state-grade ${stateGradeStyle.stateGrade}`}>
       <span>
         Current <Link to="/about-data#data-quality-grade">data grade</Link>:
       </span>

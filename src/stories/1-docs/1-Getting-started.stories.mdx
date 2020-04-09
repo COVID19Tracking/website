@@ -1,33 +1,7 @@
-import { Meta } from '@storybook/addon-docs/blocks'
+import { Meta, Description } from '@storybook/addon-docs/blocks'
+import readMe from '../../../README.md';
 
 <Meta title="Getting started" />
 
-# Getting started
 
-The COVID Tracking Project website is built using [Gatsby](https://gatsbyjs.org), and we suggest reading their [excellent documentation](https://gatsbyjs.org/docs) if you need to learn more about the project. To get your local machine set up to develop the website, first install Gatsby if you haven't already done so:
-
-```shell
-npm install -g gatsby-cli
-```
-
-Then run the following command within your clone of the website:
-
-```shell
-npm install
-```
-
-## Environment variables
-
-The website requires content from Contentful, which is pulled into the site using a read-only API. Create a file called `.env` in the root directory of the project. [Add these values](https://gist.github.com/kevee/5d3efced906d5ee0676545d3b761753d) to the file and save it.
-
-## Developing locally
-
-To run the website locally, use:
-
-```shell
-gatsby develop
-```
-
-The site is now running at `http://localhost:8000`. Any changes you make to code is live-updated. There is a GraphQL preview tool available at `http://localhost:8000/___graphql` to see what data is exposed to the website.
-
-Note that any changes you make while running Gatsby will automatically checked with [ESLint](https://eslint.org/), so check your console as you save files.
+<Description>{readMe}</Description>

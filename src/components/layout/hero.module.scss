@@ -1,0 +1,75 @@
+@import '../../scss/colors.scss';
+@import '../../scss/breakpoints.scss';
+
+.hero {
+  @media only screen and (max-width: $viewport-ms) {
+    padding: 35px 0 70px;
+  }
+  padding: 70px 20% 140px 0;
+
+  .header {
+    color: white;
+    font-size: 2.2rem;
+    line-height: 1.25;
+    font-weight: bold;
+    margin-bottom: 0;
+
+    @media only screen and (max-width: $viewport-ms) {
+      font-size: 1.3rem;
+    }
+  }
+
+  .ctas {
+    display: flex;
+    margin-top: 70px;
+    color: white;
+    align-items: center;
+    font-size: 1.1rem;
+
+    @media only screen and (max-width: $viewport-ms) {
+      flex-direction: column;
+      margin-top: 35px;
+    }
+
+    .spacer {
+      margin: 0 1rem;
+
+      @media only screen and (max-width: $viewport-ms) {
+        margin: 0.5rem 1rem;
+      }
+    }
+
+    a {
+      color: white;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        color: $color-blueberry-5;
+      }
+    }
+
+    .button {
+      background: $color-blueberry-4;
+      text-decoration: none;
+      padding: 1rem 0;
+      width: 25%;
+      text-align: center;
+      color: $color-blueberry-1;
+      &:hover,
+      &:focus,
+      &:active {
+        background: $color-blueberry-5;
+        color: $color-blueberry-1;
+      }
+      @media only screen and (max-width: $viewport-sm) {
+        width: 100%;
+        padding: 0.75rem 2rem;
+      }
+    }
+
+    :first-child {
+      margin-left: 0;
+    }
+  }
+}

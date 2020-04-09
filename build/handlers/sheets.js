@@ -2,11 +2,14 @@ const _ = require('lodash/fp')
 const { fetchJson } = require('./fetch')
 const { getVals, runSearch } = require('./utils')
 
-const fixVals = _.flow(_.get('values'), ([keys, ...values]) =>
-  _.map(
-    _.zipObject(_.map(_.camelCase, keys)), // process keys
-    _.map(getVals, values), // process values
-  ),
+const fixVals = _.flow(
+  x => console.log(_.omit(['values'], x)) || x,
+  _.get('values'),
+  ([keys, ...values]) =>
+    _.map(
+      _.zipObject(_.map(_.camelCase, keys)), // process keys
+      _.map(getVals, values), // process values
+    ),
 )
 
 function getSheet({ worksheetId, sheetName, key }) {

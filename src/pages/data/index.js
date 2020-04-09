@@ -1,53 +1,15 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { Flex, Box } from '../../components/common/flexbox'
-import State from '../../components/common/state-data'
+import DetailText from '../../components/common/detail-text'
 import Layout from '../../components/layout'
-import { SyncInfobox } from '../../components/common/infobox'
+import StateList from '../../components/pages/data/state-list'
+import StatesNoScriptNav from '../../components/pages/data/state-nav-no-script'
+import StatesNav from '../../components/pages/data/state-nav'
 import SummaryTable from '../../components/common/summary-table'
-import '../../scss/pages/data.scss'
+import { SyncInfobox } from '../../components/common/infobox'
+import stateNavStyles from './index.module.scss'
 
-const StateList = ({ states, stateData }) => {
-  const stateList = []
-  states.forEach(({ node }) => {
-    const state = node
-    stateData.forEach(data => {
-      if (data.node.state === state.state) {
-        state.stateData = data.node
-      }
-    })
-    stateList.push(state)
-  })
-  return (
-    <Flex flexWrap="wrap" m="0 -10px">
-      {stateList.map(state => (
-        <Box
-          width={[1, 1, 1, 1 / 2]}
-          mb={['1rem', '1.5rem']}
-          p="0 10px"
-          className="data-state"
-        >
-          <State state={state} stateData={state.stateData} />
-        </Box>
-      ))}
-    </Flex>
-  )
-}
-
-const StatesNav = ({ stateList }) => (
-  <Box width={[1, 1, 1, 1 / 2]} className="state-nav" m="0 auto 1rem">
-    <h3>Jump to a state:</h3>
-    <ul>
-      {stateList.map(state => (
-        <li key={state.node.state}>
-          <Link to={`/data#state-${state.node.state}`}>{state.node.state}</Link>
-        </li>
-      ))}
-    </ul>
-  </Box>
-)
-
-// The top-level content of this page is from 'src/content/snippets/data.md'
 export default ({ data }) => (
   <Layout
     title="Most recent data"
@@ -55,15 +17,37 @@ export default ({ data }) => (
   >
     <div
       dangerouslySetInnerHTML={{
-        __html:
-          data.allContentfulSnippet.edges[0].node
-            .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
+        __html: data.dataPreamble.nodes[0].content.childMarkdownRemark.html,
       }}
     />
     <SyncInfobox />
-    <SummaryTable data={data.allCovidUs.edges[0].node} />
-    <h2 id="states-top">States</h2>
-    <StatesNav stateList={data.allCovidState.edges} />
+    <SummaryTable data={data.allCovidUs.edges[0].node} showOutcomes={false} />
+    <DetailText>
+      <span
+        dangerouslySetInnerHTML={{
+          __html:
+            data.dataSummaryFootnote.nodes[0].content.childMarkdownRemark.html,
+        }}
+      />
+    </DetailText>
+    <Flex
+      my={['0.5rem', '2rem']}
+      className={`state-nav-header ${stateNavStyles.stateNav}`}
+    >
+      <Flex
+        flexWrap="wrap"
+        alignItems="baseline"
+        className={stateNavStyles.stateNavInner}
+      >
+        <Box width={[1, 1, 1 / 2]}>
+          <h2 id="states-top">Totals by state</h2>
+        </Box>
+        <Box width={[1, 1, 1 / 2]} textAlign={['left', 'left', 'right']}>
+          <StatesNav stateList={data.allCovidStateInfo.edges} />
+        </Box>
+      </Flex>
+    </Flex>
+    <StatesNoScriptNav stateList={data.allCovidStateInfo.edges} />
     <StateList
       states={data.allCovidStateInfo.edges}
       stateData={data.allCovidState.edges}
@@ -73,13 +57,28 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
-    allContentfulSnippet(filter: { slug: { eq: "data-preamble" } }) {
-      edges {
-        node {
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
+    dataSummaryFootnote: allContentfulSnippet(
+      filter: { name: { eq: "Data summary footnote" } }
+    ) {
+      nodes {
+        id
+        name
+        content {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+    }
+    dataPreamble: allContentfulSnippet(
+      filter: { slug: { eq: "data-preamble" } }
+    ) {
+      nodes {
+        id
+        name
+        content {
+          childMarkdownRemark {
+            html
           }
         }
       }
@@ -87,15 +86,22 @@ export const query = graphql`
     allCovidUs {
       edges {
         node {
-          death
-          negative
           positive
-          hospitalized
+          negative
+          pending
+          hospitalizedCurrently
+          hospitalizedCumulative
+          inIcuCurrently
+          inIcuCumulative
+          recovered
+          onVentilatorCurrently
+          onVentilatorCumulative
+          death
           totalTestResults
         }
       }
     }
-    allCovidStateInfo(sort: { fields: state }) {
+    allCovidStateInfo(sort: { fields: name }) {
       edges {
         node {
           name
@@ -113,12 +119,18 @@ export const query = graphql`
           totalTestResults
           state
           score
-          positive
-          pending
-          negative
-          lastUpdateEt
-          hospitalized
           grade
+          lastUpdateEt
+          positive
+          negative
+          pending
+          hospitalizedCurrently
+          hospitalizedCumulative
+          inIcuCurrently
+          inIcuCumulative
+          recovered
+          onVentilatorCurrently
+          onVentilatorCumulative
           death
         }
       }

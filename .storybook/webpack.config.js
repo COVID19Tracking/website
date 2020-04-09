@@ -21,9 +21,19 @@ module.exports = ({ config }) => {
   ]
 
   config.module.rules.push({
-    test: /\.s[ac]ss$/,
+    test: /\.module.scss$/,
     loaders: ['style-loader', 'css-loader', 'sass-loader'],
     exclude: /\.module\.s[ac]ss$/,
+    include: path.resolve(__dirname, '../src'),
+  })
+
+  config.module.rules.push({
+    test: /\.s[ac]ss$/,
+    loaders: [
+      'style-loader',
+      'css-loader',
+      { loader: 'sass-loader', options: { modules: true } },
+    ],
     include: path.resolve(__dirname, '../src'),
   })
 

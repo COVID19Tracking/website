@@ -73,4 +73,5 @@ module.exports = {
   nameByCode: _.propertyOf(states),
   fipsByCode: _.propertyOf(fips),
   codeByName: _.propertyOf({ ...stateNames, ..._.invert(states) }),
+  allStates: states,
 }

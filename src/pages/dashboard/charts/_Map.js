@@ -4,7 +4,6 @@ import { format } from 'd3-format'
 import { geoPath, geoAlbersUsa } from 'd3-geo'
 import { max } from 'd3-array'
 import { scaleSqrt, scaleThreshold } from 'd3-scale'
-import { schemeGreys, schemePurples } from 'd3-scale-chromatic'
 
 import { formatNumber, formatDate, parseDate } from '../_utils'
 import StatesWithPopulation from '../data/_state-populations'
@@ -59,7 +58,7 @@ const colorLimits = {
   totalTestResults: [250, 500, 1000, 2500, 5000, 10000, 25000],
 }
 
-const customSchemeOranges = [
+const customSchemeHoney = [
   '#fcf9eb',
   '#fbe8a9',
   '#f6ce7a',
@@ -70,33 +69,51 @@ const customSchemeOranges = [
   '#753c2d',
 ]
 
-/*
-const mapColorScale = [
-  '#E5A968',
-  '#ED9C42',
-  '#DC8C3A',
-  '#CA7B32',
-  '#B96A2A',
-  '#A75922',
-  '#96491A',
-  '#843812',
+const customSchemePlum = [
+  '#f2f2ff',
+  '#d1d1e8',
+  '#b6b7db',
+  '#8b8dc7',
+  '#6164ba',
+  '#575aad',
+  '#31347a',
+  '#111354',
 ]
-*/
+
+const customSchemeGrey = [
+  '#d0d7db',
+  '#b2bbbf',
+  '#95a0a6',
+  '#849096',
+  '#6f7e85',
+  '#5b666b',
+  '#4c5559',
+  '#3d4245',
+]
+
+const strokeGrey = '#ababab'
+const strokeWhite = '#fff'
 
 const getColor = {
-  death: scaleThreshold(colorLimits.death, schemeGreys[8]),
-  positive: scaleThreshold(colorLimits.positive, customSchemeOranges),
+  death: scaleThreshold(colorLimits.death, customSchemeGrey),
+  positive: scaleThreshold(colorLimits.positive, customSchemeHoney),
   totalTestResults: scaleThreshold(
     colorLimits.totalTestResults,
-    schemePurples[8],
+    customSchemePlum,
   ),
+}
+
+const getStrokeColor = {
+  death: strokeWhite,
+  positive: strokeGrey,
+  totalTestResults: strokeGrey,
 }
 
 // should be imported from constants file
 const colors = {
-  totalTestResults: '#696DC2',
-  positive: '#E5A968',
-  death: '#404856',
+  totalTestResults: customSchemePlum[5],
+  positive: customSchemeHoney[4],
+  death: customSchemeGrey[6],
 }
 
 export default function Map({
@@ -113,7 +130,7 @@ export default function Map({
       max(
         data.features
           .map(d => Object.values(d.properties.dailyData))
-          .flat()
+          .reduce((acc, val) => acc.concat(val), [])
           .map(d => d.totalTestResults),
       ),
     [data],
@@ -188,13 +205,14 @@ const States = ({
       value / (d.properties.population / normalizationPopulation)
     return getColor[currentField](normalizedValue)
   }
+  const strokeColor = useChoropleth ? getStrokeColor[currentField] : strokeGrey
   const states = geoJson.features.map(d => (
     <path
       key={`path${d.properties.NAME}`}
       d={path(d)}
       className="countries"
       fill={getColorFromFeature(d)}
-      stroke="#ababab"
+      stroke={strokeColor}
       onMouseEnter={() => {
         setHoveredState({
           coordinates: [

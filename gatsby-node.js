@@ -3,8 +3,19 @@ const path = require('path')
 const slugify = require('slugify')
 const objectHash = require('object-hash')
 
+exports.create
+
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
+
+  if (typeof process.env.DEV_ENVIRONMENT_VARIABLE_FILE !== 'undefined') {
+    createRedirect({
+      fromPath: '/__developer/env-vars',
+      toPath: process.env.DEV_ENVIRONMENT_VARIABLE_FILE,
+      statusCode: 200,
+    })
+  }
+
   const result = await graphql(`
     query {
       allCovidStateInfo(
