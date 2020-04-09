@@ -1,4 +1,8 @@
 import React from 'react'
-import '../../scss/components/common/lead-paragraph.scss'
+import leadParagraphStyles from './lead-paragraph.module.scss'
 
-export default ({ children }) => <p className="lead-paragraph">{children}</p>
+export default ({ children }) => (
+  <p className={`lead-paragraph ${leadParagraphStyles.leadParagraph}`}>
+    {children}
+  </p>
+)

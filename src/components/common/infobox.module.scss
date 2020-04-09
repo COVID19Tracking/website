@@ -1,0 +1,45 @@
+@import '../../scss/colors.scss';
+
+.infobox {
+  display: inline-flex;
+  padding: 0.5rem;
+  padding-right: 2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin: 1rem;
+
+  img {
+    width: 16px;
+    margin: 2px 12px 4px 8px;
+    align-self: flex-start;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .header {
+    font-weight: bold;
+    line-height: 1em;
+  }
+
+  .content {
+    margin-top: 0.25rem;
+  }
+
+  &.sync {
+    margin-left: 0;
+    background-color: $color-infobox-sync-light;
+    color: $color-infobox-sync-dark;
+  }
+
+  &.alert {
+    background-color: $color-infobox-alert-light;
+    color: $color-infobox-alert-dark;
+  }
+
+  &.question {
+    background-color: $color-infobox-question-light;
+    color: $color-infobox-question-dark;
+  }
+}
