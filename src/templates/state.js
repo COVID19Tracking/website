@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import marked from 'marked'
 import Layout from '../components/layout'
 import StateGrade from '../components/common/state-grade'
+import StatePopulation from '../components/pages/state/state-population'
 import StateHistory from '../components/pages/state/state-history'
 import StateLinks from '../components/pages/state/state-links'
 import SummaryTable from '../components/common/summary-table'
@@ -12,9 +13,11 @@ import '../scss/templates/state.scss'
 const StatePage = ({ pageContext, data }) => {
   const state = pageContext
   const summary = data.allCovidState.edges[0].node
+  const { population } = data.allPopulationJson.edges[0].node
   return (
     <Layout title={state.name}>
       <StateLinks {...state} />
+      <StatePopulation population={population} />
       <StateGrade letterGrade={summary.grade} />
       {state.notes && (
         <div
@@ -84,6 +87,13 @@ export const query = graphql`
           url
           state
           dateChecked
+        }
+      }
+    }
+    allPopulationJson(filter: { state: { eq: $state } }) {
+      edges {
+        node {
+          population
         }
       }
     }

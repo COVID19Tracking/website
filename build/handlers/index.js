@@ -3,6 +3,7 @@ const { getSheet } = require('./sheets')
 const getXml = require('./xml')
 const getYaml = require('./yaml')
 const { getJson } = require('./fetch')
+const getFile = require('./file')
 const { saveAll } = require('./save')
 
 const handlers = {
@@ -10,6 +11,7 @@ const handlers = {
   sheets: getSheet,
   xml: getXml,
   yaml: getYaml,
+  file: getFile
 }
 
 function processResult(fixItems, oldValue) {

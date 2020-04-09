@@ -32,6 +32,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-transformer-yaml',
+    'gatsby-transformer-json',
     'gatsby-plugin-eslint',
     `gatsby-plugin-remove-trailing-slashes`,
     'gatsby-plugin-netlify',
@@ -108,6 +109,13 @@ module.exports = {
       options: {
         name: 'press-logos',
         path: `${__dirname}/src/data/homepage-press.yml`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'staticFiles',
+        path: `${__dirname}/_data/v1/static/`,
       },
     },
     {

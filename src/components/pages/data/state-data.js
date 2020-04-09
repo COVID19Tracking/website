@@ -5,6 +5,7 @@ import slug from '../../../utilities/slug'
 import { UnstyledList } from '../../common/lists'
 import StateGrade from '../../common/state-grade'
 import SummaryTable from '../../common/summary-table'
+import StatePopulation from '../state/state-population'
 import '../../../scss/components/pages/data/state-data.scss'
 
 const State = ({ state }) => (
@@ -19,6 +20,7 @@ const State = ({ state }) => (
       data={state.stateData}
       lastUpdated={state.stateData.lastUpdateEt}
     />
+    <StatePopulation population={state.population} />
     <UnstyledList>
       {state.twitter && (
         <li>

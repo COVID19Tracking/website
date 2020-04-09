@@ -2,13 +2,18 @@ import React from 'react'
 import { Flex, Box } from '../../common/flexbox'
 import State from './state-data'
 
-export default ({ states, stateData }) => {
+export default ({ states, stateData, populationData }) => {
   const stateList = []
   states.forEach(({ node }) => {
     const state = node
     stateData.forEach(data => {
       if (data.node.state === state.state) {
         state.stateData = data.node
+      }
+    })
+    populationData.forEach(data => {
+      if (data.node.state === state.state) {
+        state.population = data.node.population
       }
     })
     stateList.push(state)

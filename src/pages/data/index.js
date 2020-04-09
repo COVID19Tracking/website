@@ -48,6 +48,7 @@ export default ({ data }) => (
     <StateList
       states={data.allCovidStateInfo.edges}
       stateData={data.allCovidState.edges}
+      populationData={data.allPopulationJson.edges}
     />
   </Layout>
 )
@@ -145,6 +146,14 @@ export const query = graphql`
               link: url
             }
           }
+        }
+      }
+    }
+    allPopulationJson {
+      edges {
+        node {
+          state
+          population
         }
       }
     }
