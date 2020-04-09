@@ -11,7 +11,7 @@ import {
   parseDate,
   totalColor,
   positiveColor,
-} from './_util'
+} from './_utils'
 
 import './dashboard.scss'
 

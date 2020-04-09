@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import AreaChart from './charts/_AreaChart'
-import { parseDate } from './_util'
+import { parseDate } from './_utils'
 
 export default function UsAreaChartContainer() {
   const data = useStaticQuery(graphql`
