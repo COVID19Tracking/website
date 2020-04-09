@@ -1,12 +1,57 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useMemo } from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+
+import BarChart from './charts/_BarChart'
+import { parseDate } from './_utils'
 
 export default function UsAreaChartContainer() {
+  const query = useStaticQuery(graphql`
+    {
+      allCovidUsDaily {
+        nodes {
+          date
+          death
+        }
+      }
+    }
+  `)
+  const data = useMemo(() => {
+    const nodes = query.allCovidUsDaily.nodes
+      .map(node => [
+        {
+          date: parseDate(node.date),
+          label: 'Deaths',
+          value: node.death,
+        },
+      ])
+      .flat()
+
+    return nodes.sort((a, b) => {
+      if (a.date > b.date) return 1
+      if (a.date < b.date) return -1
+      return 0
+    })
+  }, [query.allCovidUsDaily.nodes.length])
   return (
-    <section>
-      <div>
+    <section style={{ display: 'flex' }}>
+      <div style={{ flexGrow: 1, width: '40%' }}>
         <h4>Total cumulative deaths by day in the US</h4>
+        <div>
+          <BarChart
+            data={data}
+            fill="#585BC1"
+            height={400}
+            marginBottom={40}
+            marginLeft={80}
+            marginRight={10}
+            marginTop={10}
+            xTicks={2}
+            width={400}
+          />
+        </div>
       </div>
-      <div>
+      <div style={{ flexGrow: 1, width: '60%' }}>
         <p>
           Organized, collective, and timely response from the government and
           other authorities is a key factor in saving lives. One metric, though

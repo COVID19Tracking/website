@@ -5,7 +5,7 @@ import { extent, max, range } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
 import React, { useEffect } from 'react'
 
-import { formatDate, formatNumber } from './_util'
+import { formatDate, formatNumber } from '../_utils'
 
 export default function BarChart({
   data,
