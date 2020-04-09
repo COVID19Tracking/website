@@ -1,6 +1,5 @@
 import React from 'react'
 import Table from './table'
-import '../../scss/components/common/summary-table.scss'
 import thousands from '../../utilities/format-thousands'
 
 export default ({ data, lastUpdated, showOutcomes = true }) => (

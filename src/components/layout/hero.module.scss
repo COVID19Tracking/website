@@ -1,11 +1,11 @@
-@import '../colors.scss';
-@import '../breakpoints.scss';
+@import '../../scss/colors.scss';
+@import '../../scss/breakpoints.scss';
 
 .hero {
-  padding: 70px 20% 140px 0;
   @media only screen and (max-width: $viewport-ms) {
     padding: 35px 0 70px;
   }
+  padding: 70px 20% 140px 0;
 
   .header {
     color: white;
@@ -31,7 +31,7 @@
       margin-top: 35px;
     }
 
-    .cta-spacer {
+    .spacer {
       margin: 0 1rem;
 
       @media only screen and (max-width: $viewport-ms) {

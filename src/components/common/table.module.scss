@@ -1,14 +1,4 @@
-.sr-only:not(:focus):not(:active) {
-  clip: rect(0 0 0 0);
-  clip-path: inset(100%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-table {
+.table {
   line-height: 1rem;
   border-collapse: collapse;
   margin: 0.5rem 0 0;
@@ -22,12 +12,13 @@ table {
     white-space: nowrap;
   }
 
-  caption, th {
+  caption,
+  th {
     text-align: left;
   }
 
   td,
-  th[scope="col"] {
+  th[scope='col'] {
     text-align: right;
   }
 
@@ -37,8 +28,9 @@ table {
     padding: 0.75rem 0;
   }
 
-  th, td {
-    border: 1px solid #C0C0C0;
+  th,
+  td {
+    border: 1px solid #c0c0c0;
     padding: 0.25rem;
   }
 
@@ -54,7 +46,7 @@ table {
       font-size: 0.75rem;
     }
 
-    &[scope="colgroup"] {
+    &[scope='colgroup'] {
       font-size: 1.1em;
       text-align: center;
     }
