@@ -123,6 +123,10 @@ export default function CumulativeTestsByStateContainer() {
         state isn’t necessarily just getting new infections every day but that
         they’re also giving more tests.
       </p>
+      <p>
+        <b>Note:</b> only statewide stay-at-home orders are included; dates mark
+        when the orders went into effect.
+      </p>
       <h3>Cumulative tests by state</h3>
       <ul className="chart-legend">
         <li>
@@ -150,7 +154,7 @@ export default function CumulativeTestsByStateContainer() {
               width: '2px',
             }}
           />
-          Date the statewide stay-at-home order was implemented.
+          Stay-at-home order
         </li>
       </ul>
       <div className="small-multiples-chart-container">
@@ -202,7 +206,7 @@ export default function CumulativeTestsByStateContainer() {
                 xTicks={4}
                 width={750}
                 yMax={maxStateTests}
-                yTicks={4}
+                yTicks={2}
               />
               <p>
                 <a
