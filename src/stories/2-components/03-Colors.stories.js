@@ -1,6 +1,6 @@
 import React from 'react'
-import colors from '../../scss/colors.scss'
 import contrast from 'get-contrast'
+import colors from '../../scss/colors.scss'
 
 const ColorSwatch = ({ colors, names }) => (
   <>
@@ -96,24 +96,24 @@ export const textColors = () => (
 export const colorsPlum = () => (
   <ColorSwatch
     colors={[
-      colors.colorPlum01,
-      colors.colorPlum02,
-      colors.colorPlum03,
-      colors.colorPlum04,
-      colors.colorPlum05,
-      colors.colorPlum06,
-      colors.colorPlum07,
-      colors.colorPlum08,
+      colors.colorPlum100,
+      colors.colorPlum200,
+      colors.colorPlum300,
+      colors.colorPlum400,
+      colors.colorPlum500,
+      colors.colorPlum600,
+      colors.colorPlum700,
+      colors.colorPlum800,
     ]}
     names={[
-      '$color-plum-1',
-      '$color-plum-2',
-      '$color-plum-3',
-      '$color-plum-4',
-      '$color-plum-5',
-      '$color-plum-6',
-      '$color-plum-7',
-      '$color-plum-8',
+      '$color-plum-100',
+      '$color-plum-200',
+      '$color-plum-300',
+      '$color-plum-400',
+      '$color-plum-500',
+      '$color-plum-600',
+      '$color-plum-700',
+      '$color-plum-800',
     ]}
   />
 )
@@ -121,14 +121,14 @@ export const colorsPlum = () => (
 export const colorsHoney = () => (
   <ColorSwatch
     colors={[
-      colors.colorHoney01,
-      colors.colorHoney02,
-      colors.colorHoney03,
-      colors.colorHoney04,
-      colors.colorHoney05,
-      colors.colorHoney06,
-      colors.colorHoney07,
-      colors.colorHoney08,
+      colors.colorHoney100,
+      colors.colorHoney200,
+      colors.colorHoney300,
+      colors.colorHoney400,
+      colors.colorHoney500,
+      colors.colorHoney600,
+      colors.colorHoney700,
+      colors.colorHoney800,
     ]}
     names={[
       '$color-honey-1',
@@ -146,18 +146,18 @@ export const colorsHoney = () => (
 export const colorsBlueberry = () => (
   <ColorSwatch
     colors={[
-      colors.colorBlueberry01,
-      colors.colorBlueberry02,
-      colors.colorBlueberry03,
-      colors.colorBlueberry04,
-      colors.colorBlueberry05,
+      colors.colorBlueberry100,
+      colors.colorBlueberry200,
+      colors.colorBlueberry300,
+      colors.colorBlueberry400,
+      colors.colorBlueberry500,
     ]}
     names={[
-      '$color-blueberry-1',
-      '$color-blueberry-2',
-      '$color-blueberry-3',
-      '$color-blueberry-4',
-      '$color-blueberry-5',
+      '$color-blueberry-100',
+      '$color-blueberry-200',
+      '$color-blueberry-300',
+      '$color-blueberry-400',
+      '$color-blueberry-500',
     ]}
   />
 )
@@ -165,28 +165,28 @@ export const colorsBlueberry = () => (
 export const colorsSlate = () => (
   <ColorSwatch
     colors={[
-      colors.colorSlate01,
-      colors.colorSlate02,
-      colors.colorSlate03,
-      colors.colorSlate04,
-      colors.colorSlate05,
-      colors.colorSlate06,
-      colors.colorSlate07,
-      colors.colorSlate08,
-      colors.colorSlate09,
-      colors.colorSlate10,
+      colors.colorSlate100,
+      colors.colorSlate200,
+      colors.colorSlate300,
+      colors.colorSlate400,
+      colors.colorSlate500,
+      colors.colorSlate600,
+      colors.colorSlate700,
+      colors.colorSlate800,
+      colors.colorSlate900,
+      colors.colorSlate1000,
     ]}
     names={[
-      '$color-slate-1',
-      '$color-slate-2',
-      '$color-slate-3',
-      '$color-slate-4',
-      '$color-slate-5',
-      '$color-slate-6',
-      '$color-slate-7',
-      '$color-slate-8',
-      '$color-slate-9',
-      '$color-slate-10',
+      '$color-slate-100',
+      '$color-slate-200',
+      '$color-slate-300',
+      '$color-slate-400',
+      '$color-slate-500',
+      '$color-slate-600',
+      '$color-slate-700',
+      '$color-slate-800',
+      '$color-slate-900',
+      '$color-slate-1000',
     ]}
   />
 )
