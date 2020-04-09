@@ -28,22 +28,22 @@ export default ({ history, screenshots }) => (
             <Screenshots date={node.dateChecked} screenshots={screenshots} />
           </td>
           <td>
-            <FormatNumber FormatNumber={node.positive} />
+            <FormatNumber number={node.positive} />
           </td>
           <td>
-            <FormatNumber FormatNumber={node.negative} />
+            <FormatNumber number={node.negative} />
           </td>
           <td>
-            <FormatNumber FormatNumber={node.pending} />
+            <FormatNumber number={node.pending} />
           </td>
           <td>
-            <FormatNumber FormatNumber={node.hospitalized} />
+            <FormatNumber number={node.hospitalized} />
           </td>
           <td>
-            <FormatNumber FormatNumber={node.death} />
+            <FormatNumber number={node.death} />
           </td>
           <td>
-            <FormatNumber FormatNumber={node.totalTestResults} />
+            <FormatNumber number={node.totalTestResults} />
           </td>
         </tr>
       ))}
