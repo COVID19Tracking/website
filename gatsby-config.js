@@ -83,6 +83,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/v1/cdc/daily.json',
+        type: 'CDCDaily',
+      },
+    },
+    {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utilities/typography`,
