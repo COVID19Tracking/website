@@ -6,43 +6,41 @@ Brand colors
 
 */
 // Plum
-$color-plum-1: #111354;
-$color-plum-2: #31347A;
-$color-plum-3: #575AAD;
-$color-plum-4: #6164BA;
-$color-plum-5: #8B8DC7;
-$color-plum-6: #B6B7DB;
-$color-plum-7: #D1D1E8;
-$color-plum-8: #F2F2FF;
+$color-plum-100: #F2F2FF;
+$color-plum-200: #D1D1E8;
+$color-plum-300: #B6B7DB;
+$color-plum-400: #8B8DC7;
+$color-plum-500: #6164BA;
+$color-plum-600: #575AAD;
+$color-plum-700: #31347A;
+$color-plum-800: #111354;
 
 // Honey
-$color-honey-1: #6E2F1F;
-$color-honey-2: #924F34;
-$color-honey-3: #C66B3E;
-$color-honey-4: #E2894E;
-$color-honey-5: #FFAD4A;
-$color-honey-6: #F6CE7A;
-$color-honey-7: #FBE8A9;
-$color-honey-8: #FCF9EB;
+$color-honey-100: #FCF9EB;
+$color-honey-200: #FBE8A9;
+$color-honey-300: #F6CE7A;
+$color-honey-400: #FFAD4A;
+$color-honey-500: #E2894E;
+$color-honey-600: #C66B3E;
+$color-honey-700: #924F34;
+$color-honey-800: #6E2F1F;
 
 // Blueberry
-$color-blueberry-1: #012656;
-$color-blueberry-2: #004399;
-$color-blueberry-3: #0091EA;
-$color-blueberry-4: #8CC7F4;
-$color-blueberry-5: #E2F1FC;
+$color-blueberry-100: #E2F1FC;
+$color-blueberry-200: #8CC7F4;
+$color-blueberry-300: #0091EA;
+$color-blueberry-400: #004399;
+$color-blueberry-500: #012656;
 
 // Slate
-$color-slate-1: #313638;
-$color-slate-2: #3D4245;
-$color-slate-3: #4C5559;
-$color-slate-4: #5B666B;
-$color-slate-5: #6F7E85;
-$color-slate-6: #849096;
-$color-slate-7: #95A0A6;
-$color-slate-8: #B2BBBF;
-$color-slate-9: #D0D7DB;
-$color-slate-10: #EDF1F2;
+$color-slate-100: #EDF1F2;
+$color-slate-200: #D2D6D7;
+$color-slate-300: #B7BCBD;
+$color-slate-400: #9CA1A2;
+$color-slate-500: #828688;
+$color-slate-600: #676B6D;
+$color-slate-700: #4C5153;
+$color-slate-800: #313638;
 
 
 /*
@@ -50,9 +48,9 @@ $color-slate-10: #EDF1F2;
 Color primitives
 
 */
-$color-link: $color-plum-3;
-$color-link--active: $color-plum-5;
-$color-link--hover: $color-plum-5;
+$color-link: $color-plum-600;
+$color-link--active: $color-plum-400;
+$color-link--hover: $color-plum-400;
 
 $color-infobox-question-light: #fef9cd;
 $color-infobox-question-dark: #5e4f24;
@@ -67,35 +65,33 @@ $color-infobox-alert-dark: #802509;
   text: $text;
   link: $color-link;
   linkActive: $color-link--active;
-  colorPlum01: $color-plum-1;
-  colorPlum02: $color-plum-2;
-  colorPlum03: $color-plum-3;
-  colorPlum04: $color-plum-4;
-  colorPlum05: $color-plum-5;
-  colorPlum06: $color-plum-6;
-  colorPlum07: $color-plum-7;
-  colorPlum08: $color-plum-8;
-  colorHoney01: $color-honey-1;
-  colorHoney02: $color-honey-2;
-  colorHoney03: $color-honey-3;
-  colorHoney04: $color-honey-4;
-  colorHoney05: $color-honey-5;
-  colorHoney06: $color-honey-6;
-  colorHoney07: $color-honey-7;
-  colorHoney08: $color-honey-8;
-  colorBlueberry01: $color-blueberry-1;
-  colorBlueberry02: $color-blueberry-2;
-  colorBlueberry03: $color-blueberry-3;
-  colorBlueberry04: $color-blueberry-4;
-  colorBlueberry05: $color-blueberry-5;
-  colorSlate01: $color-slate-1;
-  colorSlate02: $color-slate-2;
-  colorSlate03: $color-slate-3;
-  colorSlate04: $color-slate-4;
-  colorSlate05: $color-slate-5;
-  colorSlate06: $color-slate-6;
-  colorSlate07: $color-slate-7;
-  colorSlate08: $color-slate-8;
-  colorSlate09: $color-slate-9;
-  colorSlate10: $color-slate-10;
+  colorPlum100: $color-plum-100;
+  colorPlum200: $color-plum-200;
+  colorPlum300: $color-plum-300;
+  colorPlum400: $color-plum-400;
+  colorPlum500: $color-plum-500;
+  colorPlum600: $color-plum-600;
+  colorPlum700: $color-plum-700;
+  colorPlum800: $color-plum-800;
+  colorHoney100: $color-honey-100;
+  colorHoney200: $color-honey-200;
+  colorHoney300: $color-honey-300;
+  colorHoney400: $color-honey-400;
+  colorHoney500: $color-honey-500;
+  colorHoney600: $color-honey-600;
+  colorHoney700: $color-honey-700;
+  colorHoney800: $color-honey-800;
+  colorBlueberry100: $color-blueberry-100;
+  colorBlueberry200: $color-blueberry-200;
+  colorBlueberry300: $color-blueberry-300;
+  colorBlueberry400: $color-blueberry-400;
+  colorBlueberry500: $color-blueberry-500;
+  colorSlate100: $color-slate-100;
+  colorSlate200: $color-slate-200;
+  colorSlate300: $color-slate-300;
+  colorSlate400: $color-slate-400;
+  colorSlate500: $color-slate-500;
+  colorSlate600: $color-slate-600;
+  colorSlate700: $color-slate-700;
+  colorSlate800: $color-slate-800;
 }
