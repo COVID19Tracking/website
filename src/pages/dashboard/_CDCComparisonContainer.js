@@ -25,7 +25,7 @@ export default function CDCComparisonContainer() {
           value: calculateTotal(node),
         },
       ])
-      .flat()
+      .reduce((acc, val) => acc.concat(val), [])
 
     return nodes.sort((a, b) => {
       if (a.date > b.date) return 1

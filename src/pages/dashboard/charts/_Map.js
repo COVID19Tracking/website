@@ -130,7 +130,7 @@ export default function Map({
       max(
         data.features
           .map(d => Object.values(d.properties.dailyData))
-          .flat()
+          .reduce((acc, val) => acc.concat(val), [])
           .map(d => d.totalTestResults),
       ),
     [data],
