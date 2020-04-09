@@ -150,13 +150,9 @@ export default function CumulativeTestsByStateContainer() {
               width: '2px',
             }}
           />
-          Stay-at-home order
+          Stay-at-home order*
         </li>
       </ul>
-      <p className="chart-legend-note">
-        <b>Note:</b> only statewide stay-at-home orders are included; dates mark
-        when the orders went into effect.
-      </p>
       <div className="small-multiples-chart-container">
         {data.map(state => {
           // because we're just charting two variables we make them here
@@ -220,6 +216,10 @@ export default function CumulativeTestsByStateContainer() {
           )
         })}
       </div>
+      <p className="chart-legend-note">
+        <b>*</b> Only statewide stay-at-home orders are included; dates mark
+        when the orders went into effect.
+      </p>
     </div>
   )
 }

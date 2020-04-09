@@ -16,7 +16,7 @@ ul.chart-legend {
   flex-direction: column;
   list-style-type: none;
   justify-content: flex-start;
-  margin: 0 0 0.5rem 0;
+  margin-left: 0;
   padding: 0.1rem 0 0.5rem;
   position: sticky;
   top: 0rem;
@@ -46,7 +46,6 @@ ul.chart-legend {
 
 .chart-legend-note {
   font-size: 12px;
-  margin-bottom: 3rem;
 }
 
 .small-multiples-chart {
