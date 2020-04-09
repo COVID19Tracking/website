@@ -173,8 +173,6 @@ export const colorsSlate = () => (
       colors.colorSlate600,
       colors.colorSlate700,
       colors.colorSlate800,
-      colors.colorSlate900,
-      colors.colorSlate1000,
     ]}
     names={[
       '$color-slate-100',
@@ -185,8 +183,6 @@ export const colorsSlate = () => (
       '$color-slate-600',
       '$color-slate-700',
       '$color-slate-800',
-      '$color-slate-900',
-      '$color-slate-1000',
     ]}
   />
 )
