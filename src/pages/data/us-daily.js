@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { DateTime } from 'luxon'
 import Layout from '../../components/layout'
 import { FormatDate, FormatNumber } from '../../components/common/format'
 import { SyncInfobox } from '../../components/common/infobox'
@@ -39,9 +38,7 @@ const ContentPage = ({ data }) => (
         {data.allCovidUsDaily.edges.map(({ node }) => (
           <tr>
             <td>
-              <FormatDate
-                date={DateTime.fromFormat(node.date.toString(), 'yyyyMMdd')}
-              />
+              <FormatDate date={node.date} />
             </td>
             <td>{node.states}</td>
             <td>

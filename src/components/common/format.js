@@ -9,9 +9,7 @@ const FormatDate = ({ date, format = 'ccc LLLL d yyyy' }) => {
 }
 
 const FormatNumber = ({ number }) => (
-  <>
-    {number ? number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 'N/A'}
-  </>
+  <>{number || number === 0 ? number.toLocaleString() : 'N/A'}</>
 )
 
 export { FormatDate, FormatNumber }
