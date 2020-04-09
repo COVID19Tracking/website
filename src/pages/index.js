@@ -58,7 +58,7 @@ export default ({ data }) => (
           </Box>
           <Box width={[1, 1, 1 / 3]}>
             <Link
-              to="/about/in-the-press"
+              to="/about-project/in-the-press"
               className={homepageStyles.pressListMore}
             >
               More news
