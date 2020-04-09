@@ -44,10 +44,10 @@ export default function CDCComparisonContainer() {
     .sort(sortChronologically)
   const data = query.allCovidUsDaily.nodes
     .map(node => ({
-        date: parseDate(node.date),
-        value: node.totalTestResultsIncrease,
-      }))
-    .flat()
+      date: parseDate(node.date),
+      value: node.totalTestResultsIncrease,
+    }))
+    .reduce((acc, val) => acc.concat(val), [])
     .sort(sortChronologically)
   const cdcCumulativeTotal = sum(cdcData, d => d.value)
   const cumulativeTotal = sum(data, d => d.value)
