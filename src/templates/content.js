@@ -8,7 +8,7 @@ const ContentPage = ({ data }) => {
     <Layout
       title={page.title}
       navigation={page.navigationGroup ? page.navigationGroup.pages : false}
-      narrow="true"
+      narrow
     >
       <div
         dangerouslySetInnerHTML={{ __html: page.body.childMarkdownRemark.html }}
