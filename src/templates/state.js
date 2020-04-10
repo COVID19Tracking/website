@@ -64,6 +64,7 @@ export const query = graphql`
       edges {
         node {
           totalTestResults
+          totalTestResultsIncrease
           positive
           pending
           negative
