@@ -1,0 +1,17 @@
+.js-disabled {
+  display: none;
+}
+
+.js-enabled {
+  display: inline;
+}
+
+.no-js {
+  .js-enabled {
+    display: none;
+  }
+
+  .js-disabled {
+    display: inline;
+  }
+}
