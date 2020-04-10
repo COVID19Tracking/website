@@ -48,7 +48,25 @@ ul.chart-legend {
   font-size: 12px;
 }
 
+.chart-controls {
+  align-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 600px) {
+    flex-direction: row;
+  }
+}
+
+.chart-tests-toggle {
+  margin-bottom: 1.8rem;
+  max-width: 260px;
+  padding: 0 5px;
+}
+
 .small-multiples-chart {
+  line-height: 1rem;
   padding: 0 1%;
   width: 50%;
 
