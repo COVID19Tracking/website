@@ -3,6 +3,11 @@ $positive-color: #e5a968;
 $total-color: #696dc2;
 $death-color: #404856;
 
+.container {
+  :focus {
+    outline:none;
+  }
+
 #state-map {
   margin-bottom: 3rem;
   position: relative;
