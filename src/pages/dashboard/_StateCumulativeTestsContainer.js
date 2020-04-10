@@ -209,8 +209,10 @@ export default function CumulativeTestsByStateContainer() {
                     .toLowerCase()
                     .replace(/\s/g, '-')}`}
                 >
-                  View data from
-                  {` ${state.key}`}
+                  <h5>
+                    View data from
+                    {` ${state.key}`}
+                  </h5>
                 </a>
               </p>
             </div>
