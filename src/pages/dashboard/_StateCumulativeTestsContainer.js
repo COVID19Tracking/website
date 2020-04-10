@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-import { max } from 'd3-array'
 import { nest } from 'd3-collection'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { useMemo, useState } from 'react'
@@ -128,14 +126,6 @@ function groupAndSortStateDaily(query) {
     totals: sortGroupedData(grouped),
     perCapita: sortGroupedData(groupedPerCapita),
   }
-}
-
-function normalizeByStatePopulation(val, stateKey) {
-  if (!val) return 0
-  const statePop = statePopulations[stateKey]
-    ? statePopulations[stateKey]
-    : territoryPopulations[stateKey]
-  return val / statePop
 }
 
 export default function CumulativeTestsByStateContainer() {
