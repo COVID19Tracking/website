@@ -84,7 +84,7 @@ export default function UsAreaChartContainer() {
           same period in previous years.
         </p>
         <p>
-          Using confirmed cases to track the severity of the virus in one state
+          Using positive tests to track the severity of the virus in one state
           is misleading as some states are not reporting positive cases due to
           lack of testing.
         </p>
