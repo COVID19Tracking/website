@@ -148,7 +148,9 @@ export default function CumulativeTestsByStateContainer() {
 
   const toggleChartData = () => setUseTestsPerCapita(u => !u)
 
-  const allData = groupAndSortStateDaily(query)
+  const allData = useMemo(() => {
+    return groupAndSortStateDaily(query)
+  })
 
   const data = useMemo(() => {
     return useTestsPerCapita ? allData.perCapita : allData.totals
