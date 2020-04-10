@@ -47,7 +47,7 @@ export default function UsAreaChartContainer() {
           height={400}
           labelOrder={['Total', 'Positive']}
           marginBottom={40}
-          marginLeft={50}
+          marginLeft={80}
           marginRight={10}
           marginTop={10}
           xTicks={2}
