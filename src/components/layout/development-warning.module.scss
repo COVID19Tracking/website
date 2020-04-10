@@ -1,0 +1,10 @@
+@import '../../scss/colors.scss';
+
+.development-warning {
+  color: white;
+  background: $color-infobox-alert-dark;
+  padding: 1rem;
+  a {
+    color: white;
+  }
+}

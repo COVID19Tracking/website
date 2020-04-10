@@ -53,8 +53,8 @@ export default function CDCComparisonContainer() {
   const cumulativeTotal = sum(data, d => d.value)
   const dailyMax = max(data, d => d.value)
   return (
-    <section style={{ display: 'flex' }}>
-      <div style={{ flexGrow: 1, width: '50%' }}>
+    <section>
+      <div>
         <h4>Differences between this data and the CDC data</h4>
         <p>
           As of today, the C.D.C. has tested {formatNumber(cdcCumulativeTotal)}
@@ -66,7 +66,7 @@ export default function CDCComparisonContainer() {
           sample.
         </p>
       </div>
-      <div style={{ display: 'flex', flexGrow: 1, width: '50%' }}>
+      <div style={{ display: 'flex' }}>
         <div style={{ flexGrow: 1, width: '50%' }}>
           <BarChart
             data={cdcData}
@@ -77,7 +77,7 @@ export default function CDCComparisonContainer() {
             marginRight={10}
             marginTop={10}
             xTicks={2}
-            width={200}
+            width={400}
             yMax={dailyMax}
           />
         </div>
@@ -91,7 +91,7 @@ export default function CDCComparisonContainer() {
             marginRight={10}
             marginTop={10}
             xTicks={2}
-            width={200}
+            width={400}
           />
         </div>
       </div>

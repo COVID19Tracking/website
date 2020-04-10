@@ -17,6 +17,7 @@ const stateDatePages = _.flatMap(value => [
 const statePages = _.flow(
   _.groupBy('state'),
   _.flatMap(value => [
+    { path: `states/${value[0].fips}/daily`, value },
     { path: `states/${value[0].state}/daily`, value },
     { path: `states/${value[0].state.toLowerCase()}/daily`, value },
     ...stateDatePages(value),
