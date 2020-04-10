@@ -47,10 +47,7 @@ const BarChart = ({
           <g className="chart-grid">
             {yScale.ticks(yTicks).map(tick => (
               <g key={tick}>
-                <text
-                  y={yScale(tick) + 6}
-                  x={`${formatNumber(tick)}`.length * -10}
-                >
+                <text y={yScale(tick) + 6} x={`${tick}`.length * -11}>
                   {formatNumber(tick)}
                 </text>
                 <line
