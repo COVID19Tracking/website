@@ -1,0 +1,54 @@
+.map-contents {
+  position: relative;
+}
+
+#map-tooltip {
+  background: white;
+  pointer-events: none;
+  position: absolute;
+  border: 2px solid #000;
+  table {
+    table-layout: fixed;
+    width: 270px;
+    border-collapse: collapse;
+    margin: -1px;
+  }
+  caption {
+    font-size: 16px;
+    padding: 6px 12px;
+    span.date {
+      font-size: 11px;
+      color: gray;
+      text-transform: uppercase;
+    }
+  }
+  td,
+  th {
+    border: 1px solid #000;
+    border-collapse: collapse;
+    text-align: center;
+    background: none;
+  }
+  td {
+    font-size: 12px;
+  }
+  th {
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+    span {
+      font-size: 11px;
+    }
+  }
+  tbody {
+    th {
+      font-size: 11px;
+    }
+  }
+}
+
+.map-legend {
+  position: absolute;
+  top: 42px;
+  left: 0;
+}

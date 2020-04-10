@@ -6,11 +6,11 @@ import { Meta } from '@storybook/addon-docs/blocks'
 
 The COVID Project website maintains content in Contentful. While Contentful [has exhaustive documentation](https://www.contentful.com/developers/docs/), this document covers how to manage content for the project website.
 
-There are two “Spaces” in Contentful: **Blog** and **Pages**. While the former is self-explanatory, the latter contains static web pages like the “About our Data” page, along with navigation and parts of special pages. Both spaces have a similar editing experience.
+There is a single "space" in Contentful: **Website Content**. 
 
 ## Managing content
 
-In either space, you manage content in the **Content** tab on top of the screen. This will list all the content on the site. You can search and filter to find existing content. To add content, use the **Add a...** button on the upper-right.
+You manage content in the **Content** tab on top of the screen. This will list all the content on the site. You can search and filter to find existing content. To add content, use the **Add a...** button on the upper-right.
 
 Note that there is no **Save** button when editing content, it’s all saved automatically and only makes it to the website when you hit the Action Button in the upper-right when editing a page. This might read **Published**, **Changed**, or **Draft**, depending on what state the content is in. When you click on it, you will see several possible actions: Publish, Unpublish, or Archive. The first two are self-explanatory. **Set Schedule** lets you publish or unpublish content automatically at a set time.
 
@@ -32,7 +32,7 @@ Whenever you Publish or Unpublish/archive a piece of content, the website is ask
 
 ## Managing the Blog
 
-To edit blog posts, select the Blog space by clicking the space name in the upper-left. When you click the Content button on top of the screen, you’ll see a list of all blog posts.
+To edit blog posts, select the Content tab on top of the screen, you’ll see a list of all content on the website, and can filter by just Blog posts.
 
 <div style={{padding: '1rem', background: '#efbbab'}}>
 <strong>IMPORTANT:</strong> The website always expects there to be at least one blog post. If you unpublish all of them, the website won’t build. As of the start of this project, there is a boilerplate blog post you can edit or remove after publishing your first “real” post.
@@ -49,15 +49,14 @@ The last updated date of the content is the date that appears on the blog page.
 
 ## Managing pages
 
-Regular web pages, like “About our Data” are managed in the Pages space. You can filter the Content area to show just pages to make it easier to find them.
+Regular web pages, like “About our Data” are called "Pages" in Contentful.
 
 Pages have the following fields:
 
 - Title - The page Title
 - Body - The page body
 - Slug - Slug
-
-Navigation Group - (optional) - Assign this page to a navigation group, see below
+- Navigation Group - (optional) - Assign this page to a navigation group, see below
 
 ## Navigation groups
 
@@ -73,7 +72,7 @@ You can either add a Page in Contentful to a Navigation gorup, or a Navigation L
 
 Snippets are pieces of content that live on a page not managed in Contentful. Several pages like the “Data” or “US Totals” pages are special pieces of content that are built using the project data, and are not managed in Contentful. However, we want things like preambles in those pages to be easily editable.
 
-When you search for Snippets in the Content pane of the Pages space, you will see they have descriptive titles. Each snippet has the following fields:
+When you search for Snippets, you will see they have descriptive titles. Each snippet has the following fields:
 
 - Name - A description of where the snippet goes
 - Slug - Slug

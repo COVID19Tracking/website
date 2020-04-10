@@ -10,7 +10,7 @@ import Footer from '../components/layout/footer'
 import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/common/press-list'
 import Visualizations from '../components/pages/homepage/visualizations'
-import '../scss/pages/homepage.scss'
+import homepageStyles from './index.module.scss'
 
 export default ({ data }) => (
   <>
@@ -19,19 +19,19 @@ export default ({ data }) => (
     <Header siteTitle="The COVID Tracking Project" noMargin hasHero />
     <SkipNavContent />
     <h1 className="a11y-only">The COVID Tracking Project</h1>
-    <div className="homepage-press-logos-wrapper">
+    <div className={`press-logos ${homepageStyles.pressLogos}`}>
       <Container>
         <h2>Our data has been cited by</h2>
         <PressLogos onlyFeatured />
       </Container>
     </div>
-    <main id="main" className="homepage">
+    <main id="main" className={homepageStyles.main}>
       <Visualizations />
       <Container>
         <Flex flexWrap="wrap" mt={['1rem', '2rem']}>
           <Box width={[1, 1, 2 / 3]} pr={[0, '1rem', '5rem']}>
             <div
-              className="homepage-content"
+              className={homepageStyles.content}
               dangerouslySetInnerHTML={{
                 __html:
                   data.allContentfulSnippet.edges[0].node
@@ -39,8 +39,8 @@ export default ({ data }) => (
                     .html,
               }}
             />
-            <div className="homepage-get-involved">
-              <div className="homepage-get-involved-icon">→</div>
+            <div className={homepageStyles.getInvolved}>
+              <div className={homepageStyles.getInvolvedIcon}>→</div>
               <p>
                 <Link to="/data">
                   Check your state&apos;s testing data report card
@@ -48,8 +48,8 @@ export default ({ data }) => (
                 to see the quality of the data they are providing.
               </p>
             </div>
-            <div className="homepage-get-involved">
-              <div className="homepage-get-involved-icon">→</div>
+            <div className={homepageStyles.getInvolved}>
+              <div className={homepageStyles.getInvolvedIcon}>→</div>
               <p>
                 Want to get involved?{' '}
                 <Link to="/help">Help us get better data</Link>.
@@ -57,7 +57,10 @@ export default ({ data }) => (
             </div>
           </Box>
           <Box width={[1, 1, 1 / 3]}>
-            <Link to="/about/in-the-press" className="homepage-press-list-more">
+            <Link
+              to="/about-project/in-the-press"
+              className={homepageStyles.pressListMore}
+            >
               More news
             </Link>
             <h2>In the Press</h2>

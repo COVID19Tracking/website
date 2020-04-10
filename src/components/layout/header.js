@@ -3,12 +3,12 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import { Flex, Box } from '../common/flexbox'
 import Container from '../common/container'
 import DevelopmentWarning from './development-warning'
-import Hero from '../common/hero'
+import Hero from './hero'
 import ProjectLogo from '../../images/project-logo.svg'
-import '../../scss/components/header.scss'
+import headerStyle from './header.module.scss'
 
 const HeaderTabs = ({ navigation }) => (
-  <div className="header-tabs">
+  <div className={`site-header-tabs ${headerStyle.headerTabs}`}>
     <div>
       <ul>
         {navigation.map(item => (
@@ -65,15 +65,21 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
     <>
       <DevelopmentWarning />
       <header
-        className={`site-header ${showMobileMenu ? 'show-mobile-menu' : ''} ${
-          noMargin ? 'no-margin' : ''
-        }`}
+        className={`site-header ${headerStyle.siteHeader} ${
+          showMobileMenu ? headerStyle.showMobileMenu : ''
+        } ${noMargin ? headerStyle.noMargin : ''}`}
       >
-        <div className={`header-container ${!hasHero && 'show-background'}`}>
+        <div
+          className={`${headerStyle.container} ${!hasHero &&
+            headerStyle.showBackground}`}
+        >
           <Container>
             <Flex flexWrap="wrap">
-              <Box width={[1, 1 / 3]} className="site-title-container">
-                <a className="site-title" href="/">
+              <Box
+                width={[1, 1 / 3]}
+                className={headerStyle.siteTitleContainer}
+              >
+                <a className={headerStyle.siteTitle} href="/">
                   <img
                     src={ProjectLogo}
                     alt="The COVID Tracking Project"
@@ -81,9 +87,9 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
                   />
                 </a>
               </Box>
-              <Box width={[1, 2 / 3]} className="header-nav-container">
+              <Box width={[1, 2 / 3]} className={headerStyle.navContainer}>
                 <button
-                  className="mobile-toggle"
+                  className={headerStyle.mobileToggle}
                   type="button"
                   aria-expanded={showMobileMenu}
                   onClick={() => {
@@ -97,17 +103,17 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
             </Flex>
             <Flex
               flexWrap="wrap"
-              className="title-subnav-container"
+              className={headerStyle.titleSubnavContainer}
               mt={['1.5rem']}
             >
               <Box
                 width={navigation ? [1, 1 / 2] : 1}
                 order={[2, 1]}
                 py={['0.5rem', 0]}
-                className="header-title"
+                className={headerStyle.title}
               >
                 {title && (
-                  <h1 className={`${navigation ? '' : 'extra-space'}`}>
+                  <h1 className={`${navigation ? '' : headerStyle.extraSpace}`}>
                     {title}
                   </h1>
                 )}
@@ -118,7 +124,7 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
                   order={[1, 2]}
                   px={[0]}
                   textAlign={['left', 'right']}
-                  className="header-tabs-container"
+                  className={headerStyle.tabContainer}
                 >
                   <HeaderTabs navigation={navigation} />
                 </Box>
@@ -131,7 +137,7 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
   )
 
   return hasHero ? (
-    <div className="circles-container">
+    <div className={headerStyle.circles}>
       {header} <Hero />
     </div>
   ) : (

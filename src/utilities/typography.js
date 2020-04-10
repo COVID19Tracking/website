@@ -20,7 +20,7 @@ const fonts = [
 const typography = new Typography({
   baseFontSize: '18px',
   baseLineHeight: 1.8,
-  headerLineHeight: 2,
+  headerLineHeight: 1.25,
   headerFontFamily: fonts,
   bodyFontFamily: fonts,
 })

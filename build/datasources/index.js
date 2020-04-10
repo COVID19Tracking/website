@@ -1,5 +1,6 @@
-const { cdcTests, counties, press, statesInfo } = require('./sheets')
+const { cdcTests, counties, press } = require('./sheets')
 const statesDaily = require('./statesDaily')
+const statesInfo = require('./statesInfo')
 const usCurrent = require('./usCurrent')
 const usDaily = require('./usDaily')
 const { grade, states } = require('./states')
