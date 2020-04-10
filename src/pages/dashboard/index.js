@@ -31,9 +31,12 @@ const DashboardPage = () => {
         positive and negative value for each state. This is to account for
         differences in how states reporting pending tests; California has been
         inconsistent in its timing of reporting. We used faster updating sources
-        until April 1, when we standardized on California&apos;s new data
-        dashboards. This led to a drop in cases and deaths, as the state’s data
-        lags some other sources.
+        until April 1, when we standardized on{' '}
+        <a href="https://public.tableau.com/views/COVID-19PublicDashboard/Covid-19Public?:embed=y&:display_count=no&:showVizHome=no">
+          California&apos;s new data dashboards
+        </a>
+        . This led to a drop in cases and deaths, as the state’s data lags some
+        other sources.
       </p>
       <p>
         <strong>Source:</strong> The COVID Tracking Project
