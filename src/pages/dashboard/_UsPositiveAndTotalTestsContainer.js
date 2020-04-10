@@ -44,7 +44,7 @@ export default function UsAreaChartContainer() {
             if (d === 'Total') return '#585BC1'
             return '#FFA270'
           }}
-          height={600}
+          height={400}
           labelOrder={['Total', 'Positive']}
           marginBottom={40}
           marginLeft={80}
