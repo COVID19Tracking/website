@@ -43,7 +43,7 @@ export default function UsAreaChartContainer() {
             fill="#585BC1"
             height={400}
             marginBottom={40}
-            marginLeft={50}
+            marginLeft={80}
             marginRight={10}
             marginTop={10}
             xTicks={3}
