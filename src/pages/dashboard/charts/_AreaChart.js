@@ -1,32 +1,31 @@
-/* eslint-disable no-debugger */
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import { extent, max } from 'd3-array'
 import { nest } from 'd3-collection'
 import { scaleLinear, scaleTime } from 'd3-scale'
 import { area } from 'd3-shape'
-import React from 'react'
 
 import { formatDate, formatNumber } from '../_utils'
 
 import './area-chart.scss'
 
-export default function AreaChart({
-  annotations = null,
+const AreaChart = ({
+  annotations,
   data,
   fill,
   height,
-  labelOrder = false,
-  marginBottom = 0,
-  marginLeft = 0,
-  marginRight = 0,
-  marginTop = 0,
-  xExtent,
-  xTicks = 5,
+  labelOrder,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  marginTop,
+  xTicks,
   width,
-  yMax = null,
-  yTicks = 4,
-  showTicks = true,
-}) {
+  yMax,
+  yTicks,
+  showTicks,
+}) => {
   const grouped = nest()
     .key(d => d.label)
     .entries(data)
@@ -40,7 +39,7 @@ export default function AreaChart({
         })
         .filter(d => d)
 
-  const dateExtent = xExtent || extent(data, d => d.date)
+  const dateExtent = extent(data, d => d.date)
   const valueMax = max(data, d => d.value)
 
   const totalXMargin = marginLeft + marginRight
@@ -141,3 +140,42 @@ export default function AreaChart({
     </svg>
   )
 }
+
+AreaChart.defaultProps = {
+  annotations: null,
+  labelOrder: null,
+  marginBottom: 0,
+  marginLeft: 0,
+  marginRight: 0,
+  marginTop: 0,
+  xTicks: 5,
+  yMax: null,
+  yTicks: 4,
+  showTicks: true,
+}
+
+AreaChart.propTypes = {
+  annotations: PropTypes.arrayOf(
+    PropTypes.objectOf(PropTypes.instanceOf(Date).isRequired),
+  ), // ??
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.instanceOf(Date).isRequired,
+      label: PropTypes.string.isRequired,
+      value: PropTypes.number,
+    }),
+  ).isRequired,
+  fill: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  labelOrder: PropTypes.arrayOf(PropTypes.string),
+  marginBottom: PropTypes.number,
+  marginLeft: PropTypes.number,
+  marginRight: PropTypes.number,
+  marginTop: PropTypes.number,
+  xTicks: PropTypes.number,
+  yMax: PropTypes.number,
+  yTicks: PropTypes.number,
+  showTicks: PropTypes.bool,
+}
+export default AreaChart

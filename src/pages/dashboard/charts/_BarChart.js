@@ -105,9 +105,9 @@ BarChart.defaultProps = {
 
 BarChart.propTypes = {
   data: PropTypes.arrayOf(
-    PropTypes.objectOf({
+    PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
-      value: PropTypes.number.isRequired,
+      value: PropTypes.number,
     }),
   ).isRequired,
   fill: PropTypes.string.isRequired,
