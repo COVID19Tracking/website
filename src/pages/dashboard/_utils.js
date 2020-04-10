@@ -10,7 +10,6 @@ export const formatMillionShort = (d, last) => {
   if (!last) formattedNumber = formatPrefix(',.1', 1e6)(d).replace('M', '')
   return formattedNumber
 }
-export const formatSI = format('~s')
 export const calculateTotal = d => {
   return d.positive + (d.negative || 0)
 }
