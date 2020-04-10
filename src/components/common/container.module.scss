@@ -17,5 +17,8 @@
   }
   &.container-narrow {
     max-width: 900px;
+    @media (min-width: $viewport-lg) {
+      margin-top: 5rem;
+    }
   }
 }
