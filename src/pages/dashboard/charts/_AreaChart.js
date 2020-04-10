@@ -8,6 +8,8 @@ import React from 'react'
 
 import { formatDate, formatNumber } from '../_utils'
 
+import './area-chart.scss'
+
 export default function AreaChart({
   annotations = null,
   data,
@@ -59,7 +61,7 @@ export default function AreaChart({
   const strokeColor = '#b2bbbf'
 
   return (
-    <svg viewBox={`0 0 ${width} ${height}`}>
+    <svg viewBox={`0 0 ${width} ${height}`} style={{ overflow: 'visible' }}>
       {showTicks ? (
         <g
           className="axis-group"
@@ -71,7 +73,7 @@ export default function AreaChart({
           >
             {xScale.ticks(xTicks).map(tick => (
               <text
-                className="small-multiples__x-tick-label"
+                className="area-chart__x-tick-label"
                 key={tick}
                 x={xScale(tick)}
                 y={20}
@@ -86,7 +88,7 @@ export default function AreaChart({
                 <svg
                   y={yScale(tick) + 4}
                   x="-10"
-                  className="small-multiples__y-tick-label"
+                  className="area-chart__y-tick-label"
                 >
                   <text textAnchor="end">{formatNumber(tick)}</text>
                 </svg>
