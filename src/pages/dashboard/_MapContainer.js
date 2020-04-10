@@ -119,15 +119,15 @@ const MapContainer = () => {
   const propertyOptions = [
     {
       value: 'positive',
-      name: 'Positive Cases',
+      name: 'positive Cases',
     },
     {
       value: 'totalTestResults',
-      name: 'Total Tests',
+      name: 'total Tests',
     },
     {
       value: 'death',
-      name: 'Deaths',
+      name: 'deaths',
     },
   ]
   const togglePlaying = () => setPlaying(p => !p)
@@ -168,7 +168,7 @@ const MapContainer = () => {
           <>
             <div>
               <span>{formatNumber(sumTotalTestResults)}</span>{' '}
-              <span className="legend-text total">tests conducted</span>
+              <span className="legend-text total">total tests</span>
             </div>
             <div>
               <span>{formatNumber(sumPositive)}</span>{' '}
