@@ -6,8 +6,7 @@ import { nest } from 'd3-collection'
 import { scaleLinear, scaleTime } from 'd3-scale'
 import { area } from 'd3-shape'
 
-import { formatDate, formatNumber } from '../_utils'
-
+import { formatDate, formatNumber, formatMillionShort } from '../_utils'
 import './area-chart.scss'
 
 const AreaChart = ({
@@ -22,6 +21,7 @@ const AreaChart = ({
   marginTop,
   xTicks,
   width,
+  yFormat,
   yMax,
   yTicks,
   showTicks,
@@ -82,14 +82,21 @@ const AreaChart = ({
             ))}
           </g>
           <g className="chart-grid">
-            {yScale.ticks(yTicks).map(tick => (
+            {yScale.ticks(yTicks).map((tick, i) => (
               <g key={tick}>
                 <svg
                   y={yScale(tick) + 4}
                   x="-10"
                   className="area-chart__y-tick-label"
                 >
-                  <text textAnchor="end">{formatNumber(tick)}</text>
+                  <text textAnchor="end">
+                    {yFormat === 'millions'
+                      ? formatMillionShort(
+                          tick,
+                          i === yScale.ticks(yTicks).length - 1,
+                        )
+                      : formatNumber(tick)}
+                  </text>
                 </svg>
                 <line
                   stroke={strokeColor}
@@ -151,6 +158,7 @@ AreaChart.defaultProps = {
   xTicks: 5,
   yMax: null,
   yTicks: 4,
+  yFormat: 'thousands',
   showTicks: true,
 }
 
@@ -176,6 +184,7 @@ AreaChart.propTypes = {
   xTicks: PropTypes.number,
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
+  yFormat: PropTypes.string,
   showTicks: PropTypes.bool,
 }
 export default AreaChart

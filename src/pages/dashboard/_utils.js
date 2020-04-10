@@ -1,10 +1,15 @@
 /* eslint-disable import/prefer-default-export */
-import { format } from 'd3-format'
+import { format, formatPrefix } from 'd3-format'
 import { timeFormat, timeParse } from 'd3-time-format'
 
 export const formatDate = timeFormat('%b. %e')
 export const formatNumber = format(',')
 export const parseDate = timeParse('%Y%m%d')
+export const formatMillionShort = (d, last) => {
+  let formattedNumber = formatPrefix(',.1', 1e6)(d)
+  if (!last) formattedNumber = formatPrefix(',.1', 1e6)(d).replace('M', '')
+  return formattedNumber
+}
 export const getStateName = abbr => {
   const names = {
     AK: 'Alaska',

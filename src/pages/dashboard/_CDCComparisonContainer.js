@@ -57,7 +57,7 @@ export default function CDCComparisonContainer() {
       <div>
         <h4>Differences between this data and the CDC data</h4>
         <p>
-          As of today, the C.D.C. has tested {formatNumber(cdcCumulativeTotal)}
+          As of today, the C.D.C. has tested {formatNumber(cdcCumulativeTotal)}{' '}
           specimens, and we have tracked at least{' '}
           {formatNumber(cumulativeTotal)} tests administered across the country.
           It is important to note that testing numbers are likely an undercount
