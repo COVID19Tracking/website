@@ -5,9 +5,6 @@ import { timeFormat, timeParse } from 'd3-time-format'
 export const formatDate = timeFormat('%b. %e')
 export const formatNumber = format(',')
 export const parseDate = timeParse('%Y%m%d')
-export const calculateTotal = d => {
-  return d.positive + (d.negative || 0)
-}
 export const getStateName = abbr => {
   const names = {
     AK: 'Alaska',

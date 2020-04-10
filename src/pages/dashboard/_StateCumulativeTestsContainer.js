@@ -6,13 +6,7 @@ import cloneDeep from 'lodash/cloneDeep'
 import AreaChart from './charts/_AreaChart'
 import StatesWithPopulation from '../../data/visualization/state-populations.json'
 
-import {
-  calculateTotal,
-  getStateName,
-  parseDate,
-  totalColor,
-  positiveColor,
-} from './_utils'
+import { getStateName, parseDate, totalColor, positiveColor } from './_utils'
 
 import './dashboard.scss'
 
@@ -76,12 +70,7 @@ const territoryPopulations = {
 
 function sortGroupedData(groupedData) {
   return groupedData.sort((a, b) => {
-    const lastA = a.values[0]
-    const lastB = b.values[0]
-
-    const lastATotal = calculateTotal(lastA)
-    const lastBTotal = calculateTotal(lastB)
-    return lastBTotal - lastATotal
+    return b.values[0].totalTestResults - a.values[0].totalTestResults
   })
 }
 
@@ -115,6 +104,7 @@ function groupAndSortStateDaily(query) {
       // divide by population to determine per capita percentages
       clonedValue.positive /= population
       clonedValue.negative /= population
+      clonedValue.totalTestResults /= population
 
       return clonedValue
     })
@@ -138,6 +128,7 @@ export default function CumulativeTestsByStateContainer() {
             state
             positive
             negative
+            totalTestResults
           }
         }
       }
@@ -157,7 +148,7 @@ export default function CumulativeTestsByStateContainer() {
   })
 
   const maxStateTests = useMemo(() => {
-    return calculateTotal(data[0].values[0])
+    return data[0].values[0].totalTestResults
   })
 
   return (
@@ -239,7 +230,7 @@ export default function CumulativeTestsByStateContainer() {
             stateData.push({
               date,
               label: 'Total',
-              value: calculateTotal(d),
+              value: d.totalTestResults,
             })
           })
 
