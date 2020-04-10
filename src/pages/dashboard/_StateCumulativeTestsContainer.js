@@ -165,9 +165,7 @@ export default function CumulativeTestsByStateContainer() {
   })
 
   const maxStateTests = useMemo(() => {
-    return max(data, stateData => {
-      return max(stateData.values, d => calculateTotal(d))
-    })
+    return calculateTotal(data[0].values[0])
   })
 
   return (
