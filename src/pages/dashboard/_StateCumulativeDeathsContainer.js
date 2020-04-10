@@ -28,7 +28,6 @@ export default function StateCumulativeDeathsContainer() {
     return nodes
   }, [query.allCovidState.nodes])
 
-  console.log('data - ', data)
   return (
     <section style={{ display: 'flex' }}>
       <div style={{ flexGrow: 1, width: '40%' }}>
