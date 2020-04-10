@@ -1,25 +1,24 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-debugger */
+import PropTypes from 'prop-types' // ES6
 
-import { extent, max, range } from 'd3-array'
+import { max, range } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { formatDate, formatNumber } from '../_utils'
 
-export default function BarChart({
+const BarChart = ({
   data,
   fill,
   height,
-  marginBottom = 0,
-  marginLeft = 0,
-  marginRight = 0,
-  marginTop = 0,
-  xTicks = 5,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  marginTop,
+  xTicks,
   width,
-  yMax = null,
-  yTicks = 4,
-}) {
+  yMax,
+  yTicks,
+}) => {
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
   const xScale = scaleBand()
@@ -69,7 +68,11 @@ export default function BarChart({
         >
           {ticks.map(d => {
             const date = xScale.domain()[d]
-            return <text x={xScale(date)} y="18">{`${formatDate(date)}`}</text>
+            return (
+              <text key={d} x={xScale(date)} y="18">{`${formatDate(
+                date,
+              )}`}</text>
+            )
           })}
         </g>
 
@@ -89,3 +92,33 @@ export default function BarChart({
     </div>
   )
 }
+
+BarChart.defaultProps = {
+  marginBottom: 0,
+  marginLeft: 0,
+  marginRight: 0,
+  marginTop: 0,
+  xTicks: 5,
+  yMax: null,
+  yTicks: 4,
+}
+
+BarChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.objectOf({
+      date: PropTypes.instanceOf(Date).isRequired,
+      value: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+  fill: PropTypes.string.isRequired,
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  marginBottom: PropTypes.number,
+  marginLeft: PropTypes.number,
+  marginRight: PropTypes.number,
+  marginTop: PropTypes.number,
+  xTicks: PropTypes.number,
+  yMax: PropTypes.number,
+  yTicks: PropTypes.number,
+}
+export default BarChart

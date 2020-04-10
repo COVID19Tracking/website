@@ -1,6 +1,8 @@
 import React from 'react'
 
 import AreaChart from '../../pages/dashboard/charts/_AreaChart'
+import BarChart from '../../pages/dashboard/charts/_BarChart'
+
 import { parseDate } from '../../pages/dashboard/_utils'
 
 import usDaily from '../../../_data/v1/us/daily.json'
@@ -11,7 +13,7 @@ export default {
 
 export const areaChart = () => {
   const data = usDaily
-    .slice(usDaily.length - 10, usDaily.length - 1)
+    .slice(0, 10)
     .map(node => [
       {
         date: parseDate(node.date),
@@ -40,5 +42,35 @@ export const areaChart = () => {
     <div style={{ width: props.width, height: props.height }}>
       <AreaChart {...props} />
     </div>
+  )
+}
+const sortChronologically = (a, b) => {
+  if (a.date > b.date) return 1
+  if (a.date < b.date) return -1
+  return 0
+}
+
+export const barChart = () => {
+  const data = usDaily
+    .slice(0, 20)
+    .map(({ date, totalTestResultsIncrease }) => {
+      return {
+        date: parseDate(date),
+        value: +totalTestResultsIncrease,
+      }
+    })
+    .sort(sortChronologically)
+  return (
+    <BarChart
+      data={data}
+      fill="#585BC1"
+      height={200}
+      marginBottom={40}
+      marginLeft={80}
+      marginRight={10}
+      marginTop={10}
+      xTicks={2}
+      width={400}
+    />
   )
 }
