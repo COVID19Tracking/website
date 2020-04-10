@@ -23,6 +23,7 @@ export default function AreaChart({
   width,
   yMax = null,
   yTicks = 4,
+  showTicks = true,
 }) {
   const grouped = nest()
     .key(d => d.label)
@@ -55,39 +56,60 @@ export default function AreaChart({
     .y0(d => yScale(d.value))
     .y1(height - totalYMargin)
 
+  const strokeColor = '#b2bbbf'
+
   return (
-    <svg height={height} width={width}>
-      <g
-        className="axis-group"
-        transform={`translate(${marginLeft} ${marginTop})`}
-      >
+    <svg viewBox={`0 0 ${width} ${height}`}>
+      {showTicks ? (
         <g
-          className="axis x-axis"
-          transform={`translate(0 ${height - totalYMargin})`}
+          className="axis-group"
+          transform={`translate(${marginLeft} ${marginTop})`}
         >
-          {xScale.ticks(xTicks).map(tick => (
-            <text key={tick} x={xScale(tick)} y={20}>
-              {formatDate(tick)}
-            </text>
-          ))}
-        </g>
-        <g className="chart-grid">
-          {yScale.ticks(yTicks).map(tick => (
-            <g key={tick}>
-              <text y={yScale(tick) + 6} x={`${tick}`.length * -11}>
-                {formatNumber(tick)}
+          <g
+            className="axis x-axis"
+            transform={`translate(0 ${height - totalYMargin})`}
+          >
+            {xScale.ticks(xTicks).map(tick => (
+              <text
+                className="small-multiples__x-tick-label"
+                key={tick}
+                x={xScale(tick)}
+                y={20}
+              >
+                {formatDate(tick)}
               </text>
-              <line
-                stroke="black"
-                x1={0}
-                x2={width - totalXMargin}
-                y1={yScale(tick)}
-                y2={yScale(tick)}
-              />
-            </g>
-          ))}
+            ))}
+          </g>
+          <g className="chart-grid">
+            {yScale.ticks(yTicks).map(tick => (
+              <g key={tick}>
+                <svg
+                  y={yScale(tick) + 4}
+                  x="-10"
+                  className="small-multiples__y-tick-label"
+                >
+                  <text textAnchor="end">{formatNumber(tick)}</text>
+                </svg>
+                <line
+                  stroke={strokeColor}
+                  x1={0}
+                  x2={width - totalXMargin}
+                  y1={yScale(tick)}
+                  y2={yScale(tick)}
+                />
+              </g>
+            ))}
+          </g>
         </g>
-      </g>
+      ) : (
+        <line
+          stroke={strokeColor}
+          x1={0}
+          x2={width}
+          y1={height - 1}
+          y2={height - 1}
+        />
+      )}
       <g
         className="chart-area-group"
         transform={`translate(${marginLeft} ${marginTop})`}
@@ -105,9 +127,9 @@ export default function AreaChart({
             <line
               key={d.date}
               stroke="black"
-              strokeWidth="1px"
-              x1={xScale(d.date)}
-              x2={xScale(d.date)}
+              strokeWidth="2px"
+              x1={xScale(d.date) - 1}
+              x2={xScale(d.date) - 1}
               y1="0"
               y2={height - marginTop - marginBottom}
             />

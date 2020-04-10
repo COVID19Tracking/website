@@ -105,11 +105,12 @@ export default function CumulativeTestsByStateContainer() {
   `)
 
   const data = groupAndSortStateDaily(query)
-  const secondMaxTotal = useMemo(() => {
-    if (!data[1] && !data[0]) return
-    // eslint-disable-next-line consistent-return
-    return max(data[1].values, d => calculateTotal(d))
-  }, [data.length])
+
+  const maxStateTests = useMemo(() => {
+    return max(data, stateData => {
+      return max(stateData.values, d => calculateTotal(d))
+    })
+  })
 
   return (
     <div>
@@ -143,11 +144,13 @@ export default function CumulativeTestsByStateContainer() {
             className="chart-legend-color"
             style={{
               backgroundColor: 'black',
-              marginRight: '.3rem',
+              height: '20px',
+              margin: '0 14px 0 0',
+              verticalAlign: 'middle',
               width: '2px',
             }}
           />
-          Date the statewide stay-at-home order was implemented.
+          Stay-at-home order*
         </li>
       </ul>
       <div className="small-multiples-chart-container">
@@ -190,19 +193,18 @@ export default function CumulativeTestsByStateContainer() {
                   if (d === 'Total') return '#585BC1'
                   return '#FFA270'
                 }}
-                height={250}
+                height={500}
                 labelOrder={['Total', 'Positive']}
-                marginBottom={40}
-                marginLeft={80}
-                marginRight={10}
                 marginTop={10}
-                xTicks={2}
-                width={250}
-                yMax={secondMaxTotal}
+                xTicks={4}
+                width={750}
+                yMax={maxStateTests}
                 yTicks={2}
+                showTicks={false}
               />
               <p>
                 <a
+                  className="small-multiples-chart__see-all-link"
                   href={`/data/state/${stateName
                     .toLowerCase()
                     .replace(/\s/g, '-')}`}
@@ -215,6 +217,10 @@ export default function CumulativeTestsByStateContainer() {
           )
         })}
       </div>
+      <p className="chart-legend-note">
+        <b>*</b> Only statewide stay-at-home orders are included; dates mark
+        when the orders went into effect.
+      </p>
     </div>
   )
 }
