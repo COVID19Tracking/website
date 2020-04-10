@@ -2,7 +2,7 @@
 import React, { useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import HorizontalBarChart from './charts/_HorizontalBarChart'
-import { getStateName } from './_utils'
+import { getStateName, deathsBarColor } from './_utils'
 
 export default function StateCumulativeDeathsContainer() {
   const query = useStaticQuery(graphql`
@@ -23,7 +23,7 @@ export default function StateCumulativeDeathsContainer() {
         value: d.death,
       }))
       .filter(d => d !== null)
-      .sort((a, b) => a.value - b.value)
+      .sort((a, b) => b.value - a.value)
 
     return nodes
   }, [query.allCovidState.nodes])
@@ -36,13 +36,14 @@ export default function StateCumulativeDeathsContainer() {
         <div>
           <HorizontalBarChart
             data={data}
-            fill="#585BC1"
-            height={400}
+            fill={deathsBarColor}
+            height={900}
             marginBottom={40}
-            marginLeft={50}
-            marginRight={10}
-            marginTop={10}
-            xTicks={3}
+            marginLeft={120}
+            marginRight={20}
+            marginTop={20}
+            xTicks={7}
+            yTicks={data.length}
             width={400}
           />
         </div>
