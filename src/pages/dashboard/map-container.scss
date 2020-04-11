@@ -60,13 +60,10 @@ $death-color: #404856;
   border: solid lightgray 2px;
   font-weight: initial;
 }
-.toggle-container{
-  width: 100%;
-}
 
 .map-toggle {
   cursor: pointer;
-  display: inline-block;
+  align-self: flex-start;
   span {
     @extend %map-toggle-inactive;
     display: inline-block;

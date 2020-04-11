@@ -136,18 +136,16 @@ const MapContainer = () => {
 
   return (
     <div id="state-map">
-      <div className="toggle-container">
-        <div
-          className="map-toggle"
-          onClick={toggleMapStyle}
-          onKeyPress={toggleMapStyle}
-          role="switch"
-          aria-checked={useChoropleth}
-          tabIndex={0}
-        >
-          <span className={useChoropleth ? '' : 'active'}>Bubble Map</span>
-          <span className={useChoropleth ? 'active' : ''}>Choropleth Map</span>
-        </div>
+      <div
+        className="map-toggle"
+        onClick={toggleMapStyle}
+        onKeyPress={toggleMapStyle}
+        role="switch"
+        aria-checked={useChoropleth}
+        tabIndex={0}
+      >
+        <span className={useChoropleth ? '' : 'active'}>Bubble Map</span>
+        <span className={useChoropleth ? 'active' : ''}>Choropleth Map</span>
       </div>
       <div id="map-dek">
         <h2>{formatDate(parseDate(currentDate))}</h2>
