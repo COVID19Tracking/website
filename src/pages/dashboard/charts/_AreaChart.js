@@ -60,7 +60,12 @@ const AreaChart = ({
   const strokeColor = '#b2bbbf'
 
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} style={{ overflow: 'visible' }}>
+    <svg
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
+      style={{ overflow: 'visible' }}
+    >
       {showTicks ? (
         <g
           className="axis-group"
