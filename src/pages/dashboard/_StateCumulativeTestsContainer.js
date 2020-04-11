@@ -161,6 +161,19 @@ export default function CumulativeTestsByStateContainer() {
         they’re also giving more tests.
       </p>
       <h3>Cumulative tests by state</h3>
+      <div
+        className="map-toggle chart-tests-toggle"
+        onClick={toggleChartData}
+        onKeyPress={toggleChartData}
+        role="switch"
+        aria-checked={useTestsPerCapita}
+        tabIndex={0}
+      >
+        <span className={useTestsPerCapita ? '' : 'active'}>Total Tests</span>
+        <span className={useTestsPerCapita ? 'active' : ''}>
+          Tests Per Capita
+        </span>
+      </div>
       <div className="chart-controls">
         <ul className="chart-legend">
           <li>
@@ -168,14 +181,14 @@ export default function CumulativeTestsByStateContainer() {
               className="chart-legend-color"
               style={{ backgroundColor: positiveColor }}
             />
-            Positive tests
+            Positive tests {useTestsPerCapita && ' per capita'}
           </li>
           <li>
             <span
               className="chart-legend-color"
               style={{ backgroundColor: totalColor }}
             />{' '}
-            Total tests
+            Total tests {useTestsPerCapita && ' per capita'}
           </li>
           <li>
             <span
@@ -191,19 +204,6 @@ export default function CumulativeTestsByStateContainer() {
             Stay-at-home order*
           </li>
         </ul>
-        <div
-          className="map-toggle chart-tests-toggle"
-          onClick={toggleChartData}
-          onKeyPress={toggleChartData}
-          role="switch"
-          aria-checked={useTestsPerCapita}
-          tabIndex={0}
-        >
-          <span className={useTestsPerCapita ? '' : 'active'}>Total Tests</span>
-          <span className={useTestsPerCapita ? 'active' : ''}>
-            Tests Per Capita
-          </span>
-        </div>
       </div>
       <div className="small-multiples-chart-container">
         {data.map(state => {
