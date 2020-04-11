@@ -177,7 +177,7 @@ const MapContainer = () => {
           </>
         )}
         <div id="map-time-scrubber">
-          <div>
+          <div id="map-start-stop-controls">
             <div
               id="map-start-stop"
               className={playing ? 'stop' : 'start'}
