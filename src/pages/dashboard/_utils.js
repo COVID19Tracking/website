@@ -10,9 +10,6 @@ export const formatMillionShort = (d, last) => {
   if (!last) formattedNumber = formatPrefix(',.1', 1e6)(d).replace('M', '')
   return formattedNumber
 }
-export const calculateTotal = d => {
-  return d.positive + (d.negative || 0)
-}
 export const getStateName = abbr => {
   const names = {
     AK: 'Alaska',
@@ -42,7 +39,7 @@ export const getStateName = abbr => {
     MI: 'Michigan',
     MN: 'Minnesota',
     MO: 'Missouri',
-    MP: 'Marshall Islands',
+    MP: 'Northern Mariana Islands',
     MS: 'Mississippi',
     MT: 'Montana',
     NC: 'North Carolina',

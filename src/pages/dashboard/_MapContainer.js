@@ -137,7 +137,7 @@ const MapContainer = () => {
   return (
     <div id="state-map">
       <div
-        id="map-style-button"
+        className="map-toggle"
         onClick={toggleMapStyle}
         onKeyPress={toggleMapStyle}
         role="switch"

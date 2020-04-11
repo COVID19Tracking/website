@@ -1,17 +1,12 @@
-import { max } from 'd3-array'
 import { nest } from 'd3-collection'
 import { graphql, useStaticQuery } from 'gatsby'
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
+import cloneDeep from 'lodash/cloneDeep'
 
 import AreaChart from './charts/_AreaChart'
+import StatesWithPopulation from '../../data/visualization/state-populations.json'
 
-import {
-  calculateTotal,
-  getStateName,
-  parseDate,
-  totalColor,
-  positiveColor,
-} from './_utils'
+import { getStateName, parseDate, totalColor, positiveColor } from './_utils'
 
 import './dashboard.scss'
 
@@ -61,11 +56,30 @@ const stayAtHomeOrders = {
   WI: 20200325,
 }
 
+const statePopulations = StatesWithPopulation.features.reduce((acc, cur) => {
+  acc[cur.properties.STUSPS] = cur.properties.population
+  return acc
+}, {})
+
+const territoryPopulations = {
+  GU: 164229,
+  VI: 107268,
+  MP: 55144,
+  AS: 55641,
+}
+
+function sortGroupedData(groupedData) {
+  return groupedData.sort((a, b) => {
+    return b.values[0].totalTestResults - a.values[0].totalTestResults
+  })
+}
+
 function groupAndSortStateDaily(query) {
   const data = query.allCovidStateDaily.edges.map(edge => {
     const { node } = edge
     return node
   })
+
   const grouped = nest()
     .key(d => d.state)
     .sortValues((a, b) => {
@@ -78,14 +92,30 @@ function groupAndSortStateDaily(query) {
     })
     .entries(data)
 
-  return grouped.sort((a, b) => {
-    const lastA = a.values[0]
-    const lastB = b.values[0]
+  const groupedPerCapita = grouped.map(stateData => {
+    const population = statePopulations[stateData.key]
+      ? statePopulations[stateData.key]
+      : territoryPopulations[stateData.key]
+    const clonedData = cloneDeep(stateData)
 
-    const lastATotal = calculateTotal(lastA)
-    const lastBTotal = calculateTotal(lastB)
-    return lastBTotal - lastATotal
+    clonedData.values = clonedData.values.map(value => {
+      const clonedValue = cloneDeep(value)
+
+      // divide by population to determine per capita percentages
+      clonedValue.positive /= population
+      clonedValue.negative /= population
+      clonedValue.totalTestResults /= population
+
+      return clonedValue
+    })
+
+    return clonedData
   })
+
+  return {
+    totals: sortGroupedData(grouped),
+    perCapita: sortGroupedData(groupedPerCapita),
+  }
 }
 
 export default function CumulativeTestsByStateContainer() {
@@ -98,19 +128,26 @@ export default function CumulativeTestsByStateContainer() {
             state
             positive
             negative
+            totalTestResults
           }
         }
       }
     }
   `)
 
-  const data = groupAndSortStateDaily(query)
+  const [useTestsPerCapita, setUseTestsPerCapita] = useState(false)
+
+  const toggleChartData = () => setUseTestsPerCapita(u => !u)
+
+  const allData = useMemo(() => groupAndSortStateDaily(query), [query])
+
+  const data = useMemo(() => {
+    return useTestsPerCapita ? allData.perCapita : allData.totals
+  }, [useTestsPerCapita])
 
   const maxStateTests = useMemo(() => {
-    return max(data, stateData => {
-      return max(stateData.values, d => calculateTotal(d))
-    })
-  })
+    return data[0].values[0].totalTestResults
+  }, [useTestsPerCapita])
 
   return (
     <div>
@@ -124,35 +161,50 @@ export default function CumulativeTestsByStateContainer() {
         they’re also giving more tests.
       </p>
       <h3>Cumulative tests by state</h3>
-      <ul className="chart-legend">
-        <li>
-          <span
-            className="chart-legend-color"
-            style={{ backgroundColor: positiveColor }}
-          />
-          Positive tests
-        </li>
-        <li>
-          <span
-            className="chart-legend-color"
-            style={{ backgroundColor: totalColor }}
-          />{' '}
-          Total tests
-        </li>
-        <li>
-          <span
-            className="chart-legend-color"
-            style={{
-              backgroundColor: 'black',
-              height: '20px',
-              margin: '0 14px 0 0',
-              verticalAlign: 'middle',
-              width: '2px',
-            }}
-          />
-          Stay-at-home order*
-        </li>
-      </ul>
+      <div className="chart-controls">
+        <ul className="chart-legend">
+          <li>
+            <span
+              className="chart-legend-color"
+              style={{ backgroundColor: positiveColor }}
+            />
+            Positive tests
+          </li>
+          <li>
+            <span
+              className="chart-legend-color"
+              style={{ backgroundColor: totalColor }}
+            />{' '}
+            Total tests
+          </li>
+          <li>
+            <span
+              className="chart-legend-color"
+              style={{
+                backgroundColor: 'black',
+                height: '20px',
+                margin: '0 14px 0 0',
+                verticalAlign: 'middle',
+                width: '2px',
+              }}
+            />
+            Stay-at-home order*
+          </li>
+        </ul>
+        <div
+          className="map-toggle chart-tests-toggle"
+          onClick={toggleChartData}
+          onKeyPress={toggleChartData}
+          role="switch"
+          aria-checked={useTestsPerCapita}
+          tabIndex={0}
+        >
+          <span className={useTestsPerCapita ? '' : 'active'}>Total Tests</span>
+          <span className={useTestsPerCapita ? 'active' : ''}>
+            Tests Per Capita
+          </span>
+        </div>
+      </div>
       <div className="small-multiples-chart-container">
         {data.map(state => {
           // because we're just charting two variables we make them here
@@ -163,6 +215,7 @@ export default function CumulativeTestsByStateContainer() {
           const annotations = stayAtHomeOrder
             ? [{ date: parseDate(stayAtHomeOrder) }]
             : null
+
           state.values.forEach(d => {
             const date = parseDate(d.date)
 
@@ -175,7 +228,7 @@ export default function CumulativeTestsByStateContainer() {
             stateData.push({
               date,
               label: 'Total',
-              value: calculateTotal(d),
+              value: d.totalTestResults,
             })
           })
 
