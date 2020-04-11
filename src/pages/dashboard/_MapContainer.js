@@ -136,7 +136,7 @@ const MapContainer = () => {
 
   return (
     <div id="state-map">
-      <div id="toggle-container">
+      <div className="toggle-container">
         <div
           className="map-toggle"
           onClick={toggleMapStyle}
