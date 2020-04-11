@@ -1,14 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import SwaggerSandbox from '../../components/common/swagger-sandbox'
-// import { Flex, Box } from '../../components/common/flexbox'
-// import DetailText from '../../components/common/detail-text'
 import Layout from '../../components/layout'
-// import StateList from '../../components/pages/data/state-list'
-// import StatesNav from '../../components/pages/data/state-nav'
-// import SummaryTable from '../../components/common/summary-table'
-// import { SyncInfobox } from '../../components/common/infobox'
-// import stateNavStyles from './index.module.scss'
 
 export default ({ data }) => (
   <Layout
