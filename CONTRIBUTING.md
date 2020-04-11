@@ -12,6 +12,12 @@ The project README file includes all the information you need to build a local v
 
 We use the [Airbnb style guide](https://github.com/airbnb/javascript), except with semicolons turned off. We suggest using Prettier in your environment to make sure your code files are all balanced and beautiful.
 
+### Style and SCSS Modules
+
+We use Gatsby's [CSS modules](https://www.gatsbyjs.org/docs/css-modules/), but with Sass files. Every Sass file should be in the same directory as its related component. There are also common colors and breakpoints defined in `/src/sass`.
+
+We also use [stable class names](https://www.gatsbyjs.org/docs/css-modules/#enabling-user-stylesheets-with-a-stable-class-name) to enable users to override style sheets for their own accessibility or usability needs.
+
 ## How to file an issue
 
 If you find a security vulnerability, **do NOT open** an issue. Email infosec@covidtracking.com instead.

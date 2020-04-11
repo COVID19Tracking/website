@@ -1,4 +1,4 @@
-@import '../../colors.scss';
+@import '../../scss/colors.scss';
 
 .infobox {
   display: inline-flex;
@@ -18,27 +18,27 @@
     margin: 0;
   }
 
-  .info-header {
+  .header {
     font-weight: bold;
     line-height: 1em;
   }
 
-  .info-content {
+  .content {
     margin-top: 0.25rem;
   }
 
-  &.infobox-sync {
+  &.sync {
     margin-left: 0;
     background-color: $color-infobox-sync-light;
     color: $color-infobox-sync-dark;
   }
 
-  &.infobox-alert {
+  &.alert {
     background-color: $color-infobox-alert-light;
     color: $color-infobox-alert-dark;
   }
 
-  &.infobox-question {
+  &.question {
     background-color: $color-infobox-question-light;
     color: $color-infobox-question-dark;
   }

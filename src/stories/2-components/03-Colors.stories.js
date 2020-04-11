@@ -1,6 +1,6 @@
 import React from 'react'
-import colors from '../../scss/colors.scss'
 import contrast from 'get-contrast'
+import colors from '../../scss/colors.scss'
 
 const ColorSwatch = ({ colors, names }) => (
   <>
@@ -93,69 +93,96 @@ export const textColors = () => (
   </>
 )
 
-export const mainColors = () => (
+export const colorsPlum = () => (
   <ColorSwatch
     colors={[
-      colors.mainDarkest,
-      colors.mainDark,
-      colors.mainMid,
-      colors.mainLight,
-      colors.mainLightest,
+      colors.colorPlum100,
+      colors.colorPlum200,
+      colors.colorPlum300,
+      colors.colorPlum400,
+      colors.colorPlum500,
+      colors.colorPlum600,
+      colors.colorPlum700,
+      colors.colorPlum800,
     ]}
     names={[
-      '$color-main-darkest',
-      '$color-main-dark',
-      '$color-main-mid',
-      '$color-main-light',
-      '$color-main-lightest',
+      '$color-plum-100',
+      '$color-plum-200',
+      '$color-plum-300',
+      '$color-plum-400',
+      '$color-plum-500',
+      '$color-plum-600',
+      '$color-plum-700',
+      '$color-plum-800',
     ]}
   />
 )
 
-export const secondaryColors = () => (
+export const colorsHoney = () => (
   <ColorSwatch
     colors={[
-      colors.secondaryDarkest,
-      colors.secondaryDark,
-      colors.secondaryMid,
-      colors.secondaryLight,
-      colors.secondaryLightest,
+      colors.colorHoney100,
+      colors.colorHoney200,
+      colors.colorHoney300,
+      colors.colorHoney400,
+      colors.colorHoney500,
+      colors.colorHoney600,
+      colors.colorHoney700,
+      colors.colorHoney800,
     ]}
     names={[
-      '$color-secondary-darkest',
-      '$color-secondary-dark',
-      '$color-secondary-mid',
-      '$color-secondary-light',
-      '$color-secondary-lightest',
+      '$color-honey-100',
+      '$color-honey-200',
+      '$color-honey-300',
+      '$color-honey-400',
+      '$color-honey-500',
+      '$color-honey-600',
+      '$color-honey-700',
+      '$color-honey-800',
     ]}
   />
 )
 
-export const greys = () => (
+export const colorsBlueberry = () => (
   <ColorSwatch
     colors={[
-      colors.grey1,
-      colors.grey2,
-      colors.grey3,
-      colors.grey4,
-      colors.grey5,
-      colors.grey6,
-      colors.grey7,
-      colors.grey8,
-      colors.grey9,
-      colors.grey10,
+      colors.colorBlueberry100,
+      colors.colorBlueberry200,
+      colors.colorBlueberry300,
+      colors.colorBlueberry400,
+      colors.colorBlueberry500,
     ]}
     names={[
-      '$color-grey-1',
-      '$color-grey-2',
-      '$color-grey-3',
-      '$color-grey-4',
-      '$color-grey-5',
-      '$color-grey-6',
-      '$color-grey-7',
-      '$color-grey-8',
-      '$color-grey-9',
-      '$color-grey-10',
+      '$color-blueberry-100',
+      '$color-blueberry-200',
+      '$color-blueberry-300',
+      '$color-blueberry-400',
+      '$color-blueberry-500',
+    ]}
+  />
+)
+
+export const colorsSlate = () => (
+  <ColorSwatch
+    colors={[
+      colors.colorSlate100,
+      colors.colorSlate200,
+      colors.colorSlate300,
+      colors.colorSlate400,
+      colors.colorSlate500,
+      colors.colorSlate600,
+      colors.colorSlate700,
+      colors.colorSlate800,
+    ]}
+    names={[
+      '$color-slate-100',
+      '$color-slate-200',
+      '$color-slate-300',
+      '$color-slate-400',
+      '$color-slate-500',
+      '$color-slate-600',
+      '$color-slate-700',
+      '$color-slate-800',
     ]}
   />
 )

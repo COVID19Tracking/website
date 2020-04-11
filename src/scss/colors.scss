@@ -1,8 +1,56 @@
 $text: #000;
 
-$color-link: #575aad;
-$color-link--active: #8b8dc7;
-$color-link--hover: #8B8DC7;
+/*
+
+Brand colors
+
+*/
+// Plum
+$color-plum-100: #F2F2FF;
+$color-plum-200: #D1D1E8;
+$color-plum-300: #B6B7DB;
+$color-plum-400: #8B8DC7;
+$color-plum-500: #6164BA;
+$color-plum-600: #575AAD;
+$color-plum-700: #31347A;
+$color-plum-800: #111354;
+
+// Honey
+$color-honey-100: #FCF9EB;
+$color-honey-200: #FBE8A9;
+$color-honey-300: #F6CE7A;
+$color-honey-400: #FFAD4A;
+$color-honey-500: #E2894E;
+$color-honey-600: #C66B3E;
+$color-honey-700: #924F34;
+$color-honey-800: #6E2F1F;
+
+// Blueberry
+$color-blueberry-100: #E2F1FC;
+$color-blueberry-200: #8CC7F4;
+$color-blueberry-300: #0091EA;
+$color-blueberry-400: #004399;
+$color-blueberry-500: #012656;
+
+// Slate
+$color-slate-100: #EDF1F2;
+$color-slate-200: #D2D6D7;
+$color-slate-300: #B7BCBD;
+$color-slate-400: #9CA1A2;
+$color-slate-500: #828688;
+$color-slate-600: #676B6D;
+$color-slate-700: #4C5153;
+$color-slate-800: #313638;
+
+
+/*
+
+Color primitives
+
+*/
+$color-link: $color-plum-600;
+$color-link--active: $color-plum-400;
+$color-link--hover: $color-plum-400;
 
 $color-infobox-question-light: #fef9cd;
 $color-infobox-question-dark: #5e4f24;
@@ -13,54 +61,37 @@ $color-infobox-sync-dark: #264a8c;
 $color-infobox-alert-light: #fedcd2;
 $color-infobox-alert-dark: #802509;
 
-//Referred to as "plumb"
-$color-main-darkest: #111354;
-$color-main-dark: #31347a;
-$color-main-mid: #575aad;
-$color-main-light: #8b8dc7;
-$color-main-lightest: #d1d1e8;
-
-//Referred to as "blueberry"
-$color-secondary-darkest: #012656;
-$color-secondary-dark: #004399;
-$color-secondary-mid: #0091ea;
-$color-secondary-light: #8cc7f4;
-$color-secondary-lightest: #e2f1fc;
-
-//Referred to as "slate"
-$color-grey-1: #313638;
-$color-grey-2: #3d4245;
-$color-grey-3: #4c5559;
-$color-grey-4: #5b666b;
-$color-grey-5: #6f7e85;
-$color-grey-6: #849096;
-$color-grey-7: #95a0a6;
-$color-grey-8: #b2bbbf;
-$color-grey-9: #d0d7db;
-$color-grey-10: #edf1f2;
-
 :export {
   text: $text;
   link: $color-link;
   linkActive: $color-link--active;
-  mainDarkest: $color-main-darkest;
-  mainDark: $color-main-dark;
-  mainMid: $color-main-mid;
-  mainLight: $color-main-light;
-  mainLightest: $color-main-lightest;
-  secondaryDarkest: $color-secondary-darkest;
-  secondaryDark: $color-secondary-dark;
-  secondaryMid: $color-secondary-mid;
-  secondaryLight: $color-secondary-light;
-  secondaryLightest: $color-secondary-lightest;
-  grey1: $color-grey-1;
-  grey2: $color-grey-2;
-  grey3: $color-grey-3;
-  grey4: $color-grey-4;
-  grey5: $color-grey-5;
-  grey6: $color-grey-6;
-  grey7: $color-grey-7;
-  grey8: $color-grey-8;
-  grey9: $color-grey-9;
-  grey10: $color-grey-10;
+  colorPlum100: $color-plum-100;
+  colorPlum200: $color-plum-200;
+  colorPlum300: $color-plum-300;
+  colorPlum400: $color-plum-400;
+  colorPlum500: $color-plum-500;
+  colorPlum600: $color-plum-600;
+  colorPlum700: $color-plum-700;
+  colorPlum800: $color-plum-800;
+  colorHoney100: $color-honey-100;
+  colorHoney200: $color-honey-200;
+  colorHoney300: $color-honey-300;
+  colorHoney400: $color-honey-400;
+  colorHoney500: $color-honey-500;
+  colorHoney600: $color-honey-600;
+  colorHoney700: $color-honey-700;
+  colorHoney800: $color-honey-800;
+  colorBlueberry100: $color-blueberry-100;
+  colorBlueberry200: $color-blueberry-200;
+  colorBlueberry300: $color-blueberry-300;
+  colorBlueberry400: $color-blueberry-400;
+  colorBlueberry500: $color-blueberry-500;
+  colorSlate100: $color-slate-100;
+  colorSlate200: $color-slate-200;
+  colorSlate300: $color-slate-300;
+  colorSlate400: $color-slate-400;
+  colorSlate500: $color-slate-500;
+  colorSlate600: $color-slate-600;
+  colorSlate700: $color-slate-700;
+  colorSlate800: $color-slate-800;
 }

@@ -1,21 +1,20 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Container from './container'
-import '../../scss/components/hero.scss'
-import { ButtonLink } from './button'
+import Container from '../common/container'
+import heroStyle from './hero.module.scss'
 
 export default () => (
   <Container>
-    <div className="hero">
-      <p className="header">
+    <div className={`hero ${heroStyle.hero}`}>
+      <p className={heroStyle.header}>
         The COVID Tracking Project collects and publishes the most complete
         testing data available for US states and territories.
       </p>
-      <div className="ctas">
-        <ButtonLink big to="/data">
+      <div className={heroStyle.ctas}>
+        <Link className={heroStyle.button} to="/data">
           Get the Data
-        </ButtonLink>
-        <p className="cta-spacer">or</p>
+        </Link>
+        <p className={heroStyle.spacer}>or</p>
         <Link to="/about-data">Learn About the Data</Link>
       </div>
     </div>

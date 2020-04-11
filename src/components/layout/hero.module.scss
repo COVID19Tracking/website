@@ -1,11 +1,11 @@
-@import '../colors.scss';
-@import '../breakpoints.scss';
+@import '../../scss/colors.scss';
+@import '../../scss/breakpoints.scss';
 
 .hero {
-  padding: 70px 20% 140px 0;
   @media only screen and (max-width: $viewport-ms) {
     padding: 35px 0 70px;
   }
+  padding: 70px 20% 140px 0;
 
   .header {
     color: white;
@@ -31,7 +31,7 @@
       margin-top: 35px;
     }
 
-    .cta-spacer {
+    .spacer {
       margin: 0 1rem;
 
       @media only screen and (max-width: $viewport-ms) {
@@ -45,22 +45,22 @@
 
       &:hover,
       &:focus {
-        color: $color-secondary-lightest;
+        color: $color-blueberry-100;
       }
     }
 
     .button {
-      background: $color-secondary-light;
+      background: $color-blueberry-200;
       text-decoration: none;
       padding: 1rem 0;
       width: 25%;
       text-align: center;
-      color: $color-secondary-darkest;
+      color: $color-blueberry-500;
       &:hover,
       &:focus,
       &:active {
-        background: $color-secondary-lightest;
-        color: $color-secondary-darkest;
+        background: $color-blueberry-100;
+        color: $color-blueberry-500;
       }
       @media only screen and (max-width: $viewport-sm) {
         width: 100%;

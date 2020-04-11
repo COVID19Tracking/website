@@ -1,12 +1,16 @@
-@import '../colors.scss';
-@import '../breakpoints.scss';
-footer {
+@import '../../scss/colors.scss';
+@import '../../scss/breakpoints.scss';
+.footer {
   background-image: url(../../images/hero-bg.svg);
   background-size: auto 300%;
   background-color: #5667ad;
   color: white;
   margin-top: 3rem;
   padding: 3rem 0;
+
+  .back-to-top {
+    font-weight: bold;
+  }
   .container {
     display: flex;
     align-items: center;
@@ -42,10 +46,7 @@ footer {
 
         &:hover,
         &:focus {
-          color: $color-main-lightest;
-        }
-        &.footer-return-top {
-          font-weight: bold;
+          color: $color-plum-200;
         }
       }
     }

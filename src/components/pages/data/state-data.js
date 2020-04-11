@@ -6,11 +6,11 @@ import { UnstyledList } from '../../common/lists'
 import StateGrade from '../../common/state-grade'
 import SummaryTable from '../../common/summary-table'
 import StatePopulation from '../state/state-population'
-import '../../../scss/components/pages/data/state-data.scss'
+import stateDataStyles from './state-data.module.scss'
 
 const State = ({ state }) => (
   <>
-    <div className="state-header">
+    <div className={`state-header ${stateDataStyles.header}`}>
       <h3 id={`state-${state.state.toLowerCase()}`}>
         <Link to={`/data/state/${slug(state.name)}`}>{state.name}</Link>
       </h3>
@@ -44,12 +44,17 @@ const State = ({ state }) => (
     </UnstyledList>
     {state.notes && (
       <div
+        className={stateDataStyles.notes}
         dangerouslySetInnerHTML={{
           __html: marked(state.notes),
         }}
       />
     )}
-    <a className="top-link" href="#reach-skip-nav" title="top">
+    <a
+      className={`state-top-link ${stateDataStyles.topLink}`}
+      href="#reach-skip-nav"
+      title="top"
+    >
       ↑ (return to top)
     </a>
   </>

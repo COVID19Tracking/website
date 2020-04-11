@@ -1,17 +1,17 @@
-@import '../colors.scss';
-@import '../breakpoints.scss';
+@import '../../scss/colors.scss';
+@import '../../scss/breakpoints.scss';
 
-.circles-container {
+.circles {
   background: #5667ad;
   background-image: url(../../images/hero-bg.svg);
   background-size: auto 100%;
 
-  .header-container {
+  .container {
     background: none;
   }
 }
 
-.header-container {
+.container {
   background: #5667ad;
 }
 
@@ -21,7 +21,7 @@
     margin-bottom: 0;
   }
   &.show-mobile-menu {
-    .header-container {
+    .container {
       nav {
         display: block;
         @media (min-width: $viewport-lg) {
@@ -30,7 +30,7 @@
       }
     }
   }
-  .header-container {
+  .container {
     padding-top: 1.5rem;
     &.show-background {
       background-image: url(../../images/hero-bg.svg);
@@ -64,7 +64,7 @@
       }
     }
 
-    .header-nav-container {
+    .nav-container {
       display: flex;
       width: auto;
       margin-left: auto;
@@ -108,11 +108,11 @@
         }
         a:hover,
         a:focus {
-          color: $color-secondary-lightest;
+          color: $color-blueberry-100;
         }
         a:hover,
         a[aria-current] {
-          border-bottom: 3px solid $color-secondary-light;
+          border-bottom: 3px solid $color-blueberry-200;
           padding-bottom: 2px;
         }
         a[aria-current] {
@@ -129,7 +129,7 @@
       width: auto;
     }
 
-    div.title-subnav-container {
+    .title-subnav-container {
       @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
         flex-direction: column;
       }
@@ -144,12 +144,12 @@
       }
 
       @media (max-width: $viewport-lg) {
-        .header-title {
+        .title {
           width: 100%;
         }
       }
 
-      .header-tabs-container {
+      .tab-container {
         display: flex;
 
         @media (min-width: $viewport-lg) {
@@ -192,7 +192,7 @@
         list-style-type: none;
         margin: 0;
         text-align: left;
-        background: $color-main-lightest;
+        background: $color-plum-200;
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;
 
@@ -212,7 +212,7 @@
         }
 
         a {
-          color: $color-main-mid;
+          color: $color-plum-600;
           display: block;
           padding: 0.4rem 0.6rem;
           font-size: 0.72rem;

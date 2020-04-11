@@ -1,0 +1,30 @@
+@import '../../../scss/colors.scss';
+@import '../../../scss/breakpoints.scss';
+
+.state-nav-combobox {
+  label {
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  [data-reach-combobox] {
+    margin: 0.3rem 0;
+    @media (min-width: $viewport-ms) {
+      display: inline-block;
+      margin-left: 1rem;
+    }
+  }
+  input {
+    padding: 0.3rem;
+    border: 1px solid $color-slate-600;
+  }
+}
+
+.popover {
+  [data-user-value] {
+    font-weight: bold;
+  }
+  [data-suggested-value] {
+    font-weight: normal;
+  }
+}

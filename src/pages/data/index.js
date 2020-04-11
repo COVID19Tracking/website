@@ -8,7 +8,7 @@ import StatesNoScriptNav from '../../components/pages/data/state-nav-no-script'
 import StatesNav from '../../components/pages/data/state-nav'
 import SummaryTable from '../../components/common/summary-table'
 import { SyncInfobox } from '../../components/common/infobox'
-import '../../scss/pages/data.scss'
+import stateNavStyles from './index.module.scss'
 
 export default ({ data }) => (
   <Layout
@@ -30,11 +30,14 @@ export default ({ data }) => (
         }}
       />
     </DetailText>
-    <Flex my={['0.5rem', '2rem']} className="data-states-header">
+    <Flex
+      my={['0.5rem', '2rem']}
+      className={`state-nav-header ${stateNavStyles.stateNav}`}
+    >
       <Flex
         flexWrap="wrap"
         alignItems="baseline"
-        className="inner-data-states-header"
+        className={stateNavStyles.stateNavInner}
       >
         <Box width={[1, 1, 1 / 2]}>
           <h2 id="states-top">Totals by state</h2>

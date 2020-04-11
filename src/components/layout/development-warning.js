@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Alert from '../common/alert'
-import '../../scss/components/development-warning.scss'
+import developmentWarningStyle from './development-warning.module.scss'
 
 export default () => (
   <StaticQuery
@@ -17,7 +17,9 @@ export default () => (
     render={data => (
       <>
         {!data.site.siteMetadata.production && (
-          <div className="development-warning">
+          <div
+            className={`development-warning ${developmentWarningStyle.developmentWarning}`}
+          >
             <Alert>
               This is a test version of The COVID Tracking Project website. Data
               may be inaccurate.{' '}

@@ -1,0 +1,19 @@
+.state-nav {
+  display: none;
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  li {
+    display: inline;
+    padding: 0.25rem 0.75rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}

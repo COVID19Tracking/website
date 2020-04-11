@@ -1,7 +1,6 @@
 import React from 'react'
 import Table from './table'
-import '../../scss/components/common/summary-table.scss'
-import thousands from '../../utilities/format-thousands'
+import { FormatNumber } from './format'
 
 export default ({ data, lastUpdated, showOutcomes = true }) => (
   <Table tableLabel={lastUpdated && `Last updated: ${lastUpdated} ET`}>
@@ -61,43 +60,45 @@ export default ({ data, lastUpdated, showOutcomes = true }) => (
     </thead>
     <tbody>
       <tr>
-        <td>{data.positive ? thousands(data.positive) : 'N/A'}</td>
-        <td>{data.negative ? thousands(data.negative) : 'N/A'}</td>
-        <td>{data.pending ? thousands(data.pending) : 'N/A'}</td>
+        <td>
+          <FormatNumber number={data.positive} />
+        </td>
+        <td>
+          <FormatNumber number={data.negative} />
+        </td>
+        <td>
+          <FormatNumber number={data.pending} />
+        </td>
         {showOutcomes && (
           <>
             <td>
-              {data.hospitalizedCurrently
-                ? thousands(data.hospitalizedCurrently)
-                : 'N/A'}
+              <FormatNumber number={data.hospitalizedCurrently} />
             </td>
             <td>
-              {data.hospitalizedCumulative
-                ? thousands(data.hospitalizedCumulative)
-                : 'N/A'}
+              <FormatNumber number={data.hospitalizedCumulative} />
             </td>
             <td>
-              {data.inIcuCurrently ? thousands(data.inIcuCurrently) : 'N/A'}
+              <FormatNumber number={data.inIcuCurrently} />
             </td>
             <td>
-              {data.inIcuCumulative ? thousands(data.inIcuCumulative) : 'N/A'}
+              <FormatNumber number={data.inIcuCumulative} />
             </td>
             <td>
-              {data.onVentilatorCurrently
-                ? thousands(data.onVentilatorCurrently)
-                : 'N/A'}
+              <FormatNumber number={data.onVentilatorCurrently} />
             </td>
             <td>
-              {data.onVentilatorCumulative
-                ? thousands(data.onVentilatorCumulative)
-                : 'N/A'}
+              <FormatNumber number={data.onVentilatorCumulative} />
             </td>
-            <td>{data.recovered ? thousands(data.recovered) : 'N/A'}</td>
+            <td>
+              <FormatNumber number={data.recovered} />
+            </td>
           </>
         )}
-        <td>{data.death ? thousands(data.death) : 'N/A'}</td>
         <td>
-          {data.totalTestResults ? thousands(data.totalTestResults) : 'N/A'}
+          <FormatNumber number={data.death} />
+        </td>
+        <td>
+          <FormatNumber number={data.totalTestResults} />
         </td>
       </tr>
     </tbody>
