@@ -3,12 +3,6 @@ $positive-color: #e5a968;
 $total-color: #696dc2;
 $death-color: #404856;
 
-.container {
-  :focus {
-    outline: none;
-  }
-}
-
 #state-map {
   margin-bottom: 3rem;
   position: relative;
@@ -67,9 +61,13 @@ $death-color: #404856;
   font-weight: initial;
 }
 
-.map-toggle {
-  cursor: pointer;
+#button-container {
   width: 100%;
+}
+
+#map-style-button {
+  cursor: pointer;
+  float: left;
   span {
     @extend %map-toggle-inactive;
     display: inline-block;
