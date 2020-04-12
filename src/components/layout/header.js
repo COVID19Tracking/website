@@ -37,17 +37,15 @@ const HeaderNavigation = () => {
     }
   `)
   return (
-    <>
-      <nav className="js-disabled-block">
-        <ul>
-          {data.allNavigationYaml.edges[0].node.items.map(item => (
-            <li key={item.link}>
-              <Link to={item.link}>{item.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </>
+    <nav className="js-disabled-block">
+      <ul>
+        {data.allNavigationYaml.edges[0].node.items.map(item => (
+          <li key={item.link}>
+            <Link to={item.link}>{item.title}</Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   )
 }
 
