@@ -32,7 +32,14 @@ export default function StateCumulativeDeathsContainer() {
   const toggleCollapse = () => collapseChart(u => !u)
   const height = isCollapsed ? 400 : 900
   return (
-    <section style={{ display: 'flex' }}>
+    <section style={{ display: 'flex', marginBottom: '20px' }}>
+      <div style={{ flexGrow: 1, width: '60%' }}>
+        <p>
+          Though this is a national crisis, each state is reporting data
+          differently. We are tracking numbers from each state, though the
+          quality and frequency of reports varies significantly.
+        </p>
+      </div>
       <div style={{ flexGrow: 1, width: '40%' }}>
         <h4>Total Deaths By States</h4>
         <div>
@@ -56,9 +63,6 @@ export default function StateCumulativeDeathsContainer() {
         >
           {isCollapsed ? 'Show all states' : 'Collapse'}
         </button>
-      </div>
-      <div style={{ flexGrow: 1, width: '60%' }}>
-        <p>text goes here</p>
       </div>
     </section>
   )
