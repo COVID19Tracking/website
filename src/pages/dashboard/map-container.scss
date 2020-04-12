@@ -50,39 +50,6 @@ $death-color: #404856;
   }
 }
 
-%map-toggle-active {
-  color: black;
-  border-color: black;
-  font-weight: 500;
-}
-%map-toggle-inactive {
-  color: lightgray;
-  border: solid lightgray 2px;
-  font-weight: initial;
-}
-
-.map-toggle {
-  cursor: pointer;
-  align-self: flex-start;
-  span {
-    @extend %map-toggle-inactive;
-    display: inline-block;
-    font-size: 14px;
-    margin: -1px;
-    padding: 2px 15px;
-    &:nth-child(1) {
-      border-radius: 8px 0 0 8px;
-    }
-    &:nth-child(2) {
-      border-radius: 0 8px 8px 0;
-      border-left-color: black !important;
-    }
-    &.active {
-      @extend %map-toggle-active;
-    }
-  }
-}
-
 .legend-text {
   border-bottom: solid 3px;
   &.total {
