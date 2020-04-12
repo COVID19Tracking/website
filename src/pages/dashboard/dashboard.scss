@@ -1,12 +1,18 @@
+.dashboard-button {
+  color: #000;
+  border-color: #000;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 0 2rem;
+  padding: 2px 15px;
+}
+
 .us-area-chart-container {
   margin: 50px auto;
   max-width: 800px;
-}
-
-.small-multiples-chart-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 ul.chart-legend {
@@ -65,20 +71,24 @@ ul.chart-legend {
   padding: 0 5px;
 }
 
+$small-multiples-chart-bp-sm: 480px;
+$small-multiples-chart-bp-md: 800px;
+$small-multiples-chart-bp-lg: 1200px;
+
 .small-multiples-chart {
   line-height: 1rem;
   padding: 0 1%;
   width: 50%;
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: $small-multiples-chart-bp-sm) {
     width: calc(100% / 4);
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: $small-multiples-chart-bp-md) {
     width: calc(100% / 5);
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: $small-multiples-chart-bp-lg) {
     width: calc(100% / 7);
   }
 
@@ -86,6 +96,40 @@ ul.chart-legend {
     font-size: 12px;
     line-height: 1.2;
     margin-bottom: 0.4rem;
+  }
+}
+
+.small-multiples-chart-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.small-multiples-chart-container--collapsed {
+  .small-multiples-chart {
+    @media screen and (max-width: #{$small-multiples-chart-bp-sm - 1}) {
+      &:nth-child(n + 7) {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: #{$small-multiples-chart-bp-md - 1}) {
+      &:nth-child(n + 17) {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: #{$small-multiples-chart-bp-lg - 1}) {
+      &:nth-child(n + 21) {
+        display: none;
+      }
+    }
+  }
+}
+
+.small-multiples-chart-collapse-button {
+  @media screen and (min-width: $small-multiples-chart-bp-lg) {
+    display: none;
   }
 }
 
