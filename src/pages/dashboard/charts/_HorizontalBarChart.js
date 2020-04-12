@@ -20,7 +20,6 @@ export default function HorizontalBarChart({
   xMax = null,
   yTicks = null,
 }) {
-  console.log('data - ', data)
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
   const yScale = scaleBand()
@@ -58,6 +57,7 @@ export default function HorizontalBarChart({
                   {formatNumber(tick)}
                 </text>
                 <line
+                  className="gridlines"
                   stroke={gridLinesColor}
                   x1={xScale(tick)}
                   x2={xScale(tick)}
