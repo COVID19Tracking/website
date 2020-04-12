@@ -28,15 +28,15 @@ export default function UsAreaChartContainer() {
       .reduce((acc, val) => acc.concat(val), [])
   }, [data.allCovidUsDaily.nodes.length])
   return (
-    <section style={{ display: 'flex' }}>
-      <p style={{ flexGrow: 1, width: '50%' }}>
+    <section>
+      <p>
         Testing is one of the most important tools in controlling an outbreak.
         When universal testing is implemented, people who are infected with the
         virus can be isolated from folks who test negative. This functions as a
         sort of targeted social distancing technique and can help slow the
         outbreak.
       </p>
-      <div style={{ flexGrow: 1, width: '50%' }}>
+      <div>
         <h4>Positive tests and total tests in the US</h4>
         <AreaChart
           data={transformedData}
@@ -52,6 +52,7 @@ export default function UsAreaChartContainer() {
           marginTop={10}
           xTicks={2}
           width={400}
+          yFormat="millions"
         />
       </div>
     </section>

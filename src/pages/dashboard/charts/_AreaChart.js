@@ -1,30 +1,31 @@
-/* eslint-disable no-debugger */
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import { extent, max } from 'd3-array'
 import { nest } from 'd3-collection'
 import { scaleLinear, scaleTime } from 'd3-scale'
 import { area } from 'd3-shape'
-import React from 'react'
 
-import { formatDate, formatNumber } from '../_utils'
+import { formatDate, formatNumber, formatMillionShort } from '../_utils'
+import './area-chart.scss'
 
-export default function AreaChart({
-  annotations = null,
+const AreaChart = ({
+  annotations,
   data,
   fill,
   height,
-  labelOrder = false,
-  marginBottom = 0,
-  marginLeft = 0,
-  marginRight = 0,
-  marginTop = 0,
-  xExtent,
-  xTicks = 5,
+  labelOrder,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  marginTop,
+  xTicks,
   width,
-  yMax = null,
-  yTicks = 4,
-  showTicks = true,
-}) {
+  yFormat,
+  yMax,
+  yTicks,
+  showTicks,
+}) => {
   const grouped = nest()
     .key(d => d.label)
     .entries(data)
@@ -38,7 +39,7 @@ export default function AreaChart({
         })
         .filter(d => d)
 
-  const dateExtent = xExtent || extent(data, d => d.date)
+  const dateExtent = extent(data, d => d.date)
   const valueMax = max(data, d => d.value)
 
   const totalXMargin = marginLeft + marginRight
@@ -59,7 +60,7 @@ export default function AreaChart({
   const strokeColor = '#b2bbbf'
 
   return (
-    <svg viewBox={`0 0 ${width} ${height}`}>
+    <svg viewBox={`0 0 ${width} ${height}`} style={{ overflow: 'visible' }}>
       {showTicks ? (
         <g
           className="axis-group"
@@ -71,7 +72,7 @@ export default function AreaChart({
           >
             {xScale.ticks(xTicks).map(tick => (
               <text
-                className="small-multiples__x-tick-label"
+                className="area-chart__x-tick-label"
                 key={tick}
                 x={xScale(tick)}
                 y={20}
@@ -81,14 +82,21 @@ export default function AreaChart({
             ))}
           </g>
           <g className="chart-grid">
-            {yScale.ticks(yTicks).map(tick => (
+            {yScale.ticks(yTicks).map((tick, i) => (
               <g key={tick}>
                 <svg
                   y={yScale(tick) + 4}
                   x="-10"
-                  className="small-multiples__y-tick-label"
+                  className="area-chart__y-tick-label"
                 >
-                  <text textAnchor="end">{formatNumber(tick)}</text>
+                  <text textAnchor="end">
+                    {yFormat === 'millions'
+                      ? formatMillionShort(
+                          tick,
+                          i === yScale.ticks(yTicks).length - 1,
+                        )
+                      : formatNumber(tick)}
+                  </text>
                 </svg>
                 <line
                   stroke={strokeColor}
@@ -139,3 +147,44 @@ export default function AreaChart({
     </svg>
   )
 }
+
+AreaChart.defaultProps = {
+  annotations: null,
+  labelOrder: null,
+  marginBottom: 0,
+  marginLeft: 0,
+  marginRight: 0,
+  marginTop: 0,
+  xTicks: 5,
+  yMax: null,
+  yTicks: 4,
+  yFormat: 'thousands',
+  showTicks: true,
+}
+
+AreaChart.propTypes = {
+  annotations: PropTypes.arrayOf(
+    PropTypes.objectOf(PropTypes.instanceOf(Date).isRequired),
+  ), // ??
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.instanceOf(Date).isRequired,
+      label: PropTypes.string.isRequired,
+      value: PropTypes.number,
+    }),
+  ).isRequired,
+  fill: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  labelOrder: PropTypes.arrayOf(PropTypes.string),
+  marginBottom: PropTypes.number,
+  marginLeft: PropTypes.number,
+  marginRight: PropTypes.number,
+  marginTop: PropTypes.number,
+  xTicks: PropTypes.number,
+  yMax: PropTypes.number,
+  yTicks: PropTypes.number,
+  yFormat: PropTypes.string,
+  showTicks: PropTypes.bool,
+}
+export default AreaChart

@@ -119,15 +119,15 @@ const MapContainer = () => {
   const propertyOptions = [
     {
       value: 'positive',
-      name: 'Positive Cases',
+      name: 'positive Cases',
     },
     {
       value: 'totalTestResults',
-      name: 'Total Tests',
+      name: 'total Tests',
     },
     {
       value: 'death',
-      name: 'Deaths',
+      name: 'deaths',
     },
   ]
   const togglePlaying = () => setPlaying(p => !p)
@@ -137,7 +137,7 @@ const MapContainer = () => {
   return (
     <div id="state-map">
       <div
-        id="map-style-button"
+        className="map-toggle"
         onClick={toggleMapStyle}
         onKeyPress={toggleMapStyle}
         role="switch"
@@ -168,7 +168,7 @@ const MapContainer = () => {
           <>
             <div>
               <span>{formatNumber(sumTotalTestResults)}</span>{' '}
-              <span className="legend-text total">tests conducted</span>
+              <span className="legend-text total">total tests</span>
             </div>
             <div>
               <span>{formatNumber(sumPositive)}</span>{' '}
@@ -177,23 +177,33 @@ const MapContainer = () => {
           </>
         )}
         <div id="map-time-scrubber">
-          <div
-            id="map-start-stop"
-            className={playing ? 'stop' : 'start'}
-            onClick={() => togglePlaying()}
-            onKeyDown={() => togglePlaying()}
-            role="switch"
-            label={playing ? 'stop' : 'start'}
-            aria-checked={playing}
-            tabIndex={0}
-          />
-          <input
-            onChange={event => setSliderIndex(parseInt(event.target.value, 10))}
-            min={0}
-            max={dates.length - 1}
-            value={sliderIndex}
-            type="range"
-          />
+          <div>
+            <div
+              id="map-start-stop"
+              className={playing ? 'stop' : 'start'}
+              onClick={() => togglePlaying()}
+              onKeyDown={() => togglePlaying()}
+              role="switch"
+              label={playing ? 'stop' : 'start'}
+              aria-checked={playing}
+              tabIndex={0}
+            />
+            <input
+              onChange={event =>
+                setSliderIndex(parseInt(event.target.value, 10))
+              }
+              min={0}
+              max={dates.length - 1}
+              value={sliderIndex}
+              type="range"
+            />
+          </div>
+          <div id="map-start-stop-label">
+            <div className="column">{formatDate(parseDate(dates[0]))}</div>
+            <div className="column">
+              {formatDate(parseDate(dates[dates.length - 1]))}
+            </div>
+          </div>
         </div>
       </div>
       {joinedData && (

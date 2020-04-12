@@ -28,6 +28,27 @@ const DashboardPage = () => {
       <StateCumulativeDeathsContainer />
       <StateTotalDeathsContainer />
       <StateCumulativeTestsContainer />
+      <p>
+        <strong>Note:</strong> We derive the total value by adding together the
+        positive and negative value for each state. This is to account for
+        differences in how states reporting pending tests; California has been
+        inconsistent in its timing of reporting. We used faster updating sources
+        until April 1, when we standardized on{' '}
+        <a href="https://public.tableau.com/views/COVID-19PublicDashboard/Covid-19Public?:embed=y&:display_count=no&:showVizHome=no">
+          California&apos;s new data dashboards
+        </a>
+        . This led to a drop in cases and deaths, as the state’s data lags some
+        other sources.
+      </p>
+      <p>
+        <strong>Source:</strong> The COVID Tracking Project
+      </p>
+      <p>
+        By Daniel Gilbert,
+        <a href="https://gabeoleary.com/">Gabe O&apos;Leary</a>, Jeremia
+        Kimelman, <a href="https://julialedur.com.br/">Júlia Ledur</a> and Melba
+        Madrigal.
+      </p>
     </Layout>
   )
 }

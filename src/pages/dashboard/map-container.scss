@@ -61,9 +61,9 @@ $death-color: #404856;
   font-weight: initial;
 }
 
-#map-style-button {
+.map-toggle {
   cursor: pointer;
-  width: 100%;
+  align-self: flex-start;
   span {
     @extend %map-toggle-inactive;
     display: inline-block;
@@ -94,7 +94,7 @@ $death-color: #404856;
 }
 #map-time-scrubber {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   padding-top: 10px;
   label {
@@ -115,6 +115,16 @@ $death-color: #404856;
 
     &.stop {
       border: solid black 8px;
+    }
+  }
+  #map-start-stop-label {
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+    &.column {
+      white-space: nowrap;
     }
   }
   &[type='range'] {

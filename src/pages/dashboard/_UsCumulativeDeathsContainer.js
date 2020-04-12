@@ -34,8 +34,8 @@ export default function UsAreaChartContainer() {
     })
   }, [query.allCovidUsDaily.nodes.length])
   return (
-    <section style={{ display: 'flex' }}>
-      <div style={{ flexGrow: 1, width: '40%' }}>
+    <section>
+      <div>
         <h4>Total cumulative deaths by day in the US</h4>
         <div>
           <BarChart
@@ -43,7 +43,7 @@ export default function UsAreaChartContainer() {
             fill="#585BC1"
             height={400}
             marginBottom={40}
-            marginLeft={50}
+            marginLeft={80}
             marginRight={10}
             marginTop={10}
             xTicks={3}
@@ -51,7 +51,7 @@ export default function UsAreaChartContainer() {
           />
         </div>
       </div>
-      <div style={{ flexGrow: 1, width: '60%' }}>
+      <div>
         <p>
           Organized, collective, and timely response from the government and
           other authorities is a key factor in saving lives. One metric, though
@@ -84,7 +84,7 @@ export default function UsAreaChartContainer() {
           same period in previous years.
         </p>
         <p>
-          Using confirmed cases to track the severity of the virus in one state
+          Using positive tests to track the severity of the virus in one state
           is misleading as some states are not reporting positive cases due to
           lack of testing.
         </p>
