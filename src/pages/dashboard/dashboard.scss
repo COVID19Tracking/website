@@ -51,14 +51,15 @@
   justify-content: space-between;
 }
 
-$chart-header-bp: 960px;
+$chart-header-bp-md: 640px;
+$chart-header-bp-lg: 960px;
 
 .chart-header {
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
 
-  @media screen and (min-width: $chart-header-bp) {
+  @media screen and (min-width: $chart-header-bp-lg) {
     flex-direction: row;
     justify-content: space-between;
     margin: 0 0 2rem;
@@ -72,7 +73,11 @@ $chart-header-bp: 960px;
   list-style-type: none;
   margin: 1.5rem 0 0;
 
-  @media screen and (min-width: $chart-header-bp) {
+  @media screen and (min-width: $chart-header-bp-md) {
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: $chart-header-bp-lg) {
     flex-direction: row;
     justify-content: flex-end;
     margin-top: 0;
@@ -88,7 +93,11 @@ $chart-header-bp: 960px;
       margin-bottom: 0;
     }
 
-    @media screen and (min-width: $chart-header-bp) {
+    @media screen and (min-width: $chart-header-bp-md) {
+      margin: 0 2rem 0 0;
+    }
+
+    @media screen and (min-width: $chart-header-bp-lg) {
       margin: 0 0 0 2rem;
     }
   }
