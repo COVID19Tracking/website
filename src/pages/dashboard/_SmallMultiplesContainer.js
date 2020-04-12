@@ -182,7 +182,15 @@ const SmallMultiplesContainer = () => {
               data-state={state.key}
               key={state.key}
             >
-              <h4>{stateName}</h4>
+              <h4>
+                <a
+                  href={`/data/state/${stateName
+                    .toLowerCase()
+                    .replace(/\s/g, '-')}`}
+                >
+                  {stateName}
+                </a>
+              </h4>
               <AreaChart
                 annotations={annotations}
                 data={stateData}
@@ -201,15 +209,6 @@ const SmallMultiplesContainer = () => {
                 yMax={secondMaxTotal}
                 yTicks={2}
               />
-              <p>
-                <a
-                  href={`/data/state/${stateName
-                    .toLowerCase()
-                    .replace(/\s/g, '-')}`}
-                >
-                  See all data from state
-                </a>
-              </p>
             </div>
           )
         })}

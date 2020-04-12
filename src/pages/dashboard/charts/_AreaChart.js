@@ -79,7 +79,7 @@ export default function AreaChart({
               </text>
               <line
                 stroke="black"
-                x1={0}
+                x1={8}
                 x2={width - totalXMargin}
                 y1={yScale(tick)}
                 y2={yScale(tick)}
