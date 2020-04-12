@@ -10,6 +10,7 @@ import { formatNumber } from '../_utils'
 export default function HorizontalBarChart({
   data,
   fill,
+  labelsColor,
   height,
   marginBottom = 0,
   marginLeft = 0,
@@ -49,7 +50,11 @@ export default function HorizontalBarChart({
           <g className="chart-grid">
             {xScale.ticks(xTicks).map(tick => (
               <g key={tick}>
-                <text x={260 - xScale(tick)} y={height - marginBottom}>
+                <text
+                  className="axis-labels"
+                  x={230 - xScale(tick)}
+                  y={height - marginBottom}
+                >
                   {formatNumber(tick)}
                 </text>
                 <line
@@ -65,10 +70,15 @@ export default function HorizontalBarChart({
         </g>
 
         <g className="axis-group" transform={`translate(0, ${marginTop})`}>
-          {ticks.map(d => {
-            const name = yScale.domain()[d]
-            return <text y={yScale(name)} x="0">{`${name}`}</text>
-          })}
+          {data.map(d => (
+            <text
+              className="axis-labels"
+              y={yScale(d.name) + 10}
+              x={marginLeft - 10}
+            >
+              {`${d.name}`}
+            </text>
+          ))}
         </g>
 
         <g transform={`translate(${marginLeft}, ${marginTop})`}>
