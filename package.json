@@ -109,6 +109,7 @@
     "build:data": "cp -R _data/* public/api/",
     "build:data-archive": "tar -czf public/api/archive.tar.gz _data/",
     "build:test": "jest --verbose --config=\"{}\" -- src/__tests__/build/index.js",
+    "api:test": "jest --verbose -- src/__tests__/api-test.js",
     "clean": "run-p clean:*",
     "clean:gatsby": "gatsby clean",
     "develop": "gatsby develop",
