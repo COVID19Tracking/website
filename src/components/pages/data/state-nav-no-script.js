@@ -5,16 +5,9 @@ import stateNavNoJsStyle from './state-nav-no-js.module.scss'
 
 export default ({ stateList }) => (
   <>
-    <noscript>
-      <style>{`
-    .state-nav-no-js {
-      display: block !important;
-    }
-    `}</style>
-    </noscript>
     <Box
       width={[1, 1, 1, 1 / 2]}
-      className={`state-nav-no-js ${stateNavNoJsStyle.stateNav}`}
+      className={`js-disabled js-disabled-block state-nav-no-js ${stateNavNoJsStyle.stateNav}`}
       m="0 auto 1rem"
     >
       <h3>Jump to a state:</h3>
