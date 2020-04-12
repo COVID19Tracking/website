@@ -28,16 +28,16 @@ export default function StateCumulativeDeathsContainer() {
     return nodes
   }, [query.allCovidState.nodes])
 
-  const [useChoropleth, setUseChoropleth] = useState(false)
-  const toggleMapStyle = () => setUseChoropleth(u => !u)
-  const height = useChoropleth ? 900 : 400
+  const [isCollapsed, collapseChart] = useState(true)
+  const toggleCollapse = () => collapseChart(u => !u)
+  const height = isCollapsed ? 400 : 900
   return (
     <section style={{ display: 'flex' }}>
       <div style={{ flexGrow: 1, width: '40%' }}>
         <h4>Total Deaths By States</h4>
         <div>
           <HorizontalBarChart
-            data={useChoropleth ? data : data.slice(0, 10)}
+            data={isCollapsed ? data.slice(0, 10) : data}
             fill={deathsBarColor}
             height={height}
             marginBottom={40}
@@ -52,9 +52,9 @@ export default function StateCumulativeDeathsContainer() {
         <button
           className="chart-expand-button"
           type="button"
-          onClick={toggleMapStyle}
+          onClick={toggleCollapse}
         >
-          {useChoropleth ? 'Show all states' : 'Collapse'}
+          {isCollapsed ? 'Show all states' : 'Collapse'}
         </button>
       </div>
       <div style={{ flexGrow: 1, width: '60%' }}>
