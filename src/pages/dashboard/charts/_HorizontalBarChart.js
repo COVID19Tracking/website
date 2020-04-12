@@ -5,12 +5,11 @@ import { extent, max, range } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
 import React, { useEffect } from 'react'
 
-import { formatNumber } from '../_utils'
+import { formatNumber, gridLinesColor } from '../_utils'
 
 export default function HorizontalBarChart({
   data,
   fill,
-  labelsColor,
   height,
   marginBottom = 0,
   marginLeft = 0,
@@ -21,6 +20,7 @@ export default function HorizontalBarChart({
   xMax = null,
   yTicks = null,
 }) {
+  console.log('data - ', data)
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
   const yScale = scaleBand()
@@ -58,7 +58,7 @@ export default function HorizontalBarChart({
                   {formatNumber(tick)}
                 </text>
                 <line
-                  stroke="black"
+                  stroke={gridLinesColor}
                   x1={xScale(tick)}
                   x2={xScale(tick)}
                   y1={0}

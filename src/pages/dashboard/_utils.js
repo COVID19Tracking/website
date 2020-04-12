@@ -73,4 +73,4 @@ export const getStateName = abbr => {
 export const totalColor = '#585BC1'
 export const positiveColor = '#FFA270'
 export const deathsBarColor = '#4C5559'
-export const labelsColor = '#828688'
+export const gridLinesColor = '#9CA1A2'

@@ -2,7 +2,7 @@
 import React, { useMemo, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import HorizontalBarChart from './charts/_HorizontalBarChart'
-import { getStateName, deathsBarColor, labelsColor } from './_utils'
+import { getStateName, deathsBarColor } from './_utils'
 
 export default function StateCumulativeDeathsContainer() {
   const query = useStaticQuery(graphql`
@@ -30,17 +30,16 @@ export default function StateCumulativeDeathsContainer() {
 
   const [useChoropleth, setUseChoropleth] = useState(false)
   const toggleMapStyle = () => setUseChoropleth(u => !u)
-
+  const height = useChoropleth ? 900 : 400
   return (
     <section style={{ display: 'flex' }}>
       <div style={{ flexGrow: 1, width: '40%' }}>
         <h4>Total Deaths By States</h4>
         <div>
           <HorizontalBarChart
-            data={data}
-            labelsColor={labelsColor}
+            data={useChoropleth ? data : data.slice(0, 10)}
             fill={deathsBarColor}
-            height={900}
+            height={height}
             marginBottom={40}
             marginLeft={136}
             marginRight={40}
@@ -50,6 +49,13 @@ export default function StateCumulativeDeathsContainer() {
             width={400}
           />
         </div>
+        <button
+          className="chart-expand-button"
+          type="button"
+          onClick={toggleMapStyle}
+        >
+          {useChoropleth ? 'Show all states' : 'Collapse'}
+        </button>
       </div>
       <div style={{ flexGrow: 1, width: '60%' }}>
         <p>text goes here</p>
