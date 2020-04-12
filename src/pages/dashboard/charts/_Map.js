@@ -81,14 +81,14 @@ const customSchemePlum = [
 ]
 
 const customSchemeGrey = [
-  '#d0d7db',
-  '#b2bbbf',
-  '#95a0a6',
-  '#849096',
-  '#6f7e85',
-  '#5b666b',
-  '#4c5559',
-  '#3d4245',
+  '#edf1f2',
+  '#d2d6d7',
+  '#b7bcbd',
+  '#9ca1a2',
+  '#828688',
+  '#676b6d',
+  '#4c5153',
+  '#313638',
 ]
 
 const strokeGrey = '#ababab'
