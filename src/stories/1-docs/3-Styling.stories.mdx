@@ -34,3 +34,11 @@ import '../../src/components/common/beetle.scss'
 We **do not** automatically import all the SCSS files. Gatsby builds a custom CSS file from all the SCSS files that are imported, so that we have the smallest CSS size possible. This means you have to explicitly include any style files that are needed for your component to work.
 
 To avoid namespace collisions, you should always use a module-based syntax for your class names, i.e. `.beetle-something`. We're working on formalizing this more in the future, but just preface your class names for now.
+
+## Utility classes
+
+The following utility classes are available globaly:
+
+- `a11y-only` - Makes an element hidden visually, but still accessible for screen readers.
+- `js-disabled` - Element is only visible if Javascript is **disabled**
+- `js-enabled` - Element is only visible if Javascript is **enabled**

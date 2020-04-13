@@ -30,14 +30,9 @@ export default ({ stateList }) => {
   const results = searchStates(searchTerm)
 
   return (
-    <div className={`state-nav-combobox ${stateNavStyles.stateNavCombobox}`}>
-      <noscript>
-        <style>{`
-    .state-nav {
-      display: none !important;
-    }
-    `}</style>
-      </noscript>
+    <div
+      className={`js-enabled state-nav-combobox ${stateNavStyles.stateNavCombobox}`}
+    >
       <label htmlFor="jump-to-state">
         Type a state&apos;s name to jump to it
       </label>
