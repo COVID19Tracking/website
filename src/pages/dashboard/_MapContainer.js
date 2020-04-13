@@ -119,11 +119,11 @@ const MapContainer = () => {
   const propertyOptions = [
     {
       value: 'positive',
-      name: 'positive Cases',
+      name: 'positive tests',
     },
     {
       value: 'totalTestResults',
-      name: 'total Tests',
+      name: 'total tests',
     },
     {
       value: 'death',
