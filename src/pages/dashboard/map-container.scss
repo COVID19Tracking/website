@@ -3,14 +3,17 @@ $positive-color: #e5a968;
 $total-color: #696dc2;
 $death-color: #404856;
 
-#state-map {
+@import '../../scss/colors.scss';
+@import '../../scss/breakpoints.scss';
+
+.state-map {
   margin-bottom: 3rem;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: $viewport-sm) {
     margin-top: 20px;
   }
 
@@ -20,6 +23,9 @@ $death-color: #404856;
     margin-top: 0;
     text-align: center;
     width: 100%;
+    @media screen and (max-width: $viewport-sm) {
+      text-align: left;
+    }
   }
 
   svg {
@@ -32,20 +38,49 @@ $death-color: #404856;
   }
 }
 
-#map-dek {
+.map-dek {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   @media screen and (max-width: 500px) {
-    * {
-      text-align: left;
-    }
+    align-items: initial;
   }
+}
 
-  .label {
-    text-align: center;
+%map-toggle-active {
+  color: black;
+  border-color: black;
+  font-weight: 500;
+}
+%map-toggle-inactive {
+  color: lightgray;
+  border: solid lightgray 2px;
+  font-weight: initial;
+}
+
+.map-style-button {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  span {
+    @extend %map-toggle-inactive;
+    display: inline-block;
+    font-size: 14px;
+    margin: -1px;
+    padding: 2px 15px;
+    &:nth-child(2) {
+      border-radius: 8px 0 0 8px;
+      border-right-color: black !important;
+    }
+    &:nth-child(1) {
+      border-radius: 0 8px 8px 0;
+    }
+    &.active {
+      @extend %map-toggle-active;
+    }
   }
 }
 
@@ -58,15 +93,24 @@ $death-color: #404856;
     border-color: $positive-color;
   }
 }
-#map-time-scrubber {
+.add-margin-small {
+  @media screen and (max-width: $viewport-sm) {
+    margin-top: 10px;
+  }
+}
+.map-time-scrubber {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 10px;
+  @media screen and (max-width: $viewport-sm) {
+    align-items: initial;
+  }
+
   label {
     display: none;
   }
-  #map-start-stop {
+  .map-start-stop {
     cursor: pointer;
     display: inline-block;
     margin-right: 5px;
@@ -83,7 +127,7 @@ $death-color: #404856;
       border: solid black 8px;
     }
   }
-  #map-start-stop-controls {
+  .map-start-stop-controls {
     display: flex;
     align-items: center;
     margin: 6px 0;
@@ -181,7 +225,7 @@ $death-color: #404856;
       }
     }
   }
-  #map-start-stop-label {
+  .map-start-stop-label {
     width: 150px;
     display: flex;
     flex-direction: row;

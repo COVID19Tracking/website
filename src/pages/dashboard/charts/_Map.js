@@ -12,6 +12,23 @@ import './map.scss'
 
 import ChoroLegend from './_ChoroLegend'
 
+import breakpoints from '../../../scss/breakpoints.scss'
+import importedColors from '../../../scss/colors.scss'
+
+const viewportSm = parseInt(breakpoints.viewportSm, 10)
+
+// transform colors from global into object of arrays that can be used by d3
+// TODO: update after merging changes from master.
+const colorSchemes = Object.assign.apply(
+  {},
+  ['Plum', 'Honey', 'Slate'].map(scheme => ({
+    [scheme.toLowerCase()]: new Array(8)
+      .fill(0)
+      .map((a, i) => importedColors[`color${scheme}0${i + 1}`])
+      .reverse(), // remove after merge
+  })),
+)
+
 // static d3 setup
 const margin = {
   bottom: 10,
@@ -19,12 +36,13 @@ const margin = {
   right: 10,
   top: 10,
 }
-const height = 520
-const width = 910
+
+const mapHeight = window.screen.availWidth > viewportSm ? 520 : 300
+const mapWidth = window.screen.availWidth > viewportSm ? 910 : 400
 const projection = geoAlbersUsa().fitExtent(
   [
     [margin.left, margin.top],
-    [width - margin.right, height - margin.bottom],
+    [mapWidth - margin.right, mapHeight - margin.bottom],
   ],
   StatesWithPopulation,
 )
@@ -55,51 +73,17 @@ const limit = [
 const colorLimits = {
   death: [1, 5, 10, 25, 50, 100, 250],
   positive: [100, 250, 500, 1000, 2500, 5000, 10000],
-  totalTestResults: [250, 500, 1000, 2500, 5000, 10000, 25000],
+  totalTestResults: [1000, 5000, 7500, 10000, 12500, 15000, 25000],
 }
-
-const customSchemeHoney = [
-  '#fcf9eb',
-  '#fbe8a9',
-  '#f6ce7a',
-  '#f3b05d',
-  '#e2894e',
-  '#c66b3e',
-  '#924f34',
-  '#753c2d',
-]
-
-const customSchemePlum = [
-  '#f2f2ff',
-  '#d1d1e8',
-  '#b6b7db',
-  '#8b8dc7',
-  '#6164ba',
-  '#575aad',
-  '#31347a',
-  '#111354',
-]
-
-const customSchemeGrey = [
-  '#edf1f2',
-  '#d2d6d7',
-  '#b7bcbd',
-  '#9ca1a2',
-  '#828688',
-  '#676b6d',
-  '#4c5153',
-  '#313638',
-]
-
 const strokeGrey = '#ababab'
 const strokeWhite = '#fff'
 
 const getColor = {
-  death: scaleThreshold(colorLimits.death, customSchemeGrey),
-  positive: scaleThreshold(colorLimits.positive, customSchemeHoney),
+  death: scaleThreshold(colorLimits.death, colorSchemes.slate),
+  positive: scaleThreshold(colorLimits.positive, colorSchemes.honey),
   totalTestResults: scaleThreshold(
     colorLimits.totalTestResults,
-    customSchemePlum,
+    colorSchemes.plum,
   ),
 }
 
@@ -111,9 +95,9 @@ const getStrokeColor = {
 
 // should be imported from constants file
 const colors = {
-  totalTestResults: customSchemePlum[5],
-  positive: customSchemeHoney[4],
-  death: customSchemeGrey[6],
+  totalTestResults: colorSchemes.plum[5],
+  positive: colorSchemes.honey[4],
+  death: colorSchemes.slate[6],
 }
 
 export default function Map({
@@ -144,26 +128,37 @@ export default function Map({
     [maxValue],
   )
 
+  const isMobile = window.screen.availWidth < viewportSm
+
   return (
     <div className="map-container">
-      <div className="map-legend">
+      <div
+        className={['map-legend', useChoropleth ? 'choropleth' : 'bubble'].join(
+          ' ',
+        )}
+      >
         {useChoropleth ? (
           <ChoroLegend
             color={getColor[currentField]}
-            height={40}
-            width={300}
-            marginTop={8}
+            height={isMobile ? 180 : 36}
+            width={isMobile ? 32 : 300}
+            tickSize={isMobile ? 12 : 6}
             tickFormat="~s"
             spaceBetween={2}
-            tickSize={0}
           />
         ) : (
-          <BubbleLegend data={data} r={r} maxValue={maxValue} />
+          <BubbleLegend
+            data={data}
+            r={r}
+            maxValue={maxValue}
+            height={isMobile ? 100 : 150}
+            width={isMobile ? 100 : 150}
+          />
         )}
       </div>
 
       <div className="map-contents">
-        <svg width={width} height={height}>
+        <svg width={mapWidth} height={mapHeight}>
           <>
             {!useChoropleth && (
               <Bubbles geoJson={data} getValue={getValue} r={r} />
@@ -277,7 +272,7 @@ const Bubbles = ({ geoJson, r, getValue }) => {
   )
 }
 
-const BubbleLegend = ({ r, maxValue }) => {
+const BubbleLegend = ({ r, maxValue, width, height }) => {
   const formatLegendEntry = d => parseInt(format('.1r')(d), 10)
   const legendData = [
     formatLegendEntry(maxValue * 0.1),
@@ -287,8 +282,8 @@ const BubbleLegend = ({ r, maxValue }) => {
   const legendBubbles = legendData.map(d => (
     <circle
       key={`legendBubbles${d}`}
-      cx={52}
-      cy={145 - r(d)}
+      cx={width / 3 + 2}
+      cy={height - r(d)}
       r={r(d)}
       stroke="#ababab"
       fill="none"
@@ -297,21 +292,21 @@ const BubbleLegend = ({ r, maxValue }) => {
   const legendLines = legendData.map(d => (
     <line
       key={`legendLines${d}`}
-      x1={52}
-      y1={145 - 2 * r(d)}
-      x2={130}
-      y2={145 - 2 * r(d)}
+      x1={width / 3 + 2}
+      y1={height - 2 * r(d)}
+      x2={width - 20}
+      y2={height - 2 * r(d)}
       stroke="#ababab"
       strokeDasharray="5 5"
     />
   ))
   const legendText = legendData.map(d => (
-    <text key={`legendText${d}`} x={110} y={140 - 2 * r(d)}>
+    <text key={`legendText${d}`} x={(width * 2) / 3} y={height - 2 * r(d)}>
       {formatNumber(d)}
     </text>
   ))
   return (
-    <svg width={150} height={150} style={{ overflow: 'visible' }}>
+    <svg width={width} height={height} style={{ overflow: 'visible' }}>
       {legendBubbles}
       {legendLines}
       {legendText}
