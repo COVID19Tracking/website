@@ -227,22 +227,18 @@ const States = ({
       onMouseLeave={() => setHoveredState(null)}
     />
   ))
-  const hoveredStates = geoJson.features
-    .filter(d => hoveredState && hoveredState.state === d)
-    .map(d => (
-      <path
-        key={`path${d.properties.NAME}`}
-        d={path(d)}
-        className="hovered-states"
-        fill={getColorFromFeature(d)}
-        stroke="#000000"
-        strokeWidth="2px"
-      />
-    ))
   return (
     <>
       <g>{states}</g>
-      <g>{hoveredStates}</g>
+      {hoveredState && (
+        <path
+          d={path(hoveredState.state)}
+          className="hovered-states"
+          fill="transparent"
+          stroke="#000000"
+          strokeWidth="2px"
+        />
+      )}
     </>
   )
 }
