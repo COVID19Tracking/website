@@ -150,7 +150,7 @@ export default function CumulativeTestsByStateContainer() {
   }, [useTestsPerCapita])
 
   return (
-    <div>
+    <div className="dashboard-cumulative-tests">
       <p>
         By comparing the positive tests to the total tests in each state, we can
         get a sense of how widespread a state’s testing regime might be (though
@@ -161,47 +161,38 @@ export default function CumulativeTestsByStateContainer() {
         they’re also giving more tests.
       </p>
       <h3>Cumulative tests by state</h3>
-      <div
-        className="map-toggle chart-tests-toggle"
-        onClick={toggleChartData}
-        onKeyPress={toggleChartData}
-        role="switch"
-        aria-checked={useTestsPerCapita}
-        tabIndex={0}
-      >
-        <span className={useTestsPerCapita ? '' : 'active'}>Total Tests</span>
-        <span className={useTestsPerCapita ? 'active' : ''}>
-          Tests Per Capita
-        </span>
-      </div>
-      <div className="chart-controls">
+      <div className="chart-header">
+        <div
+          className="dashboard-toggle"
+          onClick={toggleChartData}
+          onKeyPress={toggleChartData}
+          role="switch"
+          aria-checked={useTestsPerCapita}
+          tabIndex={0}
+        >
+          <span className={useTestsPerCapita ? '' : 'active'}>Total Tests</span>
+          <span className={useTestsPerCapita ? 'active' : ''}>
+            Tests Per Capita
+          </span>
+        </div>
         <ul className="chart-legend">
           <li>
-            <span
+            <div
               className="chart-legend-color"
               style={{ backgroundColor: positiveColor }}
             />
-            Positive tests {useTestsPerCapita && ' per capita'}
+            <div>Positive tests {useTestsPerCapita && ' per capita'}</div>
           </li>
           <li>
-            <span
+            <div
               className="chart-legend-color"
               style={{ backgroundColor: totalColor }}
-            />{' '}
-            Total tests {useTestsPerCapita && ' per capita'}
+            />
+            <div>Total tests {useTestsPerCapita && ' per capita'}</div>
           </li>
           <li>
-            <span
-              className="chart-legend-color"
-              style={{
-                backgroundColor: 'black',
-                height: '20px',
-                margin: '0 14px 0 0',
-                verticalAlign: 'middle',
-                width: '2px',
-              }}
-            />
-            Stay-at-home order*
+            <div className="chart-legend-color chart-legend-stay-at-home" />
+            <div>Stay-at-home order*</div>
           </li>
         </ul>
       </div>
@@ -262,8 +253,10 @@ export default function CumulativeTestsByStateContainer() {
                     .toLowerCase()
                     .replace(/\s/g, '-')}`}
                 >
-                  See all data from
-                  {` ${stateName.replace(/\s/g, ' ')}`}
+                  <h5>
+                    View data from
+                    {` ${state.key}`}
+                  </h5>
                 </a>
               </p>
             </div>

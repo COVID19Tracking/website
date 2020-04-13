@@ -330,7 +330,7 @@ const Tooltip = ({ hoveredState, currentDate, getValue }) => {
   const death = getValue(d, 'death')
   const deathNorm = getValue(d, 'death', true)
   return (
-    <div id="map-tooltip" style={{ top: y, left: x }}>
+    <div className="map-tooltip" style={{ top: y, left: x }}>
       <table>
         <caption>
           {d.properties.NAME}
