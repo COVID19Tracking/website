@@ -1,8 +1,3 @@
-//this should be hoisted to a dashboard constant .scss file
-$positive-color: #e5a968;
-$total-color: #696dc2;
-$death-color: #404856;
-
 @import '../../scss/colors.scss';
 @import '../../scss/breakpoints.scss';
 
@@ -87,10 +82,10 @@ $death-color: #404856;
 .legend-text {
   border-bottom: solid 3px;
   &.total {
-    border-color: $total-color;
+    border-color: $color-plum-3;
   }
   &.positive {
-    border-color: $positive-color;
+    border-color: $color-honey-5;
   }
 }
 .add-margin-small {
