@@ -71,13 +71,13 @@ export default function CDCComparisonContainer() {
           <BarChart
             data={cdcData}
             fill="#585BC1"
-            height={400}
+            height={240}
             marginBottom={40}
             marginLeft={80}
             marginRight={10}
             marginTop={10}
             xTicks={2}
-            width={400}
+            width={240}
             yMax={dailyMax}
           />
         </div>
@@ -85,13 +85,13 @@ export default function CDCComparisonContainer() {
           <BarChart
             data={data}
             fill="#585BC1"
-            height={400}
+            height={240}
             marginBottom={40}
             marginLeft={80}
             marginRight={10}
             marginTop={10}
             xTicks={2}
-            width={400}
+            width={240}
           />
         </div>
       </div>
