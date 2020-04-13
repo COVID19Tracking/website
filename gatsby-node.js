@@ -89,4 +89,16 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
     }
     actions.replaceWebpackConfig(config)
   }
+  if (stage === 'build-html') {
+    setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /swagger-ui/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
 }
