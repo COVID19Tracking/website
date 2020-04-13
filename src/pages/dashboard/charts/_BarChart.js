@@ -16,6 +16,7 @@ const BarChart = ({
   marginTop,
   xTicks,
   width,
+  align,
   yMax,
   yTicks,
 }) => {
@@ -38,7 +39,7 @@ const BarChart = ({
     Math.floor(xScaleDomain.length / xTicks),
   )
   return (
-    <div>
+    <div align={align}>
       <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
         <g
           className="axis-group"
