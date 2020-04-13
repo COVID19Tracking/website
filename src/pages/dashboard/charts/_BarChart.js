@@ -47,7 +47,11 @@ const BarChart = ({
           <g className="chart-grid">
             {yScale.ticks(yTicks).map(tick => (
               <g key={tick}>
-                <text y={yScale(tick) + 6} x={`${tick}`.length * -11}>
+                <text
+                  y={yScale(tick) + 6}
+                  x={`${tick}`.length * -11}
+                  fontSize="smaller"
+                >
                   {formatNumber(tick)}
                 </text>
                 <line
@@ -69,9 +73,9 @@ const BarChart = ({
           {ticks.map(d => {
             const date = xScale.domain()[d]
             return (
-              <text key={d} x={xScale(date)} y="18">{`${formatDate(
-                date,
-              )}`}</text>
+              <text key={d} x={xScale(date)} y="18" fontSize="smaller">
+                {`${formatDate(date)}`}
+              </text>
             )
           })}
         </g>
