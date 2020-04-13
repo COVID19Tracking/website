@@ -5,9 +5,7 @@ export default ({ children, narrow }) => {
   if (narrow) {
     return (
       <div className={`container ${containerStyles.container}`}>
-        <div className={`${narrow && containerStyles.containerNarrow}`}>
-          {children}
-        </div>
+        <div className={`${containerStyles.containerNarrow}`}>{children}</div>
       </div>
     )
   }
