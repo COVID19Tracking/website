@@ -146,6 +146,32 @@ $chart-header-bp-lg: 960px;
   }
 }
 
-.small-multiples-chart__see-all-link {
-  font-size: 12px;
+.axis-labels {
+  fill: #828688;
+  text-anchor: end;
+  font-size: 10pt;
+}
+
+.chart-expand-button {
+  background-color: #F2F5FC;
+  border: 0.08rem solid #788598;
+  border-radius: 8px;
+  cursor: pointer;    cursor: pointer;
+  text-align: center;
+  padding: 0.4rem;
+  float: left;
+  color: #4C5559;
+
+  p {
+    color: #000000;
+    font-size: 10pt;
+    top: -0.2rem;
+    margin-bottom: 0.2rem;
+    text-align: left;
+    width: 86%; 
+  }
+}
+
+.gridlines {
+  opacity: .7;
 }
