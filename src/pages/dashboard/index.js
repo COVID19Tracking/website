@@ -44,7 +44,7 @@ const DashboardPage = () => {
         <strong>Source:</strong> The COVID Tracking Project
       </p>
       <p>
-        By Daniel Gilbert,
+        By Daniel Gilbert,{' '}
         <a href="https://gabeoleary.com/">Gabe O&apos;Leary</a>, Jeremia
         Kimelman, <a href="https://julialedur.com.br/">Júlia Ledur</a> and Melba
         Madrigal.
