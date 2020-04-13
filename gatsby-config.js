@@ -35,6 +35,12 @@ module.exports = {
     'gatsby-plugin-eslint',
     'gatsby-plugin-netlify',
     {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://covidtracking.com`,
+      },
+    },
+    {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_data/v1/press.json',

@@ -37,6 +37,7 @@
     "fast-xml-parser": "^3.16.0",
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
+    "gatsby-plugin-canonical-urls": "^2.2.1",
     "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-plugin-manifest": "^2.2.48",
     "gatsby-plugin-netlify": "^2.2.1",
