@@ -7,6 +7,9 @@ const { grade, states } = require('./states')
 const urls = require('./urls')
 // const { statesPop } = require('./census')
 const screenshots = require('./screenshots')
+const volunteers = require('./volunteers')
+
+const resources = [volunteers]
 
 const resources = [
   cdcTests,
@@ -21,6 +24,8 @@ const resources = [
   urls,
   usCurrent,
   usDaily,
+  volunteers,
 ]
+
 
 module.exports = resources
