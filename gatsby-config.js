@@ -33,7 +33,6 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-transformer-yaml',
     'gatsby-plugin-eslint',
-    `gatsby-plugin-remove-trailing-slashes`,
     'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-source-covid-tracking-api',
