@@ -9,8 +9,6 @@ const urls = require('./urls')
 const screenshots = require('./screenshots')
 const volunteers = require('./volunteers')
 
-const resources = [volunteers]
-
 const resources = [
   cdcTests,
   counties,
