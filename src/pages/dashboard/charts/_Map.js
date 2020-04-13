@@ -19,8 +19,8 @@ const margin = {
   right: 10,
   top: 10,
 }
-const height = 400
-const width = 700
+const height = 520
+const width = 910
 const projection = geoAlbersUsa().fitExtent(
   [
     [margin.left, margin.top],
