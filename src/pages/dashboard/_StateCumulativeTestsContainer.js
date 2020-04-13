@@ -253,8 +253,10 @@ export default function CumulativeTestsByStateContainer() {
                     .toLowerCase()
                     .replace(/\s/g, '-')}`}
                 >
-                  See all data from
-                  {` ${stateName.replace(/\s/g, ' ')}`}
+                  <h5>
+                    View data from
+                    {` ${state.key}`}
+                  </h5>
                 </a>
               </p>
             </div>
