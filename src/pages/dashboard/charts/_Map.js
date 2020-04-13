@@ -173,6 +173,7 @@ export default function Map({
               useChoropleth={useChoropleth}
               currentField={currentField}
               getValue={getValue}
+              hoveredState={hoveredState}
               setHoveredState={setHoveredState}
             />
           </>
@@ -193,6 +194,7 @@ const States = ({
   geoJson,
   useChoropleth,
   currentField,
+  hoveredState,
   setHoveredState,
   getValue,
 }) => {
@@ -210,7 +212,7 @@ const States = ({
     <path
       key={`path${d.properties.NAME}`}
       d={path(d)}
-      className="countries"
+      className="states"
       fill={getColorFromFeature(d)}
       stroke={strokeColor}
       onMouseEnter={() => {
@@ -225,7 +227,20 @@ const States = ({
       onMouseLeave={() => setHoveredState(null)}
     />
   ))
-  return <g>{states}</g>
+  return (
+    <>
+      <g>{states}</g>
+      {hoveredState && (
+        <path
+          d={path(hoveredState.state)}
+          className="hovered-states"
+          fill="transparent"
+          stroke="#000000"
+          strokeWidth="2px"
+        />
+      )}
+    </>
+  )
 }
 
 const Bubbles = ({ geoJson, r, getValue }) => {

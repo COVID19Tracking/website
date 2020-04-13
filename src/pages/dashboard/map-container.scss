@@ -27,9 +27,8 @@ $death-color: #404856;
     margin: 0 auto;
   }
 
-  path:hover {
-    stroke: black;
-    stroke-width: 2px;
+  .hovered-states {
+    pointer-events: none;
   }
 }
 
