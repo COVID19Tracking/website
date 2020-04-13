@@ -14,9 +14,9 @@ export default ({ stateList }) => (
       <ul>
         {stateList.map(state => (
           <li key={state.node.state}>
-            <Link to={`/data#state-${state.node.state}`}>
+            <a href={`#state-${state.node.state.toLowerCase()}`}>
               {state.node.state}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
