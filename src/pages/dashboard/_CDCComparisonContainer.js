@@ -67,7 +67,7 @@ export default function CDCComparisonContainer() {
         </p>
       </div>
       <div style={{ display: 'flex' }}>
-        <div style={{ flexGrow: 1, width: '50%' }}>
+        <div style={{ flexGrow: 1, width: '50%', marginRight: 20 }}>
           <BarChart
             data={cdcData}
             fill="#585BC1"
@@ -78,10 +78,11 @@ export default function CDCComparisonContainer() {
             marginTop={10}
             xTicks={2}
             width={240}
+            align="right"
             yMax={dailyMax}
           />
         </div>
-        <div style={{ flexGrow: 1, width: '50%' }}>
+        <div style={{ flexGrow: 1, width: '50%', marginLeft: 20 }}>
           <BarChart
             data={data}
             fill="#585BC1"
@@ -92,6 +93,7 @@ export default function CDCComparisonContainer() {
             marginTop={10}
             xTicks={2}
             width={240}
+            align="left"
           />
         </div>
       </div>
