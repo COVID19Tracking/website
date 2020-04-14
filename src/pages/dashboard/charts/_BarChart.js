@@ -5,6 +5,7 @@ import { scaleBand, scaleLinear } from 'd3-scale'
 import React from 'react'
 
 import { formatDate, formatNumber } from '../_utils'
+import colors from '../../../scss/colors.scss'
 import './bar-chart.scss'
 
 const BarChart = ({
@@ -17,8 +18,10 @@ const BarChart = ({
   marginTop,
   xTicks,
   width,
+  align,
   yMax,
   yTicks,
+  showTicks,
 }) => {
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
@@ -38,8 +41,9 @@ const BarChart = ({
     xScaleDomain.length,
     Math.floor(xScaleDomain.length / xTicks),
   )
+  const textColor = { textColor: colors.text }
   return (
-    <div>
+    <div align={align}>
       <svg
         className="bar-chart"
         width={width}
@@ -51,17 +55,22 @@ const BarChart = ({
           transform={`translate(${marginLeft} ${marginTop})`}
         >
           <g>
-            {yScale.ticks(yTicks).map(tick => (
+            {yScale.ticks(yTicks).map((tick, i) => (
               <g key={tick}>
                 <svg
                   y={yScale(tick) + 4}
                   x="-10"
                   className="bar-chart__y-tick-label"
                 >
-                  <text textAnchor="end">{formatNumber(tick)}</text>
+                  <text
+                    fill={i < showTicks ? { textColor } : 'none'}
+                    textAnchor="end"
+                  >
+                    {formatNumber(tick)}
+                  </text>
                 </svg>
                 <line
-                  stroke="#b2bbbf"
+                  stroke={i < showTicks ? '#b2bbbf' : 'none'}
                   x1={0}
                   x2={width - totalXMargin}
                   y1={yScale(tick)}
@@ -114,6 +123,7 @@ BarChart.defaultProps = {
   xTicks: 5,
   yMax: null,
   yTicks: 4,
+  showTicks: 4,
 }
 
 BarChart.propTypes = {
@@ -133,5 +143,6 @@ BarChart.propTypes = {
   xTicks: PropTypes.number,
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
+  showTicks: PropTypes.number,
 }
 export default BarChart
