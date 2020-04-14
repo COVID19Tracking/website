@@ -94,7 +94,6 @@ export const query = graphql`
         }
       }
     }
-
     allContentfulSnippet(filter: { slug: { eq: "homepage-main" } }) {
       edges {
         node {

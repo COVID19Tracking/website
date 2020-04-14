@@ -4,6 +4,7 @@ import CDCComparisonContainer from './_CDCComparisonContainer'
 import MapContainer from './_MapContainer'
 import StateCumulativeTestsContainer from './_StateCumulativeTestsContainer'
 import StateTotalDeathsContainer from './_StateTotalDeathsContainer'
+import StateCumulativeDeathsContainer from './_StateCumulativeDeathsContainer'
 import UsCumulativeDeathsContainer from './_UsCumulativeDeathsContainer'
 import UsPositiveAndTotalTestsContainer from './_UsPositiveAndTotalTestsContainer'
 
@@ -24,6 +25,7 @@ const DashboardPage = () => {
       <MapContainer />
       <UsPositiveAndTotalTestsContainer />
       <UsCumulativeDeathsContainer />
+      <StateCumulativeDeathsContainer />
       <StateTotalDeathsContainer />
       <StateCumulativeTestsContainer />
       <p>
@@ -42,7 +44,7 @@ const DashboardPage = () => {
         <strong>Source:</strong> The COVID Tracking Project
       </p>
       <p>
-        By Daniel Gilbert,
+        By Daniel Gilbert,{' '}
         <a href="https://gabeoleary.com/">Gabe O&apos;Leary</a>, Jeremia
         Kimelman, <a href="https://julialedur.com.br/">Júlia Ledur</a> and Melba
         Madrigal.
