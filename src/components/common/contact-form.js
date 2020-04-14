@@ -1,7 +1,7 @@
 import React from 'react'
 import ContactFormStyles from './contact-form.module.scss'
 
-export default () => {
+export default ({ messageCopy }) => {
   return (
     <form
       className={ContactFormStyles.contactForm}
@@ -20,9 +20,7 @@ export default () => {
       </div>
       <div>
         <label htmlFor="message">
-          <p className={ContactFormStyles.inputHeader}>
-            What accessibility problems are you experiencing?
-          </p>
+          <p className={ContactFormStyles.inputHeader}>{messageCopy}</p>
           <textarea name="message" id="message" rows="5" required />
         </label>
       </div>
