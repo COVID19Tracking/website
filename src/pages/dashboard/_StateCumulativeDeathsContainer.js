@@ -34,16 +34,9 @@ export default function StateCumulativeDeathsContainer() {
   const toggleCollapse = () => collapseChart(u => !u)
   const height = isCollapsed ? 400 : 900
   return (
-    <>
+    <div>
       <h4>Total Deaths By States</h4>
       <section className="state-cumulative-death-container">
-        <div>
-          <p>
-            Though this is a national crisis, each state is reporting data
-            differently. We are tracking numbers from each state, though the
-            quality and frequency of reports varies significantly.
-          </p>
-        </div>
         <div>
           <HorizontalBarChart
             data={isCollapsed ? data.slice(0, 10) : data}
@@ -66,6 +59,6 @@ export default function StateCumulativeDeathsContainer() {
           </button>
         </div>
       </section>
-    </>
+    </div>
   )
 }
