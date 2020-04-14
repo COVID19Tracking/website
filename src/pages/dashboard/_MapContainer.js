@@ -68,8 +68,13 @@ const MapContainer = () => {
   )
 
   const sumChoro = useMemo(
-    () => joinedData && sum(joinedData.features, d => getValue(d)),
+    () =>
+      joinedData && sum(joinedData.features, d => getValue(d, currentField)),
     [joinedData, getValue],
+  )
+  const sumPopulation = useMemo(
+    () => joinedData && sum(joinedData.features, d => d.properties.population),
+    [joinedData],
   )
   const start = () => {
     if (sliderIndex === dates.length - 1) {
@@ -115,7 +120,7 @@ const MapContainer = () => {
         <h2>{formatDate(parseDate(currentDate))}</h2>
         {useChoropleth ? (
           <div>
-            <span>{formatNumber(sumChoro)}</span>{' '}
+            <span>{formatNumber((sumChoro / sumPopulation) * 1000000)}</span>{' '}
             <select
               value={currentField}
               onChange={e => setCurrentField(e.target.value)}
