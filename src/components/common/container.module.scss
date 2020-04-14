@@ -17,8 +17,8 @@
   @media (min-width: $viewport-xl) {
     max-width: 1140px;
   }
-  &.container-narrow {
-    max-width: 900px;
+  & .container-narrow {
+    max-width: 42rem;
   }
   h2 {
     font-size: 30px;
