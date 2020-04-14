@@ -1,12 +1,14 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 
 import { format } from 'd3-format'
 import { geoPath, geoAlbersUsa } from 'd3-geo'
 import { max } from 'd3-array'
+import { nest } from 'd3-collection'
 import { scaleSqrt, scaleThreshold } from 'd3-scale'
 
+import StatesWithPopulation from '../../../data/visualization/state-populations.json'
+
 import { formatNumber, formatDate, parseDate } from '../_utils'
-import StatesWithPopulation from '../data/_state-populations'
 
 import './map.scss'
 
@@ -36,18 +38,6 @@ const margin = {
   right: 10,
   top: 10,
 }
-
-const mapHeight = window.screen.availWidth > viewportSm ? 520 : 300
-const mapWidth = window.screen.availWidth > viewportSm ? 910 : 400
-const projection = geoAlbersUsa().fitExtent(
-  [
-    [margin.left, margin.top],
-    [mapWidth - margin.right, mapHeight - margin.bottom],
-  ],
-  StatesWithPopulation,
-)
-const path = geoPath().projection(projection)
-
 // this should be dynamic, espcially with the numbers only growing each day.
 // for now there is just a scale for each of the fields.
 
@@ -71,7 +61,7 @@ const limit = [
 */
 
 const colorLimits = {
-  death: [1, 5, 10, 25, 50, 100, 250],
+  death: [5, 10, 25, 50, 100, 250, 500],
   positive: [100, 250, 500, 1000, 2500, 5000, 10000],
   totalTestResults: [1000, 5000, 7500, 10000, 12500, 15000, 25000],
 }
@@ -101,12 +91,55 @@ const colors = {
 }
 
 export default function Map({
-  data,
+  rawStateData,
   currentField,
   currentDate,
   getValue,
   useChoropleth,
+  setJoinedData,
 }) {
+  const [mapWidth, setMapWidth] = useState(910)
+  const [mapHeight, setMapHeight] = useState(520)
+
+  const path = useMemo(() => {
+    const projection = geoAlbersUsa().fitExtent(
+      [
+        [margin.left, margin.top],
+        [mapWidth - margin.right, mapHeight - margin.bottom],
+      ],
+      StatesWithPopulation,
+    )
+    return geoPath().projection(projection)
+  }, [mapWidth, mapHeight])
+
+  const data = useMemo(() => {
+    if (!rawStateData || !path) return null
+    const createMapFromArray = (array, keyField, valueField = null) => {
+      return Object.assign(
+        {},
+        ...array.map(a => ({ [a[keyField]]: valueField ? a[valueField] : a })),
+      )
+    }
+    const groupedByState = nest()
+      .key(d => d.state)
+      .entries(rawStateData)
+    const stateMap = createMapFromArray(groupedByState, 'key', 'values')
+    const joinedFeatures = StatesWithPopulation.features.map(feature => ({
+      ...feature,
+      properties: {
+        ...feature.properties,
+        centroidCoordinates: path.centroid(feature), // should get rid of turf and use d3 for the centroid
+        dailyData: createMapFromArray(
+          stateMap[feature.properties.STUSPS],
+          'date',
+        ),
+      },
+    }))
+    const tempData = { ...StatesWithPopulation, features: joinedFeatures }
+    setJoinedData(tempData)
+    return tempData
+  }, [rawStateData, path])
+
   const [hoveredState, setHoveredState] = useState(null)
   const maxValue = useMemo(
     () =>
@@ -127,8 +160,16 @@ export default function Map({
         .range([0, 50]),
     [maxValue],
   )
+  const [isMobile, setIsMobile] = useState(false)
 
-  const isMobile = window.screen.availWidth < viewportSm
+  useEffect(() => {
+    // we could use resize listener here
+    if (window.screen.availWidth < viewportSm) {
+      setMapWidth(400)
+      setMapHeight(300)
+      setIsMobile(true)
+    }
+  }, [])
 
   return (
     <div className="map-container">
@@ -170,6 +211,7 @@ export default function Map({
               getValue={getValue}
               hoveredState={hoveredState}
               setHoveredState={setHoveredState}
+              path={path}
             />
           </>
         </svg>
@@ -192,6 +234,7 @@ const States = ({
   hoveredState,
   setHoveredState,
   getValue,
+  path,
 }) => {
   // below function should use getValue
   const getColorFromFeature = d => {
@@ -387,5 +430,3 @@ const Tooltip = ({ hoveredState, currentDate, getValue }) => {
     </div>
   )
 }
-
-export { path }
