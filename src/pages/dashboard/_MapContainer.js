@@ -135,19 +135,8 @@ const MapContainer = () => {
   const toggleMapStyle = () => setUseChoropleth(u => !u)
 
   return (
-    <div id="state-map">
-      <div
-        className="dashboard-toggle"
-        onClick={toggleMapStyle}
-        onKeyPress={toggleMapStyle}
-        role="switch"
-        aria-checked={useChoropleth}
-        tabIndex={0}
-      >
-        <span className={useChoropleth ? '' : 'active'}>Bubble Map</span>
-        <span className={useChoropleth ? 'active' : ''}>Choropleth Map</span>
-      </div>
-      <div id="map-dek">
+    <div className="state-map">
+      <div className="map-dek">
         <h2>{formatDate(parseDate(currentDate))}</h2>
         {useChoropleth ? (
           <div>
@@ -176,11 +165,10 @@ const MapContainer = () => {
             </div>
           </>
         )}
-        <div id="map-time-scrubber">
-          <div id="map-start-stop-controls">
+        <div className="map-time-scrubber">
+          <div className="map-start-stop-controls">
             <div
-              id="map-start-stop"
-              className={playing ? 'stop' : 'start'}
+              className={`map-start-stop ${playing ? 'stop' : 'start'}`}
               onClick={() => togglePlaying()}
               onKeyDown={() => togglePlaying()}
               role="switch"
@@ -198,13 +186,24 @@ const MapContainer = () => {
               type="range"
             />
           </div>
-          <div id="map-start-stop-label">
+          <div className="map-start-stop-label">
             <div className="column">{formatDate(parseDate(dates[0]))}</div>
             <div className="column">
               {formatDate(parseDate(dates[dates.length - 1]))}
             </div>
           </div>
         </div>
+      </div>
+      <div
+        className="dashboard-toggle add-margin-small"
+        onClick={toggleMapStyle}
+        onKeyPress={toggleMapStyle}
+        role="switch"
+        aria-checked={useChoropleth}
+        tabIndex={0}
+      >
+        <span className={useChoropleth ? '' : 'active'}>Bubble Map</span>
+        <span className={useChoropleth ? 'active' : ''}>Choropleth Map</span>
       </div>
       {joinedData && (
         <Map
