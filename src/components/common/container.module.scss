@@ -11,8 +11,6 @@
   @media (min-width: $viewport-lg) {
     margin-left: auto;
     margin-right: auto;
-    font-size: 22px;
-    line-height: 1.5;
   }
   @media (min-width: $viewport-xl) {
     max-width: 1140px;
@@ -20,21 +18,27 @@
   & .container-narrow {
     max-width: 42rem;
   }
-  h2 {
-    font-size: 30px;
-    line-height: 33px;
-    margin: 2rem 0 1rem;
-    padding-top: 1em;
-  }
-  h3 {
-    margin-bottom: 1em;
-  }
-  li {
-    margin-bottom: 0.75rem;
-  }
-  p,
-  ul,
-  ol {
-    margin-bottom: 2em;
+  &.text-heavy {
+    @media (min-width: $viewport-lg) {
+      font-size: 22px;
+      line-height: 1.5;
+    }
+    h2 {
+      font-size: 30px;
+      line-height: 33px;
+      margin: 2rem 0 1rem;
+      padding-top: 1em;
+    }
+    h3 {
+      margin-bottom: 1em;
+    }
+    li {
+      margin-bottom: 0.75rem;
+    }
+    p,
+    ul,
+    ol {
+      margin-bottom: 2em;
+    }
   }
 }
