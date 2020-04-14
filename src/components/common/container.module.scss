@@ -11,6 +11,8 @@
   @media (min-width: $viewport-lg) {
     margin-left: auto;
     margin-right: auto;
+    font-size: 22px;
+    line-height: 1.5;
   }
   @media (min-width: $viewport-xl) {
     max-width: 1140px;
