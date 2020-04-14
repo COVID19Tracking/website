@@ -214,13 +214,12 @@ $small-multiples-chart-bp-lg: 1200px;
 }
 
 .small-multiples-chart-collapse-button {
+  align-self: flex-start;
+  margin-bottom: 2rem;
+
   @media screen and (min-width: $small-multiples-chart-bp-lg) {
     display: none;
   }
-}
-
-.small-multiples-chart__see-all-link {
-  font-size: 12px;
 }
 
 .axis-labels {

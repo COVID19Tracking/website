@@ -276,7 +276,7 @@ export default function CumulativeTestsByStateContainer() {
         })}
       </div>
       <button
-        className="dashboard-button small-multiples-chart-collapse-button"
+        className="chart-expand-button small-multiples-chart-collapse-button"
         type="button"
         onClick={toggleChartsCollapsed}
       >
