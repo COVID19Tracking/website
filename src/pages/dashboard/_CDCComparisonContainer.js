@@ -1,4 +1,5 @@
-import { max } from 'd3-array'
+import { max, sum } from 'd3-array'
+import { format } from 'd3-format'
 import { timeParse } from 'd3-time-format'
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -50,18 +51,18 @@ export default function CDCComparisonContainer() {
     .reduce((acc, val) => acc.concat(val), [])
     .sort(sortChronologically)
   // const cdcCumulativeTotal = sum(cdcData, d => d.value)
-  // const cumulativeTotal = sum(data, d => d.value)
+  const cumulativeTotal = sum(data, d => d.value)
   const dailyMax = max(data, d => d.value)
   return (
     <section>
       <div>
         <p>
-          As of today, the COVID Tracking Project has identified more than 2.3
-          million tests administered across the country, a count significantly
-          higher than the numbers the CDC reports. That’s because the CDC
-          tallies only COVID-19 tests done at certified public health labs, and
-          leaves out those conducted by private labs—the vast majority of all
-          tests to date.
+          As of today, the COVID Tracking Project has identified more than{' '}
+          {format('.2s')(cumulativeTotal).replace('M', ' million')} tests
+          administered across the country, a count significantly higher than the
+          numbers the CDC reports. That’s because the CDC tallies only COVID-19
+          tests done at certified public health labs, and leaves out those
+          conducted by private labs—the vast majority of all tests to date.
         </p>
         <p>
           The COVID Tracking Project provides more complete information. We
