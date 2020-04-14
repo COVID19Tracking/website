@@ -1,3 +1,5 @@
+@import '../../scss/breakpoints.scss';
+
 .dashboard-button {
   color: #000;
   border-color: #000;
@@ -63,15 +65,12 @@
   justify-content: space-between;
 }
 
-$chart-header-bp-md: 640px;
-$chart-header-bp-lg: 960px;
-
 .chart-header {
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
 
-  @media screen and (min-width: $chart-header-bp-lg) {
+  @media screen and (min-width: $viewport-lg) {
     flex-direction: row;
     justify-content: space-between;
     margin: 0 0 2rem;
@@ -85,11 +84,11 @@ $chart-header-bp-lg: 960px;
   list-style-type: none;
   margin: 1.5rem 0 0;
 
-  @media screen and (min-width: $chart-header-bp-md) {
+  @media screen and (min-width: $viewport-ms) {
     flex-direction: row;
   }
 
-  @media screen and (min-width: $chart-header-bp-lg) {
+  @media screen and (min-width: $viewport-lg) {
     flex-direction: row;
     justify-content: flex-end;
     margin-top: 0;
@@ -105,11 +104,11 @@ $chart-header-bp-lg: 960px;
       margin-bottom: 0;
     }
 
-    @media screen and (min-width: $chart-header-bp-md) {
+    @media screen and (min-width: $viewport-ms) {
       margin: 0 2rem 0 0;
     }
 
-    @media screen and (min-width: $chart-header-bp-lg) {
+    @media screen and (min-width: $viewport-lg) {
       margin: 0 0 0 2rem;
     }
   }
@@ -151,24 +150,20 @@ $chart-header-bp-lg: 960px;
   padding: 0 5px;
 }
 
-$small-multiples-chart-bp-sm: 480px;
-$small-multiples-chart-bp-md: 800px;
-$small-multiples-chart-bp-lg: 1200px;
-
 .small-multiples-chart {
   line-height: 1rem;
   padding: 0 1%;
   width: 50%;
 
-  @media screen and (min-width: $small-multiples-chart-bp-sm) {
+  @media screen and (min-width: $viewport-sm) {
     width: calc(100% / 4);
   }
 
-  @media screen and (min-width: $small-multiples-chart-bp-md) {
+  @media screen and (min-width: $viewport-md) {
     width: calc(100% / 5);
   }
 
-  @media screen and (min-width: $small-multiples-chart-bp-lg) {
+  @media screen and (min-width: $viewport-xl) {
     width: calc(100% / 7);
   }
 
@@ -193,19 +188,19 @@ $small-multiples-chart-bp-lg: 1200px;
 
 .small-multiples-chart-container--collapsed {
   .small-multiples-chart {
-    @media screen and (max-width: #{$small-multiples-chart-bp-sm - 1}) {
+    @media screen and (max-width: #{$viewport-sm - 1}) {
       &:nth-child(n + 7) {
         display: none;
       }
     }
 
-    @media screen and (max-width: #{$small-multiples-chart-bp-md - 1}) {
+    @media screen and (max-width: #{$viewport-md - 1}) {
       &:nth-child(n + 17) {
         display: none;
       }
     }
 
-    @media screen and (max-width: #{$small-multiples-chart-bp-lg - 1}) {
+    @media screen and (max-width: #{$viewport-xl - 1}) {
       &:nth-child(n + 21) {
         display: none;
       }
@@ -217,7 +212,7 @@ $small-multiples-chart-bp-lg: 1200px;
   align-self: flex-start;
   margin-bottom: 2rem;
 
-  @media screen and (min-width: $small-multiples-chart-bp-lg) {
+  @media screen and (min-width: $viewport-xl) {
     display: none;
   }
 }
