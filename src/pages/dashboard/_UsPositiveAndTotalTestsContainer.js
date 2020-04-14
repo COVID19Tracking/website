@@ -38,7 +38,7 @@ export default function UsAreaChartContainer() {
         sort of targeted social distancing technique and can help slow the
         outbreak.
       </p>
-      <div>
+      <div style={{ width: '40%', align: 'center' }}>
         <h4>Positive tests and total tests in the US</h4>
         <AreaChart
           data={transformedData}
@@ -46,7 +46,7 @@ export default function UsAreaChartContainer() {
             if (d === 'Total') return '#585BC1'
             return '#FFA270'
           }}
-          height={400}
+          height={300}
           labelOrder={['Total', 'Positive']}
           marginBottom={40}
           marginLeft={80}
