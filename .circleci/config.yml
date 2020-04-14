@@ -1,0 +1,30 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1.16.1
+
+workflows:
+  test-website:
+    jobs:
+      - cypress/install:
+          name: 'Linux install'
+          build: 'npm install'
+          post-steps:
+            - run: npx cypress cache path
+            - run: npx cypress cache list
+            - run: npx cypress info
+      - cypress/run:
+          requires:
+            - Linux install
+          record: false
+          pre-steps:
+            - checkout
+            - run:
+                name: npm-install
+                command: 'npm install'
+            - run:
+                name: download-data
+                command: 'npm run setup'
+            - run:
+                name: build-site
+                command: 'npm run build:gatsby'
+          start: 'npm run test:e2e:ci'

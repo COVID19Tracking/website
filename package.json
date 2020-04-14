@@ -80,7 +80,9 @@
     "@storybook/addon-links": "^5.3.17",
     "@storybook/addons": "^5.3.17",
     "@storybook/react": "^5.3.17",
+    "@testing-library/cypress": "^6.0.0",
     "babel-loader": "^8.1.0",
+    "cypress": "^4.4.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
     "fs-extra": "^9.0.0",
@@ -88,7 +90,8 @@
     "gh-pages": "^2.2.0",
     "jest": "^25.2.6",
     "npm-run-all": "^4.1.5",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "start-server-and-test": "^1.10.11"
   },
   "scripts": {
     "build": "run-s build:fetch build:gatsby build:data build:data-archive build:test",
@@ -108,6 +111,10 @@
     "storybook:build": "build-storybook",
     "storybook:pages": "gh-pages -d storybook-static -r https://github.com/COVID19Tracking/website-docs",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
+    "test:e2e:ci": "start-server-and-test start:gatsby http://localhost:9000 cy:run",
     "setup": "run-s setup:api-data setup:env-vars",
     "setup:api-data": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz",
     "setup:env-vars": "curl -L https://covidtracking.com/__developer/env-vars > .env"
