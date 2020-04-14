@@ -49,6 +49,7 @@ export default function UsAreaChartContainer() {
             xTicks={3}
             width={400}
             align="center"
+            showTicks={5}
           />
         </div>
       </div>

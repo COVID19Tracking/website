@@ -5,6 +5,7 @@ import { scaleBand, scaleLinear } from 'd3-scale'
 import React from 'react'
 
 import { formatDate, formatNumber } from '../_utils'
+import colors from '../../../scss/colors.scss'
 
 const BarChart = ({
   data,
@@ -19,6 +20,7 @@ const BarChart = ({
   align,
   yMax,
   yTicks,
+  showTicks,
 }) => {
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
@@ -38,6 +40,7 @@ const BarChart = ({
     xScaleDomain.length,
     Math.floor(xScaleDomain.length / xTicks),
   )
+  const textColor = { textColor: colors.text }
   return (
     <div align={align}>
       <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
@@ -46,17 +49,18 @@ const BarChart = ({
           transform={`translate(${marginLeft} ${marginTop})`}
         >
           <g className="chart-grid">
-            {yScale.ticks(yTicks).map(tick => (
+            {yScale.ticks(yTicks).map((tick, i) => (
               <g key={tick}>
                 <text
                   y={yScale(tick) + 6}
                   x={`${tick}`.length * -11}
                   fontSize="smaller"
+                  fill={i < showTicks ? { textColor } : 'none'}
                 >
                   {formatNumber(tick)}
                 </text>
                 <line
-                  stroke="black"
+                  stroke={i < showTicks ? 'black' : 'none'}
                   x1={0}
                   x2={width - totalXMargin}
                   y1={yScale(tick)}
@@ -106,6 +110,7 @@ BarChart.defaultProps = {
   xTicks: 5,
   yMax: null,
   yTicks: 4,
+  showTicks: 4,
 }
 
 BarChart.propTypes = {
@@ -125,5 +130,6 @@ BarChart.propTypes = {
   xTicks: PropTypes.number,
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
+  showTicks: PropTypes.number,
 }
 export default BarChart

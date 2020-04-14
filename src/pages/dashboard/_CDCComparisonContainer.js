@@ -80,6 +80,7 @@ export default function CDCComparisonContainer() {
             width={252}
             align="right"
             yMax={dailyMax}
+            showTicks={2}
           />
         </div>
         <div style={{ flexGrow: 1, width: '50%', marginLeft: 20 }}>
@@ -94,6 +95,7 @@ export default function CDCComparisonContainer() {
             xTicks={2}
             width={252}
             align="left"
+            showTicks={5}
           />
         </div>
       </div>
