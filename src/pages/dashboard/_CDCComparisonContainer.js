@@ -42,6 +42,7 @@ export default function CDCComparisonContainer() {
       }
     })
     .sort(sortChronologically)
+    .filter(element => element.date > new Date(2020, 2, 3))
   const data = query.allCovidUsDaily.nodes
     .map(node => ({
       date: parseDate(node.date),
