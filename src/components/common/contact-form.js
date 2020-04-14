@@ -12,14 +12,18 @@ export default () => {
     >
       <div>
         <label htmlFor="name">
-          <h4>What is your email address?</h4>
-          <input type="email" name="name" required />
+          <p className={ContactFormStyles.inputHeader}>
+            What is your email address?
+          </p>
+          <input type="email" id="name" name="name" required />
         </label>
       </div>
       <div>
         <label htmlFor="message">
-          <h4>What accessibility problems are you experiencing?</h4>
-          <textarea name="message" rows="5" required />
+          <p className={ContactFormStyles.inputHeader}>
+            What accessibility problems are you experiencing?
+          </p>
+          <textarea name="message" id="message" rows="5" required />
         </label>
       </div>
       <div data-netlify-recaptcha="true" />

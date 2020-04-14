@@ -28,8 +28,10 @@
     }
   }
 
-  h4 {
-    margin-bottom: 10px;
+  .input-header {
+    margin-bottom: 5px;
+    font-weight:600;
+    font-size:24px;
   }
 
   button {
@@ -40,5 +42,6 @@
     line-height: 33px;
     /* identical to box height, or 150% */
     color: $color-infobox-sync-dark;
+    font-size:22px;
   }
 }

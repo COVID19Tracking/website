@@ -15,20 +15,9 @@ const ContactPage = ({ data }) => (
     <GetInvolved
       items={[
         <p>
-          <Link to="/data">Volunteer on the project.</Link>
-        </p>,
-        <p>
-          <Link to="/data">
-            Interview someone on the project for a news story.
-          </Link>
-        </p>,
-        <p>
           <Link to="/contact/accessibility">
             Report a problem with accessibility on the website.
           </Link>
-        </p>,
-        <p>
-          <Link to="/data">Something else.</Link>
         </p>,
       ]}
     />
