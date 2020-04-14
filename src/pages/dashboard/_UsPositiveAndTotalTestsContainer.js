@@ -1,5 +1,7 @@
 import React, { useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { format } from 'd3-format'
+
 import AreaChart from './charts/_AreaChart'
 import { parseDate } from './_utils'
 
@@ -52,7 +54,7 @@ export default function UsAreaChartContainer() {
           marginTop={10}
           xTicks={2}
           width={400}
-          yFormat="millions"
+          yFormat={format('~s')}
         />
       </div>
     </section>

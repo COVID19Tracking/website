@@ -1,16 +1,42 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 
 import { format } from 'd3-format'
 import { geoPath, geoAlbersUsa } from 'd3-geo'
 import { max } from 'd3-array'
+import { nest } from 'd3-collection'
 import { scaleSqrt, scaleThreshold } from 'd3-scale'
 
+import StatesWithPopulation from '../../../data/visualization/state-populations.json'
+
 import { formatNumber, formatDate, parseDate } from '../_utils'
-import StatesWithPopulation from '../data/_state-populations'
 
 import './map.scss'
 
 import ChoroLegend from './_ChoroLegend'
+
+import breakpoints from '../../../scss/breakpoints.scss'
+import importedColors from '../../../scss/colors.scss'
+
+const viewportSm = parseInt(breakpoints.viewportSm, 10)
+
+// transform colors from global into object of arrays that can be used by d3
+// TODO: update after merging changes from master.
+const colorSchemes = Object.assign.apply(
+  {},
+  ['Plum', 'Honey', 'Slate'].map(scheme => ({
+    [scheme.toLowerCase()]: new Array(8)
+      .fill(0)
+      .map((a, i) => importedColors[`color${scheme}0${i + 1}`])
+      .reverse(), // remove after merge
+  })),
+)
+
+// should be imported from constants file
+const colors = {
+  totalTestResults: colorSchemes.plum[5],
+  positive: colorSchemes.honey[4],
+  death: colorSchemes.slate[6],
+}
 
 // static d3 setup
 const margin = {
@@ -19,17 +45,6 @@ const margin = {
   right: 10,
   top: 10,
 }
-const height = 400
-const width = 700
-const projection = geoAlbersUsa().fitExtent(
-  [
-    [margin.left, margin.top],
-    [width - margin.right, height - margin.bottom],
-  ],
-  StatesWithPopulation,
-)
-const path = geoPath().projection(projection)
-
 // this should be dynamic, espcially with the numbers only growing each day.
 // for now there is just a scale for each of the fields.
 
@@ -53,53 +68,19 @@ const limit = [
 */
 
 const colorLimits = {
-  death: [1, 5, 10, 25, 50, 100, 250],
+  death: [5, 10, 25, 50, 100, 250, 500],
   positive: [100, 250, 500, 1000, 2500, 5000, 10000],
-  totalTestResults: [250, 500, 1000, 2500, 5000, 10000, 25000],
+  totalTestResults: [1000, 5000, 7500, 10000, 12500, 15000, 25000],
 }
-
-const customSchemeHoney = [
-  '#fcf9eb',
-  '#fbe8a9',
-  '#f6ce7a',
-  '#f3b05d',
-  '#e2894e',
-  '#c66b3e',
-  '#924f34',
-  '#753c2d',
-]
-
-const customSchemePlum = [
-  '#f2f2ff',
-  '#d1d1e8',
-  '#b6b7db',
-  '#8b8dc7',
-  '#6164ba',
-  '#575aad',
-  '#31347a',
-  '#111354',
-]
-
-const customSchemeGrey = [
-  '#d0d7db',
-  '#b2bbbf',
-  '#95a0a6',
-  '#849096',
-  '#6f7e85',
-  '#5b666b',
-  '#4c5559',
-  '#3d4245',
-]
-
 const strokeGrey = '#ababab'
 const strokeWhite = '#fff'
 
 const getColor = {
-  death: scaleThreshold(colorLimits.death, customSchemeGrey),
-  positive: scaleThreshold(colorLimits.positive, customSchemeHoney),
+  death: scaleThreshold(colorLimits.death, colorSchemes.slate),
+  positive: scaleThreshold(colorLimits.positive, colorSchemes.honey),
   totalTestResults: scaleThreshold(
     colorLimits.totalTestResults,
-    customSchemePlum,
+    colorSchemes.plum,
   ),
 }
 
@@ -109,20 +90,56 @@ const getStrokeColor = {
   totalTestResults: strokeGrey,
 }
 
-// should be imported from constants file
-const colors = {
-  totalTestResults: customSchemePlum[5],
-  positive: customSchemeHoney[4],
-  death: customSchemeGrey[6],
-}
-
 export default function Map({
-  data,
+  rawStateData,
   currentField,
   currentDate,
   getValue,
   useChoropleth,
+  setJoinedData,
 }) {
+  const [mapWidth, setMapWidth] = useState(910)
+  const [mapHeight, setMapHeight] = useState(520)
+
+  const path = useMemo(() => {
+    const projection = geoAlbersUsa().fitExtent(
+      [
+        [margin.left, margin.top],
+        [mapWidth - margin.right, mapHeight - margin.bottom],
+      ],
+      StatesWithPopulation,
+    )
+    return geoPath().projection(projection)
+  }, [mapWidth, mapHeight])
+
+  const data = useMemo(() => {
+    if (!rawStateData || !path) return null
+    const createMapFromArray = (array, keyField, valueField = null) => {
+      return Object.assign(
+        {},
+        ...array.map(a => ({ [a[keyField]]: valueField ? a[valueField] : a })),
+      )
+    }
+    const groupedByState = nest()
+      .key(d => d.state)
+      .entries(rawStateData)
+    const stateMap = createMapFromArray(groupedByState, 'key', 'values')
+    const joinedFeatures = StatesWithPopulation.features.map(feature => ({
+      ...feature,
+      properties: {
+        ...feature.properties,
+        centroidCoordinates: path.centroid(feature), // should get rid of turf and use d3 for the centroid
+        dailyData: createMapFromArray(
+          stateMap[feature.properties.STUSPS],
+          'date',
+        ),
+      },
+    }))
+    const tempData = { ...StatesWithPopulation, features: joinedFeatures }
+    setJoinedData(tempData)
+    return tempData
+  }, [rawStateData, path])
+
   const [hoveredState, setHoveredState] = useState(null)
   const maxValue = useMemo(
     () =>
@@ -143,27 +160,46 @@ export default function Map({
         .range([0, 50]),
     [maxValue],
   )
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    // we could use resize listener here
+    if (window.screen.availWidth < viewportSm) {
+      setMapWidth(400)
+      setMapHeight(300)
+      setIsMobile(true)
+    }
+  }, [])
 
   return (
     <div className="map-container">
-      <div className="map-legend">
+      <div
+        className={['map-legend', useChoropleth ? 'choropleth' : 'bubble'].join(
+          ' ',
+        )}
+      >
         {useChoropleth ? (
           <ChoroLegend
             color={getColor[currentField]}
-            height={40}
-            width={300}
-            marginTop={8}
+            height={isMobile ? 180 : 36}
+            width={isMobile ? 32 : 300}
+            tickSize={isMobile ? 12 : 6}
             tickFormat="~s"
             spaceBetween={2}
-            tickSize={0}
           />
         ) : (
-          <BubbleLegend data={data} r={r} maxValue={maxValue} />
+          <BubbleLegend
+            data={data}
+            r={r}
+            maxValue={maxValue}
+            height={isMobile ? 100 : 150}
+            width={isMobile ? 100 : 150}
+          />
         )}
       </div>
 
       <div className="map-contents">
-        <svg width={width} height={height}>
+        <svg width={mapWidth} height={mapHeight}>
           <>
             {!useChoropleth && (
               <Bubbles geoJson={data} getValue={getValue} r={r} />
@@ -173,7 +209,9 @@ export default function Map({
               useChoropleth={useChoropleth}
               currentField={currentField}
               getValue={getValue}
+              hoveredState={hoveredState}
               setHoveredState={setHoveredState}
+              path={path}
             />
           </>
         </svg>
@@ -193,8 +231,10 @@ const States = ({
   geoJson,
   useChoropleth,
   currentField,
+  hoveredState,
   setHoveredState,
   getValue,
+  path,
 }) => {
   // below function should use getValue
   const getColorFromFeature = d => {
@@ -210,7 +250,7 @@ const States = ({
     <path
       key={`path${d.properties.NAME}`}
       d={path(d)}
-      className="countries"
+      className="states"
       fill={getColorFromFeature(d)}
       stroke={strokeColor}
       onMouseEnter={() => {
@@ -225,7 +265,20 @@ const States = ({
       onMouseLeave={() => setHoveredState(null)}
     />
   ))
-  return <g>{states}</g>
+  return (
+    <>
+      <g>{states}</g>
+      {hoveredState && (
+        <path
+          d={path(hoveredState.state)}
+          className="hovered-states"
+          fill="transparent"
+          stroke="#000000"
+          strokeWidth="2px"
+        />
+      )}
+    </>
+  )
 }
 
 const Bubbles = ({ geoJson, r, getValue }) => {
@@ -244,8 +297,6 @@ const Bubbles = ({ geoJson, r, getValue }) => {
       <circle
         key={property + i}
         {...props}
-        fill={colors[property]}
-        stroke={colors[property]}
         fillOpacity={property === 'positive' ? 0.8 : 0.2}
       />
     )
@@ -256,13 +307,13 @@ const Bubbles = ({ geoJson, r, getValue }) => {
   const positiveBubbles = features.map((d, i) => createBubble(d, i, 'positive'))
   return (
     <>
-      <g id="testBubbles">{testBubbles}</g>
-      <g id="positiveBubble">{positiveBubbles}</g>
+      <g className="test-bubbles">{testBubbles}</g>
+      <g className="positive-bubbles">{positiveBubbles}</g>
     </>
   )
 }
 
-const BubbleLegend = ({ r, maxValue }) => {
+const BubbleLegend = ({ r, maxValue, width, height }) => {
   const formatLegendEntry = d => parseInt(format('.1r')(d), 10)
   const legendData = [
     formatLegendEntry(maxValue * 0.1),
@@ -272,8 +323,8 @@ const BubbleLegend = ({ r, maxValue }) => {
   const legendBubbles = legendData.map(d => (
     <circle
       key={`legendBubbles${d}`}
-      cx={52}
-      cy={145 - r(d)}
+      cx={width / 3 + 2}
+      cy={height - r(d)}
       r={r(d)}
       stroke="#ababab"
       fill="none"
@@ -282,21 +333,21 @@ const BubbleLegend = ({ r, maxValue }) => {
   const legendLines = legendData.map(d => (
     <line
       key={`legendLines${d}`}
-      x1={52}
-      y1={145 - 2 * r(d)}
-      x2={130}
-      y2={145 - 2 * r(d)}
+      x1={width / 3 + 2}
+      y1={height - 2 * r(d)}
+      x2={width - 20}
+      y2={height - 2 * r(d)}
       stroke="#ababab"
       strokeDasharray="5 5"
     />
   ))
   const legendText = legendData.map(d => (
-    <text key={`legendText${d}`} x={110} y={140 - 2 * r(d)}>
+    <text key={`legendText${d}`} x={(width * 2) / 3} y={height - 2 * r(d)}>
       {formatNumber(d)}
     </text>
   ))
   return (
-    <svg width={150} height={150} style={{ overflow: 'visible' }}>
+    <svg width={width} height={height} style={{ overflow: 'visible' }}>
       {legendBubbles}
       {legendLines}
       {legendText}
@@ -315,7 +366,7 @@ const Tooltip = ({ hoveredState, currentDate, getValue }) => {
   const death = getValue(d, 'death')
   const deathNorm = getValue(d, 'death', true)
   return (
-    <div id="map-tooltip" style={{ top: y, left: x }}>
+    <div className="map-tooltip" style={{ top: y, left: x }}>
       <table>
         <caption>
           {d.properties.NAME}
@@ -377,5 +428,3 @@ const Tooltip = ({ hoveredState, currentDate, getValue }) => {
     </div>
   )
 }
-
-export { path }

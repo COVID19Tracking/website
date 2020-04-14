@@ -3,3 +3,11 @@ $viewport-ms: 640px; /* medium-small, aligns with reflexbox */
 $viewport-md: 768px;
 $viewport-lg: 1080px;
 $viewport-xl: 1200px;
+
+:export {
+  viewportSm: $viewport-sm;
+  viewportMs: $viewport-ms;
+  viewportMd: $viewport-md;
+  viewportLg: $viewport-lg;
+  viewportXl: $viewport-xl;
+}
