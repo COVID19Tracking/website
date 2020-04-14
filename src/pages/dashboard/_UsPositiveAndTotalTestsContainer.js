@@ -44,14 +44,14 @@ export default function UsAreaChartContainer() {
             if (d === 'Total') return '#585BC1'
             return '#FFA270'
           }}
-          height={200}
+          height={300}
           labelOrder={['Total', 'Positive']}
           marginBottom={40}
           marginLeft={80}
           marginRight={10}
           marginTop={10}
           xTicks={2}
-          width={200}
+          width={400}
           yFormat="millions"
         />
       </div>
