@@ -31,6 +31,13 @@ const colorSchemes = Object.assign.apply(
   })),
 )
 
+// should be imported from constants file
+const colors = {
+  totalTestResults: colorSchemes.plum[5],
+  positive: colorSchemes.honey[4],
+  death: colorSchemes.slate[6],
+}
+
 // static d3 setup
 const margin = {
   bottom: 10,
@@ -81,13 +88,6 @@ const getStrokeColor = {
   death: strokeWhite,
   positive: strokeGrey,
   totalTestResults: strokeGrey,
-}
-
-// should be imported from constants file
-const colors = {
-  totalTestResults: colorSchemes.plum[5],
-  positive: colorSchemes.honey[4],
-  death: colorSchemes.slate[6],
 }
 
 export default function Map({
@@ -297,8 +297,6 @@ const Bubbles = ({ geoJson, r, getValue }) => {
       <circle
         key={property + i}
         {...props}
-        fill={colors[property]}
-        stroke={colors[property]}
         fillOpacity={property === 'positive' ? 0.8 : 0.2}
       />
     )
@@ -309,8 +307,8 @@ const Bubbles = ({ geoJson, r, getValue }) => {
   const positiveBubbles = features.map((d, i) => createBubble(d, i, 'positive'))
   return (
     <>
-      <g id="testBubbles">{testBubbles}</g>
-      <g id="positiveBubble">{positiveBubbles}</g>
+      <g className="test-bubbles">{testBubbles}</g>
+      <g className="positive-bubbles">{positiveBubbles}</g>
     </>
   )
 }

@@ -1,4 +1,5 @@
 @import '../../../scss/breakpoints.scss';
+@import '../../../scss/colors.scss';
 
 .map-contents {
   position: relative;
@@ -40,16 +41,23 @@
 
 .map-legend {
   position: absolute;
-  top: 62px;
+  bottom: 510px;
   right: 20px;
   @media screen and (max-width: $viewport-sm) {
-    top: 40px;
+    bottom: 300px;
     right: 5px;
   }
-  &.choropleth {
-    top: 82px;
-    @media screen and (max-width: $viewport-sm) {
-      top: 40px;
-    }
+}
+
+.test-bubbles {
+  circle {
+    fill: $color-plum-3;
+    stroke: $color-plum-3;
+  }
+}
+.positive-bubbles {
+  circle {
+    fill: $color-honey-4;
+    stroke: $color-honey-4;
   }
 }
