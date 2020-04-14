@@ -45,6 +45,16 @@
   max-width: 800px;
 }
 
+.charts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.charts-container__chart {
+  margin: 0 40px;
+}
+
 .small-multiples-chart-container {
   display: flex;
   flex-wrap: wrap;

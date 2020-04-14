@@ -130,8 +130,8 @@ export default function CDCComparisonContainer() {
         </p>
         <h4>Daily new tests in the US</h4>
       </div>
-      <div style={{ display: 'flex' }}>
-        <div style={{ flexGrow: 1, width: '50%', marginRight: 20 }}>
+      <div className="charts-container">
+        <div className="charts-container__chart">
           <strong>CDC</strong>
           <BarChart
             data={cdcData}
@@ -148,7 +148,7 @@ export default function CDCComparisonContainer() {
             showTicks={2}
           />
         </div>
-        <div style={{ flexGrow: 1, width: '50%', marginLeft: 20 }}>
+        <div className="charts-container__chart">
           <strong>The Covid Tracking Project</strong>
           <BarChart
             data={covidData}
