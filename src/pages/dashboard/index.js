@@ -3,7 +3,6 @@ import Layout from '../../components/layout'
 import CDCComparisonContainer from './_CDCComparisonContainer'
 import MapContainer from './_MapContainer'
 import StateCumulativeTestsContainer from './_StateCumulativeTestsContainer'
-import StateTotalDeathsContainer from './_StateTotalDeathsContainer'
 import StateCumulativeDeathsContainer from './_StateCumulativeDeathsContainer'
 import UsCumulativeDeathsContainer from './_UsCumulativeDeathsContainer'
 import UsPositiveAndTotalTestsContainer from './_UsPositiveAndTotalTestsContainer'
@@ -26,7 +25,6 @@ const DashboardPage = () => {
       <UsPositiveAndTotalTestsContainer />
       <UsCumulativeDeathsContainer />
       <StateCumulativeDeathsContainer />
-      <StateTotalDeathsContainer />
       <StateCumulativeTestsContainer />
       <p>
         <strong>Note:</strong> We derive the total value by adding together the
