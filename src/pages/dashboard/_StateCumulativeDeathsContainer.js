@@ -4,6 +4,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import HorizontalBarChart from './charts/_HorizontalBarChart'
 import { getStateName, deathsBarColor } from './_utils'
 
+import './state-cumulative-deaths-container.scss'
+
 export default function StateCumulativeDeathsContainer() {
   const query = useStaticQuery(graphql`
     {
@@ -32,16 +34,16 @@ export default function StateCumulativeDeathsContainer() {
   const toggleCollapse = () => collapseChart(u => !u)
   const height = isCollapsed ? 400 : 900
   return (
-    <section style={{ display: 'flex', marginBottom: '20px' }}>
-      <div style={{ flexGrow: 1, width: '60%' }}>
-        <p>
-          Though this is a national crisis, each state is reporting data
-          differently. We are tracking numbers from each state, though the
-          quality and frequency of reports varies significantly.
-        </p>
-      </div>
-      <div style={{ flexGrow: 1, width: '40%' }}>
-        <h4>Total Deaths By States</h4>
+    <>
+      <h4>Total Deaths By States</h4>
+      <section className="state-cumulative-death-container">
+        <div>
+          <p>
+            Though this is a national crisis, each state is reporting data
+            differently. We are tracking numbers from each state, though the
+            quality and frequency of reports varies significantly.
+          </p>
+        </div>
         <div>
           <HorizontalBarChart
             data={isCollapsed ? data.slice(0, 10) : data}
@@ -55,15 +57,15 @@ export default function StateCumulativeDeathsContainer() {
             yTicks={data.length}
             width={400}
           />
+          <button
+            className="chart-expand-button"
+            type="button"
+            onClick={toggleCollapse}
+          >
+            {isCollapsed ? 'Show all states' : 'Collapse'}
+          </button>
         </div>
-        <button
-          className="chart-expand-button"
-          type="button"
-          onClick={toggleCollapse}
-        >
-          {isCollapsed ? 'Show all states' : 'Collapse'}
-        </button>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
