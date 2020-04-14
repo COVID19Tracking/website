@@ -19,6 +19,7 @@
     max-width: 42rem;
   }
   &.text-heavy {
+    margin: 5em auto;
     @media (min-width: $viewport-lg) {
       font-size: 22px;
       line-height: 1.5;
