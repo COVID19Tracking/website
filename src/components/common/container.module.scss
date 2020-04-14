@@ -24,8 +24,13 @@
     font-size: 30px;
     line-height: 33px;
     margin: 2rem 0 1rem;
+    padding-top: 1em;
   }
   li {
     margin-bottom: 0.75rem;
+  }
+  p,
+  ul {
+    margin-bottom: 2em;
   }
 }
