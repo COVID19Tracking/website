@@ -5,6 +5,7 @@ import { scaleBand, scaleLinear } from 'd3-scale'
 import React from 'react'
 
 import { formatDate, formatNumber } from '../_utils'
+import './bar-chart.scss'
 
 const BarChart = ({
   data,
@@ -39,19 +40,28 @@ const BarChart = ({
   )
   return (
     <div>
-      <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
+      <svg
+        className="bar-chart"
+        width={width}
+        height={height}
+        viewBox={`0 0 ${width} ${height}`}
+      >
         <g
           className="axis-group"
           transform={`translate(${marginLeft} ${marginTop})`}
         >
-          <g className="chart-grid">
+          <g>
             {yScale.ticks(yTicks).map(tick => (
               <g key={tick}>
-                <text y={yScale(tick) + 6} x={`${tick}`.length * -11}>
-                  {formatNumber(tick)}
-                </text>
+                <svg
+                  y={yScale(tick) + 4}
+                  x="-10"
+                  className="bar-chart__y-tick-label"
+                >
+                  <text textAnchor="end">{formatNumber(tick)}</text>
+                </svg>
                 <line
-                  stroke="black"
+                  stroke="#b2bbbf"
                   x1={0}
                   x2={width - totalXMargin}
                   y1={yScale(tick)}
@@ -64,14 +74,17 @@ const BarChart = ({
 
         <g
           className="axis-group"
-          transform={`translate(${marginLeft},${height - marginBottom})`}
+          transform={`translate(${marginLeft}, ${height - marginBottom})`}
         >
           {ticks.map(d => {
             const date = xScale.domain()[d]
             return (
-              <text key={d} x={xScale(date)} y="18">{`${formatDate(
-                date,
-              )}`}</text>
+              <text
+                className="bar-chart__x-tick-label"
+                key={d}
+                x={xScale(date)}
+                y="25"
+              >{`${formatDate(date)}`}</text>
             )
           })}
         </g>
