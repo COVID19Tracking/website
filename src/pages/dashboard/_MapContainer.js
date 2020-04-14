@@ -3,11 +3,10 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { nest, set } from 'd3-collection'
+import { set } from 'd3-collection'
 import { sum } from 'd3-array'
 
-import Map, { path } from './charts/_Map'
-import StatesWithPopulation from '../../data/visualization/state-populations.json'
+import Map from './charts/_Map'
 
 import { formatDate, formatNumber, parseDate } from './_utils'
 
@@ -47,6 +46,8 @@ const MapContainer = () => {
 
   const [playing, setPlaying] = useState(false)
 
+  const [joinedData, setJoinedData] = useState(null)
+
   const getValue = useMemo(
     () => (d, field = currentField, normalized = false) =>
       ((d.properties.dailyData[currentDate] &&
@@ -54,32 +55,6 @@ const MapContainer = () => {
         0) / (normalized ? d.properties.population / 1000000 : 1),
     [currentDate, currentField],
   )
-
-  const joinedData = useMemo(() => {
-    if (!rawStateData || !path) return null
-    const createMapFromArray = (array, keyField, valueField = null) => {
-      return Object.assign(
-        {},
-        ...array.map(a => ({ [a[keyField]]: valueField ? a[valueField] : a })),
-      )
-    }
-    const groupedByState = nest()
-      .key(d => d.state)
-      .entries(rawStateData)
-    const stateMap = createMapFromArray(groupedByState, 'key', 'values')
-    const joinedFeatures = StatesWithPopulation.features.map(feature => ({
-      ...feature,
-      properties: {
-        ...feature.properties,
-        centroidCoordinates: path.centroid(feature), // should get rid of turf and use d3 for the centroid
-        dailyData: createMapFromArray(
-          stateMap[feature.properties.STUSPS],
-          'date',
-        ),
-      },
-    }))
-    return { ...StatesWithPopulation, features: joinedFeatures }
-  }, [rawStateData])
 
   const sumTotalTestResults = useMemo(
     () =>
@@ -93,8 +68,13 @@ const MapContainer = () => {
   )
 
   const sumChoro = useMemo(
-    () => joinedData && sum(joinedData.features, d => getValue(d)),
+    () =>
+      joinedData && sum(joinedData.features, d => getValue(d, currentField)),
     [joinedData, getValue],
+  )
+  const sumPopulation = useMemo(
+    () => joinedData && sum(joinedData.features, d => d.properties.population),
+    [joinedData],
   )
   const start = () => {
     if (sliderIndex === dates.length - 1) {
@@ -119,11 +99,11 @@ const MapContainer = () => {
   const propertyOptions = [
     {
       value: 'positive',
-      name: 'positive Cases',
+      name: 'positive tests',
     },
     {
       value: 'totalTestResults',
-      name: 'total Tests',
+      name: 'total tests',
     },
     {
       value: 'death',
@@ -135,23 +115,12 @@ const MapContainer = () => {
   const toggleMapStyle = () => setUseChoropleth(u => !u)
 
   return (
-    <div id="state-map">
-      <div
-        className="map-toggle"
-        onClick={toggleMapStyle}
-        onKeyPress={toggleMapStyle}
-        role="switch"
-        aria-checked={useChoropleth}
-        tabIndex={0}
-      >
-        <span className={useChoropleth ? '' : 'active'}>Bubble Map</span>
-        <span className={useChoropleth ? 'active' : ''}>Choropleth Map</span>
-      </div>
-      <div id="map-dek">
+    <div className="state-map">
+      <div className="map-dek">
         <h2>{formatDate(parseDate(currentDate))}</h2>
         {useChoropleth ? (
           <div>
-            <span>{formatNumber(sumChoro)}</span>{' '}
+            <span>{formatNumber((sumChoro / sumPopulation) * 1000000)}</span>{' '}
             <select
               value={currentField}
               onChange={e => setCurrentField(e.target.value)}
@@ -176,11 +145,10 @@ const MapContainer = () => {
             </div>
           </>
         )}
-        <div id="map-time-scrubber">
-          <div>
+        <div className="map-time-scrubber">
+          <div className="map-start-stop-controls">
             <div
-              id="map-start-stop"
-              className={playing ? 'stop' : 'start'}
+              className={`map-start-stop ${playing ? 'stop' : 'start'}`}
               onClick={() => togglePlaying()}
               onKeyDown={() => togglePlaying()}
               role="switch"
@@ -198,7 +166,7 @@ const MapContainer = () => {
               type="range"
             />
           </div>
-          <div id="map-start-stop-label">
+          <div className="map-start-stop-label">
             <div className="column">{formatDate(parseDate(dates[0]))}</div>
             <div className="column">
               {formatDate(parseDate(dates[dates.length - 1]))}
@@ -206,9 +174,21 @@ const MapContainer = () => {
           </div>
         </div>
       </div>
-      {joinedData && (
+      <div
+        className="dashboard-toggle add-margin-small"
+        onClick={toggleMapStyle}
+        onKeyPress={toggleMapStyle}
+        role="switch"
+        aria-checked={useChoropleth}
+        tabIndex={0}
+      >
+        <span className={useChoropleth ? '' : 'active'}>Bubble Map</span>
+        <span className={useChoropleth ? 'active' : ''}>Choropleth Map</span>
+      </div>
+      {rawStateData && (
         <Map
-          data={joinedData}
+          rawStateData={rawStateData}
+          setJoinedData={setJoinedData}
           getValue={getValue}
           currentDate={currentDate}
           currentField={currentField}
