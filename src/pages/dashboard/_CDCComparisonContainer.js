@@ -102,9 +102,9 @@ export default function CDCComparisonContainer() {
     [initialCdcData, initialCovidData],
   )
 
-  const cdcCumulativeTotal = useMemo(() => sum(cdcData, d => d.value), [
-    cdcData,
-  ])
+  // const cdcCumulativeTotal = useMemo(() => sum(cdcData, d => d.value), [
+  //   cdcData,
+  // ])
   const cumulativeTotal = useMemo(() => sum(covidData, d => d.value), [
     covidData,
   ])
