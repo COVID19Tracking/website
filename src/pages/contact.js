@@ -23,6 +23,11 @@ const ContactPage = ({ data }) => (
           </Link>
         </p>,
         <p>
+          <Link to="/contact/accessibility">
+            Report a problem with accessibility on the website.
+          </Link>
+        </p>,
+        <p>
           <Link to="/data">Something else.</Link>
         </p>,
       ]}
