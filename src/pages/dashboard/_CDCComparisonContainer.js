@@ -67,31 +67,35 @@ export default function CDCComparisonContainer() {
         </p>
       </div>
       <div style={{ display: 'flex' }}>
-        <div style={{ flexGrow: 1, width: '50%' }}>
+        <div style={{ flexGrow: 1, width: '50%', marginRight: 20 }}>
           <BarChart
             data={cdcData}
             fill="#585BC1"
-            height={400}
+            height={252}
             marginBottom={40}
             marginLeft={80}
             marginRight={10}
             marginTop={10}
             xTicks={2}
-            width={400}
+            width={252}
+            align="right"
             yMax={dailyMax}
+            showTicks={2}
           />
         </div>
-        <div style={{ flexGrow: 1, width: '50%' }}>
+        <div style={{ flexGrow: 1, width: '50%', marginLeft: 20 }}>
           <BarChart
             data={data}
             fill="#585BC1"
-            height={400}
+            height={252}
             marginBottom={40}
             marginLeft={80}
             marginRight={10}
             marginTop={10}
             xTicks={2}
-            width={400}
+            width={252}
+            align="left"
+            showTicks={5}
           />
         </div>
       </div>
