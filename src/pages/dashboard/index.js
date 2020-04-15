@@ -39,11 +39,7 @@ const DashboardPage = () => {
         important to create clear and accurate visualizations. Otherwise even
         simple and minimalistic graphics can be misleading. If you plan to
         display data from the COVID Tracking Project yourself, please closely
-        follow{' '}
-        <a href="https://vanschneider.com/a-data-designers-responsibility-during-a-global-crisis">
-          these design and visualization guidelines
-        </a>
-        .
+        follow these design and visualization guidelines.
       </p>
       <strong>Consider normalizing the data.</strong>
       <p>
