@@ -34,15 +34,16 @@ const DashboardPage = () => {
         Louisiana.
       </p>
       <p>
-        Because COVID-19 testing and reporting are inconsistent among states, it
-        &apos;s easy to misinterpret the data. That makes it especially
+        Because COVID-19 testing and reporting are inconsistent among states,
+        it&apos;s easy to misinterpret the data. That makes it especially
         important to create clear and accurate visualizations. Otherwise even
         simple and minimalistic graphics can be misleading. If you plan to
-        display the data yourself, please closely follow{' '}
+        display data from the COVID Tracking Project yourself, please closely
+        follow{' '}
         <a href="https://vanschneider.com/a-data-designers-responsibility-during-a-global-crisis">
-          design
-        </a>{' '}
-        and visualization guidelines.
+          these design and visualization guidelines
+        </a>
+        .
       </p>
       <h4>
         On this page, you will find some tips and suggestions on how to
@@ -124,11 +125,13 @@ const DashboardPage = () => {
       <p>
         We recommend using total numbers for plotting deaths to compare one US
         state or territory against another. In this case, adjusting per capita
-        adds a layer of abstraction to the graphic. This reduces the data&apso;s
+        adds a layer of abstraction to the graphic. This reduces the data&apos;s
         power and the reader&apos;s comprehension. It’s easier to picture 200
         fatalities than 0.0001 fatalities per capita, as{' '}
-        <a href="https://twitter.com/jburnmurdoch">John Burn-Murdoch</a>, a data
-        journalist at the <em>Financial Times</em>, pointed out.
+        <a href=" https://twitter.com/janinegibson/status/1244519429825802240">
+          John Burn-Murdoch
+        </a>
+        , a data journalist at the <em>Financial Times</em>, pointed out.
       </p>
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <UsCumulativeDeathsContainer />
@@ -145,9 +148,13 @@ const DashboardPage = () => {
         There are some concerns that official death statistics may overcount
         COVID-19 fatalities by assuming any patient who tests positive for the
         virus was killed by it. But Marc Lipsitch, a Harvard University
-        epidemiologist, told FactCheck.org that &quot;the number of such cases
-        will be small.&quot; Undercounting is a bigger problem, he says. &quot;A
-        greater issue is errors in the other direction.&quot;
+        epidemiologist, told{' '}
+        <a href="https://factcheck.org/2020/04/social-media-posts-make-baseless-claim-on-covid-19-death-toll/">
+          FactCheck.org
+        </a>
+        &nbsp;that &quot;the number of such cases will be small.&quot;
+        Undercounting is a bigger problem, he says. &quot;A greater issue is
+        errors in the other direction.&quot;
       </p>
       <p>
         If people die from COVID-19 before they are tested, their death might
@@ -197,14 +204,11 @@ const DashboardPage = () => {
         <strong>Source:</strong> The COVID Tracking Project
       </p>
       <p>
-        Graphics and development by Jeremia Kimelman,{' '}
-        <a href="https://gabeoleary.com/">Gabe O&apos;Leary</a>, Melba Madrigal,
-        Vijay Sharwar, Aaron Mullan, Nathan Selikoff, Alice Goldfarb, Jane
-        Friedhoff, Norman Wang, Daniel Gilbert
+        Graphics and development by Jeremia Kimelman, Gabe O&apos;Leary, Melba
+        Madrigal, Vijay Sharwar, Aaron Mullan, Nathan Selikoff, Alice Goldfarb,
+        Jane Friedhoff, Norman Wang, Daniel Gilbert
       </p>
-      <p>
-        Visual editing by <a href="https://julialedur.com.br/">Júlia Ledur</a>
-      </p>
+      <p>Visual editing by Júlia Ledur</p>
       <p>Text editing by Hannah Waters</p>
     </Layout>
   )

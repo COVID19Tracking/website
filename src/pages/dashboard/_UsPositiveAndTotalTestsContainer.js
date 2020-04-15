@@ -35,8 +35,7 @@ export default function UsAreaChartContainer() {
         Testing is one of the most important tools in controlling an outbreak.
         When universal testing is implemented, people who are infected with the
         virus can be isolated from folks who test negative. This functions as a
-        sort of targeted social distancing technique and can help slow the
-        outbreak.
+        targeted social distancing technique and can help slow the outbreak.
       </p>
       <div style={{ width: '50%', align: 'center', margin: 'auto' }}>
         <h4>Positive tests and total tests in the US</h4>
