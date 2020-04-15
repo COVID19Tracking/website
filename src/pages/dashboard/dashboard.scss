@@ -1,4 +1,5 @@
 @import '../../scss/breakpoints.scss';
+@import '../../scss/colors.scss';
 
 .dashboard-button {
   color: #000;
@@ -246,4 +247,9 @@
 
 .gridlines {
   opacity: 0.7;
+}
+
+:focus {
+  outline: 2px dotted;
+  color: $color-slate-9;
 }
