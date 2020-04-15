@@ -23,7 +23,8 @@
     }
   }
   &.text-heavy {
-    margin: 5em auto;
+    margin-top: 5em;
+    margin-bottom: 5rem;
     @media (min-width: $viewport-lg) {
       font-size: 22px;
       font-size: 1.375rem;
