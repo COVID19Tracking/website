@@ -4,9 +4,9 @@ import { timeParse } from 'd3-time-format'
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import cloneDeep from 'lodash/cloneDeep'
+import BarChart from '../../components/charts/bar-chart'
 
-import BarChart from './charts/_BarChart'
-import { parseDate } from './_utils'
+import { parseDate } from '../../utilities/visualization'
 
 import colors from '../../scss/colors.scss'
 

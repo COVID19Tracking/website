@@ -6,7 +6,7 @@ import { nest } from 'd3-collection'
 import { scaleLinear, scaleTime } from 'd3-scale'
 import { area } from 'd3-shape'
 
-import { formatDate, formatNumber } from '../_utils'
+import { formatDate, formatNumber } from '../../utilities/visualization'
 import './area-chart.scss'
 
 const AreaChart = ({

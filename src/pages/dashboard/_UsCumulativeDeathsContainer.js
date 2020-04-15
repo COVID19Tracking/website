@@ -1,8 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-
-import BarChart from './charts/_BarChart'
-import { parseDate } from './_utils'
+import BarChart from '../../components/charts/bar-chart'
+import { parseDate } from '../../utilities/visualization'
 
 export default function UsAreaChartContainer() {
   const query = useStaticQuery(graphql`

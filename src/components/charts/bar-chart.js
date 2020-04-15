@@ -4,8 +4,8 @@ import { max, range } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
 import React from 'react'
 
-import { formatDate, formatNumber } from '../_utils'
-import colors from '../../../scss/colors.scss'
+import { formatDate, formatNumber } from '../../utilities/visualization'
+import colors from '../../scss/colors.scss'
 import './bar-chart.scss'
 
 const BarChart = ({

@@ -6,7 +6,11 @@ import { sum } from 'd3-array'
 
 import Map from './charts/_Map'
 
-import { formatDate, formatNumber, parseDate } from './_utils'
+import {
+  formatDate,
+  formatNumber,
+  parseDate,
+} from '../../utilities/visualization'
 
 import './map-container.scss'
 

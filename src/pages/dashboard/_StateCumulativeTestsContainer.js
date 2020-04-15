@@ -3,10 +3,16 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React, { useMemo, useState } from 'react'
 import cloneDeep from 'lodash/cloneDeep'
 
-import AreaChart from './charts/_AreaChart'
+import AreaChart from '../../components/charts/area-chart'
+
 import StatesWithPopulation from '../../data/visualization/state-populations.json'
 
-import { getStateName, parseDate, totalColor, positiveColor } from './_utils'
+import {
+  getStateName,
+  parseDate,
+  totalColor,
+  positiveColor,
+} from '../../utilities/visualization'
 
 import './dashboard.scss'
 

@@ -4,7 +4,7 @@ import { max } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
 import { format } from 'd3-format'
 
-import { gridLinesColor } from '../_utils'
+import { gridLinesColor } from '../../utilities/visualization'
 
 export default function HorizontalBarChart({
   data,

@@ -8,7 +8,11 @@ import { scaleSqrt, scaleThreshold } from 'd3-scale'
 
 import StatesWithPopulation from '../../../data/visualization/state-populations.json'
 
-import { formatNumber, formatDate, parseDate } from '../_utils'
+import {
+  formatNumber,
+  formatDate,
+  parseDate,
+} from '../../../utilities/visualization'
 
 import './map.scss'
 
