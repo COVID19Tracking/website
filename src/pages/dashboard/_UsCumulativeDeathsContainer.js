@@ -11,7 +11,7 @@ export default function UsAreaChartContainer() {
       allCovidUsDaily {
         nodes {
           date
-          death
+          deathIncrease
         }
       }
     }
@@ -22,7 +22,7 @@ export default function UsAreaChartContainer() {
         {
           date: parseDate(node.date),
           label: 'Deaths',
-          value: node.death,
+          value: node.deathIncrease,
         },
       ])
       .reduce((acc, val) => acc.concat(val), [])
@@ -36,7 +36,7 @@ export default function UsAreaChartContainer() {
   return (
     <section>
       <div>
-        <h4>Total cumulative deaths by day in the US</h4>
+        <h4>Daily deaths in the US</h4>
         <div>
           <BarChart
             data={data}
