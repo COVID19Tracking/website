@@ -7,9 +7,9 @@ export default ({ data }) => (
   <Layout title="Blog" textHeavy narrow>
     {data.allContentfulBlogPost.edges.map(({ node }) => (
       <>
-        <h3>
+        <h2>
           <Link to={`/blog/${node.slug}`}>{node.title}</Link>
-        </h3>
+        </h2>
         <Byline author={node.author} date={node.publishDate} />
         <div
           dangerouslySetInnerHTML={{
