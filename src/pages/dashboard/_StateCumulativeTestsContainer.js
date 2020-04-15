@@ -241,7 +241,14 @@ export default function CumulativeTestsByStateContainer() {
               data-state={state.key}
               key={state.key}
             >
-              <h4>{stateName}</h4>
+              <a
+                className="small-multiples-chart__see-all-link"
+                href={`/data/state/${stateName
+                  .toLowerCase()
+                  .replace(/\s/g, '-')}`}
+              >
+                <h4>{stateName}</h4>
+              </a>
               <AreaChart
                 annotations={annotations}
                 data={stateData}
@@ -258,19 +265,7 @@ export default function CumulativeTestsByStateContainer() {
                 yTicks={2}
                 showTicks={false}
               />
-              <p>
-                <a
-                  className="small-multiples-chart__see-all-link"
-                  href={`/data/state/${stateName
-                    .toLowerCase()
-                    .replace(/\s/g, '-')}`}
-                >
-                  <h5>
-                    View data from
-                    {` ${state.key}`}
-                  </h5>
-                </a>
-              </p>
+              <p />
             </div>
           )
         })}
