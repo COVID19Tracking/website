@@ -8,7 +8,10 @@ const ContactAccessibilityPage = () => (
       Please fill out the form below to contact us about accessibility issues.
       All fields are required.
     </div>
-    <ContactForm messageCopy="What accessibility problems are you experiencing?" />
+    <ContactForm
+      name="accessibility"
+      messageCopy="What accessibility problems are you experiencing?"
+    />
   </Layout>
 )
 

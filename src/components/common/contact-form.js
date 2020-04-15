@@ -1,16 +1,17 @@
 import React from 'react'
 import ContactFormStyles from './contact-form.module.scss'
 
-export default ({ messageCopy }) => {
+export default ({ name, messageCopy }) => {
   return (
     <form
       className={ContactFormStyles.contactForm}
-      name="contact"
+      name={name}
       method="POST"
       data-netlify-recaptcha="true"
       data-netlify="true"
     >
       <div>
+        <input type="hidden" name="form-name" value={name} />
         <label htmlFor="name">
           <p className={ContactFormStyles.inputHeader}>
             What is your email address?
