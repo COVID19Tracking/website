@@ -259,7 +259,7 @@
   opacity: 0.7;
 }
 
-:focus {
+.dashboard-toggle:focus {
   outline: 2px dotted;
   color: $color-slate-9;
 }
