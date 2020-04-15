@@ -4,7 +4,9 @@ import { max, range } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
 import React from 'react'
 
-import { formatDate, formatNumber } from '../_utils'
+import { formatDate, formatNumber } from '../../utilities/visualization'
+import colors from '../../scss/colors.scss'
+import './bar-chart.scss'
 
 const BarChart = ({
   data,
@@ -16,8 +18,10 @@ const BarChart = ({
   marginTop,
   xTicks,
   width,
+  align,
   yMax,
   yTicks,
+  showTicks,
 }) => {
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
@@ -37,21 +41,36 @@ const BarChart = ({
     xScaleDomain.length,
     Math.floor(xScaleDomain.length / xTicks),
   )
+  const textColor = { textColor: colors.text }
   return (
-    <div>
-      <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
+    <div align={align}>
+      <svg
+        className="bar-chart"
+        width={width}
+        height={height}
+        viewBox={`0 0 ${width} ${height}`}
+      >
         <g
           className="axis-group"
           transform={`translate(${marginLeft} ${marginTop})`}
         >
-          <g className="chart-grid">
-            {yScale.ticks(yTicks).map(tick => (
+          <g>
+            {yScale.ticks(yTicks).map((tick, i) => (
               <g key={tick}>
-                <text y={yScale(tick) + 6} x={`${tick}`.length * -11}>
-                  {formatNumber(tick)}
-                </text>
+                <svg
+                  y={yScale(tick) + 4}
+                  x="-10"
+                  className="bar-chart__y-tick-label"
+                >
+                  <text
+                    fill={i < showTicks ? { textColor } : 'none'}
+                    textAnchor="end"
+                  >
+                    {formatNumber(tick)}
+                  </text>
+                </svg>
                 <line
-                  stroke="black"
+                  stroke={i < showTicks ? '#b2bbbf' : 'none'}
                   x1={0}
                   x2={width - totalXMargin}
                   y1={yScale(tick)}
@@ -64,14 +83,17 @@ const BarChart = ({
 
         <g
           className="axis-group"
-          transform={`translate(${marginLeft},${height - marginBottom})`}
+          transform={`translate(${marginLeft}, ${height - marginBottom})`}
         >
           {ticks.map(d => {
             const date = xScale.domain()[d]
             return (
-              <text key={d} x={xScale(date)} y="18">{`${formatDate(
-                date,
-              )}`}</text>
+              <text
+                className="bar-chart__x-tick-label"
+                key={d}
+                x={xScale(date)}
+                y="25"
+              >{`${formatDate(date)}`}</text>
             )
           })}
         </g>
@@ -101,6 +123,7 @@ BarChart.defaultProps = {
   xTicks: 5,
   yMax: null,
   yTicks: 4,
+  showTicks: 4,
 }
 
 BarChart.propTypes = {
@@ -120,5 +143,6 @@ BarChart.propTypes = {
   xTicks: PropTypes.number,
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
+  showTicks: PropTypes.number,
 }
 export default BarChart

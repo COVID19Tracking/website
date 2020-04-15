@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import Container from '../common/container'
 import logo from '../../images/project-logo.svg'
 import footerStyles from './footer.module.scss'
@@ -14,6 +15,9 @@ const Footer = () => (
           </li>
           <li>
             <a href="https://twitter.com/COVID19Tracking">Twitter</a>
+          </li>
+          <li>
+            <Link to="/accessibility">Accessibility</Link>
           </li>
           <li>
             <a href="#reach-skip-nav" className={footerStyles.backToTop}>

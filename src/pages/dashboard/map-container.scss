@@ -82,10 +82,10 @@
 .legend-text {
   border-bottom: solid 3px;
   &.total {
-    border-color: $color-plum-3;
+    border-color: $color-plum-500;
   }
   &.positive {
-    border-color: $color-honey-5;
+    border-color: $color-honey-400;
   }
 }
 .add-margin-small {
@@ -221,13 +221,18 @@
     }
   }
   .map-start-stop-label {
-    width: 150px;
+    width: 166px;
+    padding-left: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-size: 12px;
     &.column {
       white-space: nowrap;
+    }
+    @media screen and(max-width: $viewport-sm) {
+      width: 158px;
+      padding-left: 9px;
     }
   }
 }
