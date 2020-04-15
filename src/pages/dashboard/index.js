@@ -73,6 +73,12 @@ const DashboardPage = () => {
       <MapContainer />
       <strong>Include the denominator.</strong>
       <p>
+        Testing is one of the most important tools in controlling an outbreak.
+        When universal testing is implemented, people who are infected with the
+        virus can be isolated from folks who test negative. This functions as a
+        targeted social distancing technique and can help slow the outbreak.
+      </p>
+      <p>
         Charting the number of positive tests alone is often problematic. Simple
         case counts show where people are being tested, not necessarily where
         people are sick. To illustrate the point, a state that reports three
