@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useMemo } from 'react'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import BarChart from './charts/_BarChart'
@@ -16,23 +15,21 @@ export default function UsAreaChartContainer() {
       }
     }
   `)
-  const data = useMemo(() => {
-    const nodes = query.allCovidUsDaily.nodes
-      .map(node => [
-        {
-          date: parseDate(node.date),
-          label: 'Deaths',
-          value: node.death,
-        },
-      ])
-      .reduce((acc, val) => acc.concat(val), [])
-
-    return nodes.sort((a, b) => {
+  const data = query.allCovidUsDaily.nodes
+    .map(node => [
+      {
+        date: parseDate(node.date),
+        label: 'Deaths',
+        value: node.death,
+      },
+    ])
+    .reduce((acc, val) => acc.concat(val), [])
+    .sort((a, b) => {
       if (a.date > b.date) return 1
       if (a.date < b.date) return -1
       return 0
     })
-  }, [query.allCovidUsDaily.nodes.length])
+
   return (
     <div>
       <h4>Total deaths in the US</h4>

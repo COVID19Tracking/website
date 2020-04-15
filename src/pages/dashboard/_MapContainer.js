@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-useless-return */
 import React, { useState, useMemo, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
@@ -46,6 +44,10 @@ const MapContainer = () => {
 
   const [playing, setPlaying] = useState(false)
 
+  // the data is joined to the stateJson in the Map child component and
+  // updated using setJoinedData.
+  // this is because we need access to the d3 Path used for calculating
+  // the centroid of each state
   const [joinedData, setJoinedData] = useState(null)
 
   const getValue = useMemo(

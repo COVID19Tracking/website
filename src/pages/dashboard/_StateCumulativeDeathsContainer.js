@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useMemo, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import HorizontalBarChart from './charts/_HorizontalBarChart'
