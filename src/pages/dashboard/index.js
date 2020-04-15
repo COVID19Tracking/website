@@ -45,10 +45,6 @@ const DashboardPage = () => {
         </a>
         .
       </p>
-      <h4>
-        On this page, you will find some tips and suggestions on how to
-        responsibly visualize data from the COVID Tracking Project.
-      </h4>
       <strong>Consider normalizing the data.</strong>
       <p>
         If you&apos;re creating a{' '}
