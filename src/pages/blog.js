@@ -30,6 +30,7 @@ export const query = graphql`
           slug
           author {
             name
+            twitterLink
           }
           publishDate(formatString: "MMMM D, YYYY")
           lede
