@@ -1,12 +1,14 @@
 import { max, sum } from 'd3-array'
 import { format } from 'd3-format'
 import { timeParse } from 'd3-time-format'
-import React, { useMemo } from 'react'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import cloneDeep from 'lodash/cloneDeep'
 
 import BarChart from './charts/_BarChart'
 import { parseDate } from './_utils'
+
+import colors from '../../scss/colors.scss'
 
 const parseCdcDate = timeParse('%m/%d/%Y')
 
@@ -68,47 +70,29 @@ export default function CDCComparisonContainer() {
     }
   `)
 
-  const initialCdcData = useMemo(
-    () =>
-      query.allCdcDaily.nodes.map(node => {
-        const date = parseCdcDate(`${node.dateCollected}/2020`)
-        return {
-          date,
-          value: +node.dailyTotal,
-        }
-      }),
-    [query],
-  )
+  const initialCdcData = query.allCdcDaily.nodes.map(node => {
+    const date = parseCdcDate(`${node.dateCollected}/2020`)
+    return {
+      date,
+      value: +node.dailyTotal,
+    }
+  })
 
-  const initialCovidData = useMemo(
-    () =>
-      query.allCovidUsDaily.nodes
-        .map(node => ({
-          date: parseDate(node.date),
-          value: node.totalTestResultsIncrease,
-        }))
-        .reduce((acc, val) => acc.concat(val), []),
-    [query],
-  )
+  const initialCovidData = query.allCovidUsDaily.nodes
+    .map(node => ({
+      date: parseDate(node.date),
+      value: node.totalTestResultsIncrease,
+    }))
+    .reduce((acc, val) => acc.concat(val), [])
 
   // normalize the data so that the two arrays share the same number of items,
   // with the same dates, making the two charts comparable.
-  const cdcData = useMemo(
-    () => normalizeData(initialCdcData, initialCovidData),
-    [initialCdcData, initialCovidData],
-  )
-  const covidData = useMemo(
-    () => normalizeData(initialCovidData, initialCdcData),
-    [initialCdcData, initialCovidData],
-  )
+  const cdcData = normalizeData(initialCdcData, initialCovidData)
+  const covidData = normalizeData(initialCovidData, initialCdcData)
 
-  // const cdcCumulativeTotal = useMemo(() => sum(cdcData, d => d.value), [
-  //   cdcData,
-  // ])
-  const cumulativeTotal = useMemo(() => sum(covidData, d => d.value), [
-    covidData,
-  ])
-  const dailyMax = useMemo(() => max(covidData, d => d.value), [covidData])
+  const cumulativeTotal = sum(covidData, d => d.value)
+
+  const dailyMax = max(covidData, d => d.value)
 
   return (
     <section>
@@ -135,7 +119,7 @@ export default function CDCComparisonContainer() {
           <strong>CDC</strong>
           <BarChart
             data={cdcData}
-            fill="#585BC1"
+            fill={colors.colorPlum600}
             height={252}
             marginBottom={40}
             marginLeft={80}
@@ -152,7 +136,7 @@ export default function CDCComparisonContainer() {
           <strong>The Covid Tracking Project</strong>
           <BarChart
             data={covidData}
-            fill="#585BC1"
+            fill={colors.colorPlum600}
             height={252}
             marginBottom={40}
             marginLeft={80}
