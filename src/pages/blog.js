@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
-import DetailText from '../components/common/detail-text'
+import Byline from '../components/common/byline'
 
 export default ({ data }) => (
   <Layout title="Blog" textHeavy>
@@ -10,10 +10,7 @@ export default ({ data }) => (
         <h3>
           <Link to={`/blog/${node.slug}`}>{node.title}</Link>
         </h3>
-        <DetailText>
-          <strong>Posted on: </strong>
-          {node.updatedAt}
-        </DetailText>
+        <Byline author={node.author} date={node.publishDate} />
         <div
           dangerouslySetInnerHTML={{
             __html:
@@ -28,12 +25,15 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
-    allContentfulBlogPost(sort: { fields: updatedAt }) {
+    allContentfulBlogPost(sort: { fields: publishDate }) {
       edges {
         node {
           title
           slug
-          updatedAt(formatString: "MMMM D, YYYY")
+          author {
+            name
+          }
+          publishDate(formatString: "MMMM D, YYYY")
           childContentfulBlogPostTeaserTextNode {
             childMarkdownRemark {
               html
