@@ -6,6 +6,7 @@ import React from 'react'
 
 import { formatDate, formatNumber } from '../_utils'
 import colors from '../../../scss/colors.scss'
+import './bar-chart.scss'
 
 const BarChart = ({
   data,
@@ -43,24 +44,33 @@ const BarChart = ({
   const textColor = { textColor: colors.text }
   return (
     <div align={align}>
-      <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
+      <svg
+        className="bar-chart"
+        width={width}
+        height={height}
+        viewBox={`0 0 ${width} ${height}`}
+      >
         <g
           className="axis-group"
           transform={`translate(${marginLeft} ${marginTop})`}
         >
-          <g className="chart-grid">
+          <g>
             {yScale.ticks(yTicks).map((tick, i) => (
               <g key={tick}>
-                <text
-                  y={yScale(tick) + 6}
-                  x={`${tick}`.length * -11}
-                  fontSize="smaller"
-                  fill={i < showTicks ? { textColor } : 'none'}
+                <svg
+                  y={yScale(tick) + 4}
+                  x="-10"
+                  className="bar-chart__y-tick-label"
                 >
-                  {formatNumber(tick)}
-                </text>
+                  <text
+                    fill={i < showTicks ? { textColor } : 'none'}
+                    textAnchor="end"
+                  >
+                    {formatNumber(tick)}
+                  </text>
+                </svg>
                 <line
-                  stroke={i < showTicks ? 'black' : 'none'}
+                  stroke={i < showTicks ? '#b2bbbf' : 'none'}
                   x1={0}
                   x2={width - totalXMargin}
                   y1={yScale(tick)}
@@ -73,14 +83,17 @@ const BarChart = ({
 
         <g
           className="axis-group"
-          transform={`translate(${marginLeft},${height - marginBottom})`}
+          transform={`translate(${marginLeft}, ${height - marginBottom})`}
         >
           {ticks.map(d => {
             const date = xScale.domain()[d]
             return (
-              <text key={d} x={xScale(date)} y="18" fontSize="smaller">
-                {`${formatDate(date)}`}
-              </text>
+              <text
+                className="bar-chart__x-tick-label"
+                key={d}
+                x={xScale(date)}
+                y="25"
+              >{`${formatDate(date)}`}</text>
             )
           })}
         </g>
