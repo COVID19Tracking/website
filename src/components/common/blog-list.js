@@ -13,7 +13,7 @@ export default ({ items }) => {
             <Link to={`/blog/${node.slug}`}>{node.title}</Link>
           </PublicationTitle>
           <DetailText>
-            {node.author.name}{' '}
+            {node.author.name}
             <span className={pressListStyle.dotSeparator}>•</span>
             {node.publishDate}
           </DetailText>
