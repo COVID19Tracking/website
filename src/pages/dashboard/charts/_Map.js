@@ -26,8 +26,7 @@ const colorSchemes = Object.assign.apply(
   ['Plum', 'Honey', 'Slate'].map(scheme => ({
     [scheme.toLowerCase()]: new Array(8)
       .fill(0)
-      .map((a, i) => importedColors[`color${scheme}0${i + 1}`])
-      .reverse(), // remove after merge
+      .map((a, i) => importedColors[`color${scheme}${i + 1}00`]),
   })),
 )
 
