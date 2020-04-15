@@ -1,12 +1,12 @@
 name: header
 items:
-  - title: Get the Data
+  - title: Our Data
     link: /data
-  - title: About the Data
+  - title: How to Use It
     link: /about-data
-  - title: About the Project
+  - title: Why it Matters
+    link: /why-it-matters
+  - title: About Us
     link: /about-project
-  - title: Data API
-    link: /api
   - title: Blog
     link: /blog
