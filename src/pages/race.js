@@ -7,6 +7,8 @@ import {
   PublicationSource,
 } from '../components/common/publication'
 import DetailText from '../components/common/detail-text'
+import margueriteCaseyLogo from '../images/race-project/marguerite-casey-foundation.png'
+import raceProjectStyle from './race.module.scss'
 
 const NotFoundPage = ({ data }) => (
   <Layout title="The COVID Racial Data Tracker" textHeavy narrow>
@@ -17,6 +19,12 @@ const NotFoundPage = ({ data }) => (
             .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
       }}
     />
+    <div className={raceProjectStyle.supporters}>
+      <h3>Our tracker is supported by</h3>
+      <a href="https://caseygrants.org/">
+        <img src={margueriteCaseyLogo} alt="The Marguerite Casey Foundation" />
+      </a>
+    </div>
     <h2>Related articles</h2>
     <ul className={`press-list ${pressListStyle.pressList}`}>
       {data.allContentfulRaceProjectNewsArticle.edges.map(({ node }) => (
