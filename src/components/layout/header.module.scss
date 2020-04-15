@@ -57,6 +57,14 @@
       margin: 35px 0 17.5px;
       font-size: 2.2rem;
       color: white;
+      a {
+        color: white;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
 
       @media (max-width: $viewport-md) {
         margin: 17.5px 0 17.5px;
@@ -70,19 +78,17 @@
       margin-left: auto;
     }
 
-    a {
-      color: white;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: bold;
-    }
-
     nav {
       display: none;
       margin-top: 1rem;
       align-self: center;
       break-before: always;
-
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
       @media (min-width: $viewport-lg) {
         break-before: auto;
         margin-left: auto;
@@ -196,6 +202,11 @@
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;
 
+        a {
+          text-decoration: none;
+          font-size: 0.9rem;
+          font-weight: bold;
+        }
         @media (max-width: $viewport-ms) {
           display: inline-flex;
           flex-wrap: nowrap;

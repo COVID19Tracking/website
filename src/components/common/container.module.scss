@@ -17,9 +17,14 @@
   }
   & .container-narrow {
     max-width: 42rem;
+    @media (max-width: $viewport-lg) {
+      margin-right: 1.5rem;
+      margin-left: 1.5rem;
+    }
   }
   &.text-heavy {
-    margin: 5em auto;
+    margin-top: 5em;
+    margin-bottom: 5rem;
     @media (min-width: $viewport-lg) {
       font-size: 22px;
       font-size: 1.375rem;

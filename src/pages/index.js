@@ -9,6 +9,7 @@ import SEO from '../components/layout/seo'
 import Footer from '../components/layout/footer'
 import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/common/press-list'
+import BlogList from '../components/common/blog-list'
 import Visualizations from '../components/pages/homepage/visualizations'
 import homepageStyles from './index.module.scss'
 
@@ -57,6 +58,10 @@ export default ({ data }) => (
             </div>
           </Box>
           <Box width={[1, 1, 1 / 3]}>
+            <div style={{ marginBottom: '2.5rem' }}>
+              <h2>Blog</h2>
+              <BlogList items={data.allContentfulBlogPost.edges} />
+            </div>
             <Link
               to="/about-project/in-the-press"
               className={homepageStyles.pressListMore}
@@ -102,6 +107,19 @@ export const query = graphql`
               html
             }
           }
+        }
+      }
+    }
+
+    allContentfulBlogPost(sort: { fields: publishDate }) {
+      edges {
+        node {
+          title
+          slug
+          author {
+            name
+          }
+          publishDate(formatString: "MMMM D, YYYY")
         }
       }
     }
