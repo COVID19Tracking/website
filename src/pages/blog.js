@@ -13,9 +13,7 @@ export default ({ data }) => (
         <Byline author={node.author} date={node.publishDate} />
         <div
           dangerouslySetInnerHTML={{
-            __html:
-              node.childContentfulBlogPostTeaserTextNode.childMarkdownRemark
-                .html,
+            __html: node.lede,
           }}
         />
       </>
@@ -34,11 +32,7 @@ export const query = graphql`
             name
           }
           publishDate(formatString: "MMMM D, YYYY")
-          childContentfulBlogPostTeaserTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+          lede
         }
       }
     }
