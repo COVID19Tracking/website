@@ -152,6 +152,10 @@ export default function CumulativeTestsByStateContainer() {
     return data[0].values[0].totalTestResults
   }, [useTestsPerCapita])
 
+  const [isCollapsed, setIsCollapsed] = useState(true)
+
+  const toggleChartsCollapsed = () => setIsCollapsed(i => !i)
+
   return (
     <div className="dashboard-cumulative-tests">
       <p>
@@ -199,7 +203,12 @@ export default function CumulativeTestsByStateContainer() {
           </li>
         </ul>
       </div>
-      <div className="small-multiples-chart-container">
+      <div
+        className={[
+          'small-multiples-chart-container',
+          isCollapsed ? 'small-multiples-chart-container--collapsed' : '',
+        ].join(' ')}
+      >
         {data.map(state => {
           // because we're just charting two variables we make them here
           // we do this instead of creating two different area chart generators
@@ -266,6 +275,13 @@ export default function CumulativeTestsByStateContainer() {
           )
         })}
       </div>
+      <button
+        className="chart-expand-button small-multiples-chart-collapse-button"
+        type="button"
+        onClick={toggleChartsCollapsed}
+      >
+        Show {isCollapsed ? 'all' : 'less'} states
+      </button>
       <p className="chart-legend-note">
         <b>*</b> Only statewide stay-at-home orders are included; dates mark
         when the orders went into effect.
