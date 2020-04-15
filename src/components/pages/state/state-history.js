@@ -10,6 +10,7 @@ export default ({ history, screenshots }) => (
       <tr>
         <th scope="col">Date</th>
         <th scope="col">Screenshot</th>
+        <th scope="col">New Tests</th>
         <th scope="col">Positive</th>
         <th scope="col">Negative</th>
         <th scope="col">Pending</th>
@@ -26,6 +27,9 @@ export default ({ history, screenshots }) => (
           </td>
           <td>
             <Screenshots date={node.dateChecked} screenshots={screenshots} />
+          </td>
+          <td>
+            <FormatNumber number={node.totalTestResultsIncrease} />
           </td>
           <td>
             <FormatNumber number={node.positive} />
