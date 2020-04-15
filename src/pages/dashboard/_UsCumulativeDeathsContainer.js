@@ -40,7 +40,7 @@ export default function UsAreaChartContainer() {
         <div>
           <BarChart
             data={data}
-            fill="#585BC1"
+            fill="#4C5559"
             height={400}
             marginBottom={40}
             marginLeft={80}
