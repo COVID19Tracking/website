@@ -66,8 +66,13 @@ export default function CDCComparisonContainer() {
           sample.
         </p>
       </div>
+      <h3>DAILY NEW TESTS IN THE U.S.</h3>
       <div style={{ display: 'flex' }}>
         <div style={{ flexGrow: 1, width: '50%' }}>
+          <div>
+            <h4 style={{ marginBottom: '0.02rem' }}>C.D.C.</h4>
+            <p>Specimens tested</p>
+          </div>
           <BarChart
             data={cdcData}
             fill="#585BC1"
@@ -82,6 +87,10 @@ export default function CDCComparisonContainer() {
           />
         </div>
         <div style={{ flexGrow: 1, width: '50%' }}>
+          <div>
+            <h4 style={{ marginBottom: '0.02rem' }}>Covid tracking project</h4>
+            <p>People tested</p>
+          </div>
           <BarChart
             data={data}
             fill="#585BC1"

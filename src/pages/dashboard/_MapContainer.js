@@ -136,6 +136,7 @@ const MapContainer = () => {
 
   return (
     <div className="state-map">
+      <h3>CUMULATIVE TESTS IN THE U.S.</h3>
       <div className="map-dek">
         <h2>{formatDate(parseDate(currentDate))}</h2>
         {useChoropleth ? (
