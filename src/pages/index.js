@@ -58,9 +58,10 @@ export default ({ data }) => (
             </div>
           </Box>
           <Box width={[1, 1, 1 / 3]}>
-            <h2>Blog</h2>
-            <BlogList items={data.allContentfulBlogPost.edges} />
-
+            <div style={{ marginBottom: '2.5rem' }}>
+              <h2>Blog</h2>
+              <BlogList items={data.allContentfulBlogPost.edges} />
+            </div>
             <Link
               to="/about-project/in-the-press"
               className={homepageStyles.pressListMore}

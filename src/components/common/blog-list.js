@@ -12,7 +12,11 @@ export default ({ items }) => {
           <PublicationTitle>
             <Link to={`/blog/${node.slug}`}>{node.title}</Link>
           </PublicationTitle>
-          <DetailText>{node.publishDate}</DetailText>
+          <DetailText>
+            {node.author.name}{' '}
+            <span className={pressListStyle.dotSeparator}>•</span>
+            {node.publishDate}
+          </DetailText>
         </li>
       ))}
     </ul>
