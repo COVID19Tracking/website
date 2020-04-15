@@ -135,7 +135,7 @@
     background-color: #000;
     height: 20px;
     margin: 0 14px 0 6px;
-    verticalalign: middle;
+    vertical-align: middle;
     width: 2px;
   }
 }
@@ -261,5 +261,5 @@
 
 .dashboard-toggle:focus {
   outline: 2px dotted;
-  color: $color-slate-9;
+  color: $color-slate-800;
 }
