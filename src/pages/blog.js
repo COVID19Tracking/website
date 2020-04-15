@@ -11,11 +11,7 @@ export default ({ data }) => (
           <Link to={`/blog/${node.slug}`}>{node.title}</Link>
         </h2>
         <Byline author={node.author} date={node.publishDate} />
-        <div
-          dangerouslySetInnerHTML={{
-            __html: node.lede,
-          }}
-        />
+        <p className="lede">{node.lede}</p>
       </>
     ))}
   </Layout>
