@@ -78,7 +78,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => { 
+exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
   if (stage === 'build-javascript') {
     const config = getConfig()
     const miniCssExtractPlugin = config.plugins.find(
