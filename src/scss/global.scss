@@ -41,6 +41,14 @@ a {
   }
 }
 
+button,
+select,
+[role='switch'] {
+  &:focus {
+    outline: 2px dotted;
+  }
+}
+
 * {
   transition: color 0.2s ease;
   transition: background-color 0.2s ease;
