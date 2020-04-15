@@ -130,7 +130,7 @@ const DashboardPage = () => {
         <a href="https://twitter.com/jburnmurdoch">John Burn-Murdoch</a>, a data
         journalist at the <em>Financial Times</em>, pointed out.
       </p>
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <UsCumulativeDeathsContainer />
         <StateCumulativeDeathsContainer />
       </div>
