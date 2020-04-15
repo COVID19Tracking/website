@@ -9,7 +9,7 @@ import {
 import DetailText from '../components/common/detail-text'
 
 const NotFoundPage = ({ data }) => (
-  <Layout title="Racial Data Tracker" textHeavy narrow>
+  <Layout title="The COVID Racial Data Tracker" textHeavy narrow>
     <div
       dangerouslySetInnerHTML={{
         __html:
