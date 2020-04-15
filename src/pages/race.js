@@ -17,7 +17,7 @@ const NotFoundPage = ({ data }) => (
             .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
       }}
     />
-    <h2>News</h2>
+    <h2>Related articles</h2>
     <ul className={`press-list ${pressListStyle.pressList}`}>
       {data.allContentfulRaceProjectNewsArticle.edges.map(({ node }) => (
         <li key={`race-project-press-${node.id}`}>
