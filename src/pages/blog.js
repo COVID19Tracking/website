@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import Byline from '../components/common/byline'
 
 export default ({ data }) => (
-  <Layout title="Blog" textHeavy>
+  <Layout title="Blog" textHeavy narrow>
     {data.allContentfulBlogPost.edges.map(({ node }) => (
       <>
         <h3>
