@@ -4,20 +4,14 @@ import Layout from '../components/layout'
 import Byline from '../components/common/byline'
 
 export default ({ data }) => (
-  <Layout title="Blog" textHeavy>
+  <Layout title="Blog" textHeavy narrow>
     {data.allContentfulBlogPost.edges.map(({ node }) => (
       <>
-        <h3>
+        <h2>
           <Link to={`/blog/${node.slug}`}>{node.title}</Link>
-        </h3>
+        </h2>
         <Byline author={node.author} date={node.publishDate} />
-        <div
-          dangerouslySetInnerHTML={{
-            __html:
-              node.childContentfulBlogPostTeaserTextNode.childMarkdownRemark
-                .html,
-          }}
-        />
+        <p className="lede">{node.lede}</p>
       </>
     ))}
   </Layout>
@@ -32,13 +26,10 @@ export const query = graphql`
           slug
           author {
             name
+            twitterLink
           }
           publishDate(formatString: "MMMM D, YYYY")
-          childContentfulBlogPostTeaserTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+          lede
         }
       }
     }
