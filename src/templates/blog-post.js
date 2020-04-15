@@ -6,7 +6,7 @@ import DetailText from '../components/common/detail-text'
 export default ({ data }) => {
   const blogPost = data.allContentfulBlogPost.edges[0].node
   return (
-    <Layout title={blogPost.title}>
+    <Layout title={blogPost.title} textHeavy>
       <DetailText>{blogPost.updatedAt}</DetailText>
       <div
         dangerouslySetInnerHTML={{

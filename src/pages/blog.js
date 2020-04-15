@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import DetailText from '../components/common/detail-text'
 
 export default ({ data }) => (
-  <Layout title="Blog">
+  <Layout title="Blog" textHeavy>
     {data.allContentfulBlogPost.edges.map(({ node }) => (
       <>
         <h3>
