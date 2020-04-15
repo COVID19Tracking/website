@@ -156,12 +156,12 @@ export default function CumulativeTestsByStateContainer() {
     <div className="dashboard-cumulative-tests">
       <p>
         By comparing the positive tests to the total tests in each state, we can
-        get a sense of how widespread a state’s testing regime might be (though
-        always remember to consider population densities vary wildly across the
-        country) and if the number of positive tests is tracking roughly against
-        the total number of tests. If it is, then we might consider that the
-        state isn’t necessarily just getting new infections every day but that
-        they’re also giving more tests.
+        get a sense of how widespread a state&rsquo;s testing regime might be
+        (though always remember to consider population densities vary wildly
+        across the country) and if the number of positive tests is tracking
+        roughly against the total number of tests. If it is, then we might
+        consider that the state isn&rsquo;t necessarily just getting new
+        infections every day but that they&rsquo;re also giving more tests.
       </p>
       <h3>Cumulative tests by state</h3>
       <div className="chart-header">

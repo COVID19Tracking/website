@@ -35,17 +35,17 @@ const DashboardPage = () => {
         inconsistent in its timing of reporting. We used faster updating sources
         until April 1, when we standardized on{' '}
         <a href="https://public.tableau.com/views/COVID-19PublicDashboard/Covid-19Public?:embed=y&:display_count=no&:showVizHome=no">
-          California&apos;s new data dashboards
+          California&rsquo;s new data dashboards
         </a>
-        . This led to a drop in cases and deaths, as the state’s data lags some
-        other sources.
+        . This led to a drop in cases and deaths, as the state&rsquo;s data lags
+        some other sources.
       </p>
       <p>
         <strong>Source:</strong> The COVID Tracking Project
       </p>
       <p>
         By Daniel Gilbert,{' '}
-        <a href="https://gabeoleary.com/">Gabe O&apos;Leary</a>, Jeremia
+        <a href="https://gabeoleary.com/">Gabe O&rsquo;Leary</a>, Jeremia
         Kimelman, <a href="https://julialedur.com.br/">Júlia Ledur</a> and Melba
         Madrigal.
       </p>

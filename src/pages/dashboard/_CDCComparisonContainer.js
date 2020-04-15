@@ -62,7 +62,7 @@ export default function CDCComparisonContainer() {
           {formatNumber(cumulativeTotal)} tests administered across the country.
           It is important to note that testing numbers are likely an undercount
           because of the lack of universal testing and state reporting, and that
-          multiple specimen tests can be conducted from a single person’s
+          multiple specimen tests can be conducted from a single person&rsquo;s
           sample.
         </p>
       </div>
