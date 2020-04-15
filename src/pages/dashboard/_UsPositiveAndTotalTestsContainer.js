@@ -38,7 +38,7 @@ export default function UsAreaChartContainer() {
         sort of targeted social distancing technique and can help slow the
         outbreak.
       </p>
-      <div style={{ width: '40%', align: 'center' }}>
+      <div style={{ width: '50%', align: 'center', margin: 'auto' }}>
         <h4>Positive tests and total tests in the US</h4>
         <AreaChart
           data={transformedData}
