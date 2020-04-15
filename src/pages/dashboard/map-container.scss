@@ -221,13 +221,18 @@
     }
   }
   .map-start-stop-label {
-    width: 150px;
+    width: 166px;
+    padding-left: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-size: 12px;
     &.column {
       white-space: nowrap;
+    }
+    @media screen and(max-width: $viewport-sm) {
+      width: 158px;
+      padding-left: 9px;
     }
   }
 }

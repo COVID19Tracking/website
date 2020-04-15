@@ -63,6 +63,7 @@ export default function HorizontalBarChart({
         <g className="axis-group" transform={`translate(0, ${marginTop})`}>
           {data.map(d => (
             <text
+              key={d.name}
               className="axis-labels"
               y={yScale(d.name) + 10}
               x={marginLeft - 10}
