@@ -19,12 +19,6 @@ const NotFoundPage = ({ data }) => (
             .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
       }}
     />
-    <div className={raceProjectStyle.supporters}>
-      <h3>Our tracker is supported by</h3>
-      <a href="https://caseygrants.org/">
-        <img src={margueriteCaseyLogo} alt="The Marguerite Casey Foundation" />
-      </a>
-    </div>
     <h2>Related articles</h2>
     <ul className={`press-list ${pressListStyle.pressList}`}>
       {data.allContentfulRaceProjectNewsArticle.edges.map(({ node }) => (
@@ -40,6 +34,12 @@ const NotFoundPage = ({ data }) => (
         </li>
       ))}
     </ul>
+    <div className={raceProjectStyle.supporters}>
+      <h3>Our tracker is supported by</h3>
+      <a href="https://caseygrants.org/">
+        <img src={margueriteCaseyLogo} alt="The Marguerite Casey Foundation" />
+      </a>
+    </div>
   </Layout>
 )
 
