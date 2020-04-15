@@ -35,7 +35,7 @@ const DashboardPage = () => {
       </p>
       <p>
         Because COVID-19 testing and reporting are inconsistent among states,
-        it&apos;s easy to misinterpret the data. That makes it especially
+        it&rsquo;s easy to misinterpret the data. That makes it especially
         important to create clear and accurate visualizations. Otherwise even
         simple and minimalistic graphics can be misleading. If you plan to
         display data from the COVID Tracking Project yourself, please closely
@@ -47,13 +47,13 @@ const DashboardPage = () => {
       </p>
       <strong>Consider normalizing the data.</strong>
       <p>
-        If you&apos;re creating a{' '}
+        If you&rsquo;re creating a{' '}
         <a href="http://seeingdata.org/taketime/inside-the-chart-choropleth-map/">
           choropleth map
         </a>{' '}
         (where each state is shaded in proportion to a statistical variable),
         make sure you encode a population-controlled rate, such as
-        &quot;positive tests per one million people.&quot; If you want to show
+        &ldquo;positive tests per one million people.&rdquo; If you want to show
         absolute numbers, such as the number of new positive cases per day, use
         a{' '}
         <a href="http://seeingdata.org/taketime/inside-the-chart-proportional-symbol-map/">
@@ -65,9 +65,9 @@ const DashboardPage = () => {
       <p>
         Readers are likely experiencing some latent anxiety, so do your best to
         neither make light of the situation nor be alarmist about it. One
-        application of this is in your color choice: You don&apos;t want your
-        map&apos;s color scheme or design to minimize the situation by being
-        overly playful or lighthearted. You also don&apos;t want to select
+        application of this is in your color choice: You don&rsquo;t want your
+        map&rsquo;s color scheme or design to minimize the situation by being
+        overly playful or lighthearted. You also don&rsquo;t want to select
         colors that suggest the worst possible outcome.
       </p>
       <MapContainer />
@@ -127,9 +127,9 @@ const DashboardPage = () => {
       <p>
         We recommend using total numbers for plotting deaths to compare one US
         state or territory against another. In this case, adjusting per capita
-        adds a layer of abstraction to the graphic. This reduces the data&apos;s
-        power and the reader&apos;s comprehension. It’s easier to picture 200
-        fatalities than 0.0001 fatalities per capita, as{' '}
+        adds a layer of abstraction to the graphic. This reduces the
+        data&rsquo;s power and the reader&rsquo;s comprehension. It’s easier to
+        picture 200 fatalities than 0.0001 fatalities per capita, as{' '}
         <a href=" https://twitter.com/janinegibson/status/1244519429825802240">
           John Burn-Murdoch
         </a>
@@ -142,7 +142,7 @@ const DashboardPage = () => {
       <strong>Remember that even death counts are uncertain.</strong>
       <p>
         Data that tracks COVID-19 death counts is still a gray area. Though some
-        experts prefer to measure the pandemic&apos;s severity using the number
+        experts prefer to measure the pandemic&rsquo;s severity using the number
         of deaths instead of total cases, several factors could bias COVID-19
         mortality data.
       </p>
@@ -154,9 +154,9 @@ const DashboardPage = () => {
         <a href="https://factcheck.org/2020/04/social-media-posts-make-baseless-claim-on-covid-19-death-toll/">
           FactCheck.org
         </a>
-        &nbsp;that &quot;the number of such cases will be small.&quot;
-        Undercounting is a bigger problem, he says. &quot;A greater issue is
-        errors in the other direction.&quot;
+        &nbsp;that &ldquo;the number of such cases will be small.&rdquo;
+        Undercounting is a bigger problem, he says. &ldquo;A greater issue is
+        errors in the other direction.&rdquo;
       </p>
       <p>
         If people die from COVID-19 before they are tested, their death might
@@ -166,10 +166,10 @@ const DashboardPage = () => {
         </a>{' '}
         found that as of Tuesday, April 7, around 200 New Yorkers had died at
         home every day without access to testing and medical treatment.
-        That&apos;s 10 times higher than NYC&apos;s typical at-home death rate.
-        These deaths are likely caused by COVID-19. If this effect is widespread
-        in the United States, that means official statistics undercount the
-        disease’s fatality rate.
+        That&rsquo;s 10 times higher than NYC&rsquo;s typical at-home death
+        rate. These deaths are likely caused by COVID-19. If this effect is
+        widespread in the United States, that means official statistics
+        undercount the disease’s fatality rate.
       </p>
       <p>
         To get better grounding when interpreting death rates, consider
@@ -180,7 +180,7 @@ const DashboardPage = () => {
       <strong>Be clear and honest.</strong>
       <p>
         While news is moving faster than ever to keep up with the pace of the
-        pandemic spread, designers and visualization experts&apos; goal is to
+        pandemic spread, designers and visualization experts&rsquo; goal is to
         present COVID-19 data in a clear and honest way. Provide context, and
         consider the tips above to avoid common pitfalls in data reporting as we
         seek to inform people during this time of crisis.
@@ -195,18 +195,18 @@ const DashboardPage = () => {
         We changed the way we report California data on April 1. We synced up
         with the{' '}
         <a href="https://public.tableau.com/views/COVID-19PublicDashboard/Covid-19Public?:embed=y&:display_count=no&:showVizHome=no">
-          states&apos;s data dashboard
+          states&rsquo;s data dashboard
         </a>
         , whereas previously we had published testing updates from other
-        sources. This led to a drop in California&apos;s reported cases and
-        deaths in our dataset on April 1, since the state&apos;s data lags
+        sources. This led to a drop in California&rsquo;s reported cases and
+        deaths in our dataset on April 1, since the state&rsquo;s data lags
         behind our previous sources.
       </p>
       <p>
         <strong>Source:</strong> The COVID Tracking Project
       </p>
       <p>
-        Graphics and development by Jeremia Kimelman, Gabe O&apos;Leary, Melba
+        Graphics and development by Jeremia Kimelman, Gabe O&rsquo;Leary, Melba
         Madrigal, Vijay Sharwar, Aaron Mullan, Nathan Selikoff, Alice Goldfarb,
         Jane Friedhoff, Norman Wang, Daniel Gilbert
       </p>
