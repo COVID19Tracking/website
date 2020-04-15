@@ -228,12 +228,6 @@
   }
 }
 
-.axis-labels {
-  fill: #828688;
-  text-anchor: end;
-  font-size: 10pt;
-}
-
 .chart-expand-button {
   background-color: #f2f5fc;
   border: 0.08rem solid #788598;
@@ -253,10 +247,6 @@
     text-align: left;
     width: 86%;
   }
-}
-
-.gridlines {
-  opacity: 0.7;
 }
 
 .dashboard-toggle:focus {

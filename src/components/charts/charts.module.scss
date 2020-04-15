@@ -1,0 +1,24 @@
+@import '../../scss/colors.scss';
+
+.chart {
+  overflow: visible !important;
+}
+
+.y-tick-label {
+  overflow: visible !important;
+  text-anchor: middle;
+}
+
+.x-tick-label {
+  text-anchor: middle;
+}
+
+.label {
+  fill: $color-slate-500;
+  font-size: 14px;
+}
+
+.grid-line {
+  stroke: $color-slate-300;
+  stroke-width: 0.7px;
+}
