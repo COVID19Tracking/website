@@ -8,7 +8,9 @@ const Footer = () => (
   <footer className={footerStyles.footer}>
     <Container>
       <div className={footerStyles.container}>
-        <img src={logo} alt="The COVID Tracking Project" />
+        <Link to="/">
+          <img src={logo} alt="The COVID Tracking Project" />
+        </Link>
         <ul>
           <li>
             <a href="https://github.com/COVID19Tracking">GitHub</a>
