@@ -36,6 +36,12 @@ a {
     color: $color-link--hover;
     text-decoration: none;
   }
+}
+
+a,
+button,
+select,
+[role='switch'] {
   &:focus {
     outline: 2px dotted;
   }

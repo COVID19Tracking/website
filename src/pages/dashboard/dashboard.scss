@@ -78,15 +78,15 @@
 
 .chart-title {
   text-transform: uppercase;
-  font-size: 16px; 
-  margin-bottom: 1rem; 
+  font-size: 16px;
+  margin-bottom: 1rem;
   font-weight: bold;
 }
 
 .chart-subtitle {
- text-transform: uppercase;
-  font-size: 13px; 
-  margin-bottom: 1rem; 
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 1rem;
 }
 
 .chart-header {
@@ -155,10 +155,10 @@
 
 .chart-legend-note {
   font-size: 14px;
-  color: #676B6D;
+  color: #676b6d;
 }
 
-.tips-section-title{
+.tips-section-title {
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -199,17 +199,16 @@
   @media screen and (min-width: $viewport-xl) {
     width: calc(100% / 7);
   }
+}
+
+.small-multiples-chart__see-all-link {
+  display: inline-block;
+  margin-bottom: 0.4rem;
 
   h4 {
     font-size: 14px;
     line-height: 1.2;
-    margin-bottom: 0.4rem;
-  }
-
-  h5 {
-    font-size: 10px;
-    line-height: 1.2;
-    margin-bottom: 0.4rem;
+    margin: 0;
   }
 }
 
