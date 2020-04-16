@@ -44,11 +44,11 @@ const DashboardPage = () => {
         </a>{' '}
         and visualization guidelines.
       </p>
-      <h4>
+      <p className="tips-section-title">
         On this page, you will find some tips and suggestions on how to
         responsibly visualize data from the COVID Tracking Project.
-      </h4>
-      <strong>Consider normalizing the data.</strong>
+      </p>
+      <p className="tips-section-title">Consider normalizing the data.</p>
       <p>
         If you&apos;re creating a{' '}
         <a href="http://seeingdata.org/taketime/inside-the-chart-choropleth-map/">
@@ -64,7 +64,7 @@ const DashboardPage = () => {
         </a>
         .
       </p>
-      <strong>Choose colors carefully.</strong>
+      <p className="tips-section-title">Choose colors carefully.</p>
       <p>
         Readers are likely experiencing some latent anxiety, so do your best to
         neither make light of the situation nor be alarmist about it. One
@@ -74,7 +74,7 @@ const DashboardPage = () => {
         colors that suggest the worst possible outcome.
       </p>
       <MapContainer />
-      <strong>Include the denominator.</strong>
+      <p className="tips-section-title">Include the denominator.</p>
       <p>
         Charting the number of positive tests alone is often problematic. Simple
         case counts show where people are being tested, not necessarily where
@@ -86,7 +86,7 @@ const DashboardPage = () => {
         tests as a denominator.
       </p>
       <UsPositiveAndTotalTestsContainer />
-      <strong>Be mindful when comparing states.</strong>
+      <p className="tips-section-title">Be mindful when comparing states.</p>
       <p>
         By comparing positive tests to total tests in each state and territory,
         we can get a sense of how widespread a state’s testing regime might be
@@ -97,7 +97,7 @@ const DashboardPage = () => {
         ).
       </p>
       <StateCumulativeTestsContainer />
-      <strong>Don’t ignore data uncertainty.</strong>
+      <p className="tips-section-title">Don’t ignore data uncertainty.</p>
       <p>
         Though this is a national crisis, each US state or territory reports its
         data differently. We track numbers provided by each state, but the
@@ -114,7 +114,9 @@ const DashboardPage = () => {
         </a>
         .
       </p>
-      <strong>Use absolute numbers for death counts.</strong>
+      <p className="tips-section-title">
+        Use absolute numbers for death counts.
+      </p>
       <p>
         An organized, collective, and timely response from the government and
         other authorities is a key factor in saving lives. One metric you can
@@ -134,7 +136,9 @@ const DashboardPage = () => {
         <UsCumulativeDeathsContainer />
         <StateCumulativeDeathsContainer />
       </div>
-      <strong>Remember that even death counts are uncertain.</strong>
+      <p className="tips-section-title">
+        Remember that even death counts are uncertain.
+      </p>
       <p>
         Data that tracks COVID-19 death counts is still a gray area. Though some
         experts prefer to measure the pandemic&apos;s severity using the number
@@ -168,7 +172,7 @@ const DashboardPage = () => {
         beginning of the outbreak to fatalities during the same period in
         previous years.
       </p>
-      <strong>Be clear and honest.</strong>
+      <p className="tips-section-title">Be clear and honest.</p>
       <p>
         While news is moving faster than ever to keep up with the pace of the
         pandemic spread, designers and visualization experts&apos; goal is to
