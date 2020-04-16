@@ -1,3 +1,4 @@
+import { extent } from 'd3-array'
 import { nest } from 'd3-collection'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { useMemo, useState } from 'react'
@@ -127,6 +128,16 @@ function groupAndSortStateDaily(query) {
   }
 }
 
+// TODO: we're iterating over data and calling parseDate multiple times in this
+// component. Seems like it could be optimized.
+function getDateExtent(data) {
+  const allDates = data.reduce((acc, cur) => {
+    return acc.concat(cur.values)
+  }, [])
+
+  return extent(allDates, d => parseDate(d.date))
+}
+
 export default function CumulativeTestsByStateContainer() {
   const query = useStaticQuery(graphql`
     {
@@ -157,6 +168,10 @@ export default function CumulativeTestsByStateContainer() {
   const maxStateTests = useMemo(() => {
     return data[0].values[0].totalTestResults
   }, [useTestsPerCapita])
+
+  const dateExtent = useMemo(() => {
+    return getDateExtent(allData.totals)
+  }, [allData.totals])
 
   const [isCollapsed, setIsCollapsed] = useState(true)
 
@@ -270,6 +285,7 @@ export default function CumulativeTestsByStateContainer() {
                 yMax={maxStateTests}
                 yTicks={2}
                 showTicks={false}
+                dateExtent={dateExtent}
               />
               <p />
             </div>
