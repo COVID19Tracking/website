@@ -1,0 +1,23 @@
+@import '../scss/breakpoints.module.scss';
+@import '../scss/colors.module.scss';
+
+.supporters {
+  margin-top: 5rem;
+  h3 {
+    color: $color-slate-700;
+    font-size: 0.5rem;
+    font-variant: all-small-caps;
+    margin-bottom: 1rem;
+  }
+  img {
+    border: 1px solid $color-slate-300;
+    border-radius: 5px;
+    width: 67%;
+    display: inline-block;
+    margin: 30px 30px 0 0;
+    padding: 10px;
+    @media (min-width: $viewport-md) {
+      width: 50%;
+    }
+  }
+}

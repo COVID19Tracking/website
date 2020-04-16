@@ -1,13 +1,18 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-import DetailText from '../components/common/detail-text'
+import Lede from '../components/common/blog-lede'
 
 export default ({ data }) => {
   const blogPost = data.allContentfulBlogPost.edges[0].node
   return (
-    <Layout title={blogPost.title}>
-      <DetailText>{blogPost.updatedAt}</DetailText>
+    <Layout title="Blog" titleLink="/blog" textHeavy narrow noMargin>
+      <Lede
+        headline={blogPost.title}
+        author={blogPost.author}
+        date={blogPost.publishDate}
+        lede={blogPost.lede}
+      />
       <div
         dangerouslySetInnerHTML={{
           __html:
@@ -25,8 +30,13 @@ export const query = graphql`
       edges {
         node {
           title
+          author {
+            name
+            twitterLink
+          }
           slug
-          updatedAt(formatString: "MMMM D, YYYY")
+          lede
+          publishDate(formatString: "MMMM D, YYYY")
           childContentfulBlogPostBodyTextNode {
             childMarkdownRemark {
               html

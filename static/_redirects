@@ -12,7 +12,7 @@
 /data/state/                                  /data/
 /github                                       https://github.com/COVID19Tracking/website
 /about-tracker                                /about-data
-/how-you-can-help/                            /help
+/how-you-can-help/                            /about/help
 /us-daily/                                    /data/us-daily
 /about-team/                                  /about-project
 /api/                                         /about/api
@@ -20,3 +20,4 @@
 /software                                     /about/software
 /about                                        /about-data
 /about/in-the-press                           /about-project/in-the-press
+/help                                         /about-project/help

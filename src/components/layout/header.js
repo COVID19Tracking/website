@@ -49,7 +49,7 @@ const HeaderNavigation = () => {
   )
 }
 
-const Header = ({ title, noMargin, hasHero, navigation }) => {
+const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
   const header = (
@@ -105,7 +105,11 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
               >
                 {title && (
                   <h1 className={`${navigation ? '' : headerStyle.extraSpace}`}>
-                    {title}
+                    {titleLink ? (
+                      <Link to={titleLink}>{title}</Link>
+                    ) : (
+                      <>{title}</>
+                    )}
                   </h1>
                 )}
               </Box>

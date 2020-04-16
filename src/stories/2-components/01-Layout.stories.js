@@ -33,7 +33,7 @@ containerNarrow.story = {
   parameters: {
     info: {
       text:
-        'A narrow element that floats in the middle of the page and is useful to wrap content.',
+        'A narrow element that aligns to the left side of the page and is useful to wrap content.',
     },
   },
 }
