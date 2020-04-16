@@ -35,14 +35,14 @@ const DashboardPage = () => {
         entire dataset.
       </p>
       <p>
-        <strong>Please note:</strong>
-        Our data will always be an undercount. We can only track tests that
-        states report, and not all states report all tests. More significantly,
-        per-capita testing levels in the US remain low, which means that an
-        unknown but probably very large number of people are sick, but
-        aren&rsquo;t being tested. But this is the data we can collect, and it
-        provides the most detailed information available about the shape and
-        relative severity of outbreaks in US states and territories.
+        <strong>Please note:</strong> Our data will always be an undercount. We
+        can only track tests that states report, and not all states report all
+        tests. More significantly, per-capita testing levels in the US remain
+        low, which means that an unknown but probably very large number of
+        people are sick, but aren&rsquo;t being tested. But this is the data we
+        can collect, and it provides the most detailed information available
+        about the shape and relative severity of outbreaks in US states and
+        territories.
       </p>
       <CDCComparisonContainer />
       <p>
