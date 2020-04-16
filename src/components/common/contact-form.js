@@ -7,6 +7,7 @@ export default ({ name, messageCopy }) => {
       className={ContactFormStyles.contactForm}
       name={name}
       method="POST"
+      action="/contact/success"
       netlify-honeypot="covid-bot-field"
       data-netlify="true"
     >
