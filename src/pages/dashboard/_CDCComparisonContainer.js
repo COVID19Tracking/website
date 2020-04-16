@@ -8,7 +8,7 @@ import BarChart from '../../components/charts/bar-chart'
 
 import { parseDate } from '../../utilities/visualization'
 
-import colors from '../../scss/colors.scss'
+import colors from '../../scss/colors.module.scss'
 
 const parseCdcDate = timeParse('%m/%d/%Y')
 
