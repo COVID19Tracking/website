@@ -253,7 +253,14 @@ export default function CumulativeTestsByStateContainer() {
                   .toLowerCase()
                   .replace(/\s/g, '-')}`}
               >
-                <h4>{stateName}</h4>
+                <h4>
+                  <span className="small-multiples-chart-state-name">
+                    {stateName}
+                  </span>
+                  <span className="small-multiples-chart-state-key">
+                    {state.key}
+                  </span>
+                </h4>
               </a>
               <AreaChart
                 annotations={annotations}

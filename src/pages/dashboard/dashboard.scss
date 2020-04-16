@@ -204,11 +204,26 @@
 .small-multiples-chart__see-all-link {
   display: inline-block;
   margin-bottom: 0.4rem;
+  white-space: nowrap;
 
   h4 {
     font-size: 14px;
     line-height: 1.2;
     margin: 0;
+
+    & .small-multiples-chart-state-name {
+      display: none;
+
+      @media screen and (min-width: $viewport-ms) {
+        display: inline;
+      }
+    }
+
+    & .small-multiples-chart-state-key {
+      @media screen and (min-width: $viewport-ms) {
+        display: none;
+      }
+    }
   }
 }
 
