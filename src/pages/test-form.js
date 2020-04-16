@@ -7,8 +7,9 @@ export default () => (
       name="test-contact"
       method="POST"
       action="#"
-      data-netlify-recaptcha="true"
-      data-netlify="true"
+      data-netlify-recaptcha
+      data-netlify
+      netlify
     >
       <div>
         <input type="hidden" name="form-name" value="test-contact" />
