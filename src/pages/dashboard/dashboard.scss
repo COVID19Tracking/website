@@ -136,7 +136,7 @@
     height: 20px;
     margin: 0 14px 0 6px;
     vertical-align: middle;
-    width: 2px;
+    width: 1px;
   }
 }
 
@@ -165,6 +165,9 @@
   line-height: 1rem;
   padding: 0 1%;
   width: 50%;
+  svg {
+    background-color: $color-slate-100;
+  }
 
   @media screen and (min-width: $viewport-sm) {
     width: calc(100% / 4);
