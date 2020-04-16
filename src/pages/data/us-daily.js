@@ -26,6 +26,7 @@ const ContentPage = ({ data }) => (
         <tr>
           <th scope="col">Date</th>
           <th scope="col">States Tracked</th>
+          <th scope="col">New Tests</th>
           <th scope="col">Positive</th>
           <th scope="col">Negative</th>
           <th scope="col">Pos + Neg</th>
@@ -41,6 +42,9 @@ const ContentPage = ({ data }) => (
               <FormatDate date={node.date} />
             </td>
             <td>{node.states}</td>
+            <td>
+              <FormatNumber number={node.totalTestResultsIncrease} />
+            </td>
             <td>
               <FormatNumber number={node.positive} />
             </td>
@@ -85,6 +89,7 @@ export const query = graphql`
       edges {
         node {
           totalTestResults
+          totalTestResultsIncrease
           states
           positive
           pending

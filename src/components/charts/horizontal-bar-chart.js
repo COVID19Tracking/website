@@ -1,11 +1,10 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-debugger */
+import React from 'react'
 
-import { extent, max, range } from 'd3-array'
+import { max } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
-import React, { useEffect } from 'react'
+import { format } from 'd3-format'
 
-import { formatNumber, gridLinesColor } from '../_utils'
+import { gridLinesColor } from '../../utilities/visualization'
 
 export default function HorizontalBarChart({
   data,
@@ -18,7 +17,6 @@ export default function HorizontalBarChart({
   xTicks,
   width,
   xMax = null,
-  yTicks = null,
 }) {
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
@@ -26,18 +24,11 @@ export default function HorizontalBarChart({
     .domain(data.map(d => d.name))
     .range([0, height - totalYMargin])
     .padding(0.2)
-
+  const formatTick = format('~s')
   const xScale = scaleLinear()
     .domain([120, xMax || max(data, d => d.value)])
     .nice()
     .range([width - totalXMargin, 0])
-
-  const yScaleDomain = yScale.domain()
-  const ticks = range(
-    0,
-    yScaleDomain.length,
-    Math.floor(yScaleDomain.length / yTicks),
-  )
 
   return (
     <div>
@@ -54,7 +45,7 @@ export default function HorizontalBarChart({
                   x={230 - xScale(tick)}
                   y={height - marginBottom}
                 >
-                  {formatNumber(tick)}
+                  {formatTick(tick)}
                 </text>
                 <line
                   className="gridlines"
@@ -72,6 +63,7 @@ export default function HorizontalBarChart({
         <g className="axis-group" transform={`translate(0, ${marginTop})`}>
           {data.map(d => (
             <text
+              key={d.name}
               className="axis-labels"
               y={yScale(d.name) + 10}
               x={marginLeft - 10}

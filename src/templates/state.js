@@ -64,6 +64,7 @@ export const query = graphql`
       edges {
         node {
           totalTestResults
+          totalTestResultsIncrease
           positive
           pending
           negative
@@ -75,7 +76,7 @@ export const query = graphql`
     }
     allCovidScreenshot(
       filter: { state: { eq: $state }, secondary: { eq: false } }
-      sort: { fields: dateChecked, order: DESC }
+      sort: { fields: dateChecked }
     ) {
       edges {
         node {

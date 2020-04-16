@@ -15,7 +15,37 @@
   @media (min-width: $viewport-xl) {
     max-width: 1140px;
   }
-  &.container-narrow {
-    max-width: 900px;
+  & .container-narrow {
+    max-width: 42rem;
+    @media (max-width: $viewport-lg) {
+      margin-right: 1.5rem;
+      margin-left: 1.5rem;
+    }
+  }
+  &.text-heavy {
+    margin-top: 5em;
+    margin-bottom: 5rem;
+    @media (min-width: $viewport-lg) {
+      font-size: 22px;
+      font-size: 1.375rem;
+      line-height: 1.5;
+    }
+    h2 {
+      font-size: 30px;
+      font-size: 1.875rem;
+      line-height: 37.5px;
+      margin: 4rem 0 0.5rem;
+    }
+    h3 {
+      margin-bottom: 1em;
+    }
+    li {
+      margin-bottom: 0.75rem;
+    }
+    p,
+    ul,
+    ol {
+      margin-bottom: 1.6em;
+    }
   }
 }

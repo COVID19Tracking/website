@@ -1,0 +1,15 @@
+.bar-chart {
+  overflow: visible !important;
+}
+
+.bar-chart__y-tick-label {
+  font-size: 14px;
+  overflow: visible !important;
+  text-anchor: middle;
+}
+
+.bar-chart__x-tick-label {
+  font-size: 14px;
+  text-anchor: middle;
+  transform: rotate(90);
+}
