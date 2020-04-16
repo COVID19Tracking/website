@@ -19,7 +19,7 @@ export default () => (
       </div>
       <div>
         <label htmlFor="message">
-          <p>{messageCopy}</p>
+          <p>Message</p>
           <textarea name="message" id="message" rows="5" required />
         </label>
       </div>
