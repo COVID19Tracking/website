@@ -13,18 +13,36 @@ const DashboardPage = () => {
   return (
     <Layout title="Visual Dashboard">
       <strong>
-        Explore graphics made with the COVID Tracking Project dataset along with
-        tips to help you present the data in the clearest and most accurate way
-        possible.
+        <p>
+          Explore visualizations from the COVID Tracking Project dataset and
+          guidance to help you present the data clearly and accurately.
+        </p>
       </strong>
       <p>
-        Testing is a critical part of any public health response. Journalists
-        have uncovered evidence that the US government’s COVID-19 testing
-        strategy has been delayed and uneven. This hampers our understanding of
-        the pandemic and our ability to respond to it effectively. Government
-        updates on national testing follow a similar pattern: The Centers for
-        Disease Control and Prevention (CDC) currently publishes incomplete data
-        that lags several days behind US state and territory reports.
+        Complete, up-to-date testing and outcomes data is essential to a
+        successful public health response to the US COVID-19 outbreak, but that
+        data{' '}
+        <a href="https://covidtracking.com/why-it-matters">
+          is not being published by the Centers for Disease Control and
+          Prevention (CDC)
+        </a>
+        or any other governmental entity.
+      </p>
+      <p>
+        The COVID Tracking Project exists to help fill that gap. We collect the
+        best available testing and patient-outcomes data from every US state and
+        territory and the District of Columbia, with full daily updates to the
+        entire dataset.
+      </p>
+      <p>
+        <strong>Please note:</strong>
+        Our data will always be an undercount. We can only track tests that
+        states report, and not all states report all tests. More significantly,
+        per-capita testing levels in the US remain low, which means that an
+        unknown but probably very large number of people are sick, but
+        aren&rsquo;t being tested. But this is the data we can collect, and it
+        provides the most detailed information available about the shape and
+        relative severity of outbreaks in US states and territories.
       </p>
       <CDCComparisonContainer />
       <p>
