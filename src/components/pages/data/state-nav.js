@@ -28,7 +28,6 @@ export default ({ stateList }) => {
   }
 
   const results = searchStates(searchTerm)
-
   return (
     <div
       className={`js-enabled state-nav-combobox ${stateNavStyles.stateNavCombobox}`}
@@ -44,6 +43,10 @@ export default ({ stateList }) => {
           })
           if (stateId && typeof window !== 'undefined') {
             window.location.hash = `state-${stateId.node.state.toLowerCase()}`
+            setTimeout(
+              () => document.getElementById('jump-to-state').blur(),
+              50,
+            )
           }
         }}
       >
