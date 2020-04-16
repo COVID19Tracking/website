@@ -149,7 +149,7 @@ export default function CDCComparisonContainer() {
           />
         </div>
       </div>
-      <p>
+      <p className="chart-legend-note">
         <strong>Note:</strong> Numbers undercount the full extent of COVID-19
         because of the lack of widespread testing and lags in state reporting.
       </p>

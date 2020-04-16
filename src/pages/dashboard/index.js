@@ -176,13 +176,15 @@ const DashboardPage = () => {
         consider the tips above to avoid common pitfalls in data reporting as we
         seek to inform people during this time of crisis.
       </p>
-      <strong>Notes</strong>
-      <p>
+      <div className="chart-legend-note">
+        <strong>Notes</strong>
+      </div>
+      <p className="chart-legend-note">
         We derive the total value by adding together the positive and negative
         value for each state. This is to account for differences in how states
         reporting pending tests
       </p>
-      <p>
+      <p className="chart-legend-note">
         We changed the way we report California data on April 1. We synced up
         with the{' '}
         <a href="https://public.tableau.com/views/COVID-19PublicDashboard/Covid-19Public?:embed=y&:display_count=no&:showVizHome=no">
@@ -193,19 +195,16 @@ const DashboardPage = () => {
         deaths in our dataset on April 1, since the state&apos;s data lags
         behind our previous sources.
       </p>
-      <p>
+      <p className="chart-legend-note">
         <strong>Source:</strong> The COVID Tracking Project
       </p>
-      <p>
-        Graphics and development by Jeremia Kimelman,{' '}
-        <a href="https://gabeoleary.com/">Gabe O&apos;Leary</a>, Melba Madrigal,
-        Vijay Sharwar, Aaron Mullan, Nathan Selikoff, Alice Goldfarb, Jane
-        Friedhoff, Norman Wang, Daniel Gilbert
+      <p className="chart-legend-note">
+        Graphics and development by Jeremia Kimelman, Melba Madrigal, Vijay
+        Sharwar, Aaron Mullan, Nathan Selikoff, Alice Goldfarb, Jane Friedhoff,
+        Norman Wang, Daniel Gilbert
       </p>
-      <p>
-        Visual editing by <a href="https://julialedur.com.br/">Júlia Ledur</a>
-      </p>
-      <p>Text editing by Hannah Waters</p>
+      <p className="chart-legend-note">Visual editing by Júlia Ledur</p>
+      <p className="chart-legend-note">Text editing by Hannah Waters</p>
     </Layout>
   )
 }

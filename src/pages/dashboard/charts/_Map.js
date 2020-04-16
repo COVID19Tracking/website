@@ -226,7 +226,7 @@ export default function Map({
           />
         )}
       </div>
-      <p>*Per one million people</p>
+      <p className="chart-legend-note">*Per one million people</p>
     </div>
   )
 }
