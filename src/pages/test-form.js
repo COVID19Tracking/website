@@ -13,15 +13,13 @@ export default () => (
       <div>
         <input type="hidden" name="form-name" value="test-contact" />
         <label htmlFor="name">
-          <p className={ContactFormStyles.inputHeader}>
-            What is your email address?
-          </p>
+          <p>What is your email address?</p>
           <input type="email" id="name" name="name" required />
         </label>
       </div>
       <div>
         <label htmlFor="message">
-          <p className={ContactFormStyles.inputHeader}>{messageCopy}</p>
+          <p>{messageCopy}</p>
           <textarea name="message" id="message" rows="5" required />
         </label>
       </div>
