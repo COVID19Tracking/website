@@ -16,7 +16,7 @@ workflows:
           requires:
             - Linux install
           record: false
-          pre-steps:
+          steps:
             - checkout
             - run:
                 name: npm-install
@@ -27,4 +27,6 @@ workflows:
             - run:
                 name: build-site
                 command: 'npm run build:gatsby'
-          start: 'npm run test:e2e:ci'
+            - run:
+                name: test
+                command: 'npm run test:e2e:ci'
