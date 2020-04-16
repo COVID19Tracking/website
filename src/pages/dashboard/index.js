@@ -12,11 +12,18 @@ import './dashboard.scss'
 const DashboardPage = () => {
   return (
     <Layout title="Visual Dashboard">
-      <strong>
+      <div
+        style={{
+          'font-weight': 'lighter',
+          'font-size': '25px',
+          'line-height': '33px',
+          'margin-bottom': '20px',
+        }}
+      >
         Explore graphics made with the COVID Tracking Project dataset along with
         tips to help you present the data in the clearest and most accurate way
         possible.
-      </strong>
+      </div>
       <p>
         Testing is a critical part of any public health response. Journalists
         have uncovered evidence that the US government’s COVID-19 testing
