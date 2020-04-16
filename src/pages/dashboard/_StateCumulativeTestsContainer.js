@@ -218,7 +218,8 @@ export default function CumulativeTestsByStateContainer() {
         {data.map(state => {
           // because we're just charting two variables we make them here
           // we do this instead of creating two different area chart generators
-          const stateData = []
+          const startDate = new Date(2020, 1, 27)
+          const stateData = [{ date: startDate }]
           const stateName = getStateName(state.key)
           const stayAtHomeOrder = stayAtHomeOrders[state.key]
           const annotations = stayAtHomeOrder
