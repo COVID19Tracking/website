@@ -36,11 +36,9 @@ a {
     color: $color-link--hover;
     text-decoration: none;
   }
-  &:focus {
-    outline: 2px dotted;
-  }
 }
 
+a,
 button,
 select,
 [role='switch'] {
