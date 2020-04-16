@@ -76,6 +76,18 @@
   justify-content: space-between;
 }
 
+.chart-title {
+  text-transform: uppercase;
+  font-size: 16px; 
+  margin-bottom: 1rem; 
+}
+
+.chart-subtitle {
+ text-transform: uppercase;
+  font-size: 13px; 
+  margin-bottom: 1rem; 
+}
+
 .chart-header {
   display: flex;
   flex-direction: column;
@@ -262,4 +274,11 @@
 .dashboard-toggle:focus {
   outline: 2px dotted;
   color: $color-slate-800;
+}
+
+.subhead {
+  font-weight: lighter;
+  font-size: 25px;
+  line-height: 33px;
+  margin-bottom: 70px;
 }

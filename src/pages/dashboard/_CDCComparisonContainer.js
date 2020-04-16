@@ -112,11 +112,11 @@ export default function CDCComparisonContainer() {
           and private labs. We update our dataset multiple times every day based
           on the latest reports.
         </p>
-        <h4>Daily new tests in the US</h4>
+        <div className="chart-title">Daily new tests in the US</div>
       </div>
       <div className="charts-container">
         <div className="charts-container__chart">
-          <strong>CDC</strong>
+          <div className="chart-subtitle">CDC</div>
           <BarChart
             data={cdcData}
             fill={colors.colorPlum600}
@@ -133,7 +133,7 @@ export default function CDCComparisonContainer() {
           />
         </div>
         <div className="charts-container__chart">
-          <strong>The Covid Tracking Project</strong>
+          <div className="chart-subtitle">The Covid Tracking Project</div>
           <BarChart
             data={covidData}
             fill={colors.colorPlum600}

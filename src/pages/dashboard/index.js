@@ -12,14 +12,7 @@ import './dashboard.scss'
 const DashboardPage = () => {
   return (
     <Layout title="Visual Dashboard">
-      <div
-        style={{
-          'font-weight': 'lighter',
-          'font-size': '25px',
-          'line-height': '33px',
-          'margin-bottom': '20px',
-        }}
-      >
+      <div className="subhead">
         Explore graphics made with the COVID Tracking Project dataset along with
         tips to help you present the data in the clearest and most accurate way
         possible.
