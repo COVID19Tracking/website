@@ -18,8 +18,8 @@ import './map.scss'
 
 import ChoroLegend from './_ChoroLegend'
 
-import breakpoints from '../../../scss/breakpoints.scss'
-import importedColors from '../../../scss/colors.scss'
+import breakpoints from '../../../scss/breakpoints.module.scss'
+import importedColors from '../../../scss/colors.module.scss'
 
 const viewportSm = parseInt(breakpoints.viewportSm, 10)
 
