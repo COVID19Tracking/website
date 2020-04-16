@@ -16,7 +16,7 @@ workflows:
           requires:
             - Linux install
           record: false
-          steps:
+          run:
             - checkout
             - run:
                 name: npm-install
