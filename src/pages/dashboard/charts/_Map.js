@@ -346,7 +346,13 @@ const BubbleLegend = ({ r, maxValue, width, height }) => {
     />
   ))
   const legendText = legendData.map(d => (
-    <text key={`legendText${d}`} x={(width * 2) / 3} y={height - 2 * r(d)}>
+    <text
+      key={`legendText${d}`}
+      x={(width * 2) / 3 + 4}
+      y={height - 2 * r(d) - 2}
+      fill="#ababab"
+      fontSize="15px"
+    >
       {formatNumber(d)}
     </text>
   ))
