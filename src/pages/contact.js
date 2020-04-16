@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import GetInvolved from '../components/common/get-involved'
 
 const ContactPage = ({ data }) => (
-  <Layout title="Contact us" narrow textHeavy>
+  <Layout title="Contact" narrow textHeavy>
     <div
       dangerouslySetInnerHTML={{
         __html:

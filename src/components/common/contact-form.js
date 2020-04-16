@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from './button'
 import ContactFormStyles from './contact-form.module.scss'
 
 export default ({ name, messageCopy }) => {
@@ -13,17 +14,15 @@ export default ({ name, messageCopy }) => {
     >
       <div>
         <input type="hidden" name="form-name" value={name} />
-        <label htmlFor="name">
-          <p className={ContactFormStyles.inputHeader}>
-            What is your email address?
-          </p>
-          <input type="email" id="name" name="name" required />
+        <label htmlFor="email" className={ContactFormStyles.inputHeader}>
+          What is your email address?
+          <input type="email" name="email" required />
         </label>
       </div>
       <div>
-        <label htmlFor="message">
-          <p className={ContactFormStyles.inputHeader}>{messageCopy}</p>
-          <textarea name="message" id="message" rows="5" required />
+        <label htmlFor="message" className={ContactFormStyles.inputHeader}>
+          {messageCopy}
+          <textarea name="message" rows="5" required />
         </label>
       </div>
       <div className={ContactFormStyles.botField}>
@@ -33,7 +32,7 @@ export default ({ name, messageCopy }) => {
         </label>
       </div>
       <div>
-        <button type="submit">Send your email</button>
+        <Button type="submit">Send your email</Button>
       </div>
     </form>
   )

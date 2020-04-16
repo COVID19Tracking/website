@@ -17,6 +17,9 @@
     margin-bottom: 16px;
     resize: vertical;
     margin-bottom: 50px;
+    display:block;
+    font-weight:400;
+    font-size: 1rem;
   }
 
   @media (max-width: $viewport-md) {
@@ -37,10 +40,11 @@
   button {
     width: 210px;
     height: 58px;
+    border: none;
     background: $color-blueberry-200;
     border-radius: 4px;
     line-height: 33px;
-    color: $color-infobox-sync-dark;
+    color: $color-blueberry-400;
     font-size: 22px;
   }
 

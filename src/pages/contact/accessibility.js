@@ -6,7 +6,8 @@ const ContactAccessibilityPage = () => (
   <Layout title="Contact us &mdash; Accessibility">
     <div>
       Please fill out the form below to contact us about accessibility issues.
-      All fields are required.
+      All fields are required. We try to respond to feedback within 5 business
+      days, and to propose a solution within 10 business days.
     </div>
     <ContactForm
       name="accessibility"

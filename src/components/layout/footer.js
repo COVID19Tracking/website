@@ -11,7 +11,7 @@ const Footer = () => (
         <img src={logo} alt="The COVID Tracking Project" />
         <ul>
           <li>
-            <a href="/contact">Contact us</a>
+            <a href="/contact">Contact</a>
           </li>
           <li>
             <Link to="/accessibility">Accessibility</Link>
