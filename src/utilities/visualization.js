@@ -1,5 +1,6 @@
 import { format } from 'd3-format'
 import { timeFormat, timeParse } from 'd3-time-format'
+import colors from '../scss/colors.module.scss'
 
 export const formatDate = timeFormat('%b. %e')
 export const formatNumber = format(',.0f')
@@ -67,6 +68,6 @@ export const getStateName = abbr => {
   return names[abbr] || abbr
 }
 
-export const totalColor = '#585BC1'
-export const positiveColor = '#FFA270'
-export const deathsBarColor = '#4C5559'
+export const totalColor = colors.colorPlum600
+export const positiveColor = colors.colorHoney500
+export const deathsBarColor = colors.colorSlate600
