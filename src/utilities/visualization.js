@@ -1,7 +1,7 @@
 import { format } from 'd3-format'
 import { timeFormat, timeParse } from 'd3-time-format'
 
-export const formatDate = timeFormat('%b. %e')
+export const formatDate = timeFormat('%b %e')
 export const formatNumber = format(',.0f')
 export const parseDate = timeParse('%Y%m%d')
 
