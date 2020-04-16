@@ -3,14 +3,7 @@ import Layout from '../components/layout'
 
 export default () => (
   <Layout title="contact">
-    <form
-      name="test-contact"
-      method="POST"
-      action="#"
-      data-netlify-recaptcha
-      data-netlify
-      netlify
-    >
+    <form name="test-contact" method="POST" action="#" data-netlify>
       <div>
         <input type="hidden" name="form-name" value="test-contact" />
         <label htmlFor="name">
@@ -24,7 +17,6 @@ export default () => (
           <textarea name="message" id="message" rows="5" required />
         </label>
       </div>
-      <div data-netlify-recaptcha="true" />
       <div>
         <button type="submit">Send your email</button>
       </div>
