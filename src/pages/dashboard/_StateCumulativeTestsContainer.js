@@ -15,6 +15,7 @@ import {
 } from '../../utilities/visualization'
 
 import './dashboard.scss'
+import dashboardStyles from './dashboard.module.scss'
 
 // these come from this google spreadsheet owned by Júlia Ledur
 // https://docs.google.com/spreadsheets/d/1mD_NhlJR1fM2Pv_pY8YixUrX2p2F8rAE0xPTtsTJOiM/edit#gid=0
@@ -173,7 +174,7 @@ export default function CumulativeTestsByStateContainer() {
         state isn’t necessarily just getting new infections every day but that
         they’re also giving more tests.
       </p>
-      <div className="chart-title">Cumulative tests by state</div>
+      <h3 className={dashboardStyles.chartTitle}>Cumulative tests by state</h3>
       <div className="chart-header">
         <div
           className="dashboard-toggle"

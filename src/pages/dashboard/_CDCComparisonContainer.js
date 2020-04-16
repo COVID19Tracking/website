@@ -9,6 +9,7 @@ import BarChart from '../../components/charts/bar-chart'
 import { parseDate } from '../../utilities/visualization'
 
 import colors from '../../scss/colors.scss'
+import dashboardStyles from './dashboard.module.scss'
 
 const parseCdcDate = timeParse('%m/%d/%Y')
 
@@ -93,6 +94,8 @@ export default function CDCComparisonContainer() {
   const cumulativeTotal = sum(covidData, d => d.value)
 
   const dailyMax = max(covidData, d => d.value)
+  const ctpHeading =
+    window.innerWidth < 500 ? 'CTP' : 'The Covid Tracking Project'
 
   return (
     <section>
@@ -112,47 +115,51 @@ export default function CDCComparisonContainer() {
           and private labs. We update our dataset multiple times every day based
           on the latest reports.
         </p>
-        <div className="chart-title">Daily new tests in the US</div>
       </div>
-      <div className="charts-container">
-        <div className="charts-container__chart">
-          <div className="chart-subtitle">CDC</div>
+      <div
+        className={`${dashboardStyles.chartsContainer} ${dashboardStyles.chartsTwoColumn}`}
+      >
+        <h3 className={dashboardStyles.chartTitle}>
+          Daily new tests in the US
+        </h3>
+        <div
+          className={`${dashboardStyles.chartsContainerInner} ${dashboardStyles.chartsContainerInnerLeft}`}
+        >
+          <h4 className={dashboardStyles.chartSubtitle}>CDC</h4>
           <BarChart
             data={cdcData}
             fill={colors.colorPlum600}
-            height={252}
+            height={250}
             marginBottom={40}
             marginLeft={80}
             marginRight={10}
             marginTop={10}
             xTicks={2}
-            width={252}
-            align="right"
+            width={250}
             yMax={dailyMax}
             showTicks={2}
           />
         </div>
-        <div className="charts-container__chart">
-          <div className="chart-subtitle">The Covid Tracking Project</div>
+        <div className={dashboardStyles.chartsContainerInner}>
+          <h4 className={dashboardStyles.chartSubtitle}>{ctpHeading}</h4>
           <BarChart
             data={covidData}
             fill={colors.colorPlum600}
-            height={252}
+            height={250}
             marginBottom={40}
             marginLeft={80}
             marginRight={10}
             marginTop={10}
             xTicks={2}
-            width={252}
-            align="left"
+            width={250}
             showTicks={5}
           />
         </div>
+        <p className="chart-legend-note">
+          <strong>Note:</strong> Numbers undercount the full extent of COVID-19
+          because of the lack of widespread testing and lags in state reporting.
+        </p>
       </div>
-      <p className="chart-legend-note">
-        <strong>Note:</strong> Numbers undercount the full extent of COVID-19
-        because of the lack of widespread testing and lags in state reporting.
-      </p>
     </section>
   )
 }
