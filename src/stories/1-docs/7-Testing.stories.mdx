@@ -1,0 +1,14 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Testing" />
+
+# Testing 
+
+We use [Cypress.io](https://www.cypress.io/) for end-to-end user testing. This includes user interaction and component testing. All test files are defined in `/cypress`.
+
+Since the command `gatsby develop` and `gatsby build` yield slightly different output, we have two methods of testing:
+
+ - `npm run test:e2e` - Runs `gatsby develop` and a Cypress testing console
+ - `npm run test:e2e:ci` - Runs `gatsby build` and then `gatsby serve` for the static site, then runs Cypress tests.
+
+ We use CircleCI in Github to notify users when a build's test fails in pull requests. CircleCI runs the `npm run test:e2e:ci` command.
