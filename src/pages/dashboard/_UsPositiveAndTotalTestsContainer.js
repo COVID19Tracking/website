@@ -3,7 +3,11 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { format } from 'd3-format'
 
 import AreaChart from '../../components/charts/area-chart'
-import { parseDate } from '../../utilities/visualization'
+import {
+  parseDate,
+  totalColor,
+  positiveColor,
+} from '../../utilities/visualization'
 
 export default function UsAreaChartContainer() {
   const data = useStaticQuery(graphql`
@@ -40,6 +44,22 @@ export default function UsAreaChartContainer() {
       </p>
       <div style={{ width: '50%', align: 'center', margin: 'auto' }}>
         <h4>Positive tests and total tests in the US</h4>
+        <ul className="chart-legend">
+          <li>
+            <div
+              className="chart-legend-color"
+              style={{ backgroundColor: positiveColor }}
+            />
+            <div>Positive tests</div>
+          </li>
+          <li>
+            <div
+              className="chart-legend-color"
+              style={{ backgroundColor: totalColor }}
+            />
+            <div>Total tests</div>
+          </li>
+        </ul>
         <AreaChart
           data={transformedData}
           fill={d => {
