@@ -34,7 +34,7 @@ export default function StateCumulativeDeathsContainer() {
   const height = isCollapsed ? 400 : 1000
   return (
     <div>
-      <h4>Total Deaths By States</h4>
+      <div className="chart-title">Total Deaths By States</div>
       <section className="state-cumulative-death-container">
         <div>
           <HorizontalBarChart

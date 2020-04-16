@@ -12,11 +12,11 @@ import './dashboard.scss'
 const DashboardPage = () => {
   return (
     <Layout title="Visual Dashboard">
-      <strong>
+      <div className="subhead">
         Explore graphics made with the COVID Tracking Project dataset along with
         tips to help you present the data in the clearest and most accurate way
         possible.
-      </strong>
+      </div>
       <p>
         Testing is a critical part of any public health response. Journalists
         have uncovered evidence that the US government’s COVID-19 testing
@@ -44,11 +44,11 @@ const DashboardPage = () => {
         </a>{' '}
         and visualization guidelines.
       </p>
-      <h4>
+      <p className="tips-section-title">
         On this page, you will find some tips and suggestions on how to
         responsibly visualize data from the COVID Tracking Project.
-      </h4>
-      <strong>Consider normalizing the data.</strong>
+      </p>
+      <p className="tips-section-title">Consider normalizing the data.</p>
       <p>
         If you&apos;re creating a{' '}
         <a href="http://seeingdata.org/taketime/inside-the-chart-choropleth-map/">
@@ -64,7 +64,7 @@ const DashboardPage = () => {
         </a>
         .
       </p>
-      <strong>Choose colors carefully.</strong>
+      <p className="tips-section-title">Choose colors carefully.</p>
       <p>
         Readers are likely experiencing some latent anxiety, so do your best to
         neither make light of the situation nor be alarmist about it. One
@@ -74,7 +74,7 @@ const DashboardPage = () => {
         colors that suggest the worst possible outcome.
       </p>
       <MapContainer />
-      <strong>Include the denominator.</strong>
+      <p className="tips-section-title">Include the denominator.</p>
       <p>
         Charting the number of positive tests alone is often problematic. Simple
         case counts show where people are being tested, not necessarily where
@@ -86,7 +86,7 @@ const DashboardPage = () => {
         tests as a denominator.
       </p>
       <UsPositiveAndTotalTestsContainer />
-      <strong>Be mindful when comparing states.</strong>
+      <p className="tips-section-title">Be mindful when comparing states.</p>
       <p>
         By comparing positive tests to total tests in each state and territory,
         we can get a sense of how widespread a state’s testing regime might be
@@ -97,7 +97,7 @@ const DashboardPage = () => {
         ).
       </p>
       <StateCumulativeTestsContainer />
-      <strong>Don’t ignore data uncertainty.</strong>
+      <p className="tips-section-title">Don’t ignore data uncertainty.</p>
       <p>
         Though this is a national crisis, each US state or territory reports its
         data differently. We track numbers provided by each state, but the
@@ -114,7 +114,9 @@ const DashboardPage = () => {
         </a>
         .
       </p>
-      <strong>Use absolute numbers for death counts.</strong>
+      <p className="tips-section-title">
+        Use absolute numbers for death counts.
+      </p>
       <p>
         An organized, collective, and timely response from the government and
         other authorities is a key factor in saving lives. One metric you can
@@ -134,7 +136,9 @@ const DashboardPage = () => {
         <UsCumulativeDeathsContainer />
         <StateCumulativeDeathsContainer />
       </div>
-      <strong>Remember that even death counts are uncertain.</strong>
+      <p className="tips-section-title">
+        Remember that even death counts are uncertain.
+      </p>
       <p>
         Data that tracks COVID-19 death counts is still a gray area. Though some
         experts prefer to measure the pandemic&apos;s severity using the number
@@ -168,7 +172,7 @@ const DashboardPage = () => {
         beginning of the outbreak to fatalities during the same period in
         previous years.
       </p>
-      <strong>Be clear and honest.</strong>
+      <p className="tips-section-title">Be clear and honest.</p>
       <p>
         While news is moving faster than ever to keep up with the pace of the
         pandemic spread, designers and visualization experts&apos; goal is to
@@ -176,13 +180,15 @@ const DashboardPage = () => {
         consider the tips above to avoid common pitfalls in data reporting as we
         seek to inform people during this time of crisis.
       </p>
-      <strong>Notes</strong>
-      <p>
+      <div className="chart-legend-note">
+        <strong>Notes</strong>
+      </div>
+      <p className="chart-legend-note">
         We derive the total value by adding together the positive and negative
         value for each state. This is to account for differences in how states
         reporting pending tests
       </p>
-      <p>
+      <p className="chart-legend-note">
         We changed the way we report California data on April 1. We synced up
         with the{' '}
         <a href="https://public.tableau.com/views/COVID-19PublicDashboard/Covid-19Public?:embed=y&:display_count=no&:showVizHome=no">
@@ -193,19 +199,16 @@ const DashboardPage = () => {
         deaths in our dataset on April 1, since the state&apos;s data lags
         behind our previous sources.
       </p>
-      <p>
+      <p className="chart-legend-note">
         <strong>Source:</strong> The COVID Tracking Project
       </p>
-      <p>
-        Graphics and development by Jeremia Kimelman,{' '}
-        <a href="https://gabeoleary.com/">Gabe O&apos;Leary</a>, Melba Madrigal,
-        Vijay Sharwar, Aaron Mullan, Nathan Selikoff, Alice Goldfarb, Jane
-        Friedhoff, Norman Wang, Daniel Gilbert
+      <p className="chart-legend-note">
+        Graphics and development by Jeremia Kimelman, Melba Madrigal, Vijay
+        Sharwar, Aaron Mullan, Nathan Selikoff, Alice Goldfarb, Jane Friedhoff,
+        Norman Wang, Daniel Gilbert
       </p>
-      <p>
-        Visual editing by <a href="https://julialedur.com.br/">Júlia Ledur</a>
-      </p>
-      <p>Text editing by Hannah Waters</p>
+      <p className="chart-legend-note">Visual editing by Júlia Ledur</p>
+      <p className="chart-legend-note">Text editing by Hannah Waters</p>
     </Layout>
   )
 }
