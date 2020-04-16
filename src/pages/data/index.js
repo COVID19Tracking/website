@@ -120,7 +120,7 @@ export const query = graphql`
           state
           score
           grade
-          lastUpdateEt
+          dateModified
           positive
           negative
           pending
