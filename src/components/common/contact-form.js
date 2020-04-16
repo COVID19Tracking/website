@@ -7,7 +7,7 @@ export default ({ name, messageCopy }) => {
       className={ContactFormStyles.contactForm}
       name={name}
       method="POST"
-      data-netlify-recaptcha="true"
+      netlify-honeypot="covid-bot-field"
       data-netlify="true"
     >
       <div>
@@ -25,7 +25,12 @@ export default ({ name, messageCopy }) => {
           <textarea name="message" id="message" rows="5" required />
         </label>
       </div>
-      <div data-netlify-recaptcha="true" />
+      <div className={ContactFormStyles.botField}>
+        <label htmlFor="covid-bot-field">
+          If you are a human, don&apos;t fill out this field:
+          <input type="text" name="covid-bot-field" id="covid-bot-field" />
+        </label>
+      </div>
       <div>
         <button type="submit">Send your email</button>
       </div>
