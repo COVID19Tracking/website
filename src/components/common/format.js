@@ -1,7 +1,7 @@
 import React from 'react'
 import { DateTime } from 'luxon'
 
-const FormatDate = ({ date, format = 'ccc LLLL d yyyy' }) => {
+const FormatDate = ({ date, format = "ccc LLL d yyyy h:mm a 'ET'" }) => {
   if (typeof date === 'undefined') {
     return null
   }
