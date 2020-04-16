@@ -76,6 +76,19 @@
   justify-content: space-between;
 }
 
+.chart-title {
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.chart-subtitle {
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 1rem;
+}
+
 .chart-header {
   display: flex;
   flex-direction: column;
@@ -136,12 +149,18 @@
     height: 20px;
     margin: 0 14px 0 6px;
     vertical-align: middle;
-    width: 2px;
+    width: 1px;
   }
 }
 
 .chart-legend-note {
-  font-size: 12px;
+  font-size: 14px;
+  color: #676b6d;
+}
+
+.tips-section-title {
+  font-size: 1.1em;
+  font-weight: bold;
 }
 
 .chart-controls {
@@ -165,6 +184,9 @@
   line-height: 1rem;
   padding: 0 1%;
   width: 50%;
+  svg {
+    background-color: $color-slate-100;
+  }
 
   @media screen and (min-width: $viewport-sm) {
     width: calc(100% / 4);
@@ -256,4 +278,16 @@
 
 .gridlines {
   opacity: 0.7;
+}
+
+.dashboard-toggle:focus {
+  outline: 2px dotted;
+  color: $color-slate-800;
+}
+
+.subhead {
+  font-weight: lighter;
+  font-size: 25px;
+  line-height: 33px;
+  margin-bottom: 70px;
 }

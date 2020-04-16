@@ -173,7 +173,7 @@ export default function CumulativeTestsByStateContainer() {
         state isn’t necessarily just getting new infections every day but that
         they’re also giving more tests.
       </p>
-      <h3>Cumulative tests by state</h3>
+      <div className="chart-title">Cumulative tests by state</div>
       <div className="chart-header">
         <div
           className="dashboard-toggle"

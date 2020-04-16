@@ -31,7 +31,7 @@ export default function UsAreaChartContainer() {
 
   return (
     <div>
-      <h4>Total deaths in the US</h4>
+      <div className="chart-title">Total deaths in the US</div>
       <div>
         <BarChart
           data={data}
