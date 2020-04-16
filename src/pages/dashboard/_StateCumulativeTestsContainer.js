@@ -259,8 +259,8 @@ export default function CumulativeTestsByStateContainer() {
                 annotations={annotations}
                 data={stateData}
                 fill={d => {
-                  if (d === 'Total') return '#585BC1'
-                  return '#FFA270'
+                  if (d === 'Total') return totalColor
+                  return positiveColor
                 }}
                 height={500}
                 labelOrder={['Total', 'Positive']}
