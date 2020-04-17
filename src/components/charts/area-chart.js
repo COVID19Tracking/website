@@ -25,6 +25,7 @@ const AreaChart = ({
   yMax,
   yTicks,
   showTicks,
+  dateExtent,
 }) => {
   const grouped = nest()
     .key(d => d.label)
@@ -39,14 +40,14 @@ const AreaChart = ({
         })
         .filter(d => d)
 
-  const dateExtent = extent(data, d => d.date)
+  const domain = dateExtent || extent(data, d => d.date)
   const valueMax = max(data, d => d.value)
 
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
   const fillFn = typeof fill === 'string' ? fill : d => fill(d.key)
   const xScale = scaleTime()
-    .domain(dateExtent)
+    .domain(domain)
     .range([0, width - totalXMargin])
   const yScale = scaleLinear()
     .domain([0, yMax || valueMax])
@@ -141,6 +142,7 @@ AreaChart.defaultProps = {
   yTicks: 4,
   yFormat: null,
   showTicks: true,
+  dateExtent: null,
 }
 
 AreaChart.propTypes = {
@@ -167,5 +169,6 @@ AreaChart.propTypes = {
   yTicks: PropTypes.number,
   yFormat: PropTypes.func,
   showTicks: PropTypes.bool,
+  dateExtent: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
 }
 export default AreaChart

@@ -13,13 +13,16 @@ const Footer = () => (
         </Link>
         <ul>
           <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/accessibility">Accessibility</Link>
+          </li>
+          <li>
             <a href="https://github.com/COVID19Tracking">GitHub</a>
           </li>
           <li>
             <a href="https://twitter.com/COVID19Tracking">Twitter</a>
-          </li>
-          <li>
-            <Link to="/accessibility">Accessibility</Link>
           </li>
           <li>
             <a href="#reach-skip-nav" className={footerStyles.backToTop}>

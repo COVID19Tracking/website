@@ -1,7 +1,9 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import BarChart from '../../components/charts/bar-chart'
-import { parseDate } from '../../utilities/visualization'
+import { deathsBarColor, parseDate } from '../../utilities/visualization'
+
+import dashboardStyles from './dashboard.module.scss'
 
 export default function UsAreaChartContainer() {
   const query = useStaticQuery(graphql`
@@ -9,7 +11,7 @@ export default function UsAreaChartContainer() {
       allCovidUsDaily {
         nodes {
           date
-          death
+          deathIncrease
         }
       }
     }
@@ -19,7 +21,7 @@ export default function UsAreaChartContainer() {
       {
         date: parseDate(node.date),
         label: 'Deaths',
-        value: node.death,
+        value: node.deathIncrease,
       },
     ])
     .reduce((acc, val) => acc.concat(val), [])
@@ -30,21 +32,22 @@ export default function UsAreaChartContainer() {
     })
 
   return (
-    <div>
-      <div className="chart-title">Total deaths in the US</div>
+    <div
+      className={`${dashboardStyles.chartsContainerInner} ${dashboardStyles.chartsContainerInnerLeft}`}
+    >
+      <h3 className={dashboardStyles.chartTitle}>Daily deaths in the US</h3>
       <div>
         <BarChart
           data={data}
-          fill="#585BC1"
+          fill={deathsBarColor}
           height={400}
           marginBottom={40}
           marginLeft={80}
           marginRight={10}
           marginTop={10}
           xTicks={3}
+          showTicks={6}
           width={400}
-          align="center"
-          showTicks={5}
         />
       </div>
     </div>

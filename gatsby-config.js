@@ -1,6 +1,13 @@
 const { DateTime } = require('luxon')
 require('dotenv').config()
 
+
+function buildDate(argument) {
+  dt = DateTime.fromObject({ zone: 'America/New_York' })
+  meridiem = (dt.hour > 11) ? 'p' : 'a'
+  return `${dt.toFormat('h:mm')} ${meridiem}m ET`
+}
+
 module.exports = {
   siteMetadata: {
     title: 'The COVID Tracking Project',
@@ -9,9 +16,7 @@ module.exports = {
     production:
       typeof process.env.BRANCH !== 'undefined' &&
       process.env.BRANCH === 'master',
-    buildDate: DateTime.fromObject({ zone: 'America/New_York' }).toFormat(
-      "M/dd HH:mm 'ET'",
-    ),
+    buildDate: buildDate(),
     url: 'https://covidtracking.com',
     description:
       'The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.',

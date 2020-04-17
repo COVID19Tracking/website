@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types' // ES6
 
 import { max, range } from 'd3-array'
@@ -8,6 +9,7 @@ import { formatDate, formatNumber } from '../../utilities/visualization'
 import chartStyles from './charts.module.scss'
 
 const BarChart = ({
+  align,
   data,
   fill,
   height,
@@ -15,12 +17,11 @@ const BarChart = ({
   marginLeft,
   marginRight,
   marginTop,
+  showTicks,
   xTicks,
   width,
-  align,
   yMax,
   yTicks,
-  showTicks,
 }) => {
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
@@ -53,25 +54,23 @@ const BarChart = ({
           <g>
             {yScale.ticks(yTicks).map((tick, i) => (
               <g key={tick}>
-                <svg
-                  y={yScale(tick) + 4}
-                  x="-10"
-                  className={chartStyles.yTickLabel}
-                >
-                  {i < showTicks && (
-                    <text className={chartStyles.label} textAnchor="end">
+                {i < showTicks && (
+                  <>
+                    <text
+                      className={chartStyles.yTickLabel}
+                      y={yScale(tick) + 6}
+                      x={`${tick}`.length * -12}
+                    >
                       {formatNumber(tick)}
                     </text>
-                  )}
-                </svg>
-                {i < showTicks && (
-                  <line
-                    className={chartStyles.gridLine}
-                    x1={0}
-                    x2={width - totalXMargin}
-                    y1={yScale(tick)}
-                    y2={yScale(tick)}
-                  />
+                    <line
+                      className={chartStyles.gridLine}
+                      x1={0}
+                      x2={width - totalXMargin}
+                      y1={yScale(tick)}
+                      y2={yScale(tick)}
+                    />
+                  </>
                 )}
               </g>
             ))}
@@ -134,9 +133,9 @@ BarChart.propTypes = {
   marginLeft: PropTypes.number,
   marginRight: PropTypes.number,
   marginTop: PropTypes.number,
+  showTicks: PropTypes.number,
   xTicks: PropTypes.number,
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
-  showTicks: PropTypes.number,
 }
 export default BarChart
