@@ -17,7 +17,7 @@ const State = ({ state }) => (
     </div>
     <SummaryTable
       data={state.stateData}
-      lastUpdated={state.stateData.lastUpdateEt}
+      lastUpdated={state.stateData.dateModified}
     />
     <UnstyledList>
       {state.twitter && (

@@ -1,9 +1,13 @@
 import React from 'react'
 import Table from './table'
-import { FormatNumber } from '../utils/format'
+import { formatDateToString, FormatNumber } from '../utils/format'
 
 export default ({ data, lastUpdated, showOutcomes = true }) => (
-  <Table tableLabel={lastUpdated && `Last updated: ${lastUpdated} ET`}>
+  <Table
+    tableLabel={
+      lastUpdated && `Last updated: ${formatDateToString(lastUpdated)}`
+    }
+  >
     <colgroup span="3" />
     {showOutcomes && (
       <>

@@ -8,6 +8,7 @@ import UsCumulativeDeathsContainer from './_UsCumulativeDeathsContainer'
 import UsPositiveAndTotalTestsContainer from './_UsPositiveAndTotalTestsContainer'
 
 import './dashboard.scss'
+import dashboardStyles from './dashboard.module.scss'
 
 const DashboardPage = () => {
   return (
@@ -132,7 +133,9 @@ const DashboardPage = () => {
         <a href="https://twitter.com/jburnmurdoch">John Burn-Murdoch</a>, a data
         journalist at the <em>Financial Times</em>, pointed out.
       </p>
-      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+      <div
+        className={`${dashboardStyles.chartsContainer} ${dashboardStyles.chartsTwoColumnLg}`}
+      >
         <UsCumulativeDeathsContainer />
         <StateCumulativeDeathsContainer />
       </div>

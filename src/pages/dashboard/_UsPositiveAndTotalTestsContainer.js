@@ -9,6 +9,8 @@ import {
   positiveColor,
 } from '../../utilities/visualization'
 
+import dashboardStyles from './dashboard.module.scss'
+
 export default function UsAreaChartContainer() {
   const data = useStaticQuery(graphql`
     {
@@ -42,8 +44,10 @@ export default function UsAreaChartContainer() {
         sort of targeted social distancing technique and can help slow the
         outbreak.
       </p>
-      <div style={{ width: '50%', align: 'center', margin: 'auto' }}>
-        <h4>Positive tests and total tests in the US</h4>
+      <div className={dashboardStyles.chartsContainer}>
+        <h3 className={dashboardStyles.chartTitle}>
+          Positive tests and total tests in the US
+        </h3>
         <ul className="chart-legend">
           <li>
             <div
@@ -60,22 +64,24 @@ export default function UsAreaChartContainer() {
             <div>Total tests</div>
           </li>
         </ul>
-        <AreaChart
-          data={transformedData}
-          fill={d => {
-            if (d === 'Total') return totalColor
-            return positiveColor
-          }}
-          height={300}
-          labelOrder={['Total', 'Positive']}
-          marginBottom={40}
-          marginLeft={80}
-          marginRight={10}
-          marginTop={10}
-          xTicks={2}
-          width={400}
-          yFormat={format('~s')}
-        />
+        <div className={dashboardStyles.chartsContainerInner}>
+          <AreaChart
+            data={transformedData}
+            fill={d => {
+              if (d === 'Total') return totalColor
+              return positiveColor
+            }}
+            height={300}
+            labelOrder={['Total', 'Positive']}
+            marginBottom={40}
+            marginLeft={80}
+            marginRight={10}
+            marginTop={10}
+            xTicks={2}
+            width={400}
+            yFormat={format('~s')}
+          />
+        </div>
       </div>
     </section>
   )

@@ -23,7 +23,7 @@ const StatePage = ({ pageContext, data }) => {
         />
       )}
       <SyncInfobox />
-      <SummaryTable data={summary} lastUpdated={summary.lastUpdateEt} />
+      <SummaryTable data={summary} lastUpdated={summary.dateModified} />
       <h2 id="historical">History</h2>
       <StateHistory
         history={data.allCovidStateDaily.edges}
@@ -52,7 +52,7 @@ export const query = graphql`
           onVentilatorCumulative
           death
           totalTestResults
-          lastUpdateEt
+          dateModified
           grade
         }
       }
