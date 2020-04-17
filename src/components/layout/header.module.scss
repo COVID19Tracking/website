@@ -86,7 +86,6 @@
       a {
         color: white;
         text-decoration: none;
-        font-size: 0.9rem;
         font-weight: bold;
       }
       @media (min-width: $viewport-lg) {
@@ -100,17 +99,20 @@
       ul {
         padding-left: 0;
         margin: 0;
-        line-height: 16px;
+        line-height: 1;
         list-style-type: none;
 
         li {
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.5625rem;
           @media (min-width: $viewport-lg) {
             display: inline-block;
             padding-right: 30px;
             margin-bottom: 0;
-            line-height: 16px;
+            line-height: 1;
           }
+        }
+        a {
+          padding-bottom: 2px;
         }
         a:hover,
         a:focus {
@@ -119,7 +121,6 @@
         a:hover,
         a[aria-current] {
           border-bottom: 3px solid $color-blueberry-200;
-          padding-bottom: 2px;
         }
         a[aria-current] {
           color: white;
