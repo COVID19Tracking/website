@@ -13,6 +13,7 @@ import {
 } from '../../utilities/visualization'
 
 import './map-container.scss'
+import dashboardStyles from './dashboard.module.scss'
 
 const MapContainer = () => {
   const rawStateData = useStaticQuery(graphql`
@@ -122,6 +123,9 @@ const MapContainer = () => {
 
   return (
     <div className="state-map">
+      <h3 className={dashboardStyles.chartTitle}>
+        The Spread of COVID-19 in the US
+      </h3>
       <div className="map-dek">
         <h2>{formatDate(parseDate(currentDate))}</h2>
         {useChoropleth ? (
