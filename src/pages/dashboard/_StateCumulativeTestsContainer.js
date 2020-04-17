@@ -192,7 +192,7 @@ export default function CumulativeTestsByStateContainer() {
       <h3 className={dashboardStyles.chartTitle}>Cumulative tests by state</h3>
       <div className="chart-header">
         <div className="dashboard-toggle-wrapper">
-          <div className="dashboard-toggle-label">Sort by:</div>
+          <div className="dashboard-toggle-label">Display by:</div>
           <div
             className="dashboard-toggle"
             onClick={toggleChartData}
@@ -202,10 +202,10 @@ export default function CumulativeTestsByStateContainer() {
             tabIndex={0}
           >
             <span className={useTestsPerCapita ? '' : 'active'}>
-              Total Tests
+              Total tests
             </span>
             <span className={useTestsPerCapita ? 'active' : ''}>
-              Tests Per Capita
+              Tests per capita
             </span>
           </div>
         </div>
