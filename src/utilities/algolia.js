@@ -15,17 +15,32 @@ const stateQuery = `{
 }`
 
 const blogPostQuery = `{
-  posts: allContentfulBlogPost(sort: { fields: updatedAt }) {
+  posts: allContentfulBlogPost {
     edges {
       node {
+        objectID: contentful_id
         title
-        objectId: contentful_id
         author {
           name
         }
         slug
         lede
         publishDate(formatString: "MMMM D, YYYY")
+        body {
+          body
+        }
+      }
+    }
+  }
+}`
+
+const pagesQuery = `{
+  posts: allContentfulPage {
+    edges {
+      node {
+        objectID: contentful_id
+        title
+        slug
         body {
           body
         }
@@ -61,6 +76,16 @@ const queries = [
         return node
       }),
     indexName: `test_blog_posts`,
+    settings,
+  },
+  {
+    query: pagesQuery,
+    transformer: ({ data }) =>
+      data.posts.edges.map(({ node }) => {
+        node.body = node.body.body
+        return node
+      }),
+    indexName: `test_pages`,
     settings,
   },
 ]
