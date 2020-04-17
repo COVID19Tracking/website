@@ -1,0 +1,84 @@
+@import '../../scss/breakpoints.module.scss';
+
+$chart-max-width: 500px;
+$chart-two-col-max-width: 250px;
+$chart-two-col-lg-max-width: 400px;
+$chart-gutter-sm: 20px;
+$chart-gutter-md: 100px;
+
+.charts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 auto 1rem;
+  max-width: $chart-max-width;
+}
+
+.charts-two-column {
+  max-width: $chart-two-col-max-width * 2 + $chart-gutter-sm;
+
+  @media (min-width: $viewport-md) {
+    max-width: $chart-two-col-max-width * 2 + $chart-gutter-md;
+  }
+}
+
+.charts-two-column-lg {
+  max-width: $chart-two-col-lg-max-width;
+
+  @media (min-width: $viewport-md) {
+    max-width: $chart-two-col-lg-max-width * 2 + $chart-gutter-md;
+  }
+}
+
+.charts-container-inner {
+  margin: 0 0 1rem;
+  width: 100%;
+
+  .charts-two-column & {
+    width: calc(50% - #{$chart-gutter-sm} / 2);
+    max-width: $chart-two-col-max-width;
+
+    @media (min-width: $viewport-md) {
+      width: calc(50% - #{$chart-gutter-md} / 2);
+    }
+  }
+
+  .charts-two-column-lg & {
+    max-width: $chart-two-col-lg-max-width;
+
+    @media (min-width: $viewport-md) {
+      width: calc(50% - #{$chart-gutter-md} / 2);
+    }
+  }
+}
+
+.charts-container-inner-left {
+  .charts-two-column & {
+    margin-right: $chart-gutter-sm;
+  }
+
+  .charts-two-column &,
+  .charts-two-column-lg & {
+    @media (min-width: $viewport-md) {
+      margin-right: $chart-gutter-md;
+    }
+  }
+}
+
+%chart-titles {
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.chart-title {
+  @extend %chart-titles;
+  font-size: 16px;
+  margin: 0 0 1.5rem;
+}
+
+.chart-subtitle {
+  @extend %chart-titles;
+  font-size: 13px;
+  margin: 0 0 1rem;
+}

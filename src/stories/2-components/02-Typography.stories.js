@@ -1,5 +1,4 @@
 import React from 'react'
-import LeadParagraph from '../../components/common/lead-paragraph'
 import {
   UnorderedList,
   OrderedList,
@@ -105,8 +104,6 @@ unstyledList.story = {
     },
   },
 }
-
-export const leadParagraph = () => <LeadParagraph>{sampleText}</LeadParagraph>
 
 export const numberFormat = () => (
   <>

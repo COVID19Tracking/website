@@ -13,10 +13,19 @@ const ButtonAnchor = ({ big, href, children }) => (
   </a>
 )
 
-const Button = ({ big, children }) => (
-  <button className={`button${big ? ' button-big' : ''}`} type="button">
-    {children}
-  </button>
-)
+const Button = ({ big, children, type = 'button' }) => {
+  if (type === 'submit') {
+    return (
+      <button className={`button${big ? ' button-big' : ''}`} type="submit">
+        {children}
+      </button>
+    )
+  }
+  return (
+    <button className={`button${big ? ' button-big' : ''}`} type="button">
+      {children}
+    </button>
+  )
+}
 
 export { ButtonAnchor, ButtonLink, Button }

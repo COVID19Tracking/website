@@ -15,6 +15,7 @@ import {
 } from '../../utilities/visualization'
 
 import './dashboard.scss'
+import dashboardStyles from './dashboard.module.scss'
 
 // these come from this google spreadsheet owned by Júlia Ledur
 // https://docs.google.com/spreadsheets/d/1mD_NhlJR1fM2Pv_pY8YixUrX2p2F8rAE0xPTtsTJOiM/edit#gid=0
@@ -166,14 +167,14 @@ export default function CumulativeTestsByStateContainer() {
     <div className="dashboard-cumulative-tests">
       <p>
         By comparing the positive tests to the total tests in each state, we can
-        get a sense of how widespread a state’s testing regime might be (though
-        always remember to consider population densities vary wildly across the
-        country) and if the number of positive tests is tracking roughly against
-        the total number of tests. If it is, then we might consider that the
-        state isn’t necessarily just getting new infections every day but that
-        they’re also giving more tests.
+        get a sense of how widespread a state&rsquo;s testing regime might be
+        (though always remember to consider population densities vary wildly
+        across the country) and if the number of positive tests is tracking
+        roughly against the total number of tests. If it is, then we might
+        consider that the state isn&rsquo;t necessarily just getting new
+        infections every day but that they&rsquo;re also giving more tests.
       </p>
-      <div className="chart-title">Cumulative tests by state</div>
+      <h3 className={dashboardStyles.chartTitle}>Cumulative tests by state</h3>
       <div className="chart-header">
         <div
           className="dashboard-toggle"
@@ -266,8 +267,8 @@ export default function CumulativeTestsByStateContainer() {
                 annotations={annotations}
                 data={stateData}
                 fill={d => {
-                  if (d === 'Total') return '#585BC1'
-                  return '#FFA270'
+                  if (d === 'Total') return totalColor
+                  return positiveColor
                 }}
                 height={500}
                 labelOrder={['Total', 'Positive']}
