@@ -11,7 +11,12 @@ import margueriteCaseyLogo from '../images/race-project/marguerite-casey-foundat
 import raceProjectStyle from './race.module.scss'
 
 const NotFoundPage = ({ data }) => (
-  <Layout title="The COVID Racial Data Tracker" textHeavy narrow>
+  <Layout
+    title="The COVID Racial Data Tracker"
+    navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
+    textHeavy
+    narrow
+  >
     <div
       dangerouslySetInnerHTML={{
         __html:
@@ -66,6 +71,22 @@ export const query = graphql`
           title
           date(formatString: "MMMM D, YYYY")
           link
+        }
+      }
+    }
+    allContentfulNavigationGroup(filter: { slug: { eq: "why-it-matters" } }) {
+      edges {
+        node {
+          pages {
+            ... on ContentfulPage {
+              title
+              link: slug
+            }
+            ... on ContentfulNavigationLink {
+              title
+              link: url
+            }
+          }
         }
       }
     }

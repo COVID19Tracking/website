@@ -1,11 +1,11 @@
-@import '../scss/breakpoints.scss';
-@import '../scss/colors.scss';
+@import '../scss/breakpoints.module.scss';
+@import '../scss/colors.module.scss';
 
 .supporters {
   margin-top: 5rem;
   h3 {
     color: $color-slate-700;
-    font-size: 1rem;
+    font-size: 0.5rem;
     font-variant: all-small-caps;
     margin-bottom: 1rem;
   }
@@ -16,7 +16,7 @@
     display: inline-block;
     margin: 30px 30px 0 0;
     padding: 10px;
-    @media (max-width: $viewport-md) {
+    @media (min-width: $viewport-md) {
       width: 50%;
     }
   }

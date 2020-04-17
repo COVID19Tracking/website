@@ -12,12 +12,11 @@ import './dashboard.scss'
 const DashboardPage = () => {
   return (
     <Layout title="Visual Dashboard">
-      <strong>
-        <p>
-          Explore visualizations from the COVID Tracking Project dataset and
-          guidance to help you present the data clearly and accurately.
-        </p>
-      </strong>
+      <div className="subhead">
+        Explore graphics made with the COVID Tracking Project dataset along with
+        tips to help you present the data in the clearest and most accurate way
+        possible.
+      </div>
       <p>
         Complete, up-to-date testing and outcomes data is essential to a
         successful public health response to the US COVID-19 outbreak, but that
@@ -52,14 +51,19 @@ const DashboardPage = () => {
         Louisiana.
       </p>
       <p>
-        Because COVID-19 testing and reporting are inconsistent among states,
-        it&rsquo;s easy to misinterpret the data. That makes it especially
+
+        Because COVID-19 testing and reporting are inconsistent among states, it
+        &rsquo;s easy to misinterpret the data. That makes it especially
         important to create clear and accurate visualizations. Otherwise even
         simple and minimalistic graphics can be misleading. If you plan to
         display data from the COVID Tracking Project yourself, please closely
         follow these design and visualization guidelines.
       </p>
-      <strong>Consider normalizing the data.</strong>
+      <p className="tips-section-title">
+        On this page, you will find some tips and suggestions on how to
+        responsibly visualize data from the COVID Tracking Project.
+      </p>
+      <p className="tips-section-title">Consider normalizing the data.</p>
       <p>
         If you&rsquo;re creating a{' '}
         <a href="http://seeingdata.org/taketime/inside-the-chart-choropleth-map/">
@@ -75,7 +79,7 @@ const DashboardPage = () => {
         </a>
         .
       </p>
-      <strong>Choose colors carefully.</strong>
+      <p className="tips-section-title">Choose colors carefully.</p>
       <p>
         Readers are likely experiencing some latent anxiety, so do your best to
         neither make light of the situation nor be alarmist about it. One
@@ -85,7 +89,7 @@ const DashboardPage = () => {
         colors that suggest the worst possible outcome.
       </p>
       <MapContainer />
-      <strong>Include the denominator.</strong>
+      <p className="tips-section-title">Include the denominator.</p>
       <p>
         Testing is one of the most important tools in controlling an outbreak.
         When universal testing is implemented, people who are infected with the
@@ -103,7 +107,7 @@ const DashboardPage = () => {
         tests as a denominator.
       </p>
       <UsPositiveAndTotalTestsContainer />
-      <strong>Be mindful when comparing states.</strong>
+      <p className="tips-section-title">Be mindful when comparing states.</p>
       <p>
         By comparing positive tests to total tests in each state and territory,
         we can get a sense of how widespread a state’s testing regime might be
@@ -114,7 +118,7 @@ const DashboardPage = () => {
         ).
       </p>
       <StateCumulativeTestsContainer />
-      <strong>Don’t ignore data uncertainty.</strong>
+      <p className="tips-section-title">Don’t ignore data uncertainty.</p>
       <p>
         Though this is a national crisis, each US state or territory reports its
         data differently. We track numbers provided by each state, but the
@@ -131,7 +135,9 @@ const DashboardPage = () => {
         </a>
         .
       </p>
-      <strong>Use absolute numbers for death counts.</strong>
+      <p className="tips-section-title">
+        Use absolute numbers for death counts.
+      </p>
       <p>
         An organized, collective, and timely response from the government and
         other authorities is a key factor in saving lives. One metric you can
@@ -144,16 +150,16 @@ const DashboardPage = () => {
         adds a layer of abstraction to the graphic. This reduces the
         data&rsquo;s power and the reader&rsquo;s comprehension. It’s easier to
         picture 200 fatalities than 0.0001 fatalities per capita, as{' '}
-        <a href=" https://twitter.com/janinegibson/status/1244519429825802240">
-          John Burn-Murdoch
-        </a>
-        , a data journalist at the <em>Financial Times</em>, pointed out.
+        <a href="https://twitter.com/jburnmurdoch">John Burn-Murdoch</a>, a data
+        journalist at the <em>Financial Times</em>, pointed out.
       </p>
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <UsCumulativeDeathsContainer />
         <StateCumulativeDeathsContainer />
       </div>
-      <strong>Remember that even death counts are uncertain.</strong>
+      <p className="tips-section-title">
+        Remember that even death counts are uncertain.
+      </p>
       <p>
         Data that tracks COVID-19 death counts is still a gray area. Though some
         experts prefer to measure the pandemic&rsquo;s severity using the number
@@ -191,7 +197,7 @@ const DashboardPage = () => {
         beginning of the outbreak to fatalities during the same period in
         previous years.
       </p>
-      <strong>Be clear and honest.</strong>
+      <p className="tips-section-title">Be clear and honest.</p>
       <p>
         While news is moving faster than ever to keep up with the pace of the
         pandemic spread, designers and visualization experts&rsquo; goal is to
@@ -199,13 +205,15 @@ const DashboardPage = () => {
         consider the tips above to avoid common pitfalls in data reporting as we
         seek to inform people during this time of crisis.
       </p>
-      <strong>Notes</strong>
-      <p>
+      <div className="chart-legend-note">
+        <strong>Notes</strong>
+      </div>
+      <p className="chart-legend-note">
         We derive the total value by adding together the positive and negative
         value for each state. This is to account for differences in how states
         reporting pending tests
       </p>
-      <p>
+      <p className="chart-legend-note">
         We changed the way we report California data on April 1. We synced up
         with the{' '}
         <a href="https://public.tableau.com/views/COVID-19PublicDashboard/Covid-19Public?:embed=y&:display_count=no&:showVizHome=no">
@@ -216,16 +224,16 @@ const DashboardPage = () => {
         deaths in our dataset on April 1, since the state&rsquo;s data lags
         behind our previous sources.
       </p>
-      <p>
+      <p className="chart-legend-note">
         <strong>Source:</strong> The COVID Tracking Project
       </p>
-      <p>
-        Graphics and development by Jeremia Kimelman, Gabe O&rsquo;Leary, Melba
-        Madrigal, Vijay Sharwar, Aaron Mullan, Nathan Selikoff, Alice Goldfarb,
-        Jane Friedhoff, Norman Wang, Daniel Gilbert
+      <p className="chart-legend-note">
+        Graphics and development by Jeremia Kimelman, Gabe O&rsquo;Leary, Melba Madrigal, Vijay
+        Sharwar, Aaron Mullan, Nathan Selikoff, Alice Goldfarb, Jane Friedhoff,
+        Norman Wang, Daniel Gilbert
       </p>
-      <p>Visual editing by Júlia Ledur</p>
-      <p>Text editing by Hannah Waters</p>
+      <p className="chart-legend-note">Visual editing by Júlia Ledur</p>
+      <p className="chart-legend-note">Text editing by Hannah Waters</p>
     </Layout>
   )
 }

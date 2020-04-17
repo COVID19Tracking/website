@@ -5,8 +5,7 @@ import { scaleBand, scaleLinear } from 'd3-scale'
 import React from 'react'
 
 import { formatDate, formatNumber } from '../../utilities/visualization'
-import colors from '../../scss/colors.scss'
-import './bar-chart.scss'
+import chartStyles from './charts.module.scss'
 
 const BarChart = ({
   data,
@@ -41,55 +40,50 @@ const BarChart = ({
     xScaleDomain.length,
     Math.floor(xScaleDomain.length / xTicks),
   )
-  const textColor = { textColor: colors.text }
+
   return (
     <div align={align}>
       <svg
-        className="bar-chart"
+        className={chartStyles.chart}
         width={width}
         height={height}
         viewBox={`0 0 ${width} ${height}`}
       >
-        <g
-          className="axis-group"
-          transform={`translate(${marginLeft} ${marginTop})`}
-        >
+        <g transform={`translate(${marginLeft} ${marginTop})`}>
           <g>
             {yScale.ticks(yTicks).map((tick, i) => (
               <g key={tick}>
                 <svg
                   y={yScale(tick) + 4}
                   x="-10"
-                  className="bar-chart__y-tick-label"
+                  className={chartStyles.yTickLabel}
                 >
-                  <text
-                    fill={i < showTicks ? { textColor } : 'none'}
-                    textAnchor="end"
-                  >
-                    {formatNumber(tick)}
-                  </text>
+                  {i < showTicks && (
+                    <text className={chartStyles.label} textAnchor="end">
+                      {formatNumber(tick)}
+                    </text>
+                  )}
                 </svg>
-                <line
-                  stroke={i < showTicks ? '#b2bbbf' : 'none'}
-                  x1={0}
-                  x2={width - totalXMargin}
-                  y1={yScale(tick)}
-                  y2={yScale(tick)}
-                />
+                {i < showTicks && (
+                  <line
+                    className={chartStyles.gridLine}
+                    x1={0}
+                    x2={width - totalXMargin}
+                    y1={yScale(tick)}
+                    y2={yScale(tick)}
+                  />
+                )}
               </g>
             ))}
           </g>
         </g>
 
-        <g
-          className="axis-group"
-          transform={`translate(${marginLeft}, ${height - marginBottom})`}
-        >
+        <g transform={`translate(${marginLeft}, ${height - marginBottom})`}>
           {ticks.map(d => {
             const date = xScale.domain()[d]
             return (
               <text
-                className="bar-chart__x-tick-label"
+                className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
                 key={d}
                 x={xScale(date)}
                 y="25"
