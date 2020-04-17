@@ -6,9 +6,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import cloneDeep from 'lodash/cloneDeep'
 import BarChart from '../../components/charts/bar-chart'
 
-import { parseDate } from '../../utilities/visualization'
-
-import colors from '../../scss/colors.module.scss'
+import { parseDate, totalColor } from '../../utilities/visualization'
 
 const parseCdcDate = timeParse('%m/%d/%Y')
 
@@ -119,7 +117,7 @@ export default function CDCComparisonContainer() {
           <div className="chart-subtitle">CDC</div>
           <BarChart
             data={cdcData}
-            fill={colors.colorPlum600}
+            fill={totalColor}
             height={252}
             marginBottom={40}
             marginLeft={80}
@@ -136,7 +134,7 @@ export default function CDCComparisonContainer() {
           <div className="chart-subtitle">The Covid Tracking Project</div>
           <BarChart
             data={covidData}
-            fill={colors.colorPlum600}
+            fill={totalColor}
             height={252}
             marginBottom={40}
             marginLeft={80}
