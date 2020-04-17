@@ -27,6 +27,7 @@
     "@reach/disclosure": "^0.9.1",
     "@reach/skip-nav": "^0.9.0",
     "@reach/visually-hidden": "^0.9.0",
+    "@slack/web-api": "^5.8.0",
     "@storybook/addon-docs": "^5.3.18",
     "@storybook/addon-info": "^5.3.17",
     "date-fns": "^2.11.1",
