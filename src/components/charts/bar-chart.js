@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types' // ES6
 
 import { max, range } from 'd3-array'
@@ -8,6 +9,7 @@ import { formatDate, formatNumber } from '../../utilities/visualization'
 import chartStyles from './charts.module.scss'
 
 const BarChart = ({
+  align,
   data,
   fill,
   height,
@@ -15,11 +17,11 @@ const BarChart = ({
   marginLeft,
   marginRight,
   marginTop,
+  showTicks,
   xTicks,
   width,
   yMax,
   yTicks,
-  showTicks,
 }) => {
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
@@ -41,63 +43,68 @@ const BarChart = ({
   )
 
   return (
-    <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
-      <g transform={`translate(${marginLeft} ${marginTop})`}>
-        <g>
-          {yScale.ticks(yTicks).map((tick, i) => (
-            <g key={tick}>
-              <svg
-                y={yScale(tick) + 4}
-                x="-10"
-                className={chartStyles.yTickLabel}
-              >
+    <div align={align}>
+      <svg
+        className={chartStyles.chart}
+        width={width}
+        height={height}
+        viewBox={`0 0 ${width} ${height}`}
+      >
+        <g transform={`translate(${marginLeft} ${marginTop})`}>
+          <g>
+            {yScale.ticks(yTicks).map((tick, i) => (
+              <g key={tick}>
                 {i < showTicks && (
-                  <text className={chartStyles.label} textAnchor="end">
-                    {formatNumber(tick)}
-                  </text>
+                  <>
+                    <text
+                      className={chartStyles.yTickLabel}
+                      y={yScale(tick) + 6}
+                      x={`${tick}`.length * -12}
+                    >
+                      {formatNumber(tick)}
+                    </text>
+                    <line
+                      className={chartStyles.gridLine}
+                      x1={0}
+                      x2={width - totalXMargin}
+                      y1={yScale(tick)}
+                      y2={yScale(tick)}
+                    />
+                  </>
                 )}
-              </svg>
-              {i < showTicks && (
-                <line
-                  className={chartStyles.gridLine}
-                  x1={0}
-                  x2={width - totalXMargin}
-                  y1={yScale(tick)}
-                  y2={yScale(tick)}
-                />
-              )}
-            </g>
+              </g>
+            ))}
+          </g>
+        </g>
+
+        <g transform={`translate(${marginLeft}, ${height - marginBottom})`}>
+          {ticks.map(d => {
+            const date = xScale.domain()[d]
+            return (
+              <text
+                className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
+                key={d}
+                x={xScale(date)}
+                y="25"
+              >{`${formatDate(date)}`}</text>
+            )
+          })}
+        </g>
+
+        <g transform={`translate(${marginLeft} ${marginTop})`}>
+          {data.map(d => (
+            <rect
+              key={d.date}
+              x={xScale(d.date)}
+              y={yScale(d.value)}
+              height={yScale(0) - yScale(d.value)}
+              width={xScale.bandwidth()}
+              fill={fill}
+            />
           ))}
         </g>
-      </g>
-
-      <g transform={`translate(${marginLeft}, ${height - marginBottom})`}>
-        {ticks.map(d => {
-          const date = xScale.domain()[d]
-          return (
-            <text
-              className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
-              key={d}
-              x={xScale(date)}
-              y="25"
-            >{`${formatDate(date)}`}</text>
-          )
-        })}
-      </g>
-
-      <g transform={`translate(${marginLeft} ${marginTop})`}>
-        {data.map(d => (
-          <rect
-            key={d.date}
-            x={xScale(d.date)}
-            y={yScale(d.value)}
-            height={yScale(0) - yScale(d.value)}
-            width={xScale.bandwidth()}
-            fill={fill}
-          />
-        ))}
-      </g>
-    </svg>
+      </svg>
+    </div>
   )
 }
 
@@ -126,9 +133,9 @@ BarChart.propTypes = {
   marginLeft: PropTypes.number,
   marginRight: PropTypes.number,
   marginTop: PropTypes.number,
+  showTicks: PropTypes.number,
   xTicks: PropTypes.number,
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
-  showTicks: PropTypes.number,
 }
 export default BarChart
