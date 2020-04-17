@@ -28,7 +28,7 @@ export default function HorizontalBarChart({
   const xScale = scaleLinear()
     .domain([120, xMax || max(data, d => d.value)])
     .nice()
-    .range([width - totalXMargin, 0])
+    .range([0, width - totalXMargin])
 
   return (
     <div>
@@ -38,7 +38,7 @@ export default function HorizontalBarChart({
             <g key={tick}>
               <text
                 className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
-                x={245 - xScale(tick)}
+                x={xScale(tick)}
                 y={height - marginBottom}
               >
                 {formatTick(tick)}
@@ -76,7 +76,7 @@ export default function HorizontalBarChart({
               x={0}
               y={yScale(d.name)}
               height={yScale.bandwidth()}
-              width={xScale(0) - xScale(d.value)}
+              width={xScale(d.value)}
               fill={fill}
             />
           ))}

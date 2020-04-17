@@ -57,7 +57,7 @@ const BarChart = ({
                 {i < showTicks && (
                   <>
                     <text
-                      className={chartStyles.yTickLabel}
+                      className={`${chartStyles.label} ${chartStyles.yTickLabel}`}
                       y={yScale(tick) + 6}
                       x={`${tick}`.length * -12}
                     >
