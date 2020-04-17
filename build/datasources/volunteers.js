@@ -1,18 +1,18 @@
 const _ = require('lodash/fp')
-const getUsers = require('../handlers/slack')
+const { listUsers, getUserPublicProfile } = require('../handlers/slack')
 
 const fixItems = _.flow(
   _.get('members'),
-  _.filter(member => member.profile.status_text == 'show_me_on_the_list'),
+  _.filter(member => member.is_bot === false),
   _.map(member => {
-    return { name: member.profile.display_name, website: '' }
+    return member.id
   }),
 )
 
 const hasMore = _.get('response_metadata.next_cursor')
 
 async function getPage(cursor) {
-  return await getUsers(cursor)
+  return listUsers(cursor)
 }
 
 async function getPages(previousItems = [], cursor) {
@@ -21,7 +21,18 @@ async function getPages(previousItems = [], cursor) {
   return hasMore(result) ? getPages(items, hasMore(result)) : items
 }
 
+async function getUsers() {
+  const rawResults = await getPages([], '')
+  const users = Array.from(rawResults)
+  const promises = users.map(async userId => {
+    //
+    return getUserPublicProfile(userId)
+  })
+
+  return (await Promise.all(promises)).filter(volunteer => volunteer != null)
+}
+
 module.exports = {
-  fetch: () => getPages(),
+  fetch: () => getUsers(),
   path: 'volunteers',
 }
