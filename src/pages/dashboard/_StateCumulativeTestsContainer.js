@@ -175,18 +175,23 @@ export default function CumulativeTestsByStateContainer() {
       </p>
       <div className="chart-title">Cumulative tests by state</div>
       <div className="chart-header">
-        <div
-          className="dashboard-toggle"
-          onClick={toggleChartData}
-          onKeyPress={toggleChartData}
-          role="switch"
-          aria-checked={useTestsPerCapita}
-          tabIndex={0}
-        >
-          <span className={useTestsPerCapita ? '' : 'active'}>Total Tests</span>
-          <span className={useTestsPerCapita ? 'active' : ''}>
-            Tests Per Capita
-          </span>
+        <div className="dashboard-toggle-wrapper">
+          <div className="dashboard-toggle-label">Sort by:</div>
+          <div
+            className="dashboard-toggle"
+            onClick={toggleChartData}
+            onKeyPress={toggleChartData}
+            role="switch"
+            aria-checked={useTestsPerCapita}
+            tabIndex={0}
+          >
+            <span className={useTestsPerCapita ? '' : 'active'}>
+              Total Tests
+            </span>
+            <span className={useTestsPerCapita ? 'active' : ''}>
+              Tests Per Capita
+            </span>
+          </div>
         </div>
         <ul className="chart-legend">
           <li>
@@ -270,6 +275,8 @@ export default function CumulativeTestsByStateContainer() {
                 yMax={maxStateTests}
                 yTicks={2}
                 showTicks={false}
+                focusable={false}
+                ariaHidden
               />
               <p />
             </div>

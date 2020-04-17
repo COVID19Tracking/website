@@ -25,6 +25,8 @@ const AreaChart = ({
   yMax,
   yTicks,
   showTicks,
+  focusable,
+  ariaHidden,
 }) => {
   const grouped = nest()
     .key(d => d.label)
@@ -58,7 +60,12 @@ const AreaChart = ({
     .y1(height - totalYMargin)
 
   return (
-    <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
+    <svg
+      className={chartStyles.chart}
+      viewBox={`0 0 ${width} ${height}`}
+      focusable={focusable}
+      aria-hidden={ariaHidden}
+    >
       {showTicks ? (
         <g transform={`translate(${marginLeft} ${marginTop})`}>
           <g transform={`translate(0 ${height - totalYMargin})`}>
