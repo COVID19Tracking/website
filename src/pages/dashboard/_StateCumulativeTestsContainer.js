@@ -258,9 +258,6 @@ export default function CumulativeTestsByStateContainer() {
                   <span className="small-multiples-chart-state-name">
                     {stateName}
                   </span>
-                  <span className="small-multiples-chart-state-key">
-                    {state.key}
-                  </span>
                 </h4>
               </a>
               <AreaChart

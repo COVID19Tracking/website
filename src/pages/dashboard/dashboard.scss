@@ -179,6 +179,10 @@ $small-multiples-chart-gutter: 1%;
 
   @media screen and (min-width: $viewport-sm) {
     padding: 0 $small-multiples-chart-gutter;
+    width: calc(100% / 3);
+  }
+
+  @media screen and (min-width: $viewport-ms) {
     width: calc(100% / 4);
   }
 
@@ -200,27 +204,13 @@ $small-multiples-chart-gutter: 1%;
     font-size: 14px;
     line-height: 1.2;
     margin: 0;
-
-    & .small-multiples-chart-state-name {
-      display: none;
-
-      @media screen and (min-width: $viewport-ms) {
-        display: inline;
-      }
-    }
-
-    & .small-multiples-chart-state-key {
-      @media screen and (min-width: $viewport-ms) {
-        display: none;
-      }
-    }
   }
 }
 
 .small-multiples-chart-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin: 0 - ($small-multiples-chart-gutter * 2);
 
   @media screen and (min-width: $viewport-sm) {
@@ -232,6 +222,12 @@ $small-multiples-chart-gutter: 1%;
   .small-multiples-chart {
     @media screen and (max-width: #{$viewport-sm - 1}) {
       &:nth-child(n + 7) {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: #{$viewport-ms - 1}) {
+      &:nth-child(n + 13) {
         display: none;
       }
     }
