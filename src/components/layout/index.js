@@ -6,7 +6,7 @@ import Header from './header'
 import Footer from './footer'
 import SEO from './seo'
 import Container from '../common/container'
-import SkipNavigation from '../common/skip-navigation'
+import SkipNavigation from '../utils/skip-navigation'
 import '../../scss/global.scss'
 
 const Layout = ({
