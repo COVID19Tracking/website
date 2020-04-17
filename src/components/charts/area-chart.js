@@ -75,7 +75,7 @@ const AreaChart = ({
             ))}
           </g>
           <g>
-            {yScale.ticks(yTicks).map(tick => (
+            {yScale.ticks(yTicks).map((tick, i) => (
               <g key={tick}>
                 <svg
                   y={yScale(tick) + 4}
@@ -83,7 +83,9 @@ const AreaChart = ({
                   className={chartStyles.yTickLabel}
                 >
                   <text className={chartStyles.label} textAnchor="end">
-                    {yFormat ? yFormat(tick) : formatNumber(tick)}
+                    {yFormat
+                      ? yFormat(tick, i, yScale.ticks(yTicks).length)
+                      : formatNumber(tick)}
                   </text>
                 </svg>
                 <line
