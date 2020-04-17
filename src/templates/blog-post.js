@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-import Lede from '../components/common/blog-lede'
+import Lede from '../components/pages/blog/blog-lede'
 
 export default ({ data }) => {
   const blogPost = data.allContentfulBlogPost.edges[0].node

@@ -1,3 +1,4 @@
+import { extent } from 'd3-array'
 import { nest } from 'd3-collection'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { useMemo, useState } from 'react'
@@ -15,6 +16,7 @@ import {
 } from '../../utilities/visualization'
 
 import './dashboard.scss'
+import dashboardStyles from './dashboard.module.scss'
 
 // these come from this google spreadsheet owned by Júlia Ledur
 // https://docs.google.com/spreadsheets/d/1mD_NhlJR1fM2Pv_pY8YixUrX2p2F8rAE0xPTtsTJOiM/edit#gid=0
@@ -127,6 +129,16 @@ function groupAndSortStateDaily(query) {
   }
 }
 
+// TODO: we're iterating over data and calling parseDate multiple times in this
+// component. Seems like it could be optimized.
+function getDateExtent(data) {
+  const allValues = data.reduce((acc, cur) => {
+    return acc.concat(cur.values)
+  }, [])
+
+  return extent(allValues, v => parseDate(v.date))
+}
+
 export default function CumulativeTestsByStateContainer() {
   const query = useStaticQuery(graphql`
     {
@@ -158,6 +170,10 @@ export default function CumulativeTestsByStateContainer() {
     return data[0].values[0].totalTestResults
   }, [useTestsPerCapita])
 
+  const dateExtent = useMemo(() => {
+    return getDateExtent(allData.totals)
+  }, [allData.totals])
+
   const [isCollapsed, setIsCollapsed] = useState(true)
 
   const toggleChartsCollapsed = () => setIsCollapsed(i => !i)
@@ -173,7 +189,7 @@ export default function CumulativeTestsByStateContainer() {
         consider that the state isn&rsquo;t necessarily just getting new
         infections every day but that they&rsquo;re also giving more tests.
       </p>
-      <div className="chart-title">Cumulative tests by state</div>
+      <h3 className={dashboardStyles.chartTitle}>Cumulative tests by state</h3>
       <div className="chart-header">
         <div
           className="dashboard-toggle"
@@ -253,7 +269,11 @@ export default function CumulativeTestsByStateContainer() {
                   .toLowerCase()
                   .replace(/\s/g, '-')}`}
               >
-                <h4>{stateName}</h4>
+                <h4>
+                  <span className="small-multiples-chart-state-name">
+                    {stateName}
+                  </span>
+                </h4>
               </a>
               <AreaChart
                 annotations={annotations}
@@ -270,6 +290,7 @@ export default function CumulativeTestsByStateContainer() {
                 yMax={maxStateTests}
                 yTicks={2}
                 showTicks={false}
+                dateExtent={dateExtent}
               />
               <p />
             </div>

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import pressListStyle from './press-list.module.scss'
-import { PublicationTitle } from './publication'
-import DetailText from './detail-text'
+import pressListStyle from '../../common/press-list.module.scss'
+import { PublicationTitle } from '../../common/publication'
+import DetailText from '../../common/detail-text'
 
 export default ({ items }) => {
   return (

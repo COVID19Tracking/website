@@ -35,7 +35,7 @@ export const getStateName = abbr => {
     MI: 'Michigan',
     MN: 'Minnesota',
     MO: 'Missouri',
-    MP: 'Northern Mariana Islands',
+    MP: 'N. Mariana Islands',
     MS: 'Mississippi',
     MT: 'Montana',
     NC: 'North Carolina',

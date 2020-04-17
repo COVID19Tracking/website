@@ -3,6 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import BarChart from '../../components/charts/bar-chart'
 import { deathsBarColor, parseDate } from '../../utilities/visualization'
 
+import dashboardStyles from './dashboard.module.scss'
+
 export default function UsAreaChartContainer() {
   const query = useStaticQuery(graphql`
     {
@@ -30,8 +32,10 @@ export default function UsAreaChartContainer() {
     })
 
   return (
-    <div>
-      <div className="chart-title">Daily new tests in the US</div>
+    <div
+      className={`${dashboardStyles.chartsContainerInner} ${dashboardStyles.chartsContainerInnerLeft}`}
+    >
+      <h3 className={dashboardStyles.chartTitle}>Daily deaths in the US</h3>
       <div>
         <BarChart
           data={data}

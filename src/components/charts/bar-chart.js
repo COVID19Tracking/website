@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types' // ES6
 
 import { max, range } from 'd3-array'
@@ -8,6 +9,7 @@ import { formatDate, formatNumber } from '../../utilities/visualization'
 import chartStyles from './charts.module.scss'
 
 const BarChart = ({
+  align,
   data,
   fill,
   height,
@@ -15,12 +17,11 @@ const BarChart = ({
   marginLeft,
   marginRight,
   marginTop,
+  showTicks,
   xTicks,
   width,
-  align,
   yMax,
   yTicks,
-  showTicks,
 }) => {
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
@@ -132,9 +133,9 @@ BarChart.propTypes = {
   marginLeft: PropTypes.number,
   marginRight: PropTypes.number,
   marginTop: PropTypes.number,
+  showTicks: PropTypes.number,
   xTicks: PropTypes.number,
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
-  showTicks: PropTypes.number,
 }
 export default BarChart
