@@ -1,7 +1,7 @@
 import { max, sum } from 'd3-array'
 import { format } from 'd3-format'
 import { timeParse } from 'd3-time-format'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import cloneDeep from 'lodash/cloneDeep'
 import BarChart from '../../components/charts/bar-chart'
@@ -94,8 +94,15 @@ export default function CDCComparisonContainer() {
   const cumulativeTotal = sum(covidData, d => d.value)
 
   const dailyMax = max(covidData, d => d.value)
-  const ctpHeading =
-    window.innerWidth < 500 ? 'CTP' : 'The Covid Tracking Project'
+
+  const [ctpHeading, setCtpHeading] = useState('The Covid Tracking Project')
+
+  useEffect(() => {
+    // TODO add window resize listener
+    if (window.innerWidth < 500) {
+      setCtpHeading('CTP')
+    }
+  }, [])
 
   return (
     <section>
