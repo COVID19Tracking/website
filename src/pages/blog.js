@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
-import Byline from '../components/common/byline'
+import Byline from '../components/pages/blog/byline'
 
 export default ({ data }) => (
   <Layout title="Blog" textHeavy narrow>

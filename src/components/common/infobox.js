@@ -53,7 +53,7 @@ const SyncInfobox = () => (
       >
         <img src={syncIcon} alt="Sync icon" />
         <div>
-          <InfoboxInner header="Last synced with our spreadsheet:">
+          <InfoboxInner header="Last updated from our data:">
             {data.site.siteMetadata.buildDate}
           </InfoboxInner>
         </div>

@@ -4,6 +4,7 @@ import HorizontalBarChart from '../../components/charts/horizontal-bar-chart'
 import { getStateName, deathsBarColor } from '../../utilities/visualization'
 
 import './state-cumulative-deaths-container.scss'
+import dashboardStyles from './dashboard.module.scss'
 
 export default function StateCumulativeDeathsContainer() {
   const query = useStaticQuery(graphql`
@@ -33,31 +34,27 @@ export default function StateCumulativeDeathsContainer() {
   const toggleCollapse = () => collapseChart(u => !u)
   const height = isCollapsed ? 400 : 1000
   return (
-    <div>
-      <div className="chart-title">Total Deaths By States</div>
-      <section className="state-cumulative-death-container">
-        <div>
-          <HorizontalBarChart
-            data={isCollapsed ? data.slice(0, 10) : data}
-            fill={deathsBarColor}
-            height={height}
-            marginBottom={40}
-            marginLeft={136}
-            marginRight={40}
-            marginTop={20}
-            xTicks={4}
-            yTicks={data.length}
-            width={400}
-          />
-          <button
-            className="chart-expand-button"
-            type="button"
-            onClick={toggleCollapse}
-          >
-            {isCollapsed ? 'Show all states' : 'Collapse'}
-          </button>
-        </div>
-      </section>
+    <div className={dashboardStyles.chartsContainerInner}>
+      <h3 className={dashboardStyles.chartTitle}>Total Deaths By States</h3>
+      <HorizontalBarChart
+        data={isCollapsed ? data.slice(0, 10) : data}
+        fill={deathsBarColor}
+        height={height}
+        marginBottom={40}
+        marginLeft={136}
+        marginRight={40}
+        marginTop={20}
+        xTicks={4}
+        yTicks={data.length}
+        width={400}
+      />
+      <button
+        className="chart-expand-button"
+        type="button"
+        onClick={toggleCollapse}
+      >
+        {isCollapsed ? 'Show all states' : 'Collapse'}
+      </button>
     </div>
   )
 }

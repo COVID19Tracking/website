@@ -1,7 +1,9 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import BarChart from '../../components/charts/bar-chart'
-import { parseDate } from '../../utilities/visualization'
+import { parseDate, totalColor } from '../../utilities/visualization'
+
+import dashboardStyles from './dashboard.module.scss'
 
 export default function UsAreaChartContainer() {
   const query = useStaticQuery(graphql`
@@ -30,23 +32,22 @@ export default function UsAreaChartContainer() {
     })
 
   return (
-    <div>
-      <div className="chart-title">Total deaths in the US</div>
-      <div>
-        <BarChart
-          data={data}
-          fill="#585BC1"
-          height={400}
-          marginBottom={40}
-          marginLeft={80}
-          marginRight={10}
-          marginTop={10}
-          xTicks={3}
-          width={400}
-          align="center"
-          showTicks={5}
-        />
-      </div>
+    <div
+      className={`${dashboardStyles.chartsContainerInner} ${dashboardStyles.chartsContainerInnerLeft}`}
+    >
+      <h3 className={dashboardStyles.chartTitle}>Total deaths in the US</h3>
+      <BarChart
+        data={data}
+        fill={totalColor}
+        height={400}
+        marginBottom={40}
+        marginLeft={80}
+        marginRight={10}
+        marginTop={10}
+        xTicks={3}
+        width={400}
+        showTicks={5}
+      />
     </div>
   )
 }
