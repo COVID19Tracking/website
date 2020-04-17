@@ -2,11 +2,26 @@
 @import './colors.module.scss';
 
 body {
+  color: $text;
   font: normal 100%/1.5 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 }
 
 img {
   max-width: 100%;
+}
+
+ol[class],
+ul[class] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li > :first-child {
+  margin-top: 0;
+}
+li > :last-child {
+  margin-bottom: 0;
 }
 
 #gatsby-noscript {
