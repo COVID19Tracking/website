@@ -1,7 +1,7 @@
 import React from 'react'
 import Screenshots from './screenshots'
 import Table from '../../common/table'
-import { FormatNumber, FormatDate } from '../../common/format'
+import { FormatNumber, FormatDate } from '../../utils/format'
 import stateHistoryStyle from './state-history.module.scss'
 
 export default ({ history, screenshots }) => (

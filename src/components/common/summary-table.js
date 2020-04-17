@@ -1,6 +1,6 @@
 import React from 'react'
 import Table from './table'
-import { FormatNumber } from './format'
+import { FormatNumber } from '../utils/format'
 
 export default ({ data, lastUpdated, showOutcomes = true }) => (
   <Table tableLabel={lastUpdated && `Last updated: ${lastUpdated} ET`}>

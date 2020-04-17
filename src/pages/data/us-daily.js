@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
-import { FormatDate, FormatNumber } from '../../components/common/format'
+import { FormatDate, FormatNumber } from '../../components/utils/format'
 import { SyncInfobox } from '../../components/common/infobox'
 import Table from '../../components/common/table'
 
