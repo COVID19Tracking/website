@@ -1,4 +1,6 @@
 const { DateTime } = require('luxon')
+const algoliaQueries = require('./src/utilities/algolia')
+
 require('dotenv').config()
 
 module.exports = {
@@ -20,6 +22,15 @@ module.exports = {
     'gatsby-plugin-eslint',
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-netlify',
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries: algoliaQueries,
+        chunkSize: 10000,
+      },
+    },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
