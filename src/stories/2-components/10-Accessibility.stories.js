@@ -1,6 +1,6 @@
 import React from 'react'
 import VisuallyHidden from '@reach/visually-hidden'
-import Alert from '@reach/alert'
+import Alert from '../../components/utils/alert'
 import SkipNavigation from '../../components/utils/skip-navigation'
 
 export default {
