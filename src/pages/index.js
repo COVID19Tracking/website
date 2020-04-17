@@ -11,7 +11,7 @@ import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/common/press-list'
 import BlogList from '../components/pages/blog/blog-list'
 import Visualizations from '../components/pages/homepage/visualizations'
-import GetInvolved from '../components/common/get-involved'
+import ListArrow from '../components/common/list-arrow'
 import homepageStyles from './index.module.scss'
 
 export default ({ data }) => (
@@ -41,7 +41,7 @@ export default ({ data }) => (
                     .html,
               }}
             />
-            <GetInvolved
+            <ListArrow
               items={[
                 <p>
                   <Link to="/data">

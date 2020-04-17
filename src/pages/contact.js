@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
-import GetInvolved from '../components/common/get-involved'
+import ListArrow from '../components/common/list-arrow'
 
 const ContactPage = ({ data }) => (
   <Layout title="Contact" narrow textHeavy>
@@ -12,7 +12,7 @@ const ContactPage = ({ data }) => (
             .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
       }}
     />
-    <GetInvolved
+    <ListArrow
       items={[
         <p>
           <Link to="/contact/accessibility">

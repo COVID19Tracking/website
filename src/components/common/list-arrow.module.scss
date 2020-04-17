@@ -1,19 +1,19 @@
 @import '../../scss/colors.module.scss';
 
-.get-involved {
+.list-arrow {
   font-size: 1.375rem;
   line-height: 1.5;
   list-style: none;
   margin-left: 0;
   padding-left: 0;
 }
-.get-involved-item {
+.list-arrow-item {
   flex-wrap: nowrap;
   display: flex;
   flex-direction: row-reverse;
   margin-bottom: 1em;
 
-  .get-involved-icon {
+  .list-arrow-icon {
     flex: 0 0 30px;
     color: $color-plum-700;
     font-size: 1.3rem;
