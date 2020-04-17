@@ -4,10 +4,11 @@ import CDCComparisonContainer from './_CDCComparisonContainer'
 import MapContainer from './_MapContainer'
 import StateCumulativeTestsContainer from './_StateCumulativeTestsContainer'
 import StateCumulativeDeathsContainer from './_StateCumulativeDeathsContainer'
-import UsCumulativeDeathsContainer from './_UsCumulativeDeathsContainer'
+import UsDailyDeathsContainer from './_UsDailyDeathsContainer'
 import UsPositiveAndTotalTestsContainer from './_UsPositiveAndTotalTestsContainer'
 
 import './dashboard.scss'
+import dashboardStyles from './dashboard.module.scss'
 
 const DashboardPage = () => {
   return (
@@ -153,8 +154,10 @@ const DashboardPage = () => {
         <a href="https://twitter.com/jburnmurdoch">John Burn-Murdoch</a>, a data
         journalist at the <em>Financial Times</em>, pointed out.
       </p>
-      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-        <UsCumulativeDeathsContainer />
+      <div
+        className={`${dashboardStyles.chartsContainer} ${dashboardStyles.chartsTwoColumnLg}`}
+      >
+        <UsDailyDeathsContainer />
         <StateCumulativeDeathsContainer />
       </div>
       <p className="tips-section-title">
@@ -205,35 +208,41 @@ const DashboardPage = () => {
         consider the tips above to avoid common pitfalls in data reporting as we
         seek to inform people during this time of crisis.
       </p>
-      <div className="chart-legend-note">
-        <strong>Notes</strong>
-      </div>
-      <p className="chart-legend-note">
-        We derive the total value by adding together the positive and negative
-        value for each state. This is to account for differences in how states
-        reporting pending tests
-      </p>
-      <p className="chart-legend-note">
-        We changed the way we report California data on April 1. We synced up
-        with the{' '}
-        <a href="https://public.tableau.com/views/COVID-19PublicDashboard/Covid-19Public?:embed=y&:display_count=no&:showVizHome=no">
-          states&rsquo;s data dashboard
-        </a>
-        , whereas previously we had published testing updates from other
-        sources. This led to a drop in California&rsquo;s reported cases and
-        deaths in our dataset on April 1, since the state&rsquo;s data lags
-        behind our previous sources.
-      </p>
-      <p className="chart-legend-note">
-        <strong>Source:</strong> The COVID Tracking Project
-      </p>
-      <p className="chart-legend-note">
-        Graphics and development by Jeremia Kimelman, Gabe O&rsquo;Leary, Melba Madrigal, Vijay
-        Sharwar, Aaron Mullan, Nathan Selikoff, Alice Goldfarb, Jane Friedhoff,
-        Norman Wang, Daniel Gilbert
-      </p>
-      <p className="chart-legend-note">Visual editing by Júlia Ledur</p>
-      <p className="chart-legend-note">Text editing by Hannah Waters</p>
+      <aside className="notes-section">
+        <div>
+          <strong>Notes</strong>
+        </div>
+        <p>
+          We derive the total value by adding together the positive and negative
+          value for each state. This is to account for differences in how states
+          reporting pending tests.
+        </p>
+        <p>
+          We changed the way we report California data on April 1. We synced up
+          with the{' '}
+          <a href="https://public.tableau.com/views/COVID-19PublicDashboard/Covid-19Public?:embed=y&:display_count=no&:showVizHome=no">
+            states&apos;s data dashboard
+          </a>
+          , whereas previously we had published testing updates from other
+          sources. This led to a drop in California&rsquo;s reported cases and
+          deaths in our dataset on April 1, since the state&rsquo;s data lags
+          behind our previous sources.
+        </p>
+        <div className="source-section">
+          <p>
+            <strong>Source:</strong> The COVID Tracking Project
+          </p>
+        </div>
+        <div className="byline-section">
+          <p>
+            Graphics and development by Jeremia Kimelman, Melba Madrigal, Vijay
+            Sharwar, Aaron Mullan, Nathan Selikoff, Alice Goldfarb, Jane
+            Friedhoff, Norman Wang, Daniel Gilbert
+          </p>
+          <p>Visual editing by Júlia Ledur</p>
+          <p>Text editing by Hannah Waters</p>
+        </div>
+      </aside>
     </Layout>
   )
 }
