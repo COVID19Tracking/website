@@ -4,7 +4,7 @@ import CDCComparisonContainer from './_CDCComparisonContainer'
 import MapContainer from './_MapContainer'
 import StateCumulativeTestsContainer from './_StateCumulativeTestsContainer'
 import StateCumulativeDeathsContainer from './_StateCumulativeDeathsContainer'
-import UsCumulativeDeathsContainer from './_UsCumulativeDeathsContainer'
+import UsDailyDeathsContainer from './_UsDailyDeathsContainer'
 import UsPositiveAndTotalTestsContainer from './_UsPositiveAndTotalTestsContainer'
 
 import './dashboard.scss'
@@ -136,7 +136,7 @@ const DashboardPage = () => {
       <div
         className={`${dashboardStyles.chartsContainer} ${dashboardStyles.chartsTwoColumnLg}`}
       >
-        <UsCumulativeDeathsContainer />
+        <UsDailyDeathsContainer />
         <StateCumulativeDeathsContainer />
       </div>
       <p className="tips-section-title">
