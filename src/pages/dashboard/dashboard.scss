@@ -55,38 +55,10 @@
   flex-direction: column;
 }
 
-.us-area-chart-container {
-  margin: 50px auto;
-  max-width: 800px;
-}
-
-.charts-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.charts-container__chart {
-  margin: 0 40px;
-}
-
 .small-multiples-chart-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-
-.chart-title {
-  text-transform: uppercase;
-  font-size: 16px;
-  margin-bottom: 1rem;
-  font-weight: bold;
-}
-
-.chart-subtitle {
-  text-transform: uppercase;
-  font-size: 13px;
-  margin-bottom: 1rem;
 }
 
 .chart-header {
@@ -103,37 +75,51 @@
 
 .chart-legend {
   display: flex;
+  flex-direction: row;
   font-size: 14px;
-  flex-direction: column;
   list-style-type: none;
-  margin: 1.5rem 0 0;
+  margin: 0;
 
-  @media screen and (min-width: $viewport-ms) {
-    flex-direction: row;
-  }
+  .dashboard-cumulative-tests & {
+    flex-direction: column;
+    margin: 2rem 0 0;
 
-  @media screen and (min-width: $viewport-lg) {
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-top: 0;
+    @media screen and (min-width: $viewport-ms) {
+      flex-direction: row;
+    }
+
+    @media screen and (min-width: $viewport-lg) {
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-top: 0;
+    }
   }
 
   li {
     align-items: center;
     display: flex;
     line-height: 1.2;
+    margin: 0 2rem 0 0;
     white-space: nowrap;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+    .dashboard-cumulative-tests & {
+      margin-bottom: 1rem;
 
-    @media screen and (min-width: $viewport-ms) {
-      margin: 0 2rem 0 0;
-    }
+      &:last-child {
+        margin-bottom: 0;
+      }
 
-    @media screen and (min-width: $viewport-lg) {
-      margin: 0 0 0 2rem;
+      @media screen and (min-width: $viewport-ms) {
+        margin: 0 2rem 0 0;
+      }
+
+      @media screen and (min-width: $viewport-lg) {
+        margin: 0 0 0 2rem;
+
+        &:nth-child(1) {
+          margin-left: 0;
+        }
+      }
     }
   }
 }
@@ -277,11 +263,6 @@ $small-multiples-chart-gutter: 1%;
     text-align: left;
     width: 86%;
   }
-}
-
-.dashboard-toggle:focus {
-  outline: 2px dotted;
-  color: $color-slate-800;
 }
 
 .subhead {
