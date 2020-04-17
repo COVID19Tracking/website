@@ -3,7 +3,7 @@ import React from 'react'
 import AreaChart from '../../components/charts/area-chart'
 import BarChart from '../../components/charts/bar-chart'
 
-import { parseDate } from '../../pages/dashboard/_utils'
+import { parseDate } from '../../utilities/visualization'
 
 import usDaily from '../../../_data/v1/us/daily.json'
 
