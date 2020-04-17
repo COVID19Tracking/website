@@ -18,8 +18,8 @@ import './map.scss'
 
 import ChoroLegend from './_ChoroLegend'
 
-import breakpoints from '../../../scss/breakpoints.scss'
-import importedColors from '../../../scss/colors.scss'
+import breakpoints from '../../../scss/breakpoints.module.scss'
+import importedColors from '../../../scss/colors.module.scss'
 
 const viewportSm = parseInt(breakpoints.viewportSm, 10)
 
@@ -226,7 +226,7 @@ export default function Map({
           />
         )}
       </div>
-      <p>*Per one million people</p>
+      <p className="chart-legend-note">*Per one million people</p>
     </div>
   )
 }
@@ -346,7 +346,13 @@ const BubbleLegend = ({ r, maxValue, width, height }) => {
     />
   ))
   const legendText = legendData.map(d => (
-    <text key={`legendText${d}`} x={(width * 2) / 3} y={height - 2 * r(d)}>
+    <text
+      key={`legendText${d}`}
+      x={(width * 2) / 3 + 4}
+      y={height - 2 * r(d) - 2}
+      fill="#ababab"
+      fontSize="15px"
+    >
       {formatNumber(d)}
     </text>
   ))

@@ -31,10 +31,10 @@ export default function StateCumulativeDeathsContainer() {
 
   const [isCollapsed, collapseChart] = useState(true)
   const toggleCollapse = () => collapseChart(u => !u)
-  const height = isCollapsed ? 400 : 900
+  const height = isCollapsed ? 400 : 1000
   return (
     <div>
-      <h4>Total Deaths By States</h4>
+      <div className="chart-title">Total Deaths By States</div>
       <section className="state-cumulative-death-container">
         <div>
           <HorizontalBarChart

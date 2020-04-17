@@ -6,9 +6,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import cloneDeep from 'lodash/cloneDeep'
 import BarChart from '../../components/charts/bar-chart'
 
-import { parseDate } from '../../utilities/visualization'
-
-import colors from '../../scss/colors.scss'
+import { parseDate, totalColor } from '../../utilities/visualization'
 
 const parseCdcDate = timeParse('%m/%d/%Y')
 
@@ -101,9 +99,10 @@ export default function CDCComparisonContainer() {
           As of today, the COVID Tracking Project has identified more than{' '}
           {format('.2s')(cumulativeTotal).replace('M', ' million')} tests
           administered across the country, a count significantly higher than the
-          numbers the CDC reports. That’s because the CDC tallies only COVID-19
-          tests done at certified public health labs, and leaves out those
-          conducted by private labs—the vast majority of all tests to date.
+          numbers the CDC reports. That&rsquo;s because the CDC tallies only
+          COVID-19 tests done at certified public health labs, and leaves out
+          those conducted by private labs—the vast majority of all tests to
+          date.
         </p>
         <p>
           The COVID Tracking Project provides more complete information. We
@@ -112,14 +111,14 @@ export default function CDCComparisonContainer() {
           and private labs. We update our dataset multiple times every day based
           on the latest reports.
         </p>
-        <h4>Daily new tests in the US</h4>
+        <div className="chart-title">Daily new tests in the US</div>
       </div>
       <div className="charts-container">
         <div className="charts-container__chart">
-          <strong>CDC</strong>
+          <div className="chart-subtitle">CDC</div>
           <BarChart
             data={cdcData}
-            fill={colors.colorPlum600}
+            fill={totalColor}
             height={252}
             marginBottom={40}
             marginLeft={80}
@@ -133,10 +132,10 @@ export default function CDCComparisonContainer() {
           />
         </div>
         <div className="charts-container__chart">
-          <strong>The Covid Tracking Project</strong>
+          <div className="chart-subtitle">The Covid Tracking Project</div>
           <BarChart
             data={covidData}
-            fill={colors.colorPlum600}
+            fill={totalColor}
             height={252}
             marginBottom={40}
             marginLeft={80}
@@ -149,7 +148,7 @@ export default function CDCComparisonContainer() {
           />
         </div>
       </div>
-      <p>
+      <p className="chart-legend-note">
         <strong>Note:</strong> Numbers undercount the full extent of COVID-19
         because of the lack of widespread testing and lags in state reporting.
       </p>

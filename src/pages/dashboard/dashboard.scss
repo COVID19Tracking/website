@@ -1,5 +1,5 @@
-@import '../../scss/breakpoints.scss';
-@import '../../scss/colors.scss';
+@import '../../scss/breakpoints.module.scss';
+@import '../../scss/colors.module.scss';
 
 .dashboard-button {
   color: #000;
@@ -76,6 +76,19 @@
   justify-content: space-between;
 }
 
+.chart-title {
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.chart-subtitle {
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 1rem;
+}
+
 .chart-header {
   display: flex;
   flex-direction: column;
@@ -141,7 +154,13 @@
 }
 
 .chart-legend-note {
-  font-size: 12px;
+  font-size: 14px;
+  color: #676b6d;
+}
+
+.tips-section-title {
+  font-size: 1.1em;
+  font-weight: bold;
 }
 
 .chart-controls {
@@ -180,17 +199,16 @@
   @media screen and (min-width: $viewport-xl) {
     width: calc(100% / 7);
   }
+}
+
+.small-multiples-chart__see-all-link {
+  display: inline-block;
+  margin-bottom: 0.4rem;
 
   h4 {
     font-size: 14px;
     line-height: 1.2;
-    margin-bottom: 0.4rem;
-  }
-
-  h5 {
-    font-size: 10px;
-    line-height: 1.2;
-    margin-bottom: 0.4rem;
+    margin: 0;
   }
 }
 
@@ -231,12 +249,6 @@
   }
 }
 
-.axis-labels {
-  fill: #828688;
-  text-anchor: end;
-  font-size: 10pt;
-}
-
 .chart-expand-button {
   background-color: #f2f5fc;
   border: 0.08rem solid #788598;
@@ -258,11 +270,14 @@
   }
 }
 
-.gridlines {
-  opacity: 0.7;
-}
-
 .dashboard-toggle:focus {
   outline: 2px dotted;
   color: $color-slate-800;
+}
+
+.subhead {
+  font-weight: lighter;
+  font-size: 25px;
+  line-height: 33px;
+  margin-bottom: 70px;
 }

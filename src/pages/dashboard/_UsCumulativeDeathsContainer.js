@@ -31,7 +31,7 @@ export default function UsAreaChartContainer() {
 
   return (
     <div>
-      <h4>Daily deaths in the US</h4>
+      <div className="chart-title">Daily new tests in the US</div>
       <div>
         <BarChart
           data={data}
@@ -42,6 +42,7 @@ export default function UsAreaChartContainer() {
           marginRight={10}
           marginTop={10}
           xTicks={3}
+          showTicks={6}
           width={400}
         />
       </div>
