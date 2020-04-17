@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  UnorderedList,
   OrderedList,
   UnstyledList,
 } from '../../components/common/lists'
@@ -78,12 +77,6 @@ inlineStyles.story = {
     },
   },
 }
-
-export const unorderedList = () => (
-  <UnorderedList>
-    <ExampleList />
-  </UnorderedList>
-)
 
 export const orderedList = () => (
   <OrderedList>
