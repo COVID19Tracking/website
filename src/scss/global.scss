@@ -1,6 +1,14 @@
 @import './normalize.css';
 @import './colors.module.scss';
 
+body {
+  font: normal 100%/1.5 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+}
+
+img {
+  max-width: 100%;
+}
+
 #gatsby-noscript {
   display: none;
 }
@@ -48,9 +56,9 @@ select,
 }
 
 * {
-  transition: color 0.2s ease;
-  transition: background-color 0.2s ease;
-  transition: border-bottom 0.2s ease;
+  transition: color 0.2s;
+  transition: background-color 0.2s;
+  transition: border-bottom 0.15s;
 }
 
 .js-disabled {
