@@ -193,7 +193,7 @@ export default function CumulativeTestsByStateContainer() {
             </span>
           </div>
         </div>
-        <ul className="chart-legend">
+        <ul className="chart-legend" aria-hidden="true">
           <li>
             <div
               className="chart-legend-color"
