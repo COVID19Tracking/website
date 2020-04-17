@@ -1,0 +1,17 @@
+@import '../../scss/colors.module.scss';
+
+.get-involved {
+  flex-wrap: nowrap;
+  display: flex;
+  font-size: 1.2rem;
+  line-height: 1.4;
+
+  .get-involved-icon {
+    flex: 0 0 30px;
+    color: $color-plum-700;
+    font-size: 1.3rem;
+  }
+  a {
+    font-weight: bold;
+  }
+}

@@ -5,10 +5,8 @@ import React, { useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import cloneDeep from 'lodash/cloneDeep'
 import BarChart from '../../components/charts/bar-chart'
+import { parseDate, totalColor } from '../../utilities/visualization'
 
-import { parseDate } from '../../utilities/visualization'
-
-import colors from '../../scss/colors.module.scss'
 import dashboardStyles from './dashboard.module.scss'
 
 const parseCdcDate = timeParse('%m/%d/%Y')
@@ -112,9 +110,10 @@ export default function CDCComparisonContainer() {
           As of today, the COVID Tracking Project has identified more than{' '}
           {format('.2s')(cumulativeTotal).replace('M', ' million')} tests
           administered across the country, a count significantly higher than the
-          numbers the CDC reports. That’s because the CDC tallies only COVID-19
-          tests done at certified public health labs, and leaves out those
-          conducted by private labs—the vast majority of all tests to date.
+          numbers the CDC reports. That&rsquo;s because the CDC tallies only
+          COVID-19 tests done at certified public health labs, and leaves out
+          those conducted by private labs—the vast majority of all tests to
+          date.
         </p>
         <p>
           The COVID Tracking Project provides more complete information. We
@@ -136,7 +135,7 @@ export default function CDCComparisonContainer() {
           <h4 className={dashboardStyles.chartSubtitle}>CDC</h4>
           <BarChart
             data={cdcData}
-            fill={colors.colorPlum600}
+            fill={totalColor}
             height={250}
             marginBottom={40}
             marginLeft={80}
@@ -152,7 +151,7 @@ export default function CDCComparisonContainer() {
           <h4 className={dashboardStyles.chartSubtitle}>{ctpHeading}</h4>
           <BarChart
             data={covidData}
-            fill={colors.colorPlum600}
+            fill={totalColor}
             height={250}
             marginBottom={40}
             marginLeft={80}

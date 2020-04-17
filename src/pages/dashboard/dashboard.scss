@@ -166,15 +166,19 @@
   padding: 0 5px;
 }
 
+$small-multiples-chart-gutter: 1%;
+
 .small-multiples-chart {
   line-height: 1rem;
-  padding: 0 1%;
+  padding: 0 ($small-multiples-chart-gutter * 2);
   width: 50%;
+
   svg {
     background-color: $color-slate-100;
   }
 
   @media screen and (min-width: $viewport-sm) {
+    padding: 0 $small-multiples-chart-gutter;
     width: calc(100% / 4);
   }
 
@@ -202,6 +206,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin: 0 - ($small-multiples-chart-gutter * 2);
+
+  @media screen and (min-width: $viewport-sm) {
+    margin: 0 - $small-multiples-chart-gutter;
+  }
 }
 
 .small-multiples-chart-container--collapsed {

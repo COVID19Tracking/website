@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import BarChart from '../../components/charts/bar-chart'
-import { parseDate } from '../../utilities/visualization'
+import { parseDate, totalColor } from '../../utilities/visualization'
 
 import dashboardStyles from './dashboard.module.scss'
 
@@ -38,7 +38,7 @@ export default function UsAreaChartContainer() {
       <h3 className={dashboardStyles.chartTitle}>Total deaths in the US</h3>
       <BarChart
         data={data}
-        fill="#585BC1"
+        fill={totalColor}
         height={400}
         marginBottom={40}
         marginLeft={80}

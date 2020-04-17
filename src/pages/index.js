@@ -11,6 +11,7 @@ import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/common/press-list'
 import BlogList from '../components/common/blog-list'
 import Visualizations from '../components/pages/homepage/visualizations'
+import GetInvolved from '../components/common/get-involved'
 import homepageStyles from './index.module.scss'
 
 export default ({ data }) => (
@@ -40,22 +41,20 @@ export default ({ data }) => (
                     .html,
               }}
             />
-            <div className={homepageStyles.getInvolved}>
-              <div className={homepageStyles.getInvolvedIcon}>→</div>
-              <p>
-                <Link to="/data">
-                  Check your state&apos;s testing data report card
-                </Link>{' '}
-                to see the quality of the data they are providing.
-              </p>
-            </div>
-            <div className={homepageStyles.getInvolved}>
-              <div className={homepageStyles.getInvolvedIcon}>→</div>
-              <p>
-                Want to get involved?{' '}
-                <Link to="/about-project/help">Help us get better data</Link>.
-              </p>
-            </div>
+            <GetInvolved
+              items={[
+                <p>
+                  <Link to="/data">
+                    Check your state&apos;s testing data report card
+                  </Link>{' '}
+                  to see the quality of the data they are providing.
+                </p>,
+                <p>
+                  Want to get involved?{' '}
+                  <Link to="/help">Help us get better data</Link>.
+                </p>,
+              ]}
+            />
           </Box>
           <Box width={[1, 1, 1 / 3]}>
             <div style={{ marginBottom: '2.5rem' }}>

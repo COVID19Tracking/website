@@ -68,8 +68,8 @@ export default function UsAreaChartContainer() {
           <AreaChart
             data={transformedData}
             fill={d => {
-              if (d === 'Total') return '#585BC1'
-              return '#FFA270'
+              if (d === 'Total') return totalColor
+              return positiveColor
             }}
             height={300}
             labelOrder={['Total', 'Positive']}
