@@ -1,5 +1,5 @@
-@import '../../scss/colors.scss';
-@import '../../scss/breakpoints.scss';
+@import '../../scss/colors.module.scss';
+@import '../../scss/breakpoints.module.scss';
 
 .hero {
   @media only screen and (max-width: $viewport-ms) {
@@ -45,22 +45,22 @@
 
       &:hover,
       &:focus {
-        color: $color-blueberry-5;
+        color: $color-blueberry-100;
       }
     }
 
     .button {
-      background: $color-blueberry-4;
+      background: $color-blueberry-200;
       text-decoration: none;
       padding: 1rem 0;
       width: 25%;
       text-align: center;
-      color: $color-blueberry-1;
+      color: $color-blueberry-500;
       &:hover,
       &:focus,
       &:active {
-        background: $color-blueberry-5;
-        color: $color-blueberry-1;
+        background: $color-blueberry-100;
+        color: $color-blueberry-500;
       }
       @media only screen and (max-width: $viewport-sm) {
         width: 100%;

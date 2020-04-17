@@ -1,0 +1,18 @@
+@import '../../scss/colors.module.scss';
+
+.lede {
+  margin: 2rem 0 2.5rem;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.5;
+  border-bottom: 1px solid $color-slate-500;
+  padding-bottom: 1.5rem;
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+}

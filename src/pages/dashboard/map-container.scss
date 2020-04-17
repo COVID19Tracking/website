@@ -1,5 +1,5 @@
-@import '../../scss/colors.scss';
-@import '../../scss/breakpoints.scss';
+@import '../../scss/colors.module.scss';
+@import '../../scss/breakpoints.module.scss';
 
 .state-map {
   margin-bottom: 3rem;
@@ -44,48 +44,13 @@
   }
 }
 
-%map-toggle-active {
-  color: black;
-  border-color: black;
-  font-weight: 500;
-}
-%map-toggle-inactive {
-  color: lightgray;
-  border: solid lightgray 2px;
-  font-weight: initial;
-}
-
-.map-style-button {
-  cursor: pointer;
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
-  span {
-    @extend %map-toggle-inactive;
-    display: inline-block;
-    font-size: 14px;
-    margin: -1px;
-    padding: 2px 15px;
-    &:nth-child(2) {
-      border-radius: 8px 0 0 8px;
-      border-right-color: black !important;
-    }
-    &:nth-child(1) {
-      border-radius: 0 8px 8px 0;
-    }
-    &.active {
-      @extend %map-toggle-active;
-    }
-  }
-}
-
 .legend-text {
   border-bottom: solid 3px;
   &.total {
-    border-color: $color-plum-3;
+    border-color: $color-plum-500;
   }
   &.positive {
-    border-color: $color-honey-5;
+    border-color: $color-honey-400;
   }
 }
 .add-margin-small {
@@ -221,13 +186,18 @@
     }
   }
   .map-start-stop-label {
-    width: 150px;
+    width: 166px;
+    padding-left: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-size: 12px;
     &.column {
       white-space: nowrap;
+    }
+    @media screen and(max-width: $viewport-sm) {
+      width: 158px;
+      padding-left: 9px;
     }
   }
 }

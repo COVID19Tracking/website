@@ -6,8 +6,8 @@ import { nest } from 'd3-collection'
 import { scaleLinear, scaleTime } from 'd3-scale'
 import { area } from 'd3-shape'
 
-import { formatDate, formatNumber, formatMillionShort } from '../_utils'
-import './area-chart.scss'
+import { formatDate, formatNumber } from '../../utilities/visualization'
+import chartStyles from './charts.module.scss'
 
 const AreaChart = ({
   annotations,
@@ -57,22 +57,14 @@ const AreaChart = ({
     .y0(d => yScale(d.value))
     .y1(height - totalYMargin)
 
-  const strokeColor = '#b2bbbf'
-
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} style={{ overflow: 'visible' }}>
+    <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
       {showTicks ? (
-        <g
-          className="axis-group"
-          transform={`translate(${marginLeft} ${marginTop})`}
-        >
-          <g
-            className="axis x-axis"
-            transform={`translate(0 ${height - totalYMargin})`}
-          >
+        <g transform={`translate(${marginLeft} ${marginTop})`}>
+          <g transform={`translate(0 ${height - totalYMargin})`}>
             {xScale.ticks(xTicks).map(tick => (
               <text
-                className="area-chart__x-tick-label"
+                className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
                 key={tick}
                 x={xScale(tick)}
                 y={20}
@@ -81,25 +73,20 @@ const AreaChart = ({
               </text>
             ))}
           </g>
-          <g className="chart-grid">
-            {yScale.ticks(yTicks).map((tick, i) => (
+          <g>
+            {yScale.ticks(yTicks).map(tick => (
               <g key={tick}>
                 <svg
                   y={yScale(tick) + 4}
                   x="-10"
-                  className="area-chart__y-tick-label"
+                  className={chartStyles.yTickLabel}
                 >
-                  <text textAnchor="end">
-                    {yFormat === 'millions'
-                      ? formatMillionShort(
-                          tick,
-                          i === yScale.ticks(yTicks).length - 1,
-                        )
-                      : formatNumber(tick)}
+                  <text className={chartStyles.label} textAnchor="end">
+                    {yFormat ? yFormat(tick) : formatNumber(tick)}
                   </text>
                 </svg>
                 <line
-                  stroke={strokeColor}
+                  className={chartStyles.gridLine}
                   x1={0}
                   x2={width - totalXMargin}
                   y1={yScale(tick)}
@@ -111,26 +98,20 @@ const AreaChart = ({
         </g>
       ) : (
         <line
-          stroke={strokeColor}
+          className={chartStyles.gridLine}
           x1={0}
           x2={width}
           y1={height - 1}
           y2={height - 1}
         />
       )}
-      <g
-        className="chart-area-group"
-        transform={`translate(${marginLeft} ${marginTop})`}
-      >
+      <g transform={`translate(${marginLeft} ${marginTop})`}>
         {sorted.map(d => (
           <path key={d.key} d={a(d.values)} opacity={0.8} fill={fillFn(d)} />
         ))}
       </g>
       {annotations && (
-        <g
-          className="chart-annotations-group"
-          transform={`translate(${marginLeft} ${marginTop})`}
-        >
+        <g transform={`translate(${marginLeft} ${marginTop})`}>
           {annotations.map(d => (
             <line
               key={d.date}
@@ -158,7 +139,7 @@ AreaChart.defaultProps = {
   xTicks: 5,
   yMax: null,
   yTicks: 4,
-  yFormat: 'thousands',
+  yFormat: null,
   showTicks: true,
 }
 
@@ -184,7 +165,7 @@ AreaChart.propTypes = {
   xTicks: PropTypes.number,
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
-  yFormat: PropTypes.string,
+  yFormat: PropTypes.func,
   showTicks: PropTypes.bool,
 }
 export default AreaChart

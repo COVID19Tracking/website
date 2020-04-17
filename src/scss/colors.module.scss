@@ -1,0 +1,97 @@
+$text: #000;
+
+/*
+
+Brand colors
+
+*/
+// Plum
+$color-plum-100: #F2F2FF;
+$color-plum-200: #D1D1E8;
+$color-plum-300: #B6B7DB;
+$color-plum-400: #8B8DC7;
+$color-plum-500: #6164BA;
+$color-plum-600: #575AAD;
+$color-plum-700: #31347A;
+$color-plum-800: #111354;
+
+// Honey
+$color-honey-100: #FCF9EB;
+$color-honey-200: #FBE8A9;
+$color-honey-300: #F6CE7A;
+$color-honey-400: #FFAD4A;
+$color-honey-500: #E2894E;
+$color-honey-600: #C66B3E;
+$color-honey-700: #924F34;
+$color-honey-800: #6E2F1F;
+
+// Blueberry
+$color-blueberry-100: #E2F1FC;
+$color-blueberry-200: #8CC7F4;
+$color-blueberry-300: #0091EA;
+$color-blueberry-400: #004399;
+$color-blueberry-500: #012656;
+
+// Slate
+$color-slate-100: #EDF1F2;
+$color-slate-200: #D2D6D7;
+$color-slate-300: #B7BCBD;
+$color-slate-400: #9CA1A2;
+$color-slate-500: #828688;
+$color-slate-600: #676B6D;
+$color-slate-700: #4C5153;
+$color-slate-800: #313638;
+
+
+/*
+
+Color primitives
+
+*/
+$color-link: $color-plum-600;
+$color-link--active: $color-plum-400;
+$color-link--hover: $color-plum-400;
+
+$color-infobox-question-light: #fef9cd;
+$color-infobox-question-dark: #5e4f24;
+
+$color-infobox-sync-light: #ddeffc;
+$color-infobox-sync-dark: #264a8c;
+
+$color-infobox-alert-light: #fedcd2;
+$color-infobox-alert-dark: #802509;
+
+:export {
+  text: $text;
+  link: $color-link;
+  linkActive: $color-link--active;
+  colorPlum100: $color-plum-100;
+  colorPlum200: $color-plum-200;
+  colorPlum300: $color-plum-300;
+  colorPlum400: $color-plum-400;
+  colorPlum500: $color-plum-500;
+  colorPlum600: $color-plum-600;
+  colorPlum700: $color-plum-700;
+  colorPlum800: $color-plum-800;
+  colorHoney100: $color-honey-100;
+  colorHoney200: $color-honey-200;
+  colorHoney300: $color-honey-300;
+  colorHoney400: $color-honey-400;
+  colorHoney500: $color-honey-500;
+  colorHoney600: $color-honey-600;
+  colorHoney700: $color-honey-700;
+  colorHoney800: $color-honey-800;
+  colorBlueberry100: $color-blueberry-100;
+  colorBlueberry200: $color-blueberry-200;
+  colorBlueberry300: $color-blueberry-300;
+  colorBlueberry400: $color-blueberry-400;
+  colorBlueberry500: $color-blueberry-500;
+  colorSlate100: $color-slate-100;
+  colorSlate200: $color-slate-200;
+  colorSlate300: $color-slate-300;
+  colorSlate400: $color-slate-400;
+  colorSlate500: $color-slate-500;
+  colorSlate600: $color-slate-600;
+  colorSlate700: $color-slate-700;
+  colorSlate800: $color-slate-800;
+}

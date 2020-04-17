@@ -8,14 +8,18 @@ import { scaleSqrt, scaleThreshold } from 'd3-scale'
 
 import StatesWithPopulation from '../../../data/visualization/state-populations.json'
 
-import { formatNumber, formatDate, parseDate } from '../_utils'
+import {
+  formatNumber,
+  formatDate,
+  parseDate,
+} from '../../../utilities/visualization'
 
 import './map.scss'
 
 import ChoroLegend from './_ChoroLegend'
 
-import breakpoints from '../../../scss/breakpoints.scss'
-import importedColors from '../../../scss/colors.scss'
+import breakpoints from '../../../scss/breakpoints.module.scss'
+import importedColors from '../../../scss/colors.module.scss'
 
 const viewportSm = parseInt(breakpoints.viewportSm, 10)
 
@@ -26,8 +30,7 @@ const colorSchemes = Object.assign.apply(
   ['Plum', 'Honey', 'Slate'].map(scheme => ({
     [scheme.toLowerCase()]: new Array(8)
       .fill(0)
-      .map((a, i) => importedColors[`color${scheme}0${i + 1}`])
-      .reverse(), // remove after merge
+      .map((a, i) => importedColors[`color${scheme}${i + 1}00`]),
   })),
 )
 
@@ -223,6 +226,7 @@ export default function Map({
           />
         )}
       </div>
+      <p className="chart-legend-note">*Per one million people</p>
     </div>
   )
 }

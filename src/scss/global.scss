@@ -1,5 +1,5 @@
 @import './normalize.css';
-@import './colors.scss';
+@import './colors.module.scss';
 
 #gatsby-noscript {
   display: none;
@@ -36,6 +36,12 @@ a {
     color: $color-link--hover;
     text-decoration: none;
   }
+}
+
+a,
+button,
+select,
+[role='switch'] {
   &:focus {
     outline: 2px dotted;
   }
@@ -45,4 +51,30 @@ a {
   transition: color 0.2s ease;
   transition: background-color 0.2s ease;
   transition: border-bottom 0.2s ease;
+}
+
+.js-disabled {
+  display: none;
+}
+
+.js-enabled {
+  display: inline;
+}
+
+.js-enabled-block {
+  display: block;
+}
+
+.no-js {
+  .js-enabled {
+    display: none !important;
+  }
+
+  .js-disabled {
+    display: inline !important;
+  }
+
+  .js-disabled-block {
+    display: block !important;
+  }
 }

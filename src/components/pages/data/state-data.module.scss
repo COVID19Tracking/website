@@ -1,5 +1,5 @@
-@import '../../../scss/colors.scss';
-@import '../../../scss/breakpoints.scss';
+@import '../../../scss/colors.module.scss';
+@import '../../../scss/breakpoints.module.scss';
 
 .header {
   display: flex;
@@ -31,7 +31,7 @@
 }
 
 .top-link {
-  color: $color-slate-4;
+  color: $color-slate-600;
   margin-top: 1.8rem;
   display: inline-block;
 }

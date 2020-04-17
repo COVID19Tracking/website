@@ -37,28 +37,19 @@ const HeaderNavigation = () => {
     }
   `)
   return (
-    <>
-      <noscript>
-        <style>
-          {`.site-header nav {
-          display: block !important;
-        }`}
-        </style>
-      </noscript>
-      <nav>
-        <ul>
-          {data.allNavigationYaml.edges[0].node.items.map(item => (
-            <li key={item.link}>
-              <Link to={item.link}>{item.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </>
+    <nav className="js-disabled-block">
+      <ul>
+        {data.allNavigationYaml.edges[0].node.items.map(item => (
+          <li key={item.link}>
+            <Link to={item.link}>{item.title}</Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   )
 }
 
-const Header = ({ title, noMargin, hasHero, navigation }) => {
+const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
   const header = (
@@ -114,7 +105,11 @@ const Header = ({ title, noMargin, hasHero, navigation }) => {
               >
                 {title && (
                   <h1 className={`${navigation ? '' : headerStyle.extraSpace}`}>
-                    {title}
+                    {titleLink ? (
+                      <Link to={titleLink}>{title}</Link>
+                    ) : (
+                      <>{title}</>
+                    )}
                   </h1>
                 )}
               </Box>

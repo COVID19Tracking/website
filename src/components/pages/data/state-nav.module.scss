@@ -1,5 +1,5 @@
-@import '../../../scss/colors.scss';
-@import '../../../scss/breakpoints.scss';
+@import '../../../scss/colors.module.scss';
+@import '../../../scss/breakpoints.module.scss';
 
 .state-nav-combobox {
   label {
@@ -16,7 +16,7 @@
   }
   input {
     padding: 0.3rem;
-    border: 1px solid $color-slate-4;
+    border: 1px solid $color-slate-600;
   }
 }
 

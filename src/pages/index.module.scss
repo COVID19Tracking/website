@@ -1,5 +1,5 @@
-@import '../scss/colors.scss';
-@import '../scss/breakpoints.scss';
+@import '../scss/colors.module.scss';
+@import '../scss/breakpoints.module.scss';
 
 .main {
   h2 {
@@ -20,27 +20,11 @@
   margin-top: 0.6rem;
 }
 
-.get-involved {
-  flex-wrap: nowrap;
-  display: flex;
-  font-size: 1.2rem;
-  line-height: 1.4;
-
-  .get-involved-icon {
-    flex: 0 0 30px;
-    color: $color-plum-2;
-    font-size: 1.3rem;
-  }
-  a {
-    font-weight: bold;
-  }
-}
-
 .press-logos {
   margin: 1.5rem 0;
   padding: 2rem 0;
   h2 {
-    color: $color-slate-3;
+    color: $color-slate-700;
     font-size: 1rem;
     text-align: center;
     font-variant: all-small-caps;

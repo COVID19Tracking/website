@@ -1,7 +1,7 @@
 import React from 'react'
 
-import AreaChart from '../../pages/dashboard/charts/_AreaChart'
-import BarChart from '../../pages/dashboard/charts/_BarChart'
+import AreaChart from '../../components/charts/area-chart'
+import BarChart from '../../components/charts/bar-chart'
 
 import { parseDate } from '../../pages/dashboard/_utils'
 

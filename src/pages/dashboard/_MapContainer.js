@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-useless-return */
 import React, { useState, useMemo, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
@@ -8,7 +6,11 @@ import { sum } from 'd3-array'
 
 import Map from './charts/_Map'
 
-import { formatDate, formatNumber, parseDate } from './_utils'
+import {
+  formatDate,
+  formatNumber,
+  parseDate,
+} from '../../utilities/visualization'
 
 import './map-container.scss'
 
@@ -46,6 +48,10 @@ const MapContainer = () => {
 
   const [playing, setPlaying] = useState(false)
 
+  // the data is joined to the stateJson in the Map child component and
+  // updated using setJoinedData.
+  // this is because we need access to the d3 Path used for calculating
+  // the centroid of each state
   const [joinedData, setJoinedData] = useState(null)
 
   const getValue = useMemo(
@@ -68,8 +74,13 @@ const MapContainer = () => {
   )
 
   const sumChoro = useMemo(
-    () => joinedData && sum(joinedData.features, d => getValue(d)),
+    () =>
+      joinedData && sum(joinedData.features, d => getValue(d, currentField)),
     [joinedData, getValue],
+  )
+  const sumPopulation = useMemo(
+    () => joinedData && sum(joinedData.features, d => d.properties.population),
+    [joinedData],
   )
   const start = () => {
     if (sliderIndex === dates.length - 1) {
@@ -115,7 +126,7 @@ const MapContainer = () => {
         <h2>{formatDate(parseDate(currentDate))}</h2>
         {useChoropleth ? (
           <div>
-            <span>{formatNumber(sumChoro)}</span>{' '}
+            <span>{formatNumber((sumChoro / sumPopulation) * 1000000)}</span>{' '}
             <select
               value={currentField}
               onChange={e => setCurrentField(e.target.value)}

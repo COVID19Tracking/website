@@ -1,5 +1,5 @@
-@import '../../scss/colors.scss';
-@import '../../scss/breakpoints.scss';
+@import '../../scss/colors.module.scss';
+@import '../../scss/breakpoints.module.scss';
 .footer {
   background-image: url(../../images/hero-bg.svg);
   background-size: auto 300%;
@@ -46,7 +46,7 @@
 
         &:hover,
         &:focus {
-          color: $color-plum-7;
+          color: $color-plum-200;
         }
       }
     }

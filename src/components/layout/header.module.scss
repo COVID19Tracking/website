@@ -1,5 +1,5 @@
-@import '../../scss/colors.scss';
-@import '../../scss/breakpoints.scss';
+@import '../../scss/colors.module.scss';
+@import '../../scss/breakpoints.module.scss';
 
 .circles {
   background: #5667ad;
@@ -16,7 +16,7 @@
 }
 
 .site-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
   &.no-margin {
     margin-bottom: 0;
   }
@@ -57,6 +57,14 @@
       margin: 35px 0 17.5px;
       font-size: 2.2rem;
       color: white;
+      a {
+        color: white;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
 
       @media (max-width: $viewport-md) {
         margin: 17.5px 0 17.5px;
@@ -70,19 +78,17 @@
       margin-left: auto;
     }
 
-    a {
-      color: white;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: bold;
-    }
-
     nav {
       display: none;
       margin-top: 1rem;
       align-self: center;
       break-before: always;
-
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
       @media (min-width: $viewport-lg) {
         break-before: auto;
         margin-left: auto;
@@ -108,11 +114,11 @@
         }
         a:hover,
         a:focus {
-          color: $color-blueberry-5;
+          color: $color-blueberry-100;
         }
         a:hover,
         a[aria-current] {
-          border-bottom: 3px solid $color-blueberry-4;
+          border-bottom: 3px solid $color-blueberry-200;
           padding-bottom: 2px;
         }
         a[aria-current] {
@@ -192,10 +198,15 @@
         list-style-type: none;
         margin: 0;
         text-align: left;
-        background: $color-plum-7;
+        background: $color-plum-200;
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;
 
+        a {
+          text-decoration: none;
+          font-size: 0.9rem;
+          font-weight: bold;
+        }
         @media (max-width: $viewport-ms) {
           display: inline-flex;
           flex-wrap: nowrap;
@@ -212,7 +223,7 @@
         }
 
         a {
-          color: $color-plum-3;
+          color: $color-plum-600;
           display: block;
           padding: 0.4rem 0.6rem;
           font-size: 0.72rem;

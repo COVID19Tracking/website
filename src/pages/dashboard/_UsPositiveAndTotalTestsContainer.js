@@ -1,7 +1,13 @@
 import React, { useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import AreaChart from './charts/_AreaChart'
-import { parseDate } from './_utils'
+import { format } from 'd3-format'
+
+import AreaChart from '../../components/charts/area-chart'
+import {
+  parseDate,
+  totalColor,
+  positiveColor,
+} from '../../utilities/visualization'
 
 export default function UsAreaChartContainer() {
   const data = useStaticQuery(graphql`
@@ -36,15 +42,31 @@ export default function UsAreaChartContainer() {
         sort of targeted social distancing technique and can help slow the
         outbreak.
       </p>
-      <div>
+      <div style={{ width: '50%', align: 'center', margin: 'auto' }}>
         <h4>Positive tests and total tests in the US</h4>
+        <ul className="chart-legend">
+          <li>
+            <div
+              className="chart-legend-color"
+              style={{ backgroundColor: positiveColor }}
+            />
+            <div>Positive tests</div>
+          </li>
+          <li>
+            <div
+              className="chart-legend-color"
+              style={{ backgroundColor: totalColor }}
+            />
+            <div>Total tests</div>
+          </li>
+        </ul>
         <AreaChart
           data={transformedData}
           fill={d => {
             if (d === 'Total') return '#585BC1'
             return '#FFA270'
           }}
-          height={400}
+          height={300}
           labelOrder={['Total', 'Positive']}
           marginBottom={40}
           marginLeft={80}
@@ -52,7 +74,7 @@ export default function UsAreaChartContainer() {
           marginTop={10}
           xTicks={2}
           width={400}
-          yFormat="millions"
+          yFormat={format('~s')}
         />
       </div>
     </section>

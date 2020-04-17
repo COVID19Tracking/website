@@ -58,7 +58,7 @@ export default ({ data }) => (
 export const query = graphql`
   query {
     dataSummaryFootnote: allContentfulSnippet(
-      filter: { name: { eq: "Data summary footnote" } }
+      filter: { slug: { eq: "data-summary-footnote" } }
     ) {
       nodes {
         id

@@ -1,13 +1,10 @@
-/* eslint-disable no-debugger */
 import React from 'react'
 
-// import { format } from 'd3-format'
 import { format } from 'd3-format'
 import { scaleLinear } from 'd3-scale'
 
 export default function ChoroLegend({
   color,
-  // title,
   tickSize = 6,
   width = 320,
   height = 44 + tickSize,
