@@ -3,13 +3,15 @@ import getInvolvedStyles from './get-involved.module.scss'
 
 export default ({ items }) => {
   return (
-    <div>
+    <ul className={getInvolvedStyles.getInvolved}>
       {items.map(node => (
-        <div className={getInvolvedStyles.getInvolved}>
-          <div className={getInvolvedStyles.getInvolvedIcon}>→</div>
+        <li className={getInvolvedStyles.getInvolvedItem}>
           {node}
-        </div>
+          <span aria-hidden className={getInvolvedStyles.getInvolvedIcon}>
+            →
+          </span>
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }
