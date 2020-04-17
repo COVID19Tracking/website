@@ -99,9 +99,10 @@ export default function CDCComparisonContainer() {
           As of today, the COVID Tracking Project has identified more than{' '}
           {format('.2s')(cumulativeTotal).replace('M', ' million')} tests
           administered across the country, a count significantly higher than the
-          numbers the CDC reports. That’s because the CDC tallies only COVID-19
-          tests done at certified public health labs, and leaves out those
-          conducted by private labs—the vast majority of all tests to date.
+          numbers the CDC reports. That&rsquo;s because the CDC tallies only
+          COVID-19 tests done at certified public health labs, and leaves out
+          those conducted by private labs—the vast majority of all tests to
+          date.
         </p>
         <p>
           The COVID Tracking Project provides more complete information. We
