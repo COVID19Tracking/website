@@ -1,7 +1,7 @@
 import React from 'react'
 import { SkipNavContent } from '@reach/skip-nav'
 import { Link, graphql } from 'gatsby'
-import { Flex, Box } from '../components/common/flexbox'
+import { Flex, Box } from '../components/layout/flexbox'
 import SkipNavigation from '../components/utils/skip-navigation'
 import Header from '../components/layout/header'
 import Container from '../components/common/container'

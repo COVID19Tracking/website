@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Flex, Box } from '../../components/common/flexbox'
+import { Flex, Box } from '../../components/layout/flexbox'
 import DetailText from '../../components/common/detail-text'
 import Layout from '../../components/layout'
 import StateList from '../../components/pages/data/state-list'

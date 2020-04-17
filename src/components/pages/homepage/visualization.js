@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '../../common/flexbox'
+import { Box } from '../../layout/flexbox'
 import DetailText from '../../common/detail-text'
 import { PublicationTitle, PublicationSource } from '../../common/publication'
 
