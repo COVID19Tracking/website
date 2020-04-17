@@ -131,11 +131,11 @@ function groupAndSortStateDaily(query) {
 // TODO: we're iterating over data and calling parseDate multiple times in this
 // component. Seems like it could be optimized.
 function getDateExtent(data) {
-  const allDates = data.reduce((acc, cur) => {
+  const allValues = data.reduce((acc, cur) => {
     return acc.concat(cur.values)
   }, [])
 
-  return extent(allDates, d => parseDate(d.date))
+  return extent(allValues, v => parseDate(v.date))
 }
 
 export default function CumulativeTestsByStateContainer() {
