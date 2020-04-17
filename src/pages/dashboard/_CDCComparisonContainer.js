@@ -99,7 +99,8 @@ export default function CDCComparisonContainer() {
 
   useEffect(() => {
     // TODO add window resize listener
-    if (window.innerWidth < 500) {
+    // eslint-disable-next-line no-restricted-globals
+    if (screen.width < 500) {
       setCtpHeading('CTP')
     }
   }, [])
