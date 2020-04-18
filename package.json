@@ -24,7 +24,6 @@
     "@mdx-js/react": "^1.5.7",
     "@reach/alert": "^0.9.1",
     "@reach/combobox": "^0.9.1",
-    "@reach/disclosure": "^0.9.1",
     "@reach/skip-nav": "^0.9.0",
     "@reach/visually-hidden": "^0.9.0",
     "@storybook/addon-docs": "^5.3.18",
