@@ -26,8 +26,6 @@
     "@reach/skip-nav": "^0.9.0",
     "@reach/visually-hidden": "^0.9.0",
     "@slack/web-api": "^5.8.0",
-    "@storybook/addon-docs": "^5.3.18",
-    "@storybook/addon-info": "^5.3.17",
     "d3-array": "^2.4.0",
     "d3-collection": "^1.0.7",
     "d3-format": "^1.4.4",
@@ -80,6 +78,8 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@storybook/addon-actions": "^5.3.17",
+    "@storybook/addon-docs": "^5.3.18",
+    "@storybook/addon-info": "^5.3.18",
     "@storybook/addon-links": "^5.3.17",
     "@storybook/addons": "^5.3.17",
     "@storybook/react": "^5.3.17",
