@@ -1,8 +1,9 @@
 import React from 'react'
+import volunteersListStyles from './volunteers-list.module.scss'
 
 export default ({ items }) => {
   return (
-    <ul>
+    <ul className={volunteersListStyles.list}>
       {items.map(({ node }) => (
         <li>
           {node.website ? (
