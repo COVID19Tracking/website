@@ -1,10 +1,9 @@
 const { DateTime } = require('luxon')
 require('dotenv').config()
 
-
 function buildDate(argument) {
   dt = DateTime.fromObject({ zone: 'America/New_York' })
-  meridiem = (dt.hour > 11) ? 'p' : 'a'
+  meridiem = dt.hour > 11 ? 'p' : 'a'
   return `${dt.toFormat('h:mm')} ${meridiem}m ET`
 }
 
@@ -94,6 +93,13 @@ module.exports = {
       options: {
         file: './_data/v1/cdc/daily.json',
         type: 'CDCDaily',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/v1/volunteers.json',
+        type: 'CovidVolunteers',
       },
     },
     {
