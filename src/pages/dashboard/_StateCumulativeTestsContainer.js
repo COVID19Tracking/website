@@ -5,7 +5,7 @@ import React, { useMemo, useState } from 'react'
 import cloneDeep from 'lodash/cloneDeep'
 
 import AreaChart from '../../components/charts/area-chart'
-
+import TotalAndPositiveLegend from './_TotalAndPositiveLegend'
 import StatesWithPopulation from '../../data/visualization/state-populations.json'
 
 import {
@@ -111,12 +111,12 @@ function groupAndSortStateDaily(query) {
 
     clonedData.values = clonedData.values.map(value => {
       const clonedValue = cloneDeep(value)
-
+      const ONE_MILLION = 1000000
       // divide by population to determine per capita percentages
-      clonedValue.positive /= population
-      clonedValue.negative /= population
-      clonedValue.totalTestResults /= population
-
+      clonedValue.positive = (clonedValue.positive / population) * ONE_MILLION
+      clonedValue.negative = (clonedValue.negative / population) * ONE_MILLION
+      clonedValue.totalTestResults =
+        (clonedValue.totalTestResults / population) * ONE_MILLION
       return clonedValue
     })
 
@@ -291,6 +291,14 @@ export default function CumulativeTestsByStateContainer() {
                 yTicks={2}
                 showTicks={false}
                 dateExtent={dateExtent}
+                tooltipFormatter={d => (
+                  <TotalAndPositiveLegend
+                    date={d.date}
+                    total={d.Total}
+                    positive={d.Positive}
+                    perCapita={useTestsPerCapita}
+                  />
+                )}
               />
               <p />
             </div>

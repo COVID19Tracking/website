@@ -14,6 +14,7 @@ import {
 
 import './map-container.scss'
 import dashboardStyles from './dashboard.module.scss'
+import TotalAndPositiveLegend from './_TotalAndPositiveLegend'
 
 const MapContainer = () => {
   const rawStateData = useStaticQuery(graphql`
@@ -144,16 +145,10 @@ const MapContainer = () => {
             <div className="label">per one million people</div>
           </div>
         ) : (
-          <>
-            <div>
-              <span>{formatNumber(sumTotalTestResults)}</span>{' '}
-              <span className="legend-text total">total tests</span>
-            </div>
-            <div>
-              <span>{formatNumber(sumPositive)}</span>{' '}
-              <span className="legend-text positive">positive tests</span>
-            </div>
-          </>
+          <TotalAndPositiveLegend
+            total={sumTotalTestResults}
+            positive={sumPositive}
+          />
         )}
         <div className="map-time-scrubber">
           <div className="map-start-stop-controls">

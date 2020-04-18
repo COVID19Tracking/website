@@ -1,0 +1,20 @@
+@import '../../scss/colors.module.scss';
+
+.item {
+  margin: 6px 5px;
+  line-height: 1rem;
+}
+.date {
+  color: #ababab;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.legend-text {
+  border-bottom: solid 3px;
+  &.total {
+    border-color: $color-plum-500;
+  }
+  &.positive {
+    border-color: $color-honey-400;
+  }
+}

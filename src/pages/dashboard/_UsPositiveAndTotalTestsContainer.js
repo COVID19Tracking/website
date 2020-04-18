@@ -10,6 +10,7 @@ import {
 } from '../../utilities/visualization'
 
 import dashboardStyles from './dashboard.module.scss'
+import TotalAndPositiveLegend from './_TotalAndPositiveLegend'
 
 export default function UsAreaChartContainer() {
   const data = useStaticQuery(graphql`
@@ -80,6 +81,13 @@ export default function UsAreaChartContainer() {
             xTicks={2}
             width={400}
             yFormat={format('~s')}
+            tooltipFormatter={d => (
+              <TotalAndPositiveLegend
+                date={d.date}
+                total={d.Total}
+                positive={d.Positive}
+              />
+            )}
           />
         </div>
       </div>

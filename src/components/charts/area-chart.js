@@ -1,6 +1,3 @@
-/* eslint-disable no-debugger */
-/* eslint-disable no-unused-vars */
-
 import React, { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 
@@ -13,11 +10,7 @@ import merge from 'lodash/merge'
 
 import Tooltip from './tooltip'
 
-import {
-  formatDate,
-  formatNumber,
-  areaTooltipFormatter,
-} from '../../utilities/visualization'
+import { formatDate, formatNumber } from '../../utilities/visualization'
 import chartStyles from './charts.module.scss'
 
 const AreaChart = ({
@@ -78,12 +71,15 @@ const AreaChart = ({
     return pt.matrixTransform(svg.getScreenCTM().inverse())
   }
   const handlePointerMove = event => {
-    const result = svgPoint(event.currentTarget, event.clientX, event.clientY)
+    if (!tooltipFormatter) return
+    const eventX = event.clientX ? event.clientX : event.touches[0].clientX
+    const eventY = event.clientY ? event.clientY : event.touches[0].clientY
+    const result = svgPoint(event.currentTarget, eventX, eventY)
     const date = xScale.invert(result.x - marginLeft)
     date.setHours(0, 0, 0)
     setTooltip({
-      x: event.clientX,
-      y: event.clientY,
+      x: eventX,
+      y: eventY,
       date,
     })
   }
@@ -100,7 +96,6 @@ const AreaChart = ({
       ),
     [data],
   )
-  console.log('dateMap', dateMap)
   return (
     <>
       <svg
@@ -178,8 +173,8 @@ const AreaChart = ({
           </g>
         )}
       </svg>
-      {tooltip && dateMap[tooltip.date] && (
-        <Tooltip x={tooltip.x} y={tooltip.y}>
+      {tooltip && tooltipFormatter && dateMap[tooltip.date] && (
+        <Tooltip x={tooltip.x + 5} y={tooltip.y + 10}>
           {tooltipFormatter(dateMap[tooltip.date])}
         </Tooltip>
       )}
@@ -200,7 +195,7 @@ AreaChart.defaultProps = {
   yFormat: null,
   showTicks: true,
   dateExtent: null,
-  tooltipFormatter: areaTooltipFormatter,
+  tooltipFormatter: null,
 }
 
 AreaChart.propTypes = {
