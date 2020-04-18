@@ -27,10 +27,16 @@
 
 .dashboard-toggle-wrapper {
   display: flex;
+  align-items: center;
 }
 
 .dashboard-toggle-label {
   margin-right: 1rem;
+  font-size: 0.78rem;
+
+  @media screen and (min-width: $viewport-sm) {
+    font-size: 1rem;
+  }
 }
 
 .dashboard-toggle {
