@@ -1,0 +1,14 @@
+.root {
+  border: solid black 1px;
+  position: fixed;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+  text-transform: lowercase;
+  h6 {
+    text-transform: initial;
+    color: '#ababab';
+  }
+}

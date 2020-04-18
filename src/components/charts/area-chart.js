@@ -1,4 +1,7 @@
-import React from 'react'
+/* eslint-disable no-debugger */
+/* eslint-disable no-unused-vars */
+
+import React, { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 
 import { extent, max } from 'd3-array'
@@ -6,7 +9,15 @@ import { nest } from 'd3-collection'
 import { scaleLinear, scaleTime } from 'd3-scale'
 import { area } from 'd3-shape'
 
-import { formatDate, formatNumber } from '../../utilities/visualization'
+import merge from 'lodash/merge'
+
+import Tooltip from './tooltip'
+
+import {
+  formatDate,
+  formatNumber,
+  areaTooltipFormatter,
+} from '../../utilities/visualization'
 import chartStyles from './charts.module.scss'
 
 const AreaChart = ({
@@ -26,6 +37,7 @@ const AreaChart = ({
   yTicks,
   showTicks,
   dateExtent,
+  tooltipFormatter,
 }) => {
   const grouped = nest()
     .key(d => d.label)
@@ -58,75 +70,120 @@ const AreaChart = ({
     .y0(d => yScale(d.value))
     .y1(height - totalYMargin)
 
+  const [tooltip, setTooltip] = useState(null)
+  function svgPoint(svg, x, y) {
+    const pt = svg.createSVGPoint()
+    pt.x = x
+    pt.y = y
+    return pt.matrixTransform(svg.getScreenCTM().inverse())
+  }
+  const handlePointerMove = event => {
+    const result = svgPoint(event.currentTarget, event.clientX, event.clientY)
+    const date = xScale.invert(result.x - marginLeft)
+    date.setHours(0, 0, 0)
+    setTooltip({
+      x: event.clientX,
+      y: event.clientY,
+      date,
+    })
+  }
+  const handlePointerLeave = () => setTooltip(null)
+  const dateMap = useMemo(
+    () =>
+      merge(
+        ...data.map(d => ({
+          [d.date]: {
+            date: d.date,
+            [d.label]: d.value,
+          },
+        })),
+      ),
+    [data],
+  )
+  console.log('dateMap', dateMap)
   return (
-    <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
-      {showTicks ? (
-        <g transform={`translate(${marginLeft} ${marginTop})`}>
-          <g transform={`translate(0 ${height - totalYMargin})`}>
-            {xScale.ticks(xTicks).map(tick => (
-              <text
-                className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
-                key={tick}
-                x={xScale(tick)}
-                y={20}
-              >
-                {formatDate(tick)}
-              </text>
-            ))}
-          </g>
-          <g>
-            {yScale.ticks(yTicks).map(tick => (
-              <g key={tick}>
-                <svg
-                  y={yScale(tick) + 4}
-                  x="-10"
-                  className={chartStyles.yTickLabel}
+    <>
+      <svg
+        className={chartStyles.chart}
+        viewBox={`0 0 ${width} ${height}`}
+        onTouchStart={handlePointerMove}
+        onPointerMove={handlePointerMove}
+        onPointerLeave={handlePointerLeave}
+      >
+        {showTicks ? (
+          <g transform={`translate(${marginLeft} ${marginTop})`}>
+            <g transform={`translate(0 ${height - totalYMargin})`}>
+              {xScale.ticks(xTicks).map(tick => (
+                <text
+                  className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
+                  key={tick}
+                  x={xScale(tick)}
+                  y={20}
+                  textAnchor="center"
                 >
-                  <text className={chartStyles.label} textAnchor="end">
-                    {yFormat ? yFormat(tick) : formatNumber(tick)}
-                  </text>
-                </svg>
-                <line
-                  className={chartStyles.gridLine}
-                  x1={0}
-                  x2={width - totalXMargin}
-                  y1={yScale(tick)}
-                  y2={yScale(tick)}
-                />
-              </g>
-            ))}
+                  {formatDate(tick)}
+                </text>
+              ))}
+            </g>
+            <g>
+              {yScale.ticks(yTicks).map(tick => (
+                <g key={tick}>
+                  <svg
+                    y={yScale(tick) + 4}
+                    x="-10"
+                    className={chartStyles.yTickLabel}
+                  >
+                    <text className={chartStyles.label} textAnchor="end">
+                      {yFormat ? yFormat(tick) : formatNumber(tick)}
+                    </text>
+                  </svg>
+                  <line
+                    className={chartStyles.gridLine}
+                    x1={0}
+                    x2={width - totalXMargin}
+                    y1={yScale(tick)}
+                    y2={yScale(tick)}
+                  />
+                </g>
+              ))}
+            </g>
           </g>
-        </g>
-      ) : (
-        <line
-          className={chartStyles.gridLine}
-          x1={0}
-          x2={width}
-          y1={height - 1}
-          y2={height - 1}
-        />
-      )}
-      <g transform={`translate(${marginLeft} ${marginTop})`}>
-        {sorted.map(d => (
-          <path key={d.key} d={a(d.values)} opacity={0.8} fill={fillFn(d)} />
-        ))}
-      </g>
-      {annotations && (
+        ) : (
+          <line
+            className={chartStyles.gridLine}
+            x1={0}
+            x2={width}
+            y1={height - 1}
+            y2={height - 1}
+          />
+        )}
         <g transform={`translate(${marginLeft} ${marginTop})`}>
-          {annotations.map(d => (
-            <line
-              key={d.date}
-              stroke="black"
-              strokeWidth="2px"
-              x1={xScale(d.date) - 1}
-              x2={xScale(d.date) - 1}
-              y1="0"
-              y2={height - marginTop - marginBottom}
-            />
+          {sorted.map(d => (
+            <path key={d.key} d={a(d.values)} opacity={0.8} fill={fillFn(d)} />
           ))}
         </g>
+        {annotations && (
+          <g transform={`translate(${marginLeft} ${marginTop})`}>
+            {annotations.map(d => (
+              <line
+                key={d.date}
+                stroke="black"
+                strokeWidth="2px"
+                x1={xScale(d.date) - 1}
+                x2={xScale(d.date) - 1}
+                y1="0"
+                y2={height - marginTop - marginBottom}
+              />
+            ))}
+          </g>
+        )}
+      </svg>
+      {tooltip && dateMap[tooltip.date] && (
+        <Tooltip x={tooltip.x} y={tooltip.y}>
+          {tooltipFormatter(dateMap[tooltip.date])}
+        </Tooltip>
       )}
-    </svg>
+    </>
   )
 }
 
@@ -143,6 +200,7 @@ AreaChart.defaultProps = {
   yFormat: null,
   showTicks: true,
   dateExtent: null,
+  tooltipFormatter: areaTooltipFormatter,
 }
 
 AreaChart.propTypes = {
@@ -170,5 +228,6 @@ AreaChart.propTypes = {
   yFormat: PropTypes.func,
   showTicks: PropTypes.bool,
   dateExtent: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
+  tooltipFormatter: PropTypes.func,
 }
 export default AreaChart

@@ -1,3 +1,4 @@
+import React from 'react'
 import { format } from 'd3-format'
 import { timeFormat, timeParse } from 'd3-time-format'
 import colors from '../scss/colors.module.scss'
@@ -71,3 +72,17 @@ export const getStateName = abbr => {
 export const totalColor = colors.colorPlum600
 export const positiveColor = colors.colorHoney500
 export const deathsBarColor = colors.colorSlate600
+
+export const areaTooltipFormatter = d => (
+  <>
+    <h6>{formatDate(d.date)}</h6>
+    {Object.keys(d).map(
+      key =>
+        key !== 'date' && (
+          <span>
+            {formatNumber(d[key])} {key} tests
+          </span>
+        ),
+    )}
+  </>
+)

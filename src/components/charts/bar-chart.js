@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types' // ES6
 
 import { max, range } from 'd3-array'
