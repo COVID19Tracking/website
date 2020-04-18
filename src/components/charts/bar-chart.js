@@ -43,68 +43,61 @@ const BarChart = ({
   )
 
   return (
-    <div align={align}>
-      <svg
-        className={chartStyles.chart}
-        width={width}
-        height={height}
-        viewBox={`0 0 ${width} ${height}`}
-      >
-        <g transform={`translate(${marginLeft} ${marginTop})`}>
-          <g>
-            {yScale.ticks(yTicks).map((tick, i) => (
-              <g key={tick}>
-                {i < showTicks && (
-                  <>
-                    <text
-                      className={chartStyles.yTickLabel}
-                      y={yScale(tick) + 6}
-                      x={`${tick}`.length * -12}
-                    >
-                      {formatNumber(tick)}
-                    </text>
-                    <line
-                      className={chartStyles.gridLine}
-                      x1={0}
-                      x2={width - totalXMargin}
-                      y1={yScale(tick)}
-                      y2={yScale(tick)}
-                    />
-                  </>
-                )}
-              </g>
-            ))}
-          </g>
-        </g>
-
-        <g transform={`translate(${marginLeft}, ${height - marginBottom})`}>
-          {ticks.map(d => {
-            const date = xScale.domain()[d]
-            return (
-              <text
-                className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
-                key={d}
-                x={xScale(date)}
-                y="25"
-              >{`${formatDate(date)}`}</text>
-            )
-          })}
-        </g>
-
-        <g transform={`translate(${marginLeft} ${marginTop})`}>
-          {data.map(d => (
-            <rect
-              key={d.date}
-              x={xScale(d.date)}
-              y={yScale(d.value)}
-              height={yScale(0) - yScale(d.value)}
-              width={xScale.bandwidth()}
-              fill={fill}
-            />
+    <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
+      <g transform={`translate(${marginLeft} ${marginTop})`}>
+        <g>
+          {yScale.ticks(yTicks).map((tick, i) => (
+            <g key={tick}>
+              {i < showTicks && (
+                <>
+                  <text
+                    className={chartStyles.yTickLabel}
+                    y={yScale(tick) + 6}
+                    x={`${tick}`.length * -12}
+                  >
+                    {formatNumber(tick)}
+                  </text>
+                  <line
+                    className={chartStyles.gridLine}
+                    x1={0}
+                    x2={width - totalXMargin}
+                    y1={yScale(tick)}
+                    y2={yScale(tick)}
+                  />
+                </>
+              )}
+            </g>
           ))}
         </g>
-      </svg>
-    </div>
+      </g>
+
+      <g transform={`translate(${marginLeft}, ${height - marginBottom})`}>
+        {ticks.map(d => {
+          const date = xScale.domain()[d]
+          return (
+            <text
+              className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
+              key={d}
+              x={xScale(date)}
+              y="25"
+            >{`${formatDate(date)}`}</text>
+          )
+        })}
+      </g>
+
+      <g transform={`translate(${marginLeft} ${marginTop})`}>
+        {data.map(d => (
+          <rect
+            key={d.date}
+            x={xScale(d.date)}
+            y={yScale(d.value)}
+            height={yScale(0) - yScale(d.value)}
+            width={xScale.bandwidth()}
+            fill={fill}
+          />
+        ))}
+      </g>
+    </svg>
   )
 }
 
