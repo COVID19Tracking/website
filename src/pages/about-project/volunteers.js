@@ -32,7 +32,7 @@ export const query = graphql`
         }
       }
     }
-    allCovidVolunteers {
+    allCovidVolunteers(sort: { fields: name }) {
       edges {
         node {
           name
