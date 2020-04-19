@@ -5,7 +5,7 @@ import {
   FormatNumber,
   lowercaseMeridiem,
   formatDateToString,
-} from '../../../components/common/format'
+} from '../../../components/utils/format'
 
 describe('Components : Utilities: Format', () => {
   it('renders formatted numbers correctly with React components', () => {
