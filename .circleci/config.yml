@@ -12,7 +12,7 @@ jobs:
           name: setup
           command: 'npm run setup'
       - run:
-          name: setup
+          name: build
           command: 'npm run build:gatsby'
       - run:
           name: test
