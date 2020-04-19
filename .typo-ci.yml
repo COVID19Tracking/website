@@ -1,0 +1,10 @@
+dictionaries:
+  - en
+excluded_files:
+  - 'node_modules/**/*'
+  - '*.module.scss'
+  - 'package-lock.json'
+  - '.typo-ci.yml'
+
+excluded_words:
+  - covid
