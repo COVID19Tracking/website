@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '../../common/flexbox'
+import { Box } from '../../layout/flexbox'
 import stateNavNoJsStyle from './state-nav-no-js.module.scss'
 
 export default ({ stateList }) => (

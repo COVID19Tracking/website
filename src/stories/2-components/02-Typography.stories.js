@@ -1,10 +1,9 @@
 import React from 'react'
 import {
-  UnorderedList,
   OrderedList,
   UnstyledList,
 } from '../../components/common/lists'
-import { FormatDate, FormatNumber } from '../../components/common/format'
+import { FormatDate, FormatNumber } from '../../components/utils/format'
 
 const sampleText = `Testing is a crucial part of any public health response, 
 and sharing test data is essential to understanding this outbreak. The CDC is 
@@ -78,12 +77,6 @@ inlineStyles.story = {
     },
   },
 }
-
-export const unorderedList = () => (
-  <UnorderedList>
-    <ExampleList />
-  </UnorderedList>
-)
 
 export const orderedList = () => (
   <OrderedList>

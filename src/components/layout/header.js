@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import { Flex, Box } from '../common/flexbox'
+import { Flex, Box } from './flexbox'
 import Container from '../common/container'
 import DevelopmentWarning from './development-warning'
 import Hero from './hero'

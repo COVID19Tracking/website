@@ -22,7 +22,6 @@
   "dependencies": {
     "@reach/alert": "^0.9.1",
     "@reach/combobox": "^0.9.1",
-    "@reach/disclosure": "^0.9.1",
     "@reach/skip-nav": "^0.9.0",
     "@reach/visually-hidden": "^0.9.0",
     "@slack/web-api": "^5.8.0",
