@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from '../../components/layout/flexbox'
 import Container from '../../components/common/container'
 
 export default {
