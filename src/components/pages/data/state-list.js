@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Box } from '../../common/flexbox'
+import { Flex, Box } from '../../layout/flexbox'
 import State from './state-data'
 
 export default ({ states, stateData }) => {
