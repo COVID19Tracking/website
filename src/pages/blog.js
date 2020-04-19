@@ -4,10 +4,11 @@ import Layout from '../components/layout'
 import Byline from '../components/common/byline'
 
 export default ({ data }) => (
-  <Layout title="Blog" textHeavy narrow>
+  <Layout title="Blogzz" textHeavy narrow>
     {data.allContentfulBlogPost.edges.map(({ node }) => (
       <>
         <h2>
+          Thi is a typo.
           <Link to={`/blog/${node.slug}`}>{node.title}</Link>
         </h2>
         <Byline author={node.author} date={node.publishDate} />
