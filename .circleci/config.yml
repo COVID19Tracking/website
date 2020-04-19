@@ -3,6 +3,8 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.19.0
+        environment:
+          TZ: 'America/New_York'
     steps:
       - checkout
       - run:
