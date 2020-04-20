@@ -1,11 +1,9 @@
 @import '../../scss/colors.module.scss';
 
-.list-arrow {
+.list-arrow[class] {
   font-size: 1.375rem;
   line-height: 1.5;
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
+  margin: 1.5em 0;
 }
 .list-arrow-item {
   flex-wrap: nowrap;
@@ -16,7 +14,7 @@
   .list-arrow-icon {
     flex: 0 0 30px;
     color: $color-plum-700;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
   p {
     flex: 1;
