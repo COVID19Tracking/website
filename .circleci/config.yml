@@ -1,10 +1,16 @@
 version: 2.1
-jobs:
-  setup:
+
+executors:
+  main-executor:
     docker:
       - image: circleci/node:10.19.0
         environment:
           TZ: 'America/New_York'
+    working_directory: /tmp
+
+jobs:
+  setup:
+    executor: main-executor
     steps:
       - checkout
       - run:
@@ -19,10 +25,7 @@ jobs:
       - persist_to_workspace:
           root: workspace
   gatsby-test:
-    docker:
-      - image: circleci/node:10.19.0
-        environment:
-          TZ: 'America/New_York'
+    executor: main-executor
     steps:
       - attach_workspace:
           at: /tmp/workspace
@@ -30,10 +33,7 @@ jobs:
           name: test
           command: 'npm run test'
   gatsby-lint:
-    docker:
-      - image: circleci/node:10.19.0
-        environment:
-          TZ: 'America/New_York'
+    executor: main-executor
     steps:
       - attach_workspace:
           at: /tmp/workspace
