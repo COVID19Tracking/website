@@ -102,24 +102,6 @@ export default function CDCComparisonContainer() {
 
   return (
     <section>
-      <div>
-        <p>
-          As of today, the COVID Tracking Project has identified more than{' '}
-          {format('.2s')(cumulativeTotal).replace('M', ' million')} tests
-          administered across the country, a count significantly higher than the
-          numbers the CDC reports. That&rsquo;s because the CDC tallies only
-          COVID-19 tests done at certified public health labs, and leaves out
-          those conducted by private labs—the vast majority of all tests to
-          date.
-        </p>
-        <p>
-          The COVID Tracking Project provides more complete information. We
-          collect the best available data from every US state and territory
-          about the number of people tested for COVID-19 including both public
-          and private labs. We update our dataset multiple times every day based
-          on the latest reports.
-        </p>
-      </div>
       <div
         className={`${dashboardStyles.chartsContainer} ${dashboardStyles.chartsTwoColumn}`}
       >
