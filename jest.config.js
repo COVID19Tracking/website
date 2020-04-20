@@ -21,6 +21,7 @@ module.exports = {
   setupFiles: [`<rootDir>/loadershim.js`],
   collectCoverageFrom: [
     './src/**/*.js',
+    '!./src/pages/**/*.js',
     '!./src/stories/**',
     '!./src/__tests__/**',
     '!**/node_modules/**',

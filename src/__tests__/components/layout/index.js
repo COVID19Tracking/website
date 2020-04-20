@@ -1,9 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery, StaticQuery } from 'gatsby'
-import Layout from '../../../components/layout'
-
-const SampleChildren = <p>Sample content</p>
+import Layout from '../../../components/layout/index'
 
 beforeEach(() => {
   StaticQuery.mockImplementation(({ render }) =>
@@ -47,20 +45,24 @@ describe('Components : Layout : Header', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(
-        <Layout title="Sample title">
-          <SampleChildren />
-        </Layout>,
+        <>
+          <Layout title="Sample title">
+            <p>Content</p>
+          </Layout>
+        </>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
 
-    const treeTextHeavy = renderer
+    const textHeavytree = renderer
       .create(
-        <Layout title="Sample title" textHeavy narrow>
-          <SampleChildren />
-        </Layout>,
+        <>
+          <Layout title="Sample title" textHeavy narrow>
+            <p>Content</p>
+          </Layout>
+        </>,
       )
       .toJSON()
-    expect(treeTextHeavy).toMatchSnapshot()
+    expect(textHeavytree).toMatchSnapshot()
   })
 })

@@ -1,5 +1,325 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components : Layout : Header renders correctly 1`] = `null`;
+exports[`Components : Layout : Header renders correctly 1`] = `
+Array [
+  <a
+    data-reach-skip-link=""
+    data-reach-skip-nav-link=""
+    href="#reach-skip-nav"
+  >
+    Skip site navigation
+  </a>,
+  <header
+    className="site-header siteHeader  "
+  >
+    <div
+      className="container showBackground"
+    >
+      <div
+        className="container false container"
+      >
+        <div
+          className="css-z54kij"
+        >
+          <div
+            className="siteTitleContainer css-h2hfmc"
+          >
+            <a
+              className="siteTitle"
+              href="/"
+            >
+              <img
+                alt="The COVID Tracking Project"
+                src="test-file-stub"
+                width="176px"
+              />
+            </a>
+          </div>
+          <div
+            className="navContainer css-pv30g0"
+          >
+            <button
+              aria-expanded={false}
+              className="mobileToggle"
+              onClick={[Function]}
+              type="button"
+            >
+              Menu
+            </button>
+          </div>
+          <nav
+            className="js-disabled-block"
+          >
+            <ul>
+              <li>
+                <a
+                  href="/test-a"
+                >
+                  Test A
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/test-b"
+                >
+                  Test B
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          className="titleSubnavContainer css-gzf2yu"
+        >
+          <div
+            className="title css-i3jfzy"
+          >
+            <h1
+              className="extraSpace"
+            >
+              Sample title
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>,
+  <main
+    id="main"
+  >
+    <div
+      data-reach-skip-nav-content=""
+      id="reach-skip-nav"
+    />
+    <div
+      className="container false container"
+    >
+      <p>
+        Content
+      </p>
+    </div>
+  </main>,
+  <footer
+    className="footer"
+  >
+    <div
+      className="container false container"
+    >
+      <div
+        className="container"
+      >
+        <a
+          href="/"
+        >
+          <img
+            alt="The COVID Tracking Project"
+            src="test-file-stub"
+          />
+        </a>
+        <ul>
+          <li>
+            <a
+              href="/contact"
+            >
+              Contact
+            </a>
+          </li>
+          <li>
+            <a
+              href="/accessibility"
+            >
+              Accessibility
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/COVID19Tracking"
+            >
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://twitter.com/COVID19Tracking"
+            >
+              Twitter
+            </a>
+          </li>
+          <li>
+            <a
+              className="backToTop"
+              href="#reach-skip-nav"
+            >
+              Back to top
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>,
+]
+`;
 
-exports[`Components : Layout : Header renders correctly 2`] = `null`;
+exports[`Components : Layout : Header renders correctly 2`] = `
+Array [
+  <a
+    data-reach-skip-link=""
+    data-reach-skip-nav-link=""
+    href="#reach-skip-nav"
+  >
+    Skip site navigation
+  </a>,
+  <header
+    className="site-header siteHeader  "
+  >
+    <div
+      className="container showBackground"
+    >
+      <div
+        className="container false container"
+      >
+        <div
+          className="css-z54kij"
+        >
+          <div
+            className="siteTitleContainer css-h2hfmc"
+          >
+            <a
+              className="siteTitle"
+              href="/"
+            >
+              <img
+                alt="The COVID Tracking Project"
+                src="test-file-stub"
+                width="176px"
+              />
+            </a>
+          </div>
+          <div
+            className="navContainer css-pv30g0"
+          >
+            <button
+              aria-expanded={false}
+              className="mobileToggle"
+              onClick={[Function]}
+              type="button"
+            >
+              Menu
+            </button>
+          </div>
+          <nav
+            className="js-disabled-block"
+          >
+            <ul>
+              <li>
+                <a
+                  href="/test-a"
+                >
+                  Test A
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/test-b"
+                >
+                  Test B
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          className="titleSubnavContainer css-gzf2yu"
+        >
+          <div
+            className="title css-i3jfzy"
+          >
+            <h1
+              className="extraSpace"
+            >
+              Sample title
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>,
+  <main
+    id="main"
+  >
+    <div
+      data-reach-skip-nav-content=""
+      id="reach-skip-nav"
+    />
+    <div
+      className="container textHeavy container"
+    >
+      <div
+        className="containerNarrow"
+      >
+        <p>
+          Content
+        </p>
+      </div>
+    </div>
+  </main>,
+  <footer
+    className="footer"
+  >
+    <div
+      className="container false container"
+    >
+      <div
+        className="container"
+      >
+        <a
+          href="/"
+        >
+          <img
+            alt="The COVID Tracking Project"
+            src="test-file-stub"
+          />
+        </a>
+        <ul>
+          <li>
+            <a
+              href="/contact"
+            >
+              Contact
+            </a>
+          </li>
+          <li>
+            <a
+              href="/accessibility"
+            >
+              Accessibility
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/COVID19Tracking"
+            >
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://twitter.com/COVID19Tracking"
+            >
+              Twitter
+            </a>
+          </li>
+          <li>
+            <a
+              className="backToTop"
+              href="#reach-skip-nav"
+            >
+              Back to top
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>,
+]
+`;
