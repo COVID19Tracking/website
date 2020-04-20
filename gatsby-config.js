@@ -115,5 +115,11 @@ module.exports = {
         icon: 'src/images/icon.svg',
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-smartypants`],
+      },
+    },
   ],
 }
