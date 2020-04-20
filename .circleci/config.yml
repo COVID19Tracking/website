@@ -16,12 +16,16 @@ jobs:
       - run:
           name: build
           command: 'npm run build:gatsby'
+      - persist_to_workspace:
+          root: workspace
   gatsby-test:
     docker:
       - image: circleci/node:10.19.0
         environment:
           TZ: 'America/New_York'
     steps:
+      - attach_workspace:
+          at: /tmp/workspace
       - run:
           name: test
           command: 'npm run test'
@@ -31,10 +35,8 @@ jobs:
         environment:
           TZ: 'America/New_York'
     steps:
-      - checkout
-      - run:
-          name: install
-          command: 'npm install'
+      - attach_workspace:
+          at: /tmp/workspace
       - run:
           name: lint
           command: 'npm run test:lint'
