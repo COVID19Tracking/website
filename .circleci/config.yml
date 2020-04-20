@@ -35,7 +35,7 @@ jobs:
       - run:
           name: test
           command: 'npm run test:coverage'
-      - coveralls/upload
+      - coveralls/upload:
         path_to_lcov: './junit.xml'
   gatsby-lint:
     executor: main-executor
