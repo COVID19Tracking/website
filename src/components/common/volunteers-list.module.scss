@@ -1,3 +1,13 @@
+@import '../../scss/breakpoints.module.scss';
+
 .list {
   column-count: 3;
+
+  @media (max-width: $viewport-md) {
+    column-count: 2;
+  }
+
+  @media (max-width: $viewport-ms) {
+    column-count: 1;
+  }
 }
