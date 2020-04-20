@@ -52,7 +52,7 @@ workflows:
       - build
       - gatsby-test:
           requires:
-            - setup
+            - build
       - gatsby-lint:
           requires:
-            - setup
+            - build
