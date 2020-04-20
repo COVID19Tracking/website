@@ -18,7 +18,7 @@ function getSheet({ worksheetId, sheetName, key }) {
   return (
     fetchJson(url)
       .then(x => {
-        if (x.error.code !== undefined) {
+        if (x.error !== undefined) {
           throw new Error(`Google Sheets is not available. HTTP code: ${x.error.code} (${x.error.message})`)
         }
       })
