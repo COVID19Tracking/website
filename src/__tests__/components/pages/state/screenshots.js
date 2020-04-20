@@ -2,8 +2,8 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import Screenshots from '../../../../components/pages/state/screenshots'
 import sampleScreenshots from 'screenshots'
+import Screenshots from '../../../../components/pages/state/screenshots'
 
 Enzyme.configure({ adapter: new Adapter() })
 

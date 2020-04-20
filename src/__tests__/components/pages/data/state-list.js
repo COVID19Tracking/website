@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import StateList from '../../../../components/pages/data/state-list'
 import sampleState from 'sample-state'
+import StateList from '../../../../components/pages/data/state-list'
 
 describe('Components : Pages : Data : State data', () => {
   it('renders correctly', () => {

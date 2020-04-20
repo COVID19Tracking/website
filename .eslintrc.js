@@ -29,4 +29,7 @@ module.exports = {
       },
     ],
   },
+  settings: {
+    'import/core-modules': ['screenshots', 'state-history', 'sample-state'],
+  },
 }
