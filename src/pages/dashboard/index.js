@@ -52,7 +52,6 @@ const DashboardPage = () => {
         Louisiana.
       </p>
       <p>
-
         Because COVID-19 testing and reporting are inconsistent among states, it
         &rsquo;s easy to misinterpret the data. That makes it especially
         important to create clear and accurate visualizations. Otherwise even
