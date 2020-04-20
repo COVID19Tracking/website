@@ -5,9 +5,12 @@
   line-height: 1rem;
 }
 .date {
-  color: #ababab;
   text-transform: uppercase;
   font-weight: 500;
+  font-weight: bold;
+  text-align: left;
+  font-size: 0.7rem;
+  color: gray;
 }
 .legend-text {
   border-bottom: solid 3px;

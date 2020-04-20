@@ -14,7 +14,7 @@ export default ({ date = null, positive, total, perCapita = false }) => (
     <div className={styles.item}>
       <span>{formatNumber(total)}</span>{' '}
       <span className={clsx(styles.legendText, styles.total)}>
-        tests {perCapita && PER_CAPITA_TEXT}
+        total tests {perCapita && PER_CAPITA_TEXT}
       </span>
     </div>
     <div className={styles.item}>
