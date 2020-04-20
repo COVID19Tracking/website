@@ -291,7 +291,7 @@ export default function CumulativeTestsByStateContainer() {
                 yTicks={2}
                 showTicks={false}
                 dateExtent={dateExtent}
-                tooltipFormatter={d => (
+                renderTooltipContents={d => (
                   <TotalAndPositiveLegend
                     date={d.date}
                     total={d.Total}

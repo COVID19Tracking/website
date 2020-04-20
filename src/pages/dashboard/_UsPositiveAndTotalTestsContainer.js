@@ -81,7 +81,7 @@ export default function UsAreaChartContainer() {
             xTicks={2}
             width={400}
             yFormat={format('~s')}
-            tooltipFormatter={d => (
+            renderTooltipContents={d => (
               <TotalAndPositiveLegend
                 date={d.date}
                 total={d.Total}

@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import React, { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 
@@ -30,7 +31,7 @@ const AreaChart = ({
   yTicks,
   showTicks,
   dateExtent,
-  tooltipFormatter,
+  renderTooltipContents,
 }) => {
   const grouped = nest()
     .key(d => d.label)
@@ -70,20 +71,21 @@ const AreaChart = ({
     pt.y = y
     return pt.matrixTransform(svg.getScreenCTM().inverse())
   }
-  const handlePointerMove = event => {
-    if (!tooltipFormatter) return
-    const eventX = event.clientX ? event.clientX : event.touches[0].clientX
-    const eventY = event.clientY ? event.clientY : event.touches[0].clientY
+  const handleMouseMove = event => {
+    const isTouchEvent = !event.clientX
+    if (!renderTooltipContents) return
+    const eventX = isTouchEvent ? event.touches[0].clientX : event.clientX
+    const eventY = isTouchEvent ? event.touches[0].clientY : event.clientY
     const result = svgPoint(event.currentTarget, eventX, eventY)
     const date = xScale.invert(result.x - marginLeft)
     date.setHours(0, 0, 0)
     setTooltip({
-      x: eventX,
-      y: eventY,
+      top: isTouchEvent ? eventY - 130 : eventY + 10,
+      left: isTouchEvent ? eventX - 80 : eventX + 5,
       date,
     })
   }
-  const handlePointerLeave = () => setTooltip(null)
+  const handleMouseLeave = () => setTooltip(null)
   const dateMap = useMemo(
     () =>
       merge(
@@ -96,14 +98,21 @@ const AreaChart = ({
       ),
     [data],
   )
+
+  const handleTouchEndCapture = event => {
+    setTooltip(null)
+    event.preventDefault()
+  }
+
   return (
     <>
       <svg
         className={chartStyles.chart}
         viewBox={`0 0 ${width} ${height}`}
-        onTouchStart={handlePointerMove}
-        onPointerMove={handlePointerMove}
-        onPointerLeave={handlePointerLeave}
+        onTouchStart={handleMouseMove}
+        onTouchEndCapture={handleTouchEndCapture}
+        onMouseMoveCapture={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
       >
         {showTicks ? (
           <g transform={`translate(${marginLeft} ${marginTop})`}>
@@ -173,9 +182,9 @@ const AreaChart = ({
           </g>
         )}
       </svg>
-      {tooltip && tooltipFormatter && dateMap[tooltip.date] && (
-        <Tooltip x={tooltip.x + 5} y={tooltip.y + 10}>
-          {tooltipFormatter(dateMap[tooltip.date])}
+      {tooltip && renderTooltipContents && dateMap[tooltip.date] && (
+        <Tooltip {...tooltip}>
+          {renderTooltipContents(dateMap[tooltip.date])}
         </Tooltip>
       )}
     </>
@@ -195,7 +204,7 @@ AreaChart.defaultProps = {
   yFormat: null,
   showTicks: true,
   dateExtent: null,
-  tooltipFormatter: null,
+  renderTooltipContents: null,
 }
 
 AreaChart.propTypes = {
@@ -223,6 +232,6 @@ AreaChart.propTypes = {
   yFormat: PropTypes.func,
   showTicks: PropTypes.bool,
   dateExtent: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
-  tooltipFormatter: PropTypes.func,
+  renderTooltipContents: PropTypes.func,
 }
 export default AreaChart
