@@ -23,6 +23,9 @@ jobs:
           name: build
           command: 'npm run build:gatsby'
       - run:
+          command: copy data
+          command: 'npm run build:data'
+      - run:
           name: test
           command: 'npm run build:test'
   gatsby-test:
