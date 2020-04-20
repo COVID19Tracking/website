@@ -44,11 +44,29 @@ Note that any changes you make while running Gatsby will automatically checked w
 
 Components live in `src/components` and are organized as follows:
 
-* `/charts` - Visualizations
-* `/common` - Components that are used more than once and those that are used across different parts of the website
-* `/layout` - Components that control the layout of the website (i.e. headers and footers)
-* `/pages` - Components that are only used once or have a defined scope to a particular part of the website (i.e. `StateGrade` has to do with states) belong in their respective directory in `/pages`
-* `/utils` - Utilities. (If a particular component doesn't have any associated styles, there's a good chance it's a utility.)
+- `/charts` - Visualizations
+- `/common` - Components that are used more than once and those that are used across different parts of the website
+- `/layout` - Components that control the layout of the website (i.e. headers and footers)
+- `/pages` - Components that are only used once or have a defined scope to a particular part of the website (i.e. `StateGrade` has to do with states) belong in their respective directory in `/pages`
+- `/utils` - Utilities. (If a particular component doesn't have any associated styles, there's a good chance it's a utility.)
+
+## Testing
+
+We use Jest for automated testing, and all test files for Gatsby are located in `./src/__tests__`. Test files are structured following their related components.
+
+When you make a change to an interface, you will need to [update the Jest snapshot](https://jestjs.io/docs/en/snapshot-testing) for tests to complete successfully:
+
+```shell
+npm run test:update
+```
+
+Before pushing your local branch to the repository, make sure to run:
+
+```shell
+npm run test
+```
+
+And make sure that every test passes. Pull requests are automatically checked against these same tests.
 
 ## Storybook
 
