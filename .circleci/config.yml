@@ -43,5 +43,9 @@ workflows:
   build_and_test:
     jobs:
       - setup
-      - gatsby-test
-      - gatsby-lint
+      - gatsby-test:
+          requires:
+            - setup
+      - gatsby-lint:
+          requires:
+            - setup
