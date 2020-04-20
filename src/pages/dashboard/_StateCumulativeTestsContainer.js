@@ -199,9 +199,9 @@ export default function CumulativeTestsByStateContainer() {
           aria-checked={useTestsPerCapita}
           tabIndex={0}
         >
-          <span className={useTestsPerCapita ? '' : 'active'}>Total Tests</span>
+          <span className={useTestsPerCapita ? '' : 'active'}>Total tests</span>
           <span className={useTestsPerCapita ? 'active' : ''}>
-            Tests Per Capita
+            Tests per capita*
           </span>
         </div>
         <ul className="chart-legend">
@@ -221,7 +221,7 @@ export default function CumulativeTestsByStateContainer() {
           </li>
           <li>
             <div className="chart-legend-color chart-legend-stay-at-home" />
-            <div>Stay-at-home order*</div>
+            <div>Stay-at-home order**</div>
           </li>
         </ul>
       </div>
@@ -313,7 +313,9 @@ export default function CumulativeTestsByStateContainer() {
         Show {isCollapsed ? 'all' : 'less'} states
       </button>
       <p className="chart-legend-note">
-        <b>*</b> Only statewide stay-at-home orders are included; dates mark
+        <b>*</b> Per capita = per one million people
+        <br />
+        <b>**</b> Only statewide stay-at-home orders are included; dates mark
         when the orders went into effect.
       </p>
     </div>
