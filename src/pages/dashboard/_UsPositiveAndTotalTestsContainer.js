@@ -10,6 +10,7 @@ import {
 } from '../../utilities/visualization'
 
 import dashboardStyles from './dashboard.module.scss'
+import TotalAndPositiveLegend from './_TotalAndPositiveLegend'
 
 function yFormat(tick, i, totalTicks) {
   const formattedTick = format('~s')(tick)
@@ -90,6 +91,13 @@ export default function UsAreaChartContainer() {
             xTicks={2}
             width={400}
             yFormat={yFormat}
+            renderTooltipContents={d => (
+              <TotalAndPositiveLegend
+                date={d.date}
+                total={d.Total}
+                positive={d.Positive}
+              />
+            )}
           />
         </div>
       </div>
