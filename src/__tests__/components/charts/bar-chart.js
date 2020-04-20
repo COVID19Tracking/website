@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import BarChart from '../../../components/charts/bar-chart'
 import data from 'sample-chart-data'
+import BarChart from '../../../components/charts/bar-chart'
 
 describe('Components : Charts: Area chart', () => {
   it('renders correctly', () => {

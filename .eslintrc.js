@@ -30,6 +30,11 @@ module.exports = {
     ],
   },
   settings: {
-    'import/core-modules': ['screenshots', 'state-history', 'sample-state'],
+    'import/core-modules': [
+      'screenshots',
+      'state-history',
+      'sample-state',
+      'sample-chart-data',
+    ],
   },
 }

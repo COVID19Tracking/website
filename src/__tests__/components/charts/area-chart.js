@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import AreaChart from '../../../components/charts/area-chart'
 import data from 'sample-chart-data'
+import AreaChart from '../../../components/charts/area-chart'
 
 describe('Components : Charts: Area chart', () => {
   it('renders correctly', () => {
