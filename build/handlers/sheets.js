@@ -21,6 +21,7 @@ function getSheet({ worksheetId, sheetName, key }) {
         if (x.error) {
           throw new Error(`Google Sheets is not available. HTTP code: ${x.error.code} (${x.error.message})`)
         }
+        return x
       })
       .then(fixVals)
   )
