@@ -58,9 +58,9 @@ workflows:
   build_and_test:
     jobs:
       - gatsby-lint
-      - build
+      - build:
         requires:
           - gatsby-lint
-      - gatsby-test
+      - gatsby-test:
         requires:
           - gatsby-lint
