@@ -1,3 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components : Layout : Development warning is displayed in production 1`] = `null`;
+exports[`Components : Layout : Development warning is displayed in production 1`] = `
+<div
+  className="development-warning developmentWarning"
+>
+  <div
+    data-reach-alert={true}
+  >
+    This is a test version of The COVID Tracking Project website. Data may be inaccurate.
+     
+    <a
+      href="http://covidtracking.com/"
+    >
+      Visit the live site
+    </a>
+  </div>
+</div>
+`;

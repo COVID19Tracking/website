@@ -23,7 +23,7 @@ describe('Components : Layout : Development warning', () => {
       render({
         site: {
           siteMetadata: {
-            production: true,
+            production: false,
           },
         },
       }),
