@@ -6,9 +6,6 @@ import Layout from '../../../components/layout'
 const SampleChildren = <p>Sample content</p>
 
 beforeEach(() => {
-  const useStateSpy = jest.spyOn(React, 'useState')
-  useStateSpy.mockImplementation(init => [init, setState])
-
   StaticQuery.mockImplementation(({ render }) =>
     render({
       site: {
@@ -49,20 +46,20 @@ beforeEach(() => {
 describe('Components : Layout : Header', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(() => (
+      .create(
         <Layout title="Sample title">
           <SampleChildren />
-        </Layout>
-      ))
+        </Layout>,
+      )
       .toJSON()
     expect(tree).toMatchSnapshot()
 
     const treeTextHeavy = renderer
-      .create(() => (
+      .create(
         <Layout title="Sample title" textHeavy narrow>
           <SampleChildren />
-        </Layout>
-      ))
+        </Layout>,
+      )
       .toJSON()
     expect(treeTextHeavy).toMatchSnapshot()
   })

@@ -4,9 +4,6 @@ import { useStaticQuery, StaticQuery } from 'gatsby'
 import Header from '../../../components/layout/header'
 
 beforeEach(() => {
-  const useStateSpy = jest.spyOn(React, 'useState')
-  useStateSpy.mockImplementation(init => [init, setState])
-
   StaticQuery.mockImplementation(({ render }) =>
     render({
       site: {
