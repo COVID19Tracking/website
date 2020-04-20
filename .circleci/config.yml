@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  gatsby-test:
+  setup:
     docker:
       - image: circleci/node:10.19.0
         environment:
@@ -16,14 +16,12 @@ jobs:
       - run:
           name: build
           command: 'npm run build:gatsby'
+  gatsby-test:
+    steps:
       - run:
           name: test
           command: 'npm run test'
   gatsby-lint:
-    docker:
-      - image: circleci/node:10.19.0
-        environment:
-          TZ: 'America/New_York'
     steps:
       - checkout
       - run:
@@ -32,3 +30,10 @@ jobs:
       - run:
           name: lint
           command: 'npm run test:lint'
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - setup
+      - gatsby-test
+      - gatsby-lint
