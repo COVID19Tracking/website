@@ -4,7 +4,23 @@ import { Meta } from '@storybook/addon-docs/blocks'
 
 # Unit testing
 
-#@ API Testing
+We use Jest for automated testing, and all test files for Gatsby are located in `./src/__tests__`. Test files are structured following their related components.
+
+When you make a change to an interface, you will need to [update the Jest snapshot](https://jestjs.io/docs/en/snapshot-testing) for tests to complete successfully:
+
+```shell
+npm run test:update
+```
+
+Before pushing your local branch to the repository, make sure to run:
+
+```shell
+npm run test
+```
+
+And make sure that every test passes. Pull requests are automatically checked against these same tests.
+
+## API Testing
 
 In the `build-test.js` script there are a number of API tests. Most are basic right now and there are plans to expand them. If you have difficulty getting these tests to pass see troubleshooting below.
 
