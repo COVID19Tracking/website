@@ -2,7 +2,7 @@ const _ = require('lodash/fp')
 const { fetchJson } = require('./fetch')
 const { getVals, runSearch } = require('./utils')
 
-const fixVals = _.flow(
+const fixValues = _.flow(
   x => console.log(_.omit(['values'], x)) || x,
   _.get('values'),
   ([keys, ...values]) =>
@@ -25,7 +25,7 @@ function getSheet({ worksheetId, sheetName, key }) {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${worksheetId}/values/${sheetName}?key=${key}`
   return fetchJson(url)
     .then(rejectOnError)
-    .then(fixVals)
+    .then(fixValues)
 }
 
 module.exports = {
