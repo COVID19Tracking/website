@@ -1,5 +1,4 @@
-import { max, sum } from 'd3-array'
-import { format } from 'd3-format'
+import { max } from 'd3-array'
 import { timeParse } from 'd3-time-format'
 import React, { useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -88,8 +87,6 @@ export default function CDCComparisonContainer() {
   // with the same dates, making the two charts comparable.
   const cdcData = normalizeData(initialCdcData, initialCovidData)
   const covidData = normalizeData(initialCovidData, initialCdcData)
-
-  const cumulativeTotal = sum(covidData, d => d.value)
 
   const dailyMax = max(covidData, d => d.value)
 
