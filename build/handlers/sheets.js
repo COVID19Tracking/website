@@ -12,19 +12,20 @@ const fixVals = _.flow(
     ),
 )
 
+function rejectOnError(result) {
+  if (result.error) {
+    const msg = `Google Sheets error. HTTP code: ${result.error.code} (${result.error.message})`
+    return Promise.reject(msg)
+  }
+  return result
+}
+
 function getSheet({ worksheetId, sheetName, key }) {
   console.log(`Fetching sheet ${sheetName} from ${worksheetId}.`)
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${worksheetId}/values/${sheetName}?key=${key}`
-  return (
-    fetchJson(url)
-      .then(x => {
-        if (x.error) {
-          throw new Error(`Google Sheets is not available. HTTP code: ${x.error.code} (${x.error.message})`)
-        }
-        return x
-      })
-      .then(fixVals)
-  )
+  return fetchJson(url)
+    .then(rejectOnError)
+    .then(fixVals)
 }
 
 module.exports = {
