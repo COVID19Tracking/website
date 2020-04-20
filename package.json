@@ -94,6 +94,7 @@
     "gh-pages": "^2.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.3.0",
+    "jest-junit": "^10.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.13.1"
@@ -117,7 +118,7 @@
     "storybook:pages": "gh-pages -d storybook-static -r https://github.com/COVID19Tracking/website-docs",
     "test": "jest",
     "test:update": "jest --updateSnapshot",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "jest --collectCoverage=true",
     "test:lint": "eslint ./src",
     "setup": "run-s setup:api-data setup:env-vars",
     "setup:api-data": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz",

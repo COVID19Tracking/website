@@ -1,5 +1,6 @@
 version: 2.1
-
+orbs:
+  coveralls: coveralls/coveralls@1.0.4
 executors:
   main-executor:
     docker:
@@ -33,7 +34,9 @@ jobs:
           command: 'npm install'
       - run:
           name: test
-          command: 'npm run test'
+          command: 'npm run test:coverage'
+      - coveralls/upload
+        path_to_lcov: './junit.xml'
   gatsby-lint:
     executor: main-executor
     steps:
