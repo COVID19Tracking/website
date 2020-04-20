@@ -17,8 +17,11 @@ function getSheet({ worksheetId, sheetName, key }) {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${worksheetId}/values/${sheetName}?key=${key}`
   return (
     fetchJson(url)
-      // .then(x => console.log(x) || x)
-      // .then(rejectError)
+      .then(x => {
+        if (x.error.code !== undefined) {
+          throw new Error(`Google Sheets is not available. HTTP code: ${x.error.code} (${x.error.message})`)
+        }
+      })
       .then(fixVals)
   )
 }
