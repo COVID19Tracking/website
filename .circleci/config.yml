@@ -17,11 +17,19 @@ jobs:
           name: build
           command: 'npm run build:gatsby'
   gatsby-test:
+    docker:
+      - image: circleci/node:10.19.0
+        environment:
+          TZ: 'America/New_York'
     steps:
       - run:
           name: test
           command: 'npm run test'
   gatsby-lint:
+    docker:
+      - image: circleci/node:10.19.0
+        environment:
+          TZ: 'America/New_York'
     steps:
       - checkout
       - run:
