@@ -11,6 +11,16 @@ import {
 
 import dashboardStyles from './dashboard.module.scss'
 
+function yFormat(tick, i, totalTicks) {
+  const formattedTick = format('~s')(tick)
+
+  if (i + 1 !== totalTicks) {
+    return formattedTick.replace(/\D/g, '')
+  }
+
+  return formattedTick
+}
+
 export default function UsAreaChartContainer() {
   const data = useStaticQuery(graphql`
     {
@@ -79,7 +89,7 @@ export default function UsAreaChartContainer() {
             marginTop={10}
             xTicks={2}
             width={400}
-            yFormat={format('~s')}
+            yFormat={yFormat}
           />
         </div>
       </div>

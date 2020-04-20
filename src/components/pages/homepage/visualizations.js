@@ -7,7 +7,7 @@ import wsjGraph from '../../../images/homepage-visualizations/wsj.png'
 import visualizationsStyles from './visualizations.module.scss'
 
 const Visualizations = () => (
-  <div className={visualizationsStyles.visualizationsModule}>
+  <div className={`layout-region ${visualizationsStyles.visualizationsModule}`}>
     <Container>
       <h2>From the visualization gallery</h2>
       <ul className={visualizationsStyles.visualizationsList}>
