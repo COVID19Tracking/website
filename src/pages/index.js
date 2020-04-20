@@ -1,7 +1,6 @@
 import React from 'react'
 import { SkipNavContent } from '@reach/skip-nav'
 import { Link, graphql } from 'gatsby'
-import { Flex, Box } from '../components/layout/flexbox'
 import SkipNavigation from '../components/utils/skip-navigation'
 import Header from '../components/layout/header'
 import Container from '../components/common/container'
@@ -21,17 +20,17 @@ export default ({ data }) => (
     <Header siteTitle="The COVID Tracking Project" noMargin hasHero />
     <SkipNavContent />
     <h1 className="a11y-only">The COVID Tracking Project</h1>
-    <div className={`press-logos ${homepageStyles.pressLogos}`}>
+    <div className={`press-logos layout-region ${homepageStyles.pressLogos}`}>
       <Container>
-        <h2>Our data has been cited by</h2>
+        <h2 className="hed-landscape">Our data has been cited by</h2>
         <PressLogos onlyFeatured />
       </Container>
     </div>
     <main id="main" className={homepageStyles.main}>
       <Visualizations />
       <Container>
-        <Flex flexWrap="wrap" mt={['1rem', '2rem']}>
-          <Box width={[1, 1, 2 / 3]} pr={[0, '1rem', '5rem']}>
+        <div className="layout-region layout--content-and-rail">
+          <div className="layout--content-primary">
             <div
               className={homepageStyles.content}
               dangerouslySetInnerHTML={{
@@ -55,23 +54,26 @@ export default ({ data }) => (
                 </p>,
               ]}
             />
-          </Box>
-          <Box width={[1, 1, 1 / 3]}>
-            <div style={{ marginBottom: '2.5rem' }}>
-              <h2>Blog</h2>
+          </div>
+          <div className="layout--content-secondary">
+            <div className="module">
+              <h2 className="hed-secondary">Blog</h2>
               <BlogList items={data.allContentfulBlogPost.edges} />
             </div>
-            <Link
-              to="/about-project/in-the-press"
-              className={homepageStyles.pressListMore}
-            >
-              More news
-            </Link>
-            <h2>In the Press</h2>
+            <div className="module">
+              <h2 className="hed-secondary">In the Press</h2>
 
-            <PressList items={data.allCovidPress.edges} />
-          </Box>
-        </Flex>
+              <PressList items={data.allCovidPress.edges} />
+
+              <Link
+                to="/about-project/in-the-press"
+                className={homepageStyles.pressListMore}
+              >
+                More news
+              </Link>
+            </div>
+          </div>
+        </div>
       </Container>
     </main>
     <Footer />

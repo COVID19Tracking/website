@@ -1,14 +1,6 @@
 @import '../scss/colors.module.scss';
 @import '../scss/breakpoints.module.scss';
 
-.main {
-  h2 {
-    font-size: 1.875rem;
-    line-height: 1.2;
-    margin: 0 0 0.75em;
-  }
-}
-
 .content p {
   font-size: 1.2rem;
   line-height: 1.5;
@@ -20,18 +12,9 @@
 .press-list-more {
   font-size: 0.9rem;
   font-weight: bold;
-  float: right;
   margin-top: 0.6rem;
 }
 
 .press-logos {
   margin: 1.5rem 0;
-  padding: 2rem 0;
-  h2 {
-    color: $color-slate-700;
-    font-size: 1.125rem;
-    text-align: center;
-    font-variant: all-small-caps;
-    margin: 0 0 0.2rem;
-  }
 }

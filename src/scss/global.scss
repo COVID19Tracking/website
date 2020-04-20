@@ -1,5 +1,6 @@
 @import './normalize.css';
 @import './colors.module.scss';
+@import './breakpoints.module.scss';
 
 body {
   color: $text;
@@ -100,4 +101,78 @@ select,
   .js-disabled-block {
     display: block !important;
   }
+}
+
+
+
+/*
+
+Layout blocks
+
+*/
+.layout-region {
+  padding: 3rem 0;
+}
+.module {
+  margin-bottom: 3rem;
+}
+.module:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: $viewport-md) {
+  .layout--content-and-rail {
+    display: flex;
+    justify-content: space-between;
+  }
+  .layout--content-primary {
+    flex: 0 1 55%;
+  }
+  .layout--content-secondary {
+    font-size: 1.125rem;
+    line-height: 1.3;
+    flex: 0 1 40%;
+  }
+}
+@media (min-width: $viewport-lg) {
+  .layout--content-primary {
+    flex-basis: 60%;
+  }
+  .layout--content-secondary {
+    flex-basis: 32%;
+  }
+}
+
+
+/*
+
+Headline treatments
+
+*/
+.hed-primary,
+.layout--content-primary h2 {
+  font-size: 1.375rem;
+  line-height: 1.2;
+  margin: 0 0 0.75em;
+}
+@media (min-width: $viewport-md) {
+  .hed-primary,
+  .layout--content-primary h2 {
+    font-size: 1.875rem;
+  }
+}
+.hed-secondary {
+  font-size: 1.125rem;
+  margin-bottom: 0.5em;
+}
+@media (min-width: $viewport-md) {
+  .hed-secondary {
+    font-size: 1.4375rem;
+  }
+}
+.hed-landscape {
+  color: $color-slate-700;
+  font-size: 1.125rem;
+  text-align: center;
+  font-variant: all-small-caps;
+  margin: 0 0 0.2rem;
 }

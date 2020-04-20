@@ -9,7 +9,7 @@ import visualizationsStyles from './visualizations.module.scss'
 const Visualizations = () => (
   <div className={`layout-region ${visualizationsStyles.visualizationsModule}`}>
     <Container>
-      <h2>From the visualization gallery</h2>
+      <h2 className="hed-primary">From the visualization gallery</h2>
       <ul className={visualizationsStyles.visualizationsList}>
         <Visualization
           image={nytGraph}
