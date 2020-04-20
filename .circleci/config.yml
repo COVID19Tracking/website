@@ -8,7 +8,7 @@ executors:
           TZ: 'America/New_York'
 
 jobs:
-  setup:
+  build:
     executor: main-executor
     steps:
       - checkout
@@ -28,16 +28,20 @@ jobs:
   gatsby-test:
     executor: main-executor
     steps:
-      - attach_workspace:
-          at: /tmp/workspace
+      - checkout
+      - run:
+          name: install
+          command: 'npm install'
       - run:
           name: test
           command: 'npm run test'
   gatsby-lint:
     executor: main-executor
     steps:
-      - attach_workspace:
-          at: /tmp/workspace
+      - checkout
+      - run:
+          name: install
+          command: 'npm install'
       - run:
           name: lint
           command: 'npm run test:lint'
@@ -45,7 +49,7 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - setup
+      - build
       - gatsby-test:
           requires:
             - setup
