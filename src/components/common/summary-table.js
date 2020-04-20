@@ -1,6 +1,6 @@
 import React from 'react'
 import Table from './table'
-import { FormatNumber, formatDateToString } from './format'
+import { formatDateToString, FormatNumber } from '../utils/format'
 
 export default ({ data, lastUpdated, showOutcomes = true }) => (
   <Table
