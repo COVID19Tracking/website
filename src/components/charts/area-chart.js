@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 import React, { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 
@@ -130,28 +129,29 @@ const AreaChart = ({
               ))}
             </g>
             <g>
-               {yScale.ticks(yTicks).map((tick, i) => (
-              <g key={tick}>
-                <svg
-                  y={yScale(tick) + 4}
-                  x="-10"
-                  className={chartStyles.yTickLabel}
-                >
-                  <text className={chartStyles.label} textAnchor="end">
-                    {yFormat
-                      ? yFormat(tick, i, yScale.ticks(yTicks).length)
-                      : formatNumber(tick)}
-                  </text>
-                </svg>
-                <line
-                  className={chartStyles.gridLine}
-                  x1={0}
-                  x2={width - totalXMargin}
-                  y1={yScale(tick)}
-                  y2={yScale(tick)}
-                />
-              </g>
-            ))}
+              {yScale.ticks(yTicks).map((tick, i) => (
+                <g key={tick}>
+                  <svg
+                    y={yScale(tick) + 4}
+                    x="-10"
+                    className={chartStyles.yTickLabel}
+                  >
+                    <text className={chartStyles.label} textAnchor="end">
+                      {yFormat
+                        ? yFormat(tick, i, yScale.ticks(yTicks).length)
+                        : formatNumber(tick)}
+                    </text>
+                  </svg>
+                  <line
+                    className={chartStyles.gridLine}
+                    x1={0}
+                    x2={width - totalXMargin}
+                    y1={yScale(tick)}
+                    y2={yScale(tick)}
+                  />
+                </g>
+              ))}
+            </g>
           </g>
         ) : (
           <line

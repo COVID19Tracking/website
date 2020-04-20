@@ -1,5 +1,3 @@
-/* eslint-disable no-debugger */
-
 import React from 'react'
 
 import styles from './tooltip.module.scss'
