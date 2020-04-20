@@ -6,7 +6,6 @@ executors:
       - image: circleci/node:10.19.0
         environment:
           TZ: 'America/New_York'
-    working_directory: /tmp
 
 jobs:
   setup:
