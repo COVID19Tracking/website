@@ -21,6 +21,9 @@ jobs:
       - run:
           name: build
           command: 'npm run build:gatsby'
+      - run:
+          name: test
+          command: 'npm run build:test'
   gatsby-test:
     executor: main-executor
     steps:
@@ -49,9 +52,5 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - gatsby-test:
-          requires:
-            - build
-      - gatsby-lint:
-          requires:
-            - build
+      - gatsby-test
+      - gatsby-lint
