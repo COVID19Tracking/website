@@ -118,7 +118,7 @@
     "storybook:pages": "gh-pages -d storybook-static -r https://github.com/COVID19Tracking/website-docs",
     "test": "jest",
     "test:update": "jest --updateSnapshot",
-    "test:coverage": "jest --collectCoverage=true",
+    "test:coverage": "jest --coverage",
     "test:lint": "eslint ./src",
     "setup": "run-s setup:api-data setup:env-vars",
     "setup:api-data": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz",
