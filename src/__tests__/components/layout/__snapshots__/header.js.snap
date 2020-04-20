@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Layout : Header renders correctly 1`] = `
+<header
+  className="site-header siteHeader  "
+>
+  <div
+    className="container showBackground"
+  >
+    <div
+      className="container false container"
+    >
+      <div
+        className="css-z54kij"
+      >
+        <div
+          className="siteTitleContainer css-h2hfmc"
+        >
+          <a
+            className="siteTitle"
+            href="/"
+          >
+            <img
+              alt="The COVID Tracking Project"
+              src="test-file-stub"
+              width="176px"
+            />
+          </a>
+        </div>
+        <div
+          className="navContainer css-pv30g0"
+        >
+          <button
+            aria-expanded={false}
+            className="mobileToggle"
+            onClick={[Function]}
+            type="button"
+          >
+            Menu
+          </button>
+        </div>
+        <nav
+          className="js-disabled-block"
+        >
+          <ul>
+            <li>
+              <a
+                href="/test-a"
+              >
+                Test A
+              </a>
+            </li>
+            <li>
+              <a
+                href="/test-b"
+              >
+                Test B
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div
+        className="titleSubnavContainer css-gzf2yu"
+      >
+        <div
+          className="title css-i3jfzy"
+        >
+          <h1
+            className="extraSpace"
+          >
+            Sample title
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`Components : Layout : Header renders correctly 2`] = `
+<div
+  className="circles"
+>
+  <header
+    className="site-header siteHeader  noMargin"
+  >
+    <div
+      className="container false"
+    >
+      <div
+        className="container false container"
+      >
+        <div
+          className="css-z54kij"
+        >
+          <div
+            className="siteTitleContainer css-h2hfmc"
+          >
+            <a
+              className="siteTitle"
+              href="/"
+            >
+              <img
+                alt="The COVID Tracking Project"
+                src="test-file-stub"
+                width="176px"
+              />
+            </a>
+          </div>
+          <div
+            className="navContainer css-pv30g0"
+          >
+            <button
+              aria-expanded={false}
+              className="mobileToggle"
+              onClick={[Function]}
+              type="button"
+            >
+              Menu
+            </button>
+          </div>
+          <nav
+            className="js-disabled-block"
+          >
+            <ul>
+              <li>
+                <a
+                  href="/test-a"
+                >
+                  Test A
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/test-b"
+                >
+                  Test B
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          className="titleSubnavContainer css-gzf2yu"
+        >
+          <div
+            className="title css-i3jfzy"
+          >
+            <h1
+              className="extraSpace"
+            >
+              Sample title
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+   
+  <div
+    className="container false container"
+  >
+    <div
+      className="hero hero"
+    >
+      <p
+        className="header"
+      >
+        The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.
+      </p>
+      <div
+        className="ctas"
+      >
+        <a
+          className="button"
+          href="/data"
+        >
+          Get the Data
+        </a>
+        <p
+          className="spacer"
+        >
+          or
+        </p>
+        <a
+          href="/about-data"
+        >
+          Learn About the Data
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Layout : Header renders correctly 3`] = `
+<header
+  className="site-header siteHeader  "
+>
+  <div
+    className="container showBackground"
+  >
+    <div
+      className="container false container"
+    >
+      <div
+        className="css-z54kij"
+      >
+        <div
+          className="siteTitleContainer css-h2hfmc"
+        >
+          <a
+            className="siteTitle"
+            href="/"
+          >
+            <img
+              alt="The COVID Tracking Project"
+              src="test-file-stub"
+              width="176px"
+            />
+          </a>
+        </div>
+        <div
+          className="navContainer css-pv30g0"
+        >
+          <button
+            aria-expanded={false}
+            className="mobileToggle"
+            onClick={[Function]}
+            type="button"
+          >
+            Menu
+          </button>
+        </div>
+        <nav
+          className="js-disabled-block"
+        >
+          <ul>
+            <li>
+              <a
+                href="/test-a"
+              >
+                Test A
+              </a>
+            </li>
+            <li>
+              <a
+                href="/test-b"
+              >
+                Test B
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div
+        className="titleSubnavContainer css-gzf2yu"
+      >
+        <div
+          className="title css-i3jfzy"
+        >
+          <h1
+            className="extraSpace"
+          >
+            <a
+              href="/link"
+            >
+              Sample title
+            </a>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+`;
