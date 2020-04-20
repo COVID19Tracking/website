@@ -143,6 +143,7 @@ Layout blocks
 }
 
 
+
 /*
 
 Headline treatments
@@ -175,4 +176,53 @@ Headline treatments
   text-align: center;
   font-variant: all-small-caps;
   margin: 0 0 0.2rem;
+}
+
+
+
+/*
+
+Typography
+
+*/
+.layout--content-primary {
+  font-size: 18px;
+  font-size: 1.125rem;
+  @media (min-width: $viewport-lg) {
+    font-size: 22px;
+    font-size: 1.375rem;
+  }
+  h2 {
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    margin: 2em 0 0.25em;
+    @media (min-width: $viewport-lg) {
+      font-size: 30px;
+      font-size: 1.875rem;
+    }
+  }
+  h3 {
+    margin-bottom: 1em;
+  }
+  li {
+    margin-bottom: 0.75rem;
+  }
+  p,
+  ul,
+  ol,
+  table {
+    margin: 0 0 1.5em;
+  }
+  table,
+  th,
+  td {
+    border: 1px solid $color-slate-500;
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 0.2em;
+  }
 }

@@ -104,7 +104,11 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
                 className={headerStyle.title}
               >
                 {title && (
-                  <h1 className={`${navigation ? '' : headerStyle.extraSpace}`}>
+                  <h1
+                    className={`page-title ${headerStyle.pageTitle} ${
+                      navigation ? '' : headerStyle.extraSpace
+                    }`}
+                  >
                     {titleLink ? (
                       <Link to={titleLink}>{title}</Link>
                     ) : (
