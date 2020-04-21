@@ -40,6 +40,16 @@ The site is now running at `http://localhost:8000`. Any changes you make to code
 
 Note that any changes you make while running Gatsby will automatically checked with [ESLint](https://eslint.org/), so check your console as you save files.
 
+### Organization
+
+Components live in `src/components` and are organized as follows:
+
+* `/charts` - Visualizations
+* `/common` - Components that are used more than once and those that are used across different parts of the website
+* `/layout` - Components that control the layout of the website (i.e. headers and footers)
+* `/pages` - Components that are only used once or have a defined scope to a particular part of the website (i.e. `StateGrade` has to do with states) belong in their respective directory in `/pages`
+* `/utils` - Utilities. (If a particular component doesn't have any associated styles, there's a good chance it's a utility.)
+
 ## Storybook
 
 All common components throughout the site are documented in [Storybook](https://storybook.js.org/). You can find all our component stories in `/src/stories`.

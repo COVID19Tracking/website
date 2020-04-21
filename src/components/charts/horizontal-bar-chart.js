@@ -31,57 +31,55 @@ export default function HorizontalBarChart({
     .range([0, width - totalXMargin])
 
   return (
-    <div>
-      <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
-        <g transform={`translate(${marginLeft} ${marginTop})`}>
-          {xScale.ticks(xTicks).map(tick => (
-            <g key={tick}>
-              <text
-                className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
-                x={xScale(tick)}
-                y={height - marginBottom}
-              >
-                {formatTick(tick)}
-              </text>
-              <line
-                className={chartStyles.gridLine}
-                x1={xScale(tick)}
-                x2={xScale(tick)}
-                y1={0}
-                y2={height - totalYMargin}
-              />
-            </g>
-          ))}
-        </g>
-
-        <g transform={`translate(0, ${marginTop})`}>
-          {data.map(d => (
-            <svg
-              y={yScale(d.name) + 11}
-              x={marginLeft - 10}
-              className={chartStyles.yTickLabel}
-              key={d.name}
+    <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
+      <g transform={`translate(${marginLeft} ${marginTop})`}>
+        {xScale.ticks(xTicks).map(tick => (
+          <g key={tick}>
+            <text
+              className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
+              x={xScale(tick)}
+              y={height - marginBottom}
             >
-              <text className={chartStyles.label} textAnchor="end">
-                {`${d.name}`}
-              </text>
-            </svg>
-          ))}
-        </g>
-
-        <g transform={`translate(${marginLeft}, ${marginTop})`}>
-          {data.map(d => (
-            <rect
-              key={d.name}
-              x={0}
-              y={yScale(d.name)}
-              height={yScale.bandwidth()}
-              width={xScale(d.value)}
-              fill={fill}
+              {formatTick(tick)}
+            </text>
+            <line
+              className={chartStyles.gridLine}
+              x1={xScale(tick)}
+              x2={xScale(tick)}
+              y1={0}
+              y2={height - totalYMargin}
             />
-          ))}
-        </g>
-      </svg>
-    </div>
+          </g>
+        ))}
+      </g>
+
+      <g transform={`translate(0, ${marginTop})`}>
+        {data.map(d => (
+          <svg
+            y={yScale(d.name) + 20}
+            x={marginLeft - 10}
+            className={chartStyles.yTickLabel}
+            key={d.name}
+          >
+            <text className={chartStyles.label} textAnchor="end">
+              {`${d.name}`}
+            </text>
+          </svg>
+        ))}
+      </g>
+
+      <g transform={`translate(${marginLeft}, ${marginTop})`}>
+        {data.map(d => (
+          <rect
+            key={d.name}
+            x={0}
+            y={yScale(d.name)}
+            height={yScale.bandwidth()}
+            width={xScale(d.value)}
+            fill={fill}
+          />
+        ))}
+      </g>
+    </svg>
   )
 }
