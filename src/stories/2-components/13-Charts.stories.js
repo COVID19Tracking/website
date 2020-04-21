@@ -1,4 +1,4 @@
-/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/destructuring-assignment import/no-unresolved */
 import React from 'react'
 
 import AreaChart from '../../components/charts/area-chart'
