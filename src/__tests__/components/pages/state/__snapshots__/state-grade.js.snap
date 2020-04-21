@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : State : State grade renders correctly 1`] = `
+<p
+  className="state-grade stateGrade"
+>
+  <span>
+    Current 
+    <a
+      href="/about-data#data-quality-grade"
+    >
+      data grade
+    </a>
+    :
+  </span>
+  <img
+    alt="Grade a"
+    src="test-file-stub"
+    width="28px"
+  />
+</p>
+`;
+
+exports[`Components : Pages : State : State grade renders correctly 2`] = `
+<p
+  className="state-grade stateGrade"
+>
+  <span>
+    Current 
+    <a
+      href="/about-data#data-quality-grade"
+    >
+      data grade
+    </a>
+    :
+  </span>
+  <img
+    alt="Grade na"
+    src="test-file-stub"
+    width="28px"
+  />
+</p>
+`;

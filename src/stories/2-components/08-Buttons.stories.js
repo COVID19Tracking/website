@@ -27,7 +27,7 @@ export const anchorButtonWithEmoji = () => (
   </ButtonAnchor>
 )
 
-anchorButton.story = anchorButtonWithEmoji.story = bigAnchorButton.story = {
+anchorButton.story = {
   parameters: {
     info: {
       text:
@@ -35,6 +35,8 @@ anchorButton.story = anchorButtonWithEmoji.story = bigAnchorButton.story = {
     },
   },
 }
+anchorButtonWithEmoji.story = anchorButton.story
+bigAnchorButton.story = anchorButton.story
 
 export const linkButton = () => <ButtonLink to="/">Gatsby link</ButtonLink>
 
@@ -44,7 +46,7 @@ export const bigLinkButton = () => (
   </ButtonLink>
 )
 
-linkButton.story = bigLinkButton.story = {
+bigLinkButton.story = {
   parameters: {
     info: {
       text:
@@ -52,12 +54,13 @@ linkButton.story = bigLinkButton.story = {
     },
   },
 }
+linkButton.story = bigLinkButton.story
 
 export const button = () => <Button>Hello Button</Button>
 
 export const bigButton = () => <Button big>Hello Button</Button>
 
-button.story = bigButton.story = {
+bigButton.story = {
   parameters: {
     info: {
       text:
@@ -65,3 +68,4 @@ button.story = bigButton.story = {
     },
   },
 }
+button.story = bigButton.story
