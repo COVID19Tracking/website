@@ -2,22 +2,21 @@
 
 Another GraphQL API for the COVID-19 Tracking Data
 
-### To use in the cloud
+### To use a preview in the cloud
 
 https://ccheever-covid-tracking-graphql.netlify.com/.netlify/functions/graphql
 
-
 ### To get started developing locally
 
-Make sure you have the latest versions of `node` and `yarn` installed.
+Make sure you have the latest versions of `node` and `npm` installed.
 
 [Volta](https://volta.sh/) is a good way to do this if you don't have them already.
 
 Then, type this into your terminal.
 
 ```shell
-git clone https://github.com/ccheever/covid-tracking-graphql.git
-cd covid-tracking-graphql
+git clone https://github.com/COVID19Tracking/website
+cd website/src/graphql
 npm install
 npm run dev
 o
@@ -62,7 +61,7 @@ query {
 This repository is also configured to run GraphQL queries as a Netlify function. You can test this by running
 
 ```sh
-npm build
+npm run build
 npx netlify-cli dev
 ```
 
@@ -74,3 +73,5 @@ And then visiting the URL
 
 You need to do a rebuild every time you change the code for it to show up, so this is not necessarily recommended for development, but it can be useful for testing.
 
+You will also need credentials for a few things like the Google Sheets API to be configured
+to be able to successfully do this kind of build
