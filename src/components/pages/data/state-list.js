@@ -12,8 +12,9 @@ export default ({ states, stateData }) => {
     })
     stateList.push(state)
   })
+
   return stateList.map(state => (
-    <div className="module">
+    <div id={`state-list-${state.state}`} className="module">
       <State state={state} stateData={state.stateData} />
     </div>
   ))
