@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Flex, Box } from '../../components/layout/flexbox'
 import DetailText from '../../components/common/detail-text'
 import Layout from '../../components/layout'
 import StateList from '../../components/pages/data/state-list'
@@ -30,23 +29,13 @@ export default ({ data }) => (
         }}
       />
     </DetailText>
-    <Flex
-      my={['0.5rem', '2rem']}
-      className={`state-nav-header ${stateNavStyles.stateNav}`}
-    >
-      <Flex
-        flexWrap="wrap"
-        alignItems="baseline"
-        className={stateNavStyles.stateNavInner}
-      >
-        <Box width={[1, 1, 1 / 2]}>
-          <h2 id="states-top">Totals by state</h2>
-        </Box>
-        <Box width={[1, 1, 1 / 2]} textAlign={['left', 'left', 'right']}>
-          <StatesNav stateList={data.allCovidStateInfo.edges} />
-        </Box>
-      </Flex>
-    </Flex>
+    <div className={`state-nav-header ${stateNavStyles.stateNav}`}>
+      <div className={stateNavStyles.stateNavInner}>
+        <h2 id="states-top">Totals by state</h2>
+
+        <StatesNav stateList={data.allCovidStateInfo.edges} />
+      </div>
+    </div>
     <StatesNoScriptNav stateList={data.allCovidStateInfo.edges} />
     <StateList
       states={data.allCovidStateInfo.edges}
