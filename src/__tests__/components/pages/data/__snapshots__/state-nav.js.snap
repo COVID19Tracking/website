@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Data : Navigation with JS enabled renders correctly 1`] = `
+<div
+  className="js-enabled state-nav-combobox stateNavCombobox"
+>
+  <label
+    htmlFor="jump-to-state"
+  >
+    Type a state's name to jump to it
+  </label>
+  <div>
+    <div />
+    <div>
+      <div>
+        <div />
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;
