@@ -10,4 +10,8 @@
   @media (max-width: $viewport-ms) {
     column-count: 1;
   }
+
+  @media (min-width: $viewport-ms) {
+    list-style-type: none;
+  }
 }
