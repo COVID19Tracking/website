@@ -1,0 +1,12 @@
+diff --git a/node_modules/nodemon/lib/monitor/run.js b/node_modules/nodemon/lib/monitor/run.js
+index dce4638..09bfcce 100644
+--- a/node_modules/nodemon/lib/monitor/run.js
++++ b/node_modules/nodemon/lib/monitor/run.js
+@@ -209,6 +209,7 @@ function run(options) {
+       }
+ 
+       if (code === 0) { // clean exit - wait until file change to restart
++        process.exit();
+         if (runCmd) {
+           utils.log.status('clean exit - waiting for changes before restart');
+         }

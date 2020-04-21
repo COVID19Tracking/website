@@ -1,6 +1,7 @@
 [build]
   publish = "public"
-  command = "npm run build"
+  command = "npm run build:graphql"
+  functions = "./src/graphql/functions-dist"
 
 [[headers]]
   for = "/api/*"

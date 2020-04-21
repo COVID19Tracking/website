@@ -100,6 +100,7 @@
     "build:data": "cp -R _data/* public/api/",
     "build:data-archive": "tar -czf public/api/archive.tar.gz _data/",
     "build:test": "jest -- src/__tests__/build-test.js",
+    "build:graphql": "(cd src/graphql; npm install && npm run build)",
     "clean": "run-p clean:*",
     "clean:gatsby": "gatsby clean",
     "develop": "gatsby develop",

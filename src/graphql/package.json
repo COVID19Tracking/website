@@ -1,0 +1,45 @@
+{
+  "name": "covid-tracking-graphql",
+  "version": "1.0.0",
+  "description": "Another GraphQL API for the COVID-19 Tracking Data",
+  "main": "index.js",
+  "repository": "https://github.com/ccheever/covid-tracking-graphql.git",
+  "author": "Charlie Cheever <ccheever@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon .",
+    "build": "npm install && netlify-lambda build functions",
+    "postinstall": "patch-package",
+    "netlify-build-functions": "netlify-lambda build functions"
+  },
+  "repl": {
+    "ignore": {
+      "modules": [
+        "postinstall-postinstall"
+      ]
+    }
+  },
+  "devDependencies": {
+    "netlify-cli": "^2.43.0",
+    "netlify-lambda": "^1.6.3",
+    "nodemon": "^2.0.2",
+    "project-repl": "^1.5.0"
+  },
+  "dependencies": {
+    "@netlify/zip-it-and-ship-it": "^0.3.1",
+    "apollo-server-express": "^2.11.0",
+    "apollo-server-lambda": "^2.12.0",
+    "bufferutil": "^4.0.1",
+    "cross-fetch": "^3.0.4",
+    "encoding": "^0.1.12",
+    "local-ip": "^2.0.0",
+    "luxon": "^1.22.0",
+    "open": "^7.0.3",
+    "patch-package": "^6.2.1",
+    "postinstall-postinstall": "^2.0.0",
+    "promise-props": "^1.0.0",
+    "timeconstants": "^1.0.1",
+    "utf-8-validate": "^5.0.2"
+  }
+}
