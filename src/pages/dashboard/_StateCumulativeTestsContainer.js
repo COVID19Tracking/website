@@ -191,20 +191,25 @@ export default function CumulativeTestsByStateContainer() {
       </p>
       <h3 className={dashboardStyles.chartTitle}>Cumulative tests by state</h3>
       <div className="chart-header">
-        <div
-          className="dashboard-toggle"
-          onClick={toggleChartData}
-          onKeyPress={toggleChartData}
-          role="switch"
-          aria-checked={useTestsPerCapita}
-          tabIndex={0}
-        >
-          <span className={useTestsPerCapita ? '' : 'active'}>Total tests</span>
-          <span className={useTestsPerCapita ? 'active' : ''}>
-            Tests per capita*
-          </span>
+        <div className="dashboard-toggle-wrapper">
+          <div className="dashboard-toggle-label">Display by:</div>
+          <div
+            className="dashboard-toggle"
+            onClick={toggleChartData}
+            onKeyPress={toggleChartData}
+            role="switch"
+            aria-checked={useTestsPerCapita}
+            tabIndex={0}
+          >
+            <span className={useTestsPerCapita ? '' : 'active'}>
+              Total tests
+            </span>
+            <span className={useTestsPerCapita ? 'active' : ''}>
+              Tests per capita*
+            </span>
+          </div>
         </div>
-        <ul className="chart-legend">
+        <ul className="chart-legend" aria-hidden="true">
           <li>
             <div
               className="chart-legend-color"
@@ -290,6 +295,8 @@ export default function CumulativeTestsByStateContainer() {
                 yMax={maxStateTests}
                 yTicks={2}
                 showTicks={false}
+                focusable={false}
+                ariaHidden
                 dateExtent={dateExtent}
                 renderTooltipContents={d => (
                   <TotalAndPositiveLegend

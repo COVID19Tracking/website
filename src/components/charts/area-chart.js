@@ -29,6 +29,8 @@ const AreaChart = ({
   yMax,
   yTicks,
   showTicks,
+  focusable,
+  ariaHidden,
   dateExtent,
   renderTooltipContents,
 }) => {
@@ -108,6 +110,8 @@ const AreaChart = ({
       <svg
         className={chartStyles.chart}
         viewBox={`0 0 ${width} ${height}`}
+        focusable={focusable}
+        aria-hidden={ariaHidden}
         onTouchStart={handleMouseMove}
         onTouchEndCapture={handleTouchEndCapture}
         onMouseMoveCapture={handleMouseMove}
@@ -122,7 +126,6 @@ const AreaChart = ({
                   key={tick}
                   x={xScale(tick)}
                   y={20}
-                  textAnchor="center"
                 >
                   {formatDate(tick)}
                 </text>
