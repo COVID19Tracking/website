@@ -52,7 +52,9 @@ Components live in `src/components` and are organized as follows:
 
 ## Testing
 
-We use Jest for automated testing, and all test files for Gatsby are located in `./src/__tests__`. Test files are structured following their related components.
+[![Coverage Status](https://coveralls.io/repos/github/COVID19Tracking/website/badge.svg?branch=master)](https://coveralls.io/github/COVID19Tracking/website?branch=master)
+
+We use Jest for automated testing, and all test files for Gatsby are located in `./src/__tests__`. Test files are structured following their related components. To run tests, use `npm run test`.
 
 When you make a change to an interface, you will need to [update the Jest snapshot](https://jestjs.io/docs/en/snapshot-testing) for tests to complete successfully:
 
@@ -60,13 +62,7 @@ When you make a change to an interface, you will need to [update the Jest snapsh
 npm run test:update
 ```
 
-Before pushing your local branch to the repository, make sure to run:
-
-```shell
-npm run test
-```
-
-And make sure that every test passes. Pull requests are automatically checked against these same tests.
+Before pushing your local branch to the repository, make sure to run `npm run test:dev`. This will make sure the project is linted and all tests pass. Make sure that every test passes. Pull requests are automatically checked against these same tests.
 
 ## Storybook
 
