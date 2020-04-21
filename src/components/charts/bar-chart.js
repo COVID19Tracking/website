@@ -43,30 +43,28 @@ const BarChart = ({
   return (
     <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
       <g transform={`translate(${marginLeft} ${marginTop})`}>
-        <g>
-          {yScale.ticks(yTicks).map((tick, i) => (
-            <g key={tick}>
-              {i < showTicks && (
-                <>
-                  <text
-                    className={`${chartStyles.label} ${chartStyles.yTickLabel}`}
-                    y={yScale(tick) + 6}
-                    x={`${tick}`.length * -12}
-                  >
-                    {formatNumber(tick)}
-                  </text>
-                  <line
-                    className={chartStyles.gridLine}
-                    x1={0}
-                    x2={width - totalXMargin}
-                    y1={yScale(tick)}
-                    y2={yScale(tick)}
-                  />
-                </>
-              )}
-            </g>
-          ))}
-        </g>
+        {yScale.ticks(yTicks).map((tick, i) => (
+          <g key={tick}>
+            {i < showTicks && (
+              <>
+                <text
+                  className={`${chartStyles.label} ${chartStyles.yTickLabel}`}
+                  y={yScale(tick) + 6}
+                  x={`${tick}`.length * -12}
+                >
+                  {formatNumber(tick)}
+                </text>
+                <line
+                  className={chartStyles.gridLine}
+                  x1={0}
+                  x2={width - totalXMargin}
+                  y1={yScale(tick)}
+                  y2={yScale(tick)}
+                />
+              </>
+            )}
+          </g>
+        ))}
       </g>
 
       <g transform={`translate(${marginLeft}, ${height - marginBottom})`}>
