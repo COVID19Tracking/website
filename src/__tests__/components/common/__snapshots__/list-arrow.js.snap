@@ -3,13 +3,13 @@
 exports[`Components : Common: Get Involved renders correctly 1`] = `
 <div>
   <div
-    className="getInvolved"
+    className="listArrow"
   >
-    <div
-      className="getInvolvedIcon"
+    <span aria-hidden
+      className="listArrowIcon"
     >
       →
-    </div>
+    </span>
     <p>
       More text
     </p>
