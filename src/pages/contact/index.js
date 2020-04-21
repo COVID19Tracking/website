@@ -12,15 +12,6 @@ const ContactPage = ({ data }) => (
             .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
       }}
     />
-    <GetInvolved
-      items={[
-        <p>
-          <Link to="/contact/accessibility">
-            Report a problem with accessibility on the website.
-          </Link>
-        </p>,
-      ]}
-    />
   </Layout>
 )
 
