@@ -1,117 +1,123 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components : Charts: Area chart renders correctly 1`] = `
-<div>
-  <svg
-    className="chart"
-    height={200}
-    viewBox="0 0 200 200"
-    width={200}
+<svg
+  className="chart"
+  viewBox="0 0 200 200"
+>
+  <g
+    transform="translate(30 30)"
   >
-    <g
-      transform="translate(30 30)"
-    >
-      <g>
-        <g>
-          <text
-            className="yTickLabel"
-            x={-12}
-            y={146}
-          >
-            0
-          </text>
-          <line
-            className="gridLine"
-            x1={0}
-            x2={140}
-            y1={140}
-            y2={140}
-          />
-        </g>
-        <g>
-          <text
-            className="yTickLabel"
-            x={-36}
-            y={92.15384615384616}
-          >
-            500
-          </text>
-          <line
-            className="gridLine"
-            x1={0}
-            x2={140}
-            y1={86.15384615384616}
-            y2={86.15384615384616}
-          />
-        </g>
-        <g>
-          <text
-            className="yTickLabel"
-            x={-48}
-            y={38.3076923076923}
-          >
-            1,000
-          </text>
-          <line
-            className="gridLine"
-            x1={0}
-            x2={140}
-            y1={32.3076923076923}
-            y2={32.3076923076923}
-          />
-        </g>
-      </g>
-    </g>
-    <g
-      transform="translate(30, 170)"
-    >
-      <text
-        className="label xTickLabel"
-        x={6.6666666666666785}
-        y="25"
+    <g>
+      <svg
+        className="yTickLabel"
+        x="-10"
+        y={146}
       >
-        Mar  3
-      </text>
-      <text
-        className="label xTickLabel"
-        x={73.33333333333334}
-        y="25"
+        <text
+          className="label"
+        >
+          0
+        </text>
+      </svg>
+      <line
+        className="gridLine"
+        x1={0}
+        x2={140}
+        y1={140}
+        y2={140}
+      />
+    </g>
+    <g>
+      <svg
+        className="yTickLabel"
+        x="-10"
+        y={92.15384615384616}
       >
-        Mar  4
-      </text>
+        <text
+          className="label"
+        >
+          500
+        </text>
+      </svg>
+      <line
+        className="gridLine"
+        x1={0}
+        x2={140}
+        y1={86.15384615384616}
+        y2={86.15384615384616}
+      />
     </g>
-    <g
-      transform="translate(30 30)"
+    <g>
+      <svg
+        className="yTickLabel"
+        x="-10"
+        y={38.3076923076923}
+      >
+        <text
+          className="label"
+        >
+          1,000
+        </text>
+      </svg>
+      <line
+        className="gridLine"
+        x1={0}
+        x2={140}
+        y1={32.3076923076923}
+        y2={32.3076923076923}
+      />
+    </g>
+  </g>
+  <g
+    transform="translate(30, 170)"
+  >
+    <text
+      className="label xTickLabel"
+      x={6.6666666666666785}
+      y="25"
     >
-      <rect
-        fill="#333"
-        height={132.8923076923077}
-        width={59.99999999999999}
-        x={6.6666666666666785}
-        y={7.107692307692311}
-      />
-      <rect
-        fill="#333"
-        height={13.246153846153845}
-        width={59.99999999999999}
-        x={73.33333333333334}
-        y={126.75384615384615}
-      />
-      <rect
-        fill="#333"
-        height={132.7846153846154}
-        width={59.99999999999999}
-        x={6.6666666666666785}
-        y={7.215384615384615}
-      />
-      <rect
-        fill="#333"
-        height={14.215384615384622}
-        width={59.99999999999999}
-        x={73.33333333333334}
-        y={125.78461538461538}
-      />
-    </g>
-  </svg>
-</div>
+      Mar  3
+    </text>
+    <text
+      className="label xTickLabel"
+      x={73.33333333333334}
+      y="25"
+    >
+      Mar  4
+    </text>
+  </g>
+  <g
+    transform="translate(30 30)"
+  >
+    <rect
+      fill="#333"
+      height={132.8923076923077}
+      width={59.99999999999999}
+      x={6.6666666666666785}
+      y={7.107692307692311}
+    />
+    <rect
+      fill="#333"
+      height={13.246153846153845}
+      width={59.99999999999999}
+      x={73.33333333333334}
+      y={126.75384615384615}
+    />
+    <rect
+      fill="#333"
+      height={132.7846153846154}
+      width={59.99999999999999}
+      x={6.6666666666666785}
+      y={7.215384615384615}
+    />
+    <rect
+      fill="#333"
+      height={14.215384615384622}
+      width={59.99999999999999}
+      x={73.33333333333334}
+      y={125.78461538461538}
+    />
+  </g>
+</svg>
 `;
