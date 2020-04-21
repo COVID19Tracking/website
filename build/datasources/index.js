@@ -25,5 +25,4 @@ const resources = [
   volunteers,
 ]
 
-
 module.exports = resources
