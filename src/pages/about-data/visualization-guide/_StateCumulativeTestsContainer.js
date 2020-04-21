@@ -4,16 +4,16 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React, { useMemo, useState } from 'react'
 import cloneDeep from 'lodash/cloneDeep'
 
-import AreaChart from '../../components/charts/area-chart'
+import AreaChart from '../../../components/charts/area-chart'
 import TotalAndPositiveLegend from './_TotalAndPositiveLegend'
-import StatesWithPopulation from '../../data/visualization/state-populations.json'
+import StatesWithPopulation from '../../../data/visualization/state-populations.json'
 
 import {
   getStateName,
   parseDate,
   totalColor,
   positiveColor,
-} from '../../utilities/visualization'
+} from '../../../utilities/visualization'
 
 import './dashboard.scss'
 import dashboardStyles from './dashboard.module.scss'

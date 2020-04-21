@@ -10,7 +10,7 @@ import {
   formatDate,
   formatNumber,
   parseDate,
-} from '../../utilities/visualization'
+} from '../../../utilities/visualization'
 
 import './map-container.scss'
 import dashboardStyles from './dashboard.module.scss'
