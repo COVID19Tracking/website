@@ -10,12 +10,14 @@ exports[`Components : Pages : Data : Navigation with JS enabled renders correctl
     Type a state's name to jump to it
   </label>
   <div>
-    <div />
+    <input
+      type="text"
+    />
     <div>
-      <div>
-        <div />
-        <div />
-      </div>
+      <ul>
+        <li />
+        <li />
+      </ul>
     </div>
   </div>
 </div>
