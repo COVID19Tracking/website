@@ -53,7 +53,7 @@ const BarChart = ({
                   x="-10"
                   className={chartStyles.yTickLabel}
                 >
-                  <text className={chartStyles.label} textAnchor="end">
+                  <text className={chartStyles.label}>
                     {formatNumber(tick)}
                   </text>
                 </svg>

@@ -62,9 +62,7 @@ export default function HorizontalBarChart({
             className={chartStyles.yTickLabel}
             key={d.name}
           >
-            <text className={chartStyles.label} textAnchor="end">
-              {`${d.name}`}
-            </text>
+            <text className={chartStyles.label}>{`${d.name}`}</text>
           </svg>
         ))}
       </g>

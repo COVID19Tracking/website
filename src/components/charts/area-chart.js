@@ -140,7 +140,7 @@ const AreaChart = ({
                     x="-10"
                     className={chartStyles.yTickLabel}
                   >
-                    <text className={chartStyles.label} textAnchor="end">
+                    <text className={chartStyles.label}>
                       {yFormat
                         ? yFormat(tick, i, yScale.ticks(yTicks).length)
                         : formatNumber(tick)}
