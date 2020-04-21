@@ -48,9 +48,6 @@ jobs:
           name: install
           command: 'npm install'
       - run:
-          name: setup
-          command: 'npm run setup'
-      - run:
           name: lint
           command: 'npm run test:lint'
 workflows:
