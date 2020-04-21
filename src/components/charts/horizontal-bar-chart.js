@@ -55,6 +55,7 @@ export default function HorizontalBarChart({
 
       <g transform={`translate(0, ${marginTop})`}>
         {data.map(d => (
+          /* Do not remove nested svg. See https://github.com/COVID19Tracking/website/pull/645#discussion_r411676987 */
           <svg
             y={yScale(d.name) + 20}
             x={marginLeft - 10}

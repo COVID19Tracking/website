@@ -43,17 +43,20 @@ const BarChart = ({
   return (
     <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
       <g transform={`translate(${marginLeft} ${marginTop})`}>
-        {yScale.ticks(yTicks).map((tick, i) => (
-          <g key={tick}>
-            {i < showTicks && (
-              <>
-                <text
-                  className={`${chartStyles.label} ${chartStyles.yTickLabel}`}
+        {yScale.ticks(yTicks).map(
+          (tick, i) =>
+            i < showTicks && (
+              <g key={tick}>
+                {/* Do not remove nested svg. See https://github.com/COVID19Tracking/website/pull/645#discussion_r411676987 */}
+                <svg
                   y={yScale(tick) + 6}
-                  x={`${tick}`.length * -12}
+                  x="-10"
+                  className={chartStyles.yTickLabel}
                 >
-                  {formatNumber(tick)}
-                </text>
+                  <text className={chartStyles.label} textAnchor="end">
+                    {formatNumber(tick)}
+                  </text>
+                </svg>
                 <line
                   className={chartStyles.gridLine}
                   x1={0}
@@ -61,10 +64,9 @@ const BarChart = ({
                   y1={yScale(tick)}
                   y2={yScale(tick)}
                 />
-              </>
-            )}
-          </g>
-        ))}
+              </g>
+            ),
+        )}
       </g>
 
       <g transform={`translate(${marginLeft}, ${height - marginBottom})`}>
