@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Container renders correctly 1`] = `
+<div
+  className="container false container"
+>
+  <p>
+    Sample child
+  </p>
+</div>
+`;
+
+exports[`Components : Common: Container renders correctly 2`] = `
+<div
+  className="container textHeavy container"
+>
+  <p>
+    Sample child
+  </p>
+</div>
+`;
+
+exports[`Components : Common: Container renders correctly 3`] = `
+<div
+  className="container textHeavy container"
+>
+  <p>
+    Sample child
+  </p>
+</div>
+`;

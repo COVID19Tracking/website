@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Blog : List renders correctly 1`] = `
+<ul
+  className="press-list pressList"
+>
+  <li>
+    <cite
+      className="title"
+    >
+      <a
+        href="/blog/a"
+      >
+        Blog list item
+      </a>
+    </cite>
+    <div
+      className="detail-text detailText"
+    >
+      test name
+      <span
+        className="dotSeparator"
+      >
+        •
+      </span>
+      August 1, 20202
+    </div>
+  </li>
+</ul>
+`;

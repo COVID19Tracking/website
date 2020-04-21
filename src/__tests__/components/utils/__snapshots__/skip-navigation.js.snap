@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Utilities: Skip navigation link renders correctly 1`] = `
+<a
+  data-reach-skip-link=""
+  data-reach-skip-nav-link=""
+  href="#reach-skip-nav"
+>
+  Skip site navigation
+</a>
+`;

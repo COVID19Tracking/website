@@ -16,7 +16,13 @@ export default ({ states, stateData }) => {
   return (
     <Flex flexWrap="wrap" m="0 -10px">
       {stateList.map(state => (
-        <Box width={1} mb={['1rem', '50px']} p="0 10px" className="data-state">
+        <Box
+          key={`state-list-${state.state}`}
+          width={1}
+          mb={['1rem', '50px']}
+          p="0 10px"
+          className="data-state"
+        >
           <State state={state} stateData={state.stateData} />
         </Box>
       ))}
