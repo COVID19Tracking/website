@@ -106,22 +106,26 @@ const AreaChart = ({
   }
 
   return (
-    <svg
-      className={chartStyles.chart}
-      viewBox={`0 0 ${width} ${height}`}
-      focusable={focusable}
-      aria-hidden={ariaHidden}
-    >
-      {showTicks ? (
-        <g transform={`translate(${marginLeft} ${marginTop})`}>
-          <g transform={`translate(0 ${height - totalYMargin})`}>
-            {xScale.ticks(xTicks).map(tick => (
-              <text
-                className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
-                key={tick}
-                x={xScale(tick)}
-                y={20}
-              >
+    <>
+      <svg
+        className={chartStyles.chart}
+        viewBox={`0 0 ${width} ${height}`}
+        focusable={focusable}
+        aria-hidden={ariaHidden}
+        onTouchStart={handleMouseMove}
+        onTouchEndCapture={handleTouchEndCapture}
+        onMouseMoveCapture={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        {showTicks ? (
+          <g transform={`translate(${marginLeft} ${marginTop})`}>
+            <g transform={`translate(0 ${height - totalYMargin})`}>
+              {xScale.ticks(xTicks).map(tick => (
+                <text
+                  className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
+                  key={tick}
+                  x={xScale(tick)}
+                  y={20}
                 >
                   {formatDate(tick)}
                 </text>
