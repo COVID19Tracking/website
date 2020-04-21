@@ -8,7 +8,6 @@ import { formatDate, formatNumber } from '../../utilities/visualization'
 import chartStyles from './charts.module.scss'
 
 const BarChart = ({
-  align,
   data,
   fill,
   height,
