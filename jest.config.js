@@ -22,6 +22,7 @@ module.exports = {
   collectCoverageFrom: [
     './src/**/*.js',
     '!./src/pages/**/*.js',
+    '!./src/templates/**/*.js',
     '!./src/stories/**',
     '!./src/__tests__/**',
     '!**/node_modules/**',
