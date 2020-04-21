@@ -8,54 +8,62 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
     className="container false container"
   >
     <div
-      className="container"
+      className="layout--content-full"
     >
-      <a
-        href="/"
+      <div
+        className="layout--content-primary"
       >
-        <img
-          alt="The COVID Tracking Project"
-          src="test-file-stub"
-        />
-      </a>
-      <ul>
-        <li>
+        <div
+          className="container"
+        >
           <a
-            href="/contact"
+            href="/"
           >
-            Contact
+            <img
+              alt="The COVID Tracking Project"
+              src="test-file-stub"
+            />
           </a>
-        </li>
-        <li>
-          <a
-            href="/accessibility"
-          >
-            Accessibility
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://github.com/COVID19Tracking"
-          >
-            GitHub
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://twitter.com/COVID19Tracking"
-          >
-            Twitter
-          </a>
-        </li>
-        <li>
-          <a
-            className="backToTop"
-            href="#reach-skip-nav"
-          >
-            Back to top
-          </a>
-        </li>
-      </ul>
+          <ul>
+            <li>
+              <a
+                href="/contact"
+              >
+                Contact
+              </a>
+            </li>
+            <li>
+              <a
+                href="/accessibility"
+              >
+                Accessibility
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/COVID19Tracking"
+              >
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/COVID19Tracking"
+              >
+                Twitter
+              </a>
+            </li>
+            <li>
+              <a
+                className="backToTop"
+                href="#reach-skip-nav"
+              >
+                Back to top
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
