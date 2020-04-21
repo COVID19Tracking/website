@@ -2,12 +2,12 @@ import React, { useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { format } from 'd3-format'
 
-import AreaChart from '../../components/charts/area-chart'
+import AreaChart from '../../../components/charts/area-chart'
 import {
   parseDate,
   totalColor,
   positiveColor,
-} from '../../utilities/visualization'
+} from '../../../utilities/visualization'
 
 import dashboardStyles from './dashboard.module.scss'
 import TotalAndPositiveLegend from './_TotalAndPositiveLegend'

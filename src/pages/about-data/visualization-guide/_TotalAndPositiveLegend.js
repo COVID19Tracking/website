@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 
-import { formatNumber, formatDate } from '../../utilities/visualization'
+import { formatNumber, formatDate } from '../../../utilities/visualization'
 import styles from './total-and-positive-legend.module.scss'
 
 const PER_CAPITA_TEXT = 'per capita*'
