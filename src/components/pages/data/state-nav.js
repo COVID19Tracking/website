@@ -33,9 +33,7 @@ export default ({ stateList }) => {
     <div
       className={`js-enabled state-nav-combobox ${stateNavStyles.stateNavCombobox}`}
     >
-      <label htmlFor="jump-to-state">
-        Type a state&apos;s name to jump to it
-      </label>
+      <label htmlFor="jump-to-state">Type a state’s name to jump to it:</label>
       <Combobox
         openOnFocus
         onSelect={selectedItem => {

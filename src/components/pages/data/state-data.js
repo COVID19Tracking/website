@@ -53,7 +53,7 @@ const State = ({ state }) => (
       href="#reach-skip-nav"
       title="top"
     >
-      ↑ (return to top)
+      Back to top.
     </a>
   </>
 )
