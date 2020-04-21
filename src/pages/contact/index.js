@@ -11,6 +11,7 @@ export default ({ data }) => (
             .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
       }}
     />
+    
   </Layout>
 )
 
