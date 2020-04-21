@@ -6,7 +6,7 @@ import BarChart from '../../components/charts/bar-chart'
 
 import { parseDate } from '../../utilities/visualization'
 
-import usDaily from '../../../_data/v1/us/daily.json'
+import usDaily from '../../../_data/v1/us/daily.json' // eslint-disable-line import/no-unresolved
 
 export default {
   title: 'Charts',
