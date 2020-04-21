@@ -79,7 +79,10 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: ['gatsby-remark-autolink-headers'],
+        plugins: [
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-smartypants',
+        ],
       },
     },
     {
@@ -113,12 +116,6 @@ module.exports = {
         theme_color: '#ffffff',
         display: 'minimal-ui',
         icon: 'src/images/icon.svg',
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [`gatsby-remark-smartypants`],
       },
     },
   ],
