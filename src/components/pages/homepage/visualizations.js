@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex } from '../../common/flexbox'
+import { Flex } from '../../layout/flexbox'
 import Visualization from './visualization'
 import Container from '../../common/container'
 import nytGraph from '../../../images/homepage-visualizations/nyt.png'
