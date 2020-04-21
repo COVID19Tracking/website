@@ -229,6 +229,11 @@ Typography
   table {
     margin: 0 0 1.5em;
   }
+  p:not([class]),
+  ul:not([class]),
+  ol:not([class]) {
+    max-width: 40rem;
+  }
   table,
   th,
   td {
