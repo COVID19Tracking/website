@@ -20,24 +20,21 @@ const ExampleTable = () => (
         <td>23 Mar 2020 Mon</td>
         <td>
           <a
-            target="_blank"
-            class="screenshot-link"
+            className="screenshot-link"
             href="https://covidtracking.com/screenshots/AL/AL-20200323-010033.png"
           >
             1:00 AM
           </a>
 
           <a
-            target="_blank"
-            class="screenshot-link"
+            className="screenshot-link"
             href="https://covidtracking.com/screenshots/AL/AL-20200323-140030.png"
           >
             2:00 PM
           </a>
 
           <a
-            target="_blank"
-            class="screenshot-link"
+            className="screenshot-link"
             href="https://covidtracking.com/screenshots/AL/AL-20200323-190038.png"
           >
             7:00 PM
@@ -45,8 +42,8 @@ const ExampleTable = () => (
         </td>
         <td>167</td>
         <td>1,665</td>
-        <td></td>
-        <td></td>
+        <td>N/A</td>
+        <td>N/A</td>
         <td>0</td>
         <td>1,832</td>
       </tr>
@@ -54,24 +51,21 @@ const ExampleTable = () => (
         <td>22 Mar 2020 Sun</td>
         <td>
           <a
-            target="_blank"
-            class="screenshot-link"
+            className="screenshot-link"
             href="https://covidtracking.com/screenshots/AL/AL-20200322-010035.png"
           >
             1:00 AM
           </a>
 
           <a
-            target="_blank"
-            class="screenshot-link"
+            className="screenshot-link"
             href="https://covidtracking.com/screenshots/AL/AL-20200322-140034.png"
           >
             2:00 PM
           </a>
 
           <a
-            target="_blank"
-            class="screenshot-link"
+            className="screenshot-link"
             href="https://covidtracking.com/screenshots/AL/AL-20200322-190032.png"
           >
             7:00 PM
@@ -79,8 +73,8 @@ const ExampleTable = () => (
         </td>
         <td>138</td>
         <td>1,464</td>
-        <td></td>
-        <td></td>
+        <td>N/A</td>
+        <td>N/A</td>
         <td>0</td>
         <td>1,602</td>
       </tr>

@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Contact form renders correctly 1`] = `
+<form
+  action="/contact/success"
+  className="contactForm"
+  data-netlify="true"
+  method="POST"
+  name="test-form"
+  netlify-honeypot="covid-bot-field"
+>
+  <div>
+    <input
+      name="form-name"
+      type="hidden"
+      value="test-form"
+    />
+    <label
+      className="inputHeader"
+      htmlFor="email"
+    >
+      What is your email address?
+      <input
+        name="email"
+        required={true}
+        type="email"
+      />
+    </label>
+  </div>
+  <div>
+    <label
+      className="inputHeader"
+      htmlFor="message"
+    >
+      <textarea
+        name="message"
+        required={true}
+        rows="5"
+      />
+    </label>
+  </div>
+  <div
+    className="botField"
+  >
+    <label
+      htmlFor="covid-bot-field"
+    >
+      If you are a human, don't fill out this field:
+      <input
+        id="covid-bot-field"
+        name="covid-bot-field"
+        type="text"
+      />
+    </label>
+  </div>
+  <div>
+    <button
+      className="button"
+      type="submit"
+    >
+      Send your email
+    </button>
+  </div>
+</form>
+`;

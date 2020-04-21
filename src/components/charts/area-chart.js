@@ -134,12 +134,13 @@ const AreaChart = ({
             <g>
               {yScale.ticks(yTicks).map((tick, i) => (
                 <g key={tick}>
+                  {/* Do not remove nested svg. See https://github.com/COVID19Tracking/website/pull/645#discussion_r411676987 */}
                   <svg
                     y={yScale(tick) + 4}
                     x="-10"
                     className={chartStyles.yTickLabel}
                   >
-                    <text className={chartStyles.label} textAnchor="end">
+                    <text className={chartStyles.label}>
                       {yFormat
                         ? yFormat(tick, i, yScale.ticks(yTicks).length)
                         : formatNumber(tick)}

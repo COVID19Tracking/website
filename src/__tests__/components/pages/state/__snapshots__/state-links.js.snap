@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : State : State links renders correctly 1`] = `
+<ul
+  className="list-unstyled listUnstyled"
+>
+  <li>
+    <a
+      href="https://twitter.com/california-covid"
+    >
+      California
+       on Twitter
+    </a>
+  </li>
+  <li>
+    <a
+      href="https://example.com"
+    >
+      Data source
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`Components : Pages : State : State links renders correctly 2`] = `
+<ul
+  className="list-unstyled listUnstyled"
+>
+  <li>
+    <a
+      href="https://twitter.com/california-covid"
+    >
+      California
+       on Twitter
+    </a>
+  </li>
+  <li>
+    <a
+      href="https://example.com"
+    >
+      Best current data source
+    </a>
+  </li>
+  <li>
+    <a
+      href="https://example.com"
+    >
+      Data source
+    </a>
+  </li>
+</ul>
+`;

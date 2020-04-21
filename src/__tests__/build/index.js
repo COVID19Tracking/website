@@ -1,6 +1,5 @@
 const fs = require('fs-extra')
-
-const stateNames = require('../../build/datasources/stateNames.js')
+const stateNames = require('../../../build/datasources/stateNames.js')
 
 const getSortedDatesUnique = dates => [...new Set(dates)].sort()
 const getMostRecent = arr => arr[arr.length - 1]

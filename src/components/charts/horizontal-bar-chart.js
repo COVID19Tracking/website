@@ -28,7 +28,7 @@ export default function HorizontalBarChart({
   const xScale = scaleLinear()
     .domain([120, xMax || max(data, d => d.value)])
     .nice()
-    .range([width - totalXMargin, 0])
+    .range([0, width - totalXMargin])
 
   return (
     <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
@@ -37,7 +37,7 @@ export default function HorizontalBarChart({
           <g key={tick}>
             <text
               className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
-              x={245 - xScale(tick)}
+              x={xScale(tick)}
               y={height - marginBottom}
             >
               {formatTick(tick)}
@@ -55,15 +55,14 @@ export default function HorizontalBarChart({
 
       <g transform={`translate(0, ${marginTop})`}>
         {data.map(d => (
+          /* Do not remove nested svg. See https://github.com/COVID19Tracking/website/pull/645#discussion_r411676987 */
           <svg
-            y={yScale(d.name) + 11}
+            y={yScale(d.name) + 20}
             x={marginLeft - 10}
             className={chartStyles.yTickLabel}
             key={d.name}
           >
-            <text className={chartStyles.label} textAnchor="end">
-              {`${d.name}`}
-            </text>
+            <text className={chartStyles.label}>{`${d.name}`}</text>
           </svg>
         ))}
       </g>
@@ -75,7 +74,7 @@ export default function HorizontalBarChart({
             x={0}
             y={yScale(d.name)}
             height={yScale.bandwidth()}
-            width={xScale(0) - xScale(d.value)}
+            width={xScale(d.value)}
             fill={fill}
           />
         ))}

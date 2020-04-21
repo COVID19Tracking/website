@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Detail text renders correctly 1`] = `
+<div
+  className="detail-text detailText"
+>
+  <p>
+    Sample text
+  </p>
+</div>
+`;
