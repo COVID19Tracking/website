@@ -68,7 +68,6 @@ const BarChart = ({
             ),
         )}
       </g>
-
       <g transform={`translate(${marginLeft}, ${height - marginBottom})`}>
         {ticks.map(d => {
           const date = xScale.domain()[d]
@@ -86,7 +85,7 @@ const BarChart = ({
       <g transform={`translate(${marginLeft} ${marginTop})`}>
         {data.map(d => (
           <rect
-            key={d.date}
+            key={d.date + d.value}
             x={xScale(d.date)}
             y={yScale(d.value)}
             height={yScale(0) - yScale(d.value)}

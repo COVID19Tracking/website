@@ -11,7 +11,7 @@ export default {
 }
 
 export const infobox = () => (
-  <Infobox header={'This is an infobox header'}>Infobox content here</Infobox>
+  <Infobox header="This is an infobox header">Infobox content here</Infobox>
 )
 
 infobox.story = {
