@@ -60,7 +60,7 @@ const cdcTests = {
 }
 const press = {
   ...sheets,
-  worksheetId: '1-lvGZ3NgVlda4EcF5t_AVFLnBqz-TOl4YZxYH_mJF_4',
+  worksheetId: '17KJTUTRwh-2og9Kx0OIZ4Ix5dm_51TL330wwgYSfTBs',
   fixItems: _.orderBy(['publishDate'], ['desc']),
   path: 'press',
 }
