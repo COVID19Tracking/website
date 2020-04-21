@@ -70,7 +70,8 @@ function rawToDataPoint(raw) {
 }
 
 async function usDailyDataAsync() {
-  let raw = await getJSONAsync('https://covid.cape.io/us/daily');
+  // let raw = await getJSONAsync('https://covid.cape.io/us/daily');
+  let raw = await getJSONAsync('https://covidtracking.com/api/v1/us/daily.json');
   let usDailyData = [];
   for (day of raw) {
     usDailyData.push(rawToDataPoint(day));
@@ -92,7 +93,8 @@ function rawStateInfoToState(raw) {
 }
 
 async function stateInfoDataAsync() {
-  let raw = await getJSONAsync('https://covid.cape.io/states/info');
+  // let raw = await getJSONAsync('https://covid.cape.io/states/info');
+  let raw = await getJSONAsync('https://covidtracking.com/api/v1/states/info.json');
   let stateInfoData = {};
   for (state of raw) {
     // {"state":"AK","dataSite":"http://dhss.alaska.gov/dph/Epi/id/Pages/COVID-19/monitoring.aspx","covid19Site":"http://dhss.alaska.gov/dph/Epi/id/Pages/COVID-19/default.aspx","twitter":"@Alaska_DHSS","pui":"All data","pum":false,"notes":"Unclear if they mean \"persons tested\" or \"specimens tested.\" We count them as \"persons tested\" for now.","name":"Alaska"}
@@ -114,13 +116,16 @@ function mapPUI(input) {
 }
 
 async function usTotalDataAsync() {
-  let raw = await getJSONAsync('https://covid.cape.io/us');
+  // let raw = await getJSONAsync('https://covid.cape.io/us');
+  let raw = await getJSONAsync('https://covidtracking.com/api/v1/us/current.json');
+
   let usTotalData = rawToDataPoint(raw[0]);
   return usTotalData;
 }
 
 async function statesDataAsync() {
-  let raw = await getJSONAsync('https://covid.cape.io/states');
+  // let raw = await getJSONAsync('https://covid.cape.io/states');
+  let raw = await getJSONAsync('https://covidtracking.com/api/v1/states/current.json');
   let statesData = {};
   for (let stateData of raw) {
     let dataPoint = rawToDataPoint(stateData);
