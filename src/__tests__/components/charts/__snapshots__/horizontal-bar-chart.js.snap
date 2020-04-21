@@ -1,131 +1,125 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components : Charts: Area chart renders correctly 1`] = `
-<div>
-  <svg
-    className="chart"
-    viewBox="0 0 200 200"
+<svg
+  className="chart"
+  viewBox="0 0 200 200"
+>
+  <g
+    transform="translate(30 30)"
   >
-    <g
-      transform="translate(30 30)"
-    >
-      <g>
-        <text
-          className="label xTickLabel"
-          x={151.66666666666666}
-          y={170}
-        >
-          500
-        </text>
-        <line
-          className="gridLine"
-          x1={93.33333333333334}
-          x2={93.33333333333334}
-          y1={0}
-          y2={140}
-        />
-      </g>
-      <g>
-        <text
-          className="label xTickLabel"
-          x={210}
-          y={170}
-        >
-          1k
-        </text>
-        <line
-          className="gridLine"
-          x1={35}
-          x2={35}
-          y1={0}
-          y2={140}
-        />
-      </g>
-    </g>
-    <g
-      transform="translate(0, 30)"
-    >
-      <svg
-        className="yTickLabel"
-        x={20}
-        y={17.66666666666668}
+    <g>
+      <text
+        className="label xTickLabel"
+        x={46.666666666666664}
+        y={170}
       >
-        <text
-          className="label"
-          textAnchor="end"
-        >
-          A1
-        </text>
-      </svg>
-      <svg
-        className="yTickLabel"
-        x={20}
-        y={51.00000000000001}
-      >
-        <text
-          className="label"
-          textAnchor="end"
-        >
-          A2
-        </text>
-      </svg>
-      <svg
-        className="yTickLabel"
-        x={20}
-        y={84.33333333333334}
-      >
-        <text
-          className="label"
-          textAnchor="end"
-        >
-          B1
-        </text>
-      </svg>
-      <svg
-        className="yTickLabel"
-        x={20}
-        y={117.66666666666666}
-      >
-        <text
-          className="label"
-          textAnchor="end"
-        >
-          B2
-        </text>
-      </svg>
-    </g>
-    <g
-      transform="translate(30, 30)"
-    >
-      <rect
-        fill="#333"
-        height={26.666666666666664}
-        width={143.96666666666664}
-        x={0}
-        y={6.6666666666666785}
-      />
-      <rect
-        fill="#333"
-        height={26.666666666666664}
-        width={14.349999999999994}
-        x={0}
-        y={40.00000000000001}
-      />
-      <rect
-        fill="#333"
-        height={26.666666666666664}
-        width={143.85}
-        x={0}
-        y={73.33333333333334}
-      />
-      <rect
-        fill="#333"
-        height={26.666666666666664}
-        width={15.399999999999977}
-        x={0}
-        y={106.66666666666666}
+        500
+      </text>
+      <line
+        className="gridLine"
+        x1={46.666666666666664}
+        x2={46.666666666666664}
+        y1={0}
+        y2={140}
       />
     </g>
-  </svg>
-</div>
+    <g>
+      <text
+        className="label xTickLabel"
+        x={105}
+        y={170}
+      >
+        1k
+      </text>
+      <line
+        className="gridLine"
+        x1={105}
+        x2={105}
+        y1={0}
+        y2={140}
+      />
+    </g>
+  </g>
+  <g
+    transform="translate(0, 30)"
+  >
+    <svg
+      className="yTickLabel"
+      x={20}
+      y={26.66666666666668}
+    >
+      <text
+        className="label"
+      >
+        A1
+      </text>
+    </svg>
+    <svg
+      className="yTickLabel"
+      x={20}
+      y={60.00000000000001}
+    >
+      <text
+        className="label"
+      >
+        A2
+      </text>
+    </svg>
+    <svg
+      className="yTickLabel"
+      x={20}
+      y={93.33333333333334}
+    >
+      <text
+        className="label"
+      >
+        B1
+      </text>
+    </svg>
+    <svg
+      className="yTickLabel"
+      x={20}
+      y={126.66666666666666}
+    >
+      <text
+        className="label"
+      >
+        B2
+      </text>
+    </svg>
+  </g>
+  <g
+    transform="translate(30, 30)"
+  >
+    <rect
+      fill="#333"
+      height={26.666666666666664}
+      width={132.29999999999998}
+      x={0}
+      y={6.6666666666666785}
+    />
+    <rect
+      fill="#333"
+      height={26.666666666666664}
+      width={2.683333333333333}
+      x={0}
+      y={40.00000000000001}
+    />
+    <rect
+      fill="#333"
+      height={26.666666666666664}
+      width={132.18333333333334}
+      x={0}
+      y={73.33333333333334}
+    />
+    <rect
+      fill="#333"
+      height={26.666666666666664}
+      width={3.7333333333333334}
+      x={0}
+      y={106.66666666666666}
+    />
+  </g>
+</svg>
 `;
