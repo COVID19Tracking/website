@@ -133,10 +133,17 @@
     }
 
     .site-title-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .site-title-inner {
       width: auto;
     }
 
     .title-subnav-container {
+      display: flex;
+      flex-wrap: wrap;
       @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
         flex-direction: column;
       }
