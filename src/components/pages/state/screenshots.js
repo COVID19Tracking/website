@@ -1,5 +1,6 @@
 import React from 'react'
 import { DateTime } from 'luxon'
+import { FormatDate } from '../../utils/format'
 
 export default ({ date, screenshots }) => {
   const dateScreenshots = []
@@ -18,11 +19,7 @@ export default ({ date, screenshots }) => {
         <li key={screenshot.url}>
           <a href={screenshot.url} target="_blank" rel="noopener noreferrer">
             {screenshot.dateChecked && (
-              <>
-                {DateTime.fromISO(screenshot.dateChecked)
-                  .toFormat('h:mm a')
-                  .toLowerCase()}
-              </>
+              <FormatDate date={screenshot.dateChecked} format="h:mm a" />
             )}
           </a>
         </li>

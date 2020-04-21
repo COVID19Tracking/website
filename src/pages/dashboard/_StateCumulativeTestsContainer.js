@@ -5,7 +5,7 @@ import React, { useMemo, useState } from 'react'
 import cloneDeep from 'lodash/cloneDeep'
 
 import AreaChart from '../../components/charts/area-chart'
-
+import TotalAndPositiveLegend from './_TotalAndPositiveLegend'
 import StatesWithPopulation from '../../data/visualization/state-populations.json'
 
 import {
@@ -111,12 +111,12 @@ function groupAndSortStateDaily(query) {
 
     clonedData.values = clonedData.values.map(value => {
       const clonedValue = cloneDeep(value)
-
+      const ONE_MILLION = 1000000
       // divide by population to determine per capita percentages
-      clonedValue.positive /= population
-      clonedValue.negative /= population
-      clonedValue.totalTestResults /= population
-
+      clonedValue.positive = (clonedValue.positive / population) * ONE_MILLION
+      clonedValue.negative = (clonedValue.negative / population) * ONE_MILLION
+      clonedValue.totalTestResults =
+        (clonedValue.totalTestResults / population) * ONE_MILLION
       return clonedValue
     })
 
@@ -199,9 +199,9 @@ export default function CumulativeTestsByStateContainer() {
           aria-checked={useTestsPerCapita}
           tabIndex={0}
         >
-          <span className={useTestsPerCapita ? '' : 'active'}>Total Tests</span>
+          <span className={useTestsPerCapita ? '' : 'active'}>Total tests</span>
           <span className={useTestsPerCapita ? 'active' : ''}>
-            Tests Per Capita
+            Tests per capita*
           </span>
         </div>
         <ul className="chart-legend">
@@ -221,7 +221,7 @@ export default function CumulativeTestsByStateContainer() {
           </li>
           <li>
             <div className="chart-legend-color chart-legend-stay-at-home" />
-            <div>Stay-at-home order*</div>
+            <div>Stay-at-home order**</div>
           </li>
         </ul>
       </div>
@@ -291,6 +291,14 @@ export default function CumulativeTestsByStateContainer() {
                 yTicks={2}
                 showTicks={false}
                 dateExtent={dateExtent}
+                renderTooltipContents={d => (
+                  <TotalAndPositiveLegend
+                    date={d.date}
+                    total={d.Total}
+                    positive={d.Positive}
+                    perCapita={useTestsPerCapita}
+                  />
+                )}
               />
               <p />
             </div>
@@ -305,7 +313,9 @@ export default function CumulativeTestsByStateContainer() {
         Show {isCollapsed ? 'all' : 'less'} states
       </button>
       <p className="chart-legend-note">
-        <b>*</b> Only statewide stay-at-home orders are included; dates mark
+        <b>*</b> Per capita = per one million people
+        <br />
+        <b>**</b> Only statewide stay-at-home orders are included; dates mark
         when the orders went into effect.
       </p>
     </div>
