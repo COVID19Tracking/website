@@ -2,6 +2,7 @@
 
 .list {
   column-count: 3;
+  line-height: 1.3;
 
   @media (max-width: $viewport-md) {
     column-count: 2;
