@@ -13,7 +13,9 @@ export default ({ children, narrow, textHeavy = false }) => {
           <div className="layout--content-primary">{children}</div>
         </div>
       ) : (
-        children
+        <div className="layout--content-full">
+          <div className="layout--content-primary">{children}</div>
+        </div>
       )}
     </div>
   )
