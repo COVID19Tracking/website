@@ -5,7 +5,7 @@ export default ({ items }) => {
   return (
     <ul className={listArrowStyles.listArrow}>
       {items.map(node => (
-        <li className={listArrowStyles.listArrowItem}>
+        <li key={node.props.children} className={listArrowStyles.listArrowItem}>
           {node}
           <span aria-hidden className={listArrowStyles.listArrowIcon}>
             →
