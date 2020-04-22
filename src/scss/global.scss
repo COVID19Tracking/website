@@ -182,6 +182,17 @@ Headline treatments
     font-size: 1.4375rem;
   }
 }
+.hed-featured {
+  font-size: 1.4rem;
+  line-height: 1.25;
+  margin: 0 0 0.75em;
+  font-weight: 500;
+}
+@media (min-width: $viewport-md) {
+  .hed-featured {
+    font-size: 1.75rem;
+  }
+}
 .hed-landscape {
   color: $color-slate-700;
   font-size: 1.125rem;
@@ -214,6 +225,35 @@ Typography
     font-size: 1.125rem;
   }
 }
+.module-featured {
+  margin: 3.5em auto;
+  max-width: 48rem;
+  + section,
+  + div {
+    border-top: 1px solid $color-slate-300;
+    border-bottom: 1px solid $color-slate-300;
+    padding: 2.5em 0 2em;
+  }
+}
+.layout--content-primary {
+  p,
+  ul,
+  ol,
+  table {
+    margin: 0 0 1.5em;
+  }
+  table,
+  th,
+  td {
+    border: 1px solid $color-slate-500;
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 0.25em;
+  }
+}
 .module-content {
   h2 {
     font-size: 24px;
@@ -235,27 +275,10 @@ Typography
   li {
     margin-bottom: 0.5em;
   }
-  p,
-  ul,
-  ol,
-  table {
-    margin: 0 0 1.5em;
-  }
   p:not([class]),
   ul:not([class]),
   ol:not([class]) {
     max-width: 40rem;
-  }
-  table,
-  th,
-  td {
-    border: 1px solid $color-slate-500;
-    border-collapse: collapse;
-  }
-  th,
-  td {
-    text-align: left;
-    padding: 0.25em;
   }
 }
 
