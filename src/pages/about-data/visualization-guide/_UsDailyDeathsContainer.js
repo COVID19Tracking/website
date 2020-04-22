@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import BarChart from '../../components/charts/bar-chart'
-import { deathsBarColor, parseDate } from '../../utilities/visualization'
+import BarChart from '../../../components/charts/bar-chart'
+import { deathsBarColor, parseDate } from '../../../utilities/visualization'
 
 import dashboardStyles from './dashboard.module.scss'
 

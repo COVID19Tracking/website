@@ -2,12 +2,12 @@ import React, { useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { format } from 'd3-format'
 
-import AreaChart from '../../components/charts/area-chart'
+import AreaChart from '../../../components/charts/area-chart'
 import {
   parseDate,
   totalColor,
   positiveColor,
-} from '../../utilities/visualization'
+} from '../../../utilities/visualization'
 
 import dashboardStyles from './dashboard.module.scss'
 import TotalAndPositiveLegend from './_TotalAndPositiveLegend'
@@ -48,13 +48,6 @@ export default function UsAreaChartContainer() {
   }, [data.allCovidUsDaily.nodes.length])
   return (
     <section>
-      <p>
-        Testing is one of the most important tools in controlling an outbreak.
-        When universal testing is implemented, people who are infected with the
-        virus can be isolated from folks who test negative. This functions as a
-        sort of targeted social distancing technique and can help slow the
-        outbreak.
-      </p>
       <div className={dashboardStyles.chartsContainer}>
         <h3 className={dashboardStyles.chartTitle}>
           Positive tests and total tests in the US

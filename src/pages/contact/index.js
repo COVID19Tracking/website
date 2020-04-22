@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Layout from '../components/layout'
-import ListArrow from '../components/common/list-arrow'
+import Layout from '../../components/layout'
+import ListArrow from '../../components/common/list-arrow'
 
-const ContactPage = ({ data }) => (
+export default ({ data }) => (
   <Layout title="Contact" narrow textHeavy>
     <div
       dangerouslySetInnerHTML={{
@@ -23,8 +23,6 @@ const ContactPage = ({ data }) => (
     />
   </Layout>
 )
-
-export default ContactPage
 
 export const query = graphql`
   query {
