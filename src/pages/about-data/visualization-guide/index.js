@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../components/layout'
+import Layout from '../../../components/layout'
 import CDCComparisonContainer from './_CDCComparisonContainer'
 import MapContainer from './_MapContainer'
 import StateCumulativeTestsContainer from './_StateCumulativeTestsContainer'
@@ -10,22 +10,39 @@ import UsPositiveAndTotalTestsContainer from './_UsPositiveAndTotalTestsContaine
 import './dashboard.scss'
 import dashboardStyles from './dashboard.module.scss'
 
-const DashboardPage = () => {
+const VisualizationGuidePage = () => {
   return (
-    <Layout title="Visual Dashboard">
+    <Layout title="Visualization guide">
       <div className="subhead">
         Explore graphics made with the COVID Tracking Project dataset along with
         tips to help you present the data in the clearest and most accurate way
         possible.
       </div>
       <p>
-        Testing is a critical part of any public health response. Journalists
-        have uncovered evidence that the US government’s COVID-19 testing
-        strategy has been delayed and uneven. This hampers our understanding of
-        the pandemic and our ability to respond to it effectively. Government
-        updates on national testing follow a similar pattern: The Centers for
-        Disease Control and Prevention (CDC) currently publishes incomplete data
-        that lags several days behind US state and territory reports.
+        Complete, up-to-date testing and outcomes data is essential to a
+        successful public health response to the US COVID-19 outbreak, but that
+        data{' '}
+        <a href="https://covidtracking.com/why-it-matters">
+          is not being published by the Centers for Disease Control and
+          Prevention (CDC)
+        </a>
+        or any other governmental entity.
+      </p>
+      <p>
+        The COVID Tracking Project exists to help fill that gap. We collect the
+        best available testing and patient-outcomes data from every US state and
+        territory and the District of Columbia, with full daily updates to the
+        entire dataset.
+      </p>
+      <p>
+        <strong>Please note:</strong> Our data will always be an undercount. We
+        can only track tests that states report, and not all states report all
+        tests. More significantly, per-capita testing levels in the US remain
+        low, which means that an unknown but probably very large number of
+        people are sick, but aren&rsquo;t being tested. But this is the data we
+        can collect, and it provides the most detailed information available
+        about the shape and relative severity of outbreaks in US states and
+        territories.
       </p>
       <CDCComparisonContainer />
       <p>
@@ -35,19 +52,12 @@ const DashboardPage = () => {
         Louisiana.
       </p>
       <p>
-        Because COVID-19 testing and reporting are inconsistent among states, it
-        &rsquo;s easy to misinterpret the data. That makes it especially
+        Because COVID-19 testing and reporting are inconsistent among states,
+        it&rsquo;s easy to misinterpret the data. That makes it especially
         important to create clear and accurate visualizations. Otherwise even
         simple and minimalistic graphics can be misleading. If you plan to
-        display the data yourself, please closely follow{' '}
-        <a href="https://vanschneider.com/a-data-designers-responsibility-during-a-global-crisis">
-          design
-        </a>{' '}
-        and visualization guidelines.
-      </p>
-      <p className="tips-section-title">
-        On this page, you will find some tips and suggestions on how to
-        responsibly visualize data from the COVID Tracking Project.
+        display data from the COVID Tracking Project yourself, please closely
+        follow these design and visualization guidelines.
       </p>
       <p className="tips-section-title">Consider normalizing the data.</p>
       <p>
@@ -57,7 +67,7 @@ const DashboardPage = () => {
         </a>{' '}
         (where each state is shaded in proportion to a statistical variable),
         make sure you encode a population-controlled rate, such as
-        &quot;positive tests per one million people.&quot; If you want to show
+        &ldquo;positive tests per one million people.&rdquo; If you want to show
         absolute numbers, such as the number of new positive cases per day, use
         a{' '}
         <a href="http://seeingdata.org/taketime/inside-the-chart-proportional-symbol-map/">
@@ -76,6 +86,12 @@ const DashboardPage = () => {
       </p>
       <MapContainer />
       <p className="tips-section-title">Include the denominator.</p>
+      <p>
+        Testing is one of the most important tools in controlling an outbreak.
+        When universal testing is implemented, people who are infected with the
+        virus can be isolated from folks who test negative. This functions as a
+        targeted social distancing technique and can help slow the outbreak.
+      </p>
       <p>
         Charting the number of positive tests alone is often problematic. Simple
         case counts show where people are being tested, not necessarily where
@@ -152,9 +168,13 @@ const DashboardPage = () => {
         There are some concerns that official death statistics may overcount
         COVID-19 fatalities by assuming any patient who tests positive for the
         virus was killed by it. But Marc Lipsitch, a Harvard University
-        epidemiologist, told FactCheck.org that &quot;the number of such cases
-        will be small.&quot; Undercounting is a bigger problem, he says. &quot;A
-        greater issue is errors in the other direction.&quot;
+        epidemiologist, told{' '}
+        <a href="https://factcheck.org/2020/04/social-media-posts-make-baseless-claim-on-covid-19-death-toll/">
+          FactCheck.org
+        </a>
+        &nbsp;that &ldquo;the number of such cases will be small.&rdquo;
+        Undercounting is a bigger problem, he says. &ldquo;A greater issue is
+        errors in the other direction.&rdquo;
       </p>
       <p>
         If people die from COVID-19 before they are tested, their death might
@@ -199,8 +219,8 @@ const DashboardPage = () => {
             states&apos;s data dashboard
           </a>
           , whereas previously we had published testing updates from other
-          sources. This led to a drop in California&apos;s reported cases and
-          deaths in our dataset on April 1, since the state&apos;s data lags
+          sources. This led to a drop in California&rsquo;s reported cases and
+          deaths in our dataset on April 1, since the state&rsquo;s data lags
           behind our previous sources.
         </p>
         <div className="source-section">
@@ -222,4 +242,4 @@ const DashboardPage = () => {
   )
 }
 
-export default DashboardPage
+export default VisualizationGuidePage
