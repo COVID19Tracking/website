@@ -15,6 +15,7 @@ export default ({ data }) => (
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
     <div
+      className="module-content"
       dangerouslySetInnerHTML={{
         __html: data.dataPreamble.nodes[0].content.childMarkdownRemark.html,
       }}
@@ -23,6 +24,7 @@ export default ({ data }) => (
     <SummaryTable data={data.allCovidUs.edges[0].node} showOutcomes={false} />
     <DetailText>
       <span
+        className="module-content"
         dangerouslySetInnerHTML={{
           __html:
             data.dataSummaryFootnote.nodes[0].content.childMarkdownRemark.html,

@@ -32,7 +32,7 @@ export default ({ data }) => (
         <div className="layout-region layout--content-and-rail">
           <div className="layout--content-primary">
             <div
-              className={homepageStyles.content}
+              className={`module-content ${homepageStyles.content}`}
               dangerouslySetInnerHTML={{
                 __html:
                   data.allContentfulSnippet.edges[0].node

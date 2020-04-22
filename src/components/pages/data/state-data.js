@@ -42,7 +42,7 @@ const State = ({ state }) => (
     </UnstyledList>
     {state.notes && (
       <div
-        className={stateDataStyles.notes}
+        className={`module-content ${stateDataStyles.notes}`}
         dangerouslySetInnerHTML={{
           __html: marked(state.notes),
         }}

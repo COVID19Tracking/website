@@ -162,14 +162,14 @@ Headline treatments
 
 */
 .hed-primary,
-.layout--content-primary h2 {
+.module-content h2 {
   font-size: 1.375rem;
-  line-height: 1.2;
+  line-height: 1.25;
   margin: 0 0 0.75em;
 }
 @media (min-width: $viewport-md) {
   .hed-primary,
-  .layout--content-primary h2 {
+  .module-content h2 {
     font-size: 1.875rem;
   }
 }
@@ -203,6 +203,9 @@ Typography
       font-size: 22px;
       font-size: 1.375rem;
     }
+    h2:first-child {
+      margin-top: 0;
+    }
   }
 }
 .layout--content-primary {
@@ -210,6 +213,8 @@ Typography
     font-size: 18px;
     font-size: 1.125rem;
   }
+}
+.module-content {
   h2 {
     font-size: 24px;
     font-size: 1.5rem;
