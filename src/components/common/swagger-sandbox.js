@@ -5,7 +5,7 @@ import './swagger-sandbox.scss'
 class SwaggerSandbox extends React.Component {
   componentDidMount() {
     window.SwaggerUI({
-      dom_id: '#swaggerWrapper',
+      domNode: this.swaggerWrapper,
       url: '/api-docs/COVID-tracking-endpoints-1.0-docs.json',
       defaultModelExpandDepth: 10,
       docExpansion: 'list',
@@ -13,7 +13,14 @@ class SwaggerSandbox extends React.Component {
   }
 
   render() {
-    return <div id="swaggerWrapper" />
+    return (
+      <div
+        ref={ref => {
+          this.swaggerWrapper = ref
+        }}
+        id="swaggerWrapper"
+      />
+    )
   }
 }
 
