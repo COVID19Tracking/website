@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
-import ListArrow from '../../components/common/list-arrow'
 
 export default ({ data }) => (
   <Layout title="Contact" narrow textHeavy>
@@ -11,15 +10,6 @@ export default ({ data }) => (
           data.allContentfulSnippet.edges[0].node
             .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
       }}
-    />
-    <ListArrow
-      items={[
-        <p>
-          <Link to="/contact/accessibility">
-            Report a problem with accessibility on the website.
-          </Link>
-        </p>,
-      ]}
     />
   </Layout>
 )
