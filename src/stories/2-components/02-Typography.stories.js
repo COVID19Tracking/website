@@ -1,11 +1,6 @@
 import React from 'react'
-import LeadParagraph from '../../components/common/lead-paragraph'
-import {
-  UnorderedList,
-  OrderedList,
-  UnstyledList,
-} from '../../components/common/lists'
-import { FormatDate, FormatNumber } from '../../components/common/format'
+import { OrderedList, UnstyledList } from '../../components/common/lists'
+import { FormatDate, FormatNumber } from '../../components/utils/format'
 
 const sampleText = `Testing is a crucial part of any public health response, 
 and sharing test data is essential to understanding this outbreak. The CDC is 
@@ -80,12 +75,6 @@ inlineStyles.story = {
   },
 }
 
-export const unorderedList = () => (
-  <UnorderedList>
-    <ExampleList />
-  </UnorderedList>
-)
-
 export const orderedList = () => (
   <OrderedList>
     <ExampleList />
@@ -105,8 +94,6 @@ unstyledList.story = {
     },
   },
 }
-
-export const leadParagraph = () => <LeadParagraph>{sampleText}</LeadParagraph>
 
 export const numberFormat = () => (
   <>
@@ -134,7 +121,7 @@ export const dateFormat = () => (
       <strong>Without defined format:</strong> <FormatDate date={20200101} />
     </p>
     <p>
-      <strong>With the format "yyyy MM d":</strong>{' '}
+      <strong>With the format &quot;yyyy MM d&quot;:</strong>{' '}
       <FormatDate date={20200101} format="yyyy MM d" />
     </p>
   </>

@@ -1,0 +1,59 @@
+version: 2.1
+orbs:
+  coveralls: coveralls/coveralls@1.0.4
+executors:
+  main-executor:
+    docker:
+      - image: circleci/node:10.19.0
+        environment:
+          TZ: 'America/New_York'
+
+jobs:
+  build:
+    executor: main-executor
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: 'npm install'
+      - run:
+          name: setup
+          command: 'npm run setup'
+      - run:
+          name: build
+          command: 'npm run build:gatsby'
+      - run:
+          name: copy-data
+          command: 'npm run build:data'
+      - run:
+          name: test
+          command: 'npm run build:test'
+  gatsby-test:
+    executor: main-executor
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: 'npm install'
+      - run:
+          name: test
+          command: 'npm run test:coverage'
+      - coveralls/upload:
+        path_to_lcov: './junit.xml'
+  gatsby-lint:
+    executor: main-executor
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: 'npm install'
+      - run:
+          name: lint
+          command: 'npm run test:lint'
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - gatsby-lint
+      - build
+      - gatsby-test

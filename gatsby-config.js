@@ -4,36 +4,21 @@ require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: 'The COVID Tracking Project',
-    name: 'ctracker',
-    shortname: 'ctracker',
+    description:
+      'The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.',
     production:
       typeof process.env.BRANCH !== 'undefined' &&
       process.env.BRANCH === 'master',
-    buildDate: DateTime.fromObject({ zone: 'America/New_York' }).toFormat(
-      "M/dd HH:mm 'ET'",
-    ),
-    url: 'https://covidtracking.com',
-    description:
-      'The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.',
-    repoUrl: 'https://github.com/COVID19Tracking/website',
-    twitter: 'COVID19Tracking',
-    author: {
-      name: 'The COVID19 Tracking Project',
-      email: 'info@covidtracking.com',
-    },
-    feed: {
-      filename: 'feed.xml',
-      path: '/feed/feed.xml',
-      url: 'https://covidtracking.com/feed.xml',
-      id: 'https://covidtracking.com',
-    },
+    buildDate: `${DateTime.fromObject({ zone: 'America/New_York' })
+      .toFormat('h:mm a')
+      .toLowerCase()} ET`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-transformer-yaml',
     'gatsby-plugin-eslint',
-    `gatsby-plugin-remove-trailing-slashes`,
+    'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-source-covid-tracking-api',
@@ -82,6 +67,13 @@ module.exports = {
       options: {
         file: './_data/v1/states/screenshots.json',
         type: 'CovidScreenshot',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/v1/cdc/daily.json',
+        type: 'CDCDaily',
       },
     },
     {

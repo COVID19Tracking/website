@@ -3,7 +3,7 @@ import marked from 'marked'
 import { Link } from 'gatsby'
 import slug from '../../../utilities/slug'
 import { UnstyledList } from '../../common/lists'
-import StateGrade from '../../common/state-grade'
+import StateGrade from '../state/state-grade'
 import SummaryTable from '../../common/summary-table'
 import stateDataStyles from './state-data.module.scss'
 
@@ -17,7 +17,7 @@ const State = ({ state }) => (
     </div>
     <SummaryTable
       data={state.stateData}
-      lastUpdated={state.stateData.lastUpdateEt}
+      lastUpdated={state.stateData.dateModified}
     />
     <UnstyledList>
       {state.twitter && (

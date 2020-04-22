@@ -1,8 +1,8 @@
 import React from 'react'
 import contrast from 'get-contrast'
-import colors from '../../scss/colors.scss'
+import colors from '../../scss/colors.module.scss'
 
-const ColorSwatch = ({ colors, names }) => (
+const ColorSwatch = ({ colorList, names }) => (
   <>
     <div>
       {names.map(name => (
@@ -20,7 +20,7 @@ const ColorSwatch = ({ colors, names }) => (
       ))}
     </div>
     <div>
-      {colors.map(color => (
+      {colorList.map(color => (
         <div
           key={`color-swatch-${color}`}
           style={{
@@ -35,7 +35,7 @@ const ColorSwatch = ({ colors, names }) => (
       ))}
     </div>
     <div>
-      {colors.map(color => (
+      {colorList.map(color => (
         <div
           key={color}
           style={{
@@ -62,7 +62,7 @@ const ColorSwatch = ({ colors, names }) => (
         </div>
       ))}
       <div>
-        {colors.map(color => (
+        {colorList.map(color => (
           <div
             key={`color-${color}`}
             style={{
@@ -72,8 +72,8 @@ const ColorSwatch = ({ colors, names }) => (
               padding: '1rem',
             }}
           >
-            <p style={{ color: color }}>Sample text</p>
-            <p style={{ color: color, fontWeight: 'bold' }}>Bold text</p>
+            <p style={{ color }}>Sample text</p>
+            <p style={{ color, fontWeight: 'bold' }}>Bold text</p>
           </div>
         ))}
       </div>
@@ -95,7 +95,7 @@ export const textColors = () => (
 
 export const colorsPlum = () => (
   <ColorSwatch
-    colors={[
+    colorList={[
       colors.colorPlum100,
       colors.colorPlum200,
       colors.colorPlum300,
@@ -120,7 +120,7 @@ export const colorsPlum = () => (
 
 export const colorsHoney = () => (
   <ColorSwatch
-    colors={[
+    colorList={[
       colors.colorHoney100,
       colors.colorHoney200,
       colors.colorHoney300,
@@ -145,7 +145,7 @@ export const colorsHoney = () => (
 
 export const colorsBlueberry = () => (
   <ColorSwatch
-    colors={[
+    colorList={[
       colors.colorBlueberry100,
       colors.colorBlueberry200,
       colors.colorBlueberry300,
@@ -164,7 +164,7 @@ export const colorsBlueberry = () => (
 
 export const colorsSlate = () => (
   <ColorSwatch
-    colors={[
+    colorList={[
       colors.colorSlate100,
       colors.colorSlate200,
       colors.colorSlate300,

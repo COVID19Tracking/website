@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from '../../components/layout/flexbox'
 import Container from '../../components/common/container'
 
 export default {
@@ -33,7 +33,7 @@ containerNarrow.story = {
   parameters: {
     info: {
       text:
-        'A narrow element that floats in the middle of the page and is useful to wrap content.',
+        'A narrow element that aligns to the left side of the page and is useful to wrap content.',
     },
   },
 }

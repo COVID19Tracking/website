@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
-import { FormatDate, FormatNumber } from '../../components/common/format'
+import { FormatDate, FormatNumber } from '../../components/utils/format'
 import { SyncInfobox } from '../../components/common/infobox'
 import Table from '../../components/common/table'
 
@@ -39,7 +39,7 @@ const ContentPage = ({ data }) => (
         {data.allCovidUsDaily.edges.map(({ node }) => (
           <tr>
             <td>
-              <FormatDate date={node.date} />
+              <FormatDate date={node.date} format="ccc LLL d yyyy" />
             </td>
             <td>{node.states}</td>
             <td>

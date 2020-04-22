@@ -73,3 +73,6 @@ _data
 
 # Storybook build
 storybook-static
+
+# Junit coverage report
+junit.xml
