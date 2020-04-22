@@ -29,7 +29,7 @@ const VisualizationGuidePage = ({ data }) => {
         <a href="https://covidtracking.com/why-it-matters">
           is not being published by the Centers for Disease Control and
           Prevention (CDC)
-        </a>
+        </a>{' '}
         or any other governmental entity.
       </p>
       <p>
