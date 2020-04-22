@@ -52,16 +52,12 @@ const VisualizationGuidePage = () => {
         Louisiana.
       </p>
       <p>
-        Because COVID-19 testing and reporting are inconsistent among states, it
-        &rsquo;s easy to misinterpret the data. That makes it especially
+        Because COVID-19 testing and reporting are inconsistent among states,
+        it&rsquo;s easy to misinterpret the data. That makes it especially
         important to create clear and accurate visualizations. Otherwise even
         simple and minimalistic graphics can be misleading. If you plan to
         display data from the COVID Tracking Project yourself, please closely
         follow these design and visualization guidelines.
-      </p>
-      <p className="tips-section-title">
-        On this page, you will find some tips and suggestions on how to
-        responsibly visualize data from the COVID Tracking Project.
       </p>
       <p className="tips-section-title">Consider normalizing the data.</p>
       <p>
