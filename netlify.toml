@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "npm run setup && npm run build:graphql && mkdir public && echo hello > public/index.html"
+  command = "npm run build"
   functions = "./src/graphql/functions-dist"
 
 [[headers]]
