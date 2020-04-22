@@ -14,7 +14,7 @@ import dashboardStyles from './dashboard.module.scss'
 const VisualizationGuidePage = ({ data }) => {
   return (
     <Layout
-      title="Visualization guide"
+      title="Visualization Guide"
       navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
     >
       <div className="subhead">
