@@ -4,16 +4,12 @@ import SwaggerUI from 'swagger-ui'
 import SwaggerSandbox from '../../../components/common/swagger-sandbox'
 
 beforeEach(() => {
-  window.SwaggerUI = SwaggerUI;
+  window.SwaggerUI = SwaggerUI
 })
 
 describe('Components : Common: Swagger sandbox', () => {
   it('renders correctly', () => {
-    const tree = renderer
-      .create(
-        <SwaggerSandbox />,
-      )
-      .toJSON()
+    const tree = renderer.create(<SwaggerSandbox />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
