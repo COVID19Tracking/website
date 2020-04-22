@@ -192,9 +192,10 @@
 
       @media (max-width: $viewport-ms) {
         div {
-          width: 92vw; /* extend to the far right edge */
-          overflow-x: scroll;
           -ms-overflow-style: none;
+          min-height: 2em; /* Fix for Safari overflow clip */
+          overflow-x: scroll;
+          width: 92vw; /* extend to the far right edge */
 
           &::-webkit-scrollbar {
             display: none;
