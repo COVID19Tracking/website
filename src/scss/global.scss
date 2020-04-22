@@ -2,9 +2,21 @@
 @import './colors.module.scss';
 @import './breakpoints.module.scss';
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   color: $text;
-  font: normal 100%/1.5 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+  font: normal 100%/1.5 'system-ui', '-apple-system', 'BlinkMacSystemFont',
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 }
 
 img {
@@ -109,8 +121,6 @@ select,
   }
 }
 
-
-
 /*
 
 Layout blocks
@@ -146,8 +156,6 @@ Layout blocks
   }
 }
 
-
-
 /*
 
 Headline treatments
@@ -181,8 +189,6 @@ Headline treatments
   font-variant: all-small-caps;
   margin: 0 0 0.2rem;
 }
-
-
 
 /*
 
