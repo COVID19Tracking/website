@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Layout from '../../../components/layout'
 import CDCComparisonContainer from './_CDCComparisonContainer'
 import MapContainer from './_MapContainer'
@@ -10,9 +11,12 @@ import UsPositiveAndTotalTestsContainer from './_UsPositiveAndTotalTestsContaine
 import './dashboard.scss'
 import dashboardStyles from './dashboard.module.scss'
 
-const VisualizationGuidePage = () => {
+const VisualizationGuidePage = ({ data }) => {
   return (
-    <Layout title="Visualization guide">
+    <Layout
+      title="Visualization Guide"
+      navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
+    >
       <div className="subhead">
         Explore graphics made with the COVID Tracking Project dataset along with
         tips to help you present the data in the clearest and most accurate way
@@ -243,3 +247,24 @@ const VisualizationGuidePage = () => {
 }
 
 export default VisualizationGuidePage
+
+export const query = graphql`
+  query {
+    allContentfulNavigationGroup(filter: { slug: { eq: "about-data" } }) {
+      edges {
+        node {
+          pages {
+            ... on ContentfulPage {
+              title
+              link: slug
+            }
+            ... on ContentfulNavigationLink {
+              title
+              link: url
+            }
+          }
+        }
+      }
+    }
+  }
+`
