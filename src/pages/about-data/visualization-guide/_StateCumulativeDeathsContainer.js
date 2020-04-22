@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import HorizontalBarChart from '../../components/charts/horizontal-bar-chart'
-import { getStateName, deathsBarColor } from '../../utilities/visualization'
+import HorizontalBarChart from '../../../components/charts/horizontal-bar-chart'
+import { getStateName, deathsBarColor } from '../../../utilities/visualization'
 
 import './state-cumulative-deaths-container.scss'
 import dashboardStyles from './dashboard.module.scss'
