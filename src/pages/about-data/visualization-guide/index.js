@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../components/layout'
+import Layout from '../../../components/layout'
 import CDCComparisonContainer from './_CDCComparisonContainer'
 import MapContainer from './_MapContainer'
 import StateCumulativeTestsContainer from './_StateCumulativeTestsContainer'
@@ -10,9 +10,9 @@ import UsPositiveAndTotalTestsContainer from './_UsPositiveAndTotalTestsContaine
 import './dashboard.scss'
 import dashboardStyles from './dashboard.module.scss'
 
-const DashboardPage = () => {
+const VisualizationGuidePage = () => {
   return (
-    <Layout title="Visual Dashboard">
+    <Layout title="Visualization guide">
       <div className="subhead">
         Explore graphics made with the COVID Tracking Project dataset along with
         tips to help you present the data in the clearest and most accurate way
@@ -246,4 +246,4 @@ const DashboardPage = () => {
   )
 }
 
-export default DashboardPage
+export default VisualizationGuidePage
