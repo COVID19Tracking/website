@@ -51,8 +51,8 @@ const VisualizationGuidePage = ({ data }) => {
       <CDCComparisonContainer />
       <p>
         According to our data, US metropolitan areas have been hit the hardest.
-        New York State leads the rest of the country in the number of positive cases
-        by more than 120,000, followed by New Jersey, Massachusetts, and
+        New York State leads the rest of the country in the number of positive
+        cases by more than 120,000, followed by New Jersey, Massachusetts, and
         Louisiana.
       </p>
       <p>
