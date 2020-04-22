@@ -29,7 +29,7 @@ export const getStateName = abbr => {
     KS: 'Kansas',
     KY: 'Kentucky',
     LA: 'Louisiana',
-    MA: 'Massachusets',
+    MA: 'Massachusetts',
     MD: 'Maryland',
     ME: 'Maine',
     MI: 'Michigan',
