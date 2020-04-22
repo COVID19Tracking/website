@@ -230,7 +230,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
     </li>
   </ul>
   <div
-    className="notes"
+    className="module-content notes"
     dangerouslySetInnerHTML={
       Object {
         "__html": "<p>Negatives = (Totals - Positives) 
