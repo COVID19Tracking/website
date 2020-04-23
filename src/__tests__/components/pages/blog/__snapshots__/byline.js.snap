@@ -4,11 +4,32 @@ exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
 <div
   className="byline"
 >
-  <a
-    href="https://twitter.com/test"
+  <span
+    className="author"
+  >
+    <a
+      href="https://twitter.com/test"
+    >
+      test name
+    </a>
+  </span>
+  <span
+    className="date"
+  >
+    Aug 1 2020
+  </span>
+</div>
+`;
+
+exports[`Components : Pages : Blog : Byline renders correctly 2`] = `
+<div
+  className="byline"
+>
+  <span
+    className="author"
   >
     test name
-  </a>
+  </span>
   <span
     className="date"
   >
