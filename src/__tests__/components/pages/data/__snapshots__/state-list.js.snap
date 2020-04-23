@@ -21,32 +21,13 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
       className="state-grade stateGrade"
     >
       <span>
-        Current 
+        Current
+         
         <a
-          href="/about-data#data-quality-grade"
+          href="/about-data#state-data-quality-grades"
         >
           data grade
         </a>
-      </h3>
-      <p
-        className="state-grade stateGrade"
-      >
-        <span>
-          Current
-           
-          <a
-            href="/about-data#state-data-quality-grades"
-          >
-            data grade
-          </a>
-          :
-        </span>
-        <img
-          alt="Grade B"
-          src="test-file-stub"
-          width="28px"
-        />
-      </p>
         :
       </span>
       <img
@@ -219,7 +200,6 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
       className="detail-text detailText"
     >
       Last updated: Fri Apr 17 2020 12:00 am ET
-
     </div>
   </div>
   <ul
