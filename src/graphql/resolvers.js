@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 let dataAsync = require('./dataAsync');
 let stateNames = require('./stateNames');
 
@@ -51,7 +53,7 @@ module.exports = {
     state: async (_, { state }, context, info) => {
       let data = await dataAsync();
       let stateInfo = data.stateInfo;
-      for (let abbrev in stateInfo) {
+      for (let abbrev of Object.keys(stateInfo)) {
         let stateData = stateInfo[abbrev];
         if (stateData.abbrev === state || stateData.name === state) {
           return stateData;
@@ -63,7 +65,7 @@ module.exports = {
       let data = await dataAsync();
       let stateInfo = data.stateInfo;
       let results = [];
-      for (let abbrev in stateInfo) {
+      for (let abbrev of Object.keys(stateInfo)) {
         let stateData = stateInfo[abbrev];
         results.push(stateData);
       }
@@ -78,7 +80,7 @@ module.exports = {
     stateCumulativeData_forAllStates: async (_, {}, context, info) => {
       let results = [];
       let statesData = data.statesData;
-      for (let abbrev in statesData) {
+      for (let abbrev of Object.keys(statesData)) {
         results.push(statesData[abbrev]);
       }
       return results;
@@ -100,7 +102,7 @@ module.exports = {
       let data = await dataAsync();
       let results = [];
       let statesData = data.statesData;
-      for (let abbrev in statesData) {
+      for (let abbrev of Object.keys(statesData)) {
         let stateData = statesData[abbrev];
         if (stateNames.matches(state, stateData.__stateAbbrev)) {
           results.push(stateData);

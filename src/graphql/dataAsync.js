@@ -1,28 +1,9 @@
-let fs = require('fs');
+/* eslint-disable */
 
-let fetch = require('cross-fetch');
 let luxon = require('luxon');
 let promiseProps = require('promise-props');
 
-// TODO: Make this smarter so that we don't always
-// fetch all the data we might ever need before serving
-// a query. We should fetch on demand based on the
-// things that the query requires, then keep that
-// in something like a DataLoader so that we don't
-// refetch it.
-//
-// The approach we have implemented here is not great
-// but is better than a lot of things might be since
-// it fetches everything in parallel as soon as any
-// data is needed, and then keeps all of that around
-// for the lifetime of the request
-
 let Data = null;
-
-async function getJSONAsync(url) {
-  let response = await fetch(url);
-  return await response.json();
-}
 
 function rawDayToJSDate(rawDay) {
   // The `rawDay` value is typically an int not a string, of a form like 20200317
@@ -72,7 +53,6 @@ function rawToDataPoint(raw) {
 }
 
 async function usDailyDataAsync() {
-  // let raw = await getJSONAsync('https://covidtracking.com/api/v1/us/daily.json');
   let raw = require('../../_data/v1/us/daily.json');
   let usDailyData = [];
   for (day of raw) {
@@ -95,7 +75,6 @@ function rawStateInfoToState(raw) {
 }
 
 async function stateInfoDataAsync() {
-  // let raw = await getJSONAsync('https://covidtracking.com/api/v1/states/info.json');
   let raw = require('../../_data/v1/states/info.json');
   let stateInfoData = {};
   for (state of raw) {
@@ -118,7 +97,6 @@ function mapPUI(input) {
 }
 
 async function usTotalDataAsync() {
-  // let raw = await getJSONAsync('https://covidtracking.com/api/v1/us/current.json');
   let raw = require('../../_data/v1/us/current.json');
 
   let usTotalData = rawToDataPoint(raw[0]);
@@ -126,9 +104,6 @@ async function usTotalDataAsync() {
 }
 
 async function statesDataAsync() {
-  // let raw = await getJSONAsync('https://covid.cape.io/states');
-  // let raw = await getJSONAsync('https://covidtracking.com/api/v1/states/current.json');
-  // let raw = await getJSONFromFileAysnc('../../_data/v1/states/current.json');
   let raw = require('../../_data/v1/states/current.json');
   let statesData = {};
   for (let stateData of raw) {

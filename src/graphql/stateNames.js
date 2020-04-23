@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 let names = {
   AL: 'Alabama',
   AK: 'Alaska',

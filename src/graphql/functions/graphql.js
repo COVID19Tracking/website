@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 let { ApolloServer, gql } = require('apollo-server-lambda');
 
 let typeDefs = require('../typeDefs');

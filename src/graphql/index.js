@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 let { ApolloServer, gql } = require('apollo-server-express');
 let express = require('express');
 let luxon = require('luxon');
@@ -29,6 +31,11 @@ let server = new ApolloServer({
   },
 });
 
+function getGitRepositoryURL() {
+  let pkg = require('./package');
+  return pkg.repository;
+}
+
 let app = express();
 
 app.get('/', async (req, res) => {
@@ -58,7 +65,6 @@ app.get('/', async (req, res) => {
     <a href="/status">/status</a>
     <hr style="border: 1px solid ${colors.secondary};" />
     Data last updated ${data._updated.toLocaleString(luxon.DateTime.DATETIME_FULL_WITH_SECONDS)}<br />
-    Currently attempting to refresh every ${AutoRefreshInterval / timeconstants.minute} minutes<br />
     <a href="${getGitRepositoryURL()}" style="color: ${
     colors.subtle
   }; text-decoration: none;">${getGitRepositoryURL()}</a><br />
@@ -72,31 +78,16 @@ app.get('/status', async (req, res) => {
   res.json({
     ok: true,
     gitRepositoryURL: getGitRepositoryUrl(),
-    autoRefreshInterval: AutoRefreshInterval,
-    autoRefreshOn: !!_autoRefreshIntervalHandle,
     lastUpdated: data._updated,
   });
 });
 
-let AutoRefreshInterval = 5 * timeconstants.minute;
-
 app.all('/refresh', async (req, res) => {
   let result = await dataAsync.refreshAsync();
-  let interval = luxon.Duration.fromMillis(AutoRefreshInterval);
-  if (!!_autoRefreshIntervalHandle) {
-    result.note = 'This server will automatically refresh its data every ' + interval.toString();
-  } else {
-    result.note = 'This server will currently only refresh data when manually instructed to do so';
-  }
   res.json(result);
 });
 
 server.applyMiddleware({ app });
-
-function getGitRepositoryURL() {
-  let pkg = require('./package');
-  return pkg.repository;
-}
 
 function handleCommandLineKeypresses(urls) {
   let readline = require('readline');
@@ -128,24 +119,9 @@ function handleCommandLineKeypresses(urls) {
   });
 }
 
-let _autoRefreshIntervalHandle = null;
-async function startAutoRefresh() {
-  _autoRefreshIntervalHandle = setInterval(() => {
-    // TODO: Add retries maybe?
-    dataAsync.refreshAsync();
-  }, AutoRefreshInterval);
-}
-
-async function stopAutoRefresh() {
-  if (_autoRefreshIntervalHandle) {
-    clearInterval(_autoRefreshIntervalHandle);
-  }
-}
-
 async function mainAsync() {
   // Before we do anything, populate our copy of the data from the source
   await dataAsync.refreshAsync();
-  startAutoRefresh();
 
   return new Promise((resolve, reject) => {
     app.listen({ port }, () => {
@@ -180,7 +156,4 @@ module.exports = {
   app,
   port,
   mainAsync,
-  startAutoRefresh,
-  stopAutoRefresh,
-  AutoRefreshInterval,
 };

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 let { gql } = require('apollo-server-express');
 
 module.exports = gql`

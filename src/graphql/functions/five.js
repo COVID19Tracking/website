@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // This file/function exists for testing and debugging
 // whether Netlify functions are working
 

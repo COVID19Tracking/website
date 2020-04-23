@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // This file/function exists for debugging and testing
 // issues with the value of the `NODE_ENV` environment variable
 
