@@ -3,8 +3,13 @@ import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import VolunteersList from '../../components/common/volunteers-list'
 
-const VolunteersPage = ({ data }) => (
-  <Layout title="Volunteers" narrow textHeavy>
+export default ({ data }) => (
+  <Layout
+    title="About us"
+    narrow
+    textHeavy
+    navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
+  >
     <div
       dangerouslySetInnerHTML={{
         __html:
@@ -12,16 +17,13 @@ const VolunteersPage = ({ data }) => (
             .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
       }}
     />
-    <h2>Contributors</h2>
     <VolunteersList items={data.allCovidVolunteers.edges} />
   </Layout>
 )
 
-export default VolunteersPage
-
 export const query = graphql`
   query {
-    allContentfulSnippet(filter: { slug: { eq: "volunteer-preamble" } }) {
+    allContentfulSnippet(filter: { slug: { eq: "about-us-preamble" } }) {
       edges {
         node {
           childContentfulSnippetContentTextNode {
@@ -37,6 +39,22 @@ export const query = graphql`
         node {
           name
           website
+        }
+      }
+    }
+    allContentfulNavigationGroup(filter: { slug: { eq: "about-project" } }) {
+      edges {
+        node {
+          pages {
+            ... on ContentfulPage {
+              title
+              link: slug
+            }
+            ... on ContentfulNavigationLink {
+              title
+              link: url
+            }
+          }
         }
       }
     }
