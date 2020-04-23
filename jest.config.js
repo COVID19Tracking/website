@@ -11,7 +11,8 @@ module.exports = {
     `node_modules`,
     `\\.cache`,
     `<rootDir>.*/public`,
-    './build',
+    './src/__tests__/build/index.js',
+    './build/test.js',
   ],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
   globals: {

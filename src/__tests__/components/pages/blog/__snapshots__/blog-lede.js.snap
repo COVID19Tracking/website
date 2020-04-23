@@ -4,7 +4,9 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
 <div
   className="lede"
 >
-  <h1>
+  <h1
+    className="hed-primary"
+  >
     Test headline
   </h1>
   <p
@@ -15,11 +17,15 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
   <div
     className="byline"
   >
-    <a
-      href="https://twitter.com/test"
+    <span
+      className="author"
     >
-      test name
-    </a>
+      <a
+        href="https://twitter.com/test"
+      >
+        test name
+      </a>
+    </span>
     <span
       className="date"
     >
