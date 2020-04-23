@@ -54,9 +54,9 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
         <colgroup
           span="2"
         />
-        <col />
-        <col />
-        <col />
+        <colgroup
+          span="3"
+        />
         <thead>
           <tr>
             <th
