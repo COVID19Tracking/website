@@ -5,32 +5,38 @@ exports[`Components : Layout : Hero renders correctly 1`] = `
   className="container false container"
 >
   <div
-    className="hero hero"
+    className="layout--content-full"
   >
-    <p
-      className="header"
-    >
-      The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.
-    </p>
     <div
-      className="ctas"
+      className="layout--content-primary"
     >
-      <a
-        className="button"
-        href="/data"
+      <div
+        className="hero hero"
       >
-        Get the Data
-      </a>
-      <p
-        className="spacer"
-      >
-        or
-      </p>
-      <a
-        href="/about-data"
-      >
-        Learn About the Data
-      </a>
+        <p
+          className="header"
+        >
+          The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.
+        </p>
+        <div
+          className="ctas"
+        >
+          <a
+            className="button"
+            href="/data"
+          >
+            Get the Data
+          </a>
+          <span>
+            or
+          </span>
+          <a
+            href="/about-data"
+          >
+            Learn About the Data
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

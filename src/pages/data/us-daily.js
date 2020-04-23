@@ -11,6 +11,7 @@ const ContentPage = ({ data }) => (
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
     <div
+      className="module-content"
       dangerouslySetInnerHTML={{
         __html:
           data.allContentfulSnippet.edges[0].node

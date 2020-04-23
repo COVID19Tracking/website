@@ -298,9 +298,12 @@ $small-multiples-chart-gutter: 1%;
 }
 
 .notes-section {
+  border-top: 1px solid $color-slate-300;
   font-size: 14px;
+  font-size: 0.875rem;
   color: #676b6d;
   margin-top: 2.77rem;
+  padding-top: 1.5rem;
 
   p {
     margin-bottom: 0;

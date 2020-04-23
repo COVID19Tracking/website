@@ -227,7 +227,7 @@ Array [
     </li>
   </ul>,
   <div
-    className="notes"
+    className="module-content notes"
     dangerouslySetInnerHTML={
       Object {
         "__html": "<p>Negatives = (Totals - Positives) 
@@ -242,7 +242,7 @@ Last Updated (Local Time) = (current date + time = 00:00)</p>
     href="#reach-skip-nav"
     title="top"
   >
-    ↑ (return to top)
+    Back to top.
   </a>,
 ]
 `;

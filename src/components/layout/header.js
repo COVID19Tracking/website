@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import { Flex, Box } from './flexbox'
 import Container from '../common/container'
 import DevelopmentWarning from './development-warning'
 import Hero from './hero'
@@ -65,11 +64,8 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
             headerStyle.showBackground}`}
         >
           <Container>
-            <Flex flexWrap="wrap">
-              <Box
-                width={[1, 1 / 3]}
-                className={headerStyle.siteTitleContainer}
-              >
+            <div className={headerStyle.siteTitleContainer}>
+              <div className={headerStyle.siteTitleInner}>
                 <a className={headerStyle.siteTitle} href="/">
                   <img
                     src={ProjectLogo}
@@ -77,8 +73,8 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
                     width="176px"
                   />
                 </a>
-              </Box>
-              <Box width={[1, 2 / 3]} className={headerStyle.navContainer}>
+              </div>
+              <div className={headerStyle.navContainer}>
                 <button
                   className={headerStyle.mobileToggle}
                   type="button"
@@ -89,22 +85,17 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
                 >
                   {showMobileMenu ? <>Close</> : <>Menu</>}
                 </button>
-              </Box>
+              </div>
               <HeaderNavigation showMobileMenu={showMobileMenu} />
-            </Flex>
-            <Flex
-              flexWrap="wrap"
-              className={headerStyle.titleSubnavContainer}
-              mt={['1.5rem']}
-            >
-              <Box
-                width={navigation ? [1, 1 / 2] : 1}
-                order={[2, 1]}
-                py={['0.5rem', 0]}
-                className={headerStyle.title}
-              >
+            </div>
+            <div className={headerStyle.titleSubnavContainer}>
+              <div className={headerStyle.title}>
                 {title && (
-                  <h1 className={`${navigation ? '' : headerStyle.extraSpace}`}>
+                  <h1
+                    className={`page-title ${headerStyle.pageTitle} ${
+                      navigation ? '' : headerStyle.extraSpace
+                    }`}
+                  >
                     {titleLink ? (
                       <Link to={titleLink}>{title}</Link>
                     ) : (
@@ -112,19 +103,13 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
                     )}
                   </h1>
                 )}
-              </Box>
+              </div>
               {navigation && (
-                <Box
-                  width={[1]}
-                  order={[1, 2]}
-                  px={[0]}
-                  textAlign={['left', 'right']}
-                  className={headerStyle.tabContainer}
-                >
+                <div className={headerStyle.tabContainer}>
                   <HeaderTabs navigation={navigation} />
-                </Box>
+                </div>
               )}
-            </Flex>
+            </div>
           </Container>
         </div>
       </header>
