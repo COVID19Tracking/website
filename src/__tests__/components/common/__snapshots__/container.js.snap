@@ -4,9 +4,17 @@ exports[`Components : Common: Container renders correctly 1`] = `
 <div
   className="container false container"
 >
-  <p>
-    Sample child
-  </p>
+  <div
+    className="layout--content-full"
+  >
+    <div
+      className="layout--content-primary"
+    >
+      <p>
+        Sample child
+      </p>
+    </div>
+  </div>
 </div>
 `;
 
@@ -14,9 +22,17 @@ exports[`Components : Common: Container renders correctly 2`] = `
 <div
   className="container textHeavy container"
 >
-  <p>
-    Sample child
-  </p>
+  <div
+    className="layout--content-full"
+  >
+    <div
+      className="layout--content-primary"
+    >
+      <p>
+        Sample child
+      </p>
+    </div>
+  </div>
 </div>
 `;
 
@@ -24,8 +40,16 @@ exports[`Components : Common: Container renders correctly 3`] = `
 <div
   className="container textHeavy container"
 >
-  <p>
-    Sample child
-  </p>
+  <div
+    className="layout--content-full"
+  >
+    <div
+      className="layout--content-primary"
+    >
+      <p>
+        Sample child
+      </p>
+    </div>
+  </div>
 </div>
 `;

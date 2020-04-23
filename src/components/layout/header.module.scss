@@ -53,7 +53,7 @@
       margin-bottom: 0;
     }
 
-    h1 {
+    .page-title {
       margin: 35px 0 17.5px;
       font-size: 2.2rem;
       color: white;
@@ -86,7 +86,6 @@
       a {
         color: white;
         text-decoration: none;
-        font-size: 0.9rem;
         font-weight: bold;
       }
       @media (min-width: $viewport-lg) {
@@ -100,17 +99,20 @@
       ul {
         padding-left: 0;
         margin: 0;
-        line-height: 16px;
+        line-height: 1;
         list-style-type: none;
 
         li {
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.5625rem;
           @media (min-width: $viewport-lg) {
             display: inline-block;
             padding-right: 30px;
             margin-bottom: 0;
-            line-height: 16px;
+            line-height: 1;
           }
+        }
+        a {
+          padding-bottom: 2px;
         }
         a:hover,
         a:focus {
@@ -119,7 +121,6 @@
         a:hover,
         a[aria-current] {
           border-bottom: 3px solid $color-blueberry-200;
-          padding-bottom: 2px;
         }
         a[aria-current] {
           color: white;
@@ -132,16 +133,23 @@
     }
 
     .site-title-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .site-title-inner {
       width: auto;
     }
 
     .title-subnav-container {
+      display: flex;
+      flex-wrap: wrap;
       @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
         flex-direction: column;
       }
 
       @media (max-width: $viewport-sm) {
-        flex-direction: column-reverse;
+        flex-direction: column;
       }
 
       @media (max-width: $viewport-ms) {
@@ -184,9 +192,10 @@
 
       @media (max-width: $viewport-ms) {
         div {
-          width: 92vw; /* extend to the far right edge */
-          overflow-x: scroll;
           -ms-overflow-style: none;
+          min-height: 2em; /* Fix for Safari overflow clip */
+          overflow-x: scroll;
+          width: 92vw; /* extend to the far right edge */
 
           &::-webkit-scrollbar {
             display: none;
@@ -195,12 +204,12 @@
       }
 
       ul {
+        background: $color-plum-200;
+        border-radius: 0.25em 0.25em 0 0;
         list-style-type: none;
         margin: 0;
+        padding-left: 0;
         text-align: left;
-        background: $color-plum-200;
-        border-top-right-radius: 5px;
-        border-top-left-radius: 5px;
 
         a {
           text-decoration: none;
@@ -210,10 +219,10 @@
         @media (max-width: $viewport-ms) {
           display: inline-flex;
           flex-wrap: nowrap;
-          border-radius: 5px;
+          border-radius: 0.25em;
 
           a {
-            border-radius: 5px;
+            border-radius: 0.25em;
             white-space: nowrap;
           }
 
@@ -223,14 +232,14 @@
         }
 
         a {
-          color: $color-plum-600;
+          color: $color-plum-700;
           display: block;
           padding: 0.4rem 0.6rem;
           font-size: 0.72rem;
 
           @media (min-width: $viewport-ms) {
-            font-size: 16px;
-            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            padding: 0.8em 1em;
           }
 
           &[aria-current] {

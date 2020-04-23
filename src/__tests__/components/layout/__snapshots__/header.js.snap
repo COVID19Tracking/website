@@ -11,66 +11,74 @@ exports[`Components : Layout : Header renders correctly 1`] = `
       className="container false container"
     >
       <div
-        className="css-z54kij"
+        className="layout--content-full"
       >
         <div
-          className="siteTitleContainer css-h2hfmc"
+          className="layout--content-primary"
         >
-          <a
-            className="siteTitle"
-            href="/"
+          <div
+            className="siteTitleContainer"
           >
-            <img
-              alt="The COVID Tracking Project"
-              src="test-file-stub"
-              width="176px"
-            />
-          </a>
-        </div>
-        <div
-          className="navContainer css-pv30g0"
-        >
-          <button
-            aria-expanded={false}
-            className="mobileToggle"
-            onClick={[Function]}
-            type="button"
-          >
-            Menu
-          </button>
-        </div>
-        <nav
-          className="js-disabled-block"
-        >
-          <ul>
-            <li>
+            <div
+              className="siteTitleInner"
+            >
               <a
-                href="/test-a"
+                className="siteTitle"
+                href="/"
               >
-                Test A
+                <img
+                  alt="The COVID Tracking Project"
+                  src="test-file-stub"
+                  width="176px"
+                />
               </a>
-            </li>
-            <li>
-              <a
-                href="/test-b"
+            </div>
+            <div
+              className="navContainer"
+            >
+              <button
+                aria-expanded={false}
+                className="mobileToggle"
+                onClick={[Function]}
+                type="button"
               >
-                Test B
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div
-        className="titleSubnavContainer css-gzf2yu"
-      >
-        <div
-          className="title css-i3jfzy"
-        >
-          <h1
-            className="extraSpace"
+                Menu
+              </button>
+            </div>
+            <nav
+              className="js-disabled-block"
+            >
+              <ul>
+                <li>
+                  <a
+                    href="/test-a"
+                  >
+                    Test A
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/test-b"
+                  >
+                    Test B
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            className="titleSubnavContainer"
           >
-            Sample title
-          </h1>
+            <div
+              className="title"
+            >
+              <h1
+                className="page-title pageTitle extraSpace"
+              >
+                Sample title
+              </h1>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -92,66 +100,74 @@ exports[`Components : Layout : Header renders correctly 2`] = `
         className="container false container"
       >
         <div
-          className="css-z54kij"
+          className="layout--content-full"
         >
           <div
-            className="siteTitleContainer css-h2hfmc"
+            className="layout--content-primary"
           >
-            <a
-              className="siteTitle"
-              href="/"
+            <div
+              className="siteTitleContainer"
             >
-              <img
-                alt="The COVID Tracking Project"
-                src="test-file-stub"
-                width="176px"
-              />
-            </a>
-          </div>
-          <div
-            className="navContainer css-pv30g0"
-          >
-            <button
-              aria-expanded={false}
-              className="mobileToggle"
-              onClick={[Function]}
-              type="button"
-            >
-              Menu
-            </button>
-          </div>
-          <nav
-            className="js-disabled-block"
-          >
-            <ul>
-              <li>
+              <div
+                className="siteTitleInner"
+              >
                 <a
-                  href="/test-a"
+                  className="siteTitle"
+                  href="/"
                 >
-                  Test A
+                  <img
+                    alt="The COVID Tracking Project"
+                    src="test-file-stub"
+                    width="176px"
+                  />
                 </a>
-              </li>
-              <li>
-                <a
-                  href="/test-b"
+              </div>
+              <div
+                className="navContainer"
+              >
+                <button
+                  aria-expanded={false}
+                  className="mobileToggle"
+                  onClick={[Function]}
+                  type="button"
                 >
-                  Test B
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div
-          className="titleSubnavContainer css-gzf2yu"
-        >
-          <div
-            className="title css-i3jfzy"
-          >
-            <h1
-              className="extraSpace"
+                  Menu
+                </button>
+              </div>
+              <nav
+                className="js-disabled-block"
+              >
+                <ul>
+                  <li>
+                    <a
+                      href="/test-a"
+                    >
+                      Test A
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/test-b"
+                    >
+                      Test B
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div
+              className="titleSubnavContainer"
             >
-              Sample title
-            </h1>
+              <div
+                className="title"
+              >
+                <h1
+                  className="page-title pageTitle extraSpace"
+                >
+                  Sample title
+                </h1>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -162,32 +178,38 @@ exports[`Components : Layout : Header renders correctly 2`] = `
     className="container false container"
   >
     <div
-      className="hero hero"
+      className="layout--content-full"
     >
-      <p
-        className="header"
-      >
-        The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.
-      </p>
       <div
-        className="ctas"
+        className="layout--content-primary"
       >
-        <a
-          className="button"
-          href="/data"
+        <div
+          className="hero hero"
         >
-          Get the Data
-        </a>
-        <p
-          className="spacer"
-        >
-          or
-        </p>
-        <a
-          href="/about-data"
-        >
-          Learn About the Data
-        </a>
+          <p
+            className="header"
+          >
+            The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.
+          </p>
+          <div
+            className="ctas"
+          >
+            <a
+              className="button"
+              href="/data"
+            >
+              Get the Data
+            </a>
+            <span>
+              or
+            </span>
+            <a
+              href="/about-data"
+            >
+              Learn About the Data
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -205,70 +227,78 @@ exports[`Components : Layout : Header renders correctly 3`] = `
       className="container false container"
     >
       <div
-        className="css-z54kij"
+        className="layout--content-full"
       >
         <div
-          className="siteTitleContainer css-h2hfmc"
+          className="layout--content-primary"
         >
-          <a
-            className="siteTitle"
-            href="/"
+          <div
+            className="siteTitleContainer"
           >
-            <img
-              alt="The COVID Tracking Project"
-              src="test-file-stub"
-              width="176px"
-            />
-          </a>
-        </div>
-        <div
-          className="navContainer css-pv30g0"
-        >
-          <button
-            aria-expanded={false}
-            className="mobileToggle"
-            onClick={[Function]}
-            type="button"
-          >
-            Menu
-          </button>
-        </div>
-        <nav
-          className="js-disabled-block"
-        >
-          <ul>
-            <li>
-              <a
-                href="/test-a"
-              >
-                Test A
-              </a>
-            </li>
-            <li>
-              <a
-                href="/test-b"
-              >
-                Test B
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div
-        className="titleSubnavContainer css-gzf2yu"
-      >
-        <div
-          className="title css-i3jfzy"
-        >
-          <h1
-            className="extraSpace"
-          >
-            <a
-              href="/link"
+            <div
+              className="siteTitleInner"
             >
-              Sample title
-            </a>
-          </h1>
+              <a
+                className="siteTitle"
+                href="/"
+              >
+                <img
+                  alt="The COVID Tracking Project"
+                  src="test-file-stub"
+                  width="176px"
+                />
+              </a>
+            </div>
+            <div
+              className="navContainer"
+            >
+              <button
+                aria-expanded={false}
+                className="mobileToggle"
+                onClick={[Function]}
+                type="button"
+              >
+                Menu
+              </button>
+            </div>
+            <nav
+              className="js-disabled-block"
+            >
+              <ul>
+                <li>
+                  <a
+                    href="/test-a"
+                  >
+                    Test A
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/test-b"
+                  >
+                    Test B
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            className="titleSubnavContainer"
+          >
+            <div
+              className="title"
+            >
+              <h1
+                className="page-title pageTitle extraSpace"
+              >
+                <a
+                  href="/link"
+                >
+                  Sample title
+                </a>
+              </h1>
+            </div>
+          </div>
         </div>
       </div>
     </div>

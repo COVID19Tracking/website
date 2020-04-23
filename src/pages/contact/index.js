@@ -5,6 +5,7 @@ import Layout from '../../components/layout'
 export default ({ data }) => (
   <Layout title="Contact" narrow textHeavy>
     <div
+      className="module-content"
       dangerouslySetInnerHTML={{
         __html:
           data.allContentfulSnippet.edges[0].node
