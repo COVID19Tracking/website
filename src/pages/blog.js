@@ -7,7 +7,7 @@ export default ({ data }) => (
   <Layout title="Blog" textHeavy narrow>
     {data.allContentfulBlogPost.edges.map(({ node }) => (
       <>
-        <h2>
+        <h2 className="hed-primary">
           <Link to={`/blog/${node.slug}`}>{node.title}</Link>
         </h2>
         <Byline author={node.author} date={node.publishDate} />
