@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common : Volunteers list renders correctly 1`] = `
+<ul
+  className="list"
+>
+  <li>
+    <span>
+      Test Without Website
+    </span>
+  </li>
+  <li>
+    <a
+      href="https://example.com"
+    >
+      Test With Website
+    </a>
+  </li>
+  <li>
+    <a
+      href="http://example.com"
+    >
+      Test With Website Without Protocol
+    </a>
+  </li>
+</ul>
+`;

@@ -12,7 +12,7 @@ function fixWebsitePrefix(website) {
 export default ({ items }) => (
   <ul className={volunteersListStyles.list}>
     {items.map(({ node }) => (
-      <li>
+      <li key={`volunteer-${node.name}`}>
         {node.website ? (
           <a href={fixWebsitePrefix(node.website)}>{node.name}</a>
         ) : (
