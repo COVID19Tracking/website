@@ -1,0 +1,23 @@
+@import '../../../scss/colors.module.scss';
+
+.item {
+  margin: 6px 5px;
+  line-height: 1rem;
+}
+.date {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-weight: bold;
+  text-align: left;
+  font-size: 0.7rem;
+  color: gray;
+}
+.legend-text {
+  border-bottom: solid 3px;
+  &.total {
+    border-color: $color-plum-500;
+  }
+  &.positive {
+    border-color: $color-honey-400;
+  }
+}

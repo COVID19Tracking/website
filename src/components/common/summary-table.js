@@ -9,16 +9,16 @@ export default ({ data, lastUpdated, showOutcomes = true }) => (
     }
   >
     <colgroup span="3" />
-    {showOutcomes && (
+    {showOutcomes ? (
       <>
         <colgroup span="2" />
         <colgroup span="2" />
         <colgroup span="2" />
-        <col />
+        <colgroup span="3" />
       </>
+    ) : (
+      <colgroup span="2" />
     )}
-    <col />
-    <col />
     <thead>
       <tr>
         <th scope="colgroup" colSpan="3">

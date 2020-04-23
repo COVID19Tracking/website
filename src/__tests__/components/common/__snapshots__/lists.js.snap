@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Lists: Ordered list renders correctly 1`] = `
+<ol>
+  <li>
+    Item A
+  </li>
+  <li>
+    Item B
+  </li>
+  <li>
+    Item C
+  </li>
+</ol>
+`;
+
+exports[`Components : Common: Lists: Unstyled list renders correctly 1`] = `
+<ul
+  className="list-unstyled listUnstyled"
+>
+  <li>
+    Item A
+  </li>
+  <li>
+    Item B
+  </li>
+  <li>
+    Item C
+  </li>
+</ul>
+`;

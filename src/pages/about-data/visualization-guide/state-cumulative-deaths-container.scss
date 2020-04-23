@@ -1,0 +1,29 @@
+@import '../../../scss/breakpoints.module.scss';
+section.state-cumulative-death-container {
+  display: flex;
+  margin-bottom: 20px;
+  div {
+    width: 50%;
+  }
+
+  @media (max-width: $viewport-sm) {
+    flex-direction: column;
+    div {
+      width: 100%;
+      svg {
+        position: relative;
+        left: -35px;
+      }
+    }
+  }
+  /*
+  div:nth-child(1) {
+    flex-grow: 1;
+    width: 60%;
+  }
+  div:nth-child(2) {
+    flex-grow: 1;
+    width: 40%;
+  }
+  */
+}
