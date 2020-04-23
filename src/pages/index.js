@@ -112,7 +112,7 @@ export const query = graphql`
       }
     }
 
-    allContentfulBlogPost(sort: { fields: publishDate }) {
+    allContentfulBlogPost(sort: { fields: publishDate, order: DESC }) {
       edges {
         node {
           title
