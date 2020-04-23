@@ -23,7 +23,8 @@ const StateGrade = ({ letterGrade = 'na' }) => {
   return (
     <p className={`state-grade ${stateGradeStyle.stateGrade}`}>
       <span>
-        Current <Link to="/about-data#data-quality-grade">data grade</Link>:
+        Current{' '}
+        <Link to="/about-data#state-data-quality-grades">data grade</Link>:
       </span>
       <img
         src={
