@@ -1,5 +1,8 @@
 const slugify = require('slugify')
 
+const prefixSearchIndex = index =>
+  `${process.env.GATSBY_ALGOLIA_INDEX_PREFIX}${index}`
+
 const stateQuery = `{
   states: allCovidStateInfo(
     filter: { name: { ne: null } }
@@ -53,7 +56,7 @@ const settings = {}
 const queries = [
   {
     query: stateQuery,
-    indexName: `test_states`,
+    indexName: prefixSearchIndex('states'),
     transformer: ({ data }) =>
       data.states.edges.map(({ node }) => ({
         ...node,
@@ -68,26 +71,31 @@ const queries = [
   },
   {
     query: blogPostQuery,
+    indexName: prefixSearchIndex('blog_posts'),
     transformer: ({ data }) =>
       data.posts.edges.map(({ node }) => {
-        node.author_name = node.author.name
-        node.body = node.body.body
-        delete node.author
-        return node
+        const presented = { ...node }
+        presented.author_name = node.author.name
+        presented.body = node.body.body
+        delete presented.author
+        return presented
       }),
-    indexName: `test_blog_posts`,
     settings,
   },
   {
     query: pagesQuery,
+    indexName: prefixSearchIndex('pages'),
     transformer: ({ data }) =>
       data.posts.edges.map(({ node }) => {
-        node.body = node.body.body
-        return node
+        const presented = { ...node }
+        presented.body = node.body.body
+        return presented
       }),
-    indexName: `test_pages`,
     settings,
   },
 ]
 
-module.exports = queries
+module.exports = {
+  prefixSearchIndex,
+  queries,
+}

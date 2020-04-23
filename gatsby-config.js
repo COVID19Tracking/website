@@ -1,5 +1,5 @@
 const { DateTime } = require('luxon')
-const algoliaQueries = require('./src/utilities/algolia')
+const algoliaQueries = require('./src/utilities/algolia').queries
 
 require('dotenv').config()
 

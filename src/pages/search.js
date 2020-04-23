@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import algoliasearch from 'algoliasearch'
+import { prefixSearchIndex } from '../utilities/algolia'
 import Layout from '../components/layout'
 
 export default () => {
@@ -7,13 +8,14 @@ export default () => {
     process.env.GATSBY_ALGOLIA_APP_ID,
     process.env.GATSBY_ALGOLIA_SEARCH_KEY,
   )
+
   const [query, setQuery] = useState('')
   const [results, setResults] = useState({
     states: [],
     blogPosts: [],
   })
-  const stateIndex = client.initIndex('test_states')
-  const blogIndex = client.initIndex('test_blog_posts')
+  const stateIndex = client.initIndex(prefixSearchIndex('states'))
+  const blogIndex = client.initIndex(prefixSearchIndex('blog_posts'))
   return (
     <Layout title="Search">
       <h2>Search {query}</h2>
@@ -37,19 +39,21 @@ export default () => {
               .search(query)
               .then(({ hits }) => {
                 results.states = hits
+                console.log(hits) // eslint-disable-line
                 setResults(results)
               })
               .catch(err => {
-                console.log(err)
+                console.log(err) // eslint-disable-line
               })
             blogIndex
               .search(query)
               .then(({ hits }) => {
                 results.blogPosts = hits
+                console.log(hits) // eslint-disable-line
                 setResults(results)
               })
               .catch(err => {
-                console.log(err)
+                console.log(err) // eslint-disable-line
               })
           }}
         >
