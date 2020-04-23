@@ -200,7 +200,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
       <div
         className="detail-text detailText"
       >
-        Last updated: Thu Apr 16 2020 10:00 pm ET
+        Last updated: Fri Apr 17 2020 12:00 am ET
       </div>
     </div>
     <ul
