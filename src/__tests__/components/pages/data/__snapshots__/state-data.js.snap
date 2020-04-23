@@ -49,9 +49,9 @@ Array [
       <colgroup
         span="2"
       />
-      <col />
-      <col />
-      <col />
+      <colgroup
+        span="3"
+      />
       <thead>
         <tr>
           <th
@@ -195,7 +195,7 @@ Array [
     <div
       className="detail-text detailText"
     >
-      Last updated: Fri Apr 17 2020 12:00 am ET
+      Last updated: Thu Apr 16 2020 10:00 pm ET
     </div>
   </div>,
   <ul
