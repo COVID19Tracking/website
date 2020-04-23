@@ -62,3 +62,6 @@
 - name: Minnesota Public Radio News
   logo: mprnews.svg
   width: 110
+- name: The Boston Globe
+  logo: the-boston-globe.svg
+  width: 125
