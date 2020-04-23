@@ -24,9 +24,9 @@
   e.g. Related to #1234
 -->
 
+<!--
 ## Go-live time
 
-<!--
   If this PR is for a feature that should not 
   be merged until a specific time, let us know!
 -->

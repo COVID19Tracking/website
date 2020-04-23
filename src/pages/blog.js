@@ -7,7 +7,7 @@ export default ({ data }) => (
   <Layout title="Blog" textHeavy narrow>
     {data.allContentfulBlogPost.edges.map(({ node }) => (
       <>
-        <h2>
+        <h2 className="hed-primary">
           <Link to={`/blog/${node.slug}`}>{node.title}</Link>
         </h2>
         <Byline author={node.author} date={node.publishDate} />
@@ -19,7 +19,7 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
-    allContentfulBlogPost(sort: { fields: publishDate }) {
+    allContentfulBlogPost(sort: { fields: publishDate, order: DESC }) {
       edges {
         node {
           title

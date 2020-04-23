@@ -5,9 +5,10 @@ exports[`Components : Pages : State : State grade renders correctly 1`] = `
   className="state-grade stateGrade"
 >
   <span>
-    Current 
+    Current
+     
     <a
-      href="/about-data#data-quality-grade"
+      href="/about-data#state-data-quality-grades"
     >
       data grade
     </a>
@@ -26,9 +27,32 @@ exports[`Components : Pages : State : State grade renders correctly 2`] = `
   className="state-grade stateGrade"
 >
   <span>
-    Current 
+    Current
+     
     <a
-      href="/about-data#data-quality-grade"
+      href="/about-data#state-data-quality-grades"
+    >
+      data grade
+    </a>
+    :
+  </span>
+  <img
+    alt="Grade A+"
+    src="test-file-stub"
+    width="28px"
+  />
+</p>
+`;
+
+exports[`Components : Pages : State : State grade renders correctly 3`] = `
+<p
+  className="state-grade stateGrade"
+>
+  <span>
+    Current
+     
+    <a
+      href="/about-data#state-data-quality-grades"
     >
       data grade
     </a>

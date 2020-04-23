@@ -17,6 +17,7 @@ const StatePage = ({ pageContext, data }) => {
       <StateGrade letterGrade={summary.grade} />
       {state.notes && (
         <div
+          className="module-content"
           dangerouslySetInnerHTML={{
             __html: marked(state.notes),
           }}

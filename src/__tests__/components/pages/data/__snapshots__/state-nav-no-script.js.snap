@@ -2,7 +2,7 @@
 
 exports[`Components : Pages : Data : Navigation with no JS enabled renders correctly 1`] = `
 <div
-  className="js-disabled js-disabled-block state-nav-no-js stateNav css-8aid5p"
+  className="js-disabled js-disabled-block state-nav-no-js stateNav"
 >
   <h3>
     Jump to a state:
