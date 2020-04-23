@@ -23,9 +23,10 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
         className="state-grade stateGrade"
       >
         <span>
-          Current 
+          Current
+           
           <a
-            href="/about-data#data-quality-grade"
+            href="/about-data#state-data-quality-grades"
           >
             data grade
           </a>
