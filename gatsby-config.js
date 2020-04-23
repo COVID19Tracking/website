@@ -77,15 +77,12 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utilities/typography',
-      },
-    },
-    {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: ['gatsby-remark-autolink-headers'],
+        plugins: [
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-smartypants',
+        ],
       },
     },
     {

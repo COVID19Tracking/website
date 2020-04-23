@@ -2,21 +2,30 @@
 
 exports[`Components : Pages : Data : State data renders correctly 1`] = `
 <div
-  className="css-rtv3hk"
+  className="module"
+  id="state-list-AL"
 >
   <div
-    className="data-state css-1l8bh4d"
+    className="state-header header"
   >
-    <div
-      className="state-header header"
+    <h3
+      id="state-al"
     >
-      <h3
-        id="state-al"
+      <a
+        href="/data/state/alabama"
       >
+        Alabama
+      </a>
+    </h3>
+    <p
+      className="state-grade stateGrade"
+    >
+      <span>
+        Current 
         <a
-          href="/data/state/alabama"
+          href="/about-data#data-quality-grade"
         >
-          Alabama
+          data grade
         </a>
       </h3>
       <p
@@ -38,218 +47,226 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
           width="28px"
         />
       </p>
-    </div>
-    <div>
-      <table
-        className="table"
-      >
-        <colgroup
-          span="3"
-        />
-        <colgroup
-          span="2"
-        />
-        <colgroup
-          span="2"
-        />
-        <colgroup
-          span="2"
-        />
-        <colgroup
-          span="3"
-        />
-        <thead>
-          <tr>
-            <th
-              colSpan="3"
-              scope="colgroup"
-            >
-              Tests
-            </th>
-            <th
-              colSpan="2"
-              scope="colgroup"
-            >
-              Hospitalized
-            </th>
-            <th
-              colSpan="2"
-              scope="colgroup"
-            >
-              In ICU
-            </th>
-            <th
-              colSpan="2"
-              scope="colgroup"
-            >
-              On Ventilator
-            </th>
-            <td
-              colSpan="3"
-            >
-               
-            </td>
-             
-          </tr>
-          <tr>
-            <th
-              scope="col"
-            >
-              Positive
-            </th>
-            <th
-              scope="col"
-            >
-              Negative
-            </th>
-            <th
-              scope="col"
-            >
-              Pending
-            </th>
-            <th
-              scope="col"
-            >
-              Currently
-            </th>
-            <th
-              scope="col"
-            >
-              Cumulative
-            </th>
-            <th
-              scope="col"
-            >
-              Currently
-            </th>
-            <th
-              scope="col"
-            >
-              Cumulative
-            </th>
-            <th
-              scope="col"
-            >
-              Currently
-            </th>
-            <th
-              scope="col"
-            >
-              Cumulative
-            </th>
-            <th
-              scope="col"
-            >
-              Recovered
-            </th>
-            <th
-              scope="col"
-            >
-              Deaths
-            </th>
-            <th
-              scope="col"
-            >
-              Total test results 
-              <span>
-                (Positive + Negative)
-              </span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              4,572
-            </td>
-            <td>
-              33,318
-            </td>
-            <td>
-              N/A
-            </td>
-            <td>
-              N/A
-            </td>
-            <td>
-              594
-            </td>
-            <td>
-              N/A
-            </td>
-            <td>
-              247
-            </td>
-            <td>
-              N/A
-            </td>
-            <td>
-              148
-            </td>
-            <td>
-              N/A
-            </td>
-            <td>
-              151
-            </td>
-            <td>
-              37,890
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div
-        className="detail-text detailText"
-      >
-        Last updated: Fri Apr 17 2020 12:00 am ET
-      </div>
-    </div>
-    <ul
-      className="list-unstyled listUnstyled"
+        :
+      </span>
+      <img
+        alt="Grade B"
+        src="test-file-stub"
+        width="28px"
+      />
+    </p>
+  </div>
+  <div>
+    <table
+      className="table"
     >
-      <li>
-        <a
-          href="https://twitter.com/@alpublichealth"
-        >
-          Alabama
-           on Twitter
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://alpublichealth.maps.arcgis.com/apps/opsdashboard/index.html#/6d2771faa9da4a2786a509d82c8cf0f7"
-        >
-          Best current data source for 
-          Alabama
-        </a>
-      </li>
-      <li>
-        <a
-          href="/data/state/alabama#historical"
-        >
-          Historical data for 
-          Alabama
-        </a>
-      </li>
-    </ul>
+      <colgroup
+        span="3"
+      />
+      <colgroup
+        span="2"
+      />
+      <colgroup
+        span="2"
+      />
+      <colgroup
+        span="2"
+      />
+      <colgroup
+        span="3"
+      />
+      <thead>
+        <tr>
+          <th
+            colSpan="3"
+            scope="colgroup"
+          >
+            Tests
+          </th>
+          <th
+            colSpan="2"
+            scope="colgroup"
+          >
+            Hospitalized
+          </th>
+          <th
+            colSpan="2"
+            scope="colgroup"
+          >
+            In ICU
+          </th>
+          <th
+            colSpan="2"
+            scope="colgroup"
+          >
+            On Ventilator
+          </th>
+          <td
+            colSpan="3"
+          >
+             
+          </td>
+           
+        </tr>
+        <tr>
+          <th
+            scope="col"
+          >
+            Positive
+          </th>
+          <th
+            scope="col"
+          >
+            Negative
+          </th>
+          <th
+            scope="col"
+          >
+            Pending
+          </th>
+          <th
+            scope="col"
+          >
+            Currently
+          </th>
+          <th
+            scope="col"
+          >
+            Cumulative
+          </th>
+          <th
+            scope="col"
+          >
+            Currently
+          </th>
+          <th
+            scope="col"
+          >
+            Cumulative
+          </th>
+          <th
+            scope="col"
+          >
+            Currently
+          </th>
+          <th
+            scope="col"
+          >
+            Cumulative
+          </th>
+          <th
+            scope="col"
+          >
+            Recovered
+          </th>
+          <th
+            scope="col"
+          >
+            Deaths
+          </th>
+          <th
+            scope="col"
+          >
+            Total test results 
+            <span>
+              (Positive + Negative)
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            4,572
+          </td>
+          <td>
+            33,318
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            594
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            247
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            148
+          </td>
+          <td>
+            N/A
+          </td>
+          <td>
+            151
+          </td>
+          <td>
+            37,890
+          </td>
+        </tr>
+      </tbody>
+    </table>
     <div
-      className="notes"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "<p>Negatives = (Totals - Positives) 
+      className="detail-text detailText"
+    >
+      Last updated: Fri Apr 17 2020 12:00 am ET
+
+    </div>
+  </div>
+  <ul
+    className="list-unstyled listUnstyled"
+  >
+    <li>
+      <a
+        href="https://twitter.com/@alpublichealth"
+      >
+        Alabama
+         on Twitter
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://alpublichealth.maps.arcgis.com/apps/opsdashboard/index.html#/6d2771faa9da4a2786a509d82c8cf0f7"
+      >
+        Best current data source for 
+        Alabama
+      </a>
+    </li>
+    <li>
+      <a
+        href="/data/state/alabama#historical"
+      >
+        Historical data for 
+        Alabama
+      </a>
+    </li>
+  </ul>
+  <div
+    className="module-content notes"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>Negatives = (Totals - Positives) 
 Positives occasionally update before totals do; do not revise negatives down, keep the last calculated negative.
 Last Updated (Local Time) = (current date + time = 00:00)</p>
 ",
-        }
       }
-    />
-    <a
-      className="state-top-link topLink"
-      href="#reach-skip-nav"
-      title="top"
-    >
-      ↑ (return to top)
-    </a>
-  </div>
+    }
+  />
+  <a
+    className="state-top-link topLink"
+    href="#reach-skip-nav"
+    title="top"
+  >
+    Back to top.
+  </a>
 </div>
 `;

@@ -1,17 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components : Pages : Homepage : Visualization renders correctly 1`] = `
-<div
-  className="css-rfgfky"
+<li
+  className="visualization"
 >
-  <img />
-  <p>
-    <cite
-      className="title"
-    >
-      <a />
-    </cite>
-  </p>
+  <h3>
+    <a>
+      <img
+        alt=""
+      />
+      <cite
+        className="title"
+      />
+    </a>
+  </h3>
   <div
     className="detail-text detailText"
   >
@@ -20,5 +22,5 @@ exports[`Components : Pages : Homepage : Visualization renders correctly 1`] = `
       className="source"
     />
   </div>
-</div>
+</li>
 `;
