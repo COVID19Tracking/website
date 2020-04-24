@@ -77,6 +77,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/v1/volunteers.json',
+        type: 'CovidVolunteers',
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
