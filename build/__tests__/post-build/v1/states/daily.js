@@ -2,19 +2,19 @@ const fs = require('fs-extra')
 const csv = require('csv-parser')
 const checkFile = require('../../../utitlities/check-file')
 
-describe('File : US : Daily', () => {
+describe('File : States : Daily', () => {
   it('exists', () => {
-    checkFile('_data/v1/us/daily')
+    checkFile('_data/v1/states/daily')
   })
 
-  it('follows field patterns', done => {
-    fs.createReadStream('_data/v1/us/daily.csv')
+  it('matches field pattern', done => {
+    fs.createReadStream('_data/v1/states/daily.csv')
       .pipe(csv())
       .on('data', row => {
         expect(row).toEqual(
           expect.objectContaining({
             date: expect.anything(),
-            states: expect.anything(),
+            state: expect.anything(),
             positive: expect.anything(),
             negative: expect.anything(),
             pending: expect.anything(),
@@ -32,6 +32,7 @@ describe('File : US : Daily', () => {
             total: expect.anything(),
             totalTestResults: expect.anything(),
             posNeg: expect.anything(),
+            fips: expect.anything(),
             deathIncrease: expect.anything(),
             hospitalizedIncrease: expect.anything(),
             negativeIncrease: expect.anything(),
