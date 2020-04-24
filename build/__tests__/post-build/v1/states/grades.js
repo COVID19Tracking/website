@@ -21,6 +21,7 @@ describe('File : States : Grades', () => {
             commercialScore: expect.anything(),
             grade: expect.anything(),
             score: expect.anything(),
+            notes: expect.anything(),
           }),
         )
       })

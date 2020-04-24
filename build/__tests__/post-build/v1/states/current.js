@@ -20,6 +20,7 @@ describe('File : States : Current', () => {
             negativeRegularScore: expect.anything(),
             commercialScore: expect.anything(),
             grade: expect.anything(),
+            dataQualityGrade: expect.anything(),
             score: expect.anything(),
             negative: expect.anything(),
             pending: expect.anything(),
