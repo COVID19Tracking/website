@@ -51,6 +51,10 @@ const grade = {
         'doubleChecker',
       ]),
     ),
+    _.set(
+      'notes',
+      'The following fields are deprecated: "positiveScore", "negativeScore", "negativeRegularScore", "commercialScore", and "score" as of 4/24/20. Please use "comprehensiveGrade" instead.',
+    ),
     // _.keyBy('state'),
   ),
 }
