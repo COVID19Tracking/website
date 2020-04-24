@@ -55,12 +55,12 @@ const grade = {
   ),
 }
 
-const comprehensiveGrade = {
+const dataQualityGrade = {
   ...sheets,
   worksheetId: '1MrjtmYpfKxzn0-oNEdxXzTtfifZ0ZMkMR7k9_WXtTPs',
   sheetName: 'Publishing',
   fixItems: _.flow(
-    _.filter(x => x.state && x.comprehensiveGrade),
+    _.filter(x => x.state && x.dataQualityGrade),
     _.map(_.omit([])),
     // _.keyBy('state'),
   ),
@@ -74,7 +74,7 @@ const prepResult = _.flow(
 const updateFunc = () =>
   Promise.all([
     fetchParseFix(grade).then(_.keyBy('state')),
-    fetchParseFix(comprehensiveGrade).then(_.keyBy('state')),
+    fetchParseFix(dataQualityGrade).then(_.keyBy('state')),
     fetchParseFix(states2),
   ]).then(prepResult)
 
