@@ -13,7 +13,7 @@ const State = ({ state }) => (
       <h3 id={`state-${state.state.toLowerCase()}`}>
         <Link to={`/data/state/${slug(state.name)}`}>{state.name}</Link>
       </h3>
-      <StateGrade letterGrade={state.stateData.completenessGrade} />
+      <StateGrade letterGrade={state.stateData.comprehensiveGrade} />
     </div>
     <SummaryTable
       data={state.stateData}

@@ -109,7 +109,7 @@ export const query = graphql`
         node {
           totalTestResults
           state
-          completenessGrade
+          comprehensiveGrade
           dateModified
           positive
           negative

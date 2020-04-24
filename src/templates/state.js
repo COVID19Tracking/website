@@ -14,7 +14,7 @@ const StatePage = ({ pageContext, data }) => {
   return (
     <Layout title={state.name}>
       <StateLinks {...state} />
-      <StateGrade letterGrade={summary.completenessGrade} />
+      <StateGrade letterGrade={summary.comprehensiveGrade} />
       {state.notes && (
         <div
           className="module-content"
@@ -54,7 +54,7 @@ export const query = graphql`
           death
           totalTestResults
           dateModified
-          completenessGrade
+          comprehensiveGrade
         }
       }
     }
