@@ -257,9 +257,9 @@ const VisualizationGuidePage = ({ data }) => {
           </div>
           <div className="byline-section">
             <p>
-              Graphics and development by Jeremia Kimelman, Melba Madrigal,
-              Vijay Sharwar, Aaron Mullan, Nathan Selikoff, Alice Goldfarb, Jane
-              Friedhoff, Norman Wang, Daniel Gilbert
+              Graphics and development by Jeremia Kimelman, Gabe O&apos;Leary,
+              Melba Madrigal, Vijay Sharwar, Aaron Mullan, Nathan Selikoff,
+              Alice Goldfarb, Jane Friedhoff, Norman Wang, Daniel Gilbert
             </p>
             <p>Visual editing by Júlia Ledur</p>
             <p>Text editing by Hannah Waters</p>
