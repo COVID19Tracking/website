@@ -14,7 +14,7 @@ executors:
     working_directory: *workspace_root
 
 jobs:
-  api-test:
+  build:
     executor: main-executor
     steps:
       - checkout
@@ -31,7 +31,7 @@ jobs:
           root: *workspace_root
           paths:
             - _data
-  build:
+  gatsby-build:
     executor: main-executor
     steps:
       - checkout
@@ -78,9 +78,9 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - api-test
-      - build:
+      - build
+      - gatsby-build:
         requires:
-          - api-test
+          - build
       - gatsby-lint
       - gatsby-test
