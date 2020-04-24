@@ -13,6 +13,7 @@ module.exports = {
     `<rootDir>.*/public`,
     './src/__tests__/build/index.js',
     './src/__tests__/post-build/*',
+    './src/__tests__/utilities/*',
     './build/test.js',
   ],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
