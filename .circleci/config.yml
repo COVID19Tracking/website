@@ -80,7 +80,7 @@ workflows:
     jobs:
       - build
       - gatsby-build:
-        requires:
-          - build
+          requires:
+            - build
       - gatsby-lint
       - gatsby-test
