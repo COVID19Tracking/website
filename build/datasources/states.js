@@ -13,7 +13,7 @@ const fixState = _.flow(
   setFieldWith('dateChecked', 'checkTimeEt', totalDate),
   _.set(
     'notes',
-    'Please stop using the "total" field. Use "totalTestResults" instead.',
+    'Please stop using the "total" field. Use "totalTestResults" instead. As of 4/24/20, "grade" is deprecated. Please use "dataQualityGrade" instead.',
   ),
 )
 
@@ -50,6 +50,10 @@ const grade = {
         'checker',
         'doubleChecker',
       ]),
+    ),
+    _.set(
+      'notes',
+      'The following fields are deprecated: "positiveScore", "negativeScore", "negativeRegularScore", "commercialScore", and "score" as of 4/24/20. Please use "dataQualityGrade" instead.',
     ),
     // _.keyBy('state'),
   ),
