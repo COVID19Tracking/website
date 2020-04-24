@@ -10,7 +10,7 @@ exports[`Components : Pages : State : State grade renders correctly 1`] = `
     <a
       href="/about-data#state-data-quality-grades"
     >
-      data grade
+      data quality grade
     </a>
     :
   </span>
@@ -32,7 +32,7 @@ exports[`Components : Pages : State : State grade renders correctly 2`] = `
     <a
       href="/about-data#state-data-quality-grades"
     >
-      data grade
+      data quality grade
     </a>
     :
   </span>
@@ -54,7 +54,7 @@ exports[`Components : Pages : State : State grade renders correctly 3`] = `
     <a
       href="/about-data#state-data-quality-grades"
     >
-      data grade
+      data quality grade
     </a>
     :
   </span>
