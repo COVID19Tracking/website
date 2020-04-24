@@ -9,11 +9,7 @@ function formatDateToString(date, format = "ccc LLL d yyyy h:mm a 'ET'") {
   if (typeof date === 'undefined') {
     return null
   }
-  return lowercaseMeridiem(
-    DateTime.fromISO(date)
-      .setZone('America/New_York')
-      .toFormat(format),
-  )
+  return lowercaseMeridiem(DateTime.fromISO(date).toFormat(format))
 }
 
 const FormatDate = ({ date, format = "ccc LLL d yyyy h:mm a 'ET'" }) => {
