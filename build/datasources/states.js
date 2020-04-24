@@ -13,7 +13,7 @@ const fixState = _.flow(
   setFieldWith('dateChecked', 'checkTimeEt', totalDate),
   _.set(
     'notes',
-    'Please stop using the "total" field. Use "totalTestResults" instead.',
+    'Please stop using the "total" field. Use "totalTestResults" instead. As of 4/24/20, "grade" is deprecated. Please use "comprehensiveGrade" instead.',
   ),
 )
 
