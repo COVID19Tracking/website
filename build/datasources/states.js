@@ -40,9 +40,7 @@ const states2 = {
 const grade = {
   ...sheets,
   worksheetId: '1_6zwoekv0Mzpp6KEp4OziZizaWxGOxMoDT2C-iBvyEg',
-//   worksheetId: '1MrjtmYpfKxzn0-oNEdxXzTtfifZ0ZMkMR7k9_WXtTPs',
   path: 'states/grades',
-//   sheetName: 'Publishing',
   fixItems: _.flow(
     _.filter(x => x.state && x.grade),
     _.map(
@@ -57,6 +55,17 @@ const grade = {
   ),
 }
 
+const completenessGrade = {
+  ...sheets,
+  worksheetId: '1MrjtmYpfKxzn0-oNEdxXzTtfifZ0ZMkMR7k9_WXtTPs',
+  sheetName: 'Publishing',
+  fixItems: _.flow(
+    _.filter(x => x.state && x.completenessGrade),
+    _.map(_.omit([])),
+    // _.keyBy('state'),
+  ),
+}
+
 const prepResult = _.flow(
   _.mergeAll,
   _.map(setField('hash', hash)),
@@ -65,6 +74,7 @@ const prepResult = _.flow(
 const updateFunc = () =>
   Promise.all([
     fetchParseFix(grade).then(_.keyBy('state')),
+    fetchParseFix(completenessGrade).then(_.keyBy('state')),
     fetchParseFix(states2),
   ]).then(prepResult)
 
