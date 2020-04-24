@@ -51,10 +51,12 @@ const grade = {
         'doubleChecker',
       ]),
     ),
-    _.set(
-      'notes',
-      'The following fields are deprecated: "positiveScore", "negativeScore", "negativeRegularScore", "commercialScore", and "score" as of 4/24/20. Please use "dataQualityGrade" instead.',
-    ),
+
+    _.map(i => {
+      i.notes =
+        'The following fields are deprecated: "positiveScore", "negativeScore", "negativeRegularScore", "commercialScore", and "score" as of 4/24/20. Please use "dataQualityGrade" instead.'
+      return i
+    }),
     // _.keyBy('state'),
   ),
 }
