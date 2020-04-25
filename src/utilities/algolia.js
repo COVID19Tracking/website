@@ -1,6 +1,6 @@
 const slugify = require('slugify')
 
-const prefixSearchIndex = index =>
+export const prefixSearchIndex = index =>
   `${process.env.GATSBY_ALGOLIA_INDEX_PREFIX}${index}`
 
 const stateQuery = `{
@@ -53,7 +53,7 @@ const pagesQuery = `{
 }`
 
 const settings = {}
-const queries = [
+export const queries = [
   {
     query: stateQuery,
     indexName: prefixSearchIndex('states'),
@@ -94,8 +94,3 @@ const queries = [
     settings,
   },
 ]
-
-module.exports = {
-  prefixSearchIndex,
-  queries,
-}
