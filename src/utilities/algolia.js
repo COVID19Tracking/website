@@ -1,4 +1,4 @@
-const slugify = require('slugify')
+import slugify from 'slugify'
 
 export const prefixSearchIndex = index =>
   `${process.env.GATSBY_ALGOLIA_INDEX_PREFIX}${index}`
