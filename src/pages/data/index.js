@@ -109,8 +109,7 @@ export const query = graphql`
         node {
           totalTestResults
           state
-          score
-          grade
+          dataQualityGrade
           dateModified
           positive
           negative
