@@ -70,30 +70,33 @@ export default withSearch(({ search }) => {
         >
           Search
         </button>
+        {searchState.isFetching && (
+          <img
+            src="https://d1j8pt39hxlh3d.cloudfront.net/products/previews/RES3POBSZ353HFVPZOKR/2329_kKbUTLGEVXhuOIJqrT7QvIJFAXvEpQ3z.gif"
+            alt="Loading..."
+          />
+        )}
       </form>
       <div className={searchPageStyle.searchResults}>
         {/* State results */}
-        <div className={searchPageStyle.searchResultsSection}>
-          {results.states.nbHits > 0 && (
+        {results.states.nbHits > 0 && (
+          <div className={searchPageStyle.searchResultsSection}>
             <h3>States ({results.states.nbHits})</h3>
-          )}
-          {results.states.nbHits > 0 &&
-            results.states.hits.map(state => (
+            {results.states.hits.map(state => (
               <div key={state.state} className={searchPageStyle.searchResult}>
                 <PublicationTitle>
                   <Link to={`${state.slug}`}>{state.name}</Link>
                 </PublicationTitle>
               </div>
             ))}
-        </div>
+          </div>
+        )}
 
         {/* Blog post results */}
-        <div className={searchPageStyle.searchResultsSection}>
-          {results.blogPosts.nbHits > 0 && (
+        {results.blogPosts.nbHits > 0 && (
+          <div className={searchPageStyle.searchResultsSection}>
             <h3>Blog Posts ({results.blogPosts.nbHits})</h3>
-          )}
-          {results.blogPosts.nbHits > 0 &&
-            results.blogPosts.hits.map(post => (
+            {results.blogPosts.hits.map(post => (
               <div key={post.objectID} className={searchPageStyle.searchResult}>
                 <PublicationTitle>
                   <Link to={`/blog/${post.slug}`}>{post.title}</Link>
@@ -105,13 +108,14 @@ export default withSearch(({ search }) => {
                 </DetailText>
               </div>
             ))}
-        </div>
+          </div>
+        )}
 
         {/* Pages results */}
-        <div className={searchPageStyle.searchResultsSection}>
-          {results.pages.nbHits > 0 && <h3>Pages ({results.pages.nbHits})</h3>}
-          {results.pages.nbHits > 0 &&
-            results.pages.hits.map(page => (
+        {results.pages.nbHits > 0 && (
+          <div className={searchPageStyle.searchResultsSection}>
+            <h3>Pages ({results.pages.nbHits})</h3>
+            {results.pages.hits.map(page => (
               <div key={page.objectID} className={searchPageStyle.searchResult}>
                 <PublicationTitle>
                   {/* FIXME this should be handled during indexing 
@@ -131,7 +135,8 @@ export default withSearch(({ search }) => {
                 </DetailText>
               </div>
             ))}
-        </div>
+          </div>
+        )}
       </div>
     </Layout>
   )
