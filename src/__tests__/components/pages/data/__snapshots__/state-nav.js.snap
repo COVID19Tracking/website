@@ -22,3 +22,5 @@ exports[`Components : Pages : Data : Navigation with JS enabled renders correctl
   </div>
 </div>
 `;
+
+exports[`Components : Pages : Data : Navigation with JS enabled search for states 1`] = `"{\\"node\\":{\\"state\\":\\"AK\\",\\"name\\":\\"Alaska\\"}}"`;
