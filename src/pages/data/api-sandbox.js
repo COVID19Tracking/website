@@ -8,6 +8,8 @@ export default ({ data }) => (
     title="API Sandbox"
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
+    Below, you can explore each of our endpoints, try out API requests, and
+    learn about our schema.
     <SwaggerSandbox />
   </Layout>
 )

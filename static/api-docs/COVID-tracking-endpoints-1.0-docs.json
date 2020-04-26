@@ -1,8 +1,7 @@
 {
   "openapi" : "3.0.1",
   "info" : {
-    "title" : "COVID Tracking API",
-    "description" : "API documentation.",
+    "title" : "COVID Tracking API Sandbox",
     "version" : "1.0"
   },
   "servers" : [ {
@@ -13,11 +12,14 @@
   "paths" : {
     "/api/v1/states/daily.{format}" : {
       "get" : {
+        "tags" : [ "Endpoints" ],
         "description" : "States historical data. Entries saved each day at 4 pm ET.",
         "parameters" : [ {
-          "in" : "path",
           "name" : "format",
+          "in" : "path",
           "required" : true,
+          "style" : "simple",
+          "explode" : false,
           "schema" : {
             "type" : "string",
             "example" : "json"
@@ -42,19 +44,24 @@
     },
     "/api/v1/states/{state}/daily.{format}" : {
       "get" : {
+        "tags" : [ "Endpoints" ],
         "description" : "State historical data. Entries saved each day at 4 pm ET.",
         "parameters" : [ {
-          "in" : "path",
           "name" : "state",
+          "in" : "path",
           "required" : true,
+          "style" : "simple",
+          "explode" : false,
           "schema" : {
             "type" : "string",
             "example" : "CA"
           }
         }, {
-          "in" : "path",
           "name" : "format",
+          "in" : "path",
           "required" : true,
+          "style" : "simple",
+          "explode" : false,
           "schema" : {
             "type" : "string",
             "example" : "json"
@@ -79,27 +86,34 @@
     },
     "/api/v1/states/{state}/{date}.{format}" : {
       "get" : {
+        "tags" : [ "Endpoints" ],
         "description" : "State historical data for a given date.",
         "parameters" : [ {
-          "in" : "path",
           "name" : "state",
+          "in" : "path",
           "required" : true,
+          "style" : "simple",
+          "explode" : false,
           "schema" : {
             "type" : "string",
             "example" : "CA"
           }
         }, {
-          "in" : "path",
           "name" : "date",
+          "in" : "path",
           "required" : true,
+          "style" : "simple",
+          "explode" : false,
           "schema" : {
             "type" : "string",
-            "example" : 20200408
+            "example" : "20200408"
           }
         }, {
-          "in" : "path",
           "name" : "format",
+          "in" : "path",
           "required" : true,
+          "style" : "simple",
+          "explode" : false,
           "schema" : {
             "type" : "string",
             "example" : "json"
@@ -121,11 +135,14 @@
     },
     "/api/v1/states/current.{format}" : {
       "get" : {
+        "tags" : [ "Endpoints" ],
         "description" : "States current values.",
         "parameters" : [ {
-          "in" : "path",
           "name" : "format",
+          "in" : "path",
           "required" : true,
+          "style" : "simple",
+          "explode" : false,
           "schema" : {
             "type" : "string",
             "example" : "json"
@@ -150,11 +167,14 @@
     },
     "/api/v1/states/info.{format}" : {
       "get" : {
+        "tags" : [ "Endpoints" ],
         "description" : "States information.",
         "parameters" : [ {
-          "in" : "path",
           "name" : "format",
+          "in" : "path",
           "required" : true,
+          "style" : "simple",
+          "explode" : false,
           "schema" : {
             "type" : "string",
             "example" : "json"
@@ -179,11 +199,14 @@
     },
     "/api/v1/us/current.{format}" : {
       "get" : {
+        "tags" : [ "Endpoints" ],
         "description" : "US current values.",
         "parameters" : [ {
-          "in" : "path",
           "name" : "format",
+          "in" : "path",
           "required" : true,
+          "style" : "simple",
+          "explode" : false,
           "schema" : {
             "type" : "string",
             "example" : "json"
@@ -208,11 +231,14 @@
     },
     "/api/v1/us/daily.{format}" : {
       "get" : {
+        "tags" : [ "Endpoints" ],
         "description" : "US historical data. Entries saved each day at 4 pm ET.",
         "parameters" : [ {
-          "in" : "path",
           "name" : "format",
+          "in" : "path",
           "required" : true,
+          "style" : "simple",
+          "explode" : false,
           "schema" : {
             "type" : "string",
             "example" : "json"
@@ -237,19 +263,24 @@
     },
     "/api/v1/us/{date}.{format}" : {
       "get" : {
+        "tags" : [ "Endpoints" ],
         "description" : "US historical data for a given date.",
         "parameters" : [ {
-          "in" : "path",
           "name" : "date",
+          "in" : "path",
           "required" : true,
+          "style" : "simple",
+          "explode" : false,
           "schema" : {
             "type" : "string",
-            "example" : 20200408
+            "example" : "20200408"
           }
         }, {
-          "in" : "path",
           "name" : "format",
+          "in" : "path",
           "required" : true,
+          "style" : "simple",
+          "explode" : false,
           "schema" : {
             "type" : "string",
             "example" : "json"
@@ -277,8 +308,8 @@
         "properties" : {
           "positive" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "Total cumulative positive test results."
+            "description" : "Total cumulative positive test results.",
+            "nullable" : true
           },
           "positiveIncrease" : {
             "type" : "integer",
@@ -290,48 +321,48 @@
           },
           "negative" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "Total cumulative negative test results."
+            "description" : "Total cumulative negative test results.",
+            "nullable" : true
           },
           "pending" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "Tests that have been submitted to a lab but no results have been reported yet."
+            "description" : "Tests that have been submitted to a lab but no results have been reported yet.",
+            "nullable" : true
           },
           "hospitalizedCurrently" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "Number of people currently hospitalized."
+            "description" : "Number of people currently hospitalized.",
+            "nullable" : true
           },
           "hospitalizedCumulative" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "Total cumulative number of people hospitalized."
+            "description" : "Total cumulative number of people hospitalized.",
+            "nullable" : true
           },
           "inIcuCurrently" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "Number of people currently in ICU."
+            "description" : "Number of people currently in ICU.",
+            "nullable" : true
           },
           "inIcuCumulative" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "Total cumulative number of people in ICU."
+            "description" : "Total cumulative number of people in ICU.",
+            "nullable" : true
           },
           "onVentilatorCurrently" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "Number of people currently on a ventilator."
+            "description" : "Number of people currently on a ventilator.",
+            "nullable" : true
           },
           "onVentilatorCumulative" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "Total cumulative number of people on ventilators."
+            "description" : "Total cumulative number of people on ventilators.",
+            "nullable" : true
           },
           "recovered" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "Total cumulative number of people recovered."
+            "description" : "Total cumulative number of people recovered.",
+            "nullable" : true
           },
           "hash" : {
             "type" : "string",
@@ -340,8 +371,8 @@
           },
           "totalTestResults" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "Calculated value (positive + negative) of total test results."
+            "description" : "Calculated value (positive + negative) of total test results.",
+            "nullable" : true
           },
           "totalTestResultsIncrease" : {
             "type" : "integer",
@@ -349,13 +380,13 @@
           },
           "hospitalized" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "Total cumulative number of people hospitalized."
+            "description" : "Total cumulative number of people hospitalized.",
+            "nullable" : true
           },
           "death" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "Total cumulative number of people that have died."
+            "description" : "Total cumulative number of people that have died.",
+            "nullable" : true
           },
           "deathIncrease" : {
             "type" : "integer",
@@ -367,20 +398,17 @@
           },
           "posNeg" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "DEPRECATED. Renamed to totalTestResults."
+            "description" : "DEPRECATED. Renamed to totalTestResults.",
+            "nullable" : true
           },
           "total" : {
             "type" : "integer",
-            "nullable" : true,
-            "description" : "DEPRECATED. Will be removed in the future. (positive + negative + pending). Pending has been an unstable value and should not count in any totals."
+            "description" : "DEPRECATED. Will be removed in the future. (positive + negative + pending). Pending has been an unstable value and should not count in any totals.",
+            "nullable" : true
           }
         }
       },
       "USData" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/BasicData"
-        } ],
         "example" : {
           "positive" : 426757,
           "negative" : 1807168,
@@ -399,9 +427,15 @@
           "lastModified" : "2020-04-09T15:27:17.861Z",
           "posNeg" : 2233925,
           "total" : 2250858
-        }
+        },
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/BasicData"
+        } ]
       },
       "USDataWithDate" : {
+        "example" : {
+          "date" : 20200408
+        },
         "allOf" : [ {
           "$ref" : "#/components/schemas/USData"
         }, {
@@ -412,12 +446,30 @@
               "description" : "YYMMDD of the time we saved/visited their website."
             }
           }
-        } ],
-        "example" : {
-          "date" : 20200408
-        }
+        } ]
       },
       "StateData" : {
+        "example" : {
+          "date" : 20200408,
+          "state" : "CA",
+          "positive" : 16957,
+          "negative" : 127307,
+          "pending" : 14600,
+          "hospitalizedCurrently" : 2714,
+          "inIcuCurrently" : 1154,
+          "hash" : "c597c8b5b77b179c9e590a881c97d79fea2bd2db",
+          "dateChecked" : "2020-04-08T20:00:00Z",
+          "death" : 442,
+          "total" : 158864,
+          "totalTestResults" : 144264,
+          "posNeg" : 144264,
+          "fips" : "06",
+          "deathIncrease" : 68,
+          "hospitalizedIncrease" : 0,
+          "negativeIncrease" : 11943,
+          "positiveIncrease" : 1092,
+          "totalTestResultsIncrease" : 1303
+        },
         "allOf" : [ {
           "$ref" : "#/components/schemas/BasicData"
         }, {
@@ -429,62 +481,35 @@
             },
             "state" : {
               "type" : "string",
-              "nullable" : false,
-              "description" : "State or territory postal code abbreviation."
+              "description" : "State or territory postal code abbreviation.",
+              "nullable" : false
             },
             "dateChecked" : {
               "type" : "string",
-              "nullable" : false,
-              "description" : "ISO 8601 date of the time we saved/visited their website."
+              "description" : "ISO 8601 date of the time we saved/visited their website.",
+              "nullable" : false
             },
             "fips" : {
               "type" : "string",
-              "nullable" : false,
-              "description" : "Federal Information Processing Standard state code."
+              "description" : "Federal Information Processing Standard state code.",
+              "nullable" : false
             }
           }
-        } ],
-        "example" : {
-          "date" : 20200408,
-          "state" : "CA",
-          "positive" : 16957,
-          "negative" : 127307,
-          "pending" : 14600,
-          "hospitalizedCurrently" : 2714,
-          "hospitalizedCumulative" : null,
-          "inIcuCurrently" : 1154,
-          "inIcuCumulative" : null,
-          "onVentilatorCurrently" : null,
-          "onVentilatorCumulative" : null,
-          "recovered" : null,
-          "hash" : "c597c8b5b77b179c9e590a881c97d79fea2bd2db",
-          "dateChecked" : "2020-04-08T20:00:00Z",
-          "death" : 442,
-          "hospitalized" : null,
-          "total" : 158864,
-          "totalTestResults" : 144264,
-          "posNeg" : 144264,
-          "fips" : "06",
-          "deathIncrease" : 68,
-          "hospitalizedIncrease" : 0,
-          "negativeIncrease" : 11943,
-          "positiveIncrease" : 1092,
-          "totalTestResultsIncrease" : 1303
-        }
+        } ]
       },
       "StateInfo" : {
         "type" : "object",
         "properties" : {
           "state" : {
             "type" : "string",
-            "nullable" : false,
             "description" : "State or territory postal code abbreviation.",
+            "nullable" : false,
             "example" : "CA"
           },
           "name" : {
             "type" : "string",
-            "nullable" : false,
             "description" : "Full state or territory name.",
+            "nullable" : false,
             "example" : "California"
           },
           "covid19SiteOld" : {
@@ -494,21 +519,21 @@
           },
           "covid19Site" : {
             "type" : "string",
+            "description" : "Webpage dedicated to making results available to the public. More likely to contain numbers. We make regular screenshots of this URL.",
             "nullable" : true,
-            "example" : "https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/Immunization/ncov2019.aspx",
-            "description" : "Webpage dedicated to making results available to the public. More likely to contain numbers. We make regular screenshots of this URL."
+            "example" : "https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/Immunization/ncov2019.aspx"
           },
           "covid19SiteSecondary" : {
             "type" : "string",
+            "description" : "Typically more informational.",
             "nullable" : true,
-            "example" : "https://www.cdph.ca.gov/Programs/OPA/Pages/New-Release-2020.aspx",
-            "description" : "Typically more informational."
+            "example" : "https://www.cdph.ca.gov/Programs/OPA/Pages/New-Release-2020.aspx"
           },
           "twitter" : {
             "type" : "string",
-            "example" : "@CAPublicHealth",
+            "description" : "Twitter for the State Health Department.",
             "nullable" : true,
-            "description" : "Twitter for the State Health Department."
+            "example" : "@CAPublicHealth"
           },
           "pui" : {
             "type" : "string",
@@ -518,21 +543,21 @@
           },
           "pum" : {
             "type" : "boolean",
+            "description" : "Person Under Monitoring; we don’t collect these numbers as they are reported far less consistently across states.",
             "nullable" : false,
-            "example" : false,
-            "description" : "Person Under Monitoring; we don’t collect these numbers as they are reported far less consistently across states."
+            "example" : false
           },
           "notes" : {
             "type" : "string",
-            "nullable" : true,
             "description" : "Notes about the information available and how we collect or record it.",
+            "nullable" : true,
             "example" : "The state has been inconsistent in its timing of reporting, so we used faster updating sources until 4/1, when we standardized on [California's new data dashboards](https://public.tableau.com/views/COVID-19PublicDashboard/Covid-19Public?:embed=y&:display_count=no&:showVizHome=no). This led to a drop in cases and deaths, as the state's data lags some other sources. We assume that \"tests conducted\" = \"people tested.\" The state also reported a huge batch of negative tests 4/4. Negative, pending, and total test reporting tend to lag positive test reporting by one day."
           },
           "fips" : {
             "type" : "string",
+            "description" : "Federal Information Processing Standard state code.",
             "nullable" : false,
-            "example" : "06",
-            "description" : "Federal Information Processing Standard state code."
+            "example" : "06"
           }
         }
       }
