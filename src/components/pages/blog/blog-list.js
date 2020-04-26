@@ -8,7 +8,7 @@ export default ({ items }) => {
   return (
     <ul className={`press-list ${pressListStyle.pressList}`}>
       {items.map(({ node }) => (
-        <li key={`homepage-blog-${node.id}`}>
+        <li key={`homepage-blog-${node.slug}`}>
           <PublicationTitle>
             <Link to={`/blog/${node.slug}`}>{node.title}</Link>
           </PublicationTitle>

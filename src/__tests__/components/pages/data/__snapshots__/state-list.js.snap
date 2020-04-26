@@ -26,12 +26,12 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
         <a
           href="/about-data#state-data-quality-grades"
         >
-          data grade
+          data quality grade
         </a>
         :
       </span>
       <img
-        alt="Grade B"
+        alt="Grade na"
         src="test-file-stub"
         width="28px"
       />
