@@ -70,13 +70,16 @@ export default withSearch(({ search }) => {
         >
           Search
         </button>
-        {searchState.isFetching && (
+      </form>
+      {searchState.isFetching && (
+        <div>
           <img
             src="https://d1j8pt39hxlh3d.cloudfront.net/products/previews/RES3POBSZ353HFVPZOKR/2329_kKbUTLGEVXhuOIJqrT7QvIJFAXvEpQ3z.gif"
-            alt="Loading..."
+            alt="Searching..."
           />
-        )}
-      </form>
+          <h3>Searching...</h3>
+        </div>
+      )}
       <div className={searchPageStyle.searchResults}>
         {/* State results */}
         {results.states.nbHits > 0 && (
