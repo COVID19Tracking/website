@@ -13,6 +13,7 @@ export default {
       state: 'AL',
       score: 3,
       grade: 'B',
+      comprehensiveGrade: 'A+',
       dateModified: '2020-04-17T00:00:00-04:00',
       positive: 4572,
       negative: 33318,
