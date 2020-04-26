@@ -20,6 +20,7 @@ module.exports = {
   },
   testURL: `http://localhost`,
   setupFiles: [`<rootDir>/loadershim.js`],
+  setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   collectCoverageFrom: [
     './src/**/*.js',
     '!./src/pages/**/*.js',
