@@ -86,10 +86,6 @@ const updateFunc = () =>
 
 const statePages = _.flatMap(value => [
   {
-    path: `states/${value.state}/current`,
-    value,
-  },
-  {
     path: `states/${value.state.toLowerCase()}/current`,
     value,
   },

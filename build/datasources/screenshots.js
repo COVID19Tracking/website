@@ -73,7 +73,7 @@ async function getPages(previousItems = [], marker) {
 }
 
 const dateStatePages = value => ({
-  path: `states/${value[0].state}/${value[0].date}/screenshots`,
+  path: `states/${value[0].state.toLowerCase()}/${value[0].date}/screenshots`,
   value,
 })
 // dateChecked
@@ -82,7 +82,6 @@ const datePages = _.flow(_.groupBy('date'), _.map(dateStatePages))
 const statePages = _.flow(
   _.groupBy('state'),
   _.flatMap(value => [
-    { path: `states/${value[0].state}/screenshots`, value },
     { path: `states/${value[0].state.toLowerCase()}/screenshots`, value },
     ...datePages(value),
   ]),
