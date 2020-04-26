@@ -32,7 +32,7 @@ module.exports = {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.GATSBY_ALGOLIA_ADMIN_KEY,
         queries: algoliaQueries,
-        chunkSize: 10000,
+        chunkSize: 5000,
       },
     },
     {
