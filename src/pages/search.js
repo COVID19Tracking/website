@@ -82,7 +82,7 @@ export default withSearch(({ search }) => {
       )}
       <div className={searchPageStyle.searchResults}>
         {/* State results */}
-        {results.states.nbHits > 0 && (
+        {results.states.nbHits > 0 && !searchState.isFetching && (
           <div className={searchPageStyle.searchResultsSection}>
             <h3>States ({results.states.nbHits})</h3>
             {results.states.hits.map(state => (
@@ -96,7 +96,7 @@ export default withSearch(({ search }) => {
         )}
 
         {/* Blog post results */}
-        {results.blogPosts.nbHits > 0 && (
+        {results.blogPosts.nbHits > 0 && !searchState.isFetching && (
           <div className={searchPageStyle.searchResultsSection}>
             <h3>Blog Posts ({results.blogPosts.nbHits})</h3>
             {results.blogPosts.hits.map(post => (
@@ -115,7 +115,7 @@ export default withSearch(({ search }) => {
         )}
 
         {/* Pages results */}
-        {results.pages.nbHits > 0 && (
+        {results.pages.nbHits > 0 && !searchState.isFetching && (
           <div className={searchPageStyle.searchResultsSection}>
             <h3>Pages ({results.pages.nbHits})</h3>
             {results.pages.hits.map(page => (
