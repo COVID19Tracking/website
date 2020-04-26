@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import withSearch from '../components/utils/with-search'
+import searchPageStyle from './search.module.scss'
 import pressListStyle from '../components/common/press-list.module.scss'
 import { PublicationTitle } from '../components/common/publication'
 import DetailText from '../components/common/detail-text'
@@ -39,6 +40,8 @@ export default withSearch(({ search }) => {
     ? ` : ${query} (${totalHits} result${totalHits === 1 ? '' : 's'})`
     : ''
 
+  let searchEvent
+
   return (
     <Layout title="Search">
       <h2 className="hed-primary">Search{hitsInfo}</h2>
@@ -50,7 +53,11 @@ export default withSearch(({ search }) => {
             aria-label="Search"
             id="item"
             onChange={event => {
-              setQuery(event.currentTarget.value)
+              clearTimeout(searchEvent)
+              const { value } = event.currentTarget
+              searchEvent = setTimeout(() => {
+                setQuery(value)
+              }, 500)
             }}
           />
         </label>
@@ -64,59 +71,67 @@ export default withSearch(({ search }) => {
           Search
         </button>
       </form>
-      <div id="searchResults">
+      <div className={searchPageStyle.searchResults}>
         {/* State results */}
-        {results.states.nbHits > 0 && <h3>States ({results.states.nbHits})</h3>}
-        {results.states.nbHits > 0 &&
-          results.states.hits.map(state => (
-            <div key={state.state}>
-              <PublicationTitle>
-                <Link to={`${state.slug}`}>{state.name}</Link>
-              </PublicationTitle>
-            </div>
-          ))}
+        <div className={searchPageStyle.searchResultsSection}>
+          {results.states.nbHits > 0 && (
+            <h3>States ({results.states.nbHits})</h3>
+          )}
+          {results.states.nbHits > 0 &&
+            results.states.hits.map(state => (
+              <div key={state.state} className={searchPageStyle.searchResult}>
+                <PublicationTitle>
+                  <Link to={`${state.slug}`}>{state.name}</Link>
+                </PublicationTitle>
+              </div>
+            ))}
+        </div>
 
         {/* Blog post results */}
-        {results.blogPosts.nbHits > 0 && (
-          <h3>Blog Posts ({results.blogPosts.nbHits})</h3>
-        )}
-        {results.blogPosts.nbHits > 0 &&
-          results.blogPosts.hits.map(post => (
-            <div key={post.objectId}>
-              <PublicationTitle>
-                <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-              </PublicationTitle>
-              <DetailText>
-                {post.author_name}
-                <span className={pressListStyle.dotSeparator}>•</span>
-                {post.publishDate}
-              </DetailText>
-            </div>
-          ))}
+        <div className={searchPageStyle.searchResultsSection}>
+          {results.blogPosts.nbHits > 0 && (
+            <h3>Blog Posts ({results.blogPosts.nbHits})</h3>
+          )}
+          {results.blogPosts.nbHits > 0 &&
+            results.blogPosts.hits.map(post => (
+              <div key={post.objectID} className={searchPageStyle.searchResult}>
+                <PublicationTitle>
+                  <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                </PublicationTitle>
+                <DetailText>
+                  {post.author_name}
+                  <span className={pressListStyle.dotSeparator}>•</span>
+                  {post.publishDate}
+                </DetailText>
+              </div>
+            ))}
+        </div>
 
         {/* Pages results */}
-        {results.pages.nbHits > 0 && <h3>Pages ({results.pages.nbHits})</h3>}
-        {results.pages.nbHits > 0 &&
-          results.pages.hits.map(page => (
-            <div key={page.objectID}>
-              <PublicationTitle>
-                {/* FIXME this should be handled during indexing 
+        <div className={searchPageStyle.searchResultsSection}>
+          {results.pages.nbHits > 0 && <h3>Pages ({results.pages.nbHits})</h3>}
+          {results.pages.nbHits > 0 &&
+            results.pages.hits.map(page => (
+              <div key={page.objectID} className={searchPageStyle.searchResult}>
+                <PublicationTitle>
+                  {/* FIXME this should be handled during indexing 
                   (avoids external Link issues) */}
-                <Link
-                  to={`${page.slug[0] === '/' ? page.slug : `/${page.slug}`}`}
-                >
-                  {page.title}
-                </Link>
-              </PublicationTitle>
-              <DetailText>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: getHighlightResultOrExcerpt('page', page),
-                  }}
-                />
-              </DetailText>
-            </div>
-          ))}
+                  <Link
+                    to={`${page.slug[0] === '/' ? page.slug : `/${page.slug}`}`}
+                  >
+                    {page.title}
+                  </Link>
+                </PublicationTitle>
+                <DetailText>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: getHighlightResultOrExcerpt('page', page),
+                    }}
+                  />
+                </DetailText>
+              </div>
+            ))}
+        </div>
       </div>
     </Layout>
   )

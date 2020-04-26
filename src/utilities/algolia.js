@@ -102,6 +102,7 @@ const stateSettings = {}
 const pageSettings = {
   attributeForDistinct: 'section',
   distinct: true,
+  attributesToSnippet: ['body:250'],
 }
 const blogPostSettings = {
   ...pageSettings,
@@ -121,18 +122,18 @@ export const queries = [
           })}`,
         },
       })),
-    stateSettings,
+    settings: stateSettings,
   },
   {
     query: blogPostQuery,
     indexName: prefixSearchIndex('blog_posts'),
     transformer: ({ data }) => chunkBlogPosts(data),
-    blogPostSettings,
+    settings: blogPostSettings,
   },
   {
     query: pagesQuery,
     indexName: prefixSearchIndex('pages'),
     transformer: ({ data }) => chunkPages(data),
-    pageSettings,
+    settings: pageSettings,
   },
 ]

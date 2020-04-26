@@ -124,8 +124,8 @@ export function getHighlightResultOrExcerpt(hitType, hit) {
       return ''
     case 'page':
       /* eslint-disable no-underscore-dangle */
-      return hit._highlightResult.body && hit._highlightResult.body.value
-        ? marked(hit._highlightResult.body.value)
+      return hit._snippetResult.body && hit._snippetResult.body.value
+        ? marked(hit._snippetResult.body.value)
         : marked(truncate(hit.body))
     /* eslint-enable no-underscore-dangle */
   }
