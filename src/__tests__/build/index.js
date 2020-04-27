@@ -64,6 +64,7 @@ describe('Website build', () => {
     expect(exists).toBe(true)
 
     const redirects = fs.readFileSync('./public/_redirects')
-    expect(redirects.search('api/v1/CA/').toBeGreaterThan(-1))
+
+    expect(redirects.toString().search('api/v1/states/CA/')).toBeGreaterThan(-1)
   })
 })
