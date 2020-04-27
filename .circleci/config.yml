@@ -50,7 +50,7 @@ jobs:
       - run:
           name: lint
           command: 'npm run test:lint'
-  gatsby-lint:
+  storybook-test:
     executor: main-executor
     steps:
       - checkout
