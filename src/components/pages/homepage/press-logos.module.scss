@@ -3,11 +3,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
+  &.extra-margin {
+    margin-bottom: 3rem;
+  }
   img {
     filter: grayscale(1);
     height: 40px;
     margin: 1rem 2rem;
-    margin-bottom: 3rem;
   }
 }
