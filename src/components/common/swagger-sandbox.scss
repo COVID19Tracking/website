@@ -16,6 +16,27 @@
       line-height: 1.2rem;
     }
 
+    .model {
+      border:0px;
+
+      td, tr {
+        border-top: none;
+        border-bottom: none;
+        padding-top:20px;
+        padding-bottom:20px;
+      }
+
+      tbody tr {
+        border-top:1px solid rgb(200, 200, 200);
+      }
+    }
+
+    table, th, td {
+      border-color: rgb(175, 175, 175);
+      border-left: none;
+      border-right: none;
+    }
+
     td {
       font-size: 0.8rem;
     }
@@ -85,7 +106,7 @@
       }
 
       .model td:nth-child(2) {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         border-bottom: 0px;
       }
     }
