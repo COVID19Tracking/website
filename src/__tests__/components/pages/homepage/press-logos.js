@@ -43,5 +43,8 @@ describe('Components : Pages : Homepage : Press logos', () => {
 
     const treeFeatured = renderer.create(<PressLogos onlyFeatured />).toJSON()
     expect(treeFeatured).toMatchSnapshot()
+
+    const treeExtraMargin = renderer.create(<PressLogos extraMargin />).toJSON()
+    expect(treeExtraMargin).toMatchSnapshot()
   })
 })
