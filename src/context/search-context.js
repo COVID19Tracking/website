@@ -118,7 +118,7 @@ export async function querySearch(state, dispatch) {
   }
 }
 
-export function getSnippetResultOrExcerpt(hitType, hit) {
+export function getHighlightResultOrExcerpt(hitType, hit) {
   switch (hitType) {
     default:
       return ''
