@@ -74,6 +74,22 @@ jobs:
       - run:
           name: lint
           command: 'npm run test:lint'
+  storybook-test:
+    executor: main-executor
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: 'npm install'
+      - run:
+          name: setup
+          command: 'npm run setup'
+      - run:
+          name: build
+          command: 'npm run build:gatsby'
+      - run:
+          name: storybook
+          command: 'npm run storybook:build'
 workflows:
   version: 2
   build_and_test:
@@ -84,3 +100,4 @@ workflows:
             - api
       - gatsby-lint
       - gatsby-test
+      - storybook-test

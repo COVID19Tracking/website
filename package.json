@@ -120,7 +120,7 @@
     "storybook:pages": "gh-pages -d storybook-static -r https://github.com/COVID19Tracking/website-docs",
     "test": "jest",
     "test:update": "jest --updateSnapshot",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "jest --coverage --maxWorkers 1",
     "test:lint": "eslint ./src",
     "test:dev": "run-s test:lint test",
     "test:api-post-build": "jest  --config=\"{}\" --testPathPattern=./build/__tests__/post-build/",
