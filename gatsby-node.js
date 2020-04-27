@@ -99,6 +99,18 @@ exports.createPages = async ({ graphql, actions }) => {
     toPath: `https://covid.cape.io/us/:splat`,
     statusCode: 200,
   })
+
+  createRedirect({
+    fromPath: `/api/states`,
+    toPath: `https://covid.cape.io/states`,
+    statusCode: 200,
+  })
+
+  createRedirect({
+    fromPath: `/api/us`,
+    toPath: `https://covid.cape.io/us`,
+    statusCode: 200,
+  })
 }
 
 exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
