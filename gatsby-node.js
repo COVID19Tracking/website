@@ -28,6 +28,7 @@ exports.createPages = async ({ graphql, actions }) => {
             covid19SiteSecondary
             notes
             name
+            fips
             state
             twitter
           }
@@ -67,6 +68,16 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/state.js`),
       context: node,
     })
+    createRedirect({
+      fromPath: `/api/v1/states/${node.fips}/*`,
+      toPath: `/api/v1/states/${node.state.toLowerCase()}/:splat`,
+      isPermanent: true,
+    })
+    createRedirect({
+      fromPath: `/api/v1/states/${node.state}/*`,
+      toPath: `/api/v1/states/${node.state.toLowerCase()}/:splat`,
+      isPermanent: true,
+    })
   })
 
   result.data.allContentfulBlogPost.edges.forEach(({ node }) => {
@@ -75,6 +86,12 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/blog-post.js`),
       context: node,
     })
+  })
+
+  createRedirect({
+    fromPath: `/api/*`,
+    toPath: `https://covid.cape.io/:splat`,
+    statusCode: 200,
   })
 }
 
