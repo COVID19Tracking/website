@@ -24,6 +24,7 @@
     .container {
       nav {
         display: block;
+        width: 100%;
         @media (min-width: $viewport-lg) {
           display: block;
         }
