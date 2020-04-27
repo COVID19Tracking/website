@@ -2,6 +2,7 @@ require(`@babel/register`)({
   presets: ['@babel/preset-env', '@babel/preset-react'],
   plugins: ['@babel/plugin-transform-runtime'],
 })
+
 const { DateTime } = require('luxon')
 const algoliaQueries = require('./src/utilities/algolia').queries
 
@@ -30,7 +31,7 @@ module.exports = {
       resolve: `gatsby-plugin-algolia`,
       options: {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
-        apiKey: process.env.GATSBY_ALGOLIA_ADMIN_KEY,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries: algoliaQueries,
         chunkSize: 5000,
       },
