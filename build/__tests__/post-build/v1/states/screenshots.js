@@ -8,19 +8,20 @@ describe('File : States : Screenshots', () => {
   })
 
   it('matches field pattern', done => {
+    const expectedObject = {
+      state: expect.anything(),
+      url: expect.anything(),
+      dateChecked: expect.anything(),
+      secondary: expect.anything(),
+      date: expect.anything(),
+      size: expect.anything(),
+    }
+
     fs.createReadStream('_data/v1/states/screenshots.csv')
       .pipe(csv())
       .on('data', row => {
-        expect(row).toEqual(
-          expect.objectContaining({
-            state: expect.anything(),
-            url: expect.anything(),
-            dateChecked: expect.anything(),
-            secondary: expect.anything(),
-            date: expect.anything(),
-            size: expect.anything(),
-          }),
-        )
+        expect(row).toEqual(expect.objectContaining(expectedObject))
+        expect(Object.keys(row).length).toBe(Object.keys(expectedObject).length)
       })
       .on('end', () => {
         done()

@@ -8,12 +8,14 @@ describe('File : Volunteers', () => {
 
   it('follows field patterns', async done => {
     const results = await fs.readJSON('_data/v1/volunteers.json')
+    const expectedObject = {
+      name: expect.any(String),
+      website: expect.any(String),
+    }
     results.forEach(result => {
-      expect(result).toEqual(
-        expect.objectContaining({
-          name: expect.any(String),
-          website: expect.any(String),
-        }),
+      expect(result).toMatchObject(expect.objectContaining(expectedObject))
+      expect(Object.keys(result).length).toBe(
+        Object.keys(expectedObject).length,
       )
     })
     done()
