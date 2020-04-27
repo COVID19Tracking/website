@@ -89,8 +89,14 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   createRedirect({
-    fromPath: `/api/*`,
-    toPath: `https://covid.cape.io/:splat`,
+    fromPath: `/api/states/*`,
+    toPath: `https://covid.cape.io/states/:splat`,
+    statusCode: 200,
+  })
+
+  createRedirect({
+    fromPath: `/api/us/*`,
+    toPath: `https://covid.cape.io/us/:splat`,
     statusCode: 200,
   })
 }
