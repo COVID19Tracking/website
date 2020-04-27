@@ -37,7 +37,7 @@ jobs:
           command: 'npm install'
       - run:
           name: test
-          command: 'npm run test:coverage'
+          command: 'npm run test:coverage -w 1'
       - coveralls/upload:
         path_to_lcov: './junit.xml'
   gatsby-lint:
@@ -62,7 +62,7 @@ jobs:
           command: 'npm install'
       - run:
           name: storybook
-          command: 'npm run storybook:build'
+          command: 'npm run storybook:build -w 1'
 workflows:
   version: 2
   build_and_test:
