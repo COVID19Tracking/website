@@ -52,6 +52,11 @@ jobs:
       - run:
           name: test
           command: 'npm run build:test'
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - _data
+            - public
   gatsby-test:
     executor: main-executor
     steps:
@@ -74,6 +79,18 @@ jobs:
       - run:
           name: lint
           command: 'npm run test:lint'
+  storybook-test:
+    executor: main-executor
+    steps:
+      - checkout
+      - attach_workspace:
+          at: *workspace_root
+      - run:
+          name: install
+          command: 'npm install'
+      - run:
+          name: storybook
+          command: 'npm run storybook:build'
 workflows:
   version: 2
   build_and_test:
@@ -84,3 +101,7 @@ workflows:
             - api
       - gatsby-lint
       - gatsby-test
+      - storybook-test:
+          requires:
+            - api
+            - gatsby-build
