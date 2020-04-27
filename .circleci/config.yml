@@ -49,9 +49,6 @@ jobs:
           command: 'npm install'
       - run:
           name: lint
-          command: 'npm run setup'
-      - run:
-          name: lint
           command: 'npm run test:lint'
   storybook-test:
     executor: main-executor
@@ -60,6 +57,9 @@ jobs:
       - run:
           name: install
           command: 'npm install'
+      - run:
+          name: setup
+          command: 'npm run setup'
       - run:
           name: storybook
           command: 'npm run storybook:build -w 1'
