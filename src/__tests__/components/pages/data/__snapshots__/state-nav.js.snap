@@ -7,7 +7,7 @@ exports[`Components : Pages : Data : Navigation with JS enabled renders correctl
   <label
     htmlFor="jump-to-state"
   >
-    Type a state's name to jump to it
+    Type a state’s name to jump to it:
   </label>
   <div>
     <input
@@ -22,3 +22,5 @@ exports[`Components : Pages : Data : Navigation with JS enabled renders correctl
   </div>
 </div>
 `;
+
+exports[`Components : Pages : Data : Navigation with JS enabled search for states 1`] = `"{\\"node\\":{\\"state\\":\\"AK\\",\\"name\\":\\"Alaska\\"}}"`;

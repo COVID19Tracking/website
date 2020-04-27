@@ -77,15 +77,19 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-typography',
+      resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        pathToConfigModule: 'src/utilities/typography',
+        file: './_data/v1/volunteers.json',
+        type: 'CovidVolunteers',
       },
     },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: ['gatsby-remark-autolink-headers'],
+        plugins: [
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-smartypants',
+        ],
       },
     },
     {

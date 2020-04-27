@@ -2,6 +2,9 @@
 @import '../../../scss/breakpoints.module.scss';
 
 .state-nav-combobox {
+  @media (min-width: $viewport-md) {
+    text-align: right;
+  }
   label {
     font-weight: bold;
     display: inline-block;

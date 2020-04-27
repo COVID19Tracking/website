@@ -28,6 +28,11 @@ $chart-gutter-md: 100px;
   @media (min-width: $viewport-md) {
     max-width: $chart-two-col-lg-max-width * 2 + $chart-gutter-md;
   }
+  @media (min-width: $viewport-lg) {
+    display: flex;
+    justify-content: center;
+    max-width: inherit;
+  }
 }
 
 .charts-container-inner {

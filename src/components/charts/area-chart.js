@@ -78,7 +78,7 @@ const AreaChart = ({
     const eventX = isTouchEvent ? event.touches[0].clientX : event.clientX
     const eventY = isTouchEvent ? event.touches[0].clientY : event.clientY
     const result = svgPoint(event.currentTarget, eventX, eventY)
-    const date = xScale.invert(result.x - marginLeft)
+    const date = xScale.invert(result.x - marginLeft + 8)
     date.setHours(0, 0, 0)
     setTooltip({
       top: isTouchEvent ? eventY - 130 : eventY + 10,

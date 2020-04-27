@@ -13,7 +13,7 @@ const State = ({ state }) => (
       <h3 id={`state-${state.state.toLowerCase()}`}>
         <Link to={`/data/state/${slug(state.name)}`}>{state.name}</Link>
       </h3>
-      <StateGrade letterGrade={state.stateData.grade} />
+      <StateGrade letterGrade={state.stateData.dataQualityGrade} />
     </div>
     <SummaryTable
       data={state.stateData}
@@ -42,7 +42,7 @@ const State = ({ state }) => (
     </UnstyledList>
     {state.notes && (
       <div
-        className={stateDataStyles.notes}
+        className={`module-content ${stateDataStyles.notes}`}
         dangerouslySetInnerHTML={{
           __html: marked(state.notes),
         }}
@@ -53,7 +53,7 @@ const State = ({ state }) => (
       href="#reach-skip-nav"
       title="top"
     >
-      ↑ (return to top)
+      Back to top.
     </a>
   </>
 )

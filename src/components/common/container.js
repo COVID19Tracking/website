@@ -9,9 +9,13 @@ export default ({ children, narrow, textHeavy = false }) => {
       }`}
     >
       {narrow ? (
-        <div className={`${containerStyles.containerNarrow}`}>{children}</div>
+        <div className="layout--content-and-rail">
+          <div className="layout--content-primary">{children}</div>
+        </div>
       ) : (
-        children
+        <div className="layout--content-full">
+          <div className="layout--content-primary">{children}</div>
+        </div>
       )}
     </div>
   )
