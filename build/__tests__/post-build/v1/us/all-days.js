@@ -1,5 +1,5 @@
 const fs = require('fs-extra')
-const checkFile = require('../../../utitlities/check-file')
+const checkFile = require('../../../utilities/check-file')
 
 describe('File : US : All days', () => {
   it('generated a file for every day', async done => {

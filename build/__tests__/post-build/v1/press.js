@@ -1,6 +1,6 @@
 const fs = require('fs-extra')
 const csv = require('csv-parser')
-const checkFile = require('../../utitlities/check-file')
+const checkFile = require('../../utilities/check-file')
 
 describe('File : Press', () => {
   it('exists', () => {
