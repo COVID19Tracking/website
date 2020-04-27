@@ -1,6 +1,5 @@
 /api/v1/us.json                               /api/v1/us/current.json
 /api/v1/states.json                           /api/v1/states/current.json
-/api/*                                        https://covid.cape.io/:splat  200
 /charts/dash                                  http://35.212.27.3:8050/
 /graphql                                      /api/graphql
 /graphql/                                     /api/graphql
@@ -78,4 +77,7 @@
 /api/v1/states/66/*                           /api/v1/states/gu/:splat
 /api/v1/states/69/*                           /api/v1/states/mp/:splat
 /api/v1/states/72/*                           /api/v1/states/pr/:splat
-/api/v1/states/78/*                           /api/v1/states/vi
+/api/v1/states/78/*                           /api/v1/states/vi/:splat
+
+
+/api/*                                        https://covid.cape.io/:splat  200
