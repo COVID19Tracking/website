@@ -2,7 +2,7 @@
 
 exports[`Components : Pages : Homepage : Press logos renders correctly 1`] = `
 <div
-  className="homepage-press-logos logos"
+  className="homepage-press-logos logos undefined"
 >
   <img
     alt="test A logo"
@@ -21,8 +21,27 @@ exports[`Components : Pages : Homepage : Press logos renders correctly 1`] = `
 
 exports[`Components : Pages : Homepage : Press logos renders correctly 2`] = `
 <div
-  className="homepage-press-logos logos"
+  className="homepage-press-logos logos undefined"
 >
+  <img
+    alt="test B logo"
+    src="/images/press-logos/test-b.png"
+  />
+  <img
+    alt="test C logo"
+    src="/images/press-logos/test-c.png"
+  />
+</div>
+`;
+
+exports[`Components : Pages : Homepage : Press logos renders correctly 3`] = `
+<div
+  className="homepage-press-logos logos extraMargin"
+>
+  <img
+    alt="test A logo"
+    src="/images/press-logos/test-a.png"
+  />
   <img
     alt="test B logo"
     src="/images/press-logos/test-b.png"
