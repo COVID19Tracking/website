@@ -33,3 +33,22 @@ exports[`Components : Pages : Homepage : Press logos renders correctly 2`] = `
   />
 </div>
 `;
+
+exports[`Components : Pages : Homepage : Press logos renders correctly 3`] = `
+<div
+  className="homepage-press-logos logos extraMargin"
+>
+  <img
+    alt="test A logo"
+    src="/images/press-logos/test-a.png"
+  />
+  <img
+    alt="test B logo"
+    src="/images/press-logos/test-b.png"
+  />
+  <img
+    alt="test C logo"
+    src="/images/press-logos/test-c.png"
+  />
+</div>
+`;
