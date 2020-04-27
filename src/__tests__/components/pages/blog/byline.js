@@ -16,5 +16,17 @@ describe('Components : Pages : Blog : Byline', () => {
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
+
+    const treeNoLink = renderer
+      .create(
+        <Byline
+          author={{
+            name: 'test name',
+          }}
+          date="Aug 1 2020"
+        />,
+      )
+      .toJSON()
+    expect(treeNoLink).toMatchSnapshot()
   })
 })

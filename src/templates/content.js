@@ -12,6 +12,7 @@ const ContentPage = ({ data }) => {
       textHeavy
     >
       <div
+        className="module-content"
         dangerouslySetInnerHTML={{ __html: page.body.childMarkdownRemark.html }}
       />
     </Layout>

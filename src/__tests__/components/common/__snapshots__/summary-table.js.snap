@@ -17,9 +17,9 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
     <colgroup
       span="2"
     />
-    <col />
-    <col />
-    <col />
+    <colgroup
+      span="3"
+    />
     <thead>
       <tr>
         <th
@@ -176,8 +176,9 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
     <colgroup
       span="3"
     />
-    <col />
-    <col />
+    <colgroup
+      span="2"
+    />
     <thead>
       <tr>
         <th

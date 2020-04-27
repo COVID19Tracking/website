@@ -14,9 +14,10 @@ const StatePage = ({ pageContext, data }) => {
   return (
     <Layout title={state.name}>
       <StateLinks {...state} />
-      <StateGrade letterGrade={summary.grade} />
+      <StateGrade letterGrade={summary.dataQualityGrade} />
       {state.notes && (
         <div
+          className="module-content"
           dangerouslySetInnerHTML={{
             __html: marked(state.notes),
           }}
@@ -53,7 +54,7 @@ export const query = graphql`
           death
           totalTestResults
           dateModified
-          grade
+          dataQualityGrade
         }
       }
     }

@@ -2,40 +2,68 @@
 @import '../../scss/breakpoints.module.scss';
 
 .hero {
-  @media only screen and (max-width: $viewport-ms) {
-    padding: 35px 0 70px;
+  padding: 35px 0 70px;
+  @media (min-width: $viewport-md) {
+    padding: 70px 20% 70px 0;
   }
-  padding: 70px 20% 140px 0;
 
   .header {
     color: white;
-    font-size: 2.2rem;
+    font-size: 1.4375rem;
     line-height: 1.25;
     font-weight: bold;
-    margin-bottom: 0;
+    margin: 0;
+    max-width: 45rem;
 
-    @media only screen and (max-width: $viewport-ms) {
-      font-size: 1.3rem;
+    @media (min-width: $viewport-ms) {
+      font-size: 2rem;
+    }
+    @media (min-width: $viewport-md) {
+      font-size: 2.75rem;
     }
   }
 
   .ctas {
-    display: flex;
-    margin-top: 70px;
     color: white;
-    align-items: center;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
+    margin-top: 1.8em;
+    text-align: center;
 
-    @media only screen and (max-width: $viewport-ms) {
-      flex-direction: column;
-      margin-top: 35px;
+    @media only screen and (min-width: $viewport-ms) {
+      text-align: left;
+      margin-top: 3.5em;
     }
 
-    .spacer {
-      margin: 0 1rem;
+    .button {
+      background: $color-blueberry-200;
+      color: $color-blueberry-500;
+      display: block;
+      padding: 0.75em 2em;
+      margin: 0 auto 0.5em;
+      max-width: 14em;
+      text-decoration: none;
+      &:hover,
+      &:focus,
+      &:active {
+        background: $color-blueberry-100;
+        color: $color-blueberry-500;
+      }
+      @media (min-width: $viewport-ms) {
+        display: inline-block;
+        width: inherit;
+      }
+      @media (min-width: $viewport-md) {
+        padding: 1em 2em;
+      }
+    }
 
-      @media only screen and (max-width: $viewport-ms) {
-        margin: 0.5rem 1rem;
+    span {
+      display: block;
+      margin: 0.5rem 1rem;
+
+      @media (min-width: $viewport-ms) {
+        display: inline;
+        margin: 0 1rem;
       }
     }
 
@@ -47,29 +75,6 @@
       &:focus {
         color: $color-blueberry-100;
       }
-    }
-
-    .button {
-      background: $color-blueberry-200;
-      text-decoration: none;
-      padding: 1rem 0;
-      width: 25%;
-      text-align: center;
-      color: $color-blueberry-500;
-      &:hover,
-      &:focus,
-      &:active {
-        background: $color-blueberry-100;
-        color: $color-blueberry-500;
-      }
-      @media only screen and (max-width: $viewport-sm) {
-        width: 100%;
-        padding: 0.75rem 2rem;
-      }
-    }
-
-    :first-child {
-      margin-left: 0;
     }
   }
 }

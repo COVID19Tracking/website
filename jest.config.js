@@ -11,7 +11,8 @@ module.exports = {
     `node_modules`,
     `\\.cache`,
     `<rootDir>.*/public`,
-    './build',
+    './src/__tests__/build/index.js',
+    './build/test.js',
   ],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
   globals: {
@@ -19,6 +20,7 @@ module.exports = {
   },
   testURL: `http://localhost`,
   setupFiles: [`<rootDir>/loadershim.js`],
+  setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   collectCoverageFrom: [
     './src/**/*.js',
     '!./src/pages/**/*.js',

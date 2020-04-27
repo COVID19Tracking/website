@@ -18,16 +18,17 @@ Array [
       className="state-grade stateGrade"
     >
       <span>
-        Current 
+        Current
+         
         <a
-          href="/about-data#data-quality-grade"
+          href="/about-data#state-data-quality-grades"
         >
-          data grade
+          data quality grade
         </a>
         :
       </span>
       <img
-        alt="Grade B"
+        alt="Grade na"
         src="test-file-stub"
         width="28px"
       />
@@ -49,9 +50,9 @@ Array [
       <colgroup
         span="2"
       />
-      <col />
-      <col />
-      <col />
+      <colgroup
+        span="3"
+      />
       <thead>
         <tr>
           <th
@@ -227,7 +228,7 @@ Array [
     </li>
   </ul>,
   <div
-    className="notes"
+    className="module-content notes"
     dangerouslySetInnerHTML={
       Object {
         "__html": "<p>Negatives = (Totals - Positives) 
@@ -242,7 +243,7 @@ Last Updated (Local Time) = (current date + time = 00:00)</p>
     href="#reach-skip-nav"
     title="top"
   >
-    ↑ (return to top)
+    Back to top.
   </a>,
 ]
 `;
