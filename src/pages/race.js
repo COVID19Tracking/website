@@ -18,6 +18,7 @@ const NotFoundPage = ({ data }) => (
     narrow
   >
     <div
+      className="module-content"
       dangerouslySetInnerHTML={{
         __html:
           data.allContentfulSnippet.edges[0].node

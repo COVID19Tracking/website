@@ -14,6 +14,7 @@ export default ({ data }) => {
         lede={blogPost.lede}
       />
       <div
+        className="module-content"
         dangerouslySetInnerHTML={{
           __html:
             blogPost.childContentfulBlogPostBodyTextNode.childMarkdownRemark

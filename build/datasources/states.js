@@ -13,7 +13,7 @@ const fixState = _.flow(
   setFieldWith('dateChecked', 'checkTimeEt', totalDate),
   _.set(
     'notes',
-    'Please stop using the "total" field. Use "totalTestResults" instead.',
+    'Please stop using the "total" field. Use "totalTestResults" instead. As of 4/24/20, "grade" is deprecated. Please use "dataQualityGrade" instead.',
   ),
 )
 
@@ -51,6 +51,23 @@ const grade = {
         'doubleChecker',
       ]),
     ),
+
+    _.map(i => {
+      i.notes =
+        'The following fields are deprecated: "positiveScore", "negativeScore", "negativeRegularScore", "commercialScore", and "score" as of 4/24/20. Please use "dataQualityGrade" instead.'
+      return i
+    }),
+    // _.keyBy('state'),
+  ),
+}
+
+const dataQualityGrade = {
+  ...sheets,
+  worksheetId: '1MrjtmYpfKxzn0-oNEdxXzTtfifZ0ZMkMR7k9_WXtTPs',
+  sheetName: 'Publishing',
+  fixItems: _.flow(
+    _.filter(x => x.state && x.dataQualityGrade),
+    _.map(_.omit([])),
     // _.keyBy('state'),
   ),
 }
@@ -63,6 +80,7 @@ const prepResult = _.flow(
 const updateFunc = () =>
   Promise.all([
     fetchParseFix(grade).then(_.keyBy('state')),
+    fetchParseFix(dataQualityGrade).then(_.keyBy('state')),
     fetchParseFix(states2),
   ]).then(prepResult)
 
