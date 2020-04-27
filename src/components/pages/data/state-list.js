@@ -14,7 +14,7 @@ export default ({ states, stateData }) => {
   })
 
   return stateList.map(state => (
-    <div id={`state-list-${state.state}`} className="module">
+    <div key={state} id={`state-list-${state.state}`} className="module">
       <State state={state} stateData={state.stateData} />
     </div>
   ))
