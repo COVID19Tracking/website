@@ -1,8 +1,9 @@
+@import '../../scss/colors.module.scss';
+
 .table {
   line-height: 1rem;
   border-collapse: collapse;
   margin: 0.5rem 0 0;
-  font-size: 0.85em;
   font-variant-numeric: lining-nums tabular-nums;
   width: 100%;
 
@@ -12,58 +13,58 @@
     white-space: nowrap;
   }
 
-  caption,
-  th {
-    text-align: left;
-  }
-
-  td,
-  th[scope='col'] {
-    text-align: right;
-  }
-
   caption {
+    text-align: left;
     font-weight: bold;
-    font-size: 1.25rem;
-    padding: 0.75rem 0;
+    font-size: 17px;
+    margin-bottom: 1rem;
   }
 
-  th,
+  colgroup:not(:first-child) {
+    border-left: 1px solid $color-slate-300;
+  }
+
   td {
-    border: 1px solid #c0c0c0;
-    padding: 0.25rem;
+    padding: 0.75rem;
+    font-size: 16px;
   }
 
-  th:last-child {
-    padding-right: 0.25rem;
-  }
+  thead {
+    border-bottom: 1px solid $color-slate-400;
 
-  th {
-    background: #dee2e4;
+    th {
+      padding: 0 0.5rem 0.5rem;
+      vertical-align: bottom;
 
-    span {
-      display: block;
-      font-size: 0.75rem;
+
+      &[scope='col'] {
+        text-align: right;
+        font-size: 13px;
+      }
+
+      &[scope='colgroup'] {
+        text-align: left;
+        font-size: 17px;
+        padding: 0.5rem;
+      }
     }
-
-    &[scope='colgroup'] {
-      font-size: 1.1em;
-      text-align: center;
-    }
-  }
-
-  thead th {
-    vertical-align: bottom;
   }
 
   tbody {
     th {
-      background: #f3f3f3;
       font-weight: normal;
     }
 
-    tr:first-child > * {
-      border-top: none;
+    tr {
+      border-bottom: 1px solid $color-slate-200;
+      transition: background-color 0.2s;
+      &:hover {
+        background-color: $color-slate-100;
+      }
+    }
+
+    td ul {
+      margin: 0;
     }
   }
 }
