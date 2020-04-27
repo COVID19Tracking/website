@@ -1,5 +1,12 @@
 import slugify from 'slugify'
 
+/**
+ * Return a qualified Algolia index name
+ * depending on the environment.
+ *
+ * @param string index
+ *  The content type index identifier.
+ */
 export const prefixSearchIndex = index =>
   `${process.env.GATSBY_ALGOLIA_INDEX_PREFIX}${index}`
 
@@ -52,6 +59,21 @@ const pagesQuery = `{
   }
 }`
 
+/**
+ * Split a node body into indexable chunks.
+ * See https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/how-to/indexing-long-documents/
+ *  to get a better understanding of why we have to do this,
+ *  and how we do this.
+ *
+ *
+ * @param {*} baseChunk
+ *  The base object that will be expanded and completed with chunks.
+ * @param {*} firstChunk
+ *  The first chunk, used to init the chunks array.
+ * @param {*} bodyChunks
+ *  Content of node.body split into chunks,
+ *  so each content type can split the content accordingly.
+ */
 function splitBodyIntoChunks(baseChunk, firstChunk, bodyChunks) {
   const chunks = [firstChunk]
   let currentChunkIndex = 0
@@ -77,6 +99,12 @@ function splitBodyIntoChunks(baseChunk, firstChunk, bodyChunks) {
   /* eslint-enable no-param-reassign */
 }
 
+/**
+ * Chunk a Page content type data into indexable chunks.
+ *
+ * @param array data
+ *  The page data to be splitted into chunks for correct indexing.
+ */
 function chunkPages(data) {
   return data.posts.edges.reduce((acc, { node }) => {
     const baseChunk = { ...node, body: '' }
@@ -87,6 +115,12 @@ function chunkPages(data) {
   }, [])
 }
 
+/**
+ * Chunk a Blog Post content type data into indexable chunks.
+ *
+ * @param array data
+ *  The blog post data to be splitted into chunks for correct indexing.
+ */
 function chunkBlogPosts(data) {
   return data.posts.edges.reduce((acc, { node }) => {
     const baseChunk = { ...node, author_name: node.author.name, body: '' }
@@ -99,6 +133,12 @@ function chunkBlogPosts(data) {
 }
 
 const stateSettings = {}
+
+/**
+ * Settings shared (for now) amidst Page & BlogPost content types
+ * in order to handle chunks + handle Snippets
+ * (see https://www.algolia.com/doc/guides/building-search-ui/going-further/backend-search/how-to/highlighting-snippeting/)
+ */
 const pageSettings = {
   attributeForDistinct: 'section',
   distinct: true,
