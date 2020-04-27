@@ -167,7 +167,7 @@ export default withSearch(({ search }) => {
           <h3>Searching...</h3>
         </div>
       )}
-      <div id="searchResults">
+      <div className={searchPageStyle.searchResults}>
         {/* State results */}
         {results.states.nbHits > 0 && !searchState.isFetching && (
           <div className={searchPageStyle.searchResultsSection}>
