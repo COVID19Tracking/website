@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import Container from '../common/container'
 import DevelopmentWarning from './development-warning'
 import Hero from './hero'
 import ProjectLogo from '../../images/project-logo.svg'
@@ -70,10 +69,11 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
         } ${noMargin ? headerStyle.noMargin : ''}`}
       >
         <div
-          className={`${headerStyle.container} ${!hasHero &&
-            headerStyle.showBackground}`}
+          className={`container ${headerStyle.container} ${
+            !hasHero ? headerStyle.showBackground : ''
+          } `}
         >
-          <Container>
+          <div className={headerStyle.headerContainer}>
             <div className={headerStyle.siteTitleContainer}>
               <div className={headerStyle.siteTitleInner}>
                 <a className={headerStyle.siteTitle} href="/">
@@ -126,7 +126,7 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
                 </div>
               )}
             </div>
-          </Container>
+          </div>
         </div>
       </header>
     </>
