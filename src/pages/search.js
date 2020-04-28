@@ -24,7 +24,7 @@ import {
 } from '../context/search-context'
 
 /* disable es-lint */
-export default withSearch(({ search }) => {
+export default withSearch(({ search, navigate }) => {
   const [searchState, searchDispatch] = useSearch()
   const { query, results } = searchState
 
@@ -54,28 +54,17 @@ export default withSearch(({ search }) => {
     ? ` : ${query} (${totalHits} result${totalHits === 1 ? '' : 's'})`
     : ''
 
-  const getSlug = item => {
-    if (!item.publishDate) {
-      return `${item.slug}`
-    }
-    return `/blog/${item.slug}`
-  }
-
   const goToResult = selectedItem => {
-    const allResults = [
-      ...results.state.hits,
-      ...results.blogPost.hits,
-      ...results.page.hits,
-    ]
-
-    const item = allResults.find(result => {
-      return result.name === selectedItem || result.title === selectedItem
-    })
-
-    if (item && typeof window !== 'undefined') {
-      window.location = getSlug(item)
+    const resultTypes = Object.values(searchResultTypes)
+    for (const type of resultTypes) {
+      const item = results[type].hits.find(result => {
+        return result.name === selectedItem || result.title === selectedItem
+      })
+      if (item && typeof window !== 'undefined') {
+        const slug = getSanitizedSlug(type, item)
+        navigate(slug)
+      }
     }
-    return false
   }
 
   return (
@@ -135,9 +124,7 @@ export default withSearch(({ search }) => {
           false
         )}
       </Combobox>
-      <form
-        style={{ marginTop: 50, paddingTop: 50, borderTop: '1px solid black' }}
-      >
+      <form className={searchPageStyle.searchForm}>
         <h2 className="hed-primary">Search{hitsInfo}</h2>
         <label htmlFor="item">
           Search
