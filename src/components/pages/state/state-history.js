@@ -9,7 +9,7 @@ export default ({ history, screenshots }) => (
     <thead>
       <tr>
         <th scope="col">Date</th>
-        <th scope="col">Screenshot</th>
+        <th scope="col">Screenshots (ET)</th>
         <th scope="col">New Tests</th>
         <th scope="col">Positive</th>
         <th scope="col">Negative</th>

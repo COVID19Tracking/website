@@ -15,7 +15,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
         <th
           scope="col"
         >
-          Screenshot
+          Screenshots (ET)
         </th>
         <th
           scope="col"
