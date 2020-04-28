@@ -44,6 +44,26 @@
   }
 }
 
+.atlantic-banner {
+  margin-top: 1rem;
+  display: flex;
+  color: white;
+  text-transform: uppercase;
+  align-items: center;
+  span,
+  img {
+    display: flex;
+    margin-right: 1rem;
+  }
+  div {
+    display: flex;
+    border: 1px solid white;
+    width: 100%;
+    height: 1px;
+    opacity: 0.2;
+  }
+}
+
 .tools {
   display: none;
   @media (min-width: $viewport-lg) {

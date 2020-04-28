@@ -3,7 +3,8 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import DevelopmentWarning from './development-warning'
 import PartnershipBanner from './partnership-banner'
 import Hero from './hero'
-import ProjectLogo from '../../images/project-logo.svg'
+import projectLogo from '../../images/project-logo.svg'
+import atlanticLogo from '../../images/atlantic-logo.svg'
 import headerStyle from './header.module.scss'
 import searchIcon from '../../images/icons/search.svg'
 
@@ -80,7 +81,7 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
               <div className={headerStyle.siteTitleInner}>
                 <a className={headerStyle.siteTitle} href="/">
                   <img
-                    src={ProjectLogo}
+                    src={projectLogo}
                     alt="The COVID Tracking Project"
                     width="176px"
                   />
@@ -105,6 +106,10 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
                   Get involved
                 </Link>
               </div>
+            </div>
+            <div className={headerStyle.atlanticBanner}>
+              <span>From</span> <img src={atlanticLogo} alt="The Atlantic" />
+              <div />
             </div>
             <div className={headerStyle.titleSubnavContainer}>
               <div className={headerStyle.title}>
