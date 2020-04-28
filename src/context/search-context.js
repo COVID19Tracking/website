@@ -4,6 +4,12 @@ import marked from 'marked'
 import truncate from 'lodash/truncate'
 import { prefixSearchIndex } from '../utilities/algolia'
 
+export const searchResultTypes = {
+  STATE: 'state',
+  PAGE: 'page',
+  BLOG_POST: 'blogPost',
+}
+
 const initialState = {
   query: '',
   results: {
@@ -128,6 +134,30 @@ export function getHighlightResultOrExcerpt(hitType, hit) {
         ? marked(hit._snippetResult.body.value)
         : marked(truncate(hit.body))
     /* eslint-enable no-underscore-dangle */
+  }
+}
+
+/**
+ * Mitigate missing/present first "/" issue in routes.
+ * @param {*} type
+ *  A value in `searchResultTypes` matching this result item.
+ * @param {*} item
+ *  The result item.
+ */
+export function getSanitizedSlug(type, item) {
+  if (!Object.values(searchResultTypes).includes(type)) {
+    throw new Error(`Invalid search result type: ${type}`)
+  }
+  const setTrailingIfMissing = slug => (slug[0] === '/' ? slug : `/${slug}`)
+
+  switch (type) {
+    default:
+      return item.slug || ''
+    case searchResultTypes.STATE:
+    case searchResultTypes.PAGE:
+      return setTrailingIfMissing(item.slug)
+    case searchResultTypes.BLOG_POST:
+      return `/blog${setTrailingIfMissing(item.slug)}`
   }
 }
 

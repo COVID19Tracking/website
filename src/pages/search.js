@@ -16,9 +16,11 @@ import pressListStyle from '../components/common/press-list.module.scss'
 import { PublicationTitle } from '../components/common/publication'
 import DetailText from '../components/common/detail-text'
 import {
+  searchResultTypes,
   useSearch,
   querySearch,
   getHighlightResultOrExcerpt,
+  getSanitizedSlug,
 } from '../context/search-context'
 
 /* disable es-lint */
@@ -175,7 +177,9 @@ export default withSearch(({ search }) => {
             {results.states.hits.map(state => (
               <div key={state.state} className={searchPageStyle.searchResult}>
                 <PublicationTitle>
-                  <Link to={`${state.slug}`}>{state.name}</Link>
+                  <Link to={getSanitizedSlug(searchResultTypes.STATE, state)}>
+                    {state.name}
+                  </Link>
                 </PublicationTitle>
               </div>
             ))}
@@ -189,7 +193,11 @@ export default withSearch(({ search }) => {
             {results.blogPosts.hits.map(post => (
               <div key={post.objectID} className={searchPageStyle.searchResult}>
                 <PublicationTitle>
-                  <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                  <Link
+                    to={getSanitizedSlug(searchResultTypes.BLOG_POST, post)}
+                  >
+                    {post.title}
+                  </Link>
                 </PublicationTitle>
                 <DetailText>
                   {post.author_name}
@@ -210,9 +218,7 @@ export default withSearch(({ search }) => {
                 <PublicationTitle>
                   {/* FIXME this should be handled during indexing 
                   (avoids external Link issues) */}
-                  <Link
-                    to={`${page.slug[0] === '/' ? page.slug : `/${page.slug}`}`}
-                  >
+                  <Link to={getSanitizedSlug(searchResultTypes.PAGE, page)}>
                     {page.title}
                   </Link>
                 </PublicationTitle>
