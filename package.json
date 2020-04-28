@@ -103,6 +103,7 @@
   },
   "scripts": {
     "build": "run-s build:fetch build:gatsby build:data build:data-archive build:test",
+    "build-preview": "run-s setup:api-data build:gatsby build:data build:data-archive build:test",
     "build:fetch": "node build/index.js",
     "build:gatsby": "gatsby build",
     "build:data": "cp -R _data/* public/api/",
