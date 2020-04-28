@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import DevelopmentWarning from './development-warning'
 import PartnershipBanner from './partnership-banner'
+import SearchAutocomplete from './search-autocomplete'
 import Hero from './hero'
 import projectLogo from '../../images/project-logo.svg'
 import atlanticLogo from '../../images/atlantic-logo.svg'
@@ -54,7 +55,7 @@ const HeaderSearch = () => {
   return (
     <div className={headerStyle.searchInput}>
       <img src={searchIcon} alt="" />
-      <input type="text" placeholder="Search" />
+      <SearchAutocomplete />
     </div>
   )
 }

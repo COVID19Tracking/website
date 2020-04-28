@@ -15,17 +15,15 @@
   background: $color-blueberry-200;
   color: $color-blueberry-500;
   padding: 0.5rem;
-  border-radius: 3px;
   text-decoration: none;
   display: inline-block;
 }
 
 .search-input {
   background: $color-plum-400;
+  opacity: 0.8rem;
   display: inline-block;
-  margin-right: 10px;
   padding: 0.5rem;
-  border-radius: 3px;
   color: white;
   img {
     width: 20px;
