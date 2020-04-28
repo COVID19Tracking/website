@@ -87,6 +87,7 @@
     "babel-jest": "^25.3.0",
     "babel-loader": "^8.1.0",
     "babel-preset-gatsby": "^0.3.3",
+    "csv-parser": "^2.3.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint-config-prettier": "^6.10.1",
@@ -102,6 +103,7 @@
   },
   "scripts": {
     "build": "run-s build:fetch build:gatsby build:data build:data-archive build:test",
+    "build-preview": "run-s setup:api-data build:gatsby build:data build:data-archive build:test",
     "build:fetch": "node build/index.js",
     "build:gatsby": "gatsby build",
     "build:data": "cp -R _data/* public/api/",
@@ -122,6 +124,7 @@
     "test:coverage": "jest --coverage --maxWorkers 1",
     "test:lint": "eslint ./src",
     "test:dev": "run-s test:lint test",
+    "test:api-post-build": "jest  --config=\"{}\" --testPathPattern=./build/__tests__/post-build/",
     "setup": "run-s setup:api-data setup:env-vars",
     "setup:api-data": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz",
     "setup:env-vars": "curl -L https://covidtracking.com/__developer/env-vars > .env"
