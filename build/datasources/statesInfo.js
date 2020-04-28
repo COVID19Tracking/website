@@ -6,7 +6,7 @@ const fixStatesInfo = _.map(_.flow(addFips, addName))
 
 const statePages = _.flatMap(value => [
   {
-    path: `states/${value.state}/info`,
+    path: `states/${value.state.toLowerCase()}/info`,
     value,
   },
 ])
