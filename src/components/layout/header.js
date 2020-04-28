@@ -5,6 +5,7 @@ import DevelopmentWarning from './development-warning'
 import Hero from './hero'
 import ProjectLogo from '../../images/project-logo.svg'
 import headerStyle from './header.module.scss'
+import searchIcon from '../../images/icons/search.svg'
 
 const HeaderTabs = ({ navigation }) => (
   <div className={`site-header-tabs ${headerStyle.headerTabs}`}>
@@ -48,6 +49,15 @@ const HeaderNavigation = () => {
   )
 }
 
+const HeaderSearch = () => {
+  return (
+    <div className={headerStyle.searchInput}>
+      <img src={searchIcon} alt="" />
+      <input type="text" placeholder="Search" />
+    </div>
+  )
+}
+
 const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
@@ -86,7 +96,13 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
                   {showMobileMenu ? <>Close</> : <>Menu</>}
                 </button>
               </div>
-              <HeaderNavigation showMobileMenu={showMobileMenu} />
+              <HeaderNavigation />
+              <div className={headerStyle.tools}>
+                <HeaderSearch />
+                <Link to="/help" className={headerStyle.getInvolved}>
+                  Get involved
+                </Link>
+              </div>
             </div>
             <div className={headerStyle.titleSubnavContainer}>
               <div className={headerStyle.title}>
