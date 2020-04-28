@@ -99,7 +99,8 @@
     "jest-junit": "^10.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "set-tz": "^0.2.0"
   },
   "scripts": {
     "build": "run-s build:fetch build:gatsby build:data build:data-archive build:test",
