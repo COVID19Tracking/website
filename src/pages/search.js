@@ -47,9 +47,9 @@ export default withSearch(({ search }) => {
   }, [query])
 
   const totalHits =
-    (results.states.nbHits || 0) +
-    (results.blogPosts.nbHits || 0) +
-    (results.pages.nbHits || 0)
+    (results.state.nbHits || 0) +
+    (results.blogPost.nbHits || 0) +
+    (results.page.nbHits || 0)
   const hitsInfo = query.length
     ? ` : ${query} (${totalHits} result${totalHits === 1 ? '' : 's'})`
     : ''
@@ -63,9 +63,9 @@ export default withSearch(({ search }) => {
 
   const goToResult = selectedItem => {
     const allResults = [
-      ...results.states.hits,
-      ...results.blogPosts.hits,
-      ...results.pages.hits,
+      ...results.state.hits,
+      ...results.blogPost.hits,
+      ...results.page.hits,
     ]
 
     const item = allResults.find(result => {
@@ -108,16 +108,16 @@ export default withSearch(({ search }) => {
           <ComboboxPopover id="search-results-popover">
             {totalHits > 0 ? (
               <ComboboxList aria-label="Results">
-                {results.states.hits.slice(0, 10).map(state => (
+                {results.state.hits.slice(0, 10).map(state => (
                   <ComboboxOption
                     key={`${state.slug}`}
                     value={`${state.name}`}
                   />
                 ))}
-                {results.blogPosts.hits.slice(0, 10).map(post => (
+                {results.blogPost.hits.slice(0, 10).map(post => (
                   <ComboboxOption key={`${post.slug}`} value={post.title} />
                 ))}
-                {results.pages.hits.slice(0, 10).map(page => (
+                {results.page.hits.slice(0, 10).map(page => (
                   <ComboboxOption key={`${page.slug}`} value={page.title} />
                 ))}
               </ComboboxList>
@@ -171,10 +171,10 @@ export default withSearch(({ search }) => {
       )}
       <div className={searchPageStyle.searchResults}>
         {/* State results */}
-        {results.states.nbHits > 0 && !searchState.isFetching && (
+        {results.state.nbHits > 0 && !searchState.isFetching && (
           <div className={searchPageStyle.searchResultsSection}>
-            <h3>States ({results.states.nbHits})</h3>
-            {results.states.hits.map(state => (
+            <h3>States ({results.state.nbHits})</h3>
+            {results.state.hits.map(state => (
               <div key={state.state} className={searchPageStyle.searchResult}>
                 <PublicationTitle>
                   <Link to={getSanitizedSlug(searchResultTypes.STATE, state)}>
@@ -187,10 +187,10 @@ export default withSearch(({ search }) => {
         )}
 
         {/* Blog post results */}
-        {results.blogPosts.nbHits > 0 && !searchState.isFetching && (
+        {results.blogPost.nbHits > 0 && !searchState.isFetching && (
           <div className={searchPageStyle.searchResultsSection}>
-            <h3>Blog Posts ({results.blogPosts.nbHits})</h3>
-            {results.blogPosts.hits.map(post => (
+            <h3>Blog Posts ({results.blogPost.nbHits})</h3>
+            {results.blogPost.hits.map(post => (
               <div key={post.objectID} className={searchPageStyle.searchResult}>
                 <PublicationTitle>
                   <Link
@@ -210,10 +210,10 @@ export default withSearch(({ search }) => {
         )}
 
         {/* Pages results */}
-        {results.pages.nbHits > 0 && !searchState.isFetching && (
+        {results.page.nbHits > 0 && !searchState.isFetching && (
           <div className={searchPageStyle.searchResultsSection}>
-            <h3>Pages ({results.pages.nbHits})</h3>
-            {results.pages.hits.map(page => (
+            <h3>Pages ({results.page.nbHits})</h3>
+            {results.page.hits.map(page => (
               <div key={page.objectID} className={searchPageStyle.searchResult}>
                 <PublicationTitle>
                   {/* FIXME this should be handled during indexing 

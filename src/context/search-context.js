@@ -13,9 +13,9 @@ export const searchResultTypes = {
 const initialState = {
   query: '',
   results: {
-    states: {},
-    blogPosts: {},
-    pages: {},
+    [searchResultTypes.STATE]: {},
+    [searchResultTypes.BLOG_POST]: {},
+    [searchResultTypes.PAGE]: {},
   },
   isFetching: false,
   hasErrors: false,
@@ -27,9 +27,11 @@ const client = algoliasearch(
   process.env.GATSBY_ALGOLIA_SEARCH_KEY,
 )
 
-const stateIndex = client.initIndex(prefixSearchIndex('states'))
-const blogIndex = client.initIndex(prefixSearchIndex('blog_posts'))
-const pageIndex = client.initIndex(prefixSearchIndex('pages'))
+const stateIndex = client.initIndex(prefixSearchIndex(searchResultTypes.STATE))
+const blogIndex = client.initIndex(
+  prefixSearchIndex(searchResultTypes.BLOG_POST),
+)
+const pageIndex = client.initIndex(prefixSearchIndex(searchResultTypes.PAGE))
 
 const SearchStateContext = React.createContext()
 
@@ -110,15 +112,15 @@ async function queryIndex(index, query) {
   }
 }
 
-export async function querySearch(state, dispatch) {
+export async function querySearch(s, dispatch) {
   dispatch({ type: 'fetchStart' })
   try {
-    const [states, blogPosts, pages] = await Promise.all([
-      queryIndex(stateIndex, state.query),
-      queryIndex(blogIndex, state.query),
-      queryIndex(pageIndex, state.query),
+    const [state, blogPost, page] = await Promise.all([
+      queryIndex(stateIndex, s.query),
+      queryIndex(blogIndex, s.query),
+      queryIndex(pageIndex, s.query),
     ])
-    dispatch({ type: 'fetchSuccess', payload: { states, blogPosts, pages } })
+    dispatch({ type: 'fetchSuccess', payload: { state, blogPost, page } })
   } catch (error) {
     dispatch({ type: 'fetchError', error })
   }
