@@ -11,7 +11,7 @@ export default ({ data }) => {
         headline={blogPost.title}
         author={blogPost.author}
         date={blogPost.publishDate}
-        lede={blogPost.lede}
+        lede={blogPost.lede.lede}
       />
       <div
         className="module-content"
@@ -36,7 +36,9 @@ export const query = graphql`
             twitterLink
           }
           slug
-          lede
+          lede {
+            lede
+          }
           publishDate(formatString: "MMMM D, YYYY")
           childContentfulBlogPostBodyTextNode {
             childMarkdownRemark {

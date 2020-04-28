@@ -11,7 +11,7 @@ export default ({ data }) => (
           <Link to={`/blog/${node.slug}`}>{node.title}</Link>
         </h2>
         <Byline author={node.author} date={node.publishDate} />
-        <p className="lede">{node.lede}</p>
+        <p className="lede">{node.lede.lede}</p>
       </Fragment>
     ))}
   </Layout>
@@ -29,7 +29,9 @@ export const query = graphql`
             twitterLink
           }
           publishDate(formatString: "MMMM D, YYYY")
-          lede
+          lede {
+            lede
+          }
         }
       }
     }
