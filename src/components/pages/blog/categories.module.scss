@@ -2,7 +2,7 @@
 
 .categories-container {
   display: flex;
-
+  margin-top: 2rem;
   p {
     text-transform: uppercase;
     font-weight: 600;
@@ -13,5 +13,14 @@
     a {
       text-decoration: none;
     }
+  }
+  p::after {
+    content: "  |  ";
+    white-space: pre;
+    color: $text;
+    font-weight: normal;
+  }
+  p:last-child::after {
+    content: none;
   }
 }
