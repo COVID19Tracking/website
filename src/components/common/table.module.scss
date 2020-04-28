@@ -1,5 +1,9 @@
 @import '../../scss/colors.module.scss';
 
+.align-left {
+  text-align: left;
+}
+
 .table {
   line-height: 1rem;
   border-collapse: collapse;
@@ -25,8 +29,13 @@
   }
 
   td {
+    text-align: right;
     padding: 0.75rem;
     font-size: 16px;
+
+    &.align-left {
+      text-align: left;
+    }
   }
 
   thead {
@@ -36,10 +45,13 @@
       padding: 0 0.5rem 0.5rem;
       vertical-align: bottom;
 
-
       &[scope='col'] {
         text-align: right;
         font-size: 13px;
+      }
+
+      &[scope='col'].align-left {
+        text-align: left;
       }
 
       &[scope='colgroup'] {
@@ -61,10 +73,6 @@
       &:hover {
         background-color: $color-slate-100;
       }
-    }
-
-    td ul {
-      margin: 0;
     }
   }
 }
