@@ -111,6 +111,7 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE,
         accessToken: process.env.CONTENTFUL_TOKEN,
+        environment: 'blog-redesign',
       },
     },
     {
