@@ -71,12 +71,12 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: `/api/v1/states/${node.fips}/*`,
       toPath: `/api/v1/states/${node.state.toLowerCase()}/:splat`,
-      isPermanent: true,
+      statusCode: 301,
     })
     createRedirect({
       fromPath: `/api/v1/states/${node.state}/*`,
       toPath: `/api/v1/states/${node.state.toLowerCase()}/:splat`,
-      isPermanent: true,
+      statusCode: 301,
     })
   })
 
