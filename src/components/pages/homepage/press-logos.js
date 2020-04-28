@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import pressLogoStyles from './press-logos.module.scss'
 
-export default ({ onlyFeatured }) => {
+export default ({ onlyFeatured, extraMargin }) => {
   const data = useStaticQuery(graphql`
     query {
       allHomepagePressYaml {
@@ -19,7 +19,10 @@ export default ({ onlyFeatured }) => {
   `)
 
   return (
-    <div className={`homepage-press-logos ${pressLogoStyles.logos}`}>
+    <div
+      className={`homepage-press-logos ${pressLogoStyles.logos} ${extraMargin &&
+        pressLogoStyles.extraMargin}`}
+    >
       {data.allHomepagePressYaml.edges.map(({ node }) => (
         <React.Fragment key={node.name}>
           {(!onlyFeatured || node.featured) && (
