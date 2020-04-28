@@ -1,0 +1,17 @@
+@import '../../../scss/colors.module.scss';
+
+.categories-container {
+  display: flex;
+
+  p {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 33px;
+    color: $color-plum-600;
+    margin-bottom: 0;
+    a {
+      text-decoration: none;
+    }
+  }
+}

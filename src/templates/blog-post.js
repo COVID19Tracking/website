@@ -2,11 +2,13 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Lede from '../components/pages/blog/blog-lede'
+import Categories from '../components/pages/blog/categories'
 
 export default ({ data }) => {
   const blogPost = data.allContentfulBlogPost.edges[0].node
   return (
     <Layout title="Blog" titleLink="/blog" textHeavy narrow noMargin>
+      <Categories categories={blogPost.categories} />
       <Lede
         headline={blogPost.title}
         author={blogPost.author}
@@ -34,6 +36,10 @@ export const query = graphql`
           author {
             name
             twitterLink
+          }
+          categories {
+            name
+            slug
           }
           slug
           lede {
