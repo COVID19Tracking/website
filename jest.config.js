@@ -1,3 +1,6 @@
+const setTZ = require('set-tz')
+setTZ('America/New_York')
+
 module.exports = {
   transform: {
     '^.+\\.jsx?$': `<rootDir>/jest-preprocess.js`,
