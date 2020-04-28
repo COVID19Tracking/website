@@ -20,6 +20,8 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
     <span
       className="author"
     >
+      By:
+       
       <a
         href="https://twitter.com/test"
       >

@@ -4,9 +4,15 @@ exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
 <div
   className="byline"
 >
+  <img
+    alt="file.png"
+    src="//images.ctfassets.net/arandomfile"
+  />
   <span
     className="author"
   >
+    By:
+     
     <a
       href="https://twitter.com/test"
     >
@@ -28,6 +34,8 @@ exports[`Components : Pages : Blog : Byline renders correctly 2`] = `
   <span
     className="author"
   >
+    By:
+     
     test name
   </span>
   <span

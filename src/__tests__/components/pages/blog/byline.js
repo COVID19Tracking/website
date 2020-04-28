@@ -10,6 +10,14 @@ describe('Components : Pages : Blog : Byline', () => {
           author={{
             name: 'test name',
             twitterLink: 'https://twitter.com/test',
+            headshot: {
+              file: {
+                fileName: 'file.png'
+              },
+              resize: {
+                src: '//images.ctfassets.net/arandomfile'
+              }
+            }
           }}
           date="Aug 1 2020"
         />,
