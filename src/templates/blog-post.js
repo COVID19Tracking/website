@@ -36,6 +36,16 @@ export const query = graphql`
           author {
             name
             twitterLink
+            headshot {
+              file {
+                fileName
+              }
+              resize(width: 100) {
+                width
+                height
+                src
+              }
+            }
           }
           categories {
             name
