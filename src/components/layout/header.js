@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import DevelopmentWarning from './development-warning'
+import PartnershipBanner from './partnership-banner'
 import Hero from './hero'
 import ProjectLogo from '../../images/project-logo.svg'
 import headerStyle from './header.module.scss'
@@ -68,6 +69,7 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
           showMobileMenu ? headerStyle.showMobileMenu : ''
         } ${noMargin ? headerStyle.noMargin : ''}`}
       >
+        <PartnershipBanner />
         <div
           className={`container ${headerStyle.container} ${
             !hasHero ? headerStyle.showBackground : ''
