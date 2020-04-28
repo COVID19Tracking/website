@@ -47,9 +47,9 @@ export default withSearch(({ search }) => {
   }, [query])
 
   const totalHits =
-    (results.state.nbHits || 0) +
-    (results.blogPost.nbHits || 0) +
-    (results.page.nbHits || 0)
+    (results[searchResultTypes.STATE].nbHits || 0) +
+    (results[searchResultTypes.BLOG_POST].nbHits || 0) +
+    (results[searchResultTypes.PAGE].nbHits || 0)
   const hitsInfo = query.length
     ? ` : ${query} (${totalHits} result${totalHits === 1 ? '' : 's'})`
     : ''
@@ -108,16 +108,20 @@ export default withSearch(({ search }) => {
           <ComboboxPopover id="search-results-popover">
             {totalHits > 0 ? (
               <ComboboxList aria-label="Results">
-                {results.state.hits.slice(0, 10).map(state => (
-                  <ComboboxOption
-                    key={`${state.slug}`}
-                    value={`${state.name}`}
-                  />
-                ))}
-                {results.blogPost.hits.slice(0, 10).map(post => (
-                  <ComboboxOption key={`${post.slug}`} value={post.title} />
-                ))}
-                {results.page.hits.slice(0, 10).map(page => (
+                {results[searchResultTypes.STATE].hits
+                  .slice(0, 10)
+                  .map(state => (
+                    <ComboboxOption
+                      key={`${state.slug}`}
+                      value={`${state.name}`}
+                    />
+                  ))}
+                {results[searchResultTypes.BLOG_POST].hits
+                  .slice(0, 10)
+                  .map(post => (
+                    <ComboboxOption key={`${post.slug}`} value={post.title} />
+                  ))}
+                {results[searchResultTypes.PAGE].hits.slice(0, 10).map(page => (
                   <ComboboxOption key={`${page.slug}`} value={page.title} />
                 ))}
               </ComboboxList>
@@ -171,49 +175,56 @@ export default withSearch(({ search }) => {
       )}
       <div className={searchPageStyle.searchResults}>
         {/* State results */}
-        {results.state.nbHits > 0 && !searchState.isFetching && (
-          <div className={searchPageStyle.searchResultsSection}>
-            <h3>States ({results.state.nbHits})</h3>
-            {results.state.hits.map(state => (
-              <div key={state.state} className={searchPageStyle.searchResult}>
-                <PublicationTitle>
-                  <Link to={getSanitizedSlug(searchResultTypes.STATE, state)}>
-                    {state.name}
-                  </Link>
-                </PublicationTitle>
-              </div>
-            ))}
-          </div>
-        )}
+        {results[searchResultTypes.STATE].nbHits > 0 &&
+          !searchState.isFetching && (
+            <div className={searchPageStyle.searchResultsSection}>
+              <h3>States ({results[searchResultTypes.STATE].nbHits})</h3>
+              {results[searchResultTypes.STATE].hits.map(state => (
+                <div key={state.state} className={searchPageStyle.searchResult}>
+                  <PublicationTitle>
+                    <Link to={getSanitizedSlug(searchResultTypes.STATE, state)}>
+                      {state.name}
+                    </Link>
+                  </PublicationTitle>
+                </div>
+              ))}
+            </div>
+          )}
 
         {/* Blog post results */}
-        {results.blogPost.nbHits > 0 && !searchState.isFetching && (
-          <div className={searchPageStyle.searchResultsSection}>
-            <h3>Blog Posts ({results.blogPost.nbHits})</h3>
-            {results.blogPost.hits.map(post => (
-              <div key={post.objectID} className={searchPageStyle.searchResult}>
-                <PublicationTitle>
-                  <Link
-                    to={getSanitizedSlug(searchResultTypes.BLOG_POST, post)}
-                  >
-                    {post.title}
-                  </Link>
-                </PublicationTitle>
-                <DetailText>
-                  {post.author_name}
-                  <span className={pressListStyle.dotSeparator}>•</span>
-                  {post.publishDate}
-                </DetailText>
-              </div>
-            ))}
-          </div>
-        )}
+        {results[searchResultTypes.BLOG_POST].nbHits > 0 &&
+          !searchState.isFetching && (
+            <div className={searchPageStyle.searchResultsSection}>
+              <h3>
+                Blog Posts ({results[searchResultTypes.BLOG_POST].nbHits})
+              </h3>
+              {results[searchResultTypes.BLOG_POST].hits.map(post => (
+                <div
+                  key={post.objectID}
+                  className={searchPageStyle.searchResult}
+                >
+                  <PublicationTitle>
+                    <Link
+                      to={getSanitizedSlug(searchResultTypes.BLOG_POST, post)}
+                    >
+                      {post.title}
+                    </Link>
+                  </PublicationTitle>
+                  <DetailText>
+                    {post.author_name}
+                    <span className={pressListStyle.dotSeparator}>•</span>
+                    {post.publishDate}
+                  </DetailText>
+                </div>
+              ))}
+            </div>
+          )}
 
         {/* Pages results */}
-        {results.page.nbHits > 0 && !searchState.isFetching && (
+        {results[searchResultTypes.PAGE].nbHits > 0 && !searchState.isFetching && (
           <div className={searchPageStyle.searchResultsSection}>
-            <h3>Pages ({results.page.nbHits})</h3>
-            {results.page.hits.map(page => (
+            <h3>Pages ({results[searchResultTypes.PAGE].nbHits})</h3>
+            {results[searchResultTypes.PAGE].hits.map(page => (
               <div key={page.objectID} className={searchPageStyle.searchResult}>
                 <PublicationTitle>
                   {/* FIXME this should be handled during indexing 
