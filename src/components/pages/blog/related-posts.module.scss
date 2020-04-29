@@ -1,0 +1,30 @@
+@import '../../../scss/colors.module.scss';
+
+.container {
+  h2 {
+    margin: 1.5rem 0 1rem;
+  }
+  h3 {
+    font-size: 22px;
+    line-height: 28px;
+    margin: 0;
+  }
+}
+
+.byline {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 2.5;
+  .authors::after {
+    content: "  \2022  ";
+    color: $color-slate-500;
+  }
+  .authors {
+    color: $color-slate-700;
+    font-style: italic;
+  }
+}
+
+p.byline {
+  margin-bottom: 0;
+}
