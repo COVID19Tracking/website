@@ -16,7 +16,6 @@ exports.handler = function(event, context, callback) {
       return response.json()
     })
     .then(data => {
-      console.log(data)
       callback(null, {
         headers: {
           'Access-Control-Allow-Origin': '*',
