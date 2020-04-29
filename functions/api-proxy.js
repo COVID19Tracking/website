@@ -9,6 +9,8 @@ exports.handler = function(event, context, callback) {
       .join('&')}`
   }
 
+  console.log(event)
+
   console.log(`${apiPath}, ${event.headers.origin}`)
 
   fetch(`https://covid.cape.io/${apiPath}`)
