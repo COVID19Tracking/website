@@ -12,36 +12,43 @@
 }
 
 .get-involved {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0.4rem 0.5rem;
   background: $color-blueberry-200;
   color: $color-blueberry-500;
-  padding: 0.5rem;
   text-decoration: none;
-  display: inline-block;
 }
 
 .search-input {
-  background: $color-plum-400;
-  opacity: 0.8rem;
-  display: inline-block;
-  padding: 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 0.75rem;
+
+  background: transparentize($color-plum-400, .2);
   color: white;
   position: relative;
-  [data-reach-combobox] {
-    display: inline-block;
-  }
-  img {
-    width: 20px;
-  }
+
   input {
-    background: $color-plum-400;
+    width: calc(5.6rem - 1.25rem - 1rem);
+    margin-left: .5rem;
+
+    font-weight: 600;
     border: 0;
-    width: 150px;
-    color: white;
-    display: inline-block;
-    margin-left: 1rem;
+    background: transparent;
+    color: #F2F2F2;
+    transition: width .2s;
+
     &::placeholder {
-      color: #fff;
+      color: #F2F2F2;
       opacity: 1;
+    }
+    
+    &:focus {
+      width: calc(9.5rem - 1.25rem - 1rem);
+      outline: solid 1px #F2F2F2;
+      outline-offset: 2px;
     }
   }
 }
@@ -76,6 +83,10 @@
 
 .tools {
   display: none;
+
+  font-weight: 600;
+  font-size: .9rem;
+
   @media (min-width: $viewport-lg) {
     display: block;
   }
