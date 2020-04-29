@@ -3,10 +3,11 @@ import { graphql } from 'gatsby'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
-import Layout from '../components/layout'
-import Lede from '../components/pages/blog/blog-lede'
+import AuthorFooter from '../components/pages/blog/author-footer'
 import Categories from '../components/pages/blog/categories'
 import ImageContentBlock from '../components/pages/blog/image-content-block'
+import Layout from '../components/layout'
+import Lede from '../components/pages/blog/blog-lede'
 import RelatedPosts from '../components/pages/blog/related-posts'
 
 import blogPostStyles from './blog-post.module.scss'
@@ -37,6 +38,8 @@ export default ({ data }) => {
           options,
         )}
       </div>
+      <hr />
+      <AuthorFooter authors={blogPost.authors} />
       <RelatedPosts posts={blogPost.relatedBlogPosts} />
     </Layout>
   )
@@ -51,11 +54,16 @@ export const query = graphql`
           authors {
             name
             twitterLink
+            childContentfulAuthorBiographyTextNode {
+              childMarkdownRemark {
+                html
+              }
+            }
             headshot {
               file {
                 fileName
               }
-              resize(width: 100) {
+              resize(width: 200) {
                 width
                 height
                 src

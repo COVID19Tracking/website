@@ -1,0 +1,17 @@
+.author-footer {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 0 1.5rem;
+  img {
+    width: 85px;
+    height: 85px;
+    flex-shrink: 0;
+  }
+  .text-content {
+    font-size: 16px;
+    line-height: 1.75;
+    font-style: italic;
+    padding-left: .875rem;
+    padding-right: 1.375rem;
+  }
+}
