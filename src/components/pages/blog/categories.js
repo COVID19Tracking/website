@@ -6,7 +6,7 @@ export default ({ categories }) => (
   <div className={categoryStyles.categoriesContainer}>
     {categories.map(category => (
       <p className="blog-lede" key={category.slug}>
-        <Link to={category.slug}>{category.name}</Link>
+        <Link to={`/blog/category/${category.slug}`}>{category.name}</Link>
       </p>
     ))}
   </div>

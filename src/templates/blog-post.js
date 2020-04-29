@@ -7,8 +7,8 @@ import Lede from '../components/pages/blog/blog-lede'
 import Categories from '../components/pages/blog/categories'
 import blogPostStyles from './blog-post.module.scss'
 
-const Bold = ({ children }) => <span className="bold">{children}</span>
-const Text = ({ children }) => <p className="align-center">{children}</p>
+const Bold = ({ children }) => <strong>{children}</strong>
+const Text = ({ children }) => <p>{children}</p>
 
 const options = {
   // todo use this for images, etc.
