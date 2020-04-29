@@ -67,6 +67,10 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/state.js`),
       context: node,
     })
+    createRedirect({
+      fromPath: `/api/states state=${node.state}`,
+      toPath: `/api/v1/states/${node.state.toLowerCase()}/current.json`,
+    })
   })
 
   result.data.allContentfulBlogPost.edges.forEach(({ node }) => {
@@ -75,6 +79,11 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/blog-post.js`),
       context: node,
     })
+  })
+  createRedirect({
+    fromPath: `/api/*`,
+    toPath: 'https://covid.cape.io/:splat',
+    statusCode: 200,
   })
 }
 

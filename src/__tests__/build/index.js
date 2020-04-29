@@ -58,4 +58,12 @@ describe('Website build', () => {
       expect.arrayContaining(arr),
     )
   })
+  it('created API redirects', () => {
+    const exists = fs.pathExistsSync('./public/_redirects')
+    expect(exists).toBe(true)
+
+    const redirects = fs.readFileSync('./public/_redirects')
+
+    expect(redirects.toString().search('api/v1/states/CA/')).toBeGreaterThan(-1)
+  })
 })

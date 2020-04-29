@@ -18,6 +18,7 @@ exports.handler = function(event, context, callback) {
     .then(data => {
       callback(null, {
         headers: {
+          'X-Covid-Tracking-Proxy': 'yes',
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Headers':
             'Origin, X-Requested-With, Content-Type, Accept',

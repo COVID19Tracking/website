@@ -1,6 +1,27 @@
 /api/v1/us.json                               /api/v1/us/current.json
 /api/v1/states.json                           /api/v1/states/current.json
-/api/*                                        https://covid.cape.io/:splat  200
+/api/states.csv                               /api/v1/states/current.csv
+/api/states/current.json                      /api/v1/states/current.json
+/api/urls                                     /api/v1/urls.json
+/api/urls.csv                                 /api/v1/urls.csv
+/api/urls.html                                /api/v1/urls.html
+/api/screenshots                              /api/v1/screenshots.json
+/api/screenshots.csv                          /api/v1/screenshots.csv
+/api/screenshots.html                         /api/v1/screenshots.html
+/api/press                                    /api/v1/press.json
+/api/press.csv                                /api/v1/press.csv
+/api/press.html                               /api/v1/press.html
+/api/counties                                 /api/v1/counties.json
+/api/counties.csv                             /api/v1/counties.csv
+/api/counties.html                            /api/v1/counties.html
+/api/us.csv                                   /api/v1/us/current.csv
+/api/us/daily                                 /api/v1/us/daily.json
+/api/us/daily.csv                             /api/v1/us/daily.csv
+
+/api/graphql                                  /404
+/api/states*                                  /.netlify/functions/api-proxy/states:splat
+/api/us*                                      /.netlify/functions/api-proxy/us:splat
+
 /charts/dash                                  http://35.212.27.3:8050/
 /graphql                                      /api/graphql
 /graphql/                                     /api/graphql
