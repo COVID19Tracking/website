@@ -1,24 +1,24 @@
 import React from 'react'
-import { Table } from '../../components/common/table'
+import { Th, Td, Table } from '../../components/common/table'
 
 const ExampleTable = () => (
   <>
     <thead>
       <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Screenshot</th>
-        <th scope="col">Positive</th>
-        <th scope="col">Negative</th>
-        <th scope="col">Pending</th>
-        <th scope="col">Hospitalized</th>
-        <th scope="col">Deaths</th>
-        <th scope="col">Total</th>
+        <Th scope="col">Date</Th>
+        <Th scope="col">Screenshot</Th>
+        <Th scope="col">Positive</Th>
+        <Th scope="col">Negative</Th>
+        <Th scope="col">Pending</Th>
+        <Th scope="col">Hospitalized</Th>
+        <Th scope="col">Deaths</Th>
+        <Th scope="col">Total</Th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>23 Mar 2020 Mon</td>
-        <td>
+        <Td>23 Mar 2020 Mon</Td>
+        <Td>
           <a
             className="screenshot-link"
             href="https://covidtracking.com/screenshots/AL/AL-20200323-010033.png"
@@ -39,17 +39,17 @@ const ExampleTable = () => (
           >
             7:00 PM
           </a>
-        </td>
-        <td>167</td>
-        <td>1,665</td>
-        <td>N/A</td>
-        <td>N/A</td>
-        <td>0</td>
-        <td>1,832</td>
+        </Td>
+        <Td>167</Td>
+        <Td>1,665</Td>
+        <Td>N/A</Td>
+        <Td>N/A</Td>
+        <Td>0</Td>
+        <Td>1,832</Td>
       </tr>
       <tr>
-        <td>22 Mar 2020 Sun</td>
-        <td>
+        <Td>22 Mar 2020 Sun</Td>
+        <Td>
           <a
             className="screenshot-link"
             href="https://covidtracking.com/screenshots/AL/AL-20200322-010035.png"
@@ -70,13 +70,13 @@ const ExampleTable = () => (
           >
             7:00 PM
           </a>
-        </td>
-        <td>138</td>
-        <td>1,464</td>
-        <td>N/A</td>
-        <td>N/A</td>
-        <td>0</td>
-        <td>1,602</td>
+        </Td>
+        <Td>138</Td>
+        <Td>1,464</Td>
+        <Td>N/A</Td>
+        <Td>N/A</Td>
+        <Td>0</Td>
+        <Td>1,602</Td>
       </tr>
     </tbody>
   </>
