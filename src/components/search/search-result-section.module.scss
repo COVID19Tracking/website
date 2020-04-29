@@ -1,0 +1,10 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+.section {
+  &:not(:last-of-type) {
+    padding-bottom: 1em;
+    margin-bottom: .5em;
+    border-bottom: 1px solid $color-plum-400;
+  }
+}

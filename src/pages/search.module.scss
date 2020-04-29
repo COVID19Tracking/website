@@ -15,11 +15,3 @@
     text-decoration: underline;
   }
 }
-
-.searchResultsSection {
-  &:not(:last-of-type) {
-    padding-bottom: 1em;
-    margin-bottom: .5em;
-    border-bottom: 1px solid $color-plum-400;
-  }
-}

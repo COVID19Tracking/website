@@ -5,7 +5,8 @@ import Layout from '~components/layout'
 import withSearch from '~components/utils/with-search'
 import searchPageStyle from './search.module.scss'
 import pressListStyle from '~components/common/press-list.module.scss'
-import SearchResult from '~components/search/search-result'
+import SearchLoader from '~components/search/search-loader'
+import SearchResultSection from '~components/search/search-result-section'
 import {
   searchResultTypes as types,
   useSearch,
@@ -40,6 +41,7 @@ export default withSearch(({ search }) => {
     (results[types.STATE].nbHits || 0) +
     (results[types.BLOG_POST].nbHits || 0) +
     (results[types.PAGE].nbHits || 0)
+
   const hitsInfo = query.length
     ? ` : ${query} (${totalHits} result${totalHits === 1 ? '' : 's'})`
     : ''
@@ -48,92 +50,64 @@ export default withSearch(({ search }) => {
     <Layout title="Search">
       <form className={searchPageStyle.searchForm}>
         <h2 className="hed-primary">Search{hitsInfo}</h2>
-        <label htmlFor="item">
-          Search
-          <input
-            type="text"
-            aria-label="Search"
-            id="item"
-            onChange={event => {
-              clearTimeout(searchEvent)
-              const { value } = event.currentTarget
-              searchEvent = setTimeout(() => {
-                setQuery(value)
-              }, 500)
-            }}
-          />
-        </label>
-        <button
-          type="submit"
-          onClick={async event => {
-            event.preventDefault()
-            await querySearch(searchState, searchDispatch)
+        <input
+          type="text"
+          aria-label="Search"
+          placeholder="Search..."
+          id="item"
+          defaultValue={query || ''}
+          onChange={event => {
+            clearTimeout(searchEvent)
+            const { value } = event.currentTarget
+            searchEvent = setTimeout(() => {
+              setQuery(value)
+            }, 500)
           }}
-        >
-          Search
-        </button>
+        />
       </form>
-      {searchState.isFetching && (
-        <div>
-          <img
-            src="https://d1j8pt39hxlh3d.cloudfront.net/products/previews/RES3POBSZ353HFVPZOKR/2329_kKbUTLGEVXhuOIJqrT7QvIJFAXvEpQ3z.gif"
-            alt="Searching..."
-          />
-          <h3>Searching...</h3>
-        </div>
-      )}
+      {searchState.isFetching && <SearchLoader />}
+
       <div className={searchPageStyle.searchResults}>
         {/* State results */}
-        {results[types.STATE].nbHits > 0 && !searchState.isFetching && (
-          <div className={searchPageStyle.searchResultsSection}>
-            <h3>States ({results[types.STATE].nbHits})</h3>
-            {results[types.STATE].hits.map(state => (
-              <SearchResult
-                key={state.state}
-                title={state.name}
-                url={getSanitizedSlug(types.STATE, state)}
-              />
-            ))}
-          </div>
-        )}
+        <SearchResultSection
+          results={results[types.STATE]}
+          title="States"
+          itemKey={state => state.state}
+          itemTitle={state => state.name}
+          itemUrl={state => getSanitizedSlug(types.STATE, state)}
+        />
 
         {/* Blog post results */}
-        {results[types.BLOG_POST].nbHits > 0 && !searchState.isFetching && (
-          <div className={searchPageStyle.searchResultsSection}>
-            <h3>Blog Posts ({results[types.BLOG_POST].nbHits})</h3>
-            {results[types.BLOG_POST].hits.map(post => (
-              <SearchResult
-                key={post.objectID}
-                title={post.title}
-                url={getSanitizedSlug(types.BLOG_POST, post)}
-              >
-                {post.author_name}
-                <span className={pressListStyle.dotSeparator}>•</span>
-                {post.publishDate}
-              </SearchResult>
-            ))}
-          </div>
-        )}
+        <SearchResultSection
+          results={results[types.BLOG_POST]}
+          title="Blog Posts"
+          itemKey={post => post.objectID}
+          itemTitle={post => post.title}
+          itemUrl={post => getSanitizedSlug(types.BLOG_POST, post)}
+          itemContent={post => (
+            <>
+              {post.author_name}
+              <span className={pressListStyle.dotSeparator}>•</span>
+              {post.publishDate}
+            </>
+          )}
+        />
 
         {/* Pages results */}
-        {results[types.PAGE].nbHits > 0 && !searchState.isFetching && (
-          <div className={searchPageStyle.searchResultsSection}>
-            <h3>Pages ({results[types.PAGE].nbHits})</h3>
-            {results[types.PAGE].hits.map(page => (
-              <SearchResult
-                key={page.objectID}
-                url={getSanitizedSlug(types.PAGE, page)}
-                title={page.title}
-              >
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: getHighlightResultOrExcerpt('page', page),
-                  }}
-                />
-              </SearchResult>
-            ))}
-          </div>
-        )}
+        <SearchResultSection
+          results={results[types.PAGE]}
+          title="Pages"
+          itemKey={page => page.objectID}
+          itemTitle={page => page.title}
+          itemUrl={page => getSanitizedSlug(types.PAGE, page)}
+          itemContent={page => (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: getHighlightResultOrExcerpt('page', page),
+              }}
+            />
+          )}
+        />
       </div>
     </Layout>
   )
