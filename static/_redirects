@@ -20,8 +20,6 @@
 /api/v1/states                                /api/v1/states/current.json
 
 /api/graphql                                  /404
-/api/states*                                  /.netlify/functions/api-proxy/states:splat 200
-/api/us*                                      /.netlify/functions/api-proxy/us:splat 200
 
 /charts/dash                                  http://35.212.27.3:8050/
 /graphql                                      /api/graphql

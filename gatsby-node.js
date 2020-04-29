@@ -75,7 +75,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     createRedirect({
-      fromPath: `/api/states.csv state=${node.state}`,
+      fromPath: `/api/states/daily.csv state=${node.state}`,
       toPath: `/api/v1/states/${node.state.toLowerCase()}/current.csv`,
       isPermanent: true,
     })
@@ -87,6 +87,18 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/blog-post.js`),
       context: node,
     })
+  })
+
+  createRedirect({
+    fromPath: `/api/states* `,
+    toPath: `/.netlify/functions/api-proxy/states:splat`,
+    isPermanent: true,
+  })
+
+  createRedirect({
+    fromPath: `/api/us* `,
+    toPath: `/.netlify/functions/api-proxy/us:splat`,
+    isPermanent: true,
   })
 }
 
