@@ -15,15 +15,31 @@ exports[`Components : Pages : Blog : List renders correctly 1`] = `
       </a>
     </cite>
     <div
-      className="detail-text detailText"
+      className="byline"
     >
-      test name
       <span
-        className="dotSeparator"
+        className="author"
       >
-        •
+        By:
+         
+        <a
+          className="authorInner"
+          href="https://twitter.com/test"
+        >
+          test name
+        </a>
+         & 
+        <span
+          className="authorInner"
+        >
+          another test
+        </span>
       </span>
-      August 1, 20202
+      <span
+        className="date"
+      >
+        August 1, 20202
+      </span>
     </div>
   </li>
 </ul>

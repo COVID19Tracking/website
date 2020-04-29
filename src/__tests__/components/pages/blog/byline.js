@@ -7,7 +7,7 @@ describe('Components : Pages : Blog : Byline', () => {
     const tree = renderer
       .create(
         <Byline
-          author={{
+          authors={[{
             name: 'test name',
             twitterLink: 'https://twitter.com/test',
             headshot: {
@@ -18,7 +18,7 @@ describe('Components : Pages : Blog : Byline', () => {
                 src: '//images.ctfassets.net/arandomfile'
               }
             }
-          }}
+          }]}
           date="Aug 1 2020"
         />,
       )
@@ -28,9 +28,9 @@ describe('Components : Pages : Blog : Byline', () => {
     const treeNoLink = renderer
       .create(
         <Byline
-          author={{
+          authors={[{
             name: 'test name',
-          }}
+          }]}
           date="Aug 1 2020"
         />,
       )

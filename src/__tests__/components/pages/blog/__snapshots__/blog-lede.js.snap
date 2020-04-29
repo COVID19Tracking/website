@@ -23,6 +23,7 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
       By:
        
       <a
+        className="authorInner"
         href="https://twitter.com/test"
       >
         test name
