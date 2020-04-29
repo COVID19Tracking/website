@@ -9,9 +9,9 @@ exports.handler = function(event, context, callback) {
       .join('&')}`
   }
 
-  console.log(event)
-
-  console.log(`${apiPath}, ${event.headers.origin}`)
+  console.log(
+    `${apiPath}, ${event.headers.origin}, ${event.headers['x-forwarded-for']}`,
+  )
 
   fetch(`https://covid.cape.io/${apiPath}`)
     .then(response => {
