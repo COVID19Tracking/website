@@ -25,6 +25,7 @@
   display: inline-block;
   padding: 0.5rem;
   color: white;
+  position: relative;
   [data-reach-combobox] {
     display: inline-block;
   }
@@ -35,7 +36,7 @@
     background: $color-plum-400;
     border: 0;
     width: 150px;
-
+    color: white;
     display: inline-block;
     margin-left: 1rem;
     &::placeholder {
