@@ -13,7 +13,7 @@ exports.handler = function(event, context, callback) {
 
   fetch(`https://covid.cape.io/${apiPath}`)
     .then(response => {
-      return response.json()
+      return response.text()
     })
     .then(data => {
       callback(null, {
@@ -23,7 +23,7 @@ exports.handler = function(event, context, callback) {
             'Origin, X-Requested-With, Content-Type, Accept',
         },
         statusCode: 200,
-        body: JSON.stringify(data),
+        body: data,
       })
     })
 }
