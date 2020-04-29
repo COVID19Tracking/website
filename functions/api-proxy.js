@@ -2,7 +2,7 @@ const fetch = require('node-fetch')
 
 exports.handler = function(event, context, callback) {
   const { path, queryStringParameters } = event
-  let apiPath = path.replace('/.netlify/functions/api-proxy', '')
+  let apiPath = path.replace('/api/', '')
   if (queryStringParameters) {
     apiPath += `?${Object.keys(queryStringParameters)
       .map(key => key + '=' + queryStringParameters[key])
@@ -11,7 +11,7 @@ exports.handler = function(event, context, callback) {
 
   console.log(`${apiPath}, ${event.headers.origin}`)
 
-  fetch(`https://covid.cape.io/${apiPath}`)
+  fetch(`https://covid.cape.io${apiPath}`)
     .then(response => {
       return response.json()
     })
