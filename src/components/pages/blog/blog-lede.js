@@ -1,5 +1,5 @@
 import React from 'react'
-import Byline from './byline'
+import { Byline } from './byline'
 import blogLedeStyles from './blog-lede.module.scss'
 
 export default ({ headline, authors, date, lede }) => (

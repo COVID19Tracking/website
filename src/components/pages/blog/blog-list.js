@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import pressListStyle from '../../common/press-list.module.scss'
 import { PublicationTitle } from '../../common/publication'
-import Byline from './byline'
+import { Byline } from './byline'
 
 export default ({ items }) => {
   return (

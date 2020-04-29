@@ -20,17 +20,16 @@ exports[`Components : Pages : Blog : List renders correctly 1`] = `
       <span
         className="author"
       >
-        By:
-         
+        By: 
         <a
-          className="authorInner"
+          className="author-inner"
           href="https://twitter.com/test"
         >
           test name
         </a>
          & 
         <span
-          className="authorInner"
+          className="author-inner"
         >
           another test
         </span>

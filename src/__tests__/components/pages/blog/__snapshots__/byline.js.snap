@@ -11,10 +11,9 @@ exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
   <span
     className="author"
   >
-    By:
-     
+    By: 
     <a
-      className="authorInner"
+      className="author-inner"
       href="https://twitter.com/test"
     >
       test name
@@ -35,10 +34,9 @@ exports[`Components : Pages : Blog : Byline renders correctly 2`] = `
   <span
     className="author"
   >
-    By:
-     
+    By: 
     <span
-      className="authorInner"
+      className="author-inner"
     >
       test name
     </span>

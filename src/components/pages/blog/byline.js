@@ -4,11 +4,11 @@ import bylineStyles from './byline.module.scss'
 const Author = ({ author }) => (
   <>
     {author.twitterLink ? (
-      <a className={bylineStyles.authorInner} href={author.twitterLink}>
+      <a className="author-inner" href={author.twitterLink}>
         {author.name}
       </a>
     ) : (
-      <span className={bylineStyles.authorInner}>{author.name}</span>
+      <span className="author-inner">{author.name}</span>
     )}
   </>
 )
@@ -26,7 +26,18 @@ const AuthorSpacer = ({ index, length }) => {
   return <>, </>
 }
 
-export default ({ authors, date }) => (
+const AuthorsText = ({ authors }) => (
+  <>
+    {authors.map((author, index) => (
+      <>
+        <Author author={author} />
+        <AuthorSpacer index={index} length={authors.length} />
+      </>
+    ))}
+  </>
+)
+
+const Byline = ({ authors, date }) => (
   <div className={bylineStyles.byline}>
     {authors
       .filter(author => author.headshot)
@@ -37,14 +48,10 @@ export default ({ authors, date }) => (
         />
       ))}
     <span className={bylineStyles.author}>
-      By:{' '}
-      {authors.map((author, index) => (
-        <>
-          <Author author={author} />
-          <AuthorSpacer index={index} length={authors.length} />
-        </>
-      ))}
+      By: <AuthorsText authors={authors} />
     </span>
     <span className={bylineStyles.date}>{date}</span>
   </div>
 )
+
+export { Byline, AuthorsText }

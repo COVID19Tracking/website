@@ -2,10 +2,13 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+
 import Layout from '../components/layout'
 import Lede from '../components/pages/blog/blog-lede'
 import Categories from '../components/pages/blog/categories'
 import ImageContentBlock from '../components/pages/blog/image-content-block'
+import RelatedPosts from '../components/pages/blog/related-posts'
+
 import blogPostStyles from './blog-post.module.scss'
 
 const options = {
@@ -34,6 +37,7 @@ export default ({ data }) => {
           options,
         )}
       </div>
+      <RelatedPosts posts={blogPost.relatedBlogPosts} />
     </Layout>
   )
 }
@@ -74,6 +78,14 @@ export const query = graphql`
             childMarkdownRemark {
               html
             }
+          }
+          relatedBlogPosts {
+            authors {
+              name
+            }
+            title
+            slug
+            publishDate(formatString: "MMMM D, YYYY")
           }
         }
       }

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
-import Byline from './byline'
+import { Byline } from './byline'
 
 export default ({ items }) => (
   <>
