@@ -2,8 +2,12 @@ import React from 'react'
 import DetailText from './detail-text'
 import tableStyle from './table.module.scss'
 
-const Th = ({ children, alignLeft }) => (
-  <th scope="col" className={alignLeft ? tableStyle.alignLeft : ''}>
+const Th = ({ children, alignLeft, scope, colSpan }) => (
+  <th
+    scope={scope}
+    colSpan={colSpan}
+    className={alignLeft ? tableStyle.alignLeft : ''}
+  >
     {children}
   </th>
 )

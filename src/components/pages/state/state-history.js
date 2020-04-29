@@ -8,15 +8,19 @@ export default ({ history, screenshots }) => (
   <Table>
     <thead>
       <tr>
-        <Th alignLeft>Date</Th>
-        <Th alignLeft>Screenshot</Th>
-        <Th>New Tests</Th>
-        <Th>Positive</Th>
-        <Th>Negative</Th>
-        <Th>Pending</Th>
-        <Th>Hospitalized</Th>
-        <Th>Deaths</Th>
-        <Th>Total</Th>
+        <Th scope="col" alignLeft>
+          Date
+        </Th>
+        <Th scope="col" alignLeft>
+          Screenshot
+        </Th>
+        <Th scope="col">New Tests</Th>
+        <Th scope="col">Positive</Th>
+        <Th scope="col">Negative</Th>
+        <Th scope="col">Pending</Th>
+        <Th scope="col">Hospitalized</Th>
+        <Th scope="col">Deaths</Th>
+        <Th scope="col">Total</Th>
       </tr>
     </thead>
     <tbody className={`state-history-table ${stateHistoryStyle.history}`}>

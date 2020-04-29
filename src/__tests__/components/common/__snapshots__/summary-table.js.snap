@@ -18,143 +18,190 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
       span="2"
     />
     <colgroup
-      span="3"
+      span="2"
+    />
+    <colgroup
+      span="1"
     />
     <thead>
       <tr>
         <th
+          className=""
           colSpan="3"
           scope="colgroup"
         >
           Tests
         </th>
         <th
+          className=""
           colSpan="2"
           scope="colgroup"
         >
           Hospitalized
         </th>
         <th
+          className=""
           colSpan="2"
           scope="colgroup"
         >
           In ICU
         </th>
         <th
+          className=""
           colSpan="2"
           scope="colgroup"
         >
           On Ventilator
         </th>
-        <td
-          colSpan="3"
+        <th
+          className=""
+          colSpan="2"
+          scope="colgroup"
         >
-           
-        </td>
-         
+          Outcomes
+        </th>
+        <th
+          className=""
+          scope="colgroup"
+        >
+          Total Test Results
+        </th>
       </tr>
       <tr>
         <th
+          className="alignLeft"
           scope="col"
         >
           Positive
         </th>
         <th
+          className=""
           scope="col"
         >
           Negative
         </th>
         <th
+          className=""
           scope="col"
         >
           Pending
         </th>
         <th
+          className="alignLeft"
           scope="col"
         >
           Currently
         </th>
         <th
+          className=""
           scope="col"
         >
           Cumulative
         </th>
         <th
+          className="alignLeft"
           scope="col"
         >
           Currently
         </th>
         <th
+          className=""
           scope="col"
         >
           Cumulative
         </th>
         <th
+          className="alignLeft"
           scope="col"
         >
           Currently
         </th>
         <th
+          className=""
           scope="col"
         >
           Cumulative
         </th>
         <th
+          className="alignLeft"
           scope="col"
         >
           Recovered
         </th>
         <th
+          className=""
           scope="col"
         >
           Deaths
         </th>
         <th
+          className="alignLeft"
           scope="col"
         >
-          Total test results 
-          <span>
-            (Positive + Negative)
-          </span>
+          Positive + Negative
         </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>
+        <td
+          className=""
+        >
           4,572
         </td>
-        <td>
+        <td
+          className=""
+        >
           33,318
         </td>
-        <td>
+        <td
+          className=""
+        >
           N/A
         </td>
-        <td>
+        <td
+          className=""
+        >
           N/A
         </td>
-        <td>
+        <td
+          className=""
+        >
           594
         </td>
-        <td>
+        <td
+          className=""
+        >
           N/A
         </td>
-        <td>
+        <td
+          className=""
+        >
           247
         </td>
-        <td>
+        <td
+          className=""
+        >
           N/A
         </td>
-        <td>
+        <td
+          className=""
+        >
           148
         </td>
-        <td>
+        <td
+          className=""
+        >
           N/A
         </td>
-        <td>
+        <td
+          className=""
+        >
           151
         </td>
-        <td>
+        <td
+          className=""
+        >
           37,890
         </td>
       </tr>
@@ -182,63 +229,76 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
     <thead>
       <tr>
         <th
+          className=""
           colSpan="3"
           scope="colgroup"
         >
           Tests
         </th>
         <td
-          colSpan="2"
+          className=""
         >
            
         </td>
       </tr>
       <tr>
         <th
+          className=""
           scope="col"
         >
           Positive
         </th>
         <th
+          className=""
           scope="col"
         >
           Negative
         </th>
         <th
+          className=""
           scope="col"
         >
           Pending
         </th>
         <th
+          className=""
           scope="col"
         >
           Deaths
         </th>
         <th
+          className=""
           scope="col"
         >
-          Total test results 
-          <span>
-            (Positive + Negative)
-          </span>
+          Positive + Negative
         </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>
+        <td
+          className=""
+        >
           4,572
         </td>
-        <td>
+        <td
+          className=""
+        >
           33,318
         </td>
-        <td>
+        <td
+          className=""
+        >
           N/A
         </td>
-        <td>
+        <td
+          className=""
+        >
           151
         </td>
-        <td>
+        <td
+          className=""
+        >
           37,890
         </td>
       </tr>
