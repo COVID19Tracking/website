@@ -1,22 +1,19 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { BLOCKS, MARKS } from '@contentful/rich-text-types'
+import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Layout from '../components/layout'
 import Lede from '../components/pages/blog/blog-lede'
 import Categories from '../components/pages/blog/categories'
+import ImageContentBlock from '../components/pages/blog/image-content-block'
 import blogPostStyles from './blog-post.module.scss'
 
-const Bold = ({ children }) => <strong>{children}</strong>
-const Text = ({ children }) => <p>{children}</p>
-
 const options = {
-  // todo use this for images, etc.
-  renderMark: {
-    [MARKS.BOLD]: text => <Bold>{text}</Bold>,
-  },
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+    [BLOCKS.EMBEDDED_ENTRY]: node => {
+      const { image, caption } = node.data.target.fields
+      return <ImageContentBlock image={image} caption={caption} />
+    },
   },
 }
 
