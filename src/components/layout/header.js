@@ -61,6 +61,18 @@ const HeaderSearch = () => {
   )
 }
 
+const MobileMenu = () => (
+  <div className={headerStyle.mobileMenu}>
+    <HeaderSearch />
+
+    <HeaderNavigation />
+    <Link to="/help" className={headerStyle.getInvolved}>
+      Get involved
+    </Link>
+    <div className={headerStyle.mobilePointer} />
+  </div>
+)
+
 const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
@@ -77,6 +89,7 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
             !hasHero ? headerStyle.showBackground : ''
           } `}
         >
+          {showMobileMenu && <MobileMenu />}
           {!showMobileMenu && <PartnershipBanner />}
           <Container>
             <div className={headerStyle.siteTitleContainer}>

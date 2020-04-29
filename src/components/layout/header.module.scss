@@ -86,16 +86,29 @@
   &.no-margin {
     margin-bottom: 0;
   }
-  &.show-mobile-menu {
-    .container {
-      nav,
-      .tools {
-        display: block;
-        width: 100%;
-        @media (min-width: $viewport-lg) {
-          display: block;
-        }
+
+  .mobile-menu {
+    background: $color-plum-800;
+    padding: 1rem;
+    position: relative;
+    .mobile-pointer {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      right: 35px;
+      bottom: -15px;
+
+      background: $color-plum-800;
+      transform: rotate(-45deg);
+    }
+    nav {
+      display: block;
+      li {
+        margin-bottom: 1.5rem;
       }
+    }
+    .search-input {
+      width: 100%;
     }
   }
 
@@ -104,146 +117,147 @@
       background-image: url(../../images/hero-bg.svg);
       background-size: auto 300%;
     }
-    .mobile-toggle {
-      background: transparent;
-      border: none;
-      font-weight: bold;
-      margin-top: 1.5rem;
-      color: white;
-      cursor: pointer;
-      @media (min-width: $viewport-lg) {
-        display: none;
-      }
-    }
+  }
 
-    img {
-      margin-bottom: 0;
-    }
-
-    .page-title {
-      margin: 35px 0 17.5px;
-      font-size: 2.2rem;
-      color: white;
-      a {
-        color: white;
-        text-decoration: none;
-        &:hover,
-        &:focus {
-          text-decoration: underline;
-        }
-      }
-
-      @media (max-width: $viewport-md) {
-        margin: 17.5px 0 17.5px;
-        font-size: 1.56rem;
-      }
-    }
-
-    .nav-container {
-      display: flex;
-      float: right;
-      padding-top: 1rem;
-      @media (min-width: $viewport-lg) {
-        float: none;
-        padding-top: 0;
-      }
-    }
-
-    nav {
+  .mobile-toggle {
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    color: white;
+    cursor: pointer;
+    @media (min-width: $viewport-lg) {
       display: none;
-      margin-top: 1rem;
-      align-self: center;
-      break-before: always;
-      padding-bottom: 0.5rem;
-      @media (min-width: $viewport-lg) {
-        display: block;
-        margin-top: 1.5rem;
-      }
+    }
+  }
 
-      a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-      }
-      ul {
-        padding-left: 0;
-        margin: 0;
-        line-height: 1;
-        list-style-type: none;
+  img {
+    margin-bottom: 0;
+  }
 
-        li {
-          margin-bottom: 0.5625rem;
-          @media (min-width: $viewport-lg) {
-            display: inline-block;
-            padding-right: 30px;
-            margin-bottom: 0;
-            line-height: 1;
-          }
-        }
-        a {
-          padding-bottom: 2px;
-        }
-        a:hover,
-        a:focus {
-          color: $color-blueberry-100;
-        }
-        a:hover,
-        a[aria-current] {
-          border-bottom: 3px solid $color-blueberry-200;
-        }
-        a[aria-current] {
-          color: white;
-        }
-
-        li:last-child {
-          padding-right: 0;
-        }
+  .page-title {
+    margin: 35px 0 17.5px;
+    font-size: 2.2rem;
+    color: white;
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover,
+      &:focus {
+        text-decoration: underline;
       }
     }
 
-    .site-title-container {
-      display: flex;
-      flex-wrap: wrap;
+    @media (max-width: $viewport-md) {
+      margin: 17.5px 0 17.5px;
+      font-size: 1.56rem;
+    }
+  }
+
+  .nav-container {
+    display: flex;
+    float: right;
+    padding-top: 1rem;
+    @media (min-width: $viewport-lg) {
+      float: none;
+      padding-top: 0;
+    }
+  }
+
+  nav {
+    display: none;
+    margin-top: 1rem;
+    align-self: center;
+    break-before: always;
+    padding-bottom: 0.5rem;
+    @media (min-width: $viewport-lg) {
+      display: block;
+      margin-top: 1.5rem;
     }
 
-    .site-title-inner {
-      width: 40%;
-      display: flex;
-      padding-top: 1.5rem;
-      @media (min-width: $viewport-md) {
-        width: 20%;
-      }
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
     }
+    ul {
+      padding-left: 0;
+      margin: 0;
+      line-height: 1;
+      list-style-type: none;
 
-    .title-subnav-container {
-      display: flex;
-      flex-wrap: wrap;
-      @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
-        flex-direction: column;
-      }
-
-      @media (max-width: $viewport-sm) {
-        flex-direction: column;
-      }
-
-      @media (max-width: $viewport-ms) {
-        margin-top: 0;
-        padding-bottom: 17.5px;
-      }
-
-      @media (max-width: $viewport-lg) {
-        .title {
-          width: 100%;
-        }
-      }
-
-      .tab-container {
-        display: flex;
-
+      li {
+        margin-bottom: 0.5625rem;
         @media (min-width: $viewport-lg) {
-          width: auto;
-          margin-left: auto;
+          display: inline-block;
+          padding-right: 30px;
+          margin-bottom: 0;
+          line-height: 1;
         }
+      }
+      a {
+        padding-bottom: 2px;
+      }
+      a:hover,
+      a:focus {
+        color: $color-blueberry-100;
+      }
+      a:hover,
+      a[aria-current] {
+        border-bottom: 3px solid $color-blueberry-200;
+      }
+      a[aria-current] {
+        color: white;
+      }
+
+      li:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .site-title-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .site-title-inner {
+    width: 40%;
+    display: flex;
+    padding-top: 1.5rem;
+    @media (min-width: $viewport-md) {
+      width: 20%;
+    }
+  }
+
+  .title-subnav-container {
+    display: flex;
+    flex-wrap: wrap;
+    @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
+      flex-direction: column;
+    }
+
+    @media (max-width: $viewport-sm) {
+      flex-direction: column;
+    }
+
+    @media (max-width: $viewport-ms) {
+      margin-top: 0;
+      padding-bottom: 17.5px;
+    }
+
+    @media (max-width: $viewport-lg) {
+      .title {
+        width: 100%;
+      }
+    }
+
+    .tab-container {
+      display: flex;
+
+      @media (min-width: $viewport-lg) {
+        width: auto;
+        margin-left: auto;
       }
     }
 
