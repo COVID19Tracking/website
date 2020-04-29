@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import bylineStyles from './byline.module.scss'
 
 const Author = ({ author }) => (
@@ -29,10 +29,10 @@ const AuthorSpacer = ({ index, length }) => {
 const AuthorsText = ({ authors }) => (
   <>
     {authors.map((author, index) => (
-      <>
+      <Fragment key={`author-${author.name}`}>
         <Author author={author} />
         <AuthorSpacer index={index} length={authors.length} />
-      </>
+      </Fragment>
     ))}
   </>
 )
