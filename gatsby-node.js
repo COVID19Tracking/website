@@ -90,14 +90,19 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   createRedirect({
-    fromPath: `/api/states* `,
+    fromPath: `/api/states*`,
     toPath: `/.netlify/functions/api-proxy/states:splat`,
     isPermanent: true,
   })
 
   createRedirect({
-    fromPath: `/api/us* `,
+    fromPath: `/api/us*`,
     toPath: `/.netlify/functions/api-proxy/us:splat`,
+    isPermanent: true,
+  })
+  createRedirect({
+    fromPath: `/api/states`,
+    toPath: `/api/v1/states/current.json`,
     isPermanent: true,
   })
 }
