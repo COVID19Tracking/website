@@ -1,0 +1,19 @@
+@import '../../scss/colors.module.scss';
+
+.popover {
+  background: $color-plum-400;
+  border: none;
+  font-size: 1rem;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  font-weight: normal;
+  [data-suggested-value] {
+    font-weight: normal;
+  }
+  li {
+    &:hover {
+      background: $color-plum-500;
+    }
+  }
+}

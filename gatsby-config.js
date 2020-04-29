@@ -137,6 +137,7 @@ const gatsbyConfig = {
 
 // Conditionally add Algolia plugin.
 if (
+  typeof process.env.GATSBY_ALGOLIA_INDEX_PREFIX !== 'undefined' &&
   typeof process.env.ALGOLIA_ADMIN_KEY !== 'undefined' &&
   (process.env.BRANCH === 'master' || process.env.CIRCLECI)
 ) {
