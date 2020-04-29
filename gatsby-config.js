@@ -1,7 +1,14 @@
+require(`@babel/register`)({
+  presets: ['@babel/preset-env', '@babel/preset-react'],
+  plugins: ['@babel/plugin-transform-runtime'],
+})
+
 const { DateTime } = require('luxon')
+const algoliaQueries = require('./src/utilities/algolia').queries
+
 require('dotenv').config()
 
-module.exports = {
+const gatsbyConfig = {
   siteMetadata: {
     title: 'The COVID Tracking Project',
     description:
@@ -127,3 +134,21 @@ module.exports = {
     },
   ],
 }
+
+// Conditionally add Algolia plugin.
+if (
+  typeof process.env.ALGOLIA_ADMIN_KEY !== 'undefined' &&
+  (process.env.BRANCH === 'master' || process.env.CIRCLECI)
+) {
+  gatsbyConfig.plugins.push({
+    resolve: 'gatsby-plugin-algolia',
+    options: {
+      appId: process.env.GATSBY_ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_ADMIN_KEY,
+      queries: algoliaQueries,
+      chunkSize: 5000,
+    },
+  })
+}
+
+module.exports = gatsbyConfig

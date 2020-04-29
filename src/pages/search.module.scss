@@ -1,0 +1,43 @@
+@import '../scss/colors.module.scss';
+@import '../scss/breakpoints.module.scss';
+
+.searchForm {
+  margin-top: 50px;
+  padding-top: 50px;
+  border-top: 1px solid #777;
+}
+.searchResults {
+  * {
+    font-weight: normal;
+  }
+  em {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+.searchResultsSection {
+  &:not(:last-of-type) {
+    padding-bottom: 1em;
+    margin-bottom: .5em;
+    border-bottom: 1px solid $color-plum-400;
+  }
+}
+
+.searchResult {
+  &:not(:last-child) {
+    margin-bottom: .5em;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 25%;
+      height: 1px;
+      background-color: $color-plum-200;
+      transform: translateY(.75em);
+    }
+  }
+}
