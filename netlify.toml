@@ -1,6 +1,7 @@
 [build]
   publish = "public"
   command = "npm run build"
+  functions = "functions"
 
 [context.production]
   command = "npm run build"
