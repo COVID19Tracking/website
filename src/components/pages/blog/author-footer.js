@@ -7,7 +7,7 @@ export default ({ authors }) => {
   ) // only keep authors with biographies
 
   return (
-    <div>
+    <div className={AuthorFooterStyles.container}>
       {footerAuthors.map(author => (
         <div
           className={AuthorFooterStyles.authorFooter}

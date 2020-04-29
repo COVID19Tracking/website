@@ -1,11 +1,15 @@
+.container {
+  margin: 2rem 0 0;
+}
+
 .author-footer {
   display: flex;
   flex-direction: row;
-  margin: 2rem 0 1.5rem;
   img {
     width: 85px;
     height: 85px;
     flex-shrink: 0;
+    margin-bottom: 1.5em; // matches layout content-primary p
   }
   .text-content {
     font-size: 16px;
