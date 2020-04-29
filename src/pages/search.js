@@ -1,30 +1,20 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect } from 'react'
-import { Link } from 'gatsby'
-import {
-  Combobox,
-  ComboboxInput,
-  ComboboxPopover,
-  ComboboxList,
-  ComboboxOption,
-} from '@reach/combobox'
 import '@reach/combobox/styles.css'
-import Layout from '../components/layout'
-import withSearch from '../components/utils/with-search'
+import Layout from '~components/layout'
+import withSearch from '~components/utils/with-search'
 import searchPageStyle from './search.module.scss'
-import pressListStyle from '../components/common/press-list.module.scss'
-import { PublicationTitle } from '../components/common/publication'
-import DetailText from '../components/common/detail-text'
+import pressListStyle from '~components/common/press-list.module.scss'
+import SearchResult from '~components/search/search-result'
 import {
-  searchResultTypes,
+  searchResultTypes as types,
   useSearch,
   querySearch,
   getHighlightResultOrExcerpt,
   getSanitizedSlug,
-} from '../context/search-context'
+} from '~context/search-context'
 
-/* disable es-lint */
-export default withSearch(({ search, navigate }) => {
+export default withSearch(({ search }) => {
   const [searchState, searchDispatch] = useSearch()
   const { query, results } = searchState
 
@@ -47,83 +37,15 @@ export default withSearch(({ search, navigate }) => {
   }, [query])
 
   const totalHits =
-    (results[searchResultTypes.STATE].nbHits || 0) +
-    (results[searchResultTypes.BLOG_POST].nbHits || 0) +
-    (results[searchResultTypes.PAGE].nbHits || 0)
+    (results[types.STATE].nbHits || 0) +
+    (results[types.BLOG_POST].nbHits || 0) +
+    (results[types.PAGE].nbHits || 0)
   const hitsInfo = query.length
     ? ` : ${query} (${totalHits} result${totalHits === 1 ? '' : 's'})`
     : ''
 
-  const goToResult = selectedItem => {
-    const resultTypes = Object.values(searchResultTypes)
-    for (const type of resultTypes) {
-      const item = results[type].hits.find(result => {
-        return result.name === selectedItem || result.title === selectedItem
-      })
-      if (item && typeof window !== 'undefined') {
-        const slug = getSanitizedSlug(type, item)
-        navigate(slug)
-      }
-    }
-  }
-
   return (
     <Layout title="Search">
-      <h2 className="hed-primary">Autocomplete Search{hitsInfo}</h2>
-
-      <Combobox
-        openOnFocus
-        onSelect={selectedItem => {
-          goToResult(selectedItem)
-        }}
-      >
-        <ComboboxInput
-          id="ctp-search"
-          placeholder="Search"
-          autoComplete="off"
-          onKeyDown={event => {
-            if (event.key !== 'Enter') {
-              return
-            }
-            if (results && results.length === 1) {
-              goToResult(event.currentTarget.value)
-            }
-          }}
-          onChange={event => {
-            setQuery(event.currentTarget.value)
-          }}
-        />
-        {totalHits ? (
-          <ComboboxPopover id="search-results-popover">
-            {totalHits > 0 ? (
-              <ComboboxList aria-label="Results">
-                {results[searchResultTypes.STATE].hits
-                  .slice(0, 10)
-                  .map(state => (
-                    <ComboboxOption
-                      key={`${state.slug}`}
-                      value={`${state.name}`}
-                    />
-                  ))}
-                {results[searchResultTypes.BLOG_POST].hits
-                  .slice(0, 10)
-                  .map(post => (
-                    <ComboboxOption key={`${post.slug}`} value={post.title} />
-                  ))}
-                {results[searchResultTypes.PAGE].hits.slice(0, 10).map(page => (
-                  <ComboboxOption key={`${page.slug}`} value={page.title} />
-                ))}
-              </ComboboxList>
-            ) : (
-              <span style={{ display: 'block', marginTop: 5 }}>
-                No results found
-              </span>
-            )}
-          </ComboboxPopover>
-        ) : (
-          false
-        )}
-      </Combobox>
       <form className={searchPageStyle.searchForm}>
         <h2 className="hed-primary">Search{hitsInfo}</h2>
         <label htmlFor="item">
@@ -162,72 +84,53 @@ export default withSearch(({ search, navigate }) => {
       )}
       <div className={searchPageStyle.searchResults}>
         {/* State results */}
-        {results[searchResultTypes.STATE].nbHits > 0 &&
-          !searchState.isFetching && (
-            <div className={searchPageStyle.searchResultsSection}>
-              <h3>States ({results[searchResultTypes.STATE].nbHits})</h3>
-              {results[searchResultTypes.STATE].hits.map(state => (
-                <div key={state.state} className={searchPageStyle.searchResult}>
-                  <PublicationTitle>
-                    <Link to={getSanitizedSlug(searchResultTypes.STATE, state)}>
-                      {state.name}
-                    </Link>
-                  </PublicationTitle>
-                </div>
-              ))}
-            </div>
-          )}
+        {results[types.STATE].nbHits > 0 && !searchState.isFetching && (
+          <div className={searchPageStyle.searchResultsSection}>
+            <h3>States ({results[types.STATE].nbHits})</h3>
+            {results[types.STATE].hits.map(state => (
+              <SearchResult
+                key={state.state}
+                title={state.name}
+                url={getSanitizedSlug(types.STATE, state)}
+              />
+            ))}
+          </div>
+        )}
 
         {/* Blog post results */}
-        {results[searchResultTypes.BLOG_POST].nbHits > 0 &&
-          !searchState.isFetching && (
-            <div className={searchPageStyle.searchResultsSection}>
-              <h3>
-                Blog Posts ({results[searchResultTypes.BLOG_POST].nbHits})
-              </h3>
-              {results[searchResultTypes.BLOG_POST].hits.map(post => (
-                <div
-                  key={post.objectID}
-                  className={searchPageStyle.searchResult}
-                >
-                  <PublicationTitle>
-                    <Link
-                      to={getSanitizedSlug(searchResultTypes.BLOG_POST, post)}
-                    >
-                      {post.title}
-                    </Link>
-                  </PublicationTitle>
-                  <DetailText>
-                    {post.author_name}
-                    <span className={pressListStyle.dotSeparator}>•</span>
-                    {post.publishDate}
-                  </DetailText>
-                </div>
-              ))}
-            </div>
-          )}
+        {results[types.BLOG_POST].nbHits > 0 && !searchState.isFetching && (
+          <div className={searchPageStyle.searchResultsSection}>
+            <h3>Blog Posts ({results[types.BLOG_POST].nbHits})</h3>
+            {results[types.BLOG_POST].hits.map(post => (
+              <SearchResult
+                key={post.objectID}
+                title={post.title}
+                url={getSanitizedSlug(types.BLOG_POST, post)}
+              >
+                {post.author_name}
+                <span className={pressListStyle.dotSeparator}>•</span>
+                {post.publishDate}
+              </SearchResult>
+            ))}
+          </div>
+        )}
 
         {/* Pages results */}
-        {results[searchResultTypes.PAGE].nbHits > 0 && !searchState.isFetching && (
+        {results[types.PAGE].nbHits > 0 && !searchState.isFetching && (
           <div className={searchPageStyle.searchResultsSection}>
-            <h3>Pages ({results[searchResultTypes.PAGE].nbHits})</h3>
-            {results[searchResultTypes.PAGE].hits.map(page => (
-              <div key={page.objectID} className={searchPageStyle.searchResult}>
-                <PublicationTitle>
-                  {/* FIXME this should be handled during indexing 
-                  (avoids external Link issues) */}
-                  <Link to={getSanitizedSlug(searchResultTypes.PAGE, page)}>
-                    {page.title}
-                  </Link>
-                </PublicationTitle>
-                <DetailText>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: getHighlightResultOrExcerpt('page', page),
-                    }}
-                  />
-                </DetailText>
-              </div>
+            <h3>Pages ({results[types.PAGE].nbHits})</h3>
+            {results[types.PAGE].hits.map(page => (
+              <SearchResult
+                key={page.objectID}
+                url={getSanitizedSlug(types.PAGE, page)}
+                title={page.title}
+              >
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: getHighlightResultOrExcerpt('page', page),
+                  }}
+                />
+              </SearchResult>
             ))}
           </div>
         )}

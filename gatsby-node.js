@@ -87,6 +87,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
     if (miniCssExtractPlugin) {
       miniCssExtractPlugin.options.ignoreOrder = true
     }
+
     actions.replaceWebpackConfig(config)
   }
 }
