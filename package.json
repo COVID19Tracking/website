@@ -20,6 +20,8 @@
     "COVID19"
   ],
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@contentful/rich-text-types": "^14.1.0",
     "@reach/alert": "^0.9.1",
     "@reach/combobox": "^0.9.1",
     "@reach/skip-nav": "^0.9.0",
