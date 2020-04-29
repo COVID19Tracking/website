@@ -17,6 +17,7 @@
 /api/us.csv                                   /api/v1/us/current.csv
 /api/us/daily                                 /api/v1/us/daily.json
 /api/us/daily.csv                             /api/v1/us/daily.csv
+/api/v1/states                                /api/v1/states/current.json
 
 /api/graphql                                  /404
 /api/states*                                  /.netlify/functions/api-proxy/states:splat 200
