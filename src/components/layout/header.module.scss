@@ -18,6 +18,11 @@
   background: $color-blueberry-200;
   color: $color-blueberry-500;
   text-decoration: none;
+
+  &:hover, &:focus {
+    color: $color-blueberry-500;
+    background: $color-plum-400;
+  }
 }
 
 .search-input {
