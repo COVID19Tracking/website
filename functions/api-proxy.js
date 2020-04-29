@@ -11,7 +11,7 @@ exports.handler = function(event, context, callback) {
 
   console.log(`${apiPath}, ${event.headers.origin}`)
 
-  fetch(`https://covid.cape.io${apiPath}`)
+  fetch(`https://covid.cape.io/${apiPath}`)
     .then(response => {
       return response.json()
     })
