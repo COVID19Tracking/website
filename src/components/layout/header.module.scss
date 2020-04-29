@@ -42,6 +42,14 @@
   }
 }
 
+.site-nav-container {
+  width: 100%;
+  text-align: right;
+  @media (min-width: $viewport-md) {
+    width: 80%;
+  }
+}
+
 .atlantic-banner {
   margin-top: 1rem;
   display: flex;
@@ -65,8 +73,7 @@
 .tools {
   display: none;
   @media (min-width: $viewport-lg) {
-    display: flex;
-    width: auto;
+    display: block;
   }
 }
 
@@ -80,47 +87,33 @@
     margin-bottom: 0;
   }
   &.show-mobile-menu {
+    background: $color-plum-800;
+    .site-title-inner,
+    .atlantic-banner {
+      display: none !important;
+    }
     .container {
       nav,
       .tools {
         display: block;
         width: 100%;
         @media (min-width: $viewport-lg) {
-          display: flex;
+          display: block;
         }
       }
     }
   }
-  .header-container {
-    max-width: 1000px;
-    margin-right: 1.5rem;
-    margin-left: 1.5rem;
-    @media (min-width: $viewport-md) {
-      margin-left: 3rem;
-      margin-right: 3rem;
-    }
-    @media (min-width: $viewport-lg) {
-      max-width: 1140px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    @media (min-width: $viewport-xl) {
-      max-width: 1300px;
-    }
-  }
-  .container {
-    padding-top: 1.5rem;
 
+  .container {
     &.show-background {
       background-image: url(../../images/hero-bg.svg);
       background-size: auto 300%;
     }
     .mobile-toggle {
-      float: right;
-      margin-left: auto;
       background: transparent;
       border: none;
       font-weight: bold;
+      margin-top: 1.5rem;
       color: white;
       cursor: pointer;
       @media (min-width: $viewport-lg) {
@@ -153,8 +146,12 @@
 
     .nav-container {
       display: flex;
-      width: auto;
-      margin-left: auto;
+      float: right;
+      padding-top: 1rem;
+      @media (min-width: $viewport-lg) {
+        float: none;
+        padding-top: 0;
+      }
     }
 
     nav {
@@ -164,13 +161,8 @@
       break-before: always;
       padding-bottom: 0.5rem;
       @media (min-width: $viewport-lg) {
-        break-before: auto;
-        margin-left: auto;
-        margin-right: auto;
-        width: auto;
-        display: flex;
-        margin-top: 0;
-        align-items: center;
+        display: block;
+        margin-top: 1.5rem;
       }
 
       a {
@@ -216,13 +208,16 @@
 
     .site-title-container {
       display: flex;
-      align-items: center;
       flex-wrap: wrap;
     }
 
     .site-title-inner {
-      width: auto;
+      width: 40%;
       display: flex;
+      padding-top: 1.5rem;
+      @media (min-width: $viewport-md) {
+        width: 20%;
+      }
     }
 
     .title-subnav-container {

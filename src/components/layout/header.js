@@ -8,6 +8,7 @@ import projectLogo from '../../images/project-logo.svg'
 import atlanticLogo from '../../images/atlantic-logo.svg'
 import headerStyle from './header.module.scss'
 import searchIcon from '../../images/icons/search.svg'
+import Container from '../common/container'
 
 const HeaderTabs = ({ navigation }) => (
   <div className={`site-header-tabs ${headerStyle.headerTabs}`}>
@@ -71,16 +72,16 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
           showMobileMenu ? headerStyle.showMobileMenu : ''
         } ${noMargin ? headerStyle.noMargin : ''}`}
       >
-        <PartnershipBanner />
         <div
           className={`container ${headerStyle.container} ${
             !hasHero ? headerStyle.showBackground : ''
           } `}
         >
-          <div className={headerStyle.headerContainer}>
+          {!showMobileMenu && <PartnershipBanner />}
+          <Container>
             <div className={headerStyle.siteTitleContainer}>
               <div className={headerStyle.siteTitleInner}>
-                <a className={headerStyle.siteTitle} href="/">
+                <a href="/">
                   <img
                     src={projectLogo}
                     alt="The COVID Tracking Project"
@@ -88,24 +89,26 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
                   />
                 </a>
               </div>
-              <div className={headerStyle.navContainer}>
-                <button
-                  className={headerStyle.mobileToggle}
-                  type="button"
-                  aria-expanded={showMobileMenu}
-                  onClick={() => {
-                    setShowMobileMenu(!showMobileMenu)
-                  }}
-                >
-                  {showMobileMenu ? <>Close</> : <>Menu</>}
-                </button>
-              </div>
-              <HeaderNavigation />
-              <div className={headerStyle.tools}>
-                <HeaderSearch />
-                <Link to="/help" className={headerStyle.getInvolved}>
-                  Get involved
-                </Link>
+              <div className={headerStyle.siteNavContainer}>
+                <div className={headerStyle.navContainer}>
+                  <button
+                    className={headerStyle.mobileToggle}
+                    type="button"
+                    aria-expanded={showMobileMenu}
+                    onClick={() => {
+                      setShowMobileMenu(!showMobileMenu)
+                    }}
+                  >
+                    {showMobileMenu ? <>Close</> : <>Menu</>}
+                  </button>
+                </div>
+                <div className={headerStyle.tools}>
+                  <HeaderSearch />
+                  <Link to="/help" className={headerStyle.getInvolved}>
+                    Get involved
+                  </Link>
+                </div>
+                <HeaderNavigation />
               </div>
             </div>
             <div className={headerStyle.atlanticBanner}>
@@ -134,7 +137,7 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
                 </div>
               )}
             </div>
-          </div>
+          </Container>
         </div>
       </header>
     </>
