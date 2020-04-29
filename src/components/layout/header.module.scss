@@ -43,7 +43,7 @@
 }
 
 .site-nav-container {
-  width: 100%;
+  width: 60%;
   text-align: right;
   @media (min-width: $viewport-md) {
     width: 80%;
@@ -87,11 +87,6 @@
     margin-bottom: 0;
   }
   &.show-mobile-menu {
-    background: $color-plum-800;
-    .site-title-inner,
-    .atlantic-banner {
-      display: none !important;
-    }
     .container {
       nav,
       .tools {
