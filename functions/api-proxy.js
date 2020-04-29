@@ -2,7 +2,7 @@ const fetch = require('node-fetch')
 
 exports.handler = function(event, context, callback) {
   const { path, queryStringParameters } = event
-  let apiPath = path.replace('/.netlify/functions/api', '')
+  let apiPath = path.replace('/.netlify/functions/api-proxy', '')
   if (queryStringParameters) {
     apiPath += `?${Object.keys(queryStringParameters)
       .map(key => key + '=' + queryStringParameters[key])
