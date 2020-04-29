@@ -6,12 +6,14 @@ import {
   ComboboxList,
   ComboboxOption,
 } from '@reach/combobox'
+import { navigate } from 'gatsby'
 import '@reach/combobox/styles.css'
 import withSearch from '../utils/with-search'
 import {
   searchResultTypes,
   useSearch,
   querySearch,
+  getSanitizedSlug,
 } from '../../context/search-context'
 import searchAutocompleteStyles from './search-autocomplete.module.scss'
 
@@ -34,8 +36,26 @@ export default withSearch(() => {
     (results[searchResultTypes.BLOG_POST].nbHits || 0) +
     (results[searchResultTypes.PAGE].nbHits || 0)
 
+  const goToResult = selectedItem => {
+    const resultTypes = Object.values(searchResultTypes)
+    resultTypes.forEach(type => {
+      const item = results[type].hits.find(result => {
+        return result.name === selectedItem || result.title === selectedItem
+      })
+      if (item && typeof window !== 'undefined') {
+        const slug = getSanitizedSlug(type, item)
+        navigate(slug)
+      }
+    })
+  }
+
   return (
-    <Combobox openOnFocus>
+    <Combobox
+      openOnFocus
+      onSelect={selectedItem => {
+        goToResult(selectedItem)
+      }}
+    >
       <ComboboxInput
         id="header-search"
         placeholder="Search"
