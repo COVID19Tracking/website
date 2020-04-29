@@ -8,7 +8,9 @@ exports.handler = function(event, context, callback) {
       .map(key => key + '=' + queryStringParameters[key])
       .join('&')}`
   }
+
   console.log(`${apiPath}, ${event.headers.origin}`)
+
   fetch(`https://covid.cape.io/${apiPath}`)
     .then(response => {
       return response.json()
