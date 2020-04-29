@@ -1,0 +1,20 @@
+@import '../scss/colors.module.scss';
+
+.blog-content {
+  blockquote {
+    color: $color-plum-600;
+    border-left: 2px solid $color-plum-600;
+    padding-left: 1.5rem;
+    margin-left: .25rem;
+    &::before {
+      content: '“';
+    }
+    &::after {
+      content: '”';
+    }
+    p {
+      margin: 0;
+      display: inline;
+    }
+  }
+}
