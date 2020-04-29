@@ -103,7 +103,6 @@
     "set-tz": "^0.2.0"
   },
   "scripts": {
-    "postinstall": "cd functions && npm install",
     "build": "run-s build:fetch build:gatsby build:data build:data-archive build:test",
     "build-preview": "run-s setup:api-data build:gatsby build:data build:data-archive build:test",
     "build:fetch": "node build/index.js",
