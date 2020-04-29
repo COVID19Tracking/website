@@ -2,11 +2,10 @@ require(`@babel/register`)({
   presets: ['@babel/preset-env', '@babel/preset-react'],
   plugins: ['@babel/plugin-transform-runtime'],
 })
+require('dotenv').config()
 
 const { DateTime } = require('luxon')
 const algoliaQueries = require('./src/utilities/algolia').queries
-
-require('dotenv').config()
 
 const gatsbyConfig = {
   siteMetadata: {

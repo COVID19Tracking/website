@@ -151,7 +151,7 @@ const blogPostSettings = {
 export const queries = [
   {
     query: stateQuery,
-    indexName: prefixSearchIndex('states'),
+    indexName: prefixSearchIndex('state'),
     transformer: ({ data }) =>
       data.states.edges.map(({ node }) => ({
         ...node,
@@ -166,13 +166,13 @@ export const queries = [
   },
   {
     query: blogPostQuery,
-    indexName: prefixSearchIndex('blog_posts'),
+    indexName: prefixSearchIndex('blogPost'),
     transformer: ({ data }) => chunkBlogPosts(data),
     settings: blogPostSettings,
   },
   {
     query: pagesQuery,
-    indexName: prefixSearchIndex('pages'),
+    indexName: prefixSearchIndex('page'),
     transformer: ({ data }) => chunkPages(data),
     settings: pageSettings,
   },
