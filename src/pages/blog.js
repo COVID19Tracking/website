@@ -10,7 +10,7 @@ export default ({ data }) => (
         <h2 className="hed-primary">
           <Link to={`/blog/${node.slug}`}>{node.title}</Link>
         </h2>
-        <Byline author={node.author} date={node.publishDate} />
+        <Byline authors={node.authors} date={node.publishDate} />
         <p className="lede">{node.lede.lede}</p>
       </Fragment>
     ))}
@@ -24,7 +24,7 @@ export const query = graphql`
         node {
           title
           slug
-          author {
+          authors {
             name
             twitterLink
             headshot {

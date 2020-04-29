@@ -11,7 +11,7 @@ export default ({ data }) => {
       <Categories categories={blogPost.categories} />
       <Lede
         headline={blogPost.title}
-        author={blogPost.author}
+        authors={blogPost.authors}
         date={blogPost.publishDate}
         lede={blogPost.lede.lede}
       />
@@ -33,7 +33,7 @@ export const query = graphql`
       edges {
         node {
           title
-          author {
+          authors {
             name
             twitterLink
             headshot {
