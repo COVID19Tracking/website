@@ -70,6 +70,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: `/api/states state=${node.state}`,
       toPath: `/api/v1/states/${node.state.toLowerCase()}/current.json`,
+      isPermanent: true,
     })
   })
 
