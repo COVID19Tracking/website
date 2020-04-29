@@ -19,8 +19,8 @@
 /api/us/daily.csv                             /api/v1/us/daily.csv
 
 /api/graphql                                  /404
-/api/states*                                  /.netlify/functions/api-proxy/states:splat
-/api/us*                                      /.netlify/functions/api-proxy/us:splat
+/api/states*                                  /.netlify/functions/api-proxy/states:splat 200
+/api/us*                                      /.netlify/functions/api-proxy/us:splat 200
 
 /charts/dash                                  http://35.212.27.3:8050/
 /graphql                                      /api/graphql
