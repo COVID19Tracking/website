@@ -79,25 +79,32 @@ export default withSearch(() => {
           className={searchAutocompleteStyles.popover}
         >
           {totalHits > 0 ? (
-            <ComboboxList aria-label="Results">
-              <li
-                tabIndex="-1"
-                className={searchAutocompleteStyles.popoverSeparator}
-              >
-                Best results
-              </li>
+            <ComboboxList
+              aria-label="Results"
+              className={searchAutocompleteStyles.popoverList}
+            >
+              {bestHits.length > 0 && (
+                <li
+                  tabIndex="-1"
+                  className={searchAutocompleteStyles.popoverSeparator}
+                >
+                  Best results
+                </li>
+              )}
               {bestHits.slice(0, 10).map(item => (
                 <ComboboxOption
                   key={`${item.slug}`}
                   value={`${item.type === 'state' ? item.name : item.title}`}
                 />
               ))}
-              <li
-                tabIndex="-1"
-                className={searchAutocompleteStyles.popoverSeparator}
-              >
-                Other results
-              </li>
+              {otherHits.length > 0 && (
+                <li
+                  tabIndex="-1"
+                  className={searchAutocompleteStyles.popoverSeparator}
+                >
+                  Other results
+                </li>
+              )}
               {otherHits.slice(0, 10).map(item => (
                 <ComboboxOption
                   key={`${item.slug}`}

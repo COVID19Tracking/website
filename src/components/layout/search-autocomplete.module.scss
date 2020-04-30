@@ -16,8 +16,8 @@
   [data-suggested-value] {
     font-weight: normal;
   }
-  ul {
-    margin-bottom: 0;
+  ul.popover-list {
+    margin: 0;
   }
   li:not(.popoverSeparator) {
     &:hover,
