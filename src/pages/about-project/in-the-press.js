@@ -6,7 +6,7 @@ import Layout from '../../components/layout'
 
 export default ({ data }) => (
   <Layout title="In the press" textHeavy>
-    <PressLogos />
+    <PressLogos extraMargin />
     <PressList items={data.allCovidPress.edges} />
   </Layout>
 )

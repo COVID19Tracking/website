@@ -67,6 +67,18 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/state.js`),
       context: node,
     })
+
+    createRedirect({
+      fromPath: `/api/states state=${node.state}`,
+      toPath: `/api/v1/states/${node.state.toLowerCase()}/current.json`,
+      isPermanent: true,
+    })
+
+    createRedirect({
+      fromPath: `/api/states/daily.csv state=${node.state}`,
+      toPath: `/api/v1/states/${node.state.toLowerCase()}/current.csv`,
+      isPermanent: true,
+    })
   })
 
   result.data.allContentfulBlogPost.edges.forEach(({ node }) => {
@@ -75,6 +87,18 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/blog-post.js`),
       context: node,
     })
+  })
+
+  createRedirect({
+    fromPath: `/api/states* `,
+    toPath: `/.netlify/functions/api-proxy/states:splat`,
+    isPermanent: true,
+  })
+
+  createRedirect({
+    fromPath: `/api/us* `,
+    toPath: `/.netlify/functions/api-proxy/us:splat`,
+    isPermanent: true,
   })
 }
 

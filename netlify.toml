@@ -1,6 +1,16 @@
 [build]
   publish = "public"
   command = "npm run build"
+  functions = "functions"
+
+[context.production]
+  command = "npm run build"
+
+[context.deploy-preview]
+  command = "npm run build-preview"
+
+[context.branch-deploy]
+  command = "npm run build-preview"
 
 [[headers]]
   for = "/api/*"

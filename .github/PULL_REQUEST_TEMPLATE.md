@@ -6,6 +6,13 @@
   Make sure that running `npm run test` works locally before opening a PR.
 -->
 
+<!--
+  API CHANGES:
+  If this PR includes changes to anything in the `/build` directory, make
+  sure to note that in the PR. API changes have a different build and
+  testing command than regular PRs.
+-->
+
 ## Description
 
 <!-- Write a brief description of what this PR is for -->

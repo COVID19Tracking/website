@@ -138,7 +138,9 @@ Array [
                 src="test-file-stub"
               />
             </a>
-            <ul>
+            <ul
+              className="footerList"
+            >
               <li>
                 <a
                   href="/contact"
@@ -172,7 +174,7 @@ Array [
                   className="backToTop"
                   href="#reach-skip-nav"
                 >
-                  Back to top
+                  Back to top.
                 </a>
               </li>
             </ul>
@@ -322,7 +324,9 @@ Array [
                 src="test-file-stub"
               />
             </a>
-            <ul>
+            <ul
+              className="footerList"
+            >
               <li>
                 <a
                   href="/contact"
@@ -356,7 +360,7 @@ Array [
                   className="backToTop"
                   href="#reach-skip-nav"
                 >
-                  Back to top
+                  Back to top.
                 </a>
               </li>
             </ul>

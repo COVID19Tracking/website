@@ -11,7 +11,7 @@ const Footer = () => (
         <Link to="/">
           <img src={logo} alt="The COVID Tracking Project" />
         </Link>
-        <ul>
+        <ul className={footerStyles.footerList}>
           <li>
             <Link to="/contact">Contact</Link>
           </li>
@@ -26,7 +26,7 @@ const Footer = () => (
           </li>
           <li>
             <a href="#reach-skip-nav" className={footerStyles.backToTop}>
-              Back to top
+              Back to top.
             </a>
           </li>
         </ul>
