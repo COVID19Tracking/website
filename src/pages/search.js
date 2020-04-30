@@ -8,7 +8,7 @@ import pressListStyle from '~components/common/press-list.module.scss'
 import SearchResultSection from '~components/search/search-result-section'
 
 import {
-  searchResultTypes as types,
+  types,
   useSearch,
   querySearch,
   getHighlightResultOrExcerpt,

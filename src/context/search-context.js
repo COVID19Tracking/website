@@ -2,10 +2,11 @@ import React from 'react'
 import algoliasearch from 'algoliasearch'
 import NProgress from 'nprogress'
 import marked from 'marked'
+import each from 'lodash/each'
 import truncate from 'lodash/truncate'
 import { prefixSearchIndex } from '../utilities/algolia'
 
-export const searchResultTypes = {
+export const types = {
   STATE: 'state',
   PAGE: 'page',
   BLOG_POST: 'blogPost',
@@ -14,9 +15,9 @@ export const searchResultTypes = {
 const initialState = {
   query: '',
   results: {
-    [searchResultTypes.STATE]: {},
-    [searchResultTypes.BLOG_POST]: {},
-    [searchResultTypes.PAGE]: {},
+    [types.STATE]: {},
+    [types.BLOG_POST]: {},
+    [types.PAGE]: {},
   },
   isFetching: false,
   hasErrors: false,
@@ -28,11 +29,9 @@ const client = algoliasearch(
   process.env.GATSBY_ALGOLIA_SEARCH_KEY,
 )
 
-const stateIndex = client.initIndex(prefixSearchIndex(searchResultTypes.STATE))
-const blogIndex = client.initIndex(
-  prefixSearchIndex(searchResultTypes.BLOG_POST),
-)
-const pageIndex = client.initIndex(prefixSearchIndex(searchResultTypes.PAGE))
+const stateIndex = client.initIndex(prefixSearchIndex(types.STATE))
+const blogIndex = client.initIndex(prefixSearchIndex(types.BLOG_POST))
+const pageIndex = client.initIndex(prefixSearchIndex(types.PAGE))
 
 const SearchStateContext = React.createContext()
 
@@ -46,6 +45,11 @@ function searchReducer(state, action) {
       return {
         ...state,
         query: action.payload,
+      }
+    case 'clearQuery':
+      return {
+        state: initialState,
+        isFetching: false,
       }
     case 'fetchStart':
       return {
@@ -145,12 +149,12 @@ export function getHighlightResultOrExcerpt(hitType, hit) {
 /**
  * Mitigate missing/present first "/" issue in routes.
  * @param {*} type
- *  A value in `searchResultTypes` matching this result item.
+ *  A value in `types` matching this result item.
  * @param {*} item
  *  The result item.
  */
 export function getSanitizedSlug(type, item) {
-  if (!Object.values(searchResultTypes).includes(type)) {
+  if (!Object.values(types).includes(type)) {
     throw new Error(`Invalid search result type: ${type}`)
   }
   const setTrailingIfMissing = slug => (slug[0] === '/' ? slug : `/${slug}`)
@@ -158,12 +162,58 @@ export function getSanitizedSlug(type, item) {
   switch (type) {
     default:
       return item.slug || ''
-    case searchResultTypes.STATE:
-    case searchResultTypes.PAGE:
+    case types.STATE:
+    case types.PAGE:
       return setTrailingIfMissing(item.slug)
-    case searchResultTypes.BLOG_POST:
+    case types.BLOG_POST:
       return `/blog${setTrailingIfMissing(item.slug)}`
   }
+}
+
+/**
+ * Partition the hits in two separate arrays depending on relevance.
+ *
+ * This partitions each list of hits in two lists based on fullMatch condition:
+ * - items with fullMatch on title/name are returned first
+ * - items with fullMatch on body/author/any other are returned next.
+ *
+ * @param {*} results
+ *  Search results returned by Algolia, indexed by index type.
+ * @return {bestHits: [*], otherHits: [*]}
+ */
+
+export function partitionHitsByRelevance(results) {
+  /* eslint-disable */
+  const bestHits = []
+  const otherHits = []
+
+  if (!results) {
+    return { bestHits, otherHits }
+  }
+
+  const partitionHit = (hit, type, test) => test 
+    ? bestHits.push({...hit, type}) 
+    : otherHits.push({...hit, type})
+
+  const allHits = {
+    [types.STATE]: results[types.STATE],
+    [types.BLOG_POST]: results[types.BLOG_POST],
+    [types.PAGE]: results[types.PAGE],
+  }
+
+  each(allHits, ({ hits: typeHits }, type) => {
+    if (!typeHits) {
+      return true
+    }
+    let titleField = ''
+    if ([types.BLOG_POST, types.PAGE].includes(type)) {
+      titleField = 'title'
+    } else if (types.STATE === type) {
+      titleField = 'name'
+    }
+    typeHits.forEach(hit => partitionHit(hit, type, hit._highlightResult[titleField].matchLevel === 'full'))
+  })
+  return {bestHits, otherHits}
 }
 
 export default {}

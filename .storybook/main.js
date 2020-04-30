@@ -6,17 +6,4 @@ module.exports = {
     '@storybook/addon-docs',
   ],
   showPanel: false,
-  webpackFinal: (config) => {
-    config.resolve.alias = {
-      ...(config.resolve.alias || {}),
-      '~components': 'src/components',
-      '~context': 'src/context',
-      '~data': 'src/data',
-      '~images': 'src/images',
-      '~pages': 'src/pages',
-      '~scss': 'src/scss',
-      '~templates': 'src/templates',
-    }
-    return config
-  }
 }
