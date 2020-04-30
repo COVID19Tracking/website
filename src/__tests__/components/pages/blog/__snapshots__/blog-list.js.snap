@@ -17,28 +17,33 @@ exports[`Components : Pages : Blog : List renders correctly 1`] = `
     <div
       className="byline"
     >
-      <span
-        className="author"
+      <p
+        className="authorDateContainer"
       >
-        By: 
-        <a
-          className="author-inner"
-          href="https://twitter.com/test"
+        By:
+         
+        <p
+          className="author"
         >
-          test name
-        </a>
-         & 
+          <a
+            className="author-inner"
+            href="https://twitter.com/test"
+          >
+            test name
+          </a>
+           & 
+          <span
+            className="author-inner"
+          >
+            another test
+          </span>
+        </p>
         <span
-          className="author-inner"
+          className="date"
         >
-          another test
+          August 1, 20202
         </span>
-      </span>
-      <span
-        className="date"
-      >
-        August 1, 20202
-      </span>
+      </p>
     </div>
   </li>
 </ul>
