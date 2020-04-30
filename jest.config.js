@@ -1,4 +1,5 @@
 const setTZ = require('set-tz')
+
 setTZ('America/New_York')
 
 module.exports = {
@@ -9,6 +10,13 @@ module.exports = {
   moduleNameMapper: {
     '.+\\.(css|styl|less|sass|scss)$': `identity-obj-proxy`,
     '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': `<rootDir>/__mocks__/file-mock.js`,
+    '~components(.*)$': 'src/components/$1',
+    '~context(.*)$': 'src/context/$1',
+    '~data(.*)$': 'src/data/$1',
+    '~images(.*)$': 'src/images/$1',
+    '~pages(.*)$': 'src/pages/$1',
+    '~scss(.*)$': 'src/scss/$1',
+    '~templates(.*)$': 'src/templates/$1',
   },
   testPathIgnorePatterns: [
     `node_modules`,

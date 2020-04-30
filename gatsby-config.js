@@ -2,11 +2,10 @@ require(`@babel/register`)({
   presets: ['@babel/preset-env', '@babel/preset-react'],
   plugins: ['@babel/plugin-transform-runtime'],
 })
+require('dotenv').config()
 
 const { DateTime } = require('luxon')
 const algoliaQueries = require('./src/utilities/algolia').queries
-
-require('dotenv').config()
 
 const gatsbyConfig = {
   siteMetadata: {
@@ -130,6 +129,21 @@ const gatsbyConfig = {
         theme_color: '#ffffff',
         display: 'minimal-ui',
         icon: 'src/images/icon.svg',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '~components': 'src/components',
+          '~context': 'src/context',
+          '~data': 'src/data',
+          '~images': 'src/images',
+          '~pages': 'src/pages',
+          '~scss': 'src/scss',
+          '~templates': 'src/templates',
+        },
+        extensions: ['js', 'scss', 'svg', 'png'],
       },
     },
   ],
