@@ -76,7 +76,13 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createRedirect({
       fromPath: `/api/states/daily.csv state=${node.state}`,
-      toPath: `/api/v1/states/${node.state.toLowerCase()}/current.csv`,
+      toPath: `/api/v1/states/${node.state.toLowerCase()}/daily.csv`,
+      isPermanent: true,
+    })
+
+    createRedirect({
+      fromPath: `/api/states/daily state=${node.state}`,
+      toPath: `/api/v1/states/${node.state.toLowerCase()}/daily.json`,
       isPermanent: true,
     })
   })
@@ -90,19 +96,8 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   createRedirect({
-    fromPath: `/api/states*`,
-    toPath: `/.netlify/functions/api-proxy/states:splat`,
-    isPermanent: true,
-  })
-
-  createRedirect({
-    fromPath: `/api/us*`,
-    toPath: `/.netlify/functions/api-proxy/us:splat`,
-    statusCode: 200,
-  })
-  createRedirect({
-    fromPath: `/api/states`,
-    toPath: `/api/v1/states/current.json`,
+    fromPath: `/api/*`,
+    toPath: `https://covid.cape.io/:splat`,
     statusCode: 200,
   })
 }
