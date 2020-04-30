@@ -4,10 +4,10 @@
 /api/us/daily date=:date                      /api/v1/us/:date.json
 /api/v1/us.json                               /api/v1/us/current.json
 /api/v1/states.json                           /api/v1/states/current.json
-/api/statesinfo                               /api/v1/states/info.json
-/api/statesinfo.csv                           /api/v1/states/info.csv
-/api/statesdaily                              /api/v1/states/daily.json
-/api/statesdaily.csv                          /api/v1/states/daily.csv
+/api/states/info                              /api/v1/states/info.json
+/api/states/info.csv                          /api/v1/states/info.csv
+/api/states/daily                             /api/v1/states/daily.json
+/api/states/daily.csv                         /api/v1/states/daily.csv
 /api/states.json                              /api/v1/states/current.json
 /api/states                                   /api/v1/states/current.json
 /api/states.csv                               /api/v1/states/current.csv
