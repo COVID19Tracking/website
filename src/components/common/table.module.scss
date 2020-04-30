@@ -29,16 +29,6 @@
     border-left: 1px solid $color-slate-300;
   }
 
-  td {
-    text-align: right;
-    padding: 0.75rem 0.5rem;
-    font-size: 1rem;
-
-    &.align-left {
-      text-align: left;
-    }
-  }
-
   thead {
     border-bottom: 1px solid $color-slate-400;
 
@@ -81,6 +71,15 @@
       &:hover {
         background-color: $color-blueberry-100;
       }
+    }
+  }
+  td {
+    text-align: right;
+    padding: 0.75rem 0.5rem;
+    font-size: 1rem;
+
+    &.align-left {
+      text-align: left;
     }
   }
 }
