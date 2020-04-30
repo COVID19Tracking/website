@@ -18,7 +18,7 @@ import {
 } from '../../context/search-context'
 import searchAutocompleteStyles from './search-autocomplete.module.scss'
 
-export default withSearch(() => {
+export default withSearch(({ id }) => {
   const [searchState, searchDispatch] = useSearch()
   const { query, results } = searchState
 
@@ -65,7 +65,7 @@ export default withSearch(() => {
       }}
     >
       <ComboboxInput
-        id="header-search"
+        id={id}
         placeholder="Search"
         autoComplete="off"
         onKeyDown={event => {

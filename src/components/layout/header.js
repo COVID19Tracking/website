@@ -58,18 +58,18 @@ const HeaderNavigation = () => {
   )
 }
 
-const HeaderSearch = () => {
+const HeaderSearch = ({ id }) => {
   return (
     <div className={headerStyle.searchInput}>
       <img src={searchIcon} alt="" />
-      <SearchAutocomplete />
+      <SearchAutocomplete id={id} />
     </div>
   )
 }
 
 const MobileMenu = () => (
   <div className={headerStyle.mobileMenu}>
-    <HeaderSearch />
+    <HeaderSearch id="search-mobile" />
 
     <HeaderNavigation />
     <Link to="/help" className={headerStyle.getInvolved}>
@@ -136,7 +136,7 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
                   </button>
                 </div>
                 <div className={headerStyle.tools}>
-                  <HeaderSearch />
+                  <HeaderSearch id="search-desktop" />
                   <Link to="/help" className={headerStyle.getInvolved}>
                     Get involved
                   </Link>
