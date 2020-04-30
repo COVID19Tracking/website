@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import pressListStyle from '../../common/press-list.module.scss'
 import { PublicationTitle } from '../../common/publication'
-import { Byline } from './byline'
+import { OneLineByline } from './byline'
 
 export default ({ items }) => {
   return (
@@ -12,7 +12,7 @@ export default ({ items }) => {
           <PublicationTitle>
             <Link to={`/blog/${node.slug}`}>{node.title}</Link>
           </PublicationTitle>
-          <Byline authors={node.authors} date={node.publishDate} />
+          <OneLineByline authors={node.authors} date={node.publishDate} />
         </li>
       ))}
     </ul>

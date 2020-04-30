@@ -49,6 +49,10 @@
     color: $color-slate-700;
     font-style: italic;
   }
+  line-height: 28px;
+  .related-date {
+    white-space: nowrap;
+  }
 }
 
 p.one-line-byline {

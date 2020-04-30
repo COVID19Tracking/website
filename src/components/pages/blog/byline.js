@@ -81,7 +81,7 @@ const OneLineByline = ({ authors, date }) => (
     <span className={bylineStyles.author}>
       <AuthorsText authors={authors} />
     </span>
-    <span className="related-date">{date}</span>
+    <span className={bylineStyles.relatedDate}>{date}</span>
   </p>
 )
 
