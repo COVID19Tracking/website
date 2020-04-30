@@ -120,7 +120,7 @@
   .mobile-menu {
     background: $color-plum-800;
     position: relative;
-    padding: 1rem;
+    padding: 1rem 1rem 2rem 1rem;
     @media (min-width: $viewport-lg) {
       display: none;
     }
@@ -201,14 +201,14 @@
 
   nav {
     display: none;
-    margin-top: 1.5rem;
+    margin-top: 1.75rem;
     align-self: center;
     break-before: always;
     padding-bottom: 0.5rem;
 
     @media (min-width: $viewport-lg) {
       display: block;
-      margin-top: 1.2rem;
+      margin-top: 1.825rem;
     }
 
     a {
