@@ -20,7 +20,7 @@
   caption {
     text-align: left;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 1.05rem;
     margin-bottom: 1rem;
   }
 
@@ -30,8 +30,8 @@
 
   td {
     text-align: right;
-    padding: 0.75rem;
-    font-size: 16px;
+    padding: 0.75rem 0.5rem;
+    font-size: 1rem;
 
     &.align-left {
       text-align: left;
@@ -47,7 +47,7 @@
 
       &[scope='col'] {
         text-align: right;
-        font-size: 13px;
+        font-size: 0.8rem;
         font-weight: 800;
       }
 
@@ -57,9 +57,10 @@
 
       &[scope='colgroup'] {
         text-align: left;
-        font-size: 17px;
+        font-size: 1.05rem;
         font-weight: 800;
         padding: 0.5rem;
+        min-width: 10rem;
       }
     }
   }
@@ -73,7 +74,7 @@
       border-bottom: 1px solid $color-slate-200;
       transition: background-color 0.2s;
       &:hover {
-        background-color: $color-slate-100;
+        background-color: $color-blueberry-100;
       }
     }
   }
