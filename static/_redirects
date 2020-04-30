@@ -16,9 +16,10 @@
 /api/urls                                     /api/v1/urls.json
 /api/urls.csv                                 /api/v1/urls.csv
 /api/urls.html                                /api/v1/urls.html
-/api/screenshots                              /api/v1/screenshots.json
-/api/screenshots.csv                          /api/v1/screenshots.csv
-/api/screenshots.html                         /api/v1/screenshots.html
+/api/screenshots state=:state                 /api/v1/states/:state/screenshots.json
+/api/screenshots                              /api/v1/states/screenshots.json
+/api/screenshots.csv                          /api/v1/states/screenshots.csv
+/api/screenshots.html                         /api/v1/states/screenshots.html
 /api/press                                    /api/v1/press.json
 /api/press.csv                                /api/v1/press.csv
 /api/press.html                               /api/v1/press.html
