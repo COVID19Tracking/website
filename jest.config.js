@@ -1,3 +1,6 @@
+const setTZ = require('set-tz')
+setTZ('America/New_York')
+
 module.exports = {
   transform: {
     '^.+\\.jsx?$': `<rootDir>/jest-preprocess.js`,
@@ -12,6 +15,8 @@ module.exports = {
     `\\.cache`,
     `<rootDir>.*/public`,
     './src/__tests__/build/index.js',
+    './build/__tests__/post-build/',
+    './build/__tests__/utilities/',
     './build/test.js',
   ],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],

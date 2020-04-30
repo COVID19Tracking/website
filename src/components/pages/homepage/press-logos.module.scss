@@ -3,7 +3,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
+  &.extra-margin {
+    margin-bottom: 3rem;
+  }
   img {
     filter: grayscale(1);
     height: 2.5rem;

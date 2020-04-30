@@ -48,6 +48,14 @@ export default ({ data }) => (
                   </Link>{' '}
                   to see the quality of the data they are providing.
                 </p>,
+
+                <p>
+                  Preview our beta release of{' '}
+                  <Link to="/race">
+                    demographic data from the COVID Racial Data Tracker
+                  </Link>
+                  .
+                </p>,
                 <p>
                   Want to get involved?{' '}
                   <Link to="/help">Help us get better data</Link>.

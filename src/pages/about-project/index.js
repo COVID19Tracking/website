@@ -13,17 +13,39 @@ export default ({ data }) => (
     <div
       dangerouslySetInnerHTML={{
         __html:
-          data.allContentfulSnippet.edges[0].node
-            .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
+          data.preamble.edges[0].node.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html,
       }}
     />
     <VolunteersList items={data.allCovidVolunteers.edges} />
+    <div
+      dangerouslySetInnerHTML={{
+        __html:
+          data.pastContributors.edges[0].node
+            .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
+      }}
+    />
   </Layout>
 )
 
 export const query = graphql`
   query {
-    allContentfulSnippet(filter: { slug: { eq: "about-us-preamble" } }) {
+    preamble: allContentfulSnippet(
+      filter: { slug: { eq: "about-us-preamble" } }
+    ) {
+      edges {
+        node {
+          childContentfulSnippetContentTextNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+    }
+    pastContributors: allContentfulSnippet(
+      filter: { slug: { eq: "past-contributors" } }
+    ) {
       edges {
         node {
           childContentfulSnippetContentTextNode {
