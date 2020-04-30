@@ -78,7 +78,8 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
+exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
+  const { setWebpackConfig } = actions
   if (stage === 'build-javascript') {
     const config = getConfig()
     const miniCssExtractPlugin = config.plugins.find(
@@ -89,5 +90,18 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
     }
 
     actions.replaceWebpackConfig(config)
+  }
+
+  if (stage === 'build-html') {
+    setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /swagger-ui/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
   }
 }

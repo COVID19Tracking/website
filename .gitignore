@@ -76,3 +76,5 @@ storybook-static
 
 # Junit coverage report
 junit.xml
+# Local Netlify folder
+.netlify
