@@ -67,6 +67,10 @@
   }
 
   tbody {
+    th,
+    td {
+      vertical-align: top;
+    }
     th {
       font-weight: normal;
     }
