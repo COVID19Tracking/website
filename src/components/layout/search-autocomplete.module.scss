@@ -19,11 +19,22 @@
   ul {
     margin-bottom: 0;
   }
-  li {
+  li:not(.popoverSeparator) {
     &:hover,
     &:focus,
     &[aria-selected='true'] {
       background: $color-plum-500;
     }
+  }
+}
+
+.popoverSeparator {
+  padding-left: .5rem;
+  text-align: left;
+  font-size: .8rem;
+  font-style: italic;
+  pointer-events: none;
+  &:not(:first-child) {
+    margin-top: .5rem;
   }
 }

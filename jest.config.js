@@ -17,6 +17,7 @@ module.exports = {
     '~pages(.*)$': 'src/pages/$1',
     '~scss(.*)$': 'src/scss/$1',
     '~templates(.*)$': 'src/templates/$1',
+    '~utilities(.*)$': 'src/utilities/$1',
   },
   testPathIgnorePatterns: [
     `node_modules`,

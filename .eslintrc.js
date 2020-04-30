@@ -44,6 +44,7 @@ module.exports = {
         ['~pages', './src/pages'],
         ['~scss', './src/scss'],
         ['~templates', './src/templates'],        
+        ['~utilities', './src/utilities'],        
       ]
     }
   },

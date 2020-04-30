@@ -8,12 +8,13 @@ import {
 } from '@reach/combobox'
 import { navigate } from 'gatsby'
 import '@reach/combobox/styles.css'
-import withSearch from '../utils/with-search'
+import withSearch from '~components/utils/with-search'
 import {
-  searchResultTypes,
+  types,
   useSearch,
   querySearch,
   getSanitizedSlug,
+  partitionHitsByRelevance,
 } from '../../context/search-context'
 import searchAutocompleteStyles from './search-autocomplete.module.scss'
 
@@ -32,12 +33,12 @@ export default withSearch(() => {
   }, [query])
 
   const totalHits =
-    (results[searchResultTypes.STATE].nbHits || 0) +
-    (results[searchResultTypes.BLOG_POST].nbHits || 0) +
-    (results[searchResultTypes.PAGE].nbHits || 0)
+    (results[types.STATE].nbHits || 0) +
+    (results[types.BLOG_POST].nbHits || 0) +
+    (results[types.PAGE].nbHits || 0)
 
   const goToResult = selectedItem => {
-    const resultTypes = Object.values(searchResultTypes)
+    const resultTypes = Object.values(types)
     resultTypes.forEach(type => {
       const item = results[type].hits.find(result => {
         return result.name === selectedItem || result.title === selectedItem
@@ -48,6 +49,8 @@ export default withSearch(() => {
       }
     })
   }
+
+  const { bestHits, otherHits } = partitionHitsByRelevance(results)
 
   return (
     <Combobox
@@ -72,16 +75,29 @@ export default withSearch(() => {
         >
           {totalHits > 0 ? (
             <ComboboxList aria-label="Results">
-              {results[searchResultTypes.STATE].hits.slice(0, 10).map(state => (
-                <ComboboxOption key={`${state.slug}`} value={`${state.name}`} />
+              <li
+                tabIndex="-1"
+                className={searchAutocompleteStyles.popoverSeparator}
+              >
+                Best results
+              </li>
+              {bestHits.slice(0, 10).map(item => (
+                <ComboboxOption
+                  key={`${item.slug}`}
+                  value={`${item.type === 'state' ? item.name : item.title}`}
+                />
               ))}
-              {results[searchResultTypes.BLOG_POST].hits
-                .slice(0, 10)
-                .map(post => (
-                  <ComboboxOption key={`${post.slug}`} value={post.title} />
-                ))}
-              {results[searchResultTypes.PAGE].hits.slice(0, 10).map(page => (
-                <ComboboxOption key={`${page.slug}`} value={page.title} />
+              <li
+                tabIndex="-1"
+                className={searchAutocompleteStyles.popoverSeparator}
+              >
+                Other results
+              </li>
+              {otherHits.slice(0, 10).map(item => (
+                <ComboboxOption
+                  key={`${item.slug}`}
+                  value={`${item.type === 'state' ? item.name : item.title}`}
+                />
               ))}
             </ComboboxList>
           ) : (

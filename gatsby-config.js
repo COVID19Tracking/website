@@ -142,6 +142,7 @@ const gatsbyConfig = {
           '~pages': 'src/pages',
           '~scss': 'src/scss',
           '~templates': 'src/templates',
+          '~utilities': 'src/utilities',
         },
         extensions: ['js', 'scss', 'svg', 'png'],
       },
