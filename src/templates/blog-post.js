@@ -9,6 +9,7 @@ import ImageContentBlock from '../components/pages/blog/image-content-block'
 import Layout from '../components/layout'
 import Lede from '../components/pages/blog/blog-lede'
 import RelatedPosts from '../components/pages/blog/related-posts'
+import FeaturedImage from '../components/pages/blog/featured-image'
 
 import blogPostStyles from './blog-post.module.scss'
 
@@ -32,6 +33,9 @@ export default ({ data }) => {
         date={blogPost.publishDate}
         lede={blogPost.lede.lede}
       />
+      {blogPost.featuredImage && (
+        <FeaturedImage image={blogPost.featuredImage} />
+      )}
       <div className={blogPostStyles.blogContent}>
         {documentToReactComponents(
           blogPost.childContentfulBlogPostBlogContentRichTextNode.json,
@@ -76,6 +80,12 @@ export const query = graphql`
           }
           childContentfulBlogPostBlogContentRichTextNode {
             json
+          }
+          featuredImage {
+            resize(width: 900) {
+              src
+            }
+            title
           }
           slug
           lede {
