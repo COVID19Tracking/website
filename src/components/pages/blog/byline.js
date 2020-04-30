@@ -16,11 +16,11 @@ const Author = ({ author }) => {
   return (
     <>
       {link ? (
-        <a className="author-inner" href={link}>
+        <a className={bylineStyles.authorInner} href={link}>
           {author.name}
         </a>
       ) : (
-        <span className="author-inner">{author.name}</span>
+        <span className={bylineStyles.authorInner}>{author.name}</span>
       )}
     </>
   )
