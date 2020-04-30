@@ -1,4 +1,5 @@
 @import '../../scss/colors.module.scss';
+@import '../../scss/breakpoints.module.scss';
 
 .align-left {
   text-align: left;
@@ -7,11 +8,11 @@
 .table {
   line-height: 1rem;
   border-collapse: collapse;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 1.5rem;
   font-variant-numeric: lining-nums tabular-nums;
   width: 100%;
 
-  @media only screen and (max-width: 640px) {
+  @media only screen and (max-width: $viewport-lg) {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
