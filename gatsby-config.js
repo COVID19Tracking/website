@@ -3,7 +3,6 @@ require(`@babel/register`)({
   plugins: ['@babel/plugin-transform-runtime'],
 })
 require('dotenv').config()
-
 const { DateTime } = require('luxon')
 const algoliaQueries = require('./src/utilities/algolia').queries
 
@@ -144,6 +143,13 @@ const gatsbyConfig = {
           '~templates': 'src/templates',
         },
         extensions: ['js', 'scss', 'svg', 'png'],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `#924F34`,
+        showSpinner: false,
       },
     },
   ],

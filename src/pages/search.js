@@ -1,12 +1,12 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect } from 'react'
-import '@reach/combobox/styles.css'
+import NProgress from 'nprogress'
 import Layout from '~components/layout'
 import withSearch from '~components/utils/with-search'
 import searchPageStyle from './search.module.scss'
 import pressListStyle from '~components/common/press-list.module.scss'
-import SearchLoader from '~components/search/search-loader'
 import SearchResultSection from '~components/search/search-result-section'
+
 import {
   searchResultTypes as types,
   useSearch,
@@ -22,6 +22,7 @@ export default withSearch(({ search }) => {
   let searchEvent
 
   function setQuery(value) {
+    NProgress.start()
     return searchDispatch({ type: 'setQuery', payload: value })
   }
 
@@ -37,19 +38,9 @@ export default withSearch(({ search }) => {
     }
   }, [query])
 
-  const totalHits =
-    (results[types.STATE].nbHits || 0) +
-    (results[types.BLOG_POST].nbHits || 0) +
-    (results[types.PAGE].nbHits || 0)
-
-  const hitsInfo = query.length
-    ? ` : ${query} (${totalHits} result${totalHits === 1 ? '' : 's'})`
-    : ''
-
   return (
     <Layout title="Search">
-      <form className={searchPageStyle.searchForm}>
-        <h2 className="hed-primary">Search{hitsInfo}</h2>
+      <form>
         <input
           type="text"
           aria-label="Search"
@@ -65,7 +56,6 @@ export default withSearch(({ search }) => {
           }}
         />
       </form>
-      {searchState.isFetching && <SearchLoader />}
 
       <div className={searchPageStyle.searchResults}>
         {/* State results */}

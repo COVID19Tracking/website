@@ -1,5 +1,6 @@
 import React from 'react'
 import algoliasearch from 'algoliasearch'
+import NProgress from 'nprogress'
 import marked from 'marked'
 import truncate from 'lodash/truncate'
 import { prefixSearchIndex } from '../utilities/algolia'
@@ -104,6 +105,7 @@ export function useSearch() {
 async function queryIndex(index, query) {
   try {
     const hits = await index.search(query)
+
     return hits
   } catch (e) {
     // TODO client-side error reporting?
@@ -120,6 +122,7 @@ export async function querySearch(s, dispatch) {
       queryIndex(blogIndex, s.query),
       queryIndex(pageIndex, s.query),
     ])
+    NProgress.done()
     dispatch({ type: 'fetchSuccess', payload: { state, blogPost, page } })
   } catch (error) {
     dispatch({ type: 'fetchError', error })

@@ -94,13 +94,13 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
           <Container>
             <div className={headerStyle.siteTitleContainer}>
               <div className={headerStyle.siteTitleInner}>
-                <a href="/">
+                <Link to="/">
                   <img
                     src={projectLogo}
                     alt="The COVID Tracking Project"
                     width="176px"
                   />
-                </a>
+                </Link>
               </div>
               <div className={headerStyle.siteNavContainer}>
                 <div className={headerStyle.navContainer}>

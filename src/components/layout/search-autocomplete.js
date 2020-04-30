@@ -60,6 +60,11 @@ export default withSearch(() => {
         id="header-search"
         placeholder="Search"
         autoComplete="off"
+        onKeyDown={event => {
+          if (event.key === 'Enter') {
+            navigate(`/search?q=${event.target.value}`)
+          }
+        }}
         onChange={event => {
           setQuery(event.currentTarget.value)
         }}
