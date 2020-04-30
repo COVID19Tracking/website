@@ -19,7 +19,8 @@
   color: $color-blueberry-500;
   text-decoration: none;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: $color-blueberry-500;
     background: $color-plum-400;
   }
@@ -31,28 +32,28 @@
   align-items: center;
   padding: 0.4rem 0.75rem;
 
-  background: transparentize($color-plum-400, .2);
+  background: transparentize($color-plum-400, 0.2);
   color: white;
   position: relative;
 
   input {
     width: calc(5.6rem - 1.25rem - 1rem);
-    margin-left: .5rem;
+    margin-left: 0.5rem;
 
     font-weight: 600;
     border: 0;
     background: transparent;
-    color: #F2F2F2;
-    transition: width .2s;
+    color: #f2f2f2;
+    transition: width 0.2s;
 
     &::placeholder {
-      color: #F2F2F2;
+      color: #f2f2f2;
       opacity: 1;
     }
-    
+
     &:focus {
       width: calc(9.5rem - 1.25rem - 1rem);
-      outline: solid 1px #F2F2F2;
+      outline: solid 1px #f2f2f2;
       outline-offset: 2px;
     }
   }
@@ -90,7 +91,7 @@
   display: none;
 
   font-weight: 600;
-  font-size: .9rem;
+  font-size: 0.9rem;
 
   @media (min-width: $viewport-lg) {
     display: block;
@@ -109,15 +110,17 @@
 
   .mobile-menu {
     background: $color-plum-800;
-    padding: 1rem;
     position: relative;
+    padding: 1rem;
+    @media (min-width: $viewport-lg) {
+      display: none;
+    }
     .mobile-pointer {
       position: absolute;
       width: 30px;
       height: 30px;
       right: 35px;
       bottom: -15px;
-
       background: $color-plum-800;
       transform: rotate(-45deg);
     }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
+import Expand from 'react-expand-animated'
 import DevelopmentWarning from './development-warning'
 import PartnershipBanner from './partnership-banner'
 import SearchAutocomplete from './search-autocomplete'
@@ -9,6 +10,11 @@ import atlanticLogo from '../../images/atlantic-logo.svg'
 import headerStyle from './header.module.scss'
 import searchIcon from '../../images/icons/search.svg'
 import Container from '../common/container'
+import colors from '../../scss/colors.module.scss'
+
+const expandStyles = {
+  open: { background: colors.colorPlum800 },
+}
 
 const HeaderTabs = ({ navigation }) => (
   <div className={`site-header-tabs ${headerStyle.headerTabs}`}>
@@ -89,8 +95,22 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
             !hasHero ? headerStyle.showBackground : ''
           } `}
         >
-          {showMobileMenu && <MobileMenu />}
-          {!showMobileMenu && <PartnershipBanner />}
+          <Expand
+            open={showMobileMenu}
+            styles={expandStyles}
+            duration={500}
+            transitions={['height', 'opacity', 'background']}
+          >
+            <MobileMenu expanded={showMobileMenu} />
+          </Expand>
+          <Expand
+            open={!showMobileMenu}
+            styles={expandStyles}
+            duration={500}
+            transitions={['height', 'opacity', 'background']}
+          >
+            <PartnershipBanner />
+          </Expand>
           <Container>
             <div className={headerStyle.siteTitleContainer}>
               <div className={headerStyle.siteTitleInner}>
