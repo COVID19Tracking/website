@@ -73,7 +73,7 @@ const MobileMenu = () => (
 
     <HeaderNavigation />
     <Link to="/help" className={headerStyle.getInvolved}>
-      Get involved
+      Get Involved
     </Link>
     <div className={headerStyle.mobilePointer} />
   </div>

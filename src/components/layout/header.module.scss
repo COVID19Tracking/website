@@ -11,18 +11,12 @@
   }
 }
 
-.get-involved {
-  display: inline-block;
-  vertical-align: top;
-  padding: 0.4rem 0.5rem;
-  background: $color-blueberry-200;
-  color: $color-blueberry-500;
-  text-decoration: none;
+.tools {
+  display: none;
+  font-size: 0.81rem;
 
-  &:hover,
-  &:focus {
-    color: $color-blueberry-500;
-    background: $color-plum-400;
+  @media (min-width: $viewport-lg) {
+    display: block;
   }
 }
 
@@ -37,10 +31,12 @@
   position: relative;
 
   input {
-    width: calc(5.6rem - 1.25rem - 1rem);
+    @media (min-width: $viewport-lg) {
+      width: calc(5.6rem - 1.25rem - 1rem);
+    }
     margin-left: 0.5rem;
 
-    font-weight: 600;
+    font-weight: bold;
     border: 0;
     background: transparent;
     color: #f2f2f2;
@@ -56,6 +52,21 @@
       outline: solid 1px #f2f2f2;
       outline-offset: 2px;
     }
+  }
+}
+
+.get-involved {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0.4rem 0.5rem;
+
+  font-weight: bold;
+  background: #FFFFFF;
+  color: $color-blueberry-500;
+  text-decoration: none;
+
+  @media (max-width: $viewport-md) {
+    margin-top: 1.75rem;
   }
 }
 
@@ -77,24 +88,20 @@
   img {
     display: flex;
     margin-right: 1rem;
+    padding-bottom: .2rem;
+  }
+  span {
+    padding-top: 1px;
+    margin-right: .5rem;
+    font-size: 0.625rem;
+    line-height: .8rem;
   }
   div {
     display: flex;
-    border: 1px solid white;
+    border-top: 1px solid white;
     width: 100%;
     height: 1px;
     opacity: 0.2;
-  }
-}
-
-.tools {
-  display: none;
-
-  font-weight: 600;
-  font-size: 0.9rem;
-
-  @media (min-width: $viewport-lg) {
-    display: block;
   }
 }
 
@@ -127,7 +134,10 @@
     nav {
       display: block;
       li {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.75rem;
+      }
+      li:last-child {
+        margin-bottom: 0;
       }
     }
     .search-input {
@@ -189,13 +199,14 @@
 
   nav {
     display: none;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     align-self: center;
     break-before: always;
     padding-bottom: 0.5rem;
+
     @media (min-width: $viewport-lg) {
       display: block;
-      margin-top: 1.5rem;
+      margin-top: 1.2rem;
     }
 
     a {
