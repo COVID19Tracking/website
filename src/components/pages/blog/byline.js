@@ -75,4 +75,14 @@ const Byline = ({ authors, date }) => {
   )
 }
 
-export { Byline, AuthorsText }
+const OneLineByline = ({ authors, date }) => (
+  <p className={bylineStyles.oneLineByline}>
+    By:{' '}
+    <span className={bylineStyles.author}>
+      <AuthorsText authors={authors} />
+    </span>
+    <span className="related-date">{date}</span>
+  </p>
+)
+
+export { Byline, AuthorsText, OneLineByline }

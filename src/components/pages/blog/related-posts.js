@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { AuthorsText } from './byline'
+import { OneLineByline } from './byline'
 import RelatedPostsStyles from './related-posts.module.scss'
 
 export default ({ posts }) => (
@@ -11,13 +11,7 @@ export default ({ posts }) => (
         <h3>
           <Link to={`/blog/${post.slug}`}>{post.title}</Link>
         </h3>
-        <p className={RelatedPostsStyles.byline}>
-          By:{' '}
-          <span className={RelatedPostsStyles.authors}>
-            <AuthorsText authors={post.authors} />
-          </span>
-          <span className="related-date">{post.publishDate}</span>
-        </p>
+        <OneLineByline authors={post.authors} date={post.publishDate} />
       </div>
     ))}
   </div>

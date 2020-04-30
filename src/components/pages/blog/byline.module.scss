@@ -36,3 +36,21 @@
     color: $color-slate-700;
   }
 }
+
+.one-line-byline {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 2.5;
+  .author::after {
+    content: "  \2022  ";
+    color: $color-slate-500;
+  }
+  .author {
+    color: $color-slate-700;
+    font-style: italic;
+  }
+}
+
+p.one-line-byline {
+  margin-bottom: 0;
+}
