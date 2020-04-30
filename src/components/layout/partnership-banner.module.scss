@@ -8,6 +8,11 @@
   font-weight: bold;
   background: $color-plum-800;
   color: $color-blueberry-200;
+  transition: background .2s;
+  
+  &:hover, &:focus {
+    background: #000000;
+  }
 
   @media (max-width: $viewport-sm) {
     padding: 0.7rem;
@@ -17,6 +22,10 @@
   a {
     color: white;
     text-decoration: none;
+
+    &:hover, &:focus {
+      color: white;
+    }
   }
   .new {
     display: inline-block;
