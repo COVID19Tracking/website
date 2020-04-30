@@ -58,6 +58,8 @@ export const query = graphql`
           authors {
             name
             twitterLink
+            twitterHandle
+            link
             childContentfulAuthorBiographyTextNode {
               childMarkdownRemark {
                 html

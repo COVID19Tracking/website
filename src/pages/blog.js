@@ -19,6 +19,7 @@ export const query = graphql`
           authors {
             name
             twitterLink
+            link
             headshot {
               file {
                 fileName

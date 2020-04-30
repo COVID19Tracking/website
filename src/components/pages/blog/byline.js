@@ -1,17 +1,30 @@
 import React, { Fragment } from 'react'
 import bylineStyles from './byline.module.scss'
 
-const Author = ({ author }) => (
-  <>
-    {author.twitterLink ? (
-      <a className="author-inner" href={author.twitterLink}>
-        {author.name}
-      </a>
-    ) : (
-      <span className="author-inner">{author.name}</span>
-    )}
-  </>
-)
+const getAuthorLink = author => {
+  if (author.link) {
+    return author.link
+  }
+  if (author.twitterLink) {
+    return author.twitterLink
+  }
+  return null
+}
+
+const Author = ({ author }) => {
+  const link = getAuthorLink(author)
+  return (
+    <>
+      {link ? (
+        <a className="author-inner" href={link}>
+          {author.name}
+        </a>
+      ) : (
+        <span className="author-inner">{author.name}</span>
+      )}
+    </>
+  )
+}
 
 const AuthorSpacer = ({ index, length }) => {
   if (index === 0 && length === 2) {
