@@ -45,6 +45,11 @@ function searchReducer(state, action) {
         ...state,
         query: action.payload,
       }
+    case 'clearQuery':
+      return {
+        state: initialState,
+        isFetching: false,
+      }
     case 'fetchStart':
       return {
         ...state,
@@ -175,17 +180,23 @@ export function getSanitizedSlug(type, item) {
  */
 
 export function partitionHitsByRelevance(results) {
+  /* eslint-disable */
+  const bestHits = []
+  const otherHits = []
+
+  if (!results) {
+    return { bestHits, otherHits }
+  }
+
+  const partitionHit = (hit, type, test) => test 
+    ? bestHits.push({...hit, type}) 
+    : otherHits.push({...hit, type})
+
   const allHits = {
     [types.STATE]: results[types.STATE],
     [types.BLOG_POST]: results[types.BLOG_POST],
     [types.PAGE]: results[types.PAGE],
   }
-  /* eslint-disable */
-  const bestHits = []
-  const otherHits = []
-  const partitionHit = (hit, type, test) => test 
-    ? bestHits.push({...hit, type}) 
-    : otherHits.push({...hit, type})
 
   each(allHits, ({ hits: typeHits }, type) => {
     if (!typeHits) {

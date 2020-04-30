@@ -23,6 +23,10 @@ export default withSearch(() => {
   const { query, results } = searchState
 
   function setQuery(value) {
+    if (!value) {
+      return searchDispatch({ type: 'clearQuery' })
+    }
+
     return searchDispatch({ type: 'setQuery', payload: value })
   }
 
@@ -33,9 +37,10 @@ export default withSearch(() => {
   }, [query])
 
   const totalHits =
+    results &&
     (results[types.STATE].nbHits || 0) +
-    (results[types.BLOG_POST].nbHits || 0) +
-    (results[types.PAGE].nbHits || 0)
+      (results[types.BLOG_POST].nbHits || 0) +
+      (results[types.PAGE].nbHits || 0)
 
   const goToResult = selectedItem => {
     const resultTypes = Object.values(types)
