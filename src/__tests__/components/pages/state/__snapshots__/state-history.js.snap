@@ -17,7 +17,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           className="alignLeft"
           scope="col"
         >
-          Screenshots (ET)
+          Screenshot
         </th>
         <th
           className=""
