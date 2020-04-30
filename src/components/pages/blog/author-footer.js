@@ -27,7 +27,9 @@ export default ({ authors }) => {
                     .childMarkdownRemark.html,
               }}
             />
-            <p>{author.twitterHandle}</p>
+            <a href={`https://twitter.com/${author.twitterHandle}`}>
+              @{author.twitterHandle}
+            </a>
           </div>
         </div>
       ))}
