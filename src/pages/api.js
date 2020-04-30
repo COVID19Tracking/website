@@ -1,21 +1,37 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import SwaggerSandbox from '../../components/common/swagger-sandbox'
-import Layout from '../../components/layout'
+import SwaggerSandbox from '../components/common/swagger-sandbox'
+import Layout from '../components/layout'
 
 export default ({ data }) => (
   <Layout
-    title="API Sandbox"
+    title="Data API"
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
-    Below, you can explore each of our endpoints, try out API requests, and
-    learn about our schema.
+    <div
+      dangerouslySetInnerHTML={{
+        __html:
+          data.allContentfulSnippet.edges[0].node
+            .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
+      }}
+    />
     <SwaggerSandbox />
   </Layout>
 )
 
 export const query = graphql`
   query {
+    allContentfulSnippet(filter: { slug: { eq: "api-preamble" } }) {
+      edges {
+        node {
+          childContentfulSnippetContentTextNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+    }
     allContentfulNavigationGroup(filter: { slug: { eq: "data" } }) {
       edges {
         node {
