@@ -37,26 +37,29 @@ const AuthorsText = ({ authors }) => (
   </>
 )
 
-const Byline = ({ authors, date }) => (
-  <div className={bylineStyles.byline}>
-    <div className={bylineStyles.headshotContainer}>
-      {authors
-        .filter(author => author.headshot)
-        .map(author => (
-          <img
-            src={author.headshot.resize.src}
-            alt={author.headshot.file.fileName}
-          />
-        ))}
-    </div>
-    <p className={bylineStyles.authorDateContainer}>
-      By:{' '}
-      <p className={bylineStyles.author}>
-        <AuthorsText authors={authors} />
+const Byline = ({ authors, date }) => {
+  const authorsWithHeadshots = authors.filter(author => author.headshot)
+  return (
+    <div className={bylineStyles.byline}>
+      {authorsWithHeadshots.length > 0 && (
+        <div className={bylineStyles.headshotContainer}>
+          {authorsWithHeadshots.map(author => (
+            <img
+              src={author.headshot.resize.src}
+              alt={author.headshot.file.fileName}
+            />
+          ))}
+        </div>
+      )}
+      <p className={bylineStyles.authorDateContainer}>
+        By:{' '}
+        <p className={bylineStyles.author}>
+          <AuthorsText authors={authors} />
+        </p>
+        <span className={bylineStyles.date}>{date}</span>
       </p>
-      <span className={bylineStyles.date}>{date}</span>
-    </p>
-  </div>
-)
+    </div>
+  )
+}
 
 export { Byline, AuthorsText }
