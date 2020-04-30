@@ -1,11 +1,14 @@
 /api/statesdaily state=:state date=:date      /api/v1/states/:state/:date.json
 /api/states state=:state                      /api/v1/states/:state/current.json
+/api/us date=:date                            /api/v1/us/:date.json
+/api/us/daily date=:date                      /api/v1/us/:date.json
 /api/v1/us.json                               /api/v1/us/current.json
 /api/v1/states.json                           /api/v1/states/current.json
 /api/statesinfo                               /api/v1/states/info.json
 /api/statesinfo.csv                           /api/v1/states/info.csv
 /api/statesdaily                              /api/v1/states/daily.json
 /api/statesdaily.csv                          /api/v1/states/daily.csv
+/api/states.json                              /api/v1/states/current.json
 /api/states                                   /api/v1/states/current.json
 /api/states.csv                               /api/v1/states/current.csv
 /api/us                                       /api/v1/us/current.json
