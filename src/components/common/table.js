@@ -6,14 +6,14 @@ const Th = ({ children, alignLeft, scope, colSpan }) => (
   <th
     scope={scope}
     colSpan={colSpan}
-    className={alignLeft ? tableStyle.alignLeft : ''}
+    className={alignLeft && tableStyle.alignLeft}
   >
     {children}
   </th>
 )
 
 const Td = ({ children, alignLeft }) => (
-  <td className={alignLeft ? tableStyle.alignLeft : ''}>{children}</td>
+  <td className={alignLeft && tableStyle.alignLeft}>{children}</td>
 )
 
 const Table = ({ children, tableLabel }) => (

@@ -26,42 +26,36 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
     <thead>
       <tr>
         <th
-          className=""
           colSpan="3"
           scope="colgroup"
         >
           Tests
         </th>
         <th
-          className=""
           colSpan="2"
           scope="colgroup"
         >
           Hospitalized
         </th>
         <th
-          className=""
           colSpan="2"
           scope="colgroup"
         >
           In ICU
         </th>
         <th
-          className=""
           colSpan="2"
           scope="colgroup"
         >
           On Ventilator
         </th>
         <th
-          className=""
           colSpan="2"
           scope="colgroup"
         >
           Outcomes
         </th>
         <th
-          className=""
           scope="colgroup"
         >
           Total Test Results
@@ -75,13 +69,11 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           Positive
         </th>
         <th
-          className=""
           scope="col"
         >
           Negative
         </th>
         <th
-          className=""
           scope="col"
         >
           Pending
@@ -93,7 +85,6 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           Currently
         </th>
         <th
-          className=""
           scope="col"
         >
           Cumulative
@@ -105,7 +96,6 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           Currently
         </th>
         <th
-          className=""
           scope="col"
         >
           Cumulative
@@ -117,7 +107,6 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           Currently
         </th>
         <th
-          className=""
           scope="col"
         >
           Cumulative
@@ -129,7 +118,6 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           Recovered
         </th>
         <th
-          className=""
           scope="col"
         >
           Deaths
@@ -144,64 +132,40 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
     </thead>
     <tbody>
       <tr>
-        <td
-          className=""
-        >
+        <td>
           4,572
         </td>
-        <td
-          className=""
-        >
+        <td>
           33,318
         </td>
-        <td
-          className=""
-        >
+        <td>
           N/A
         </td>
-        <td
-          className=""
-        >
+        <td>
           N/A
         </td>
-        <td
-          className=""
-        >
+        <td>
           594
         </td>
-        <td
-          className=""
-        >
+        <td>
           N/A
         </td>
-        <td
-          className=""
-        >
+        <td>
           247
         </td>
-        <td
-          className=""
-        >
+        <td>
           N/A
         </td>
-        <td
-          className=""
-        >
+        <td>
           148
         </td>
-        <td
-          className=""
-        >
+        <td>
           N/A
         </td>
-        <td
-          className=""
-        >
+        <td>
           151
         </td>
-        <td
-          className=""
-        >
+        <td>
           37,890
         </td>
       </tr>
@@ -229,45 +193,39 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
     <thead>
       <tr>
         <th
-          className=""
           colSpan="3"
           scope="colgroup"
         >
           Tests
         </th>
-        <td
-          className=""
-        >
+        <td>
            
         </td>
       </tr>
       <tr>
         <th
-          className=""
+          className={false}
           scope="col"
         >
           Positive
         </th>
         <th
-          className=""
           scope="col"
         >
           Negative
         </th>
         <th
-          className=""
           scope="col"
         >
           Pending
         </th>
         <th
-          className=""
           scope="col"
         >
           Deaths
         </th>
         <th
-          className=""
+          className={false}
           scope="col"
         >
           Positive + Negative
@@ -276,29 +234,19 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
     </thead>
     <tbody>
       <tr>
-        <td
-          className=""
-        >
+        <td>
           4,572
         </td>
-        <td
-          className=""
-        >
+        <td>
           33,318
         </td>
-        <td
-          className=""
-        >
+        <td>
           N/A
         </td>
-        <td
-          className=""
-        >
+        <td>
           151
         </td>
-        <td
-          className=""
-        >
+        <td>
           37,890
         </td>
       </tr>

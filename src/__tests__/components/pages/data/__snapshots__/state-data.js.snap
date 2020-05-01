@@ -59,42 +59,36 @@ Array [
       <thead>
         <tr>
           <th
-            className=""
             colSpan="3"
             scope="colgroup"
           >
             Tests
           </th>
           <th
-            className=""
             colSpan="2"
             scope="colgroup"
           >
             Hospitalized
           </th>
           <th
-            className=""
             colSpan="2"
             scope="colgroup"
           >
             In ICU
           </th>
           <th
-            className=""
             colSpan="2"
             scope="colgroup"
           >
             On Ventilator
           </th>
           <th
-            className=""
             colSpan="2"
             scope="colgroup"
           >
             Outcomes
           </th>
           <th
-            className=""
             scope="colgroup"
           >
             Total Test Results
@@ -108,13 +102,11 @@ Array [
             Positive
           </th>
           <th
-            className=""
             scope="col"
           >
             Negative
           </th>
           <th
-            className=""
             scope="col"
           >
             Pending
@@ -126,7 +118,6 @@ Array [
             Currently
           </th>
           <th
-            className=""
             scope="col"
           >
             Cumulative
@@ -138,7 +129,6 @@ Array [
             Currently
           </th>
           <th
-            className=""
             scope="col"
           >
             Cumulative
@@ -150,7 +140,6 @@ Array [
             Currently
           </th>
           <th
-            className=""
             scope="col"
           >
             Cumulative
@@ -162,7 +151,6 @@ Array [
             Recovered
           </th>
           <th
-            className=""
             scope="col"
           >
             Deaths
@@ -177,64 +165,40 @@ Array [
       </thead>
       <tbody>
         <tr>
-          <td
-            className=""
-          >
+          <td>
             4,572
           </td>
-          <td
-            className=""
-          >
+          <td>
             33,318
           </td>
-          <td
-            className=""
-          >
+          <td>
             N/A
           </td>
-          <td
-            className=""
-          >
+          <td>
             N/A
           </td>
-          <td
-            className=""
-          >
+          <td>
             594
           </td>
-          <td
-            className=""
-          >
+          <td>
             N/A
           </td>
-          <td
-            className=""
-          >
+          <td>
             247
           </td>
-          <td
-            className=""
-          >
+          <td>
             N/A
           </td>
-          <td
-            className=""
-          >
+          <td>
             148
           </td>
-          <td
-            className=""
-          >
+          <td>
             N/A
           </td>
-          <td
-            className=""
-          >
+          <td>
             151
           </td>
-          <td
-            className=""
-          >
+          <td>
             37,890
           </td>
         </tr>

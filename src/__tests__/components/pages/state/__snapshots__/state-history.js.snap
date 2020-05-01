@@ -20,43 +20,36 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           Screenshot
         </th>
         <th
-          className=""
           scope="col"
         >
           New Tests
         </th>
         <th
-          className=""
           scope="col"
         >
           Positive
         </th>
         <th
-          className=""
           scope="col"
         >
           Negative
         </th>
         <th
-          className=""
           scope="col"
         >
           Pending
         </th>
         <th
-          className=""
           scope="col"
         >
           Hospitalized
         </th>
         <th
-          className=""
           scope="col"
         >
           Deaths
         </th>
         <th
-          className=""
           scope="col"
         >
           Total
@@ -96,39 +89,25 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
             </li>
           </ul>
         </td>
-        <td
-          className=""
-        >
+        <td>
           1,457
         </td>
-        <td
-          className=""
-        >
+        <td>
           4,530
         </td>
-        <td
-          className=""
-        >
+        <td>
           33,318
         </td>
-        <td
-          className=""
-        >
+        <td>
           N/A
         </td>
-        <td
-          className=""
-        >
+        <td>
           594
         </td>
-        <td
-          className=""
-        >
+        <td>
           144
         </td>
-        <td
-          className=""
-        >
+        <td>
           37,848
         </td>
       </tr>
@@ -141,39 +120,25 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
         <td
           className="alignLeft"
         />
-        <td
-          className=""
-        >
+        <td>
           2,314
         </td>
-        <td
-          className=""
-        >
+        <td>
           4,345
         </td>
-        <td
-          className=""
-        >
+        <td>
           32,046
         </td>
-        <td
-          className=""
-        >
+        <td>
           N/A
         </td>
-        <td
-          className=""
-        >
+        <td>
           553
         </td>
-        <td
-          className=""
-        >
+        <td>
           133
         </td>
-        <td
-          className=""
-        >
+        <td>
           36,391
         </td>
       </tr>
@@ -186,39 +151,25 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
         <td
           className="alignLeft"
         />
-        <td
-          className=""
-        >
+        <td>
           960
         </td>
-        <td
-          className=""
-        >
+        <td>
           4,113
         </td>
-        <td
-          className=""
-        >
+        <td>
           29,964
         </td>
-        <td
-          className=""
-        >
+        <td>
           N/A
         </td>
-        <td
-          className=""
-        >
+        <td>
           525
         </td>
-        <td
-          className=""
-        >
+        <td>
           121
         </td>
-        <td
-          className=""
-        >
+        <td>
           34,077
         </td>
       </tr>
