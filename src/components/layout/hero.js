@@ -107,18 +107,20 @@ export default () => {
   return (
     <Container>
       <div className={`hero ${heroStyle.hero}`}>
-        <h2>
-          The CDC has reported {cdcTotal.toLocaleString()} COVID-19 tests in the
-          US to date. We&apos;ve counted{' '}
-          {data.allCovidUs.nodes[0].posNeg.toLocaleString()}
-        </h2>
-        <p>
-          Complete testing data from the entire United States is crucial for
-          newsrooms, public health departments, and the public—but no government
-          source is collecting it. We are.
-        </p>
+        <div className={heroStyle.text}>
+          <h2 className={`hero-header ${heroStyle.header}`}>
+            The CDC has reported {cdcTotal.toLocaleString()} COVID-19 tests in
+            the US to date. We&apos;ve counted{' '}
+            {data.allCovidUs.nodes[0].posNeg.toLocaleString()}
+          </h2>
+          <p>
+            Complete testing data from the entire United States is crucial for
+            newsrooms, public health departments, and the public—but no
+            government source is collecting it. We are.
+          </p>
+        </div>
         <Chart data={data} />
-        <p>CDC number vs our number</p>
+        <p className={heroStyle.chartDetail}>CDC number vs our number</p>
       </div>
     </Container>
   )

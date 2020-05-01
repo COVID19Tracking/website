@@ -3,78 +3,43 @@
 
 .hero {
   padding-top: 35px;
+  color: white;
   @media (min-width: $viewport-md) {
-    padding: 70px 0;
+    padding: 70px 0 30px 40px;
   }
 
-  .header {
-    color: white;
-    font-size: 1.4375rem;
+  h2 {
+    font-size: 1.5rem;
     line-height: 1.25;
     font-weight: bold;
-    margin: 0;
     max-width: 45rem;
-
     @media (min-width: $viewport-ms) {
       font-size: 2rem;
     }
     @media (min-width: $viewport-md) {
-      font-size: 2.75rem;
+      font-size: 3rem;
     }
   }
 
-  .ctas {
-    color: white;
-    font-size: 1.25rem;
-    margin-top: 1.8em;
-    text-align: center;
-
-    @media only screen and (min-width: $viewport-ms) {
-      text-align: left;
-      margin-top: 3.5em;
+  p {
+    font-size: 1rem;
+    max-width: 45rem;
+    @media (min-width: $viewport-ms) {
+      font-size: 1rem;
     }
-
-    .button {
-      background: $color-blueberry-200;
-      color: $color-blueberry-500;
-      display: block;
-      padding: 0.75em 2em;
-      margin: 0 auto 0.5em;
-      max-width: 14em;
-      text-decoration: none;
-      &:hover,
-      &:focus,
-      &:active {
-        background: $color-blueberry-100;
-        color: $color-blueberry-500;
-      }
-      @media (min-width: $viewport-ms) {
-        display: inline-block;
-        width: inherit;
-      }
-      @media (min-width: $viewport-md) {
-        padding: 1em 2em;
-      }
+    @media (min-width: $viewport-md) {
+      font-size: 1.5rem;
     }
+  }
 
-    span {
-      display: block;
-      margin: 0.5rem 1rem;
+  .chart-detail {
+    text-align: right;
+    font-size: 0.8rem;
+    margin: 1rem 0;
+    max-width: 100%;
+  }
 
-      @media (min-width: $viewport-ms) {
-        display: inline;
-        margin: 0 1rem;
-      }
-    }
-
-    a {
-      color: white;
-      font-weight: bold;
-
-      &:hover,
-      &:focus {
-        color: $color-blueberry-100;
-      }
-    }
+  .text {
+    position: absolute;
   }
 }
