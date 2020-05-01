@@ -1,6 +1,31 @@
-/api/v1/us.json                               /api/v1/us/current.json
-/api/v1/states.json                           /api/v1/states/current.json
-/api/*                                        https://covid.cape.io/:splat  200
+/api/states/daily state=:state date=:date     /api/v1/states/:state/:date.json 200
+/api/statesdaily state=:state date=:date     /api/v1/states/:state/:date.json 200
+/api/states state=:state                      /api/v1/states/:state/current.json 200
+/api/us date=:date                            /api/v1/us/:date.json 200
+/api/us/daily date=:date                      /api/v1/us/:date.json 200
+/api/v1/us.json                               /api/v1/us/current.json 200
+/api/v1/states.json                           /api/v1/states/current.json 200
+/api/states/info                              /api/v1/states/info.json 200
+/api/states/info.csv                          /api/v1/states/info.csv
+/api/states/daily                             /api/v1/states/daily.json 200
+/api/states/daily.csv                         /api/v1/states/daily.csv
+/api/states.json                              /api/v1/states/current.json 200
+/api/states                                   /api/v1/states/current.json 200
+/api/states.csv                               /api/v1/states/current.csv
+/api/us                                       /api/v1/us/current.json 200
+/api/us.csv                                   /api/v1/us/current.csv
+/api/urls                                     /api/v1/urls.json 200
+/api/urls.csv                                 /api/v1/urls.csv
+/api/screenshots state=:state                 /api/v1/states/:state/screenshots.json 200
+/api/screenshots                              /api/v1/states/screenshots.json 200
+/api/screenshots.csv                          /api/v1/states/screenshots.csv
+/api/press                                    /api/v1/press.json 200
+/api/press.csv                                /api/v1/press.csv
+/api/counties                                 /api/v1/counties.json 200
+/api/counties.csv                             /api/v1/counties.csv
+/api/us.csv                                   /api/v1/us/current.csv
+/api/us/daily                                 /api/v1/us/daily.json 200
+/api/us/daily.csv                             /api/v1/us/daily.csv
 
 /charts/dash                                  http://35.212.27.3:8050/
 /graphql                                      /api/graphql
