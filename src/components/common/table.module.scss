@@ -31,28 +31,28 @@
 
   thead {
     border-bottom: 1px solid $color-slate-400;
+  }
 
-    th {
-      padding: 0 0.5rem 0.5rem;
-      vertical-align: bottom;
+  th {
+    padding: 0 0.5rem 0.5rem;
+    vertical-align: bottom;
 
-      &[scope='col'] {
-        text-align: right;
-        font-size: 0.8rem;
-        font-weight: 800;
-      }
+    &[scope='col'] {
+      text-align: right;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
 
-      &[scope='col'].align-left {
-        text-align: left;
-      }
+    &[scope='col'].align-left {
+      text-align: left;
+    }
 
-      &[scope='colgroup'] {
-        text-align: left;
-        font-size: 1.05rem;
-        font-weight: 800;
-        padding: 0.5rem;
-        min-width: 10rem;
-      }
+    &[scope='colgroup'] {
+      text-align: left;
+      font-size: 1.05rem;
+      font-weight: 800;
+      padding: 0.5rem;
+      min-width: 10rem;
     }
   }
 
@@ -60,9 +60,6 @@
     th,
     td {
       vertical-align: top;
-    }
-    th {
-      font-weight: normal;
     }
 
     tr {
