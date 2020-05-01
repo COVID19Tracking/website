@@ -1,12 +1,11 @@
 @import '../../../scss/colors.module.scss';
 
-.byline {
+.byline-base {
   display: flex;
   align-items: center;
   font-size: 22px;
   font-size: 1.375rem;
   line-height: 1.5;
-  margin: 16px 0;
   flex-wrap: wrap;
   .headshot-container {
     margin-right: 12px;
@@ -36,6 +35,22 @@
     color: $color-slate-700;
   }
 }
+
+.byline {
+  @extend .byline-base;
+  margin: 16px 0;
+}
+
+.byline--small-margin {
+  @extend .byline-base;
+  margin: 8px 0;
+}
+
+.byline--small-margin--image {
+  @extend .byline-base;
+  margin: 12px 0;
+}
+
 
 .one-line-byline {
   font-size: 16px;

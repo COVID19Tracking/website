@@ -11,6 +11,16 @@ const getAuthorLink = author => {
   return null
 }
 
+const getBylineClass = (isSmallMargin, hasImage) => {
+  if (isSmallMargin) {
+    if (hasImage) {
+      return bylineStyles.bylineSmallMarginImage
+    }
+    return bylineStyles.bylineSmallMargin
+  }
+  return bylineStyles.byline
+}
+
 const Author = ({ author }) => {
   const link = getAuthorLink(author)
   return (
@@ -50,11 +60,13 @@ const AuthorsText = ({ authors }) => (
   </>
 )
 
-const Byline = ({ authors, date }) => {
+const Byline = ({ authors, date, smallmargin = false }) => {
   const authorsWithHeadshots = authors.filter(author => author.headshot)
+  const hasHeadshots = authorsWithHeadshots.length > 0
+  const bylineClass = getBylineClass(smallmargin, hasHeadshots)
   return (
-    <div className={bylineStyles.byline}>
-      {authorsWithHeadshots.length > 0 && (
+    <div className={bylineClass}>
+      {hasHeadshots && (
         <div className={bylineStyles.headshotContainer}>
           {authorsWithHeadshots.map(author => (
             <img
