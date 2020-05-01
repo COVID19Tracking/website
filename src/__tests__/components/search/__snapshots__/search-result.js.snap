@@ -49,19 +49,24 @@ exports[`Components : Search: Results renders correctly 3`] = `
   <div
     className="detail-text detailText"
   >
-    <span
-      className="publishDate"
+    <div
+      className="resultDetails"
     >
-      April 23, 2020
-    </span>
-    <span
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": " &middot; ",
+      <span
+        className="publishDate"
+      >
+        Updated 
+        April 23, 2020
+      </span>
+      <span
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": " &middot; ",
+          }
         }
-      }
-    />
-    An author
+      />
+      An author
+    </div>
   </div>
 </div>
 `;

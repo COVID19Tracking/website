@@ -26,6 +26,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
         >
           <img
             alt=""
+            aria-hidden="true"
             src="test-file-stub"
           />
           <form
@@ -148,6 +149,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 >
                   <img
                     alt=""
+                    aria-hidden="true"
                     src="test-file-stub"
                   />
                   <div
@@ -263,6 +265,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
           >
             <img
               alt=""
+              aria-hidden="true"
               src="test-file-stub"
             />
             <form
@@ -385,6 +388,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                   >
                     <img
                       alt=""
+                      aria-hidden="true"
                       src="test-file-stub"
                     />
                     <div
@@ -538,6 +542,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
         >
           <img
             alt=""
+            aria-hidden="true"
             src="test-file-stub"
           />
           <form
@@ -660,6 +665,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 >
                   <img
                     alt=""
+                    aria-hidden="true"
                     src="test-file-stub"
                   />
                   <div
