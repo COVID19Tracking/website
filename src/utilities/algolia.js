@@ -1,4 +1,5 @@
 import slugify from 'slugify'
+import marked from 'marked'
 
 /**
  * Return a qualified Algolia index name
@@ -11,7 +12,15 @@ export const prefixSearchIndex = index =>
   `${process.env.GATSBY_ALGOLIA_INDEX_PREFIX}${index}`
 
 const stateQuery = `{
-  states: allCovidStateInfo(
+  states: allCovidState {
+    edges {
+      node {
+        state
+        dateModified(formatString: "MMMM D, YYYY")
+      }
+    }
+  }
+  statesInfo: allCovidStateInfo(
     filter: { name: { ne: null } }
   ) {
     edges {
@@ -36,7 +45,7 @@ const blogPostQuery = `{
         }
         slug
         lede
-        publishDate(formatString: "MMMM D, YYYY")
+        updatedAt(formatString: "MMMM D, YYYY")
         body {
           body
         }
@@ -52,6 +61,7 @@ const pagesQuery = `{
         objectID: contentful_id
         title
         slug
+        updatedAt(formatString: "MMMM D, YYYY")
         body {
           body
         }
@@ -59,6 +69,31 @@ const pagesQuery = `{
     }
   }
 }`
+
+/**
+ * Transform the State data, merging updatedAt & building slug.
+ *
+ * @param {*} data State data returned from queries.
+ */
+function transformStates(data) {
+  // Map of { stateId: dateModified } to add to transformed result.
+  const stateModifiedDates = data.states.edges.reduce(
+    (acc, { node: { state, dateModified } }) => ({
+      ...acc,
+      [state]: dateModified,
+    }),
+    {},
+  )
+  return data.statesInfo.edges.map(({ node }) => ({
+    ...node,
+    updatedAt: stateModifiedDates[node.state],
+    notes: node.notes ? marked(node.notes) : '',
+    slug: `/data/state/${slugify(node.name, {
+      strict: true,
+      lower: true,
+    })}`,
+  }))
+}
 
 /**
  * Split a node body into indexable chunks.
@@ -110,7 +145,9 @@ function chunkPages(data) {
   return data.posts.edges.reduce((acc, { node }) => {
     const baseChunk = { ...node, body: '' }
     const firstChunk = { ...baseChunk, section: 'section0' }
-    const bodyChunks = node.body.body.split('\n').filter(chunk => chunk !== '')
+    const bodyChunks = marked(node.body.body)
+      .split('\n')
+      .filter(chunk => chunk !== '')
 
     return [...acc, ...splitBodyIntoChunks(baseChunk, firstChunk, bodyChunks)]
   }, [])
@@ -127,13 +164,17 @@ function chunkBlogPosts(data) {
     const baseChunk = { ...node, author_name: node.author.name, body: '' }
     delete baseChunk.author
     const firstChunk = { ...baseChunk, section: 'section0' }
-    const bodyChunks = node.body.body.split('\n').filter(chunk => chunk !== '')
+    const bodyChunks = marked(node.body.body)
+      .split('\n')
+      .filter(chunk => chunk !== '')
 
     return [...acc, ...splitBodyIntoChunks(baseChunk, firstChunk, bodyChunks)]
   }, [])
 }
 
-const stateSettings = {}
+const stateSettings = {
+  attributesToSnippet: ['notes:50'],
+}
 
 /**
  * Settings shared (for now) amidst Page & BlogPost content types
@@ -143,7 +184,7 @@ const stateSettings = {}
 const pageSettings = {
   attributeForDistinct: 'section',
   distinct: true,
-  attributesToSnippet: ['body:250'],
+  attributesToSnippet: ['body:50'],
 }
 const blogPostSettings = {
   ...pageSettings,
@@ -153,16 +194,7 @@ export const queries = [
   {
     query: stateQuery,
     indexName: prefixSearchIndex('state'),
-    transformer: ({ data }) =>
-      data.states.edges.map(({ node }) => ({
-        ...node,
-        ...{
-          slug: `/data/state/${slugify(node.name, {
-            strict: true,
-            lower: true,
-          })}`,
-        },
-      })),
+    transformer: ({ data }) => transformStates(data),
     settings: stateSettings,
   },
   {

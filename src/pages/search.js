@@ -6,6 +6,7 @@ import withSearch from '~components/utils/with-search'
 import SearchNoResults from '~components/search/search-no-results'
 import SearchResultSection from '~components/search/search-result-section'
 import searchStyle from './search.module.scss'
+import searchIcon from '../images/icons/search-inverted.svg'
 
 import {
   types,
@@ -42,8 +43,38 @@ export default withSearch(({ search }) => {
       (results[types.BLOG_POST].nbHits || 0) +
       (results[types.PAGE].nbHits || 0)
 
+  let searchEvent
+
   return (
     <Layout title="Search results" textHeavy narrow>
+      <form
+        className={searchStyle.searchForm}
+        onSubmit={event => {
+          event.preventDefault()
+        }}
+      >
+        <img
+          src={searchIcon}
+          className={searchStyle.searchIcon}
+          alt=""
+          aria-hidden="true"
+        />
+        <input
+          type="text"
+          aria-label="Search"
+          placeholder="Search..."
+          id="item"
+          defaultValue={query || ''}
+          onChange={event => {
+            clearTimeout(searchEvent)
+            const { value } = event.currentTarget
+            searchEvent = setTimeout(() => {
+              setQuery(value)
+              window.history.pushState('', '', `?q=${value}`)
+            }, 300)
+          }}
+        />
+      </form>
       {totalHits > 0 ? (
         <div className={searchStyle.searchResults}>
           <h2 className="hed-primary">
@@ -73,7 +104,7 @@ export default withSearch(({ search }) => {
             itemKey={post => post.objectID}
             itemTitle={post => post.title}
             itemUrl={post => getSanitizedSlug(types.BLOG_POST, post)}
-            itemPublishDate={post => post.publishDate}
+            itemPublishDate={post => post.updatedAt}
             itemAuthor={post => post.author_name}
             itemContent={post => (
               <>
@@ -89,6 +120,7 @@ export default withSearch(({ search }) => {
             itemKey={page => page.objectID}
             itemTitle={page => page.title}
             itemUrl={page => getSanitizedSlug(types.PAGE, page)}
+            itemPublishDate={page => page.updatedAt}
             itemContent={page => (
               <div
                 dangerouslySetInnerHTML={{

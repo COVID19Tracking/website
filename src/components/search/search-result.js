@@ -17,13 +17,17 @@ const SearchResult = ({
     <div>{children}</div>
     {(publishDate || author) && (
       <DetailText>
-        {publishDate && (
-          <span className={resultStyle.publishDate}>{publishDate}</span>
-        )}
-        {publishDate && author && (
-          <span dangerouslySetInnerHTML={{ __html: ' &middot; ' }} />
-        )}
-        {author && author}
+        <div className={resultStyle.resultDetails}>
+          {publishDate && (
+            <span className={resultStyle.publishDate}>
+              Updated {publishDate}
+            </span>
+          )}
+          {publishDate && author && (
+            <span dangerouslySetInnerHTML={{ __html: ' &middot; ' }} />
+          )}
+          {author && author}
+        </div>
       </DetailText>
     )}
   </div>

@@ -61,7 +61,7 @@ const HeaderNavigation = () => {
 const HeaderSearch = ({ children }) => {
   return (
     <div className={headerStyle.searchInput}>
-      <img src={searchIcon} alt="" />
+      <img src={searchIcon} alt="" aria-hidden="true" />
       {children}
     </div>
   )
