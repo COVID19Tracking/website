@@ -24,11 +24,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
         <div
           className="searchInput"
         >
-          <img
-            alt=""
-            aria-hidden="true"
-            src="test-file-stub"
-          />
           <form
             action="/search"
             method="get"
@@ -37,10 +32,23 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             <input
               autoComplete="off"
               name="q"
+              onBlur={[Function]}
+              onFocus={[Function]}
               placeholder="Search"
-              type="text"
+              type="search"
             />
           </form>
+          <button
+            className="searchSubmit"
+            onClick={[Function]}
+            type="button"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              src="test-file-stub"
+            />
+          </button>
         </div>
         <nav
           className="js-disabled-block"
@@ -147,11 +155,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 <div
                   className="searchInput"
                 >
-                  <img
-                    alt=""
-                    aria-hidden="true"
-                    src="test-file-stub"
-                  />
                   <div
                     data-reach-combobox=""
                   >
@@ -173,6 +176,17 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                       value=""
                     />
                   </div>
+                  <button
+                    className="searchSubmit"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      src="test-file-stub"
+                    />
+                  </button>
                 </div>
                 <a
                   className="getInvolved"
@@ -263,11 +277,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
           <div
             className="searchInput"
           >
-            <img
-              alt=""
-              aria-hidden="true"
-              src="test-file-stub"
-            />
             <form
               action="/search"
               method="get"
@@ -276,10 +285,23 @@ exports[`Components : Layout : Header renders correctly 2`] = `
               <input
                 autoComplete="off"
                 name="q"
+                onBlur={[Function]}
+                onFocus={[Function]}
                 placeholder="Search"
-                type="text"
+                type="search"
               />
             </form>
+            <button
+              className="searchSubmit"
+              onClick={[Function]}
+              type="button"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="test-file-stub"
+              />
+            </button>
           </div>
           <nav
             className="js-disabled-block"
@@ -386,11 +408,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                   <div
                     className="searchInput"
                   >
-                    <img
-                      alt=""
-                      aria-hidden="true"
-                      src="test-file-stub"
-                    />
                     <div
                       data-reach-combobox=""
                     >
@@ -412,6 +429,17 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                         value=""
                       />
                     </div>
+                    <button
+                      className="searchSubmit"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <img
+                        alt=""
+                        aria-hidden="true"
+                        src="test-file-stub"
+                      />
+                    </button>
                   </div>
                   <a
                     className="getInvolved"
@@ -540,11 +568,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
         <div
           className="searchInput"
         >
-          <img
-            alt=""
-            aria-hidden="true"
-            src="test-file-stub"
-          />
           <form
             action="/search"
             method="get"
@@ -553,10 +576,23 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             <input
               autoComplete="off"
               name="q"
+              onBlur={[Function]}
+              onFocus={[Function]}
               placeholder="Search"
-              type="text"
+              type="search"
             />
           </form>
+          <button
+            className="searchSubmit"
+            onClick={[Function]}
+            type="button"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              src="test-file-stub"
+            />
+          </button>
         </div>
         <nav
           className="js-disabled-block"
@@ -663,11 +699,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 <div
                   className="searchInput"
                 >
-                  <img
-                    alt=""
-                    aria-hidden="true"
-                    src="test-file-stub"
-                  />
                   <div
                     data-reach-combobox=""
                   >
@@ -689,6 +720,17 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                       value=""
                     />
                   </div>
+                  <button
+                    className="searchSubmit"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      src="test-file-stub"
+                    />
+                  </button>
                 </div>
                 <a
                   className="getInvolved"

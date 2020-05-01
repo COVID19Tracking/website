@@ -32,11 +32,6 @@ Array [
           <div
             className="searchInput"
           >
-            <img
-              alt=""
-              aria-hidden="true"
-              src="test-file-stub"
-            />
             <form
               action="/search"
               method="get"
@@ -45,10 +40,23 @@ Array [
               <input
                 autoComplete="off"
                 name="q"
+                onBlur={[Function]}
+                onFocus={[Function]}
                 placeholder="Search"
-                type="text"
+                type="search"
               />
             </form>
+            <button
+              className="searchSubmit"
+              onClick={[Function]}
+              type="button"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="test-file-stub"
+              />
+            </button>
           </div>
           <nav
             className="js-disabled-block"
@@ -155,11 +163,6 @@ Array [
                   <div
                     className="searchInput"
                   >
-                    <img
-                      alt=""
-                      aria-hidden="true"
-                      src="test-file-stub"
-                    />
                     <div
                       data-reach-combobox=""
                     >
@@ -181,6 +184,17 @@ Array [
                         value=""
                       />
                     </div>
+                    <button
+                      className="searchSubmit"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <img
+                        alt=""
+                        aria-hidden="true"
+                        src="test-file-stub"
+                      />
+                    </button>
                   </div>
                   <a
                     className="getInvolved"
@@ -368,11 +382,6 @@ Array [
           <div
             className="searchInput"
           >
-            <img
-              alt=""
-              aria-hidden="true"
-              src="test-file-stub"
-            />
             <form
               action="/search"
               method="get"
@@ -381,10 +390,23 @@ Array [
               <input
                 autoComplete="off"
                 name="q"
+                onBlur={[Function]}
+                onFocus={[Function]}
                 placeholder="Search"
-                type="text"
+                type="search"
               />
             </form>
+            <button
+              className="searchSubmit"
+              onClick={[Function]}
+              type="button"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="test-file-stub"
+              />
+            </button>
           </div>
           <nav
             className="js-disabled-block"
@@ -491,11 +513,6 @@ Array [
                   <div
                     className="searchInput"
                   >
-                    <img
-                      alt=""
-                      aria-hidden="true"
-                      src="test-file-stub"
-                    />
                     <div
                       data-reach-combobox=""
                     >
@@ -517,6 +534,17 @@ Array [
                         value=""
                       />
                     </div>
+                    <button
+                      className="searchSubmit"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <img
+                        alt=""
+                        aria-hidden="true"
+                        src="test-file-stub"
+                      />
+                    </button>
                   </div>
                   <a
                     className="getInvolved"
