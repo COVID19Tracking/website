@@ -1,25 +1,27 @@
 @import '../../scss/colors.module.scss';
 @import '../../scss/breakpoints.module.scss';
 
-.contact-form {
+.form {
   margin-top: 30px;
 
   input[type='text'],
   input[type='email'],
   select,
   textarea {
-    width: 50%;
-    padding: 12px;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 6px;
-    margin-bottom: 16px;
     resize: vertical;
-    margin-bottom: 50px;
-    display:block;
-    font-weight:400;
-    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .form-group {
+    margin-bottom: 2rem;
   }
 
   @media (max-width: $viewport-md) {
@@ -31,24 +33,30 @@
     }
   }
 
-  .input-header {
-    margin-bottom: 5px;
-    font-weight: 600;
-    font-size: 24px;
+  input[type='radio'],
+  input[type='checkbox'] {
+    margin-right: 1rem;
   }
 
-  button {
-    width: 210px;
-    height: 58px;
-    border: none;
-    background: $color-blueberry-200;
-    border-radius: 4px;
-    line-height: 33px;
-    color: $color-blueberry-400;
-    font-size: 22px;
+  textarea {
+    min-height: 300px;
+  }
+
+  label {
+    margin-bottom: 5px;
+    display: block;
   }
 
   .bot-field {
     display: none;
+  }
+
+  button {
+    background: $color-plum-800;
+    color: white;
+    border-radius: 3px;
+    padding: 1rem;
+    border: 0;
+    cursor: pointer;
   }
 }
