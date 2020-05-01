@@ -49,6 +49,14 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allContentfulBlogCategory {
+        edges {
+          node {
+            slug
+            id
+          }
+        }
+      }
     }
   `)
 
@@ -73,6 +81,14 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/blog/${node.slug}`,
       component: path.resolve(`./src/templates/blog-post.js`),
+      context: node,
+    })
+  })
+
+  result.data.allContentfulBlogCategory.edges.forEach(({ node }) => {
+    createPage({
+      path: `/blog/category/${node.slug}`,
+      component: path.resolve(`./src/templates/blog-category.js`),
       context: node,
     })
   })

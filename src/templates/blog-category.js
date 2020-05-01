@@ -4,14 +4,28 @@ import Layout from '../components/layout'
 import BlogTeaserList from '../components/pages/blog/blog-teaser-list'
 
 export default ({ data }) => (
-  <Layout title="Blog" textHeavy narrow>
+  <Layout
+    title={`Blog: ${data.allContentfulBlogCategory.edges[0].node.name}`}
+    textHeavy
+    narrow
+  >
     <BlogTeaserList items={data.allContentfulBlogPost.edges} />
   </Layout>
 )
 
 export const query = graphql`
-  query {
-    allContentfulBlogPost(sort: { fields: publishDate, order: DESC }) {
+  query($id: String!) {
+    allContentfulBlogCategory(filter: { id: { eq: $id } }) {
+      edges {
+        node {
+          name
+        }
+      }
+    }
+    allContentfulBlogPost(
+      sort: { fields: publishDate, order: DESC }
+      filter: { categories: { elemMatch: { id: { eq: $id } } } }
+    ) {
       edges {
         node {
           title
@@ -19,7 +33,6 @@ export const query = graphql`
           authors {
             name
             twitterLink
-            link
             headshot {
               file {
                 fileName

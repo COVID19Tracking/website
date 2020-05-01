@@ -1,0 +1,11 @@
+@import '../../../scss/colors.module.scss';
+
+.container {
+  p {
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 2.5;
+    color: $color-slate-600;
+    margin-bottom: 0.5rem;
+  }
+}
