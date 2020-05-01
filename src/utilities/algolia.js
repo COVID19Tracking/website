@@ -40,7 +40,7 @@ const blogPostQuery = `{
       node {
         objectID: contentful_id
         title
-        author {
+        authors {
           name
         }
         slug
@@ -161,7 +161,12 @@ function chunkPages(data) {
  */
 function chunkBlogPosts(data) {
   return data.posts.edges.reduce((acc, { node }) => {
-    const baseChunk = { ...node, author_name: node.author.name, body: '' }
+     const authorName = []
+    node.authors.forEach(author => {
+      authorName.push(author.name)
+    })
+    node.lede = node.lede.lede
+    const baseChunk = { ...node, author_name: authorName.join(', '), body: '' }
     delete baseChunk.author
     const firstChunk = { ...baseChunk, section: 'section0' }
     const bodyChunks = marked(node.body.body)
