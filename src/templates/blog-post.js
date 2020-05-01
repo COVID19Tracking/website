@@ -8,7 +8,6 @@ import Categories from '../components/pages/blog/categories'
 import ImageContentBlock from '../components/pages/blog/image-content-block'
 import Layout from '../components/layout'
 import Lede from '../components/pages/blog/blog-lede'
-import RelatedPosts from '../components/pages/blog/related-posts'
 
 import blogPostStyles from './blog-post.module.scss'
 
@@ -41,7 +40,6 @@ export default ({ data }) => {
       </div>
       <hr />
       <AuthorFooter authors={blogPost.authors} />
-      <RelatedPosts posts={blogPost.relatedBlogPosts} />
     </Layout>
   )
 }
@@ -95,14 +93,6 @@ export const query = graphql`
             childMarkdownRemark {
               html
             }
-          }
-          relatedBlogPosts {
-            authors {
-              name
-            }
-            title
-            slug
-            publishDate(formatString: "MMMM D, YYYY")
           }
         }
       }
