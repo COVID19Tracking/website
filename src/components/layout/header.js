@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import React, { useState, useRef } from 'react'
+import { Link, useStaticQuery, navigate, graphql } from 'gatsby'
 import Expand from 'react-expand-animated'
 import DevelopmentWarning from './development-warning'
 import PartnershipBanner from './partnership-banner'
@@ -58,26 +58,47 @@ const HeaderNavigation = () => {
   )
 }
 
-const HeaderSearch = ({ id }) => {
+const HeaderSearch = ({ children }) => {
   return (
     <div className={headerStyle.searchInput}>
       <img src={searchIcon} alt="" />
-      <SearchAutocomplete id={id} />
+      {children}
     </div>
   )
 }
 
-const MobileMenu = () => (
-  <div className={headerStyle.mobileMenu}>
-    <HeaderSearch id="search-mobile" />
+const MobileMenu = () => {
+  const searchInputRef = useRef()
 
-    <HeaderNavigation />
-    <Link to="/help" className={headerStyle.getInvolved}>
-      Get Involved
-    </Link>
-    <div className={headerStyle.mobilePointer} />
-  </div>
-)
+  return (
+    <div className={headerStyle.mobileMenu}>
+      <HeaderSearch>
+        <form
+          method="get"
+          action="/search"
+          onSubmit={event => {
+            event.preventDefault()
+            navigate(`/search?q=${searchInputRef.current.value}`)
+          }}
+        >
+          <input
+            type="text"
+            placeholder="Search"
+            name="q"
+            autoComplete="off"
+            ref={searchInputRef}
+          />
+        </form>
+      </HeaderSearch>
+
+      <HeaderNavigation />
+      <Link to="/help" className={headerStyle.getInvolved}>
+        Get Involved
+      </Link>
+      <div className={headerStyle.mobilePointer} />
+    </div>
+  )
+}
 
 const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -136,7 +157,9 @@ const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
                   </button>
                 </div>
                 <div className={headerStyle.tools}>
-                  <HeaderSearch id="search-desktop" />
+                  <HeaderSearch>
+                    <SearchAutocomplete id="header-search" />
+                  </HeaderSearch>
                   <Link to="/help" className={headerStyle.getInvolved}>
                     Get involved
                   </Link>

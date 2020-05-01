@@ -12,7 +12,7 @@
   text-align: left;
   padding: 0.5rem 0;
   opacity: 1;
-  transform: translateY(.4rem);
+  transform: translateY(0.4rem);
   [data-suggested-value] {
     font-weight: normal;
   }
@@ -29,12 +29,12 @@
 }
 
 .popoverSeparator {
-  padding-left: .5rem;
+  padding-left: 0.5rem;
   text-align: left;
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-style: italic;
   pointer-events: none;
   &:not(:first-child) {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
 }
