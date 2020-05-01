@@ -88,6 +88,7 @@ export default withSearch(({ search }) => {
             itemKey={state => state.state}
             itemTitle={state => state.name}
             itemUrl={state => getSanitizedSlug(types.STATE, state)}
+            itemPublishDate={state => state.updatedAt}
             itemContent={post => (
               <div
                 dangerouslySetInnerHTML={{
