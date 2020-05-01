@@ -8,14 +8,23 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
     <thead>
       <tr>
         <th
+          className="alignLeft"
           scope="col"
         >
           Date
         </th>
         <th
+          className="alignLeft"
           scope="col"
         >
-          Screenshots (ET)
+          Screenshots (
+          <abbr
+            aria-label="Eastern Standard Time"
+            title="Eastern Standard Time"
+          >
+            EST
+          </abbr>
+          )
         </th>
         <th
           scope="col"
@@ -58,10 +67,14 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
       className="state-history-table history"
     >
       <tr>
-        <td>
+        <td
+          className="alignLeft"
+        >
           Fri Apr 17 2020
         </td>
-        <td>
+        <td
+          className="alignLeft"
+        >
           <ul>
             <li>
               <a
@@ -106,10 +119,14 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
         </td>
       </tr>
       <tr>
-        <td>
+        <td
+          className="alignLeft"
+        >
           Thu Apr 16 2020
         </td>
-        <td />
+        <td
+          className="alignLeft"
+        />
         <td>
           2,314
         </td>
@@ -133,10 +150,14 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
         </td>
       </tr>
       <tr>
-        <td>
+        <td
+          className="alignLeft"
+        >
           Wed Apr 15 2020
         </td>
-        <td />
+        <td
+          className="alignLeft"
+        />
         <td>
           960
         </td>

@@ -1,11 +1,16 @@
 import React from 'react'
-import Table from './table'
+import { Th, Td, Table } from './table'
 import { formatDateToString, FormatNumber } from '../utils/format'
+import Timezone from './timezone'
 
 export default ({ data, lastUpdated, showOutcomes = true }) => (
   <Table
     tableLabel={
-      lastUpdated && `Last updated: ${formatDateToString(lastUpdated)}`
+      lastUpdated && (
+        <>
+          Last updated: {formatDateToString(lastUpdated)} <Timezone />
+        </>
+      )
     }
   >
     <colgroup span="3" />
@@ -14,96 +19,112 @@ export default ({ data, lastUpdated, showOutcomes = true }) => (
         <colgroup span="2" />
         <colgroup span="2" />
         <colgroup span="2" />
-        <colgroup span="3" />
+        <colgroup span="2" />
+        <colgroup span="1" />
       </>
     ) : (
-      <colgroup span="2" />
+      <>
+        <colgroup span="1" />
+        <colgroup span="1" />
+        <colgroup span="1" />
+      </>
     )}
     <thead>
       <tr>
-        <th scope="colgroup" colSpan="3">
+        <Th scope="colgroup" colSpan="3">
           Tests
-        </th>
-        {showOutcomes ? (
-          <>
-            <th scope="colgroup" colSpan="2">
-              Hospitalized
-            </th>
-            <th scope="colgroup" colSpan="2">
-              In ICU
-            </th>
-            <th scope="colgroup" colSpan="2">
-              On Ventilator
-            </th>
-            <td colSpan="3"> </td> {/* 3 includes recovered */}
-          </>
-        ) : (
-          <td colSpan="2"> </td>
-        )}
-      </tr>
-      <tr>
-        <th scope="col">Positive</th>
-        <th scope="col">Negative</th>
-        <th scope="col">Pending</th>
+        </Th>
         {showOutcomes && (
           <>
-            <th scope="col">Currently</th>
-            <th scope="col">Cumulative</th>
-            <th scope="col">Currently</th>
-            <th scope="col">Cumulative</th>
-            <th scope="col">Currently</th>
-            <th scope="col">Cumulative</th>
-            <th scope="col">Recovered</th>
+            <Th scope="colgroup" colSpan="2">
+              Hospitalized
+            </Th>
+            <Th scope="colgroup" colSpan="2">
+              In ICU
+            </Th>
+            <Th scope="colgroup" colSpan="2">
+              On Ventilator
+            </Th>
           </>
         )}
-        <th scope="col">Deaths</th>
-        <th scope="col">
-          Total test results <span>(Positive + Negative)</span>
-        </th>
+        <Th scope="colgroup" colSpan={showOutcomes ? '2' : '1'}>
+          Outcomes
+        </Th>
+        <Th scope="colgroup">Total Test Results</Th>
+      </tr>
+      <tr>
+        <Th scope="col" alignLeft={showOutcomes}>
+          Positive
+        </Th>
+        <Th scope="col">Negative</Th>
+        <Th scope="col">Pending</Th>
+        {showOutcomes && (
+          <>
+            <Th scope="col" alignLeft>
+              Currently
+            </Th>
+            <Th scope="col">Cumulative</Th>
+            <Th scope="col" alignLeft>
+              Currently
+            </Th>
+            <Th scope="col">Cumulative</Th>
+            <Th scope="col" alignLeft>
+              Currently
+            </Th>
+            <Th scope="col">Cumulative</Th>
+            <Th scope="col" alignLeft>
+              Recovered
+            </Th>
+          </>
+        )}
+        <Th scope="col">Deaths</Th>
+        <Th scope="col" alignLeft={showOutcomes}>
+          Positive + Negative
+        </Th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>
+        <Td>
           <FormatNumber number={data.positive} />
-        </td>
-        <td>
+        </Td>
+        <Td>
           <FormatNumber number={data.negative} />
-        </td>
-        <td>
+        </Td>
+        <Td>
           <FormatNumber number={data.pending} />
-        </td>
+        </Td>
         {showOutcomes && (
           <>
-            <td>
+            <Td>
               <FormatNumber number={data.hospitalizedCurrently} />
-            </td>
-            <td>
+            </Td>
+            <Td>
               <FormatNumber number={data.hospitalizedCumulative} />
-            </td>
-            <td>
+            </Td>
+            <Td>
               <FormatNumber number={data.inIcuCurrently} />
-            </td>
-            <td>
+            </Td>
+            <Td>
               <FormatNumber number={data.inIcuCumulative} />
-            </td>
-            <td>
+            </Td>
+            <Td>
               <FormatNumber number={data.onVentilatorCurrently} />
-            </td>
-            <td>
+            </Td>
+            <Td>
               <FormatNumber number={data.onVentilatorCumulative} />
-            </td>
-            <td>
+            </Td>
+            <Td>
               <FormatNumber number={data.recovered} />
-            </td>
+            </Td>
           </>
         )}
-        <td>
+        <Td>
           <FormatNumber number={data.death} />
-        </td>
-        <td>
+        </Td>
+        <Td>
           <FormatNumber number={data.totalTestResults} />
-        </td>
+        </Td>
       </tr>
     </tbody>
   </Table>

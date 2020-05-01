@@ -5,14 +5,14 @@ function lowercaseMeridiem(dateString) {
   return dateString.replace('AM', 'am').replace('PM', 'pm')
 }
 
-function formatDateToString(date, format = "ccc LLL d yyyy h:mm a 'ET'") {
+function formatDateToString(date, format = 'ccc LLL d yyyy h:mm a') {
   if (typeof date === 'undefined') {
     return null
   }
   return lowercaseMeridiem(DateTime.fromISO(date).toFormat(format))
 }
 
-const FormatDate = ({ date, format = "ccc LLL d yyyy h:mm a 'ET'" }) => {
+const FormatDate = ({ date, format = 'ccc LLL d yyyy h:mm a' }) => {
   return <>{formatDateToString(date, format)}</>
 }
 
