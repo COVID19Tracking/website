@@ -54,7 +54,13 @@ const SyncInfobox = () => (
         <img src={syncIcon} alt="Sync icon" />
         <div>
           <InfoboxInner header="Last updated from our data:">
-            {data.site.siteMetadata.buildDate}
+            {data.site.siteMetadata.buildDate}{' '}
+            <abbr
+              title="Eastern Standard Time"
+              aria-label="Eastern Standard Time"
+            >
+              EST
+            </abbr>
           </InfoboxInner>
         </div>
       </div>

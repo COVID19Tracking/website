@@ -5,7 +5,17 @@ import { formatDateToString, FormatNumber } from '../utils/format'
 export default ({ data, lastUpdated, showOutcomes = true }) => (
   <Table
     tableLabel={
-      lastUpdated && `Last updated: ${formatDateToString(lastUpdated)}`
+      lastUpdated && (
+        <>
+          Last updated: {formatDateToString(lastUpdated)}{' '}
+          <abbr
+            title="Eastern Standard Time"
+            aria-label="Eastern Standard Time"
+          >
+            EST
+          </abbr>
+        </>
+      )
     }
   >
     <colgroup span="3" />

@@ -22,7 +22,12 @@ const ContentPage = ({ data }) => (
     <SyncInfobox />
 
     <Table>
-      <caption>US Daily Cumulative Totals - 4 pm ET</caption>
+      <caption>
+        US Daily Cumulative Totals - 4 pm{' '}
+        <abbr title="Eastern Standard Time" aria-label="Eastern Standard Time">
+          EST
+        </abbr>
+      </caption>
       <thead>
         <tr>
           <th scope="col">Date</th>
