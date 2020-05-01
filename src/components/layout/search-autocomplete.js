@@ -42,10 +42,27 @@ export default ({ id }) => {
       (results[types.BLOG_POST].nbHits || 0) +
       (results[types.PAGE].nbHits || 0)
 
-  const goToResult = selectedItem => {
+  const goToResultOrSearch = currentValue => {
     setShowResults(false)
-    navigate(getSanitizedSlug(selectedItem.type, selectedItem))
+    const resultTypes = Object.values(types)
+
+    let match
+    resultTypes.forEach(type => {
+      const item = results[type].hits.find(result => {
+        return result.name === currentValue || result.title === currentValue
+      })
+      if (item) {
+        match = { item, type }
+      }
+    })
+    if (match) {
+      navigate(getSanitizedSlug(match.type, match.item))
+    } else {
+      navigate(`/search?q=${currentValue}`)
+    }
   }
+
+  const onItemClick = item => navigate(getSanitizedSlug(item.type, item))
 
   const { bestHits, otherHits } = partitionHitsByRelevance(results)
 
@@ -62,6 +79,10 @@ export default ({ id }) => {
         onChange={event => {
           setQuery(event.currentTarget.value)
         }}
+        onKeyDown={event =>
+          event.key === 'Enter' && goToResultOrSearch(event.target.value)
+        }
+        onSelect={() => {}}
         onFocus={() => toggleFocus()}
         onBlur={() => toggleFocus()}
       />
@@ -88,7 +109,7 @@ export default ({ id }) => {
                 <ComboboxOption
                   key={`${item.slug}`}
                   value={`${item.type === 'state' ? item.name : item.title}`}
-                  onMouseDown={() => goToResult(item)}
+                  onMouseDown={() => onItemClick(item)}
                 />
               ))}
               {otherHits.length > 0 && (
@@ -103,7 +124,7 @@ export default ({ id }) => {
                 <ComboboxOption
                   key={`${item.slug}`}
                   value={`${item.type === 'state' ? item.name : item.title}`}
-                  onMouseDown={() => goToResult(item)}
+                  onMouseDown={() => onItemClick(item)}
                 />
               ))}
             </ComboboxList>
