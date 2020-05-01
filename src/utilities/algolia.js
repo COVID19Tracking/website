@@ -44,7 +44,9 @@ const blogPostQuery = `{
           name
         }
         slug
-        lede
+        lede {
+          lede
+        }
         updatedAt(formatString: "MMMM D, YYYY")
         body {
           body
@@ -161,13 +163,20 @@ function chunkPages(data) {
  */
 function chunkBlogPosts(data) {
   return data.posts.edges.reduce((acc, { node }) => {
-     const authorName = []
+    const authorName = []
     node.authors.forEach(author => {
       authorName.push(author.name)
     })
-    node.lede = node.lede.lede
-    const baseChunk = { ...node, author_name: authorName.join(', '), body: '' }
-    delete baseChunk.author
+
+    const baseChunk = {
+      title: node.title,
+      body: '',
+      author_name: authorName.join(', '),
+      slug: node.slug,
+      lede: node.lede.lede,
+      updatedAt: node.updatedAt,
+      section: node.section,
+    }
     const firstChunk = { ...baseChunk, section: 'section0' }
     const bodyChunks = marked(node.body.body)
       .split('\n')
