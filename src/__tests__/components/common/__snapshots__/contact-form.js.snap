@@ -3,20 +3,21 @@
 exports[`Components : Common: Contact form renders correctly 1`] = `
 <form
   action="/contact/success"
-  className="contactForm"
+  className="form"
   data-netlify="true"
   method="POST"
   name="test-form"
   netlify-honeypot="covid-bot-field"
 >
-  <div>
+  <div
+    className="formGroup"
+  >
     <input
       name="form-name"
       type="hidden"
       value="test-form"
     />
     <label
-      className="inputHeader"
       htmlFor="email"
     >
       What is your email address?
@@ -27,9 +28,10 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
       />
     </label>
   </div>
-  <div>
+  <div
+    className="formGroup"
+  >
     <label
-      className="inputHeader"
       htmlFor="message"
     >
       <textarea
