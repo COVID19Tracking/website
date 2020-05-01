@@ -3,18 +3,7 @@
 
 .result {
   &:not(:last-child) {
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
     position: relative;
-
-    &:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 25%;
-      height: 1px;
-      background-color: $color-plum-200;
-      transform: translateY(.75em);
-    }
   }
 }
