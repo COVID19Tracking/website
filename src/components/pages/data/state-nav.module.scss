@@ -20,6 +20,10 @@
   input {
     padding: 0.3rem;
     border: 1px solid $color-slate-600;
+    @media (max-width: $viewport-md) {
+      width: 100%;
+      padding: 0.5rem 0.4rem;
+    }
   }
 }
 
