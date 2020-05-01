@@ -57,7 +57,13 @@ export default withSearch(({ search }) => {
             itemKey={state => state.state}
             itemTitle={state => state.name}
             itemUrl={state => getSanitizedSlug(types.STATE, state)}
-            itemContent={post => post.notes}
+            itemContent={post => (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: getHighlightResultOrExcerpt('state', post),
+                }}
+              />
+            )}
           />
 
           {/* Blog post results */}

@@ -134,9 +134,14 @@ export async function querySearch(s, dispatch) {
 }
 
 export function getHighlightResultOrExcerpt(hitType, hit) {
+  console.log(hit)
   switch (hitType) {
     default:
       return ''
+    case 'state':
+      return truncate(marked(hit.notes).replace(/(<([^>]+)>)/gi, ''), {
+        length: 200,
+      })
     case 'page':
       /* eslint-disable no-underscore-dangle */
       return hit._snippetResult.body && hit._snippetResult.body.value
