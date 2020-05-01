@@ -66,7 +66,7 @@ export default withSearch(({ navigate, search }) => {
           />
         </button>
         <input
-          type="text"
+          type="search"
           aria-label="Search"
           placeholder="Search..."
           id="item"
