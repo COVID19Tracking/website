@@ -188,7 +188,13 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
       span="3"
     />
     <colgroup
-      span="2"
+      span="1"
+    />
+    <colgroup
+      span="1"
+    />
+    <colgroup
+      span="1"
     />
     <thead>
       <tr>
@@ -198,9 +204,17 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
         >
           Tests
         </th>
-        <td>
-           
-        </td>
+        <th
+          colSpan="1"
+          scope="colgroup"
+        >
+          Outcomes
+        </th>
+        <th
+          scope="colgroup"
+        >
+          Total Test Results
+        </th>
       </tr>
       <tr>
         <th

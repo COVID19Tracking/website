@@ -18,14 +18,18 @@ export default ({ data, lastUpdated, showOutcomes = true }) => (
         <colgroup span="1" />
       </>
     ) : (
-      <colgroup span="2" />
+      <>
+        <colgroup span="1" />
+        <colgroup span="1" />
+        <colgroup span="1" />
+      </>
     )}
     <thead>
       <tr>
         <Th scope="colgroup" colSpan="3">
           Tests
         </Th>
-        {showOutcomes ? (
+        {showOutcomes && (
           <>
             <Th scope="colgroup" colSpan="2">
               Hospitalized
@@ -36,14 +40,12 @@ export default ({ data, lastUpdated, showOutcomes = true }) => (
             <Th scope="colgroup" colSpan="2">
               On Ventilator
             </Th>
-            <Th scope="colgroup" colSpan="2">
-              Outcomes
-            </Th>
-            <Th scope="colgroup">Total Test Results</Th>
           </>
-        ) : (
-          <Td colSpan="2"> </Td>
         )}
+        <Th scope="colgroup" colSpan={showOutcomes ? '2' : '1'}>
+          Outcomes
+        </Th>
+        <Th scope="colgroup">Total Test Results</Th>
       </tr>
       <tr>
         <Th scope="col" alignLeft={showOutcomes}>
