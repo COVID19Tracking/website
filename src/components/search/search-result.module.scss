@@ -2,8 +2,15 @@
 @import '~scss/breakpoints.module.scss';
 
 .result {
-  &:not(:last-child) {
-    margin-bottom: 0.5em;
-    position: relative;
+  margin-bottom: 1.5rem;
+  * {
+    font-weight: normal;
+  }
+  h4 {
+    margin-bottom: 0.3rem;
+    margin-top: 0;
+  }
+  p {
+    margin-bottom: 0.3rem;
   }
 }

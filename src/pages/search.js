@@ -3,8 +3,6 @@ import React, { useEffect } from 'react'
 import NProgress from 'nprogress'
 import Layout from '~components/layout'
 import withSearch from '~components/utils/with-search'
-import searchPageStyle from './search.module.scss'
-import pressListStyle from '~components/common/press-list.module.scss'
 import SearchResultSection from '~components/search/search-result-section'
 
 import {
@@ -64,14 +62,17 @@ export default withSearch(({ search }) => {
         />
       </form>
 
-      <div className={searchPageStyle.searchResults}>
+      <div>
         {/* State results */}
         <SearchResultSection
           results={results[types.STATE]}
-          title="States"
+          title="States &amp; Territories"
           itemKey={state => state.state}
           itemTitle={state => state.name}
           itemUrl={state => getSanitizedSlug(types.STATE, state)}
+          itemContent={post => (
+            <p>View the most recent and historic data from {post.name}.</p>
+          )}
         />
 
         {/* Blog post results */}
@@ -83,9 +84,8 @@ export default withSearch(({ search }) => {
           itemUrl={post => getSanitizedSlug(types.BLOG_POST, post)}
           itemContent={post => (
             <>
-              {post.author_name}
-              <span className={pressListStyle.dotSeparator}>•</span>
-              {post.publishDate}
+              <p>{post.publishDate}</p>
+              <p>{post.lede}</p>
             </>
           )}
         />

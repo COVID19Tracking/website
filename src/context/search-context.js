@@ -140,8 +140,8 @@ export function getHighlightResultOrExcerpt(hitType, hit) {
     case 'page':
       /* eslint-disable no-underscore-dangle */
       return hit._snippetResult.body && hit._snippetResult.body.value
-        ? marked(hit._snippetResult.body.value)
-        : marked(truncate(hit.body))
+        ? marked(hit._snippetResult.body.value).replace(/(<([^>]+)>)/gi, '')
+        : marked(truncate(hit.body)).replace(/(<([^>]+)>)/gi, '')
     /* eslint-enable no-underscore-dangle */
   }
 }
@@ -191,9 +191,8 @@ export function partitionHitsByRelevance(results) {
     return { bestHits, otherHits }
   }
 
-  const partitionHit = (hit, type, test) => test 
-    ? bestHits.push({...hit, type}) 
-    : otherHits.push({...hit, type})
+  const partitionHit = (hit, type, test) =>
+    test ? bestHits.push({ ...hit, type }) : otherHits.push({ ...hit, type })
 
   const allHits = {
     [types.STATE]: results[types.STATE],
@@ -211,9 +210,15 @@ export function partitionHitsByRelevance(results) {
     } else if (types.STATE === type) {
       titleField = 'name'
     }
-    typeHits.forEach(hit => partitionHit(hit, type, hit._highlightResult[titleField].matchLevel === 'full'))
+    typeHits.forEach(hit =>
+      partitionHit(
+        hit,
+        type,
+        hit._highlightResult[titleField].matchLevel === 'full',
+      ),
+    )
   })
-  return {bestHits, otherHits}
+  return { bestHits, otherHits }
 }
 
 export default {}
