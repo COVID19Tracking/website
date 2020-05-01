@@ -5,7 +5,7 @@ import categoryStyles from './categories.module.scss'
 export default ({ categories }) => (
   <div className={categoryStyles.categoriesContainer}>
     {categories.map(category => (
-      <p className="blog-lede" key={category.slug}>
+      <p className={categoryStyles.category} key={category.slug}>
         <Link to={`/blog/category/${category.slug}`}>{category.name}</Link>
       </p>
     ))}

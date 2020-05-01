@@ -3,7 +3,7 @@
 .categories-container {
   display: flex;
   margin-top: 2rem;
-  p {
+  .category {
     text-transform: uppercase;
     font-weight: 600;
     font-size: 19px;
@@ -13,14 +13,14 @@
     a {
       text-decoration: none;
     }
-  }
-  p::after {
-    content: "  |  ";
-    white-space: pre;
-    color: $text;
-    font-weight: normal;
-  }
-  p:last-child::after {
-    content: none;
+    &::after {
+      content: "  |  ";
+      white-space: pre;
+      color: $text;
+      font-weight: normal;
+    }
+    &:last-child::after {
+      content: none;
+    }
   }
 }
