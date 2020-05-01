@@ -1,7 +1,7 @@
 @import '../../scss/colors.module.scss';
 
 .popover {
-  background: $color-plum-400;
+  background: #FFFFFF;
   border: none;
   font-size: 1rem;
   position: absolute;
@@ -13,6 +13,11 @@
   padding: 0.5rem 0;
   opacity: 1;
   transform: translateY(0.4rem);
+  color: $text;
+  
+  [data-user-value] {
+    font-weight: bold;
+  }
   [data-suggested-value] {
     font-weight: normal;
   }
@@ -23,7 +28,7 @@
     &:hover,
     &:focus,
     &[aria-selected='true'] {
-      background: $color-plum-500;
+      background: transparentize($color-blueberry-200, .77);
     }
   }
 }

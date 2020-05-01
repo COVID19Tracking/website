@@ -9,8 +9,11 @@ import projectLogo from '../../images/project-logo.svg'
 import atlanticLogo from '../../images/atlantic-logo.svg'
 import headerStyle from './header.module.scss'
 import searchIcon from '../../images/icons/search.svg'
+import searchIconInvert from '../../images/icons/search-inverted.svg'
 import Container from '../common/container'
 import colors from '../../scss/colors.module.scss'
+import { useSearch } from '~context/search-context'
+import withSearch from '~components/utils/with-search'
 
 const expandStyles = {
   open: { background: colors.colorPlum800 },
@@ -57,18 +60,30 @@ const HeaderNavigation = () => {
     </nav>
   )
 }
-
 const HeaderSearch = ({ children }) => {
+  const [searchState] = useSearch()
+  const { query, autocompleteHasFocus } = searchState
   return (
     <div className={headerStyle.searchInput}>
-      <img src={searchIcon} alt="" aria-hidden="true" />
       {children}
+      <button
+        type="button"
+        className={headerStyle.searchSubmit}
+        onClick={() => query && navigate(`/search?q=${query}`)}
+      >
+        <img
+          src={autocompleteHasFocus ? searchIconInvert : searchIcon}
+          alt=""
+          aria-hidden="true"
+        />
+      </button>
     </div>
   )
 }
 
 const MobileMenu = () => {
   const searchInputRef = useRef()
+  const [, searchDispatch] = useSearch()
 
   return (
     <div className={headerStyle.mobileMenu}>
@@ -82,11 +97,13 @@ const MobileMenu = () => {
           }}
         >
           <input
-            type="text"
+            type="search"
             placeholder="Search"
             name="q"
             autoComplete="off"
             ref={searchInputRef}
+            onFocus={() => searchDispatch({ type: 'toggleAutocompleteFocus' })}
+            onBlur={() => searchDispatch({ type: 'toggleAutocompleteFocus' })}
           />
         </form>
       </HeaderSearch>
@@ -100,112 +117,114 @@ const MobileMenu = () => {
   )
 }
 
-const Header = ({ title, titleLink, noMargin, hasHero, navigation }) => {
-  const [showMobileMenu, setShowMobileMenu] = useState(false)
+const Header = withSearch(
+  ({ title, titleLink, noMargin, hasHero, navigation }) => {
+    const [showMobileMenu, setShowMobileMenu] = useState(false)
 
-  const header = (
-    <>
-      <DevelopmentWarning />
-      <header
-        className={`site-header ${headerStyle.siteHeader} ${
-          showMobileMenu ? headerStyle.showMobileMenu : ''
-        } ${noMargin ? headerStyle.noMargin : ''}`}
-      >
-        <div
-          className={`container ${headerStyle.container} ${
-            !hasHero ? headerStyle.showBackground : ''
-          } `}
+    const header = (
+      <>
+        <DevelopmentWarning />
+        <header
+          className={`site-header ${headerStyle.siteHeader} ${
+            showMobileMenu ? headerStyle.showMobileMenu : ''
+          } ${noMargin ? headerStyle.noMargin : ''}`}
         >
-          <Expand
-            open={showMobileMenu}
-            styles={expandStyles}
-            duration={500}
-            transitions={['height', 'opacity', 'background']}
+          <div
+            className={`container ${headerStyle.container} ${
+              !hasHero ? headerStyle.showBackground : ''
+            } `}
           >
-            <MobileMenu expanded={showMobileMenu} />
-          </Expand>
-          <Expand
-            open={!showMobileMenu}
-            styles={expandStyles}
-            duration={500}
-            transitions={['height', 'opacity', 'background']}
-          >
-            <PartnershipBanner />
-          </Expand>
-          <Container>
-            <div className={headerStyle.siteTitleContainer}>
-              <div className={headerStyle.siteTitleInner}>
-                <Link to="/">
-                  <img
-                    src={projectLogo}
-                    alt="The COVID Tracking Project"
-                    width="176px"
-                  />
-                </Link>
-              </div>
-              <div className={headerStyle.siteNavContainer}>
-                <div className={headerStyle.navContainer}>
-                  <button
-                    className={headerStyle.mobileToggle}
-                    type="button"
-                    aria-expanded={showMobileMenu}
-                    onClick={() => {
-                      setShowMobileMenu(!showMobileMenu)
-                    }}
-                  >
-                    {showMobileMenu ? <>Close</> : <>Menu</>}
-                  </button>
-                </div>
-                <div className={headerStyle.tools}>
-                  <HeaderSearch>
-                    <SearchAutocomplete id="header-search" />
-                  </HeaderSearch>
-                  <Link to="/help" className={headerStyle.getInvolved}>
-                    Get involved
+            <Expand
+              open={showMobileMenu}
+              styles={expandStyles}
+              duration={500}
+              transitions={['height', 'opacity', 'background']}
+            >
+              <MobileMenu expanded={showMobileMenu} />
+            </Expand>
+            <Expand
+              open={!showMobileMenu}
+              styles={expandStyles}
+              duration={500}
+              transitions={['height', 'opacity', 'background']}
+            >
+              <PartnershipBanner />
+            </Expand>
+            <Container>
+              <div className={headerStyle.siteTitleContainer}>
+                <div className={headerStyle.siteTitleInner}>
+                  <Link to="/">
+                    <img
+                      src={projectLogo}
+                      alt="The COVID Tracking Project"
+                      width="176px"
+                    />
                   </Link>
                 </div>
-                <HeaderNavigation />
+                <div className={headerStyle.siteNavContainer}>
+                  <div className={headerStyle.navContainer}>
+                    <button
+                      className={headerStyle.mobileToggle}
+                      type="button"
+                      aria-expanded={showMobileMenu}
+                      onClick={() => {
+                        setShowMobileMenu(!showMobileMenu)
+                      }}
+                    >
+                      {showMobileMenu ? <>Close</> : <>Menu</>}
+                    </button>
+                  </div>
+                  <div className={headerStyle.tools}>
+                    <HeaderSearch>
+                      <SearchAutocomplete id="header-search" />
+                    </HeaderSearch>
+                    <Link to="/help" className={headerStyle.getInvolved}>
+                      Get involved
+                    </Link>
+                  </div>
+                  <HeaderNavigation />
+                </div>
               </div>
-            </div>
-            <div className={headerStyle.atlanticBanner}>
-              <span>From</span> <img src={atlanticLogo} alt="The Atlantic" />
-              <div />
-            </div>
-            <div className={headerStyle.titleSubnavContainer}>
-              <div className={headerStyle.title}>
-                {title && (
-                  <h1
-                    className={`page-title ${headerStyle.pageTitle} ${
-                      navigation ? '' : headerStyle.extraSpace
-                    }`}
-                  >
-                    {titleLink ? (
-                      <Link to={titleLink}>{title}</Link>
-                    ) : (
-                      <>{title}</>
-                    )}
-                  </h1>
+              <div className={headerStyle.atlanticBanner}>
+                <span>From</span> <img src={atlanticLogo} alt="The Atlantic" />
+                <div />
+              </div>
+              <div className={headerStyle.titleSubnavContainer}>
+                <div className={headerStyle.title}>
+                  {title && (
+                    <h1
+                      className={`page-title ${headerStyle.pageTitle} ${
+                        navigation ? '' : headerStyle.extraSpace
+                      }`}
+                    >
+                      {titleLink ? (
+                        <Link to={titleLink}>{title}</Link>
+                      ) : (
+                        <>{title}</>
+                      )}
+                    </h1>
+                  )}
+                </div>
+                {navigation && (
+                  <div className={headerStyle.tabContainer}>
+                    <HeaderTabs navigation={navigation} />
+                  </div>
                 )}
               </div>
-              {navigation && (
-                <div className={headerStyle.tabContainer}>
-                  <HeaderTabs navigation={navigation} />
-                </div>
-              )}
-            </div>
-          </Container>
-        </div>
-      </header>
-    </>
-  )
+            </Container>
+          </div>
+        </header>
+      </>
+    )
 
-  return hasHero ? (
-    <div className={headerStyle.circles}>
-      {header} <Hero />
-    </div>
-  ) : (
-    header
-  )
-}
+    return hasHero ? (
+      <div className={headerStyle.circles}>
+        {header} <Hero />
+      </div>
+    ) : (
+      header
+    )
+  },
+)
 
 export default Header

@@ -8,7 +8,6 @@ import {
 } from '@reach/combobox'
 import { navigate } from 'gatsby'
 import '@reach/combobox/styles.css'
-import withSearch from '~components/utils/with-search'
 import {
   types,
   useSearch,
@@ -18,7 +17,7 @@ import {
 } from '../../context/search-context'
 import searchAutocompleteStyles from './search-autocomplete.module.scss'
 
-export default withSearch(({ id }) => {
+export default ({ id }) => {
   const [searchState, searchDispatch] = useSearch()
   const { query, results } = searchState
 
@@ -57,6 +56,10 @@ export default withSearch(({ id }) => {
 
   const { bestHits, otherHits } = partitionHitsByRelevance(results)
 
+  function toggleFocus() {
+    searchDispatch({ type: 'toggleAutocompleteFocus' })
+  }
+
   return (
     <Combobox
       openOnFocus
@@ -76,6 +79,8 @@ export default withSearch(({ id }) => {
         onChange={event => {
           setQuery(event.currentTarget.value)
         }}
+        onFocus={() => toggleFocus()}
+        onBlur={() => toggleFocus()}
       />
       {totalHits ? (
         <ComboboxPopover
@@ -96,7 +101,7 @@ export default withSearch(({ id }) => {
                   Best results
                 </li>
               )}
-              {bestHits.slice(0, 10).map(item => (
+              {bestHits.slice(0, 5).map(item => (
                 <ComboboxOption
                   key={`${item.slug}`}
                   value={`${item.type === 'state' ? item.name : item.title}`}
@@ -110,7 +115,7 @@ export default withSearch(({ id }) => {
                   Other results
                 </li>
               )}
-              {otherHits.slice(0, 10).map(item => (
+              {otherHits.slice(0, 5).map(item => (
                 <ComboboxOption
                   key={`${item.slug}`}
                   value={`${item.type === 'state' ? item.name : item.title}`}
@@ -128,4 +133,4 @@ export default withSearch(({ id }) => {
       )}
     </Combobox>
   )
-})
+}

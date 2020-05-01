@@ -21,6 +21,7 @@ const initialState = {
   isFetching: false,
   hasErrors: false,
   errors: [],
+  autocompleteHasFocus: false,
 }
 
 const client = algoliasearch(
@@ -69,6 +70,11 @@ function searchReducer(state, action) {
         ...state,
         isFetching: false,
         results: action.payload,
+      }
+    case 'toggleAutocompleteFocus':
+      return {
+        ...state,
+        autocompleteHasFocus: !state.autocompleteHasFocus,
       }
   }
 }
