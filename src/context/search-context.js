@@ -192,7 +192,6 @@ export function getSanitizedSlug(type, item) {
  */
 
 export function partitionHitsByRelevance(results) {
-  /* eslint-disable */
   const bestHits = []
   const otherHits = []
 
@@ -219,6 +218,7 @@ export function partitionHitsByRelevance(results) {
     } else if (types.STATE === type) {
       titleField = 'name'
     }
+    /* eslint-disable no-underscore-dangle */
     typeHits.forEach(hit =>
       partitionHit(
         hit,
@@ -226,6 +226,8 @@ export function partitionHitsByRelevance(results) {
         hit._highlightResult[titleField].matchLevel === 'full',
       ),
     )
+    return true
+    /* eslint-enable no-underscore-dangle */
   })
   return { bestHits, otherHits }
 }
