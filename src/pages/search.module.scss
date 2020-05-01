@@ -1,3 +1,22 @@
+.search-form {
+    margin-bottom: 2rem;
+    
+    position: relative;
+    
+    input {
+        width: 100%;
+        padding: .4rem 2.4rem .4rem .4rem;
+    }
+}
+
+.search-icon {
+    position: absolute;
+    right: .4rem;
+    top: 50%;
+    width: 1.25rem;
+    transform: translateY(-50%);
+}
+
 .search-results {
     h2 {
         margin-bottom: 48px;

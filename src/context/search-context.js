@@ -1,7 +1,6 @@
 import React from 'react'
 import algoliasearch from 'algoliasearch'
 import NProgress from 'nprogress'
-import marked from 'marked'
 import each from 'lodash/each'
 import truncate from 'lodash/truncate'
 import { prefixSearchIndex } from '../utilities/algolia'
@@ -138,14 +137,14 @@ export function getHighlightResultOrExcerpt(hitType, hit) {
     default:
       return ''
     case 'state':
-      return truncate(marked(hit.notes).replace(/(<([^>]+)>)/gi, ''), {
+      return truncate(hit.notes.replace(/(<([^>]+)>)/gi, ''), {
         length: 200,
       })
     case 'page':
       /* eslint-disable no-underscore-dangle */
       return hit._snippetResult.body && hit._snippetResult.body.value
-        ? marked(hit._snippetResult.body.value).replace(/(<([^>]+)>)/gi, '')
-        : marked(truncate(hit.body)).replace(/(<([^>]+)>)/gi, '')
+        ? hit._snippetResult.body.value.replace(/(<([^>]+)>)/gi, '')
+        : truncate(hit.body).replace(/(<([^>]+)>)/gi, '')
     /* eslint-enable no-underscore-dangle */
   }
 }
