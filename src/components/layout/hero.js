@@ -9,8 +9,8 @@ import chartStyles from '../charts/charts.module.scss'
 import colors from '../../scss/colors.module.scss'
 
 const Chart = ({ data }) => {
-  const width = 800
-  const height = 400
+  const width = 1140
+  const height = 500
   const cdc = []
   const ctp = []
 
@@ -38,7 +38,6 @@ const Chart = ({ data }) => {
   })
   cdc.sort(sortByDate)
   ctp.sort(sortByDate)
-  console.log(cdc)
 
   const xScale = scaleBand()
     .domain(ctp.map(d => d.date))
@@ -59,7 +58,7 @@ const Chart = ({ data }) => {
             y={yScale(d.value)}
             height={yScale(0) - yScale(d.value)}
             width={xScale.bandwidth()}
-            fill={colors.colorPlum400}
+            fill="#3b4590"
           />
         ))}
       </g>
@@ -94,12 +93,32 @@ export default () => {
           dailyTotal
         }
       }
+      allCovidUs {
+        nodes {
+          posNeg
+        }
+      }
     }
   `)
+  let cdcTotal = 0
+  data.allCdcDaily.nodes.forEach(total => {
+    cdcTotal += parseInt(total.dailyTotal, 10)
+  })
   return (
     <Container>
       <div className={`hero ${heroStyle.hero}`}>
+        <h2>
+          The CDC has reported {cdcTotal.toLocaleString()} COVID-19 tests in the
+          US to date. We&apos;ve counted{' '}
+          {data.allCovidUs.nodes[0].posNeg.toLocaleString()}
+        </h2>
+        <p>
+          Complete testing data from the entire United States is crucial for
+          newsrooms, public health departments, and the public—but no government
+          source is collecting it. We are.
+        </p>
         <Chart data={data} />
+        <p>CDC number vs our number</p>
       </div>
     </Container>
   )

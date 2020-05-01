@@ -2,9 +2,9 @@
 @import '../../scss/breakpoints.module.scss';
 
 .hero {
-  padding: 35px 0 70px;
+  padding-top: 35px;
   @media (min-width: $viewport-md) {
-    padding: 70px 20% 70px 0;
+    padding: 70px 0;
   }
 
   .header {
