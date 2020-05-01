@@ -16,7 +16,7 @@ import {
   getSanitizedSlug,
 } from '~context/search-context'
 
-export default withSearch(({ search }) => {
+export default withSearch(({ navigate, search }) => {
   const [searchState, searchDispatch] = useSearch()
   const { query, results } = searchState
 
@@ -53,12 +53,18 @@ export default withSearch(({ search }) => {
           event.preventDefault()
         }}
       >
-        <img
-          src={searchIcon}
-          className={searchStyle.searchIcon}
-          alt=""
-          aria-hidden="true"
-        />
+        <button
+          type="button"
+          className={searchStyle.searchSubmit}
+          onClick={() => query && navigate(`/search?q=${query}`)}
+        >
+          <img
+            src={searchIcon}
+            className={searchStyle.searchIcon}
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
         <input
           type="text"
           aria-label="Search"
