@@ -1,11 +1,16 @@
 import React from 'react'
 import { Th, Td, Table } from './table'
 import { formatDateToString, FormatNumber } from '../utils/format'
+import Timezone from './timezone'
 
 export default ({ data, lastUpdated, showOutcomes = true }) => (
   <Table
     tableLabel={
-      lastUpdated && `Last updated: ${formatDateToString(lastUpdated)}`
+      lastUpdated && (
+        <>
+          Last updated: {formatDateToString(lastUpdated)} <Timezone />
+        </>
+      )
     }
   >
     <colgroup span="3" />

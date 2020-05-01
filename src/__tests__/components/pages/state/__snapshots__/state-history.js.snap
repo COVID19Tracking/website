@@ -17,7 +17,14 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           className="alignLeft"
           scope="col"
         >
-          Screenshot
+          Screenshots (
+          <abbr
+            aria-label="Eastern Standard Time"
+            title="Eastern Standard Time"
+          >
+            EST
+          </abbr>
+          )
         </th>
         <th
           scope="col"

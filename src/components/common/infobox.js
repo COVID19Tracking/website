@@ -4,6 +4,7 @@ import infoBoxStyle from './infobox.module.scss'
 import syncIcon from '../../images/infobox-icons/sync.svg'
 import alertIcon from '../../images/infobox-icons/alert.svg'
 import questionIcon from '../../images/infobox-icons/question.svg'
+import Timezone from './timezone'
 
 const InfoboxInner = ({ header, children }) => (
   <div>
@@ -54,7 +55,7 @@ const SyncInfobox = () => (
         <img src={syncIcon} alt="Sync icon" />
         <div>
           <InfoboxInner header="Last updated from our data:">
-            {data.site.siteMetadata.buildDate}
+            {data.site.siteMetadata.buildDate} <Timezone />
           </InfoboxInner>
         </div>
       </div>

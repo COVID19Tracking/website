@@ -2,6 +2,7 @@ import React from 'react'
 import Screenshots from './screenshots'
 import { Th, Td, Table } from '../../common/table'
 import { FormatNumber, FormatDate } from '../../utils/format'
+import Timezone from '../../common/timezone'
 import stateHistoryStyle from './state-history.module.scss'
 
 export default ({ history, screenshots }) => (
@@ -12,7 +13,7 @@ export default ({ history, screenshots }) => (
           Date
         </Th>
         <Th scope="col" alignLeft>
-          Screenshot
+          Screenshots (<Timezone />)
         </Th>
         <Th scope="col">New Tests</Th>
         <Th scope="col">Positive</Th>

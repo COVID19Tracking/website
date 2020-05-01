@@ -210,7 +210,15 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
     <div
       className="detail-text detailText"
     >
-      Last updated: Fri Apr 17 2020 12:00 am ET
+      Last updated: 
+      Fri Apr 17 2020 12:00 am
+       
+      <abbr
+        aria-label="Eastern Standard Time"
+        title="Eastern Standard Time"
+      >
+        EST
+      </abbr>
     </div>
   </div>
   <ul
