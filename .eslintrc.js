@@ -36,5 +36,16 @@ module.exports = {
       'sample-state',
       'sample-chart-data',
     ],
+    'import/resolver': {
+      'alias': [
+        ['~components', './src/components'],
+        ['~context', './src/context'],
+        ['~data', './src/data'],
+        ['~pages', './src/pages'],
+        ['~scss', './src/scss'],
+        ['~templates', './src/templates'],        
+        ['~utilities', './src/utilities'],        
+      ]
+    }
   },
 }

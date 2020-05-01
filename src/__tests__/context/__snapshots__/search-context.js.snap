@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Context : Search : Search provider has a search provider context 1`] = `
+<p>
+  child
+</p>
+`;

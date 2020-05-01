@@ -1,7 +1,12 @@
-const { DateTime } = require('luxon')
+require(`@babel/register`)({
+  presets: ['@babel/preset-env', '@babel/preset-react'],
+  plugins: ['@babel/plugin-transform-runtime'],
+})
 require('dotenv').config()
+const { DateTime } = require('luxon')
+const algoliaQueries = require('./src/utilities/algolia').queries
 
-module.exports = {
+const gatsbyConfig = {
   siteMetadata: {
     title: 'The COVID Tracking Project',
     description:
@@ -125,5 +130,47 @@ module.exports = {
         icon: 'src/images/icon.svg',
       },
     },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '~components': 'src/components',
+          '~context': 'src/context',
+          '~data': 'src/data',
+          '~images': 'src/images',
+          '~pages': 'src/pages',
+          '~scss': 'src/scss',
+          '~templates': 'src/templates',
+          '~utilities': 'src/utilities',
+        },
+        extensions: ['js', 'scss', 'svg', 'png'],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `#924F34`,
+        showSpinner: false,
+      },
+    },
   ],
 }
+
+// Conditionally add Algolia plugin.
+if (
+  typeof process.env.GATSBY_ALGOLIA_INDEX_PREFIX !== 'undefined' &&
+  typeof process.env.ALGOLIA_ADMIN_KEY !== 'undefined' &&
+  (process.env.BRANCH === 'master' || process.env.CIRCLECI)
+) {
+  gatsbyConfig.plugins.push({
+    resolve: 'gatsby-plugin-algolia',
+    options: {
+      appId: process.env.GATSBY_ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_ADMIN_KEY,
+      queries: algoliaQueries,
+      chunkSize: 5000,
+    },
+  })
+}
+
+module.exports = gatsbyConfig

@@ -1,0 +1,33 @@
+.search-form {
+    margin-bottom: 2rem;
+    
+    position: relative;
+    
+    input {
+        width: 100%;
+        padding: .4rem 2.4rem .4rem .4rem;
+    }
+}
+
+.search-submit {
+    position: absolute;
+    right: .4rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    appearance: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.search-icon {
+    width: 1.25rem;
+}
+
+.search-results {
+    h2 {
+        margin-bottom: 48px;
+    }
+}
+

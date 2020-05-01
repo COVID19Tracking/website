@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Search: Result section renders correctly 1`] = `
+<div
+  className="section"
+>
+  <div
+    className="result"
+  >
+    <h4>
+      <a
+        href="https://example.com"
+      >
+        test
+      </a>
+    </h4>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Components : Search: Result section renders correctly 2`] = `
+<div
+  className="section"
+>
+  <div
+    className="result"
+  >
+    <h4>
+      <a
+        href="https://example.com"
+      >
+        test
+      </a>
+    </h4>
+    <div>
+      <p>
+        Content
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Search: Result section renders correctly 3`] = `null`;
