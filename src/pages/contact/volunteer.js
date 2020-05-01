@@ -71,7 +71,12 @@ export default ({ data }) => (
           <label>Which workstream or project would you like to apply to?</label>
           {workstreams.map((name, id) => (
             <label htmlFor={`workstream-${id}`}>
-              <input type="checkbox" value={name} id={`workstream-${id}`} />
+              <input
+                type="checkbox"
+                value={name}
+                name={name}
+                id={`workstream-${id}`}
+              />
               {name}
             </label>
           ))}
@@ -80,7 +85,7 @@ export default ({ data }) => (
       <div className={formStyles.formGroup}>
         <label htmlFor="volunteer-hours">
           How many hours are you available to work per week?
-          <select id="volunteer-hours">
+          <select id="volunteer-hours" name="volunteer-hours">
             {['1-5', '5-10', '10-20', '20-30', '30-40', '40+'].map(name => (
               <option key={name} value={name}>
                 {name}
@@ -92,7 +97,7 @@ export default ({ data }) => (
       <div className={formStyles.formGroup}>
         <label htmlFor="volunteer-timezone">
           What time zone are you in?
-          <select id="volunteer-timezone">
+          <select id="volunteer-timezone" name="volunteer-timezone">
             {['Pacific', 'Mountain', 'Central', 'Eastern', 'Other'].map(
               name => (
                 <option key={name} value={name}>
@@ -106,7 +111,7 @@ export default ({ data }) => (
       <div className={formStyles.formGroup}>
         <label htmlFor="volunteer-availability">
           When are you most available to work?
-          <select id="volunteer-availability">
+          <select id="volunteer-availability" name="volunteer-availability">
             {[
               'Morning, some or all weekdays',
               'Afternoon, some or all weekdays',
