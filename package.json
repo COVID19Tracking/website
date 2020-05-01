@@ -75,6 +75,7 @@
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
     "slugify": "^1.4.0",
+    "swagger-ui": "^3.25.0",
     "typography": "^0.16.19",
     "understory": "^1.11.0"
   },

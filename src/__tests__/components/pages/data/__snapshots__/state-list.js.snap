@@ -54,7 +54,10 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
         span="2"
       />
       <colgroup
-        span="3"
+        span="2"
+      />
+      <colgroup
+        span="1"
       />
       <thead>
         <tr>
@@ -82,15 +85,21 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
           >
             On Ventilator
           </th>
-          <td
-            colSpan="3"
+          <th
+            colSpan="2"
+            scope="colgroup"
           >
-             
-          </td>
-           
+            Outcomes
+          </th>
+          <th
+            scope="colgroup"
+          >
+            Total Test Results
+          </th>
         </tr>
         <tr>
           <th
+            className="alignLeft"
             scope="col"
           >
             Positive
@@ -106,6 +115,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             Pending
           </th>
           <th
+            className="alignLeft"
             scope="col"
           >
             Currently
@@ -116,6 +126,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             Cumulative
           </th>
           <th
+            className="alignLeft"
             scope="col"
           >
             Currently
@@ -126,6 +137,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             Cumulative
           </th>
           <th
+            className="alignLeft"
             scope="col"
           >
             Currently
@@ -136,6 +148,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             Cumulative
           </th>
           <th
+            className="alignLeft"
             scope="col"
           >
             Recovered
@@ -146,12 +159,10 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             Deaths
           </th>
           <th
+            className="alignLeft"
             scope="col"
           >
-            Total test results 
-            <span>
-              (Positive + Negative)
-            </span>
+            Positive + Negative
           </th>
         </tr>
       </thead>
@@ -199,7 +210,15 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
     <div
       className="detail-text detailText"
     >
-      Last updated: Fri Apr 17 2020 12:00 am ET
+      Last updated: 
+      Fri Apr 17 2020 12:00 am
+       
+      <abbr
+        aria-label="Eastern Standard Time"
+        title="Eastern Standard Time"
+      >
+        EST
+      </abbr>
     </div>
   </div>
   <ul

@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Table from '../../../components/common/table'
+import { Table } from '../../../components/common/table'
 
 describe('Components : Common: Table', () => {
   it('renders correctly', () => {
