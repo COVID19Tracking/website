@@ -5,8 +5,101 @@ exports[`Components : Layout : Header renders correctly 1`] = `
   className="site-header siteHeader  "
 >
   <div
-    className="container showBackground"
+    className="container container showBackground "
   >
+    <div
+      className=""
+      style={
+        Object {
+          "height": 0,
+          "opacity": 0,
+          "overflow": "hidden",
+          "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+        }
+      }
+    >
+      <div
+        className="mobileMenu"
+      >
+        <div
+          className="searchInput"
+        >
+          <img
+            alt=""
+            src="test-file-stub"
+          />
+          <form
+            action="/search"
+            method="get"
+            onSubmit={[Function]}
+          >
+            <input
+              autoComplete="off"
+              name="q"
+              placeholder="Search"
+              type="text"
+            />
+          </form>
+        </div>
+        <nav
+          className="js-disabled-block"
+        >
+          <ul>
+            <li>
+              <a
+                href="/test-a"
+              >
+                Test A
+              </a>
+            </li>
+            <li>
+              <a
+                href="/test-b"
+              >
+                Test B
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <a
+          className="getInvolved"
+          href="/help"
+        >
+          Get Involved
+        </a>
+        <div
+          className="mobilePointer"
+        />
+      </div>
+    </div>
+    <div
+      className=""
+      style={
+        Object {
+          "background": "colorPlum800",
+          "height": "auto",
+          "opacity": 1,
+          "overflow": "unset",
+          "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+        }
+      }
+    >
+      <div
+        className="banner"
+      >
+        <span
+          className="new"
+        >
+          New
+        </span>
+         
+        <a
+          href="/race"
+        >
+          We just launched the COVID Racial Data Tracker
+        </a>
+      </div>
+    </div>
     <div
       className="container false container"
     >
@@ -23,7 +116,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
               className="siteTitleInner"
             >
               <a
-                className="siteTitle"
                 href="/"
               >
                 <img
@@ -34,37 +126,93 @@ exports[`Components : Layout : Header renders correctly 1`] = `
               </a>
             </div>
             <div
-              className="navContainer"
+              className="siteNavContainer"
             >
-              <button
-                aria-expanded={false}
-                className="mobileToggle"
-                onClick={[Function]}
-                type="button"
+              <div
+                className="navContainer"
               >
-                Menu
-              </button>
+                <button
+                  aria-expanded={false}
+                  className="mobileToggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Menu
+                </button>
+              </div>
+              <div
+                className="tools"
+              >
+                <div
+                  className="searchInput"
+                >
+                  <img
+                    alt=""
+                    src="test-file-stub"
+                  />
+                  <div
+                    data-reach-combobox=""
+                  >
+                    <input
+                      aria-autocomplete="both"
+                      aria-controls="listbox--1"
+                      aria-expanded={false}
+                      aria-haspopup="listbox"
+                      autoComplete="off"
+                      data-reach-combobox-input=""
+                      id="header-search"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      placeholder="Search"
+                      role="combobox"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <a
+                  className="getInvolved"
+                  href="/help"
+                >
+                  Get involved
+                </a>
+              </div>
+              <nav
+                className="js-disabled-block"
+              >
+                <ul>
+                  <li>
+                    <a
+                      href="/test-a"
+                    >
+                      Test A
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/test-b"
+                    >
+                      Test B
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
-            <nav
-              className="js-disabled-block"
-            >
-              <ul>
-                <li>
-                  <a
-                    href="/test-a"
-                  >
-                    Test A
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/test-b"
-                  >
-                    Test B
-                  </a>
-                </li>
-              </ul>
-            </nav>
+          </div>
+          <div
+            className="atlanticBanner"
+          >
+            <span>
+              From
+            </span>
+             
+            <img
+              alt="The Atlantic"
+              src="test-file-stub"
+            />
+            <div />
           </div>
           <div
             className="titleSubnavContainer"
@@ -94,8 +242,101 @@ exports[`Components : Layout : Header renders correctly 2`] = `
     className="site-header siteHeader  noMargin"
   >
     <div
-      className="container false"
+      className="container container  "
     >
+      <div
+        className=""
+        style={
+          Object {
+            "height": 0,
+            "opacity": 0,
+            "overflow": "hidden",
+            "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+          }
+        }
+      >
+        <div
+          className="mobileMenu"
+        >
+          <div
+            className="searchInput"
+          >
+            <img
+              alt=""
+              src="test-file-stub"
+            />
+            <form
+              action="/search"
+              method="get"
+              onSubmit={[Function]}
+            >
+              <input
+                autoComplete="off"
+                name="q"
+                placeholder="Search"
+                type="text"
+              />
+            </form>
+          </div>
+          <nav
+            className="js-disabled-block"
+          >
+            <ul>
+              <li>
+                <a
+                  href="/test-a"
+                >
+                  Test A
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/test-b"
+                >
+                  Test B
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <a
+            className="getInvolved"
+            href="/help"
+          >
+            Get Involved
+          </a>
+          <div
+            className="mobilePointer"
+          />
+        </div>
+      </div>
+      <div
+        className=""
+        style={
+          Object {
+            "background": "colorPlum800",
+            "height": "auto",
+            "opacity": 1,
+            "overflow": "unset",
+            "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+          }
+        }
+      >
+        <div
+          className="banner"
+        >
+          <span
+            className="new"
+          >
+            New
+          </span>
+           
+          <a
+            href="/race"
+          >
+            We just launched the COVID Racial Data Tracker
+          </a>
+        </div>
+      </div>
       <div
         className="container false container"
       >
@@ -112,7 +353,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                 className="siteTitleInner"
               >
                 <a
-                  className="siteTitle"
                   href="/"
                 >
                   <img
@@ -123,37 +363,93 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                 </a>
               </div>
               <div
-                className="navContainer"
+                className="siteNavContainer"
               >
-                <button
-                  aria-expanded={false}
-                  className="mobileToggle"
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="navContainer"
                 >
-                  Menu
-                </button>
+                  <button
+                    aria-expanded={false}
+                    className="mobileToggle"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Menu
+                  </button>
+                </div>
+                <div
+                  className="tools"
+                >
+                  <div
+                    className="searchInput"
+                  >
+                    <img
+                      alt=""
+                      src="test-file-stub"
+                    />
+                    <div
+                      data-reach-combobox=""
+                    >
+                      <input
+                        aria-autocomplete="both"
+                        aria-controls="listbox--3"
+                        aria-expanded={false}
+                        aria-haspopup="listbox"
+                        autoComplete="off"
+                        data-reach-combobox-input=""
+                        id="header-search"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        placeholder="Search"
+                        role="combobox"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <a
+                    className="getInvolved"
+                    href="/help"
+                  >
+                    Get involved
+                  </a>
+                </div>
+                <nav
+                  className="js-disabled-block"
+                >
+                  <ul>
+                    <li>
+                      <a
+                        href="/test-a"
+                      >
+                        Test A
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/test-b"
+                      >
+                        Test B
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
-              <nav
-                className="js-disabled-block"
-              >
-                <ul>
-                  <li>
-                    <a
-                      href="/test-a"
-                    >
-                      Test A
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/test-b"
-                    >
-                      Test B
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+            </div>
+            <div
+              className="atlanticBanner"
+            >
+              <span>
+                From
+              </span>
+               
+              <img
+                alt="The Atlantic"
+                src="test-file-stub"
+              />
+              <div />
             </div>
             <div
               className="titleSubnavContainer"
@@ -221,8 +517,101 @@ exports[`Components : Layout : Header renders correctly 3`] = `
   className="site-header siteHeader  "
 >
   <div
-    className="container showBackground"
+    className="container container showBackground "
   >
+    <div
+      className=""
+      style={
+        Object {
+          "height": 0,
+          "opacity": 0,
+          "overflow": "hidden",
+          "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+        }
+      }
+    >
+      <div
+        className="mobileMenu"
+      >
+        <div
+          className="searchInput"
+        >
+          <img
+            alt=""
+            src="test-file-stub"
+          />
+          <form
+            action="/search"
+            method="get"
+            onSubmit={[Function]}
+          >
+            <input
+              autoComplete="off"
+              name="q"
+              placeholder="Search"
+              type="text"
+            />
+          </form>
+        </div>
+        <nav
+          className="js-disabled-block"
+        >
+          <ul>
+            <li>
+              <a
+                href="/test-a"
+              >
+                Test A
+              </a>
+            </li>
+            <li>
+              <a
+                href="/test-b"
+              >
+                Test B
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <a
+          className="getInvolved"
+          href="/help"
+        >
+          Get Involved
+        </a>
+        <div
+          className="mobilePointer"
+        />
+      </div>
+    </div>
+    <div
+      className=""
+      style={
+        Object {
+          "background": "colorPlum800",
+          "height": "auto",
+          "opacity": 1,
+          "overflow": "unset",
+          "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+        }
+      }
+    >
+      <div
+        className="banner"
+      >
+        <span
+          className="new"
+        >
+          New
+        </span>
+         
+        <a
+          href="/race"
+        >
+          We just launched the COVID Racial Data Tracker
+        </a>
+      </div>
+    </div>
     <div
       className="container false container"
     >
@@ -239,7 +628,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
               className="siteTitleInner"
             >
               <a
-                className="siteTitle"
                 href="/"
               >
                 <img
@@ -250,37 +638,93 @@ exports[`Components : Layout : Header renders correctly 3`] = `
               </a>
             </div>
             <div
-              className="navContainer"
+              className="siteNavContainer"
             >
-              <button
-                aria-expanded={false}
-                className="mobileToggle"
-                onClick={[Function]}
-                type="button"
+              <div
+                className="navContainer"
               >
-                Menu
-              </button>
+                <button
+                  aria-expanded={false}
+                  className="mobileToggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Menu
+                </button>
+              </div>
+              <div
+                className="tools"
+              >
+                <div
+                  className="searchInput"
+                >
+                  <img
+                    alt=""
+                    src="test-file-stub"
+                  />
+                  <div
+                    data-reach-combobox=""
+                  >
+                    <input
+                      aria-autocomplete="both"
+                      aria-controls="listbox--4"
+                      aria-expanded={false}
+                      aria-haspopup="listbox"
+                      autoComplete="off"
+                      data-reach-combobox-input=""
+                      id="header-search"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      placeholder="Search"
+                      role="combobox"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <a
+                  className="getInvolved"
+                  href="/help"
+                >
+                  Get involved
+                </a>
+              </div>
+              <nav
+                className="js-disabled-block"
+              >
+                <ul>
+                  <li>
+                    <a
+                      href="/test-a"
+                    >
+                      Test A
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/test-b"
+                    >
+                      Test B
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
-            <nav
-              className="js-disabled-block"
-            >
-              <ul>
-                <li>
-                  <a
-                    href="/test-a"
-                  >
-                    Test A
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/test-b"
-                  >
-                    Test B
-                  </a>
-                </li>
-              </ul>
-            </nav>
+          </div>
+          <div
+            className="atlanticBanner"
+          >
+            <span>
+              From
+            </span>
+             
+            <img
+              alt="The Atlantic"
+              src="test-file-stub"
+            />
+            <div />
           </div>
           <div
             className="titleSubnavContainer"
