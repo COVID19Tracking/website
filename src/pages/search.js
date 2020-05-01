@@ -64,6 +64,7 @@ export default withSearch(({ search }) => {
           aria-label="Search"
           placeholder="Search..."
           id="item"
+          autoComplete="off"
           defaultValue={query || ''}
           onChange={event => {
             clearTimeout(searchEvent)
