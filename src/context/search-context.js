@@ -134,7 +134,6 @@ export async function querySearch(s, dispatch) {
 }
 
 export function getHighlightResultOrExcerpt(hitType, hit) {
-  console.log(hit)
   switch (hitType) {
     default:
       return ''
