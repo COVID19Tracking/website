@@ -125,7 +125,7 @@ export const query = graphql`
         node {
           title
           slug
-          author {
+          authors {
             name
           }
           publishDate(formatString: "MMMM D, YYYY")

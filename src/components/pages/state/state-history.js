@@ -1,54 +1,59 @@
 import React from 'react'
 import Screenshots from './screenshots'
-import Table from '../../common/table'
+import { Th, Td, Table } from '../../common/table'
 import { FormatNumber, FormatDate } from '../../utils/format'
+import Timezone from '../../common/timezone'
 import stateHistoryStyle from './state-history.module.scss'
 
 export default ({ history, screenshots }) => (
   <Table>
     <thead>
       <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Screenshots (ET)</th>
-        <th scope="col">New Tests</th>
-        <th scope="col">Positive</th>
-        <th scope="col">Negative</th>
-        <th scope="col">Pending</th>
-        <th scope="col">Hospitalized</th>
-        <th scope="col">Deaths</th>
-        <th scope="col">Total</th>
+        <Th scope="col" alignLeft>
+          Date
+        </Th>
+        <Th scope="col" alignLeft>
+          Screenshots (<Timezone />)
+        </Th>
+        <Th scope="col">New Tests</Th>
+        <Th scope="col">Positive</Th>
+        <Th scope="col">Negative</Th>
+        <Th scope="col">Pending</Th>
+        <Th scope="col">Hospitalized</Th>
+        <Th scope="col">Deaths</Th>
+        <Th scope="col">Total</Th>
       </tr>
     </thead>
     <tbody className={`state-history-table ${stateHistoryStyle.history}`}>
       {history.map(({ node }) => (
         <tr key={`history-${node.dateChecked}`}>
-          <td>
+          <Td alignLeft>
             <FormatDate date={node.dateChecked} format="ccc LLL d yyyy" />
-          </td>
-          <td>
+          </Td>
+          <Td alignLeft>
             <Screenshots date={node.dateChecked} screenshots={screenshots} />
-          </td>
-          <td>
+          </Td>
+          <Td>
             <FormatNumber number={node.totalTestResultsIncrease} />
-          </td>
-          <td>
+          </Td>
+          <Td>
             <FormatNumber number={node.positive} />
-          </td>
-          <td>
+          </Td>
+          <Td>
             <FormatNumber number={node.negative} />
-          </td>
-          <td>
+          </Td>
+          <Td>
             <FormatNumber number={node.pending} />
-          </td>
-          <td>
+          </Td>
+          <Td>
             <FormatNumber number={node.hospitalized} />
-          </td>
-          <td>
+          </Td>
+          <Td>
             <FormatNumber number={node.death} />
-          </td>
-          <td>
+          </Td>
+          <Td>
             <FormatNumber number={node.totalTestResults} />
-          </td>
+          </Td>
         </tr>
       ))}
     </tbody>

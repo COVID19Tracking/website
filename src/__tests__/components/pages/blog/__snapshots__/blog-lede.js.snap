@@ -10,27 +10,35 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
     Test headline
   </h1>
   <p
-    className="blog-lede"
+    className="ledeContent"
   >
     This is a test blog lede.
   </p>
   <div
     className="byline"
   >
-    <span
-      className="author"
+    <p
+      className="authorDateContainer"
     >
-      <a
-        href="https://twitter.com/test"
+      By
+       
+      <p
+        className="author"
       >
-        test name
-      </a>
-    </span>
-    <span
-      className="date"
-    >
-      Aug 1 2020
-    </span>
+        <a
+          className="authorInner"
+          href="https://twitter.com/test"
+        >
+          test name
+        </a>
+      </p>
+      <span
+        className="date"
+      >
+        Aug 1 2020
+      </span>
+    </p>
   </div>
+  <hr />
 </div>
 `;

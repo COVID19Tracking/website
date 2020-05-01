@@ -14,9 +14,9 @@ const gatsbyConfig = {
     production:
       typeof process.env.BRANCH !== 'undefined' &&
       process.env.BRANCH === 'master',
-    buildDate: `${DateTime.fromObject({ zone: 'America/New_York' })
+    buildDate: DateTime.fromObject({ zone: 'America/New_York' })
       .toFormat('h:mm a')
-      .toLowerCase()} ET`,
+      .toLowerCase(),
   },
   plugins: [
     'gatsby-plugin-react-helmet',
