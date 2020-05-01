@@ -4,23 +4,25 @@ import sectionStyle from './search-result-section.module.scss'
 
 const SearchResultSection = ({
   results,
-  title,
   itemKey,
   itemTitle,
   itemUrl,
   itemContent = undefined,
+  itemAuthor = undefined,
+  itemPublishDate = undefined,
 }) => {
   return (
     results.nbHits > 0 && (
       <div className={sectionStyle.section}>
-        <h3>
-          {title} ({results.nbHits})
-        </h3>
         {results.hits.map(item => (
           <SearchResult
             key={itemKey(item)}
             title={itemTitle(item)}
             url={itemUrl(item)}
+            author={typeof itemAuthor !== 'undefined' && itemAuthor(item)}
+            publishDate={
+              typeof itemPublishDate !== 'undefined' && itemPublishDate(item)
+            }
           >
             {typeof itemContent !== 'undefined' && itemContent(item)}
           </SearchResult>

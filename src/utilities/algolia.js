@@ -19,6 +19,7 @@ const stateQuery = `{
         objectID: state
         name
         state
+        notes
       }
     }
   }
