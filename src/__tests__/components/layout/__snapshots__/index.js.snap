@@ -179,6 +179,7 @@ Array [
                         onClick={[Function]}
                         onFocus={[Function]}
                         onKeyDown={[Function]}
+                        onSelect={[Function]}
                         placeholder="Search"
                         role="combobox"
                         value=""
@@ -529,6 +530,7 @@ Array [
                         onClick={[Function]}
                         onFocus={[Function]}
                         onKeyDown={[Function]}
+                        onSelect={[Function]}
                         placeholder="Search"
                         role="combobox"
                         value=""
