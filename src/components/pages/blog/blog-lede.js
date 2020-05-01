@@ -7,5 +7,6 @@ export default ({ headline, authors, date, lede }) => (
     <h1 className="hed-primary">{headline}</h1>
     <p className="blog-lede">{lede}</p>
     <Byline authors={authors} date={date} />
+    <hr />
   </div>
 )
