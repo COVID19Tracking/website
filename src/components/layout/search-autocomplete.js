@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Combobox,
   ComboboxInput,
@@ -19,6 +19,7 @@ import searchAutocompleteStyles from './search-autocomplete.module.scss'
 
 export default ({ id }) => {
   const [searchState, searchDispatch] = useSearch()
+  const [showResults, setShowResults] = useState(true)
   const { query, results } = searchState
 
   function setQuery(value) {
@@ -42,16 +43,8 @@ export default ({ id }) => {
       (results[types.PAGE].nbHits || 0)
 
   const goToResult = selectedItem => {
-    const resultTypes = Object.values(types)
-    resultTypes.forEach(type => {
-      const item = results[type].hits.find(result => {
-        return result.name === selectedItem || result.title === selectedItem
-      })
-      if (item && typeof window !== 'undefined') {
-        const slug = getSanitizedSlug(type, item)
-        navigate(slug)
-      }
-    })
+    setShowResults(false)
+    navigate(getSanitizedSlug(selectedItem.type, selectedItem))
   }
 
   const { bestHits, otherHits } = partitionHitsByRelevance(results)
@@ -61,28 +54,18 @@ export default ({ id }) => {
   }
 
   return (
-    <Combobox
-      openOnFocus
-      onSelect={selectedItem => {
-        goToResult(selectedItem)
-      }}
-    >
+    <Combobox openOnFocus>
       <ComboboxInput
         id={id}
         placeholder="Search"
         autoComplete="off"
-        onKeyDown={event => {
-          if (event.key === 'Enter') {
-            navigate(`/search?q=${event.target.value}`)
-          }
-        }}
         onChange={event => {
           setQuery(event.currentTarget.value)
         }}
         onFocus={() => toggleFocus()}
         onBlur={() => toggleFocus()}
       />
-      {totalHits ? (
+      {totalHits && showResults ? (
         <ComboboxPopover
           portal={false}
           id="search-results-popover"
@@ -105,6 +88,7 @@ export default ({ id }) => {
                 <ComboboxOption
                   key={`${item.slug}`}
                   value={`${item.type === 'state' ? item.name : item.title}`}
+                  onMouseDown={() => goToResult(item)}
                 />
               ))}
               {otherHits.length > 0 && (
@@ -119,6 +103,7 @@ export default ({ id }) => {
                 <ComboboxOption
                   key={`${item.slug}`}
                   value={`${item.type === 'state' ? item.name : item.title}`}
+                  onMouseDown={() => goToResult(item)}
                 />
               ))}
             </ComboboxList>
