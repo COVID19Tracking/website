@@ -1,4 +1,5 @@
 const path = require('path')
+const srcPath = path.resolve(__dirname, '../src')
 
 module.exports = ({ config }) => {
   // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
@@ -24,7 +25,7 @@ module.exports = ({ config }) => {
     test: /\.module.scss$/,
     loaders: ['style-loader', 'css-loader', 'sass-loader'],
     exclude: /\.module\.s[ac]ss$/,
-    include: path.resolve(__dirname, '../src'),
+    include: srcPath,
   })
 
   config.module.rules.push({
@@ -34,7 +35,7 @@ module.exports = ({ config }) => {
       'css-loader',
       { loader: 'sass-loader', options: { modules: true } },
     ],
-    include: path.resolve(__dirname, '../src'),
+    include: srcPath,
   })
 
   // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint
@@ -42,14 +43,14 @@ module.exports = ({ config }) => {
 
   config.resolve.alias = {
     ...(config.resolve.alias || {}),
-    '~components': 'src/components',
-    '~context': 'src/context',
-    '~data': 'src/data',
-    '~images': 'src/images',
-    '~pages': 'src/pages',
-    '~scss': 'src/scss',
-    '~templates': 'src/templates',
-    '~utilities': 'src/utilities',
+    '~components': path.resolve(__dirname, '../src/components'),
+    '~context': path.resolve(__dirname, '../src/context'),
+    '~data': path.resolve(__dirname, '../src/data'),
+    '~images': path.resolve(__dirname, '../src/images'),
+    '~pages': path.resolve(__dirname, '../src/pages'),
+    '~scss': path.resolve(__dirname, '../src/scss'),
+    '~templates': path.resolve(__dirname, '../src/templates'),
+    '~utilities': path.resolve(__dirname, '../src/utilities'),
   }
 
   return config
