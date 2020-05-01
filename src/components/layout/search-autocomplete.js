@@ -42,6 +42,15 @@ export default ({ id }) => {
       (results[types.BLOG_POST].nbHits || 0) +
       (results[types.PAGE].nbHits || 0)
 
+  /**
+   * When a result is selected (here by pressing Enter),
+   * try to find a match in search results.
+   * Otherwise, the user is likely submitting the input value,
+   * so we navigate to the search page using value as the query.
+   *
+   * @param string currentValue.
+   *  Current value of the Combobox Input.
+   */
   const goToResultOrSearch = currentValue => {
     setShowResults(false)
     const resultTypes = Object.values(types)
