@@ -10,7 +10,7 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
     Test headline
   </h1>
   <p
-    className="blog-lede"
+    className="ledeContent"
   >
     This is a test blog lede.
   </p>
@@ -20,13 +20,13 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
     <p
       className="authorDateContainer"
     >
-      By:
+      By
        
       <p
         className="author"
       >
         <a
-          className="author-inner"
+          className="authorInner"
           href="https://twitter.com/test"
         >
           test name
@@ -39,5 +39,6 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
       </span>
     </p>
   </div>
+  <hr />
 </div>
 `;

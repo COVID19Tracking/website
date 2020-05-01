@@ -14,37 +14,33 @@ exports[`Components : Pages : Blog : List renders correctly 1`] = `
         Blog list item
       </a>
     </cite>
-    <div
-      className="byline"
+    <p
+      className="oneLineByline"
     >
-      <p
-        className="authorDateContainer"
+      By
+       
+      <span
+        className="author"
       >
-        By:
-         
-        <p
-          className="author"
+        <a
+          className="authorInner"
+          href="https://twitter.com/test"
         >
-          <a
-            className="author-inner"
-            href="https://twitter.com/test"
-          >
-            test name
-          </a>
-           & 
-          <span
-            className="author-inner"
-          >
-            another test
-          </span>
-        </p>
+          test name
+        </a>
+         & 
         <span
-          className="date"
+          className="authorInner"
         >
-          August 1, 20202
+          another test
         </span>
-      </p>
-    </div>
+      </span>
+      <span
+        className="relatedDate"
+      >
+        August 1, 20202
+      </span>
+    </p>
   </li>
 </ul>
 `;

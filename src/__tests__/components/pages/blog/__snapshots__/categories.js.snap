@@ -5,7 +5,7 @@ exports[`Components : Pages : Blog : Categories renders correctly 1`] = `
   className="categoriesContainer"
 >
   <p
-    className="blog-lede"
+    className="category"
   >
     <a
       href="/blog/category/category-one"
@@ -21,7 +21,7 @@ exports[`Components : Pages : Blog : Categories renders correctly 2`] = `
   className="categoriesContainer"
 >
   <p
-    className="blog-lede"
+    className="category"
   >
     <a
       href="/blog/category/category-one"

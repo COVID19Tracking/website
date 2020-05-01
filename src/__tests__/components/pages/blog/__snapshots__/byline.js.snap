@@ -15,13 +15,13 @@ exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
   <p
     className="authorDateContainer"
   >
-    By:
+    By
      
     <p
       className="author"
     >
       <a
-        className="author-inner"
+        className="authorInner"
         href="https://twitter.com/test"
       >
         test name
@@ -43,13 +43,13 @@ exports[`Components : Pages : Blog : Byline renders correctly 2`] = `
   <p
     className="authorDateContainer"
   >
-    By:
+    By
      
     <p
       className="author"
     >
       <span
-        className="author-inner"
+        className="authorInner"
       >
         test name
       </span>
