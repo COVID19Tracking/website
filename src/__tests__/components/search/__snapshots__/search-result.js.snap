@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Search: Results renders correctly 1`] = `
+<div
+  className="result"
+>
+  <h4>
+    <a
+      href="https://example.com"
+    >
+      Test title
+    </a>
+  </h4>
+  <div />
+</div>
+`;
+
+exports[`Components : Search: Results renders correctly 2`] = `
+<div
+  className="result"
+>
+  <h4>
+    <a
+      href="https://example.com"
+    >
+      Test title
+    </a>
+  </h4>
+  <div>
+    <p>
+      A child
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Components : Search: Results renders correctly 3`] = `
+<div
+  className="result"
+>
+  <h4>
+    <a
+      href="https://example.com"
+    >
+      Test title
+    </a>
+  </h4>
+  <div />
+  <div
+    className="detail-text detailText"
+  >
+    <span
+      className="publishDate"
+    >
+      April 23, 2020
+    </span>
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": " &middot; ",
+        }
+      }
+    />
+    An author
+  </div>
+</div>
+`;
