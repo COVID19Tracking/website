@@ -67,13 +67,15 @@ export default ({ data }) => (
         </DetailText>
       </div>
       <div className={formStyles.formGroup}>
-        <label>Which workstream or project would you like to apply to?</label>
-        {workstreams.map((name, id) => (
-          <label htmlFor={`workstream-${id}`}>
-            <input type="checkbox" value={name} id={`workstream-${id}`} />
-            {name}
-          </label>
-        ))}
+        <fieldset>
+          <label>Which workstream or project would you like to apply to?</label>
+          {workstreams.map((name, id) => (
+            <label htmlFor={`workstream-${id}`}>
+              <input type="checkbox" value={name} id={`workstream-${id}`} />
+              {name}
+            </label>
+          ))}
+        </fieldset>
       </div>
       <div className={formStyles.formGroup}>
         <label htmlFor="volunteer-hours">

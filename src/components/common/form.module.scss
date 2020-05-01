@@ -47,6 +47,11 @@
     display: block;
   }
 
+  fieldset {
+    border: 0;
+    padding: 0;
+  }
+
   .bot-field {
     display: none;
   }
