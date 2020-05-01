@@ -1,6 +1,6 @@
 import React from 'react'
-import { types, SearchProvider } from '~context/search-context'
 import renderer from 'react-test-renderer'
+import { types, SearchProvider } from '~context/search-context'
 
 describe('Context : Search : Search types', () => {
   it('has search types', () => {
