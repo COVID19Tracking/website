@@ -8,10 +8,12 @@ describe('Components : Pages : Blog : Lede', () => {
       .create(
         <BlogLede
           headline="Test headline"
-          authors={[{
-            name: 'test name',
-            twitterLink: 'https://twitter.com/test',
-          }]}
+          authors={[
+            {
+              name: 'test name',
+              twitterLink: 'https://twitter.com/test',
+            },
+          ]}
           date="Aug 1 2020"
           lede="This is a test blog lede."
         />,

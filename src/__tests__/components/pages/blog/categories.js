@@ -10,8 +10,8 @@ describe('Components : Pages : Blog : Categories', () => {
           categories={[
             {
               name: 'category one',
-              slug: 'category-one'
-            }
+              slug: 'category-one',
+            },
           ]}
         />,
       )
@@ -19,10 +19,8 @@ describe('Components : Pages : Blog : Categories', () => {
     expect(tree).toMatchSnapshot()
 
     const treeNoCategories = renderer
-      .create(
-        <Categories categories={[]} />,
-      )
+      .create(<Categories categories={[]} />)
       .toJSON()
-    expect(tree).toMatchSnapshot()
+    expect(treeNoCategories).toMatchSnapshot()
   })
 })

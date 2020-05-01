@@ -15,7 +15,7 @@ const blogItems = [
         },
         {
           name: 'another test',
-        }
+        },
       ],
       publishDate: 'August 1, 20202',
     },
