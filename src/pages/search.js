@@ -40,7 +40,11 @@ export default withSearch(({ search }) => {
 
   return (
     <Layout title="Search">
-      <form>
+      <form
+        onSubmit={event => {
+          event.preventDefault()
+        }}
+      >
         <input
           type="text"
           aria-label="Search"
@@ -52,7 +56,10 @@ export default withSearch(({ search }) => {
             const { value } = event.currentTarget
             searchEvent = setTimeout(() => {
               setQuery(value)
-            }, 500)
+              if (typeof window !== 'undefined') {
+                window.history.pushState('', '', `?q=${value}`)
+              }
+            }, 300)
           }}
         />
       </form>
