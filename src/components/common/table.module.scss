@@ -1,69 +1,82 @@
+@import '../../scss/colors.module.scss';
+@import '../../scss/breakpoints.module.scss';
+
+.align-left {
+  text-align: left;
+}
+
 .table {
   line-height: 1rem;
   border-collapse: collapse;
-  margin: 0.5rem 0 0;
-  font-size: 0.85em;
+  margin: 0.5rem 0 1.5rem;
   font-variant-numeric: lining-nums tabular-nums;
   width: 100%;
 
-  @media only screen and (max-width: 640px) {
+  @media only screen and (max-width: $viewport-lg) {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
   }
 
-  caption,
-  th {
-    text-align: left;
-  }
-
-  td,
-  th[scope='col'] {
-    text-align: right;
-  }
-
   caption {
+    text-align: left;
     font-weight: bold;
-    font-size: 1.25rem;
-    padding: 0.75rem 0;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
   }
 
-  th,
-  td {
-    border: 1px solid #c0c0c0;
-    padding: 0.25rem;
+  colgroup:not(:first-child) {
+    border-left: 1px solid $color-slate-300;
   }
 
-  th:last-child {
-    padding-right: 0.25rem;
+  thead {
+    border-bottom: 1px solid $color-slate-400;
   }
 
   th {
-    background: #dee2e4;
+    padding: 0 0.5rem 0.5rem;
+    vertical-align: bottom;
 
-    span {
-      display: block;
-      font-size: 0.75rem;
+    &[scope='col'] {
+      text-align: right;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    &[scope='col'].align-left {
+      text-align: left;
     }
 
     &[scope='colgroup'] {
-      font-size: 1.1em;
-      text-align: center;
+      text-align: left;
+      font-size: 1.05rem;
+      font-weight: 800;
+      padding: 0.5rem;
+      min-width: 10rem;
     }
-  }
-
-  thead th {
-    vertical-align: bottom;
   }
 
   tbody {
-    th {
-      background: #f3f3f3;
-      font-weight: normal;
+    th,
+    td {
+      vertical-align: top;
     }
 
-    tr:first-child > * {
-      border-top: none;
+    tr {
+      border-bottom: 1px solid $color-slate-200;
+      transition: background-color 0.2s;
+      &:hover {
+        background-color: $color-blueberry-100;
+      }
+    }
+  }
+  td {
+    text-align: right;
+    padding: 0.75rem 0.5rem;
+    font-size: 1rem;
+
+    &.align-left {
+      text-align: left;
     }
   }
 }

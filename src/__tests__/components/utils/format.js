@@ -22,7 +22,7 @@ describe('Components : Utilities: Format', () => {
 
   it('renders formatted dates correctly with React components', () => {
     const date = renderer.create(<FormatDate date={20200201} />).toTree()
-    expect(date.rendered).toBe('Sat Feb 1 2020 12:00 am ET')
+    expect(date.rendered).toBe('Sat Feb 1 2020 12:00 am')
 
     const dateWithFormat = renderer
       .create(<FormatDate date={20200201} format="yyyy" />)
@@ -35,7 +35,7 @@ describe('Components : Utilities: Format', () => {
   })
 
   it('renders date strings correctly', () => {
-    expect(formatDateToString(20200201)).toBe('Sat Feb 1 2020 12:00 am ET')
+    expect(formatDateToString(20200201)).toBe('Sat Feb 1 2020 12:00 am')
     expect(formatDateToString(20200201, 'yyyy')).toBe('2020')
   })
 })
