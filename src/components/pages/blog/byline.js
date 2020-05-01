@@ -65,7 +65,7 @@ const Byline = ({ authors, date }) => {
         </div>
       )}
       <p className={bylineStyles.authorDateContainer}>
-        By:{' '}
+        By{' '}
         <p className={bylineStyles.author}>
           <AuthorsText authors={authors} />
         </p>
@@ -77,7 +77,7 @@ const Byline = ({ authors, date }) => {
 
 const OneLineByline = ({ authors, date }) => (
   <p className={bylineStyles.oneLineByline}>
-    By:{' '}
+    By{' '}
     <span className={bylineStyles.author}>
       <AuthorsText authors={authors} />
     </span>
