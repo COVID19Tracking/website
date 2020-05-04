@@ -109,7 +109,7 @@ const MobileMenu = () => {
       </HeaderSearch>
 
       <HeaderNavigation />
-      <Link to="/help" className={headerStyle.getInvolved}>
+      <Link to="/about-project/help" className={headerStyle.getInvolved}>
         Get Involved
       </Link>
       <div className={headerStyle.mobilePointer} />
@@ -178,7 +178,10 @@ const Header = withSearch(
                     <HeaderSearch>
                       <SearchAutocomplete id="header-search" />
                     </HeaderSearch>
-                    <Link to="/help" className={headerStyle.getInvolved}>
+                    <Link
+                      to="/about-project/help"
+                      className={headerStyle.getInvolved}
+                    >
                       Get involved
                     </Link>
                   </div>
