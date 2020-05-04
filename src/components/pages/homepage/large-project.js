@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Container from '~components/common/container'
+import ExploreLink from './explore-link'
 import largeProjectStyles from './large-project.module.scss'
 
 export default () => {
@@ -36,7 +37,7 @@ export default () => {
           this data to uncover the true impact of the outbreak on vulnerable
           communities.
         </p>
-        <Link to="/race">See all our data </Link>
+        <ExploreLink to="/race" text="See all our data" />
       </Container>
     </div>
   )
