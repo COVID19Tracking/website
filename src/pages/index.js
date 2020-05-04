@@ -10,6 +10,7 @@ import LatestTotals from '~components/pages/homepage/latest-totals'
 import LargeProject from '~components/pages/homepage/large-project'
 import LargeDataset from '~components/pages/homepage/large-dataset'
 import Datasets from '~components/pages/homepage/datasets'
+import Press from '~components/pages/homepage/press'
 
 export default () => (
   <>
@@ -36,6 +37,7 @@ export default () => (
       <Container>
         <LargeDataset />
         <Datasets />
+        <Press />
       </Container>
     </main>
     <Footer />
