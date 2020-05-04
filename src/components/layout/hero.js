@@ -20,7 +20,7 @@ const Chart = ({ data }) => {
     }
     return -1
   }
-  console.log(data)
+
   let maxDate = 0
   data.allCovidCdcTests.nodes.forEach(node => {
     const date = DateTime.fromFormat(`${node.date}`, 'D').toFormat('yyyyMMdd')
