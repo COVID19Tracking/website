@@ -1,0 +1,34 @@
+@import '~scss/breakpoints.module.scss';
+
+.dataset {
+  @media (min-width: $viewport-md) {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+  .image {
+    @media (min-width: $viewport-md) {
+      flex: 30%;
+      padding-right: 1rem;
+      order: 0;
+    }
+    width: 100%;
+  }
+  .info {
+    @media (min-width: $viewport-md) {
+      flex: 70%;
+      width: 70%;
+      order: 1;
+    }
+  }
+  &.flip {
+    @media (min-width: $viewport-md) {
+      .image {
+        order: 1;
+      }
+      .info {
+        order: 0;
+      }
+    }
+  }
+}

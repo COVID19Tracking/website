@@ -1,0 +1,17 @@
+@import '~scss/breakpoints.module.scss';
+
+.all-totals {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.total {
+  display: flex;
+  @media (min-width: $viewport-lg) {
+    width: 33.333333%;
+  }
+}
+
+.number {
+  font-size: 3rem;
+}

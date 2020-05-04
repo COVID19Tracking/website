@@ -1,0 +1,9 @@
+@import '~scss/breakpoints.module.scss';
+
+.paragraph {
+  font-size: 2rem;
+  @media (min-width: $viewport-lg) {
+    margin: 0 auto;
+    max-width: 900px;
+  }
+}
