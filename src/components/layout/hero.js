@@ -11,24 +11,17 @@ import colors from '../../scss/colors.module.scss'
 const Chart = ({ data }) => {
   const width = 1140
   const height = 500
+  const cdcList = {}
   const cdc = []
   const ctp = []
-
-  const sortByDate = (a, b) => {
-    if (parseInt(a, 10) > parseInt(b, 10)) {
-      return 1
-    }
-    return -1
-  }
 
   let maxDate = 0
   data.allCovidCdcTests.nodes.forEach(node => {
     const date = DateTime.fromFormat(`${node.date}`, 'D').toFormat('yyyyMMdd')
-    cdc.push({
-      date,
-      value: node.total,
-    })
-    maxDate = parseInt(date, 10) > maxDate ? parseInt(date, 10) : maxDate
+    if (date) {
+      cdcList[date] = node
+      maxDate = parseInt(date, 10) > maxDate ? parseInt(date, 10) : maxDate
+    }
   })
 
   data.allCovidUsDaily.nodes.forEach(node => {
@@ -39,9 +32,13 @@ const Chart = ({ data }) => {
       date: node.date,
       value: node.totalTestResultsIncrease,
     })
+    if (typeof cdcList[node.date] !== 'undefined') {
+      cdc.push({
+        date: node.date,
+        value: cdcList[node.date].total,
+      })
+    }
   })
-  cdc.sort(sortByDate)
-  ctp.sort(sortByDate)
 
   const xScale = scaleBand()
     .domain(ctp.map(d => d.date))
@@ -85,7 +82,10 @@ const Chart = ({ data }) => {
 export default () => {
   const data = useStaticQuery(graphql`
     query {
-      allCovidUsDaily {
+      allCovidUsDaily(
+        filter: { date: { gt: 20200215 } }
+        sort: { fields: date }
+      ) {
         nodes {
           date
           totalTestResultsIncrease
