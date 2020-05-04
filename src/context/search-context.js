@@ -111,9 +111,11 @@ export function useSearch() {
   return [useSearchState(), useSearchDispatch()]
 }
 
-async function queryIndex(index, query) {
+async function queryIndex(index, query, distinct = false) {
   try {
-    const hits = await index.search(query)
+    const hits = await index.search(query, {
+      distinct,
+    })
 
     return hits
   } catch (e) {
@@ -128,8 +130,8 @@ export async function querySearch(s, dispatch) {
   try {
     const [state, blogPost, page] = await Promise.all([
       queryIndex(stateIndex, s.query),
-      queryIndex(blogIndex, s.query),
-      queryIndex(pageIndex, s.query),
+      queryIndex(blogIndex, s.query, true),
+      queryIndex(pageIndex, s.query, true),
     ])
     NProgress.done()
     dispatch({ type: 'fetchSuccess', payload: { state, blogPost, page } })
