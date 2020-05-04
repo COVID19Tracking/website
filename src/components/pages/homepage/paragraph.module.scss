@@ -1,7 +1,10 @@
 @import '~scss/breakpoints.module.scss';
 
 .paragraph {
-  font-size: 2rem;
+  font-weight: bold;
+  font-size: 36px;
+  font-size: 2.25rem;
+  line-height: 1.2;
   @media (min-width: $viewport-lg) {
     margin: 0 auto;
     max-width: 900px;

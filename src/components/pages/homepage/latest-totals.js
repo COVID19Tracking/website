@@ -17,10 +17,10 @@ export default () => {
   `)
   const totals = data.allCovidUs.nodes[0]
   return (
-    <>
-      <div>
-        <Link to="/data">See all data</Link>
+    <div className={latestTotalsStyles.container}>
+      <div className={latestTotalsStyles.headerContainer}>
         <h2>Latest totals:</h2>
+        <Link to="/data">See all data</Link>
       </div>
       <div className={latestTotalsStyles.allTotals}>
         <div className={latestTotalsStyles.total}>
@@ -42,6 +42,6 @@ export default () => {
           <div className={latestTotalsStyles.label}>Deaths</div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
