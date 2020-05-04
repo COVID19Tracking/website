@@ -23,11 +23,6 @@ export default () => (
     <h1 className="a11y-only">The COVID Tracking Project</h1>
 
     <main id="main">
-      <Paragraph>
-        Every day, our volunteers compile the latest numbers on tests, confirmed
-        cases, hospitalizations, and patient outcomes from every US state and
-        territory.
-      </Paragraph>
       <Container>
         <LatestTotals />
       </Container>

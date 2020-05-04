@@ -37,13 +37,14 @@
 
 .container {
   max-width: 900px;
-  margin: 5rem auto;
+  margin: 6rem auto;
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 6rem;
   * {
     margin-top: 0;
     margin-bottom: 0;
