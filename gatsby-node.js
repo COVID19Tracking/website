@@ -49,6 +49,14 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allContentfulBlogCategory {
+        edges {
+          node {
+            slug
+            id
+          }
+        }
+      }
     }
   `)
 
@@ -76,6 +84,14 @@ exports.createPages = async ({ graphql, actions }) => {
       context: node,
     })
   })
+
+  result.data.allContentfulBlogCategory.edges.forEach(({ node }) => {
+    createPage({
+      path: `/blog/category/${node.slug}`,
+      component: path.resolve(`./src/templates/blog-category.js`),
+      context: node,
+    })
+  })
 }
 
 exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
@@ -88,6 +104,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
     if (miniCssExtractPlugin) {
       miniCssExtractPlugin.options.ignoreOrder = true
     }
+
     actions.replaceWebpackConfig(config)
   }
 

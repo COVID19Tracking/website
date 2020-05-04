@@ -8,10 +8,15 @@ const blogItems = [
       id: 'a',
       slug: 'a',
       title: 'Blog list item',
-      author: {
-        name: 'test name',
-        twitterLink: 'https://twitter.com/test',
-      },
+      authors: [
+        {
+          name: 'test name',
+          twitterLink: 'https://twitter.com/test',
+        },
+        {
+          name: 'another test',
+        },
+      ],
       publishDate: 'August 1, 20202',
     },
   },

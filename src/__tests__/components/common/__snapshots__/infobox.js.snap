@@ -90,6 +90,13 @@ exports[`Components : Common: Infobox: Sync renders correctly 1`] = `
         className="content"
       >
         6:00 pm ET
+         
+        <abbr
+          aria-label="Eastern Standard Time"
+          title="Eastern Standard Time"
+        >
+          EST
+        </abbr>
       </div>
     </div>
   </div>

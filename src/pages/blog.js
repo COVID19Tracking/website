@@ -1,19 +1,11 @@
-import React, { Fragment } from 'react'
-import { graphql, Link } from 'gatsby'
+import React from 'react'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-import Byline from '../components/pages/blog/byline'
+import BlogTeaserList from '../components/pages/blog/blog-teaser-list'
 
 export default ({ data }) => (
   <Layout title="Blog" textHeavy narrow>
-    {data.allContentfulBlogPost.edges.map(({ node }) => (
-      <Fragment key={`blog-${node.slug}`}>
-        <h2 className="hed-primary">
-          <Link to={`/blog/${node.slug}`}>{node.title}</Link>
-        </h2>
-        <Byline author={node.author} date={node.publishDate} />
-        <p className="lede">{node.lede}</p>
-      </Fragment>
-    ))}
+    <BlogTeaserList items={data.allContentfulBlogPost.edges} />
   </Layout>
 )
 
@@ -24,12 +16,25 @@ export const query = graphql`
         node {
           title
           slug
-          author {
+          authors {
             name
             twitterLink
+            link
+            headshot {
+              file {
+                fileName
+              }
+              resize(width: 100) {
+                width
+                height
+                src
+              }
+            }
           }
           publishDate(formatString: "MMMM D, YYYY")
-          lede
+          lede {
+            lede
+          }
         }
       }
     }

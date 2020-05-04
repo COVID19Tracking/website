@@ -1,0 +1,28 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+.result {
+  margin-bottom: 1.5rem;
+  
+  h4 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    margin-top: 0;
+  }
+  p {
+    margin-bottom: 0.75rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .publish-date {
+    font-weight: bold;
+  }
+}
+
+.resultDetails {
+  margin-top: 0.75rem;
+}

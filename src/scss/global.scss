@@ -238,20 +238,8 @@ Typography
 .layout--content-primary {
   p,
   ul,
-  ol,
-  table {
+  ol {
     margin: 0 0 1.5em;
-  }
-  table,
-  th,
-  td {
-    border: 1px solid $color-slate-500;
-    border-collapse: collapse;
-  }
-  th,
-  td {
-    text-align: left;
-    padding: 0.25em;
   }
 }
 .module-content {
