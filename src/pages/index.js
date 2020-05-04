@@ -5,11 +5,13 @@ import Header from '../components/layout/header'
 import SEO from '../components/utils/seo'
 import Footer from '../components/layout/footer'
 import Container from '~components/common/container'
-import Paragraph from '~components/pages/homepage/paragraph'
-import LatestTotals from '~components/pages/homepage/latest-totals'
-import LargeProject from '~components/pages/homepage/large-project'
-import LargeDataset from '~components/pages/homepage/large-dataset'
+
+import BlogList from '~components/pages/homepage/blog-list'
 import Datasets from '~components/pages/homepage/datasets'
+import LargeDataset from '~components/pages/homepage/large-dataset'
+import LargeProject from '~components/pages/homepage/large-project'
+import LatestTotals from '~components/pages/homepage/latest-totals'
+import Paragraph from '~components/pages/homepage/paragraph'
 import Press from '~components/pages/homepage/press'
 
 export default () => (
@@ -39,6 +41,7 @@ export default () => (
         <Datasets />
         <Press />
       </Container>
+      <BlogList />
     </main>
     <Footer />
   </>
