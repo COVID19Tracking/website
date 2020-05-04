@@ -1,17 +1,64 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
 
 .all-totals {
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
-}
-
-.total {
-  display: flex;
+  grid-column-gap: 2%;
+  margin-top: 1.5rem;
   @media (min-width: $viewport-lg) {
-    width: 33.333333%;
+    grid-template-columns: repeat(3, 32%);
   }
 }
 
-.number {
-  font-size: 3rem;
+.total {
+  background-color: $color-blueberry-100;
+  text-align: right;
+  .number,
+  .label {
+    margin-right: 15px;
+  }
+  .number {
+    font-weight: bold;
+    font-size: 30px;
+    font-size: 1.875rem;
+    line-height: 1.2;
+    margin-top: 12px;
+    margin-bottom: 2px;
+  }
+  .label {
+    font-size: 13px;
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+}
+
+.container {
+  max-width: 900px;
+  margin: 5rem auto;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  h2, a {
+    font-size: 18px;
+    line-height: 150%;
+  }
+  a {
+    color: $color-honey-700;
+  }
+  a::after {
+    content: "→";
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 0.2rem;
+  }
 }
