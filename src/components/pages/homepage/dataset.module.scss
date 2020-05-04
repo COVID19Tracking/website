@@ -1,6 +1,13 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
 
 .dataset {
+  align-items: center;
+  margin-bottom: 4.5rem;
+  &,
+  a {
+    color: $color-slate-700;
+  }
   @media (min-width: $viewport-md) {
     display: flex;
     flex-wrap: nowrap;
@@ -10,25 +17,43 @@
     @media (min-width: $viewport-md) {
       flex: 30%;
       padding-right: 1rem;
-      order: 0;
     }
     width: 100%;
+    border: 1px solid $color-slate-200;
   }
   .info {
     @media (min-width: $viewport-md) {
       flex: 70%;
       width: 70%;
-      order: 1;
+    }
+    @media (max-width: $viewport-md) {
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
     }
   }
   &.flip {
     @media (min-width: $viewport-md) {
-      .image {
-        order: 1;
-      }
+      flex-direction: row-reverse;
       .info {
-        order: 0;
+        margin-left: 2rem;
       }
     }
+  }
+  &:not(.flip) {
+    @media (min-width: $viewport-md) {
+      .info {
+        margin-right: 2rem;
+      }
+    }
+  }
+  h3 {
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
+  }
+  img {
+    width: 480px;
   }
 }

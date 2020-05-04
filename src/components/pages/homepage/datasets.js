@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Dataset from './dataset'
+import datasetsStyles from './datasets.module.scss'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -24,19 +25,19 @@ export default () => {
     }
   `)
   return (
-    <>
+    <div className={datasetsStyles.container}>
       <Dataset
         title="The White House"
         image={data.whiteHouse.childImageSharp.fluid}
+        flip
       >
         The White House chose the COVID Tracking Project as the best source to
-        cite for daily US test numbers in its &quot;Opening Up America
-        Again&quot; testing strategy.
+        cite for daily US test numbers in its &ldquo;Opening Up America
+        Again&rdquo; testing strategy.
       </Dataset>
       <Dataset
         title="COVID Exit Strategy"
         image={data.covidExit.childImageSharp.fluid}
-        flip
       >
         Created by a group of public health and crisis experts,{' '}
         <a href="https://covidexitstrategy.org">covidexitstrategy.org</a>{' '}
@@ -45,6 +46,6 @@ export default () => {
         power a dashboard comparing each state&apos;s interventions and testing
         levels with case counts and deaths over time.
       </Dataset>
-    </>
+    </div>
   )
 }
