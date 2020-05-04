@@ -72,7 +72,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
         </nav>
         <a
           className="getInvolved"
-          href="/help"
+          href="/about-project/help"
         >
           Get Involved
         </a>
@@ -191,7 +191,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 </div>
                 <a
                   className="getInvolved"
-                  href="/help"
+                  href="/about-project/help"
                 >
                   Get involved
                 </a>
@@ -326,7 +326,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
           </nav>
           <a
             className="getInvolved"
-            href="/help"
+            href="/about-project/help"
           >
             Get Involved
           </a>
@@ -445,7 +445,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                   </div>
                   <a
                     className="getInvolved"
-                    href="/help"
+                    href="/about-project/help"
                   >
                     Get involved
                   </a>
@@ -618,7 +618,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
         </nav>
         <a
           className="getInvolved"
-          href="/help"
+          href="/about-project/help"
         >
           Get Involved
         </a>
@@ -737,7 +737,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 </div>
                 <a
                   className="getInvolved"
-                  href="/help"
+                  href="/about-project/help"
                 >
                   Get involved
                 </a>
