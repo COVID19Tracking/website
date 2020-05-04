@@ -11,7 +11,7 @@ const Chart = ({ data }) => {
   const width = 1140
   const height = 700
   const labelOffset = 120
-  const bottomLabelOffset = 30
+  const bottomLabelOffset = 25
   const cdcList = {}
   const cdc = []
   const ctp = []
@@ -124,7 +124,6 @@ const Chart = ({ data }) => {
           if (DateTime.fromISO(d.date).day !== 1) {
             return null
           }
-          console.log(d)
           return (
             <text
               className={heroStyle.chartLegend}

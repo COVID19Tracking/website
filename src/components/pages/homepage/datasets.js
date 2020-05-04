@@ -1,7 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Dataset from './dataset'
-import datasetsStyles from './datasets.module.scss'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -25,7 +24,7 @@ export default () => {
     }
   `)
   return (
-    <div className={datasetsStyles.container}>
+    <div>
       <Dataset
         title="The White House"
         image={data.whiteHouse.childImageSharp.fluid}
