@@ -1,0 +1,11 @@
+@import '~scss/colors.module.scss';
+
+.cta {
+  color: $color-honey-700;
+  &::after {
+    content: "→";
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 0.2rem;
+  }
+}

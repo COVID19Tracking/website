@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { FormatNumber } from '~components/utils/format'
 import latestTotalsStyles from './latest-totals.module.scss'
+import CtaLink from './cta-link'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -20,7 +21,7 @@ export default () => {
     <div className={latestTotalsStyles.container}>
       <div className={latestTotalsStyles.headerContainer}>
         <h2>Latest totals:</h2>
-        <Link to="/data">See all data</Link>
+        <CtaLink to="/data">See all data</CtaLink>
       </div>
       <div className={latestTotalsStyles.allTotals}>
         <div className={latestTotalsStyles.total}>

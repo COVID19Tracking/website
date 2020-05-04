@@ -52,13 +52,4 @@
     font-size: 18px;
     line-height: 150%;
   }
-  a {
-    color: $color-honey-700;
-  }
-  a::after {
-    content: "→";
-    text-decoration: none;
-    display: inline-block;
-    margin-left: 0.2rem;
-  }
 }
