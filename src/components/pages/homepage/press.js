@@ -13,7 +13,7 @@ export default () => (
     <div className={pressStyles.logos}>
       <PressLogos onlyFeatured />
     </div>
-    <CtaLink to="about-project/in-the-press">
+    <CtaLink to="about-project/in-the-press" centered>
       See what else our data powers
     </CtaLink>
   </section>

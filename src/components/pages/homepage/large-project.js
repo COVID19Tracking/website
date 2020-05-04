@@ -37,7 +37,9 @@ export default () => {
           this data to uncover the true impact of the outbreak on vulnerable
           communities.
         </p>
-        <CtaLink to="/race">See all our data</CtaLink>
+        <CtaLink to="/race" centered>
+          See all our data
+        </CtaLink>
       </Container>
     </div>
   )
