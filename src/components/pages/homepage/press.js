@@ -1,7 +1,7 @@
 import React from 'react'
 import PressLogos from './press-logos'
 import InThePress from './in-the-press'
-import ExploreLink from './explore-link'
+import CtaLink from './cta-link'
 import pressStyles from './press.module.scss'
 
 export default () => (
@@ -13,9 +13,8 @@ export default () => (
     <div className={pressStyles.logos}>
       <PressLogos onlyFeatured />
     </div>
-    <ExploreLink
-      to="about-project/in-the-press"
-      text="See what else our data powers"
-    />
+    <CtaLink to="about-project/in-the-press">
+      See what else our data powers
+    </CtaLink>
   </section>
 )
