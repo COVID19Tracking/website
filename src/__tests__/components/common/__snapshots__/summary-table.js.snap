@@ -1,0 +1,291 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Publication: Summary table renders correctly 1`] = `
+<div>
+  <table
+    className="table"
+  >
+    <colgroup
+      span="3"
+    />
+    <colgroup
+      span="2"
+    />
+    <colgroup
+      span="2"
+    />
+    <colgroup
+      span="2"
+    />
+    <colgroup
+      span="2"
+    />
+    <colgroup
+      span="1"
+    />
+    <thead>
+      <tr>
+        <th
+          colSpan="3"
+          scope="colgroup"
+        >
+          Tests
+        </th>
+        <th
+          colSpan="2"
+          scope="colgroup"
+        >
+          Hospitalized
+        </th>
+        <th
+          colSpan="2"
+          scope="colgroup"
+        >
+          In ICU
+        </th>
+        <th
+          colSpan="2"
+          scope="colgroup"
+        >
+          On Ventilator
+        </th>
+        <th
+          colSpan="2"
+          scope="colgroup"
+        >
+          Outcomes
+        </th>
+        <th
+          scope="colgroup"
+        >
+          Total Test Results
+        </th>
+      </tr>
+      <tr>
+        <th
+          className="alignLeft"
+          scope="col"
+        >
+          Positive
+        </th>
+        <th
+          scope="col"
+        >
+          Negative
+        </th>
+        <th
+          scope="col"
+        >
+          Pending
+        </th>
+        <th
+          className="alignLeft"
+          scope="col"
+        >
+          Currently
+        </th>
+        <th
+          scope="col"
+        >
+          Cumulative
+        </th>
+        <th
+          className="alignLeft"
+          scope="col"
+        >
+          Currently
+        </th>
+        <th
+          scope="col"
+        >
+          Cumulative
+        </th>
+        <th
+          className="alignLeft"
+          scope="col"
+        >
+          Currently
+        </th>
+        <th
+          scope="col"
+        >
+          Cumulative
+        </th>
+        <th
+          className="alignLeft"
+          scope="col"
+        >
+          Recovered
+        </th>
+        <th
+          scope="col"
+        >
+          Deaths
+        </th>
+        <th
+          className="alignLeft"
+          scope="col"
+        >
+          Positive + Negative
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          4,572
+        </td>
+        <td>
+          33,318
+        </td>
+        <td>
+          N/A
+        </td>
+        <td>
+          N/A
+        </td>
+        <td>
+          594
+        </td>
+        <td>
+          N/A
+        </td>
+        <td>
+          247
+        </td>
+        <td>
+          N/A
+        </td>
+        <td>
+          148
+        </td>
+        <td>
+          N/A
+        </td>
+        <td>
+          151
+        </td>
+        <td>
+          37,890
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    className="detail-text detailText"
+  >
+    Last updated: 
+    Wed Apr 1 2020 12:00 am
+     
+    <abbr
+      aria-label="Eastern Standard Time"
+      title="Eastern Standard Time"
+    >
+      EST
+    </abbr>
+  </div>
+</div>
+`;
+
+exports[`Components : Common: Publication: Summary table renders correctly 2`] = `
+<div>
+  <table
+    className="table"
+  >
+    <colgroup
+      span="3"
+    />
+    <colgroup
+      span="1"
+    />
+    <colgroup
+      span="1"
+    />
+    <colgroup
+      span="1"
+    />
+    <thead>
+      <tr>
+        <th
+          colSpan="3"
+          scope="colgroup"
+        >
+          Tests
+        </th>
+        <th
+          colSpan="1"
+          scope="colgroup"
+        >
+          Outcomes
+        </th>
+        <th
+          scope="colgroup"
+        >
+          Total Test Results
+        </th>
+      </tr>
+      <tr>
+        <th
+          className={false}
+          scope="col"
+        >
+          Positive
+        </th>
+        <th
+          scope="col"
+        >
+          Negative
+        </th>
+        <th
+          scope="col"
+        >
+          Pending
+        </th>
+        <th
+          scope="col"
+        >
+          Deaths
+        </th>
+        <th
+          className={false}
+          scope="col"
+        >
+          Positive + Negative
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          4,572
+        </td>
+        <td>
+          33,318
+        </td>
+        <td>
+          N/A
+        </td>
+        <td>
+          151
+        </td>
+        <td>
+          37,890
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    className="detail-text detailText"
+  >
+    Last updated: 
+    Wed Apr 1 2020 12:00 am
+     
+    <abbr
+      aria-label="Eastern Standard Time"
+      title="Eastern Standard Time"
+    >
+      EST
+    </abbr>
+  </div>
+</div>
+`;

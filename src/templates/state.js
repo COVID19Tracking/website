@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import marked from 'marked'
 import Layout from '../components/layout'
-import StateGrade from '../components/common/state-grade'
+import StateGrade from '../components/pages/state/state-grade'
 import StateHistory from '../components/pages/state/state-history'
 import StateLinks from '../components/pages/state/state-links'
 import SummaryTable from '../components/common/summary-table'
@@ -14,16 +14,17 @@ const StatePage = ({ pageContext, data }) => {
   return (
     <Layout title={state.name}>
       <StateLinks {...state} />
-      <StateGrade letterGrade={summary.grade} />
+      <StateGrade letterGrade={summary.dataQualityGrade} />
       {state.notes && (
         <div
+          className="module-content"
           dangerouslySetInnerHTML={{
             __html: marked(state.notes),
           }}
         />
       )}
       <SyncInfobox />
-      <SummaryTable data={summary} lastUpdated={summary.lastUpdateEt} />
+      <SummaryTable data={summary} lastUpdated={summary.dateModified} />
       <h2 id="historical">History</h2>
       <StateHistory
         history={data.allCovidStateDaily.edges}
@@ -52,8 +53,8 @@ export const query = graphql`
           onVentilatorCumulative
           death
           totalTestResults
-          lastUpdateEt
-          grade
+          dateModified
+          dataQualityGrade
         }
       }
     }

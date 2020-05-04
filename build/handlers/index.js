@@ -1,3 +1,4 @@
+const util = require('util')
 const _ = require('lodash/fp')
 const { getSheet } = require('./sheets')
 const getXml = require('./xml')
@@ -25,22 +26,33 @@ function defaultPage(path) {
   ]
 }
 
-function fetchParseFix(resource) {
+function fetchParseFix(resource, processResultFn = processResult) {
   const { app, fetch } = resource
   const handler = fetch || handlers[app]
   if (!_.isFunction(handler))
     throw new Error(`Handler not found: ${resource.app}`)
-  return handler(resource).then(processResult(resource.fixItems))
+  return handler(resource).then(processResultFn(resource.fixItems))
 }
 
-function fetchSave(resource) {
+function exitError(err) {
+  console.error(
+    `\u001b[${util.inspect.colors.red[0]}mAPI ERROR\n${err}\u001b[${util.inspect.colors.red[1]}m`,
+  )
+  process.exit(1)
+}
+
+function fetchSave(resource, fetchParseFixFn = fetchParseFix) {
   const save = resource.createPages || defaultPage(resource.path)
-  return fetchParseFix(resource)
+  return fetchParseFixFn(resource)
     .then(save)
     .then(saveAll)
+    .catch(exitError)
 }
 
 module.exports = {
+  processResult,
+  defaultPage,
   fetchParseFix,
   fetchSave,
+  handlers,
 }

@@ -1,19 +1,47 @@
-@import '../../../scss/colors.scss';
+@import '../../../scss/colors.module.scss';
+@import '../../../scss/breakpoints.module.scss';
 
-.visualizations-wrapper {
+.visualizations-module {
   background: $color-slate-100;
-  padding: 2rem 0;
   border-top: 1px solid $color-slate-300;
   border-bottom: 1px solid $color-slate-300;
 }
 
-.visualization {
-  img {
-    margin-bottom: 0.8rem;
+.visualizations-list {
+  margin: 0;
+  padding: 0;
+  @media (min-width: $viewport-ms) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
-  p {
+  @media (min-width: $viewport-lg) {
+    flex-wrap: nowrap;
+  }
+}
+.visualization {
+  margin: 0 0 1rem;
+  @media (min-width: $viewport-ms) {
+    flex: 0 1 48%;
+  }
+  @media (min-width: $viewport-ms) and (max-width: $viewport-lg) {
+    &:nth-child(3):last-child {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  @media (min-width: $viewport-lg) {
+    flex: 0 1 32%;
     margin: 0;
+  }
+  img {
+    margin-bottom: 0.4rem;
+    width: 100%;
+  }
+  h3 {
+    font-size: 1.125rem;
     line-height: 1.3;
+    margin: 0 0 0.25em;
   }
   a {
     font-weight: bold;

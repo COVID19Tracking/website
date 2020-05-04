@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Layout : Footer renders correctly 1`] = `
+<footer
+  className="footer"
+>
+  <div
+    className="container false container"
+  >
+    <div
+      className="layout--content-full"
+    >
+      <div
+        className="layout--content-primary"
+      >
+        <div
+          className="container"
+        >
+          <a
+            href="/"
+          >
+            <img
+              alt="The COVID Tracking Project"
+              src="test-file-stub"
+            />
+          </a>
+          <ul
+            className="footerList"
+          >
+            <li>
+              <a
+                href="/contact"
+              >
+                Contact
+              </a>
+            </li>
+            <li>
+              <a
+                href="/accessibility"
+              >
+                Accessibility
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/COVID19Tracking"
+              >
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/COVID19Tracking"
+              >
+                Twitter
+              </a>
+            </li>
+            <li>
+              <a
+                className="backToTop"
+                href="#reach-skip-nav"
+              >
+                Back to top.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+`;

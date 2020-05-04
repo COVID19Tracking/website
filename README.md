@@ -40,6 +40,30 @@ The site is now running at `http://localhost:8000`. Any changes you make to code
 
 Note that any changes you make while running Gatsby will automatically checked with [ESLint](https://eslint.org/), so check your console as you save files.
 
+### Organization
+
+Components live in `src/components` and are organized as follows:
+
+- `/charts` - Visualizations
+- `/common` - Components that are used more than once and those that are used across different parts of the website
+- `/layout` - Components that control the layout of the website (i.e. headers and footers)
+- `/pages` - Components that are only used once or have a defined scope to a particular part of the website (i.e. `StateGrade` has to do with states) belong in their respective directory in `/pages`
+- `/utils` - Utilities. (If a particular component doesn't have any associated styles, there's a good chance it's a utility.)
+
+## Testing
+
+[![Coverage Status](https://coveralls.io/repos/github/COVID19Tracking/website/badge.svg?branch=master)](https://coveralls.io/github/COVID19Tracking/website?branch=master)
+
+We use Jest for automated testing, and all test files for Gatsby are located in `./src/__tests__`. Test files are structured following their related components. To run tests, use `npm run test`.
+
+When you make a change to an interface, you will need to [update the Jest snapshot](https://jestjs.io/docs/en/snapshot-testing) for tests to complete successfully:
+
+```shell
+npm run test:update
+```
+
+Before pushing your local branch to the repository, make sure to run `npm run test:dev`. This will make sure the project is linted and all tests pass. Make sure that every test passes. Pull requests are automatically checked against these same tests.
+
 ## Storybook
 
 All common components throughout the site are documented in [Storybook](https://storybook.js.org/). You can find all our component stories in `/src/stories`.

@@ -1,7 +1,14 @@
-@import '../../../scss/colors.scss';
-@import '../../../scss/breakpoints.scss';
+@import '../../../scss/colors.module.scss';
+@import '../../../scss/breakpoints.module.scss';
 
 .state-nav-combobox {
+  @media (min-width: $viewport-md) {
+    text-align: right;
+  }
+  @media (max-width: $viewport-ms) {
+    padding: 0.75rem 0 0.9rem;
+    display: block;
+  }
   label {
     font-weight: bold;
     display: inline-block;
@@ -17,6 +24,10 @@
   input {
     padding: 0.3rem;
     border: 1px solid $color-slate-600;
+    @media (max-width: $viewport-ms) {
+      width: 100%;
+      padding: 0.5rem 0.4rem;
+    }
   }
 }
 

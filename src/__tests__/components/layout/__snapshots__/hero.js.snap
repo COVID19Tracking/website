@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Layout : Hero renders correctly 1`] = `
+<div
+  className="container false container"
+>
+  <div
+    className="layout--content-full"
+  >
+    <div
+      className="layout--content-primary"
+    >
+      <div
+        className="hero hero"
+      >
+        <p
+          className="header"
+        >
+          The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.
+        </p>
+        <div
+          className="ctas"
+        >
+          <a
+            className="button"
+            href="/data"
+          >
+            Get the Data
+          </a>
+          <span>
+            or
+          </span>
+          <a
+            href="/about-data"
+          >
+            Learn About the Data
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

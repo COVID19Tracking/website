@@ -1,26 +1,20 @@
 import React from 'react'
-import { Box } from '../../common/flexbox'
 import DetailText from '../../common/detail-text'
 import { PublicationTitle, PublicationSource } from '../../common/publication'
+import visualizationStyles from './visualizations.module.scss'
 
-const Visualization = ({
-  image,
-  altText,
-  sourceLink,
-  sourceTitle,
-  publicationName,
-}) => (
-  <Box width={[1, 1, 1 / 3]} px={[0, '0.5rem']}>
-    <img src={image} alt={altText} />
-    <p>
-      <PublicationTitle>
-        <a href={sourceLink}>{sourceTitle}</a>
-      </PublicationTitle>
-    </p>
+const Visualization = ({ image, sourceLink, sourceTitle, publicationName }) => (
+  <li className={visualizationStyles.visualization}>
+    <h3>
+      <a href={sourceLink}>
+        <img src={image} alt="" />
+        <PublicationTitle>{sourceTitle}</PublicationTitle>
+      </a>
+    </h3>
     <DetailText>
       Source: <PublicationSource>{publicationName}</PublicationSource>
     </DetailText>
-  </Box>
+  </li>
 )
 
 export default Visualization

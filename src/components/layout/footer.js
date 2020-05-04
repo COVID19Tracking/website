@@ -8,8 +8,16 @@ const Footer = () => (
   <footer className={footerStyles.footer}>
     <Container>
       <div className={footerStyles.container}>
-        <img src={logo} alt="The COVID Tracking Project" />
-        <ul>
+        <Link to="/">
+          <img src={logo} alt="The COVID Tracking Project" />
+        </Link>
+        <ul className={footerStyles.footerList}>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/accessibility">Accessibility</Link>
+          </li>
           <li>
             <a href="https://github.com/COVID19Tracking">GitHub</a>
           </li>
@@ -17,11 +25,8 @@ const Footer = () => (
             <a href="https://twitter.com/COVID19Tracking">Twitter</a>
           </li>
           <li>
-            <Link to="/accessibility">Accessibility</Link>
-          </li>
-          <li>
             <a href="#reach-skip-nav" className={footerStyles.backToTop}>
-              Back to top
+              Back to top.
             </a>
           </li>
         </ul>

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common : Volunteers list renders correctly 1`] = `
+Array [
+  <ul
+    className="list"
+  >
+    <li>
+      <span>
+        Test Without Website
+      </span>
+    </li>
+    <li>
+      <a
+        href="https://example.com"
+      >
+        Test With Website
+      </a>
+    </li>
+    <li>
+      <a
+        href="http://example.com"
+      >
+        Test With Website Without Protocol
+      </a>
+    </li>
+  </ul>,
+  <p
+    className="note"
+  >
+    Are you a volunteer who wants to be added to this list? Edit your profile in Slack and scroll down to "Volunteer web page."
+  </p>,
+]
+`;

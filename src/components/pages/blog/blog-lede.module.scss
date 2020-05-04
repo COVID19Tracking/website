@@ -1,0 +1,16 @@
+@import '../../../scss/colors.module.scss';
+
+.lede {
+  h1 {
+    font-size: 46px;
+    font-size: 2.875rem;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .lede-content {
+    font-size: 22px;
+    font-size: 1.625rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+}

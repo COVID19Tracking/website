@@ -4,7 +4,7 @@ import { max } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
 import { format } from 'd3-format'
 
-import { gridLinesColor } from '../../utilities/visualization'
+import chartStyles from './charts.module.scss'
 
 export default function HorizontalBarChart({
   data,
@@ -28,64 +28,57 @@ export default function HorizontalBarChart({
   const xScale = scaleLinear()
     .domain([120, xMax || max(data, d => d.value)])
     .nice()
-    .range([width - totalXMargin, 0])
+    .range([0, width - totalXMargin])
 
   return (
-    <div>
-      <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
-        <g
-          className="axis-group"
-          transform={`translate(${marginLeft} ${marginTop})`}
-        >
-          <g className="chart-grid">
-            {xScale.ticks(xTicks).map(tick => (
-              <g key={tick}>
-                <text
-                  className="axis-labels"
-                  x={230 - xScale(tick)}
-                  y={height - marginBottom}
-                >
-                  {formatTick(tick)}
-                </text>
-                <line
-                  className="gridlines"
-                  stroke={gridLinesColor}
-                  x1={xScale(tick)}
-                  x2={xScale(tick)}
-                  y1={0}
-                  y2={height - totalYMargin}
-                />
-              </g>
-            ))}
-          </g>
-        </g>
-
-        <g className="axis-group" transform={`translate(0, ${marginTop})`}>
-          {data.map(d => (
+    <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
+      <g transform={`translate(${marginLeft} ${marginTop})`}>
+        {xScale.ticks(xTicks).map(tick => (
+          <g key={tick}>
             <text
-              key={d.name}
-              className="axis-labels"
-              y={yScale(d.name) + 10}
-              x={marginLeft - 10}
+              className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
+              x={xScale(tick)}
+              y={height - marginBottom}
             >
-              {`${d.name}`}
+              {formatTick(tick)}
             </text>
-          ))}
-        </g>
-
-        <g transform={`translate(${marginLeft}, ${marginTop})`}>
-          {data.map(d => (
-            <rect
-              key={d.name}
-              x={0}
-              y={yScale(d.name)}
-              height={yScale.bandwidth()}
-              width={xScale(0) - xScale(d.value)}
-              fill={fill}
+            <line
+              className={chartStyles.gridLine}
+              x1={xScale(tick)}
+              x2={xScale(tick)}
+              y1={0}
+              y2={height - totalYMargin}
             />
-          ))}
-        </g>
-      </svg>
-    </div>
+          </g>
+        ))}
+      </g>
+
+      <g transform={`translate(0, ${marginTop})`}>
+        {data.map(d => (
+          /* Do not remove nested svg. See https://github.com/COVID19Tracking/website/pull/645#discussion_r411676987 */
+          <svg
+            y={yScale(d.name) + 20}
+            x={marginLeft - 10}
+            className={chartStyles.yTickLabel}
+            key={d.name}
+          >
+            <text className={chartStyles.label}>{`${d.name}`}</text>
+          </svg>
+        ))}
+      </g>
+
+      <g transform={`translate(${marginLeft}, ${marginTop})`}>
+        {data.map(d => (
+          <rect
+            key={d.name}
+            x={0}
+            y={yScale(d.name)}
+            height={yScale.bandwidth()}
+            width={xScale(d.value)}
+            fill={fill}
+          />
+        ))}
+      </g>
+    </svg>
   )
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
-import { FormatDate, FormatNumber } from '../../components/common/format'
+import { FormatDate, FormatNumber } from '../../components/utils/format'
 import { SyncInfobox } from '../../components/common/infobox'
-import Table from '../../components/common/table'
+import { Th, Td, Table } from '../../components/common/table'
 
 const ContentPage = ({ data }) => (
   <Layout
@@ -11,6 +11,7 @@ const ContentPage = ({ data }) => (
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
     <div
+      className="module-content"
       dangerouslySetInnerHTML={{
         __html:
           data.allContentfulSnippet.edges[0].node
@@ -24,45 +25,47 @@ const ContentPage = ({ data }) => (
       <caption>US Daily Cumulative Totals - 4 pm ET</caption>
       <thead>
         <tr>
-          <th scope="col">Date</th>
-          <th scope="col">States Tracked</th>
-          <th scope="col">New Tests</th>
-          <th scope="col">Positive</th>
-          <th scope="col">Negative</th>
-          <th scope="col">Pos + Neg</th>
-          <th scope="col">Pending</th>
-          <th scope="col">Deaths</th>
-          <th scope="col">Total Tests</th>
+          <Th scope="col" alignLeft>
+            Date
+          </Th>
+          <Th scope="col">States Tracked</Th>
+          <Th scope="col">New Tests</Th>
+          <Th scope="col">Positive</Th>
+          <Th scope="col">Negative</Th>
+          <Th scope="col">Pos + Neg</Th>
+          <Th scope="col">Pending</Th>
+          <Th scope="col">Deaths</Th>
+          <Th scope="col">Total Tests</Th>
         </tr>
       </thead>
       <tbody>
         {data.allCovidUsDaily.edges.map(({ node }) => (
           <tr>
-            <td>
-              <FormatDate date={node.date} />
-            </td>
-            <td>{node.states}</td>
-            <td>
+            <Td alignLeft>
+              <FormatDate date={node.date} format="ccc LLL d yyyy" />
+            </Td>
+            <Td>{node.states}</Td>
+            <Td>
               <FormatNumber number={node.totalTestResultsIncrease} />
-            </td>
-            <td>
+            </Td>
+            <Td>
               <FormatNumber number={node.positive} />
-            </td>
-            <td>
+            </Td>
+            <Td>
               <FormatNumber number={node.negative} />
-            </td>
-            <td>
+            </Td>
+            <Td>
               <FormatNumber number={node.positive + node.negative} />
-            </td>
-            <td>
+            </Td>
+            <Td>
               <FormatNumber number={node.pending} />
-            </td>
-            <td>
+            </Td>
+            <Td>
               <FormatNumber number={node.death} />
-            </td>
-            <td>
+            </Td>
+            <Td>
               <FormatNumber number={node.totalTestResults} />
-            </td>
+            </Td>
           </tr>
         ))}
       </tbody>

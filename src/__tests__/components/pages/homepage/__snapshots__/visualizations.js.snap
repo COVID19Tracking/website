@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Homepage : Visualizations renders correctly 1`] = `
+<div
+  className="layout-region visualizationsModule"
+>
+  <div
+    className="container false container"
+  >
+    <div
+      className="layout--content-full"
+    >
+      <div
+        className="layout--content-primary"
+      >
+        <h2
+          className="hed-primary"
+        >
+          From the visualization gallery
+        </h2>
+        <ul
+          className="visualizationsList"
+        >
+          <li
+            className="visualization"
+          >
+            <h3>
+              <a
+                href="https://www.nytimes.com/interactive/2020/03/17/us/coronavirus-testing-data.html"
+              >
+                <img
+                  alt=""
+                  src="test-file-stub"
+                />
+                <cite
+                  className="title"
+                >
+                  U.S. Lags in Coronavirus Testing After Slow Response to Outbreak
+                </cite>
+              </a>
+            </h3>
+            <div
+              className="detail-text detailText"
+            >
+              Source: 
+              <span
+                className="source"
+              >
+                The New York Times
+              </span>
+            </div>
+          </li>
+          <li
+            className="visualization"
+          >
+            <h3>
+              <a
+                href="https://www.politico.com/interactives/2020/coronavirus-testing-by-state-chart-of-new-cases/"
+              >
+                <img
+                  alt=""
+                  src="test-file-stub"
+                />
+                <cite
+                  className="title"
+                >
+                  Coronavirus by State Map
+                </cite>
+              </a>
+            </h3>
+            <div
+              className="detail-text detailText"
+            >
+              Source: 
+              <span
+                className="source"
+              >
+                Politico
+              </span>
+            </div>
+          </li>
+          <li
+            className="visualization"
+          >
+            <h3>
+              <a
+                href="https://www.wsj.com/articles/how-the-cdcs-restrictive-testing-guidelines-hid-the-coronavirus-epidemic-11584882001"
+              >
+                <img
+                  alt=""
+                  src="test-file-stub"
+                />
+                <cite
+                  className="title"
+                >
+                  Number of tests performed versus positive cases
+                </cite>
+              </a>
+            </h3>
+            <div
+              className="detail-text detailText"
+            >
+              Source: 
+              <span
+                className="source"
+              >
+                The Wall Street Journal
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;

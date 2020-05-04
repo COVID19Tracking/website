@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Homepage : Visualization renders correctly 1`] = `
+<li
+  className="visualization"
+>
+  <h3>
+    <a>
+      <img
+        alt=""
+      />
+      <cite
+        className="title"
+      />
+    </a>
+  </h3>
+  <div
+    className="detail-text detailText"
+  >
+    Source: 
+    <span
+      className="source"
+    />
+  </div>
+</li>
+`;

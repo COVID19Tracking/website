@@ -1,39 +1,29 @@
-const { DateTime } = require('luxon')
+require(`@babel/register`)({
+  presets: ['@babel/preset-env', '@babel/preset-react'],
+  plugins: ['@babel/plugin-transform-runtime'],
+})
 require('dotenv').config()
+const { DateTime } = require('luxon')
+const algoliaQueries = require('./src/utilities/algolia').queries
 
-module.exports = {
+const gatsbyConfig = {
   siteMetadata: {
     title: 'The COVID Tracking Project',
-    name: 'ctracker',
-    shortname: 'ctracker',
+    description:
+      'The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.',
     production:
       typeof process.env.BRANCH !== 'undefined' &&
       process.env.BRANCH === 'master',
-    buildDate: DateTime.fromObject({ zone: 'America/New_York' }).toFormat(
-      "M/dd HH:mm 'ET'",
-    ),
-    url: 'https://covidtracking.com',
-    description:
-      'The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.',
-    repoUrl: 'https://github.com/COVID19Tracking/website',
-    twitter: 'COVID19Tracking',
-    author: {
-      name: 'The COVID19 Tracking Project',
-      email: 'info@covidtracking.com',
-    },
-    feed: {
-      filename: 'feed.xml',
-      path: '/feed/feed.xml',
-      url: 'https://covidtracking.com/feed.xml',
-      id: 'https://covidtracking.com',
-    },
+    buildDate: DateTime.fromObject({ zone: 'America/New_York' })
+      .toFormat('h:mm a')
+      .toLowerCase(),
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-transformer-yaml',
     'gatsby-plugin-eslint',
-    `gatsby-plugin-remove-trailing-slashes`,
+    'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-source-covid-tracking-api',
@@ -92,15 +82,19 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        pathToConfigModule: 'src/utilities/typography',
+        file: './_data/v1/volunteers.json',
+        type: 'CovidVolunteers',
       },
     },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: ['gatsby-remark-autolink-headers'],
+        plugins: [
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-smartypants',
+        ],
       },
     },
     {
@@ -136,5 +130,47 @@ module.exports = {
         icon: 'src/images/icon.svg',
       },
     },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '~components': 'src/components',
+          '~context': 'src/context',
+          '~data': 'src/data',
+          '~images': 'src/images',
+          '~pages': 'src/pages',
+          '~scss': 'src/scss',
+          '~templates': 'src/templates',
+          '~utilities': 'src/utilities',
+        },
+        extensions: ['js', 'scss', 'svg', 'png'],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `#924F34`,
+        showSpinner: false,
+      },
+    },
   ],
 }
+
+// Conditionally add Algolia plugin.
+if (
+  typeof process.env.GATSBY_ALGOLIA_INDEX_PREFIX !== 'undefined' &&
+  typeof process.env.ALGOLIA_ADMIN_KEY !== 'undefined' &&
+  (process.env.BRANCH === 'master' || process.env.CIRCLECI)
+) {
+  gatsbyConfig.plugins.push({
+    resolve: 'gatsby-plugin-algolia',
+    options: {
+      appId: process.env.GATSBY_ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_ADMIN_KEY,
+      queries: algoliaQueries,
+      chunkSize: 5000,
+    },
+  })
+}
+
+module.exports = gatsbyConfig

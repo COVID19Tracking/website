@@ -14,7 +14,7 @@ export default () => (
         <Link className={heroStyle.button} to="/data">
           Get the Data
         </Link>
-        <p className={heroStyle.spacer}>or</p>
+        <span>or</span>
         <Link to="/about-data">Learn About the Data</Link>
       </div>
     </div>

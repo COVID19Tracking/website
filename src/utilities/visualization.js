@@ -1,7 +1,8 @@
 import { format } from 'd3-format'
 import { timeFormat, timeParse } from 'd3-time-format'
+import colors from '../scss/colors.module.scss'
 
-export const formatDate = timeFormat('%b. %e')
+export const formatDate = timeFormat('%b %e')
 export const formatNumber = format(',.0f')
 export const parseDate = timeParse('%Y%m%d')
 
@@ -28,13 +29,13 @@ export const getStateName = abbr => {
     KS: 'Kansas',
     KY: 'Kentucky',
     LA: 'Louisiana',
-    MA: 'Massachusets',
+    MA: 'Massachusetts',
     MD: 'Maryland',
     ME: 'Maine',
     MI: 'Michigan',
     MN: 'Minnesota',
     MO: 'Missouri',
-    MP: 'Northern Mariana Islands',
+    MP: 'N. Mariana Islands',
     MS: 'Mississippi',
     MT: 'Montana',
     NC: 'North Carolina',
@@ -67,7 +68,6 @@ export const getStateName = abbr => {
   return names[abbr] || abbr
 }
 
-export const totalColor = '#585BC1'
-export const positiveColor = '#FFA270'
-export const deathsBarColor = '#4C5559'
-export const gridLinesColor = '#9CA1A2'
+export const totalColor = colors.colorPlum600
+export const positiveColor = colors.colorHoney500
+export const deathsBarColor = colors.colorSlate600

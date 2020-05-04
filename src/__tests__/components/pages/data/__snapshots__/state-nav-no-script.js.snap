@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Data : Navigation with no JS enabled renders correctly 1`] = `
+<div
+  className="js-disabled js-disabled-block state-nav-no-js stateNav"
+>
+  <h3>
+    Jump to a state:
+  </h3>
+  <ul>
+    <li>
+      <a
+        href="#state-ak"
+      >
+        AK
+      </a>
+    </li>
+    <li>
+      <a
+        href="#state-ca"
+      >
+        CA
+      </a>
+    </li>
+  </ul>
+</div>
+`;

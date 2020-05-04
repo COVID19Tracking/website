@@ -1,16 +1,16 @@
 import React from 'react'
 import { SkipNavContent } from '@reach/skip-nav'
 import { Link, graphql } from 'gatsby'
-import { Flex, Box } from '../components/common/flexbox'
-import SkipNavigation from '../components/common/skip-navigation'
+import SkipNavigation from '../components/utils/skip-navigation'
 import Header from '../components/layout/header'
 import Container from '../components/common/container'
-import SEO from '../components/layout/seo'
+import SEO from '../components/utils/seo'
 import Footer from '../components/layout/footer'
 import PressLogos from '../components/pages/homepage/press-logos'
 import PressList from '../components/common/press-list'
-import BlogList from '../components/common/blog-list'
+import BlogList from '../components/pages/blog/blog-list'
 import Visualizations from '../components/pages/homepage/visualizations'
+import ListArrow from '../components/common/list-arrow'
 import homepageStyles from './index.module.scss'
 
 export default ({ data }) => (
@@ -20,19 +20,19 @@ export default ({ data }) => (
     <Header siteTitle="The COVID Tracking Project" noMargin hasHero />
     <SkipNavContent />
     <h1 className="a11y-only">The COVID Tracking Project</h1>
-    <div className={`press-logos ${homepageStyles.pressLogos}`}>
+    <div className={`press-logos layout-region ${homepageStyles.pressLogos}`}>
       <Container>
-        <h2>Our data has been cited by</h2>
+        <h2 className="hed-landscape">Our data has been cited by</h2>
         <PressLogos onlyFeatured />
       </Container>
     </div>
     <main id="main" className={homepageStyles.main}>
       <Visualizations />
       <Container>
-        <Flex flexWrap="wrap" mt={['1rem', '2rem']}>
-          <Box width={[1, 1, 2 / 3]} pr={[0, '1rem', '5rem']}>
+        <div className="layout-region layout--content-and-rail">
+          <div className="layout--content-primary">
             <div
-              className={homepageStyles.content}
+              className={`module-content ${homepageStyles.content}`}
               dangerouslySetInnerHTML={{
                 __html:
                   data.allContentfulSnippet.edges[0].node
@@ -40,39 +40,48 @@ export default ({ data }) => (
                     .html,
               }}
             />
-            <div className={homepageStyles.getInvolved}>
-              <div className={homepageStyles.getInvolvedIcon}>→</div>
-              <p>
-                <Link to="/data">
-                  Check your state&apos;s testing data report card
-                </Link>{' '}
-                to see the quality of the data they are providing.
-              </p>
-            </div>
-            <div className={homepageStyles.getInvolved}>
-              <div className={homepageStyles.getInvolvedIcon}>→</div>
-              <p>
-                Want to get involved?{' '}
-                <Link to="/help">Help us get better data</Link>.
-              </p>
-            </div>
-          </Box>
-          <Box width={[1, 1, 1 / 3]}>
-            <div style={{ marginBottom: '2.5rem' }}>
-              <h2>Blog</h2>
+            <ListArrow
+              items={[
+                <p>
+                  <Link to="/data">
+                    Check your state&apos;s testing data report card
+                  </Link>{' '}
+                  to see the quality of the data they are providing.
+                </p>,
+
+                <p>
+                  Preview our beta release of{' '}
+                  <Link to="/race">
+                    demographic data from the COVID Racial Data Tracker
+                  </Link>
+                  .
+                </p>,
+                <p>
+                  Want to get involved?{' '}
+                  <Link to="/about-project/help">Help us get better data</Link>.
+                </p>,
+              ]}
+            />
+          </div>
+          <div className="layout--content-secondary">
+            <div className="module">
+              <h2 className="hed-secondary">Blog</h2>
               <BlogList items={data.allContentfulBlogPost.edges} />
             </div>
-            <Link
-              to="/about-project/in-the-press"
-              className={homepageStyles.pressListMore}
-            >
-              More news
-            </Link>
-            <h2>In the Press</h2>
+            <div className="module">
+              <h2 className="hed-secondary">In the Press</h2>
 
-            <PressList items={data.allCovidPress.edges} />
-          </Box>
-        </Flex>
+              <PressList items={data.allCovidPress.edges} />
+
+              <Link
+                to="/about-project/in-the-press"
+                className={homepageStyles.pressListMore}
+              >
+                More news
+              </Link>
+            </div>
+          </div>
+        </div>
       </Container>
     </main>
     <Footer />
@@ -111,12 +120,12 @@ export const query = graphql`
       }
     }
 
-    allContentfulBlogPost(sort: { fields: publishDate }) {
+    allContentfulBlogPost(sort: { fields: publishDate, order: DESC }) {
       edges {
         node {
           title
           slug
-          author {
+          authors {
             name
           }
           publishDate(formatString: "MMMM D, YYYY")

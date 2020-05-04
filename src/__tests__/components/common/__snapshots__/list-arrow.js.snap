@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Get Involved renders correctly 1`] = `
+<ul
+  className="listArrow"
+>
+  <li
+    className="listArrowItem"
+  >
+    <p>
+      More text
+    </p>
+    <span
+      aria-hidden={true}
+      className="listArrowIcon"
+    >
+      →
+    </span>
+  </li>
+</ul>
+`;

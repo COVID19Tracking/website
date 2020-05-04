@@ -1,0 +1,26 @@
+@import '../../../scss/colors.module.scss';
+
+.categories-container {
+  display: flex;
+  margin-top: 2rem;
+  .category {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 33px;
+    color: $color-plum-600;
+    margin-bottom: 0;
+    a {
+      text-decoration: none;
+    }
+    &::after {
+      content: "  |  ";
+      white-space: pre;
+      color: $text;
+      font-weight: normal;
+    }
+    &:last-child::after {
+      content: none;
+    }
+  }
+}

@@ -5,8 +5,7 @@ import { scaleBand, scaleLinear } from 'd3-scale'
 import React from 'react'
 
 import { formatDate, formatNumber } from '../../utilities/visualization'
-import colors from '../../scss/colors.scss'
-import './bar-chart.scss'
+import chartStyles from './charts.module.scss'
 
 const BarChart = ({
   data,
@@ -16,12 +15,11 @@ const BarChart = ({
   marginLeft,
   marginRight,
   marginTop,
+  showTicks,
   xTicks,
   width,
-  align,
   yMax,
   yTicks,
-  showTicks,
 }) => {
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
@@ -41,77 +39,62 @@ const BarChart = ({
     xScaleDomain.length,
     Math.floor(xScaleDomain.length / xTicks),
   )
-  const textColor = { textColor: colors.text }
+
   return (
-    <div align={align}>
-      <svg
-        className="bar-chart"
-        width={width}
-        height={height}
-        viewBox={`0 0 ${width} ${height}`}
-      >
-        <g
-          className="axis-group"
-          transform={`translate(${marginLeft} ${marginTop})`}
-        >
-          <g>
-            {yScale.ticks(yTicks).map((tick, i) => (
+    <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
+      <g transform={`translate(${marginLeft} ${marginTop})`}>
+        {yScale.ticks(yTicks).map(
+          (tick, i) =>
+            i < showTicks && (
               <g key={tick}>
+                {/* Do not remove nested svg. See https://github.com/COVID19Tracking/website/pull/645#discussion_r411676987 */}
                 <svg
-                  y={yScale(tick) + 4}
+                  y={yScale(tick) + 6}
                   x="-10"
-                  className="bar-chart__y-tick-label"
+                  className={chartStyles.yTickLabel}
                 >
-                  <text
-                    fill={i < showTicks ? { textColor } : 'none'}
-                    textAnchor="end"
-                  >
+                  <text className={chartStyles.label}>
                     {formatNumber(tick)}
                   </text>
                 </svg>
                 <line
-                  stroke={i < showTicks ? '#b2bbbf' : 'none'}
+                  className={chartStyles.gridLine}
                   x1={0}
                   x2={width - totalXMargin}
                   y1={yScale(tick)}
                   y2={yScale(tick)}
                 />
               </g>
-            ))}
-          </g>
-        </g>
+            ),
+        )}
+      </g>
+      <g transform={`translate(${marginLeft}, ${height - marginBottom})`}>
+        {ticks.map(d => {
+          const date = xScale.domain()[d]
+          return (
+            <text
+              className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
+              key={d}
+              x={xScale(date)}
+              y="25"
+            >{`${formatDate(date)}`}</text>
+          )
+        })}
+      </g>
 
-        <g
-          className="axis-group"
-          transform={`translate(${marginLeft}, ${height - marginBottom})`}
-        >
-          {ticks.map(d => {
-            const date = xScale.domain()[d]
-            return (
-              <text
-                className="bar-chart__x-tick-label"
-                key={d}
-                x={xScale(date)}
-                y="25"
-              >{`${formatDate(date)}`}</text>
-            )
-          })}
-        </g>
-
-        <g transform={`translate(${marginLeft} ${marginTop})`}>
-          {data.map(d => (
-            <rect
-              key={d.date}
-              x={xScale(d.date)}
-              y={yScale(d.value)}
-              height={yScale(0) - yScale(d.value)}
-              width={xScale.bandwidth()}
-              fill={fill}
-            />
-          ))}
-        </g>
-      </svg>
-    </div>
+      <g transform={`translate(${marginLeft} ${marginTop})`}>
+        {data.map(d => (
+          <rect
+            key={d.date + d.value}
+            x={xScale(d.date)}
+            y={yScale(d.value)}
+            height={yScale(0) - yScale(d.value)}
+            width={xScale.bandwidth()}
+            fill={fill}
+          />
+        ))}
+      </g>
+    </svg>
   )
 }
 
@@ -140,9 +123,9 @@ BarChart.propTypes = {
   marginLeft: PropTypes.number,
   marginRight: PropTypes.number,
   marginTop: PropTypes.number,
+  showTicks: PropTypes.number,
   xTicks: PropTypes.number,
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
-  showTicks: PropTypes.number,
 }
 export default BarChart

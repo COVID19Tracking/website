@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
+<div
+  className="lede"
+>
+  <h1
+    className="hed-primary"
+  >
+    Test headline
+  </h1>
+  <p
+    className="ledeContent"
+  >
+    This is a test blog lede.
+  </p>
+  <div
+    className="byline"
+  >
+    <p
+      className="authorDateContainer"
+    >
+      By
+       
+      <p
+        className="author"
+      >
+        <a
+          className="authorInner"
+          href="https://twitter.com/test"
+        >
+          test name
+        </a>
+      </p>
+      <span
+        className="date"
+      >
+        Aug 1 2020
+      </span>
+    </p>
+  </div>
+  <hr />
+</div>
+`;

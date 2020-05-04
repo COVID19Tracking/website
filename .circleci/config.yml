@@ -1,0 +1,107 @@
+version: 2.1
+orbs:
+  coveralls: coveralls/coveralls@1.0.4
+
+references:
+  workspace_root: &workspace_root /tmp/workspace
+
+executors:
+  main-executor:
+    docker:
+      - image: circleci/node:10.19.0
+        environment:
+          TZ: 'America/New_York'
+    working_directory: *workspace_root
+
+jobs:
+  api:
+    executor: main-executor
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: 'npm install'
+      - run:
+          name: fetch-data
+          command: 'npm run build:fetch'
+      - run:
+          name: test
+          command: 'npm run test:api-post-build'
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - _data
+  gatsby-build:
+    executor: main-executor
+    steps:
+      - checkout
+      - attach_workspace:
+          at: *workspace_root
+      - run:
+          name: install
+          command: 'npm install'
+      - run:
+          name: setup
+          command: 'npm run setup:env-vars'
+      - run:
+          name: build
+          command: 'npm run build:gatsby'
+      - run:
+          name: copy-data
+          command: 'npm run build:data'
+      - run:
+          name: test
+          command: 'npm run build:test'
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - _data
+            - public
+  gatsby-test:
+    executor: main-executor
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: 'npm install'
+      - run:
+          name: test
+          command: 'npm run test:coverage'
+      - coveralls/upload:
+        path_to_lcov: './junit.xml'
+  gatsby-lint:
+    executor: main-executor
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: 'npm install'
+      - run:
+          name: lint
+          command: 'npm run test:lint'
+  storybook-test:
+    executor: main-executor
+    steps:
+      - checkout
+      - attach_workspace:
+          at: *workspace_root
+      - run:
+          name: install
+          command: 'npm install'
+      - run:
+          name: storybook
+          command: 'npm run storybook:build'
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - api
+      - gatsby-build:
+          requires:
+            - api
+      - gatsby-lint
+      - gatsby-test
+      - storybook-test:
+          requires:
+            - api
+            - gatsby-build

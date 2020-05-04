@@ -1,5 +1,4 @@
 import React from 'react'
-import { Flex, Box } from '../../common/flexbox'
 import State from './state-data'
 
 export default ({ states, stateData }) => {
@@ -13,13 +12,10 @@ export default ({ states, stateData }) => {
     })
     stateList.push(state)
   })
-  return (
-    <Flex flexWrap="wrap" m="0 -10px">
-      {stateList.map(state => (
-        <Box width={1} mb={['1rem', '50px']} p="0 10px" className="data-state">
-          <State state={state} stateData={state.stateData} />
-        </Box>
-      ))}
-    </Flex>
-  )
+
+  return stateList.map(state => (
+    <div key={state} id={`state-list-${state.state}`} className="module">
+      <State state={state} stateData={state.stateData} />
+    </div>
+  ))
 }

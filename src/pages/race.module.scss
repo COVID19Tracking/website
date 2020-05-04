@@ -1,13 +1,13 @@
-@import '../scss/breakpoints.scss';
-@import '../scss/colors.scss';
+@import '../scss/breakpoints.module.scss';
+@import '../scss/colors.module.scss';
 
 .supporters {
   margin-top: 5rem;
   h3 {
     color: $color-slate-700;
-    font-size: 0.5rem;
+    font-size: 1rem;
     font-variant: all-small-caps;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
   img {
     border: 1px solid $color-slate-300;

@@ -1,7 +1,12 @@
-@import '../../scss/colors.scss';
+@import '../../scss/colors.module.scss';
 
 .detail-text {
-  font-size: 0.8rem;
-  margin-bottom: 0.3rem;
-  color: $color-slate-700;
+  color: $color-slate-600;
+  font-size: 1rem;
+  cite {
+    font-style: italic;
+  }
+}
+table + .detail-text {
+  margin-bottom: 1.5em;
 }

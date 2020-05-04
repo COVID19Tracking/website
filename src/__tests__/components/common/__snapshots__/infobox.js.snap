@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Infobox: Alert infobox renders correctly 1`] = `
+<div
+  className="infobox alert infobox alert"
+>
+  <img
+    alt="Alert icon"
+    src="test-file-stub"
+  />
+  <div>
+    <p
+      className="header"
+    >
+      Test header
+    </p>
+    <div
+      className="content"
+    >
+      <p>
+        Test content
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Common: Infobox: Infobox renders correctly 1`] = `
+<div
+  className="infobox infobox"
+>
+  <div>
+    <p
+      className="header"
+    >
+      Test header
+    </p>
+    <div
+      className="content"
+    >
+      <p>
+        Test content
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Common: Infobox: Question infobox renders correctly 1`] = `
+<div
+  className="infobox question infobox question"
+>
+  <img
+    alt="Question icon"
+    src="test-file-stub"
+  />
+  <div>
+    <p
+      className="header"
+    >
+      Test header
+    </p>
+    <div
+      className="content"
+    >
+      <p>
+        Test content
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Common: Infobox: Sync renders correctly 1`] = `
+<div
+  className="infobox sync infobox sync"
+>
+  <img
+    alt="Sync icon"
+    src="test-file-stub"
+  />
+  <div>
+    <div>
+      <p
+        className="header"
+      >
+        Last updated from our data:
+      </p>
+      <div
+        className="content"
+      >
+        6:00 pm ET
+         
+        <abbr
+          aria-label="Eastern Standard Time"
+          title="Eastern Standard Time"
+        >
+          EST
+        </abbr>
+      </div>
+    </div>
+  </div>
+</div>
+`;
