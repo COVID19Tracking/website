@@ -5,12 +5,13 @@ import { scaleBand, scaleLinear } from 'd3-scale'
 import { DateTime } from 'luxon'
 import Container from '../common/container'
 import heroStyle from './hero.module.scss'
-import chartStyles from '../charts/charts.module.scss'
 import colors from '../../scss/colors.module.scss'
 
 const Chart = ({ data }) => {
   const width = 1140
-  const height = 500
+  const height = 700
+  const labelOffset = 120
+  const bottomLabelOffset = 30
   const cdcList = {}
   const cdc = []
   const ctp = []
@@ -49,17 +50,22 @@ const Chart = ({ data }) => {
     .domain([0, max(ctp, d => d.value)])
     .nice()
     .range([height, 0])
+
+  const barWidth = 5
   return (
-    <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
-      <g transform="translate(0 0)">
+    <svg
+      viewBox={`0 0 ${width + labelOffset} ${height + bottomLabelOffset}`}
+      style={{ paddingBottom: bottomLabelOffset, paddingRight: 150 }}
+    >
+      <g transform={`translate(0 0 ${labelOffset} ${bottomLabelOffset})`}>
         {ctp.map(d => (
           <rect
             key={d.date + d.value}
             x={xScale(d.date)}
             y={yScale(d.value)}
             height={yScale(0) - yScale(d.value)}
-            width={xScale.bandwidth()}
-            fill="#3b4590"
+            width={barWidth}
+            fill={colors.colorHoney400}
           />
         ))}
       </g>
@@ -70,10 +76,66 @@ const Chart = ({ data }) => {
             x={xScale(d.date)}
             y={yScale(d.value)}
             height={yScale(0) - yScale(d.value)}
-            width={xScale.bandwidth()}
-            fill={colors.colorPlum700}
+            width={barWidth}
+            fill="white"
           />
         ))}
+      </g>
+      <g transform="translate(0 0)">
+        {yScale.ticks(4).map(
+          (tick, i) =>
+            i !== 0 &&
+            i < 4 && (
+              <g key={tick}>
+                <svg
+                  y={yScale(tick) + 6}
+                  x={width + labelOffset / 2}
+                  className={heroStyle.chartLegend}
+                >
+                  <text style={{ fill: 'white' }} x="0" y="0">
+                    {tick === 300000 ? (
+                      <>
+                        <tspan x="0" dy="16px">
+                          {tick.toLocaleString()}
+                        </tspan>
+                        <tspan x="0" dy="16px">
+                          {' '}
+                          new tests
+                        </tspan>
+                      </>
+                    ) : (
+                      <>{tick.toLocaleString()}</>
+                    )}
+                  </text>
+                </svg>
+                <line
+                  className={heroStyle.chartLine}
+                  x1={0}
+                  x2={width}
+                  y1={yScale(tick)}
+                  y2={yScale(tick)}
+                />
+              </g>
+            ),
+        )}
+      </g>
+      <g transform="translate(0, 0)">
+        {ctp.map(d => {
+          if (DateTime.fromISO(d.date).day !== 1) {
+            return null
+          }
+          console.log(d)
+          return (
+            <text
+              className={heroStyle.chartLegend}
+              style={{ fill: 'white' }}
+              x={xScale(d.date)}
+              y={height + 20}
+            >
+              {DateTime.fromISO(d.date).toFormat('LLL')}
+            </text>
+          )
+        })}
       </g>
     </svg>
   )
@@ -83,7 +145,7 @@ export default () => {
   const data = useStaticQuery(graphql`
     query {
       allCovidUsDaily(
-        filter: { date: { gt: 20200215 } }
+        filter: { date: { gt: 20200101 } }
         sort: { fields: date }
       ) {
         nodes {
@@ -113,14 +175,14 @@ export default () => {
       <div className={`hero ${heroStyle.hero}`}>
         <div className={heroStyle.text}>
           <h2 className={`hero-header ${heroStyle.header}`}>
-            The CDC has reported {cdcTotal.toLocaleString()} COVID-19 tests in
-            the US to date. We&apos;ve counted{' '}
-            {data.allCovidUs.nodes[0].posNeg.toLocaleString()}
+            The public needs the most complete data possible about COVID-19 in
+            the United States. No government source is sharing it — so we are.
           </h2>
           <p>
-            Complete testing data from the entire United States is crucial for
-            newsrooms, public health departments, and the public—but no
-            government source is collecting it. We are.
+            CDC numbers don&apos;t tell the full story. Their official count
+            shows {cdcTotal.toLocaleString()} of tests to date across the US.
+            Using a rigorous data-collection process, we&apos;ve counted{' '}
+            {data.allCovidUs.nodes[0].posNeg.toLocaleString()}.
           </p>
         </div>
         <Chart data={data} />

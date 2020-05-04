@@ -43,3 +43,22 @@
     position: absolute;
   }
 }
+
+.chart-bar {
+  margin: 0 1px;
+}
+
+.chart-line {
+  stroke: #5667ad;
+  stroke-width: 1.5px;
+}
+
+.chart-legend {
+  color: white;
+  font-size: 14px;
+  overflow: visible !important;
+  text-anchor: end;
+  text {
+    color: white;
+  }
+}
