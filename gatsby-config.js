@@ -98,13 +98,6 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-source-covid-tracking-api',
-      options: {
-        file: './src/data/visualization/cdc-testing.json',
-        type: 'CovidCDCTests',
-      },
-    },
-    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [

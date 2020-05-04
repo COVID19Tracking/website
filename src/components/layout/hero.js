@@ -17,9 +17,12 @@ const Chart = ({ data }) => {
   const ctp = []
 
   let maxDate = 0
-  data.allCovidCdcTests.nodes.forEach(node => {
-    const date = DateTime.fromFormat(`${node.date}`, 'D').toFormat('yyyyMMdd')
-    if (date) {
+  data.allCdcDaily.nodes.forEach(node => {
+    const date = DateTime.fromFormat(
+      `${node.dateCollected}/2020`,
+      'D',
+    ).toFormat('yyyyMMdd')
+    if (date && node.dailyTotal) {
       cdcList[date] = node
       maxDate = parseInt(date, 10) > maxDate ? parseInt(date, 10) : maxDate
     }
@@ -36,7 +39,7 @@ const Chart = ({ data }) => {
     if (typeof cdcList[node.date] !== 'undefined') {
       cdc.push({
         date: node.date,
-        value: cdcList[node.date].total,
+        value: cdcList[node.date].dailyTotal,
       })
     }
   })
@@ -152,10 +155,10 @@ export default () => {
           totalTestResultsIncrease
         }
       }
-      allCovidCdcTests {
+      allCdcDaily {
         nodes {
-          total
-          date
+          dailyTotal
+          dateCollected
         }
       }
       allCovidUs {
@@ -166,8 +169,8 @@ export default () => {
     }
   `)
   let cdcTotal = 0
-  data.allCovidCdcTests.nodes.forEach(total => {
-    cdcTotal += parseInt(total.total, 10)
+  data.allCdcDaily.nodes.forEach(total => {
+    cdcTotal += parseInt(total.dailyTotal, 10)
   })
   return (
     <Container>
