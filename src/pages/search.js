@@ -56,6 +56,7 @@ export default withSearch(({ navigate, search }) => {
         <button
           type="button"
           className={searchStyle.searchSubmit}
+          aria-label="Submit search"
           onClick={() => query && navigate(`/search?q=${query}`)}
         >
           <img

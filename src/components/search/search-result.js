@@ -11,9 +11,9 @@ const SearchResult = ({
   children = false,
 }) => (
   <div className={resultStyle.result}>
-    <h4>
+    <h3>
       <Link to={url}>{title}</Link>
-    </h4>
+    </h3>
     <div>{children}</div>
     {(publishDate || author) && (
       <DetailText>
