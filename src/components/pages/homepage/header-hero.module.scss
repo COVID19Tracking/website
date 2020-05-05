@@ -3,44 +3,64 @@
 
 .hero {
   padding-top: 35px;
+  background: #5667ad;
   color: white;
   @media (min-width: $viewport-md) {
     padding: 70px 0 30px 40px;
   }
-
-  h2 {
+  .container {
+    position: static;
+    @media (min-width: $viewport-lg) {
+      position: relative;
+    }
+  }
+  .header {
     font-size: 1.5rem;
     line-height: 1.25;
     font-weight: bold;
-    max-width: 45rem;
     @media (min-width: $viewport-ms) {
       font-size: 2rem;
     }
     @media (min-width: $viewport-md) {
       font-size: 3rem;
     }
+    @media (min-width: $viewport-lg) {
+      max-width: 50rem;
+      position: absolute;
+    }
+    @media (min-width: $viewport-xl) {
+      max-width: 60rem;
+    }
   }
 
-  p {
+  .paragraph {
     font-size: 1rem;
-    max-width: 45rem;
     @media (min-width: $viewport-ms) {
       font-size: 1rem;
     }
     @media (min-width: $viewport-md) {
       font-size: 1.5rem;
     }
+    @media (min-width: $viewport-lg) {
+      max-width: 30rem;
+      bottom: 5rem;
+      position: absolute;
+    }
+    @media (min-width: $viewport-xl) {
+      max-width: 45rem;
+      bottom: 8rem;
+    }
   }
-
+  .chart-wrapper {
+    max-width: 100%;
+    padding-right: -150px;
+    overflow-x: hidden;
+  }
   .chart-detail {
     text-align: right;
     font-size: 0.8rem;
     margin: 1rem 0;
     max-width: 100%;
-  }
-
-  .text {
-    position: absolute;
   }
 }
 

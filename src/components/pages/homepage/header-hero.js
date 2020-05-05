@@ -3,9 +3,9 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { max } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
 import { DateTime } from 'luxon'
-import Container from '~components/common/container'
 import heroStyle from './header-hero.module.scss'
 import colors from '~scss/colors.module.scss'
+import containerStyle from '~components/common/container.module.scss'
 
 const Chart = ({ data }) => {
   const width = 1140
@@ -58,7 +58,7 @@ const Chart = ({ data }) => {
   return (
     <svg
       viewBox={`0 0 ${width + labelOffset} ${height + bottomLabelOffset}`}
-      style={{ paddingBottom: bottomLabelOffset, paddingRight: 150 }}
+      style={{ paddingBottom: bottomLabelOffset }}
     >
       <g transform={`translate(0 0 ${labelOffset} ${bottomLabelOffset})`}>
         {ctp.map(d => (
@@ -173,23 +173,23 @@ export default () => {
     cdcTotal += parseInt(total.dailyTotal, 10)
   })
   return (
-    <Container>
-      <div className={`hero ${heroStyle.hero}`}>
-        <div className={heroStyle.text}>
-          <h2 className={`hero-header ${heroStyle.header}`}>
-            The public needs the most complete data possible about COVID-19 in
-            the United States. No government source is sharing it — so we are.
-          </h2>
-          <p>
-            CDC numbers don&apos;t tell the full story. Their official count
-            shows {cdcTotal.toLocaleString()} of tests to date across the US.
-            Using a rigorous data-collection process, we&apos;ve counted{' '}
-            {data.allCovidUs.nodes[0].posNeg.toLocaleString()}.
-          </p>
+    <div className={`hero ${heroStyle.hero}`}>
+      <div className={`${containerStyle.container} ${heroStyle.container}`}>
+        <h2 className={`hero-header ${heroStyle.header}`}>
+          The public needs the most complete data possible about COVID-19 in the
+          United States. No government source is sharing it — so we are.
+        </h2>
+        <p className={`hero-paragraph ${heroStyle.paragraph}`}>
+          CDC numbers don&apos;t tell the full story. Their official count shows{' '}
+          {cdcTotal.toLocaleString()} of tests to date across the US. Using a
+          rigorous data-collection process, we&apos;ve counted{' '}
+          {data.allCovidUs.nodes[0].posNeg.toLocaleString()}.
+        </p>
+        <div className={heroStyle.chartWrapper}>
+          <Chart data={data} />
         </div>
-        <Chart data={data} />
         <p className={heroStyle.chartDetail}>CDC number vs our number</p>
       </div>
-    </Container>
+    </div>
   )
 }
