@@ -2,11 +2,11 @@
 @import '~scss/colors.module.scss';
 
 .all-totals {
-  display: grid;
-  flex-wrap: wrap;
-  grid-column-gap: 2%;
   margin-top: 1.5rem;
   @media (min-width: $viewport-lg) {
+    display: grid;
+    flex-wrap: wrap;
+    grid-column-gap: 2%;
     grid-template-columns: repeat(3, 32%);
   }
 }
@@ -14,6 +14,12 @@
 .total {
   background-color: $color-blueberry-100;
   text-align: right;
+  margin-bottom: 1.5rem;
+  padding: 12px 15px;
+  @media (min-width: $viewport-lg) {
+    margin-bottom: 0;
+    padding: 0;
+  }
   .number,
   .label {
     margin-right: 15px;
@@ -49,7 +55,8 @@
     margin-top: 0;
     margin-bottom: 0;
   }
-  h2, a {
+  h2,
+  a {
     font-size: 18px;
     line-height: 150%;
   }
