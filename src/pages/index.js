@@ -31,8 +31,8 @@ export default () => (
         <LargeDataset />
         <Datasets />
         <Press />
-        <BlogList />
       </Container>
+      <BlogList />
     </main>
     <Footer />
   </>

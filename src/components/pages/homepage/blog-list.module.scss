@@ -1,5 +1,10 @@
 @import '~scss/colors.module.scss';
 
+.wrapper {
+  border-top: 1px solid $color-slate-200;
+  padding-top: 1.75rem;
+}
+
 .container {
   max-width: 700px;
   margin: 5em auto;
