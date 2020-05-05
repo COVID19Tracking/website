@@ -66,6 +66,9 @@ export default ({ stateList }) => {
           }
         }}
       >
+        <label htmlFor="jump-to-state" className="a11y-only">
+          Jump to state or territory
+        </label>
         <ComboboxInput
           id="jump-to-state"
           placeholder="State or territory"

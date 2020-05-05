@@ -39,6 +39,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             />
           </form>
           <button
+            aria-label="Submit search"
             className="searchSubmit"
             onClick={[Function]}
             type="button"
@@ -158,6 +159,12 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                   <div
                     data-reach-combobox=""
                   >
+                    <label
+                      className="a11y-only"
+                      htmlFor="header-search-autocomplete"
+                    >
+                      Search
+                    </label>
                     <input
                       aria-autocomplete="both"
                       aria-controls="listbox--1"
@@ -165,7 +172,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                       aria-haspopup="listbox"
                       autoComplete="off"
                       data-reach-combobox-input=""
-                      id="header-search"
+                      id="header-search-autocomplete"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onClick={[Function]}
@@ -178,6 +185,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                     />
                   </div>
                   <button
+                    aria-label="Submit search"
                     className="searchSubmit"
                     onClick={[Function]}
                     type="button"
@@ -293,6 +301,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
               />
             </form>
             <button
+              aria-label="Submit search"
               className="searchSubmit"
               onClick={[Function]}
               type="button"
@@ -412,6 +421,12 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                     <div
                       data-reach-combobox=""
                     >
+                      <label
+                        className="a11y-only"
+                        htmlFor="header-search-autocomplete"
+                      >
+                        Search
+                      </label>
                       <input
                         aria-autocomplete="both"
                         aria-controls="listbox--3"
@@ -419,7 +434,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                         aria-haspopup="listbox"
                         autoComplete="off"
                         data-reach-combobox-input=""
-                        id="header-search"
+                        id="header-search-autocomplete"
                         onBlur={[Function]}
                         onChange={[Function]}
                         onClick={[Function]}
@@ -432,6 +447,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                       />
                     </div>
                     <button
+                      aria-label="Submit search"
                       className="searchSubmit"
                       onClick={[Function]}
                       type="button"
@@ -585,6 +601,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             />
           </form>
           <button
+            aria-label="Submit search"
             className="searchSubmit"
             onClick={[Function]}
             type="button"
@@ -704,6 +721,12 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                   <div
                     data-reach-combobox=""
                   >
+                    <label
+                      className="a11y-only"
+                      htmlFor="header-search-autocomplete"
+                    >
+                      Search
+                    </label>
                     <input
                       aria-autocomplete="both"
                       aria-controls="listbox--4"
@@ -711,7 +734,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                       aria-haspopup="listbox"
                       autoComplete="off"
                       data-reach-combobox-input=""
-                      id="header-search"
+                      id="header-search-autocomplete"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onClick={[Function]}
@@ -724,6 +747,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                     />
                   </div>
                   <button
+                    aria-label="Submit search"
                     className="searchSubmit"
                     onClick={[Function]}
                     type="button"
