@@ -4,13 +4,13 @@ exports[`Components : Search: Results renders correctly 1`] = `
 <div
   className="result"
 >
-  <h4>
+  <h3>
     <a
       href="https://example.com"
     >
       Test title
     </a>
-  </h4>
+  </h3>
   <div />
 </div>
 `;
@@ -19,13 +19,13 @@ exports[`Components : Search: Results renders correctly 2`] = `
 <div
   className="result"
 >
-  <h4>
+  <h3>
     <a
       href="https://example.com"
     >
       Test title
     </a>
-  </h4>
+  </h3>
   <div>
     <p>
       A child
@@ -38,13 +38,13 @@ exports[`Components : Search: Results renders correctly 3`] = `
 <div
   className="result"
 >
-  <h4>
+  <h3>
     <a
       href="https://example.com"
     >
       Test title
     </a>
-  </h4>
+  </h3>
   <div />
   <div
     className="detail-text detailText"

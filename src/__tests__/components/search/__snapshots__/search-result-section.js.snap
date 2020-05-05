@@ -7,13 +7,13 @@ exports[`Components : Search: Result section renders correctly 1`] = `
   <div
     className="result"
   >
-    <h4>
+    <h3>
       <a
         href="https://example.com"
       >
         test
       </a>
-    </h4>
+    </h3>
     <div />
   </div>
 </div>
@@ -26,13 +26,13 @@ exports[`Components : Search: Result section renders correctly 2`] = `
   <div
     className="result"
   >
-    <h4>
+    <h3>
       <a
         href="https://example.com"
       >
         test
       </a>
-    </h4>
+    </h3>
     <div>
       <p>
         Content

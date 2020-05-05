@@ -10,6 +10,12 @@ exports[`Components : Pages : Data : Navigation with JS enabled renders correctl
     Type a state’s name to jump to it:
   </label>
   <div>
+    <label
+      className="a11y-only"
+      htmlFor="jump-to-state"
+    >
+      Jump to state or territory
+    </label>
     <input
       type="text"
     />
