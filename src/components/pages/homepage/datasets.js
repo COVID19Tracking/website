@@ -30,8 +30,11 @@ export default () => {
         image={data.whiteHouse.childImageSharp.fluid}
       >
         The White House chose the COVID Tracking Project as the best source to
-        cite for daily US test numbers in its &ldquo;Opening Up America
-        Again&rdquo; testing strategy.
+        cite for daily US test numbers in its{' '}
+        <a href="https://www.whitehouse.gov/wp-content/uploads/2020/04/Testing-Overview-Final.pdf">
+          &ldquo;Opening Up America Again&rdquo; testing strategy
+        </a>
+        .
       </Dataset>
       <Dataset
         title="COVID Exit Strategy"
