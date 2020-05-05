@@ -181,14 +181,19 @@ export default () => {
         </h2>
         <p className={`hero-paragraph ${heroStyle.paragraph}`}>
           CDC numbers don&apos;t tell the full story. Their official count shows{' '}
-          {cdcTotal.toLocaleString()} of tests to date across the US. Using a
-          rigorous data-collection process, we&apos;ve counted{' '}
-          {data.allCovidUs.nodes[0].posNeg.toLocaleString()}.
+          <span className={heroStyle.cdcCount}>
+            {cdcTotal.toLocaleString()}
+          </span>{' '}
+          of tests to date across the US. Using a rigorous data-collection
+          process, we&apos;ve counted{' '}
+          <span className={heroStyle.ctpCount}>
+            {data.allCovidUs.nodes[0].posNeg.toLocaleString()}
+          </span>
+          .
         </p>
         <div className={heroStyle.chartWrapper}>
           <Chart data={data} />
         </div>
-        <p className={heroStyle.chartDetail}>CDC number vs our number</p>
       </div>
     </div>
   )
