@@ -4,7 +4,7 @@ import Expand from 'react-expand-animated'
 import DevelopmentWarning from './development-warning'
 import PartnershipBanner from './partnership-banner'
 import SearchAutocomplete from './search-autocomplete'
-import Hero from './hero'
+import HeaderHero from '~components/pages/homepage/header-hero'
 import projectLogo from '../../images/project-logo.svg'
 import atlanticLogo from '../../images/atlantic-logo.svg'
 import headerStyle from './header.module.scss'
@@ -219,7 +219,7 @@ const Header = withSearch(
 
     return hasHero ? (
       <div className={headerStyle.circles}>
-        {header} <Hero />
+        {header} <HeaderHero />
       </div>
     ) : (
       header

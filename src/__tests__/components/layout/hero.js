@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Hero from '../../../components/layout/hero'
+import Hero from '../../../components/pages/homepage/header-hero'
 
 describe('Components : Layout : Hero', () => {
   it('renders correctly', () => {

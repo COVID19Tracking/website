@@ -3,9 +3,9 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { max } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
 import { DateTime } from 'luxon'
-import Container from '../common/container'
-import heroStyle from './hero.module.scss'
-import colors from '../../scss/colors.module.scss'
+import Container from '~components/common/container'
+import heroStyle from './header-hero.module.scss'
+import colors from '~scss/colors.module.scss'
 
 const Chart = ({ data }) => {
   const width = 1140
