@@ -38,10 +38,10 @@ const Author = ({ author }) => {
 
 const AuthorSpacer = ({ index, length }) => {
   if (index === 0 && length === 2) {
-    return <> & </> // first author, only two items in the list
+    return <> &amp; </> // first author, only two items in the list
   }
   if (index === length - 2) {
-    return <>, & </> // second to last author
+    return <>, &amp; </> // second to last author
   }
   if (index === length - 1) {
     return null // last author
@@ -70,6 +70,7 @@ const Byline = ({ authors, date, smallmargin = false }) => {
         <div className={bylineStyles.headshotContainer}>
           {authorsWithHeadshots.map(author => (
             <img
+              key={author.headshot.resize.src}
               src={author.headshot.resize.src}
               alt={author.headshot.file.fileName}
             />

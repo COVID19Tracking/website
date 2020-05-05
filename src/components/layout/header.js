@@ -69,6 +69,7 @@ const HeaderSearch = ({ children }) => {
       <button
         type="button"
         className={headerStyle.searchSubmit}
+        aria-label="Submit search"
         onClick={() => query && navigate(`/search?q=${query}`)}
       >
         <img
@@ -176,7 +177,7 @@ const Header = withSearch(
                   </div>
                   <div className={headerStyle.tools}>
                     <HeaderSearch>
-                      <SearchAutocomplete id="header-search" />
+                      <SearchAutocomplete />
                     </HeaderSearch>
                     <Link
                       to="/about-project/help"
