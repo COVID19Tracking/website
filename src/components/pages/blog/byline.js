@@ -69,10 +69,7 @@ const Byline = ({ authors, date, smallmargin = false }) => {
       {hasHeadshots && (
         <div className={bylineStyles.headshotContainer}>
           {authorsWithHeadshots.map(author => (
-            <img
-              src={author.headshot.resize.src}
-              alt={author.headshot.file.fileName}
-            />
+            <img src={author.headshot.resize.src} alt="" />
           ))}
         </div>
       )}
