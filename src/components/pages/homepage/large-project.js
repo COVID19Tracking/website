@@ -1,7 +1,7 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import Container from '~components/common/container'
+import Container from './container'
 import CtaLink from './cta-link'
 import largeProjectStyles from './large-project.module.scss'
 
@@ -23,12 +23,16 @@ export default () => {
     <div className={largeProjectStyles.wrapper}>
       <Container>
         {data.file.childImageSharp && (
-          <Img fluid={data.file.childImageSharp.fluid} alt="" />
+          <Link to="/race">
+            <Img fluid={data.file.childImageSharp.fluid} alt="" />
+          </Link>
         )}
         <h3>
-          COVID-19 isn&apos;t affecting all communities equally. We&apos;ve
-          partnered with Anti-Racism Policy Center to collect the most complete
-          racial data anywhere in the COVID Racial Data Tracker.{' '}
+          <Link to="/race">
+            COVID-19 isn&apos;t affecting all communities equally. We&apos;ve
+            partnered with Anti-Racism Policy Center to collect the most
+            complete racial data anywhere in the COVID Racial Data Tracker.
+          </Link>
         </h3>
         <p>
           We’ve partnered with the Antiracist Research &amp; Policy Center to
