@@ -3,57 +3,44 @@
 
 .dataset {
   align-items: center;
-  margin-bottom: 4.5rem;
+  margin-bottom: 2rem;
   &,
   a {
     color: $color-slate-700;
   }
-  @media (min-width: $viewport-md) {
+  @media (min-width: $viewport-lg) {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
+    margin-bottom: 4.5rem;
   }
   .image {
-    @media (min-width: $viewport-md) {
-      flex: 30%;
+    @media (min-width: $viewport-lg) {
+      flex: 60%;
       padding-right: 1rem;
+      margin-right: 2rem;
     }
-    width: 100%;
-    border: 1px solid $color-slate-200;
+    img {
+      border: 1px solid $color-slate-200;
+    }
   }
   .info {
-    @media (min-width: $viewport-md) {
-      flex: 70%;
-      width: 70%;
+    @media (min-width: $viewport-lg) {
+      flex: 40%;
+      width: 40%;
     }
-    @media (max-width: $viewport-md) {
+    @media (min-width: $viewport-lg) {
       margin-left: 1.5rem;
       margin-right: 1.5rem;
     }
   }
   &.flip {
-    @media (min-width: $viewport-md) {
+    @media (min-width: $viewport-lg) {
       flex-direction: row-reverse;
-      .info {
+      .image {
         margin-left: 2rem;
+        margin-right: 0;
       }
     }
-  }
-  &:not(.flip) {
-    @media (min-width: $viewport-md) {
-      .info {
-        margin-right: 2rem;
-      }
-    }
-  }
-  h3 {
-    font-size: 24px;
-    font-size: 1.5rem;
-    line-height: 1.4;
-    margin-bottom: 8px;
-    margin-bottom: 0.5rem;
-  }
-  img {
-    width: 480px;
   }
 }

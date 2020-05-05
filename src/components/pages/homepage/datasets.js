@@ -28,7 +28,6 @@ export default () => {
       <Dataset
         title="The White House"
         image={data.whiteHouse.childImageSharp.fluid}
-        flip
       >
         The White House chose the COVID Tracking Project as the best source to
         cite for daily US test numbers in its &ldquo;Opening Up America
@@ -37,6 +36,7 @@ export default () => {
       <Dataset
         title="COVID Exit Strategy"
         image={data.covidExit.childImageSharp.fluid}
+        flip
       >
         Created by a group of public health and crisis experts,{' '}
         <a href="https://covidexitstrategy.org">covidexitstrategy.org</a>{' '}
