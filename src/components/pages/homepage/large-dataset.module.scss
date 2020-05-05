@@ -11,6 +11,15 @@
   img {
     border: 1px solid $color-slate-200;
   }
+  h3 {
+    @media (min-width: $viewport-lg) {
+      font-size: 1.5rem;
+    }
+    margin-bottom: 0.5rem;
+  }
+  p {
+    color: $color-slate-700;
+  }
   .homepage-paragraph {
     margin-bottom: 2rem;
     @media (min-width: $viewport-lg) {

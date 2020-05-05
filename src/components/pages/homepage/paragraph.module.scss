@@ -2,10 +2,14 @@
 
 .paragraph {
   font-weight: bold;
-  font-size: 36px;
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   line-height: 1.2;
   @media (min-width: $viewport-lg) {
-    text-align: center;
+    font-size: 2.25rem;
+  }
+  &.center {
+    @media (min-width: $viewport-lg) {
+      text-align: center;
+    }
   }
 }

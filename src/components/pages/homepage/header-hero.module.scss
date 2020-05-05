@@ -9,7 +9,7 @@ $mobile-offset-y: -3%;
   background: $color-plum-550;
   color: white;
   @media (min-width: $viewport-md) {
-    padding: 70px 0 30px 40px;
+    padding: 70px 0 30px 0;
   }
   .container {
     position: static;
@@ -18,7 +18,7 @@ $mobile-offset-y: -3%;
     }
   }
   .header {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     line-height: 1.25;
     font-weight: bold;
     @media (min-width: $viewport-ms) {
@@ -28,30 +28,24 @@ $mobile-offset-y: -3%;
       font-size: 3rem;
     }
     @media (min-width: $viewport-lg) {
-      max-width: 50rem;
+      max-width: 38rem;
       position: absolute;
     }
     @media (min-width: $viewport-xl) {
-      max-width: 60rem;
+      max-width: 48rem;
     }
   }
 
   .paragraph {
-    font-size: 1rem;
-    font-weight: bold;
-    @media (min-width: $viewport-ms) {
-      font-size: 1rem;
-    }
-    @media (min-width: $viewport-md) {
-      font-size: 1.5rem;
-    }
+    font-size: 13px;
     @media (min-width: $viewport-lg) {
+      font-size: 16px;
       max-width: 30rem;
       bottom: 5rem;
       position: absolute;
     }
     @media (min-width: $viewport-xl) {
-      max-width: 35rem;
+      max-width: 30rem;
       bottom: 8rem;
     }
   }
@@ -59,6 +53,16 @@ $mobile-offset-y: -3%;
     max-width: 100%;
     padding-right: -150px;
     overflow-x: hidden;
+    display: none;
+    @media (min-width: $viewport-lg) {
+      display: block;
+    }
+    &.is-mobile {
+      display: block;
+      @media (min-width: $viewport-lg) {
+        display: none;
+      }
+    }
   }
 }
 
@@ -106,14 +110,14 @@ $mobile-offset-y: -3%;
 }
 
 .ctp-count {
-  border-bottom: 5px solid $color-honey-400;
+  border-bottom: 3px solid $color-honey-400;
   @media (max-width: $viewport-md) {
     border-width: 3px;
   }
 }
 
 .cdc-count {
-  border-bottom: 5px solid white;
+  border-bottom: 3px solid white;
   @media (max-width: $viewport-md) {
     border-width: 3px;
   }
