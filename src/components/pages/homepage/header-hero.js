@@ -200,10 +200,6 @@ export default () => {
         <div className={heroStyle.chartWrapper}>
           <Chart data={data} />
         </div>
-
-        <div className={`${heroStyle.chartWrapper} ${heroStyle.isMobile}`}>
-          <Chart data={data} isMobile />
-        </div>
       </div>
     </div>
   )

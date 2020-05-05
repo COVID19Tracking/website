@@ -53,16 +53,6 @@ $mobile-offset-y: -3%;
     max-width: 100%;
     padding-right: -150px;
     overflow-x: hidden;
-    display: none;
-    @media (min-width: $viewport-lg) {
-      display: block;
-    }
-    &.is-mobile {
-      display: block;
-      @media (min-width: $viewport-lg) {
-        display: none;
-      }
-    }
   }
 }
 
@@ -91,14 +81,13 @@ $mobile-offset-y: -3%;
   font-size: 30px;
   overflow: visible !important;
   text-anchor: end;
-  
+
   @media (min-width: $viewport-ms) {
     font-size: 14px;
   }
 }
 
 .chart-x-axis {
-
 }
 
 .chart-y-axis {
