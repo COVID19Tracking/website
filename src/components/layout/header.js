@@ -177,7 +177,7 @@ const Header = withSearch(
                   </div>
                   <div className={headerStyle.tools}>
                     <HeaderSearch>
-                      <SearchAutocomplete id="header-search" />
+                      <SearchAutocomplete />
                     </HeaderSearch>
                     <Link
                       to="/about-project/help"

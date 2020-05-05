@@ -17,7 +17,7 @@ import {
 } from '../../context/search-context'
 import searchAutocompleteStyles from './search-autocomplete.module.scss'
 
-export default ({ id }) => {
+export default () => {
   const [searchState, searchDispatch] = useSearch()
   const [showResults, setShowResults] = useState(true)
   const { query, results } = searchState
@@ -81,8 +81,11 @@ export default ({ id }) => {
 
   return (
     <Combobox openOnFocus>
+      <label htmlFor="header-search-autocomplete" className="a11y-only">
+        Search
+      </label>
       <ComboboxInput
-        id={id}
+        id="header-search-autocomplete"
         placeholder="Search"
         autoComplete="off"
         onChange={event => {
