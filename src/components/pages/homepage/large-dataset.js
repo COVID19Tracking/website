@@ -1,7 +1,8 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import Container from '~components/common/container'
+import Paragraph from './paragraph'
+import largeDatasetStyles from './large-dataset.module.scss'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -17,7 +18,11 @@ export default () => {
     }
   `)
   return (
-    <Container>
+    <div className={largeDatasetStyles.largeDataset}>
+      <Paragraph additionalClass={largeDatasetStyles.homepageParagraph}>
+        Our data powers crucial reporting and research. Here are just a few of
+        the organizations that rely on our dataset.
+      </Paragraph>
       <div>
         {data.file.childImageSharp && (
           <Img fluid={data.file.childImageSharp.fluid} alt="" />
@@ -31,6 +36,6 @@ export default () => {
           about the path forward.
         </p>
       </div>
-    </Container>
+    </div>
   )
 }

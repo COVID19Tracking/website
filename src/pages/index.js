@@ -11,7 +11,6 @@ import Datasets from '~components/pages/homepage/datasets'
 import LargeDataset from '~components/pages/homepage/large-dataset'
 import LargeProject from '~components/pages/homepage/large-project'
 import LatestTotals from '~components/pages/homepage/latest-totals'
-import Paragraph from '~components/pages/homepage/paragraph'
 import Press from '~components/pages/homepage/press'
 
 export default () => (
@@ -28,16 +27,12 @@ export default () => (
         <LatestTotals />
       </Container>
       <LargeProject />
-      <Paragraph>
-        Our data powers crucial reporting and research. Here are just a few of
-        the organizations that rely on our dataset.
-      </Paragraph>
       <Container>
         <LargeDataset />
         <Datasets />
         <Press />
+        <BlogList />
       </Container>
-      <BlogList />
     </main>
     <Footer />
   </>

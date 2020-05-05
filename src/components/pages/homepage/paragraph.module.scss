@@ -6,7 +6,6 @@
   font-size: 2.25rem;
   line-height: 1.2;
   @media (min-width: $viewport-lg) {
-    margin: 0 auto;
-    max-width: 900px;
+    text-align: center;
   }
 }
