@@ -6,6 +6,7 @@ import { DateTime } from 'luxon'
 import heroStyle from './header-hero.module.scss'
 import colors from '~scss/colors.module.scss'
 import containerStyle from '~components/common/container.module.scss'
+import homepageContainerStyle from './container.module.scss'
 
 const Chart = ({ data }) => {
   const width = 1140
@@ -175,22 +176,25 @@ export default () => {
   return (
     <div className={`hero ${heroStyle.hero}`}>
       <div className={`${containerStyle.container} ${heroStyle.container}`}>
-        <h2 className={`hero-header ${heroStyle.header}`}>
-          The public needs the most complete data possible about COVID-19 in the
-          United States. No government source is sharing it — so we are.
-        </h2>
-        <p className={`hero-paragraph ${heroStyle.paragraph}`}>
-          CDC numbers don&apos;t tell the full story. Their official count shows{' '}
-          <span className={heroStyle.cdcCount}>
-            {cdcTotal.toLocaleString()}
-          </span>{' '}
-          of tests to date across the US. Using a rigorous data-collection
-          process, we&apos;ve counted{' '}
-          <span className={heroStyle.ctpCount}>
-            {data.allCovidUs.nodes[0].posNeg.toLocaleString()}
-          </span>
-          .
-        </p>
+        <div className={`${homepageContainerStyle.container}`}>
+          <h2 className={`hero-header ${heroStyle.header}`}>
+            The public needs the most complete data possible about COVID-19 in
+            the United States. No government source is sharing it — so we are.
+          </h2>
+          <p className={`hero-paragraph ${heroStyle.paragraph}`}>
+            CDC numbers don&apos;t tell the full story. Their official count
+            shows{' '}
+            <span className={heroStyle.cdcCount}>
+              {cdcTotal.toLocaleString()}
+            </span>{' '}
+            of tests to date across the US. Using a rigorous data-collection
+            process, we&apos;ve counted{' '}
+            <span className={heroStyle.ctpCount}>
+              {data.allCovidUs.nodes[0].posNeg.toLocaleString()}
+            </span>
+            .
+          </p>
+        </div>
         <div className={heroStyle.chartWrapper}>
           <Chart data={data} />
         </div>
