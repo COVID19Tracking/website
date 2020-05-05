@@ -31,7 +31,6 @@
     }
     @media (min-width: $viewport-lg) {
       margin-left: 1.5rem;
-      margin-right: 1.5rem;
     }
     h3 {
       margin-bottom: 0.5rem;
@@ -46,6 +45,11 @@
       .image {
         margin-left: 2rem;
         margin-right: 0;
+        padding-left: 1rem;
+        padding-right: 0;
+      }
+      .info {
+        margin-left: 0;
       }
     }
   }
