@@ -20,3 +20,10 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.header {
+  font-size: 1.125rem;
+  @media (min-width: $viewport-lg) {
+    font-size: 1.5rem;
+  }
+}
