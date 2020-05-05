@@ -5,18 +5,22 @@
   padding: 60px 0;
   border-top: 1px solid $color-slate-200;
   border-bottom: 1px solid $color-slate-200;
-  text-align: center;
   @media (min-width: $viewport-lg) {
-    padding: 120px 0;
+    padding: 120px 0 60px 0;
   }
   p {
     margin-bottom: 1.5rem;
+    color: $color-slate-700;
     @media (min-width: $viewport-lg) {
       margin: 0 5rem;
       margin-bottom: 3rem;
     }
   }
   h3 {
+    font-size: 24px;
+    @media (min-width: $viewport-lg) {
+      font-size: 36px;
+    }
     a {
       text-decoration: none;
       color: $text;
