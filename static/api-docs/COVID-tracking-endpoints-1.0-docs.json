@@ -1,35 +1,39 @@
 {
-  "openapi" : "3.0.0",
-  "info" : {
-    "title" : "COVID Tracking API Sandbox",
-    "version" : "1.0"
+  "openapi": "3.0.0",
+  "info": {
+    "title": "COVID Tracking API Sandbox",
+    "version": "1.0"
   },
-  "servers" : [ {
-    "url" : "https://covidtracking.com"
-  } ],
-  "paths" : {
-    "/api/v1/us/current.{format}" : {
-      "get" : {
-        "tags" : [ "US Current and Historical Data" ],
-        "description" : "US current values.",
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "format",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "json"
+  "servers": [
+    {
+      "url": "https://covidtracking.com"
+    }
+  ],
+  "paths": {
+    "/api/v1/us/current.{format}": {
+      "get": {
+        "tags": ["US Current and Historical Data"],
+        "description": "US current values.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "json"
+            }
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/USData"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/USData"
                   }
                 }
               }
@@ -38,28 +42,30 @@
         }
       }
     },
-    "/api/v1/us/daily.{format}" : {
-      "get" : {
-        "description" : "US historical data. Entries saved each day at 4 pm ET.",
-        "tags" : [ "US Current and Historical Data" ],
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "format",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "json"
+    "/api/v1/us/daily.{format}": {
+      "get": {
+        "description": "US historical data. Entries saved each day at 4 pm ET.",
+        "tags": ["US Current and Historical Data"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "json"
+            }
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/USHistoricalData"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/USHistoricalData"
                   }
                 }
               }
@@ -68,34 +74,37 @@
         }
       }
     },
-    "/api/v1/us/{date}.{format}" : {
-      "get" : {
-        "tags" : [ "US Current and Historical Data" ],
-        "description" : "US historical data for a given date.",
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "date",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : 20200408
+    "/api/v1/us/{date}.{format}": {
+      "get": {
+        "tags": ["US Current and Historical Data"],
+        "description": "US historical data for a given date.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "date",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": 20200408
+            }
+          },
+          {
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "json"
+            }
           }
-        }, {
-          "in" : "path",
-          "name" : "format",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "json"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/USHistoricalData"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/USHistoricalData"
                 }
               }
             }
@@ -103,28 +112,30 @@
         }
       }
     },
-    "/api/v1/states/current.{format}" : {
-      "get" : {
-        "tags" : [ "States Current and Historical Data" ],
-        "description" : "States current values.",
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "format",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "json"
+    "/api/v1/states/current.{format}": {
+      "get": {
+        "tags": ["States Current and Historical Data"],
+        "description": "States current values.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "json"
+            }
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/StateData"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StateData"
                   }
                 }
               }
@@ -133,34 +144,37 @@
         }
       }
     },
-    "/api/v1/states/{state}/current.{format}" : {
-      "get" : {
-        "tags" : [ "States Current and Historical Data" ],
-        "description" : "States current values.",
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "format",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "json"
+    "/api/v1/states/{state}/current.{format}": {
+      "get": {
+        "tags": ["States Current and Historical Data"],
+        "description": "States current values.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "json"
+            }
+          },
+          {
+            "in": "path",
+            "name": "state",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "CA"
+            }
           }
-        }, {
-          "in" : "path",
-          "name" : "state",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "CA"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/StateData"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StateData"
                 }
               }
             }
@@ -168,28 +182,30 @@
         }
       }
     },
-    "/api/v1/states/daily.{format}" : {
-      "get" : {
-        "description" : "States historical data. Entries saved each day at 4 pm ET.",
-        "tags" : [ "States Current and Historical Data" ],
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "format",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "json"
+    "/api/v1/states/daily.{format}": {
+      "get": {
+        "description": "States historical data. Entries saved each day at 4 pm ET.",
+        "tags": ["States Current and Historical Data"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "json"
+            }
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/StateHistoricalData"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StateHistoricalData"
                   }
                 }
               }
@@ -198,36 +214,39 @@
         }
       }
     },
-    "/api/v1/states/{state}/daily.{format}" : {
-      "get" : {
-        "description" : "State historical data. Entries saved each day at 4 pm ET.",
-        "tags" : [ "States Current and Historical Data" ],
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "state",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "CA"
+    "/api/v1/states/{state}/daily.{format}": {
+      "get": {
+        "description": "State historical data. Entries saved each day at 4 pm ET.",
+        "tags": ["States Current and Historical Data"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "state",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "CA"
+            }
+          },
+          {
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "json"
+            }
           }
-        }, {
-          "in" : "path",
-          "name" : "format",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "json"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/StateHistoricalData"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StateHistoricalData"
                   }
                 }
               }
@@ -236,42 +255,46 @@
         }
       }
     },
-    "/api/v1/states/{state}/{date}.{format}" : {
-      "get" : {
-        "tags" : [ "States Current and Historical Data" ],
-        "description" : "State historical data for a given date.",
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "state",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "CA"
+    "/api/v1/states/{state}/{date}.{format}": {
+      "get": {
+        "tags": ["States Current and Historical Data"],
+        "description": "State historical data for a given date.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "state",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "CA"
+            }
+          },
+          {
+            "in": "path",
+            "name": "date",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": 20200408
+            }
+          },
+          {
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "json"
+            }
           }
-        }, {
-          "in" : "path",
-          "name" : "date",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : 20200408
-          }
-        }, {
-          "in" : "path",
-          "name" : "format",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "json"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/StateHistoricalData"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StateHistoricalData"
                 }
               }
             }
@@ -279,28 +302,30 @@
         }
       }
     },
-    "/api/v1/states/info.{format}" : {
-      "get" : {
-        "tags" : [ "Additional Endpoints" ],
-        "description" : "States information.",
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "format",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "json"
+    "/api/v1/states/info.{format}": {
+      "get": {
+        "tags": ["Additional Endpoints"],
+        "description": "States information.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "json"
+            }
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/StateInfo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StateInfo"
                   }
                 }
               }
@@ -309,28 +334,30 @@
         }
       }
     },
-    "/api/v1/counties.{format}" : {
-      "get" : {
-        "tags" : [ "Additional Endpoints" ],
-        "description" : "County information.",
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "format",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "json"
+    "/api/v1/counties.{format}": {
+      "get": {
+        "tags": ["Additional Endpoints"],
+        "description": "County information.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "json"
+            }
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/CountyInfo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CountyInfo"
                   }
                 }
               }
@@ -339,19 +366,19 @@
         }
       }
     },
-    "/api/v1/cdc/daily.json" : {
-      "get" : {
-        "tags" : [ "Additional Endpoints" ],
-        "description" : "The table found on the 'CDC Testing in U.S.' webpage is available via this endpoint. Please visit the CDC's website to learn more.",
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/CDCData"
+    "/api/v1/cdc/daily.json": {
+      "get": {
+        "tags": ["Additional Endpoints"],
+        "description": "The table found on the 'CDC Testing in U.S.' webpage is available via this endpoint. Please visit the CDC's website to learn more.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CDCData"
                   }
                 }
               }
@@ -360,19 +387,19 @@
         }
       }
     },
-    "/api/v1/urls.json" : {
-      "get" : {
-        "tags" : [ "Additional Endpoints" ],
-        "description" : "Tracker URLs.",
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/TrackerInfo"
+    "/api/v1/urls.json": {
+      "get": {
+        "tags": ["Additional Endpoints"],
+        "description": "Tracker URLs.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TrackerInfo"
                   }
                 }
               }
@@ -381,19 +408,19 @@
         }
       }
     },
-    "/api/v1/states/screenshots.json" : {
-      "get" : {
-        "tags" : [ "Additional Endpoints" ],
-        "description" : "State website screenshots.",
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/ScreenshotInfo"
+    "/api/v1/states/screenshots.json": {
+      "get": {
+        "tags": ["Additional Endpoints"],
+        "description": "State website screenshots.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScreenshotInfo"
                   }
                 }
               }
@@ -403,467 +430,499 @@
       }
     }
   },
-  "components" : {
-    "schemas" : {
-      "USData" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/BasicData"
-        } ]
+  "components": {
+    "schemas": {
+      "USData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BasicData"
+          }
+        ]
       },
-      "USHistoricalData" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/BasicHistoricalData"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "states" : {
-              "type" : "integer",
-              "description" : "Quantity of states and territories that are reporting data."
-            },
-            "dateChecked" : {
-              "type" : "string",
-              "nullable" : false,
-              "description" : "ISO 8601 date of when these values were valid.",
-              "example" : "2020-04-29T20:00:00Z"
+      "USHistoricalData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BasicHistoricalData"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "states": {
+                "type": "integer",
+                "description": "Quantity of states and territories that are reporting data."
+              },
+              "dateChecked": {
+                "type": "string",
+                "nullable": false,
+                "description": "ISO 8601 date of when these values were valid.",
+                "example": "2020-04-29T20:00:00Z"
+              }
             }
           }
-        } ]
+        ]
       },
-      "StateData" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/BasicData"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "state" : {
-              "example" : "AK",
-              "type" : "string",
-              "nullable" : false,
-              "description" : "State or territory postal code abbreviation."
-            },
-            "positiveScore" : {
-              "example" : 1,
-              "type" : "integer",
-              "nullable" : true,
-              "description" : "DEPRECATED +1 for reporting positives reliably."
-            },
-            "negativeScore" : {
-              "example" : 1,
-              "type" : "integer",
-              "nullable" : true,
-              "description" : "DEPRECATED +1 for reporting negatives sometimes."
-            },
-            "negativeRegularScore" : {
-              "example" : 1,
-              "type" : "integer",
-              "nullable" : true,
-              "description" : "DEPRECATED +1 for reporting negatives reliably."
-            },
-            "commercialScore" : {
-              "example" : 1,
-              "type" : "integer",
-              "nullable" : true,
-              "description" : "DEPRECATED +1 for reporting all commercial tests."
-            },
-            "grade" : {
-              "example" : "A",
-              "type" : "string",
-              "nullable" : true,
-              "description" : "DEPRECATED Letter grade based on score."
-            },
-            "score" : {
-              "example" : 4,
-              "type" : "integer",
-              "nullable" : true,
-              "description" : "DEPRECATED Total reporting quality score."
-            },
-            "notes" : {
-              "example" : "Please stop using the \"total\" field. Use \"totalTestResults\" instead. As of 4/24/20, \"grade\" is deprecated. Please use \"dataQualityGrade\" instead.",
-              "type" : "string",
-              "nullable" : true
-            },
-            "dataQualityGrade" : {
-              "example" : "B",
-              "type" : "string",
-              "nullable" : true,
-              "description" : "Letter grade based on our state grading."
-            },
-            "lastUpdateEt" : {
-              "example" : "4/28 14:50",
-              "type" : "string",
-              "nullable" : true
-            },
-            "checkTimeEt" : {
-              "example" : "4/29 16:30",
-              "type" : "string",
-              "nullable" : true
-            },
-            "fips" : {
-              "example" : "02",
-              "type" : "string",
-              "nullable" : true,
-              "description" : "Federal Information Processing Standard state code"
-            },
-            "dateModified" : {
-              "example" : "2020-04-28T18:50:00Z",
-              "type" : "string",
-              "nullable" : true,
-              "description" : "ISO 8601 date of the time the data was last updated by the state."
-            },
-            "dateChecked" : {
-              "example" : "2020-04-29T20:30:00Z",
-              "type" : "string",
-              "nullable" : true,
-              "description" : "ISO 8601 date of the time we last visited their website."
+      "StateData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BasicData"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "state": {
+                "example": "AK",
+                "type": "string",
+                "nullable": false,
+                "description": "State or territory postal code abbreviation."
+              },
+              "positiveScore": {
+                "example": 1,
+                "type": "integer",
+                "nullable": true,
+                "description": "DEPRECATED +1 for reporting positives reliably."
+              },
+              "negativeScore": {
+                "example": 1,
+                "type": "integer",
+                "nullable": true,
+                "description": "DEPRECATED +1 for reporting negatives sometimes."
+              },
+              "negativeRegularScore": {
+                "example": 1,
+                "type": "integer",
+                "nullable": true,
+                "description": "DEPRECATED +1 for reporting negatives reliably."
+              },
+              "commercialScore": {
+                "example": 1,
+                "type": "integer",
+                "nullable": true,
+                "description": "DEPRECATED +1 for reporting all commercial tests."
+              },
+              "grade": {
+                "example": "A",
+                "type": "string",
+                "nullable": true,
+                "description": "DEPRECATED Letter grade based on score."
+              },
+              "score": {
+                "example": 4,
+                "type": "integer",
+                "nullable": true,
+                "description": "DEPRECATED Total reporting quality score."
+              },
+              "notes": {
+                "example": "Please stop using the \"total\" field. Use \"totalTestResults\" instead. As of 4/24/20, \"grade\" is deprecated. Please use \"dataQualityGrade\" instead.",
+                "type": "string",
+                "nullable": true
+              },
+              "dataQualityGrade": {
+                "example": "B",
+                "type": "string",
+                "nullable": true,
+                "description": "Letter grade based on our state grading."
+              },
+              "lastUpdateEt": {
+                "example": "4/28 14:50",
+                "type": "string",
+                "nullable": true
+              },
+              "checkTimeEt": {
+                "example": "4/29 16:30",
+                "type": "string",
+                "nullable": true
+              },
+              "fips": {
+                "example": "02",
+                "type": "string",
+                "nullable": true,
+                "description": "Federal Information Processing Standard state code"
+              },
+              "dateModified": {
+                "example": "2020-04-28T18:50:00Z",
+                "type": "string",
+                "nullable": true,
+                "description": "ISO 8601 date of the time the data was last updated by the state."
+              },
+              "dateChecked": {
+                "example": "2020-04-29T20:30:00Z",
+                "type": "string",
+                "nullable": true,
+                "description": "ISO 8601 date of the time we last visited their website."
+              }
             }
           }
-        } ]
+        ]
       },
-      "StateHistoricalData" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/BasicHistoricalData"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "state" : {
-              "example" : "AK",
-              "type" : "string",
-              "nullable" : false,
-              "description" : "State or territory postal code abbreviation."
-            },
-            "dateChecked" : {
-              "example" : "2020-04-29T20:30:00Z",
-              "type" : "string",
-              "nullable" : true,
-              "description" : "ISO 8601 date of the time we last visited their website."
-            },
-            "fips" : {
-              "example" : "02",
-              "type" : "string",
-              "nullable" : true,
-              "description" : "Federal Information Processing Standard state code"
+      "StateHistoricalData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BasicHistoricalData"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "state": {
+                "example": "AK",
+                "type": "string",
+                "nullable": false,
+                "description": "State or territory postal code abbreviation."
+              },
+              "dateChecked": {
+                "example": "2020-04-29T20:30:00Z",
+                "type": "string",
+                "nullable": true,
+                "description": "ISO 8601 date of the time we last visited their website."
+              },
+              "fips": {
+                "example": "02",
+                "type": "string",
+                "nullable": true,
+                "description": "Federal Information Processing Standard state code"
+              }
             }
           }
-        } ]
+        ]
       },
-      "CDCData" : {
-        "type" : "object",
-        "properties" : {
-          "dateCollected" : {
-            "type" : "string",
-            "nullable" : false,
-            "example" : "1/26"
+      "CDCData": {
+        "type": "object",
+        "properties": {
+          "dateCollected": {
+            "type": "string",
+            "nullable": false,
+            "example": "1/26"
           },
-          "cdcLabs" : {
-            "type" : "integer",
-            "nullable" : false,
-            "example" : 310
+          "cdcLabs": {
+            "type": "integer",
+            "nullable": false,
+            "example": 310
           },
-          "usPubHealthLabs" : {
-            "type" : "integer",
-            "nullable" : false,
-            "example" : 1
+          "usPubHealthLabs": {
+            "type": "integer",
+            "nullable": false,
+            "example": 1
           },
-          "dailyTotal" : {
-            "type" : "integer",
-            "nullable" : false,
-            "example" : 311
+          "dailyTotal": {
+            "type": "integer",
+            "nullable": false,
+            "example": 311
           },
-          "lag" : {
-            "type" : "integer",
-            "nullable" : false,
-            "example" : 0
+          "lag": {
+            "type": "integer",
+            "nullable": false,
+            "example": 0
           }
         }
       },
-      "CountyInfo" : {
-        "type" : "object",
-        "properties" : {
-          "state" : {
-            "type" : "string",
-            "nullable" : false,
-            "description" : "State or territory postal code abbreviation."
+      "CountyInfo": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "nullable": false,
+            "description": "State or territory postal code abbreviation."
           },
-          "county" : {
-            "type" : "string",
-            "nullable" : false,
-            "description" : "County name."
+          "county": {
+            "type": "string",
+            "nullable": false,
+            "description": "County name."
           },
-          "covid19Site" : {
-            "type" : "string",
-            "nullable" : true
+          "covid19Site": {
+            "type": "string",
+            "nullable": true
           },
-          "dataSite" : {
-            "type" : "string",
-            "nullable" : true
+          "dataSite": {
+            "type": "string",
+            "nullable": true
           },
-          "mainSite" : {
-            "type" : "string",
-            "nullable" : true
+          "mainSite": {
+            "type": "string",
+            "nullable": true
           },
-          "twitter" : {
-            "type" : "string",
-            "nullable" : true
+          "twitter": {
+            "type": "string",
+            "nullable": true
           },
-          "pui" : {
-            "type" : "string",
-            "nullable" : true,
-            "description" : "Person Under Investigation; it is meant to capture positive, negative, and pending test results.",
-            "example" : "Only positives"
+          "pui": {
+            "type": "string",
+            "nullable": true,
+            "description": "Person Under Investigation; it is meant to capture positive, negative, and pending test results.",
+            "example": "Only positives"
           }
         }
       },
-      "StateInfo" : {
-        "type" : "object",
-        "properties" : {
-          "state" : {
-            "type" : "string",
-            "nullable" : false,
-            "description" : "State or territory postal code abbreviation.",
-            "example" : "CA"
+      "StateInfo": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "nullable": false,
+            "description": "State or territory postal code abbreviation.",
+            "example": "CA"
           },
-          "name" : {
-            "type" : "string",
-            "nullable" : false,
-            "description" : "Full state or territory name.",
-            "example" : "California"
+          "name": {
+            "type": "string",
+            "nullable": false,
+            "description": "Full state or territory name.",
+            "example": "California"
           },
-          "covid19SiteOld" : {
-            "type" : "string",
-            "nullable" : true
+          "covid19SiteOld": {
+            "type": "string",
+            "nullable": true
           },
-          "covid19Site" : {
-            "type" : "string",
-            "nullable" : true,
-            "description" : "Webpage dedicated to making results available to the public. More likely to contain numbers. We make regular screenshots of this URL."
+          "covid19Site": {
+            "type": "string",
+            "nullable": true,
+            "description": "Webpage dedicated to making results available to the public. More likely to contain numbers. We make regular screenshots of this URL."
           },
-          "covid19SiteSecondary" : {
-            "type" : "string",
-            "nullable" : true,
-            "description" : "Typically more informational."
+          "covid19SiteSecondary": {
+            "type": "string",
+            "nullable": true,
+            "description": "Typically more informational."
           },
-          "twitter" : {
-            "type" : "string",
-            "example" : "@CAPublicHealth",
-            "nullable" : true,
-            "description" : "Twitter for the State Health Department."
+          "twitter": {
+            "type": "string",
+            "example": "@CAPublicHealth",
+            "nullable": true,
+            "description": "Twitter for the State Health Department."
           },
-          "pui" : {
-            "type" : "string",
-            "description" : "Person Under Investigation; it is meant to capture positive, negative, and pending test results.",
-            "nullable" : true,
-            "example" : "Only positives"
+          "pui": {
+            "type": "string",
+            "description": "Person Under Investigation; it is meant to capture positive, negative, and pending test results.",
+            "nullable": true,
+            "example": "Only positives"
           },
-          "pum" : {
-            "type" : "boolean",
-            "nullable" : false,
-            "example" : false,
-            "description" : "Person Under Monitoring; we don’t collect these numbers as they are reported far less consistently across states."
+          "pum": {
+            "type": "boolean",
+            "nullable": false,
+            "example": false,
+            "description": "Person Under Monitoring; we don’t collect these numbers as they are reported far less consistently across states."
           },
-          "notes" : {
-            "type" : "string",
-            "nullable" : true,
-            "description" : "Notes about the information available and how we collect or record it."
+          "notes": {
+            "type": "string",
+            "nullable": true,
+            "description": "Notes about the information available and how we collect or record it."
           },
-          "fips" : {
-            "type" : "string",
-            "nullable" : false,
-            "example" : "06",
-            "description" : "Federal Information Processing Standard state code."
+          "fips": {
+            "type": "string",
+            "nullable": false,
+            "example": "06",
+            "description": "Federal Information Processing Standard state code."
           }
         }
       },
-      "ScreenshotInfo" : {
-        "type" : "object",
-        "properties" : {
-          "state" : {
-            "type" : "string",
-            "nullable" : false,
-            "description" : "State abbreviation.",
-            "example" : "AK"
+      "ScreenshotInfo": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "nullable": false,
+            "description": "State abbreviation.",
+            "example": "AK"
           },
-          "url" : {
-            "type" : "string",
-            "nullable" : false,
-            "description" : "URL of screenshot on covidtracking.com."
+          "url": {
+            "type": "string",
+            "nullable": false,
+            "description": "URL of screenshot on covidtracking.com."
           },
-          "dateChecked" : {
-            "type" : "string",
-            "nullable" : false
+          "dateChecked": {
+            "type": "string",
+            "nullable": false
           },
-          "secondary" : {
-            "type" : "boolean",
-            "nullable" : false
+          "secondary": {
+            "type": "boolean",
+            "nullable": false
           },
-          "date" : {
-            "type" : "string",
-            "nullable" : false
+          "date": {
+            "type": "string",
+            "nullable": false
           },
-          "size" : {
-            "type" : "integer",
-            "nullable" : false
+          "size": {
+            "type": "integer",
+            "nullable": false
           }
         }
       },
-      "TrackerInfo" : {
-        "type" : "object",
-        "properties" : {
-          "name" : {
-            "type" : "string",
-            "nullable" : false,
-            "description" : "State name."
+      "TrackerInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": false,
+            "description": "State name."
           },
-          "stateId" : {
-            "type" : "string",
-            "nullable" : false,
-            "description" : "State or territory postal code abbreviation."
+          "stateId": {
+            "type": "string",
+            "nullable": false,
+            "description": "State or territory postal code abbreviation."
           },
-          "url" : {
-            "type" : "string"
+          "url": {
+            "type": "string"
           },
-          "kind" : {
-            "type" : "string"
+          "kind": {
+            "type": "string"
           },
-          "filter" : {
-            "type" : "string"
+          "filter": {
+            "type": "string"
           }
         }
       },
-      "BasicData" : {
-        "type" : "object",
-        "properties" : {
-          "positive" : {
-            "type" : "integer",
-            "description" : "Total cumulative positive test results.",
-            "nullable" : true
+      "BasicData": {
+        "type": "object",
+        "properties": {
+          "positive": {
+            "type": "integer",
+            "description": "Total cumulative positive test results.",
+            "nullable": true
           },
-          "negative" : {
-            "type" : "integer",
-            "description" : "Total cumulative negative test results",
-            "nullable" : true
+          "negative": {
+            "type": "integer",
+            "description": "Total cumulative negative test results",
+            "nullable": true
           },
-          "pending" : {
-            "type" : "integer",
-            "description" : "Tests that have been submitted to a lab but no results have been reported yet.",
-            "nullable" : true
+          "pending": {
+            "type": "integer",
+            "description": "Tests that have been submitted to a lab but no results have been reported yet.",
+            "nullable": true
           },
-          "hospitalizedCurrently" : {
-            "type" : "integer",
-            "description" : "Number of individuals currently hospitalized.",
-            "nullable" : true
+          "hospitalizedCurrently": {
+            "type": "integer",
+            "description": "Number of individuals currently hospitalized.",
+            "nullable": true
           },
-          "hospitalizedCumulative" : {
-            "type" : "integer",
-            "description" : "Total number of individuals that have been hospitalized, including those that have been discharged.",
-            "nullable" : true
+          "hospitalizedCumulative": {
+            "type": "integer",
+            "description": "Total number of individuals that have been hospitalized, including those that have been discharged.",
+            "nullable": true
           },
-          "inIcuCurrently" : {
-            "type" : "integer",
-            "description" : "Number of individuals currently in an ICU.",
-            "nullable" : true
+          "inIcuCurrently": {
+            "type": "integer",
+            "description": "Number of individuals currently in an ICU.",
+            "nullable": true
           },
-          "inIcuCumulative" : {
-            "type" : "integer",
-            "description" : "Total number of individuals that have been in the ICU.",
-            "nullable" : true
+          "inIcuCumulative": {
+            "type": "integer",
+            "description": "Total number of individuals that have been in the ICU.",
+            "nullable": true
           },
-          "onVentilatorCurrently" : {
-            "type" : "integer",
-            "description" : "Number of individuals currently on a ventilator.",
-            "nullable" : true
+          "onVentilatorCurrently": {
+            "type": "integer",
+            "description": "Number of individuals currently on a ventilator.",
+            "nullable": true
           },
-          "onVentilatorCumulative" : {
-            "type" : "integer",
-            "description" : "Total number of individuals that have been on a ventilator.",
-            "nullable" : true
+          "onVentilatorCumulative": {
+            "type": "integer",
+            "description": "Total number of individuals that have been on a ventilator.",
+            "nullable": true
           },
-          "recovered" : {
-            "type" : "integer",
-            "description" : "Total number of individuals that have tested negative after a previous positive test.",
-            "nullable" : true
+          "recovered": {
+            "type": "integer",
+            "description": "Total number of individuals that have tested negative after a previous positive test.",
+            "nullable": true
           },
-          "hash" : {
-            "example" : "3c87534fcc1b6850241042317032bbc4b3708878",
-            "type" : "string",
-            "description" : "A unique ID changed every time the data updates. Survives a cache reset.",
-            "nullable" : true
+          "hash": {
+            "example": "3c87534fcc1b6850241042317032bbc4b3708878",
+            "type": "string",
+            "description": "A unique ID changed every time the data updates. Survives a cache reset.",
+            "nullable": true
           },
-          "lastModified" : {
-            "example" : "2020-04-30T00:14:51.862Z",
-            "type" : "string",
-            "description" : " The date the API cache was last updated. Even if the values didn’t change but the cache was manually cleared or reset the date will reflect that time of reset and doesn’t necessarily indicate an update was made. Manual cache clearing is rare however.",
-            "nullable" : true
+          "lastModified": {
+            "example": "2020-04-30T00:14:51.862Z",
+            "type": "string",
+            "description": " The date the API cache was last updated. Even if the values didn’t change but the cache was manually cleared or reset the date will reflect that time of reset and doesn’t necessarily indicate an update was made. Manual cache clearing is rare however.",
+            "nullable": true
           },
-          "death" : {
-            "type" : "integer",
-            "description" : "Total cumulative number of people that have died.",
-            "nullable" : true
+          "death": {
+            "type": "integer",
+            "description": "Total cumulative number of people that have died.",
+            "nullable": true
           },
-          "hospitalized" : {
-            "type" : "integer",
-            "description" : "Total cumulative number of people hospitalized.",
-            "nullable" : true
+          "hospitalized": {
+            "type": "integer",
+            "description": "Total cumulative number of people hospitalized.",
+            "nullable": true
           },
-          "total" : {
-            "type" : "integer",
-            "description" : "DEPRECATED Will be removed in the future. (positive + negative + pending). Pending has been an unstable value and should not count in any totals.",
-            "nullable" : true
+          "total": {
+            "type": "integer",
+            "description": "DEPRECATED Will be removed in the future. (positive + negative + pending). Pending has been an unstable value and should not count in any totals.",
+            "nullable": true
           },
-          "totalTestResults" : {
-            "type" : "integer",
-            "description" : "Calculated value (positive + negative) of total test results.",
-            "nullable" : true
+          "totalTestResults": {
+            "type": "integer",
+            "description": "Calculated value (positive + negative) of total test results.",
+            "nullable": true
           },
-          "posNeg" : {
-            "type" : "integer",
-            "description" : "DEPRECATED Renamed to totalTestResults.",
-            "nullable" : true
+          "posNeg": {
+            "type": "integer",
+            "description": "DEPRECATED Renamed to totalTestResults.",
+            "nullable": true
           },
-          "notes" : {
-            "example" : "NOTE: \"total\", \"posNeg\", \"hospitalized\" will be removed in the future.",
-            "type" : "string",
-            "nullable" : true
+          "notes": {
+            "example": "NOTE: \"total\", \"posNeg\", \"hospitalized\" will be removed in the future.",
+            "type": "string",
+            "nullable": true
           }
         }
       },
-      "BasicHistoricalData" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/BasicData"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "date" : {
-              "type" : "integer",
-              "nullable" : false,
-              "example" : 20200429
-            },
-            "deathIncrease" : {
-              "type" : "integer",
-              "nullable" : true,
-              "description" : "Increase from the day before."
-            },
-            "hospitalizedIncrease" : {
-              "type" : "integer",
-              "nullable" : true,
-              "description" : "Increase from the day before."
-            },
-            "negativeIncrease" : {
-              "type" : "integer",
-              "nullable" : true,
-              "description" : "Increase from the day before."
-            },
-            "positiveIncrease" : {
-              "type" : "integer",
-              "nullable" : true,
-              "description" : "Increase from the day before."
-            },
-            "totalTestResultsIncrease" : {
-              "type" : "integer",
-              "nullable" : true,
-              "description" : "Increase from the day before."
+      "BasicHistoricalData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BasicData"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "integer",
+                "nullable": false,
+                "example": 20200429
+              },
+              "deathIncrease": {
+                "type": "integer",
+                "nullable": true,
+                "description": "Increase from the day before."
+              },
+              "hospitalizedIncrease": {
+                "type": "integer",
+                "nullable": true,
+                "description": "Increase from the day before."
+              },
+              "negativeIncrease": {
+                "type": "integer",
+                "nullable": true,
+                "description": "Increase from the day before."
+              },
+              "positiveIncrease": {
+                "type": "integer",
+                "nullable": true,
+                "description": "Increase from the day before."
+              },
+              "totalTestResultsIncrease": {
+                "type": "integer",
+                "nullable": true,
+                "description": "Increase from the day before."
+              },
+              "lastUpdateEt": {
+                "type": "string",
+                "nullable": true,
+                "description": "The time when the data was published.",
+                "schema": {
+                  "type": "string",
+                  "example": 20200408
+                }
+              },
+              "dataQualityGrade": {
+                "type": "string",
+                "nullable": true,
+                "description": "The state's data quality grade.",
+                "schema": {
+                  "type": "string",
+                  "example": "A"
+                }
+              }
             }
           }
-        } ]
+        ]
       }
     }
   }
