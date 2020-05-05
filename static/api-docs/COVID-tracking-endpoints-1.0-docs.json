@@ -861,6 +861,16 @@
               "type" : "integer",
               "nullable" : true,
               "description" : "Increase from the day before."
+            },
+            "lastUpdateEt" : {
+              "type" : "date",
+              "nullable" : true,
+              "description" : "The time when the data was published."
+            },
+            "grade" : {
+              "type" : "string",
+              "nullable" : true,
+              "description" : "The state's data quality grade."
             }
           }
         } ]
