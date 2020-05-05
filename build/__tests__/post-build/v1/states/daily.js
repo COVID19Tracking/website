@@ -35,7 +35,7 @@ describe('File : States : Daily', () => {
       positiveIncrease: expect.anything(),
       totalTestResultsIncrease: expect.anything(),
       lastUpdateEt: expect.anything(),
-      grade: expect.anything(),
+      dataQualityGrade: expect.anything(),
     }
 
     fs.createReadStream('_data/v1/states/daily.csv')

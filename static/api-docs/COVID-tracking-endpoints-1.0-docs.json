@@ -911,7 +911,7 @@
                   "example": 20200408
                 }
               },
-              "grade": {
+              "dataQualityGrade": {
                 "type": "string",
                 "nullable": true,
                 "description": "The state's data quality grade.",
