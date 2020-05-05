@@ -15,7 +15,6 @@ const Chart = ({ data, isMobile }) => {
   const bottomLabelOffset = isMobile ? 50 : 25
   const barWidth = isMobile ? 10 : 5
   const fontSize = isMobile ? 40 : 15
-  const textHeight = isMobile ? 28 : 16
   const cdcList = {}
   const cdc = []
   const ctp = []
@@ -106,7 +105,6 @@ const Chart = ({ data, isMobile }) => {
                           {tick.toLocaleString()}
                         </tspan>
                         <tspan x="0" dy="1em">
-
                           {' '}
                           new tests
                         </tspan>
