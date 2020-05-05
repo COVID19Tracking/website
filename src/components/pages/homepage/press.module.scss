@@ -8,8 +8,10 @@
 }
 
 .list {
+  margin-bottom: 3rem;
   @media (min-width: $viewport-lg) {
     padding-right: 4rem;
+    margin-bottom: 0;
   }
 }
 
