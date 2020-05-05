@@ -5,9 +5,8 @@
   margin-top: 1.5rem;
   @media (min-width: $viewport-lg) {
     display: grid;
-    flex-wrap: wrap;
-    grid-column-gap: 2%;
-    grid-template-columns: repeat(3, 32%);
+    grid-column-gap: 1%;
+    grid-template-columns: repeat(3, 32.66666%);
   }
 }
 
@@ -22,14 +21,14 @@
   }
   .number,
   .label {
-    margin-right: 15px;
+    margin-right: 8px;
   }
   .number {
     font-weight: bold;
     font-size: 30px;
     font-size: 1.875rem;
     line-height: 1.2;
-    margin-top: 12px;
+    margin-top: 6px;
     margin-bottom: 2px;
   }
   .label {
@@ -37,7 +36,7 @@
     font-size: 0.8125rem;
     line-height: 1rem;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
   }
 }
 
