@@ -3,7 +3,7 @@
 
 .hero {
   padding-top: 35px;
-  background: #5667ad;
+  background: $color-plum-550;
   color: white;
   @media (min-width: $viewport-md) {
     padding: 70px 0 30px 40px;
@@ -69,7 +69,7 @@
 }
 
 .chart-line {
-  stroke: #5667ad;
+  stroke: $color-plum-550;
   stroke-width: 1.5px;
 }
 
