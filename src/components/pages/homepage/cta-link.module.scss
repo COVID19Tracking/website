@@ -2,8 +2,7 @@
 
 .cta {
   color: $color-honey-700;
-  &::after {
-    content: "→";
+  .arrow {
     text-decoration: none;
     display: inline-block;
     margin-left: 0.2rem;

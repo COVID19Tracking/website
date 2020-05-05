@@ -8,5 +8,9 @@ export default ({ to, children, centered = false }) => (
     className={`${ctaLinkStyle.cta} ${centered ? ctaLinkStyle.centered : ''}`}
   >
     {children}
+    <span className={ctaLinkStyle.arrow} aria-hidden="true">
+      {' '}
+      →
+    </span>
   </Link>
 )
