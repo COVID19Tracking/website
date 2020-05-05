@@ -1,11 +1,20 @@
-.list {
-  width: 50%;
-}
+@import '~scss/breakpoints.module.scss';
+
+.list,
 .logos {
-  width: 50%;
+  @media (min-width: $viewport-lg) {
+    width: 50%;
+  }
 }
 
-.section {
+.list {
+  @media (min-width: $viewport-lg) {
+    padding-right: 4rem;
+  }
+}
+
+.press {
+  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
 }

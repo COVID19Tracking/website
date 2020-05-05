@@ -5,16 +5,18 @@ import CtaLink from './cta-link'
 import pressStyles from './press.module.scss'
 
 export default () => (
-  <section className={pressStyles.section}>
-    <div className={pressStyles.list}>
-      <h3>Who&apos;s using our data</h3>
-      <InThePress />
+  <section>
+    <h3>Who&apos;s using our data</h3>
+    <div className={pressStyles.press}>
+      <div className={pressStyles.list}>
+        <InThePress />
+      </div>
+      <div className={pressStyles.logos}>
+        <PressLogos onlyFeatured />
+      </div>
+      <CtaLink to="about-project/in-the-press" centered>
+        See what else our data powers
+      </CtaLink>
     </div>
-    <div className={pressStyles.logos}>
-      <PressLogos onlyFeatured />
-    </div>
-    <CtaLink to="about-project/in-the-press" centered>
-      See what else our data powers
-    </CtaLink>
   </section>
 )

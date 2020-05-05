@@ -8,9 +8,14 @@
   }
 
   a {
+    color: black;
+    text-decoration: none;
     font-weight: bold;
     display: block;
     margin-bottom: 0.25rem;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   .dot-separator {
     display: inline-block;
