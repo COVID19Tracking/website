@@ -33,7 +33,7 @@ const Chart = ({ data, isMobile }) => {
   })
 
   data.allCovidUsDaily.nodes.forEach(node => {
-    if (node.date > maxDate || (isMobile && node.date <= 20200301)) {
+    if (node.date > maxDate || node.date < 20200226) {
       return
     }
     ctp.push({
@@ -66,6 +66,7 @@ const Chart = ({ data, isMobile }) => {
         {ctp.map(d => (
           <rect
             key={d.date + d.value}
+            className={heroStyle.chartBar}
             x={xScale(d.date)}
             y={yScale(d.value)}
             height={yScale(0) - yScale(d.value)}
@@ -78,6 +79,7 @@ const Chart = ({ data, isMobile }) => {
         {cdc.map(d => (
           <rect
             key={d.date + d.value}
+            className={heroStyle.chartBar}
             x={xScale(d.date)}
             y={yScale(d.value)}
             height={yScale(0) - yScale(d.value)}
@@ -86,7 +88,7 @@ const Chart = ({ data, isMobile }) => {
           />
         ))}
       </g>
-      <g transform="translate(0 0)">
+      <g transform="translate(0 0)" className={heroStyle.chartYAxis}>
         {yScale.ticks(4).map(
           (tick, i) =>
             i !== 0 &&
@@ -97,13 +99,14 @@ const Chart = ({ data, isMobile }) => {
                   x={width + labelOffset / 2}
                   className={heroStyle.chartLegend}
                 >
-                  <text style={{ fill: 'white', fontSize }} x="0" y="0">
+                  <text x="0" y="0">
                     {tick === 300000 ? (
                       <>
-                        <tspan x="0" dy={textHeight}>
+                        <tspan x="0" dy="0">
                           {tick.toLocaleString()}
                         </tspan>
-                        <tspan x="0" dy={textHeight}>
+                        <tspan x="0" dy="1em">
+
                           {' '}
                           new tests
                         </tspan>
@@ -124,7 +127,7 @@ const Chart = ({ data, isMobile }) => {
             ),
         )}
       </g>
-      <g transform="translate(0, 0)">
+      <g transform="translate(0, 0)" className={heroStyle.chartXAxis}>
         {ctp.map(d => {
           if (DateTime.fromISO(d.date).day !== 1) {
             return null

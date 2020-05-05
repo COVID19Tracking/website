@@ -1,6 +1,9 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
 
+$mobile-offset-x: 4.5%;
+$mobile-offset-y: -3%;
+
 .hero {
   padding-top: 35px;
   background: $color-plum-550;
@@ -65,20 +68,44 @@
 
 .chart-bar {
   margin: 0 1px;
+
+  transform: translateY($mobile-offset-y);
+
+  @media (min-width: $viewport-ms) {
+    transform: translateY(0);
+  }
 }
 
 .chart-line {
   stroke: $color-plum-550;
   stroke-width: 1.5px;
+  transform: translateX($mobile-offset-x * -1.1);
+
+  @media (min-width: $viewport-ms) {
+    transform: translateX(0);
+  }
 }
 
 .chart-legend {
-  color: white;
-  font-size: 14px;
+  fill: white;
+  font-size: 30px;
   overflow: visible !important;
   text-anchor: end;
-  text {
-    color: white;
+  
+  @media (min-width: $viewport-ms) {
+    font-size: 14px;
+  }
+}
+
+.chart-x-axis {
+
+}
+
+.chart-y-axis {
+  transform: translateX($mobile-offset-x) translateY($mobile-offset-y);
+
+  @media (min-width: $viewport-ms) {
+    transform: translateX(0) translateY(0);
   }
 }
 
