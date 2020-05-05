@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react'
 import {
   Combobox,
@@ -21,6 +22,7 @@ export default () => {
   const [searchState, searchDispatch] = useSearch()
   const [showResults, setShowResults] = useState(true)
   const { query, results } = searchState
+  const id = 'header-search-autocomplete'
 
   function setQuery(value) {
     if (!value) {
@@ -81,11 +83,11 @@ export default () => {
 
   return (
     <Combobox openOnFocus>
-      <label htmlFor="header-search-autocomplete" className="a11y-only">
+      <label htmlFor={id} className="a11y-only">
         Search
       </label>
       <ComboboxInput
-        id="header-search-autocomplete"
+        id={id}
         placeholder="Search"
         autoComplete="off"
         onChange={event => {
