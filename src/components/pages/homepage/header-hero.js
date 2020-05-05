@@ -8,11 +8,14 @@ import colors from '~scss/colors.module.scss'
 import containerStyle from '~components/common/container.module.scss'
 import homepageContainerStyle from './container.module.scss'
 
-const Chart = ({ data }) => {
+const Chart = ({ data, isMobile }) => {
   const width = 1140
   const height = 700
-  const labelOffset = 120
-  const bottomLabelOffset = 25
+  const labelOffset = isMobile ? 320 : 120
+  const bottomLabelOffset = isMobile ? 50 : 25
+  const barWidth = isMobile ? 10 : 5
+  const fontSize = isMobile ? 40 : 15
+  const textHeight = isMobile ? 28 : 16
   const cdcList = {}
   const cdc = []
   const ctp = []
@@ -30,7 +33,7 @@ const Chart = ({ data }) => {
   })
 
   data.allCovidUsDaily.nodes.forEach(node => {
-    if (node.date > maxDate) {
+    if (node.date > maxDate || (isMobile && node.date <= 20200301)) {
       return
     }
     ctp.push({
@@ -54,8 +57,6 @@ const Chart = ({ data }) => {
     .domain([0, max(ctp, d => d.value)])
     .nice()
     .range([height, 0])
-
-  const barWidth = 5
   return (
     <svg
       viewBox={`0 0 ${width + labelOffset} ${height + bottomLabelOffset}`}
@@ -96,13 +97,13 @@ const Chart = ({ data }) => {
                   x={width + labelOffset / 2}
                   className={heroStyle.chartLegend}
                 >
-                  <text style={{ fill: 'white' }} x="0" y="0">
+                  <text style={{ fill: 'white', fontSize }} x="0" y="0">
                     {tick === 300000 ? (
                       <>
-                        <tspan x="0" dy="16px">
+                        <tspan x="0" dy={textHeight}>
                           {tick.toLocaleString()}
                         </tspan>
-                        <tspan x="0" dy="16px">
+                        <tspan x="0" dy={textHeight}>
                           {' '}
                           new tests
                         </tspan>
@@ -131,11 +132,11 @@ const Chart = ({ data }) => {
           return (
             <text
               className={heroStyle.chartLegend}
-              style={{ fill: 'white' }}
+              style={{ fill: 'white', fontSize }}
               x={xScale(d.date)}
-              y={height + 20}
+              y={height + (isMobile ? 40 : 20)}
             >
-              {DateTime.fromISO(d.date).toFormat('LLL')}
+              {DateTime.fromISO(d.date).toFormat('LLLL')}
             </text>
           )
         })}
@@ -197,6 +198,10 @@ export default () => {
         </div>
         <div className={heroStyle.chartWrapper}>
           <Chart data={data} />
+        </div>
+
+        <div className={`${heroStyle.chartWrapper} ${heroStyle.isMobile}`}>
+          <Chart data={data} isMobile />
         </div>
       </div>
     </div>

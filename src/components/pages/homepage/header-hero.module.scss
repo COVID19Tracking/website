@@ -50,6 +50,16 @@
     max-width: 100%;
     padding-right: -150px;
     overflow-x: hidden;
+    display: none;
+    @media (min-width: $viewport-lg) {
+      display: block;
+    }
+    &.is-mobile {
+      display: block;
+      @media (min-width: $viewport-lg) {
+        display: none;
+      }
+    }
   }
 }
 
