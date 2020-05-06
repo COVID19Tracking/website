@@ -189,7 +189,7 @@ export default () => {
             <span className={heroStyle.cdcCount}>
               {cdcTotal.toLocaleString()}
             </span>{' '}
-            of tests to date across the US. Using a rigorous data-collection
+            tests to date across the US. Using a rigorous data-collection
             process, we&apos;ve counted{' '}
             <span className={heroStyle.ctpCount}>
               {data.allCovidUs.nodes[0].posNeg.toLocaleString()}

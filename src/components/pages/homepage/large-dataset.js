@@ -29,11 +29,18 @@ export default () => {
         )}
         <h3>Johns Hopkins</h3>
         <p>
-          Johns Hopkins relies on our testing data for its COVID-19 Testing
-          Insights Initiative, which brings data and expert analysis together in
-          one place. The initiative is designed to help policymakers and the
-          public understand the trajectory of the pandemic, and make decisions
-          about the path forward.
+          Johns Hopkins relies on our testing data for its{' '}
+          <a
+            href="https://coronavirus.jhu.edu/testing"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            COVID-19 Testing Insights Initiative
+          </a>
+          , which brings data and expert analysis together in one place. The
+          initiative is designed to help policymakers and the public understand
+          the trajectory of the pandemic, and make decisions about the path
+          forward.
         </p>
       </div>
     </div>
