@@ -14,6 +14,14 @@ describe('Components : Common: Swagger sandbox', () => {
   })
 })
 
+describe('Components : Common: Swagger sandbox : Undefined window', () => {
+  it('renders correctly', () => {
+    window = undefined
+    const tree = renderer.create(<SwaggerSandbox />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})
+
 afterEach(() => {
   delete window.SwaggerUI
 })
