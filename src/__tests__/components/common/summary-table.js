@@ -1,6 +1,18 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { useStaticQuery } from 'gatsby'
 import SummaryTable from '../../../components/common/summary-table'
+
+beforeEach(() => {
+  useStaticQuery.mockImplementation(() => ({
+    site: {
+      siteMetadata: {
+        buildDate: '6:00 pm ET',
+        inDST: false,
+      },
+    },
+  }))
+})
 
 const tableData = {
   totalTestResults: 37890,

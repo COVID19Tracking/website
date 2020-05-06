@@ -18,6 +18,7 @@ const gatsbyConfig = {
     buildDate: DateTime.fromObject({ zone: 'America/New_York' })
       .toFormat('h:mm a')
       .toLowerCase(),
+    inDST: DateTime.fromObject({ zone: 'America/New_York' }).isInDST,
   },
   plugins: [
     'gatsby-plugin-sitemap',
