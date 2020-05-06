@@ -10,7 +10,7 @@ $label-offset-y: 25;
   padding-top: 35px;
   background: $color-plum-550;
   color: white;
-  abbr {
+  abbr[title] {
     text-decoration: none;
   }
   @media (min-width: $viewport-md) {
