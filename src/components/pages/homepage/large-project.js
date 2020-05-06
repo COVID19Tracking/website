@@ -24,13 +24,15 @@ export default () => {
     <div className={largeProjectStyles.wrapper}>
       <Container>
         {data.file.childImageSharp && (
-          <Link to="/race">
-            <Img
-              fluid={data.file.childImageSharp.fluid}
-              alt="Illustration of a face split into strips of different colored skintones on a light purple background."
-            />
+          <>
+            <Link to="/race">
+              <Img
+                fluid={data.file.childImageSharp.fluid}
+                alt="Illustration of a face split into strips of different colored skintones on a light purple background."
+              />
+            </Link>
             <ImageCredit>Mohini Dutta / COVID Tracking Project</ImageCredit>
-          </Link>
+          </>
         )}
         <h3>
           <Link to="/race">
