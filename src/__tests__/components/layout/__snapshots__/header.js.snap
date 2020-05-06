@@ -39,6 +39,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             />
           </form>
           <button
+            aria-label="Submit search"
             className="searchSubmit"
             onClick={[Function]}
             type="button"
@@ -72,7 +73,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
         </nav>
         <a
           className="getInvolved"
-          href="/help"
+          href="/about-project/help"
         >
           Get Involved
         </a>
@@ -158,6 +159,12 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                   <div
                     data-reach-combobox=""
                   >
+                    <label
+                      className="a11y-only"
+                      htmlFor="header-search-autocomplete"
+                    >
+                      Search
+                    </label>
                     <input
                       aria-autocomplete="both"
                       aria-controls="listbox--1"
@@ -165,7 +172,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                       aria-haspopup="listbox"
                       autoComplete="off"
                       data-reach-combobox-input=""
-                      id="header-search"
+                      id="header-search-autocomplete"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onClick={[Function]}
@@ -178,6 +185,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                     />
                   </div>
                   <button
+                    aria-label="Submit search"
                     className="searchSubmit"
                     onClick={[Function]}
                     type="button"
@@ -191,7 +199,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 </div>
                 <a
                   className="getInvolved"
-                  href="/help"
+                  href="/about-project/help"
                 >
                   Get involved
                 </a>
@@ -275,24 +283,59 @@ exports[`Components : Layout : Header renders correctly 2`] = `
         <div
           className="searchInput"
         >
-          <form
-            action="/search"
-            method="get"
-            onSubmit={[Function]}
+          <div
+            className="searchInput"
           >
-            <input
-              autoComplete="off"
-              name="q"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              placeholder="Search"
-              type="search"
-            />
-          </form>
-          <button
-            className="searchSubmit"
-            onClick={[Function]}
-            type="button"
+            <form
+              action="/search"
+              method="get"
+              onSubmit={[Function]}
+            >
+              <input
+                autoComplete="off"
+                name="q"
+                onBlur={[Function]}
+                onFocus={[Function]}
+                placeholder="Search"
+                type="search"
+              />
+            </form>
+            <button
+              aria-label="Submit search"
+              className="searchSubmit"
+              onClick={[Function]}
+              type="button"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="test-file-stub"
+              />
+            </button>
+          </div>
+          <nav
+            className="js-disabled-block"
+          >
+            <ul>
+              <li>
+                <a
+                  href="/test-a"
+                >
+                  Test A
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/test-b"
+                >
+                  Test B
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <a
+            className="getInvolved"
+            href="/about-project/help"
           >
             <img
               alt=""
@@ -409,16 +452,37 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                   <div
                     data-reach-combobox=""
                   >
-                    <input
-                      aria-autocomplete="both"
-                      aria-controls="listbox--3"
-                      aria-expanded={false}
-                      aria-haspopup="listbox"
-                      autoComplete="off"
-                      data-reach-combobox-input=""
-                      id="header-search"
-                      onBlur={[Function]}
-                      onChange={[Function]}
+                    <div
+                      data-reach-combobox=""
+                    >
+                      <label
+                        className="a11y-only"
+                        htmlFor="header-search-autocomplete"
+                      >
+                        Search
+                      </label>
+                      <input
+                        aria-autocomplete="both"
+                        aria-controls="listbox--3"
+                        aria-expanded={false}
+                        aria-haspopup="listbox"
+                        autoComplete="off"
+                        data-reach-combobox-input=""
+                        id="header-search-autocomplete"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onSelect={[Function]}
+                        placeholder="Search"
+                        role="combobox"
+                        value=""
+                      />
+                    </div>
+                    <button
+                      aria-label="Submit search"
+                      className="searchSubmit"
                       onClick={[Function]}
                       onFocus={[Function]}
                       onKeyDown={[Function]}
@@ -428,10 +492,9 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                       value=""
                     />
                   </div>
-                  <button
-                    className="searchSubmit"
-                    onClick={[Function]}
-                    type="button"
+                  <a
+                    className="getInvolved"
+                    href="/about-project/help"
                   >
                     <img
                       alt=""
@@ -541,6 +604,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             />
           </form>
           <button
+            aria-label="Submit search"
             className="searchSubmit"
             onClick={[Function]}
             type="button"
@@ -574,7 +638,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
         </nav>
         <a
           className="getInvolved"
-          href="/help"
+          href="/about-project/help"
         >
           Get Involved
         </a>
@@ -660,6 +724,12 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                   <div
                     data-reach-combobox=""
                   >
+                    <label
+                      className="a11y-only"
+                      htmlFor="header-search-autocomplete"
+                    >
+                      Search
+                    </label>
                     <input
                       aria-autocomplete="both"
                       aria-controls="listbox--4"
@@ -667,7 +737,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                       aria-haspopup="listbox"
                       autoComplete="off"
                       data-reach-combobox-input=""
-                      id="header-search"
+                      id="header-search-autocomplete"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onClick={[Function]}
@@ -680,6 +750,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                     />
                   </div>
                   <button
+                    aria-label="Submit search"
                     className="searchSubmit"
                     onClick={[Function]}
                     type="button"
@@ -693,7 +764,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 </div>
                 <a
                   className="getInvolved"
-                  href="/help"
+                  href="/about-project/help"
                 >
                   Get involved
                 </a>

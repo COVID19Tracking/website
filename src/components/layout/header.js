@@ -68,6 +68,7 @@ const HeaderSearch = ({ children }) => {
       <button
         type="button"
         className={headerStyle.searchSubmit}
+        aria-label="Submit search"
         onClick={() => query && navigate(`/search?q=${query}`)}
       >
         <img
@@ -108,7 +109,7 @@ const MobileMenu = () => {
       </HeaderSearch>
 
       <HeaderNavigation />
-      <Link to="/help" className={headerStyle.getInvolved}>
+      <Link to="/about-project/help" className={headerStyle.getInvolved}>
         Get Involved
       </Link>
       <div className={headerStyle.mobilePointer} />
@@ -168,13 +169,31 @@ const Header = withSearch(({ title, titleLink, noMargin, navigation }) => {
                     {showMobileMenu ? <>Close</> : <>Menu</>}
                   </button>
                 </div>
-                <div className={headerStyle.tools}>
-                  <HeaderSearch>
-                    <SearchAutocomplete id="header-search" />
-                  </HeaderSearch>
-                  <Link to="/help" className={headerStyle.getInvolved}>
-                    Get involved
-                  </Link>
+                <div className={headerStyle.siteNavContainer}>
+                  <div className={headerStyle.navContainer}>
+                    <button
+                      className={headerStyle.mobileToggle}
+                      type="button"
+                      aria-expanded={showMobileMenu}
+                      onClick={() => {
+                        setShowMobileMenu(!showMobileMenu)
+                      }}
+                    >
+                      {showMobileMenu ? <>Close</> : <>Menu</>}
+                    </button>
+                  </div>
+                  <div className={headerStyle.tools}>
+                    <HeaderSearch>
+                      <SearchAutocomplete />
+                    </HeaderSearch>
+                    <Link
+                      to="/about-project/help"
+                      className={headerStyle.getInvolved}
+                    >
+                      Get involved
+                    </Link>
+                  </div>
+                  <HeaderNavigation />
                 </div>
                 <HeaderNavigation />
               </div>

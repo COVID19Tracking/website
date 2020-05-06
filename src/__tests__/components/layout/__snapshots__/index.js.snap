@@ -47,6 +47,7 @@ Array [
               />
             </form>
             <button
+              aria-label="Submit search"
               className="searchSubmit"
               onClick={[Function]}
               type="button"
@@ -80,7 +81,7 @@ Array [
           </nav>
           <a
             className="getInvolved"
-            href="/help"
+            href="/about-project/help"
           >
             Get Involved
           </a>
@@ -166,6 +167,12 @@ Array [
                     <div
                       data-reach-combobox=""
                     >
+                      <label
+                        className="a11y-only"
+                        htmlFor="header-search-autocomplete"
+                      >
+                        Search
+                      </label>
                       <input
                         aria-autocomplete="both"
                         aria-controls="listbox--1"
@@ -173,7 +180,7 @@ Array [
                         aria-haspopup="listbox"
                         autoComplete="off"
                         data-reach-combobox-input=""
-                        id="header-search"
+                        id="header-search-autocomplete"
                         onBlur={[Function]}
                         onChange={[Function]}
                         onClick={[Function]}
@@ -186,6 +193,7 @@ Array [
                       />
                     </div>
                     <button
+                      aria-label="Submit search"
                       className="searchSubmit"
                       onClick={[Function]}
                       type="button"
@@ -199,7 +207,7 @@ Array [
                   </div>
                   <a
                     className="getInvolved"
-                    href="/help"
+                    href="/about-project/help"
                   >
                     Get involved
                   </a>
@@ -398,6 +406,7 @@ Array [
               />
             </form>
             <button
+              aria-label="Submit search"
               className="searchSubmit"
               onClick={[Function]}
               type="button"
@@ -431,7 +440,7 @@ Array [
           </nav>
           <a
             className="getInvolved"
-            href="/help"
+            href="/about-project/help"
           >
             Get Involved
           </a>
@@ -517,6 +526,12 @@ Array [
                     <div
                       data-reach-combobox=""
                     >
+                      <label
+                        className="a11y-only"
+                        htmlFor="header-search-autocomplete"
+                      >
+                        Search
+                      </label>
                       <input
                         aria-autocomplete="both"
                         aria-controls="listbox--3"
@@ -524,7 +539,7 @@ Array [
                         aria-haspopup="listbox"
                         autoComplete="off"
                         data-reach-combobox-input=""
-                        id="header-search"
+                        id="header-search-autocomplete"
                         onBlur={[Function]}
                         onChange={[Function]}
                         onClick={[Function]}
@@ -537,6 +552,7 @@ Array [
                       />
                     </div>
                     <button
+                      aria-label="Submit search"
                       className="searchSubmit"
                       onClick={[Function]}
                       type="button"
@@ -550,7 +566,7 @@ Array [
                   </div>
                   <a
                     className="getInvolved"
-                    href="/help"
+                    href="/about-project/help"
                   >
                     Get involved
                   </a>
