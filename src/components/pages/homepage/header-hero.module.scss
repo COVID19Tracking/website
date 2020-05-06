@@ -10,6 +10,9 @@ $label-offset-y: 25;
   padding-top: 35px;
   background: $color-plum-550;
   color: white;
+  abbr {
+    text-decoration: none;
+  }
   @media (min-width: $viewport-md) {
     padding: 70px 0 30px 0;
   }
