@@ -177,8 +177,8 @@ export default () => {
       <div className={`${containerStyle.container} ${heroStyle.container}`}>
         <div className={`${homepageContainerStyle.container}`}>
           <h2 className={`hero-header ${heroStyle.header}`}>
-            The public needs the most complete data possible about COVID-19 in
-            the United States. No government source is sharing it — so we are.
+            The public deserves the most complete data available about COVID-19
+            in the United States. No official source is providing it, so we are.
           </h2>
           <p className={`hero-paragraph ${heroStyle.paragraph}`}>
             CDC numbers don&apos;t tell the full story. Their official count
