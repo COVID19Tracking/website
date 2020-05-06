@@ -21,6 +21,7 @@ $mobile-offset-y: -3%;
     font-size: 1.75rem;
     line-height: 1.25;
     font-weight: bold;
+    margin-top: 0;
     @media (min-width: $viewport-ms) {
       font-size: 2rem;
     }
@@ -41,24 +42,27 @@ $mobile-offset-y: -3%;
     @media (min-width: $viewport-lg) {
       font-size: 16px;
       max-width: 30rem;
-      bottom: 5rem;
+      bottom: 9rem;
       position: absolute;
     }
     @media (min-width: $viewport-xl) {
-      max-width: 30rem;
-      bottom: 8rem;
+      // max-width: 30rem;
+      bottom: 12rem;
     }
   }
   .chart-wrapper {
-    max-width: 100%;
-    padding-right: -150px;
+    max-width: 80%;
+    margin-left: 20%;
     overflow-x: hidden;
+
+    @media (min-width: $viewport-lg) {
+      padding-top: 8rem;
+    }
   }
 }
 
 .chart-bar {
   margin: 0 1px;
-
   transform: translateY($mobile-offset-y);
 
   @media (min-width: $viewport-ms) {
