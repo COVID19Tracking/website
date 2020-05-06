@@ -60,6 +60,7 @@ const Chart = ({ data, isMobile }) => {
     <svg
       viewBox={`0 0 ${width + labelOffset} ${height + bottomLabelOffset}`}
       style={{ paddingBottom: bottomLabelOffset }}
+      aria-hidden
     >
       <g transform={`translate(0 0 ${labelOffset} ${bottomLabelOffset})`}>
         {ctp.map(d => (

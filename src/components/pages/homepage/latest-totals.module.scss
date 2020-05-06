@@ -10,6 +10,16 @@
   }
 }
 
+.wrapper {
+  position: relative;
+}
+
+.cta-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .total {
   background-color: $color-blueberry-100;
   text-align: right;
@@ -41,8 +51,7 @@
 }
 
 .container {
-  max-width: 900px;
-  margin: 4rem auto;
+  margin: 4rem 0;
 }
 
 .header-container {

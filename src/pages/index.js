@@ -18,8 +18,8 @@ export default () => (
     <SEO title="The COVID Tracking Project" />
     <SkipNavigation />
     <Header siteTitle="The COVID Tracking Project" noMargin />
-    <HeaderHero />
     <SkipNavContent />
+    <HeaderHero />
     <h1 className="a11y-only">The COVID Tracking Project</h1>
 
     <main id="main">

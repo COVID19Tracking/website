@@ -5,6 +5,7 @@ import Paragraph from '~components/pages/homepage/paragraph'
 import CtaLink from './cta-link'
 import latestTotalsStyles from './latest-totals.module.scss'
 
+const role = 'text'
 export default () => {
   const data = useStaticQuery(graphql`
     {
@@ -25,28 +26,32 @@ export default () => {
         cases, hospitalizations, and patient outcomes from every US state and
         territory.
       </Paragraph>
-      <div className={latestTotalsStyles.headerContainer}>
-        <h2>Latest totals:</h2>
-        <CtaLink to="/data">See all data</CtaLink>
-      </div>
-      <div className={latestTotalsStyles.allTotals}>
-        <div className={latestTotalsStyles.total}>
-          <div className={latestTotalsStyles.number}>
-            <FormatNumber number={totals.posNeg} />
-          </div>
-          <div className={latestTotalsStyles.label}>Total test results</div>
+      <div className={latestTotalsStyles.wrapper}>
+        <div className={latestTotalsStyles.headerContainer}>
+          <h2>Latest totals:</h2>
         </div>
-        <div className={latestTotalsStyles.total}>
-          <div className={latestTotalsStyles.number}>
-            <FormatNumber number={totals.positive} />
+        <div className={latestTotalsStyles.allTotals}>
+          <div className={latestTotalsStyles.total} role={role}>
+            <div className={latestTotalsStyles.number}>
+              <FormatNumber number={totals.posNeg} />
+            </div>
+            <div className={latestTotalsStyles.label}>Total test results</div>
           </div>
-          <div className={latestTotalsStyles.label}>Positive cases</div>
-        </div>
-        <div className={latestTotalsStyles.total}>
-          <div className={latestTotalsStyles.number}>
-            <FormatNumber number={totals.death} />
+          <div className={latestTotalsStyles.total}>
+            <div className={latestTotalsStyles.number} role={role}>
+              <FormatNumber number={totals.positive} />
+            </div>
+            <div className={latestTotalsStyles.label}>Positive cases</div>
           </div>
-          <div className={latestTotalsStyles.label}>Deaths</div>
+          <div className={latestTotalsStyles.total}>
+            <div className={latestTotalsStyles.number} role={role}>
+              <FormatNumber number={totals.death} />
+            </div>
+            <div className={latestTotalsStyles.label}>Deaths</div>
+          </div>
+          <span className={latestTotalsStyles.ctaLink}>
+            <CtaLink to="/data">See all data</CtaLink>
+          </span>
         </div>
       </div>
     </div>
