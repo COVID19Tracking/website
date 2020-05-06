@@ -6,7 +6,6 @@
   font-size: 22px;
   font-size: 1.375rem;
   line-height: 1.5;
-  flex-wrap: wrap;
   .headshot-container {
     margin-right: 12px;
     display: inline-flex;
@@ -17,20 +16,21 @@
       margin-right: -5px;
     }
   }
+  .spacer {
+    white-space: pre;
+  }
   .author::after {
     content: "  |  ";
     white-space: pre;
   }
-  .author-date-container {
+  * {
     margin: 0.5rem 0;
     font-size: 1.125rem;
-    * {
-      font-size: 1.125rem;
-      display: inline;
-    }
-    .author-inner {
-      font-weight: bold;
-    }
+    display: inline;
+  }
+  .author-inner {
+    font-weight: bold;
+    display: inline;
   }
   .date {
     color: $color-slate-700;

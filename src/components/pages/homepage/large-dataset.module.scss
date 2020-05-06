@@ -1,0 +1,29 @@
+@import '~scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
+
+.large-dataset {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  @media (min-width: $viewport-lg) {
+    margin-top: 4rem;
+    margin-bottom: 4.5rem;
+  }
+  img {
+    border: 1px solid $color-slate-200;
+  }
+  h3 {
+    @media (min-width: $viewport-lg) {
+      font-size: 1.5rem;
+    }
+    margin-bottom: 0.5rem;
+  }
+  p {
+    color: $text;
+  }
+  .homepage-paragraph {
+    margin-bottom: 2rem;
+    @media (min-width: $viewport-lg) {
+      margin-bottom: 5rem;
+    }
+  }
+}

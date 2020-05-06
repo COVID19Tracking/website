@@ -5,7 +5,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
   className="site-header siteHeader  "
 >
   <div
-    className="container container showBackground "
+    className="container container"
   >
     <div
       className=""
@@ -260,306 +260,262 @@ exports[`Components : Layout : Header renders correctly 1`] = `
 `;
 
 exports[`Components : Layout : Header renders correctly 2`] = `
-<div
-  className="circles"
+<header
+  className="site-header siteHeader  noMargin"
 >
-  <header
-    className="site-header siteHeader  noMargin"
+  <div
+    className="container container"
   >
     <div
-      className="container container  "
+      className=""
+      style={
+        Object {
+          "height": 0,
+          "opacity": 0,
+          "overflow": "hidden",
+          "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+        }
+      }
     >
       <div
-        className=""
-        style={
-          Object {
-            "height": 0,
-            "opacity": 0,
-            "overflow": "hidden",
-            "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
-          }
-        }
+        className="mobileMenu"
       >
         <div
-          className="mobileMenu"
+          className="searchInput"
         >
-          <div
-            className="searchInput"
+          <form
+            action="/search"
+            method="get"
+            onSubmit={[Function]}
           >
-            <form
-              action="/search"
-              method="get"
-              onSubmit={[Function]}
-            >
-              <input
-                autoComplete="off"
-                name="q"
-                onBlur={[Function]}
-                onFocus={[Function]}
-                placeholder="Search"
-                type="search"
-              />
-            </form>
-            <button
-              aria-label="Submit search"
-              className="searchSubmit"
-              onClick={[Function]}
-              type="button"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                src="test-file-stub"
-              />
-            </button>
-          </div>
-          <nav
-            className="js-disabled-block"
+            <input
+              autoComplete="off"
+              name="q"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              placeholder="Search"
+              type="search"
+            />
+          </form>
+          <button
+            aria-label="Submit search"
+            className="searchSubmit"
+            onClick={[Function]}
+            type="button"
           >
-            <ul>
-              <li>
-                <a
-                  href="/test-a"
-                >
-                  Test A
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/test-b"
-                >
-                  Test B
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <a
-            className="getInvolved"
-            href="/about-project/help"
-          >
-            Get Involved
-          </a>
-          <div
-            className="mobilePointer"
-          />
+            <img
+              alt=""
+              aria-hidden="true"
+              src="test-file-stub"
+            />
+          </button>
         </div>
-      </div>
-      <div
-        className=""
-        style={
-          Object {
-            "background": "colorPlum800",
-            "height": "auto",
-            "opacity": 1,
-            "overflow": "unset",
-            "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
-          }
-        }
-      >
-        <div
-          className="banner"
+        <nav
+          className="js-disabled-block"
         >
-          <span
-            className="new"
-          >
-            New
-          </span>
-           
-          <a
-            href="/race"
-          >
-            We just launched the COVID Racial Data Tracker
-          </a>
-        </div>
+          <ul>
+            <li>
+              <a
+                href="/test-a"
+              >
+                Test A
+              </a>
+            </li>
+            <li>
+              <a
+                href="/test-b"
+              >
+                Test B
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <a
+          className="getInvolved"
+          href="/about-project/help"
+        >
+          Get Involved
+        </a>
+        <div
+          className="mobilePointer"
+        />
       </div>
+    </div>
+    <div
+      className=""
+      style={
+        Object {
+          "background": "colorPlum800",
+          "height": "auto",
+          "opacity": 1,
+          "overflow": "unset",
+          "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+        }
+      }
+    >
       <div
-        className="container false container"
+        className="banner"
+      >
+        <span
+          className="new"
+        >
+          New
+        </span>
+         
+        <a
+          href="/race"
+        >
+          We just launched the COVID Racial Data Tracker
+        </a>
+      </div>
+    </div>
+    <div
+      className="container false container"
+    >
+      <div
+        className="layout--content-full"
       >
         <div
-          className="layout--content-full"
+          className="layout--content-primary"
         >
           <div
-            className="layout--content-primary"
+            className="siteTitleContainer"
           >
             <div
-              className="siteTitleContainer"
+              className="siteTitleInner"
+            >
+              <a
+                href="/"
+              >
+                <img
+                  alt="The COVID Tracking Project"
+                  src="test-file-stub"
+                  width="176px"
+                />
+              </a>
+            </div>
+            <div
+              className="siteNavContainer"
             >
               <div
-                className="siteTitleInner"
+                className="navContainer"
               >
-                <a
-                  href="/"
+                <button
+                  aria-expanded={false}
+                  className="mobileToggle"
+                  onClick={[Function]}
+                  type="button"
                 >
-                  <img
-                    alt="The COVID Tracking Project"
-                    src="test-file-stub"
-                    width="176px"
-                  />
-                </a>
+                  Menu
+                </button>
               </div>
               <div
-                className="siteNavContainer"
+                className="tools"
               >
                 <div
-                  className="navContainer"
+                  className="searchInput"
                 >
+                  <div
+                    data-reach-combobox=""
+                  >
+                    <label
+                      className="a11y-only"
+                      htmlFor="header-search-autocomplete"
+                    >
+                      Search
+                    </label>
+                    <input
+                      aria-autocomplete="both"
+                      aria-controls="listbox--3"
+                      aria-expanded={false}
+                      aria-haspopup="listbox"
+                      autoComplete="off"
+                      data-reach-combobox-input=""
+                      id="header-search-autocomplete"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onSelect={[Function]}
+                      placeholder="Search"
+                      role="combobox"
+                      value=""
+                    />
+                  </div>
                   <button
-                    aria-expanded={false}
-                    className="mobileToggle"
+                    aria-label="Submit search"
+                    className="searchSubmit"
                     onClick={[Function]}
                     type="button"
                   >
-                    Menu
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      src="test-file-stub"
+                    />
                   </button>
                 </div>
-                <div
-                  className="tools"
+                <a
+                  className="getInvolved"
+                  href="/about-project/help"
                 >
-                  <div
-                    className="searchInput"
-                  >
-                    <div
-                      data-reach-combobox=""
-                    >
-                      <label
-                        className="a11y-only"
-                        htmlFor="header-search-autocomplete"
-                      >
-                        Search
-                      </label>
-                      <input
-                        aria-autocomplete="both"
-                        aria-controls="listbox--3"
-                        aria-expanded={false}
-                        aria-haspopup="listbox"
-                        autoComplete="off"
-                        data-reach-combobox-input=""
-                        id="header-search-autocomplete"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onClick={[Function]}
-                        onFocus={[Function]}
-                        onKeyDown={[Function]}
-                        onSelect={[Function]}
-                        placeholder="Search"
-                        role="combobox"
-                        value=""
-                      />
-                    </div>
-                    <button
-                      aria-label="Submit search"
-                      className="searchSubmit"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      <img
-                        alt=""
-                        aria-hidden="true"
-                        src="test-file-stub"
-                      />
-                    </button>
-                  </div>
-                  <a
-                    className="getInvolved"
-                    href="/about-project/help"
-                  >
-                    Get involved
-                  </a>
-                </div>
-                <nav
-                  className="js-disabled-block"
-                >
-                  <ul>
-                    <li>
-                      <a
-                        href="/test-a"
-                      >
-                        Test A
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/test-b"
-                      >
-                        Test B
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
+                  Get involved
+                </a>
               </div>
-            </div>
-            <div
-              className="atlanticBanner"
-            >
-              <span>
-                From
-              </span>
-               
-              <img
-                alt="The Atlantic"
-                src="test-file-stub"
-              />
-              <div />
-            </div>
-            <div
-              className="titleSubnavContainer"
-            >
-              <div
-                className="title"
+              <nav
+                className="js-disabled-block"
               >
-                <h1
-                  className="page-title pageTitle extraSpace"
-                >
-                  Sample title
-                </h1>
-              </div>
+                <ul>
+                  <li>
+                    <a
+                      href="/test-a"
+                    >
+                      Test A
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/test-b"
+                    >
+                      Test B
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </header>
-   
-  <div
-    className="container false container"
-  >
-    <div
-      className="layout--content-full"
-    >
-      <div
-        className="layout--content-primary"
-      >
-        <div
-          className="hero hero"
-        >
-          <p
-            className="header"
-          >
-            The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.
-          </p>
           <div
-            className="ctas"
+            className="atlanticBanner"
           >
-            <a
-              className="button"
-              href="/data"
-            >
-              Get the Data
-            </a>
             <span>
-              or
+              From
             </span>
-            <a
-              href="/about-data"
+             
+            <img
+              alt="The Atlantic"
+              src="test-file-stub"
+            />
+            <div />
+          </div>
+          <div
+            className="titleSubnavContainer"
+          >
+            <div
+              className="title"
             >
-              Learn About the Data
-            </a>
+              <h1
+                className="page-title pageTitle extraSpace"
+              >
+                Sample title
+              </h1>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</header>
 `;
 
 exports[`Components : Layout : Header renders correctly 3`] = `
@@ -567,7 +523,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
   className="site-header siteHeader  "
 >
   <div
-    className="container container showBackground "
+    className="container container"
   >
     <div
       className=""

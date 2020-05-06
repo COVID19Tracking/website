@@ -25,6 +25,15 @@ const gatsbyConfig = {
     'gatsby-plugin-eslint',
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-netlify',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'homepageImages',
+        path: `${__dirname}/src/images/homepage`,
+      },
+    },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {

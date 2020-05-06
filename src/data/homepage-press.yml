@@ -1,18 +1,9 @@
 - name: The Atlantic
   logo: the-atlantic.svg
   width: 80
-  featured: true
 - name: The New York Times
   logo: nyt.svg
   width: 180
-  featured: true
-- name: Propublica
-  logo: pro-publica.svg
-  width: 100
-  featured: true
-- name: Vox
-  logo: vox.svg
-  width: 50
   featured: true
 - name: The Washington Post
   logo: wapo.svg
@@ -21,6 +12,14 @@
 - name: CNN
   logo: cnn.svg
   width: 80
+  featured: true
+- name: Vox
+  logo: vox.svg
+  width: 50
+  featured: true
+- name: Propublica
+  logo: pro-publica.svg
+  width: 100
   featured: true
 - name: The Wall Street Journal
   logo: the-wall-street-journal.svg

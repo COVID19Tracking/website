@@ -72,16 +72,16 @@ const Byline = ({ authors, date, smallmargin = false }) => {
             <img
               key={author.headshot.resize.src}
               src={author.headshot.resize.src}
-              alt={author.headshot.file.fileName}
+              alt=""
             />
           ))}
         </div>
       )}
-      <p className={bylineStyles.authorDateContainer}>
-        By{' '}
-        <p className={bylineStyles.author}>
+      <p>
+        <span className={bylineStyles.spacer}>By </span>
+        <span className={bylineStyles.author}>
           <AuthorsText authors={authors} />
-        </p>
+        </span>
         <span className={bylineStyles.date}>{date}</span>
       </p>
     </div>
