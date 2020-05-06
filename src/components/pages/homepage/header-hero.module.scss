@@ -43,7 +43,7 @@ $label-offset-y: 25;
   }
 
   .paragraph {
-    font-size: 13px;
+    font-size: 1rem;
     @media (min-width: $viewport-lg) {
       font-size: 16px;
       max-width: 30rem;

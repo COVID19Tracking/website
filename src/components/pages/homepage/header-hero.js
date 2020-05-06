@@ -175,7 +175,9 @@ export default () => {
   return (
     <div className={`hero ${heroStyle.hero}`}>
       <div className={`${containerStyle.container} ${heroStyle.container}`}>
-        <div className={`${homepageContainerStyle.container}`}>
+        <div
+          className={`${homepageContainerStyle.container} ${homepageContainerStyle.header}`}
+        >
           <h2 className={`hero-header ${heroStyle.header}`}>
             The public deserves the most complete data available about COVID-19
             in the{' '}
