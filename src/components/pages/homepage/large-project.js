@@ -3,6 +3,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import Container from './container'
 import CtaLink from './cta-link'
+import ImageCredit from '~components/common/image-credit'
 import largeProjectStyles from './large-project.module.scss'
 
 export default () => {
@@ -28,6 +29,7 @@ export default () => {
               fluid={data.file.childImageSharp.fluid}
               alt="Illustration of a face split into strips of different colored skintones on a light purple background."
             />
+            <ImageCredit>Mohini Dutta / COVID Tracking Project</ImageCredit>
           </Link>
         )}
         <h3>

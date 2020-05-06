@@ -1,14 +1,9 @@
 import React from 'react'
-import BlogImageStyles from './blog-image.module.scss'
+import ImageCredit from '~components/common/image-credit'
 
-export default ({
-  imageSource,
-  imageAlt,
-  caption,
-  containerStyle = BlogImageStyles.container,
-}) => (
+export default ({ imageSource, imageAlt, caption, containerStyle }) => (
   <div className={containerStyle}>
     <img src={imageSource} alt={imageAlt} />
-    <p>{caption}</p>
+    <ImageCredit>{caption}</ImageCredit>
   </div>
 )
