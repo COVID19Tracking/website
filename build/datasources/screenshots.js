@@ -82,7 +82,6 @@ const datePages = _.flow(_.groupBy('date'), _.map(dateStatePages))
 const statePages = _.flow(
   _.groupBy('state'),
   _.flatMap(value => [
-    { path: `states/${value[0].state}/screenshots`, value },
     { path: `states/${value[0].state.toLowerCase()}/screenshots`, value },
     ...datePages(value),
   ]),
