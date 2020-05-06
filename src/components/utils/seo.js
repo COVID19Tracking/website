@@ -62,7 +62,7 @@ function SEO({ lang, meta, title, description }) {
         },
         {
           name: 'description',
-          content: description ? description : site.siteMetadata.description,
+          content: description || site.siteMetadata.description,
         },
       ].concat(meta)}
     />
