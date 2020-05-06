@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { StaticQuery } from 'gatsby'
+import { useStaticQuery, StaticQuery } from 'gatsby'
 import {
   Infobox,
   SyncInfobox,
@@ -14,10 +14,19 @@ beforeEach(() => {
       site: {
         siteMetadata: {
           buildDate: '6:00 pm ET',
+          inDST: false,
         },
       },
     }),
   )
+  useStaticQuery.mockImplementation(() => ({
+    site: {
+      siteMetadata: {
+        buildDate: '6:00 pm ET',
+        inDST: false,
+      },
+    },
+  }))
 })
 
 describe('Components : Common: Infobox: Infobox', () => {
