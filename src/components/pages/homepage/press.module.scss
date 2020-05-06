@@ -1,0 +1,30 @@
+@import '~scss/breakpoints.module.scss';
+
+.list,
+.logos {
+  @media (min-width: $viewport-lg) {
+    width: 50%;
+  }
+}
+
+.list {
+  margin-bottom: 3rem;
+  @media (min-width: $viewport-lg) {
+    padding-right: 4rem;
+    margin-bottom: 0;
+  }
+}
+
+.press {
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header {
+  font-size: 1.125rem;
+  @media (min-width: $viewport-lg) {
+    font-size: 1.5rem;
+  }
+}

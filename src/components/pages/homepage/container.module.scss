@@ -1,0 +1,26 @@
+@import '~scss/breakpoints.module.scss';
+
+.container {
+  max-width: 864px;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+  @media (min-width: $viewport-md) {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+  @media (min-width: $viewport-lg) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &.header {
+    margin: 0;
+    @media (min-width: $viewport-md) {
+      margin-left: 3rem;
+      margin-right: 3rem;
+    }
+    @media (min-width: $viewport-lg) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

@@ -1,0 +1,137 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+$mobile-offset-x: -82%;
+$mobile-offset-y: -3%;
+$label-offset-x: 120;
+$label-offset-y: 25;
+
+.hero {
+  padding-top: 35px;
+  background: $color-plum-550;
+  color: white;
+  abbr[title] {
+    text-decoration: none;
+  }
+  @media (min-width: $viewport-md) {
+    padding: 70px 0 30px 0;
+  }
+  .container {
+    position: static;
+    @media (min-width: $viewport-lg) {
+      position: relative;
+    }
+  }
+  .header {
+    font-size: 1.75rem;
+    line-height: 1.25;
+    font-weight: bold;
+    margin-top: 0;
+    @media (min-width: $viewport-ms) {
+      font-size: 2rem;
+    }
+    @media (min-width: $viewport-md) {
+      font-size: 3rem;
+    }
+    @media (min-width: $viewport-lg) {
+      max-width: 38rem;
+      position: absolute;
+    }
+    @media (min-width: $viewport-xl) {
+      max-width: 48rem;
+    }
+  }
+
+  .paragraph {
+    font-size: 1rem;
+    @media (min-width: $viewport-lg) {
+      font-size: 16px;
+      max-width: 30rem;
+      bottom: 9rem;
+      position: absolute;
+    }
+    @media (min-width: $viewport-xl) {
+      // max-width: 30rem;
+      bottom: 12rem;
+    }
+  }
+  .chart-wrapper {
+    overflow-x: hidden;
+
+    @media (min-width: $viewport-lg) {
+      padding-top: 8rem;
+      max-width: 80%;
+      margin-left: 20%;
+    }
+  }
+}
+
+.chart {
+  padding-bottom: $label-offset-y;
+  padding-left: 5%;
+  @media (min-width: $viewport-md) {
+    padding-left: 0;
+  }
+}
+
+.chart-bar {
+  margin: 0 1px;
+  transform: translateY($mobile-offset-y);
+  width: 10px;
+  @media (min-width: $viewport-ms) {
+    transform: translateY(0);
+  }
+  @media (min-width: $viewport-lg) {
+    width: 5px;
+  }
+}
+
+.chart-line {
+  stroke: $color-plum-550;
+  stroke-width: 1.5px;
+  transform: translateX($mobile-offset-x * -1.1);
+
+  @media (min-width: $viewport-ms) {
+    transform: translateX(0);
+  }
+}
+
+.chart-legend {
+  fill: white;
+  font-size: 35px;
+  overflow: visible !important;
+  text-anchor: end;
+
+  @media (min-width: $viewport-ms) {
+    font-size: 20px;
+  }
+
+  @media (min-width: $viewport-lg) {
+    font-size: 18px;
+  }
+}
+
+.chart-x-axis {
+}
+
+.chart-y-axis {
+  transform: translateX($mobile-offset-x) translateY($mobile-offset-y);
+
+  @media (min-width: $viewport-ms) {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.ctp-count {
+  border-bottom: 3px solid $color-honey-400;
+  @media (max-width: $viewport-md) {
+    border-width: 3px;
+  }
+}
+
+.cdc-count {
+  border-bottom: 3px solid white;
+  @media (max-width: $viewport-md) {
+    border-width: 3px;
+  }
+}

@@ -13,7 +13,9 @@ export default ({ items }) => {
           </PublicationTitle>
           <DetailText>
             <PublicationSource>{node.publication}</PublicationSource>
-            <span className={pressListStyle.dotSeparator}>•</span>
+            <span className={pressListStyle.dotSeparator} aria-hidden>
+              •
+            </span>
             {node.publishDate}
           </DetailText>
         </li>
