@@ -38,14 +38,13 @@ export default () => {
           </Link>
         </h3>
         <p>
-          We’ve partnered with the Antiracist Research &amp; Policy Center to
-          add racial data to our reporting where it exists, and to push states
-          to provide it where it doesn&apos;t. Together, we&apos;re analyzing
-          this data to uncover the true impact of the outbreak on vulnerable
-          communities.
+          We&apos;re tracking racial and ethnic data from every state that
+          reports it—and pushing those that don&apos;t to start. Together with
+          the Anti-Racism Policy Center, we&apos;re analyzing this data to
+          uncover the true impact of the outbreak on vulnerable communities.
         </p>
         <CtaLink to="/race" centered>
-          See all our data
+          See the racial data tracker
         </CtaLink>
       </Container>
     </div>
