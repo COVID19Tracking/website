@@ -169,31 +169,16 @@ const Header = withSearch(({ title, titleLink, noMargin, navigation }) => {
                     {showMobileMenu ? <>Close</> : <>Menu</>}
                   </button>
                 </div>
-                <div className={headerStyle.siteNavContainer}>
-                  <div className={headerStyle.navContainer}>
-                    <button
-                      className={headerStyle.mobileToggle}
-                      type="button"
-                      aria-expanded={showMobileMenu}
-                      onClick={() => {
-                        setShowMobileMenu(!showMobileMenu)
-                      }}
-                    >
-                      {showMobileMenu ? <>Close</> : <>Menu</>}
-                    </button>
-                  </div>
-                  <div className={headerStyle.tools}>
-                    <HeaderSearch>
-                      <SearchAutocomplete />
-                    </HeaderSearch>
-                    <Link
-                      to="/about-project/help"
-                      className={headerStyle.getInvolved}
-                    >
-                      Get involved
-                    </Link>
-                  </div>
-                  <HeaderNavigation />
+                <div className={headerStyle.tools}>
+                  <HeaderSearch>
+                    <SearchAutocomplete />
+                  </HeaderSearch>
+                  <Link
+                    to="/about-project/help"
+                    className={headerStyle.getInvolved}
+                  >
+                    Get involved
+                  </Link>
                 </div>
                 <HeaderNavigation />
               </div>
