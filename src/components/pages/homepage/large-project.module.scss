@@ -5,9 +5,7 @@
   padding: 60px 0;
   border-top: 1px solid $color-slate-200;
   border-bottom: 1px solid $color-slate-200;
-  @media (min-width: $viewport-lg) {
-    padding: 120px 0 60px 0;
-  }
+
   p {
     margin-bottom: 1.5rem;
     color: $color-slate-700;
@@ -18,6 +16,7 @@
   }
   h3 {
     font-size: 24px;
+    line-height: 1.2;
     @media (min-width: $viewport-lg) {
       font-size: 36px;
     }
