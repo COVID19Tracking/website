@@ -25,7 +25,10 @@ export default () => {
       </Paragraph>
       <div>
         {data.file.childImageSharp && (
-          <Img fluid={data.file.childImageSharp.fluid} alt="" />
+          <Img
+            fluid={data.file.childImageSharp.fluid}
+            alt="Chart from the Johns Hopkins COVID-19 Testing Insights Initiative depicting daily total tests and daily positive tests using COVID Tracking Project data."
+          />
         )}
         <h3>Johns Hopkins</h3>
         <p>

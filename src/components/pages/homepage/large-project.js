@@ -24,7 +24,10 @@ export default () => {
       <Container>
         {data.file.childImageSharp && (
           <Link to="/race">
-            <Img fluid={data.file.childImageSharp.fluid} alt="" />
+            <Img
+              fluid={data.file.childImageSharp.fluid}
+              alt="Illustration of a face split into strips of different colored skintones on a light purple background."
+            />
           </Link>
         )}
         <h3>

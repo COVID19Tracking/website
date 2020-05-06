@@ -28,6 +28,7 @@ export default () => {
       <Dataset
         title="The White House"
         image={data.whiteHouse.childImageSharp.fluid}
+        imageAlt="Image composite showing COVID Tracking Project data in use on a slide from the White House’s 'Opening Up America Again' testing strategy presentation deck."
       >
         The White House chose the COVID Tracking Project as the best source to
         cite for daily US test numbers in its{' '}
@@ -39,6 +40,7 @@ export default () => {
       <Dataset
         title="COVID Exit Strategy"
         image={data.covidExit.childImageSharp.fluid}
+        imageAlt="Screenshot of a COVID Exit Strategy chart that uses COVID Tracking Project data in its state-by-state comparison of interventions, testing, and outcomes."
         flip
       >
         Created by a group of public health and crisis experts,{' '}
