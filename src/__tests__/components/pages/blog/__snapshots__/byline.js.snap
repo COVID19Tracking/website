@@ -8,16 +8,17 @@ exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
     className="headshotContainer"
   >
     <img
-      alt="file.png"
+      alt=""
       src="//images.ctfassets.net/arandomfile"
     />
   </div>
-  <p
-    className="authorDateContainer"
-  >
-    By
-     
-    <p
+  <p>
+    <span
+      className="spacer"
+    >
+      By 
+    </span>
+    <span
       className="author"
     >
       <a
@@ -26,7 +27,7 @@ exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
       >
         test name
       </a>
-    </p>
+    </span>
     <span
       className="date"
     >
@@ -40,12 +41,13 @@ exports[`Components : Pages : Blog : Byline renders correctly 2`] = `
 <div
   className="byline"
 >
-  <p
-    className="authorDateContainer"
-  >
-    By
-     
-    <p
+  <p>
+    <span
+      className="spacer"
+    >
+      By 
+    </span>
+    <span
       className="author"
     >
       <span
@@ -53,7 +55,7 @@ exports[`Components : Pages : Blog : Byline renders correctly 2`] = `
       >
         test name
       </span>
-    </p>
+    </span>
     <span
       className="date"
     >

@@ -21,6 +21,7 @@ exports[`Components : Common: Press list renders correctly 1`] = `
         COVID Test publication
       </span>
       <span
+        aria-hidden={true}
         className="dotSeparator"
       >
         •
@@ -45,6 +46,7 @@ exports[`Components : Common: Press list renders correctly 1`] = `
         COVID Test publication two
       </span>
       <span
+        aria-hidden={true}
         className="dotSeparator"
       >
         •

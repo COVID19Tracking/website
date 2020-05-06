@@ -13,7 +13,7 @@ Array [
     className="site-header siteHeader  "
   >
     <div
-      className="container container showBackground "
+      className="container container"
     >
       <div
         className=""
@@ -364,7 +364,7 @@ Array [
     className="site-header siteHeader  "
   >
     <div
-      className="container container showBackground "
+      className="container container"
     >
       <div
         className=""
