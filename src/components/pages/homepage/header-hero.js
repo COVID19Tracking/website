@@ -8,13 +8,11 @@ import colors from '~scss/colors.module.scss'
 import containerStyle from '~components/common/container.module.scss'
 import homepageContainerStyle from './container.module.scss'
 
-const Chart = ({ data, isMobile }) => {
+const Chart = ({ data }) => {
   const width = 1140
   const height = 700
-  const labelOffset = isMobile ? 320 : 120
-  const bottomLabelOffset = isMobile ? 50 : 25
-  const barWidth = isMobile ? 10 : 5
-  const fontSize = isMobile ? 40 : 15
+  const labelOffset = 120
+  const bottomLabelOffset = 25
   const cdcList = {}
   const cdc = []
   const ctp = []
@@ -59,10 +57,10 @@ const Chart = ({ data, isMobile }) => {
   return (
     <svg
       viewBox={`0 0 ${width + labelOffset} ${height + bottomLabelOffset}`}
-      style={{ paddingBottom: bottomLabelOffset }}
+      className={heroStyle.chart}
       aria-hidden
     >
-      <g transform={`translate(0 0 ${labelOffset} ${bottomLabelOffset})`}>
+      <g transform="translate(0 0)">
         {ctp.map(d => (
           <rect
             key={d.date + d.value}
@@ -70,7 +68,6 @@ const Chart = ({ data, isMobile }) => {
             x={xScale(d.date)}
             y={yScale(d.value)}
             height={yScale(0) - yScale(d.value)}
-            width={barWidth}
             fill={colors.colorHoney400}
           />
         ))}
@@ -83,7 +80,6 @@ const Chart = ({ data, isMobile }) => {
             x={xScale(d.date)}
             y={yScale(d.value)}
             height={yScale(0) - yScale(d.value)}
-            width={barWidth}
             fill="white"
           />
         ))}
@@ -94,6 +90,13 @@ const Chart = ({ data, isMobile }) => {
             i !== 0 &&
             i < 4 && (
               <g key={tick}>
+                <line
+                  className={heroStyle.chartLine}
+                  x1={0}
+                  x2={width}
+                  y1={yScale(tick)}
+                  y2={yScale(tick)}
+                />
                 <svg
                   y={yScale(tick) + 6}
                   x={width + labelOffset / 2}
@@ -115,13 +118,6 @@ const Chart = ({ data, isMobile }) => {
                     )}
                   </text>
                 </svg>
-                <line
-                  className={heroStyle.chartLine}
-                  x1={0}
-                  x2={width}
-                  y1={yScale(tick)}
-                  y2={yScale(tick)}
-                />
               </g>
             ),
         )}
@@ -134,9 +130,9 @@ const Chart = ({ data, isMobile }) => {
           return (
             <text
               className={heroStyle.chartLegend}
-              style={{ fill: 'white', fontSize }}
+              style={{ fill: 'white' }}
               x={xScale(d.date)}
-              y={height + (isMobile ? 40 : 20)}
+              y={height + 20}
             >
               {DateTime.fromISO(d.date).toFormat('LLLL')}
             </text>

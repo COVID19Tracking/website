@@ -1,8 +1,10 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
 
-$mobile-offset-x: 4.5%;
+$mobile-offset-x: -82%;
 $mobile-offset-y: -3%;
+$label-offset-x: 120;
+$label-offset-y: 25;
 
 .hero {
   padding-top: 35px;
@@ -51,22 +53,33 @@ $mobile-offset-y: -3%;
     }
   }
   .chart-wrapper {
-    max-width: 80%;
-    margin-left: 20%;
     overflow-x: hidden;
 
     @media (min-width: $viewport-lg) {
       padding-top: 8rem;
+      max-width: 80%;
+      margin-left: 20%;
     }
+  }
+}
+
+.chart {
+  padding-bottom: $label-offset-y;
+  padding-left: 5%;
+  @media (min-width: $viewport-md) {
+    padding-left: 0;
   }
 }
 
 .chart-bar {
   margin: 0 1px;
   transform: translateY($mobile-offset-y);
-
+  width: 10px;
   @media (min-width: $viewport-ms) {
     transform: translateY(0);
+  }
+  @media (min-width: $viewport-lg) {
+    width: 5px;
   }
 }
 
@@ -82,12 +95,16 @@ $mobile-offset-y: -3%;
 
 .chart-legend {
   fill: white;
-  font-size: 30px;
+  font-size: 35px;
   overflow: visible !important;
   text-anchor: end;
 
   @media (min-width: $viewport-ms) {
-    font-size: 14px;
+    font-size: 20px;
+  }
+
+  @media (min-width: $viewport-lg) {
+    font-size: 18px;
   }
 }
 
