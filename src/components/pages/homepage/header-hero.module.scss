@@ -6,9 +6,11 @@ $mobile-offset-y: -3%;
 $label-offset-x: 120;
 $label-offset-y: 25;
 
+$chart-color: #0f1551;
+
 .hero {
   padding-top: 35px;
-  background: $color-plum-600;
+  background: $color-plum-550;
   color: white;
   abbr[title] {
     text-decoration: none;
@@ -76,15 +78,15 @@ $label-offset-y: 25;
 .chart-bar {
   margin: 0 1px;
   transform: translateY($mobile-offset-y);
-  width: 10px;
+  width: 8px;
   @media (min-width: $viewport-ms) {
     transform: translateY(0);
   }
   @media (min-width: $viewport-lg) {
-    width: 5px;
+    width: 9px;
   }
   &.ctp {
-    fill: $color-honey-500;
+    fill: $chart-color;
   }
   &.cdc {
     fill: $color-plum-100;
@@ -92,7 +94,7 @@ $label-offset-y: 25;
 }
 
 .chart-line {
-  stroke: $color-plum-600;
+  stroke: $color-plum-550;
   stroke-width: 1.5px;
   transform: translateX($mobile-offset-x * -1.1);
 
@@ -127,7 +129,7 @@ $label-offset-y: 25;
 .legend {
   display: inline-block;
   color: $color-plum-600;
-
+  font-weight: bold;
   padding: 1px 3px;
   @media (min-width: $viewport-md) {
     padding: 2px 5px;
@@ -136,6 +138,7 @@ $label-offset-y: 25;
     background: white;
   }
   &.ctp {
-    background: $color-honey-500;
+    background: $chart-color;
+    color: white;
   }
 }
