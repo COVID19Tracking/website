@@ -10,7 +10,7 @@ const gatsbyConfig = {
   siteMetadata: {
     title: 'The COVID Tracking Project',
     siteUrl: 'https://covidtracking.com/',
-    recaptchaKey: '6LebEeoUAAAAAImOtU0AW9InRfmM6quBvbNJuuxX',
+    recaptchaKey: '6LcZIPQUAAAAAB-y_TpTUDQ0HvCk0c7a8kXgZVGD',
     description:
       'The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.',
     production:
@@ -31,6 +31,7 @@ const gatsbyConfig = {
     'gatsby-plugin-netlify',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-recaptcha',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
