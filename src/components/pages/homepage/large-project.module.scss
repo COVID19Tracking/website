@@ -4,7 +4,7 @@
 
 .wrapper {
   // padding: 60px 0;
-  @include padding(6, (top bottom));
+  @include padding(64, (top bottom));
   border-top: 1px solid $color-slate-200;
   border-bottom: 1px solid $color-slate-200;
 
@@ -15,9 +15,8 @@
 
     @media (min-width: $viewport-lg) {
       // margin: 0 5rem;
-      margin: 0 spacer(6) spacer(5) spacer(6);
+      margin: 0 spacer(64) spacer(32) spacer(64);
       // margin-bottom: 3rem;
-      margin-bottom: spacer(5);
     }
   }
   

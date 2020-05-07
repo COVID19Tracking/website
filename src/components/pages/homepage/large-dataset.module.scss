@@ -10,12 +10,12 @@
 
   // margin-top: 2rem;
   // margin-bottom: 2rem;
-  @include margin(5, (top bottom));
+  @include margin(32, (top bottom));
 
   @media (min-width: $viewport-lg) {
     // margin-top: spacer(6);
     // margin-bottom: 4.5rem;
-    @include margin(6, (top bottom));
+    @include margin(64, (top bottom));
   }
 
   img {
@@ -26,7 +26,7 @@
     @media (min-width: $viewport-lg) {
       font-size: 1.5rem;
     }
-    margin-bottom: spacer(2);
+    margin-bottom: spacer(8);
   }
 
   p {
@@ -34,11 +34,11 @@
   }
 
   .homepage-paragraph {
-    margin-bottom: spacer(5);
+    margin-bottom: spacer(32);
 
     @media (min-width: $viewport-lg) {
       // margin-bottom: 5rem;
-      margin-bottom: spacer(6);
+      margin-bottom: spacer(64);
     }
   }
 }

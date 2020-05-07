@@ -3,60 +3,26 @@
 // Base font size. If need be, can be made responsive.
 $base-font-size: 16;
 
+// Spacer keys are the PX values used in the Figma files:
+// 4, 8, 16, 24, 32, 64, 96, 120
 $spacers: (
-  0: (
-    small: 0, // Small => From zero to ($viewport-md - 1) (0 to 767px)
-    medium: 0, // Medium => From $viewport-md to ($viewport-xl - 1) (768px to 1199px)
-    large: 0, // Large => From $viewport-xl to infinity (1200px to infinity)
-  ),
-  1: (
-    small: .25rem,
-    medium: .25rem, // 4px
-    large: .25rem,
-  ),
-  2: (
-    small: .5rem,
-    medium: .5rem, // 8px
-    large: .5rem,
-  ),
-  3: (
-    small: 1rem,
-    medium: 1rem, // 16px
-    large: 1rem,
-  ),
-  4: ( 
-    small: 1.5rem,
-    medium: 1.5rem, // 24px
-    large: 1.5rem,
-  ),
-  5: (
-    small: 2rem,
-    medium: 2rem, // 32px
-    large: 2rem,
-  ),
-  6: (
-    small: 4rem,
-    medium: 4rem, // 64px
-    large: 4rem,
-  ),
-  7: (
-    small: 6rem,
-    medium: 6rem, // 96px
-    large: 6rem,
-  ),
-  8: (
-    small: 7.5rem,
-    medium: 7.5rem, // 120px
-    large: 7.5rem,
-  ),
+  0: 0, // 0
+  4: .25rem, // 1
+  8: .5rem, // 2
+  16: 1rem, // 3
+  24: 1.5rem, // 4
+  32: 2rem, // 5
+  64: 4rem, // 6
+  96: 6rem, // 7
+  120: 7.5rem, // 8
 );
 
-@function spacer($key, $size: medium) {
-  $key-spacers: map-get($spacers, $key);
-  @return map_get($key-spacers, $size);
+@function spacer($key) {
+  $size: map-get($spacers, $key);
+  @return $size;
 }
 
-@mixin margin($key, $sides: (top right bottom left), $responsive: true) {
+@mixin margin($key, $sides: (top right bottom left)) {
   @if type-of($sides) != 'list' {
     $sides: ($sides)
   }
@@ -71,7 +37,7 @@ $spacers: (
   }
 }
 
-@mixin padding($key, $sides: (top right bottom left), $responsive: true) {
+@mixin padding($key, $sides: (top right bottom left)) {
   @if type-of($sides) != 'list' {
     $sides: ($sides)
   }

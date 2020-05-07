@@ -4,13 +4,13 @@
 .wrapper {
   border-top: 1px solid $color-slate-200;
   // padding-top: 1.75rem;
-  @include padding(4, top);
+  @include padding(24, top);
 }
 
 .container {
   max-width: 700px;
   // margin: 5em auto;
-  margin: spacer(6) auto;
+  margin: spacer(64) auto;
 }
 
 .blog-item {

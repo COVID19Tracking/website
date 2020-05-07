@@ -7,7 +7,7 @@
   // ===
   // Basic margin mixin usage with 2 sides.
   // ===
-  @include margin(6, (top bottom))
+  @include margin(64, (top bottom))
 }
 
 .wrapper {
@@ -22,7 +22,7 @@
   // ===
   // only one side, () are not necessary
   // ===
-  @include margin(6, top);
+  @include margin(64, top);
 
   * {
     margin-top: 0;
@@ -38,7 +38,7 @@
 
 .all-totals {
   // margin-top: 1.5rem;
-  @include margin(4, top);
+  @include margin(24, top);
 
   @media (min-width: $viewport-lg) {
     display: grid;
@@ -51,7 +51,7 @@
   background-color: $color-blueberry-100;
   text-align: right;
   // margin-bottom: 1.5rem;
-  @include margin(4, bottom);
+  @include margin(24, bottom);
   // ===
   // toRem helper translates pixels to rem depending on base font size. 
   // Can be made responsive easily.
@@ -65,7 +65,7 @@
   .number,
   .label {
     // margin-right: 8px;
-    @include margin(2, right);
+    @include margin(8, right);
   }
   .number {
     font-weight: bold;
@@ -77,8 +77,8 @@
     // ===
     // Direct helper usage for fine-grained control
     // ===
-    margin-top: spacer(2);
-    margin-bottom: spacer(1);
+    margin-top: spacer(8);
+    margin-bottom: spacer(4);
   }
   .label {
     // ===
@@ -90,7 +90,7 @@
     line-height: 1rem;
     font-weight: 700;
     // margin-bottom: 6px;
-    @include margin(2, bottom);
+    @include margin(8, bottom);
   }
 }
 
