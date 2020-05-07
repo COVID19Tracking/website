@@ -23,7 +23,7 @@ $label-offset-y: 25;
     }
   }
   .header {
-    font-size: 1.75rem;
+    font-size: 30px;
     line-height: 1.25;
     font-weight: bold;
     margin-top: 0;
@@ -35,6 +35,7 @@ $label-offset-y: 25;
     }
     @media (min-width: $viewport-lg) {
       max-width: 38rem;
+      font-size: 40px;
       position: absolute;
     }
     @media (min-width: $viewport-xl) {
@@ -43,9 +44,8 @@ $label-offset-y: 25;
   }
 
   .paragraph {
-    font-size: 1rem;
     @media (min-width: $viewport-lg) {
-      font-size: 16px;
+      font-size: 18px;
       max-width: 30rem;
       bottom: 9rem;
       position: absolute;
@@ -120,7 +120,7 @@ $label-offset-y: 25;
 .chart-y-axis {
   transform: translateX($mobile-offset-x) translateY($mobile-offset-y);
 
-  @media (min-width: $viewport-ms) {
+  @media (min-width: $viewport-lg) {
     transform: translateX(0) translateY(0);
   }
 }
