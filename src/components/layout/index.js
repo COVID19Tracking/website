@@ -12,6 +12,7 @@ import '../../scss/global.scss'
 const Layout = ({
   title,
   titleLink,
+  description,
   children,
   navigation,
   noMargin,
@@ -31,7 +32,7 @@ const Layout = ({
 
   return (
     <>
-      <SEO title={title} />
+      <SEO title={title} description={description} />
       <SkipNavigation />
       <Header
         siteTitle={data.site.siteMetadata.title}
