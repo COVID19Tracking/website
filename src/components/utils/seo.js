@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import card from '../../images/card.png'
 
-function SEO({ lang, meta, title }) {
+function SEO({ lang, meta, title, description }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -62,7 +62,7 @@ function SEO({ lang, meta, title }) {
         },
         {
           name: 'description',
-          content: site.siteMetadata.description,
+          content: description || site.siteMetadata.description,
         },
       ].concat(meta)}
     />

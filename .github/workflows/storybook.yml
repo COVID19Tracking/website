@@ -1,0 +1,31 @@
+name: Deploy storybook
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          ref: master
+          path: ./
+      
+      - name: Install
+        run: |
+          npm install
+          npm run setup:env-vars
+      
+      - name: Build site
+        run: |
+          npm run build-preview
+          npm run storybook:build 
+      
+      - name: Deploy storybook
+        run: |
+          git config --global user.email "${{ secrets.STORYBOOK_DEPLOY_EMAIL }}"
+          git config --global user.name "COVID Tracking Project"
+          ./node_modules/.bin/gh-pages -d storybook-static -r https://${{ secrets.STORYBOOK_DEPLOY_TOKEN }}@github.com/COVID19Tracking/website-docs
