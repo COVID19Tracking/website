@@ -37,8 +37,15 @@ Array [
               method="get"
               onSubmit={[Function]}
             >
+              <label
+                className="a11y-only"
+                htmlFor="mobile-menu-search"
+              >
+                Search
+              </label>
               <input
                 autoComplete="off"
+                id="mobile-menu-search"
                 name="q"
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -396,8 +403,15 @@ Array [
               method="get"
               onSubmit={[Function]}
             >
+              <label
+                className="a11y-only"
+                htmlFor="mobile-menu-search"
+              >
+                Search
+              </label>
               <input
                 autoComplete="off"
+                id="mobile-menu-search"
                 name="q"
                 onBlur={[Function]}
                 onFocus={[Function]}

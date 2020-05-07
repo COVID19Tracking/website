@@ -9,6 +9,7 @@ const algoliaQueries = require('./src/utilities/algolia').queries
 const gatsbyConfig = {
   siteMetadata: {
     title: 'The COVID Tracking Project',
+    siteUrl: 'https://covidtracking.com/',
     description:
       'The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.',
     production:
@@ -20,6 +21,7 @@ const gatsbyConfig = {
     inDST: DateTime.fromObject({ zone: 'America/New_York' }).isInDST,
   },
   plugins: [
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-transformer-yaml',
