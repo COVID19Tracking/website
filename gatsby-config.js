@@ -31,7 +31,6 @@ const gatsbyConfig = {
     'gatsby-plugin-netlify',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-recaptcha',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
