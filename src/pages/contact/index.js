@@ -39,15 +39,14 @@ export default ({ data }) => (
         acceptCharset="utf-8"
       >
         <FormGroup>
-          <fieldset>
-            <legend>What are you contacting us about?</legend>
+          <FormLabel htmlFor="contact-reason">
+            What are you contacting us about?
+          </FormLabel>
+          <select id="fontact-reason" name="reason">
             {reasons.map(reason => (
-              <label key={reason}>
-                <input type="radio" name="reason" value={reason} />
-                {reason}
-              </label>
+              <option value={reason}>{reason}</option>
             ))}
-          </fieldset>
+          </select>
         </FormGroup>
         <FormGroup>
           <FormLabel htmlFor="contact-name">Your name</FormLabel>
