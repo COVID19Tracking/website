@@ -13,6 +13,8 @@ export default {
   title: 'Homepage',
 }
 
+Container.displayName = 'Container'
+
 export const container = () => (
   <Container>
     <div style={{ background: 'grey', height: '150px' }} />
@@ -27,6 +29,8 @@ container.story = {
   },
 }
 
+Paragraph.displayName = 'Paragraph'
+
 export const homepageParagraph = () => (
   <>
     <Paragraph>
@@ -34,7 +38,7 @@ export const homepageParagraph = () => (
       cases, hospitalizations, and patient outcomes from every US state and
       territory.
     </Paragraph>
-    <Paragraph centered>
+    <Paragraph center>
       Every day, our volunteers compile the latest numbers on tests, confirmed
       cases, hospitalizations, and patient outcomes from every US state and
       territory.
@@ -42,8 +46,15 @@ export const homepageParagraph = () => (
   </>
 )
 
+LatestTotals.displayName = 'LatestTotals'
+
 export const latestTotals = () => <LatestTotals />
+
+LargeProject.displayName = 'LargeProject'
+
 export const largeProject = () => <LargeProject />
+
+CtaLink.displayName = 'CtaLink'
 
 export const callToActionLink = () => (
   <>
@@ -56,7 +67,11 @@ export const callToActionLink = () => (
   </>
 )
 
+LargeDataset.displayName = 'LargeDataset'
+
 export const largeDataset = () => <LargeDataset />
+
+Datasets.displayName = 'Datasets'
 
 export const datasetList = () => <Datasets />
 
@@ -68,6 +83,9 @@ container.story = {
   },
 }
 
+Press.displayName = 'Press'
+
 export const press = () => <Press />
 
+BlogList.displayName = 'BlogList'
 export const blogList = () => <BlogList />
