@@ -19,7 +19,7 @@
     font-size: 1.5rem;
     line-height: 1.4;
     margin-bottom: 8px; // Do we really need a fallback ? https://caniuse.com/#feat=rem
-    margin-bottom: 0.5rem;
+    margin-bottom: spacer(8);
     a {
       text-decoration: none;
       color: $text;
