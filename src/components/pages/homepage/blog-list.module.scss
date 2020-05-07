@@ -1,13 +1,16 @@
 @import '~scss/colors.module.scss';
+@import '~scss/helpers.module.scss';
 
 .wrapper {
   border-top: 1px solid $color-slate-200;
-  padding-top: 1.75rem;
+  // padding-top: 1.75rem;
+  @include padding(4, top);
 }
 
 .container {
   max-width: 700px;
-  margin: 5em auto;
+  // margin: 5em auto;
+  margin: spacer(6) auto;
 }
 
 .blog-item {
@@ -15,7 +18,7 @@
     font-size: 24px;
     font-size: 1.5rem;
     line-height: 1.4;
-    margin-bottom: 8px;
+    margin-bottom: 8px; // Do we really need a fallback ? https://caniuse.com/#feat=rem
     margin-bottom: 0.5rem;
     a {
       text-decoration: none;
