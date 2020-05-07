@@ -3,11 +3,6 @@
 @import '~scss/helpers.module.scss';
 
 .large-dataset {
-  // ====
-  // This is a good example of standardization needs.
-  // We could define that components margin is 6 (4rem) on desktop and 5 (2rem) on mobile.
-  // ====
-
   // margin-top: 2rem;
   // margin-bottom: 2rem;
   @include margin(32, (top bottom));
