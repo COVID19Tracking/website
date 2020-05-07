@@ -8,7 +8,7 @@ $label-offset-y: 25;
 
 .hero {
   padding-top: 35px;
-  background: $color-plum-550;
+  background: $color-plum-600;
   color: white;
   abbr[title] {
     text-decoration: none;
@@ -84,10 +84,16 @@ $label-offset-y: 25;
   @media (min-width: $viewport-lg) {
     width: 5px;
   }
+  &.ctp {
+    fill: $color-honey-500;
+  }
+  &.cdc {
+    fill: $color-plum-100;
+  }
 }
 
 .chart-line {
-  stroke: $color-plum-550;
+  stroke: $color-plum-600;
   stroke-width: 1.5px;
   transform: translateX($mobile-offset-x * -1.1);
 
@@ -111,9 +117,6 @@ $label-offset-y: 25;
   }
 }
 
-.chart-x-axis {
-}
-
 .chart-y-axis {
   transform: translateX($mobile-offset-x) translateY($mobile-offset-y);
 
@@ -122,16 +125,18 @@ $label-offset-y: 25;
   }
 }
 
-.ctp-count {
-  border-bottom: 3px solid $color-honey-400;
-  @media (max-width: $viewport-md) {
-    border-width: 3px;
-  }
-}
+.legend {
+  display: inline-block;
+  color: $color-plum-600;
 
-.cdc-count {
-  border-bottom: 3px solid white;
-  @media (max-width: $viewport-md) {
-    border-width: 3px;
+  padding: 1px 3px;
+  @media (min-width: $viewport-md) {
+    padding: 2px 5px;
+  }
+  &.cdc {
+    background: white;
+  }
+  &.ctp {
+    background: $color-honey-500;
   }
 }

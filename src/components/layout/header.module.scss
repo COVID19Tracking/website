@@ -1,14 +1,6 @@
 @import '../../scss/colors.module.scss';
 @import '../../scss/breakpoints.module.scss';
 
-.circles {
-  background: $color-plum-550;
-
-  .container {
-    background: none;
-  }
-}
-
 .tools {
   display: none;
   font-size: 0.81rem;
@@ -144,7 +136,7 @@
 }
 
 .container {
-  background: $color-plum-550;
+  background: $color-plum-600;
 }
 
 .site-header {
