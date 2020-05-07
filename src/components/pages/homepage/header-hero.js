@@ -9,7 +9,7 @@ import homepageContainerStyle from './container.module.scss'
 
 const Chart = ({ data }) => {
   const width = 1140
-  const height = 700
+  const height = 650
   const labelOffset = 120
   const bottomLabelOffset = 25
   const cdcList = {}

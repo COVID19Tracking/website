@@ -47,12 +47,12 @@ $label-offset-y: 25;
     @media (min-width: $viewport-lg) {
       font-size: 18px;
       max-width: 30rem;
-      bottom: 9rem;
+      bottom: 4rem;
       position: absolute;
     }
     @media (min-width: $viewport-xl) {
       // max-width: 30rem;
-      bottom: 12rem;
+      bottom: 10rem;
     }
   }
   .chart-wrapper {
