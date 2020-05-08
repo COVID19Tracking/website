@@ -63,7 +63,10 @@ export default ({ data }) => (
           <textarea name="body" id="contact-message" />
         </FormGroup>
         <FormGroup>
-          <ReCaptcha sitekey={data.site.siteMetadata.recaptchaKey} />
+          <ReCaptcha
+            sitekey={data.site.siteMetadata.recaptchaKey}
+            elementID="contact-form-captcha"
+          />
         </FormGroup>
         <FormGroup>
           <button type="submit">Contact us</button>
