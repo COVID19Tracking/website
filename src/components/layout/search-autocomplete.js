@@ -16,12 +16,13 @@ import {
   getSanitizedSlug,
   partitionHitsByRelevance,
 } from '../../context/search-context'
-import searchAutocompleteStyles from './search-autocomplete.module.scss'
+import searchAutocompleteStyle from './search-autocomplete.module.scss'
+import headerStyle from '~components/layout/header.module.scss'
 
 export default () => {
   const [searchState, searchDispatch] = useSearch()
   const [showResults, setShowResults] = useState(true)
-  const { query, results } = searchState
+  const { query, results, autocompleteHasFocus } = searchState
   const id = 'header-search-autocomplete'
 
   function setQuery(value) {
@@ -83,12 +84,14 @@ export default () => {
 
   return (
     <Combobox openOnFocus>
-      <label htmlFor={id} className="a11y-only">
+      <label
+        htmlFor={id}
+        className={autocompleteHasFocus ? headerStyle.labelFocus : ''}
+      >
         Search
       </label>
       <ComboboxInput
         id={id}
-        placeholder="Search"
         autoComplete="off"
         onChange={event => {
           setQuery(event.currentTarget.value)
@@ -104,17 +107,17 @@ export default () => {
         <ComboboxPopover
           portal={false}
           id="search-results-popover"
-          className={searchAutocompleteStyles.popover}
+          className={searchAutocompleteStyle.popover}
         >
           {totalHits > 0 ? (
             <ComboboxList
               aria-label="Results"
-              className={searchAutocompleteStyles.popoverList}
+              className={searchAutocompleteStyle.popoverList}
             >
               {bestHits.length > 0 && (
                 <li
                   tabIndex="-1"
-                  className={searchAutocompleteStyles.popoverSeparator}
+                  className={searchAutocompleteStyle.popoverSeparator}
                 >
                   Best results
                 </li>
@@ -129,7 +132,7 @@ export default () => {
               {otherHits.length > 0 && (
                 <li
                   tabIndex="-1"
-                  className={searchAutocompleteStyles.popoverSeparator}
+                  className={searchAutocompleteStyle.popoverSeparator}
                 >
                   Other results
                 </li>

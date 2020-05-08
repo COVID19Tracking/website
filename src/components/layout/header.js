@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Link, useStaticQuery, navigate, graphql } from 'gatsby'
 import Expand from 'react-expand-animated'
 import DevelopmentWarning from './development-warning'
@@ -82,9 +82,18 @@ const HeaderSearch = ({ children }) => {
   )
 }
 
-const MobileMenu = () => {
+const MobileMenu = ({ expanded }) => {
   const searchInputRef = useRef()
-  const [, searchDispatch] = useSearch()
+  const [searchState, searchDispatch] = useSearch()
+  const { autocompleteHasFocus } = searchState
+
+  useEffect(() => {
+    if (expanded) {
+      searchInputRef.current.focus()
+    } else {
+      searchInputRef.current.blur()
+    }
+  }, [expanded])
 
   return (
     <div className={headerStyle.mobileMenu}>
@@ -97,12 +106,14 @@ const MobileMenu = () => {
             navigate(`/search?q=${searchInputRef.current.value}`)
           }}
         >
-          <label htmlFor="mobile-menu-search" className="a11y-only">
+          <label
+            htmlFor="mobile-menu-search"
+            className={autocompleteHasFocus ? headerStyle.labelFocus : ''}
+          >
             Search
           </label>
           <input
             type="search"
-            placeholder="Search"
             name="q"
             id="mobile-menu-search"
             autoComplete="off"
