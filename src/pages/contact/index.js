@@ -37,6 +37,7 @@ export default ({ data }) => (
         action="https://webhook.frontapp.com/forms/c3c09a5603c02d2b7f86/KU--_qKvaSkUZHR2T92KQZ8hy5TatxTkRexeSE4NtpFltSVYROQxxbkIdSNH3RcHlZUI4RGGlHL7NwDr00Ki8WMFSOoBBMmgZ28PppSbXx-SQVi51ogAj28bbn6M"
         encType="multipart/form-data"
         acceptCharset="utf-8"
+        referrerpolicy="unsafe-url"
       >
         <FormGroup>
           <FormLabel htmlFor="contact-reason">
