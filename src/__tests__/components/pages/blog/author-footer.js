@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import AuthorFooter from '~components/pages/blog/author-footer'
 
-describe('Components : Pages : Blog : Byline', () => {
+describe('Components : Pages : Blog : Author Footer', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(

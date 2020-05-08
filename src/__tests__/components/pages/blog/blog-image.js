@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import BlogImage from '~components/pages/blog/blog-image'
 
-describe('Components : Pages : Blog : Byline', () => {
+describe('Components : Pages : Blog : Blog Image', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(

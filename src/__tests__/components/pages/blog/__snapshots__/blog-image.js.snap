@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
+exports[`Components : Pages : Blog : Blog Image renders correctly 1`] = `
 <div
   className="style-class"
 >
