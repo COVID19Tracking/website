@@ -59,7 +59,7 @@ export default ({ data }) => (
 
         <FormGroup>
           <FormLabel htmlFor="contact-message">Message</FormLabel>
-          <textarea name="message" id="contact-message" />
+          <textarea name="body" id="contact-message" />
         </FormGroup>
         <FormGroup>
           <ReCaptcha sitekey={data.site.siteMetadata.recaptchaKey} />
