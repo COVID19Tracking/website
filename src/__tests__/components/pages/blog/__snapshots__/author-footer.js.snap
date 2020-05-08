@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="authorFooter"
+  >
+    <img
+      alt="filename.png"
+      src="//images.ctfassets.net/file"
+    />
+    <div
+      className="textContent"
+    >
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<p>Name Name is a an author at <em>A Publication</em>.</p>",
+          }
+        }
+      />
+      <a
+        href="https://twitter.com/namename"
+      >
+        @
+        namename
+      </a>
+    </div>
+  </div>
+</div>
+`;
