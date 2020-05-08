@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link, useStaticQuery, navigate, graphql } from 'gatsby'
 import Expand from 'react-expand-animated'
 import DevelopmentWarning from './development-warning'
@@ -9,6 +9,7 @@ import projectLogo from '../../images/project-logo.svg'
 import atlanticLogo from '../../images/atlantic-logo.svg'
 import headerStyle from './header.module.scss'
 import searchIcon from '../../images/icons/search.svg'
+import navCaretIcon from '../../images/icons/nav-caret.svg'
 import searchIconInvert from '../../images/icons/search-inverted.svg'
 import Container from '../common/container'
 import colors from '../../scss/colors.module.scss'
@@ -33,6 +34,27 @@ const HeaderTabs = ({ navigation }) => (
   </div>
 )
 
+const useOnClickOutside = (ref, handler) => {
+  useEffect(() => {
+    const listener = event => {
+      // Do nothing if clicking ref's element or descendent elements
+      if (ref.current || ref.current.contains(event.target)) {
+        return
+      }
+
+      handler(event)
+    }
+
+    document.addEventListener('mousedown', listener)
+    document.addEventListener('touchstart', listener)
+
+    return () => {
+      document.removeEventListener('mousedown', listener)
+      document.removeEventListener('touchstart', listener)
+    }
+  }, [ref, handler])
+}
+
 const HeaderNavigation = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -48,12 +70,60 @@ const HeaderNavigation = () => {
       }
     }
   `)
+
+  const [menuState, setShowSubMenu] = useState()
+
+  const ref = useRef()
+  useOnClickOutside(ref, () => setShowSubMenu(menuState))
+  // Call hook passing in the ref and a function to call on outside click
+
+  const toggleSubMenu = index => {
+    setShowSubMenu(menuState === index ? '' : index)
+  }
+
   return (
     <nav className="js-disabled-block">
       <ul>
-        {data.allNavigationYaml.edges[0].node.items.map(item => (
-          <li key={item.link}>
-            <Link to={item.link}>{item.title}</Link>
+        {data.allNavigationYaml.edges[0].node.items.map((item, index) => (
+          <li
+            className={`${menuState === index ? headerStyle.showSubMenu : ''}`}
+            key={item.link}
+            ref={ref}
+          >
+            <Link to={item.link} aria-haspopup="true" aria-expanded="false">
+              {item.title}
+            </Link>
+            <ul className="sub-menu" aria-label="Sub-menu">
+              <li>
+                <a href="#test">States / Territories</a>
+              </li>
+              <li>
+                <a href="#test">Counties</a>
+              </li>
+              <li>
+                <a href="#test">Historical Data</a>
+              </li>
+              <li>
+                <a href="#test">API</a>
+              </li>
+              <li>
+                <a href="#test">Racial Data Dashboard</a>
+              </li>
+              <li>
+                <a href="#test">Nursing Home Data</a>
+              </li>
+            </ul>
+            <button
+              className={headerStyle.navCaret}
+              type="button"
+              aria-expanded={menuState === index}
+              aria-label={menuState === index ? 'hide' : 'show'}
+              onClick={() => {
+                toggleSubMenu(index)
+              }}
+            >
+              <img src={navCaretIcon} alt="" />
+            </button>
           </li>
         ))}
       </ul>

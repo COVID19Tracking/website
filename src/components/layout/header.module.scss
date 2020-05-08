@@ -237,6 +237,8 @@
     @media (min-width: $viewport-lg) {
       display: block;
       margin-top: 1.825rem;
+      position: relative;
+      z-index: 1;
     }
 
     a {
@@ -254,25 +256,89 @@
         margin-bottom: 0.5625rem;
         @media (min-width: $viewport-lg) {
           display: inline-block;
-          padding-right: 30px;
+          margin-right: 2.25em;
           margin-bottom: 0;
           line-height: 1;
+          position: relative;
+
+          a {
+            padding-bottom: 5px;
+            position: relative;
+            z-index: 2;
+          }
+          
+          a:hover,
+          a:focus {
+            color: rgba(255,255,255,0.6);
+          }
+          &:hover > a{
+            border-bottom: 3px solid $color-blueberry-200;
+          }
+          a[aria-current] {
+            color: rgba(255,255,255,0.6);
+          }
+        }
+
+        .nav-caret {
+          appearance: none;
+          background: none;
+          border: none;
+          box-shadow: none;
+          position: absolute;
+          top: -4px;
+
+          img {
+            transition: transform .2s ease-in;
+            transform-origin: center;
+          }
+
+          &[aria-expanded='true'] img {
+            transform: rotate(-180deg);
+            transform-origin: center;
+            transition: transform .2s ease-out;
+          }
+        }
+
+        // sub-menu
+        ul {
+          visibility: hidden;
+          opacity: 0;
+          position: absolute;
+          left: 0;
+          top: 20px;
+          transition: all 0.5s ease;
+          padding: .5em;
+          text-align: left;
+          border-top: 20px solid $color-plum-550;
+          background-color: #ffffff;
+          min-width: 15em;
+        }
+        
+        &.show-sub-menu,
+        &:hover {
+          ul {
+            visibility: visible;
+            opacity: 1;
+            display: block;
+
+            li {
+              display: block;
+            }
+            
+            a {
+              color: $color-plum-600;
+              display: block;
+              padding: .5em;
+
+              &:hover {
+                border: 0 none;
+                color: $color-plum-300;
+              }
+            }
+          }
         }
       }
-      a {
-        padding-bottom: 2px;
-      }
-      a:hover,
-      a:focus {
-        color: $color-blueberry-100;
-      }
-      a:hover,
-      a[aria-current] {
-        border-bottom: 3px solid $color-blueberry-200;
-      }
-      a[aria-current] {
-        color: white;
-      }
+      
 
       li:last-child {
         padding-right: 0;
