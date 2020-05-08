@@ -11,55 +11,91 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           className="alignLeft"
           scope="col"
         >
-          Date
+          <span
+            role="text"
+          >
+            Date
+          </span>
         </th>
         <th
           className="alignLeft"
           scope="col"
         >
-          Screenshots (
-          <abbr
-            aria-label="Eastern Standard Time"
-            title="Eastern Standard Time"
+          <span
+            role="text"
           >
-            EST
-          </abbr>
-          )
+            Screenshots (
+            <abbr
+              aria-label="Eastern Standard Time"
+              title="Eastern Standard Time"
+            >
+              EST
+            </abbr>
+            )
+          </span>
         </th>
         <th
           scope="col"
         >
-          New Tests
+          <span
+            role="text"
+          >
+            New Tests
+          </span>
         </th>
         <th
           scope="col"
         >
-          Positive
+          <span
+            role="text"
+          >
+            Positive
+          </span>
         </th>
         <th
           scope="col"
         >
-          Negative
+          <span
+            role="text"
+          >
+            Negative
+          </span>
         </th>
         <th
           scope="col"
         >
-          Pending
+          <span
+            role="text"
+          >
+            Pending
+          </span>
         </th>
         <th
           scope="col"
         >
-          Hospitalized
+          <span
+            role="text"
+          >
+            Hospitalized
+          </span>
         </th>
         <th
           scope="col"
         >
-          Deaths
+          <span
+            role="text"
+          >
+            Deaths
+          </span>
         </th>
         <th
           scope="col"
         >
-          Total
+          <span
+            role="text"
+          >
+            Total
+          </span>
         </th>
       </tr>
     </thead>

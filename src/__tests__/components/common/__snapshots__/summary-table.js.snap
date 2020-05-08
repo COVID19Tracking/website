@@ -5,128 +5,175 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
   <table
     className="table"
   >
-    <colgroup
-      span="3"
-    />
-    <colgroup
-      span="2"
-    />
-    <colgroup
-      span="2"
-    />
-    <colgroup
-      span="2"
-    />
-    <colgroup
-      span="2"
-    />
-    <colgroup
-      span="1"
-    />
     <thead>
       <tr>
         <th
-          colSpan="3"
-          scope="colgroup"
-        >
-          Tests
-        </th>
-        <th
-          colSpan="2"
-          scope="colgroup"
-        >
-          Hospitalized
-        </th>
-        <th
-          colSpan="2"
-          scope="colgroup"
-        >
-          In ICU
-        </th>
-        <th
-          colSpan="2"
-          scope="colgroup"
-        >
-          On Ventilator
-        </th>
-        <th
-          colSpan="2"
-          scope="colgroup"
-        >
-          Outcomes
-        </th>
-        <th
-          scope="colgroup"
-        >
-          Total Test Results
-        </th>
-      </tr>
-      <tr>
-        <th
-          className="alignLeft"
           scope="col"
         >
-          Positive
+          <span
+            role="text"
+          >
+            Positive
+            <span
+              className="headerLabel"
+            >
+              Tests
+            </span>
+          </span>
         </th>
         <th
           scope="col"
         >
-          Negative
+          <span
+            role="text"
+          >
+            Negative
+            <span
+              className="headerLabelHidden"
+            >
+              Tests
+            </span>
+          </span>
         </th>
         <th
           scope="col"
         >
-          Pending
-        </th>
-        <th
-          className="alignLeft"
-          scope="col"
-        >
-          Currently
-        </th>
-        <th
-          scope="col"
-        >
-          Cumulative
-        </th>
-        <th
-          className="alignLeft"
-          scope="col"
-        >
-          Currently
+          <span
+            role="text"
+          >
+            Pending
+            <span
+              className="headerLabelHidden"
+            >
+              Tests
+            </span>
+          </span>
         </th>
         <th
           scope="col"
         >
-          Cumulative
-        </th>
-        <th
-          className="alignLeft"
-          scope="col"
-        >
-          Currently
-        </th>
-        <th
-          scope="col"
-        >
-          Cumulative
-        </th>
-        <th
-          className="alignLeft"
-          scope="col"
-        >
-          Recovered
+          <span
+            role="text"
+          >
+            Currently
+            <span
+              className="headerLabel"
+            >
+              Hospitalized
+            </span>
+          </span>
         </th>
         <th
           scope="col"
         >
-          Deaths
+          <span
+            role="text"
+          >
+            Cumulative
+            <span
+              className="headerLabelHidden"
+            >
+              Hospitalized
+            </span>
+          </span>
         </th>
         <th
-          className="alignLeft"
           scope="col"
         >
-          Positive + Negative
+          <span
+            role="text"
+          >
+            Currently
+            <span
+              className="headerLabel"
+            >
+              In ICU
+            </span>
+          </span>
+        </th>
+        <th
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Cumulative
+            <span
+              className="headerLabelHidden"
+            >
+              In ICU
+            </span>
+          </span>
+        </th>
+        <th
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Currently
+            <span
+              className="headerLabel"
+            >
+              On Ventilator
+            </span>
+          </span>
+        </th>
+        <th
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Cumulative
+            <span
+              className="headerLabelHidden"
+            >
+              On Ventilator
+            </span>
+          </span>
+        </th>
+        <th
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Recovered
+            <span
+              className="headerLabel"
+            >
+              Outcomes
+            </span>
+          </span>
+        </th>
+        <th
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Deaths
+            <span
+              className="headerLabelHidden"
+            >
+              Outcomes
+            </span>
+          </span>
+        </th>
+        <th
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Positive + Negative
+            <span
+              className="headerLabel"
+            >
+              Total Test Results
+            </span>
+          </span>
         </th>
       </tr>
     </thead>
@@ -192,65 +239,175 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
   <table
     className="table"
   >
-    <colgroup
-      span="3"
-    />
-    <colgroup
-      span="1"
-    />
-    <colgroup
-      span="1"
-    />
-    <colgroup
-      span="1"
-    />
     <thead>
       <tr>
         <th
-          colSpan="3"
-          scope="colgroup"
-        >
-          Tests
-        </th>
-        <th
-          colSpan="1"
-          scope="colgroup"
-        >
-          Outcomes
-        </th>
-        <th
-          scope="colgroup"
-        >
-          Total Test Results
-        </th>
-      </tr>
-      <tr>
-        <th
-          className={false}
           scope="col"
         >
-          Positive
+          <span
+            role="text"
+          >
+            Positive
+            <span
+              className="headerLabel"
+            >
+              Tests
+            </span>
+          </span>
         </th>
         <th
           scope="col"
         >
-          Negative
+          <span
+            role="text"
+          >
+            Negative
+            <span
+              className="headerLabelHidden"
+            >
+              Tests
+            </span>
+          </span>
         </th>
         <th
           scope="col"
         >
-          Pending
+          <span
+            role="text"
+          >
+            Pending
+            <span
+              className="headerLabelHidden"
+            >
+              Tests
+            </span>
+          </span>
         </th>
         <th
           scope="col"
         >
-          Deaths
+          <span
+            role="text"
+          >
+            Currently
+            <span
+              className="headerLabel"
+            >
+              Hospitalized
+            </span>
+          </span>
         </th>
         <th
-          className={false}
           scope="col"
         >
-          Positive + Negative
+          <span
+            role="text"
+          >
+            Cumulative
+            <span
+              className="headerLabelHidden"
+            >
+              Hospitalized
+            </span>
+          </span>
+        </th>
+        <th
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Currently
+            <span
+              className="headerLabel"
+            >
+              In ICU
+            </span>
+          </span>
+        </th>
+        <th
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Cumulative
+            <span
+              className="headerLabelHidden"
+            >
+              In ICU
+            </span>
+          </span>
+        </th>
+        <th
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Currently
+            <span
+              className="headerLabel"
+            >
+              On Ventilator
+            </span>
+          </span>
+        </th>
+        <th
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Cumulative
+            <span
+              className="headerLabelHidden"
+            >
+              On Ventilator
+            </span>
+          </span>
+        </th>
+        <th
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Recovered
+            <span
+              className="headerLabel"
+            >
+              Outcomes
+            </span>
+          </span>
+        </th>
+        <th
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Deaths
+            <span
+              className="headerLabelHidden"
+            >
+              Outcomes
+            </span>
+          </span>
+        </th>
+        <th
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Positive + Negative
+            <span
+              className="headerLabel"
+            >
+              Total Test Results
+            </span>
+          </span>
         </th>
       </tr>
     </thead>

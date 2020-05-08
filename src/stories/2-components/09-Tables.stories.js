@@ -5,14 +5,14 @@ const ExampleTable = () => (
   <>
     <thead>
       <tr>
-        <Th scope="col">Date</Th>
-        <Th scope="col">Screenshot</Th>
-        <Th scope="col">Positive</Th>
-        <Th scope="col">Negative</Th>
-        <Th scope="col">Pending</Th>
-        <Th scope="col">Hospitalized</Th>
-        <Th scope="col">Deaths</Th>
-        <Th scope="col">Total</Th>
+        <Th>Date</Th>
+        <Th>Screenshot</Th>
+        <Th>Positive</Th>
+        <Th>Negative</Th>
+        <Th>Pending</Th>
+        <Th>Hospitalized</Th>
+        <Th>Deaths</Th>
+        <Th>Total</Th>
       </tr>
     </thead>
     <tbody>

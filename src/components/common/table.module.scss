@@ -5,6 +5,26 @@
   text-align: left;
 }
 
+.header-label {
+  font-size: 1.05rem;
+  font-weight: 800;
+  left: 0.5rem;
+  position: absolute;
+  top: 0.4rem;
+  z-index: 1;
+}
+
+.header-label--hidden:not(:focus):not(:active),
+.header-label--hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .table {
   line-height: 1rem;
   border-collapse: collapse;
@@ -25,17 +45,14 @@
     margin-bottom: 1rem;
   }
 
-  colgroup:not(:first-child) {
-    border-left: 1px solid $color-slate-300;
-  }
-
   thead {
     border-bottom: 1px solid $color-slate-400;
   }
 
   th {
-    padding: 0 0.5rem 0.5rem;
+    padding: 2.25rem 0.5rem 0.5rem;
     vertical-align: bottom;
+    position: relative;
 
     &[scope='col'] {
       text-align: right;
@@ -45,14 +62,6 @@
 
     &[scope='col'].align-left {
       text-align: left;
-    }
-
-    &[scope='colgroup'] {
-      text-align: left;
-      font-size: 1.05rem;
-      font-weight: 800;
-      padding: 0.5rem;
-      min-width: 10rem;
     }
   }
 
