@@ -83,7 +83,7 @@ export default () => {
   }
 
   return (
-    <Combobox openOnFocus>
+    <Combobox>
       <label
         htmlFor={id}
         className={autocompleteHasFocus ? headerStyle.labelFocus : ''}
