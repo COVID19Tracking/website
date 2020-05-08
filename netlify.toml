@@ -17,6 +17,3 @@
   for = "/api/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
-  for = "/*"
-  [headers.value]
-    Referrer-Policy = "strict-origin-when-cross-origin"
