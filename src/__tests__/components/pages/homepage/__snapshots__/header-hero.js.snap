@@ -29,7 +29,7 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
         CDC numbers don't tell the full story. Their official count shows
          
         <span
-          className="cdcCount"
+          className="legend cdc"
         >
           242,576
         </span>
@@ -37,11 +37,12 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
         tests to date across the US. Using a rigorous data-collection process, we've counted
          
         <span
-          className="ctpCount"
+          className="legend ctp"
         >
           5,795,728
         </span>
-        .
+         
+        tests.
       </p>
     </div>
     <div
@@ -50,602 +51,518 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
       <svg
         aria-hidden={true}
         className="chart"
-        viewBox="0 0 1260 725"
+        viewBox="0 0 1260 675"
       >
         <g
           transform="translate(0 0)"
         >
           <rect
-            className="chartBar"
-            fill="colorHoney400"
+            className="chartBar ctp"
             height={0}
             x={2.7078384798099933}
-            y={700}
+            y={650}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
+            className="chartBar ctp"
             height={0}
             x={29.786223277909755}
-            y={700}
+            y={650}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={0.020416666666619676}
+            className="chartBar ctp"
+            height={0.0189583333333303}
             x={56.86460807600952}
-            y={699.9795833333334}
+            y={649.9810416666667}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={0.09333333333336213}
+            className="chartBar ctp"
+            height={0.08666666666670153}
             x={83.94299287410928}
-            y={699.9066666666666}
+            y={649.9133333333333}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={0.2333333333333485}
+            className="chartBar ctp"
+            height={0.21666666666669698}
             x={111.02137767220904}
-            y={699.7666666666667}
+            y={649.7833333333333}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={0.46958333333327573}
+            className="chartBar ctp"
+            height={0.43604166666659694}
             x={138.0997624703088}
-            y={699.5304166666667}
+            y={649.5639583333334}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={0.714583333333394}
+            className="chartBar ctp"
+            height={0.6635416666666742}
             x={165.17814726840857}
-            y={699.2854166666666}
+            y={649.3364583333333}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={3.120833333333394}
+            className="chartBar ctp"
+            height={2.8979166666666742}
             x={192.25653206650833}
-            y={696.8791666666666}
+            y={647.1020833333333}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={1.7237499999999955}
+            className="chartBar ctp"
+            height={1.6006250000000364}
             x={219.3349168646081}
-            y={698.27625}
+            y={648.399375}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={2.3187500000000227}
+            className="chartBar ctp"
+            height={2.1531250000000455}
             x={246.41330166270785}
-            y={697.68125}
+            y={647.846875}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={2.245833333333394}
+            className="chartBar ctp"
+            height={2.0854166666666742}
             x={273.4916864608076}
-            y={697.7541666666666}
+            y={647.9145833333333}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={2.540416666666715}
+            className="chartBar ctp"
+            height={2.358958333333362}
             x={300.5700712589074}
-            y={697.4595833333333}
+            y={647.6410416666666}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={5.238333333333344}
+            className="chartBar ctp"
+            height={4.86416666666662}
             x={327.64845605700714}
-            y={694.7616666666667}
+            y={645.1358333333334}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={7.034999999999968}
+            className="chartBar ctp"
+            height={6.532500000000027}
             x={354.7268408551069}
-            y={692.965}
+            y={643.4675}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={10.931666666666615}
+            className="chartBar ctp"
+            height={10.150833333333253}
             x={381.80522565320666}
-            y={689.0683333333334}
+            y={639.8491666666667}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={14.98291666666671}
+            className="chartBar ctp"
+            height={13.912708333333285}
             x={408.8836104513064}
-            y={685.0170833333333}
+            y={636.0872916666667}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={26.4133333333333}
+            className="chartBar ctp"
+            height={24.526666666666642}
             x={435.9619952494062}
-            y={673.5866666666667}
+            y={625.4733333333334}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={13.177500000000009}
+            className="chartBar ctp"
+            height={12.236250000000041}
             x={463.04038004750595}
-            y={686.8225}
+            y={637.76375}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={22.335833333333312}
+            className="chartBar ctp"
+            height={20.740416666666647}
             x={490.1187648456057}
-            y={677.6641666666667}
+            y={629.2595833333334}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={51.51125000000002}
+            className="chartBar ctp"
+            height={47.83187499999997}
             x={517.1971496437055}
-            y={648.48875}
+            y={602.168125}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={45.526250000000005}
+            className="chartBar ctp"
+            height={42.274374999999964}
             x={544.2755344418052}
-            y={654.47375}
+            y={607.725625}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={71.86374999999998}
+            className="chartBar ctp"
+            height={66.73062500000003}
             x={571.3539192399049}
-            y={628.13625}
+            y={583.269375}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={79.91666666666663}
+            className="chartBar ctp"
+            height={74.20833333333337}
             x={598.4323040380048}
-            y={620.0833333333334}
+            y={575.7916666666666}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={105.46958333333328}
+            className="chartBar ctp"
+            height={97.9360416666666}
             x={625.5106888361046}
-            y={594.5304166666667}
+            y={552.0639583333334}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={130.52958333333333}
+            className="chartBar ctp"
+            height={121.20604166666669}
             x={652.5890736342043}
-            y={569.4704166666667}
+            y={528.7939583333333}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={130.0745833333333}
+            className="chartBar ctp"
+            height={120.78354166666668}
             x={679.667458432304}
-            y={569.9254166666667}
+            y={529.2164583333333}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={166.64375000000007}
+            className="chartBar ctp"
+            height={154.74062500000002}
             x={706.7458432304038}
-            y={533.3562499999999}
+            y={495.259375}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={200.12125000000003}
+            className="chartBar ctp"
+            height={185.82687500000003}
             x={733.8242280285036}
-            y={499.87874999999997}
+            y={464.17312499999997}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={243.50374999999997}
+            className="chartBar ctp"
+            height={226.11062499999997}
             x={760.9026128266033}
-            y={456.49625000000003}
+            y={423.88937500000003}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={293.02000000000004}
+            className="chartBar ctp"
+            height={272.09000000000003}
             x={787.980997624703}
-            y={406.97999999999996}
+            y={377.90999999999997}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={300.6208333333333}
+            className="chartBar ctp"
+            height={279.1479166666666}
             x={815.0593824228029}
-            y={399.3791666666667}
+            y={370.8520833333334}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={304.40083333333337}
+            className="chartBar ctp"
+            height={282.65791666666667}
             x={842.1377672209027}
-            y={395.59916666666663}
+            y={367.34208333333333}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={258.94166666666666}
+            className="chartBar ctp"
+            height={240.44583333333333}
             x={869.2161520190024}
-            y={441.05833333333334}
+            y={409.5541666666667}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={342.5625}
+            className="chartBar ctp"
+            height={318.09375}
             x={896.2945368171021}
-            y={357.4375}
+            y={331.90625}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={324.0241666666667}
+            className="chartBar ctp"
+            height={300.87958333333336}
             x={923.3729216152019}
-            y={375.9758333333333}
+            y={349.12041666666664}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={313.7808333333333}
+            className="chartBar ctp"
+            height={291.36791666666664}
             x={950.4513064133017}
-            y={386.2191666666667}
+            y={358.63208333333336}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={344.23375}
+            className="chartBar ctp"
+            height={319.645625}
             x={977.5296912114014}
-            y={355.76625}
+            y={330.354375}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={385.6766666666667}
+            className="chartBar ctp"
+            height={358.1283333333334}
             x={1004.6080760095011}
-            y={314.3233333333333}
+            y={291.8716666666666}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={667.3245833333333}
+            className="chartBar ctp"
+            height={619.6585416666667}
             x={1031.6864608076012}
-            y={32.6754166666667}
+            y={30.341458333333364}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={349.0054166666667}
+            className="chartBar ctp"
+            height={324.07645833333333}
             x={1058.7648456057009}
-            y={350.9945833333333}
+            y={325.92354166666667}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={439.6291666666667}
+            className="chartBar ctp"
+            height={408.2270833333333}
             x={1085.8432304038006}
-            y={260.3708333333333}
+            y={241.77291666666665}
           />
           <rect
-            className="chartBar"
-            fill="colorHoney400"
-            height={445.50625}
+            className="chartBar ctp"
+            height={413.684375}
             x={1112.9216152019003}
-            y={254.49375}
+            y={236.315625}
           />
         </g>
         <g
           transform="translate(0 0)"
         >
           <rect
-            className="chartBar"
-            fill="white"
-            height={0.32083333333332575}
+            className="chartBar cdc"
+            height={0.2979166666666515}
             x={2.7078384798099933}
-            y={699.6791666666667}
+            y={649.7020833333333}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={0.5920833333333348}
+            className="chartBar cdc"
+            height={0.5497916666666924}
             x={29.786223277909755}
-            y={699.4079166666667}
+            y={649.4502083333333}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={0.7758333333333667}
+            className="chartBar cdc"
+            height={0.7204166666666652}
             x={56.86460807600952}
-            y={699.2241666666666}
+            y={649.2795833333333}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={1.082083333333344}
+            className="chartBar cdc"
+            height={1.0047916666667334}
             x={83.94299287410928}
-            y={698.9179166666667}
+            y={648.9952083333333}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={0.8516666666666879}
+            className="chartBar cdc"
+            height={0.790833333333353}
             x={111.02137767220904}
-            y={699.1483333333333}
+            y={649.2091666666666}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={1.9512500000000728}
+            className="chartBar cdc"
+            height={1.8118749999999864}
             x={138.0997624703088}
-            y={698.0487499999999}
+            y={648.188125}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={2.6045833333332666}
+            className="chartBar cdc"
+            height={2.4185416666666697}
             x={165.17814726840857}
-            y={697.3954166666667}
+            y={647.5814583333333}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={3.747916666666697}
+            className="chartBar cdc"
+            height={3.4802083333332803}
             x={192.25653206650833}
-            y={696.2520833333333}
+            y={646.5197916666667}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={5.028333333333308}
+            className="chartBar cdc"
+            height={4.669166666666683}
             x={219.3349168646081}
-            y={694.9716666666667}
+            y={645.3308333333333}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={5.766250000000014}
+            className="chartBar cdc"
+            height={5.3543750000000045}
             x={246.41330166270785}
-            y={694.23375}
+            y={644.645625}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={4.427500000000009}
+            className="chartBar cdc"
+            height={4.111250000000041}
             x={273.4916864608076}
-            y={695.5725}
+            y={645.88875}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={4.862083333333317}
+            className="chartBar cdc"
+            height={4.514791666666611}
             x={300.5700712589074}
-            y={695.1379166666667}
+            y={645.4852083333334}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={9.77374999999995}
+            className="chartBar cdc"
+            height={9.075624999999945}
             x={327.64845605700714}
-            y={690.22625}
+            y={640.924375}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={10.357083333333321}
+            className="chartBar cdc"
+            height={9.617291666666688}
             x={354.7268408551069}
-            y={689.6429166666667}
+            y={640.3827083333333}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={12.722500000000082}
+            className="chartBar cdc"
+            height={11.813750000000027}
             x={381.80522565320666}
-            y={687.2774999999999}
+            y={638.18625}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={18.039583333333326}
+            className="chartBar cdc"
+            height={16.75104166666665}
             x={408.8836104513064}
-            y={681.9604166666667}
+            y={633.2489583333333}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={19.970416666666665}
+            className="chartBar cdc"
+            height={18.54395833333342}
             x={435.9619952494062}
-            y={680.0295833333333}
+            y={631.4560416666666}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={17.817916666666633}
+            className="chartBar cdc"
+            height={16.545208333333335}
             x={463.04038004750595}
-            y={682.1820833333334}
+            y={633.4547916666667}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={17.00999999999999}
+            className="chartBar cdc"
+            height={15.794999999999959}
             x={490.1187648456057}
-            y={682.99}
+            y={634.205}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={32.033750000000055}
+            className="chartBar cdc"
+            height={29.745625000000018}
             x={517.1971496437055}
-            y={667.96625}
+            y={620.254375}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={32.54416666666668}
+            className="chartBar cdc"
+            height={30.21958333333339}
             x={544.2755344418052}
-            y={667.4558333333333}
+            y={619.7804166666666}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={30.126249999999914}
+            className="chartBar cdc"
+            height={27.97437500000001}
             x={571.3539192399049}
-            y={669.8737500000001}
+            y={622.025625}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={29.27458333333334}
+            className="chartBar cdc"
+            height={27.183541666666656}
             x={598.4323040380048}
-            y={670.7254166666667}
+            y={622.8164583333333}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={27.956249999999955}
+            className="chartBar cdc"
+            height={25.959375000000023}
             x={625.5106888361046}
-            y={672.04375}
+            y={624.040625}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={15.881250000000023}
+            className="chartBar cdc"
+            height={14.746874999999932}
             x={652.5890736342043}
-            y={684.11875}
+            y={635.2531250000001}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={13.976666666666688}
+            className="chartBar cdc"
+            height={12.978333333333353}
             x={679.667458432304}
-            y={686.0233333333333}
+            y={637.0216666666666}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={25.634583333333353}
+            className="chartBar cdc"
+            height={23.80354166666666}
             x={706.7458432304038}
-            y={674.3654166666666}
+            y={626.1964583333333}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={25.35749999999996}
+            className="chartBar cdc"
+            height={23.546249999999986}
             x={733.8242280285036}
-            y={674.6425}
+            y={626.45375}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={26.46875}
+            className="chartBar cdc"
+            height={24.578125}
             x={760.9026128266033}
-            y={673.53125}
+            y={625.421875}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={27.515833333333262}
+            className="chartBar cdc"
+            height={25.550416666666592}
             x={787.980997624703}
-            y={672.4841666666667}
+            y={624.4495833333334}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={27.623749999999973}
+            className="chartBar cdc"
+            height={25.65062499999999}
             x={815.0593824228029}
-            y={672.37625}
+            y={624.349375}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={18.048333333333403}
+            className="chartBar cdc"
+            height={16.759166666666715}
             x={842.1377672209027}
-            y={681.9516666666666}
+            y={633.2408333333333}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={15.262916666666683}
+            className="chartBar cdc"
+            height={14.172708333333276}
             x={869.2161520190024}
-            y={684.7370833333333}
+            y={635.8272916666667}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={31.546666666666738}
+            className="chartBar cdc"
+            height={29.293333333333408}
             x={896.2945368171021}
-            y={668.4533333333333}
+            y={620.7066666666666}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={32.38083333333327}
+            className="chartBar cdc"
+            height={30.067916666666633}
             x={923.3729216152019}
-            y={667.6191666666667}
+            y={619.9320833333334}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={30.47625000000005}
+            className="chartBar cdc"
+            height={28.299375000000055}
             x={950.4513064133017}
-            y={669.52375}
+            y={621.700625}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={33.26750000000004}
+            className="chartBar cdc"
+            height={30.891250000000014}
             x={977.5296912114014}
-            y={666.7325}
+            y={619.10875}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={32.02791666666667}
+            className="chartBar cdc"
+            height={29.74020833333327}
             x={1004.6080760095011}
-            y={667.9720833333333}
+            y={620.2597916666667}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={17.68083333333334}
+            className="chartBar cdc"
+            height={16.417916666666656}
             x={1031.6864608076012}
-            y={682.3191666666667}
+            y={633.5820833333333}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={16.519999999999982}
+            className="chartBar cdc"
+            height={15.339999999999918}
             x={1058.7648456057009}
-            y={683.48}
+            y={634.6600000000001}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={17.80916666666667}
+            className="chartBar cdc"
+            height={16.537083333333385}
             x={1085.8432304038006}
-            y={682.1908333333333}
+            y={633.4629166666666}
           />
           <rect
-            className="chartBar"
-            fill="white"
-            height={1.3679166666667015}
+            className="chartBar cdc"
+            height={1.2702083333333576}
             x={1112.9216152019003}
-            y={698.6320833333333}
+            y={648.7297916666666}
           />
         </g>
         <g
@@ -657,13 +574,13 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
               className="chartLine"
               x1={0}
               x2={1140}
-              y1={554.1666666666666}
-              y2={554.1666666666666}
+              y1={514.5833333333333}
+              y2={514.5833333333333}
             />
             <svg
               className="chartLegend"
               x={1200}
-              y={560.1666666666666}
+              y={520.5833333333333}
             >
               <text
                 x="0"
@@ -678,13 +595,13 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
               className="chartLine"
               x1={0}
               x2={1140}
-              y1={408.33333333333326}
-              y2={408.33333333333326}
+              y1={379.16666666666663}
+              y2={379.16666666666663}
             />
             <svg
               className="chartLegend"
               x={1200}
-              y={414.33333333333326}
+              y={385.16666666666663}
             >
               <text
                 x="0"
@@ -699,13 +616,13 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
               className="chartLine"
               x1={0}
               x2={1140}
-              y1={262.5}
-              y2={262.5}
+              y1={243.75}
+              y2={243.75}
             />
             <svg
               className="chartLegend"
               x={1200}
-              y={268.5}
+              y={249.75}
             >
               <text
                 x="0"
@@ -728,7 +645,7 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
               }
             }
             x={111.02137767220904}
-            y={720}
+            y={670}
           >
             March
           </text>
@@ -740,7 +657,7 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
               }
             }
             x={950.4513064133017}
-            y={720}
+            y={670}
           >
             April
           </text>

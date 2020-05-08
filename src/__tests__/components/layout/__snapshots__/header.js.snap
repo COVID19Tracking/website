@@ -831,8 +831,15 @@ exports[`Components : Layout : Header renders correctly 4`] = `
             method="get"
             onSubmit={[Function]}
           >
+            <label
+              className="a11y-only"
+              htmlFor="mobile-menu-search"
+            >
+              Search
+            </label>
             <input
               autoComplete="off"
+              id="mobile-menu-search"
               name="q"
               onBlur={[Function]}
               onFocus={[Function]}
