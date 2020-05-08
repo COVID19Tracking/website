@@ -192,8 +192,9 @@ export default () => {
             tests to date across the US. Using a rigorous data-collection
             process, we&apos;ve counted{' '}
             <span className={`${heroStyle.legend} ${heroStyle.ctp}`}>
-              {data.allCovidUs.nodes[0].posNeg.toLocaleString()}.
-            </span>
+              {data.allCovidUs.nodes[0].posNeg.toLocaleString()}
+            </span>{' '}
+            tests.
           </p>
         </div>
         <div className={heroStyle.chartWrapper}>
