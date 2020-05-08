@@ -29,8 +29,15 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             method="get"
             onSubmit={[Function]}
           >
+            <label
+              className="a11y-only"
+              htmlFor="mobile-menu-search"
+            >
+              Search
+            </label>
             <input
               autoComplete="off"
+              id="mobile-menu-search"
               name="q"
               onBlur={[Function]}
               onFocus={[Function]}
@@ -288,8 +295,15 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             method="get"
             onSubmit={[Function]}
           >
+            <label
+              className="a11y-only"
+              htmlFor="mobile-menu-search"
+            >
+              Search
+            </label>
             <input
               autoComplete="off"
+              id="mobile-menu-search"
               name="q"
               onBlur={[Function]}
               onFocus={[Function]}
@@ -547,8 +561,15 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             method="get"
             onSubmit={[Function]}
           >
+            <label
+              className="a11y-only"
+              htmlFor="mobile-menu-search"
+            >
+              Search
+            </label>
             <input
               autoComplete="off"
+              id="mobile-menu-search"
               name="q"
               onBlur={[Function]}
               onFocus={[Function]}

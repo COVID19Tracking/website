@@ -17,21 +17,24 @@
     }
 
     .model {
-      border:0px;
+      border: 0px;
 
-      td, tr {
+      td,
+      tr {
         border-top: none;
         border-bottom: none;
-        padding-top:20px;
-        padding-bottom:20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
       }
 
       tbody tr {
-        border-top:1px solid rgb(200, 200, 200);
+        border-top: 1px solid rgb(200, 200, 200);
       }
     }
 
-    table, th, td {
+    table,
+    th,
+    td {
       border-color: rgb(175, 175, 175);
       border-left: none;
       border-right: none;
