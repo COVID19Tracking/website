@@ -42,24 +42,61 @@ const HeaderNavigation = () => {
             items {
               link
               title
+              subNavigation
+            }
+          }
+        }
+      }
+      allContentfulNavigationGroup {
+        edges {
+          node {
+            slug
+            pages {
+              ... on ContentfulPage {
+                title
+                link: slug
+              }
+              ... on ContentfulNavigationLink {
+                title
+                link: url
+              }
             }
           }
         }
       }
     }
   `)
+  const subNavigation = {}
+  data.allContentfulNavigationGroup.edges.forEach(({ node }) => {
+    subNavigation[node.slug] = node.pages
+  })
   return (
     <nav className="js-disabled-block">
       <ul>
         {data.allNavigationYaml.edges[0].node.items.map(item => (
           <li key={item.link}>
             <Link to={item.link}>{item.title}</Link>
+            {item.subNavigation &&
+              typeof subNavigation[item.subNavigation] !== 'undefined' && (
+                <SubNavigation items={subNavigation[item.subNavigation]} />
+              )}
           </li>
         ))}
       </ul>
     </nav>
   )
 }
+
+const SubNavigation = ({ items }) => (
+  <ul>
+    {items.map(item => (
+      <li key={item.link}>
+        <Link to={item.link}>{item.title}</Link>
+      </li>
+    ))}
+  </ul>
+)
+
 const HeaderSearch = ({ children }) => {
   const [searchState] = useSearch()
   const { query, autocompleteHasFocus } = searchState
