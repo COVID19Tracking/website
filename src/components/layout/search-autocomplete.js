@@ -34,15 +34,15 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
     return searchDispatch({ type: 'setQuery', payload: value })
   }
 
-  if (mobile && searchInputRef.current) {
-    useEffect(() => {
+  useEffect(() => {
+    if (mobile && searchInputRef.current !== null) {
       if (visible) {
         searchInputRef.current.focus()
       } else {
         searchInputRef.current.blur()
       }
-    }, [visible])
-  }
+    }
+  }, [visible])
 
   useEffect(() => {
     if (query) {
