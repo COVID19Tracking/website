@@ -38,7 +38,7 @@ Array [
               onSubmit={[Function]}
             >
               <label
-                className="a11y-only"
+                className=""
                 htmlFor="mobile-menu-search"
               >
                 Search
@@ -49,7 +49,6 @@ Array [
                 name="q"
                 onBlur={[Function]}
                 onFocus={[Function]}
-                placeholder="Search"
                 type="search"
               />
             </form>
@@ -175,7 +174,7 @@ Array [
                       data-reach-combobox=""
                     >
                       <label
-                        className="a11y-only"
+                        className=""
                         htmlFor="header-search-autocomplete"
                       >
                         Search
@@ -194,7 +193,6 @@ Array [
                         onFocus={[Function]}
                         onKeyDown={[Function]}
                         onSelect={[Function]}
-                        placeholder="Search"
                         role="combobox"
                         value=""
                       />
@@ -404,7 +402,7 @@ Array [
               onSubmit={[Function]}
             >
               <label
-                className="a11y-only"
+                className=""
                 htmlFor="mobile-menu-search"
               >
                 Search
@@ -415,7 +413,6 @@ Array [
                 name="q"
                 onBlur={[Function]}
                 onFocus={[Function]}
-                placeholder="Search"
                 type="search"
               />
             </form>
@@ -541,7 +538,7 @@ Array [
                       data-reach-combobox=""
                     >
                       <label
-                        className="a11y-only"
+                        className=""
                         htmlFor="header-search-autocomplete"
                       >
                         Search
@@ -560,7 +557,6 @@ Array [
                         onFocus={[Function]}
                         onKeyDown={[Function]}
                         onSelect={[Function]}
-                        placeholder="Search"
                         role="combobox"
                         value=""
                       />

@@ -88,10 +88,12 @@ const MobileMenu = ({ expanded }) => {
   const { autocompleteHasFocus } = searchState
 
   useEffect(() => {
-    if (expanded) {
-      searchInputRef.current.focus()
-    } else {
-      searchInputRef.current.blur()
+    if (searchInputRef.current !== null) {
+      if (expanded) {
+        searchInputRef.current.focus()
+      } else {
+        searchInputRef.current.blur()
+      }
     }
   }, [expanded])
 

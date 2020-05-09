@@ -30,7 +30,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             onSubmit={[Function]}
           >
             <label
-              className="a11y-only"
+              className=""
               htmlFor="mobile-menu-search"
             >
               Search
@@ -41,7 +41,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
               name="q"
               onBlur={[Function]}
               onFocus={[Function]}
-              placeholder="Search"
               type="search"
             />
           </form>
@@ -167,7 +166,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                     data-reach-combobox=""
                   >
                     <label
-                      className="a11y-only"
+                      className=""
                       htmlFor="header-search-autocomplete"
                     >
                       Search
@@ -186,7 +185,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                       onFocus={[Function]}
                       onKeyDown={[Function]}
                       onSelect={[Function]}
-                      placeholder="Search"
                       role="combobox"
                       value=""
                     />
@@ -296,7 +294,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             onSubmit={[Function]}
           >
             <label
-              className="a11y-only"
+              className=""
               htmlFor="mobile-menu-search"
             >
               Search
@@ -307,7 +305,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
               name="q"
               onBlur={[Function]}
               onFocus={[Function]}
-              placeholder="Search"
               type="search"
             />
           </form>
@@ -433,7 +430,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                     data-reach-combobox=""
                   >
                     <label
-                      className="a11y-only"
+                      className=""
                       htmlFor="header-search-autocomplete"
                     >
                       Search
@@ -452,7 +449,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                       onFocus={[Function]}
                       onKeyDown={[Function]}
                       onSelect={[Function]}
-                      placeholder="Search"
                       role="combobox"
                       value=""
                     />
@@ -562,7 +558,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             onSubmit={[Function]}
           >
             <label
-              className="a11y-only"
+              className=""
               htmlFor="mobile-menu-search"
             >
               Search
@@ -573,7 +569,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
               name="q"
               onBlur={[Function]}
               onFocus={[Function]}
-              placeholder="Search"
               type="search"
             />
           </form>
@@ -699,7 +694,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                     data-reach-combobox=""
                   >
                     <label
-                      className="a11y-only"
+                      className=""
                       htmlFor="header-search-autocomplete"
                     >
                       Search
@@ -718,7 +713,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                       onFocus={[Function]}
                       onKeyDown={[Function]}
                       onSelect={[Function]}
-                      placeholder="Search"
                       role="combobox"
                       value=""
                     />
