@@ -25,7 +25,90 @@ Array [
             "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
           }
         }
-      />
+      >
+        <div
+          className="mobileMenu"
+          style={
+            Object {
+              "display": "none",
+              "minHeight": "0px",
+            }
+          }
+        >
+          <div
+            className="searchInput"
+          >
+            <div
+              data-reach-combobox=""
+            >
+              <label
+                className=""
+                htmlFor="header-search-autocomplete-mobile"
+              >
+                Search
+              </label>
+              <input
+                aria-autocomplete="both"
+                aria-controls="listbox--1"
+                aria-expanded={false}
+                aria-haspopup="listbox"
+                autoComplete="off"
+                data-reach-combobox-input=""
+                id="header-search-autocomplete-mobile"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onSelect={[Function]}
+                role="combobox"
+                value=""
+              />
+            </div>
+            <button
+              aria-label="Submit search"
+              className="searchSubmit"
+              onClick={[Function]}
+              type="button"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="test-file-stub"
+              />
+            </button>
+          </div>
+          <nav
+            className="js-disabled-block"
+          >
+            <ul>
+              <li>
+                <a
+                  href="/test-a"
+                >
+                  Test A
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/test-b"
+                >
+                  Test B
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <a
+            className="getInvolved"
+            href="/about-project/help"
+          >
+            Get Involved
+          </a>
+          <div
+            className="mobilePointer"
+          />
+        </div>
+      </div>
       <div
         className=""
         style={
@@ -111,7 +194,7 @@ Array [
                       </label>
                       <input
                         aria-autocomplete="both"
-                        aria-controls="listbox--1"
+                        aria-controls="listbox--2"
                         aria-expanded={false}
                         aria-haspopup="listbox"
                         autoComplete="off"
@@ -319,7 +402,90 @@ Array [
             "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
           }
         }
-      />
+      >
+        <div
+          className="mobileMenu"
+          style={
+            Object {
+              "display": "none",
+              "minHeight": "0px",
+            }
+          }
+        >
+          <div
+            className="searchInput"
+          >
+            <div
+              data-reach-combobox=""
+            >
+              <label
+                className=""
+                htmlFor="header-search-autocomplete-mobile"
+              >
+                Search
+              </label>
+              <input
+                aria-autocomplete="both"
+                aria-controls="listbox--5"
+                aria-expanded={false}
+                aria-haspopup="listbox"
+                autoComplete="off"
+                data-reach-combobox-input=""
+                id="header-search-autocomplete-mobile"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onSelect={[Function]}
+                role="combobox"
+                value=""
+              />
+            </div>
+            <button
+              aria-label="Submit search"
+              className="searchSubmit"
+              onClick={[Function]}
+              type="button"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="test-file-stub"
+              />
+            </button>
+          </div>
+          <nav
+            className="js-disabled-block"
+          >
+            <ul>
+              <li>
+                <a
+                  href="/test-a"
+                >
+                  Test A
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/test-b"
+                >
+                  Test B
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <a
+            className="getInvolved"
+            href="/about-project/help"
+          >
+            Get Involved
+          </a>
+          <div
+            className="mobilePointer"
+          />
+        </div>
+      </div>
       <div
         className=""
         style={
@@ -405,7 +571,7 @@ Array [
                       </label>
                       <input
                         aria-autocomplete="both"
-                        aria-controls="listbox--3"
+                        aria-controls="listbox--6"
                         aria-expanded={false}
                         aria-haspopup="listbox"
                         autoComplete="off"

@@ -99,7 +99,6 @@ const MobileMenu = ({ expanded }) => {
   // When query changes,
   // either update menu min height (if needed) or reset to initial value
   useEffect(() => {
-    console.log(resultPopoverRef.current)
     if (
       query &&
       !isFetching &&

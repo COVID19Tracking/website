@@ -34,7 +34,7 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
     return searchDispatch({ type: 'setQuery', payload: value })
   }
 
-  if (mobile && searchInputRef.current !== null) {
+  if (mobile && searchInputRef.current) {
     useEffect(() => {
       if (visible) {
         searchInputRef.current.focus()
