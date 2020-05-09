@@ -17,77 +17,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
           "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
         }
       }
-    >
-      <div
-        className="mobileMenu"
-      >
-        <div
-          className="searchInput"
-        >
-          <form
-            action="/search"
-            method="get"
-            onSubmit={[Function]}
-          >
-            <label
-              className=""
-              htmlFor="mobile-menu-search"
-            >
-              Search
-            </label>
-            <input
-              autoComplete="off"
-              id="mobile-menu-search"
-              name="q"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              type="search"
-            />
-          </form>
-          <button
-            aria-label="Submit search"
-            className="searchSubmit"
-            onClick={[Function]}
-            type="button"
-          >
-            <img
-              alt=""
-              aria-hidden="true"
-              src="test-file-stub"
-            />
-          </button>
-        </div>
-        <nav
-          className="js-disabled-block"
-        >
-          <ul>
-            <li>
-              <a
-                href="/test-a"
-              >
-                Test A
-              </a>
-            </li>
-            <li>
-              <a
-                href="/test-b"
-              >
-                Test B
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <a
-          className="getInvolved"
-          href="/about-project/help"
-        >
-          Get Involved
-        </a>
-        <div
-          className="mobilePointer"
-        />
-      </div>
-    </div>
+    />
     <div
       className=""
       style={
@@ -281,77 +211,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
           "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
         }
       }
-    >
-      <div
-        className="mobileMenu"
-      >
-        <div
-          className="searchInput"
-        >
-          <form
-            action="/search"
-            method="get"
-            onSubmit={[Function]}
-          >
-            <label
-              className=""
-              htmlFor="mobile-menu-search"
-            >
-              Search
-            </label>
-            <input
-              autoComplete="off"
-              id="mobile-menu-search"
-              name="q"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              type="search"
-            />
-          </form>
-          <button
-            aria-label="Submit search"
-            className="searchSubmit"
-            onClick={[Function]}
-            type="button"
-          >
-            <img
-              alt=""
-              aria-hidden="true"
-              src="test-file-stub"
-            />
-          </button>
-        </div>
-        <nav
-          className="js-disabled-block"
-        >
-          <ul>
-            <li>
-              <a
-                href="/test-a"
-              >
-                Test A
-              </a>
-            </li>
-            <li>
-              <a
-                href="/test-b"
-              >
-                Test B
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <a
-          className="getInvolved"
-          href="/about-project/help"
-        >
-          Get Involved
-        </a>
-        <div
-          className="mobilePointer"
-        />
-      </div>
-    </div>
+    />
     <div
       className=""
       style={
@@ -545,77 +405,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
           "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
         }
       }
-    >
-      <div
-        className="mobileMenu"
-      >
-        <div
-          className="searchInput"
-        >
-          <form
-            action="/search"
-            method="get"
-            onSubmit={[Function]}
-          >
-            <label
-              className=""
-              htmlFor="mobile-menu-search"
-            >
-              Search
-            </label>
-            <input
-              autoComplete="off"
-              id="mobile-menu-search"
-              name="q"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              type="search"
-            />
-          </form>
-          <button
-            aria-label="Submit search"
-            className="searchSubmit"
-            onClick={[Function]}
-            type="button"
-          >
-            <img
-              alt=""
-              aria-hidden="true"
-              src="test-file-stub"
-            />
-          </button>
-        </div>
-        <nav
-          className="js-disabled-block"
-        >
-          <ul>
-            <li>
-              <a
-                href="/test-a"
-              >
-                Test A
-              </a>
-            </li>
-            <li>
-              <a
-                href="/test-b"
-              >
-                Test B
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <a
-          className="getInvolved"
-          href="/about-project/help"
-        >
-          Get Involved
-        </a>
-        <div
-          className="mobilePointer"
-        />
-      </div>
-    </div>
+    />
     <div
       className=""
       style={
