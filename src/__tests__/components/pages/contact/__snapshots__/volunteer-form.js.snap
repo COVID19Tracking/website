@@ -26,6 +26,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         (required)
       </span>
       <input
+        id="name"
         name="name"
         required={true}
         type="text"
@@ -49,6 +50,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         If possible, this should be a Gmail or Google-linked address, since we rely heavily on Google Docs and Sheets. We will show your email internally to other volunteers but will not share it elsewhere.
       </span>
       <input
+        id="email"
         name="email"
         required={true}
         type="email"
@@ -67,6 +69,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         Personal website, LinkedIn, or other website that will tell us about you.
       </span>
       <input
+        id="url"
         name="url"
         type="text"
       />
@@ -84,6 +87,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         (required)
       </span>
       <select
+        id="hours"
         name="hours"
         required={true}
       >
@@ -123,7 +127,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
   <div>
     <label
       className="inputHeader"
-      htmlFor="hours"
+      htmlFor="timezone"
     >
       What time zone are you in?
       <span
@@ -132,6 +136,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         (required)
       </span>
       <select
+        id="timezone"
         name="timezone"
         required={true}
       >
@@ -177,6 +182,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         htmlFor="morning"
       >
         <input
+          id="morning"
           name="availability"
           type="checkbox"
           value="Morning, some or all weekdays"
@@ -187,6 +193,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         htmlFor="afternoon"
       >
         <input
+          id="afternoon"
           name="availability"
           type="checkbox"
           value="Afternoon, some or all weekdays"
@@ -197,6 +204,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         htmlFor="evening"
       >
         <input
+          id="evening"
           name="availability"
           type="checkbox"
           value="Evening, some or all weekdays"
@@ -207,6 +215,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         htmlFor="weekends"
       >
         <input
+          id="weekends"
           name="availability"
           type="checkbox"
           value="Weekends"
@@ -232,6 +241,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         Examples: Python, SQL, Tableau, data viz, editing, social media, public health, research, journalism, etc.
       </span>
       <input
+        id="skills"
         name="skills"
         required={true}
         type="text"
@@ -255,6 +265,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           htmlFor="general-management"
         >
           <input
+            id="general-management"
             name="workstream"
             type="radio"
             value="I want to help run the whole program by creating high-level policies and services."
@@ -267,6 +278,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           htmlFor="volunteer-management"
         >
           <input
+            id="volunteer-management"
             name="workstream"
             type="radio"
             value="I want to recruit, train, and manage volunteers. "
@@ -279,6 +291,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           htmlFor="data-entry"
         >
           <input
+            id="data-entry"
             name="workstream"
             type="radio"
             value="I want to collect COVID data from state websites and data dashboards. "
@@ -291,6 +304,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           htmlFor="race-data"
         >
           <input
+            id="race-data"
             name="workstream"
             type="radio"
             value="I want to collect data about how COVID is affecting communities of color. "
@@ -303,6 +317,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           htmlFor="state-ratings"
         >
           <input
+            id="state-ratings"
             name="workstream"
             type="radio"
             value="I want to maintain ratings of the completeness and quality of state COVID data. "
@@ -315,6 +330,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           htmlFor="news-monitoring"
         >
           <input
+            id="news-monitoring"
             name="workstream"
             type="radio"
             value="I want to find COVID data by watching press conferences and monitoring local news sources."
@@ -327,6 +343,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           htmlFor="copy"
         >
           <input
+            id="copy"
             name="workstream"
             type="radio"
             value="I want to write and edit copy for your website."
@@ -339,6 +356,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           htmlFor="data-vis"
         >
           <input
+            id="data-vis"
             name="workstream"
             type="radio"
             value="I want to create data visualizations and graphics with your data."
@@ -351,6 +369,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           htmlFor="website-design"
         >
           <input
+            id="website-design"
             name="workstream"
             type="radio"
             value="I want to design the front end of your website."
@@ -363,6 +382,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           htmlFor="backend"
         >
           <input
+            id="backend"
             name="workstream"
             type="radio"
             value="I want to build the back end functionality of your website. "
@@ -375,6 +395,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           htmlFor="devops"
         >
           <input
+            id="devops"
             name="workstream"
             type="radio"
             value="I want to ensure your heavily-trafficked website is fast and reliable."
@@ -391,7 +412,8 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
     >
       I was referred by ...
       <input
-        name="referral"
+        id="referred"
+        name="referred"
         type="text"
       />
     </label>
@@ -403,6 +425,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
     >
       Why are you interested in volunteering for us?
       <textarea
+        id="why"
         name="why"
         rows="5"
       />
