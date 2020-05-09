@@ -153,7 +153,7 @@ const Header = withSearch(({ title, titleLink, noMargin, navigation }) => {
             duration={500}
             transitions={['height', 'opacity', 'background']}
           >
-            <MobileMenu expanded={showMobileMenu} />
+            {showMobileMenu && <MobileMenu expanded />}
           </Expand>
           <Expand
             open={!showMobileMenu}
