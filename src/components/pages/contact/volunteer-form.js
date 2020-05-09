@@ -23,7 +23,7 @@ export default () => {
         <label htmlFor="name" className={VolunteerFormStyles.inputHeader}>
           Name
           <span className={VolunteerFormStyles.required}>(required)</span>
-          <input type="text" name="name" required />
+          <input type="text" name="name" id="name" required />
         </label>
       </div>
 
@@ -36,7 +36,7 @@ export default () => {
             we rely heavily on Google Docs and Sheets. We will show your email
             internally to other volunteers but will not share it elsewhere.
           </span>
-          <input type="email" name="email" required />
+          <input type="email" name="email" id="email" required />
         </label>
       </div>
 
@@ -47,7 +47,7 @@ export default () => {
             Personal website, LinkedIn, or other website that will tell us about
             you.
           </span>
-          <input type="text" name="url" />
+          <input type="text" name="url" id="url" />
         </label>
       </div>
 
@@ -55,7 +55,7 @@ export default () => {
         <label htmlFor="hours" className={VolunteerFormStyles.inputHeader}>
           About how many hours are you available to work?
           <span className={VolunteerFormStyles.required}>(required)</span>
-          <select name="hours" required>
+          <select name="hours" id="hours" required>
             {HoursPerWeek.map(item => {
               return <option value={item}>{item}</option>
             })}
@@ -64,10 +64,10 @@ export default () => {
       </div>
 
       <div>
-        <label htmlFor="hours" className={VolunteerFormStyles.inputHeader}>
+        <label htmlFor="timezone" className={VolunteerFormStyles.inputHeader}>
           What time zone are you in?
           <span className={VolunteerFormStyles.required}>(required)</span>
-          <select name="timezone" required>
+          <select name="timezone" id="timezone" required>
             {Timezone.map(item => {
               return <option value={item}>{item}</option>
             })}
@@ -88,6 +88,7 @@ export default () => {
                   type="checkbox"
                   name="availability"
                   value={item.description}
+                  id={item.shortname}
                 />
                 {item.description}
               </label>
@@ -104,7 +105,7 @@ export default () => {
             Examples: Python, SQL, Tableau, data viz, editing, social media,
             public health, research, journalism, etc.
           </span>
-          <input type="text" name="skills" required />
+          <input type="text" name="skills" id="skills" required />
         </label>
       </div>
 
@@ -121,6 +122,7 @@ export default () => {
                   <input
                     type="radio"
                     name="workstream"
+                    id={item.shortname}
                     value={item.description}
                   />
                   {item.description}
@@ -134,14 +136,14 @@ export default () => {
       <div>
         <label htmlFor="referred" className={VolunteerFormStyles.inputHeader}>
           I was referred by ...
-          <input type="text" name="referral" />
+          <input type="text" id="referred" name="referred" />
         </label>
       </div>
 
       <div>
         <label htmlFor="why" className={VolunteerFormStyles.inputHeader}>
           Why are you interested in volunteering for us?
-          <textarea name="why" rows="5" />
+          <textarea name="why" id="why" rows="5" />
         </label>
       </div>
       <div className={VolunteerFormStyles.botField}>
