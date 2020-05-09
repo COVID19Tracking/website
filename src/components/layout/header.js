@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useStaticQuery, navigate, graphql } from 'gatsby'
 import Expand from 'react-expand-animated'
 import DevelopmentWarning from './development-warning'
@@ -83,47 +83,52 @@ const HeaderSearch = ({ children }) => {
 }
 
 const MobileMenu = ({ expanded }) => {
-  const searchInputRef = useRef()
-  const [searchState, searchDispatch] = useSearch()
-  const { autocompleteHasFocus } = searchState
+  const [searchState] = useSearch()
+  const { query, isFetching } = searchState
+  const [menuHeight, setMenuHeight] = useState({ initial: 0, current: 0 })
+  const resultPopoverRef = React.createRef()
+  const menuRef = useRef()
 
+  // Set initial menu height value to reset later.
   useEffect(() => {
-    if (searchInputRef.current !== null) {
-      if (expanded) {
-        searchInputRef.current.focus()
-      } else {
-        searchInputRef.current.blur()
-      }
+    if (expanded) {
+      setMenuHeight({ ...menuHeight, initial: menuRef.current.offsetHeight })
     }
   }, [expanded])
 
+  // When query changes,
+  // either update menu min height (if needed) or reset to initial value
+  useEffect(() => {
+    console.log(resultPopoverRef.current)
+    if (
+      query &&
+      !isFetching &&
+      resultPopoverRef.current &&
+      resultPopoverRef.current.offsetHeight
+    ) {
+      setMenuHeight({
+        ...menuHeight,
+        current: Math.max(
+          resultPopoverRef.current.offsetHeight + 75,
+          menuHeight.initial,
+        ),
+      })
+    } else if (!query) {
+      setMenuHeight({ ...menuHeight, current: menuHeight.initial })
+    }
+  }, [query, isFetching])
+
   return (
-    <div className={headerStyle.mobileMenu}>
+    <div
+      ref={menuRef}
+      className={headerStyle.mobileMenu}
+      style={{
+        display: expanded ? 'block' : 'none',
+        minHeight: `${menuHeight.current}px`,
+      }}
+    >
       <HeaderSearch>
-        <form
-          method="get"
-          action="/search"
-          onSubmit={event => {
-            event.preventDefault()
-            navigate(`/search?q=${searchInputRef.current.value}`)
-          }}
-        >
-          <label
-            htmlFor="mobile-menu-search"
-            className={autocompleteHasFocus ? headerStyle.labelFocus : ''}
-          >
-            Search
-          </label>
-          <input
-            type="search"
-            name="q"
-            id="mobile-menu-search"
-            autoComplete="off"
-            ref={searchInputRef}
-            onFocus={() => searchDispatch({ type: 'toggleAutocompleteFocus' })}
-            onBlur={() => searchDispatch({ type: 'toggleAutocompleteFocus' })}
-          />
-        </form>
+        <SearchAutocomplete ref={resultPopoverRef} mobile visible={expanded} />
       </HeaderSearch>
 
       <HeaderNavigation />
@@ -153,7 +158,7 @@ const Header = withSearch(({ title, titleLink, noMargin, navigation }) => {
             duration={500}
             transitions={['height', 'opacity', 'background']}
           >
-            {showMobileMenu && <MobileMenu expanded />}
+            <MobileMenu expanded={showMobileMenu} />
           </Expand>
           <Expand
             open={!showMobileMenu}

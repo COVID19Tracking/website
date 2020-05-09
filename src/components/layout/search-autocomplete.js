@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState, forwardRef } from 'react'
 import {
   Combobox,
   ComboboxInput,
@@ -19,11 +19,12 @@ import {
 import searchAutocompleteStyle from './search-autocomplete.module.scss'
 import headerStyle from '~components/layout/header.module.scss'
 
-export default () => {
+export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
   const [searchState, searchDispatch] = useSearch()
   const [showResults, setShowResults] = useState(true)
+  const searchInputRef = useRef()
   const { query, results, autocompleteHasFocus } = searchState
-  const id = 'header-search-autocomplete'
+  const id = `header-search-autocomplete${mobile ? '-mobile' : ''}`
 
   function setQuery(value) {
     if (!value) {
@@ -31,6 +32,16 @@ export default () => {
     }
 
     return searchDispatch({ type: 'setQuery', payload: value })
+  }
+
+  if (mobile && searchInputRef.current !== null) {
+    useEffect(() => {
+      if (visible) {
+        searchInputRef.current.focus()
+      } else {
+        searchInputRef.current.blur()
+      }
+    }, [visible])
   }
 
   useEffect(() => {
@@ -92,6 +103,7 @@ export default () => {
       </label>
       <ComboboxInput
         id={id}
+        ref={searchInputRef}
         autoComplete="off"
         onChange={event => {
           setQuery(event.currentTarget.value)
@@ -105,6 +117,7 @@ export default () => {
       />
       {totalHits && showResults ? (
         <ComboboxPopover
+          ref={popoverRef}
           portal={false}
           id="search-results-popover"
           className={searchAutocompleteStyle.popover}
@@ -156,4 +169,4 @@ export default () => {
       )}
     </Combobox>
   )
-}
+})
