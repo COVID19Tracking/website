@@ -37,7 +37,7 @@ const HeaderTabs = ({ navigation }) => (
 const useOnClickOutside = (ref, handler) => {
   useEffect(() => {
     const listener = event => {
-      // Do nothing if clicking ref's element or descendent elements
+      // Do nothing if clicking ref's element or descendant elements
       if (ref.current || ref.current.contains(event.target)) {
         return
       }
@@ -64,6 +64,24 @@ const HeaderNavigation = () => {
             items {
               link
               title
+              subNavigation
+            }
+          }
+        }
+      }
+      allContentfulNavigationGroup {
+        edges {
+          node {
+            slug
+            pages {
+              ... on ContentfulPage {
+                title
+                link: slug
+              }
+              ... on ContentfulNavigationLink {
+                title
+                link: url
+              }
             }
           }
         }
@@ -81,38 +99,21 @@ const HeaderNavigation = () => {
     setShowSubMenu(menuState === index ? '' : index)
   }
 
+  const subNavigation = {}
+  data.allContentfulNavigationGroup.edges.forEach(({ node }) => {
+    subNavigation[node.slug] = node.pages
+  })
+
   return (
     <nav className="js-disabled-block">
       <ul>
         {data.allNavigationYaml.edges[0].node.items.map((item, index) => (
-          <li
-            className={`${menuState === index ? headerStyle.showSubMenu : ''}`}
-            key={item.link}
-            ref={ref}
-          >
-            <Link to={item.link} aria-haspopup="true" aria-expanded="false">
-              {item.title}
-            </Link>
-            <ul className="sub-menu" aria-label="Sub-menu">
-              <li>
-                <a href="#test">States / Territories</a>
-              </li>
-              <li>
-                <a href="#test">Counties</a>
-              </li>
-              <li>
-                <a href="#test">Historical Data</a>
-              </li>
-              <li>
-                <a href="#test">API</a>
-              </li>
-              <li>
-                <a href="#test">Racial Data Dashboard</a>
-              </li>
-              <li>
-                <a href="#test">Nursing Home Data</a>
-              </li>
-            </ul>
+          <li key={item.link} ref={ref}>
+            <Link to={item.link}>{item.title}</Link>
+            {item.subNavigation &&
+              typeof subNavigation[item.subNavigation] !== 'undefined' && (
+                <SubNavigation items={subNavigation[item.subNavigation]} />
+              )}
             <button
               className={headerStyle.navCaret}
               type="button"
@@ -130,6 +131,17 @@ const HeaderNavigation = () => {
     </nav>
   )
 }
+
+const SubNavigation = ({ items }) => (
+  <ul>
+    {items.map(item => (
+      <li key={item.link}>
+        <Link to={item.link}>{item.title}</Link>
+      </li>
+    ))}
+  </ul>
+)
+
 const HeaderSearch = ({ children }) => {
   const [searchState] = useSearch()
   const { query, autocompleteHasFocus } = searchState
