@@ -34,9 +34,7 @@ beforeEach(() => {
 
 describe('Components : Pages : Homepage : Datasets', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(
-      <Datasets />
-    ).toJSON()
+    const tree = renderer.create(<Datasets />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

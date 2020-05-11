@@ -31,13 +31,13 @@ const items = [
           },
         },
       ],
-      publishDate: "Aug 1 2020",
-      slug: "we-made-a-blog-post",
-      title: "We Made a Blog Post",
+      publishDate: 'Aug 1 2020',
+      slug: 'we-made-a-blog-post',
+      title: 'We Made a Blog Post',
       lede: {
-        lede: "Huh, this blog thing seems to be working! This is the lede."
-      }
-    }
+        lede: 'Huh, this blog thing seems to be working! This is the lede.',
+      },
+    },
   },
   {
     node: {
@@ -67,21 +67,19 @@ const items = [
           },
         },
       ],
-      publishDate: "Apr 15 2020",
-      slug: "new-blog-post",
-      title: "New Blog Post",
+      publishDate: 'Apr 15 2020',
+      slug: 'new-blog-post',
+      title: 'New Blog Post',
       lede: {
-        lede: "This is a new blog post, not an old one."
-      }
-    }
-  }
+        lede: 'This is a new blog post, not an old one.',
+      },
+    },
+  },
 ]
 
 describe('Components : Pages : Blog : Blog Teaser List', () => {
   it('renders correctly', () => {
-    const tree = renderer
-      .create(<BlogTeaserList items={items} />,)
-      .toJSON()
+    const tree = renderer.create(<BlogTeaserList items={items} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

@@ -53,23 +53,23 @@ describe('Components : Layout : Header', () => {
 
     const mockNavigation = [
       {
-        "node": {
-          "pages": [
+        node: {
+          pages: [
             {
-              "title": "State by State",
-              "link": "/data"
+              title: 'State by State',
+              link: '/data',
             },
             {
-              "title": "Totals for the U.S.",
-              "link": "/data/us-daily"
+              title: 'Totals for the U.S.',
+              link: '/data/us-daily',
             },
             {
-              "title": "Data API",
-              "link": "/api"
-            }
-          ]
-        }
-      }
+              title: 'Data API',
+              link: '/api',
+            },
+          ],
+        },
+      },
     ]
     const navigationTree = renderer
       .create(<Header title="Sample title" navigation={mockNavigation} />)

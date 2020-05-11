@@ -9,26 +9,27 @@ describe('Components : Pages : Blog : Author Footer', () => {
         <AuthorFooter
           authors={[
             {
-              name: "Name Name",
-              twitterLink: "https://twitter.com/namename",
-              twitterHandle: "namename",
-              link: "https://www.website.com",
+              name: 'Name Name',
+              twitterLink: 'https://twitter.com/namename',
+              twitterHandle: 'namename',
+              link: 'https://www.website.com',
               childContentfulAuthorBiographyTextNode: {
                 childMarkdownRemark: {
-                  html: "<p>Name Name is a an author at <em>A Publication</em>.</p>"
-                }
+                  html:
+                    '<p>Name Name is a an author at <em>A Publication</em>.</p>',
+                },
               },
               headshot: {
                 file: {
-                  fileName: "filename.png"
+                  fileName: 'filename.png',
                 },
                 resize: {
                   width: 200,
                   height: 200,
-                  src: "//images.ctfassets.net/file"
-                }
-              }
-            }
+                  src: '//images.ctfassets.net/file',
+                },
+              },
+            },
           ]}
         />,
       )

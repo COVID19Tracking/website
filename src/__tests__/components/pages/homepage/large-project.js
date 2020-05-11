@@ -17,15 +17,13 @@ beforeEach(() => {
           tracedSVG: '[SVG]',
         },
       },
-    }
+    },
   }))
 })
 
 describe('Components : Pages : Homepage : Large Project', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(
-      <LargeProject />
-    ).toJSON()
+    const tree = renderer.create(<LargeProject />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

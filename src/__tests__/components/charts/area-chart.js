@@ -8,7 +8,7 @@ describe('Components : Charts: Area chart', () => {
     const tree = renderer
       .create(
         <AreaChart
-          fill={d => (d === 'Group A' ? '#333' : '#000')}
+          fill={(d) => (d === 'Group A' ? '#333' : '#000')}
           data={data}
           xTicks={2}
           height={200}

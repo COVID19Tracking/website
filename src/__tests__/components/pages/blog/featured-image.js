@@ -11,7 +11,7 @@ describe('Components : Pages : Blog : Featured Image', () => {
             resize: {
               src: '//images.ctfassets.net/anexampleimage',
             },
-            title: 'An Example Image'
+            title: 'An Example Image',
           }}
         />,
       )

@@ -10,18 +10,16 @@ beforeEach(() => {
         {
           posNeg: 5795728,
           positive: 1005592,
-          death: 52525
-        }
-      ]
-    }
+          death: 52525,
+        },
+      ],
+    },
   }))
 })
 
 describe('Components : Pages : Homepage : Latest Totals', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(
-      <LatestTotals />
-    ).toJSON()
+    const tree = renderer.create(<LatestTotals />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

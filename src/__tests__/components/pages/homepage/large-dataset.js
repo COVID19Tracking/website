@@ -17,15 +17,13 @@ beforeEach(() => {
           tracedSVG: '[SVG]',
         },
       },
-    }
+    },
   }))
 })
 
 describe('Components : Pages : Homepage : Large Dataset', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(
-      <LargeDataset />
-    ).toJSON()
+    const tree = renderer.create(<LargeDataset />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
