@@ -266,16 +266,16 @@
             position: relative;
             z-index: 2;
           }
-          
+
           a:hover,
           a:focus {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
           }
-          &:hover > a{
+          &:hover > a {
             border-bottom: 3px solid $color-blueberry-200;
           }
           a[aria-current] {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
           }
         }
 
@@ -287,7 +287,7 @@
           margin-left: 7px;
           position: relative;
 
-          @media (hover: none) { 
+          @media (hover: none) {
             background-color: #ffffff;
             border-radius: 15px;
             height: 22px;
@@ -297,21 +297,21 @@
 
           svg {
             fill: #ffffff;
-            transition: transform .2s ease-in;
+            transition: transform 0.2s ease-in;
             transform-origin: center;
 
             @media (hover: none) {
               fill: $color-plum-600;
               position: absolute;
-            top: 8px;
-            left: 5px;
+              top: 8px;
+              left: 5px;
             }
           }
 
           &[aria-expanded='true'] svg {
             transform: rotate(-180deg);
             transform-origin: center;
-            transition: transform .2s ease-out;
+            transition: transform 0.2s ease-out;
           }
         }
 
@@ -323,13 +323,13 @@
           left: 0;
           top: 20px;
           transition: all 0.5s ease;
-          padding: .5em;
+          padding: 0.5em;
           text-align: left;
           border-top: 20px solid $color-plum-550;
           background-color: #ffffff;
           min-width: 15em;
         }
-        
+
         &.show-sub-menu,
         &:hover {
           ul {
@@ -340,11 +340,11 @@
             li {
               display: block;
             }
-            
+
             a {
               color: $color-plum-600;
               display: block;
-              padding: .5em;
+              padding: 0.5em;
 
               &:hover {
                 border: 0 none;
@@ -354,7 +354,6 @@
           }
         }
       }
-      
 
       li:last-child {
         padding-right: 0;
@@ -377,34 +376,7 @@
   }
 
   .title-subnav-container {
-    display: flex;
-    flex-wrap: wrap;
-    @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
-      flex-direction: column;
-    }
-
-    @media (max-width: $viewport-sm) {
-      flex-direction: column;
-    }
-
-    @media (max-width: $viewport-ms) {
-      margin-top: 0;
-      padding-bottom: 17.5px;
-    }
-
-    @media (max-width: $viewport-lg) {
-      .title {
-        width: 100%;
-      }
-    }
-
     .tab-container {
-      display: flex;
-
-      @media (min-width: $viewport-lg) {
-        width: auto;
-        margin-left: auto;
-      }
     }
 
     .header-tabs {
@@ -438,49 +410,29 @@
       }
 
       ul {
-        background: $color-plum-200;
-        border-radius: 0.25em 0.25em 0 0;
         list-style-type: none;
         margin: 0;
         padding-left: 0;
         text-align: left;
 
+        @media (min-width: $viewport-lg) {
+          padding-bottom: 1rem;
+        }
+
         a {
           text-decoration: none;
           font-size: 0.9rem;
           font-weight: bold;
-        }
-        @media (max-width: $viewport-ms) {
-          display: inline-flex;
-          flex-wrap: nowrap;
-          border-radius: 0.25em;
-
-          a {
-            border-radius: 0.25em;
-            white-space: nowrap;
-          }
-
-          li {
-            margin-bottom: 0;
-          }
-        }
-
-        a {
-          color: $color-plum-700;
+          color: white;
           display: block;
           padding: 0.4rem 0.6rem;
           font-size: 0.72rem;
-
+          &[aria-current] {
+            border-bottom: 3px solid $color-blueberry-200;
+          }
           @media (min-width: $viewport-ms) {
             font-size: 1rem;
             padding: 0.8em 1em;
-          }
-
-          &[aria-current] {
-            border-top-right-radius: 5px;
-            border-top-left-radius: 5px;
-            background: white;
-            color: black;
           }
         }
         li {
@@ -488,12 +440,10 @@
           @media (min-width: $viewport-ms) {
             margin: 0;
             &:last-child a {
-              border-top-right-radius: 5px;
-              border-bottom-right-radius: 0px;
+              padding-right: 0;
             }
             &:first-child a {
-              border-top-left-radius: 5px;
-              border-bottom-left-radius: 0px;
+              padding-left: 0;
             }
           }
         }

@@ -36,7 +36,6 @@ const HeaderTabs = ({ navigation }) => (
 const useOnClickOutside = (ref, handler) => {
   useEffect(() => {
     const listener = event => {
-      // Do nothing if clicking ref's element or descendant elements
       if (ref.current || ref.current.contains(event.target)) {
         return
       }
@@ -288,11 +287,7 @@ const Header = withSearch(({ title, titleLink, noMargin, navigation }) => {
             <div className={headerStyle.titleSubnavContainer}>
               <div className={headerStyle.title}>
                 {title && (
-                  <h1
-                    className={`page-title ${headerStyle.pageTitle} ${
-                      navigation ? '' : headerStyle.extraSpace
-                    }`}
-                  >
+                  <h1 className={`page-title ${headerStyle.pageTitle}`}>
                     {titleLink ? (
                       <Link to={titleLink}>{title}</Link>
                     ) : (
