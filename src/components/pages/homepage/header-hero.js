@@ -181,7 +181,8 @@ export default () => {
             <abbr title="United States" aria-label="United States">
               US
             </abbr>
-            . No official source is providing it, so we are.
+            . No official source is providing it,{' '}
+            <span className="nowrap">so we are</span>.
           </h2>
           <p className={`hero-paragraph ${heroStyle.paragraph}`}>
             CDC numbers don&apos;t tell the full story. Their official count
