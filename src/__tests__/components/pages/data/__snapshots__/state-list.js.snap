@@ -44,6 +44,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
       <thead>
         <tr>
           <th
+            className="alignLeft borderLeft"
             scope="col"
           >
             <span
@@ -86,6 +87,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             </span>
           </th>
           <th
+            className="alignLeft borderLeft"
             scope="col"
           >
             <span
@@ -114,6 +116,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             </span>
           </th>
           <th
+            className="alignLeft borderLeft"
             scope="col"
           >
             <span
@@ -142,6 +145,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             </span>
           </th>
           <th
+            className="alignLeft borderLeft"
             scope="col"
           >
             <span
@@ -170,6 +174,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             </span>
           </th>
           <th
+            className="alignLeft borderLeft"
             scope="col"
           >
             <span
@@ -198,6 +203,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             </span>
           </th>
           <th
+            className="alignLeft borderLeft"
             scope="col"
           >
             <span
@@ -215,7 +221,9 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
       </thead>
       <tbody>
         <tr>
-          <td>
+          <td
+            className=" borderLeft"
+          >
             4,572
           </td>
           <td>
@@ -224,31 +232,41 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
           <td>
             N/A
           </td>
-          <td>
+          <td
+            className=" borderLeft"
+          >
             N/A
           </td>
           <td>
             594
           </td>
-          <td>
+          <td
+            className=" borderLeft"
+          >
             N/A
           </td>
           <td>
             247
           </td>
-          <td>
+          <td
+            className=" borderLeft"
+          >
             N/A
           </td>
           <td>
             148
           </td>
-          <td>
+          <td
+            className=" borderLeft"
+          >
             N/A
           </td>
           <td>
             151
           </td>
-          <td>
+          <td
+            className=" borderLeft"
+          >
             37,890
           </td>
         </tr>

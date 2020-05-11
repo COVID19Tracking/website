@@ -8,7 +8,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
     <thead>
       <tr>
         <th
-          className="alignLeft"
+          className="alignLeft "
           scope="col"
         >
           <span
@@ -18,7 +18,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           </span>
         </th>
         <th
-          className="alignLeft"
+          className="alignLeft "
           scope="col"
         >
           <span
@@ -104,12 +104,12 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
     >
       <tr>
         <td
-          className="alignLeft"
+          className="alignLeft "
         >
           Fri Apr 17 2020
         </td>
         <td
-          className="alignLeft"
+          className="alignLeft "
         >
           <ul>
             <li>
@@ -156,12 +156,12 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
       </tr>
       <tr>
         <td
-          className="alignLeft"
+          className="alignLeft "
         >
           Thu Apr 16 2020
         </td>
         <td
-          className="alignLeft"
+          className="alignLeft "
         />
         <td>
           2,314
@@ -187,12 +187,12 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
       </tr>
       <tr>
         <td
-          className="alignLeft"
+          className="alignLeft "
         >
           Wed Apr 15 2020
         </td>
         <td
-          className="alignLeft"
+          className="alignLeft "
         />
         <td>
           960

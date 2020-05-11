@@ -5,13 +5,17 @@
   text-align: left;
 }
 
+.border-left {
+  border-left: 1px solid $color-slate-300;
+}
+
 .header-label {
   font-size: 1.05rem;
   font-weight: 800;
   left: 0.5rem;
   position: absolute;
-  top: 0.4rem;
-  z-index: 1;
+  bottom: 2.1rem;
+  text-align: left;
 }
 
 .header-label--hidden:not(:focus):not(:active),

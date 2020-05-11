@@ -8,6 +8,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
     <thead>
       <tr>
         <th
+          className="alignLeft borderLeft"
           scope="col"
         >
           <span
@@ -50,6 +51,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           </span>
         </th>
         <th
+          className="alignLeft borderLeft"
           scope="col"
         >
           <span
@@ -78,6 +80,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           </span>
         </th>
         <th
+          className="alignLeft borderLeft"
           scope="col"
         >
           <span
@@ -106,6 +109,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           </span>
         </th>
         <th
+          className="alignLeft borderLeft"
           scope="col"
         >
           <span
@@ -134,6 +138,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           </span>
         </th>
         <th
+          className="alignLeft borderLeft"
           scope="col"
         >
           <span
@@ -162,6 +167,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           </span>
         </th>
         <th
+          className="alignLeft borderLeft"
           scope="col"
         >
           <span
@@ -179,7 +185,9 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
     </thead>
     <tbody>
       <tr>
-        <td>
+        <td
+          className=" borderLeft"
+        >
           4,572
         </td>
         <td>
@@ -188,31 +196,41 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
         <td>
           N/A
         </td>
-        <td>
+        <td
+          className=" borderLeft"
+        >
           N/A
         </td>
         <td>
           594
         </td>
-        <td>
+        <td
+          className=" borderLeft"
+        >
           N/A
         </td>
         <td>
           247
         </td>
-        <td>
+        <td
+          className=" borderLeft"
+        >
           N/A
         </td>
         <td>
           148
         </td>
-        <td>
+        <td
+          className=" borderLeft"
+        >
           N/A
         </td>
         <td>
           151
         </td>
-        <td>
+        <td
+          className=" borderLeft"
+        >
           37,890
         </td>
       </tr>
@@ -242,6 +260,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
     <thead>
       <tr>
         <th
+          className="alignLeft borderLeft"
           scope="col"
         >
           <span
@@ -256,6 +275,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
           </span>
         </th>
         <th
+          className="alignLeft "
           scope="col"
         >
           <span
@@ -270,6 +290,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
           </span>
         </th>
         <th
+          className="alignLeft "
           scope="col"
         >
           <span
@@ -288,86 +309,24 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
         >
           <span
             role="text"
-          >
-            Currently
-            <span
-              className="headerLabel"
-            >
-              Hospitalized
-            </span>
-          </span>
+          />
         </th>
         <th
           scope="col"
         >
           <span
             role="text"
-          >
-            Cumulative
-            <span
-              className="headerLabelHidden"
-            >
-              Hospitalized
-            </span>
-          </span>
+          />
         </th>
         <th
           scope="col"
         >
           <span
             role="text"
-          >
-            Currently
-            <span
-              className="headerLabel"
-            >
-              In ICU
-            </span>
-          </span>
+          />
         </th>
         <th
-          scope="col"
-        >
-          <span
-            role="text"
-          >
-            Cumulative
-            <span
-              className="headerLabelHidden"
-            >
-              In ICU
-            </span>
-          </span>
-        </th>
-        <th
-          scope="col"
-        >
-          <span
-            role="text"
-          >
-            Currently
-            <span
-              className="headerLabel"
-            >
-              On Ventilator
-            </span>
-          </span>
-        </th>
-        <th
-          scope="col"
-        >
-          <span
-            role="text"
-          >
-            Cumulative
-            <span
-              className="headerLabelHidden"
-            >
-              On Ventilator
-            </span>
-          </span>
-        </th>
-        <th
+          className="alignLeft borderLeft"
           scope="col"
         >
           <span
@@ -382,6 +341,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
           </span>
         </th>
         <th
+          className="alignLeft "
           scope="col"
         >
           <span
@@ -396,6 +356,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
           </span>
         </th>
         <th
+          className="alignLeft borderLeft"
           scope="col"
         >
           <span
@@ -413,19 +374,37 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
     </thead>
     <tbody>
       <tr>
-        <td>
+        <td
+          className="alignLeft borderLeft"
+        >
           4,572
         </td>
-        <td>
+        <td
+          className="alignLeft "
+        >
           33,318
         </td>
-        <td>
+        <td
+          className="alignLeft "
+        >
           N/A
         </td>
-        <td>
+        <td />
+        <td />
+        <td />
+        <td
+          className="alignLeft borderLeft"
+        >
+          N/A
+        </td>
+        <td
+          className="alignLeft "
+        >
           151
         </td>
-        <td>
+        <td
+          className="alignLeft borderLeft"
+        >
           37,890
         </td>
       </tr>
