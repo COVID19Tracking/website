@@ -124,14 +124,16 @@ const Chart = ({ data }) => {
           if (DateTime.fromISO(d.date).day !== 1) {
             return null
           }
+          const formattedDate = DateTime.fromISO(d.date).toFormat('LLLL')
           return (
             <text
+              key={formattedDate}
               className={heroStyle.chartLegend}
               style={{ fill: 'white' }}
               x={xScale(d.date)}
               y={height + 20}
             >
-              {DateTime.fromISO(d.date).toFormat('LLLL')}
+              {formattedDate}
             </text>
           )
         })}
