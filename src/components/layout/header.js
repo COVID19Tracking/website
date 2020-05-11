@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link, useStaticQuery, navigate, graphql } from 'gatsby'
 import Expand from 'react-expand-animated'
+import classNames from 'classnames'
 import DevelopmentWarning from './development-warning'
 import PartnershipBanner from './partnership-banner'
 import SearchAutocomplete from './search-autocomplete'
@@ -120,9 +121,10 @@ const MobileMenu = ({ expanded }) => {
   return (
     <div
       ref={menuRef}
-      className={headerStyle.mobileMenu}
+      className={classNames(headerStyle.mobileMenu, {
+        [headerStyle.mobileMenuExpanded]: expanded,
+      })}
       style={{
-        display: expanded ? 'block' : 'none',
         minHeight: `${menuHeight.current}px`,
       }}
     >
