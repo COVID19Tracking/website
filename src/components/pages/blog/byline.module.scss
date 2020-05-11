@@ -49,9 +49,14 @@
 
 .byline--small-margin--image {
   @extend .byline-base;
-  margin: 12px 0;
+  margin-top: 0;
 }
 
+.byline--small-margin--image {
+  p {
+    margin: 12px 0;
+  }
+}
 
 .one-line-byline {
   font-size: 16px;
