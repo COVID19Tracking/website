@@ -8,7 +8,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
     <thead>
       <tr>
         <th
-          className="alignLeft "
+          className="alignLeft"
           scope="col"
         >
           <span
@@ -18,7 +18,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           </span>
         </th>
         <th
-          className="alignLeft "
+          className="alignLeft"
           scope="col"
         >
           <span
@@ -35,6 +35,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           </span>
         </th>
         <th
+          className=""
           scope="col"
         >
           <span
@@ -44,6 +45,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           </span>
         </th>
         <th
+          className=""
           scope="col"
         >
           <span
@@ -53,6 +55,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           </span>
         </th>
         <th
+          className=""
           scope="col"
         >
           <span
@@ -62,6 +65,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           </span>
         </th>
         <th
+          className=""
           scope="col"
         >
           <span
@@ -71,6 +75,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           </span>
         </th>
         <th
+          className=""
           scope="col"
         >
           <span
@@ -80,6 +85,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           </span>
         </th>
         <th
+          className=""
           scope="col"
         >
           <span
@@ -89,6 +95,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           </span>
         </th>
         <th
+          className=""
           scope="col"
         >
           <span

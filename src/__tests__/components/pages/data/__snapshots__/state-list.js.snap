@@ -52,13 +52,14 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Positive
               <span
-                className="headerLabel"
+                className="headerLabel headerLabel3"
               >
                 Tests
               </span>
             </span>
           </th>
           <th
+            className=""
             scope="col"
           >
             <span
@@ -66,13 +67,14 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Negative
               <span
-                className="headerLabelHidden"
+                className="headerLabelHidden headerLabel3"
               >
                 Tests
               </span>
             </span>
           </th>
           <th
+            className=""
             scope="col"
           >
             <span
@@ -80,7 +82,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Pending
               <span
-                className="headerLabelHidden"
+                className="headerLabelHidden headerLabel3"
               >
                 Tests
               </span>
@@ -95,13 +97,14 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Currently
               <span
-                className="headerLabel"
+                className="headerLabel headerLabel2"
               >
                 Hospitalized
               </span>
             </span>
           </th>
           <th
+            className=""
             scope="col"
           >
             <span
@@ -109,7 +112,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Cumulative
               <span
-                className="headerLabelHidden"
+                className="headerLabelHidden headerLabel2"
               >
                 Hospitalized
               </span>
@@ -124,13 +127,14 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Currently
               <span
-                className="headerLabel"
+                className="headerLabel headerLabel2"
               >
                 In ICU
               </span>
             </span>
           </th>
           <th
+            className=""
             scope="col"
           >
             <span
@@ -138,7 +142,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Cumulative
               <span
-                className="headerLabelHidden"
+                className="headerLabelHidden headerLabel2"
               >
                 In ICU
               </span>
@@ -153,13 +157,14 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Currently
               <span
-                className="headerLabel"
+                className="headerLabel headerLabel2"
               >
                 On Ventilator
               </span>
             </span>
           </th>
           <th
+            className=""
             scope="col"
           >
             <span
@@ -167,7 +172,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Cumulative
               <span
-                className="headerLabelHidden"
+                className="headerLabelHidden headerLabel2"
               >
                 On Ventilator
               </span>
@@ -182,13 +187,14 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Recovered
               <span
-                className="headerLabel"
+                className="headerLabel headerLabel2"
               >
                 Outcomes
               </span>
             </span>
           </th>
           <th
+            className=""
             scope="col"
           >
             <span
@@ -196,14 +202,14 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Deaths
               <span
-                className="headerLabelHidden"
+                className="headerLabelHidden headerLabel2"
               >
                 Outcomes
               </span>
             </span>
           </th>
           <th
-            className="alignLeft borderLeft"
+            className="alignLeft borderLeft wide"
             scope="col"
           >
             <span
@@ -211,7 +217,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Positive + Negative
               <span
-                className="headerLabel"
+                className="headerLabel headerLabel1"
               >
                 Total Test Results
               </span>

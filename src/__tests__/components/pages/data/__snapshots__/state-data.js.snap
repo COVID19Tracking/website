@@ -49,13 +49,14 @@ Array [
             >
               Positive
               <span
-                className="headerLabel"
+                className="headerLabel headerLabel3"
               >
                 Tests
               </span>
             </span>
           </th>
           <th
+            className=""
             scope="col"
           >
             <span
@@ -63,13 +64,14 @@ Array [
             >
               Negative
               <span
-                className="headerLabelHidden"
+                className="headerLabelHidden headerLabel3"
               >
                 Tests
               </span>
             </span>
           </th>
           <th
+            className=""
             scope="col"
           >
             <span
@@ -77,7 +79,7 @@ Array [
             >
               Pending
               <span
-                className="headerLabelHidden"
+                className="headerLabelHidden headerLabel3"
               >
                 Tests
               </span>
@@ -92,13 +94,14 @@ Array [
             >
               Currently
               <span
-                className="headerLabel"
+                className="headerLabel headerLabel2"
               >
                 Hospitalized
               </span>
             </span>
           </th>
           <th
+            className=""
             scope="col"
           >
             <span
@@ -106,7 +109,7 @@ Array [
             >
               Cumulative
               <span
-                className="headerLabelHidden"
+                className="headerLabelHidden headerLabel2"
               >
                 Hospitalized
               </span>
@@ -121,13 +124,14 @@ Array [
             >
               Currently
               <span
-                className="headerLabel"
+                className="headerLabel headerLabel2"
               >
                 In ICU
               </span>
             </span>
           </th>
           <th
+            className=""
             scope="col"
           >
             <span
@@ -135,7 +139,7 @@ Array [
             >
               Cumulative
               <span
-                className="headerLabelHidden"
+                className="headerLabelHidden headerLabel2"
               >
                 In ICU
               </span>
@@ -150,13 +154,14 @@ Array [
             >
               Currently
               <span
-                className="headerLabel"
+                className="headerLabel headerLabel2"
               >
                 On Ventilator
               </span>
             </span>
           </th>
           <th
+            className=""
             scope="col"
           >
             <span
@@ -164,7 +169,7 @@ Array [
             >
               Cumulative
               <span
-                className="headerLabelHidden"
+                className="headerLabelHidden headerLabel2"
               >
                 On Ventilator
               </span>
@@ -179,13 +184,14 @@ Array [
             >
               Recovered
               <span
-                className="headerLabel"
+                className="headerLabel headerLabel2"
               >
                 Outcomes
               </span>
             </span>
           </th>
           <th
+            className=""
             scope="col"
           >
             <span
@@ -193,14 +199,14 @@ Array [
             >
               Deaths
               <span
-                className="headerLabelHidden"
+                className="headerLabelHidden headerLabel2"
               >
                 Outcomes
               </span>
             </span>
           </th>
           <th
-            className="alignLeft borderLeft"
+            className="alignLeft borderLeft wide"
             scope="col"
           >
             <span
@@ -208,7 +214,7 @@ Array [
             >
               Positive + Negative
               <span
-                className="headerLabel"
+                className="headerLabel headerLabel1"
               >
                 Total Test Results
               </span>
