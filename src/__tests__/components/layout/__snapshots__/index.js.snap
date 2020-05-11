@@ -731,3 +731,369 @@ Array [
   </footer>,
 ]
 `;
+
+exports[`Components : Layout : Header renders correctly 3`] = `
+Array [
+  <a
+    data-reach-skip-link=""
+    data-reach-skip-nav-link=""
+    href="#reach-skip-nav"
+  >
+    Skip site navigation
+  </a>,
+  <header
+    className="site-header siteHeader  "
+  >
+    <div
+      className="container container"
+    >
+      <div
+        className=""
+        style={
+          Object {
+            "height": 0,
+            "opacity": 0,
+            "overflow": "hidden",
+            "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+          }
+        }
+      >
+        <div
+          className="mobileMenu"
+        >
+          <div
+            className="searchInput"
+          >
+            <form
+              action="/search"
+              method="get"
+              onSubmit={[Function]}
+            >
+              <label
+                className="a11y-only"
+                htmlFor="mobile-menu-search"
+              >
+                Search
+              </label>
+              <input
+                autoComplete="off"
+                id="mobile-menu-search"
+                name="q"
+                onBlur={[Function]}
+                onFocus={[Function]}
+                placeholder="Search"
+                type="search"
+              />
+            </form>
+            <button
+              aria-label="Submit search"
+              className="searchSubmit"
+              onClick={[Function]}
+              type="button"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="test-file-stub"
+              />
+            </button>
+          </div>
+          <nav
+            className="js-disabled-block"
+          >
+            <ul>
+              <li>
+                <a
+                  href="/test-a"
+                >
+                  Test A
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/test-b"
+                >
+                  Test B
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <a
+            className="getInvolved"
+            href="/about-project/help"
+          >
+            Get Involved
+          </a>
+          <div
+            className="mobilePointer"
+          />
+        </div>
+      </div>
+      <div
+        className=""
+        style={
+          Object {
+            "background": "colorPlum800",
+            "height": "auto",
+            "opacity": 1,
+            "overflow": "unset",
+            "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+          }
+        }
+      >
+        <div
+          className="banner"
+        >
+          <span
+            className="new"
+          >
+            New
+          </span>
+           
+          <a
+            href="/race"
+          >
+            We just launched the COVID Racial Data Tracker
+          </a>
+        </div>
+      </div>
+      <div
+        className="container false container"
+      >
+        <div
+          className="layout--content-full"
+        >
+          <div
+            className="layout--content-primary"
+          >
+            <div
+              className="siteTitleContainer"
+            >
+              <div
+                className="siteTitleInner"
+              >
+                <a
+                  href="/"
+                >
+                  <img
+                    alt="The COVID Tracking Project"
+                    src="test-file-stub"
+                    width="176px"
+                  />
+                </a>
+              </div>
+              <div
+                className="siteNavContainer"
+              >
+                <div
+                  className="navContainer"
+                >
+                  <button
+                    aria-expanded={false}
+                    className="mobileToggle"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Menu
+                  </button>
+                </div>
+                <div
+                  className="tools"
+                >
+                  <div
+                    className="searchInput"
+                  >
+                    <div
+                      data-reach-combobox=""
+                    >
+                      <label
+                        className="a11y-only"
+                        htmlFor="header-search-autocomplete"
+                      >
+                        Search
+                      </label>
+                      <input
+                        aria-autocomplete="both"
+                        aria-controls="listbox--4"
+                        aria-expanded={false}
+                        aria-haspopup="listbox"
+                        autoComplete="off"
+                        data-reach-combobox-input=""
+                        id="header-search-autocomplete"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onSelect={[Function]}
+                        placeholder="Search"
+                        role="combobox"
+                        value=""
+                      />
+                    </div>
+                    <button
+                      aria-label="Submit search"
+                      className="searchSubmit"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <img
+                        alt=""
+                        aria-hidden="true"
+                        src="test-file-stub"
+                      />
+                    </button>
+                  </div>
+                  <a
+                    className="getInvolved"
+                    href="/about-project/help"
+                  >
+                    Get involved
+                  </a>
+                </div>
+                <nav
+                  className="js-disabled-block"
+                >
+                  <ul>
+                    <li>
+                      <a
+                        href="/test-a"
+                      >
+                        Test A
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/test-b"
+                      >
+                        Test B
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div
+              className="atlanticBanner"
+            >
+              <span>
+                From
+              </span>
+               
+              <img
+                alt="The Atlantic"
+                src="test-file-stub"
+              />
+              <div />
+            </div>
+            <div
+              className="titleSubnavContainer"
+            >
+              <div
+                className="title"
+              >
+                <h1
+                  className="page-title pageTitle extraSpace"
+                >
+                  Another title
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>,
+  <main
+    id="main"
+  >
+    <div
+      data-reach-skip-nav-content=""
+      id="reach-skip-nav"
+    />
+    <div
+      className="container false container"
+    >
+      <div
+        className="layout--content-full"
+      >
+        <div
+          className="layout--content-primary"
+        >
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>,
+  <footer
+    className="footer"
+  >
+    <div
+      className="container false container"
+    >
+      <div
+        className="layout--content-full"
+      >
+        <div
+          className="layout--content-primary"
+        >
+          <div
+            className="container"
+          >
+            <a
+              href="/"
+            >
+              <img
+                alt="The COVID Tracking Project"
+                src="test-file-stub"
+              />
+            </a>
+            <ul
+              className="footerList"
+            >
+              <li>
+                <a
+                  href="/contact"
+                >
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/accessibility"
+                >
+                  Accessibility
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/COVID19Tracking"
+                >
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/COVID19Tracking"
+                >
+                  Twitter
+                </a>
+              </li>
+              <li>
+                <a
+                  className="backToTop"
+                  href="#reach-skip-nav"
+                >
+                  Back to top.
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>,
+]
+`;
