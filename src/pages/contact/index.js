@@ -7,11 +7,11 @@ import Layout from '../../components/layout'
 import { Form, FormGroup, FormLabel } from '~components/common/form'
 
 const reasons = [
-  'I want to report an issue with your data',
+  'I have questions about the state data grades',
+  'I have feedback on the COVID Rachial Data Tracker',
+  "I'm a journalist with a media question",
   'I want to report an issue with the website or web accessibility',
-  'I have questions about state data grades',
-  'I have feedback on the COVID Racial Data Tracker',
-  "I'm a journalist with a media inquiry",
+  'I want to report an issue with your data',
   'Something else!',
 ]
 
