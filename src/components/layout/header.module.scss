@@ -186,6 +186,9 @@
     }
     .search-input {
       width: 100%;
+      [data-reach-combobox] {
+        width: 100%;
+      }
     }
   }
 
