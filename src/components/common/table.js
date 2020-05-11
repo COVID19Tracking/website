@@ -9,21 +9,40 @@ import React from 'react'
 import DetailText from './detail-text'
 import tableStyle from './table.module.scss'
 
-const Th = ({ children, colSpan, header, isFirst, alignLeft }) => {
-  let thClasses
-  if (alignLeft || isFirst)
-    thClasses = `${alignLeft ? tableStyle.alignLeft : ''} ${
-      isFirst ? tableStyle.borderLeft : ''
-    }`
+const Th = ({
+  children,
+  colSpan,
+  header,
+  isFirst,
+  alignLeft,
+  columnWidth,
+  wide,
+}) => {
+  const thClasses = []
+  if (alignLeft) {
+    thClasses.push(tableStyle.alignLeft)
+  }
+  if (isFirst) {
+    thClasses.push(tableStyle.borderLeft)
+  }
+  if (wide) {
+    thClasses.push(tableStyle.wide)
+  }
+
   return (
-    <th scope="col" colSpan={colSpan} className={thClasses}>
+    <th scope="col" colSpan={colSpan} className={thClasses.join(' ')}>
       <span role="text">
         {children}
         {header && (
           <span
-            className={
+            className={`${
               isFirst ? tableStyle.headerLabel : tableStyle.headerLabelHidden
-            }
+            }${
+              columnWidth &&
+              typeof tableStyle[`headerLabel${columnWidth}`] !== 'undefined'
+                ? ` ${tableStyle[`headerLabel${columnWidth}`]}`
+                : ''
+            }`}
           >
             {header}
           </span>

@@ -15,6 +15,8 @@ const renderColumnHeaders = columnData =>
         header={group.header}
         isFirst={i === 0}
         alignLeft={column.alignLeft || i === 0} // Left-align the column header underneath the group header
+        columnWidth={group.columns.length}
+        wide={column.wide ? column.wide : false}
       >
         {column.header}
       </Th>
@@ -121,6 +123,7 @@ export default ({ data, lastUpdated, showOutcomes = true }) => {
           header: 'Positive + Negative',
           alignLeft: !showOutcomes,
           data: data.totalTestResults,
+          wide: true,
         },
       ],
     },
