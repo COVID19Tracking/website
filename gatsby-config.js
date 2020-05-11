@@ -10,6 +10,7 @@ const gatsbyConfig = {
   siteMetadata: {
     title: 'The COVID Tracking Project',
     siteUrl: 'https://covidtracking.com/',
+    recaptchaKey: '6LcZIPQUAAAAAB-y_TpTUDQ0HvCk0c7a8kXgZVGD',
     description:
       'The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.',
     production:
@@ -27,7 +28,6 @@ const gatsbyConfig = {
     'gatsby-transformer-yaml',
     'gatsby-plugin-eslint',
     'gatsby-plugin-remove-trailing-slashes',
-    'gatsby-plugin-netlify',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -159,10 +159,24 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-nprogress`,
+      resolve: 'gatsby-plugin-nprogress',
       options: {
-        color: `#924F34`,
+        color: '#924F34',
         showSpinner: false,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        mergeSecurityHeaders: false,
+        headers: {
+          '/*': [
+            'X-Frame-Options: DENY',
+            'X-XSS-Protection: 1; mode=block',
+            'X-Content-Type-Options: nosniff',
+            'Referrer-Policy: strict-origin-when-cross-origin',
+          ],
+        },
       },
     },
   ],
