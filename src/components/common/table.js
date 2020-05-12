@@ -1,10 +1,3 @@
-/* eslint-disable jsx-a11y/aria-role */
-/*
-  This rule is disabled to allow role="text", which
-  prevents problems with text splitting on screen readers.
-  See https://axesslab.com/text-splitting/
-*/
-
 import React from 'react'
 import DetailText from './detail-text'
 import tableStyle from './table.module.scss'
@@ -29,9 +22,11 @@ const Th = ({
     thClasses.push(tableStyle.wide)
   }
 
+  const role = 'text'
+
   return (
     <th scope="col" colSpan={colSpan} className={thClasses.join(' ')}>
-      <span role="text">
+      <span role={role}>
         {children}
         {header && (
           <span

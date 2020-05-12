@@ -311,30 +311,6 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
           </span>
         </th>
         <th
-          className=""
-          scope="col"
-        >
-          <span
-            role="text"
-          />
-        </th>
-        <th
-          className=""
-          scope="col"
-        >
-          <span
-            role="text"
-          />
-        </th>
-        <th
-          className=""
-          scope="col"
-        >
-          <span
-            role="text"
-          />
-        </th>
-        <th
           className="alignLeft borderLeft"
           scope="col"
         >
@@ -398,9 +374,6 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
         >
           N/A
         </td>
-        <td />
-        <td />
-        <td />
         <td
           className="alignLeft borderLeft"
         >

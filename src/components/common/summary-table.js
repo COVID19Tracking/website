@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react'
 import { Th, Td, Table } from './table'
 import { formatDateToString, FormatNumber } from '../utils/format'
@@ -8,7 +7,7 @@ import Timezone from './timezone'
 
 const renderColumnHeaders = columnData =>
   columnData.map(group => {
-    if (group.isHidden) return <Th key={`${group.header}-th-hidden`} />
+    if (group.isHidden) return null
     return group.columns.map((column, i) => (
       <Th
         key={`${group.header}-${column.header}-th`}
@@ -25,7 +24,7 @@ const renderColumnHeaders = columnData =>
 
 const renderColumns = columnData =>
   columnData.map(group => {
-    if (group.isHidden) return <Td key={`${group.header}-td-hidden`} />
+    if (group.isHidden) return null
     return group.columns.map((column, i) => (
       <Td
         key={`${group.header}-${column.header}-td`}
