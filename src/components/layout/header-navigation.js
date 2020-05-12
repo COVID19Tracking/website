@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/aria-role */
 import React from 'react'
 import { Link } from 'gatsby'
 import { Menu, MenuList, MenuButton, MenuLink } from '@reach/menu-button'
@@ -29,6 +30,7 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
                   <span className="a11y-only">show menu for {item.title}</span>
                 </MenuButton>
                 <MenuList
+                  role={false}
                   className={headerNavigationStyles.subMenu}
                   portal={false}
                 >
