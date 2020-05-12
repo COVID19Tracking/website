@@ -30,7 +30,6 @@ Array [
           className="mobileMenu"
           style={
             Object {
-              "display": "none",
               "minHeight": "0px",
             }
           }
@@ -407,7 +406,6 @@ Array [
           className="mobileMenu"
           style={
             Object {
-              "display": "none",
               "minHeight": "0px",
             }
           }

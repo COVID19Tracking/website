@@ -22,7 +22,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
         className="mobileMenu"
         style={
           Object {
-            "display": "none",
             "minHeight": "0px",
           }
         }
@@ -299,7 +298,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
         className="mobileMenu"
         style={
           Object {
-            "display": "none",
             "minHeight": "0px",
           }
         }
@@ -576,7 +574,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
         className="mobileMenu"
         style={
           Object {
-            "display": "none",
             "minHeight": "0px",
           }
         }
