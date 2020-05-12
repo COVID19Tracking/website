@@ -227,8 +227,9 @@
   }
 
   .page-title {
-    margin: 0 0 17.5px;
+    margin: 0 0 1rem;
     font-size: 2.2rem;
+    line-height: 1.4;
     color: white;
     a {
       color: white;
@@ -240,7 +241,6 @@
     }
 
     @media (max-width: $viewport-md) {
-      margin: 0 0 17.5px;
       font-size: 1.56rem;
     }
   }
@@ -332,7 +332,7 @@
 
   .return-link {
     height: 1.3rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 1rem;
     a {
       color: white;
       text-decoration: none;
@@ -343,14 +343,18 @@
   }
 
   .title-subnav-container {
-    margin-top: 3rem;
+    margin-top: 3.5rem;
     @media (max-width: $viewport-md) {
       margin-top: 1.5rem;
     }
     &.has-return-link {
-      margin-top: 1.5rem;
+      margin-top: 2rem;
       @media (max-width: $viewport-md) {
         margin-top: 0.6rem;
+      }
+
+      .page-title {
+        margin: 0 0 1.5rem;
       }
     }
     .header-tabs {
@@ -399,15 +403,18 @@
           font-weight: bold;
           color: white;
           display: block;
-          margin: 0.4rem 0.6rem;
+          margin: 0 0.6rem;
           padding-bottom: 0.4rem;
           font-size: 0.72rem;
+          border-bottom: 3px solid transparent;
+          
+          &:hover,
           &[aria-current] {
             border-bottom: 3px solid $color-blueberry-200;
           }
           @media (min-width: $viewport-ms) {
             font-size: 1rem;
-            margin: 0.8em 1em;
+            margin: 0 1em;
           }
         }
         li {
