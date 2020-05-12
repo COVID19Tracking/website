@@ -6,15 +6,18 @@ import classNames from 'classnames'
 import DevelopmentWarning from './development-warning'
 import PartnershipBanner from './partnership-banner'
 import SearchAutocomplete from './search-autocomplete'
-import projectLogo from '../../images/project-logo.svg'
-import atlanticLogo from '../../images/atlantic-logo.svg'
-import headerStyle from './header.module.scss'
-import searchIcon from '../../images/icons/search.svg'
-import searchIconInvert from '../../images/icons/search-inverted.svg'
 import Container from '../common/container'
-import colors from '../../scss/colors.module.scss'
 import { useSearch } from '~context/search-context'
 import withSearch from '~components/utils/with-search'
+
+import colors from '../../scss/colors.module.scss'
+import breakpoints from '~scss/breakpoints.module.scss'
+import headerStyle from './header.module.scss'
+
+import projectLogo from '../../images/project-logo.svg'
+import atlanticLogo from '../../images/atlantic-logo.svg'
+import searchIcon from '../../images/icons/search.svg'
+import searchIconInvert from '../../images/icons/search-inverted.svg'
 
 const expandStyles = {
   open: { background: colors.colorPlum800 },
@@ -143,6 +146,31 @@ const MobileMenu = ({ expanded }) => {
 
 const Header = withSearch(({ title, titleLink, noMargin, navigation }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
+
+  // Timeout id.
+  let resizeTimeout
+  const handleResize = () => {
+    if (window.innerWidth >= breakpoints.viewportLg.split('px')[0]) {
+      setShowMobileMenu(false)
+    }
+  }
+
+  // Watch resizes to un-expand the menu in large viewports.
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout)
+        resizeTimeout = setTimeout(handleResize, 250)
+      })
+    }
+    return () => {
+      // remove resize listener
+      if (typeof window !== 'undefined') {
+        clearTimeout(resizeTimeout)
+        window.removeEventListener('resize', handleResize)
+      }
+    }
+  }, [])
 
   return (
     <>
