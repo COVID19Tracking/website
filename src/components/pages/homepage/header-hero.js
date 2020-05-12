@@ -127,9 +127,8 @@ const Chart = ({ data }) => {
           const formattedDate = DateTime.fromISO(d.date).toFormat('LLLL')
           return (
             <text
-              key={formattedDate}
-              className={heroStyle.chartLegend}
               key={`x-legend-${d.date}`}
+              className={heroStyle.chartLegend}
               style={{ fill: 'white' }}
               x={xScale(d.date)}
               y={height + 20}
