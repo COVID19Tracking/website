@@ -58,7 +58,8 @@ const getItems = _.get('ListBucketResult.Contents')
 const fixItems = _.flow(getItems, _.filter(isScreenshot), _.map(fixItem))
 
 function getPage(marker) {
-  const baseUrl = 'https://covid-data-archive.s3.us-east-2.amazonaws.com/'
+  const baseUrl =
+    'http://covid-tracking-project-data.s3.us-east-1.amazonaws.com/'
   const url = `${baseUrl}?prefix=state_screenshots/&marker=${marker || ''}`
   console.log(url)
   return getXml({ url })

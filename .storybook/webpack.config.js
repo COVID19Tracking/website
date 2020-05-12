@@ -22,20 +22,19 @@ module.exports = ({ config }) => {
   ]
 
   config.module.rules.push({
-    test: /\.module.scss$/,
-    loaders: ['style-loader', 'css-loader', 'sass-loader'],
-    exclude: /\.module\.s[ac]ss$/,
-    include: srcPath,
-  })
-
-  config.module.rules.push({
     test: /\.s[ac]ss$/,
     loaders: [
-      'style-loader',
-      'css-loader',
-      { loader: 'sass-loader', options: { modules: true } },
+      require.resolve('style-loader'),
+      {
+        loader: require.resolve('css-loader'),
+        options: {
+          importLoaders: 1,
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]',
+        },
+      },
+      require.resolve('sass-loader'),
     ],
-    include: srcPath,
   })
 
   // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint

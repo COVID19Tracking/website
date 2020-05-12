@@ -25,6 +25,7 @@ export default ({ data }) => {
   return (
     <Layout
       title={`Blog | ${blogPost.title}`}
+      displayTitle="Blog"
       description={blogPost.lede.lede}
       titleLink="/blog"
       textHeavy

@@ -89,6 +89,10 @@ select,
   }
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 * {
   transition: color 0.2s;
   transition: background-color 0.2s;
