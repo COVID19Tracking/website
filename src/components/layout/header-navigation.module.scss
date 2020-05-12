@@ -1,0 +1,92 @@
+@import '~scss/colors.module.scss';
+
+.caret {
+  appearance: none;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin-left: 7px;
+  position: relative;
+  cursor: pointer;
+
+  @media (hover: none) {
+    background-color: #ffffff;
+    border-radius: 15px;
+    height: 22px;
+    width: 22px;
+    top: 3px;
+  }
+
+  svg {
+    fill: #ffffff;
+    transition: transform 0.2s ease-in;
+    transform-origin: center;
+
+    @media (hover: none) {
+      fill: $color-plum-600;
+      position: absolute;
+      top: 8px;
+      left: 5px;
+    }
+  }
+
+  &[aria-expanded='true'] svg {
+    transform: rotate(-180deg);
+    transform-origin: center;
+    transition: transform 0.2s ease-out;
+  }
+}
+
+.menu-item {
+  &:hover {
+    [data-reach-menu] {
+      display: block;
+    }
+  }
+}
+
+.sub-menu {
+  display: block;
+  position: absolute;
+  border-top: 20px solid #5667ad;
+  top: 20px;
+  transition: all 0.5s ease;
+  text-align: left;
+  background-color: #ffffff;
+  min-width: 15em;
+  padding: 0.5em 0;
+  a.menu-link {
+    color: $color-plum-600;
+    display: block;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    &:hover {
+      color: white;
+      background: $color-plum-600;
+    }
+    &[data-selected] {
+      color: white;
+      background: $color-plum-600;
+    }
+  }
+}
+
+.mobile {
+  .sub-menu {
+    position: relative;
+    border: 0;
+    top: 0;
+    background: transparent;
+    padding-left: 1rem;
+    a {
+      color: white;
+    }
+  }
+  .menu-item {
+    &:hover {
+      [data-reach-menu][hidden] {
+        display: none;
+      }
+    }
+  }
+}

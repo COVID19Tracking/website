@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link, useStaticQuery, navigate, graphql } from 'gatsby'
 import Expand from 'react-expand-animated'
 import DevelopmentWarning from './development-warning'
@@ -14,6 +14,7 @@ import Container from '../common/container'
 import colors from '../../scss/colors.module.scss'
 import { useSearch } from '~context/search-context'
 import withSearch from '~components/utils/with-search'
+import HeaderNavigation from './header-navigation'
 
 const expandStyles = {
   open: { background: colors.colorPlum800 },
@@ -32,87 +33,6 @@ const HeaderTabs = ({ navigation }) => (
     </div>
   </div>
 )
-
-const useOnClickOutside = (ref, handler) => {
-  useEffect(() => {
-    const listener = event => {
-      if (ref.current || ref.current.contains(event.target)) {
-        return
-      }
-
-      handler(event)
-    }
-
-    document.addEventListener('mousedown', listener)
-    document.addEventListener('touchstart', listener)
-
-    return () => {
-      document.removeEventListener('mousedown', listener)
-      document.removeEventListener('touchstart', listener)
-    }
-  }, [ref, handler])
-}
-
-const HeaderNavigation = ({ topNavigation, subNavigation }) => {
-  const [menuState, setShowSubMenu] = useState()
-
-  const ref = useRef()
-  useOnClickOutside(ref, () => setShowSubMenu(menuState))
-
-  const toggleSubMenu = index => {
-    setShowSubMenu(menuState === index ? '' : index)
-  }
-
-  return (
-    <nav className="js-disabled-block" role="navigation">
-      <ul role="menubar">
-        {topNavigation.map((item, index) => (
-          <li
-            role="menuitem"
-            aria-haspopup={item.subNavigation ? 'true' : false}
-            className={menuState === index ? headerStyle.showSubMenu : ''}
-            key={item.link}
-            ref={ref}
-          >
-            <Link to={item.link}>{item.title}</Link>
-            {item.subNavigation &&
-              typeof subNavigation[item.subNavigation] !== 'undefined' && (
-                <>
-                  <ul>
-                    {subNavigation[item.subNavigation].map(subItem => (
-                      <li key={subItem.link}>
-                        <Link to={subItem.link}>{subItem.title}</Link>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <button
-                    className={headerStyle.navCaret}
-                    type="button"
-                    aria-expanded={menuState === index}
-                    aria-label={menuState === index ? 'hide' : 'show'}
-                    onClick={() => {
-                      toggleSubMenu(index)
-                    }}
-                  >
-                    <svg
-                      width="12"
-                      height="7"
-                      viewBox="0 0 12 7"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z" />
-                    </svg>
-                  </button>
-                </>
-              )}
-          </li>
-        ))}
-      </ul>
-    </nav>
-  )
-}
 
 const ReturnLink = ({ currentItem }) => {
   if (!currentItem || currentItem.top) {
@@ -183,6 +103,7 @@ const MobileMenu = ({ topNavigation, subNavigation }) => {
       <HeaderNavigation
         topNavigation={topNavigation}
         subNavigation={subNavigation}
+        isMobile
       />
       <Link to="/about-project/help" className={headerStyle.getInvolved}>
         Get Involved
@@ -243,6 +164,8 @@ const Header = withSearch(
       if (typeof subNavigation[item.subNavigation] !== 'undefined') {
         subNavigation[item.subNavigation].forEach(sub => {
           if (
+            sub.link &&
+            path &&
             sub.link.replace(/^\/|\/$/g, '') === path.replace(/^\/|\/$/g, '')
           ) {
             pathNavigation = {
