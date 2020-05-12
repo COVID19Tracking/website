@@ -1,19 +1,23 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useStaticQuery, navigate, graphql } from 'gatsby'
 import Expand from 'react-expand-animated'
+import classNames from 'classnames'
 import DevelopmentWarning from './development-warning'
 import PartnershipBanner from './partnership-banner'
 import SearchAutocomplete from './search-autocomplete'
-import projectLogo from '../../images/project-logo.svg'
-import atlanticLogo from '../../images/atlantic-logo.svg'
-import headerStyle from './header.module.scss'
-import searchIcon from '../../images/icons/search.svg'
-import searchIconInvert from '../../images/icons/search-inverted.svg'
 import Container from '../common/container'
-import colors from '../../scss/colors.module.scss'
 import { useSearch } from '~context/search-context'
 import withSearch from '~components/utils/with-search'
+
+import colors from '../../scss/colors.module.scss'
+import breakpoints from '~scss/breakpoints.module.scss'
+import headerStyle from './header.module.scss'
+
+import projectLogo from '../../images/project-logo.svg'
+import atlanticLogo from '../../images/atlantic-logo.svg'
+import searchIcon from '../../images/icons/search.svg'
+import searchIconInvert from '../../images/icons/search-inverted.svg'
 
 const expandStyles = {
   open: { background: colors.colorPlum800 },
@@ -82,35 +86,53 @@ const HeaderSearch = ({ children }) => {
   )
 }
 
-const MobileMenu = () => {
-  const searchInputRef = useRef()
-  const [, searchDispatch] = useSearch()
+const MobileMenu = ({ expanded }) => {
+  const [searchState] = useSearch()
+  const { query, isFetching } = searchState
+  const [menuHeight, setMenuHeight] = useState({ initial: 0, current: 0 })
+  const resultPopoverRef = React.createRef()
+  const menuRef = useRef()
+
+  // Set initial menu height value to reset later.
+  useEffect(() => {
+    if (expanded) {
+      setMenuHeight({ ...menuHeight, initial: menuRef.current.offsetHeight })
+    }
+  }, [expanded])
+
+  // When query changes,
+  // either update menu min height (if needed) or reset to initial value
+  useEffect(() => {
+    if (
+      query &&
+      !isFetching &&
+      resultPopoverRef.current &&
+      resultPopoverRef.current.offsetHeight
+    ) {
+      setMenuHeight({
+        ...menuHeight,
+        current: Math.max(
+          resultPopoverRef.current.offsetHeight + 75,
+          menuHeight.initial,
+        ),
+      })
+    } else if (!query) {
+      setMenuHeight({ ...menuHeight, current: menuHeight.initial })
+    }
+  }, [query, isFetching])
 
   return (
-    <div className={headerStyle.mobileMenu}>
+    <div
+      ref={menuRef}
+      className={classNames(headerStyle.mobileMenu, {
+        [headerStyle.mobileMenuExpanded]: expanded,
+      })}
+      style={{
+        minHeight: `${menuHeight.current}px`,
+      }}
+    >
       <HeaderSearch>
-        <form
-          method="get"
-          action="/search"
-          onSubmit={event => {
-            event.preventDefault()
-            navigate(`/search?q=${searchInputRef.current.value}`)
-          }}
-        >
-          <label htmlFor="mobile-menu-search" className="a11y-only">
-            Search
-          </label>
-          <input
-            type="search"
-            placeholder="Search"
-            name="q"
-            id="mobile-menu-search"
-            autoComplete="off"
-            ref={searchInputRef}
-            onFocus={() => searchDispatch({ type: 'toggleAutocompleteFocus' })}
-            onBlur={() => searchDispatch({ type: 'toggleAutocompleteFocus' })}
-          />
-        </form>
+        <SearchAutocomplete ref={resultPopoverRef} mobile visible={expanded} />
       </HeaderSearch>
 
       <HeaderNavigation />
@@ -124,6 +146,31 @@ const MobileMenu = () => {
 
 const Header = withSearch(({ title, titleLink, noMargin, navigation }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
+
+  // Timeout id.
+  let resizeTimeout
+  const handleResize = () => {
+    if (window.innerWidth >= breakpoints.viewportLg.split('px')[0]) {
+      setShowMobileMenu(false)
+    }
+  }
+
+  // Watch resizes to un-expand the menu in large viewports.
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout)
+        resizeTimeout = setTimeout(handleResize, 250)
+      })
+    }
+    return () => {
+      // remove resize listener
+      if (typeof window !== 'undefined') {
+        clearTimeout(resizeTimeout)
+        window.removeEventListener('resize', handleResize)
+      }
+    }
+  }, [])
 
   return (
     <>
@@ -148,7 +195,7 @@ const Header = withSearch(({ title, titleLink, noMargin, navigation }) => {
             duration={500}
             transitions={['height', 'opacity', 'background']}
           >
-            <PartnershipBanner />
+            {!showMobileMenu && <PartnershipBanner />}
           </Expand>
           <Container>
             <div className={headerStyle.siteTitleContainer}>

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState, forwardRef } from 'react'
 import {
   Combobox,
   ComboboxInput,
@@ -16,13 +16,15 @@ import {
   getSanitizedSlug,
   partitionHitsByRelevance,
 } from '../../context/search-context'
-import searchAutocompleteStyles from './search-autocomplete.module.scss'
+import searchAutocompleteStyle from './search-autocomplete.module.scss'
+import headerStyle from '~components/layout/header.module.scss'
 
-export default () => {
+export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
   const [searchState, searchDispatch] = useSearch()
   const [showResults, setShowResults] = useState(true)
-  const { query, results } = searchState
-  const id = 'header-search-autocomplete'
+  const searchInputRef = useRef()
+  const { query, results, autocompleteHasFocus } = searchState
+  const id = `header-search-autocomplete${mobile ? '-mobile' : ''}`
 
   function setQuery(value) {
     if (!value) {
@@ -31,6 +33,16 @@ export default () => {
 
     return searchDispatch({ type: 'setQuery', payload: value })
   }
+
+  useEffect(() => {
+    if (mobile && searchInputRef.current !== null) {
+      if (visible) {
+        searchInputRef.current.focus()
+      } else {
+        searchInputRef.current.blur()
+      }
+    }
+  }, [visible])
 
   useEffect(() => {
     if (query) {
@@ -82,13 +94,16 @@ export default () => {
   }
 
   return (
-    <Combobox openOnFocus>
-      <label htmlFor={id} className="a11y-only">
+    <Combobox>
+      <label
+        htmlFor={id}
+        className={autocompleteHasFocus ? headerStyle.labelFocus : ''}
+      >
         Search
       </label>
       <ComboboxInput
         id={id}
-        placeholder="Search"
+        ref={searchInputRef}
         autoComplete="off"
         onChange={event => {
           setQuery(event.currentTarget.value)
@@ -102,19 +117,20 @@ export default () => {
       />
       {totalHits && showResults ? (
         <ComboboxPopover
+          ref={popoverRef}
           portal={false}
           id="search-results-popover"
-          className={searchAutocompleteStyles.popover}
+          className={searchAutocompleteStyle.popover}
         >
           {totalHits > 0 ? (
             <ComboboxList
               aria-label="Results"
-              className={searchAutocompleteStyles.popoverList}
+              className={searchAutocompleteStyle.popoverList}
             >
               {bestHits.length > 0 && (
                 <li
                   tabIndex="-1"
-                  className={searchAutocompleteStyles.popoverSeparator}
+                  className={searchAutocompleteStyle.popoverSeparator}
                 >
                   Best results
                 </li>
@@ -129,7 +145,7 @@ export default () => {
               {otherHits.length > 0 && (
                 <li
                   tabIndex="-1"
-                  className={searchAutocompleteStyles.popoverSeparator}
+                  className={searchAutocompleteStyle.popoverSeparator}
                 >
                   Other results
                 </li>
@@ -153,4 +169,4 @@ export default () => {
       )}
     </Combobox>
   )
-}
+})
