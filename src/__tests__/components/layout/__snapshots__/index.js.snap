@@ -780,31 +780,42 @@ Array [
       >
         <div
           className="mobileMenu"
+          style={
+            Object {
+              "minHeight": "0px",
+            }
+          }
         >
           <div
             className="searchInput"
           >
-            <form
-              action="/search"
-              method="get"
-              onSubmit={[Function]}
+            <div
+              data-reach-combobox=""
             >
               <label
-                className="a11y-only"
-                htmlFor="mobile-menu-search"
+                className=""
+                htmlFor="header-search-autocomplete-mobile"
               >
                 Search
               </label>
               <input
+                aria-autocomplete="both"
+                aria-controls="listbox--7"
+                aria-expanded={false}
+                aria-haspopup="listbox"
                 autoComplete="off"
-                id="mobile-menu-search"
-                name="q"
+                data-reach-combobox-input=""
+                id="header-search-autocomplete-mobile"
                 onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
-                placeholder="Search"
-                type="search"
+                onKeyDown={[Function]}
+                onSelect={[Function]}
+                role="combobox"
+                value=""
               />
-            </form>
+            </div>
             <button
               aria-label="Submit search"
               className="searchSubmit"
@@ -927,14 +938,14 @@ Array [
                       data-reach-combobox=""
                     >
                       <label
-                        className="a11y-only"
+                        className=""
                         htmlFor="header-search-autocomplete"
                       >
                         Search
                       </label>
                       <input
                         aria-autocomplete="both"
-                        aria-controls="listbox--4"
+                        aria-controls="listbox--8"
                         aria-expanded={false}
                         aria-haspopup="listbox"
                         autoComplete="off"
@@ -946,7 +957,6 @@ Array [
                         onFocus={[Function]}
                         onKeyDown={[Function]}
                         onSelect={[Function]}
-                        placeholder="Search"
                         role="combobox"
                         value=""
                       />
