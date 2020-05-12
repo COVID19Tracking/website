@@ -195,7 +195,7 @@ const Header = withSearch(({ title, titleLink, noMargin, navigation }) => {
             duration={500}
             transitions={['height', 'opacity', 'background']}
           >
-            <PartnershipBanner />
+            {!showMobileMenu && <PartnershipBanner />}
           </Expand>
           <Container>
             <div className={headerStyle.siteTitleContainer}>
