@@ -12,9 +12,6 @@
 [context.branch-deploy]
   command = "npm run build-preview"
 
-[context."kevee/s3-bucket-change"]
-  command = "npm run build"
-
 [[headers]]
   for = "/api/*"
   [headers.values]
