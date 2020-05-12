@@ -1,3 +1,5 @@
+@import '~scss/colors.module.scss';
+
 .search-form {
     margin-bottom: 2rem;
     
@@ -5,7 +7,7 @@
     
     input {
         width: 100%;
-        padding: .4rem 2.4rem .4rem .4rem;
+        padding: .4rem 3.4rem .4rem 6rem;
     }
 }
 
@@ -23,6 +25,15 @@
 
 .search-icon {
     width: 1.25rem;
+}
+
+.label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: $placeholder;
 }
 
 .search-results {
