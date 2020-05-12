@@ -49,12 +49,12 @@ $chart-color: #0f1551;
     @media (min-width: $viewport-lg) {
       font-size: 18px;
       max-width: 30rem;
-      bottom: 4rem;
+      bottom: 2.5rem;
       position: absolute;
     }
     @media (min-width: $viewport-xl) {
       // max-width: 30rem;
-      bottom: 10rem;
+      bottom: 9rem;
     }
   }
   .chart-wrapper {

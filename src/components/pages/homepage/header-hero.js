@@ -124,14 +124,16 @@ const Chart = ({ data }) => {
           if (DateTime.fromISO(d.date).day !== 1) {
             return null
           }
+          const formattedDate = DateTime.fromISO(d.date).toFormat('LLLL')
           return (
             <text
+              key={`x-legend-${d.date}`}
               className={heroStyle.chartLegend}
               style={{ fill: 'white' }}
               x={xScale(d.date)}
               y={height + 20}
             >
-              {DateTime.fromISO(d.date).toFormat('LLLL')}
+              {formattedDate}
             </text>
           )
         })}
@@ -181,7 +183,8 @@ export default () => {
             <abbr title="United States" aria-label="United States">
               US
             </abbr>
-            . No official source is providing it, so we are.
+            . No official source is providing it,{' '}
+            <span className="nowrap">so we are</span>.
           </h2>
           <p className={`hero-paragraph ${heroStyle.paragraph}`}>
             CDC numbers don&apos;t tell the full story. Their official count

@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react'
-import 'swagger-ui/dist/swagger-ui.css'
+import Helmet from 'react-helmet'
 import './swagger-sandbox.scss'
 import SwaggerUI from 'swagger-ui'
 
-const SwaggerSandbox = () => {
+export default () => {
   const swaggerRef = useRef(null)
 
   useEffect(() => {
@@ -18,7 +18,16 @@ const SwaggerSandbox = () => {
     })
   }, [])
 
-  return <div ref={swaggerRef} id="swaggerWrapper" />
+  return (
+    <>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/api-docs/swagger-ui.css"
+        />
+      </Helmet>
+      <div ref={swaggerRef} id="swaggerWrapper" />
+    </>
+  )
 }
-
-export default SwaggerSandbox

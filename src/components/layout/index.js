@@ -11,6 +11,7 @@ import '../../scss/global.scss'
 
 const Layout = ({
   title,
+  displayTitle,
   titleLink,
   path,
   returnLink,
@@ -38,7 +39,7 @@ const Layout = ({
       <SkipNavigation />
       <Header
         siteTitle={data.site.siteMetadata.title}
-        title={title}
+        title={displayTitle || title}
         titleLink={titleLink}
         navigation={navigation}
         path={path}
