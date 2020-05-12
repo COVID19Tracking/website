@@ -253,16 +253,17 @@ const Header = withSearch(
                 <span>From</span> <img src={atlanticLogo} alt="The Atlantic" />
                 <div />
               </div>
-              <div
-                className={`${headerStyle.titleSubnavContainer} ${
-                  pathNavigation && !pathNavigation.top
-                    ? headerStyle.hasReturnLink
-                    : ''
-                }`}
-              >
-                <div className={headerStyle.title}>
-                  {navigation && <ReturnLink currentItem={pathNavigation} />}
-                  {title && (
+              {title && (
+                <div
+                  className={`${headerStyle.titleSubnavContainer} ${
+                    pathNavigation && !pathNavigation.top
+                      ? headerStyle.hasReturnLink
+                      : ''
+                  }`}
+                >
+                  <div className={headerStyle.title}>
+                    {navigation && <ReturnLink currentItem={pathNavigation} />}
+
                     <h1 className={`page-title ${headerStyle.pageTitle}`}>
                       {titleLink ? (
                         <Link to={titleLink}>{title}</Link>
@@ -270,14 +271,14 @@ const Header = withSearch(
                         <>{title}</>
                       )}
                     </h1>
+                  </div>
+                  {navigation && (
+                    <div className={headerStyle.tabContainer}>
+                      <HeaderTabs navigation={navigation} />
+                    </div>
                   )}
                 </div>
-                {navigation && (
-                  <div className={headerStyle.tabContainer}>
-                    <HeaderTabs navigation={navigation} />
-                  </div>
-                )}
-              </div>
+              )}
             </Container>
           </div>
         </header>
