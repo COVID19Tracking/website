@@ -4,6 +4,28 @@ import { Link } from 'gatsby'
 import { Menu, MenuList, MenuButton, MenuLink } from '@reach/menu-button'
 import headerNavigationStyles from './header-navigation.module.scss'
 
+const MenuCaret = ({
+  children,
+  id,
+  onKeyDown,
+  onMouseDown,
+  'aria-controls': ariaControls,
+  'aria-expanded': ariaExpanded,
+}) => (
+  <button
+    type="button"
+    onKeyDown={onKeyDown}
+    onMouseDown={onMouseDown}
+    className={headerNavigationStyles.caret}
+    aria-controls={ariaControls}
+    aria-haspopup="true"
+    id={id}
+    aria-expanded={ariaExpanded ? 'true' : 'false'}
+  >
+    {children}
+  </button>
+)
+
 export default ({ topNavigation, subNavigation, isMobile }) => (
   <nav className="js-disabled-block" role="navigation">
     <ul
@@ -16,7 +38,7 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
           {item.subNavigation &&
             typeof subNavigation[item.subNavigation] !== 'undefined' && (
               <Menu>
-                <MenuButton className={headerNavigationStyles.caret}>
+                <MenuButton as={MenuCaret}>
                   <svg
                     width="12"
                     height="7"
