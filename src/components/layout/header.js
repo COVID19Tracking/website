@@ -187,7 +187,13 @@ const Header = withSearch(
             showMobileMenu ? headerStyle.showMobileMenu : ''
           } ${noMargin ? headerStyle.noMargin : ''}`}
         >
-          <div className={`container ${headerStyle.container}`}>
+          <div
+            className={`container ${headerStyle.container} ${
+              navigation && pathNavigation && pathNavigation.top
+                ? headerStyle.hasNavigation
+                : ''
+            }`}
+          >
             <Expand
               open={showMobileMenu}
               styles={expandStyles}
@@ -272,7 +278,7 @@ const Header = withSearch(
                       )}
                     </h1>
                   </div>
-                  {navigation && (
+                  {navigation && pathNavigation.top && (
                     <div className={headerStyle.tabContainer}>
                       <HeaderTabs navigation={navigation} />
                     </div>

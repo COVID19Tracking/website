@@ -137,6 +137,10 @@
 
 .container {
   background: $color-plum-550;
+  padding-bottom: 2em;
+  &.has-navigation {
+    padding-bottom: 0;
+  }
 }
 
 .site-header {

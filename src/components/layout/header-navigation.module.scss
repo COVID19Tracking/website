@@ -54,7 +54,8 @@
   background-color: #ffffff;
   min-width: 15em;
   padding: 0.5em 0;
-  a.menu-link {
+  a.menu-link,
+  a.menu-link[aria-current] {
     color: $color-plum-600;
     display: block;
     padding: 0.5em 1em;
