@@ -119,9 +119,11 @@ const ReturnLink = ({ currentItem }) => {
     return null
   }
   return (
-    <Link to={currentItem.parent.link} className={headerStyle.returnLink}>
-      <span aria-hidden>←</span> {currentItem.parent.title}
-    </Link>
+    <div className={headerStyle.returnLink}>
+      <Link to={currentItem.parent.link}>
+        <span aria-hidden>←</span> {currentItem.parent.title}
+      </Link>
+    </div>
   )
 }
 

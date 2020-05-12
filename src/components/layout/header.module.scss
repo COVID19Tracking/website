@@ -376,15 +376,14 @@
   }
 
   .return-link {
-    color: white;
-    margin-bottom: 15px;
-    text-decoration: none;
-    span {
-      display: inline-block;
-      margin-right: 0.3rem;
-    }
-    &:hover {
-      text-decoration: underline;
+    height: 1.3rem;
+    margin-bottom: 0.2rem;
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -394,7 +393,7 @@
       margin-top: 1.5rem;
     }
     &.has-return-link {
-      margin-top: 2.1rem;
+      margin-top: 1.5rem;
       @media (max-width: $viewport-md) {
         margin-top: 0.6rem;
       }
