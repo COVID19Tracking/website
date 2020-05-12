@@ -13,6 +13,7 @@ import raceProjectStyle from './race.module.scss'
 const NotFoundPage = ({ data }) => (
   <Layout
     title="The COVID Racial Data Tracker"
+    path="/race"
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
     textHeavy
     narrow

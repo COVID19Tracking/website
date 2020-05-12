@@ -53,40 +53,7 @@ const useOnClickOutside = (ref, handler) => {
   }, [ref, handler])
 }
 
-const HeaderNavigation = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allNavigationYaml(filter: { name: { eq: "header" } }) {
-        edges {
-          node {
-            items {
-              link
-              title
-              subNavigation
-            }
-          }
-        }
-      }
-      allContentfulNavigationGroup {
-        edges {
-          node {
-            slug
-            pages {
-              ... on ContentfulPage {
-                title
-                link: slug
-              }
-              ... on ContentfulNavigationLink {
-                title
-                link: url
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
+const HeaderNavigation = ({ topNavigation, subNavigation }) => {
   const [menuState, setShowSubMenu] = useState()
 
   const ref = useRef()
@@ -96,15 +63,10 @@ const HeaderNavigation = () => {
     setShowSubMenu(menuState === index ? '' : index)
   }
 
-  const subNavigation = {}
-  data.allContentfulNavigationGroup.edges.forEach(({ node }) => {
-    subNavigation[node.slug] = node.pages
-  })
-
   return (
     <nav className="js-disabled-block" role="navigation">
       <ul role="menubar">
-        {data.allNavigationYaml.edges[0].node.items.map((item, index) => (
+        {topNavigation.map((item, index) => (
           <li
             role="menuitem"
             aria-haspopup={item.subNavigation ? 'true' : false}
@@ -152,6 +114,17 @@ const HeaderNavigation = () => {
   )
 }
 
+const ReturnLink = ({ currentItem }) => {
+  if (!currentItem || currentItem.top) {
+    return null
+  }
+  return (
+    <Link to={currentItem.parent.link} className={headerStyle.returnLink}>
+      <span aria-hidden>←</span> {currentItem.parent.title}
+    </Link>
+  )
+}
+
 const HeaderSearch = ({ children }) => {
   const [searchState] = useSearch()
   const { query, autocompleteHasFocus } = searchState
@@ -174,7 +147,7 @@ const HeaderSearch = ({ children }) => {
   )
 }
 
-const MobileMenu = () => {
+const MobileMenu = ({ topNavigation, subNavigation }) => {
   const searchInputRef = useRef()
   const [, searchDispatch] = useSearch()
 
@@ -205,7 +178,10 @@ const MobileMenu = () => {
         </form>
       </HeaderSearch>
 
-      <HeaderNavigation />
+      <HeaderNavigation
+        topNavigation={topNavigation}
+        subNavigation={subNavigation}
+      />
       <Link to="/about-project/help" className={headerStyle.getInvolved}>
         Get Involved
       </Link>
@@ -214,99 +190,175 @@ const MobileMenu = () => {
   )
 }
 
-const Header = withSearch(({ title, titleLink, noMargin, navigation }) => {
-  const [showMobileMenu, setShowMobileMenu] = useState(false)
+const Header = withSearch(
+  ({ title, titleLink, noMargin, navigation, path }) => {
+    const data = useStaticQuery(graphql`
+      query {
+        allNavigationYaml(filter: { name: { eq: "header" } }) {
+          edges {
+            node {
+              items {
+                link
+                title
+                subNavigation
+              }
+            }
+          }
+        }
+        allContentfulNavigationGroup {
+          edges {
+            node {
+              slug
+              pages {
+                ... on ContentfulPage {
+                  title
+                  link: slug
+                }
+                ... on ContentfulNavigationLink {
+                  title
+                  link: url
+                }
+              }
+            }
+          }
+        }
+      }
+    `)
+    const subNavigation = {}
+    let pathNavigation = false
+    data.allContentfulNavigationGroup.edges.forEach(({ node }) => {
+      subNavigation[node.slug] = node.pages
+    })
+    const topNavigation = data.allNavigationYaml.edges[0].node.items
+    topNavigation.forEach(item => {
+      if (item.link === path) {
+        pathNavigation = {
+          top: true,
+          parent: false,
+        }
+        return
+      }
+      if (typeof subNavigation[item.subNavigation] !== 'undefined') {
+        subNavigation[item.subNavigation].forEach(sub => {
+          if (
+            sub.link.replace(/^\/|\/$/g, '') === path.replace(/^\/|\/$/g, '')
+          ) {
+            pathNavigation = {
+              top: false,
+              parent: item,
+            }
+          }
+        })
+      }
+    })
 
-  return (
-    <>
-      <DevelopmentWarning />
-      <header
-        className={`site-header ${headerStyle.siteHeader} ${
-          showMobileMenu ? headerStyle.showMobileMenu : ''
-        } ${noMargin ? headerStyle.noMargin : ''}`}
-      >
-        <div className={`container ${headerStyle.container}`}>
-          <Expand
-            open={showMobileMenu}
-            styles={expandStyles}
-            duration={500}
-            transitions={['height', 'opacity', 'background']}
-          >
-            <MobileMenu expanded={showMobileMenu} />
-          </Expand>
-          <Expand
-            open={!showMobileMenu}
-            styles={expandStyles}
-            duration={500}
-            transitions={['height', 'opacity', 'background']}
-          >
-            <PartnershipBanner />
-          </Expand>
-          <Container>
-            <div className={headerStyle.siteTitleContainer}>
-              <div className={headerStyle.siteTitleInner}>
-                <Link to="/">
-                  <img
-                    src={projectLogo}
-                    alt="The COVID Tracking Project"
-                    width="176px"
-                  />
-                </Link>
-              </div>
-              <div className={headerStyle.siteNavContainer}>
-                <div className={headerStyle.navContainer}>
-                  <button
-                    className={headerStyle.mobileToggle}
-                    type="button"
-                    aria-expanded={showMobileMenu}
-                    onClick={() => {
-                      setShowMobileMenu(!showMobileMenu)
-                    }}
-                  >
-                    {showMobileMenu ? <>Close</> : <>Menu</>}
-                  </button>
-                </div>
-                <div className={headerStyle.tools}>
-                  <HeaderSearch>
-                    <SearchAutocomplete />
-                  </HeaderSearch>
-                  <Link
-                    to="/about-project/help"
-                    className={headerStyle.getInvolved}
-                  >
-                    Get involved
+    const [showMobileMenu, setShowMobileMenu] = useState(false)
+
+    return (
+      <>
+        <DevelopmentWarning />
+        <header
+          className={`site-header ${headerStyle.siteHeader} ${
+            showMobileMenu ? headerStyle.showMobileMenu : ''
+          } ${noMargin ? headerStyle.noMargin : ''}`}
+        >
+          <div className={`container ${headerStyle.container}`}>
+            <Expand
+              open={showMobileMenu}
+              styles={expandStyles}
+              duration={500}
+              transitions={['height', 'opacity', 'background']}
+            >
+              <MobileMenu
+                expanded={showMobileMenu}
+                topNavigation={topNavigation}
+                subNavigation={subNavigation}
+              />
+            </Expand>
+            <Expand
+              open={!showMobileMenu}
+              styles={expandStyles}
+              duration={500}
+              transitions={['height', 'opacity', 'background']}
+            >
+              <PartnershipBanner />
+            </Expand>
+            <Container>
+              <div className={headerStyle.siteTitleContainer}>
+                <div className={headerStyle.siteTitleInner}>
+                  <Link to="/">
+                    <img
+                      src={projectLogo}
+                      alt="The COVID Tracking Project"
+                      width="176px"
+                    />
                   </Link>
                 </div>
-                <HeaderNavigation />
+                <div className={headerStyle.siteNavContainer}>
+                  <div className={headerStyle.navContainer}>
+                    <button
+                      className={headerStyle.mobileToggle}
+                      type="button"
+                      aria-expanded={showMobileMenu}
+                      onClick={() => {
+                        setShowMobileMenu(!showMobileMenu)
+                      }}
+                    >
+                      {showMobileMenu ? <>Close</> : <>Menu</>}
+                    </button>
+                  </div>
+                  <div className={headerStyle.tools}>
+                    <HeaderSearch>
+                      <SearchAutocomplete />
+                    </HeaderSearch>
+                    <Link
+                      to="/about-project/help"
+                      className={headerStyle.getInvolved}
+                    >
+                      Get involved
+                    </Link>
+                  </div>
+                  <HeaderNavigation
+                    topNavigation={topNavigation}
+                    subNavigation={subNavigation}
+                  />
+                </div>
               </div>
-            </div>
-            <div className={headerStyle.atlanticBanner}>
-              <span>From</span> <img src={atlanticLogo} alt="The Atlantic" />
-              <div />
-            </div>
-            <div className={headerStyle.titleSubnavContainer}>
-              <div className={headerStyle.title}>
-                {title && (
-                  <h1 className={`page-title ${headerStyle.pageTitle}`}>
-                    {titleLink ? (
-                      <Link to={titleLink}>{title}</Link>
-                    ) : (
-                      <>{title}</>
-                    )}
-                  </h1>
+              <div className={headerStyle.atlanticBanner}>
+                <span>From</span> <img src={atlanticLogo} alt="The Atlantic" />
+                <div />
+              </div>
+              <div
+                className={`${headerStyle.titleSubnavContainer} ${
+                  pathNavigation && !pathNavigation.top
+                    ? headerStyle.hasReturnLink
+                    : ''
+                }`}
+              >
+                <div className={headerStyle.title}>
+                  {navigation && <ReturnLink currentItem={pathNavigation} />}
+                  {title && (
+                    <h1 className={`page-title ${headerStyle.pageTitle}`}>
+                      {titleLink ? (
+                        <Link to={titleLink}>{title}</Link>
+                      ) : (
+                        <>{title}</>
+                      )}
+                    </h1>
+                  )}
+                </div>
+                {navigation && (
+                  <div className={headerStyle.tabContainer}>
+                    <HeaderTabs navigation={navigation} />
+                  </div>
                 )}
               </div>
-              {navigation && (
-                <div className={headerStyle.tabContainer}>
-                  <HeaderTabs navigation={navigation} />
-                </div>
-              )}
-            </div>
-          </Container>
-        </div>
-      </header>
-    </>
-  )
-})
+            </Container>
+          </div>
+        </header>
+      </>
+    )
+  },
+)
 
 export default Header

@@ -12,6 +12,7 @@ import '../../scss/global.scss'
 const Layout = ({
   title,
   titleLink,
+  path,
   description,
   children,
   navigation,
@@ -39,6 +40,7 @@ const Layout = ({
         title={title}
         titleLink={titleLink}
         navigation={navigation}
+        path={path}
         noMargin={noMargin}
         hasHero={hasHero}
       />

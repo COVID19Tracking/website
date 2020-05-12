@@ -199,7 +199,7 @@
   }
 
   .page-title {
-    margin: 35px 0 17.5px;
+    margin: 0 0 17.5px;
     font-size: 2.2rem;
     color: white;
     a {
@@ -212,7 +212,7 @@
     }
 
     @media (max-width: $viewport-md) {
-      margin: 17.5px 0 17.5px;
+      margin: 0 0 17.5px;
       font-size: 1.56rem;
     }
   }
@@ -375,10 +375,30 @@
     }
   }
 
-  .title-subnav-container {
-    .tab-container {
+  .return-link {
+    color: white;
+    margin-bottom: 15px;
+    text-decoration: none;
+    span {
+      display: inline-block;
+      margin-right: 0.3rem;
     }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
+  .title-subnav-container {
+    margin-top: 3rem;
+    @media (max-width: $viewport-md) {
+      margin-top: 1.5rem;
+    }
+    &.has-return-link {
+      margin-top: 2.1rem;
+      @media (max-width: $viewport-md) {
+        margin-top: 0.6rem;
+      }
+    }
     .header-tabs {
       display: block;
       align-self: flex-end;

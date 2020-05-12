@@ -8,6 +8,7 @@ const ContentPage = ({ data }) => {
     <Layout
       title={page.title}
       navigation={page.navigationGroup ? page.navigationGroup.pages : false}
+      path={page.slug}
       narrow
       textHeavy
     >
