@@ -7,6 +7,9 @@
 
 .border-left {
   border-left: 1px solid $color-slate-300;
+  &:first-child {
+    border-left: 0;
+  }
 }
 
 .header-label {

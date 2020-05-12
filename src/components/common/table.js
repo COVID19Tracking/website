@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 import DetailText from './detail-text'
 import tableStyle from './table.module.scss'
 
@@ -25,7 +26,7 @@ const Th = ({
   const role = 'text'
 
   return (
-    <th scope="col" colSpan={colSpan} className={thClasses.join(' ')}>
+    <th scope="col" colSpan={colSpan} className={classnames(thClasses)}>
       <span role={role}>
         {children}
         {header && (
