@@ -129,6 +129,7 @@ const Chart = ({ data }) => {
             <text
               key={formattedDate}
               className={heroStyle.chartLegend}
+              key={`x-legend-${d.date}`}
               style={{ fill: 'white' }}
               x={xScale(d.date)}
               y={height + 20}

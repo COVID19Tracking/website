@@ -28,7 +28,7 @@ const HeaderTabs = ({ navigation }) => (
     <div>
       <ul>
         {navigation.map(item => (
-          <li key={item.link}>
+          <li key={`header-tab-${item.link}`}>
             <Link to={item.link}>{item.title}</Link>
           </li>
         ))}
