@@ -4,13 +4,12 @@ import { max } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
 import { DateTime } from 'luxon'
 import heroStyle from './header-hero.module.scss'
-import colors from '~scss/colors.module.scss'
 import containerStyle from '~components/common/container.module.scss'
 import homepageContainerStyle from './container.module.scss'
 
 const Chart = ({ data }) => {
   const width = 1140
-  const height = 700
+  const height = 650
   const labelOffset = 120
   const bottomLabelOffset = 25
   const cdcList = {}
@@ -64,11 +63,10 @@ const Chart = ({ data }) => {
         {ctp.map(d => (
           <rect
             key={d.date + d.value}
-            className={heroStyle.chartBar}
+            className={`${heroStyle.chartBar} ${heroStyle.ctp}`}
             x={xScale(d.date)}
             y={yScale(d.value)}
             height={yScale(0) - yScale(d.value)}
-            fill={colors.colorHoney400}
           />
         ))}
       </g>
@@ -76,11 +74,10 @@ const Chart = ({ data }) => {
         {cdc.map(d => (
           <rect
             key={d.date + d.value}
-            className={heroStyle.chartBar}
+            className={`${heroStyle.chartBar} ${heroStyle.cdc}`}
             x={xScale(d.date)}
             y={yScale(d.value)}
             height={yScale(0) - yScale(d.value)}
-            fill="white"
           />
         ))}
       </g>
@@ -130,6 +127,7 @@ const Chart = ({ data }) => {
           return (
             <text
               className={heroStyle.chartLegend}
+              key={`x-legend-${d.date}`}
               style={{ fill: 'white' }}
               x={xScale(d.date)}
               y={height + 20}
@@ -184,20 +182,21 @@ export default () => {
             <abbr title="United States" aria-label="United States">
               US
             </abbr>
-            . No official source is providing it, so we are.
+            . No official source is providing it,{' '}
+            <span className="nowrap">so we are</span>.
           </h2>
           <p className={`hero-paragraph ${heroStyle.paragraph}`}>
             CDC numbers don&apos;t tell the full story. Their official count
             shows{' '}
-            <span className={heroStyle.cdcCount}>
+            <span className={`${heroStyle.legend} ${heroStyle.cdc}`}>
               {cdcTotal.toLocaleString()}
             </span>{' '}
             tests to date across the US. Using a rigorous data-collection
             process, we&apos;ve counted{' '}
-            <span className={heroStyle.ctpCount}>
+            <span className={`${heroStyle.legend} ${heroStyle.ctp}`}>
               {data.allCovidUs.nodes[0].posNeg.toLocaleString()}
-            </span>
-            .
+            </span>{' '}
+            tests.
           </p>
         </div>
         <div className={heroStyle.chartWrapper}>

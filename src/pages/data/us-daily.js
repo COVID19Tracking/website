@@ -8,6 +8,7 @@ import { Th, Td, Table } from '../../components/common/table'
 const ContentPage = ({ data }) => (
   <Layout
     title="US Historical Data"
+    description="Cumulative record of our daily totals."
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
     <div

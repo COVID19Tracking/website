@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useRef } from 'react'
 import { Link, useStaticQuery, navigate, graphql } from 'gatsby'
 import Expand from 'react-expand-animated'
@@ -23,7 +24,7 @@ const HeaderTabs = ({ navigation }) => (
     <div>
       <ul>
         {navigation.map(item => (
-          <li key={item.link}>
+          <li key={`header-tab-${item.link}`}>
             <Link to={item.link}>{item.title}</Link>
           </li>
         ))}
@@ -96,10 +97,14 @@ const MobileMenu = () => {
             navigate(`/search?q=${searchInputRef.current.value}`)
           }}
         >
+          <label htmlFor="mobile-menu-search" className="a11y-only">
+            Search
+          </label>
           <input
             type="search"
             placeholder="Search"
             name="q"
+            id="mobile-menu-search"
             autoComplete="off"
             ref={searchInputRef}
             onFocus={() => searchDispatch({ type: 'toggleAutocompleteFocus' })}
