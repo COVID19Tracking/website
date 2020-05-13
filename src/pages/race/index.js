@@ -1,16 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-import pressListStyle from '../components/common/press-list.module.scss'
+import Layout from '~components/layout'
+import pressListStyle from '~components/common/press-list.module.scss'
 import {
   PublicationTitle,
   PublicationSource,
-} from '../components/common/publication'
-import DetailText from '../components/common/detail-text'
-import margueriteCaseyLogo from '../images/race-project/marguerite-casey-foundation.png'
+} from '~components/common/publication'
+import DetailText from '~components/common/detail-text'
+import margueriteCaseyLogo from '../../images/race-project/marguerite-casey-foundation.png'
 import raceProjectStyle from './race.module.scss'
 
-const NotFoundPage = ({ data }) => (
+export default ({ data }) => (
   <Layout
     title="The COVID Racial Data Tracker"
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
@@ -48,8 +48,6 @@ const NotFoundPage = ({ data }) => (
     </div>
   </Layout>
 )
-
-export default NotFoundPage
 
 export const query = graphql`
   query {
