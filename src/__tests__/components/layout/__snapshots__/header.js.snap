@@ -318,7 +318,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 </div>
                 <a
                   className="getInvolved"
-                  href="/about-project/help"
+                  href="/get-involved"
                 >
                   Get involved
                 </a>
@@ -798,7 +798,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                 </div>
                 <a
                   className="getInvolved"
-                  href="/about-project/help"
+                  href="/get-involved"
                 >
                   Get involved
                 </a>
@@ -1278,7 +1278,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 </div>
                 <a
                   className="getInvolved"
-                  href="/about-project/help"
+                  href="/get-involved"
                 >
                   Get involved
                 </a>

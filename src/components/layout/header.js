@@ -316,7 +316,7 @@ const Header = withSearch(
                       <SearchAutocomplete />
                     </HeaderSearch>
                     <Link
-                      to="/about-project/help"
+                      to="/get-involved"
                       className={headerStyle.getInvolved}
                     >
                       Get involved
