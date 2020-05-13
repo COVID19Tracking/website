@@ -69,7 +69,11 @@ export default () => {
           <span className={VolunteerFormStyles.required}>(required)</span>
           <select name="hours" id="hours" aria-required="true" required>
             {HoursPerWeek.map(item => {
-              return <option value={item}>{item}</option>
+              return (
+                <option key={`hours-${item}`} value={item}>
+                  {item}
+                </option>
+              )
             })}
           </select>
         </label>
@@ -81,7 +85,11 @@ export default () => {
           <span className={VolunteerFormStyles.required}>(required)</span>
           <select name="timezone" id="timezone" aria-required="true" required>
             {Timezone.map(item => {
-              return <option value={item}>{item}</option>
+              return (
+                <option key={`timezone-${item}`} value={item}>
+                  {item}
+                </option>
+              )
             })}
           </select>
         </label>
@@ -95,7 +103,10 @@ export default () => {
           </legend>
           {Availability.map(item => {
             return (
-              <label htmlFor={item.shortname}>
+              <label
+                key={`availability-${item.shortname}`}
+                htmlFor={item.shortname}
+              >
                 <input
                   type="checkbox"
                   name="availability"
@@ -135,7 +146,7 @@ export default () => {
           </legend>
           {RadioOptions.map(item => {
             return (
-              <div>
+              <div key={`availability-${item.shortname}`}>
                 <label htmlFor={item.shortname}>
                   <input
                     required

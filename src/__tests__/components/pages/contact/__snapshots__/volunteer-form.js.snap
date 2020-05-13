@@ -26,6 +26,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         (required)
       </span>
       <input
+        aria-required="true"
         id="name"
         name="name"
         required={true}
@@ -50,6 +51,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         If possible, this should be a Gmail or Google-linked address, since we rely heavily on Google Docs and Sheets. We will show your email internally to other volunteers but will not share it elsewhere.
       </span>
       <input
+        aria-required="true"
         id="email"
         name="email"
         required={true}
@@ -87,6 +89,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         (required)
       </span>
       <select
+        aria-required="true"
         id="hours"
         name="hours"
         required={true}
@@ -136,6 +139,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         (required)
       </span>
       <select
+        aria-required="true"
         id="timezone"
         name="timezone"
         required={true}
@@ -241,6 +245,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         Examples: Python, SQL, Tableau, data viz, editing, social media, public health, research, journalism, etc.
       </span>
       <input
+        aria-required="true"
         id="skills"
         name="skills"
         required={true}
@@ -267,6 +272,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           <input
             id="general-management"
             name="workstream"
+            required={true}
             type="radio"
             value="I want to help run the whole program by creating high-level policies and services."
           />
@@ -280,6 +286,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           <input
             id="volunteer-management"
             name="workstream"
+            required={true}
             type="radio"
             value="I want to recruit, train, and manage volunteers. "
           />
@@ -293,6 +300,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           <input
             id="data-entry"
             name="workstream"
+            required={true}
             type="radio"
             value="I want to collect COVID data from state websites and data dashboards. "
           />
@@ -306,6 +314,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           <input
             id="race-data"
             name="workstream"
+            required={true}
             type="radio"
             value="I want to collect data about how COVID is affecting communities of color. "
           />
@@ -319,6 +328,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           <input
             id="state-ratings"
             name="workstream"
+            required={true}
             type="radio"
             value="I want to maintain ratings of the completeness and quality of state COVID data. "
           />
@@ -332,6 +342,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           <input
             id="news-monitoring"
             name="workstream"
+            required={true}
             type="radio"
             value="I want to find COVID data by watching press conferences and monitoring local news sources."
           />
@@ -345,6 +356,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           <input
             id="copy"
             name="workstream"
+            required={true}
             type="radio"
             value="I want to write and edit copy for your website."
           />
@@ -358,6 +370,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           <input
             id="data-vis"
             name="workstream"
+            required={true}
             type="radio"
             value="I want to create data visualizations and graphics with your data."
           />
@@ -371,6 +384,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           <input
             id="website-design"
             name="workstream"
+            required={true}
             type="radio"
             value="I want to design the front end of your website."
           />
@@ -384,6 +398,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           <input
             id="backend"
             name="workstream"
+            required={true}
             type="radio"
             value="I want to build the back end functionality of your website. "
           />
@@ -397,6 +412,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           <input
             id="devops"
             name="workstream"
+            required={true}
             type="radio"
             value="I want to ensure your heavily-trafficked website is fast and reliable."
           />
