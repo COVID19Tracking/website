@@ -49,7 +49,7 @@ const ReturnLink = ({ currentItem, returnLinkTitle }) => {
         {returnLinkTitle ? (
           <>{returnLinkTitle}</>
         ) : (
-          <>currentItem.parent.title</>
+          <>{currentItem.parent.title}</>
         )}
       </Link>
     </div>
