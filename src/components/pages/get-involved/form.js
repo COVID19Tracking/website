@@ -11,49 +11,64 @@ export default () => (
       target="_blank"
       noValidate
     >
-      <FormGroup>
-        <FormLabel htmlFor="action-form-first-name">First name</FormLabel>
-        <input
-          type="text"
-          name="FNAME"
-          id="action-form-first-name"
-          aria-required
-          required
-        />
-      </FormGroup>
-      <FormGroup>
-        <FormLabel htmlFor="action-form-last-name">Last name</FormLabel>
-        <input
-          type="text"
-          name="LNAME"
-          id="action-form-last-name"
-          aria-required
-          required
-        />
-      </FormGroup>
-      <FormGroup>
-        <FormLabel htmlFor="action-form-email">Email address</FormLabel>
-        <input
-          type="email"
-          name="EMAIL"
-          id="action-form-email"
-          aria-required
-          required
-        />
-      </FormGroup>
-      <FormGroup>
-        <FormLabel htmlFor="action-form-zip">Zip code</FormLabel>
-        <DetailText>
-          To receive updates specific to your location, please enter a zip code.
-        </DetailText>
-        <input
-          type="text"
-          name="MMERGE3"
-          id="action-form-zip"
-          aria-required
-          required
-        />
-      </FormGroup>
+      <div className={formStyle.fieldGroup}>
+        <FormGroup className={formStyle.group}>
+          <FormLabel htmlFor="action-form-first-name">
+            First name <span className={formStyle.label}>required</span>
+          </FormLabel>
+          <input
+            type="text"
+            name="FNAME"
+            id="action-form-first-name"
+            aria-required
+            required
+          />
+        </FormGroup>
+        <FormGroup className={formStyle.group}>
+          <FormLabel htmlFor="action-form-last-name">
+            Last name <span className={formStyle.label}>required</span>
+          </FormLabel>
+          <input
+            type="text"
+            name="LNAME"
+            id="action-form-last-name"
+            aria-required
+            required
+          />
+        </FormGroup>
+      </div>
+      <div className={formStyle.fieldGroup}>
+        <FormGroup className={formStyle.group}>
+          <FormLabel htmlFor="action-form-email">
+            Email address <span className={formStyle.label}>required</span>
+          </FormLabel>
+          <input
+            type="email"
+            name="EMAIL"
+            id="action-form-email"
+            aria-required
+            required
+          />
+        </FormGroup>
+        <FormGroup className={formStyle.group}>
+          <FormLabel htmlFor="action-form-zip">
+            Zip code <span className={formStyle.label}>optional</span>
+          </FormLabel>
+          <input
+            type="text"
+            name="MMERGE3"
+            id="action-form-zip"
+            maxLength="5"
+            className={formStyle.zip}
+            aria-required
+            required
+          />
+          <DetailText>
+            To receive updates specific to your location, please enter a zip
+            code.
+          </DetailText>
+        </FormGroup>
+      </div>
       <FormGroup>
         <input
           type="text"
