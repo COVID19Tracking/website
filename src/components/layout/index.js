@@ -15,6 +15,7 @@ const Layout = ({
   titleLink,
   path,
   returnLink,
+  returnLinkTitle,
   description,
   children,
   navigation,
@@ -46,6 +47,7 @@ const Layout = ({
         noMargin={noMargin}
         hasHero={hasHero}
         returnLink={returnLink}
+        returnLinkTitle={returnLinkTitle}
       />
       <main id="main">
         <SkipNavContent />

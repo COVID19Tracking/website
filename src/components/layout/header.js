@@ -38,14 +38,19 @@ const HeaderTabs = ({ navigation }) => (
   </div>
 )
 
-const ReturnLink = ({ currentItem }) => {
+const ReturnLink = ({ currentItem, returnLinkTitle }) => {
   if (!currentItem || currentItem.top) {
     return null
   }
   return (
     <div className={headerStyle.returnLink}>
       <Link to={currentItem.parent.link}>
-        <span aria-hidden>←</span> {currentItem.parent.title}
+        <span aria-hidden>←</span>{' '}
+        {returnLinkTitle ? (
+          <>{returnLinkTitle}</>
+        ) : (
+          <>currentItem.parent.title</>
+        )}
       </Link>
     </div>
   )
@@ -136,7 +141,15 @@ const MobileMenu = ({ expanded, topNavigation, subNavigation }) => {
 }
 
 const Header = withSearch(
-  ({ title, titleLink, noMargin, navigation, path, returnLink }) => {
+  ({
+    title,
+    titleLink,
+    noMargin,
+    navigation,
+    path,
+    returnLink,
+    returnLinkTitle,
+  }) => {
     const data = useStaticQuery(graphql`
       query {
         allNavigationYaml(filter: { name: { eq: "header" } }) {
@@ -329,7 +342,10 @@ const Header = withSearch(
                 >
                   <div className={headerStyle.title}>
                     {pathNavigation && (
-                      <ReturnLink currentItem={pathNavigation} />
+                      <ReturnLink
+                        currentItem={pathNavigation}
+                        returnLinkTitle={returnLinkTitle}
+                      />
                     )}
 
                     <h1 className={`page-title ${headerStyle.pageTitle}`}>

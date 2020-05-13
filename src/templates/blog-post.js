@@ -46,6 +46,7 @@ export default ({ data, path }) => {
       displayTitle="Blog"
       description={blogPost.lede.lede}
       returnLink="/blog"
+      returnLinkTitle="All posts"
       path={path}
       textHeavy
       narrow
