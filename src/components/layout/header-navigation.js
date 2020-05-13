@@ -54,6 +54,15 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
                 <MenuList
                   role={false}
                   className={headerNavigationStyles.subMenu}
+                  onKeyDown={event => {
+                    if (event.key === 'Tab') {
+                      const keyEvent = new KeyboardEvent('keydown', {
+                        bubbles: true,
+                        key: 'ArrowDown',
+                      })
+                      event.target.dispatchEvent(keyEvent)
+                    }
+                  }}
                   portal={false}
                 >
                   {subNavigation[item.subNavigation].map(subItem => (
