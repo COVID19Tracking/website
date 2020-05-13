@@ -23,7 +23,13 @@ export default () => {
         <label htmlFor="name" className={VolunteerFormStyles.inputHeader}>
           Name
           <span className={VolunteerFormStyles.required}>(required)</span>
-          <input type="text" name="name" id="name" required />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            aria-required="true"
+            required
+          />
         </label>
       </div>
 
@@ -36,7 +42,13 @@ export default () => {
             we rely heavily on Google Docs and Sheets. We will show your email
             internally to other volunteers but will not share it elsewhere.
           </span>
-          <input type="email" name="email" id="email" required />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            aria-required="true"
+            required
+          />
         </label>
       </div>
 
@@ -55,7 +67,7 @@ export default () => {
         <label htmlFor="hours" className={VolunteerFormStyles.inputHeader}>
           About how many hours are you available to work?
           <span className={VolunteerFormStyles.required}>(required)</span>
-          <select name="hours" id="hours" required>
+          <select name="hours" id="hours" aria-required="true" required>
             {HoursPerWeek.map(item => {
               return <option value={item}>{item}</option>
             })}
@@ -67,7 +79,7 @@ export default () => {
         <label htmlFor="timezone" className={VolunteerFormStyles.inputHeader}>
           What time zone are you in?
           <span className={VolunteerFormStyles.required}>(required)</span>
-          <select name="timezone" id="timezone" required>
+          <select name="timezone" id="timezone" aria-required="true" required>
             {Timezone.map(item => {
               return <option value={item}>{item}</option>
             })}
@@ -105,7 +117,13 @@ export default () => {
             Examples: Python, SQL, Tableau, data viz, editing, social media,
             public health, research, journalism, etc.
           </span>
-          <input type="text" name="skills" id="skills" required />
+          <input
+            type="text"
+            name="skills"
+            id="skills"
+            aria-required="true"
+            required
+          />
         </label>
       </div>
 
@@ -120,6 +138,7 @@ export default () => {
               <div>
                 <label htmlFor={item.shortname}>
                   <input
+                    required
                     type="radio"
                     name="workstream"
                     id={item.shortname}

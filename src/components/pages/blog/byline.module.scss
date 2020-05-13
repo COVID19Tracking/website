@@ -45,13 +45,24 @@
 .byline--small-margin {
   @extend .byline-base;
   margin: 8px 0;
+  p {
+    margin-bottom: 8px;
+  }
 }
 
 .byline--small-margin--image {
   @extend .byline-base;
-  margin: 12px 0;
+  margin-top: 0;
+  margin-bottom: 8px;
+  p {
+    margin: 12px 0;
+  }
+  .headshot-container,
+  .headshot-container img {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
-
 
 .one-line-byline {
   font-size: 16px;

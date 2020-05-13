@@ -5,134 +5,195 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
   <table
     className="table"
   >
-    <colgroup
-      span="3"
-    />
-    <colgroup
-      span="2"
-    />
-    <colgroup
-      span="2"
-    />
-    <colgroup
-      span="2"
-    />
-    <colgroup
-      span="2"
-    />
-    <colgroup
-      span="1"
-    />
     <thead>
       <tr>
         <th
-          colSpan="3"
-          scope="colgroup"
-        >
-          Tests
-        </th>
-        <th
-          colSpan="2"
-          scope="colgroup"
-        >
-          Hospitalized
-        </th>
-        <th
-          colSpan="2"
-          scope="colgroup"
-        >
-          In ICU
-        </th>
-        <th
-          colSpan="2"
-          scope="colgroup"
-        >
-          On Ventilator
-        </th>
-        <th
-          colSpan="2"
-          scope="colgroup"
-        >
-          Outcomes
-        </th>
-        <th
-          scope="colgroup"
-        >
-          Total Test Results
-        </th>
-      </tr>
-      <tr>
-        <th
-          className="alignLeft"
+          className="alignLeft borderLeft"
           scope="col"
         >
-          Positive
+          <span
+            role="text"
+          >
+            Positive
+            <span
+              className="headerLabel headerLabel3"
+            >
+              Tests
+            </span>
+          </span>
         </th>
         <th
+          className=""
           scope="col"
         >
-          Negative
+          <span
+            role="text"
+          >
+            Negative
+            <span
+              className="headerLabelHidden headerLabel3"
+            >
+              Tests
+            </span>
+          </span>
         </th>
         <th
+          className=""
           scope="col"
         >
-          Pending
+          <span
+            role="text"
+          >
+            Pending
+            <span
+              className="headerLabelHidden headerLabel3"
+            >
+              Tests
+            </span>
+          </span>
         </th>
         <th
-          className="alignLeft"
+          className="alignLeft borderLeft"
           scope="col"
         >
-          Currently
+          <span
+            role="text"
+          >
+            Currently
+            <span
+              className="headerLabel headerLabel2"
+            >
+              Hospitalized
+            </span>
+          </span>
         </th>
         <th
+          className=""
           scope="col"
         >
-          Cumulative
+          <span
+            role="text"
+          >
+            Cumulative
+            <span
+              className="headerLabelHidden headerLabel2"
+            >
+              Hospitalized
+            </span>
+          </span>
         </th>
         <th
-          className="alignLeft"
+          className="alignLeft borderLeft"
           scope="col"
         >
-          Currently
+          <span
+            role="text"
+          >
+            Currently
+            <span
+              className="headerLabel headerLabel2"
+            >
+              In ICU
+            </span>
+          </span>
         </th>
         <th
+          className=""
           scope="col"
         >
-          Cumulative
+          <span
+            role="text"
+          >
+            Cumulative
+            <span
+              className="headerLabelHidden headerLabel2"
+            >
+              In ICU
+            </span>
+          </span>
         </th>
         <th
-          className="alignLeft"
+          className="alignLeft borderLeft"
           scope="col"
         >
-          Currently
+          <span
+            role="text"
+          >
+            Currently
+            <span
+              className="headerLabel headerLabel2"
+            >
+              On Ventilator
+            </span>
+          </span>
         </th>
         <th
+          className=""
           scope="col"
         >
-          Cumulative
+          <span
+            role="text"
+          >
+            Cumulative
+            <span
+              className="headerLabelHidden headerLabel2"
+            >
+              On Ventilator
+            </span>
+          </span>
         </th>
         <th
-          className="alignLeft"
+          className="alignLeft borderLeft"
           scope="col"
         >
-          Recovered
+          <span
+            role="text"
+          >
+            Recovered
+            <span
+              className="headerLabel headerLabel2"
+            >
+              Outcomes
+            </span>
+          </span>
         </th>
         <th
+          className=""
           scope="col"
         >
-          Deaths
+          <span
+            role="text"
+          >
+            Deaths
+            <span
+              className="headerLabelHidden headerLabel2"
+            >
+              Outcomes
+            </span>
+          </span>
         </th>
         <th
-          className="alignLeft"
+          className="alignLeft borderLeft wide"
           scope="col"
         >
-          Positive + Negative
+          <span
+            role="text"
+          >
+            Positive + Negative
+            <span
+              className="headerLabel headerLabel1"
+            >
+              Total Test Results
+            </span>
+          </span>
         </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>
+        <td
+          className=" borderLeft"
+        >
           4,572
         </td>
         <td>
@@ -141,31 +202,41 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
         <td>
           N/A
         </td>
-        <td>
+        <td
+          className=" borderLeft"
+        >
           N/A
         </td>
         <td>
           594
         </td>
-        <td>
+        <td
+          className=" borderLeft"
+        >
           N/A
         </td>
         <td>
           247
         </td>
-        <td>
+        <td
+          className=" borderLeft"
+        >
           N/A
         </td>
         <td>
           148
         </td>
-        <td>
+        <td
+          className=" borderLeft"
+        >
           N/A
         </td>
         <td>
           151
         </td>
-        <td>
+        <td
+          className=" borderLeft"
+        >
           37,890
         </td>
       </tr>
@@ -192,83 +263,130 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
   <table
     className="table"
   >
-    <colgroup
-      span="3"
-    />
-    <colgroup
-      span="1"
-    />
-    <colgroup
-      span="1"
-    />
-    <colgroup
-      span="1"
-    />
     <thead>
       <tr>
         <th
-          colSpan="3"
-          scope="colgroup"
-        >
-          Tests
-        </th>
-        <th
-          colSpan="1"
-          scope="colgroup"
-        >
-          Outcomes
-        </th>
-        <th
-          scope="colgroup"
-        >
-          Total Test Results
-        </th>
-      </tr>
-      <tr>
-        <th
-          className={false}
+          className="alignLeft borderLeft"
           scope="col"
         >
-          Positive
+          <span
+            role="text"
+          >
+            Positive
+            <span
+              className="headerLabel headerLabel3"
+            >
+              Tests
+            </span>
+          </span>
         </th>
         <th
+          className="alignLeft"
           scope="col"
         >
-          Negative
+          <span
+            role="text"
+          >
+            Negative
+            <span
+              className="headerLabelHidden headerLabel3"
+            >
+              Tests
+            </span>
+          </span>
         </th>
         <th
+          className="alignLeft"
           scope="col"
         >
-          Pending
+          <span
+            role="text"
+          >
+            Pending
+            <span
+              className="headerLabelHidden headerLabel3"
+            >
+              Tests
+            </span>
+          </span>
         </th>
         <th
+          className="alignLeft borderLeft"
           scope="col"
         >
-          Deaths
+          <span
+            role="text"
+          >
+            Recovered
+            <span
+              className="headerLabel headerLabel2"
+            >
+              Outcomes
+            </span>
+          </span>
         </th>
         <th
-          className={false}
+          className="alignLeft"
           scope="col"
         >
-          Positive + Negative
+          <span
+            role="text"
+          >
+            Deaths
+            <span
+              className="headerLabelHidden headerLabel2"
+            >
+              Outcomes
+            </span>
+          </span>
+        </th>
+        <th
+          className="alignLeft borderLeft wide"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Positive + Negative
+            <span
+              className="headerLabel headerLabel1"
+            >
+              Total Test Results
+            </span>
+          </span>
         </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>
+        <td
+          className="alignLeft borderLeft"
+        >
           4,572
         </td>
-        <td>
+        <td
+          className="alignLeft "
+        >
           33,318
         </td>
-        <td>
+        <td
+          className="alignLeft "
+        >
           N/A
         </td>
-        <td>
+        <td
+          className="alignLeft borderLeft"
+        >
+          N/A
+        </td>
+        <td
+          className="alignLeft "
+        >
           151
         </td>
-        <td>
+        <td
+          className="alignLeft borderLeft"
+        >
           37,890
         </td>
       </tr>

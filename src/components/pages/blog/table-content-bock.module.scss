@@ -1,0 +1,10 @@
+@import '~scss/colors.module.scss';
+
+.table {
+  width: 100%;
+  tr,
+  td,
+  th {
+    border-bottom: 1px solid $color-slate-200;
+  }
+}

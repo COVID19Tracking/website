@@ -26,17 +26,15 @@ const ContentPage = ({ data }) => (
       <caption>US Daily Cumulative Totals - 4 pm ET</caption>
       <thead>
         <tr>
-          <Th scope="col" alignLeft>
-            Date
-          </Th>
-          <Th scope="col">States Tracked</Th>
-          <Th scope="col">New Tests</Th>
-          <Th scope="col">Positive</Th>
-          <Th scope="col">Negative</Th>
-          <Th scope="col">Pos + Neg</Th>
-          <Th scope="col">Pending</Th>
-          <Th scope="col">Deaths</Th>
-          <Th scope="col">Total Tests</Th>
+          <Th alignLeft>Date</Th>
+          <Th>States Tracked</Th>
+          <Th>New Tests</Th>
+          <Th>Positive</Th>
+          <Th>Negative</Th>
+          <Th>Pos + Neg</Th>
+          <Th>Pending</Th>
+          <Th>Deaths</Th>
+          <Th>Total Tests</Th>
         </tr>
       </thead>
       <tbody>
