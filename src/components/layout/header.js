@@ -210,7 +210,6 @@ const Header = withSearch(
           }
         })
       }
-      console.log(pathNavigation)
     })
 
     const [showMobileMenu, setShowMobileMenu] = useState(false)
