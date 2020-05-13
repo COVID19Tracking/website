@@ -6,6 +6,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import AuthorFooter from '../components/pages/blog/author-footer'
 import Categories from '../components/pages/blog/categories'
 import ImageContentBlock from '../components/pages/blog/image-content-block'
+import TableContentBlock from '../components/pages/blog/table-content-block'
 import Layout from '../components/layout'
 import Lede from '../components/pages/blog/blog-lede'
 
@@ -14,20 +15,38 @@ import blogPostStyles from './blog-post.module.scss'
 const options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: node => {
-      const { image, caption } = node.data.target.fields
-      return <ImageContentBlock image={image} caption={caption} />
+      if (typeof node.data.target.fields === 'undefined') {
+        return null
+      }
+      if (
+        node.data.target.sys.contentType.sys.contentful_id ===
+        'contentBlockTable'
+      ) {
+        return (
+          <TableContentBlock table={node.data.target.fields.table['en-US']} />
+        )
+      }
+      if (
+        node.data.target.sys.contentType.sys.contentful_id ===
+        'contentBlockImage'
+      ) {
+        const { image, caption } = node.data.target.fields
+        return <ImageContentBlock image={image} caption={caption} />
+      }
+      return null
     },
   },
 }
 
-export default ({ data }) => {
+export default ({ data, path }) => {
   const blogPost = data.allContentfulBlogPost.edges[0].node
   return (
     <Layout
       title={`Blog | ${blogPost.title}`}
       displayTitle="Blog"
       description={blogPost.lede.lede}
-      titleLink="/blog"
+      returnLink="/blog"
+      path={path}
       textHeavy
       narrow
       noMargin
