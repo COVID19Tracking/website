@@ -136,7 +136,7 @@ const MobileMenu = ({ expanded, topNavigation, subNavigation }) => {
 }
 
 const Header = withSearch(
-  ({ title, titleLink, noMargin, navigation, path }) => {
+  ({ title, titleLink, noMargin, navigation, path, returnLink }) => {
     const data = useStaticQuery(graphql`
       query {
         allNavigationYaml(filter: { name: { eq: "header" } }) {
@@ -183,7 +183,20 @@ const Header = withSearch(
         }
         return
       }
-      if (typeof subNavigation[item.subNavigation] !== 'undefined') {
+      if (
+        returnLink &&
+        returnLink.replace(/^\/|\/$/g, '') === item.link.replace(/^\/|\/$/g, '')
+      ) {
+        pathNavigation = {
+          top: false,
+          parent: item,
+        }
+        return
+      }
+      if (
+        !returnLink &&
+        typeof subNavigation[item.subNavigation] !== 'undefined'
+      ) {
         subNavigation[item.subNavigation].forEach(sub => {
           if (
             sub.link &&
@@ -197,6 +210,7 @@ const Header = withSearch(
           }
         })
       }
+      console.log(pathNavigation)
     })
 
     const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -315,7 +329,9 @@ const Header = withSearch(
                   }`}
                 >
                   <div className={headerStyle.title}>
-                    {navigation && <ReturnLink currentItem={pathNavigation} />}
+                    {pathNavigation && (
+                      <ReturnLink currentItem={pathNavigation} />
+                    )}
 
                     <h1 className={`page-title ${headerStyle.pageTitle}`}>
                       {titleLink ? (

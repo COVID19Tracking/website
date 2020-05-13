@@ -3,9 +3,10 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import BlogTeaserList from '../components/pages/blog/blog-teaser-list'
 
-export default ({ data }) => (
+export default ({ data, path }) => (
   <Layout
     title={`Blog: ${data.allContentfulBlogCategory.edges[0].node.name}`}
+    path={path}
     textHeavy
     narrow
   >

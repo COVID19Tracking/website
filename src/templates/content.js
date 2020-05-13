@@ -2,13 +2,13 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 
-const ContentPage = ({ data }) => {
+const ContentPage = ({ data, path }) => {
   const page = data.allContentfulPage.edges[0].node
   return (
     <Layout
       title={page.title}
       navigation={page.navigationGroup ? page.navigationGroup.pages : false}
-      path={page.slug}
+      path={path}
       narrow
       textHeavy
     >
