@@ -58,7 +58,7 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
                     if (event.key === 'Tab') {
                       const keyEvent = new KeyboardEvent('keydown', {
                         bubbles: true,
-                        key: 'ArrowDown',
+                        key: event.shiftKey ? 'ArrowUp' : 'ArrowDown',
                       })
                       event.target.dispatchEvent(keyEvent)
                     }
