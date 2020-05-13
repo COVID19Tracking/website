@@ -18,9 +18,9 @@
     border-radius: 15px;
     height: 22px;
     width: 22px;
-    top: -6px;
+    top: 3px;
   }
-  @media (min-width: $viewport-lg) {
+  @media (any-hover: hover) {
     width: 40px;
     height: 40px;
     margin-left: 0;
