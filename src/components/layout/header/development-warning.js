@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Alert from '../utils/alert'
+import Alert from '~components/utils/alert'
 import developmentWarningStyle from './development-warning.module.scss'
 
 export default () => (
