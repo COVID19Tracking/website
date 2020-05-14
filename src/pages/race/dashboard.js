@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 
 import NoData from '~components/pages/race/no-data'
+import PercentageOverview from '~components/pages/race/percentage-overview'
 
 export default ({ data }) => (
   <Layout
@@ -10,6 +11,13 @@ export default ({ data }) => (
     description="The COVID-19 pandemic isn’t affecting all communities the same way. The COVID Racial Data Dashboard helps us track this inequity by publishing topline racial data compared with state demographic data."
   >
     <NoData stateName="North Dakota" />
+    <PercentageOverview
+      stateName="Colorado"
+      ethnicityCasePercent={12.3}
+      ethnicityDeathPercent={78.4}
+      raceCasePercent={67.3}
+      raceDeathPercent={22.9}
+    />
     {data.allCovidStateInfo.edges.map(({ node }) => (
       <h3>{node.name}</h3>
     ))}

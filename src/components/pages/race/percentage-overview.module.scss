@@ -1,0 +1,29 @@
+@import '~scss/colors.module.scss';
+
+.container {
+  display: flex;
+  div {
+    flex-basis: 50%;
+  }
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.percent {
+  font-size: 4rem;
+  color: $color-plum-600;
+  font-weight: bold;
+}
+
+.percent-caption {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 24px;
+}
