@@ -1,0 +1,17 @@
+@import '~scss/breakpoints.module.scss';
+
+.totals {
+  margin: 1.5rem 0;
+  h3 {
+    font-size: 1rem;
+  }
+}
+
+.totals-wrap {
+  margin-top: 1.5rem;
+  @media (min-width: $viewport-lg) {
+    display: grid;
+    grid-column-gap: 1%;
+    grid-template-columns: repeat(2, 50%);
+  }
+}

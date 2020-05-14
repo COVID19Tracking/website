@@ -1,7 +1,7 @@
 import React from 'react'
 import PressLogos from './press-logos'
 import InThePress from './in-the-press'
-import CtaLink from './cta-link'
+import CtaLink from '~components/common/landing-page/cta-link'
 import pressStyles from './press.module.scss'
 
 export default () => (

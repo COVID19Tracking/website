@@ -9,6 +9,9 @@ import HeaderHero from '~components/pages/race/header-hero'
 import LargeHeader from '~components/common/landing-page/header'
 import RacialDataParagraph from '~components/pages/race/paragraph'
 import LandingPageSection from '~components/common/landing-page/divider-section'
+import CtaLinks from '~components/pages/race/cta-links'
+import Charts from '~components/pages/race/charts'
+import Totals from '~components/pages/race/totals'
 import Press from '~components/pages/race/press'
 
 export default () => (
@@ -30,6 +33,8 @@ export default () => (
           reports it—and pushing those that don&apos;t to start. This data
           dashboard is updated twice per week.
         </RacialDataParagraph>
+        <Totals />
+        <CtaLinks />
       </LandingPageContainer>
       <LandingPageSection>
         <LandingPageContainer>
@@ -44,6 +49,7 @@ export default () => (
             staggering.
           </RacialDataParagraph>
         </LandingPageContainer>
+        <Charts />
       </LandingPageSection>
 
       <LandingPageSection noBorder>

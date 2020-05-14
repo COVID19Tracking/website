@@ -2,10 +2,10 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { FormatNumber } from '~components/utils/format'
 import Paragraph from '~components/common/landing-page/paragraph'
-import CtaLink from './cta-link'
+import CtaLink from '~components/common/landing-page/cta-link'
+import Total from '~components/common/landing-page/total'
 import latestTotalsStyles from './latest-totals.module.scss'
 
-const role = 'text'
 export default () => {
   const data = useStaticQuery(graphql`
     {
@@ -31,24 +31,19 @@ export default () => {
           <h2>Latest totals:</h2>
         </div>
         <div className={latestTotalsStyles.allTotals}>
-          <div className={latestTotalsStyles.total} role={role}>
-            <div className={latestTotalsStyles.number}>
-              <FormatNumber number={totals.posNeg} />
-            </div>
-            <div className={latestTotalsStyles.label}>Total test results</div>
-          </div>
-          <div className={latestTotalsStyles.total}>
-            <div className={latestTotalsStyles.number} role={role}>
-              <FormatNumber number={totals.positive} />
-            </div>
-            <div className={latestTotalsStyles.label}>Positive cases</div>
-          </div>
-          <div className={latestTotalsStyles.total}>
-            <div className={latestTotalsStyles.number} role={role}>
-              <FormatNumber number={totals.death} />
-            </div>
-            <div className={latestTotalsStyles.label}>Deaths</div>
-          </div>
+          <Total
+            label="Total test results"
+            number={<FormatNumber number={totals.posNeg} />}
+          />
+          <Total
+            label="Positive cases"
+            number={<FormatNumber number={totals.positive} />}
+          />
+          <Total
+            label="Deaths"
+            number={<FormatNumber number={totals.death} />}
+          />
+
           <span className={latestTotalsStyles.ctaLink}>
             <CtaLink to="/data">See all data</CtaLink>
           </span>
