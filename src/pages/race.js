@@ -5,6 +5,7 @@ import Header from '../components/layout/header'
 import SEO from '../components/utils/seo'
 import Footer from '../components/layout/footer'
 import LandingPageContainer from '~components/common/landing-page/container'
+import HeaderHero from '~components/pages/race/header-hero'
 import LargeHeader from '~components/common/landing-page/header'
 import RacialDataParagraph from '~components/pages/race/paragraph'
 import LandingPageSection from '~components/common/landing-page/divider-section'
@@ -16,8 +17,7 @@ export default () => (
     <SkipNavigation />
     <Header siteTitle="The COVID Tracking Project" noMargin />
     <SkipNavContent />
-
-    <h1 className="a11y-only">The COVID Racial Data Tracker</h1>
+    <HeaderHero />
 
     <main id="main">
       <LandingPageContainer>

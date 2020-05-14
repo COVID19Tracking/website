@@ -1,0 +1,55 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+.hero {
+  padding: 20px 0;
+  background: $color-plum-550;
+  color: white;
+  @media (min-width: $viewport-lg) {
+    padding: 35px 0;
+  }
+}
+
+.navigation {
+  ul {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      margin-right: 3rem;
+      a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.chart-wrapper {
+  margin-top: 30px;
+  @media (min-width: $viewport-lg) {
+    margin-top: 70px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .chart,
+  .content {
+  }
+  .content {
+    width: 100%;
+    @media (min-width: $viewport-lg) {
+      width: 60%;
+      padding-right: 3rem;
+    }
+  }
+  .chart {
+    width: 100%;
+    @media (min-width: $viewport-lg) {
+      width: 40%;
+    }
+  }
+}
