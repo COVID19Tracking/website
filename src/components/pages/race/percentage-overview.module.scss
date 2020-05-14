@@ -1,7 +1,11 @@
 @import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
 
 .container {
   display: flex;
+  @media (max-width: $viewport-md) {
+    flex-direction: column;
+  }
   div {
     flex-basis: 50%;
   }
