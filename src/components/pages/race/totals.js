@@ -9,7 +9,6 @@ export default () => {
       allCovidRaceDataTest {
         nodes {
           aianPctDeath
-          asianSensPctDeath
           blackPctDeath
           asianPctDeath
           blackSensPctDeath
@@ -19,6 +18,15 @@ export default () => {
           twoPctDeath
           whitePctDeath
           state
+          aianPctPos
+          asianPctPos
+          blackPctPos
+          blackSensPctPos
+          hispanicPctPos
+          nhpiPctPos
+          otherPctPos
+          twoPctPos
+          whitePctPos
         }
       }
     }
@@ -27,7 +35,7 @@ export default () => {
   const statesReportingDeath = {}
   data.allCovidRaceDataTest.nodes.forEach(row => {
     Object.keys(row).forEach(name => {
-      if (name !== 'state' && row[name] > 0) {
+      if (name !== 'state' && name.search('Death') > -1 && row[name] > 0) {
         statesReportingDeath[row.state] = row.state
       }
     })
