@@ -2,9 +2,9 @@ import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import pressListStyle from '~components/common/press-list.module.scss'
 import { Byline } from '~components/pages/blog/byline'
-import Container from './container'
+import Container from '~components/common/landing-page/container'
 import CtaLink from './cta-link'
-import Paragraph from './paragraph'
+import Paragraph from '~components/common/landing-page/paragraph'
 import blogListStyles from './blog-list.module.scss'
 
 export default () => {

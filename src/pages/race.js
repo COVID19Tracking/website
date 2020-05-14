@@ -1,95 +1,61 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-import pressListStyle from '../components/common/press-list.module.scss'
-import {
-  PublicationTitle,
-  PublicationSource,
-} from '../components/common/publication'
-import DetailText from '../components/common/detail-text'
-import margueriteCaseyLogo from '../images/race-project/marguerite-casey-foundation.png'
-import raceProjectStyle from './race.module.scss'
+import { SkipNavContent } from '@reach/skip-nav'
+import SkipNavigation from '../components/utils/skip-navigation'
+import Header from '../components/layout/header'
+import SEO from '../components/utils/seo'
+import Footer from '../components/layout/footer'
+import LandingPageContainer from '~components/common/landing-page/container'
+import LargeHeader from '~components/common/landing-page/header'
+import RacialDataParagraph from '~components/pages/race/paragraph'
+import LandingPageSection from '~components/common/landing-page/divider-section'
+import Press from '~components/pages/race/press'
 
-const NotFoundPage = ({ data }) => (
-  <Layout
-    title="The COVID Racial Data Tracker"
-    navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
-    textHeavy
-    narrow
-  >
-    <div
-      className="module-content"
-      dangerouslySetInnerHTML={{
-        __html:
-          data.allContentfulSnippet.edges[0].node
-            .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
-      }}
-    />
-    <h2>Related articles</h2>
-    <ul className={`press-list ${pressListStyle.pressList}`}>
-      {data.allContentfulRaceProjectNewsArticle.edges.map(({ node }) => (
-        <li key={`race-project-press-${node.id}`}>
-          <PublicationTitle>
-            <a href={node.link}>{node.title}</a>
-          </PublicationTitle>
-          <DetailText>
-            <PublicationSource>{node.publicationName}</PublicationSource>
-            <span className={pressListStyle.dotSeparator}>•</span>
-            {node.date}
-          </DetailText>
-        </li>
-      ))}
-    </ul>
-    <div className={raceProjectStyle.supporters}>
-      <h3>Our tracker is supported by</h3>
-      <a href="https://caseygrants.org/">
-        <img src={margueriteCaseyLogo} alt="The Marguerite Casey Foundation" />
-      </a>
-    </div>
-  </Layout>
+export default () => (
+  <>
+    <SEO title="The COVID Racial Data Tracker" />
+    <SkipNavigation />
+    <Header siteTitle="The COVID Tracking Project" noMargin />
+    <SkipNavContent />
+
+    <h1 className="a11y-only">The COVID Racial Data Tracker</h1>
+
+    <main id="main">
+      <LandingPageContainer>
+        <LargeHeader>
+          The COVID Racial Data Tracker is a collaboration between the COVID
+          Tracking Project and the Antiracist Research &amp; Policy Center.
+        </LargeHeader>
+        <RacialDataParagraph>
+          We&apos;re tracking racial and ethnic data from every state that
+          reports it—and pushing those that don&apos;t to start. This data
+          dashboard is updated twice per week.
+        </RacialDataParagraph>
+      </LandingPageContainer>
+      <LandingPageSection>
+        <LandingPageContainer>
+          <LargeHeader>Tracking inequity at the county level</LargeHeader>
+          <RacialDataParagraph>
+            State-level stats tell part of the story, but we know that much of
+            America is deeply segregated. Race and ethnicity data for COVID
+            cases isn&apos;t widely available at the county level, so we&apos;re
+            comparing numbers we do have: infection and death rates for each
+            county, using a New York Times dataset, with the latest US Census
+            breakdowns of race and ethnicity in that county. The results are
+            staggering.
+          </RacialDataParagraph>
+        </LandingPageContainer>
+      </LandingPageSection>
+
+      <LandingPageSection noBorder>
+        <LandingPageContainer>
+          <LargeHeader>
+            Learn more about how COVID-19 is impacting communities of color from
+            media outlets across the country.
+          </LargeHeader>
+          <Press />
+        </LandingPageContainer>
+      </LandingPageSection>
+    </main>
+    <Footer />
+  </>
 )
-
-export default NotFoundPage
-
-export const query = graphql`
-  query {
-    allContentfulSnippet(filter: { slug: { eq: "race-preamble" } }) {
-      edges {
-        node {
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
-
-    allContentfulRaceProjectNewsArticle(sort: { fields: date, order: DESC }) {
-      edges {
-        node {
-          publicationName
-          title
-          date(formatString: "MMMM D, YYYY")
-          link
-        }
-      }
-    }
-    allContentfulNavigationGroup(filter: { slug: { eq: "why-it-matters" } }) {
-      edges {
-        node {
-          pages {
-            ... on ContentfulPage {
-              title
-              link: slug
-            }
-            ... on ContentfulNavigationLink {
-              title
-              link: url
-            }
-          }
-        }
-      }
-    }
-  }
-`

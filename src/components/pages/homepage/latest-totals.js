@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { FormatNumber } from '~components/utils/format'
-import Paragraph from '~components/pages/homepage/paragraph'
+import Paragraph from '~components/common/landing-page/paragraph'
 import CtaLink from './cta-link'
 import latestTotalsStyles from './latest-totals.module.scss'
 

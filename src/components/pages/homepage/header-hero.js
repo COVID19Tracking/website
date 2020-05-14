@@ -1,7 +1,7 @@
 import React from 'react'
 import heroStyle from './header-hero.module.scss'
 import containerStyle from '~components/common/container.module.scss'
-import homepageContainerStyle from './container.module.scss'
+import homepageContainerStyle from '~components/common/landing-page/container.module.scss'
 
 export default () => {
   return (

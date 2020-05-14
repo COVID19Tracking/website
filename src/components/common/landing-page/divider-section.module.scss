@@ -1,0 +1,18 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+$border: 1px solid $color-slate-500;
+
+.section {
+  border-top: $border;
+  border-bottom: $border;
+  padding: 40px 0;
+  margin: 40px 0;
+  @media (min-width: $viewport-lg) {
+    padding: 80px 0;
+    margin: 80px 0;
+  }
+  &.no-border {
+    border: 0;
+  }
+}

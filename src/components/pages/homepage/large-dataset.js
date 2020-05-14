@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import Paragraph from './paragraph'
+import Paragraph from '~components/common/landing-page/paragraph'
 import largeDatasetStyles from './large-dataset.module.scss'
 
 export default () => {
