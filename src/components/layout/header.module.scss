@@ -182,7 +182,12 @@
     nav {
       display: block;
       li {
-        margin-bottom: 1.75rem;
+        margin-bottom: 0.5rem;
+        line-height: 40px;
+        @media (hover: none) {
+          margin-bottom: 1.75rem;
+          line-height: 1;
+        }
       }
       li:last-child {
         margin-bottom: 0;
