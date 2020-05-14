@@ -131,6 +131,15 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-covid-tracking-counties',
+      options: {
+        type: 'Counties',
+        nytimesUrl:
+          'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv',
+        demographics: `${__dirname}/src/data/race/counties/demographics.json`,
+      },
+    },
+    {
       resolve: 'gatsby-source-contentful',
       options: {
         spaceId: process.env.CONTENTFUL_SPACE,
