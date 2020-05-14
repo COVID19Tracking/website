@@ -1,0 +1,20 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <JSCodeStyleSettings version="0">
+      <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false" />
+      <option name="FORCE_SEMICOLON_STYLE" value="true" />
+    </JSCodeStyleSettings>
+    <PHPCodeStyleSettings>
+      <option name="COMMA_AFTER_LAST_ARRAY_ELEMENT" value="true" />
+      <option name="LOWER_CASE_BOOLEAN_CONST" value="true" />
+      <option name="LOWER_CASE_NULL_CONST" value="true" />
+      <option name="FORCE_SHORT_DECLARATION_ARRAY_STYLE" value="true" />
+    </PHPCodeStyleSettings>
+    <codeStyleSettings language="JavaScript">
+      <option name="RIGHT_MARGIN" value="80" />
+      <indentOptions>
+        <option name="TAB_SIZE" value="2" />
+      </indentOptions>
+    </codeStyleSettings>
+  </code_scheme>
+</component>
