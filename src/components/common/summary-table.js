@@ -1,6 +1,6 @@
 import React from 'react'
 import { Th, Td, Table } from './table'
-import { formatDateToString, FormatNumber } from '../utils/format'
+import { FormatDate, FormatNumber } from '../utils/format'
 import Timezone from './timezone'
 
 // The following two functions are useful for rendering column group styling.
@@ -133,7 +133,7 @@ export default ({ data, lastUpdated, showOutcomes = true }) => {
       tableLabel={
         lastUpdated && (
           <>
-            Last updated: {formatDateToString(lastUpdated)} <Timezone />
+            Last updated: <FormatDate date={lastUpdated} /> <Timezone />
           </>
         )
       }
