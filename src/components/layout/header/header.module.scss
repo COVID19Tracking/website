@@ -1,5 +1,5 @@
-@import '../../scss/colors.module.scss';
-@import '../../scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
 
 .tools {
   display: none;
@@ -205,13 +205,6 @@
     display: block;
     @media (min-width: $viewport-lg) {
       display: none;
-    }
-  }
-
-  .container {
-    &.show-background {
-      background-image: url(../../images/hero-bg.svg);
-      background-size: auto 300%;
     }
   }
 

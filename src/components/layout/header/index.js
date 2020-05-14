@@ -1,143 +1,28 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect, useRef, useState } from 'react'
-import { graphql, Link, navigate, useStaticQuery } from 'gatsby'
+import React, { useEffect, useState } from 'react'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import Expand from 'react-expand-animated'
-import classNames from 'classnames'
 import DevelopmentWarning from './development-warning'
 import PartnershipBanner from './partnership-banner'
 import SearchAutocomplete from './search-autocomplete'
-import HeaderNavigation from './header-navigation'
-import Container from '../common/container'
-import { useSearch } from '~context/search-context'
+import HeaderNavigation from './navigation'
+import Container from '~components/common/container'
 import withSearch from '~components/utils/with-search'
 
-import colors from '../../scss/colors.module.scss'
+import colors from '~scss/colors.module.scss'
 import breakpoints from '~scss/breakpoints.module.scss'
 import headerStyle from './header.module.scss'
 
-import projectLogo from '../../images/project-logo.svg'
-import atlanticLogo from '../../images/atlantic-logo.svg'
-import searchIcon from '../../images/icons/search.svg'
-import searchIconInvert from '../../images/icons/search-inverted.svg'
+import projectLogo from '../../../images/project-logo.svg'
+import atlanticLogo from '../../../images/atlantic-logo.svg'
+
+import MobileMenu from './mobile-menu'
+import HeaderSubNavigation from './sub-navigation'
+import ReturnLink from './return-link'
+import HeaderSearch from './search'
 
 const expandStyles = {
   open: { background: colors.colorPlum800 },
-}
-
-const HeaderTabs = ({ navigation }) => (
-  <div className={`site-header-tabs ${headerStyle.headerTabs}`}>
-    <div>
-      <ul>
-        {navigation.map(item => (
-          <li key={`header-tab-${item.link}`}>
-            <Link to={item.link}>{item.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-)
-
-const ReturnLink = ({ currentItem, returnLinkTitle }) => {
-  if (!currentItem || currentItem.top) {
-    return null
-  }
-  return (
-    <div className={headerStyle.returnLink}>
-      <Link to={currentItem.parent.link}>
-        <span aria-hidden>←</span>{' '}
-        {returnLinkTitle ? (
-          <>{returnLinkTitle}</>
-        ) : (
-          <>{currentItem.parent.title}</>
-        )}
-      </Link>
-    </div>
-  )
-}
-
-const HeaderSearch = ({ children }) => {
-  const [searchState] = useSearch()
-  const { query, autocompleteHasFocus } = searchState
-  return (
-    <div className={headerStyle.searchInput}>
-      {children}
-      <button
-        type="button"
-        className={headerStyle.searchSubmit}
-        aria-label="Submit search"
-        onClick={() => query && navigate(`/search?q=${query}`)}
-      >
-        <img
-          src={autocompleteHasFocus ? searchIconInvert : searchIcon}
-          alt=""
-          aria-hidden="true"
-        />
-      </button>
-    </div>
-  )
-}
-
-const MobileMenu = ({ expanded, topNavigation, subNavigation }) => {
-  const [searchState] = useSearch()
-  const { query, isFetching } = searchState
-  const [menuHeight, setMenuHeight] = useState({ initial: 0, current: 0 })
-  const resultPopoverRef = React.createRef()
-  const menuRef = useRef()
-
-  // Set initial menu height value to reset later.
-  useEffect(() => {
-    if (expanded) {
-      setMenuHeight({ ...menuHeight, initial: menuRef.current.offsetHeight })
-    }
-  }, [expanded])
-
-  // When query changes,
-  // either update menu min height (if needed) or reset to initial value
-  useEffect(() => {
-    if (
-      query &&
-      !isFetching &&
-      resultPopoverRef.current &&
-      resultPopoverRef.current.offsetHeight
-    ) {
-      setMenuHeight({
-        ...menuHeight,
-        current: Math.max(
-          resultPopoverRef.current.offsetHeight + 75,
-          menuHeight.initial,
-        ),
-      })
-    } else if (!query) {
-      setMenuHeight({ ...menuHeight, current: menuHeight.initial })
-    }
-  }, [query, isFetching])
-
-  return (
-    <div
-      ref={menuRef}
-      className={classNames(headerStyle.mobileMenu, {
-        [headerStyle.mobileMenuExpanded]: expanded,
-      })}
-      style={{
-        minHeight: `${menuHeight.current}px`,
-      }}
-    >
-      <HeaderSearch>
-        <SearchAutocomplete ref={resultPopoverRef} mobile visible={expanded} />
-      </HeaderSearch>
-
-      <HeaderNavigation
-        topNavigation={topNavigation}
-        subNavigation={subNavigation}
-        isMobile
-      />
-      <Link to="/about-project/help" className={headerStyle.getInvolved}>
-        Get Involved
-      </Link>
-      <div className={headerStyle.mobilePointer} />
-    </div>
-  )
 }
 
 const Header = withSearch(
@@ -358,7 +243,7 @@ const Header = withSearch(
                   </div>
                   {navigation && pathNavigation.top && (
                     <div className={headerStyle.tabContainer}>
-                      <HeaderTabs navigation={navigation} />
+                      <HeaderSubNavigation navigation={navigation} />
                     </div>
                   )}
                 </div>
