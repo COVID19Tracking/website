@@ -1,0 +1,66 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+.container {
+  position: relative;
+}
+
+.table {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  border-collapse: collapse;
+  border-style: hidden;
+  td {
+    height: 22px;
+    border: 1px solid #d2d6d7;
+  }
+  @media (max-width: $viewport-ms) {
+    display: none;
+  }
+}
+
+.alert {
+  display: flex;
+  margin: 0 auto;
+  max-width: 38rem;
+  padding-top: 1.55rem;
+  @media (max-width: $viewport-ms) {
+    flex-direction: column;
+    padding-top: 0;
+  }
+  div {
+    padding: 1rem;
+    align-items: center;
+  }
+}
+
+.content {
+  background-color: $color-error-light;
+  flex-basis: 62.5%;
+  a {
+    color: black;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.title {
+  background-color: $color-error-dark;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+  flex-basis: 37.5%;
+  text-transform: uppercase;
+  display: flex;
+  span {
+    padding-bottom: 0.3rem;
+  }
+  img {
+    padding-right: 1rem;
+  }
+}
