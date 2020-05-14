@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import LandingPageContainer from '~components/common/landing-page/container'
 import headerHeroStyle from './header-hero.module.scss'
 import HeroHeader from '~components/common/landing-page/hero/header'
+import SubNavigation from '~components/layout/header/sub-navigation'
 import HeroText from '~components/common/landing-page/hero/text'
 
 export default () => (
@@ -11,19 +11,17 @@ export default () => (
       <div className={headerHeroStyle.navigation}>
         <h1>The COVID Racial Data Tracker</h1>
         <nav aria-label="COVID Racial Data Tracker navigation">
-          <ul>
-            <li>
-              <Link to="/race/about">About</Link>
-            </li>
-            <li>
-              <Link to="/race/dashboard">Racial Data Dashboard</Link>
-            </li>
-            <li>
-              <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTfUQPxkhP_CRcGmnnpUBihnTNZ9Z8pcizII4_sc2o2n3opOoAJdAM4CRTJBI339tou8LWnQrqbTMgH/pub?gid=902690690&single=true&output=csv">
-                Complete Dataset (CSV)
-              </a>
-            </li>
-          </ul>
+          <SubNavigation
+            navigation={[
+              { link: '/race/about', title: 'About' },
+              { link: '/race/dashboard', title: 'Racial Data Dashboard' },
+              {
+                link:
+                  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTfUQPxkhP_CRcGmnnpUBihnTNZ9Z8pcizII4_sc2o2n3opOoAJdAM4CRTJBI339tou8LWnQrqbTMgH/pub?gid=902690690&single=true&output=csv',
+                title: 'Complete Dataset (CSV)',
+              },
+            ]}
+          />
         </nav>
       </div>
       <div className={headerHeroStyle.chartWrapper}>
