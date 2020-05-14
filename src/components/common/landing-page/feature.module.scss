@@ -14,7 +14,7 @@
     flex-direction: row;
     margin-bottom: 4.5rem;
   }
-  .image {
+  .element {
     @media (min-width: $viewport-lg) {
       flex: 60%;
       padding-right: 1rem;
@@ -42,7 +42,7 @@
   &.flip {
     @media (min-width: $viewport-lg) {
       flex-direction: row-reverse;
-      .image {
+      .element {
         margin-left: 2rem;
         margin-right: 0;
         padding-left: 1rem;
