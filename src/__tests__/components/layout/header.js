@@ -15,6 +15,26 @@ beforeEach(() => {
   )
 
   useStaticQuery.mockImplementation(() => ({
+    allContentfulNavigationGroup: {
+      edges: [
+        {
+          node: {
+            slug: 'test-a',
+            pages: [
+              {
+                title: 'Contentful a',
+                link: '/contentful-a',
+              },
+
+              {
+                title: 'Contentful B',
+                link: '/contentful-b',
+              },
+            ],
+          },
+        },
+      ],
+    },
     allNavigationYaml: {
       edges: [
         {
@@ -23,6 +43,7 @@ beforeEach(() => {
               {
                 link: '/test-a',
                 title: 'Test A',
+                subNavigation: 'test-a',
               },
               {
                 link: '/test-b',

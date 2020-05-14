@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 export default ({ data }) => (
   <Layout
     title="Data API"
+    path="/api"
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
     <div
