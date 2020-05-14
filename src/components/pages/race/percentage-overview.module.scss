@@ -8,18 +8,22 @@
 }
 
 .title {
-  margin-bottom: 0;
+  margin-bottom: 0.25rem;
 }
 
 .data {
   display: flex;
   justify-content: space-between;
+  img {
+    width: 46px;
+  }
 }
 
 .percent {
   font-size: 4rem;
   color: $color-plum-600;
   font-weight: bold;
+  line-height: 5rem;
 }
 
 .percent-caption {

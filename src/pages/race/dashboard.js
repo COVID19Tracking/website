@@ -16,7 +16,17 @@ export default ({ data }) => (
       ethnicityCasePercent={12.3}
       ethnicityDeathPercent={78.4}
       raceCasePercent={67.3}
+    />
+    <PercentageOverview stateName="Colorado" />
+    <PercentageOverview
+      stateName="Colorado"
+      raceCasePercent={67.3}
       raceDeathPercent={22.9}
+    />
+    <PercentageOverview
+      stateName="Maryland"
+      combinedRaceEthnicityDeathPercent={44.3}
+      combinedRaceEthnicityCasePercent={47.8}
     />
     {data.allCovidStateInfo.edges.map(({ node }) => (
       <h3>{node.name}</h3>
