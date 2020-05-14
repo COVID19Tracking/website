@@ -224,7 +224,7 @@ Array [
                   </div>
                   <a
                     className="getInvolved"
-                    href="/about-project/help"
+                    href="/get-involved"
                   >
                     Get involved
                   </a>
@@ -600,7 +600,7 @@ Array [
                   </div>
                   <a
                     className="getInvolved"
-                    href="/about-project/help"
+                    href="/get-involved"
                   >
                     Get involved
                   </a>
@@ -976,7 +976,7 @@ Array [
                   </div>
                   <a
                     className="getInvolved"
-                    href="/about-project/help"
+                    href="/get-involved"
                   >
                     Get involved
                   </a>

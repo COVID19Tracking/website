@@ -88,6 +88,7 @@ export default ({ data }) => {
               aria-hidden
               style={{ display: 'none' }}
               name="subject"
+              tabIndex="-1"
               value={`${name} - ${reason}`}
             />
             <button type="submit">Contact us</button>
