@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import './swagger-sandbox.scss'
 import SwaggerUI from 'swagger-ui'
 
-const SwaggerSandbox = () => {
+export default () => {
   const swaggerRef = useRef(null)
 
   useEffect(() => {
@@ -31,5 +31,3 @@ const SwaggerSandbox = () => {
     </>
   )
 }
-
-export default SwaggerSandbox

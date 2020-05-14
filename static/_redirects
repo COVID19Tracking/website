@@ -31,7 +31,7 @@
 /graphql                                      /api/graphql
 /graphql/                                     /api/graphql
 /notes/                                       /data/
-/screenshots/*                                https://covid-data-archive.s3.us-east-2.amazonaws.com/state_screenshots/:splat 200
+/screenshots/*                                https://covid-tracking-project-data.s3.us-east-1.amazonaws.com/state_screenshots/:splat 200
 /best-practices                               https://docs.google.com/document/d/1OyN6_1UeDePwPwKi6UKZB8GwNC7-kSf1-BO2af8kqVA/edit
 /sheets                                       https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml
 /states/                                      /data/
@@ -46,4 +46,5 @@
 /software                                     /about/software
 /about                                        /about-data
 /about/in-the-press                           /about-project/in-the-press
-/help                                         /about-project/help
+/help                                         /get-involved
+/about-project/help                           /get-involved
