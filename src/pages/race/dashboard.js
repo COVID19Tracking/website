@@ -4,6 +4,7 @@ import Layout from '../../components/layout'
 
 import NoData from '~components/pages/race/no-data'
 import PercentageOverview from '~components/pages/race/percentage-overview'
+import HeaderSorter from '~components/pages/race/header-sorter'
 
 export default ({ data }) => (
   <Layout
@@ -28,6 +29,7 @@ export default ({ data }) => (
       combinedRaceEthnicityDeathPercent={44.3}
       combinedRaceEthnicityCasePercent={47.8}
     />
+    <HeaderSorter stateName="California" stateReports="race" />
     {data.allCovidStateInfo.edges.map(({ node }) => (
       <h3>{node.name}</h3>
     ))}
