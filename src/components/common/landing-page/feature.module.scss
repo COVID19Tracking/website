@@ -13,6 +13,12 @@
     flex-wrap: nowrap;
     flex-direction: row;
     margin-bottom: 4.5rem;
+
+    &.no-element {
+      display: block;
+      flex-direction: none;
+      text-align: center;
+    }
   }
   .element {
     @media (min-width: $viewport-lg) {

@@ -48,8 +48,8 @@ export default () => (
             breakdowns of race and ethnicity in that county. The results are
             staggering.
           </RacialDataParagraph>
+          <Charts />
         </LandingPageContainer>
-        <Charts />
       </LandingPageSection>
 
       <LandingPageSection noBorder>
