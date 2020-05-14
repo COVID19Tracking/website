@@ -31,6 +31,14 @@ const gatsbyConfig = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
+      resolve: 'gatsby-source-google-spreadsheet',
+      options: {
+        spreadsheetId: '1fG95jvN7Mv_8XLqWs99yJGdYmpHVJE1ZSiCSdACEkaM',
+        spreadsheetName: 'Race data',
+        typePrefix: 'Race data',
+        credentials: JSON.parse(GOOGLE_SERVICE_ACCOUNT_CREDENTIALS),
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'homepageImages',
