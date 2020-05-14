@@ -551,6 +551,13 @@ Array [
               </li>
               <li>
                 <a
+                  href="/license"
+                >
+                  License
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://github.com/COVID19Tracking"
                 >
                   GitHub
@@ -1131,6 +1138,13 @@ Array [
               </li>
               <li>
                 <a
+                  href="/license"
+                >
+                  License
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://github.com/COVID19Tracking"
                 >
                   GitHub
@@ -1707,6 +1721,13 @@ Array [
                   href="/accessibility"
                 >
                   Accessibility
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/license"
+                >
+                  License
                 </a>
               </li>
               <li>
