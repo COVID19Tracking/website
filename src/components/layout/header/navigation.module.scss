@@ -10,16 +10,18 @@
   position: relative;
   z-index: 2;
   cursor: pointer;
+  padding: 0;
+  top: 3px;
   &:focus {
     outline: 2px dotted white;
   }
   @media (hover: none) {
     background-color: #ffffff;
-    border-radius: 15px;
+    border-radius: 10px;
     height: 22px;
     width: 22px;
-    top: 3px;
   }
+
   @media (any-hover: hover) {
     width: 40px;
     height: 40px;
