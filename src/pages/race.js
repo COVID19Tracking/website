@@ -9,6 +9,7 @@ import HeaderHero from '~components/pages/race/header-hero'
 import LargeHeader from '~components/common/landing-page/header'
 import RacialDataParagraph from '~components/pages/race/paragraph'
 import LandingPageSection from '~components/common/landing-page/divider-section'
+import NationalChart from '~components/pages/race/national-chart'
 import CtaLinks from '~components/pages/race/cta-links'
 import Charts from '~components/pages/race/charts'
 import Totals from '~components/pages/race/totals'
@@ -18,35 +19,60 @@ export default () => (
   <>
     <SEO title="The COVID Racial Data Tracker" />
     <SkipNavigation />
-    <Header siteTitle="The COVID Tracking Project" noMargin />
+    <Header
+      siteTitle="The COVID Tracking Project"
+      title="The COVID Racial Data Tracker"
+      path="/race"
+      forceSubNavigation
+      navigation={[
+        { link: '/race/about', title: 'About' },
+        { link: '/race/dashboard', title: 'Racial Data Dashboard' },
+        {
+          link:
+            'https://docs.google.com/spreadsheets/d/e/2PACX-1vTfUQPxkhP_CRcGmnnpUBihnTNZ9Z8pcizII4_sc2o2n3opOoAJdAM4CRTJBI339tou8LWnQrqbTMgH/pub?gid=902690690&single=true&output=csv',
+          title: 'Complete Dataset (CSV)',
+        },
+      ]}
+      noMargin
+    />
     <SkipNavContent />
     <HeaderHero />
 
     <main id="main">
+      <LandingPageSection noBorder>
+        <LandingPageContainer>
+          <LargeHeader center>
+            We’ve lost at least 13,297 Black lives in the pandemic so far.
+            That’s 2.3 times more than expected, based on population.
+          </LargeHeader>
+          <NationalChart />
+        </LandingPageContainer>
+      </LandingPageSection>
       <LandingPageContainer>
-        <LargeHeader>
-          The COVID Racial Data Tracker is a collaboration between the COVID
-          Tracking Project and the Antiracist Research &amp; Policy Center.
+        <LargeHeader center>
+          We’ve asked every state to report complete race and ethnicity data.
+          Our Racial Data Dashboard has the latest.
         </LargeHeader>
-        <RacialDataParagraph>
-          We&apos;re tracking racial and ethnic data from every state that
-          reports it—and pushing those that don&apos;t to start. This data
-          dashboard is updated twice per week.
-        </RacialDataParagraph>
         <Totals />
         <CtaLinks />
       </LandingPageContainer>
       <LandingPageSection>
         <LandingPageContainer>
-          <LargeHeader>Tracking inequity at the county level</LargeHeader>
+          <LargeHeader center>
+            Tracking inequity at the county level
+          </LargeHeader>
           <RacialDataParagraph>
-            State-level stats tell part of the story, but we know that much of
-            America is deeply segregated. Race and ethnicity data for COVID
-            cases isn&apos;t widely available at the county level, so we&apos;re
-            comparing numbers we do have: infection and death rates for each
-            county, using a New York Times dataset, with the latest US Census
-            breakdowns of race and ethnicity in that county. The results are
-            staggering.
+            State-level stats tell part of the story, but many US states are
+            also deeply segregated—meaning different counties in the same state
+            can have wildly different racial or ethnic breakdowns.
+          </RacialDataParagraph>
+          <RacialDataParagraph>
+            Race and ethnicity data for COVID cases isn&apos;t widely available
+            at the county level, so we&apos;re using two numbers we do have:
+            infection and death rates for each county, from a New York Times
+            dataset, paired with the Census Bureau&apos;s 2018 ACS 5-Year
+            estimates for race and ethnicity breakdowns in that county. The
+            results are staggering.
           </RacialDataParagraph>
           <Charts />
         </LandingPageContainer>

@@ -6,23 +6,28 @@ const PlaceholderChart = () => (
 )
 export default () => (
   <>
-    <Feature element={<PlaceholderChart />} title="County infection rate">
-      When we look at county level infection data, normalized for population, we
-      see that none of the top 20 counties have Black people as the largest
-      racial group.
-    </Feature>
-    <Feature element={<PlaceholderChart />} title="County death rates" flip>
-      However, when we turn to looking at county level death rate data we see
-      something completely different. Eight of the 20 counties are ones in which
-      Black people are the largest racial group. Including the three counties
-      with the highest death rates.
+    <Feature
+      element={<PlaceholderChart />}
+      title="Counties with the 20 highest infection rates"
+    >
+      This chart shows the 20 counties with the highest level of infections per
+      capita, and the largest racial or ethnic group in that county. White
+      people represent the largest racial group in most of these counties. This
+      is in line with Census statistics, which show that more than 60 percent of
+      Americans are White, non-Hispanic or Latino.
     </Feature>
     <Feature
-      title="Counties with per-capita case and death rates with two largest racial groups"
-      stack
+      element={<PlaceholderChart />}
+      title="Counties with the 20 highest death rates"
+      flip
     >
-      [Paragraph explaining this chart: what it depicts, why it matters, and how
-      to use the information. Highlights the inequity.]
+      When we look at the 20 counties with the highest level of deaths per
+      capita, we see a different story. In eight of these 20 counties, Black
+      people represent the largest racial group—and glaringly, the counties with
+      the three highest death rates in the nation are all predominantly Black.
+    </Feature>
+    <Feature title="Explore the county dataset" stack>
+      Click each column header to re-sort the data.
     </Feature>
     <div style={{ height: '400px', background: 'Grey' }} />
   </>

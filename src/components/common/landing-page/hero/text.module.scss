@@ -3,5 +3,9 @@
 .text {
   @media (min-width: $viewport-lg) {
     font-size: 18px;
+    max-width: 38rem;
+  }
+  @media (min-width: $viewport-xl) {
+    max-width: 50rem;
   }
 }
