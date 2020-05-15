@@ -101,6 +101,27 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './src/data/race/homepage.json',
+        type: 'CovidRaceDataHomepage',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './src/data/race/race-ethnicity-combined.json',
+        type: 'CovidRaceDataCombined',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './src/data/race/race-ethnicity-separate.json',
+        type: 'CovidRaceDataSeparate',
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
