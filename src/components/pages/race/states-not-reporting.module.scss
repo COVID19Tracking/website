@@ -1,0 +1,24 @@
+@import '~scss/colors.module.scss';
+
+.container {
+  background-color: $color-error-light;
+  max-width: 32rem;
+  padding: 2rem;
+  border-radius: 4px;
+  p:last-child {
+    margin: 0;
+  }
+  a {
+    color: $text;
+  }
+  display: flex;
+}
+
+.icon-container {
+  flex-basis: 15%;
+  text-align: center;
+  padding: 0.5rem 1.25rem 0 0;
+  img {
+    width: 24px;
+  }
+}

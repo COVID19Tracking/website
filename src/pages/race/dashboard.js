@@ -5,6 +5,7 @@ import Layout from '../../components/layout'
 import NoData from '~components/pages/race/no-data'
 import PercentageOverview from '~components/pages/race/percentage-overview'
 import HeaderSorter from '~components/pages/race/header-sorter'
+import StatesNotReporting from '~components/pages/race/states-not-reporting'
 
 export default ({ data }) => (
   <Layout
@@ -12,6 +13,9 @@ export default ({ data }) => (
     description="The COVID-19 pandemic isn’t affecting all communities the same way. The COVID Racial Data Dashboard helps us track this inequity by publishing topline racial data compared with state demographic data."
   >
     <NoData stateName="North Dakota" />
+    <StatesNotReporting
+      stateNames={['Colorado', 'North Dakota', 'South Carolina']}
+    />
     <PercentageOverview
       stateName="Colorado"
       ethnicityCasePercent={12.3}
