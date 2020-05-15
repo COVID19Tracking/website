@@ -1,0 +1,18 @@
+@import '~scss/breakpoints.module.scss';
+
+.state-overview {
+  @media (min-width: $viewport-lg) {
+    display: flex;
+  }
+  .totals,
+  .note {
+    @media (min-width: $viewport-lg) {
+      width: 50%;
+    }
+  }
+  .totals {
+    @media (min-width: $viewport-lg) {
+      padding-right: 3rem;
+    }
+  }
+}
