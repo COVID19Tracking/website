@@ -76,6 +76,19 @@
       text-align: right;
       font-size: 0.8rem;
       font-weight: 800;
+
+      .sort {
+        display: inline-block;
+        margin-left: 1rem;
+      }
+
+      .sort-button {
+        border: 0;
+        background: transparent;
+        font-weight: 800;
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
 
     &[scope='col'].align-left {

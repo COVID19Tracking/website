@@ -10,7 +10,11 @@ const Th = ({
   isFirst,
   alignLeft,
   columnWidth,
+  additionalClass,
   wide,
+  sortDirection,
+  sortable,
+  onClick,
 }) => {
   const thClasses = []
   if (alignLeft) {
@@ -22,13 +26,44 @@ const Th = ({
   if (wide) {
     thClasses.push(tableStyle.wide)
   }
+  if (additionalClass) {
+    thClasses.push(additionalClass)
+  }
 
   const role = 'text'
 
   return (
     <th scope="col" colSpan={colSpan} className={classnames(thClasses)}>
       <span role={role}>
-        {children}
+        {sortable ? (
+          <button
+            type="button"
+            className={tableStyle.sortButton}
+            onClick={onClick}
+          >
+            {children}
+            {sortDirection === 'up' && (
+              <abbr
+                className={tableStyle.sort}
+                title="Sort up"
+                aria-label="Sort up"
+              >
+                ↑
+              </abbr>
+            )}
+            {sortDirection === 'down' && (
+              <abbr
+                className={tableStyle.sort}
+                title="Sort down"
+                aria-label="Sort down"
+              >
+                ↓
+              </abbr>
+            )}
+          </button>
+        ) : (
+          <>{children}</>
+        )}
         {header && (
           <span
             className={`${
@@ -48,13 +83,19 @@ const Th = ({
   )
 }
 
-const Td = ({ children, alignLeft, isFirst }) => {
-  let tdClasses
-  if (alignLeft || isFirst)
-    tdClasses = `${alignLeft ? tableStyle.alignLeft : ''} ${
-      isFirst ? tableStyle.borderLeft : ''
-    }`
-  return <td className={tdClasses}>{children}</td>
+const Td = ({ children, alignLeft, isFirst, additionalClass }) => {
+  const tdClasses = []
+  if (alignLeft) {
+    tdClasses.push(tableStyle.alignLeft)
+  }
+  if (isFirst) {
+    tdClasses.push(tableStyle.borderLeft)
+  }
+  if (additionalClass) {
+    tdClasses.push(additionalClass)
+  }
+
+  return <td className={classnames(tdClasses)}>{children}</td>
 }
 
 const Table = ({ children, tableLabel }) => (
