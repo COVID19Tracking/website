@@ -7,25 +7,10 @@ const CountyTable = ({ tableSource, defaultSort }) => {
   const [sort, setSort] = useState({ field: defaultSort, desc: true })
 
   const tableData = tableSource.sort((a, b) => {
-    if (sort.field === 'casesPer100k') {
-      if (a.casesPer100k < b.casesPer100k) {
-        return sort.desc ? 1 : -1
-      }
-      return sort.desc ? -1 : 1
+    if (a[sort.field] < b[sort.field]) {
+      return sort.desc ? 1 : -1
     }
-    if (sort.field === 'deathsPer100k') {
-      if (a.deathsPer100k < b.deathsPer100k) {
-        return sort.desc ? 1 : -1
-      }
-      return sort.desc ? -1 : 1
-    }
-    if (sort.field === 'name') {
-      if (a.name < b.name) {
-        return sort.desc ? 1 : -1
-      }
-      return sort.desc ? -1 : 1
-    }
-    return 0
+    return sort.desc ? -1 : 1
   })
 
   const handleSortClick = field => {
@@ -82,10 +67,24 @@ const CountyTable = ({ tableSource, defaultSort }) => {
               k
             </abbr>
           </Th>
-          <Th header alignLeft additionalClass={countiesTableStyle.group}>
+          <Th
+            header
+            alignLeft
+            additionalClass={countiesTableStyle.group}
+            onClick={() => handleSortClick('largestRace1')}
+            sortable
+            sortDirection={sortDirection('largestRace1')}
+          >
             Largest racial group
           </Th>
-          <Th header alignLeft additionalClass={countiesTableStyle.group}>
+          <Th
+            header
+            alignLeft
+            additionalClass={countiesTableStyle.group}
+            onClick={() => handleSortClick('largestRace2')}
+            sortable
+            sortDirection={sortDirection('largestRace2')}
+          >
             Second largest racial group
           </Th>
         </tr>
