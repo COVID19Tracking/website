@@ -1,17 +1,25 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 
+import Hero from '~components/pages/race/dashboard/hero'
+import HeaderSorter from '~components/pages/race/dashboard/header-sorter'
 import NoData from '~components/pages/race/dashboard/no-data'
 import PercentageOverview from '~components/pages/race/dashboard/percentage-overview'
-import HeaderSorter from '~components/pages/race/dashboard/header-sorter'
 import States from '~components/pages/race/dashboard/states'
 import StatesNotReporting from '~components/pages/race/dashboard/states-not-reporting'
 
-export default () => (
+export default ({ data }) => (
   <Layout
-    title="Racial Data dashboard"
+    title="Racial Data Dashboard"
     description="The COVID-19 pandemic isn’t affecting all communities the same way. The COVID Racial Data Dashboard helps us track this inequity by publishing topline racial data compared with state demographic data."
   >
+    <Hero
+      ledeContent={
+        data.allContentfulSnippet.edges[0].node
+          .childContentfulSnippetContentTextNode.childMarkdownRemark.html
+      }
+    />
     <NoData stateName="North Dakota" />
     <StatesNotReporting
       stateNames={['Colorado', 'North Dakota', 'South Carolina']}
@@ -37,3 +45,19 @@ export default () => (
     <States />
   </Layout>
 )
+
+export const query = graphql`
+  query {
+    allContentfulSnippet(filter: { slug: { eq: "race-hero-lede" } }) {
+      edges {
+        node {
+          childContentfulSnippetContentTextNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+    }
+  }
+`
