@@ -7,7 +7,7 @@ import HeaderSorter from '~components/pages/race/dashboard/header-sorter'
 import NoData from '~components/pages/race/dashboard/no-data'
 import PercentageOverview from '~components/pages/race/dashboard/percentage-overview'
 import States from '~components/pages/race/dashboard/states'
-import StatesNotReporting from '~components/pages/race/dashboard/states-not-reporting'
+import UsOverview from '~components/pages/race/dashboard/us-overview'
 
 export default ({ data }) => (
   <Layout
@@ -20,10 +20,12 @@ export default ({ data }) => (
           .childContentfulSnippetContentTextNode.childMarkdownRemark.html
       }
     />
-    <NoData stateName="North Dakota" />
-    <StatesNotReporting
-      stateNames={['Colorado', 'North Dakota', 'South Carolina']}
+    <UsOverview
+      statesCasesCount={42}
+      statesDeathsCount={35}
+      statesNotReporting={['Colorado', 'North Dakota', 'South Carolina']}
     />
+    <NoData stateName="North Dakota" />
     <PercentageOverview
       stateName="Colorado"
       ethnicityCasePercent={12.3}
