@@ -1,5 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import slugify from 'slugify'
 import StateSeparate from './state-separate'
 import StateCombined from './state-combined'
 
@@ -291,7 +292,9 @@ export default () => {
         .sort((a, b) => (a.name > b.name ? 1 : -1))
         .map(state => (
           <>
-            <h2>{state.name}</h2>
+            <h2 id={`state-${slugify(state.name).toLowerCase()}`}>
+              {state.name}
+            </h2>
             {state.stateSeparate ? (
               <StateSeparate state={state} />
             ) : (

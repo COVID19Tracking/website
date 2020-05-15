@@ -81,6 +81,11 @@
     &[scope='col'].align-left {
       text-align: left;
     }
+    &[scope='row'] {
+      font-weight: normal;
+      text-align: right;
+      padding: 0.75rem 0.5rem;
+    }
     &.wide {
       min-width: 13em;
     }
