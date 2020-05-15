@@ -1,23 +1,6 @@
 const fetch = require('node-fetch')
 const crypto = require('crypto')
-const camelcase = require('camelcase')
 const parse = require('csv-parse/lib/sync')
-
-const cleanKeys = obj => {
-  if (typeof obj !== 'object') {
-    return null
-  }
-  const result = []
-  Object.keys(obj).forEach(key => {
-    if (key && key !== '') {
-      result[camelcase(key.replace(/\W/g, ''))] =
-        typeof obj[key] === 'string' && obj[key].search('%') > -1
-          ? parseFloat(obj[key], 10)
-          : obj[key]
-    }
-  })
-  return result
-}
 
 const formatCountyDate = county => {
   const cases = parseInt(county.cases, 10)
@@ -48,8 +31,8 @@ exports.sourceNodes = ({ actions, createNodeId, reporter }, configOptions) => {
               state: county.state,
               fips: county.fips,
               current: formatCountyDate(county),
-              demographics: cleanKeys(
-                demographics.find(element => element.FIPS === county.fips),
+              demographics: demographics.find(
+                element => element.fips === county.fips,
               ),
               history: [],
             }

@@ -74,8 +74,8 @@ export default () => (
             estimates for race and ethnicity breakdowns in that county. The
             results are staggering.
           </RacialDataParagraph>
-          <Charts />
         </LandingPageContainer>
+        <Charts />
       </LandingPageSection>
 
       <LandingPageSection noBorder>
