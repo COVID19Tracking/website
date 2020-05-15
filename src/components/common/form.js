@@ -7,9 +7,10 @@ const FormGroup = ({ children }) => (
   <div className={formStyles.group}>{children}</div>
 )
 
-const FormLabel = ({ children, htmlFor }) => (
+const FormLabel = ({ children, htmlFor, required }) => (
   <label className={formStyles.label} htmlFor={htmlFor}>
     {children}
+    {required && <span className={formStyles.required}>required</span>}
   </label>
 )
 
