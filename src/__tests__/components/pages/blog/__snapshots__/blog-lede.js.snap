@@ -17,7 +17,9 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
   <div
     className="byline"
   >
-    <p>
+    <div
+      className="bylineText"
+    >
       <span
         className="spacer"
       >
@@ -38,7 +40,7 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
       >
         Aug 1 2020
       </span>
-    </p>
+    </div>
   </div>
   <hr />
 </div>
