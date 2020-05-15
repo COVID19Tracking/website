@@ -366,6 +366,7 @@
 
       div {
         text-align: left;
+        margin: 0 -1em;
       }
 
       @media (max-width: $viewport-lg) and (min-width: $viewport-ms) {
@@ -427,12 +428,6 @@
           display: inline-block;
           @media (min-width: $viewport-ms) {
             margin: 0;
-            &:last-child a {
-              margin-right: 0;
-            }
-            &:first-child a {
-              margin-left: 0;
-            }
           }
         }
       }
