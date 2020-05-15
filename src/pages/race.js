@@ -1,5 +1,6 @@
 import React from 'react'
 import { SkipNavContent } from '@reach/skip-nav'
+import { useStaticQuery, graphql } from 'gatsby'
 import SkipNavigation from '../components/utils/skip-navigation'
 import Header from '../components/layout/header'
 import SEO from '../components/utils/seo'
@@ -14,80 +15,97 @@ import CtaLinks from '~components/pages/race/cta-links'
 import Charts from '~components/pages/race/charts'
 import Totals from '~components/pages/race/totals'
 import Press from '~components/pages/race/press'
+import { FormatNumber } from '~components/utils/format'
 
-export default () => (
-  <>
-    <SEO title="The COVID Racial Data Tracker" />
-    <SkipNavigation />
-    <Header
-      siteTitle="The COVID Tracking Project"
-      title="The COVID Racial Data Tracker"
-      path="/race"
-      forceSubNavigation
-      navigation={[
-        { link: '/race/about', title: 'About' },
-        { link: '/race/dashboard', title: 'Racial Data Dashboard' },
-        {
-          link:
-            'https://docs.google.com/spreadsheets/d/e/2PACX-1vTfUQPxkhP_CRcGmnnpUBihnTNZ9Z8pcizII4_sc2o2n3opOoAJdAM4CRTJBI339tou8LWnQrqbTMgH/pub?gid=902690690&single=true&output=csv',
-          title: 'Complete Dataset (CSV)',
-        },
-      ]}
-      noMargin
-    />
-    <SkipNavContent />
-    <HeaderHero />
+export default () => {
+  const data = useStaticQuery(graphql`
+    query {
+      covidRaceDataHomepage {
+        blackLivesLost
+        blackLivesExpectedMultiplier
+      }
+    }
+  `)
+  const {
+    blackLivesLost,
+    blackLivesExpectedMultiplier,
+  } = data.covidRaceDataHomepage
+  return (
+    <>
+      <SEO title="The COVID Racial Data Tracker" />
+      <SkipNavigation />
+      <Header
+        siteTitle="The COVID Tracking Project"
+        title="The COVID Racial Data Tracker"
+        path="/race"
+        forceSubNavigation
+        navigation={[
+          { link: '/race/about', title: 'About' },
+          { link: '/race/dashboard', title: 'Racial Data Dashboard' },
+          {
+            link:
+              'https://docs.google.com/spreadsheets/d/e/2PACX-1vTfUQPxkhP_CRcGmnnpUBihnTNZ9Z8pcizII4_sc2o2n3opOoAJdAM4CRTJBI339tou8LWnQrqbTMgH/pub?gid=902690690&single=true&output=csv',
+            title: 'Complete Dataset (CSV)',
+          },
+        ]}
+        noMargin
+      />
+      <SkipNavContent />
+      <HeaderHero />
 
-    <main id="main">
-      <LandingPageSection noBorder>
+      <main id="main">
+        <LandingPageSection noBorder>
+          <LandingPageContainer>
+            <LargeHeader center>
+              We’ve lost at least <FormatNumber number={blackLivesLost} /> Black
+              lives in the pandemic so far. That’s{' '}
+              {blackLivesExpectedMultiplier} times more than expected, based on
+              population.
+            </LargeHeader>
+            <NationalChart />
+          </LandingPageContainer>
+        </LandingPageSection>
         <LandingPageContainer>
           <LargeHeader center>
-            We’ve lost at least 13,297 Black lives in the pandemic so far.
-            That’s 2.3 times more than expected, based on population.
+            We’ve asked every state to report complete race and ethnicity data.
+            Our Racial Data Dashboard has the latest.
           </LargeHeader>
-          <NationalChart />
+          <Totals />
+          <CtaLinks />
         </LandingPageContainer>
-      </LandingPageSection>
-      <LandingPageContainer>
-        <LargeHeader center>
-          We’ve asked every state to report complete race and ethnicity data.
-          Our Racial Data Dashboard has the latest.
-        </LargeHeader>
-        <Totals />
-        <CtaLinks />
-      </LandingPageContainer>
-      <LandingPageSection>
-        <LandingPageContainer>
-          <LargeHeader center>
-            Tracking inequity at the county level
-          </LargeHeader>
-          <RacialDataParagraph>
-            State-level stats tell part of the story, but many US states are
-            also deeply segregated—meaning different counties in the same state
-            can have wildly different racial or ethnic breakdowns.
-          </RacialDataParagraph>
-          <RacialDataParagraph>
-            Race and ethnicity data for COVID cases isn&apos;t widely available
-            at the county level, so we&apos;re using two numbers we do have:
-            infection and death rates for each county, from a New York Times
-            dataset, paired with the Census Bureau&apos;s 2018 ACS 5-Year
-            estimates for race and ethnicity breakdowns in that county. The
-            results are staggering.
-          </RacialDataParagraph>
-        </LandingPageContainer>
-        <Charts />
-      </LandingPageSection>
+        <LandingPageSection>
+          <LandingPageContainer>
+            <LargeHeader center>
+              Tracking inequity at the county level
+            </LargeHeader>
+            <RacialDataParagraph>
+              State-level stats tell part of the story, but many US states are
+              also deeply segregated—meaning different counties in the same
+              state can have wildly different racial or ethnic breakdowns.
+            </RacialDataParagraph>
+            <RacialDataParagraph>
+              Race and ethnicity data for COVID cases isn&apos;t widely
+              available at the county level, so we&apos;re using two numbers we
+              do have: infection and death rates for each county, from a New
+              York Times dataset, paired with the Census Bureau&apos;s 2018 ACS
+              5-Year estimates for race and ethnicity breakdowns in that county.
+              The results are staggering.
+            </RacialDataParagraph>
+          </LandingPageContainer>
+          <Charts />
+        </LandingPageSection>
 
-      <LandingPageSection noBorder>
-        <LandingPageContainer>
-          <LargeHeader>
-            Learn more about how COVID-19 is impacting communities of color from
-            media outlets across the country.
-          </LargeHeader>
-          <Press />
-        </LandingPageContainer>
-      </LandingPageSection>
-    </main>
-    <Footer />
-  </>
-)
+        <LandingPageSection noBorder>
+          <LandingPageContainer>
+            <LargeHeader>
+              Learn more about how COVID-19 is impacting communities of color
+              from media outlets across the country.
+            </LargeHeader>
+            <Press />
+          </LandingPageContainer>
+        </LandingPageSection>
+      </main>
+      <Footer />
+    </>
+  )
+}
