@@ -3,37 +3,8 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { Table, Th, Td } from '~components/common/table'
 import countiesTableStyle from './counties-table.module.scss'
 
-export default () => {
-  const [sort, setSort] = useState({ field: 'casesPer100k', desc: true })
-
-  const data = useStaticQuery(graphql`
-    query {
-      allCounties(filter: { demographics: { total: { gt: 0 } } }) {
-        nodes {
-          name
-          state
-          current {
-            cases
-            deaths
-          }
-          demographics {
-            total
-            largestRace1
-            largestRace2
-          }
-        }
-      }
-    }
-  `)
-
-  const tableSource = data.allCounties.nodes.map(county => {
-    return {
-      ...county,
-      casesPer100k: (county.current.cases / county.demographics.total) * 100000,
-      deathsPer100k:
-        (county.current.deaths / county.demographics.total) * 100000,
-    }
-  })
+const CountyTable = ({ tableSource, defaultSort }) => {
+  const [sort, setSort] = useState({ field: defaultSort, desc: true })
 
   const tableData = tableSource.sort((a, b) => {
     if (sort.field === 'casesPer100k') {
@@ -139,5 +110,55 @@ export default () => {
         ))}
       </tbody>
     </Table>
+  )
+}
+
+export default () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allCounties(filter: { demographics: { total: { gt: 0 } } }) {
+        nodes {
+          name
+          state
+          current {
+            cases
+            deaths
+          }
+          demographics {
+            total
+            largestRace1
+            largestRace2
+          }
+        }
+      }
+    }
+  `)
+
+  const tableSource = data.allCounties.nodes.map(county => {
+    return {
+      ...county,
+      casesPer100k: (county.current.cases / county.demographics.total) * 100000,
+      deathsPer100k:
+        (county.current.deaths / county.demographics.total) * 100000,
+    }
+  })
+
+  return (
+    <div>
+      <h4>By cases:</h4>
+      <CountyTable
+        defaultSort="casesPer100k"
+        tableSource={tableSource
+          .sort((a, b) => (a.casesPer100k > b.casesPer100k ? -1 : 1))
+          .slice(0, 20)}
+      />
+      <h4>By death rate</h4>
+      <CountyTable
+        defaultSort="deathsPer100k"
+        tableSource={tableSource
+          .sort((a, b) => (a.deathsPer100k > b.deathsPer100k ? -1 : 1))
+          .slice(0, 20)}
+      />
+    </div>
   )
 }
