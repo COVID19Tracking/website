@@ -21,6 +21,9 @@
   img {
     width: 46px;
   }
+  @media (max-width: $viewport-md) {
+    flex-direction: column;
+  }
 }
 
 .percent {

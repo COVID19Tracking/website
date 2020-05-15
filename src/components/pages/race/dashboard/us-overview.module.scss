@@ -1,7 +1,12 @@
+@import '~scss/breakpoints.module.scss';
+
 .row {
   display: flex;
   align-items: center;
   .reporting-count {
     flex-basis: 60%;
+  }
+  @media (max-width: $viewport-md) {
+    flex-direction: column;
   }
 }
