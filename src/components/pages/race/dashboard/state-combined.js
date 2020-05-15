@@ -8,7 +8,14 @@ export default ({ state }) => (
   <div>
     <div className={stateStyle.stateOverview}>
       <div className={stateStyle.totals}>
-        <PercentageOverview stateName={state.name} />
+        <PercentageOverview
+          stateName={state.name}
+          dataType="racial and ethnicity"
+          casePercent={state.knownRaceEthPos}
+          deathPercent={state.knownRaceEthDeath}
+          unknownRaceEthPos
+          unknownRaceEthDeath
+        />
       </div>
       <div className={stateStyle.note}>
         <HeaderSorter stateName={state.name} stateReports="race/ethnicity" />

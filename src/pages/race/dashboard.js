@@ -5,7 +5,6 @@ import Layout from '../../components/layout'
 import Hero from '~components/pages/race/dashboard/hero'
 import HeaderSorter from '~components/pages/race/dashboard/header-sorter'
 import NoData from '~components/pages/race/dashboard/no-data'
-import PercentageOverview from '~components/pages/race/dashboard/percentage-overview'
 import States from '~components/pages/race/dashboard/states'
 import UsOverview from '~components/pages/race/dashboard/us-overview'
 
@@ -26,23 +25,6 @@ export default ({ data }) => (
       statesNotReporting={['Colorado', 'North Dakota', 'South Carolina']}
     />
     <NoData stateName="North Dakota" />
-    <PercentageOverview
-      stateName="Colorado"
-      ethnicityCasePercent={12.3}
-      ethnicityDeathPercent={78.4}
-      raceCasePercent={67.3}
-    />
-    <PercentageOverview stateName="Colorado" />
-    <PercentageOverview
-      stateName="Colorado"
-      raceCasePercent={67.3}
-      raceDeathPercent={22.9}
-    />
-    <PercentageOverview
-      stateName="Maryland"
-      combinedRaceEthnicityDeathPercent={44.3}
-      combinedRaceEthnicityCasePercent={47.8}
-    />
     <HeaderSorter stateName="California" stateReports="race" />
     <States />
   </Layout>

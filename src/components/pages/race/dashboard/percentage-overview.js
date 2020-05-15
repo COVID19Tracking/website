@@ -15,78 +15,31 @@ const PercentContent = ({ percent }) => {
   )
 }
 
-const Base = ({ stateName, dataType, casePercent, deathPercent }) => (
-  <div>
-    <h3 className={percentageOverview.title}>
-      {stateName} has reported {dataType} data for:
-    </h3>
-    <div className={percentageOverview.data}>
-      <div>
-        <p>
-          <PercentContent percent={Math.round(casePercent)} />
-          <br />
-          <span className={percentageOverview.percentCaption}>Cases</span>
-        </p>
-      </div>
-      <div>
-        <p>
-          <PercentContent percent={Math.round(deathPercent)} />
-          <br />
-          <span className={percentageOverview.percentCaption}>Deaths</span>
-        </p>
-      </div>
-    </div>
-  </div>
-)
-
-export default ({
-  stateName,
-  ethnicityCasePercent,
-  ethnicityDeathPercent,
-  raceCasePercent,
-  raceDeathPercent,
-  combinedRaceEthnicityCasePercent,
-  combinedRaceEthnicityDeathPercent,
-}) => {
-  if (
-    [
-      ethnicityCasePercent,
-      ethnicityDeathPercent,
-      raceCasePercent,
-      raceDeathPercent,
-      combinedRaceEthnicityCasePercent,
-      combinedRaceEthnicityDeathPercent,
-    ].every(prop => prop === undefined)
-  ) {
-    // if every race/ethnicity stat is undefined, return nothing
-    return <></>
-  }
-  if (combinedRaceEthnicityDeathPercent || combinedRaceEthnicityCasePercent) {
-    return (
-      <div className={percentageOverview.container}>
-        <Base
-          stateName={stateName}
-          dataType="racial and ethnicity"
-          casePercent={combinedRaceEthnicityCasePercent}
-          deathPercent={combinedRaceEthnicityDeathPercent}
-        />
-      </div>
-    )
+export default ({ stateName, dataType, casePercent, deathPercent }) => {
+  if (casePercent === undefined && deathPercent === undefined) {
+    return null
   }
   return (
-    <div className={percentageOverview.container}>
-      <Base
-        stateName={stateName}
-        dataType="racial"
-        casePercent={raceCasePercent}
-        deathPercent={raceDeathPercent}
-      />
-      <Base
-        stateName={stateName}
-        dataType="ethnicity"
-        casePercent={ethnicityCasePercent}
-        deathPercent={ethnicityDeathPercent}
-      />
+    <div>
+      <h3 className={percentageOverview.title}>
+        {stateName} has reported {dataType} data for:
+      </h3>
+      <div className={percentageOverview.data}>
+        <div>
+          <p>
+            <PercentContent percent={Math.round(casePercent * 100)} />
+            <br />
+            <span className={percentageOverview.percentCaption}>Cases</span>
+          </p>
+        </div>
+        <div>
+          <p>
+            <PercentContent percent={Math.round(deathPercent * 100)} />
+            <br />
+            <span className={percentageOverview.percentCaption}>Deaths</span>
+          </p>
+        </div>
+      </div>
     </div>
   )
 }
