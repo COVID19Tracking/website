@@ -17,7 +17,9 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
   <div
     className="byline"
   >
-    <p>
+    <p
+      className="bylineText"
+    >
       <span
         className="spacer"
       >
