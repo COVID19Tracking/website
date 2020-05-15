@@ -5,7 +5,7 @@ import NoData from '~components/pages/race/dashboard/no-data'
 import PercentageOverview from '~components/pages/race/dashboard/percentage-overview'
 import HeaderSorter from '~components/pages/race/dashboard/header-sorter'
 import States from '~components/pages/race/dashboard/states'
-import StatesNotReporting from '~components/pages/race/dashboard/states-not-reporting-reporting'
+import StatesNotReporting from '~components/pages/race/dashboard/states-not-reporting'
 
 export default () => (
   <Layout
