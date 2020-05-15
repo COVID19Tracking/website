@@ -1,5 +1,5 @@
-@import '../../scss/colors.module.scss';
-@import '../../scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
 
 .tools {
   display: none;
@@ -27,9 +27,23 @@
     width: 100%;
   }
 
+  label {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  .label-focus {
+    color: $placeholder;
+  }
+
   input {
     width: 100%;
-    padding: 0.55rem 2rem 0.55rem 0.75rem;
+    padding: 0.55rem 3rem 0.55rem 5rem;
 
     font-weight: bold;
     border: 0;
@@ -49,11 +63,11 @@
 
       &,
       &::placeholder {
-        color: #7a7a7a;
+        color: $placeholder;
       }
 
       @media (min-width: $viewport-lg) {
-        width: 29.7rem;
+        width: 28.5rem;
       }
     }
 
@@ -93,7 +107,7 @@
     background: $color-blueberry-200;
   }
 
-  @media (max-width: $viewport-md) {
+  @media (max-width: $viewport-lg) {
     margin-top: 1.75rem;
   }
 }
@@ -137,6 +151,10 @@
 
 .container {
   background: $color-plum-550;
+  padding-bottom: 2em;
+  &.has-navigation {
+    padding-bottom: 0;
+  }
 }
 
 .site-header {
@@ -164,7 +182,12 @@
     nav {
       display: block;
       li {
-        margin-bottom: 1.75rem;
+        margin-bottom: 0.5rem;
+        line-height: 40px;
+        @media (hover: none) {
+          margin-bottom: 1.75rem;
+          line-height: 1;
+        }
       }
       li:last-child {
         margin-bottom: 0;
@@ -172,13 +195,16 @@
     }
     .search-input {
       width: 100%;
+      [data-reach-combobox] {
+        width: 100%;
+      }
     }
   }
 
-  .container {
-    &.show-background {
-      background-image: url(../../images/hero-bg.svg);
-      background-size: auto 300%;
+  .mobile-menu-expanded {
+    display: block;
+    @media (min-width: $viewport-lg) {
+      display: none;
     }
   }
 
@@ -199,9 +225,11 @@
   }
 
   .page-title {
-    margin: 35px 0 17.5px;
+    margin: 0 0 0.5rem;
     font-size: 2.2rem;
+    line-height: 1.2;
     color: white;
+
     a {
       color: white;
       text-decoration: none;
@@ -212,7 +240,6 @@
     }
 
     @media (max-width: $viewport-md) {
-      margin: 17.5px 0 17.5px;
       font-size: 1.56rem;
     }
   }
@@ -237,6 +264,8 @@
     @media (min-width: $viewport-lg) {
       display: block;
       margin-top: 1.825rem;
+      position: relative;
+      z-index: 1;
     }
 
     a {
@@ -254,24 +283,25 @@
         margin-bottom: 0.5625rem;
         @media (min-width: $viewport-lg) {
           display: inline-block;
-          padding-right: 30px;
+          margin-right: 1.5em;
           margin-bottom: 0;
           line-height: 1;
+          position: relative;
+
+          a {
+            padding-bottom: 5px;
+            position: relative;
+            z-index: 2;
+          }
+
+          a:hover,
+          a:focus {
+            color: rgba(255, 255, 255, 0.6);
+          }
+          &:hover > a {
+            border-bottom: 3px solid $color-blueberry-200;
+          }
         }
-      }
-      a {
-        padding-bottom: 2px;
-      }
-      a:hover,
-      a:focus {
-        color: $color-blueberry-100;
-      }
-      a:hover,
-      a[aria-current] {
-        border-bottom: 3px solid $color-blueberry-200;
-      }
-      a[aria-current] {
-        color: white;
       }
 
       li:last-child {
@@ -294,37 +324,41 @@
     }
   }
 
+  .return-link {
+    // height: 1.3rem;
+    margin-bottom: 0.75rem;
+
+    @media (max-width: $viewport-md) {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
   .title-subnav-container {
-    display: flex;
-    flex-wrap: wrap;
-    @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
-      flex-direction: column;
+    margin-top: 4.25rem;
+    @media (max-width: $viewport-md) {
+      margin-top: 3rem;
     }
+    &.has-return-link {
+      margin-top: 1.75rem;
+      @media (max-width: $viewport-md) {
+        margin-top: 2rem;
+      }
 
-    @media (max-width: $viewport-sm) {
-      flex-direction: column;
-    }
-
-    @media (max-width: $viewport-ms) {
-      margin-top: 0;
-      padding-bottom: 17.5px;
-    }
-
-    @media (max-width: $viewport-lg) {
-      .title {
-        width: 100%;
+      .page-title {
+        margin: 0 0 1.5rem;
+        @media (max-width: $viewport-md) {
+          margin-bottom: 0;
+        }
       }
     }
-
-    .tab-container {
-      display: flex;
-
-      @media (min-width: $viewport-lg) {
-        width: auto;
-        margin-left: auto;
-      }
-    }
-
     .header-tabs {
       display: block;
       align-self: flex-end;
@@ -356,49 +390,37 @@
       }
 
       ul {
-        background: $color-plum-200;
-        border-radius: 0.25em 0.25em 0 0;
         list-style-type: none;
         margin: 0;
         padding-left: 0;
         text-align: left;
 
+        @media (min-width: $viewport-lg) {
+          padding-bottom: 1rem;
+        }
+
         a {
           text-decoration: none;
-          font-size: 0.9rem;
           font-weight: bold;
-        }
-        @media (max-width: $viewport-ms) {
-          display: inline-flex;
-          flex-wrap: nowrap;
-          border-radius: 0.25em;
-
-          a {
-            border-radius: 0.25em;
-            white-space: nowrap;
-          }
-
-          li {
-            margin-bottom: 0;
-          }
-        }
-
-        a {
-          color: $color-plum-700;
+          color: white;
           display: block;
-          padding: 0.4rem 0.6rem;
-          font-size: 0.72rem;
+          margin: 0 0.6rem 0 0;
+          padding: 0.2rem 0 0.1rem;
+          font-size: 1rem;
+          border-bottom: 3px solid transparent;
 
-          @media (min-width: $viewport-ms) {
-            font-size: 1rem;
-            padding: 0.8em 1em;
+          @media (max-width: $viewport-md) {
+            font-size: 0.8rem;
+            padding: 0.5rem 0;
+            margin-right: 1rem;
           }
 
+          &:hover,
           &[aria-current] {
-            border-top-right-radius: 5px;
-            border-top-left-radius: 5px;
-            background: white;
-            color: black;
+            border-bottom: 3px solid $color-blueberry-200;
+          }
+          @media (min-width: $viewport-ms) {
+            margin: 0 1em;
           }
         }
         li {
@@ -406,12 +428,10 @@
           @media (min-width: $viewport-ms) {
             margin: 0;
             &:last-child a {
-              border-top-right-radius: 5px;
-              border-bottom-right-radius: 0px;
+              margin-right: 0;
             }
             &:first-child a {
-              border-top-left-radius: 5px;
-              border-bottom-left-radius: 0px;
+              margin-left: 0;
             }
           }
         }

@@ -1,8 +1,8 @@
-@import '../../scss/colors.module.scss';
+@import '~scss/colors.module.scss';
 
 .popover {
-  background: #FFFFFF;
-  border: none;
+  background: #ffffff;
+  border: 1px solid $color-slate-600;
   font-size: 1rem;
   position: absolute;
   z-index: 100;
@@ -14,7 +14,7 @@
   opacity: 1;
   transform: translateY(0.4rem);
   color: $text;
-  
+
   [data-user-value] {
     font-weight: bold;
   }
@@ -28,7 +28,7 @@
     &:hover,
     &:focus,
     &[aria-selected='true'] {
-      background: transparentize($color-blueberry-200, .77);
+      background: transparentize($color-blueberry-200, 0.77);
     }
   }
 }

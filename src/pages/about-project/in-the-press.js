@@ -5,7 +5,7 @@ import PressList from '../../components/common/press-list'
 import Layout from '../../components/layout'
 
 export default ({ data }) => (
-  <Layout title="In the press" textHeavy>
+  <Layout title="In the press" path="/about-project/in-the-press" textHeavy>
     <PressLogos extraMargin />
     <PressList items={data.allCovidPress.edges} />
   </Layout>

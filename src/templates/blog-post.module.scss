@@ -1,4 +1,5 @@
 @import '../scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
 
 .blog-content {
   blockquote {
@@ -15,6 +16,12 @@
     p {
       margin: 0;
       display: inline;
+    }
+  }
+
+  table {
+    @media only screen and (max-width: $viewport-lg) {
+      white-space: initial;
     }
   }
 }

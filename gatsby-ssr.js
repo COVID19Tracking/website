@@ -7,6 +7,7 @@ exports.onRenderBody = ({ setPostBodyComponents, setBodyAttributes }) => {
   setPostBodyComponents([
     <script
       type="text/javascript"
+      key="recaptcha-script"
       async
       defer
       src="https://www.google.com/recaptcha/api.js"
