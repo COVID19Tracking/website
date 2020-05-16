@@ -155,7 +155,7 @@ export default () => {
 
   return (
     <div>
-      <CtaLink to="/public/race/data/covid-county-by-race.csv">
+      <CtaLink to="/race/data/covid-county-by-race.csv">
         Download CSV data
       </CtaLink>
       <h4>By cases:</h4>
