@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table, Th, Td } from '~components/common/table'
 import Percent from './percent'
-import { NoteSymbol } from './table-symbols'
+import { NoteSymbol, DisparitySymbol } from './table-symbols'
 import stateTableStyle from './table.module.scss'
 
 const StateTable = Table
@@ -41,6 +41,7 @@ const StateTableBody = ({ rows }) => (
               title={row.positive.note.value}
             />
           )}
+          {row.positive.disparity && <DisparitySymbol />}
         </Td>
         <Td>
           <Percent number={row.death.value} />
@@ -50,6 +51,7 @@ const StateTableBody = ({ rows }) => (
               title={row.positive.note.value}
             />
           )}
+          {row.death.disparity && <DisparitySymbol />}
         </Td>
       </tr>
     ))}

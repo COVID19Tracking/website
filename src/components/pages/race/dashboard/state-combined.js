@@ -67,6 +67,7 @@ export default ({ state }) => {
               group: 'Black or African American alone',
               population: stateData.blackPctPop,
               positive: {
+                disparity: stateData.blackPosDispFlag,
                 value: stateData.blackPctPos,
                 note: {
                   value: notes.blackPos,
@@ -74,6 +75,7 @@ export default ({ state }) => {
                 },
               },
               death: {
+                disparity: stateData.blackDeathDispFlag,
                 value: stateData.blackPctDeath,
                 note: {
                   value: notes.blackDeath,
@@ -85,6 +87,7 @@ export default ({ state }) => {
               group: 'Hispanic or Latino *',
               population: stateData.latinXPctPop,
               positive: {
+                disparity: stateData.latinXPosDispFlag,
                 value: stateData.latinXPctPos,
                 note: {
                   value: notes.latinXPos,
@@ -92,6 +95,7 @@ export default ({ state }) => {
                 },
               },
               death: {
+                disparity: stateData.latinXDeathDispFlag,
                 value: stateData.latinXPctDeath,
                 note: {
                   value: notes.latinXDeath,
@@ -103,6 +107,7 @@ export default ({ state }) => {
               group: 'Asian alone',
               population: stateData.asianPctPop,
               positive: {
+                disparity: stateData.asianPosDispFlag,
                 value: stateData.asianPctPos,
                 note: {
                   value: notes.asianPos,
@@ -110,6 +115,7 @@ export default ({ state }) => {
                 },
               },
               death: {
+                disparity: stateData.asianDeathDispFlag,
                 value: stateData.asianPctDeath,
                 note: {
                   value: notes.asianDeath,
@@ -121,6 +127,7 @@ export default ({ state }) => {
               group: 'Native Hawaiian and Pacific Islander alone',
               population: stateData.nhpiPctPop,
               positive: {
+                disparity: stateData.nhpiPosDispFlag,
                 value: stateData.nhpiPctPos,
                 note: {
                   value: notes.nhpiPos,
@@ -128,6 +135,7 @@ export default ({ state }) => {
                 },
               },
               death: {
+                disparity: stateData.nhpiDeathDispFlag,
                 value: stateData.nhpiPctDeath,
                 note: {
                   value: notes.nhpiDeath,
@@ -139,6 +147,7 @@ export default ({ state }) => {
               group: 'American Indian or Alaska Native alone',
               population: stateData.aianPctPop,
               positive: {
+                disparity: stateData.aianPosDispFlag,
                 value: stateData.aianPctPos,
                 note: {
                   value: notes.aianPos,
@@ -146,6 +155,7 @@ export default ({ state }) => {
                 },
               },
               death: {
+                disparity: stateData.aianDeathDispFlag,
                 value: stateData.aianPctDeath,
                 note: {
                   value: notes.aianDeath,
@@ -157,6 +167,7 @@ export default ({ state }) => {
               group: 'Two or more races',
               population: stateData.twoPctPop,
               positive: {
+                disparity: stateData.twoPosDispFlag,
                 value: stateData.twoPctPos,
                 note: {
                   value: notes.twoPos,
@@ -164,6 +175,7 @@ export default ({ state }) => {
                 },
               },
               death: {
+                disparity: stateData.twoDeathDispFlag,
                 value: stateData.twoPctDeath,
                 note: {
                   value: notes.twoDeath,
@@ -175,6 +187,7 @@ export default ({ state }) => {
               group: 'White alone',
               population: stateData.whitePctPop,
               positive: {
+                disparity: stateData.whitePosDispFlag,
                 value: stateData.whitePctPos,
                 note: {
                   value: notes.whitePos,
@@ -182,6 +195,7 @@ export default ({ state }) => {
                 },
               },
               death: {
+                disparity: stateData.whiteDeathDispFlag,
                 value: stateData.whitePctDeath,
                 note: {
                   value: notes.whiteDeath,
@@ -193,6 +207,7 @@ export default ({ state }) => {
               group: 'Some other race alone',
               population: stateData.otherPctPop,
               positive: {
+                disparity: stateData.otherPosDispFlag,
                 value: stateData.otherPctPos,
                 note: {
                   value: notes.otherPos,
@@ -200,6 +215,7 @@ export default ({ state }) => {
                 },
               },
               death: {
+                disparity: stateData.otherDeathDispFlag,
                 value: stateData.otherPctDeath,
                 note: {
                   value: notes.otherDeath,

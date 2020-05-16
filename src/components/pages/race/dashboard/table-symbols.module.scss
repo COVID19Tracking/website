@@ -1,6 +1,11 @@
 @import '~scss/colors.module.scss';
 
-.note-symbol-container {
+.note-symbol,
+.disparity-symbol {
+  margin-left: 0.5rem;
+}
+
+.note-symbol {
   background-color: $color-blueberry-400;
   color: white;
   font-weight: bold;
@@ -13,5 +18,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-left: 0.5rem;
+}
+
+.disparity-symbol {
+  display: inline-block;
+  .inner {
+    width: 0;
+    height: 0;
+    border-top: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+    // 0.866 is because of the ratio for an equilateral triangle
+    border-left: .866rem solid $color-honey-600;
+    transition: border-bottom 0s;
+  }
 }
