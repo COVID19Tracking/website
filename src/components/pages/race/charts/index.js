@@ -1,7 +1,6 @@
 import React from 'react'
 import Feature from '~components/common/landing-page/feature'
 import LandingPageContainer from '~components/common/landing-page/container'
-import Container from '~components/common/container'
 import CountiesTable from './counties-table'
 
 const PlaceholderChart = () => (
@@ -34,9 +33,7 @@ export default () => (
       <Feature title="Explore the county dataset" stack>
         Click each column header to re-sort the data.
       </Feature>
-    </LandingPageContainer>
-    <Container>
       <CountiesTable />
-    </Container>
+    </LandingPageContainer>
   </>
 )

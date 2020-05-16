@@ -79,7 +79,7 @@
 
       .sort {
         display: inline-block;
-        margin-left: 1rem;
+        margin-right: 0.5rem;
       }
 
       .sort-button {
@@ -88,11 +88,17 @@
         font-weight: 800;
         text-decoration: underline;
         cursor: pointer;
+        text-align: right;
+        display: block;
+        width: 100%;
       }
     }
 
     &[scope='col'].align-left {
       text-align: left;
+      .sort-button {
+        text-align: left;
+      }
     }
     &.wide {
       min-width: 13em;

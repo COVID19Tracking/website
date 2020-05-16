@@ -41,7 +41,6 @@ const Th = ({
             className={tableStyle.sortButton}
             onClick={onClick}
           >
-            {children}
             {sortDirection === 'up' && (
               <abbr
                 className={tableStyle.sort}
@@ -60,6 +59,7 @@ const Th = ({
                 ↓
               </abbr>
             )}
+            {children}
           </button>
         ) : (
           <>{children}</>

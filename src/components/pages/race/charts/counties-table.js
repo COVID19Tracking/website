@@ -2,11 +2,24 @@ import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Table, Th, Td } from '~components/common/table'
 import countiesTableStyle from './counties-table.module.scss'
+import CtaLink from '~components/common/landing-page/cta-link'
 
 const CountyTable = ({ tableSource, defaultSort }) => {
   const [sort, setSort] = useState({ field: defaultSort, desc: true })
 
   const tableData = tableSource.sort((a, b) => {
+    if (['largestRace1', 'largestRace2'].indexOf(sort.field) > -1) {
+      if (a.demographics[sort.field] === b.demographics[sort.field]) {
+        return 0
+      }
+      if (a.demographics[sort.field] < b.demographics[sort.field]) {
+        return sort.desc ? 1 : -1
+      }
+      return sort.desc ? -1 : 1
+    }
+    if (a[sort.field] === b[sort.field]) {
+      return 0
+    }
     if (a[sort.field] < b[sort.field]) {
       return sort.desc ? 1 : -1
     }
@@ -35,8 +48,8 @@ const CountyTable = ({ tableSource, defaultSort }) => {
           <Th
             header
             alignLeft
-            onClick={() => handleSortClick('name')}
             sortable
+            onClick={() => handleSortClick('name')}
             additionalClass={countiesTableStyle.name}
             sortDirection={sortDirection('name')}
           >
@@ -45,8 +58,8 @@ const CountyTable = ({ tableSource, defaultSort }) => {
           <Th
             header
             isFirst
-            onClick={() => handleSortClick('casesPer100k')}
             sortable
+            onClick={() => handleSortClick('casesPer100k')}
             sortDirection={sortDirection('casesPer100k')}
             additionalClass={countiesTableStyle.count}
           >
@@ -57,8 +70,8 @@ const CountyTable = ({ tableSource, defaultSort }) => {
           </Th>
           <Th
             header
-            onClick={() => handleSortClick('deathsPer100k')}
             sortable
+            onClick={() => handleSortClick('deathsPer100k')}
             sortDirection={sortDirection('deathsPer100k')}
             additionalClass={countiesTableStyle.count}
           >
@@ -69,20 +82,18 @@ const CountyTable = ({ tableSource, defaultSort }) => {
           </Th>
           <Th
             header
-            alignLeft
+            sortable
             additionalClass={countiesTableStyle.group}
             onClick={() => handleSortClick('largestRace1')}
-            sortable
             sortDirection={sortDirection('largestRace1')}
           >
             Largest racial group
           </Th>
           <Th
             header
-            alignLeft
+            sortable
             additionalClass={countiesTableStyle.group}
             onClick={() => handleSortClick('largestRace2')}
-            sortable
             sortDirection={sortDirection('largestRace2')}
           >
             Second largest racial group
@@ -144,6 +155,9 @@ export default () => {
 
   return (
     <div>
+      <CtaLink to="/public/race/data/covid-county-by-race.csv">
+        Download CSV data
+      </CtaLink>
       <h4>By cases:</h4>
       <CountyTable
         defaultSort="casesPer100k"
