@@ -1,5 +1,17 @@
+@import '~scss/colors.module.scss';
+
 .note-symbol-container {
-  background-color: cornflowerblue;
+  background-color: $color-blueberry-400;
+  color: white;
   font-weight: bold;
   display: inline;
+  font-size: 0.8rem;
+  padding: .15rem;
+  border-radius: 100%;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
 }
