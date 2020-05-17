@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@reach/disclosure'
 import Feature from '~components/common/landing-page/feature'
 import LandingPageContainer from '~components/common/landing-page/container'
-import CountiesTable from './counties-table'
+import chartsStyle from './charts.module.scss'
+
+import CountyTable from './county-table'
 
 const PlaceholderChart = () => (
   <div style={{ height: '300px', background: 'grey' }} />
 )
 export default () => {
+  const [isCasesOpen, setIsCasesOpen] = useState(false)
+  const [isDeathsOpen, setIsDeathsOpen] = useState(false)
   const data = useStaticQuery(graphql`
     query {
       allCounties(filter: { demographics: { total: { gt: 0 } } }) {
@@ -37,34 +46,89 @@ export default () => {
         (county.current.deaths / county.demographics.total) * 100000,
     }
   })
+
+  const countiesByCases = tableSource
+    .sort((a, b) => (a.casesPer100k > b.casesPer100k ? -1 : 1))
+    .slice(0, 20)
+
+  const countiesByDeaths = tableSource
+    .sort((a, b) => (a.deathsPer100k > b.deathsPer100k ? -1 : 1))
+    .slice(0, 20)
   return (
     <>
       <LandingPageContainer>
-        <Feature
-          element={<PlaceholderChart />}
-          title="Counties with the 20 highest infection rates"
+        <Disclosure
+          open={isCasesOpen}
+          onChange={() => setIsCasesOpen(!isCasesOpen)}
         >
-          This chart shows the 20 counties with the highest level of infections
-          per capita, and the largest racial or ethnic group in that county.
-          White people represent the largest racial group in most of these
-          counties. This is in line with Census statistics, which show that more
-          than 60 percent of Americans are White, non-Hispanic or Latino.
-        </Feature>
-        <Feature
-          element={<PlaceholderChart />}
-          title="Counties with the 20 highest death rates"
-          flip
+          <Feature
+            element={<PlaceholderChart />}
+            title="Counties with the 20 highest infection rates"
+          >
+            This chart shows the 20 counties with the highest level of
+            infections per capita, and the largest racial or ethnic group in
+            that county. White people represent the largest racial group in most
+            of these counties. This is in line with Census statistics, which
+            show that more than 60 percent of Americans are White, non-Hispanic
+            or Latino.
+            <DisclosureButton className={chartsStyle.showChartData}>
+              {isCasesOpen ? (
+                <>
+                  Hide chart data <span aria-hidden>↑</span>
+                </>
+              ) : (
+                <>
+                  Show chart data <span aria-hidden>↓</span>
+                </>
+              )}
+            </DisclosureButton>
+          </Feature>
+          <DisclosurePanel>
+            <CountyTable
+              defaultSort="casesPer100k"
+              tableSource={[...countiesByCases]}
+              getRank={county =>
+                countiesByCases.findIndex(item => item.id === county.id) + 1
+              }
+            />
+          </DisclosurePanel>
+        </Disclosure>
+        <Disclosure
+          open={isDeathsOpen}
+          onChange={() => setIsDeathsOpen(!isDeathsOpen)}
         >
-          When we look at the 20 counties with the highest level of deaths per
-          capita, we see a different story. In eight of these 20 counties, Black
-          people represent the largest racial group—and glaringly, the counties
-          with the three highest death rates in the nation are all predominantly
-          Black.
-        </Feature>
-        <Feature title="Explore the county dataset" stack>
-          Click each column header to re-sort the data.
-        </Feature>
-        <CountiesTable tableSource={tableSource} />
+          <Feature
+            element={<PlaceholderChart />}
+            title="Counties with the 20 highest death rates"
+            flip
+          >
+            When we look at the 20 counties with the highest level of deaths per
+            capita, we see a different story. In eight of these 20 counties,
+            Black people represent the largest racial group—and glaringly, the
+            counties with the three highest death rates in the nation are all
+            predominantly Black.
+            <DisclosureButton className={chartsStyle.showChartData}>
+              {isDeathsOpen ? (
+                <>
+                  Hide chart data <span aria-hidden>↑</span>
+                </>
+              ) : (
+                <>
+                  Show chart data <span aria-hidden>↓</span>
+                </>
+              )}
+            </DisclosureButton>
+          </Feature>
+          <DisclosurePanel>
+            <CountyTable
+              defaultSort="casesPer100k"
+              tableSource={[...countiesByDeaths]}
+              getRank={county =>
+                countiesByCases.findIndex(item => item.id === county.id) + 1
+              }
+            />
+          </DisclosurePanel>
+        </Disclosure>
       </LandingPageContainer>
     </>
   )
