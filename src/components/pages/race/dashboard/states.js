@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import slugify from 'slugify'
 import StateSeparate from './state-separate'
 import StateCombined from './state-combined'
+import statesStyle from './states.module.scss'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -291,16 +292,21 @@ export default () => {
       {states
         .sort((a, b) => (a.name > b.name ? 1 : -1))
         .map(state => (
-          <>
-            <h2 id={`state-${slugify(state.name).toLowerCase()}`}>
+          <div>
+            <h2
+              id={`state-${slugify(state.state).toLowerCase()}`}
+              className={statesStyle.header}
+            >
               {state.name}
             </h2>
-            {state.stateSeparate ? (
-              <StateSeparate state={state} />
-            ) : (
-              <StateCombined state={state} />
-            )}
-          </>
+            <div>
+              {state.stateSeparate ? (
+                <StateSeparate state={state} />
+              ) : (
+                <StateCombined state={state} />
+              )}
+            </div>
+          </div>
         ))}
     </section>
   )
