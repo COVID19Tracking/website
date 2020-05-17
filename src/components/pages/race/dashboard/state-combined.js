@@ -2,6 +2,7 @@ import React from 'react'
 import HeaderSorter from './header-sorter'
 import TableNotes from './table-notes'
 import PercentageOverview from './percentage-overview'
+import TableTitle from './table-title'
 import { StateTable, StateTableHeader, StateTableBody } from './table'
 import stateStyle from './state.module.scss'
 
@@ -58,7 +59,7 @@ export default ({ state }) => {
           <HeaderSorter stateName={state.name} stateReports="race/ethnicity" />
         </div>
       </div>
-      <h3>Cases and deaths by race/ethnicity</h3>
+      <TableTitle titleText="Cases and deaths by race/ethnicity" />
       <StateTable>
         <StateTableHeader groupTitle="Race/Ethnicity" />
         <StateTableBody
