@@ -25,7 +25,7 @@ const StateTableHeader = ({ groupTitle }) => (
   </thead>
 )
 
-const StateTableBody = ({ rows }) => (
+const StateTableBody = ({ state, rows }) => (
   <tbody>
     {rows.map(row => (
       <tr>
@@ -39,6 +39,7 @@ const StateTableBody = ({ rows }) => (
             <NoteSymbol
               index={row.positive.note.index + 1}
               title={row.positive.note.value}
+              linkTo={`${state}-table-note-${row.positive.note.index + 1}`}
             />
           )}
           {row.positive.disparity && <DisparitySymbol />}
@@ -49,6 +50,7 @@ const StateTableBody = ({ rows }) => (
             <NoteSymbol
               index={row.death.note.index + 1}
               title={row.positive.note.value}
+              linkTo={`${state}-table-note-${row.death.note.index + 1}`}
             />
           )}
           {row.death.disparity && <DisparitySymbol />}

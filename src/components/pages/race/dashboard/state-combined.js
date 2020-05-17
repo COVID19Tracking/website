@@ -63,6 +63,7 @@ export default ({ state }) => {
       <StateTable>
         <StateTableHeader groupTitle="Race/Ethnicity" />
         <StateTableBody
+          state={stateData.state}
           rows={[
             {
               group: 'Black or African American alone',
@@ -227,7 +228,7 @@ export default ({ state }) => {
           ]}
         />
       </StateTable>
-      <TableNotes groupedNotes={groupedNotes} />
+      <TableNotes state={stateData.state} groupedNotes={groupedNotes} />
     </div>
   )
 }

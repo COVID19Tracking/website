@@ -1,0 +1,10 @@
+ol.notes {
+  list-style-type: none;
+  margin-left: 0.5em;
+  .content {
+    margin-left: 1.5rem;
+  }
+  li {
+    display: flex;
+  }
+}
