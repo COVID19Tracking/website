@@ -7,6 +7,7 @@ import {
 } from '@reach/disclosure'
 import Feature from '~components/common/landing-page/feature'
 import LandingPageContainer from '~components/common/landing-page/container'
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 import chartsStyle from './charts.module.scss'
 
 import CountyTable from './county-table'
@@ -91,6 +92,9 @@ export default () => {
                 countiesByCases.findIndex(item => item.id === county.id) + 1
               }
             />
+            <CtaLink to="/race/data/covid-county-by-race.csv">
+              Download the CSV
+            </CtaLink>
           </DisclosurePanel>
         </Disclosure>
         <Disclosure
@@ -127,6 +131,9 @@ export default () => {
                 countiesByCases.findIndex(item => item.id === county.id) + 1
               }
             />
+            <CtaLink to="/race/data/covid-county-by-race.csv">
+              Download the CSV
+            </CtaLink>
           </DisclosurePanel>
         </Disclosure>
       </LandingPageContainer>
