@@ -13,3 +13,27 @@
     margin-left: 1rem;
   }
 }
+
+canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+.canvas-tick {
+  font-size: 1.2rem;
+  right: 40px;
+  margin-top: -.5em;
+  position: absolute;
+}
+
+
+.canvas-tick span::before {
+  background-color: black;
+  content: '';
+  display: block;
+  height: .2em;
+  position: absolute;
+  right: 120%;
+  top: .7em;
+  width: 40px;
+}
