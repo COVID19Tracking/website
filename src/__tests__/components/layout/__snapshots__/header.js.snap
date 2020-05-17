@@ -451,7 +451,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             className="atlanticBanner"
           >
             <span>
-              From
+              At
             </span>
              
             <img
@@ -931,7 +931,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             className="atlanticBanner"
           >
             <span>
-              From
+              At
             </span>
              
             <img
@@ -1411,7 +1411,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             className="atlanticBanner"
           >
             <span>
-              From
+              At
             </span>
              
             <img
