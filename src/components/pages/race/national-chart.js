@@ -1,6 +1,22 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import DotChart from './charts/dot-chart'
-// export default () => <div style={{ height: '300px', background: 'grey' }} />
 
-export default () => <DotChart />
+export default () => {
+  const data = useStaticQuery(graphql`
+    query {
+      covidRaceDataHomepage {
+        blackLivesLost
+        deathsRaceKnown
+      }
+    }
+  `)
+  const { blackLivesLost, deathsRaceKnown } = data.covidRaceDataHomepage
+  return (
+    <DotChart
+      deathsRaceKnown={deathsRaceKnown}
+      deathsBlackKnown={blackLivesLost}
+    />
+  )
+}
