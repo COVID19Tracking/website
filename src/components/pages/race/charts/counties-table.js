@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import { Table, Th, Td } from '~components/common/table'
 import countiesTableStyle from './counties-table.module.scss'
 import CtaLink from '~components/common/landing-page/cta-link'
+import { FormatNumber } from '~components/utils/format'
 
-const CountyTable = ({ tableSource, defaultSort }) => {
+const CountyTable = ({ tableSource, defaultSort, getRank }) => {
   const [sort, setSort] = useState({ field: defaultSort, desc: true })
 
   const tableData = tableSource.sort((a, b) => {
@@ -45,6 +45,9 @@ const CountyTable = ({ tableSource, defaultSort }) => {
     <Table>
       <thead>
         <tr>
+          <Th header additionalClass={countiesTableStyle.rank}>
+            Rank
+          </Th>
           <Th
             header
             alignLeft
@@ -101,21 +104,22 @@ const CountyTable = ({ tableSource, defaultSort }) => {
         </tr>
       </thead>
       <tbody>
-        {tableData.map((county, index) => (
+        {tableData.map(county => (
           <>
-            {index < 30 && (
-              <tr>
-                <Td alignLeft>
-                  {county.name}
-                  <br />
-                  {county.state}
-                </Td>
-                <Td isFirst>{Math.round(county.casesPer100k)}</Td>
-                <Td>{Math.round(county.deathsPer100k)}</Td>
-                <Td alignLeft>{county.demographics.largestRace1}</Td>
-                <Td alignLeft>{county.demographics.largestRace2}</Td>
-              </tr>
-            )}
+            <tr>
+              <Td>{getRank(county)}</Td>
+              <Td alignLeft>
+                {county.name}, {county.state}
+              </Td>
+              <Td isFirst>
+                <FormatNumber number={Math.round(county.casesPer100k)} />
+              </Td>
+              <Td>
+                <FormatNumber number={Math.round(county.deathsPer100k)} />
+              </Td>
+              <Td>{county.demographics.largestRace1}</Td>
+              <Td>{county.demographics.largestRace2}</Td>
+            </tr>
           </>
         ))}
       </tbody>
@@ -123,36 +127,14 @@ const CountyTable = ({ tableSource, defaultSort }) => {
   )
 }
 
-export default () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allCounties(filter: { demographics: { total: { gt: 0 } } }) {
-        nodes {
-          name
-          state
-          current {
-            cases
-            deaths
-          }
-          demographics {
-            total
-            largestRace1
-            largestRace2
-          }
-        }
-      }
-    }
-  `)
+export default ({ tableSource }) => {
+  const countiesByCases = tableSource
+    .sort((a, b) => (a.casesPer100k > b.casesPer100k ? -1 : 1))
+    .slice(0, 20)
 
-  const tableSource = data.allCounties.nodes.map(county => {
-    return {
-      ...county,
-      casesPer100k: (county.current.cases / county.demographics.total) * 100000,
-      deathsPer100k:
-        (county.current.deaths / county.demographics.total) * 100000,
-    }
-  })
-
+  const countiesByDeaths = tableSource
+    .sort((a, b) => (a.deathsPer100k > b.deathsPer100k ? -1 : 1))
+    .slice(0, 20)
   return (
     <div>
       <CtaLink to="/race/data/covid-county-by-race.csv">
@@ -161,16 +143,18 @@ export default () => {
       <h4>By cases:</h4>
       <CountyTable
         defaultSort="casesPer100k"
-        tableSource={tableSource
-          .sort((a, b) => (a.casesPer100k > b.casesPer100k ? -1 : 1))
-          .slice(0, 20)}
+        tableSource={[...countiesByCases]}
+        getRank={county =>
+          countiesByCases.findIndex(item => item.id === county.id) + 1
+        }
       />
       <h4>By death rate</h4>
       <CountyTable
         defaultSort="deathsPer100k"
-        tableSource={tableSource
-          .sort((a, b) => (a.deathsPer100k > b.deathsPer100k ? -1 : 1))
-          .slice(0, 20)}
+        tableSource={[...countiesByDeaths]}
+        getRank={county =>
+          countiesByDeaths.findIndex(item => item.id === county.id) + 1
+        }
       />
     </div>
   )
