@@ -1,5 +1,5 @@
 import React from 'react'
-import CtaLink from '~components/common/landing-page/cta-link'
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 import ctaLinksStyle from './cta-links.module.scss'
 
 export default () => (

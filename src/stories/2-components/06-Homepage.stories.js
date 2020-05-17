@@ -1,7 +1,7 @@
 import React from 'react'
 import BlogList from '~components/pages/homepage/blog-list'
 import Container from '~components/common/landing-page/container'
-import CtaLink from '~components/common/landing-page/cta-link'
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 import Press from '~components/pages/homepage/press'
 import LargeDataset from '~components/pages/homepage/large-dataset'
 import LargeProject from '~components/pages/homepage/large-project'
