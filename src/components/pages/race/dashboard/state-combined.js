@@ -63,7 +63,8 @@ export default ({ state }) => {
       <StateTable>
         <StateTableHeader groupTitle="Race/Ethnicity" />
         <StateTableBody
-          state={stateData.state}
+          state={stateData.name}
+          type="race/ethnicity"
           rows={[
             {
               group: 'Black or African American alone',

@@ -1,3 +1,5 @@
+@import '~scss/colors.module.scss';
+
 .group {
   width: 28%;
   line-height: auto;
@@ -5,4 +7,30 @@
 
 .percent {
   width: 24%;
+}
+
+.missing-data {
+  background-color: $color-error-light;
+  a {
+    color: black;
+  }
+  span {
+    line-height: 1.5;
+  }
+}
+
+td.missing-data {
+  text-align: left;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+th.missing-data {
+  img {
+    max-width: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  span {
+    display: inline-flex;
+  }
 }

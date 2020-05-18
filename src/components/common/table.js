@@ -88,7 +88,7 @@ const Th = ({
   )
 }
 
-const Td = ({ children, alignLeft, isFirst, additionalClass }) => {
+const Td = ({ children, alignLeft, isFirst, additionalClass, rowspan }) => {
   const tdClasses = []
   if (alignLeft) {
     tdClasses.push(tableStyle.alignLeft)
@@ -98,6 +98,13 @@ const Td = ({ children, alignLeft, isFirst, additionalClass }) => {
   }
   if (additionalClass) {
     tdClasses.push(additionalClass)
+  }
+  if (rowspan) {
+    return (
+      <td className={classnames(tdClasses)} rowSpan={rowspan}>
+        {children}
+      </td>
+    )
   }
 
   return <td className={classnames(tdClasses)}>{children}</td>
