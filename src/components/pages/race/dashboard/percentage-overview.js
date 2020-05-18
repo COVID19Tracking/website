@@ -29,6 +29,7 @@ export default ({ stateName, dataType, casePercent, deathPercent }) => {
           <p>
             <PercentContent percent={Math.round(casePercent * 100)} />
             <br />
+            <span className="a11y-only">of</span>
             <span className={percentageOverview.percentCaption}>Cases</span>
           </p>
         </div>
@@ -36,6 +37,7 @@ export default ({ stateName, dataType, casePercent, deathPercent }) => {
           <p>
             <PercentContent percent={Math.round(deathPercent * 100)} />
             <br />
+            <span className="a11y-only">of</span>
             <span className={percentageOverview.percentCaption}>Deaths</span>
           </p>
         </div>
