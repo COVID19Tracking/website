@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import ReCaptcha from 'react-recaptcha'
 import Layout from '../../components/layout'
 import { Form, FormGroup, FormLabel } from '~components/common/form'
+import { AlertInfobox } from '~components/common/infobox'
 
 const reasons = [
   'I have questions about the state data grades',
@@ -15,9 +16,11 @@ const reasons = [
   'Something else!',
 ]
 
+const defaultReason = '-- Select a reason --'
+
 export default ({ data }) => {
   const [name, setName] = useState('')
-  const [reason, setReason] = useState(reasons[0])
+  const [reason, setReason] = useState(defaultReason)
   return (
     <Layout
       title="Contact"
@@ -43,36 +46,45 @@ export default ({ data }) => {
           referrerpolicy="unsafe-url"
         >
           <FormGroup>
-            <FormLabel htmlFor="contact-reason">
+            <FormLabel htmlFor="contact-reason" required>
               What are you contacting us about?
             </FormLabel>
             <select
-              id="fontact-reason"
+              id="contact-reason"
               name="reason"
+              aria-required
               onChange={event => setReason(event.target.value)}
             >
+              <option value={defaultReason}>{defaultReason}</option>
               {reasons.map(value => (
                 <option value={value}>{value}</option>
               ))}
             </select>
           </FormGroup>
           <FormGroup>
-            <FormLabel htmlFor="contact-name">Your name</FormLabel>
+            <FormLabel htmlFor="contact-name" required>
+              Your name
+            </FormLabel>
             <input
               type="text"
               name="name"
               id="contact-name"
+              aria-required
               onChange={event => setName(event.target.value)}
             />
           </FormGroup>
           <FormGroup>
-            <FormLabel htmlFor="contact-email">Your email address</FormLabel>
-            <input type="email" name="email" id="contact-email" />
+            <FormLabel htmlFor="contact-email" required>
+              Your email address
+            </FormLabel>
+            <input type="email" name="email" aria-required id="contact-email" />
           </FormGroup>
 
           <FormGroup>
-            <FormLabel htmlFor="contact-message">Message</FormLabel>
-            <textarea name="body" id="contact-message" />
+            <FormLabel htmlFor="contact-message" required>
+              Message
+            </FormLabel>
+            <textarea name="body" aria-required id="contact-message" />
           </FormGroup>
           <FormGroup>
             {typeof window !== 'undefined' && (
@@ -91,7 +103,20 @@ export default ({ data }) => {
               tabIndex="-1"
               value={`${name} - ${reason}`}
             />
-            <button type="submit">Contact us</button>
+            {reason === defaultReason && (
+              <AlertInfobox>
+                Please let us know{' '}
+                <a href="#contact-reason">why you are contacting us</a> so we
+                can route your message to the right team.
+              </AlertInfobox>
+            )}
+            <button
+              type="submit"
+              disabled={reason === defaultReason}
+              aria-disabled={reason === defaultReason}
+            >
+              Contact us
+            </button>
           </FormGroup>
         </form>
       </Form>
