@@ -1,7 +1,16 @@
 import React, { useState } from 'react'
+import Alert from '@reach/alert'
 import { Table, Th, Td } from '~components/common/table'
 import countiesTableStyle from './counties-table.module.scss'
 import { FormatNumber } from '~components/utils/format'
+
+const sortDescription = {
+  largestRace1: 'Largest racial group',
+  largestRace2: 'Second largest racial group',
+  deathsPer100k: 'Deaths per 100 thousand',
+  casesPer100k: 'Cases per 100 thousand',
+  name: 'County name',
+}
 
 export default ({ tableSource, defaultSort, getRank }) => {
   const [sort, setSort] = useState({ field: defaultSort, desc: true })
@@ -41,87 +50,93 @@ export default ({ tableSource, defaultSort, getRank }) => {
   }
 
   return (
-    <Table>
-      <thead>
-        <tr>
-          <Th header additionalClass={countiesTableStyle.rank}>
-            Rank
-          </Th>
-          <Th
-            header
-            alignLeft
-            sortable
-            onClick={() => handleSortClick('name')}
-            additionalClass={countiesTableStyle.name}
-            sortDirection={sortDirection('name')}
-          >
-            Name
-          </Th>
-          <Th
-            header
-            isFirst
-            sortable
-            onClick={() => handleSortClick('casesPer100k')}
-            sortDirection={sortDirection('casesPer100k')}
-            additionalClass={countiesTableStyle.count}
-          >
-            Cases per 100
-            <abbr title="thousand" aria-label="thousand">
-              k
-            </abbr>
-          </Th>
-          <Th
-            header
-            sortable
-            onClick={() => handleSortClick('deathsPer100k')}
-            sortDirection={sortDirection('deathsPer100k')}
-            additionalClass={countiesTableStyle.count}
-          >
-            Deaths per 100
-            <abbr title="thousand" aria-label="thousand">
-              k
-            </abbr>
-          </Th>
-          <Th
-            header
-            sortable
-            additionalClass={countiesTableStyle.group}
-            onClick={() => handleSortClick('largestRace1')}
-            sortDirection={sortDirection('largestRace1')}
-          >
-            Largest racial group
-          </Th>
-          <Th
-            header
-            sortable
-            additionalClass={countiesTableStyle.group}
-            onClick={() => handleSortClick('largestRace2')}
-            sortDirection={sortDirection('largestRace2')}
-          >
-            Second largest racial group
-          </Th>
-        </tr>
-      </thead>
-      <tbody>
-        {tableData.map(county => (
-          <>
-            <tr>
-              <Td>{getRank(county)}</Td>
-              <Td alignLeft>
-                {county.name}, {county.state}
-              </Td>
-              <Td isFirst>
-                <FormatNumber number={Math.round(county.casesPer100k)} />
-              </Td>
-              <Td>
-                <FormatNumber number={Math.round(county.deathsPer100k)} />
-              </Td>
-              <Td>{county.demographics.largestRace1}</Td>
-              <Td>{county.demographics.largestRace2}</Td>
-            </tr>
-          </>
-        ))}
-      </tbody>
-    </Table>
+    <>
+      <Table>
+        <thead>
+          <tr>
+            <Th header additionalClass={countiesTableStyle.rank}>
+              Rank
+            </Th>
+            <Th
+              header
+              alignLeft
+              sortable
+              onClick={() => handleSortClick('name')}
+              additionalClass={countiesTableStyle.name}
+              sortDirection={sortDirection('name')}
+            >
+              Name
+            </Th>
+            <Th
+              header
+              isFirst
+              sortable
+              onClick={() => handleSortClick('casesPer100k')}
+              sortDirection={sortDirection('casesPer100k')}
+              additionalClass={countiesTableStyle.count}
+            >
+              Cases per 100
+              <abbr title="thousand" aria-label="thousand">
+                k
+              </abbr>
+            </Th>
+            <Th
+              header
+              sortable
+              onClick={() => handleSortClick('deathsPer100k')}
+              sortDirection={sortDirection('deathsPer100k')}
+              additionalClass={countiesTableStyle.count}
+            >
+              Deaths per 100
+              <abbr title="thousand" aria-label="thousand">
+                k
+              </abbr>
+            </Th>
+            <Th
+              header
+              sortable
+              additionalClass={countiesTableStyle.group}
+              onClick={() => handleSortClick('largestRace1')}
+              sortDirection={sortDirection('largestRace1')}
+            >
+              Largest racial group
+            </Th>
+            <Th
+              header
+              sortable
+              additionalClass={countiesTableStyle.group}
+              onClick={() => handleSortClick('largestRace2')}
+              sortDirection={sortDirection('largestRace2')}
+            >
+              Second largest racial group
+            </Th>
+          </tr>
+        </thead>
+        <tbody>
+          {tableData.map(county => (
+            <>
+              <tr>
+                <Td>{getRank(county)}</Td>
+                <Td alignLeft>
+                  {county.name}, {county.state}
+                </Td>
+                <Td isFirst>
+                  <FormatNumber number={Math.round(county.casesPer100k)} />
+                </Td>
+                <Td>
+                  <FormatNumber number={Math.round(county.deathsPer100k)} />
+                </Td>
+                <Td>{county.demographics.largestRace1}</Td>
+                <Td>{county.demographics.largestRace2}</Td>
+              </tr>
+            </>
+          ))}
+        </tbody>
+      </Table>
+      <Alert>
+        The table is sorted by {sortDescription[sort.field]} in{' '}
+        {sort.desc ? <>descending</> : <>ascending</>} order
+      </Alert>
+    </>
   )
 }
