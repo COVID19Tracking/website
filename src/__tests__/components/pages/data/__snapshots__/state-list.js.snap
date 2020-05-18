@@ -228,50 +228,62 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
       <tbody>
         <tr>
           <td
-            className=" borderLeft"
+            className="borderLeft"
           >
             4,572
           </td>
-          <td>
+          <td
+            className=""
+          >
             33,318
           </td>
-          <td>
-            N/A
-          </td>
           <td
-            className=" borderLeft"
+            className=""
           >
             N/A
           </td>
-          <td>
+          <td
+            className="borderLeft"
+          >
+            N/A
+          </td>
+          <td
+            className=""
+          >
             594
           </td>
           <td
-            className=" borderLeft"
+            className="borderLeft"
           >
             N/A
           </td>
-          <td>
+          <td
+            className=""
+          >
             247
           </td>
           <td
-            className=" borderLeft"
+            className="borderLeft"
           >
             N/A
           </td>
-          <td>
+          <td
+            className=""
+          >
             148
           </td>
           <td
-            className=" borderLeft"
+            className="borderLeft"
           >
             N/A
           </td>
-          <td>
+          <td
+            className=""
+          >
             151
           </td>
           <td
-            className=" borderLeft"
+            className="borderLeft"
           >
             37,890
           </td>
