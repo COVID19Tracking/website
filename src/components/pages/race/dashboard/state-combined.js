@@ -3,7 +3,7 @@ import HeaderSorter from './header-sorter'
 import TableNotes from './table-notes'
 import PercentageOverview from './percentage-overview'
 import TableTitle from './table-title'
-import RaceTable from './race-table'
+import { RaceTable } from './breakdown-tables'
 import stateStyle from './state.module.scss'
 
 export default ({ state }) => {
