@@ -1,0 +1,34 @@
+@import '~scss/breakpoints.module.scss';
+
+.black-african-american-alone {
+  background: #ffad4a;
+}
+.white-alone {
+  background: #585bc1;
+}
+.hispanic-latino {
+  background: green;
+}
+
+.swatch {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.legend {
+  margin-top: 2rem;
+  ul {
+    padding: 0;
+    list-style-type: none;
+    margin-top: 1rem;
+    li {
+      @media (min-width: $viewport-lg) {
+        display: inline-block;
+        margin-right: 2rem;
+      }
+    }
+  }
+}

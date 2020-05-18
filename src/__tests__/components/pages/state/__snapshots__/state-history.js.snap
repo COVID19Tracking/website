@@ -111,12 +111,12 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
     >
       <tr>
         <td
-          className="alignLeft "
+          className="alignLeft"
         >
           Fri Apr 17 2020
         </td>
         <td
-          className="alignLeft "
+          className="alignLeft"
         >
           <ul>
             <li>
@@ -139,87 +139,129 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
             </li>
           </ul>
         </td>
-        <td>
+        <td
+          className=""
+        >
           1,457
         </td>
-        <td>
+        <td
+          className=""
+        >
           4,530
         </td>
-        <td>
+        <td
+          className=""
+        >
           33,318
         </td>
-        <td>
+        <td
+          className=""
+        >
           N/A
         </td>
-        <td>
+        <td
+          className=""
+        >
           594
         </td>
-        <td>
+        <td
+          className=""
+        >
           144
         </td>
-        <td>
+        <td
+          className=""
+        >
           37,848
         </td>
       </tr>
       <tr>
         <td
-          className="alignLeft "
+          className="alignLeft"
         >
           Thu Apr 16 2020
         </td>
         <td
-          className="alignLeft "
+          className="alignLeft"
         />
-        <td>
+        <td
+          className=""
+        >
           2,314
         </td>
-        <td>
+        <td
+          className=""
+        >
           4,345
         </td>
-        <td>
+        <td
+          className=""
+        >
           32,046
         </td>
-        <td>
+        <td
+          className=""
+        >
           N/A
         </td>
-        <td>
+        <td
+          className=""
+        >
           553
         </td>
-        <td>
+        <td
+          className=""
+        >
           133
         </td>
-        <td>
+        <td
+          className=""
+        >
           36,391
         </td>
       </tr>
       <tr>
         <td
-          className="alignLeft "
+          className="alignLeft"
         >
           Wed Apr 15 2020
         </td>
         <td
-          className="alignLeft "
+          className="alignLeft"
         />
-        <td>
+        <td
+          className=""
+        >
           960
         </td>
-        <td>
+        <td
+          className=""
+        >
           4,113
         </td>
-        <td>
+        <td
+          className=""
+        >
           29,964
         </td>
-        <td>
+        <td
+          className=""
+        >
           N/A
         </td>
-        <td>
+        <td
+          className=""
+        >
           525
         </td>
-        <td>
+        <td
+          className=""
+        >
           121
         </td>
-        <td>
+        <td
+          className=""
+        >
           34,077
         </td>
       </tr>

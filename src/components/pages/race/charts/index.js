@@ -11,10 +11,25 @@ import { CtaLink } from '~components/common/landing-page/call-to-action'
 import chartsStyle from './charts.module.scss'
 
 import CountyTable from './county-table'
+import CountyChart from './county-chart'
+import CountyChartLegend from './county-chart-legend'
 
-const PlaceholderChart = () => (
-  <div style={{ height: '300px', background: 'grey' }} />
-)
+const numberToWord = [
+  'zero',
+  'one',
+  'two',
+  'three',
+  'four',
+  'five',
+  'six',
+  'seven',
+  'eight',
+  'nine',
+]
+
+const numberWords = number =>
+  typeof numberToWord[number] === 'undefined' ? number : numberToWord[number]
+
 export default () => {
   const [isCasesOpen, setIsCasesOpen] = useState(false)
   const [isDeathsOpen, setIsDeathsOpen] = useState(false)
@@ -55,6 +70,22 @@ export default () => {
   const countiesByDeaths = tableSource
     .sort((a, b) => (a.deathsPer100k > b.deathsPer100k ? -1 : 1))
     .slice(0, 20)
+
+  let totalHighestRepresented = 0
+  let topRepresented = 0
+  let endTopItems = false
+  countiesByDeaths.forEach(county => {
+    if (
+      county.demographics.largestRace1 === 'Black or African American alone'
+    ) {
+      totalHighestRepresented += 1
+      if (endTopItems) {
+        topRepresented += 1
+      }
+    } else {
+      endTopItems = true
+    }
+  })
   return (
     <>
       <LandingPageContainer>
@@ -63,7 +94,12 @@ export default () => {
           onChange={() => setIsCasesOpen(!isCasesOpen)}
         >
           <Feature
-            element={<PlaceholderChart />}
+            element={
+              <>
+                <CountyChart data={[...countiesByCases]} field="casesPer100k" />
+                <CountyChartLegend data={countiesByCases} />
+              </>
+            }
             title="Counties with the 20 highest infection rates"
           >
             This chart shows the 20 counties with the highest level of
@@ -102,15 +138,24 @@ export default () => {
           onChange={() => setIsDeathsOpen(!isDeathsOpen)}
         >
           <Feature
-            element={<PlaceholderChart />}
+            element={
+              <>
+                <CountyChart
+                  data={[...countiesByDeaths]}
+                  field="deathsPer100k"
+                />
+                <CountyChartLegend data={countiesByDeaths} />
+              </>
+            }
             title="Counties with the 20 highest death rates"
             flip
           >
             When we look at the 20 counties with the highest level of deaths per
-            capita, we see a different story. In eight of these 20 counties,
-            Black people represent the largest racial group—and glaringly, the
-            counties with the three highest death rates in the nation are all
-            predominantly Black.
+            capita, we see a different story. In{' '}
+            {numberWords(totalHighestRepresented)} of these 20 counties, Black
+            people represent the largest racial group. The top{' '}
+            {numberWords(topRepresented)} counties with the highest death rates
+            in the nation are all predominantly Black.
             <DisclosureButton className={chartsStyle.showChartData}>
               {isDeathsOpen ? (
                 <>
@@ -125,10 +170,10 @@ export default () => {
           </Feature>
           <DisclosurePanel>
             <CountyTable
-              defaultSort="casesPer100k"
+              defaultSort="deathsPer100k"
               tableSource={[...countiesByDeaths]}
               getRank={county =>
-                countiesByCases.findIndex(item => item.id === county.id) + 1
+                countiesByDeaths.findIndex(item => item.id === county.id) + 1
               }
             />
             <CtaLink to="/race/data/covid-county-by-race.csv">
