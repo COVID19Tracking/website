@@ -106,7 +106,7 @@ export default ({ data }) => {
               <AlertInfobox>
                 Please let us know{' '}
                 <a href="#contact-reason">why you are contacting us</a> so we
-                can get the right people to respond.
+                can route your message to the right team.
               </AlertInfobox>
             )}
             <button
