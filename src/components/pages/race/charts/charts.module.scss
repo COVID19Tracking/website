@@ -16,24 +16,45 @@
 
 canvas {
   display: block;
-  margin: 0 auto;
+  margin: 0;
+  // margin: 0 auto;
 }
 
 .canvas-tick {
-  font-size: 1.2rem;
-  right: 40px;
-  margin-top: -.5em;
+  font-size: 16px;
+  right: 150px;
+  margin-top: -0.5em;
   position: absolute;
 }
 
+.canvas-tick p {
+  margin: 0;
+  padding-left: 4rem;
+  position: absolute;
+  top: 0;
+  width: 240px;
+}
 
-.canvas-tick span::before {
-  background-color: black;
-  content: '';
+.canvas-tick::before {
+  content: ' ';
   display: block;
-  height: .2em;
   position: absolute;
   right: 120%;
-  top: .7em;
   width: 40px;
+}
+
+.canvas-tick[data-labeled-tick='true']::before {
+  background-color: black;
+  height: 0.2em;
+  top: 0.7em;
+}
+
+.canvas-tick[data-labeled-tick='false']::before {
+  background-color: #cccccc;
+  height: 0.05em;
+  top: 0.7em;
+}
+
+.canvas-tick[data-labeled-tick='false'] span {
+  opacity: 0;
 }

@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from 'react'
 import chartsStyle from './charts.module.scss'
 
 export default ({
-  colorDeathRaceKnown = '#585bc1',
+  colorDeathRaceKnown = '#31347A',
   colorDeathBlackKnown = '#ffad4a',
   deathsPerDot = 10,
   deathsRaceKnown = 57319,
@@ -24,7 +24,7 @@ export default ({
 
   const totalDots = deathsRaceKnown / deathsPerDot
   const data = range(0, totalDots)
-  const totalRows = Math.floor(totalDots / numberOfColumns) + 2
+  const totalRows = Math.ceil(totalDots / numberOfColumns) + 1
   const dotIndexRepresentingProportinateDeathsBlackStart =
     totalDots - populationProportinateDeathsBlack
   const dotPositionRepresentingProportinateDeathsBlackStart = {
@@ -40,8 +40,8 @@ export default ({
   const dotIndexRepresentingDeathsBlackStart =
     totalDots - deathsBlackKnown / deathsPerDot
   const dotPositionRepresentingDeathsBlackStart = {
-    column: (dotIndexRepresentingDeathsBlackStart % numberOfColumns) + 1,
-    row: Math.floor(dotIndexRepresentingDeathsBlackStart / numberOfColumns) + 1,
+    column: dotIndexRepresentingDeathsBlackStart % numberOfColumns,
+    row: Math.ceil(dotIndexRepresentingDeathsBlackStart / numberOfColumns) + 1,
   }
 
   useEffect(() => {
@@ -70,36 +70,71 @@ export default ({
     })
   })
 
+  const ticks = range(0, 101, 10).map(d => ({
+    label: `${d}%`,
+    percentFromTop: d === 0 ? 0.98 : 1 - d / 100,
+    main: [0, 50, 75, 100].includes(d),
+    value: d,
+  }))
+
   return (
-    <div style={{ position: 'relative' }}>
-      <canvas
-        className={chartsStyle.canvas}
-        ref={canvasEl}
-        height={totalRows * gridUnit}
-        width={width}
-      />
-      <p
-        className={chartsStyle.canvasTick}
-        style={{
-          top: dotPositionRepresentingDeathsBlackStart.row * gridUnit,
-        }}
-      >
-        <span>{Math.floor(deathsBlackKnownPercentage * 100)}%</span> (the % of
-        deaths with known racial data that are Black)
-      </p>
-      <p
-        className={chartsStyle.canvasTick}
-        style={{
-          top:
-            (dotPositionRepresentingProportinateDeathsBlackStart.row - 1) *
-            gridUnit,
-        }}
-      >
-        <span>
-          {populationPercentageBlack * 100}% (if all deaths were distributed
-          equally throughout the population
-        </span>
-      </p>
+    <div>
+      <div style={{ position: 'relative' }}>
+        <canvas
+          className={chartsStyle.canvas}
+          ref={canvasEl}
+          height={totalRows * gridUnit}
+          width={width}
+        />
+        {ticks
+          .filter(d => {
+            const avoidPercentage = Math.floor(deathsBlackKnownPercentage * 100)
+            return (
+              d.value !== avoidPercentage &&
+              (d.value + 5 > avoidPercentage || d.value - 5 < avoidPercentage)
+            )
+          })
+          .map(d => (
+            <div
+              data-labeled-tick={`${d.main}`}
+              className={chartsStyle.canvasTick}
+              style={{
+                top: totalRows * d.percentFromTop * gridUnit + dotPadding,
+              }}
+            >
+              <span>{d.label}</span>
+              {d.value === 100 && (
+                <p>
+                  Each dot represents 10 people who have died and for whom
+                  racial data is reported
+                </p>
+              )}
+            </div>
+          ))}
+
+        <div
+          data-labeled-tick="true"
+          className={chartsStyle.canvasTick}
+          style={{
+            top: dotPositionRepresentingDeathsBlackStart.row * gridUnit,
+          }}
+        >
+          <span>{Math.floor(deathsBlackKnownPercentage * 100)}%</span>
+          <p>Percent of deaths of Black people due to COVID-19</p>
+        </div>
+        <div
+          data-labeled-tick="true"
+          className={chartsStyle.canvasTick}
+          style={{
+            top:
+              dotPositionRepresentingProportinateDeathsBlackStart.row *
+              gridUnit,
+          }}
+        >
+          <span>{populationPercentageBlack * 100}%</span>
+          <p>Percent of the US that is Black</p>
+        </div>
+      </div>
     </div>
   )
 }
