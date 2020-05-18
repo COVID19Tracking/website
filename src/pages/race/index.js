@@ -43,7 +43,7 @@ export default () => {
           { link: '/race/about', title: 'About' },
           { link: '/race/dashboard', title: 'Racial Data Dashboard' },
           {
-            link:
+            href:
               'https://docs.google.com/spreadsheets/d/e/2PACX-1vTfUQPxkhP_CRcGmnnpUBihnTNZ9Z8pcizII4_sc2o2n3opOoAJdAM4CRTJBI339tou8LWnQrqbTMgH/pub?gid=902690690&single=true&output=csv',
             title: 'Complete Dataset (CSV)',
           },
