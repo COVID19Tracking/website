@@ -23,6 +23,7 @@ const StateTableDataHeader = ({ noData, children }) => {
     <Th additionalClass={classes}>
       {noData && <img src={alertBang} alt="Alert icon" />}
       {children}
+      <div className={stateTableStyle.symbolSpacer} />
     </Th>
   )
 }
@@ -69,14 +70,16 @@ const StateTableDataCell = ({
     <Td>
       <>
         <Percent number={cellData.value} />
-        {cellData.note.index !== -1 && (
-          <NoteSymbol
-            index={cellData.note.index + 1}
-            title={cellData.note.value}
-            linkTo={`${state}-table-note-${cellData.note.index + 1}`}
-          />
-        )}
-        {cellData.disparity && <DisparitySymbol />}
+        <div className={stateTableStyle.symbolSpacer}>
+          {cellData.note.index !== -1 && (
+            <NoteSymbol
+              index={cellData.note.index + 1}
+              title={cellData.note.value}
+              linkTo={`${state}-table-note-${cellData.note.index + 1}`}
+            />
+          )}
+          {cellData.disparity && <DisparitySymbol />}
+        </div>
       </>
     </Td>
   )
