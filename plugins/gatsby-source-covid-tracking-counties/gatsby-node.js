@@ -25,21 +25,25 @@ exports.sourceNodes = ({ actions, createNodeId, reporter }, configOptions) => {
           skip_empty_lines: true,
         })
         counties.forEach(county => {
-          if (typeof countyResults[county.fips] === 'undefined') {
-            countyResults[county.fips] = {
+          const fipsKey =
+            county.fips === '' && county.county === 'New York City'
+              ? 'nyc'
+              : county.fips
+          if (typeof countyResults[fipsKey] === 'undefined') {
+            countyResults[fipsKey] = {
               name: county.county,
               state: county.state,
-              fips: county.fips,
+              fips: fipsKey,
               current: formatCountyDate(county),
               demographics: demographics.find(
-                element => element.fips === county.fips,
+                element => element.fips === fipsKey,
               ),
               history: [],
             }
           }
-          countyResults[county.fips].history.push(formatCountyDate(county))
-          if (county.date > countyResults[county.fips].current.date) {
-            countyResults[county.fips].current = formatCountyDate(county)
+          countyResults[fipsKey].history.push(formatCountyDate(county))
+          if (county.date > countyResults[fipsKey].current.date) {
+            countyResults[fipsKey].current = formatCountyDate(county)
           }
         })
         Object.keys(countyResults).forEach(fips => {
