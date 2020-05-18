@@ -12,6 +12,7 @@ import chartsStyle from './charts.module.scss'
 
 import CountyTable from './county-table'
 import CountyChart from './county-chart'
+import CountyChartLegend from './county-chart-legend'
 
 export default () => {
   const [isCasesOpen, setIsCasesOpen] = useState(false)
@@ -56,6 +57,7 @@ export default () => {
   return (
     <>
       <LandingPageContainer>
+        <CountyChartLegend />
         <Disclosure
           open={isCasesOpen}
           onChange={() => setIsCasesOpen(!isCasesOpen)}
