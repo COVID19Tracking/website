@@ -44,6 +44,11 @@
 
   .label {
     font-weight: bold;
+    .required {
+      display: block;
+      float: right;
+      font-size: 0.8rem;
+    }
   }
 
   fieldset {
@@ -75,6 +80,11 @@
     border-radius: 3px;
     padding: 1rem;
     color: white;
+    &[disabled] {
+      cursor: not-allowed;
+      background: $color-plum-200;
+      color: $color-plum-800;
+    }
   }
 
   .bot-field {
