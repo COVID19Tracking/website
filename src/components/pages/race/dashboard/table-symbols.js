@@ -9,8 +9,8 @@ const NoteSymbol = ({ index, title, linkTo, inkey = false }) => {
         className={`${tableSymbolsStyles.noteSymbol} ${
           inkey ? tableSymbolsStyles.inKey : ''
         }`}
-        title={title}
       >
+        <span className="a11y-only">{title}</span>
         <span>{index}</span>
       </a>
     )
@@ -20,8 +20,8 @@ const NoteSymbol = ({ index, title, linkTo, inkey = false }) => {
       className={`${tableSymbolsStyles.noteSymbol} ${
         inkey ? tableSymbolsStyles.inKey : ''
       }`}
-      title={title}
     >
+      <span className="a11y-only">{title}</span>
       <span>{index}</span>
     </div>
   )
@@ -33,6 +33,9 @@ const DisparitySymbol = ({ inkey = false }) => (
       inkey ? tableSymbolsStyles.inKey : ''
     }`}
   >
+    <span className="a11y-only">
+      Figure is significantly higher than population proportion
+    </span>
     <div className={tableSymbolsStyles.inner} />
   </div>
 )
