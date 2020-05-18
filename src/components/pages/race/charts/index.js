@@ -45,6 +45,7 @@ export default () => {
             deaths
           }
           demographics {
+            abbreviation
             total
             largestRace1
             largestRace2
@@ -96,8 +97,8 @@ export default () => {
           <Feature
             element={
               <>
-                <CountyChart data={[...countiesByCases]} field="casesPer100k" />
                 <CountyChartLegend data={countiesByCases} />
+                <CountyChart data={[...countiesByCases]} field="casesPer100k" />
               </>
             }
             title="Counties with the 20 highest infection rates"
@@ -140,11 +141,11 @@ export default () => {
           <Feature
             element={
               <>
+                <CountyChartLegend data={countiesByDeaths} />
                 <CountyChart
                   data={[...countiesByDeaths]}
                   field="deathsPer100k"
                 />
-                <CountyChartLegend data={countiesByDeaths} />
               </>
             }
             title="Counties with the 20 highest death rates"
