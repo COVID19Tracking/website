@@ -3,8 +3,6 @@ import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import StateNav from '~components/common/state-nav'
 import Hero from '~components/pages/race/dashboard/hero'
-import HeaderSorter from '~components/pages/race/dashboard/header-sorter'
-import NoData from '~components/pages/race/dashboard/no-data'
 import States from '~components/pages/race/dashboard/states'
 import UsOverview from '~components/pages/race/dashboard/us-overview'
 
@@ -32,8 +30,6 @@ export default ({ data }) => {
         statesDeathsCount={35}
         statesNotReporting={['Colorado', 'North Dakota', 'South Carolina']}
       />
-      <NoData stateName="North Dakota" />
-      <HeaderSorter stateName="California" stateReports="race" />
       <StateNav
         title="Race and Ethnicity Data by State"
         stateList={stateList.sort((a, b) => (a.name < b.name ? -1 : 1))}
