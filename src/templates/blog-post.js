@@ -38,17 +38,18 @@ const options = {
   },
 }
 
-export default ({ data }) => {
+export default ({ data, path }) => {
   const blogPost = data.allContentfulBlogPost.edges[0].node
   return (
     <Layout
       title={`Blog | ${blogPost.title}`}
       displayTitle="Blog"
       description={blogPost.lede.lede}
-      titleLink="/blog"
+      returnLink="/blog"
+      returnLinkTitle="All posts"
+      path={path}
       textHeavy
       narrow
-      noMargin
     >
       <Categories categories={blogPost.categories} />
       <Lede

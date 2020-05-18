@@ -46,4 +46,5 @@
 /software                                     /about/software
 /about                                        /about-data
 /about/in-the-press                           /about-project/in-the-press
-/help                                         /about-project/help
+/help                                         /get-involved
+/about-project/help                           /get-involved

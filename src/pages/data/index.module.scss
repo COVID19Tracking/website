@@ -1,0 +1,34 @@
+@import '../../scss/colors.module.scss';
+@import '../../scss/breakpoints.module.scss';
+
+.state-nav {
+  position: relative;
+  @media (min-width: $viewport-ms) {
+    background: white;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    width: calc(
+      100% + 1px
+    ); // this hides the table borders that otherwise appear on the top right
+  }
+  @media (min-width: $viewport-ms) and (max-width: $viewport-md) {
+    width: calc(100vw - 1.5rem);
+    padding-right: 1.5rem;
+  }
+  h2 {
+    margin: 0;
+  }
+  .state-nav-inner {
+    border-bottom: 2px solid $color-slate-500;
+    margin-bottom: 1.5rem;
+    @media (min-width: $viewport-lg) {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      > * {
+        flex: 1 1 auto;
+      }
+    }
+  }
+}
