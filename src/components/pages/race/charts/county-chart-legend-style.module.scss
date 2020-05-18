@@ -12,18 +12,19 @@
 
 .swatch {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   margin-right: 1rem;
+  font-size: 0.8rem;
 }
 
 ul.legend {
   list-style-type: none;
-  margin: 4.5rem auto;
+  margin-top: 2rem;
   li {
     @media (min-width: $viewport-lg) {
       display: inline-block;
-      margin: 0 2rem;
+      margin: 0 1rem;
     }
   }
 }

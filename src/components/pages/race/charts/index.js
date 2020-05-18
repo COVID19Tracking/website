@@ -89,14 +89,16 @@ export default () => {
   return (
     <>
       <LandingPageContainer>
-        <CountyChartLegend />
         <Disclosure
           open={isCasesOpen}
           onChange={() => setIsCasesOpen(!isCasesOpen)}
         >
           <Feature
             element={
-              <CountyChart data={[...countiesByCases]} field="casesPer100k" />
+              <>
+                <CountyChart data={[...countiesByCases]} field="casesPer100k" />
+                <CountyChartLegend data={countiesByCases} />
+              </>
             }
             title="Counties with the 20 highest infection rates"
           >
@@ -137,7 +139,13 @@ export default () => {
         >
           <Feature
             element={
-              <CountyChart data={[...countiesByDeaths]} field="deathsPer100k" />
+              <>
+                <CountyChart
+                  data={[...countiesByDeaths]}
+                  field="deathsPer100k"
+                />
+                <CountyChartLegend data={countiesByDeaths} />
+              </>
             }
             title="Counties with the 20 highest death rates"
             flip
