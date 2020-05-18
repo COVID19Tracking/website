@@ -11,10 +11,8 @@ import { CtaLink } from '~components/common/landing-page/call-to-action'
 import chartsStyle from './charts.module.scss'
 
 import CountyTable from './county-table'
+import CountyChart from './county-chart'
 
-const PlaceholderChart = () => (
-  <div style={{ height: '300px', background: 'grey' }} />
-)
 export default () => {
   const [isCasesOpen, setIsCasesOpen] = useState(false)
   const [isDeathsOpen, setIsDeathsOpen] = useState(false)
@@ -63,7 +61,9 @@ export default () => {
           onChange={() => setIsCasesOpen(!isCasesOpen)}
         >
           <Feature
-            element={<PlaceholderChart />}
+            element={
+              <CountyChart data={[...countiesByCases]} field="casesPer100k" />
+            }
             title="Counties with the 20 highest infection rates"
           >
             This chart shows the 20 counties with the highest level of
@@ -102,7 +102,9 @@ export default () => {
           onChange={() => setIsDeathsOpen(!isDeathsOpen)}
         >
           <Feature
-            element={<PlaceholderChart />}
+            element={
+              <CountyChart data={[...countiesByDeaths]} field="deathsPer100k" />
+            }
             title="Counties with the 20 highest death rates"
             flip
           >

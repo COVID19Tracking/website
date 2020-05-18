@@ -1,0 +1,29 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+.black-african-american-alone {
+  fill: #ffad4a;
+}
+.white-alone {
+  fill: #585bc1;
+}
+.hispanic-latino {
+  fill: green;
+}
+
+.chart {
+  width: 100%;
+}
+
+.bar {
+  width: 10;
+}
+
+.tick {
+  overflow: visible !important;
+}
+
+.label {
+  fill: black;
+  font-size: 16px;
+}
