@@ -45,12 +45,12 @@ const StateTableHeader = ({ groupTitle, noDeaths, noPositives }) => (
 )
 
 const StateTableDataCell = ({
-  row,
   index,
   rowCount,
   state,
   type,
   noData, // if true, this data is not provided by this state
+  cellData,
 }) => {
   if (noData) {
     if (index === 0) {
@@ -68,15 +68,15 @@ const StateTableDataCell = ({
   return (
     <Td>
       <>
-        <Percent number={row.positive.value} />
-        {row.positive.note.index !== -1 && (
+        <Percent number={cellData.value} />
+        {cellData.note.index !== -1 && (
           <NoteSymbol
-            index={row.positive.note.index + 1}
-            title={row.positive.note.value}
-            linkTo={`${state}-table-note-${row.positive.note.index + 1}`}
+            index={cellData.note.index + 1}
+            title={cellData.note.value}
+            linkTo={`${state}-table-note-${cellData.note.index + 1}`}
           />
         )}
-        {row.positive.disparity && <DisparitySymbol />}
+        {cellData.disparity && <DisparitySymbol />}
       </>
     </Td>
   )
@@ -97,20 +97,20 @@ const StateTableBody = ({
           <Percent number={row.population} />
         </Td>
         <StateTableDataCell
-          row={row}
           index={index}
           rowCount={rows.length}
           type={type}
           state={state}
           noData={noPositives}
+          cellData={row.positive}
         />
         <StateTableDataCell
-          row={row}
           index={index}
           rowCount={rows.length}
           type={type}
           state={state}
           noData={noDeaths}
+          cellData={row.death}
         />
       </tr>
     ))}
