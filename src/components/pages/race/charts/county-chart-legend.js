@@ -19,15 +19,18 @@ export default ({ data }) => {
     }
   })
   return (
-    <ul className={countyChartLegendStyle.legend} aria-hidden>
-      {legends.map(legend => (
-        <li>
-          <span
-            className={`${countyChartLegendStyle.swatch} ${legendStyles[legend]}`}
-          />
-          {legend}
-        </li>
-      ))}
-    </ul>
+    <div className={countyChartLegendStyle.legend}>
+      <strong aria-hidden>Largest racial or ethnic group</strong>
+      <ul aria-hidden>
+        {legends.map(legend => (
+          <li>
+            <span
+              className={`${countyChartLegendStyle.swatch} ${legendStyles[legend]}`}
+            />
+            {legend}
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }

@@ -14,17 +14,21 @@
   display: inline-block;
   width: 15px;
   height: 15px;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   font-size: 0.8rem;
 }
 
-ul.legend {
-  list-style-type: none;
+.legend {
   margin-top: 2rem;
-  li {
-    @media (min-width: $viewport-lg) {
-      display: inline-block;
-      margin: 0 1rem;
+  ul {
+    padding: 0;
+    list-style-type: none;
+    margin-top: 1rem;
+    li {
+      @media (min-width: $viewport-lg) {
+        display: inline-block;
+        margin-right: 2rem;
+      }
     }
   }
 }
