@@ -13,7 +13,7 @@ export default () => (
       <span
         className={`${countyChartLegendStyle.swatch} ${countyChartLegendStyle.whiteAlone}`}
       />
-      White alone alone
+      White alone
     </li>
     <li>
       <span
