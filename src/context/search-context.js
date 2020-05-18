@@ -48,7 +48,8 @@ function searchReducer(state, action) {
       }
     case 'clearQuery':
       return {
-        state: initialState,
+        ...initialState,
+        autocompleteHasFocus: state.autocompleteHasFocus,
         isFetching: false,
       }
     case 'fetchStart':

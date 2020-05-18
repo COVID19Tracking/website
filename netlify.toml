@@ -12,7 +12,6 @@
 [context.branch-deploy]
   command = "npm run build-preview"
 
-
 [[headers]]
   for = "/api/*"
   [headers.values]

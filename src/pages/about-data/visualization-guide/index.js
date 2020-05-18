@@ -15,6 +15,7 @@ const VisualizationGuidePage = ({ data }) => {
   return (
     <Layout
       title="Visualization Guide"
+      path="/about-data/visualization-guide"
       navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
     >
       <div className="module-featured">

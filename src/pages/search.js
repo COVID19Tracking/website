@@ -66,11 +66,14 @@ export default withSearch(({ navigate, search }) => {
             aria-hidden="true"
           />
         </button>
+        {/* eslint-disable jsx-a11y/label-has-associated-control */}
+        <label htmlFor="search-page-input" className={searchStyle.label}>
+          Search
+        </label>
         <input
           type="search"
-          aria-label="Search"
-          placeholder="Search..."
-          id="item"
+          id="search-page-input"
+          name="search"
           autoComplete="off"
           defaultValue={query || ''}
           onChange={event => {
@@ -82,6 +85,7 @@ export default withSearch(({ navigate, search }) => {
             }, 300)
           }}
         />
+        {/* eslint-enable jsx-a11y/label-has-associated-control */}
       </form>
       {totalHits > 0 ? (
         <div className={searchStyle.searchResults}>

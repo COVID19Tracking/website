@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../../components/layout/header'
-import DevelopmentWarning from '../../components/layout/development-warning'
+import DevelopmentWarning from '../../components/layout/header/development-warning'
 
 export default {
   title: 'Header',

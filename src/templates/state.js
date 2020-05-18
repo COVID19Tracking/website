@@ -8,11 +8,11 @@ import StateLinks from '../components/pages/state/state-links'
 import SummaryTable from '../components/common/summary-table'
 import { SyncInfobox } from '../components/common/infobox'
 
-const StatePage = ({ pageContext, data }) => {
+const StatePage = ({ pageContext, data, path }) => {
   const state = pageContext
   const summary = data.allCovidState.edges[0].node
   return (
-    <Layout title={state.name}>
+    <Layout title={state.name} returnLink="/data" path={path}>
       <StateLinks {...state} />
       <StateGrade letterGrade={summary.dataQualityGrade} />
       {state.notes && (

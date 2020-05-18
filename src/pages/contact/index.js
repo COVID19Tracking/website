@@ -100,6 +100,7 @@ export default ({ data }) => {
               aria-hidden
               style={{ display: 'none' }}
               name="subject"
+              tabIndex="-1"
               value={`${name} - ${reason}`}
             />
             {reason === defaultReason && (
