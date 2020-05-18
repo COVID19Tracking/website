@@ -48,7 +48,11 @@ export default () => {
             abbreviation
             total
             largestRace1
+            largestRace1pct
             largestRace2
+            largestRace2pct
+            largestRace3
+            largestRace3pct
           }
         }
       }

@@ -16,7 +16,9 @@ export default ({ tableSource, defaultSort, getRank }) => {
   const [sort, setSort] = useState({ field: defaultSort, desc: true })
 
   const tableData = tableSource.sort((a, b) => {
-    if (['largestRace1', 'largestRace2'].indexOf(sort.field) > -1) {
+    if (
+      ['largestRace1', 'largestRace2', 'largestRace3'].indexOf(sort.field) > -1
+    ) {
       if (a.demographics[sort.field] === b.demographics[sort.field]) {
         return 0
       }
@@ -67,31 +69,35 @@ export default ({ tableSource, defaultSort, getRank }) => {
             >
               Name
             </Th>
-            <Th
-              header
-              isFirst
-              sortable
-              onClick={() => handleSortClick('casesPer100k')}
-              sortDirection={sortDirection('casesPer100k')}
-              additionalClass={countiesTableStyle.count}
-            >
-              Cases per 100
-              <abbr title="thousand" aria-label="thousand">
-                k
-              </abbr>
-            </Th>
-            <Th
-              header
-              sortable
-              onClick={() => handleSortClick('deathsPer100k')}
-              sortDirection={sortDirection('deathsPer100k')}
-              additionalClass={countiesTableStyle.count}
-            >
-              Deaths per 100
-              <abbr title="thousand" aria-label="thousand">
-                k
-              </abbr>
-            </Th>
+            {defaultSort === 'casesPer100k' && (
+              <Th
+                header
+                isFirst
+                sortable
+                onClick={() => handleSortClick('casesPer100k')}
+                sortDirection={sortDirection('casesPer100k')}
+                additionalClass={countiesTableStyle.count}
+              >
+                Cases per 100
+                <abbr title="thousand" aria-label="thousand">
+                  k
+                </abbr>
+              </Th>
+            )}
+            {defaultSort === 'deathsPer100k' && (
+              <Th
+                header
+                sortable
+                onClick={() => handleSortClick('deathsPer100k')}
+                sortDirection={sortDirection('deathsPer100k')}
+                additionalClass={countiesTableStyle.count}
+              >
+                Deaths per 100
+                <abbr title="thousand" aria-label="thousand">
+                  k
+                </abbr>
+              </Th>
+            )}
             <Th
               header
               sortable
@@ -110,6 +116,15 @@ export default ({ tableSource, defaultSort, getRank }) => {
             >
               Second largest racial group
             </Th>
+            <Th
+              header
+              sortable
+              additionalClass={countiesTableStyle.group}
+              onClick={() => handleSortClick('largestRace3')}
+              sortDirection={sortDirection('largestRace3')}
+            >
+              Third largest racial group
+            </Th>
           </tr>
         </thead>
         <tbody>
@@ -120,14 +135,28 @@ export default ({ tableSource, defaultSort, getRank }) => {
                 <Td alignLeft>
                   {county.name}, {county.state}
                 </Td>
-                <Td isFirst>
-                  <FormatNumber number={Math.round(county.casesPer100k)} />
+                {defaultSort === 'casesPer100k' && (
+                  <Td isFirst>
+                    <FormatNumber number={Math.round(county.casesPer100k)} />
+                  </Td>
+                )}
+                {defaultSort === 'deathsPer100k' && (
+                  <Td isFirst>
+                    <FormatNumber number={Math.round(county.deathsPer100k)} />
+                  </Td>
+                )}
+                <Td>
+                  {county.demographics.largestRace1} (
+                  {county.demographics.largestRace1pct}%)
                 </Td>
                 <Td>
-                  <FormatNumber number={Math.round(county.deathsPer100k)} />
+                  {county.demographics.largestRace2} (
+                  {county.demographics.largestRace2pct}%)
                 </Td>
-                <Td>{county.demographics.largestRace1}</Td>
-                <Td>{county.demographics.largestRace2}</Td>
+                <Td>
+                  {county.demographics.largestRace3} (
+                  {county.demographics.largestRace3pct}%)
+                </Td>
               </tr>
             </>
           ))}
