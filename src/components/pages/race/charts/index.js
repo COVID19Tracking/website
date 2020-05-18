@@ -162,10 +162,10 @@ export default () => {
           </Feature>
           <DisclosurePanel>
             <CountyTable
-              defaultSort="casesPer100k"
+              defaultSort="deathsPer100k"
               tableSource={[...countiesByDeaths]}
               getRank={county =>
-                countiesByCases.findIndex(item => item.id === county.id) + 1
+                countiesByDeaths.findIndex(item => item.id === county.id) + 1
               }
             />
             <CtaLink to="/race/data/covid-county-by-race.csv">

@@ -51,7 +51,6 @@ export default ({ data, field }) => {
               width={labelOffset}
               className={countyChartStyles.tick}
             >
-              <line stroke="currentColor" x2="-6" />
               <text className={countyChartStyles.label}>
                 {tick.toLocaleString()}
               </text>
