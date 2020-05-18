@@ -94,10 +94,10 @@ export default () => {
           open={isCasesOpen}
           onChange={() => setIsCasesOpen(!isCasesOpen)}
         >
+          <CountyChartLegend data={countiesByCases} />
           <Feature
             element={
               <>
-                <CountyChartLegend data={countiesByCases} />
                 <CountyChart data={[...countiesByCases]} field="casesPer100k" />
               </>
             }
@@ -138,10 +138,10 @@ export default () => {
           open={isDeathsOpen}
           onChange={() => setIsDeathsOpen(!isDeathsOpen)}
         >
+          <CountyChartLegend data={countiesByDeaths} />
           <Feature
             element={
               <>
-                <CountyChartLegend data={countiesByDeaths} />
                 <CountyChart
                   data={[...countiesByDeaths]}
                   field="deathsPer100k"
