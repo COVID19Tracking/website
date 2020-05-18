@@ -214,7 +214,7 @@ const Header = withSearch(
                 </div>
               </div>
               <div className={headerStyle.atlanticBanner}>
-                <span>From</span> <img src={atlanticLogo} alt="The Atlantic" />
+                <span>At</span> <img src={atlanticLogo} alt="The Atlantic" />
                 <div />
               </div>
               {title && (
