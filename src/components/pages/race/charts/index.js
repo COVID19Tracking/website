@@ -155,8 +155,8 @@ export default () => {
           >
             When we look at the 20 counties with the highest level of deaths per
             capita, we see a different story. In{' '}
-            {numberWords(totalHighestRepresented)} of these 20 counties, Black
-            people represent the largest racial group.{' '}
+            {numberWords(totalHighestRepresented).toLowerCase()} of these 20
+            counties, Black people represent the largest racial group.{' '}
             {numberWords(topRepresented)} of the top five counties with the
             highest death rates in the nation are all predominantly Black.
             <DisclosureButton className={chartsStyle.showChartData}>
