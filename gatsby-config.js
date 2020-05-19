@@ -30,7 +30,12 @@ const gatsbyConfig = {
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-polyfill-io',
+    {
+      resolve: 'gatsby-plugin-polyfill-io',
+      options: {
+        features: ['core-js', 'Intl'],
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
