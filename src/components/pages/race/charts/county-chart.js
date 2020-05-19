@@ -12,7 +12,7 @@ const groupClasses = {
 export default ({ data, field }) => {
   const height = 400
   const width = 400
-  const labelOffset = 130
+  const labelOffset = 150
   const heightOffset = 30
 
   const yScale = scaleBand()
