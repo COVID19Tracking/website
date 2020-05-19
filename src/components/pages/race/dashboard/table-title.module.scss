@@ -1,5 +1,11 @@
+@import '~scss/breakpoints.module.scss';
+
 .container {
   display: flex;
+  @media (max-width: $viewport-md) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   justify-content: space-between;
   align-items: flex-end;
   div {
