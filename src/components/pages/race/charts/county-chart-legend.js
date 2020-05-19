@@ -20,7 +20,7 @@ export default ({ data }) => {
   })
   return (
     <div className={countyChartLegendStyle.legend} aria-hidden>
-      <h4>Largest racial group</h4>
+      <h4>Largest racial or ethnic group</h4>
       <ul>
         {legends.map(legend => (
           <li key={`legend-${legend}`}>
