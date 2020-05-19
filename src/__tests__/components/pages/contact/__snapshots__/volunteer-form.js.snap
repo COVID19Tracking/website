@@ -258,7 +258,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
       <legend
         className="inputHeader"
       >
-        What would you like to volunteer to do for us?
+        What would you like to volunteer to do?
         <span
           className="required"
         >
@@ -267,156 +267,58 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
       </legend>
       <div>
         <label
-          htmlFor="general-management"
+          htmlFor="data"
         >
           <input
-            id="general-management"
+            id="data"
             name="workstream"
             required={true}
             type="radio"
-            value="I want to help run the whole program by creating high-level policies and services."
+            value="I'd like to help collect and analyze your data."
           />
-          I want to help run the whole program by creating high-level policies and services.
+          I'd like to help collect and analyze your data.
         </label>
       </div>
       <div>
         <label
-          htmlFor="volunteer-management"
+          htmlFor="website"
         >
           <input
-            id="volunteer-management"
+            id="website"
             name="workstream"
             required={true}
             type="radio"
-            value="I want to recruit, train, and manage volunteers. "
+            value="I'd like to help design and build your website."
           />
-          I want to recruit, train, and manage volunteers. 
+          I'd like to help design and build your website.
         </label>
       </div>
       <div>
         <label
-          htmlFor="data-entry"
+          htmlFor="writing"
         >
           <input
-            id="data-entry"
+            id="writing"
             name="workstream"
             required={true}
             type="radio"
-            value="I want to collect COVID data from state websites and data dashboards. "
+            value="I'd like to help write content, monitor news sources, and do original journalism."
           />
-          I want to collect COVID data from state websites and data dashboards. 
+          I'd like to help write content, monitor news sources, and do original journalism.
         </label>
       </div>
       <div>
         <label
-          htmlFor="race-data"
+          htmlFor="management"
         >
           <input
-            id="race-data"
+            id="management"
             name="workstream"
             required={true}
             type="radio"
-            value="I want to collect data about how COVID is affecting communities of color. "
+            value="I'd like to help with program management, project management, or community management."
           />
-          I want to collect data about how COVID is affecting communities of color. 
-        </label>
-      </div>
-      <div>
-        <label
-          htmlFor="state-ratings"
-        >
-          <input
-            id="state-ratings"
-            name="workstream"
-            required={true}
-            type="radio"
-            value="I want to maintain ratings of the completeness and quality of state COVID data. "
-          />
-          I want to maintain ratings of the completeness and quality of state COVID data. 
-        </label>
-      </div>
-      <div>
-        <label
-          htmlFor="news-monitoring"
-        >
-          <input
-            id="news-monitoring"
-            name="workstream"
-            required={true}
-            type="radio"
-            value="I want to find COVID data by watching press conferences and monitoring local news sources."
-          />
-          I want to find COVID data by watching press conferences and monitoring local news sources.
-        </label>
-      </div>
-      <div>
-        <label
-          htmlFor="copy"
-        >
-          <input
-            id="copy"
-            name="workstream"
-            required={true}
-            type="radio"
-            value="I want to write and edit copy for your website."
-          />
-          I want to write and edit copy for your website.
-        </label>
-      </div>
-      <div>
-        <label
-          htmlFor="data-vis"
-        >
-          <input
-            id="data-vis"
-            name="workstream"
-            required={true}
-            type="radio"
-            value="I want to create data visualizations and graphics with your data."
-          />
-          I want to create data visualizations and graphics with your data.
-        </label>
-      </div>
-      <div>
-        <label
-          htmlFor="website-design"
-        >
-          <input
-            id="website-design"
-            name="workstream"
-            required={true}
-            type="radio"
-            value="I want to design the front end of your website."
-          />
-          I want to design the front end of your website.
-        </label>
-      </div>
-      <div>
-        <label
-          htmlFor="backend"
-        >
-          <input
-            id="backend"
-            name="workstream"
-            required={true}
-            type="radio"
-            value="I want to build the back end functionality of your website. "
-          />
-          I want to build the back end functionality of your website. 
-        </label>
-      </div>
-      <div>
-        <label
-          htmlFor="devops"
-        >
-          <input
-            id="devops"
-            name="workstream"
-            required={true}
-            type="radio"
-            value="I want to ensure your heavily-trafficked website is fast and reliable."
-          />
-          I want to ensure your heavily-trafficked website is fast and reliable.
+          I'd like to help with program management, project management, or community management.
         </label>
       </div>
     </fieldset>

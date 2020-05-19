@@ -141,12 +141,12 @@ export default () => {
       <div>
         <fieldset>
           <legend className={VolunteerFormStyles.inputHeader}>
-            What would you like to volunteer to do for us?
+            What would you like to volunteer to do?
             <span className={VolunteerFormStyles.required}>(required)</span>
           </legend>
           {RadioOptions.map(item => {
             return (
-              <div key={`availability-${item.shortname}`}>
+              <div key={`workstream-${item.shortname}`}>
                 <label htmlFor={item.shortname}>
                   <input
                     required

@@ -1,54 +1,24 @@
 export const RadioOptions = [
   {
-    shortname: 'general-management',
+    shortname: 'data',
+    description: "I'd like to help collect and analyze your data.",
+  },
+
+  {
+    shortname: 'website',
+    description: "I'd like to help design and build your website.",
+  },
+
+  {
+    shortname: 'writing',
     description:
-      'I want to help run the whole program by creating high-level policies and services.',
+      "I'd like to help write content, monitor news sources, and do original journalism.",
   },
+
   {
-    shortname: 'volunteer-management',
-    description: 'I want to recruit, train, and manage volunteers. ',
-  },
-  {
-    shortname: 'data-entry',
+    shortname: 'management',
     description:
-      'I want to collect COVID data from state websites and data dashboards. ',
-  },
-  {
-    shortname: 'race-data',
-    description:
-      'I want to collect data about how COVID is affecting communities of color. ',
-  },
-  {
-    shortname: 'state-ratings',
-    description:
-      'I want to maintain ratings of the completeness and quality of state COVID data. ',
-  },
-  {
-    shortname: 'news-monitoring',
-    description:
-      'I want to find COVID data by watching press conferences and monitoring local news sources.',
-  },
-  {
-    shortname: 'copy',
-    description: 'I want to write and edit copy for your website.',
-  },
-  {
-    shortname: 'data-vis',
-    description:
-      'I want to create data visualizations and graphics with your data.',
-  },
-  {
-    shortname: 'website-design',
-    description: 'I want to design the front end of your website.',
-  },
-  {
-    shortname: 'backend',
-    description: 'I want to build the back end functionality of your website. ',
-  },
-  {
-    shortname: 'devops',
-    description:
-      'I want to ensure your heavily-trafficked website is fast and reliable.',
+      "I'd like to help with program management, project management, or community management.",
   },
 ]
 
