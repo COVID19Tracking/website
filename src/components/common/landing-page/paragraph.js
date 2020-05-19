@@ -1,10 +1,16 @@
 import React from 'react'
+import classnames from 'classnames'
 import paragraphStyle from './paragraph.module.scss'
 
-export default ({ children, center, additionalClass = '' }) => (
+export default ({ children, center, noMargin, additionalClass = '' }) => (
   <p
-    className={`homepage-paragraph ${paragraphStyle.paragraph} ${center &&
-      paragraphStyle.center} ${additionalClass}`}
+    className={classnames(
+      'homepage-paragraph',
+      paragraphStyle.paragraph,
+      center && paragraphStyle.center,
+      noMargin && paragraphStyle.noMargin,
+      additionalClass,
+    )}
   >
     {children}
   </p>

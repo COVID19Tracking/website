@@ -12,7 +12,15 @@ $border: 1px solid $color-slate-500;
     padding: 80px 0;
     margin: 80px 0;
   }
+
   &.no-border {
     border: 0;
+  }
+
+  &.no-margin {
+    margin: 0;
+    @media (min-width: $viewport-lg) {
+      margin: 0;
+    }
   }
 }

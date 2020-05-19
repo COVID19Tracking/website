@@ -56,7 +56,7 @@ export default () => {
       <HeaderHero />
 
       <main id="main">
-        <LandingPageSection noBorder>
+        <LandingPageSection noBorder noMargin>
           <LandingPageContainer>
             <LargeHeader center>
               We’ve lost at least <FormatNumber number={blackLivesLost} /> Black
@@ -68,14 +68,16 @@ export default () => {
             />
           </LandingPageContainer>
         </LandingPageSection>
-        <LandingPageContainer>
-          <LargeHeader center>
-            We’ve asked every state to report complete race and ethnicity data.
-            Our Racial Data Dashboard has the latest.
-          </LargeHeader>
-          <Totals />
-          <CtaLinks />
-        </LandingPageContainer>
+        <LandingPageSection noMargin>
+          <LandingPageContainer>
+            <LargeHeader center noMargin>
+              We’ve asked every state to report complete race and ethnicity
+              data. Our Racial Data Dashboard has the latest.
+            </LargeHeader>
+            <Totals />
+            <CtaLinks />
+          </LandingPageContainer>
+        </LandingPageSection>
         <LandingPageSection>
           <LandingPageContainer>
             <LargeHeader center>
