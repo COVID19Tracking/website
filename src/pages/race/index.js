@@ -60,8 +60,8 @@ export default () => {
             <LargeHeader center>
               We’ve lost at least <FormatNumber number={blackLivesLost} /> Black
               lives in the pandemic so far. That’s{' '}
-              {blackLivesExpectedMultiplier} times more than expected, based on
-              population.
+              {blackLivesExpectedMultiplier.substr(0, 3)} times more than
+              expected, based on population.
             </LargeHeader>
             <NationalChart />
           </LandingPageContainer>
