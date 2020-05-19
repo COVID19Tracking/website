@@ -82,7 +82,7 @@ export default () => {
             <RacialDataParagraph>
               State-level stats tell part of the story, but many US states are
               also deeply segregated—meaning different counties in the same
-              state can have wildly different racial or ethnic breakdowns.
+              state can have vastly different racial or ethnic breakdowns.
             </RacialDataParagraph>
             <RacialDataParagraph>
               Race and ethnicity data for COVID cases isn&apos;t widely
