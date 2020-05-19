@@ -23,7 +23,7 @@ export default ({ data }) => {
       <h4>Largest racial group</h4>
       <ul>
         {legends.map(legend => (
-          <li>
+          <li key={`legend-${legend}`}>
             <span
               className={`${countyChartLegendStyle.swatch} ${legendStyles[legend]}`}
             />
