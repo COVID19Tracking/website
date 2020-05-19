@@ -60,7 +60,7 @@ export default () => {
           <LandingPageContainer>
             <LargeHeader center>
               We’ve lost at least <FormatNumber number={blackLivesLost} /> Black
-              lives to COVID-19 so far.
+              lives to COVID-19 to date.
             </LargeHeader>
             <NationalChart />
             <RaceMultiplierHighlight
@@ -84,9 +84,9 @@ export default () => {
               Tracking inequity at the county level
             </LargeHeader>
             <RacialDataParagraph>
-              State-level stats tell part of the story, but many US states are
-              also deeply segregated—meaning different counties in the same
-              state can have vastly different racial or ethnic breakdowns.
+              State-level statistics tell part of the story, but many US states
+              are also deeply segregated—meaning different counties in the same
+              state can have vastly different breakdowns by race and ethnicity.
             </RacialDataParagraph>
             <RacialDataParagraph>
               Race and ethnicity data for COVID cases isn&apos;t widely
