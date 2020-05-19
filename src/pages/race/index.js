@@ -15,6 +15,7 @@ import CtaLinks from '~components/pages/race/cta-links'
 import Charts from '~components/pages/race/charts'
 import Totals from '~components/pages/race/totals'
 import Press from '~components/pages/race/press'
+import Publication from '~components/pages/race/citation'
 import { FormatNumber } from '~components/utils/format'
 
 export default () => {
@@ -81,15 +82,16 @@ export default () => {
             <RacialDataParagraph>
               State-level stats tell part of the story, but many US states are
               also deeply segregated—meaning different counties in the same
-              state can have wildly different racial or ethnic breakdowns.
+              state can have vastly different racial or ethnic breakdowns.
             </RacialDataParagraph>
             <RacialDataParagraph>
               Race and ethnicity data for COVID cases isn&apos;t widely
               available at the county level, so we&apos;re using two numbers we
-              do have: infection and death rates for each county, from a New
-              York Times dataset, paired with the Census Bureau&apos;s 2018 ACS
-              5-Year estimates for race and ethnicity breakdowns in that county.
-              The results are staggering.
+              do have: the latest infection and death rates for each county,
+              from a <Publication>New York Times</Publication> dataset, paired
+              with the largest racial or ethnic group in that county, based on
+              the Census Bureau&apos;s 2018 ACS 5-Year estimates. The results
+              are staggering.
             </RacialDataParagraph>
           </LandingPageContainer>
           <Charts />
@@ -98,8 +100,8 @@ export default () => {
         <LandingPageSection noBorder>
           <LandingPageContainer>
             <LargeHeader>
-              Learn more about how COVID-19 is impacting communities of color
-              from media outlets across the country.
+              Learn more from media outlets across the country about how
+              COVID-19 is impacting communities of color.
             </LargeHeader>
             <Press />
           </LandingPageContainer>

@@ -66,11 +66,11 @@ export default ({ data, field }) => {
             ),
         )}
       </g>
-      <g transfrorm={`translate(0, ${heightOffset})`}>
+      <g transform={`translate(0, ${heightOffset})`}>
         {data.map((d, index) => (
           <g key={`${d.field}-${d.county}`}>
             <svg
-              y={yScale(index) + 10 + heightOffset}
+              y={yScale(index) + 10}
               x={0}
               width={labelOffset}
               className={countyChartStyles.tick}
