@@ -11,6 +11,7 @@ import LargeHeader from '~components/common/landing-page/header'
 import RacialDataParagraph from '~components/pages/race/paragraph'
 import LandingPageSection from '~components/common/landing-page/divider-section'
 import NationalChart from '~components/pages/race/national-chart'
+import RacePressContainer from '~components/pages/race/press-container'
 import CtaLinks from '~components/pages/race/cta-links'
 import Charts from '~components/pages/race/charts'
 import Totals from '~components/pages/race/totals'
@@ -101,14 +102,16 @@ export default () => {
           <Charts />
         </LandingPageSection>
 
-        <LandingPageSection noBorder>
+        <LandingPageSection noMargin>
           <LandingPageContainer>
             <LargeHeader>
               Learn more from media outlets across the country about how
               COVID-19 is impacting communities of color.
             </LargeHeader>
-            <Press />
           </LandingPageContainer>
+          <RacePressContainer>
+            <Press />
+          </RacePressContainer>
         </LandingPageSection>
       </main>
       <Footer />
