@@ -157,8 +157,8 @@ export default () => {
             capita, we see a different story. In{' '}
             {numberWords(totalHighestRepresented)} of these 20 counties, Black
             people represent the largest racial group.{' '}
-            {numberWords(topRepresented)} of the five counties with the highest
-            death rates in the nation are all predominantly Black.
+            {numberWords(topRepresented)} of the top five counties with the
+            highest death rates in the nation are all predominantly Black.
             <DisclosureButton className={chartsStyle.showChartData}>
               {isDeathsOpen ? (
                 <>
