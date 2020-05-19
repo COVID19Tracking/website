@@ -292,7 +292,7 @@ export default () => {
       {states
         .sort((a, b) => (a.name > b.name ? 1 : -1))
         .map(state => (
-          <div>
+          <div className={statesStyle.state}>
             <h2
               id={`state-${slugify(state.state).toLowerCase()}`}
               className={statesStyle.header}
