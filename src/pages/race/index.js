@@ -16,6 +16,7 @@ import Charts from '~components/pages/race/charts'
 import Totals from '~components/pages/race/totals'
 import Press from '~components/pages/race/press'
 import Publication from '~components/pages/race/citation'
+import RaceMultiplierHighlight from '~components/pages/race/multiplier-highlight'
 import { FormatNumber } from '~components/utils/format'
 
 export default () => {
@@ -59,12 +60,11 @@ export default () => {
           <LandingPageContainer>
             <LargeHeader center>
               We’ve lost at least <FormatNumber number={blackLivesLost} /> Black
-              lives in the pandemic so far. That’s{' '}
-              {blackLivesExpectedMultiplier.substr(0, 3)} times more than
-              expected, based on population.
+              lives to COVID-19 so far.
             </LargeHeader>
             <NationalChart />
           </LandingPageContainer>
+          <RaceMultiplierHighlight multiplier={blackLivesExpectedMultiplier} />
         </LandingPageSection>
         <LandingPageContainer>
           <LargeHeader center>

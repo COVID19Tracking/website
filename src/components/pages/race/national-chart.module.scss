@@ -1,0 +1,60 @@
+@import '~scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
+
+.header {
+  font-weight: normal;
+  @media (min-width: $viewport-lg) {
+    text-align: center;
+  }
+}
+.charts {
+  p {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 2rem;
+  }
+  @media (min-width: $viewport-lg) {
+    display: grid;
+    grid-column-gap: 1%;
+    grid-template-columns: repeat(2, 50%);
+  }
+}
+
+$chart-size: 300px;
+$chart-width: 25px;
+
+.donut-chart {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  width: $chart-size;
+  height: $chart-size;
+  background: $color-plum-400;
+  margin: 0 auto;
+  .slice {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip: rect(0 $chart-size $chart-size/2 0);
+    background: $color-slate-200;
+  }
+  .center {
+    position: absolute;
+    border-radius: 50%;
+    top: $chart-width;
+    left: $chart-width;
+    width: $chart-size - ($chart-width * 2);
+    height: $chart-size - ($chart-width * 2);
+    background: white;
+
+    span {
+      display: block;
+      text-align: center;
+      line-height: $chart-size - ($chart-width * 2);
+      font-weight: bold;
+      font-size: 4rem;
+    }
+  }
+}

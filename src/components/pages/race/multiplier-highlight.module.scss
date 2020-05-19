@@ -1,0 +1,18 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+.highlight {
+  background: $color-plum-100;
+  padding: 2rem 0;
+  margin-top: 3.5rem;
+  p {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.number {
+  font-weight: bold;
+  font-size: 2.3rem;
+}
