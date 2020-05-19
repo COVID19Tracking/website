@@ -109,10 +109,10 @@ export default () => {
           >
             This chart shows the 20 counties with the highest level of
             infections per capita, and the largest racial or ethnic group in
-            that county. White people represent the largest racial group in most
-            of these counties. This is in line with Census statistics, which
-            show that more than 60 percent of Americans are White, non-Hispanic
-            or Latino.
+            that county. Non-Hispanic White people represent the largest racial
+            group in most of these counties. This is in line with Census
+            statistics, which show that more than 60 percent of Americans are
+            White, non-Hispanic or Latino.
             <DisclosureButton className={chartsStyle.showChartData}>
               {isCasesOpen ? (
                 <>
