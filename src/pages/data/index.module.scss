@@ -6,6 +6,7 @@
   @media (min-width: $viewport-ms) {
     background: white;
     position: sticky;
+    z-index: 1;
     top: 0;
     width: calc(
       100% + 1px

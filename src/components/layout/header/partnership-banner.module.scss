@@ -1,16 +1,17 @@
-@import '../../scss/colors.module.scss';
-@import '../../scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
 
 .banner {
   padding: 0.7rem 0;
-  
+
   text-align: center;
   font-weight: bold;
   background: $color-plum-800;
   color: $color-blueberry-200;
-  transition: background .2s;
-  
-  &:hover, &:focus {
+  transition: background 0.2s;
+
+  &:hover,
+  &:focus {
     background: #000000;
   }
 
@@ -23,7 +24,8 @@
     color: white;
     text-decoration: none;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: white;
     }
   }

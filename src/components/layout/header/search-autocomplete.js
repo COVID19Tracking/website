@@ -15,9 +15,9 @@ import {
   querySearch,
   getSanitizedSlug,
   partitionHitsByRelevance,
-} from '../../context/search-context'
+} from '~context/search-context'
 import searchAutocompleteStyle from './search-autocomplete.module.scss'
-import headerStyle from '~components/layout/header.module.scss'
+import headerStyle from './header.module.scss'
 
 export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
   const [searchState, searchDispatch] = useSearch()
