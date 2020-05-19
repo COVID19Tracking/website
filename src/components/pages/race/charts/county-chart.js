@@ -9,11 +9,11 @@ const groupClasses = {
   'Hispanic or Latino': 'hispanicLatino',
 }
 
-export default ({ data, field }) => {
+export default ({ data, field, label }) => {
   const height = 400
   const width = 400
   const labelOffset = 150
-  const heightOffset = 30
+  const heightOffset = 50
 
   const yScale = scaleBand()
     .domain(data.map((d, index) => index))
@@ -47,20 +47,28 @@ export default ({ data, field }) => {
           />
         ))}
       </g>
+
       <g transform="translate(0, 15)">
+        <svg
+          y={0}
+          x={labelOffset}
+          width={labelOffset}
+          className={countyChartStyles.tick}
+        >
+          <text className={countyChartStyles.label}>{label}</text>
+        </svg>
         {xScale.ticks(3).map(
           (tick, i) =>
             i < 3 && (
               <g key={`${field}-${tick}`}>
                 <svg
-                  y={0}
+                  y={20}
                   x={xScale(tick) + labelOffset + (i > 0 ? -20 : 0)}
                   width={labelOffset}
                   className={countyChartStyles.tick}
                 >
                   <text className={countyChartStyles.label}>
                     {tick.toLocaleString()}
-                    {i === 2 && <> deaths per 100k people</>}
                   </text>
                 </svg>
               </g>

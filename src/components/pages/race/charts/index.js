@@ -116,7 +116,11 @@ export default () => {
               <>
                 <h3>Counties with the 20 highest infection rates</h3>
                 <CountyChartLegend data={countiesByCases} />
-                <CountyChart data={[...countiesByCases]} field="casesPer100k" />
+                <CountyChart
+                  data={[...countiesByCases]}
+                  field="casesPer100k"
+                  label="Cases per 100,000 people"
+                />
               </>
             }
           >
@@ -165,6 +169,7 @@ export default () => {
                 <CountyChart
                   data={[...countiesByDeaths]}
                   field="deathsPer100k"
+                  label="Deaths per 100,000 people"
                 />
               </>
             }
