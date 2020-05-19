@@ -9,7 +9,7 @@ export default ({
   statesDeathsCount,
   statesNotReporting,
 }) => (
-  <div>
+  <div className={UsOverviewStyles.container}>
     <h2>How many states report race and ethnicity data?</h2>
     <div className={UsOverviewStyles.row}>
       <UsReportingCount

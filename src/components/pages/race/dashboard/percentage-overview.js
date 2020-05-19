@@ -15,12 +15,18 @@ const PercentContent = ({ percent }) => {
   )
 }
 
-export default ({ stateName, dataType, casePercent, deathPercent }) => {
+export default ({
+  stateName,
+  dataType,
+  casePercent,
+  deathPercent,
+  className,
+}) => {
   if (casePercent === undefined && deathPercent === undefined) {
     return null
   }
   return (
-    <div>
+    <div className={className || ''}>
       <h3 className={percentageOverview.title}>
         {stateName} has reported {dataType} data for:
       </h3>

@@ -18,14 +18,13 @@ export default ({ state }) => {
     <div>
       <div className={stateStyle.stateOverview}>
         {/* this is the race data section */}
-        <div className={stateStyle.totals}>
-          <PercentageOverview
-            stateName={state.name}
-            dataType="race"
-            casePercent={state.knownRacePos}
-            deathPercent={state.knownRaceDeath}
-          />
-        </div>
+        <PercentageOverview
+          stateName={state.name}
+          dataType="race"
+          casePercent={state.knownRacePos}
+          deathPercent={state.knownRaceDeath}
+          className={stateStyle.totals}
+        />
         <div className={stateStyle.note}>
           <HeaderSorter stateName={state.name} stateReports="race" />
         </div>
@@ -41,14 +40,13 @@ export default ({ state }) => {
 
       <div className={stateStyle.stateOverview}>
         {/* this is the ethnicity data section */}
-        <div className={stateStyle.totals}>
-          <PercentageOverview
-            stateName={state.name}
-            dataType="ethnicity"
-            casePercent={state.knownEthPos}
-            deathPercent={state.knownEthDeath}
-          />
-        </div>
+        <PercentageOverview
+          stateName={state.name}
+          dataType="ethnicity"
+          casePercent={state.knownEthPos}
+          deathPercent={state.knownEthDeath}
+          className={stateStyle.totals}
+        />
         <div className={stateStyle.note}>
           <HeaderSorter stateName={state.name} stateReports="ethnicity" />
         </div>
