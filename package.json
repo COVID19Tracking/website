@@ -157,6 +157,6 @@
     "setup": "run-s setup:api-data setup:api-repo setup:env-vars",
     "setup:api-data": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz",
     "setup:env-vars": "curl -L https://covidtracking.com/__developer/env-vars > .env",
-    "setup:api-repo": "git clone --depth 1 https://github.com/COVID19Tracking/covid-public-api.git _api"
+    "setup:api-repo": "rm -rf _api || true && git clone --depth 1 https://github.com/COVID19Tracking/covid-public-api.git _api"
   }
 }
