@@ -16,7 +16,7 @@
   text-align: center;
   align-items: center;
   display: flex;
-  abbr {
+  abbr[title] {
     text-decoration: none;
   }
 }
