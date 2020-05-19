@@ -84,7 +84,7 @@ export default () => {
       county.demographics.largestRace1 === 'Black or African American alone'
     ) {
       totalHighestRepresented += 1
-      if (endTopItems) {
+      if (!endTopItems) {
         topRepresented += 1
       }
     } else {
