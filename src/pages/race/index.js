@@ -86,10 +86,10 @@ export default () => {
             <RacialDataParagraph>
               Race and ethnicity data for COVID cases isn&apos;t widely
               available at the county level, so we&apos;re using two numbers we
-              do have: infection and death rates for each county, from a New
-              York Times dataset, paired with the Census Bureau&apos;s 2018 ACS
-              5-Year estimates for race and ethnicity breakdowns in that county.
-              The results are staggering.
+              do have: the latest infection and death rates for each county,
+              from a New York Times dataset, paired with the Census
+              Bureau&apos;s 2018 ACS 5-Year estimates for race and ethnicity
+              breakdowns in that county. The results are staggering.
             </RacialDataParagraph>
           </LandingPageContainer>
           <Charts />
