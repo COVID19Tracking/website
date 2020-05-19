@@ -1,8 +1,11 @@
 @import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
 
-.group {
+th.group {
   width: 28%;
-  line-height: auto;
+  @media (min-width: $viewport-xl) {
+    min-width: 32%;
+  }
 }
 
 .percent {
