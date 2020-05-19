@@ -159,6 +159,22 @@ export default () => {
             counties, Black people represent the largest racial group.{' '}
             {numberWords(topRepresented)} of the top five counties with the
             highest death rates in the nation are all predominantly Black.
+            {countiesByDeaths.find(
+              county => county.name === 'New York City',
+            ) && (
+              <>
+                <br />
+                <br />
+                Note that <em>The New York Times</em> county dataset combines
+                the five counties that make up New York City&apos;s boroughs
+                (New York County, Kings County, Bronx County, Richmond County,
+                and Queens County) into one listing for New York City. When
+                combined, these counties show up as predominantly White,
+                non-Hispanic. However, Bronx County, which is predominantly
+                Hispanic/Latino and/or Black, has been a hotspot for COVID
+                deaths.
+              </>
+            )}
             <DisclosureButton className={chartsStyle.showChartData}>
               {isDeathsOpen ? (
                 <>
