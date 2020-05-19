@@ -54,12 +54,13 @@ export default ({ data, field }) => {
               <g key={`${field}-${tick}`}>
                 <svg
                   y={0}
-                  x={xScale(tick) + labelOffset}
+                  x={xScale(tick) + labelOffset + (i > 0 ? -20 : 0)}
                   width={labelOffset}
                   className={countyChartStyles.tick}
                 >
                   <text className={countyChartStyles.label}>
                     {tick.toLocaleString()}
+                    {i === 2 && <> deaths per 100k people</>}
                   </text>
                 </svg>
               </g>

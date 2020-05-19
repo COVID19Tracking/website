@@ -98,14 +98,14 @@ export default () => {
           open={isCasesOpen}
           onChange={() => setIsCasesOpen(!isCasesOpen)}
         >
-          <CountyChartLegend data={countiesByCases} />
           <Feature
             element={
               <>
+                <h3>Counties with the 20 highest infection rates</h3>
+                <CountyChartLegend data={countiesByCases} />
                 <CountyChart data={[...countiesByCases]} field="casesPer100k" />
               </>
             }
-            title="Counties with the 20 highest infection rates"
           >
             This chart shows the 20 counties with the highest level of
             infections per capita, and the largest racial or ethnic group in
@@ -142,17 +142,18 @@ export default () => {
           open={isDeathsOpen}
           onChange={() => setIsDeathsOpen(!isDeathsOpen)}
         >
-          <CountyChartLegend data={countiesByDeaths} />
           <Feature
             element={
               <>
+                <h3>Counties with the 20 highest death rates</h3>
+                <CountyChartLegend data={countiesByDeaths} />
+
                 <CountyChart
                   data={[...countiesByDeaths]}
                   field="deathsPer100k"
                 />
               </>
             }
-            title="Counties with the 20 highest death rates"
             flip
           >
             When we look at the 20 counties with the highest level of deaths per

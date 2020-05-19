@@ -1,5 +1,5 @@
 import React from 'react'
-import countyChartLegendStyle from './county-chart-legend-style.module.scss'
+import countyChartLegendStyle from './county-chart-legend.module.scss'
 
 const legendStyles = {
   'Black or African American alone':
@@ -19,8 +19,9 @@ export default ({ data }) => {
     }
   })
   return (
-    <div className={countyChartLegendStyle.legend}>
-      <ul aria-hidden>
+    <div className={countyChartLegendStyle.legend} aria-hidden>
+      <h4>Largest racial group</h4>
+      <ul>
         {legends.map(legend => (
           <li>
             <span
