@@ -60,8 +60,7 @@ export default () => {
           <LandingPageContainer>
             <LargeHeader center>
               We’ve lost at least <FormatNumber number={blackLivesLost} /> Black
-              lives <br />
-              to COVID-19 so far.
+              lives to COVID-19 so far.
             </LargeHeader>
             <NationalChart />
             <RaceMultiplierHighlight

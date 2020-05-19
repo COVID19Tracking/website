@@ -15,21 +15,23 @@
   color: $color-slate-500;
   text-align: center;
   align-items: center;
+  display: flex;
   abbr {
     text-decoration: none;
   }
 }
 
 .charts {
+  display: grid;
+  grid-column-gap: 1%;
+  grid-template-columns: 45% 10% 45%;
+  align-items: start center start;
+  @media (min-width: $viewport-lg) {
+    align-items: center;
+  }
   p {
     font-weight: bold;
     margin-top: 0;
-  }
-  @media (min-width: $viewport-lg) {
-    display: grid;
-    grid-column-gap: 1%;
-    grid-template-columns: 45% 10% 45%;
-    align-items: center;
   }
 }
 
@@ -44,8 +46,13 @@
   }
 }
 
-.chart-legend {
+p.chart-legend {
+  text-align: left;
+  margin-top: 1rem;
+  margin-left: 1rem;
   @media (min-width: $viewport-lg) {
+    margin-left: 0;
+    margin-top: 0;
     width: 50%;
     text-align: right;
   }
@@ -69,6 +76,19 @@ $chart-width: 10px;
   height: $chart-size;
   background: $color-plum-600;
   margin: 0 auto;
+
+  &.mobile-only {
+    display: block;
+    @media (min-width: $viewport-lg) {
+      display: none;
+    }
+  }
+  &.desktop-only {
+    display: none;
+    @media (min-width: $viewport-lg) {
+      display: block;
+    }
+  }
   .slice {
     position: absolute;
     top: 0;

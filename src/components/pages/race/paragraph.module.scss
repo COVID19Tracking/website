@@ -1,6 +1,7 @@
 @import '~scss/breakpoints.module.scss';
 
 .paragraph {
+  text-align: center;
   @media (min-width: $viewport-lg) {
     margin: 1rem auto;
     max-width: 704px;

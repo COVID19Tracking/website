@@ -22,7 +22,7 @@ export default ({ data }) => {
     <div className={countyChartLegendStyle.legend}>
       <ul aria-hidden>
         {legends.map(legend => (
-          <li>
+          <li key={`legend-${legend}`}>
             <span
               className={`${countyChartLegendStyle.swatch} ${legendStyles[legend]}`}
             />

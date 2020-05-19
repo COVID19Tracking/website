@@ -2,8 +2,12 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import nationalChartStyle from './national-chart.module.scss'
 
-const DonutChart = ({ value, children }) => (
-  <div className={nationalChartStyle.donutChart}>
+const DonutChart = ({ value, children, mobileOnly, desktopOnly }) => (
+  <div
+    className={`${nationalChartStyle.donutChart} ${mobileOnly &&
+      nationalChartStyle.mobileOnly} ${desktopOnly &&
+      nationalChartStyle.desktopOnly}`}
+  >
     <div
       className={nationalChartStyle.slice}
       style={{ transform: `rotate(${value * 360 + 90}deg)` }}
@@ -36,6 +40,7 @@ export default () => {
       <h3 className={nationalChartStyle.header}>Black people account for:</h3>
       <div className={nationalChartStyle.charts}>
         <div className={nationalChartStyle.chart}>
+          <DonutChart value={blackPercentOfPopulation} mobileOnly />
           <p className={nationalChartStyle.chartLegend}>
             <span className={nationalChartStyle.number}>
               {Math.round(blackPercentOfPopulation * 100)}%
@@ -44,7 +49,7 @@ export default () => {
             <br />
             population
           </p>
-          <DonutChart value={blackPercentOfPopulation} />
+          <DonutChart value={blackPercentOfPopulation} desktopOnly />
         </div>
         <div className={nationalChartStyle.versus}>
           <abbr title="versus" aria-label="versus">
