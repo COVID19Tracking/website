@@ -36,16 +36,33 @@ export default () => {
       <h3 className={nationalChartStyle.header}>Black people account for:</h3>
       <div className={nationalChartStyle.charts}>
         <div className={nationalChartStyle.chart}>
-          <DonutChart value={blackPercentOfPopulation}>
-            {Math.round(blackPercentOfPopulation * 100)}%
-          </DonutChart>
-          <p>of the US population</p>
+          <p className={nationalChartStyle.chartLegend}>
+            <span className={nationalChartStyle.number}>
+              {Math.round(blackPercentOfPopulation * 100)}%
+            </span>
+            of the US
+            <br />
+            population
+          </p>
+          <DonutChart value={blackPercentOfPopulation} />
         </div>
-        <div className={nationalChartStyle.chart}>
-          <DonutChart value={blackPercentOfDeath}>
-            {Math.round(blackPercentOfDeath * 100)}%
-          </DonutChart>
-          <p>of deaths where race is known</p>
+        <div className={nationalChartStyle.versus}>
+          <abbr title="versus" aria-label="versus">
+            vs.
+          </abbr>
+        </div>
+        <div
+          className={`${nationalChartStyle.chart} ${nationalChartStyle.flip}`}
+        >
+          <DonutChart value={blackPercentOfDeath} />
+          <p className={nationalChartStyle.chartLegend}>
+            <span className={nationalChartStyle.number}>
+              {Math.round(blackPercentOfDeath * 100)}%
+            </span>
+            of deaths
+            <br />
+            where race is known
+          </p>
         </div>
       </div>
     </div>

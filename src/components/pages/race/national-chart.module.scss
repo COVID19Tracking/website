@@ -3,25 +3,63 @@
 
 .header {
   font-weight: normal;
+  margin: 2rem 0 4rem;
   @media (min-width: $viewport-lg) {
     text-align: center;
   }
 }
+
+.versus {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $color-slate-500;
+  text-align: center;
+  align-items: center;
+  abbr {
+    text-decoration: none;
+  }
+}
+
 .charts {
   p {
-    text-align: center;
     font-weight: bold;
-    margin-top: 2rem;
+    margin-top: 0;
   }
   @media (min-width: $viewport-lg) {
     display: grid;
     grid-column-gap: 1%;
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: 45% 10% 45%;
+    align-items: center;
   }
 }
 
-$chart-size: 300px;
-$chart-width: 25px;
+.chart {
+  @media (min-width: $viewport-lg) {
+    display: flex;
+    &.flip {
+      .chart-legend {
+        text-align: left;
+      }
+    }
+  }
+}
+
+.chart-legend {
+  @media (min-width: $viewport-lg) {
+    width: 50%;
+    text-align: right;
+  }
+}
+
+.number {
+  display: block;
+  font-weight: bold;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+$chart-size: 120px;
+$chart-width: 10px;
 
 .donut-chart {
   position: relative;
@@ -29,7 +67,7 @@ $chart-width: 25px;
   overflow: hidden;
   width: $chart-size;
   height: $chart-size;
-  background: $color-plum-400;
+  background: $color-plum-600;
   margin: 0 auto;
   .slice {
     position: absolute;
@@ -48,13 +86,5 @@ $chart-width: 25px;
     width: $chart-size - ($chart-width * 2);
     height: $chart-size - ($chart-width * 2);
     background: white;
-
-    span {
-      display: block;
-      text-align: center;
-      line-height: $chart-size - ($chart-width * 2);
-      font-weight: bold;
-      font-size: 4rem;
-    }
   }
 }
