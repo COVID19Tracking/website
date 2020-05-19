@@ -31,6 +31,12 @@ const gatsbyConfig = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
+      resolve: 'gatsby-plugin-polyfill-io',
+      options: {
+        features: ['core-js', 'Intl'],
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'homepageImages',
