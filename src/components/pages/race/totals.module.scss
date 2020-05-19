@@ -1,14 +1,14 @@
 @import '~scss/breakpoints.module.scss';
 
 .totals {
-  margin: 1.5rem 0;
+  margin: 64px 0 0;
   h3 {
     font-size: 1rem;
   }
 }
 
 .totals-wrap {
-  margin-top: 1.5rem;
+  margin-top: 26px;
   @media (min-width: $viewport-lg) {
     display: grid;
     grid-column-gap: 1%;

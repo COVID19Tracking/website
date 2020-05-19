@@ -78,7 +78,7 @@ export default () => {
             <CtaLinks />
           </LandingPageContainer>
         </LandingPageSection>
-        <LandingPageSection>
+        <LandingPageSection noBorder noMargin>
           <LandingPageContainer>
             <LargeHeader center>
               Tracking inequity at the county level
