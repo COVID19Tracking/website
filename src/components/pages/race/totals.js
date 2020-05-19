@@ -18,15 +18,15 @@ export default () => {
   } = data.covidRaceDataHomepage
   return (
     <div className={totalsStyle.totals}>
-      <h3>States reporting racial and ethnic data</h3>
+      <h3>States and territories reporting race and ethnicity data</h3>
       <div className={totalsStyle.totalsWrap}>
         <Total
           label="Reporting positive cases"
-          number={`${statesReportingCases} states`}
+          number={`${statesReportingCases} states/territories`}
         />
         <Total
           label="Reporting deaths"
-          number={`${statesReportingDeaths} states`}
+          number={`${statesReportingDeaths} states/territories`}
         />
       </div>
     </div>
