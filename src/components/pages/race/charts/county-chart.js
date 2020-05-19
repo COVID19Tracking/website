@@ -70,7 +70,7 @@ export default ({ data, field }) => {
         {data.map((d, index) => (
           <g key={`${d.field}-${d.county}`}>
             <svg
-              y={yScale(index) + 10 + heightOffset}
+              y={yScale(index) + 10}
               x={0}
               width={labelOffset}
               className={countyChartStyles.tick}
