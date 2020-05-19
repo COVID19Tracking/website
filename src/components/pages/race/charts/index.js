@@ -15,16 +15,16 @@ import CountyChart from './county-chart'
 import CountyChartLegend from './county-chart-legend'
 
 const numberToWord = [
-  'zero',
-  'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'six',
-  'seven',
-  'eight',
-  'nine',
+  'Zero',
+  'One',
+  'Two',
+  'Three',
+  'Four',
+  'Five',
+  'Six',
+  'Seven',
+  'Eight',
+  'Nine',
 ]
 
 const numberWords = number =>
@@ -78,17 +78,14 @@ export default () => {
 
   let totalHighestRepresented = 0
   let topRepresented = 0
-  let endTopItems = false
-  countiesByDeaths.forEach(county => {
+  countiesByDeaths.forEach((county, index) => {
     if (
       county.demographics.largestRace1 === 'Black or African American alone'
     ) {
       totalHighestRepresented += 1
-      if (!endTopItems) {
+      if (index < 5) {
         topRepresented += 1
       }
-    } else {
-      endTopItems = true
     }
   })
   return (
@@ -159,9 +156,9 @@ export default () => {
             When we look at the 20 counties with the highest level of deaths per
             capita, we see a different story. In{' '}
             {numberWords(totalHighestRepresented)} of these 20 counties, Black
-            people represent the largest racial group. The top{' '}
-            {numberWords(topRepresented)} counties with the highest death rates
-            in the nation are all predominantly Black.
+            people represent the largest racial group.{' '}
+            {numberWords(topRepresented)} of the five counties with the highest
+            death rates in the nation are all predominantly Black.
             <DisclosureButton className={chartsStyle.showChartData}>
               {isDeathsOpen ? (
                 <>
