@@ -15,7 +15,7 @@ export default () => (
         The COVID Racial Data Tracker is a collaboration between the COVID
         Tracking Project and the Antiracist Research &amp; Policy Center.
         Together, we&apos;re gathering the most complete race and ethnicity data
-        on COVID-19 in the US anywhere.
+        on COVID-19 in the United States.
       </HeroText>
     </Container>
   </div>
