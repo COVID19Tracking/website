@@ -69,36 +69,40 @@ export default ({ state }) => {
         noDeaths={!stateData.anyDeathData}
       />
       <TableNotes state={stateData.state} groupedNotes={groupedRaceNotes} />
+      {stateData.posEthData && stateData.deathEthData && (
+        <>
+          <div className={stateStyle.stateOverview}>
+            {/* this is the ethnicity data section */}
+            <PercentageOverview
+              stateName={state.name}
+              dataType="ethnicity"
+              casePercent={state.knownEthPos}
+              deathPercent={state.knownEthDeath}
+              className={stateStyle.totals}
+            />
+            <div className={stateStyle.note}>
+              <HeaderSorter stateName={state.name} stateReports="ethnicity" />
+            </div>
+          </div>
 
-      <div className={stateStyle.stateOverview}>
-        {/* this is the ethnicity data section */}
-        <PercentageOverview
-          stateName={state.name}
-          dataType="ethnicity"
-          casePercent={state.knownEthPos}
-          deathPercent={state.knownEthDeath}
-          className={stateStyle.totals}
-        />
-        <div className={stateStyle.note}>
-          <HeaderSorter stateName={state.name} stateReports="ethnicity" />
-        </div>
-      </div>
-      <TableTitle
-        titleText="Cases and deaths by ethnicity"
-        state={stateData.state}
-      />
-      <EthnicityTable
-        data={stateData}
-        type="Ethnicity"
-        notes={ethnicityNotes}
-        groupedNotes={groupedEthnicityNotes}
-        noPositives={!stateData.anyPosData}
-        noDeaths={!stateData.anyDeathData}
-      />
-      <TableNotes
-        state={stateData.state}
-        groupedNotes={groupedEthnicityNotes}
-      />
+          <TableTitle
+            titleText="Cases and deaths by ethnicity"
+            state={stateData.state}
+          />
+          <EthnicityTable
+            data={stateData}
+            type="Ethnicity"
+            notes={ethnicityNotes}
+            groupedNotes={groupedEthnicityNotes}
+            noPositives={!stateData.anyPosData}
+            noDeaths={!stateData.anyDeathData}
+          />
+          <TableNotes
+            state={stateData.state}
+            groupedNotes={groupedEthnicityNotes}
+          />
+        </>
+      )}
     </div>
   )
 }
