@@ -35,6 +35,8 @@ export default ({ state }) => {
         type="Race"
         notes={raceNotes}
         groupedNotes={groupedRaceNotes}
+        noPositives={!stateData.anyPosData}
+        noDeaths={!stateData.anyDeathData}
       />
       <TableNotes state={stateData.state} groupedNotes={groupedRaceNotes} />
 
@@ -57,6 +59,8 @@ export default ({ state }) => {
         type="Ethnicity"
         notes={ethnicityNotes}
         groupedNotes={groupedEthnicityNotes}
+        noPositives={!stateData.anyPosData}
+        noDeaths={!stateData.anyDeathData}
       />
       <TableNotes
         state={stateData.state}

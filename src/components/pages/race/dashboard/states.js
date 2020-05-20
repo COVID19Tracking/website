@@ -13,6 +13,8 @@ export default () => {
           id
           name: stateName
           state
+          anyPosData
+          anyDeathData
           whitePositives
           whitePosDispFlag
           whitePosCaution
@@ -110,6 +112,11 @@ export default () => {
           id
           state
           name: stateName
+          anyPosData
+          posRaceData
+          posEthData
+          deathRaceData
+          deathEthData
           whitePositives
           whitePosDispFlag
           whitePosCaution
