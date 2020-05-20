@@ -15,8 +15,12 @@ const Notes = ({ index, title, linkTo }) => {
   )
 }
 
-const CautionSymbol = () => (
-  <span className={tableSymbolsStyles.caution}>
+const CautionSymbol = ({ inkey = false }) => (
+  <span
+    className={`${tableSymbolsStyles.caution} ${
+      inkey ? tableSymbolsStyles.inKey : ''
+    }`}
+  >
     <span className="a11y-only">This data is not reliable</span>
   </span>
 )
