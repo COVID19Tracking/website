@@ -6,7 +6,7 @@ export default ({ state, groupedNotes }) => {
   }
   return (
     <>
-      <h4>Value notes</h4>
+      <h4>Notes</h4>
       <ol>
         {groupedNotes.map((note, index) => (
           <li

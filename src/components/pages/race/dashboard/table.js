@@ -51,6 +51,7 @@ const StateTableDataCell = ({
   state,
   stateAbbr,
   type,
+  errorType,
   noData, // if true, this data is not provided by this state
   cellData,
 }) => {
@@ -59,7 +60,8 @@ const StateTableDataCell = ({
       return (
         <Td rowspan={rowCount} additionalClass={stateTableStyle.missingData}>
           <span>
-            {state} does not report {type} data for cases that are not deaths.{' '}
+            {state} does not report {type.toLowerCase()} data for {errorType}{' '}
+            that are not deaths.{' '}
             <Link to="/get-involved">Help us get better data.</Link>
           </span>
         </Td>
@@ -105,6 +107,7 @@ const StateTableBody = ({
           index={index}
           rowCount={rows.length}
           type={type}
+          errorType="cases"
           state={state}
           stateAbbr={stateAbbr}
           noData={noPositives}
@@ -114,6 +117,7 @@ const StateTableBody = ({
           index={index}
           rowCount={rows.length}
           type={type}
+          errorType="deaths"
           state={state}
           stateAbbr={stateAbbr}
           noData={noDeaths}
