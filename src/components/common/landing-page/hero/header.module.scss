@@ -9,13 +9,13 @@
     font-size: 2rem;
   }
   @media (min-width: $viewport-md) {
-    font-size: 3rem;
+    font-size: 36px;
   }
   @media (min-width: $viewport-lg) {
     max-width: 38rem;
-    font-size: 40px;
+    font-size: 36px;
   }
   @media (min-width: $viewport-xl) {
-    max-width: 50rem;
+    font-size: 48px;
   }
 }
