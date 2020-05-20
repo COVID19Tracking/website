@@ -8,11 +8,38 @@ import stateStyle from './state.module.scss'
 
 export default ({ state }) => {
   const stateData = state
-  const raceNotes = [] // todo fix this
-  const groupedRaceNotes = [...new Set(Object.values(raceNotes))]
+  const raceNotes = {
+    otherDeath: stateData.otherDeathNotes,
+    otherPos: stateData.otherPosNotes,
+    whiteDeath: stateData.whiteDeathNotes,
+    whitePos: stateData.whitePosNotes,
+    twoDeath: stateData.twoDeathNotes,
+    twoPos: stateData.twoPosNotes,
+    aianDeath: stateData.aianDeathNotes,
+    aianPos: stateData.aianPosNotes,
+    nhpiDeath: stateData.nhpiDeathNotes,
+    nhpiPos: stateData.nhpiPosNotes,
+    asianDeath: stateData.asianDeathNotes,
+    asianPos: stateData.asianPosNotes,
+    latinXDeath: stateData.latinXDeathNotes,
+    latinXPos: stateData.latinXPosNotes,
+    blackDeath: stateData.blackDeathNotes,
+    blackPos: stateData.blackPosNotes,
+  }
 
-  const ethnicityNotes = [] // todo fix this
-  const groupedEthnicityNotes = [...new Set(Object.values(ethnicityNotes))]
+  const groupedRaceNotes = [...new Set(Object.values(raceNotes))].filter(
+    value => value && value,
+  )
+
+  const ethnicityNotes = {
+    nonhispanicPos: stateData.nonhispanicPosNotes,
+    nonhispanicDeath: stateData.nonhispanicDeathNotes,
+    latinXPos: stateData.latinXPosNotes,
+    latinXDeath: stateData.latinXDeathNotes,
+  }
+  const groupedEthnicityNotes = [
+    ...new Set(Object.values(ethnicityNotes)),
+  ].filter(value => value && value)
 
   return (
     <div>
