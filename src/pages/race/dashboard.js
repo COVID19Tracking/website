@@ -34,7 +34,7 @@ export default ({ data }) => {
         statesNotReporting={['Colorado', 'North Dakota', 'South Carolina']}
       />
       <StateNav
-        title="Race and Ethnicity Data by State"
+        title="Race and ethnicity data by state"
         stateList={stateList.sort((a, b) => (a.name < b.name ? -1 : 1))}
       />
       <States />

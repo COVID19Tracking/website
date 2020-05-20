@@ -47,7 +47,7 @@ export default ({ state }) => {
       <div className={stateStyle.stateOverview}>
         <PercentageOverview
           stateName={state.name}
-          dataType="racial and ethnicity"
+          dataType="race and ethnicity"
           casePercent={state.knownRaceEthPos}
           deathPercent={state.knownRaceEthDeath}
           className={stateStyle.totals}
