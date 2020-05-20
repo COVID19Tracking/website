@@ -27,4 +27,7 @@
   @media (min-width: $viewport-ms) {
     width: 40%;
   }
+  @media (min-width: $viewport-lg) {
+    margin-top: -150px;
+  }
 }
