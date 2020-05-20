@@ -11,7 +11,7 @@ export default ({ statesCasesCount, statesDeathsCount, className }) => (
         <p>
           <span className={percentageOverviewStyles.percent}>
             {statesCasesCount}
-          </span>
+          </span>{' '}
           <br />
           <span className={percentageOverviewStyles.percentCaption}>
             of 56 states & territories
@@ -24,7 +24,7 @@ export default ({ statesCasesCount, statesDeathsCount, className }) => (
         </h3>
         <p>
           <span className={percentageOverviewStyles.percent}>
-            {statesDeathsCount}
+            {statesDeathsCount}{' '}
           </span>
           <br />
           <span className={percentageOverviewStyles.percentCaption}>
