@@ -22,12 +22,11 @@
   img {
     width: 46px;
   }
-  @media (max-width: $viewport-md) {
-    flex-direction: column;
-  }
+  flex-direction: row;
 }
 
 .percent {
+  display: block;
   font-size: 4rem;
   color: $color-plum-600;
   font-weight: bold;
@@ -35,6 +34,7 @@
 }
 
 .percent-caption {
+  display: block;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 24px;
