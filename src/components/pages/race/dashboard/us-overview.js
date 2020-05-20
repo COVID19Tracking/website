@@ -18,7 +18,7 @@ export default ({
         className={UsOverviewStyles.reportingCount}
       />
       <div>
-        <StatesNotReporting stateNames={statesNotReporting} />
+        <StatesNotReporting content={statesNotReporting} />
       </div>
     </div>
     <SyncInfobox />

@@ -31,7 +31,10 @@ export default ({ data }) => {
       <UsOverview
         statesCasesCount={data.covidRaceDataHomepage.statesReportingCases}
         statesDeathsCount={data.covidRaceDataHomepage.statesReportingDeaths}
-        statesNotReporting={['Colorado', 'North Dakota', 'South Carolina']}
+        statesNotReporting={
+          data.noDataSnippet.edges[0].node.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
+        }
       />
       <StateNav
         title="Race and ethnicity data by state"
@@ -45,6 +48,19 @@ export default ({ data }) => {
 export const query = graphql`
   query {
     allContentfulSnippet(filter: { slug: { eq: "race-hero-lede" } }) {
+      edges {
+        node {
+          childContentfulSnippetContentTextNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+    }
+    noDataSnippet: allContentfulSnippet(
+      filter: { slug: { eq: "race-dashboard-no-data" } }
+    ) {
       edges {
         node {
           childContentfulSnippetContentTextNode {
@@ -70,6 +86,12 @@ export const query = graphql`
     covidRaceDataHomepage {
       statesReportingCases
       statesReportingDeaths
+    }
+    allCovidStateInfo {
+      nodes {
+        state
+        name
+      }
     }
   }
 `
