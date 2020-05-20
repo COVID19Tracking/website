@@ -115,7 +115,7 @@ const RaceTable = ({
       },
       death: {
         disparity: data.aianDeathDispFlag,
-        caution: data.asianDeathCaution,
+        caution: data.aianDeathCaution,
         value: data.aianPctDeath,
         note: {
           value: notes.aianDeath,
