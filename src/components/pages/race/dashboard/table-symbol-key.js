@@ -68,6 +68,7 @@ export default ({ state }) => {
           <span aria-hidden>{comparibleOpen ? <>↑</> : <>↓</>}</span>
         </button>
       </p>
+      <div />
       <div
         id={`table-symbol-disparity-${state.toLowerCase()}`}
         hidden={!disparityOpen}
