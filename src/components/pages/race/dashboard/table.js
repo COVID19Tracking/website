@@ -60,8 +60,7 @@ const StateTableDataCell = ({
       return (
         <Td rowspan={rowCount} additionalClass={stateTableStyle.missingData}>
           <span>
-            {state} does not report {type.toLowerCase()} data for {errorType}{' '}
-            that are not deaths.{' '}
+            {state} does not report {type.toLowerCase()} data for {errorType}.{' '}
             <Link to="/get-involved">Help us get better data.</Link>
           </span>
         </Td>
