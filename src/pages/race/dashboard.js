@@ -29,8 +29,8 @@ export default ({ data }) => {
         }
       />
       <UsOverview
-        statesCasesCount={42}
-        statesDeathsCount={35}
+        statesCasesCount={data.covidRaceDataHomepage.statesReportingCases}
+        statesDeathsCount={data.covidRaceDataHomepage.statesReportingDeaths}
         statesNotReporting={['Colorado', 'North Dakota', 'South Carolina']}
       />
       <StateNav
@@ -66,6 +66,10 @@ export const query = graphql`
         name: stateName
         state
       }
+    }
+    covidRaceDataHomepage {
+      statesReportingCases
+      statesReportingDeaths
     }
   }
 `
