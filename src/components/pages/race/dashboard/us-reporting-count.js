@@ -4,7 +4,7 @@ import percentageOverviewStyles from './percentage-overview.module.scss'
 export default ({ statesCasesCount, statesDeathsCount, className }) => (
   <div className={className}>
     <div className={percentageOverviewStyles.data}>
-      <div>
+      <div className={percentageOverviewStyles.dataItem}>
         <h3 className={percentageOverviewStyles.title}>
           Race/ethnicity data for cases:
         </h3>
@@ -14,11 +14,11 @@ export default ({ statesCasesCount, statesDeathsCount, className }) => (
           </span>{' '}
           <br />
           <span className={percentageOverviewStyles.percentCaption}>
-            of 56 states & territories
+            of 56 states &amp; territories
           </span>
         </p>
       </div>
-      <div>
+      <div className={percentageOverviewStyles.dataItem}>
         <h3 className={percentageOverviewStyles.title}>
           Race/ethnicity for deaths:
         </h3>
@@ -28,7 +28,7 @@ export default ({ statesCasesCount, statesDeathsCount, className }) => (
           </span>
           <br />
           <span className={percentageOverviewStyles.percentCaption}>
-            of 56 states & territories
+            of 56 states &amp; territories
           </span>
         </p>
       </div>

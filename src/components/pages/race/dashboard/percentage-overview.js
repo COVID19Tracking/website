@@ -31,14 +31,14 @@ export default ({
         {stateName} has reported {dataType} data for:
       </h3>
       <div className={percentageOverview.data}>
-        <div>
+        <div className={percentageOverview.dataItem}>
           <p>
             <PercentContent percent={Math.round(casePercent * 100)} />{' '}
             <span className="a11y-only">of</span>{' '}
             <span className={percentageOverview.percentCaption}>Cases</span>
           </p>
         </div>
-        <div>
+        <div className={percentageOverview.dataItem}>
           <p>
             <PercentContent percent={Math.round(deathPercent * 100)} />{' '}
             <span className="a11y-only">of</span>{' '}

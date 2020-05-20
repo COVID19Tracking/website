@@ -3,11 +3,11 @@
 .row {
   display: flex;
   align-items: center;
+  @media (max-width: $viewport-lg) {
+    display: block;
+  }
   .reporting-count {
     flex-basis: 60%;
-  }
-  @media (max-width: $viewport-md) {
-    flex-direction: column;
   }
 }
 

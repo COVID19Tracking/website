@@ -16,6 +16,11 @@
   margin-top: 0;
 }
 
+.data-item {
+  &:first-child {
+    padding-right: 3rem;
+  }
+}
 .data {
   display: flex;
   justify-content: space-between;
