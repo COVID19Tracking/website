@@ -7,6 +7,7 @@ const RaceTable = ({
   notes,
   groupedNotes,
   noPositives,
+  isCombined,
   noDeaths,
 }) => {
   const rows = [
@@ -33,7 +34,7 @@ const RaceTable = ({
       },
     },
     {
-      group: 'Hispanic or Latino *',
+      group: `Hispanic or Latino ${isCombined ? '*' : ''}`,
       population: data.latinXPctPop,
       positive: {
         disparity: data.latinXPosDispFlag,

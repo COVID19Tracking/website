@@ -64,6 +64,7 @@ export default ({ state }) => {
         groupedNotes={groupedNotes}
         noPositives={!stateData.anyPosData}
         noDeaths={!stateData.anyDeathData}
+        isCombined
       />
       <p>
         * Hispanic or Latino ethnicity, any race. All other race categories in
