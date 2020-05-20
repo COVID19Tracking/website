@@ -5,7 +5,6 @@ import Container from '~components/common/container'
 import HeroHeader from '~components/common/landing-page/hero/header'
 import HeroText from '~components/common/landing-page/hero/text'
 import headerHeroStyle from './header-hero.module.scss'
-import ImageCredit from '~components/common/image-credit'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -39,9 +38,9 @@ export default () => {
           </div>
           <div className={headerHeroStyle.image}>
             <Img fluid={data.file.childImageSharp.fluid} alt="" aria-hidden />
-            <ImageCredit white>
+            <span className={headerHeroStyle.credit}>
               Júlia Ledur / COVID Tracking Project
-            </ImageCredit>
+            </span>
           </div>
         </div>
       </Container>
