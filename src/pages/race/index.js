@@ -102,7 +102,7 @@ export default () => {
           <Charts />
         </LandingPageSection>
 
-        <LandingPageSection noMargin>
+        <LandingPageSection noBottomBorder noMargin>
           <LandingPageContainer>
             <LargeHeader>
               Learn more from media outlets across the country about how

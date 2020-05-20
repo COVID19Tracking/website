@@ -19,8 +19,8 @@ $border: 1px solid $color-slate-500;
 
   &.no-margin {
     margin: 0;
-    @media (min-width: $viewport-lg) {
-      margin: 0;
-    }
+  }
+  &.no-border-bottom {
+    border-bottom: 0;
   }
 }
