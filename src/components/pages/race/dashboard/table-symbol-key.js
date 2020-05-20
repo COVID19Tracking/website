@@ -9,7 +9,7 @@ export default ({ state }) => {
 
   return (
     <div className={tableSymbolStyles.container}>
-      <p>
+      <p className={tableSymbolStyles.key}>
         <DisparitySymbol inkey />
         Racial/ethnic disparity likely.{' '}
         <button
@@ -28,7 +28,7 @@ export default ({ state }) => {
           <span aria-hidden>{disparityOpen ? <>↑</> : <>↓</>}</span>
         </button>
       </p>
-      <p>
+      <p className={tableSymbolStyles.key}>
         <CautionSymbol inkey />
         Should not be compared with percentage of population.{' '}
         <button
