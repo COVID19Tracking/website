@@ -50,7 +50,6 @@ export default ({ data, path }) => {
       path={path}
       textHeavy
       narrow
-      noMargin
     >
       <Categories categories={blogPost.categories} />
       <Lede

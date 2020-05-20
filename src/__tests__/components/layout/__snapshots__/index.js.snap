@@ -459,7 +459,7 @@ Array [
               className="atlanticBanner"
             >
               <span>
-                From
+                At
               </span>
                
               <img
@@ -547,6 +547,13 @@ Array [
                   href="/accessibility"
                 >
                   Accessibility
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/license"
+                >
+                  License
                 </a>
               </li>
               <li>
@@ -1039,7 +1046,7 @@ Array [
               className="atlanticBanner"
             >
               <span>
-                From
+                At
               </span>
                
               <img
@@ -1127,6 +1134,13 @@ Array [
                   href="/accessibility"
                 >
                   Accessibility
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/license"
+                >
+                  License
                 </a>
               </li>
               <li>
@@ -1619,7 +1633,7 @@ Array [
               className="atlanticBanner"
             >
               <span>
-                From
+                At
               </span>
                
               <img
@@ -1707,6 +1721,13 @@ Array [
                   href="/accessibility"
                 >
                   Accessibility
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/license"
+                >
+                  License
                 </a>
               </li>
               <li>

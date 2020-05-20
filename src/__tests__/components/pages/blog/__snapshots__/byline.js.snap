@@ -12,7 +12,9 @@ exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
       src="//images.ctfassets.net/arandomfile"
     />
   </div>
-  <p>
+  <p
+    className="bylineText"
+  >
     <span
       className="spacer"
     >
@@ -41,7 +43,9 @@ exports[`Components : Pages : Blog : Byline renders correctly 2`] = `
 <div
   className="byline"
 >
-  <p>
+  <p
+    className="bylineText"
+  >
     <span
       className="spacer"
     >
