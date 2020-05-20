@@ -46,11 +46,11 @@ export default ({ multiplier }) => (
   <div className={multiplierHighlightStyle.highlight}>
     <Container>
       <p>
-        That&apos;s a black death rate{' '}
+        This means Black people are dying at a rate{' '}
         <span className={multiplierHighlightStyle.number}>
           {range(Math.round(multiplier * 100))} higher
         </span>{' '}
-        than the Black share of the population.
+        than their population share.
       </p>
     </Container>
   </div>
