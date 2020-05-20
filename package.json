@@ -126,8 +126,8 @@
     "set-tz": "^0.2.0"
   },
   "scripts": {
-    "build": "run-s build:fetch build:gatsby build:data build:data-archive build:test",
-    "build-preview": "run-s setup:api-data build:gatsby build:data build:data-archive build:test",
+    "build": "run-s build:fetch setup:api-repo build:gatsby build:data build:data-archive build:test",
+    "build-preview": "run-s setup:api-data setup:api-repo build:gatsby build:data build:data-archive build:test",
     "build:fetch": "node build/index.js",
     "build:gatsby": "gatsby build",
     "build:data": "cp -R _data/* public/api/",
@@ -149,8 +149,9 @@
     "test:lint": "eslint ./src",
     "test:dev": "run-s test:lint test",
     "test:api-post-build": "jest  --config=\"{}\" --testPathPattern=./build/__tests__/post-build/",
-    "setup": "run-s setup:api-data setup:env-vars",
+    "setup": "run-s setup:api-data setup:api-repo setup:env-vars",
     "setup:api-data": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz",
-    "setup:env-vars": "curl -L https://covidtracking.com/__developer/env-vars > .env"
+    "setup:env-vars": "curl -L https://covidtracking.com/__developer/env-vars > .env",
+    "setup:api-repo": "rm -rf _api || true && git clone --depth 1 https://github.com/COVID19Tracking/covid-public-api.git _api"
   }
 }

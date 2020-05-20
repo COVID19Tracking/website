@@ -8,96 +8,20 @@ import statesStyle from './states.module.scss'
 export default () => {
   const data = useStaticQuery(graphql`
     query {
-      allCovidRaceDataCombined(sort: { fields: name }) {
+      allCovidRaceDataCombined(sort: { fields: stateName }) {
         nodes {
           id
-          aianANHPINotes
-          aianDeaths
-          aianDeathNotes
-          aianDeathDispFlag
-          aianDeathCaution
-          asianDeathNotes
-          asianDeathDispFlag
-          asianDeathCaution
-          asianANHPINotes
-          aianPositives
-          aianPosNotes
-          aianPosDispFlag
-          aianPosCaution
-          aianPctPos
-          aianPctPop
-          aianPctDeath
-          blackPositives
-          blackPosNotes
-          blackPosDispFlag
-          blackPosCaution
-          blackPctPos
-          blackPctPop
-          blackPctDeath
-          blackDeaths
-          blackDeathNotes
-          blackDeathDispFlag
-          blackDeathCaution
-          blackANHPINotes
-          asianPositives
-          asianPosNotes
-          asianPosDispFlag
-          asianPosCaution
-          asianPctPos
-          asianPctPop
-          asianPctDeath
-          asianDeaths
-          knownRaceEthDeath
-          knownRaceEthPos
-          latinXANHPINotes
-          latinXDeathCaution
-          latinXDeathDispFlag
-          latinXDeathNotes
-          latinXPositives
-          latinXPosNotes
-          latinXPosDispFlag
-          latinXPosCaution
-          latinXPctPos
-          latinXPctPop
-          latinXPctDeath
-          latinXDeaths
+          name: stateName
           state
-          otherPositives
-          otherPosNotes
-          otherPosDispFlag
-          otherPosCaution
-          otherPctPos
-          otherPctPop
-          otherPctDeath
-          otherDeaths
-          otherDeathNotes
-          otherDeathDispFlag
-          otherDeathCaution
-          otherANHPINotes
-          nhpiPositives
-          nhpiPosNotes
-          nhpiPosDispFlag
-          nhpiPosCaution
-          nhpiPctPos
-          nhpiPctPop
-          nhpiPctDeath
-          nhpiDeaths
-          nhpiDeathNotes
-          nhpiDeathDispFlag
-          nhpiDeathCaution
-          nhpiANHPINotes
           whitePositives
-          whitePosNotes
           whitePosDispFlag
           whitePosCaution
           whitePctPos
           whitePctPop
           whitePctDeath
           whiteDeaths
-          whiteDeathNotes
           whiteDeathDispFlag
           whiteDeathCaution
-          whiteANHPINotes
           unknownRaceEthPos
           unknownRaceEthDeath
           twoPositives
@@ -111,48 +35,8 @@ export default () => {
           twoDeathNotes
           twoDeathDispFlag
           twoDeathCaution
-          twoANHPINotes
-          name
-        }
-      }
-      allCovidRaceDataSeparate(sort: { fields: name }) {
-        nodes {
-          name
-          whitePosNotes
-          whitePositives
-          whiteSpecialCaseNotes
-          whitePosDispFlag
-          whitePosCaution
-          whitePctPos
-          whitePctPop
-          whitePctDeath
-          whiteDeaths
-          whiteDeathNotes
-          whiteDeathDispFlag
-          whiteDeathCaution
-          whiteANHPIPosNotes
-          whiteANHPIDeathNotes
-          unknownRacePos
-          unknownRaceEthDeath
-          unknownRaceDeath
-          unknownEthPos
-          unknownEthDeath
-          twoSpecialCaseNotes
-          twoPositives
-          twoPosDispFlag
-          twoPosNotes
-          twoPosCaution
-          twoPctPos
-          twoPctPop
-          twoPctDeath
-          twoDeaths
-          twoDeathNotes
-          twoDeathDispFlag
-          twoDeathCaution
-          twoANHPIPosNotes
-          twoANHPIDeathNotes
+          stateName
           state
-          otherSpecialCaseNotes
           otherPositives
           otherPosNotes
           otherPosDispFlag
@@ -164,83 +48,147 @@ export default () => {
           otherDeathNotes
           otherDeathDispFlag
           otherDeathCaution
-          otherANHPIPosNotes
-          otherANHPIDeathNotes
-          nonhispanicSpecialCaseNotes
-          nonhispanicPositives
-          nonhispanicPosNotes
-          nonhispanicPosDispFlag
-          nonhispanicPosCaution
-          nonhispanicPctPos
-          nonhispanicPctPop
-          nonhispanicPctDeath
-          nonhispanicDeaths
-          nonhispanicDeathNotes
-          nonhispanicDeathDispFlag
-          nonhispanicDeathCaution
-          nonhispanicANHPIPosNotes
-          nonhispanicANHPIDeathNotes
-          nhpiSpecialCaseNotes
           nhpiPositives
           nhpiPosNotes
           nhpiPosDispFlag
           nhpiPosCaution
-          nhpiPctPop
           nhpiPctPos
+          nhpiPctPop
           nhpiPctDeath
           nhpiDeaths
           nhpiDeathNotes
           nhpiDeathDispFlag
           nhpiDeathCaution
-          nhpiANHPIDeathNotes
-          nhpiANHPIPosNotes
-          latinXSpecialCaseNotes
+          nhpiANHPINotes
           latinXPositives
-          latinXPosNotes
           latinXPosDispFlag
           latinXPosCaution
           latinXPctPos
           latinXPctPop
           latinXPctDeath
           latinXDeaths
-          latinXDeathNotes
           latinXDeathDispFlag
           latinXDeathCaution
-          latinXANHPIPosNotes
-          latinXANHPIDeathNotes
+          knownRaceEthPos
+          knownRaceEthDeath
+          blackPositives
+          blackPosDispFlag
+          blackPosCaution
+          blackPctPos
+          blackPctPop
+          blackPctDeath
+          blackDeaths
+          blackDeathDispFlag
+          blackDeathCaution
+          asianPositives
+          asianPosNotes
+          asianPosDispFlag
+          asianPosCaution
+          asianPctPos
+          asianPctPop
+          asianPctDeath
+          asianDeaths
+          asianDeathNotes
+          asianDeathDispFlag
+          asianDeathCaution
+          asianANHPINotes
+          aianPositives
+          aianPosNotes
+          aianPosDispFlag
+          aianPosCaution
+          aianPctPos
+          aianPctPop
+          aianPctDeath
+          aianDeaths
+          aianDeathNotes
+          aianDeathDispFlag
+          aianDeathCaution
+        }
+      }
+      allCovidRaceDataSeparate(sort: { fields: stateName }) {
+        nodes {
+          id
+          state
+          name: stateName
+          whitePositives
+          whitePosDispFlag
+          whitePosCaution
+          whitePctPos
+          whitePctPop
+          whitePctDeath
+          whiteDeaths
+          whiteDeathDispFlag
+          whiteDeathCaution
+          unknownRacePos
+          unknownRaceDeath
+          unknownEthPos
+          unknownEthDeath
+          twoPositives
+          twoPosNotes
+          twoPosDispFlag
+          twoPosCaution
+          twoPctPos
+          twoPctPop
+          twoPctDeath
+          twoDeaths
+          twoDeathNotes
+          twoDeathDispFlag
+          twoDeathCaution
+          otherPositives
+          otherPosNotes
+          otherPosDispFlag
+          otherPosCaution
+          otherPctPos
+          otherPctPop
+          otherPctDeath
+          otherDeaths
+          otherDeathNotes
+          otherDeathDispFlag
+          otherDeathCaution
+          nonhispanicPositives
+          nonhispanicPosDispFlag
+          nonhispanicPosCaution
+          nonhispanicPctPos
+          nonhispanicPctPop
+          nonhispanicPctDeath
+          nonhispanicDeaths
+          nonhispanicDeathDispFlag
+          nonhispanicDeathCaution
+          nhpiPositives
+          nhpiPosNotes
+          nhpiPosDispFlag
+          nhpiPosCaution
+          nhpiPctPos
+          nhpiPctPop
+          nhpiPctDeath
+          nhpiDeaths
+          nhpiDeathNotes
+          nhpiDeathDispFlag
+          nhpiDeathCaution
+          nhpiANHPIPosNotes
+          nhpiANHPIDeathNotes
+          latinXPositives
+          latinXPosDispFlag
+          latinXPosCaution
+          latinXPctPos
+          latinXPctPop
+          latinXPctDeath
+          latinXDeaths
+          latinXDeathDispFlag
+          latinXDeathCaution
           knownRacePos
+          knownRaceDeath
           knownEthPos
           knownEthDeath
-          blackSpecialCaseNotes__1
-          id
-          blackSpecialCaseNotes
-          blackPositives__1
           blackPositives
-          blackPosNotes__1
-          blackPosNotes
-          blackPosDispFlag__1
           blackPosDispFlag
-          blackPosCaution__1
           blackPosCaution
-          blackPctPos__1
           blackPctPos
-          blackPctPop__1
           blackPctPop
-          blackPctDeath__1
           blackPctDeath
-          blackDeaths__1
           blackDeaths
-          blackDeathNotes__1
-          blackDeathNotes
-          blackDeathDispFlag__1
           blackDeathDispFlag
-          blackDeathCaution__1
           blackDeathCaution
-          blackANHPIPosNotes__1
-          blackANHPIPosNotes
-          blackANHPIDeathNotes__1
-          blackANHPIDeathNotes
-          asianSpecialCaseNotes
           asianPositives
           asianPosNotes
           asianPosDispFlag
@@ -254,7 +202,6 @@ export default () => {
           asianDeathCaution
           asianANHPIPosNotes
           asianANHPIDeathNotes
-          aianSpecialCaseNotes
           aianPositives
           aianPosNotes
           aianPosDispFlag
@@ -266,8 +213,6 @@ export default () => {
           aianDeathNotes
           aianDeathDispFlag
           aianDeathCaution
-          aianANHPIPosNotes
-          aianANHPIDeathNotes
         }
       }
     }
