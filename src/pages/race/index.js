@@ -64,9 +64,11 @@ export default () => {
               lives to COVID-19 to date.
             </LargeHeader>
             <NationalChart />
-            <RaceMultiplierHighlight
-              multiplier={blackLivesExpectedMultiplier}
-            />
+            {Number(blackLivesExpectedMultiplier) > 1.36 && (
+              <RaceMultiplierHighlight
+                multiplier={blackLivesExpectedMultiplier}
+              />
+            )}
           </LandingPageContainer>
         </LandingPageSection>
         <LandingPageSection noMargin>
@@ -102,7 +104,7 @@ export default () => {
           <Charts />
         </LandingPageSection>
 
-        <LandingPageSection noBottomBorder noMargin>
+        <LandingPageSection noMargin>
           <LandingPageContainer>
             <LargeHeader>
               Learn more from media outlets across the country about how
