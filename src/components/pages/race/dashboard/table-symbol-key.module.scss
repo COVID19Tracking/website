@@ -23,3 +23,10 @@
     text-decoration: underline;
   }
 }
+
+.disclosure-pane {
+  display: none;
+  &[data-expanded='true'] {
+    display: block;
+  }
+}

@@ -56,7 +56,10 @@ export default ({ state }) => {
           <HeaderSorter stateName={state.name} stateReports="race" />
         </div>
       </div>
-      <TableTitle titleText="Cases and deaths by race" />
+      <TableTitle
+        titleText="Cases and deaths by race"
+        state={stateData.state}
+      />
       <RaceTable
         data={stateData}
         type="Race"
@@ -80,7 +83,10 @@ export default ({ state }) => {
           <HeaderSorter stateName={state.name} stateReports="ethnicity" />
         </div>
       </div>
-      <TableTitle titleText="Cases and deaths by ethnicity" />
+      <TableTitle
+        titleText="Cases and deaths by ethnicity"
+        state={stateData.state}
+      />
       <EthnicityTable
         data={stateData}
         type="Ethnicity"

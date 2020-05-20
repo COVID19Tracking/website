@@ -56,7 +56,10 @@ export default ({ state }) => {
           <HeaderSorter stateName={state.name} stateReports="race/ethnicity" />
         </div>
       </div>
-      <TableTitle titleText="Cases and deaths by race/ethnicity" />
+      <TableTitle
+        titleText="Cases and deaths by race/ethnicity"
+        state={stateData.state}
+      />
       <RaceTable
         data={stateData}
         type="Race/ethnicity"

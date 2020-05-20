@@ -1,9 +1,9 @@
 import React from 'react'
 import TableSymbolKey from './table-symbol-key'
 
-export default ({ titleText }) => (
+export default ({ titleText, state }) => (
   <div>
     <h3>{titleText}</h3>
-    <TableSymbolKey />
+    <TableSymbolKey state={state} />
   </div>
 )
