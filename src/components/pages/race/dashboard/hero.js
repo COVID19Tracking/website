@@ -7,7 +7,7 @@ export default ({ ledeContent }) => (
       The latest race and ethnicity data from every state and territory that
       reports it.
     </h1>
-    <p
+    <div
       dangerouslySetInnerHTML={{
         __html: ledeContent,
       }}
