@@ -1,34 +1,26 @@
 import React from 'react'
 import tableSymbolsStyles from './table-symbols.module.scss'
 
-const NoteSymbol = ({ index, title, linkTo, inkey = false }) => {
-  if (linkTo) {
-    return (
-      <a
-        href={`#${linkTo}`}
-        className={`${tableSymbolsStyles.noteSymbol} ${
-          inkey ? tableSymbolsStyles.inKey : ''
-        }`}
-      >
-        <span className="a11y-only">{title}</span>
-        <span>{index}</span>
-      </a>
-    )
+const Notes = ({ index, title, linkTo }) => {
+  if (!linkTo) {
+    return null
   }
   return (
-    <div
-      className={`${tableSymbolsStyles.noteSymbol} ${
-        inkey ? tableSymbolsStyles.inKey : ''
-      }`}
-    >
+    <a href={`#${linkTo}`} className={tableSymbolsStyles.note}>
       <span className="a11y-only">{title}</span>
       <span>{index}</span>
-    </div>
+    </a>
   )
 }
 
+const CautionSymbol = () => (
+  <span className={tableSymbolsStyles.caution}>
+    <span className="a11y-only">This data is not reliable</span>
+  </span>
+)
+
 const DisparitySymbol = ({ inkey = false }) => (
-  <div
+  <span
     className={`${tableSymbolsStyles.disparitySymbol} ${
       inkey ? tableSymbolsStyles.inKey : ''
     }`}
@@ -37,7 +29,7 @@ const DisparitySymbol = ({ inkey = false }) => (
       Figure is significantly higher than population proportion
     </span>
     <div className={tableSymbolsStyles.inner} />
-  </div>
+  </span>
 )
 
-export { NoteSymbol, DisparitySymbol }
+export { Notes, CautionSymbol, DisparitySymbol }

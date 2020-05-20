@@ -149,6 +149,7 @@ export default () => {
           otherPctPop
           otherPctDeath
           otherDeaths
+          otherDeathCaution
           otherDeathNotes
           otherDeathDispFlag
           otherDeathCaution

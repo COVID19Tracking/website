@@ -1,8 +1,23 @@
+@import '~scss/breakpoints.module.scss';
+
 .container {
   p {
-    margin-bottom: 0.5rem;
+    @media (min-width: $viewport-lg) {
+      display: inline-block;
+      &:first-child {
+        margin-right: 2rem;
+      }
+    }
   }
   p:last-child {
     margin-bottom: 0;
   }
+}
+
+.disclosure-button {
+  border: 0;
+  text-decoration: underline;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }

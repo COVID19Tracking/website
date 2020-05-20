@@ -15,6 +15,7 @@ const RaceTable = ({
       population: data.blackPctPop,
       positive: {
         disparity: data.blackPosDispFlag,
+        caution: data.blackPosCaution,
         value: data.blackPctPos,
         note: {
           value: notes.blackPos,
@@ -23,6 +24,7 @@ const RaceTable = ({
       },
       death: {
         disparity: data.blackDeathDispFlag,
+        caution: data.blackDeathCaution,
         value: data.blackPctDeath,
         note: {
           value: notes.blackDeath,
@@ -35,6 +37,7 @@ const RaceTable = ({
       population: data.latinXPctPop,
       positive: {
         disparity: data.latinXPosDispFlag,
+        caution: data.latinXPosCaution,
         value: data.latinXPctPos,
         note: {
           value: notes.latinXPos,
@@ -43,7 +46,8 @@ const RaceTable = ({
       },
       death: {
         disparity: data.latinXDeathDispFlag,
-        value: data.latinXPctDeath,
+        caution: data.latinXPosCaution,
+        value: data.latinXDeathCaution,
         note: {
           value: notes.latinXDeath,
           index: groupedNotes.indexOf(notes.latinXDeath),
@@ -55,6 +59,7 @@ const RaceTable = ({
       population: data.asianPctPop,
       positive: {
         disparity: data.asianPosDispFlag,
+        caution: data.asianPosCaution,
         value: data.asianPctPos,
         note: {
           value: notes.asianPos,
@@ -63,6 +68,7 @@ const RaceTable = ({
       },
       death: {
         disparity: data.asianDeathDispFlag,
+        caution: data.asianDeathCaution,
         value: data.asianPctDeath,
         note: {
           value: notes.asianDeath,
@@ -75,6 +81,7 @@ const RaceTable = ({
       population: data.nhpiPctPop,
       positive: {
         disparity: data.nhpiPosDispFlag,
+        caution: data.nhpiPosCaution,
         value: data.nhpiPctPos,
         note: {
           value: notes.nhpiPos,
@@ -83,6 +90,7 @@ const RaceTable = ({
       },
       death: {
         disparity: data.nhpiDeathDispFlag,
+        caution: data.nhpiDeathCaution,
         value: data.nhpiPctDeath,
         note: {
           value: notes.nhpiDeath,
@@ -95,6 +103,7 @@ const RaceTable = ({
       population: data.aianPctPop,
       positive: {
         disparity: data.aianPosDispFlag,
+        caution: data.aianPosCaution,
         value: data.aianPctPos,
         note: {
           value: notes.aianPos,
@@ -103,6 +112,7 @@ const RaceTable = ({
       },
       death: {
         disparity: data.aianDeathDispFlag,
+        caution: data.asianDeathCaution,
         value: data.aianPctDeath,
         note: {
           value: notes.aianDeath,
@@ -115,6 +125,7 @@ const RaceTable = ({
       population: data.twoPctPop,
       positive: {
         disparity: data.twoPosDispFlag,
+        caution: data.twoPosCaution,
         value: data.twoPctPos,
         note: {
           value: notes.twoPos,
@@ -123,6 +134,7 @@ const RaceTable = ({
       },
       death: {
         disparity: data.twoDeathDispFlag,
+        caution: data.twoDeathCaution,
         value: data.twoPctDeath,
         note: {
           value: notes.twoDeath,
@@ -135,6 +147,7 @@ const RaceTable = ({
       population: data.whitePctPop,
       positive: {
         disparity: data.whitePosDispFlag,
+        caution: data.whitePosCaution,
         value: data.whitePctPos,
         note: {
           value: notes.whitePos,
@@ -143,6 +156,7 @@ const RaceTable = ({
       },
       death: {
         disparity: data.whiteDeathDispFlag,
+        caution: data.whiteDeathCaution,
         value: data.whitePctDeath,
         note: {
           value: notes.whiteDeath,
@@ -155,6 +169,7 @@ const RaceTable = ({
       population: data.otherPctPop,
       positive: {
         disparity: data.otherPosDispFlag,
+        caution: data.otherPosCaution,
         value: data.otherPctPos,
         note: {
           value: notes.otherPos,
@@ -163,6 +178,7 @@ const RaceTable = ({
       },
       death: {
         disparity: data.otherDeathDispFlag,
+        caution: data.otherDeathCaution,
         value: data.otherPctDeath,
         note: {
           value: notes.otherDeath,
