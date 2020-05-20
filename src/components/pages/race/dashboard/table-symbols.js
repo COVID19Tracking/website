@@ -2,14 +2,16 @@ import React from 'react'
 import tableSymbolsStyles from './table-symbols.module.scss'
 
 const Notes = ({ index, title, linkTo }) => {
-  if (!linkTo) {
+  if (!linkTo || !title) {
     return null
   }
   return (
-    <a href={`#${linkTo}`} className={tableSymbolsStyles.note}>
-      <span className="a11y-only">{title}</span>
-      <span>{index}</span>
-    </a>
+    <sup className={tableSymbolsStyles.note}>
+      <a href={`#${linkTo}`}>
+        <span className="a11y-only">{title}</span>
+        <span>{index}</span>
+      </a>
+    </sup>
   )
 }
 

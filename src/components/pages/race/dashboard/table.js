@@ -70,14 +70,14 @@ const StateTableDataCell = ({
     <Td>
       <>
         <Percent number={cellData.value} />
+        <Notes
+          index={cellData.note.index + 1}
+          title={cellData.note.value}
+          linkTo={`${state}-table-note-${cellData.note.index + 1}`}
+        />
         <div className={stateTableStyle.symbolSpacer}>
           {cellData.caution && <CautionSymbol />}
           {cellData.disparity && <DisparitySymbol />}
-          <Notes
-            index={cellData.note.index + 1}
-            title={cellData.note.value}
-            linkTo={`${state}-table-note-${cellData.note.index + 1}`}
-          />
         </div>
       </>
     </Td>

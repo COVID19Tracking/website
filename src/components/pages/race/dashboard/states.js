@@ -8,7 +8,10 @@ import statesStyle from './states.module.scss'
 export default () => {
   const data = useStaticQuery(graphql`
     query {
-      allCovidRaceDataCombined(sort: { fields: stateName }) {
+      allCovidRaceDataCombined(
+        filter: { state: { ne: "US" } }
+        sort: { fields: stateName }
+      ) {
         nodes {
           id
           name: stateName
@@ -107,7 +110,10 @@ export default () => {
           aianDeathCaution
         }
       }
-      allCovidRaceDataSeparate(sort: { fields: stateName }) {
+      allCovidRaceDataSeparate(
+        filter: { state: { ne: "US" } }
+        sort: { fields: stateName }
+      ) {
         nodes {
           id
           state
