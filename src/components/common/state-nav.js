@@ -78,7 +78,7 @@ export default ({ title, stateList }) => {
             <ComboboxInput
               id="jump-to-state"
               placeholder="State or territory"
-              autoComplete="off"
+              autoComplete="false"
               onKeyDown={event => selectFirstItemOnKeyDown(event, results)}
               onChange={event => {
                 setSearchTerm(event.target.value)
