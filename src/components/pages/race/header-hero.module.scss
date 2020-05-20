@@ -9,3 +9,22 @@
     padding: 35px 0;
   }
 }
+
+.content-wrapper {
+  @media (min-width: $viewport-ms) {
+    display: flex;
+  }
+}
+
+.content {
+  @media (min-width: $viewport-ms) {
+    width: 60%;
+    padding-right: 2rem;
+  }
+}
+
+.image {
+  @media (min-width: $viewport-ms) {
+    width: 40%;
+  }
+}

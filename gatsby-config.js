@@ -38,6 +38,13 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'raceProjectImages',
+        path: `${__dirname}/src/images/race-project`,
+      },
+    },
+    {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_data/v1/press.json',
