@@ -67,6 +67,7 @@ export default ({ state }) => {
         groupedNotes={groupedRaceNotes}
         noPositives={!stateData.anyPosData}
         noDeaths={!stateData.anyDeathData}
+        isInEthnicityState
       />
       <TableNotes state={stateData.state} groupedNotes={groupedRaceNotes} />
       {stateData.posEthData && stateData.deathEthData && (

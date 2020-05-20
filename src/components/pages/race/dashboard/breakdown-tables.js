@@ -9,6 +9,7 @@ const RaceTable = ({
   noPositives,
   isCombined,
   noDeaths,
+  isInEthnicityState,
 }) => {
   const rows = [
     {
@@ -35,6 +36,7 @@ const RaceTable = ({
     },
     {
       group: `Hispanic or Latino ${isCombined ? '*' : ''}`,
+      hideInEthnicityState: true,
       population: data.latinXPctPop,
       positive: {
         disparity: data.latinXPosDispFlag,
@@ -188,9 +190,12 @@ const RaceTable = ({
       },
     },
   ]
+
   return (
     <BaseTable
-      rows={rows}
+      rows={rows.filter(
+        row => !isInEthnicityState || !row.hideInEthnicityState,
+      )}
       data={data}
       type={type}
       noPositives={noPositives}
