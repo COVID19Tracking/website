@@ -70,7 +70,7 @@ export default ({ state }) => {
       </p>
       <div
         id={`table-symbol-disparity-${state.toLowerCase()}`}
-        hidden={disparityOpen}
+        hidden={!disparityOpen}
         className={tableSymbolStyles.disclosurePane}
         data-expanded={disparityOpen}
         dangerouslySetInnerHTML={{
@@ -81,7 +81,7 @@ export default ({ state }) => {
       />
       <div
         id={`table-symbol-notComparible-${state.toLowerCase()}`}
-        hidden={comparibleOpen}
+        hidden={!comparibleOpen}
         className={tableSymbolStyles.disclosurePane}
         data-expanded={comparibleOpen}
         dangerouslySetInnerHTML={{
