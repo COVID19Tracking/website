@@ -49,6 +49,7 @@ const StateTableDataCell = ({
   index,
   rowCount,
   state,
+  stateAbbr,
   type,
   noData, // if true, this data is not provided by this state
   cellData,
@@ -73,7 +74,8 @@ const StateTableDataCell = ({
         <Notes
           index={cellData.note.index + 1}
           title={cellData.note.value}
-          linkTo={`${state}-table-note-${cellData.note.index + 1}`}
+          linkTo={`${stateAbbr.toLowerCase()}-table-note-${cellData.note.index +
+            1}`}
         />
         <div className={stateTableStyle.symbolSpacer}>
           {cellData.caution && <CautionSymbol />}
@@ -86,6 +88,7 @@ const StateTableDataCell = ({
 
 const StateTableBody = ({
   state,
+  stateAbbr,
   rows,
   type,
   noPositives = false,
@@ -103,6 +106,7 @@ const StateTableBody = ({
           rowCount={rows.length}
           type={type}
           state={state}
+          stateAbbr={stateAbbr}
           noData={noPositives}
           cellData={row.positive}
         />
@@ -111,6 +115,7 @@ const StateTableBody = ({
           rowCount={rows.length}
           type={type}
           state={state}
+          stateAbbr={stateAbbr}
           noData={noDeaths}
           cellData={row.death}
         />

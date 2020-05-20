@@ -1,12 +1,22 @@
 import React from 'react'
-import tableNotesStyles from './table-notes.module.scss'
 
-export default ({ state, groupedNotes }) => (
-  <ol className={tableNotesStyles.notes}>
-    {groupedNotes.map((note, index) => (
-      <li id={`${state}-table-note-${index + 1}`}>
-        <span className={tableNotesStyles.content}>{note}</span>
-      </li>
-    ))}
-  </ol>
-)
+export default ({ state, groupedNotes }) => {
+  if (!groupedNotes.length) {
+    return null
+  }
+  return (
+    <>
+      <h4>Value notes</h4>
+      <ol>
+        {groupedNotes.map((note, index) => (
+          <li
+            id={`${state.toLowerCase()}-table-note-${index + 1}`}
+            key={`${state.toLowerCase()}-table-note-${index + 1}`}
+          >
+            {note}
+          </li>
+        ))}
+      </ol>
+    </>
+  )
+}

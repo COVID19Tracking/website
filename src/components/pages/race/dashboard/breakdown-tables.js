@@ -271,6 +271,7 @@ const BaseTable = ({ data, type, noPositives, noDeaths, rows }) => {
         noPositives={noPositives}
         noDeaths={noDeaths}
         state={data.name}
+        stateAbbr={data.state}
         type={type}
         rows={rows}
       />
