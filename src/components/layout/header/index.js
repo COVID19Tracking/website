@@ -73,6 +73,15 @@ const Header = withSearch(
       subNavigation[node.slug] = node.pages
     })
     const topNavigation = data.allNavigationYaml.edges[0].node.items
+    if (returnLink && returnLinkTitle) {
+      pathNavigation = {
+        top: false,
+        parent: {
+          link: returnLink,
+          title: returnLinkTitle,
+        },
+      }
+    }
     topNavigation.forEach(item => {
       if (item.link === path) {
         pathNavigation = {
