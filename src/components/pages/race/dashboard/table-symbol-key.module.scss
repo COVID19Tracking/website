@@ -16,8 +16,10 @@
 
 .disclosure-button {
   border: 0;
-  text-decoration: underline;
   border: none;
   background: transparent;
   cursor: pointer;
+  .text {
+    text-decoration: underline;
+  }
 }

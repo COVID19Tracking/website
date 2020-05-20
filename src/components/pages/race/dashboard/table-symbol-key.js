@@ -10,6 +10,8 @@ import tableSymbolStyles from './table-symbol-key.module.scss'
 
 export default () => {
   const [disclosureContent, setDisclosureContent] = useState('notComparible')
+  const [disparityOpen, setDisparityOpen] = useState(false)
+  const [comparibleOpen, setComparibleOpen] = useState(false)
   const data = useStaticQuery(graphql`
     query {
       notComparible: contentfulSnippet(
@@ -39,9 +41,13 @@ export default () => {
           Racial/ethnic disparity likely.{' '}
           <DisclosureButton
             className={tableSymbolStyles.disclosureButton}
-            onClick={() => setDisclosureContent('disparity')}
+            onClick={() => {
+              setDisclosureContent('disparity')
+              setDisparityOpen(!disparityOpen)
+            }}
           >
-            See why.
+            <span className={tableSymbolStyles.text}>See why</span>{' '}
+            <span aria-hidden>{disparityOpen ? <>↑</> : <>↓</>}</span>
           </DisclosureButton>
         </p>
         <p>
@@ -49,9 +55,13 @@ export default () => {
           Should not be compared with percentage of population.{' '}
           <DisclosureButton
             className={tableSymbolStyles.disclosureButton}
-            onClick={() => setDisclosureContent('notComparible')}
+            onClick={() => {
+              setDisclosureContent('notComparible')
+              setComparibleOpen(!comparibleOpen)
+            }}
           >
-            See why.
+            <span className={tableSymbolStyles.text}>See why</span>{' '}
+            <span aria-hidden>{comparibleOpen ? <>↑</> : <>↓</>}</span>
           </DisclosureButton>
         </p>
         <DisclosurePanel>
