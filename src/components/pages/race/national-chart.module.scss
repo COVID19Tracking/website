@@ -4,6 +4,7 @@
 .header {
   font-weight: normal;
   margin: 60px 0 40px;
+  font-size: 23px;
   @media (min-width: $viewport-lg) {
     text-align: center;
   }
@@ -51,6 +52,7 @@ p.chart-legend {
   text-align: left;
   margin-top: 1rem;
   margin-left: 1rem;
+  font-size: 18px;
   @media (min-width: $viewport-lg) {
     margin-left: 0;
     margin-top: 0;
@@ -62,7 +64,7 @@ p.chart-legend {
 .number {
   display: block;
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 48px;
   line-height: 1;
 }
 

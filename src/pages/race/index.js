@@ -106,7 +106,7 @@ export default () => {
 
         <LandingPageSection noBottomBorder noMargin>
           <LandingPageContainer>
-            <LargeHeader>
+            <LargeHeader center>
               Learn more from media outlets across the country about how
               COVID-19 is impacting communities of color.
             </LargeHeader>

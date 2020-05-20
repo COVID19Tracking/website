@@ -1,7 +1,10 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
 
 .paragraph {
   text-align: center;
+  font-size: 23px;
+  color: $color-slate-700;
   @media (min-width: $viewport-lg) {
     margin: 1rem auto;
     max-width: 704px;
