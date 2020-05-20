@@ -65,7 +65,7 @@ const Byline = ({ authors, date, smallmargin = false }) => {
           ))}
         </div>
       )}
-      <p>
+      <p className={bylineStyles.bylineText}>
         <span className={bylineStyles.spacer}>By </span>
         <span className={bylineStyles.author}>
           <AuthorsText authors={authors} />

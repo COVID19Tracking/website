@@ -11,7 +11,7 @@
     display: inline-flex;
     align-items: flex-start;
     img {
-      width: 47px;
+      max-width: 47px;
       border-radius: 50%;
       margin-right: -5px;
     }
@@ -40,6 +40,10 @@
 .byline {
   @extend .byline-base;
   margin: 16px 0;
+
+  .byline-text {
+    margin: 0;
+  }
 }
 
 .byline--small-margin {
@@ -50,12 +54,13 @@
   }
 }
 
+
 .byline--small-margin--image {
   @extend .byline-base;
   margin-top: 0;
   margin-bottom: 8px;
-  p {
-    margin: 12px 0;
+  .byline-text {
+    margin: 0;
   }
   .headshot-container,
   .headshot-container img {
