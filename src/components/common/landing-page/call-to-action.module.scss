@@ -1,0 +1,25 @@
+@import '~scss/colors.module.scss';
+
+.cta {
+  color: $color-honey-700;
+  .arrow {
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 0.2rem;
+  }
+  &:hover {
+    color: $text;
+  }
+}
+
+.centered {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+
+.bold {
+  font-weight: bold;
+}

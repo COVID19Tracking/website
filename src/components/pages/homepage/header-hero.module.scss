@@ -25,25 +25,6 @@ $chart-color: #0f1551;
       padding-bottom: 2rem;
     }
   }
-  .header {
-    font-size: 30px;
-    line-height: 1.25;
-    font-weight: bold;
-    margin-top: 0;
-    @media (min-width: $viewport-ms) {
-      font-size: 2rem;
-    }
-    @media (min-width: $viewport-md) {
-      font-size: 3rem;
-    }
-    @media (min-width: $viewport-lg) {
-      max-width: 38rem;
-      font-size: 40px;
-    }
-    @media (min-width: $viewport-xl) {
-      max-width: 48rem;
-    }
-  }
 
   .paragraph {
     @media (min-width: $viewport-lg) {

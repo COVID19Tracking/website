@@ -1,0 +1,36 @@
+@import '~scss/breakpoints.module.scss';
+
+.container {
+  p {
+    @media (min-width: $viewport-lg) {
+      display: inline-block;
+      &:first-child {
+        margin-right: 2rem;
+      }
+    }
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.key {
+  font-size: 0.8rem;
+}
+
+.disclosure-button {
+  border: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  .text {
+    text-decoration: underline;
+  }
+}
+
+.disclosure-pane {
+  display: none;
+  &[data-expanded='true'] {
+    display: block;
+  }
+}

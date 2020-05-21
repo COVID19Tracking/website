@@ -1,0 +1,13 @@
+@import '~scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
+
+.paragraph {
+  color: $color-slate-700;
+  font-size: 16px;
+  @media (min-width: $viewport-lg) {
+    text-align: center;
+    font-size: 23px;
+    margin: 1rem auto;
+    max-width: 704px;
+  }
+}
