@@ -27,6 +27,13 @@ export default ({ state }) => {
     latinXPos: stateData.latinXPosNotes,
     blackDeath: stateData.blackDeathNotes,
     blackPos: stateData.blackPosNotes,
+    blackSpecialCase: stateData.blackSpecialCaseNotes,
+    asianSpecialCase: stateData.asianSpecialCaseNotes,
+    aianSpecialCase: stateData.aianSpecialCaseNotes,
+    nhpiSpecialCase: stateData.nhpiSpecialCaseNotes,
+    twoSpecialCase: stateData.twoSpecialCaseNotes,
+    whiteSpecialCase: stateData.whiteSpecialCaseNotes,
+    otherSpecialCase: stateData.otherSpecialCaseNotes,
   }
 
   const groupedRaceNotes = [...new Set(Object.values(raceNotes))].filter(
@@ -38,6 +45,8 @@ export default ({ state }) => {
     nonhispanicDeath: stateData.nonhispanicDeathNotes,
     latinXPos: stateData.latinXPosNotes,
     latinXDeath: stateData.latinXDeathNotes,
+    latinXSpecialCase: stateData.latinXSpecialCaseNotes,
+    nonhispanicSpecialCase: stateData.nonhispanicSpecialCaseNotes,
   }
   const groupedEthnicityNotes = [
     ...new Set(Object.values(ethnicityNotes)),

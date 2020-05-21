@@ -204,6 +204,8 @@ export default () => {
           blackDeaths
           blackDeathDispFlag
           blackDeathCaution
+          asianSpecialCaseNotes
+          blackSpecialCaseNotes
           asianPositives
           asianPosNotes
           asianPosDispFlag
@@ -228,6 +230,11 @@ export default () => {
           aianDeathNotes
           aianDeathDispFlag
           aianDeathCaution
+          aianSpecialCaseNotes
+          nhpiSpecialCaseNotes
+          twoSpecialCaseNotes
+          whiteSpecialCaseNotes
+          otherSpecialCaseNotes
         }
       }
     }

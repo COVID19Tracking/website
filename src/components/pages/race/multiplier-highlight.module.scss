@@ -7,6 +7,8 @@
     font-size: 18px;
     margin: 0;
     @media (min-width: $viewport-md) {
+      max-width: 600px;
+      margin: 0 auto;
       font-size: 23px;
       text-align: center;
     }
