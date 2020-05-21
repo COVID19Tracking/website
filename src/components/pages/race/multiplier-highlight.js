@@ -1,5 +1,4 @@
 import React from 'react'
-import Container from '~components/common/container'
 import multiplierHighlightStyle from './multiplier-highlight.module.scss'
 
 function range(multiplier) {
@@ -44,14 +43,12 @@ function range(multiplier) {
 
 export default ({ multiplier }) => (
   <div className={multiplierHighlightStyle.highlight}>
-    <Container>
-      <p>
-        This means Black people are dying at a rate{' '}
-        <span className={multiplierHighlightStyle.number}>
-          {range(Math.round(multiplier * 100))} higher
-        </span>{' '}
-        than their population share.
-      </p>
-    </Container>
+    <p>
+      This means Black people are dying at a rate{' '}
+      <span className={multiplierHighlightStyle.number}>
+        {range(Math.round(multiplier * 100))} higher
+      </span>{' '}
+      than their population share.
+    </p>
   </div>
 )

@@ -4,9 +4,12 @@
 .highlight {
   margin-top: 40px;
   p {
-    font-size: 23px;
-    text-align: center;
+    font-size: 18px;
     margin: 0;
+    @media (min-width: $viewport-md) {
+      font-size: 23px;
+      text-align: center;
+    }
   }
 }
 

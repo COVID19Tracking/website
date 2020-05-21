@@ -51,13 +51,14 @@
 
 p.chart-legend {
   text-align: left;
-  margin-top: 1rem;
-  margin-left: 1rem;
-  font-size: 18px;
-  @media (min-width: $viewport-lg) {
-    margin-left: 0;
-    margin-top: 0;
+  margin: 1rem auto;
+  font-size: 13px;
+  @media (min-width: $viewport-md) {
     width: 50%;
+    font-size: 18px;
+  }
+  @media (min-width: $viewport-lg) {
+    margin: 0;
     text-align: right;
   }
 }
@@ -65,8 +66,11 @@ p.chart-legend {
 .number {
   display: block;
   font-weight: bold;
-  font-size: 48px;
   line-height: 1;
+  font-size: 36px;
+  @media (min-width: $viewport-md) {
+    font-size: 48px;
+  }
 }
 
 $chart-size: 120px;
@@ -82,8 +86,10 @@ $chart-breakpoint: $viewport-ms;
   height: $chart-mobile-size;
   background: $color-plum-600;
   margin-left: 1rem;
-  @media (min-width: $chart-breakpoint) {
+  @media (min-width: $viewport-md) {
     margin: 0 auto;
+  }
+  @media (min-width: $chart-breakpoint) {
     width: $chart-size;
     height: $chart-size;
   }

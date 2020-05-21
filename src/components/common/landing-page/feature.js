@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 import featureStyle from './feature.module.scss'
 
 const FeatureInfo = ({ title, text }) => (
@@ -9,9 +10,11 @@ const FeatureInfo = ({ title, text }) => (
 )
 export default ({ element, title, children, flip = false }) => (
   <div
-    className={`${featureStyle.feature} ${flip ? featureStyle.flip : ''} ${
-      !element ? featureStyle.noElement : ''
-    }`}
+    className={classnames(
+      featureStyle.feature,
+      flip && featureStyle.flip,
+      !element && featureStyle.noElement,
+    )}
   >
     {element ? (
       <>

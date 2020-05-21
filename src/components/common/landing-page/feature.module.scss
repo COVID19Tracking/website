@@ -21,10 +21,12 @@
     }
   }
   .element {
+    margin-bottom: 1rem;
     @media (min-width: $viewport-lg) {
       flex: 60%;
       padding-right: 1rem;
       margin-right: 2rem;
+      margin-bottom: 0;
     }
     img {
       border: 1px solid $color-slate-200;
