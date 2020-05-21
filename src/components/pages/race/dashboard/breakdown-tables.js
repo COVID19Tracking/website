@@ -50,7 +50,7 @@ const RaceTable = ({
       death: {
         disparity: data.latinXDeathDispFlag,
         caution: data.latinXPosCaution,
-        value: data.latinXDeathCaution,
+        value: data.latinXPctDeath,
         note: {
           value: notes.latinXDeath,
           index: groupedNotes.indexOf(notes.latinXDeath),
