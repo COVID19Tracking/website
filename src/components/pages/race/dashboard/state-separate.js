@@ -37,7 +37,7 @@ export default ({ state }) => {
   }
 
   const groupedRaceNotes = [...new Set(Object.values(raceNotes))].filter(
-    value => value && value,
+    value => value && value.trim().length && value,
   )
 
   const ethnicityNotes = {
@@ -50,7 +50,7 @@ export default ({ state }) => {
   }
   const groupedEthnicityNotes = [
     ...new Set(Object.values(ethnicityNotes)),
-  ].filter(value => value && value)
+  ].filter(value => value && value.trim().length && value)
 
   if (!stateData.anyPosData && !stateData.anyDeathData) {
     return <NoData stateName={stateData.name} />
