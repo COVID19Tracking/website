@@ -41,7 +41,9 @@ export default ({ state }) => {
     notes.nhpiDeath = stateData.asianANHPINotes
     stateData.nhpiPctDeath = null // handled in Percent
   }
-  const groupedNotes = [...new Set(Object.values(notes))].reverse()
+  const groupedNotes = [...new Set(Object.values(notes))]
+    .reverse()
+    .filter(value => value && value.trim().length && value)
   return (
     <div>
       <div className={stateStyle.stateOverview}>
