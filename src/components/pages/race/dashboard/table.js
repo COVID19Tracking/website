@@ -75,8 +75,7 @@ const StateTableDataCell = ({
         <Notes
           index={cellData.note.index + 1}
           title={cellData.note.value}
-          linkTo={`${stateAbbr.toLowerCase()}-table-note-${cellData.note.index +
-            1}`}
+          linkTo={`notes-${stateAbbr.toLowerCase()}`}
         />
         <div className={stateTableStyle.symbolSpacer}>
           {cellData.caution && <CautionSymbol />}

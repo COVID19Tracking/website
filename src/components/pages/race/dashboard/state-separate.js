@@ -74,7 +74,12 @@ export default ({ state }) => {
         noDeaths={!stateData.anyDeathData}
         isInEthnicityState
       />
-      <TableNotes state={stateData.state} groupedNotes={groupedRaceNotes} />
+      <TableNotes
+        state={stateData.state}
+        stateName={stateData.name}
+        type="race"
+        groupedNotes={groupedRaceNotes}
+      />
       {stateData.posEthData && stateData.deathEthData && (
         <>
           <div className={stateStyle.stateOverview}>
@@ -105,6 +110,8 @@ export default ({ state }) => {
           />
           <TableNotes
             state={stateData.state}
+            stateName={stateData.name}
+            type="ethnicity"
             groupedNotes={groupedEthnicityNotes}
           />
         </>
