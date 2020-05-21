@@ -119,6 +119,7 @@ export default () => {
           state
           name: stateName
           anyPosData
+          anyDeathData
           posRaceData
           posEthData
           deathRaceData
