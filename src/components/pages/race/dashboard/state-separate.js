@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 import HeaderSorter from './header-sorter'
 import TableNotes from './table-notes'
 import PercentageOverview from './percentage-overview'
@@ -82,7 +83,12 @@ export default ({ state }) => {
       />
       {stateData.posEthData && stateData.deathEthData && (
         <>
-          <div className={stateStyle.stateOverview}>
+          <div
+            className={classnames(
+              stateStyle.stateOverview,
+              stateStyle.ethnicityOverview,
+            )}
+          >
             {/* this is the ethnicity data section */}
             <PercentageOverview
               stateName={state.name}
