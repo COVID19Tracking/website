@@ -65,7 +65,7 @@
     "gatsby-plugin-sharp": "^2.6.0",
     "gatsby-plugin-sitemap": "^2.4.2",
     "gatsby-remark-autolink-headers": "^2.2.1",
-    "gatsby-remark-smartypants": "^2.2.3",
+    "gatsby-remark-smartypants": "^2.3.1",
     "gatsby-source-contentful": "^2.3.1",
     "gatsby-source-filesystem": "^2.1.56",
     "gatsby-transformer-json": "^2.4.2",
@@ -95,6 +95,7 @@
     "react-recaptcha": "^2.3.10",
     "react-typography": "^0.16.19",
     "slugify": "^1.4.0",
+    "smartypants": "^0.1.1",
     "swagger-ui": "^3.25.0",
     "typography": "^0.16.19",
     "understory": "^1.11.0"

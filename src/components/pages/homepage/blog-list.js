@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import pressListStyle from '~components/common/press-list.module.scss'
+import SmartQuote from '~components/common/smart-quote'
 import { Byline } from '~components/pages/blog/byline'
 import Container from '~components/common/landing-page/container'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
@@ -47,8 +48,9 @@ export default () => {
     <div className={blogListStyles.wrapper}>
       <Container>
         <Paragraph>
-          See how we work, what we&apos;re learning, and what&apos;s changing in
-          our data on our project blog.
+          See how we work, what <SmartQuote>we&#8217;re</SmartQuote> learning,
+          and <SmartQuote>what&#8217;s</SmartQuote> changing in our data on our
+          project blog.
         </Paragraph>
         <div className={blogListStyles.container}>
           <ul className={`press-list ${pressListStyle.pressList}`}>
