@@ -1,12 +1,15 @@
 import React from 'react'
+import classnames from 'classnames'
 import { useStaticQuery, graphql } from 'gatsby'
 import nationalChartStyle from './national-chart.module.scss'
 
 const DonutChart = ({ value, children, mobileOnly, desktopOnly }) => (
   <div
-    className={`${nationalChartStyle.donutChart} ${mobileOnly &&
-      nationalChartStyle.mobileOnly} ${desktopOnly &&
-      nationalChartStyle.desktopOnly}`}
+    className={classnames(
+      nationalChartStyle.donutChart,
+      mobileOnly && nationalChartStyle.mobileOnly,
+      desktopOnly && nationalChartStyle.desktopOnly,
+    )}
   >
     <div
       className={nationalChartStyle.slice}
@@ -57,7 +60,10 @@ export default () => {
           </abbr>
         </div>
         <div
-          className={`${nationalChartStyle.chart} ${nationalChartStyle.flip}`}
+          className={classnames(
+            nationalChartStyle.chart,
+            nationalChartStyle.flip,
+          )}
         >
           <DonutChart value={blackPercentOfDeath} />
           <p className={nationalChartStyle.chartLegend}>
