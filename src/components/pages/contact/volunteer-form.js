@@ -1,4 +1,6 @@
 import React from 'react'
+import { Form, FormGroup, FormLabel } from '~components/common/form'
+import DetailText from '~components/common/detail-text'
 import { Button } from '../../common/button'
 import VolunteerFormStyles from './volunteer-form.module.scss'
 import {
@@ -10,181 +12,214 @@ import {
 
 export default () => {
   return (
-    <form
-      className={VolunteerFormStyles.contactForm}
-      method="POST"
-      name="volunteer"
-      action="/contact/success"
-      netlify-honeypot="covid-bot-field"
-      data-netlify="true"
-    >
-      <div>
-        <input type="hidden" name="form-name" value="volunteer" />
-        <label htmlFor="name" className={VolunteerFormStyles.inputHeader}>
-          Name
-          <span className={VolunteerFormStyles.required}>(required)</span>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            aria-required="true"
-            required
-          />
-        </label>
-      </div>
+    <Form>
+      <form
+        className={VolunteerFormStyles.contactForm}
+        method="POST"
+        name="volunteer"
+        action="/contact/success"
+        netlify-honeypot="covid-bot-field"
+        data-netlify="true"
+      >
+        <div className={VolunteerFormStyles.fieldGroup}>
+          <FormGroup className={VolunteerFormStyles.group}>
+            <input type="hidden" name="form-name" value="volunteer" />
+            <FormLabel htmlFor="name">
+              Name
+              <span className={VolunteerFormStyles.label}>required</span>
+            </FormLabel>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              aria-required="true"
+              required
+            />
+          </FormGroup>
+        </div>
+        <div className={VolunteerFormStyles.fieldGroup}>
+          <FormGroup className={VolunteerFormStyles.group}>
+            <FormLabel htmlFor="email">
+              Email
+              <span className={VolunteerFormStyles.label}>required</span>
+            </FormLabel>
+            <DetailText>
+              If possible, this should be a Gmail or Google-linked address,
+              since we rely heavily on Google Docs and Sheets. We will show your
+              email internally to other volunteers but will not share it
+              elsewhere.
+            </DetailText>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              aria-required="true"
+              required
+            />
+          </FormGroup>
+        </div>
 
-      <div>
-        <label htmlFor="email" className={VolunteerFormStyles.inputHeader}>
-          Email
-          <span className={VolunteerFormStyles.required}>(required)</span>
-          <span className={VolunteerFormStyles.detailText}>
-            If possible, this should be a Gmail or Google-linked address, since
-            we rely heavily on Google Docs and Sheets. We will show your email
-            internally to other volunteers but will not share it elsewhere.
-          </span>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            aria-required="true"
-            required
-          />
-        </label>
-      </div>
+        <div className={VolunteerFormStyles.fieldGroup}>
+          <FormGroup className={VolunteerFormStyles.group}>
+            <FormLabel htmlFor="url">
+              URL <span className={VolunteerFormStyles.label}>optional</span>
+            </FormLabel>
+            <DetailText>
+              Personal website, LinkedIn, or other website that will tell us
+              about you.
+            </DetailText>
+            <input type="text" name="url" id="url" />
+          </FormGroup>
+        </div>
 
-      <div>
-        <label htmlFor="url" className={VolunteerFormStyles.inputHeader}>
-          URL
-          <span className={VolunteerFormStyles.detailText}>
-            Personal website, LinkedIn, or other website that will tell us about
-            you.
-          </span>
-          <input type="text" name="url" id="url" />
-        </label>
-      </div>
+        <div className={VolunteerFormStyles.fieldGroup}>
+          <FormGroup className={VolunteerFormStyles.group}>
+            <FormLabel htmlFor="hours">
+              About how many hours are you available to work?
+              <span className={VolunteerFormStyles.label}>required</span>
+            </FormLabel>
+            <select name="hours" id="hours" aria-required="true" required>
+              {HoursPerWeek.map(item => {
+                return (
+                  <option key={`hours-${item}`} value={item}>
+                    {item}
+                  </option>
+                )
+              })}
+            </select>
+          </FormGroup>
+        </div>
 
-      <div>
-        <label htmlFor="hours" className={VolunteerFormStyles.inputHeader}>
-          About how many hours are you available to work?
-          <span className={VolunteerFormStyles.required}>(required)</span>
-          <select name="hours" id="hours" aria-required="true" required>
-            {HoursPerWeek.map(item => {
-              return (
-                <option key={`hours-${item}`} value={item}>
-                  {item}
-                </option>
-              )
-            })}
-          </select>
-        </label>
-      </div>
+        <div className={VolunteerFormStyles.fieldGroup}>
+          <FormGroup className={VolunteerFormStyles.group}>
+            <FormLabel htmlFor="timezone">
+              What time zone are you in?
+              <span className={VolunteerFormStyles.label}>required</span>
+            </FormLabel>
+            <select name="timezone" id="timezone" aria-required="true" required>
+              {Timezone.map(item => {
+                return (
+                  <option key={`timezone-${item}`} value={item}>
+                    {item}
+                  </option>
+                )
+              })}
+            </select>
+          </FormGroup>
+        </div>
 
-      <div>
-        <label htmlFor="timezone" className={VolunteerFormStyles.inputHeader}>
-          What time zone are you in?
-          <span className={VolunteerFormStyles.required}>(required)</span>
-          <select name="timezone" id="timezone" aria-required="true" required>
-            {Timezone.map(item => {
-              return (
-                <option key={`timezone-${item}`} value={item}>
-                  {item}
-                </option>
-              )
-            })}
-          </select>
-        </label>
-      </div>
-
-      <div>
-        <fieldset>
-          <legend>
-            When are you most available to work?
-            <span className={VolunteerFormStyles.required}>(required)</span>
-          </legend>
-          {Availability.map(item => {
-            return (
-              <label
-                key={`availability-${item.shortname}`}
-                htmlFor={item.shortname}
-              >
-                <input
-                  type="checkbox"
-                  name="availability"
-                  value={item.description}
-                  id={item.shortname}
-                />
-                {item.description}
-              </label>
-            )
-          })}
-        </fieldset>
-      </div>
-
-      <div>
-        <label htmlFor="skills" className={VolunteerFormStyles.inputHeader}>
-          Specializations / Skills
-          <span className={VolunteerFormStyles.required}>(required)</span>
-          <span className={VolunteerFormStyles.detailText}>
-            Examples: Python, SQL, Tableau, data viz, editing, social media,
-            public health, research, journalism, etc.
-          </span>
-          <input
-            type="text"
-            name="skills"
-            id="skills"
-            aria-required="true"
-            required
-          />
-        </label>
-      </div>
-
-      <div>
-        <fieldset>
-          <legend className={VolunteerFormStyles.inputHeader}>
-            What would you like to volunteer to do?
-            <span className={VolunteerFormStyles.required}>(required)</span>
-          </legend>
-          {RadioOptions.map(item => {
-            return (
-              <div key={`workstream-${item.shortname}`}>
-                <label htmlFor={item.shortname}>
-                  <input
-                    required
-                    type="radio"
-                    name="workstream"
-                    id={item.shortname}
-                    value={item.description}
-                  />
-                  {item.description}
-                </label>
+        <div className={VolunteerFormStyles.fieldGroup}>
+          <FormGroup className={VolunteerFormStyles.group}>
+            <fieldset className={VolunteerFormStyles.fieldset}>
+              <legend>
+                When are you most available to work?{' '}
+                <span className={VolunteerFormStyles.label}>required</span>
+              </legend>
+              <div className={VolunteerFormStyles.fieldsetOptions}>
+                {Availability.map(item => {
+                  return (
+                    <label
+                      key={`availability-${item.shortname}`}
+                      htmlFor={item.shortname}
+                      className={VolunteerFormStyles.checkboxLabel}
+                    >
+                      <input
+                        type="checkbox"
+                        name="availability"
+                        value={item.description}
+                        id={item.shortname}
+                      />
+                      {item.description}
+                    </label>
+                  )
+                })}
               </div>
-            )
-          })}
-        </fieldset>
-      </div>
+            </fieldset>
+          </FormGroup>
+        </div>
 
-      <div>
-        <label htmlFor="referred" className={VolunteerFormStyles.inputHeader}>
-          I was referred by ...
-          <input type="text" id="referred" name="referred" />
-        </label>
-      </div>
+        <div className={VolunteerFormStyles.fieldGroup}>
+          <FormGroup className={VolunteerFormStyles.group}>
+            <FormLabel htmlFor="skills">
+              Specializations / Skills
+              <span className={VolunteerFormStyles.label}>required</span>
+            </FormLabel>
+            <DetailText>
+              Examples: Python, SQL, Tableau, data viz, editing, social media,
+              public health, research, journalism, etc.
+            </DetailText>
+            <input
+              type="text"
+              name="skills"
+              id="skills"
+              aria-required="true"
+              required
+            />
+          </FormGroup>
+        </div>
 
-      <div>
-        <label htmlFor="why" className={VolunteerFormStyles.inputHeader}>
-          Why are you interested in volunteering for us?
-          <textarea name="why" id="why" rows="5" />
-        </label>
-      </div>
-      <div className={VolunteerFormStyles.botField}>
-        <label htmlFor="covid-bot-field">
-          If you are a human, don&apos;t fill out this field:
-          <input type="text" name="covid-bot-field" id="covid-bot-field" />
-        </label>
-      </div>
-      <div>
-        <Button type="submit">Send your email</Button>
-      </div>
-    </form>
+        <div className={VolunteerFormStyles.fieldGroup}>
+          <FormGroup className={VolunteerFormStyles.group}>
+            <fieldset className={VolunteerFormStyles.fieldset}>
+              <legend>
+                What would you like to volunteer to do?{' '}
+                <span className={VolunteerFormStyles.label}>required</span>
+              </legend>
+              <div className={VolunteerFormStyles.fieldsetOptions}>
+                {RadioOptions.map(item => {
+                  return (
+                    <div key={`workstream-${item.shortname}`}>
+                      <label
+                        className={VolunteerFormStyles.radioLabel}
+                        htmlFor={item.shortname}
+                      >
+                        <input
+                          required
+                          type="radio"
+                          name="workstream"
+                          id={item.shortname}
+                          value={item.description}
+                        />
+                        {item.description}
+                      </label>
+                    </div>
+                  )
+                })}
+              </div>
+            </fieldset>
+          </FormGroup>
+        </div>
+
+        <div className={VolunteerFormStyles.fieldGroup}>
+          <FormGroup className={VolunteerFormStyles.group}>
+            <FormLabel htmlFor="referred">
+              I was referred by ...{' '}
+              <span className={VolunteerFormStyles.label}>optional</span>
+            </FormLabel>
+            <input type="text" id="referred" name="referred" />
+          </FormGroup>
+        </div>
+
+        <div className={VolunteerFormStyles.fieldGroup}>
+          <FormGroup className={VolunteerFormStyles.group}>
+            <FormLabel htmlFor="why">
+              Why are you interested in volunteering for us?{' '}
+              <span className={VolunteerFormStyles.label}>optional</span>
+              <textarea name="why" id="why" rows="5" />
+            </FormLabel>
+          </FormGroup>
+        </div>
+
+        <div className={VolunteerFormStyles.botField}>
+          <label htmlFor="covid-bot-field">
+            If you are a human, don&apos;t fill out this field:
+            <input type="text" name="covid-bot-field" id="covid-bot-field" />
+          </label>
+        </div>
+        <div>
+          <Button type="submit">Send your email</Button>
+        </div>
+      </form>
+    </Form>
   )
 }

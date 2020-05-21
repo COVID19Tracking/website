@@ -1,44 +1,37 @@
 @import '../../../scss/colors.module.scss';
 @import '../../../scss/breakpoints.module.scss';
 @import './contact-form.module.scss';
+@import '../get-involved/form.module.scss';
+
+.fieldset {
+  margin-bottom: 50px;
+  border: 1px solid #c5c5c5!important;
+  border-radius: 5px;
+
+  .radio-label, .checkbox-label {
+    display: flex;
+    align-items: baseline;
+    font-size: 0.8em;
+  }
+
+  .fieldset-options {
+    padding:10px;
+  }
+}
 
 legend {
-  margin-left:-20px;
+  width:100%;
 }
 
-fieldset {
-  label {
-    display:flex;
-    align-items: baseline;
-    font-size:.8em;
-  }
-
-  input {
-    flex: 0 auto;
-  }
-
-  label {
-    margin-bottom:.25em;
-  }
-
-  margin-bottom: 50px;
-  border: 1px solid #c5c5c5;
-  border-radius:5px;
+input {
+  flex: 0 auto;
 }
 
-input[type=radio], input[type=checkbox] {
-  margin-right:10px;
+input[type='radio'],
+input[type='checkbox'] {
+  margin-right: 10px;
 }
 
-.detailText {
-  font-style:italic;
-  font-size:.6em;
-  font-weight:normal;
-  display:block;
-}
-
-.required {
-  font-size: .6em;
-  font-weight:normal;
-  margin-left:5px;
+.group {
+  width: 100%;
 }
