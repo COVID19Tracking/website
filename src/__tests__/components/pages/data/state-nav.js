@@ -5,7 +5,7 @@ import { shallow } from 'enzyme'
 import StateNav, {
   getStateId,
   selectFirstItemOnKeyDown,
-} from '../../../../components/pages/data/state-nav'
+} from '../../../../components/common/state-nav'
 
 jest.mock('@reach/combobox', () => {
   return {
@@ -19,10 +19,12 @@ jest.mock('@reach/combobox', () => {
 
 const stateList = [
   {
-    node: { state: 'AK', name: 'Alaska' },
+    state: 'AK',
+    name: 'Alaska',
   },
   {
-    node: { state: 'CA', name: 'California' },
+    state: 'CA',
+    name: 'California',
   },
 ]
 
@@ -32,7 +34,9 @@ describe('Components : Pages : Data : Navigation with JS enabled', () => {
     expect(tree).toMatchSnapshot()
   })
   it('can filter on user input', () => {
-    const wrapper = shallow(<StateNav stateList={stateList} />)
+    const wrapper = shallow(
+      <StateNav title="Test title" stateList={stateList} />,
+    )
 
     const input = wrapper.find('#jump-to-state')
     input.simulate('change', { target: { value: 'ala' } })

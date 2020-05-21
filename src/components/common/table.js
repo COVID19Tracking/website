@@ -15,6 +15,7 @@ const Th = ({
   sortDirection,
   sortable,
   onClick,
+  scope,
 }) => {
   const thClasses = []
   if (alignLeft) {
@@ -33,7 +34,11 @@ const Th = ({
   const role = 'text'
 
   return (
-    <th scope="col" colSpan={colSpan} className={classnames(thClasses)}>
+    <th
+      scope={scope || 'col'}
+      colSpan={colSpan}
+      className={classnames(thClasses)}
+    >
       <span role={role}>
         {sortable ? (
           <button
@@ -83,7 +88,7 @@ const Th = ({
   )
 }
 
-const Td = ({ children, alignLeft, isFirst, additionalClass }) => {
+const Td = ({ children, alignLeft, isFirst, additionalClass, rowspan }) => {
   const tdClasses = []
   if (alignLeft) {
     tdClasses.push(tableStyle.alignLeft)
@@ -93,6 +98,13 @@ const Td = ({ children, alignLeft, isFirst, additionalClass }) => {
   }
   if (additionalClass) {
     tdClasses.push(additionalClass)
+  }
+  if (rowspan) {
+    return (
+      <td className={classnames(tdClasses)} rowSpan={rowspan}>
+        {children}
+      </td>
+    )
   }
 
   return <td className={classnames(tdClasses)}>{children}</td>

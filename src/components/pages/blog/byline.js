@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import bylineStyles from './byline.module.scss'
+import AuthorSpacer from '~components/utils/list-spacer'
 
 const getAuthorLink = author => {
   if (author.link) {
@@ -34,19 +35,6 @@ const Author = ({ author }) => {
       )}
     </>
   )
-}
-
-const AuthorSpacer = ({ index, length }) => {
-  if (index === 0 && length === 2) {
-    return <> &amp; </> // first author, only two items in the list
-  }
-  if (index === length - 2) {
-    return <>, &amp; </> // second to last author
-  }
-  if (index === length - 1) {
-    return null // last author
-  }
-  return <>, </>
 }
 
 const AuthorsText = ({ authors }) => (

@@ -123,14 +123,14 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './src/data/race/race-ethnicity-combined.json',
+        file: './src/data/race/states-combined.json',
         type: 'CovidRaceDataCombined',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './src/data/race/race-ethnicity-separate.json',
+        file: './src/data/race/states-separate.json',
         type: 'CovidRaceDataSeparate',
       },
     },
