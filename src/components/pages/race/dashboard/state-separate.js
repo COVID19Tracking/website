@@ -100,7 +100,7 @@ export default ({ state }) => {
             <HeaderSorter stateName={state.name} stateReports="ethnicity" />
           </div>
         </div>
-        {stateData.posEthData && stateData.deathEthData && (
+        {(stateData.posEthData || stateData.deathEthData) && (
           <>
             <TableTitle
               titleText="Cases and deaths by ethnicity"
