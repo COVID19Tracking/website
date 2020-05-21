@@ -1,0 +1,16 @@
+@import '~scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
+
+.header {
+  @media (min-width: $viewport-md) {
+    margin-top: -50px;
+    padding-top: 50px;
+    display: inline-block;
+  }
+}
+
+.state {
+  border-bottom: 1px solid $color-slate-500;
+  padding-bottom: 2rem;
+  padding-top: 3rem;
+}

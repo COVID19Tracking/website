@@ -31,6 +31,7 @@ const Header = withSearch(
     titleLink,
     noMargin,
     navigation,
+    forceSubNavigation,
     path,
     returnLink,
     returnLinkTitle,
@@ -73,6 +74,15 @@ const Header = withSearch(
       subNavigation[node.slug] = node.pages
     })
     const topNavigation = data.allNavigationYaml.edges[0].node.items
+    if (returnLink && returnLinkTitle) {
+      pathNavigation = {
+        top: false,
+        parent: {
+          link: returnLink,
+          title: returnLinkTitle,
+        },
+      }
+    }
     topNavigation.forEach(item => {
       if (item.link === path) {
         pathNavigation = {
@@ -226,7 +236,7 @@ const Header = withSearch(
                   }`}
                 >
                   <div className={headerStyle.title}>
-                    {pathNavigation && (
+                    {pathNavigation && !forceSubNavigation && (
                       <ReturnLink
                         currentItem={pathNavigation}
                         returnLinkTitle={returnLinkTitle}
@@ -241,7 +251,7 @@ const Header = withSearch(
                       )}
                     </h1>
                   </div>
-                  {navigation && pathNavigation.top && (
+                  {navigation && (pathNavigation.top || forceSubNavigation) && (
                     <div className={headerStyle.tabContainer}>
                       <HeaderSubNavigation navigation={navigation} />
                     </div>

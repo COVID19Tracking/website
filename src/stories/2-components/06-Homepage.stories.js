@@ -1,12 +1,12 @@
 import React from 'react'
 import BlogList from '~components/pages/homepage/blog-list'
-import Container from '~components/pages/homepage/container'
-import CtaLink from '~components/pages/homepage/cta-link'
+import Container from '~components/common/landing-page/container'
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 import Press from '~components/pages/homepage/press'
 import LargeDataset from '~components/pages/homepage/large-dataset'
 import LargeProject from '~components/pages/homepage/large-project'
 import Datasets from '~components/pages/homepage/datasets'
-import Paragraph from '~components/pages/homepage/paragraph'
+import Paragraph from '~components/common/landing-page/paragraph'
 import LatestTotals from '~components/pages/homepage/latest-totals'
 
 export default {

@@ -1,0 +1,22 @@
+@import '~scss/breakpoints.module.scss';
+
+.state-overview {
+  @media (min-width: $viewport-md) {
+    display: flex;
+  }
+  .totals,
+  .note {
+    @media (min-width: $viewport-md) {
+      width: 50%;
+    }
+  }
+  .totals {
+    @media (min-width: $viewport-md) {
+      padding-right: 3rem;
+    }
+  }
+}
+
+.ethnicity-overview {
+  margin-top: 4rem;
+}

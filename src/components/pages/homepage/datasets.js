@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Dataset from './dataset'
+import Img from 'gatsby-image'
+import Feature from '~components/common/landing-page/feature'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -25,10 +26,14 @@ export default () => {
   `)
   return (
     <div>
-      <Dataset
+      <Feature
         title="The White House"
-        image={data.whiteHouse.childImageSharp.fluid}
-        imageAlt="Image composite showing COVID Tracking Project data in use on a slide from the White House’s 'Opening Up America Again' testing strategy presentation deck."
+        element={
+          <Img
+            fluid={data.whiteHouse.childImageSharp.fluid}
+            alt="Image composite showing COVID Tracking Project data in use on a slide from the White House’s 'Opening Up America Again' testing strategy presentation deck."
+          />
+        }
       >
         The White House chose the COVID Tracking Project as the best source to
         cite for daily US test numbers in its{' '}
@@ -36,11 +41,15 @@ export default () => {
           &ldquo;Opening Up America Again&rdquo; testing strategy
         </a>
         .
-      </Dataset>
-      <Dataset
+      </Feature>
+      <Feature
         title="COVID Exit Strategy"
-        image={data.covidExit.childImageSharp.fluid}
-        imageAlt="Screenshot of a COVID Exit Strategy chart that uses COVID Tracking Project data in its state-by-state comparison of interventions, testing, and outcomes."
+        element={
+          <Img
+            fluid={data.covidExit.childImageSharp.fluid}
+            alt="Screenshot of a COVID Exit Strategy chart that uses COVID Tracking Project data in its state-by-state comparison of interventions, testing, and outcomes."
+          />
+        }
         flip
       >
         Created by a group of public health and crisis experts,{' '}
@@ -49,7 +58,7 @@ export default () => {
         and urges government decision-makers to apply them. They use our data to
         power a dashboard comparing each state&apos;s interventions and testing
         levels with case counts and deaths over time.
-      </Dataset>
+      </Feature>
     </div>
   )
 }
