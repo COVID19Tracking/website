@@ -3,6 +3,7 @@ import HeaderSorter from './header-sorter'
 import TableNotes from './table-notes'
 import PercentageOverview from './percentage-overview'
 import TableTitle from './table-title'
+import NoData from './no-data'
 import { RaceTable, EthnicityTable } from './breakdown-tables'
 import stateStyle from './state.module.scss'
 
@@ -40,6 +41,10 @@ export default ({ state }) => {
   const groupedEthnicityNotes = [
     ...new Set(Object.values(ethnicityNotes)),
   ].filter(value => value && value)
+
+  if (!stateData.anyPosData && !stateData.anyDeathData) {
+    return <NoData stateName={stateData.name} />
+  }
 
   return (
     <div>
