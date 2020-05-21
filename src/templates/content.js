@@ -9,6 +9,8 @@ const ContentPage = ({ data, path }) => {
       title={page.title}
       navigation={page.navigationGroup ? page.navigationGroup.pages : false}
       path={path}
+      returnLink={page.returnLinkUrl}
+      returnLinkTitle={page.returnLinkTitle}
       narrow
       textHeavy
     >
@@ -29,6 +31,8 @@ export const query = graphql`
         node {
           title
           slug
+          returnLinkTitle
+          returnLinkUrl
           body {
             childMarkdownRemark {
               html
