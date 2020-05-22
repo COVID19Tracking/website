@@ -1,7 +1,7 @@
 @import '~scss/breakpoints.module.scss';
 @import '~scss/colors.module.scss';
 
-.dataset {
+.feature {
   align-items: center;
   margin-bottom: 2rem;
   &,
@@ -13,12 +13,20 @@
     flex-wrap: nowrap;
     flex-direction: row;
     margin-bottom: 4.5rem;
+
+    &.no-element {
+      display: block;
+      flex-direction: none;
+      text-align: center;
+    }
   }
-  .image {
+  .element {
+    margin-bottom: 1rem;
     @media (min-width: $viewport-lg) {
       flex: 60%;
       padding-right: 1rem;
       margin-right: 2rem;
+      margin-bottom: 0;
     }
     img {
       border: 1px solid $color-slate-200;
@@ -42,7 +50,7 @@
   &.flip {
     @media (min-width: $viewport-lg) {
       flex-direction: row-reverse;
-      .image {
+      .element {
         margin-left: 2rem;
         margin-right: 0;
         padding-left: 1rem;

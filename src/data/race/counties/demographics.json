@@ -1,5 +1,37 @@
 [
   {
+    "fips": "nyc",
+    "county": "New York City",
+    "state": "New York",
+    "abbreviation": "NY",
+    "largestRace1": "White alone",
+    "largestRace1pct": 32.1,
+    "largestRace2": "Hispanic or Latino",
+    "largestRace2pct": 29.1,
+    "largestRace3": "Black or African American alone",
+    "largestRace3pct": 21.9,
+    "largestRace4": "Asian alone",
+    "largestRace4pct": 13.8,
+    "largestRace5": "Two or more races",
+    "largestRace5pct": 1.9,
+    "largestRace6": "American Indian and Alaskan Native alone",
+    "largestRace6pct": 0.2,
+    "largestRace7": "Native Hawaiian and Other Pacific Islander alone",
+    "largestRace7pct": 0.0,
+    "whiteAlone": 32.1,
+    "blackAfricanAmericanAlonePct": 21.9,
+    "americanIndianAlaskanAlonePct": 0.2,
+    "asianAlonePct": 13.8,
+    "nativeHawaiianPacificIslanderAlonePct": 0.0,
+    "twoMorePct": 1.9,
+    "hispanicLatinoPct": 29.1,
+    "total": 8443713,
+    "totalError": "0",
+    "totalMoePct": 0.0,
+    "notHispanicLatino": "5986576",
+    "hispanicLatino": "2457137"
+  },
+  {
     "fips": "01001",
     "county": "Autauga County",
     "state": "Alabama",
@@ -189,7 +221,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10301",
-        "hispanicLatino": "51"
+    "hispanicLatino": "51"
   },
   {
     "fips": "01013",
@@ -221,7 +253,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "19958",
-        "hispanicLatino": "67"
+    "hispanicLatino": "67"
   },
   {
     "fips": "01015",
@@ -381,7 +413,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "13002",
-        "hispanicLatino": "73"
+    "hispanicLatino": "73"
   },
   {
     "fips": "01025",
@@ -413,7 +445,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "24339",
-        "hispanicLatino": "48"
+    "hispanicLatino": "48"
   },
   {
     "fips": "01027",
@@ -573,7 +605,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12409",
-        "hispanicLatino": "105"
+    "hispanicLatino": "105"
   },
   {
     "fips": "01037",
@@ -605,7 +637,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10805",
-        "hispanicLatino": "50"
+    "hispanicLatino": "50"
   },
   {
     "fips": "01039",
@@ -1021,7 +1053,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8283",
-        "hispanicLatino": "143"
+    "hispanicLatino": "143"
   },
   {
     "fips": "01065",
@@ -1053,7 +1085,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "14757",
-        "hispanicLatino": "130"
+    "hispanicLatino": "130"
   },
   {
     "fips": "01067",
@@ -1373,7 +1405,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10166",
-        "hispanicLatino": "70"
+    "hispanicLatino": "70"
   },
   {
     "fips": "01087",
@@ -1469,7 +1501,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "19423",
-        "hispanicLatino": "115"
+    "hispanicLatino": "115"
   },
   {
     "fips": "01093",
@@ -1693,7 +1725,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9397",
-        "hispanicLatino": "89"
+    "hispanicLatino": "89"
   },
   {
     "fips": "01107",
@@ -1757,7 +1789,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "33140",
-        "hispanicLatino": "263"
+    "hispanicLatino": "263"
   },
   {
     "fips": "01111",
@@ -1917,7 +1949,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12972",
-        "hispanicLatino": "13"
+    "hispanicLatino": "13"
   },
   {
     "fips": "01121",
@@ -2077,7 +2109,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "16461",
-        "hispanicLatino": "182"
+    "hispanicLatino": "182"
   },
   {
     "fips": "01131",
@@ -2109,7 +2141,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10739",
-        "hispanicLatino": "70"
+    "hispanicLatino": "70"
   },
   {
     "fips": "01133",
@@ -2173,7 +2205,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3079",
-        "hispanicLatino": "346"
+    "hispanicLatino": "346"
   },
   {
     "fips": "02016",
@@ -2301,7 +2333,7 @@
     "totalError": "89",
     "totalMoePct": 10.0,
     "notHispanicLatino": "858",
-        "hispanicLatino": "32"
+    "hispanicLatino": "32"
   },
   {
     "fips": "02068",
@@ -2333,7 +2365,7 @@
     "totalError": "380",
     "totalMoePct": 17.03,
     "notHispanicLatino": "2223",
-        "hispanicLatino": "9"
+    "hispanicLatino": "9"
   },
   {
     "fips": "02070",
@@ -2429,7 +2461,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2421",
-        "hispanicLatino": "97"
+    "hispanicLatino": "97"
   },
   {
     "fips": "02105",
@@ -2461,7 +2493,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1990",
-        "hispanicLatino": "142"
+    "hispanicLatino": "142"
   },
   {
     "fips": "02110",
@@ -2621,7 +2653,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8117",
-        "hispanicLatino": "81"
+    "hispanicLatino": "81"
   },
   {
     "fips": "02164",
@@ -2653,7 +2685,7 @@
     "totalError": "380",
     "totalMoePct": 27.64,
     "notHispanicLatino": "1356",
-        "hispanicLatino": "19"
+    "hispanicLatino": "19"
   },
   {
     "fips": "02170",
@@ -2749,7 +2781,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9590",
-        "hispanicLatino": "207"
+    "hispanicLatino": "207"
   },
   {
     "fips": "02188",
@@ -2781,7 +2813,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7645",
-        "hispanicLatino": "89"
+    "hispanicLatino": "89"
   },
   {
     "fips": "02195",
@@ -2813,7 +2845,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2918",
-        "hispanicLatino": "337"
+    "hispanicLatino": "337"
   },
   {
     "fips": "02198",
@@ -2909,7 +2941,7 @@
     "totalError": "123",
     "totalMoePct": 11.59,
     "notHispanicLatino": "1006",
-        "hispanicLatino": "55"
+    "hispanicLatino": "55"
   },
   {
     "fips": "02240",
@@ -3005,7 +3037,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2363",
-        "hispanicLatino": "121"
+    "hispanicLatino": "121"
   },
   {
     "fips": "02282",
@@ -3037,7 +3069,7 @@
     "totalError": "79",
     "totalMoePct": 11.47,
     "notHispanicLatino": "639",
-        "hispanicLatino": "50"
+    "hispanicLatino": "50"
   },
   {
     "fips": "02290",
@@ -3965,7 +3997,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8072",
-        "hispanicLatino": "154"
+    "hispanicLatino": "154"
   },
   {
     "fips": "05027",
@@ -4797,7 +4829,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9231",
-        "hispanicLatino": "167"
+    "hispanicLatino": "167"
   },
   {
     "fips": "05079",
@@ -4861,7 +4893,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12310",
-        "hispanicLatino": "107"
+    "hispanicLatino": "107"
   },
   {
     "fips": "05083",
@@ -5149,7 +5181,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8416",
-        "hispanicLatino": "24"
+    "hispanicLatino": "24"
   },
   {
     "fips": "05101",
@@ -5181,7 +5213,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7775",
-        "hispanicLatino": "73"
+    "hispanicLatino": "73"
   },
   {
     "fips": "05103",
@@ -5437,7 +5469,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8183",
-        "hispanicLatino": "61"
+    "hispanicLatino": "61"
   },
   {
     "fips": "05119",
@@ -5533,7 +5565,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "25586",
-        "hispanicLatino": "708"
+    "hispanicLatino": "708"
   },
   {
     "fips": "05125",
@@ -5917,7 +5949,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6648",
-        "hispanicLatino": "12"
+    "hispanicLatino": "12"
   },
   {
     "fips": "05149",
@@ -6013,7 +6045,7 @@
     "totalError": "161",
     "totalMoePct": 14.05,
     "notHispanicLatino": "1041",
-        "hispanicLatino": "105"
+    "hispanicLatino": "105"
   },
   {
     "fips": "06005",
@@ -7421,7 +7453,7 @@
     "totalError": "161",
     "totalMoePct": 5.49,
     "notHispanicLatino": "2606",
-        "hispanicLatino": "324"
+    "hispanicLatino": "324"
   },
   {
     "fips": "06093",
@@ -8125,7 +8157,7 @@
     "totalError": "170",
     "totalMoePct": 8.34,
     "notHispanicLatino": "1692",
-        "hispanicLatino": "347"
+    "hispanicLatino": "347"
   },
   {
     "fips": "08019",
@@ -8285,7 +8317,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4196",
-        "hispanicLatino": "444"
+    "hispanicLatino": "444"
   },
   {
     "fips": "08029",
@@ -8381,7 +8413,7 @@
     "totalError": "170",
     "totalMoePct": 9.23,
     "notHispanicLatino": "1733",
-        "hispanicLatino": "108"
+    "hispanicLatino": "108"
   },
   {
     "fips": "08035",
@@ -8605,7 +8637,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5376",
-        "hispanicLatino": "548"
+    "hispanicLatino": "548"
   },
   {
     "fips": "08049",
@@ -8701,7 +8733,7 @@
     "totalError": "108",
     "totalMoePct": 12.3,
     "notHispanicLatino": "827",
-        "hispanicLatino": "51"
+    "hispanicLatino": "51"
   },
   {
     "fips": "08055",
@@ -8765,7 +8797,7 @@
     "totalError": "118",
     "totalMoePct": 9.1,
     "notHispanicLatino": "1042",
-        "hispanicLatino": "254"
+    "hispanicLatino": "254"
   },
   {
     "fips": "08059",
@@ -8829,7 +8861,7 @@
     "totalError": "118",
     "totalMoePct": 8.14,
     "notHispanicLatino": "1371",
-        "hispanicLatino": "78"
+    "hispanicLatino": "78"
   },
   {
     "fips": "08063",
@@ -8893,7 +8925,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5239",
-        "hispanicLatino": "2346"
+    "hispanicLatino": "2346"
   },
   {
     "fips": "08067",
@@ -9021,7 +9053,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4345",
-        "hispanicLatino": "1203"
+    "hispanicLatino": "1203"
   },
   {
     "fips": "08075",
@@ -9117,7 +9149,7 @@
     "totalError": "113",
     "totalMoePct": 13.73,
     "notHispanicLatino": "744",
-        "hispanicLatino": "79"
+    "hispanicLatino": "79"
   },
   {
     "fips": "08081",
@@ -9309,7 +9341,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4521",
-        "hispanicLatino": "201"
+    "hispanicLatino": "201"
   },
   {
     "fips": "08093",
@@ -9373,7 +9405,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3374",
-        "hispanicLatino": "944"
+    "hispanicLatino": "944"
   },
   {
     "fips": "08097",
@@ -9629,7 +9661,7 @@
     "totalError": "97",
     "totalMoePct": 17.83,
     "notHispanicLatino": "496",
-        "hispanicLatino": "48"
+    "hispanicLatino": "48"
   },
   {
     "fips": "08113",
@@ -9693,7 +9725,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2031",
-        "hispanicLatino": "319"
+    "hispanicLatino": "319"
   },
   {
     "fips": "08117",
@@ -11293,7 +11325,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7481",
-        "hispanicLatino": "1263"
+    "hispanicLatino": "1263"
   },
   {
     "fips": "12069",
@@ -11453,7 +11485,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7881",
-        "hispanicLatino": "484"
+    "hispanicLatino": "484"
   },
   {
     "fips": "12079",
@@ -12509,7 +12541,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3055",
-        "hispanicLatino": "134"
+    "hispanicLatino": "134"
   },
   {
     "fips": "13009",
@@ -13149,7 +13181,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "11880",
-        "hispanicLatino": "1103"
+    "hispanicLatino": "1103"
   },
   {
     "fips": "13051",
@@ -13629,7 +13661,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12184",
-        "hispanicLatino": "160"
+    "hispanicLatino": "160"
   },
   {
     "fips": "13081",
@@ -13981,7 +14013,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3010",
-        "hispanicLatino": "984"
+    "hispanicLatino": "984"
   },
   {
     "fips": "13103",
@@ -14621,7 +14653,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8371",
-        "hispanicLatino": "164"
+    "hispanicLatino": "164"
   },
   {
     "fips": "13143",
@@ -14845,7 +14877,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9133",
-        "hispanicLatino": "135"
+    "hispanicLatino": "135"
   },
   {
     "fips": "13157",
@@ -15005,7 +15037,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8080",
-        "hispanicLatino": "747"
+    "hispanicLatino": "747"
   },
   {
     "fips": "13167",
@@ -15421,7 +15453,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "13981",
-        "hispanicLatino": "139"
+    "hispanicLatino": "139"
   },
   {
     "fips": "13193",
@@ -15581,7 +15613,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5802",
-        "hispanicLatino": "34"
+    "hispanicLatino": "34"
   },
   {
     "fips": "13205",
@@ -16093,7 +16125,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10832",
-        "hispanicLatino": "463"
+    "hispanicLatino": "463"
   },
   {
     "fips": "13237",
@@ -16157,7 +16189,7 @@
     "totalError": "152",
     "totalMoePct": 6.68,
     "notHispanicLatino": "2270",
-        "hispanicLatino": "6"
+    "hispanicLatino": "6"
   },
   {
     "fips": "13241",
@@ -16221,7 +16253,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6991",
-        "hispanicLatino": "96"
+    "hispanicLatino": "96"
   },
   {
     "fips": "13245",
@@ -16317,7 +16349,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4943",
-        "hispanicLatino": "268"
+    "hispanicLatino": "268"
   },
   {
     "fips": "13251",
@@ -16477,7 +16509,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5002",
-        "hispanicLatino": "1040"
+    "hispanicLatino": "1040"
   },
   {
     "fips": "13261",
@@ -16541,7 +16573,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6330",
-        "hispanicLatino": "48"
+    "hispanicLatino": "48"
   },
   {
     "fips": "13265",
@@ -16573,7 +16605,7 @@
     "totalError": "152",
     "totalMoePct": 9.13,
     "notHispanicLatino": "1639",
-        "hispanicLatino": "26"
+    "hispanicLatino": "26"
   },
   {
     "fips": "13267",
@@ -16669,7 +16701,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "14222",
-        "hispanicLatino": "1893"
+    "hispanicLatino": "1893"
   },
   {
     "fips": "13273",
@@ -16829,7 +16861,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "11277",
-        "hispanicLatino": "140"
+    "hispanicLatino": "140"
   },
   {
     "fips": "13283",
@@ -16861,7 +16893,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6655",
-        "hispanicLatino": "122"
+    "hispanicLatino": "122"
   },
   {
     "fips": "13285",
@@ -16925,7 +16957,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7831",
-        "hispanicLatino": "131"
+    "hispanicLatino": "131"
   },
   {
     "fips": "13289",
@@ -16957,7 +16989,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8244",
-        "hispanicLatino": "40"
+    "hispanicLatino": "40"
   },
   {
     "fips": "13291",
@@ -17149,7 +17181,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5323",
-        "hispanicLatino": "23"
+    "hispanicLatino": "23"
   },
   {
     "fips": "13303",
@@ -17245,7 +17277,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2363",
-        "hispanicLatino": "250"
+    "hispanicLatino": "250"
   },
   {
     "fips": "13309",
@@ -17277,7 +17309,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7838",
-        "hispanicLatino": "101"
+    "hispanicLatino": "101"
   },
   {
     "fips": "13311",
@@ -17565,7 +17597,7 @@
     "totalError": "16",
     "totalMoePct": 21.33,
     "notHispanicLatino": "73",
-        "hispanicLatino": "2"
+    "hispanicLatino": "2"
   },
   {
     "fips": "15007",
@@ -17629,7 +17661,7 @@
     "totalError": "16",
     "totalMoePct": 0.01,
     "notHispanicLatino": "146699",
-        "hispanicLatino": "18582"
+    "hispanicLatino": "18582"
   },
   {
     "fips": "16001",
@@ -18013,7 +18045,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2531",
-        "hispanicLatino": "71"
+    "hispanicLatino": "71"
   },
   {
     "fips": "16025",
@@ -18045,7 +18077,7 @@
     "totalError": "105",
     "totalMoePct": 11.85,
     "notHispanicLatino": "878",
-        "hispanicLatino": "8"
+    "hispanicLatino": "8"
   },
   {
     "fips": "16027",
@@ -18173,7 +18205,7 @@
     "totalError": "105",
     "totalMoePct": 9.75,
     "notHispanicLatino": "572",
-        "hispanicLatino": "505"
+    "hispanicLatino": "505"
   },
   {
     "fips": "16035",
@@ -18237,7 +18269,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3957",
-        "hispanicLatino": "184"
+    "hispanicLatino": "184"
   },
   {
     "fips": "16039",
@@ -19005,7 +19037,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10211",
-        "hispanicLatino": "190"
+    "hispanicLatino": "190"
   },
   {
     "fips": "16087",
@@ -19101,7 +19133,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6459",
-        "hispanicLatino": "73"
+    "hispanicLatino": "73"
   },
   {
     "fips": "17005",
@@ -19197,7 +19229,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6389",
-        "hispanicLatino": "286"
+    "hispanicLatino": "286"
   },
   {
     "fips": "17011",
@@ -19581,7 +19613,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "18420",
-        "hispanicLatino": "668"
+    "hispanicLatino": "668"
   },
   {
     "fips": "17035",
@@ -19869,7 +19901,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "21316",
-        "hispanicLatino": "408"
+    "hispanicLatino": "408"
   },
   {
     "fips": "17053",
@@ -19997,7 +20029,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5082",
-        "hispanicLatino": "75"
+    "hispanicLatino": "75"
   },
   {
     "fips": "17061",
@@ -20029,7 +20061,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "13132",
-        "hispanicLatino": "86"
+    "hispanicLatino": "86"
   },
   {
     "fips": "17063",
@@ -20093,7 +20125,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8023",
-        "hispanicLatino": "198"
+    "hispanicLatino": "198"
   },
   {
     "fips": "17067",
@@ -20157,7 +20189,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3940",
-        "hispanicLatino": "69"
+    "hispanicLatino": "69"
   },
   {
     "fips": "17071",
@@ -20317,7 +20349,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9574",
-        "hispanicLatino": "24"
+    "hispanicLatino": "24"
   },
   {
     "fips": "17081",
@@ -21469,7 +21501,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4170",
-        "hispanicLatino": "79"
+    "hispanicLatino": "79"
   },
   {
     "fips": "17153",
@@ -21757,7 +21789,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7035",
-        "hispanicLatino": "29"
+    "hispanicLatino": "29"
   },
   {
     "fips": "17171",
@@ -22109,7 +22141,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "16406",
-        "hispanicLatino": "81"
+    "hispanicLatino": "81"
   },
   {
     "fips": "17193",
@@ -22653,7 +22685,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "26170",
-        "hispanicLatino": "98"
+    "hispanicLatino": "98"
   },
   {
     "fips": "18023",
@@ -23069,7 +23101,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "22817",
-        "hispanicLatino": "25"
+    "hispanicLatino": "25"
   },
   {
     "fips": "18049",
@@ -23933,7 +23965,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10103",
-        "hispanicLatino": "107"
+    "hispanicLatino": "107"
   },
   {
     "fips": "18103",
@@ -24157,7 +24189,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5823",
-        "hispanicLatino": "64"
+    "hispanicLatino": "64"
   },
   {
     "fips": "18117",
@@ -24317,7 +24349,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12310",
-        "hispanicLatino": "101"
+    "hispanicLatino": "101"
   },
   {
     "fips": "18127",
@@ -24893,7 +24925,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7025",
-        "hispanicLatino": "128"
+    "hispanicLatino": "128"
   },
   {
     "fips": "18163",
@@ -24957,7 +24989,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "15503",
-        "hispanicLatino": "57"
+    "hispanicLatino": "57"
   },
   {
     "fips": "18167",
@@ -25405,7 +25437,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5600",
-        "hispanicLatino": "37"
+    "hispanicLatino": "37"
   },
   {
     "fips": "19011",
@@ -25693,7 +25725,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "20197",
-        "hispanicLatino": "147"
+    "hispanicLatino": "147"
   },
   {
     "fips": "19029",
@@ -25821,7 +25853,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "11321",
-        "hispanicLatino": "147"
+    "hispanicLatino": "147"
   },
   {
     "fips": "19037",
@@ -27421,7 +27453,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7662",
-        "hispanicLatino": "201"
+    "hispanicLatino": "201"
   },
   {
     "fips": "19137",
@@ -28221,7 +28253,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6358",
-        "hispanicLatino": "55"
+    "hispanicLatino": "55"
   },
   {
     "fips": "19187",
@@ -28541,7 +28573,7 @@
     "totalError": "149",
     "totalMoePct": 3.15,
     "notHispanicLatino": "4542",
-        "hispanicLatino": "191"
+    "hispanicLatino": "191"
   },
   {
     "fips": "20009",
@@ -28733,7 +28765,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3331",
-        "hispanicLatino": "36"
+    "hispanicLatino": "36"
   },
   {
     "fips": "20021",
@@ -28829,7 +28861,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1881",
-        "hispanicLatino": "172"
+    "hispanicLatino": "172"
   },
   {
     "fips": "20027",
@@ -28957,7 +28989,7 @@
     "totalError": "149",
     "totalMoePct": 8.37,
     "notHispanicLatino": "1657",
-        "hispanicLatino": "123"
+    "hispanicLatino": "123"
   },
   {
     "fips": "20035",
@@ -29437,7 +29469,7 @@
     "totalError": "114",
     "totalMoePct": 4.35,
     "notHispanicLatino": "2528",
-        "hispanicLatino": "91"
+    "hispanicLatino": "91"
   },
   {
     "fips": "20065",
@@ -29469,7 +29501,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2468",
-        "hispanicLatino": "77"
+    "hispanicLatino": "77"
   },
   {
     "fips": "20067",
@@ -29565,7 +29597,7 @@
     "totalError": "112",
     "totalMoePct": 9.33,
     "notHispanicLatino": "924",
-        "hispanicLatino": "276"
+    "hispanicLatino": "276"
   },
   {
     "fips": "20073",
@@ -29629,7 +29661,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1679",
-        "hispanicLatino": "937"
+    "hispanicLatino": "937"
   },
   {
     "fips": "20077",
@@ -29757,7 +29789,7 @@
     "totalError": "132",
     "totalMoePct": 7.17,
     "notHispanicLatino": "1684",
-        "hispanicLatino": "158"
+    "hispanicLatino": "158"
   },
   {
     "fips": "20085",
@@ -30045,7 +30077,7 @@
     "totalError": "114",
     "totalMoePct": 6.94,
     "notHispanicLatino": "1545",
-        "hispanicLatino": "97"
+    "hispanicLatino": "97"
   },
   {
     "fips": "20103",
@@ -30333,7 +30365,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3476",
-        "hispanicLatino": "785"
+    "hispanicLatino": "785"
   },
   {
     "fips": "20121",
@@ -30589,7 +30621,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2655",
-        "hispanicLatino": "300"
+    "hispanicLatino": "300"
   },
   {
     "fips": "20137",
@@ -31069,7 +31101,7 @@
     "totalError": "132",
     "totalMoePct": 4.26,
     "notHispanicLatino": "3019",
-        "hispanicLatino": "83"
+    "hispanicLatino": "83"
   },
   {
     "fips": "20167",
@@ -31165,7 +31197,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4064",
-        "hispanicLatino": "885"
+    "hispanicLatino": "885"
   },
   {
     "fips": "20173",
@@ -31421,7 +31453,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1319",
-        "hispanicLatino": "744"
+    "hispanicLatino": "744"
   },
   {
     "fips": "20189",
@@ -31549,7 +31581,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2800",
-        "hispanicLatino": "58"
+    "hispanicLatino": "58"
   },
   {
     "fips": "20197",
@@ -31613,7 +31645,7 @@
     "totalError": "112",
     "totalMoePct": 7.11,
     "notHispanicLatino": "1492",
-        "hispanicLatino": "83"
+    "hispanicLatino": "83"
   },
   {
     "fips": "20201",
@@ -31677,7 +31709,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1518",
-        "hispanicLatino": "625"
+    "hispanicLatino": "625"
   },
   {
     "fips": "20205",
@@ -31741,7 +31773,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3140",
-        "hispanicLatino": "30"
+    "hispanicLatino": "30"
   },
   {
     "fips": "20209",
@@ -32189,7 +32221,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12976",
-        "hispanicLatino": "140"
+    "hispanicLatino": "140"
   },
   {
     "fips": "21027",
@@ -32317,7 +32349,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12506",
-        "hispanicLatino": "221"
+    "hispanicLatino": "221"
   },
   {
     "fips": "21035",
@@ -32413,7 +32445,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4736",
-        "hispanicLatino": "105"
+    "hispanicLatino": "105"
   },
   {
     "fips": "21041",
@@ -32477,7 +32509,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "27039",
-        "hispanicLatino": "251"
+    "hispanicLatino": "251"
   },
   {
     "fips": "21045",
@@ -32605,7 +32637,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "20062",
-        "hispanicLatino": "559"
+    "hispanicLatino": "559"
   },
   {
     "fips": "21053",
@@ -32669,7 +32701,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8979",
-        "hispanicLatino": "104"
+    "hispanicLatino": "104"
   },
   {
     "fips": "21057",
@@ -32701,7 +32733,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6654",
-        "hispanicLatino": "59"
+    "hispanicLatino": "59"
   },
   {
     "fips": "21059",
@@ -32765,7 +32797,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12028",
-        "hispanicLatino": "94"
+    "hispanicLatino": "94"
   },
   {
     "fips": "21063",
@@ -32797,7 +32829,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7495",
-        "hispanicLatino": "22"
+    "hispanicLatino": "22"
   },
   {
     "fips": "21065",
@@ -32829,7 +32861,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "14266",
-        "hispanicLatino": "47"
+    "hispanicLatino": "47"
   },
   {
     "fips": "21067",
@@ -33181,7 +33213,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10971",
-        "hispanicLatino": "52"
+    "hispanicLatino": "52"
   },
   {
     "fips": "21089",
@@ -33469,7 +33501,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4515",
-        "hispanicLatino": "53"
+    "hispanicLatino": "53"
   },
   {
     "fips": "21107",
@@ -33533,7 +33565,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "13360",
-        "hispanicLatino": "13"
+    "hispanicLatino": "13"
   },
   {
     "fips": "21111",
@@ -33629,7 +33661,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "22754",
-        "hispanicLatino": "89"
+    "hispanicLatino": "89"
   },
   {
     "fips": "21117",
@@ -33853,7 +33885,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6711",
-        "hispanicLatino": "40"
+    "hispanicLatino": "40"
   },
   {
     "fips": "21131",
@@ -33949,7 +33981,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "13490",
-        "hispanicLatino": "0"
+    "hispanicLatino": "0"
   },
   {
     "fips": "21137",
@@ -34077,7 +34109,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7946",
-        "hispanicLatino": "240"
+    "hispanicLatino": "240"
   },
   {
     "fips": "21145",
@@ -34141,7 +34173,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "17197",
-        "hispanicLatino": "438"
+    "hispanicLatino": "438"
   },
   {
     "fips": "21149",
@@ -34237,7 +34269,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12620",
-        "hispanicLatino": "46"
+    "hispanicLatino": "46"
   },
   {
     "fips": "21155",
@@ -34333,7 +34365,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "11721",
-        "hispanicLatino": "198"
+    "hispanicLatino": "198"
   },
   {
     "fips": "21161",
@@ -34429,7 +34461,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6405",
-        "hispanicLatino": "0"
+    "hispanicLatino": "0"
   },
   {
     "fips": "21167",
@@ -34493,7 +34525,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9874",
-        "hispanicLatino": "130"
+    "hispanicLatino": "130"
   },
   {
     "fips": "21171",
@@ -34589,7 +34621,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "13159",
-        "hispanicLatino": "126"
+    "hispanicLatino": "126"
   },
   {
     "fips": "21177",
@@ -34685,7 +34717,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6979",
-        "hispanicLatino": "121"
+    "hispanicLatino": "121"
   },
   {
     "fips": "21183",
@@ -34813,7 +34845,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4447",
-        "hispanicLatino": "16"
+    "hispanicLatino": "16"
   },
   {
     "fips": "21191",
@@ -35005,7 +35037,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2130",
-        "hispanicLatino": "13"
+    "hispanicLatino": "13"
   },
   {
     "fips": "21203",
@@ -35485,7 +35517,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "20126",
-        "hispanicLatino": "483"
+    "hispanicLatino": "483"
   },
   {
     "fips": "21233",
@@ -35581,7 +35613,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7200",
-        "hispanicLatino": "23"
+    "hispanicLatino": "23"
   },
   {
     "fips": "21239",
@@ -35677,7 +35709,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "24158",
-        "hispanicLatino": "1503"
+    "hispanicLatino": "1503"
   },
   {
     "fips": "22005",
@@ -35837,7 +35869,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "13642",
-        "hispanicLatino": "26"
+    "hispanicLatino": "26"
   },
   {
     "fips": "22015",
@@ -35997,7 +36029,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6465",
-        "hispanicLatino": "403"
+    "hispanicLatino": "403"
   },
   {
     "fips": "22025",
@@ -36029,7 +36061,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9730",
-        "hispanicLatino": "163"
+    "hispanicLatino": "163"
   },
   {
     "fips": "22027",
@@ -36189,7 +36221,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7198",
-        "hispanicLatino": "27"
+    "hispanicLatino": "27"
   },
   {
     "fips": "22037",
@@ -36285,7 +36317,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "20216",
-        "hispanicLatino": "106"
+    "hispanicLatino": "106"
   },
   {
     "fips": "22043",
@@ -36701,7 +36733,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "25890",
-        "hispanicLatino": "102"
+    "hispanicLatino": "102"
   },
   {
     "fips": "22069",
@@ -37085,7 +37117,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10375",
-        "hispanicLatino": "36"
+    "hispanicLatino": "36"
   },
   {
     "fips": "22093",
@@ -37341,7 +37373,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4545",
-        "hispanicLatino": "121"
+    "hispanicLatino": "121"
   },
   {
     "fips": "22109",
@@ -39261,7 +39293,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10596",
-        "hispanicLatino": "505"
+    "hispanicLatino": "505"
   },
   {
     "fips": "25021",
@@ -40733,7 +40765,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2118",
-        "hispanicLatino": "12"
+    "hispanicLatino": "12"
   },
   {
     "fips": "26085",
@@ -40925,7 +40957,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6166",
-        "hispanicLatino": "198"
+    "hispanicLatino": "198"
   },
   {
     "fips": "26097",
@@ -43197,7 +43229,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12603",
-        "hispanicLatino": "41"
+    "hispanicLatino": "41"
   },
   {
     "fips": "27073",
@@ -43293,7 +43325,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3745",
-        "hispanicLatino": "64"
+    "hispanicLatino": "64"
   },
   {
     "fips": "27079",
@@ -44733,7 +44765,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6291",
-        "hispanicLatino": "52"
+    "hispanicLatino": "52"
   },
   {
     "fips": "27169",
@@ -44861,7 +44893,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "29771",
-        "hispanicLatino": "1776"
+    "hispanicLatino": "1776"
   },
   {
     "fips": "28003",
@@ -44925,7 +44957,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12468",
-        "hispanicLatino": "0"
+    "hispanicLatino": "0"
   },
   {
     "fips": "28007",
@@ -45085,7 +45117,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10100",
-        "hispanicLatino": "29"
+    "hispanicLatino": "29"
   },
   {
     "fips": "28017",
@@ -45149,7 +45181,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8288",
-        "hispanicLatino": "33"
+    "hispanicLatino": "33"
   },
   {
     "fips": "28021",
@@ -45181,7 +45213,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9107",
-        "hispanicLatino": "13"
+    "hispanicLatino": "13"
   },
   {
     "fips": "28023",
@@ -45213,7 +45245,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "15862",
-        "hispanicLatino": "66"
+    "hispanicLatino": "66"
   },
   {
     "fips": "28025",
@@ -45245,7 +45277,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "19671",
-        "hispanicLatino": "137"
+    "hispanicLatino": "137"
   },
   {
     "fips": "28027",
@@ -45277,7 +45309,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "23746",
-        "hispanicLatino": "56"
+    "hispanicLatino": "56"
   },
   {
     "fips": "28029",
@@ -45341,7 +45373,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "18999",
-        "hispanicLatino": "92"
+    "hispanicLatino": "92"
   },
   {
     "fips": "28033",
@@ -45437,7 +45469,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7706",
-        "hispanicLatino": "51"
+    "hispanicLatino": "51"
   },
   {
     "fips": "28039",
@@ -45533,7 +45565,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "21138",
-        "hispanicLatino": "140"
+    "hispanicLatino": "140"
   },
   {
     "fips": "28045",
@@ -45661,7 +45693,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "18029",
-        "hispanicLatino": "46"
+    "hispanicLatino": "46"
   },
   {
     "fips": "28053",
@@ -45725,7 +45757,7 @@
     "totalError": "195",
     "totalMoePct": 14.68,
     "notHispanicLatino": "1312",
-        "hispanicLatino": "16"
+    "hispanicLatino": "16"
   },
   {
     "fips": "28057",
@@ -45821,7 +45853,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "16465",
-        "hispanicLatino": "64"
+    "hispanicLatino": "64"
   },
   {
     "fips": "28063",
@@ -45853,7 +45885,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7318",
-        "hispanicLatino": "28"
+    "hispanicLatino": "28"
   },
   {
     "fips": "28065",
@@ -45885,7 +45917,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "11461",
-        "hispanicLatino": "34"
+    "hispanicLatino": "34"
   },
   {
     "fips": "28067",
@@ -45949,7 +45981,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9975",
-        "hispanicLatino": "132"
+    "hispanicLatino": "132"
   },
   {
     "fips": "28071",
@@ -46077,7 +46109,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12551",
-        "hispanicLatino": "79"
+    "hispanicLatino": "79"
   },
   {
     "fips": "28079",
@@ -46845,7 +46877,7 @@
     "totalError": "195",
     "totalMoePct": 4.32,
     "notHispanicLatino": "4506",
-        "hispanicLatino": "5"
+    "hispanicLatino": "5"
   },
   {
     "fips": "28127",
@@ -46877,7 +46909,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "26980",
-        "hispanicLatino": "93"
+    "hispanicLatino": "93"
   },
   {
     "fips": "28129",
@@ -47005,7 +47037,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12383",
-        "hispanicLatino": "1978"
+    "hispanicLatino": "1978"
   },
   {
     "fips": "28137",
@@ -47133,7 +47165,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10085",
-        "hispanicLatino": "85"
+    "hispanicLatino": "85"
   },
   {
     "fips": "28145",
@@ -47197,7 +47229,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "14512",
-        "hispanicLatino": "89"
+    "hispanicLatino": "89"
   },
   {
     "fips": "28149",
@@ -47293,7 +47325,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "20368",
-        "hispanicLatino": "54"
+    "hispanicLatino": "54"
   },
   {
     "fips": "28155",
@@ -47357,7 +47389,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8953",
-        "hispanicLatino": "37"
+    "hispanicLatino": "37"
   },
   {
     "fips": "28159",
@@ -47485,7 +47517,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "24988",
-        "hispanicLatino": "337"
+    "hispanicLatino": "337"
   },
   {
     "fips": "29003",
@@ -47741,7 +47773,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12145",
-        "hispanicLatino": "136"
+    "hispanicLatino": "136"
   },
   {
     "fips": "29019",
@@ -48125,7 +48157,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7508",
-        "hispanicLatino": "38"
+    "hispanicLatino": "38"
   },
   {
     "fips": "29043",
@@ -48189,7 +48221,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6787",
-        "hispanicLatino": "13"
+    "hispanicLatino": "13"
   },
   {
     "fips": "29047",
@@ -48861,7 +48893,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4430",
-        "hispanicLatino": "26"
+    "hispanicLatino": "26"
   },
   {
     "fips": "29089",
@@ -49469,7 +49501,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8651",
-        "hispanicLatino": "233"
+    "hispanicLatino": "233"
   },
   {
     "fips": "29127",
@@ -50205,7 +50237,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4808",
-        "hispanicLatino": "7"
+    "hispanicLatino": "7"
   },
   {
     "fips": "29173",
@@ -50333,7 +50365,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6194",
-        "hispanicLatino": "121"
+    "hispanicLatino": "121"
   },
   {
     "fips": "29181",
@@ -50365,7 +50397,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "13509",
-        "hispanicLatino": "184"
+    "hispanicLatino": "184"
   },
   {
     "fips": "29183",
@@ -50429,7 +50461,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9264",
-        "hispanicLatino": "119"
+    "hispanicLatino": "119"
   },
   {
     "fips": "29186",
@@ -50589,7 +50621,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4474",
-        "hispanicLatino": "28"
+    "hispanicLatino": "28"
   },
   {
     "fips": "29199",
@@ -50621,7 +50653,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4898",
-        "hispanicLatino": "0"
+    "hispanicLatino": "0"
   },
   {
     "fips": "29201",
@@ -51069,7 +51101,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2026",
-        "hispanicLatino": "14"
+    "hispanicLatino": "14"
   },
   {
     "fips": "29229",
@@ -51325,7 +51357,7 @@
     "totalError": "110",
     "totalMoePct": 8.35,
     "notHispanicLatino": "1315",
-        "hispanicLatino": "3"
+    "hispanicLatino": "3"
   },
   {
     "fips": "30013",
@@ -51453,7 +51485,7 @@
     "totalError": "157",
     "totalMoePct": 8.96,
     "notHispanicLatino": "1669",
-        "hispanicLatino": "84"
+    "hispanicLatino": "84"
   },
   {
     "fips": "30021",
@@ -51549,7 +51581,7 @@
     "totalError": "157",
     "totalMoePct": 5.53,
     "notHispanicLatino": "2777",
-        "hispanicLatino": "61"
+    "hispanicLatino": "61"
   },
   {
     "fips": "30027",
@@ -51677,7 +51709,7 @@
     "totalError": "114",
     "totalMoePct": 9.99,
     "notHispanicLatino": "1139",
-        "hispanicLatino": "2"
+    "hispanicLatino": "2"
   },
   {
     "fips": "30035",
@@ -51741,7 +51773,7 @@
     "totalError": "100",
     "totalMoePct": 13.81,
     "notHispanicLatino": "665",
-        "hispanicLatino": "59"
+    "hispanicLatino": "59"
   },
   {
     "fips": "30039",
@@ -51869,7 +51901,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1907",
-        "hispanicLatino": "44"
+    "hispanicLatino": "44"
   },
   {
     "fips": "30047",
@@ -51965,7 +51997,7 @@
     "totalError": "201",
     "totalMoePct": 8.82,
     "notHispanicLatino": "2231",
-        "hispanicLatino": "49"
+    "hispanicLatino": "49"
   },
   {
     "fips": "30053",
@@ -52029,7 +52061,7 @@
     "totalError": "118",
     "totalMoePct": 7.24,
     "notHispanicLatino": "1571",
-        "hispanicLatino": "59"
+    "hispanicLatino": "59"
   },
   {
     "fips": "30057",
@@ -52093,7 +52125,7 @@
     "totalError": "201",
     "totalMoePct": 10.21,
     "notHispanicLatino": "1915",
-        "hispanicLatino": "53"
+    "hispanicLatino": "53"
   },
   {
     "fips": "30061",
@@ -52125,7 +52157,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4130",
-        "hispanicLatino": "81"
+    "hispanicLatino": "81"
   },
   {
     "fips": "30063",
@@ -52189,7 +52221,7 @@
     "totalError": "108",
     "totalMoePct": 2.25,
     "notHispanicLatino": "4679",
-        "hispanicLatino": "128"
+    "hispanicLatino": "128"
   },
   {
     "fips": "30067",
@@ -52253,7 +52285,7 @@
     "totalError": "57",
     "totalMoePct": 13.19,
     "notHispanicLatino": "432",
-        "hispanicLatino": "0"
+    "hispanicLatino": "0"
   },
   {
     "fips": "30071",
@@ -52349,7 +52381,7 @@
     "totalError": "110",
     "totalMoePct": 6.79,
     "notHispanicLatino": "1575",
-        "hispanicLatino": "44"
+    "hispanicLatino": "44"
   },
   {
     "fips": "30077",
@@ -52381,7 +52413,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6731",
-        "hispanicLatino": "130"
+    "hispanicLatino": "130"
   },
   {
     "fips": "30079",
@@ -52413,7 +52445,7 @@
     "totalError": "116",
     "totalMoePct": 8.64,
     "notHispanicLatino": "1324",
-        "hispanicLatino": "18"
+    "hispanicLatino": "18"
   },
   {
     "fips": "30081",
@@ -52605,7 +52637,7 @@
     "totalError": "157",
     "totalMoePct": 4.39,
     "notHispanicLatino": "3479",
-        "hispanicLatino": "95"
+    "hispanicLatino": "95"
   },
   {
     "fips": "30093",
@@ -52701,7 +52733,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3542",
-        "hispanicLatino": "111"
+    "hispanicLatino": "111"
   },
   {
     "fips": "30099",
@@ -52797,7 +52829,7 @@
     "totalError": "88",
     "totalMoePct": 11.33,
     "notHispanicLatino": "771",
-        "hispanicLatino": "6"
+    "hispanicLatino": "6"
   },
   {
     "fips": "30105",
@@ -52861,7 +52893,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2092",
-        "hispanicLatino": "57"
+    "hispanicLatino": "57"
   },
   {
     "fips": "30109",
@@ -52893,7 +52925,7 @@
     "totalError": "145",
     "totalMoePct": 12.34,
     "notHispanicLatino": "1126",
-        "hispanicLatino": "49"
+    "hispanicLatino": "49"
   },
   {
     "fips": "30111",
@@ -53021,7 +53053,7 @@
     "totalError": "46",
     "totalMoePct": 11.0,
     "notHispanicLatino": "415",
-        "hispanicLatino": "3"
+    "hispanicLatino": "3"
   },
   {
     "fips": "31007",
@@ -53053,7 +53085,7 @@
     "totalError": "72",
     "totalMoePct": 10.34,
     "notHispanicLatino": "654",
-        "hispanicLatino": "42"
+    "hispanicLatino": "42"
   },
   {
     "fips": "31009",
@@ -53085,7 +53117,7 @@
     "totalError": "55",
     "totalMoePct": 11.46,
     "notHispanicLatino": "480",
-        "hispanicLatino": "0"
+    "hispanicLatino": "0"
   },
   {
     "fips": "31011",
@@ -53181,7 +53213,7 @@
     "totalError": "90",
     "totalMoePct": 4.41,
     "notHispanicLatino": "2027",
-        "hispanicLatino": "15"
+    "hispanicLatino": "15"
   },
   {
     "fips": "31017",
@@ -53213,7 +53245,7 @@
     "totalError": "104",
     "totalMoePct": 3.48,
     "notHispanicLatino": "2946",
-        "hispanicLatino": "42"
+    "hispanicLatino": "42"
   },
   {
     "fips": "31019",
@@ -53405,7 +53437,7 @@
     "totalError": "214",
     "totalMoePct": 5.73,
     "notHispanicLatino": "3365",
-        "hispanicLatino": "369"
+    "hispanicLatino": "369"
   },
   {
     "fips": "31031",
@@ -53725,7 +53757,7 @@
     "totalError": "120",
     "totalMoePct": 6.34,
     "notHispanicLatino": "1746",
-        "hispanicLatino": "148"
+    "hispanicLatino": "148"
   },
   {
     "fips": "31051",
@@ -53853,7 +53885,7 @@
     "totalError": "214",
     "totalMoePct": 10.58,
     "notHispanicLatino": "1706",
-        "hispanicLatino": "317"
+    "hispanicLatino": "317"
   },
   {
     "fips": "31059",
@@ -53949,7 +53981,7 @@
     "totalError": "74",
     "totalMoePct": 2.84,
     "notHispanicLatino": "2582",
-        "hispanicLatino": "27"
+    "hispanicLatino": "27"
   },
   {
     "fips": "31065",
@@ -54045,7 +54077,7 @@
     "totalError": "117",
     "totalMoePct": 6.29,
     "notHispanicLatino": "1779",
-        "hispanicLatino": "81"
+    "hispanicLatino": "81"
   },
   {
     "fips": "31071",
@@ -54077,7 +54109,7 @@
     "totalError": "102",
     "totalMoePct": 5.16,
     "notHispanicLatino": "1936",
-        "hispanicLatino": "39"
+    "hispanicLatino": "39"
   },
   {
     "fips": "31073",
@@ -54109,7 +54141,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1969",
-        "hispanicLatino": "46"
+    "hispanicLatino": "46"
   },
   {
     "fips": "31075",
@@ -54141,7 +54173,7 @@
     "totalError": "63",
     "totalMoePct": 8.77,
     "notHispanicLatino": "706",
-        "hispanicLatino": "12"
+    "hispanicLatino": "12"
   },
   {
     "fips": "31077",
@@ -54269,7 +54301,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3303",
-        "hispanicLatino": "135"
+    "hispanicLatino": "135"
   },
   {
     "fips": "31085",
@@ -54301,7 +54333,7 @@
     "totalError": "74",
     "totalMoePct": 7.85,
     "notHispanicLatino": "874",
-        "hispanicLatino": "69"
+    "hispanicLatino": "69"
   },
   {
     "fips": "31087",
@@ -54333,7 +54365,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2812",
-        "hispanicLatino": "31"
+    "hispanicLatino": "31"
   },
   {
     "fips": "31089",
@@ -54397,7 +54429,7 @@
     "totalError": "82",
     "totalMoePct": 11.87,
     "notHispanicLatino": "670",
-        "hispanicLatino": "21"
+    "hispanicLatino": "21"
   },
   {
     "fips": "31093",
@@ -54589,7 +54621,7 @@
     "totalError": "104",
     "totalMoePct": 13.13,
     "notHispanicLatino": "784",
-        "hispanicLatino": "8"
+    "hispanicLatino": "8"
   },
   {
     "fips": "31105",
@@ -54621,7 +54653,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3273",
-        "hispanicLatino": "394"
+    "hispanicLatino": "394"
   },
   {
     "fips": "31107",
@@ -54749,7 +54781,7 @@
     "totalError": "75",
     "totalMoePct": 8.47,
     "notHispanicLatino": "860",
-        "hispanicLatino": "26"
+    "hispanicLatino": "26"
   },
   {
     "fips": "31115",
@@ -54781,7 +54813,7 @@
     "totalError": "61",
     "totalMoePct": 10.43,
     "notHispanicLatino": "575",
-        "hispanicLatino": "10"
+    "hispanicLatino": "10"
   },
   {
     "fips": "31117",
@@ -54813,7 +54845,7 @@
     "totalError": "89",
     "totalMoePct": 19.6,
     "notHispanicLatino": "445",
-        "hispanicLatino": "9"
+    "hispanicLatino": "9"
   },
   {
     "fips": "31119",
@@ -55325,7 +55357,7 @@
     "totalError": "90",
     "totalMoePct": 6.67,
     "notHispanicLatino": "1333",
-        "hispanicLatino": "17"
+    "hispanicLatino": "17"
   },
   {
     "fips": "31151",
@@ -55581,7 +55613,7 @@
     "totalError": "72",
     "totalMoePct": 5.69,
     "notHispanicLatino": "1260",
-        "hispanicLatino": "6"
+    "hispanicLatino": "6"
   },
   {
     "fips": "31167",
@@ -55677,7 +55709,7 @@
     "totalError": "72",
     "totalMoePct": 11.16,
     "notHispanicLatino": "642",
-        "hispanicLatino": "3"
+    "hispanicLatino": "3"
   },
   {
     "fips": "31173",
@@ -55741,7 +55773,7 @@
     "totalError": "61",
     "totalMoePct": 1.44,
     "notHispanicLatino": "4092",
-        "hispanicLatino": "132"
+    "hispanicLatino": "132"
   },
   {
     "fips": "31177",
@@ -55869,7 +55901,7 @@
     "totalError": "102",
     "totalMoePct": 12.41,
     "notHispanicLatino": "817",
-        "hispanicLatino": "5"
+    "hispanicLatino": "5"
   },
   {
     "fips": "31185",
@@ -56061,7 +56093,7 @@
     "totalError": "167",
     "totalMoePct": 17.02,
     "notHispanicLatino": "795",
-        "hispanicLatino": "186"
+    "hispanicLatino": "186"
   },
   {
     "fips": "32011",
@@ -56093,7 +56125,7 @@
     "totalError": "167",
     "totalMoePct": 9.13,
     "notHispanicLatino": "1710",
-        "hispanicLatino": "120"
+    "hispanicLatino": "120"
   },
   {
     "fips": "32013",
@@ -56157,7 +56189,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4248",
-        "hispanicLatino": "1498"
+    "hispanicLatino": "1498"
   },
   {
     "fips": "32017",
@@ -56189,7 +56221,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4732",
-        "hispanicLatino": "442"
+    "hispanicLatino": "442"
   },
   {
     "fips": "32019",
@@ -56253,7 +56285,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3911",
-        "hispanicLatino": "537"
+    "hispanicLatino": "537"
   },
   {
     "fips": "32023",
@@ -56349,7 +56381,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3738",
-        "hispanicLatino": "203"
+    "hispanicLatino": "203"
   },
   {
     "fips": "32031",
@@ -56573,7 +56605,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "31100",
-        "hispanicLatino": "938"
+    "hispanicLatino": "938"
   },
   {
     "fips": "33009",
@@ -57501,7 +57533,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2904",
-        "hispanicLatino": "635"
+    "hispanicLatino": "635"
   },
   {
     "fips": "35005",
@@ -57661,7 +57693,7 @@
     "totalError": "69",
     "totalMoePct": 3.35,
     "notHispanicLatino": "1111",
-        "hispanicLatino": "949"
+    "hispanicLatino": "949"
   },
   {
     "fips": "35013",
@@ -57789,7 +57821,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "948",
-        "hispanicLatino": "3434"
+    "hispanicLatino": "3434"
   },
   {
     "fips": "35021",
@@ -57821,7 +57853,7 @@
     "totalError": "69",
     "totalMoePct": 15.03,
     "notHispanicLatino": "288",
-        "hispanicLatino": "171"
+    "hispanicLatino": "171"
   },
   {
     "fips": "35023",
@@ -58045,7 +58077,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "862",
-        "hispanicLatino": "3701"
+    "hispanicLatino": "3701"
   },
   {
     "fips": "35035",
@@ -61661,7 +61693,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "11522",
-        "hispanicLatino": "41"
+    "hispanicLatino": "41"
   },
   {
     "fips": "37075",
@@ -61693,7 +61725,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8428",
-        "hispanicLatino": "129"
+    "hispanicLatino": "129"
   },
   {
     "fips": "37077",
@@ -62013,7 +62045,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4857",
-        "hispanicLatino": "536"
+    "hispanicLatino": "536"
   },
   {
     "fips": "37097",
@@ -63325,7 +63357,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3856",
-        "hispanicLatino": "263"
+    "hispanicLatino": "263"
   },
   {
     "fips": "37179",
@@ -63709,7 +63741,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2310",
-        "hispanicLatino": "41"
+    "hispanicLatino": "41"
   },
   {
     "fips": "38003",
@@ -63773,7 +63805,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6823",
-        "hispanicLatino": "63"
+    "hispanicLatino": "63"
   },
   {
     "fips": "38007",
@@ -63805,7 +63837,7 @@
     "totalError": "90",
     "totalMoePct": 9.51,
     "notHispanicLatino": "889",
-        "hispanicLatino": "57"
+    "hispanicLatino": "57"
   },
   {
     "fips": "38009",
@@ -63901,7 +63933,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2144",
-        "hispanicLatino": "69"
+    "hispanicLatino": "69"
   },
   {
     "fips": "38015",
@@ -63997,7 +64029,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3779",
-        "hispanicLatino": "45"
+    "hispanicLatino": "45"
   },
   {
     "fips": "38021",
@@ -64061,7 +64093,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2312",
-        "hispanicLatino": "57"
+    "hispanicLatino": "57"
   },
   {
     "fips": "38025",
@@ -64093,7 +64125,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4268",
-        "hispanicLatino": "119"
+    "hispanicLatino": "119"
   },
   {
     "fips": "38027",
@@ -64125,7 +64157,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2313",
-        "hispanicLatino": "0"
+    "hispanicLatino": "0"
   },
   {
     "fips": "38029",
@@ -64157,7 +64189,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3326",
-        "hispanicLatino": "26"
+    "hispanicLatino": "26"
   },
   {
     "fips": "38031",
@@ -64221,7 +64253,7 @@
     "totalError": "100",
     "totalMoePct": 5.31,
     "notHispanicLatino": "1822",
-        "hispanicLatino": "60"
+    "hispanicLatino": "60"
   },
   {
     "fips": "38035",
@@ -64285,7 +64317,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2368",
-        "hispanicLatino": "12"
+    "hispanicLatino": "12"
   },
   {
     "fips": "38039",
@@ -64317,7 +64349,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2260",
-        "hispanicLatino": "6"
+    "hispanicLatino": "6"
   },
   {
     "fips": "38041",
@@ -64349,7 +64381,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2493",
-        "hispanicLatino": "83"
+    "hispanicLatino": "83"
   },
   {
     "fips": "38043",
@@ -64381,7 +64413,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2352",
-        "hispanicLatino": "108"
+    "hispanicLatino": "108"
   },
   {
     "fips": "38045",
@@ -64413,7 +64445,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4041",
-        "hispanicLatino": "59"
+    "hispanicLatino": "59"
   },
   {
     "fips": "38047",
@@ -64445,7 +64477,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1903",
-        "hispanicLatino": "24"
+    "hispanicLatino": "24"
   },
   {
     "fips": "38049",
@@ -64509,7 +64541,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2613",
-        "hispanicLatino": "41"
+    "hispanicLatino": "41"
   },
   {
     "fips": "38053",
@@ -64733,7 +64765,7 @@
     "totalError": "92",
     "totalMoePct": 5.01,
     "notHispanicLatino": "1805",
-        "hispanicLatino": "32"
+    "hispanicLatino": "32"
   },
   {
     "fips": "38067",
@@ -64797,7 +64829,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4173",
-        "hispanicLatino": "37"
+    "hispanicLatino": "37"
   },
   {
     "fips": "38071",
@@ -64861,7 +64893,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5264",
-        "hispanicLatino": "97"
+    "hispanicLatino": "97"
   },
   {
     "fips": "38075",
@@ -64893,7 +64925,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2337",
-        "hispanicLatino": "158"
+    "hispanicLatino": "158"
   },
   {
     "fips": "38077",
@@ -64957,7 +64989,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "14510",
-        "hispanicLatino": "93"
+    "hispanicLatino": "93"
   },
   {
     "fips": "38081",
@@ -65021,7 +65053,7 @@
     "totalError": "92",
     "totalMoePct": 6.55,
     "notHispanicLatino": "1405",
-        "hispanicLatino": "0"
+    "hispanicLatino": "0"
   },
   {
     "fips": "38085",
@@ -65085,7 +65117,7 @@
     "totalError": "70",
     "totalMoePct": 9.94,
     "notHispanicLatino": "704",
-        "hispanicLatino": "0"
+    "hispanicLatino": "0"
   },
   {
     "fips": "38089",
@@ -65149,7 +65181,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1880",
-        "hispanicLatino": "30"
+    "hispanicLatino": "30"
   },
   {
     "fips": "38093",
@@ -65213,7 +65245,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2190",
-        "hispanicLatino": "56"
+    "hispanicLatino": "56"
   },
   {
     "fips": "38097",
@@ -65341,7 +65373,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4003",
-        "hispanicLatino": "52"
+    "hispanicLatino": "52"
   },
   {
     "fips": "38105",
@@ -66557,7 +66589,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "28199",
-        "hispanicLatino": "296"
+    "hispanicLatino": "296"
   },
   {
     "fips": "39075",
@@ -67069,7 +67101,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "23041",
-        "hispanicLatino": "119"
+    "hispanicLatino": "119"
   },
   {
     "fips": "39107",
@@ -67165,7 +67197,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "13940",
-        "hispanicLatino": "150"
+    "hispanicLatino": "150"
   },
   {
     "fips": "39113",
@@ -67229,7 +67261,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "14653",
-        "hispanicLatino": "49"
+    "hispanicLatino": "49"
   },
   {
     "fips": "39117",
@@ -67325,7 +67357,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "14340",
-        "hispanicLatino": "103"
+    "hispanicLatino": "103"
   },
   {
     "fips": "39123",
@@ -67485,7 +67517,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "27912",
-        "hispanicLatino": "302"
+    "hispanicLatino": "302"
   },
   {
     "fips": "39133",
@@ -67997,7 +68029,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "13035",
-        "hispanicLatino": "76"
+    "hispanicLatino": "76"
   },
   {
     "fips": "39165",
@@ -71005,7 +71037,7 @@
     "totalError": "144",
     "totalMoePct": 7.55,
     "notHispanicLatino": "1788",
-        "hispanicLatino": "119"
+    "hispanicLatino": "119"
   },
   {
     "fips": "41023",
@@ -71549,7 +71581,7 @@
     "totalError": "106",
     "totalMoePct": 6.6,
     "notHispanicLatino": "1547",
-        "hispanicLatino": "58"
+    "hispanicLatino": "58"
   },
   {
     "fips": "41057",
@@ -71773,7 +71805,7 @@
     "totalError": "124",
     "totalMoePct": 8.7,
     "notHispanicLatino": "1288",
-        "hispanicLatino": "138"
+    "hispanicLatino": "138"
   },
   {
     "fips": "41071",
@@ -72189,7 +72221,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4645",
-        "hispanicLatino": "41"
+    "hispanicLatino": "41"
   },
   {
     "fips": "42025",
@@ -72733,7 +72765,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "14430",
-        "hispanicLatino": "76"
+    "hispanicLatino": "76"
   },
   {
     "fips": "42059",
@@ -73309,7 +73341,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "18123",
-        "hispanicLatino": "171"
+    "hispanicLatino": "171"
   },
   {
     "fips": "42095",
@@ -73629,7 +73661,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6043",
-        "hispanicLatino": "134"
+    "hispanicLatino": "134"
   },
   {
     "fips": "42115",
@@ -74205,7 +74237,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9076",
-        "hispanicLatino": "138"
+    "hispanicLatino": "138"
   },
   {
     "fips": "45007",
@@ -75165,7 +75197,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9543",
-        "hispanicLatino": "63"
+    "hispanicLatino": "63"
   },
   {
     "fips": "45067",
@@ -75613,7 +75645,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2559",
-        "hispanicLatino": "200"
+    "hispanicLatino": "200"
   },
   {
     "fips": "46005",
@@ -75677,7 +75709,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3151",
-        "hispanicLatino": "286"
+    "hispanicLatino": "286"
   },
   {
     "fips": "46009",
@@ -75837,7 +75869,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1987",
-        "hispanicLatino": "66"
+    "hispanicLatino": "66"
   },
   {
     "fips": "46019",
@@ -75901,7 +75933,7 @@
     "totalError": "168",
     "totalMoePct": 11.71,
     "notHispanicLatino": "1431",
-        "hispanicLatino": "4"
+    "hispanicLatino": "4"
   },
   {
     "fips": "46023",
@@ -76061,7 +76093,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4152",
-        "hispanicLatino": "16"
+    "hispanicLatino": "16"
   },
   {
     "fips": "46033",
@@ -76221,7 +76253,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5721",
-        "hispanicLatino": "58"
+    "hispanicLatino": "58"
   },
   {
     "fips": "46043",
@@ -76253,7 +76285,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2911",
-        "hispanicLatino": "19"
+    "hispanicLatino": "19"
   },
   {
     "fips": "46045",
@@ -76285,7 +76317,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3870",
-        "hispanicLatino": "70"
+    "hispanicLatino": "70"
   },
   {
     "fips": "46047",
@@ -76349,7 +76381,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2292",
-        "hispanicLatino": "30"
+    "hispanicLatino": "30"
   },
   {
     "fips": "46051",
@@ -76381,7 +76413,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7056",
-        "hispanicLatino": "161"
+    "hispanicLatino": "161"
   },
   {
     "fips": "46053",
@@ -76413,7 +76445,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4174",
-        "hispanicLatino": "27"
+    "hispanicLatino": "27"
   },
   {
     "fips": "46055",
@@ -76445,7 +76477,7 @@
     "totalError": "96",
     "totalMoePct": 4.61,
     "notHispanicLatino": "2063",
-        "hispanicLatino": "19"
+    "hispanicLatino": "19"
   },
   {
     "fips": "46057",
@@ -76509,7 +76541,7 @@
     "totalError": "112",
     "totalMoePct": 3.39,
     "notHispanicLatino": "3275",
-        "hispanicLatino": "26"
+    "hispanicLatino": "26"
   },
   {
     "fips": "46061",
@@ -76541,7 +76573,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3397",
-        "hispanicLatino": "0"
+    "hispanicLatino": "0"
   },
   {
     "fips": "46063",
@@ -76573,7 +76605,7 @@
     "totalError": "95",
     "totalMoePct": 7.25,
     "notHispanicLatino": "1285",
-        "hispanicLatino": "26"
+    "hispanicLatino": "26"
   },
   {
     "fips": "46065",
@@ -76669,7 +76701,7 @@
     "totalError": "112",
     "totalMoePct": 8.41,
     "notHispanicLatino": "1322",
-        "hispanicLatino": "9"
+    "hispanicLatino": "9"
   },
   {
     "fips": "46071",
@@ -76701,7 +76733,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3268",
-        "hispanicLatino": "19"
+    "hispanicLatino": "19"
   },
   {
     "fips": "46073",
@@ -76733,7 +76765,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1992",
-        "hispanicLatino": "37"
+    "hispanicLatino": "37"
   },
   {
     "fips": "46075",
@@ -76765,7 +76797,7 @@
     "totalError": "96",
     "totalMoePct": 13.06,
     "notHispanicLatino": "735",
-        "hispanicLatino": "0"
+    "hispanicLatino": "0"
   },
   {
     "fips": "46077",
@@ -76829,7 +76861,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12380",
-        "hispanicLatino": "194"
+    "hispanicLatino": "194"
   },
   {
     "fips": "46081",
@@ -76989,7 +77021,7 @@
     "totalError": "168",
     "totalMoePct": 7.11,
     "notHispanicLatino": "2349",
-        "hispanicLatino": "15"
+    "hispanicLatino": "15"
   },
   {
     "fips": "46091",
@@ -77085,7 +77117,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1953",
-        "hispanicLatino": "102"
+    "hispanicLatino": "102"
   },
   {
     "fips": "46097",
@@ -77117,7 +77149,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2185",
-        "hispanicLatino": "44"
+    "hispanicLatino": "44"
   },
   {
     "fips": "46099",
@@ -77277,7 +77309,7 @@
     "totalError": "95",
     "totalMoePct": 3.27,
     "notHispanicLatino": "2861",
-        "hispanicLatino": "46"
+    "hispanicLatino": "46"
   },
   {
     "fips": "46107",
@@ -77309,7 +77341,7 @@
     "totalError": "104",
     "totalMoePct": 4.47,
     "notHispanicLatino": "2258",
-        "hispanicLatino": "68"
+    "hispanicLatino": "68"
   },
   {
     "fips": "46109",
@@ -77373,7 +77405,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2301",
-        "hispanicLatino": "87"
+    "hispanicLatino": "87"
   },
   {
     "fips": "46115",
@@ -77437,7 +77469,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2925",
-        "hispanicLatino": "72"
+    "hispanicLatino": "72"
   },
   {
     "fips": "46119",
@@ -77469,7 +77501,7 @@
     "totalError": "104",
     "totalMoePct": 7.81,
     "notHispanicLatino": "1313",
-        "hispanicLatino": "18"
+    "hispanicLatino": "18"
   },
   {
     "fips": "46121",
@@ -77533,7 +77565,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5457",
-        "hispanicLatino": "11"
+    "hispanicLatino": "11"
   },
   {
     "fips": "46125",
@@ -77693,7 +77725,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2803",
-        "hispanicLatino": "11"
+    "hispanicLatino": "11"
   },
   {
     "fips": "47001",
@@ -77789,7 +77821,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "15835",
-        "hispanicLatino": "277"
+    "hispanicLatino": "277"
   },
   {
     "fips": "47007",
@@ -78077,7 +78109,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "16962",
-        "hispanicLatino": "188"
+    "hispanicLatino": "188"
   },
   {
     "fips": "47025",
@@ -78141,7 +78173,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7634",
-        "hispanicLatino": "52"
+    "hispanicLatino": "52"
   },
   {
     "fips": "47029",
@@ -78333,7 +78365,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "11485",
-        "hispanicLatino": "198"
+    "hispanicLatino": "198"
   },
   {
     "fips": "47041",
@@ -78781,7 +78813,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6530",
-        "hispanicLatino": "55"
+    "hispanicLatino": "55"
   },
   {
     "fips": "47069",
@@ -79037,7 +79069,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8126",
-        "hispanicLatino": "50"
+    "hispanicLatino": "50"
   },
   {
     "fips": "47085",
@@ -79741,7 +79773,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6309",
-        "hispanicLatino": "13"
+    "hispanicLatino": "13"
   },
   {
     "fips": "47129",
@@ -79901,7 +79933,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5061",
-        "hispanicLatino": "27"
+    "hispanicLatino": "27"
   },
   {
     "fips": "47139",
@@ -80413,7 +80445,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9508",
-        "hispanicLatino": "65"
+    "hispanicLatino": "65"
   },
   {
     "fips": "47171",
@@ -80509,7 +80541,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5646",
-        "hispanicLatino": "58"
+    "hispanicLatino": "58"
   },
   {
     "fips": "47177",
@@ -80925,7 +80957,7 @@
     "totalError": "125",
     "totalMoePct": 6.52,
     "notHispanicLatino": "1785",
-        "hispanicLatino": "131"
+    "hispanicLatino": "131"
   },
   {
     "fips": "48013",
@@ -81021,7 +81053,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2534",
-        "hispanicLatino": "4558"
+    "hispanicLatino": "4558"
   },
   {
     "fips": "48019",
@@ -81117,7 +81149,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3221",
-        "hispanicLatino": "370"
+    "hispanicLatino": "370"
   },
   {
     "fips": "48025",
@@ -81277,7 +81309,7 @@
     "totalError": "119",
     "totalMoePct": 17.89,
     "notHispanicLatino": "609",
-        "hispanicLatino": "56"
+    "hispanicLatino": "56"
   },
   {
     "fips": "48035",
@@ -81469,7 +81501,7 @@
     "totalError": "128",
     "totalMoePct": 8.28,
     "notHispanicLatino": "1001",
-        "hispanicLatino": "545"
+    "hispanicLatino": "545"
   },
   {
     "fips": "48047",
@@ -81501,7 +81533,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "439",
-        "hispanicLatino": "6741"
+    "hispanicLatino": "6741"
   },
   {
     "fips": "48049",
@@ -81949,7 +81981,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4985",
-        "hispanicLatino": "2241"
+    "hispanicLatino": "2241"
   },
   {
     "fips": "48077",
@@ -82141,7 +82173,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2162",
-        "hispanicLatino": "834"
+    "hispanicLatino": "834"
   },
   {
     "fips": "48089",
@@ -82365,7 +82397,7 @@
     "totalError": "188",
     "totalMoePct": 11.58,
     "notHispanicLatino": "1241",
-        "hispanicLatino": "382"
+    "hispanicLatino": "382"
   },
   {
     "fips": "48103",
@@ -82429,7 +82461,7 @@
     "totalError": "186",
     "totalMoePct": 5.12,
     "notHispanicLatino": "1327",
-        "hispanicLatino": "2306"
+    "hispanicLatino": "2306"
   },
   {
     "fips": "48107",
@@ -82493,7 +82525,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "595",
-        "hispanicLatino": "1646"
+    "hispanicLatino": "1646"
   },
   {
     "fips": "48111",
@@ -82749,7 +82781,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1543",
-        "hispanicLatino": "673"
+    "hispanicLatino": "673"
   },
   {
     "fips": "48127",
@@ -82941,7 +82973,7 @@
     "totalError": "193",
     "totalMoePct": 9.39,
     "notHispanicLatino": "861",
-        "hispanicLatino": "1194"
+    "hispanicLatino": "1194"
   },
   {
     "fips": "48139",
@@ -83165,7 +83197,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2698",
-        "hispanicLatino": "1185"
+    "hispanicLatino": "1185"
   },
   {
     "fips": "48153",
@@ -83229,7 +83261,7 @@
     "totalError": "137",
     "totalMoePct": 9.73,
     "notHispanicLatino": "1120",
-        "hispanicLatino": "288"
+    "hispanicLatino": "288"
   },
   {
     "fips": "48157",
@@ -83453,7 +83485,7 @@
     "totalError": "188",
     "totalMoePct": 2.99,
     "notHispanicLatino": "3016",
-        "hispanicLatino": "3272"
+    "hispanicLatino": "3272"
   },
   {
     "fips": "48171",
@@ -83517,7 +83549,7 @@
     "totalError": "146",
     "totalMoePct": 10.21,
     "notHispanicLatino": "804",
-        "hispanicLatino": "626"
+    "hispanicLatino": "626"
   },
   {
     "fips": "48175",
@@ -83901,7 +83933,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3101",
-        "hispanicLatino": "851"
+    "hispanicLatino": "851"
   },
   {
     "fips": "48199",
@@ -84125,7 +84157,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2606",
-        "hispanicLatino": "1455"
+    "hispanicLatino": "1455"
   },
   {
     "fips": "48213",
@@ -84509,7 +84541,7 @@
     "totalError": "153",
     "totalMoePct": 10.04,
     "notHispanicLatino": "1150",
-        "hispanicLatino": "374"
+    "hispanicLatino": "374"
   },
   {
     "fips": "48237",
@@ -84637,7 +84669,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1507",
-        "hispanicLatino": "727"
+    "hispanicLatino": "727"
   },
   {
     "fips": "48245",
@@ -84701,7 +84733,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "392",
-        "hispanicLatino": "4890"
+    "hispanicLatino": "4890"
   },
   {
     "fips": "48249",
@@ -84925,7 +84957,7 @@
     "totalError": "181",
     "totalMoePct": 30.42,
     "notHispanicLatino": "73",
-        "hispanicLatino": "522"
+    "hispanicLatino": "522"
   },
   {
     "fips": "48263",
@@ -84957,7 +84989,7 @@
     "totalError": "118",
     "totalMoePct": 15.75,
     "notHispanicLatino": "627",
-        "hispanicLatino": "122"
+    "hispanicLatino": "122"
   },
   {
     "fips": "48265",
@@ -85021,7 +85053,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3294",
-        "hispanicLatino": "1114"
+    "hispanicLatino": "1114"
   },
   {
     "fips": "48269",
@@ -85053,7 +85085,7 @@
     "totalError": "69",
     "totalMoePct": 30.26,
     "notHispanicLatino": "190",
-        "hispanicLatino": "38"
+    "hispanicLatino": "38"
   },
   {
     "fips": "48271",
@@ -85085,7 +85117,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1378",
-        "hispanicLatino": "2297"
+    "hispanicLatino": "2297"
   },
   {
     "fips": "48273",
@@ -85277,7 +85309,7 @@
     "totalError": "181",
     "totalMoePct": 2.44,
     "notHispanicLatino": "1305",
-        "hispanicLatino": "6104"
+    "hispanicLatino": "6104"
   },
   {
     "fips": "48285",
@@ -85469,7 +85501,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2418",
-        "hispanicLatino": "1051"
+    "hispanicLatino": "1051"
   },
   {
     "fips": "48297",
@@ -85565,7 +85597,7 @@
     "totalError": "47",
     "totalMoePct": 46.08,
     "notHispanicLatino": "86",
-        "hispanicLatino": "16"
+    "hispanicLatino": "16"
   },
   {
     "fips": "48303",
@@ -85725,7 +85757,7 @@
     "totalError": "193",
     "totalMoePct": 29.15,
     "notHispanicLatino": "330",
-        "hispanicLatino": "332"
+    "hispanicLatino": "332"
   },
   {
     "fips": "48313",
@@ -85821,7 +85853,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3040",
-        "hispanicLatino": "2574"
+    "hispanicLatino": "2574"
   },
   {
     "fips": "48319",
@@ -85853,7 +85885,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3183",
-        "hispanicLatino": "978"
+    "hispanicLatino": "978"
   },
   {
     "fips": "48321",
@@ -85981,7 +86013,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1395",
-        "hispanicLatino": "728"
+    "hispanicLatino": "728"
   },
   {
     "fips": "48329",
@@ -86077,7 +86109,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3934",
-        "hispanicLatino": "968"
+    "hispanicLatino": "968"
   },
   {
     "fips": "48335",
@@ -86269,7 +86301,7 @@
     "totalError": "128",
     "totalMoePct": 11.07,
     "notHispanicLatino": "932",
-        "hispanicLatino": "224"
+    "hispanicLatino": "224"
   },
   {
     "fips": "48347",
@@ -86493,7 +86525,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1737",
-        "hispanicLatino": "353"
+    "hispanicLatino": "353"
   },
   {
     "fips": "48361",
@@ -86781,7 +86813,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1167",
-        "hispanicLatino": "5956"
+    "hispanicLatino": "5956"
   },
   {
     "fips": "48379",
@@ -86877,7 +86909,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1100",
-        "hispanicLatino": "2652"
+    "hispanicLatino": "2652"
   },
   {
     "fips": "48385",
@@ -86909,7 +86941,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2717",
-        "hispanicLatino": "672"
+    "hispanicLatino": "672"
   },
   {
     "fips": "48387",
@@ -87037,7 +87069,7 @@
     "totalError": "125",
     "totalMoePct": 14.12,
     "notHispanicLatino": "762",
-        "hispanicLatino": "123"
+    "hispanicLatino": "123"
   },
   {
     "fips": "48395",
@@ -87485,7 +87517,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1756",
-        "hispanicLatino": "1302"
+    "hispanicLatino": "1302"
   },
   {
     "fips": "48423",
@@ -87581,7 +87613,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "595",
-        "hispanicLatino": "63299"
+    "hispanicLatino": "63299"
   },
   {
     "fips": "48429",
@@ -87645,7 +87677,7 @@
     "totalError": "137",
     "totalMoePct": 12.01,
     "notHispanicLatino": "625",
-        "hispanicLatino": "516"
+    "hispanicLatino": "516"
   },
   {
     "fips": "48433",
@@ -87677,7 +87709,7 @@
     "totalError": "118",
     "totalMoePct": 8.52,
     "notHispanicLatino": "1129",
-        "hispanicLatino": "256"
+    "hispanicLatino": "256"
   },
   {
     "fips": "48435",
@@ -87709,7 +87741,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1480",
-        "hispanicLatino": "2385"
+    "hispanicLatino": "2385"
   },
   {
     "fips": "48437",
@@ -87837,7 +87869,7 @@
     "totalError": "187",
     "totalMoePct": 21.69,
     "notHispanicLatino": "314",
-        "hispanicLatino": "548"
+    "hispanicLatino": "548"
   },
   {
     "fips": "48445",
@@ -87901,7 +87933,7 @@
     "totalError": "153",
     "totalMoePct": 9.76,
     "notHispanicLatino": "1332",
-        "hispanicLatino": "235"
+    "hispanicLatino": "235"
   },
   {
     "fips": "48449",
@@ -88125,7 +88157,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "1797",
-        "hispanicLatino": "1837"
+    "hispanicLatino": "1837"
   },
   {
     "fips": "48463",
@@ -89021,7 +89053,7 @@
     "totalError": "168",
     "totalMoePct": 27.45,
     "notHispanicLatino": "592",
-        "hispanicLatino": "20"
+    "hispanicLatino": "20"
   },
   {
     "fips": "49011",
@@ -89373,7 +89405,7 @@
     "totalError": "168",
     "totalMoePct": 8.82,
     "notHispanicLatino": "1870",
-        "hispanicLatino": "34"
+    "hispanicLatino": "34"
   },
   {
     "fips": "49033",
@@ -89405,7 +89437,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2094",
-        "hispanicLatino": "256"
+    "hispanicLatino": "256"
   },
   {
     "fips": "49035",
@@ -90525,7 +90557,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4228",
-        "hispanicLatino": "165"
+    "hispanicLatino": "165"
   },
   {
     "fips": "51019",
@@ -90685,7 +90717,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "22042",
-        "hispanicLatino": "96"
+    "hispanicLatino": "96"
   },
   {
     "fips": "51029",
@@ -90973,7 +91005,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5111",
-        "hispanicLatino": "2"
+    "hispanicLatino": "2"
   },
   {
     "fips": "51047",
@@ -91037,7 +91069,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9759",
-        "hispanicLatino": "27"
+    "hispanicLatino": "27"
   },
   {
     "fips": "51051",
@@ -91677,7 +91709,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2214",
-        "hispanicLatino": "0"
+    "hispanicLatino": "0"
   },
   {
     "fips": "51093",
@@ -91837,7 +91869,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "16240",
-        "hispanicLatino": "257"
+    "hispanicLatino": "257"
   },
   {
     "fips": "51103",
@@ -91869,7 +91901,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10757",
-        "hispanicLatino": "47"
+    "hispanicLatino": "47"
   },
   {
     "fips": "51105",
@@ -92061,7 +92093,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8717",
-        "hispanicLatino": "79"
+    "hispanicLatino": "79"
   },
   {
     "fips": "51117",
@@ -92125,7 +92157,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "10621",
-        "hispanicLatino": "79"
+    "hispanicLatino": "79"
   },
   {
     "fips": "51121",
@@ -92285,7 +92317,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "12132",
-        "hispanicLatino": "91"
+    "hispanicLatino": "91"
   },
   {
     "fips": "51135",
@@ -92509,7 +92541,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "22076",
-        "hispanicLatino": "880"
+    "hispanicLatino": "880"
   },
   {
     "fips": "51149",
@@ -92797,7 +92829,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "27218",
-        "hispanicLatino": "190"
+    "hispanicLatino": "190"
   },
   {
     "fips": "51169",
@@ -93021,7 +93053,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6550",
-        "hispanicLatino": "50"
+    "hispanicLatino": "50"
   },
   {
     "fips": "51183",
@@ -93341,7 +93373,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "16741",
-        "hispanicLatino": "102"
+    "hispanicLatino": "102"
   },
   {
     "fips": "51530",
@@ -93373,7 +93405,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6337",
-        "hispanicLatino": "62"
+    "hispanicLatino": "62"
   },
   {
     "fips": "51540",
@@ -93501,7 +93533,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5438",
-        "hispanicLatino": "144"
+    "hispanicLatino": "144"
   },
   {
     "fips": "51590",
@@ -93565,7 +93597,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5085",
-        "hispanicLatino": "296"
+    "hispanicLatino": "296"
   },
   {
     "fips": "51600",
@@ -93661,7 +93693,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8121",
-        "hispanicLatino": "90"
+    "hispanicLatino": "90"
   },
   {
     "fips": "51630",
@@ -93725,7 +93757,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5539",
-        "hispanicLatino": "1099"
+    "hispanicLatino": "1099"
   },
   {
     "fips": "51650",
@@ -93853,7 +93885,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6748",
-        "hispanicLatino": "362"
+    "hispanicLatino": "362"
   },
   {
     "fips": "51680",
@@ -94077,7 +94109,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3947",
-        "hispanicLatino": "43"
+    "hispanicLatino": "43"
   },
   {
     "fips": "51730",
@@ -94877,7 +94909,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2177",
-        "hispanicLatino": "47"
+    "hispanicLatino": "47"
   },
   {
     "fips": "53025",
@@ -95613,7 +95645,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "3925",
-        "hispanicLatino": "264"
+    "hispanicLatino": "264"
   },
   {
     "fips": "53071",
@@ -95773,7 +95805,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "16645",
-        "hispanicLatino": "85"
+    "hispanicLatino": "85"
   },
   {
     "fips": "54003",
@@ -95837,7 +95869,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "22765",
-        "hispanicLatino": "52"
+    "hispanicLatino": "52"
   },
   {
     "fips": "54007",
@@ -95869,7 +95901,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "14129",
-        "hispanicLatino": "153"
+    "hispanicLatino": "153"
   },
   {
     "fips": "54009",
@@ -95965,7 +95997,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7244",
-        "hispanicLatino": "152"
+    "hispanicLatino": "152"
   },
   {
     "fips": "54015",
@@ -95997,7 +96029,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8778",
-        "hispanicLatino": "7"
+    "hispanicLatino": "7"
   },
   {
     "fips": "54017",
@@ -96029,7 +96061,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8473",
-        "hispanicLatino": "63"
+    "hispanicLatino": "63"
   },
   {
     "fips": "54019",
@@ -96093,7 +96125,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7877",
-        "hispanicLatino": "328"
+    "hispanicLatino": "328"
   },
   {
     "fips": "54023",
@@ -96125,7 +96157,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "11549",
-        "hispanicLatino": "92"
+    "hispanicLatino": "92"
   },
   {
     "fips": "54025",
@@ -96253,7 +96285,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "13624",
-        "hispanicLatino": "218"
+    "hispanicLatino": "218"
   },
   {
     "fips": "54033",
@@ -96317,7 +96349,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "28876",
-        "hispanicLatino": "142"
+    "hispanicLatino": "142"
   },
   {
     "fips": "54037",
@@ -96445,7 +96477,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "20898",
-        "hispanicLatino": "180"
+    "hispanicLatino": "180"
   },
   {
     "fips": "54045",
@@ -96509,7 +96541,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "18966",
-        "hispanicLatino": "251"
+    "hispanicLatino": "251"
   },
   {
     "fips": "54049",
@@ -96701,7 +96733,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "24741",
-        "hispanicLatino": "0"
+    "hispanicLatino": "0"
   },
   {
     "fips": "54061",
@@ -96829,7 +96861,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "25186",
-        "hispanicLatino": "138"
+    "hispanicLatino": "138"
   },
   {
     "fips": "54069",
@@ -96893,7 +96925,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6992",
-        "hispanicLatino": "64"
+    "hispanicLatino": "64"
   },
   {
     "fips": "54073",
@@ -96925,7 +96957,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7463",
-        "hispanicLatino": "44"
+    "hispanicLatino": "44"
   },
   {
     "fips": "54075",
@@ -96957,7 +96989,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8486",
-        "hispanicLatino": "45"
+    "hispanicLatino": "45"
   },
   {
     "fips": "54077",
@@ -96989,7 +97021,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "32995",
-        "hispanicLatino": "842"
+    "hispanicLatino": "842"
   },
   {
     "fips": "54079",
@@ -97117,7 +97149,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "9880",
-        "hispanicLatino": "52"
+    "hispanicLatino": "52"
   },
   {
     "fips": "54087",
@@ -97245,7 +97277,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6999",
-        "hispanicLatino": "28"
+    "hispanicLatino": "28"
   },
   {
     "fips": "54095",
@@ -97277,7 +97309,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8885",
-        "hispanicLatino": "24"
+    "hispanicLatino": "24"
   },
   {
     "fips": "54097",
@@ -97373,7 +97405,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8512",
-        "hispanicLatino": "6"
+    "hispanicLatino": "6"
   },
   {
     "fips": "54103",
@@ -97405,7 +97437,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "15560",
-        "hispanicLatino": "54"
+    "hispanicLatino": "54"
   },
   {
     "fips": "54105",
@@ -97437,7 +97469,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "5733",
-        "hispanicLatino": "64"
+    "hispanicLatino": "64"
   },
   {
     "fips": "54107",
@@ -97501,7 +97533,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "21667",
-        "hispanicLatino": "44"
+    "hispanicLatino": "44"
   },
   {
     "fips": "55001",
@@ -98109,7 +98141,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4276",
-        "hispanicLatino": "61"
+    "hispanicLatino": "61"
   },
   {
     "fips": "55039",
@@ -98781,7 +98813,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4321",
-        "hispanicLatino": "258"
+    "hispanicLatino": "258"
   },
   {
     "fips": "55079",
@@ -99997,7 +100029,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "7323",
-        "hispanicLatino": "87"
+    "hispanicLatino": "87"
   },
   {
     "fips": "56013",
@@ -100093,7 +100125,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "4533",
-        "hispanicLatino": "147"
+    "hispanicLatino": "147"
   },
   {
     "fips": "56019",
@@ -100125,7 +100157,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "8327",
-        "hispanicLatino": "188"
+    "hispanicLatino": "188"
   },
   {
     "fips": "56021",
@@ -100253,7 +100285,7 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "2335",
-        "hispanicLatino": "113"
+    "hispanicLatino": "113"
   },
   {
     "fips": "56029",
@@ -100541,2566 +100573,6 @@
     "totalError": "0",
     "totalMoePct": 0.0,
     "notHispanicLatino": "6993",
-        "hispanicLatino": "107"
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
-  },
-  {
-    "fips": "00000",
-    "county": "",
-    "state": "",
-    "abbreviation": "",
-    "largestRace1": "#N/A",
-    "largestRace1pct": 0.0,
-    "largestRace2": "#NUM!",
-    "largestRace2pct": "#NUM!",
-    "largestRace3": "#NUM!",
-    "largestRace3pct": "#NUM!",
-    "largestRace4": "#NUM!",
-    "largestRace4pct": "#NUM!",
-    "largestRace5": "#NUM!",
-    "largestRace5pct": "#NUM!",
-    "largestRace6": "#NUM!",
-    "largestRace6pct": "#NUM!",
-    "largestRace7": "#NUM!",
-    "largestRace7pct": "#NUM!",
-    "whiteAlone": "",
-    "blackAfricanAmericanAlonePct": "",
-    "americanIndianAlaskanAlonePct": "",
-    "asianAlonePct": "",
-    "nativeHawaiianPacificIslanderAlonePct": "",
-    "twoMorePct": "",
-    "hispanicLatinoPct": "",
-    "total": 0,
-    "totalError": "",
-    "totalMoePct": "",
-    "notHispanicLatino": "",
-        "hispanicLatino": ""
+    "hispanicLatino": "107"
   }
 ]

@@ -5,7 +5,7 @@ import alertBang from '../../../../images/race-dashboard/alert-bang-white.svg'
 
 export default ({ stateName }) => (
   <div className={noDataStyles.container}>
-    <table className={noDataStyles.table} role="presentation">
+    <table className={noDataStyles.table} aria-hidden role="presentation">
       <tbody>
         <tr>
           <td />

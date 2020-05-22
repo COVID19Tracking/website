@@ -44,6 +44,13 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'raceProjectImages',
+        path: `${__dirname}/src/images/race-project`,
+      },
+    },
+    {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_data/v1/press.json',
@@ -148,6 +155,15 @@ const gatsbyConfig = {
       options: {
         name: 'press-logos',
         path: `${__dirname}/src/data/homepage-press.yml`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-counties',
+      options: {
+        type: 'Counties',
+        nytimesUrl:
+          'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv',
+        demographics: `${__dirname}/src/data/race/counties/demographics.json`,
       },
     },
     {

@@ -31,8 +31,11 @@
     "@reach/visually-hidden": "^0.9.0",
     "@slack/web-api": "^5.8.0",
     "algoliasearch": "^4.1.0",
+    "camelcase": "^6.0.0",
     "classnames": "^2.2.6",
     "clsx": "^1.1.0",
+    "csv-parse": "^4.9.1",
+    "csv-writer": "^1.6.0",
     "d3-array": "^2.4.0",
     "d3-collection": "^1.0.7",
     "d3-format": "^1.4.4",
@@ -65,6 +68,7 @@
     "gatsby-remark-smartypants": "^2.2.3",
     "gatsby-source-contentful": "^2.3.1",
     "gatsby-source-filesystem": "^2.1.56",
+    "gatsby-transformer-json": "^2.4.2",
     "gatsby-transformer-remark": "^2.7.0",
     "gatsby-transformer-sharp": "^2.5.0",
     "gatsby-transformer-yaml": "^2.3.1",
@@ -154,6 +158,6 @@
     "setup": "run-s setup:api-data setup:api-repo setup:env-vars",
     "setup:api-data": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz",
     "setup:env-vars": "curl -L https://covidtracking.com/__developer/env-vars > .env",
-    "setup:api-repo": "rm -rf _api || true && git clone --depth 1 https://github.com/COVID19Tracking/covid-public-api.git _api"
+    "setup:api-repo": "rm -rf _api || true && git clone --depth 1 https://github.com/COVID19Tracking/covid-public-api.git _api && rm -rf _api/.git"
   }
 }

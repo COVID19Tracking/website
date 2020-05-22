@@ -108,6 +108,30 @@ export default () => {
           aianDeathNotes
           aianDeathDispFlag
           aianDeathCaution
+          blackANHPINotes
+          blackPosNotes
+          blackDeathNotes
+          asianANHPINotes
+          asianPosNotes
+          asianDeathNotes
+          aianANHPINotes
+          aianPosNotes
+          aianDeathNotes
+          nhpiANHPINotes
+          nhpiPosNotes
+          nhpiDeathNotes
+          twoANHPINotes
+          twoPosNotes
+          twoDeathNotes
+          whiteANHPINotes
+          whitePosNotes
+          whiteDeathNotes
+          otherANHPINotes
+          otherPosNotes
+          otherDeathNotes
+          latinXANHPINotes
+          latinXPosNotes
+          latinXDeathNotes
         }
       }
       allCovidRaceDataSeparate(
@@ -119,6 +143,7 @@ export default () => {
           state
           name: stateName
           anyPosData
+          anyDeathData
           posRaceData
           posEthData
           deathRaceData
@@ -203,6 +228,8 @@ export default () => {
           blackDeaths
           blackDeathDispFlag
           blackDeathCaution
+          asianSpecialCaseNotes
+          blackSpecialCaseNotes
           asianPositives
           asianPosNotes
           asianPosDispFlag
@@ -227,6 +254,55 @@ export default () => {
           aianDeathNotes
           aianDeathDispFlag
           aianDeathCaution
+          aianSpecialCaseNotes
+          nhpiSpecialCaseNotes
+          twoSpecialCaseNotes
+          whiteSpecialCaseNotes
+          otherSpecialCaseNotes
+          blackANHPIPosNotes
+          blackANHPIDeathNotes
+          blackPosNotes
+          blackDeathNotes
+          blackSpecialCaseNotes
+          asianANHPIPosNotes
+          asianANHPIDeathNotes
+          asianPosNotes
+          asianDeathNotes
+          asianSpecialCaseNotes
+          aianANHPIPosNotes
+          aianANHPIDeathNotes
+          aianPosNotes
+          aianDeathNotes
+          aianSpecialCaseNotes
+          nhpiANHPIPosNotes
+          nhpiANHPIDeathNotes
+          nhpiPosNotes
+          nhpiDeathNotes
+          nhpiSpecialCaseNotes
+          twoANHPIPosNotes
+          twoANHPIDeathNotes
+          twoPosNotes
+          twoDeathNotes
+          twoSpecialCaseNotes
+          whiteANHPIPosNotes
+          whiteANHPIDeathNotes
+          whitePosNotes
+          whiteDeathNotes
+          whiteSpecialCaseNotes
+          otherANHPIPosNotes
+          otherANHPIDeathNotes
+          otherPosNotes
+          otherDeathNotes
+          otherSpecialCaseNotes
+          latinXANHPIPosNotes
+          latinXANHPIDeathNotes
+          latinXPosNotes
+          latinXDeathNotes
+          nonhispanicANHPIPosNotes
+          nonhispanicANHPIDeathNotes
+          nonhispanicPosNotes
+          nonhispanicDeathNotes
+          nonhispanicSpecialCaseNotes
         }
       }
     }

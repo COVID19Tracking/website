@@ -6,4 +6,7 @@
   line-height: 2.5;
   color: $color-slate-600;
   margin-bottom: 0.5rem;
+  &.white {
+    color: white;
+  }
 }

@@ -38,10 +38,11 @@ export default ({ state }) => {
     notes.nhpiDeath = stateData.nhpiANHPIDeathNotes
     stateData.nhpiPctDeath = null // handled in Percent
   }
-  Object.keys(notes).forEach(key =>
-    notes[key] === undefined || notes[key] === '' ? delete notes[key] : {},
-  )
-  const groupedNotes = [...new Set(Object.values(notes))].reverse()
+
+  const groupedNotes = [...new Set(Object.values(notes))]
+    .reverse()
+    .filter(value => value && value.trim().length && value)
+
   return (
     <div>
       <div className={stateStyle.stateOverview}>
@@ -73,7 +74,11 @@ export default ({ state }) => {
         * Hispanic or Latino ethnicity, any race. All other race categories in
         this table are defined as Not Hispanic or Latino.
       </p>
-      <TableNotes state={stateData.state} groupedNotes={groupedNotes} />
+      <TableNotes
+        state={stateData.state}
+        stateName={stateData.name}
+        groupedNotes={groupedNotes}
+      />
     </div>
   )
 }

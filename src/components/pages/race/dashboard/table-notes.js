@@ -1,20 +1,26 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import tableNotesStyle from './table-notes.module.scss'
 
-export default ({ state, groupedNotes }) => {
+export default ({ state, stateName, type, groupedNotes }) => {
   if (!groupedNotes.length) {
     return null
   }
   return (
     <>
-      <h4>Notes</h4>
+      <h4
+        className={tableNotesStyle.header}
+        id={`notes-${state.toLowerCase()}`}
+      >
+        Notes{' '}
+        <span className="a11y-only">
+          {type && <>on {type}</>} for {stateName}
+        </span>
+      </h4>
       <ol>
         {groupedNotes.map((note, index) => (
-          <li
-            id={`${state.toLowerCase()}-table-note-${index + 1}`}
-            key={`${state.toLowerCase()}-table-note-${index + 1}`}
-          >
-            {note}
-          </li>
+          <Fragment key={`${state.toLowerCase()}-note-${index + 1}`}>
+            {note && note.trim().length && <li>{note}</li>}
+          </Fragment>
         ))}
       </ol>
     </>

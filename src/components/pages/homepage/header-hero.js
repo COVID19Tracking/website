@@ -1,7 +1,8 @@
 import React from 'react'
 import heroStyle from './header-hero.module.scss'
+import HeroHeader from '~components/common/landing-page/hero/header'
 import containerStyle from '~components/common/container.module.scss'
-import homepageContainerStyle from './container.module.scss'
+import homepageContainerStyle from '~components/common/landing-page/container.module.scss'
 
 export default () => {
   return (
@@ -10,7 +11,7 @@ export default () => {
         <div
           className={`${homepageContainerStyle.container} ${homepageContainerStyle.header}`}
         >
-          <h2 className={`hero-header ${heroStyle.header}`}>
+          <HeroHeader>
             The public deserves the most complete data available about COVID-19
             in the{' '}
             <abbr title="United States" aria-label="United States">
@@ -18,7 +19,7 @@ export default () => {
             </abbr>
             . No official source is providing it,{' '}
             <span className="nowrap">so we are</span>.
-          </h2>
+          </HeroHeader>
         </div>
       </div>
     </div>
