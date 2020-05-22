@@ -26,24 +26,23 @@ export default ({ state }) => {
     blackDeath: stateData.blackDeathNotes,
     blackPos: stateData.blackPosNotes,
   }
-  Object.keys(notes).forEach(key =>
-    notes[key] === undefined || notes[key] === '' ? delete notes[key] : {},
-  )
   if (stateData.asianPosCaution) {
     // if a state's Asian positives include NH/PI
-    notes.asianPos = stateData.asianANHPINotes
-    notes.nhpiPos = stateData.asianANHPINotes
+    notes.asianPos = stateData.asianANHPIPosNotes
+    notes.nhpiPos = stateData.nhpiANHPIPosNotes
     stateData.nhpiPctPos = null // handled in Percent
   }
   if (stateData.asianDeathCaution) {
     // if a state's Asian deaths include NH/PI
-    notes.asianDeath = stateData.asianANHPINotes
-    notes.nhpiDeath = stateData.asianANHPINotes
+    notes.asianDeath = stateData.asianANHPIDeathNotes
+    notes.nhpiDeath = stateData.nhpiANHPIDeathNotes
     stateData.nhpiPctDeath = null // handled in Percent
   }
+
   const groupedNotes = [...new Set(Object.values(notes))]
     .reverse()
     .filter(value => value && value.trim().length && value)
+
   return (
     <div>
       <div className={stateStyle.stateOverview}>
