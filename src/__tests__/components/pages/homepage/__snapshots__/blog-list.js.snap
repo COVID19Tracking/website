@@ -8,7 +8,7 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
     className="container"
   >
     <p
-      className="homepage-paragraph paragraph undefined "
+      className="homepage-paragraph paragraph"
     >
       See how we work, what we're learning, and what's changing in our data on our project blog.
     </p>
@@ -36,7 +36,9 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
           <div
             className="bylineSmallMargin"
           >
-            <p>
+            <p
+              className="bylineText"
+            >
               <span
                 className="spacer"
               >
@@ -50,7 +52,9 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
                 >
                   Prajakta Ranade
                 </span>
-                 & 
+                 
+                &
+                 
                 <span
                   className="authorInner"
                 >
@@ -91,7 +95,9 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
                 src="//images.ctfassets.net/o2ll9t4ee8tq/3vW1aeLjPFSMAZOqHv9TQS/b4ffb03526cf67724c6732c6e11a6cef/original.png?w=100&fl=progressive&q=50"
               />
             </div>
-            <p>
+            <p
+              className="bylineText"
+            >
               <span
                 className="spacer"
               >
@@ -117,7 +123,7 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
         </li>
       </ul>
       <a
-        className="cta centered"
+        className="cta centered "
         href="/blog"
       >
         See more from our blog

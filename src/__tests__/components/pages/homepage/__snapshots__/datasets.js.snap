@@ -3,10 +3,10 @@
 exports[`Components : Pages : Homepage : Datasets renders correctly 1`] = `
 <div>
   <div
-    className="dataset "
+    className="feature"
   >
     <div
-      className="image"
+      className="element"
     >
       <div
         className=" gatsby-image-wrapper"
@@ -99,10 +99,10 @@ exports[`Components : Pages : Homepage : Datasets renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="dataset flip"
+    className="feature flip"
   >
     <div
-      className="image"
+      className="element"
     >
       <div
         className=" gatsby-image-wrapper"

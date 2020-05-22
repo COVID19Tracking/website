@@ -5,7 +5,7 @@ exports[`Components : Pages : Homepage : Latest Totals renders correctly 1`] = `
   className="container"
 >
   <p
-    className="homepage-paragraph paragraph undefined "
+    className="homepage-paragraph paragraph"
   >
     Every day, our volunteers compile the latest numbers on tests, confirmed cases, hospitalizations, and patient outcomes from every US state and territory.
   </p>
@@ -39,10 +39,10 @@ exports[`Components : Pages : Homepage : Latest Totals renders correctly 1`] = `
       </div>
       <div
         className="total"
+        role="text"
       >
         <div
           className="number"
-          role="text"
         >
           1,005,592
         </div>
@@ -54,10 +54,10 @@ exports[`Components : Pages : Homepage : Latest Totals renders correctly 1`] = `
       </div>
       <div
         className="total"
+        role="text"
       >
         <div
           className="number"
-          role="text"
         >
           52,525
         </div>
@@ -71,7 +71,7 @@ exports[`Components : Pages : Homepage : Latest Totals renders correctly 1`] = `
         className="ctaLink"
       >
         <a
-          className="cta "
+          className="cta  "
           href="/data"
         >
           See all data

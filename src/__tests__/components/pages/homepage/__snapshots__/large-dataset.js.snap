@@ -5,7 +5,7 @@ exports[`Components : Pages : Homepage : Large Dataset renders correctly 1`] = `
   className="largeDataset"
 >
   <p
-    className="homepage-paragraph paragraph undefined homepageParagraph"
+    className="homepage-paragraph paragraph homepageParagraph"
   >
     Our data powers crucial reporting and research. Here are just a few of the organizations that rely on our dataset.
   </p>

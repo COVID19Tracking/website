@@ -7,10 +7,10 @@ describe('Components : Pages : Blog : Blog Image', () => {
     const tree = renderer
       .create(
         <BlogImage
-          imageSource={'//imagehosting.com/thisimage'}
-          imageAlt={'Test alt text'}
-          caption={'Author Designer / The COVID Tracking Project'}
-          containerStyle={'style-class'}
+          imageSource="//imagehosting.com/thisimage"
+          imageAlt="Test alt text"
+          caption="Author Designer / The COVID Tracking Project"
+          containerStyle="style-class"
         />,
       )
       .toJSON()

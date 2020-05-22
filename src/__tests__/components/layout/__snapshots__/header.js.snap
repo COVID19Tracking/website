@@ -1449,7 +1449,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
   className="site-header siteHeader  "
 >
   <div
-    className="container container"
+    className="container container "
   >
     <div
       className=""
@@ -1464,31 +1464,42 @@ exports[`Components : Layout : Header renders correctly 4`] = `
     >
       <div
         className="mobileMenu"
+        style={
+          Object {
+            "minHeight": "0px",
+          }
+        }
       >
         <div
           className="searchInput"
         >
-          <form
-            action="/search"
-            method="get"
-            onSubmit={[Function]}
+          <div
+            data-reach-combobox=""
           >
             <label
-              className="a11y-only"
-              htmlFor="mobile-menu-search"
+              className=""
+              htmlFor="header-search-autocomplete-mobile"
             >
               Search
             </label>
             <input
+              aria-autocomplete="both"
+              aria-controls="listbox--11"
+              aria-expanded={false}
+              aria-haspopup="listbox"
               autoComplete="off"
-              id="mobile-menu-search"
-              name="q"
+              data-reach-combobox-input=""
+              id="header-search-autocomplete-mobile"
               onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
               onFocus={[Function]}
-              placeholder="Search"
-              type="search"
+              onKeyDown={[Function]}
+              onSelect={[Function]}
+              role="combobox"
+              value=""
             />
-          </form>
+          </div>
           <button
             aria-label="Submit search"
             className="searchSubmit"
@@ -1504,16 +1515,118 @@ exports[`Components : Layout : Header renders correctly 4`] = `
         </div>
         <nav
           className="js-disabled-block"
+          role="navigation"
         >
-          <ul>
-            <li>
+          <ul
+            className="mobile"
+            role="menubar"
+          >
+            <li
+              className="menuItem"
+            >
               <a
                 href="/test-a"
               >
                 Test A
               </a>
+              <button
+                aria-controls="menu--15"
+                aria-expanded="false"
+                aria-haspopup="true"
+                className="caret"
+                id="menu-button--menu--15"
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                type="button"
+              >
+                <svg
+                  aria-hidden={true}
+                  fill="none"
+                  height="7"
+                  viewBox="0 0 12 7"
+                  width="12"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
+                  />
+                </svg>
+                <span
+                  className="a11y-only"
+                >
+                  show menu for 
+                  Test A
+                </span>
+              </button>
+              <div
+                data-reach-menu=""
+                data-reach-menu-popover=""
+                hidden={true}
+              >
+                <div
+                  aria-labelledby="menu-button--menu--15"
+                  className="subMenu"
+                  data-reach-menu-items=""
+                  data-reach-menu-list=""
+                  id="menu--15"
+                  onKeyDown={[Function]}
+                  role={false}
+                  tabIndex={-1}
+                >
+                  <div
+                    role="none"
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="menuLink"
+                      data-reach-menu-item=""
+                      data-reach-menu-link=""
+                      data-selected=""
+                      data-valuetext=""
+                      href="/contentful-a"
+                      onClick={[Function]}
+                      onDragStart={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseMove={[Function]}
+                      onMouseUp={[Function]}
+                      role="menuitem"
+                      tabIndex={-1}
+                    >
+                      Contentful a
+                    </a>
+                  </div>
+                  <div
+                    role="none"
+                    tabIndex={-1}
+                  >
+                    <a
+                      className="menuLink"
+                      data-reach-menu-item=""
+                      data-reach-menu-link=""
+                      data-selected=""
+                      data-valuetext=""
+                      href="/contentful-b"
+                      onClick={[Function]}
+                      onDragStart={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseMove={[Function]}
+                      onMouseUp={[Function]}
+                      role="menuitem"
+                      tabIndex={-1}
+                    >
+                      Contentful B
+                    </a>
+                  </div>
+                </div>
+              </div>
             </li>
-            <li>
+            <li
+              className="menuItem"
+            >
               <a
                 href="/test-b"
               >
@@ -1611,14 +1724,14 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                     data-reach-combobox=""
                   >
                     <label
-                      className="a11y-only"
+                      className=""
                       htmlFor="header-search-autocomplete"
                     >
                       Search
                     </label>
                     <input
                       aria-autocomplete="both"
-                      aria-controls="listbox--5"
+                      aria-controls="listbox--12"
                       aria-expanded={false}
                       aria-haspopup="listbox"
                       autoComplete="off"
@@ -1630,7 +1743,6 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                       onFocus={[Function]}
                       onKeyDown={[Function]}
                       onSelect={[Function]}
-                      placeholder="Search"
                       role="combobox"
                       value=""
                     />
@@ -1650,23 +1762,125 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                 </div>
                 <a
                   className="getInvolved"
-                  href="/about-project/help"
+                  href="/get-involved"
                 >
                   Get involved
                 </a>
               </div>
               <nav
                 className="js-disabled-block"
+                role="navigation"
               >
-                <ul>
-                  <li>
+                <ul
+                  className=""
+                  role="menubar"
+                >
+                  <li
+                    className="menuItem"
+                  >
                     <a
                       href="/test-a"
                     >
                       Test A
                     </a>
+                    <button
+                      aria-controls="menu--16"
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      className="caret"
+                      id="menu-button--menu--16"
+                      onKeyDown={[Function]}
+                      onMouseDown={[Function]}
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden={true}
+                        fill="none"
+                        height="7"
+                        viewBox="0 0 12 7"
+                        width="12"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
+                        />
+                      </svg>
+                      <span
+                        className="a11y-only"
+                      >
+                        show menu for 
+                        Test A
+                      </span>
+                    </button>
+                    <div
+                      data-reach-menu=""
+                      data-reach-menu-popover=""
+                      hidden={true}
+                    >
+                      <div
+                        aria-labelledby="menu-button--menu--16"
+                        className="subMenu"
+                        data-reach-menu-items=""
+                        data-reach-menu-list=""
+                        id="menu--16"
+                        onKeyDown={[Function]}
+                        role={false}
+                        tabIndex={-1}
+                      >
+                        <div
+                          role="none"
+                          tabIndex={-1}
+                        >
+                          <a
+                            className="menuLink"
+                            data-reach-menu-item=""
+                            data-reach-menu-link=""
+                            data-selected=""
+                            data-valuetext=""
+                            href="/contentful-a"
+                            onClick={[Function]}
+                            onDragStart={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseMove={[Function]}
+                            onMouseUp={[Function]}
+                            role="menuitem"
+                            tabIndex={-1}
+                          >
+                            Contentful a
+                          </a>
+                        </div>
+                        <div
+                          role="none"
+                          tabIndex={-1}
+                        >
+                          <a
+                            className="menuLink"
+                            data-reach-menu-item=""
+                            data-reach-menu-link=""
+                            data-selected=""
+                            data-valuetext=""
+                            href="/contentful-b"
+                            onClick={[Function]}
+                            onDragStart={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseMove={[Function]}
+                            onMouseUp={[Function]}
+                            role="menuitem"
+                            tabIndex={-1}
+                          >
+                            Contentful B
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                   </li>
-                  <li>
+                  <li
+                    className="menuItem"
+                  >
                     <a
                       href="/test-b"
                     >
@@ -1681,7 +1895,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
             className="atlanticBanner"
           >
             <span>
-              From
+              At
             </span>
              
             <img
@@ -1691,31 +1905,16 @@ exports[`Components : Layout : Header renders correctly 4`] = `
             <div />
           </div>
           <div
-            className="titleSubnavContainer"
+            className="titleSubnavContainer "
           >
             <div
               className="title"
             >
               <h1
-                className="page-title pageTitle "
+                className="page-title pageTitle"
               >
                 Sample title
               </h1>
-            </div>
-            <div
-              className="tabContainer"
-            >
-              <div
-                className="site-header-tabs headerTabs"
-              >
-                <div>
-                  <ul>
-                    <li>
-                      <a />
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
         </div>

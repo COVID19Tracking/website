@@ -8,14 +8,14 @@ describe('Components : Pages : Blog : Image Content Block', () => {
       .create(
         <ImageContentBlock
           image={{
-            ['en-US']: {
+            'en-US': {
               fields: {
                 file: {
-                  ['en-US']: {
+                  'en-US': {
                     url: '//images.ctfassets.net/anexampleimage',
                   },
                   title: {
-                    ['en-US']: 'This is a test image title',
+                    'en-US': 'This is a test image title',
                   },
                 },
                 title: 'An Example Image',
@@ -23,7 +23,7 @@ describe('Components : Pages : Blog : Image Content Block', () => {
             },
           }}
           caption={{
-            ['en-US']: 'This is an image caption',
+            'en-US': 'This is an image caption',
           }}
         />,
       )

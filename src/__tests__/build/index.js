@@ -1,8 +1,8 @@
 const fs = require('fs-extra')
 const stateNames = require('../../../build/datasources/stateNames.js')
 
-const getSortedDatesUnique = (dates) => [...new Set(dates)].sort()
-const getMostRecent = (arr) => arr[arr.length - 1]
+const getSortedDatesUnique = dates => [...new Set(dates)].sort()
+const getMostRecent = arr => arr[arr.length - 1]
 
 describe('Website build', () => {
   it('has a homepage', () => {
@@ -35,10 +35,10 @@ describe('Website build', () => {
       fs.readFileSync('./public/api/v1/states/daily.json', 'utf8'),
     )
     const mostRecent = getMostRecent(
-      getSortedDatesUnique(statesDaily.map((state) => state.dateChecked)),
+      getSortedDatesUnique(statesDaily.map(state => state.dateChecked)),
     )
     const allLatestReports = statesDaily.filter(
-      (state) => state.dateChecked === mostRecent,
+      state => state.dateChecked === mostRecent,
     )
     expect(allLatestReports.length).toBeGreaterThan(50)
   })
@@ -48,12 +48,12 @@ describe('Website build', () => {
       fs.readFileSync('./public/api/v1/states/daily.json', 'utf8'),
     )
     const mostRecent = getMostRecent(
-      getSortedDatesUnique(statesDaily.map((state) => state.dateChecked)),
+      getSortedDatesUnique(statesDaily.map(state => state.dateChecked)),
     )
     const allLatestReports = statesDaily.filter(
-      (state) => state.dateChecked === mostRecent,
+      state => state.dateChecked === mostRecent,
     )
-    const arr = [...new Set(allLatestReports.map((item) => item.state))]
+    const arr = [...new Set(allLatestReports.map(item => item.state))]
     expect(Object.keys(stateNames.allStates)).toEqual(
       expect.arrayContaining(arr),
     )

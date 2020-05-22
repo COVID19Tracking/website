@@ -26,7 +26,9 @@ Array [
         src="//images.ctfassets.net/aspecificfile"
       />
     </div>
-    <p>
+    <p
+      className="bylineText"
+    >
       <span
         className="spacer"
       >
@@ -41,7 +43,9 @@ Array [
         >
           test name
         </a>
-         & 
+         
+        &
+         
         <a
           className="authorInner"
           href="https://twitter.com/testii"
@@ -85,7 +89,9 @@ Array [
         src="//images.ctfassets.net/aspecificfile"
       />
     </div>
-    <p>
+    <p
+      className="bylineText"
+    >
       <span
         className="spacer"
       >
@@ -100,7 +106,9 @@ Array [
         >
           test name
         </a>
-         & 
+         
+        &
+         
         <a
           className="authorInner"
           href="https://twitter.com/testii"

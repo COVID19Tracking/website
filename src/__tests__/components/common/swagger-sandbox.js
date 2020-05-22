@@ -1,3 +1,5 @@
+/* eslint-disable no-global-assign */
+
 import React from 'react'
 import renderer from 'react-test-renderer'
 import SwaggerUI from 'swagger-ui'
