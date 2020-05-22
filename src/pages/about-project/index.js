@@ -6,6 +6,7 @@ import VolunteersList from '../../components/common/volunteers-list'
 export default ({ data }) => (
   <Layout
     title="About us"
+    path="/about-project"
     narrow
     textHeavy
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}

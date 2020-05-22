@@ -1,0 +1,46 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+.container {
+  display: flex;
+  @media (max-width: $viewport-md) {
+    flex-direction: column;
+  }
+  div {
+    flex-basis: 50%;
+  }
+}
+
+.title {
+  margin-bottom: 0.25rem;
+  margin-top: 0;
+}
+
+.data-item {
+  &:first-child {
+    padding-right: 3rem;
+  }
+}
+.data {
+  display: flex;
+  justify-content: space-between;
+  img {
+    width: 46px;
+  }
+  flex-direction: row;
+}
+
+.percent {
+  display: block;
+  font-size: 4rem;
+  color: $color-plum-600;
+  font-weight: bold;
+  line-height: 5rem;
+}
+
+.percent-caption {
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 24px;
+}

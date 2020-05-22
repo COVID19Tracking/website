@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { StaticQuery } from 'gatsby'
-import DevelopmentWarning from '../../../components/layout/development-warning'
+import DevelopmentWarning from '~components/layout/header/development-warning'
 
 describe('Components : Layout : Development warning', () => {
   it('is hidden in production', () => {

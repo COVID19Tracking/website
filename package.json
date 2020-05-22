@@ -24,13 +24,18 @@
     "@contentful/rich-text-types": "^14.1.0",
     "@reach/alert": "^0.9.1",
     "@reach/combobox": "^0.9.1",
+    "@reach/disclosure": "^0.10.2",
+    "@reach/menu-button": "^0.10.2",
     "@reach/router": "^1.3.3",
     "@reach/skip-nav": "^0.9.0",
     "@reach/visually-hidden": "^0.9.0",
     "@slack/web-api": "^5.8.0",
     "algoliasearch": "^4.1.0",
+    "camelcase": "^6.0.0",
     "classnames": "^2.2.6",
     "clsx": "^1.1.0",
+    "csv-parse": "^4.9.1",
+    "csv-writer": "^1.6.0",
     "d3-array": "^2.4.0",
     "d3-collection": "^1.0.7",
     "d3-format": "^1.4.4",
@@ -53,6 +58,7 @@
     "gatsby-plugin-netlify": "^2.2.1",
     "gatsby-plugin-nprogress": "^2.3.0",
     "gatsby-plugin-offline": "^3.0.41",
+    "gatsby-plugin-polyfill-io": "^1.1.0",
     "gatsby-plugin-react-helmet": "^3.1.24",
     "gatsby-plugin-remove-trailing-slashes": "^2.2.1",
     "gatsby-plugin-sass": "^2.2.0",
@@ -62,6 +68,7 @@
     "gatsby-remark-smartypants": "^2.2.3",
     "gatsby-source-contentful": "^2.3.1",
     "gatsby-source-filesystem": "^2.1.56",
+    "gatsby-transformer-json": "^2.4.2",
     "gatsby-transformer-remark": "^2.7.0",
     "gatsby-transformer-sharp": "^2.5.0",
     "gatsby-transformer-yaml": "^2.3.1",
@@ -125,8 +132,8 @@
     "set-tz": "^0.2.0"
   },
   "scripts": {
-    "build": "run-s build:fetch build:gatsby build:data build:data-archive build:test",
-    "build-preview": "run-s setup:api-data build:gatsby build:data build:data-archive build:test",
+    "build": "run-s build:fetch setup:api-repo build:gatsby build:data build:data-archive build:test",
+    "build-preview": "run-s setup:api-data setup:api-repo build:gatsby build:data build:data-archive build:test",
     "build:fetch": "node build/index.js",
     "build:gatsby": "gatsby build",
     "build:data": "cp -R _data/* public/api/",
@@ -148,8 +155,9 @@
     "test:lint": "eslint ./src",
     "test:dev": "run-s test:lint test",
     "test:api-post-build": "jest  --config=\"{}\" --testPathPattern=./build/__tests__/post-build/",
-    "setup": "run-s setup:api-data setup:env-vars",
+    "setup": "run-s setup:api-data setup:api-repo setup:env-vars",
     "setup:api-data": "curl https://covidtracking.com/api/archive.tar.gz | tar -xz",
-    "setup:env-vars": "curl -L https://covidtracking.com/__developer/env-vars > .env"
+    "setup:env-vars": "curl -L https://covidtracking.com/__developer/env-vars > .env",
+    "setup:api-repo": "rm -rf _api || true && git clone --depth 1 https://github.com/COVID19Tracking/covid-public-api.git _api && rm -rf _api/.git"
   }
 }

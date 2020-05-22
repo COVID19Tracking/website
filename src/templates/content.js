@@ -2,12 +2,15 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 
-const ContentPage = ({ data }) => {
+const ContentPage = ({ data, path }) => {
   const page = data.allContentfulPage.edges[0].node
   return (
     <Layout
       title={page.title}
       navigation={page.navigationGroup ? page.navigationGroup.pages : false}
+      path={path}
+      returnLink={page.returnLinkUrl}
+      returnLinkTitle={page.returnLinkTitle}
       narrow
       textHeavy
     >
@@ -28,6 +31,8 @@ export const query = graphql`
         node {
           title
           slug
+          returnLinkTitle
+          returnLinkUrl
           body {
             childMarkdownRemark {
               html

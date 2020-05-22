@@ -10,7 +10,12 @@ const Th = ({
   isFirst,
   alignLeft,
   columnWidth,
+  additionalClass,
   wide,
+  sortDirection,
+  sortable,
+  onClick,
+  scope,
 }) => {
   const thClasses = []
   if (alignLeft) {
@@ -22,13 +27,48 @@ const Th = ({
   if (wide) {
     thClasses.push(tableStyle.wide)
   }
+  if (additionalClass) {
+    thClasses.push(additionalClass)
+  }
 
   const role = 'text'
 
   return (
-    <th scope="col" colSpan={colSpan} className={classnames(thClasses)}>
+    <th
+      scope={scope || 'col'}
+      colSpan={colSpan}
+      className={classnames(thClasses)}
+    >
       <span role={role}>
-        {children}
+        {sortable ? (
+          <button
+            type="button"
+            className={tableStyle.sortButton}
+            onClick={onClick}
+          >
+            {sortDirection === 'up' && (
+              <abbr
+                className={tableStyle.sort}
+                title="Sort up"
+                aria-label="Sort up"
+              >
+                ↑
+              </abbr>
+            )}
+            {sortDirection === 'down' && (
+              <abbr
+                className={tableStyle.sort}
+                title="Sort down"
+                aria-label="Sort down"
+              >
+                ↓
+              </abbr>
+            )}
+            {children}
+          </button>
+        ) : (
+          <>{children}</>
+        )}
         {header && (
           <span
             className={`${
@@ -48,13 +88,26 @@ const Th = ({
   )
 }
 
-const Td = ({ children, alignLeft, isFirst }) => {
-  let tdClasses
-  if (alignLeft || isFirst)
-    tdClasses = `${alignLeft ? tableStyle.alignLeft : ''} ${
-      isFirst ? tableStyle.borderLeft : ''
-    }`
-  return <td className={tdClasses}>{children}</td>
+const Td = ({ children, alignLeft, isFirst, additionalClass, rowspan }) => {
+  const tdClasses = []
+  if (alignLeft) {
+    tdClasses.push(tableStyle.alignLeft)
+  }
+  if (isFirst) {
+    tdClasses.push(tableStyle.borderLeft)
+  }
+  if (additionalClass) {
+    tdClasses.push(additionalClass)
+  }
+  if (rowspan) {
+    return (
+      <td className={classnames(tdClasses)} rowSpan={rowspan}>
+        {children}
+      </td>
+    )
+  }
+
+  return <td className={classnames(tdClasses)}>{children}</td>
 }
 
 const Table = ({ children, tableLabel }) => (

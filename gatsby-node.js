@@ -1,5 +1,7 @@
 const path = require('path')
 const slugify = require('slugify')
+const { createObjectCsvStringifier } = require('csv-writer')
+const fs = require('fs-extra')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
@@ -53,6 +55,21 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allCounties(filter: { demographics: { total: { gt: 0 } } }) {
+        nodes {
+          name
+          state
+          current {
+            cases
+            deaths
+          }
+          demographics {
+            total
+            largestRace1
+            largestRace2
+          }
+        }
+      }
     }
   `)
 
@@ -88,6 +105,31 @@ exports.createPages = async ({ graphql, actions }) => {
       context: node,
     })
   })
+
+  const allCounties = result.data.allCounties.nodes.map(county => {
+    return {
+      state: county.state,
+      countyName: county.name,
+      ...county.demographics,
+      ...county.current,
+      casesPer100k: (county.current.cases / county.demographics.total) * 100000,
+      deathsPer100k:
+        (county.current.deaths / county.demographics.total) * 100000,
+    }
+  })
+
+  const csvStringifier = createObjectCsvStringifier({
+    path: './public/race/data/covid-county-by-race.csv',
+    header: Object.keys(allCounties[0]).map(name => ({
+      id: name,
+      title: name,
+    })),
+  })
+  await fs.outputFile(
+    './public/race/data/covid-county-by-race.csv',
+    csvStringifier.getHeaderString() +
+      csvStringifier.stringifyRecords(allCounties),
+  )
 }
 
 exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
@@ -116,4 +158,84 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
       },
     })
   }
+}
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type CovidRaceDataSeparate implements Node {
+      blackANHPIPosNotes: String
+      blackANHPIDeathNotes: String
+      blackPosNotes: String
+      blackDeathNotes: String
+      blackSpecialCaseNotes: String
+      asianANHPIPosNotes: String
+      asianANHPIDeathNotes: String
+      asianPosNotes: String
+      asianDeathNotes: String
+      asianSpecialCaseNotes: String
+      aianANHPIPosNotes: String
+      aianANHPIDeathNotes: String
+      aianPosNotes: String
+      aianDeathNotes: String
+      aianSpecialCaseNotes: String
+      nhpiANHPIPosNotes: String
+      nhpiANHPIDeathNotes: String
+      nhpiPosNotes: String
+      nhpiDeathNotes: String
+      nhpiSpecialCaseNotes: String
+      twoANHPIPosNotes: String
+      twoANHPIDeathNotes: String
+      twoPosNotes: String
+      twoDeathNotes: String
+      twoSpecialCaseNotes: String
+      whiteANHPIPosNotes: String
+      whiteANHPIDeathNotes: String
+      whitePosNotes: String
+      whiteDeathNotes: String
+      whiteSpecialCaseNotes: String
+      otherANHPIPosNotes: String
+      otherANHPIDeathNotes: String
+      otherPosNotes: String
+      otherDeathNotes: String
+      otherSpecialCaseNotes: String
+      latinXANHPIPosNotes: String
+      latinXANHPIDeathNotes: String
+      latinXPosNotes: String
+      latinXDeathNotes: String
+      nonhispanicANHPIPosNotes: String
+      nonhispanicANHPIDeathNotes: String
+      nonhispanicPosNotes: String
+      nonhispanicDeathNotes: String
+      nonhispanicSpecialCaseNotes: String
+    }
+
+    type CovidRaceDataCombined implements Node {
+      blackANHPINotes: String
+      blackPosNotes: String
+      blackDeathNotes: String
+      asianANHPINotes: String
+      asianPosNotes: String
+      asianDeathNotes: String
+      aianANHPINotes: String
+      aianPosNotes: String
+      aianDeathNotes: String
+      nhpiANHPINotes: String
+      nhpiPosNotes: String
+      nhpiDeathNotes: String
+      twoANHPINotes: String
+      twoPosNotes: String
+      twoDeathNotes: String
+      whiteANHPINotes: String
+      whitePosNotes: String
+      whiteDeathNotes: String
+      otherANHPINotes: String
+      otherPosNotes: String
+      otherDeathNotes: String
+      latinXANHPINotes: String
+      latinXPosNotes: String
+      latinXDeathNotes: String
+    }
+  `
+  createTypes(typeDefs)
 }

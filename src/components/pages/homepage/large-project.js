@@ -1,8 +1,8 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import Container from './container'
-import CtaLink from './cta-link'
+import Container from '~components/common/landing-page/container'
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 import ImageCredit from '~components/common/image-credit'
 import largeProjectStyles from './large-project.module.scss'
 

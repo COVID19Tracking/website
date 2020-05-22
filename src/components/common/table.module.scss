@@ -69,6 +69,7 @@
 
   th {
     padding: 2.25rem 0.5rem 0.5rem;
+    line-height: 1.15;
     vertical-align: bottom;
     position: relative;
     min-width: 5em;
@@ -76,10 +77,34 @@
       text-align: right;
       font-size: 0.8rem;
       font-weight: 800;
+
+      .sort {
+        display: inline-block;
+        margin-right: 0.5rem;
+      }
+
+      .sort-button {
+        border: 0;
+        background: transparent;
+        font-weight: 800;
+        text-decoration: underline;
+        cursor: pointer;
+        text-align: right;
+        display: block;
+        width: 100%;
+      }
     }
 
     &[scope='col'].align-left {
       text-align: left;
+      .sort-button {
+        text-align: left;
+      }
+    }
+    &[scope='row'] {
+      font-weight: normal;
+      text-align: right;
+      padding: 0.75rem 0.5rem;
     }
     &.wide {
       min-width: 13em;

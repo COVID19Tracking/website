@@ -1,0 +1,20 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+.highlight {
+  margin-top: 40px;
+  p {
+    font-size: 18px;
+    margin: 0;
+    @media (min-width: $viewport-md) {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 23px;
+      text-align: center;
+    }
+  }
+}
+
+.number {
+  font-weight: bold;
+}
