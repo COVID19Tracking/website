@@ -3,14 +3,8 @@
   command = "npm run build"
 
 [context.production]
-  command = "npm run build"
   environment= { GATSBY_ALGOLIA_INDEX_PREFIX = "live_" }
 
-[context.deploy-preview]
-  command = "npm run build"
-
-[context.branch-deploy]
-  command = "npm run build"
 
 [[headers]]
   for = "/api/*"
