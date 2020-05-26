@@ -84,7 +84,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           className="label"
           htmlFor="url"
         >
-          URL
+          URL 
           <span
             className="label"
           >
@@ -126,6 +126,11 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           name="hours"
           required={true}
         >
+          <option
+            value="-- Select hours per week -- "
+          >
+            -- Select hours per week -- 
+          </option>
           <option
             value="1-5"
           >
@@ -183,6 +188,11 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           required={true}
         >
           <option
+            value="-- Select time zone --"
+          >
+            -- Select time zone --
+          </option>
+          <option
             value="Pacific"
           >
             Pacific
@@ -221,7 +231,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         >
           <legend>
             When are you most available to volunteer?
-
+             
             <span
               className="label"
             >
@@ -325,7 +335,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
         >
           <legend>
             What would you like to volunteer to do?
-
+             
             <span
               className="label"
             >
@@ -395,7 +405,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           htmlFor="referred"
         >
           I was referred by ...
-
+           
           <span
             className="label"
           >
@@ -420,7 +430,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           htmlFor="why"
         >
           Why are you interested in volunteering for us?
-
+           
           <span
             className="label"
           >
