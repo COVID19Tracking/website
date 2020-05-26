@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Homepage : Large Dataset renders correctly 1`] = `
+<div
+  className="largeDataset"
+>
+  <p
+    className="homepage-paragraph paragraph homepageParagraph"
+  >
+    Our data powers crucial reporting and research. Here are just a few of the organizations that rely on our dataset.
+  </p>
+  <div>
+    <div
+      className=" gatsby-image-wrapper"
+      style={
+        Object {
+          "overflow": "hidden",
+          "position": "relative",
+        }
+      }
+    >
+      <div
+        aria-hidden={true}
+        style={
+          Object {
+            "paddingBottom": "76.92307692307692%",
+            "width": "100%",
+          }
+        }
+      />
+      <img
+        alt=""
+        aria-hidden={true}
+        src="[SVG]"
+        style={
+          Object {
+            "height": "100%",
+            "left": 0,
+            "objectFit": "cover",
+            "objectPosition": "center",
+            "opacity": 1,
+            "position": "absolute",
+            "top": 0,
+            "transitionDelay": "500ms",
+            "width": "100%",
+          }
+        }
+      />
+      <picture>
+        <source
+          sizes="(max-width: 1200px) 100vw, 1200px"
+          srcSet="/srcset"
+        />
+        <img
+          alt="Chart from the Johns Hopkins COVID-19 Testing Insights Initiative depicting daily total tests and daily positive tests using COVID Tracking Project data."
+          loading="lazy"
+          onLoad={[Function]}
+          sizes="(max-width: 1200px) 100vw, 1200px"
+          src="/static/d7b5369bedd2904efd15de13fa55daef/f3583/project-large.png"
+          srcSet="/srcset"
+          style={
+            Object {
+              "height": "100%",
+              "left": 0,
+              "objectFit": "cover",
+              "objectPosition": "center",
+              "opacity": 0,
+              "position": "absolute",
+              "top": 0,
+              "transition": "opacity 500ms",
+              "width": "100%",
+            }
+          }
+        />
+      </picture>
+      <noscript
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<picture><source srcset=\\"/srcset\\" sizes=\\"(max-width: 1200px) 100vw, 1200px\\" /><img loading=\\"lazy\\" sizes=\\"(max-width: 1200px) 100vw, 1200px\\" srcset=\\"/srcset\\" src=\\"/static/d7b5369bedd2904efd15de13fa55daef/f3583/project-large.png\\" alt=\\"Chart from the Johns Hopkins COVID-19 Testing Insights Initiative depicting daily total tests and daily positive tests using COVID Tracking Project data.\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+          }
+        }
+      />
+    </div>
+    <h3>
+      Johns Hopkins
+    </h3>
+    <p>
+      Johns Hopkins relies on our testing data for its
+       
+      <a
+        href="https://coronavirus.jhu.edu/testing"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        COVID-19 Testing Insights Initiative
+      </a>
+      , which brings data and expert analysis together in one place. The initiative is designed to help policymakers and the public understand the trajectory of the pandemic, and make decisions about the path forward.
+    </p>
+  </div>
+</div>
+`;

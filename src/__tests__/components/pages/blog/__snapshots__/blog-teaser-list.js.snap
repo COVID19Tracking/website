@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Blog : Blog Teaser List renders correctly 1`] = `
+Array [
+  <h2
+    className="hed-primary "
+  >
+    <a
+      href="/blog/we-made-a-blog-post"
+    >
+      We Made a Blog Post
+    </a>
+  </h2>,
+  <div
+    className="bylineSmallMarginImage"
+  >
+    <div
+      className="headshotContainer"
+    >
+      <img
+        alt=""
+        src="//images.ctfassets.net/arandomfile"
+      />
+      <img
+        alt=""
+        src="//images.ctfassets.net/aspecificfile"
+      />
+    </div>
+    <p
+      className="bylineText"
+    >
+      <span
+        className="spacer"
+      >
+        By 
+      </span>
+      <span
+        className="author"
+      >
+        <a
+          className="authorInner"
+          href="https://twitter.com/test"
+        >
+          test name
+        </a>
+         
+        &
+         
+        <a
+          className="authorInner"
+          href="https://twitter.com/testii"
+        >
+          test name II
+        </a>
+      </span>
+      <span
+        className="date"
+      >
+        Aug 1 2020
+      </span>
+    </p>
+  </div>,
+  <p
+    className="lede"
+  >
+    Huh, this blog thing seems to be working! This is the lede.
+  </p>,
+  <h2
+    className="hed-primary "
+  >
+    <a
+      href="/blog/new-blog-post"
+    >
+      New Blog Post
+    </a>
+  </h2>,
+  <div
+    className="bylineSmallMarginImage"
+  >
+    <div
+      className="headshotContainer"
+    >
+      <img
+        alt=""
+        src="//images.ctfassets.net/arandomfile"
+      />
+      <img
+        alt=""
+        src="//images.ctfassets.net/aspecificfile"
+      />
+    </div>
+    <p
+      className="bylineText"
+    >
+      <span
+        className="spacer"
+      >
+        By 
+      </span>
+      <span
+        className="author"
+      >
+        <a
+          className="authorInner"
+          href="https://twitter.com/test"
+        >
+          test name
+        </a>
+         
+        &
+         
+        <a
+          className="authorInner"
+          href="https://twitter.com/testii"
+        >
+          test name II
+        </a>
+      </span>
+      <span
+        className="date"
+      >
+        Apr 15 2020
+      </span>
+    </p>
+  </div>,
+  <p
+    className="lede"
+  >
+    This is a new blog post, not an old one.
+  </p>,
+]
+`;

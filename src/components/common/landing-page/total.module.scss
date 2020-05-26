@@ -1,0 +1,31 @@
+@import '~scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
+
+.total {
+  background-color: $color-blueberry-100;
+  text-align: right;
+  margin-bottom: 1.5rem;
+  padding: 12px 15px;
+  @media (min-width: $viewport-lg) {
+    margin-bottom: 0;
+  }
+}
+.number,
+.label {
+  margin-right: 8px;
+}
+.number {
+  font-weight: bold;
+  font-size: 30px;
+  font-size: 1.875rem;
+  line-height: 1.2;
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+.label {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  line-height: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../../../components/layout'
-import CDCComparisonContainer from './_CDCComparisonContainer'
+// import CDCComparisonContainer from './_CDCComparisonContainer'
 import MapContainer from './_MapContainer'
 import StateCumulativeTestsContainer from './_StateCumulativeTestsContainer'
 import StateCumulativeDeathsContainer from './_StateCumulativeDeathsContainer'
@@ -25,20 +25,20 @@ const VisualizationGuidePage = ({ data }) => {
           accurate way possible.
         </h2>
         <p>
-          Complete, up-to-date testing and outcomes data is essential to a
-          successful public health response to the US COVID-19 outbreak, but
-          that data{' '}
-          <a href="https://covidtracking.com/why-it-matters">
-            is not being published by the Centers for Disease Control and
-            Prevention (CDC)
+          Complete, up-to-date testing and outcomes data{' '}
+          <a href="/why-it-matters">
+            is essential to a successful public health response
           </a>{' '}
-          or any other governmental entity.
+          to the US COVID-19 outbreak. For months, we’ve worked to patch
+          together inconsistent state-reported data into a national set of
+          numbers for COVID-19 case, death, and testing in the US with full
+          daily updates.
         </p>
         <p>
-          The COVID Tracking Project exists to help fill that gap. We collect
-          the best available testing and patient-outcomes data from every US
-          state and territory and the District of Columbia, with full daily
-          updates to the entire dataset.
+          The CDC has now published a COVID Data Tracker, but their data only
+          partially matches the numbers we get from the state public health
+          authorities as we showed in{' '}
+          <a href="/cdc-paper">a detailed evaluation</a> of the new CDC data.
         </p>
         <p>
           <strong>Please note:</strong> Our data will always be an undercount.
@@ -51,8 +51,6 @@ const VisualizationGuidePage = ({ data }) => {
           states and territories.
         </p>
       </div>
-
-      <CDCComparisonContainer />
 
       <div className="module-featured">
         <p>

@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="container"
+  >
+    <p
+      className="homepage-paragraph paragraph"
+    >
+      See how we work, what we're learning, and what's changing in our data on our project blog.
+    </p>
+    <div
+      className="container"
+    >
+      <ul
+        className="press-list pressList"
+      >
+        <li
+          className="blogItem"
+        >
+          <h2>
+            <a
+              href="/blog/weve-launched-a-new-state-grading-system"
+            >
+              We’re Launching a New State Grading System
+            </a>
+          </h2>
+          <p
+            className="lede"
+          >
+            We're rolling out a new, more rigorous system for grading the public health data each state reports. This new scoring system sets a more comprehensive and exact standard for evaluating how complete and meaningful each state’s data is.
+          </p>
+          <div
+            className="bylineSmallMargin"
+          >
+            <p
+              className="bylineText"
+            >
+              <span
+                className="spacer"
+              >
+                By 
+              </span>
+              <span
+                className="author"
+              >
+                <span
+                  className="authorInner"
+                >
+                  Prajakta Ranade
+                </span>
+                 
+                &
+                 
+                <span
+                  className="authorInner"
+                >
+                  Harrison Frank
+                </span>
+              </span>
+              <span
+                className="date"
+              >
+                April 23, 2020
+              </span>
+            </p>
+          </div>
+        </li>
+        <li
+          className="blogItem"
+        >
+          <h2>
+            <a
+              href="/blog/tracking-race-and-ethnicity"
+            >
+              Tracking Race and Ethnicity in the COVID-19 Pandemic 
+            </a>
+          </h2>
+          <p
+            className="lede"
+          >
+            The COVID-19 pandemic isn't affecting all communities the same way. That's why we're partnering with American University’s Antiracist Research & Policy Center to launch a new project: the COVID Racial Data Tracker.
+          </p>
+          <div
+            className="bylineSmallMarginImage"
+          >
+            <div
+              className="headshotContainer"
+            >
+              <img
+                alt=""
+                src="//images.ctfassets.net/o2ll9t4ee8tq/3vW1aeLjPFSMAZOqHv9TQS/b4ffb03526cf67724c6732c6e11a6cef/original.png?w=100&fl=progressive&q=50"
+              />
+            </div>
+            <p
+              className="bylineText"
+            >
+              <span
+                className="spacer"
+              >
+                By 
+              </span>
+              <span
+                className="author"
+              >
+                <a
+                  className="authorInner"
+                  href="https://www.theatlantic.com/author/alexis-madrigal"
+                >
+                  Alexis Madrigal
+                </a>
+              </span>
+              <span
+                className="date"
+              >
+                April 15, 2020
+              </span>
+            </p>
+          </div>
+        </li>
+      </ul>
+      <a
+        className="cta centered "
+        href="/blog"
+      >
+        See more from our blog
+        <span
+          aria-hidden={true}
+          className="arrow"
+        >
+           
+          →
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+`;

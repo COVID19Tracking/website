@@ -25,12 +25,16 @@ jobs:
           name: fetch-data
           command: 'npm run build:fetch'
       - run:
+          name: fetch-api-repo
+          command: 'npm run setup:api-repo'
+      - run:
           name: test
           command: 'npm run test:api-post-build'
       - persist_to_workspace:
           root: *workspace_root
           paths:
             - _data
+            - _api
   gatsby-build:
     executor: main-executor
     steps:
