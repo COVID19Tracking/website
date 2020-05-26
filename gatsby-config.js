@@ -111,6 +111,7 @@ const gatsbyConfig = {
       options: {
         file: './_data/v1/volunteers.json',
         type: 'CovidVolunteers',
+        sortField: 'name',
       },
     },
     {
