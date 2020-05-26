@@ -18,10 +18,9 @@ Array [
       className="state-grade stateGrade"
     >
       <span>
-        Current
-         
+        Current 
         <a
-          href="/about-data#state-data-quality-grades"
+          href="/state-grades"
         >
           data quality grade
         </a>
