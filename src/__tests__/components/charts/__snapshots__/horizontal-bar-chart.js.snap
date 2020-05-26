@@ -123,3 +123,127 @@ exports[`Components : Charts: Area chart renders correctly 1`] = `
   </g>
 </svg>
 `;
+
+exports[`Components : Charts: Area chart renders correctly 2`] = `
+<svg
+  className="chart"
+  viewBox="0 0 200 200"
+>
+  <g
+    transform="translate(0 0)"
+  >
+    <g>
+      <text
+        className="label xTickLabel"
+        x={66.66666666666666}
+        y={200}
+      >
+        500
+      </text>
+      <line
+        className="gridLine"
+        x1={66.66666666666666}
+        x2={66.66666666666666}
+        y1={0}
+        y2={200}
+      />
+    </g>
+    <g>
+      <text
+        className="label xTickLabel"
+        x={150}
+        y={200}
+      >
+        1k
+      </text>
+      <line
+        className="gridLine"
+        x1={150}
+        x2={150}
+        y1={0}
+        y2={200}
+      />
+    </g>
+  </g>
+  <g
+    transform="translate(0, 0)"
+  >
+    <svg
+      className="yTickLabel"
+      x={-10}
+      y={29.52380952380952}
+    >
+      <text
+        className="label"
+      >
+        A1
+      </text>
+    </svg>
+    <svg
+      className="yTickLabel"
+      x={-10}
+      y={77.14285714285714}
+    >
+      <text
+        className="label"
+      >
+        A2
+      </text>
+    </svg>
+    <svg
+      className="yTickLabel"
+      x={-10}
+      y={124.76190476190476}
+    >
+      <text
+        className="label"
+      >
+        B1
+      </text>
+    </svg>
+    <svg
+      className="yTickLabel"
+      x={-10}
+      y={172.38095238095238}
+    >
+      <text
+        className="label"
+      >
+        B2
+      </text>
+    </svg>
+  </g>
+  <g
+    transform="translate(0, 0)"
+  >
+    <rect
+      fill="#333"
+      height={38.095238095238095}
+      width={189}
+      x={0}
+      y={9.523809523809518}
+    />
+    <rect
+      fill="#333"
+      height={38.095238095238095}
+      width={3.833333333333333}
+      x={0}
+      y={57.14285714285714}
+    />
+    <rect
+      fill="#333"
+      height={38.095238095238095}
+      width={188.83333333333334}
+      x={0}
+      y={104.76190476190476}
+    />
+    <rect
+      fill="#333"
+      height={38.095238095238095}
+      width={5.333333333333334}
+      x={0}
+      y={152.38095238095238}
+    />
+  </g>
+</svg>
+`;

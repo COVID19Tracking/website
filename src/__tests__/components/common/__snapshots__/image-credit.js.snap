@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Image credit renders correctly 1`] = `
+<div
+  className="credit"
+>
+  <p>
+    Sample children
+  </p>
+</div>
+`;

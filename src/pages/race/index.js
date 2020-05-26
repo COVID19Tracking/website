@@ -59,7 +59,7 @@ export default () => {
       <main id="main">
         <LandingPageSection noBorder noMargin>
           <LandingPageContainer>
-            <LargeHeader center>
+            <LargeHeader center narrow>
               We’ve lost at least <FormatNumber number={blackLivesLost} /> Black
               lives to COVID-19 to date.
             </LargeHeader>

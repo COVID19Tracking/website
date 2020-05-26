@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Homepage : Datasets renders correctly 1`] = `
+<div>
+  <div
+    className="feature"
+  >
+    <div
+      className="element"
+    >
+      <div
+        className=" gatsby-image-wrapper"
+        style={
+          Object {
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          aria-hidden={true}
+          style={
+            Object {
+              "paddingBottom": "76.92307692307692%",
+              "width": "100%",
+            }
+          }
+        />
+        <img
+          alt=""
+          aria-hidden={true}
+          src="[SVG]"
+          style={
+            Object {
+              "height": "100%",
+              "left": 0,
+              "objectFit": "cover",
+              "objectPosition": "center",
+              "opacity": 1,
+              "position": "absolute",
+              "top": 0,
+              "transitionDelay": "500ms",
+              "width": "100%",
+            }
+          }
+        />
+        <picture>
+          <source
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            srcSet="/srcset"
+          />
+          <img
+            alt="Image composite showing COVID Tracking Project data in use on a slide from the White House’s 'Opening Up America Again' testing strategy presentation deck."
+            loading="lazy"
+            onLoad={[Function]}
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            src="/static/d7b5369bedd2904efd15de13fa55daef/f3583/project-large.png"
+            srcSet="/srcset"
+            style={
+              Object {
+                "height": "100%",
+                "left": 0,
+                "objectFit": "cover",
+                "objectPosition": "center",
+                "opacity": 0,
+                "position": "absolute",
+                "top": 0,
+                "transition": "opacity 500ms",
+                "width": "100%",
+              }
+            }
+          />
+        </picture>
+        <noscript
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<picture><source srcset=\\"/srcset\\" sizes=\\"(max-width: 1200px) 100vw, 1200px\\" /><img loading=\\"lazy\\" sizes=\\"(max-width: 1200px) 100vw, 1200px\\" srcset=\\"/srcset\\" src=\\"/static/d7b5369bedd2904efd15de13fa55daef/f3583/project-large.png\\" alt=\\"Image composite showing COVID Tracking Project data in use on a slide from the White House’s 'Opening Up America Again' testing strategy presentation deck.\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="info"
+    >
+      <h3>
+        The White House
+      </h3>
+      <p>
+        The White House chose the COVID Tracking Project as the best source to cite for daily US test numbers in its
+         
+        <a
+          href="https://www.whitehouse.gov/wp-content/uploads/2020/04/Testing-Overview-Final.pdf"
+        >
+          “Opening Up America Again” testing strategy
+        </a>
+        .
+      </p>
+    </div>
+  </div>
+  <div
+    className="feature flip"
+  >
+    <div
+      className="element"
+    >
+      <div
+        className=" gatsby-image-wrapper"
+        style={
+          Object {
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          aria-hidden={true}
+          style={
+            Object {
+              "paddingBottom": "76.92307692307692%",
+              "width": "100%",
+            }
+          }
+        />
+        <img
+          alt=""
+          aria-hidden={true}
+          src="[SVG]"
+          style={
+            Object {
+              "height": "100%",
+              "left": 0,
+              "objectFit": "cover",
+              "objectPosition": "center",
+              "opacity": 1,
+              "position": "absolute",
+              "top": 0,
+              "transitionDelay": "500ms",
+              "width": "100%",
+            }
+          }
+        />
+        <picture>
+          <source
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            srcSet="/srcset"
+          />
+          <img
+            alt="Screenshot of a COVID Exit Strategy chart that uses COVID Tracking Project data in its state-by-state comparison of interventions, testing, and outcomes."
+            loading="lazy"
+            onLoad={[Function]}
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            src="/static/d7b5369bedd2904efd15de13fa55daef/f3583/project-large.png"
+            srcSet="/srcset"
+            style={
+              Object {
+                "height": "100%",
+                "left": 0,
+                "objectFit": "cover",
+                "objectPosition": "center",
+                "opacity": 0,
+                "position": "absolute",
+                "top": 0,
+                "transition": "opacity 500ms",
+                "width": "100%",
+              }
+            }
+          />
+        </picture>
+        <noscript
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<picture><source srcset=\\"/srcset\\" sizes=\\"(max-width: 1200px) 100vw, 1200px\\" /><img loading=\\"lazy\\" sizes=\\"(max-width: 1200px) 100vw, 1200px\\" srcset=\\"/srcset\\" src=\\"/static/d7b5369bedd2904efd15de13fa55daef/f3583/project-large.png\\" alt=\\"Screenshot of a COVID Exit Strategy chart that uses COVID Tracking Project data in its state-by-state comparison of interventions, testing, and outcomes.\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="info"
+    >
+      <h3>
+        COVID Exit Strategy
+      </h3>
+      <p>
+        Created by a group of public health and crisis experts,
+         
+        <a
+          href="https://covidexitstrategy.org"
+        >
+          covidexitstrategy.org
+        </a>
+         
+        identifies critical interventions needed to stop the spread of COVID-19, and urges government decision-makers to apply them. They use our data to power a dashboard comparing each state's interventions and testing levels with case counts and deaths over time.
+      </p>
+    </div>
+  </div>
+</div>
+`;

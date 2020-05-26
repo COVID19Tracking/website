@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Blog : Blog Image renders correctly 1`] = `
+<div
+  className="style-class"
+>
+  <img
+    alt="Test alt text"
+    src="//imagehosting.com/thisimage"
+  />
+  <div
+    className="credit"
+  >
+    Author Designer / The COVID Tracking Project
+  </div>
+</div>
+`;

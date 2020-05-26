@@ -27,21 +27,43 @@ export default ({ state }) => {
     latinXPos: stateData.latinXPosNotes,
     blackDeath: stateData.blackDeathNotes,
     blackPos: stateData.blackPosNotes,
+    blackSpecialCase: stateData.blackSpecialCaseNotes,
+    asianSpecialCase: stateData.asianSpecialCaseNotes,
+    aianSpecialCase: stateData.aianSpecialCaseNotes,
+    nhpiSpecialCase: stateData.nhpiSpecialCaseNotes,
+    twoSpecialCase: stateData.twoSpecialCaseNotes,
+    whiteSpecialCase: stateData.whiteSpecialCaseNotes,
+    otherSpecialCase: stateData.otherSpecialCaseNotes,
+  }
+  if (stateData.asianPosCaution) {
+    // if a state's Asian positives include NH/PI
+    raceNotes.asianPos = stateData.asianANHPIPosNotes
+    raceNotes.nhpiPos = stateData.nhpiANHPIPosNotes
+    stateData.nhpiPctPos = null // handled in Percent
+  }
+  if (stateData.asianDeathCaution) {
+    // if a state's Asian deaths include NH/PI
+    raceNotes.asianDeath = stateData.asianANHPIDeathNotes
+    raceNotes.nhpiDeath = stateData.nhpiANHPIDeathNotes
+    stateData.nhpiPctDeath = null // handled in Percent
   }
 
-  const groupedRaceNotes = [...new Set(Object.values(raceNotes))].filter(
-    value => value && value,
-  )
+  const groupedRaceNotes = [...new Set(Object.values(raceNotes))]
+    .filter(value => value && value)
+    .reverse()
 
   const ethnicityNotes = {
     nonhispanicPos: stateData.nonhispanicPosNotes,
     nonhispanicDeath: stateData.nonhispanicDeathNotes,
     latinXPos: stateData.latinXPosNotes,
     latinXDeath: stateData.latinXDeathNotes,
+    latinXSpecialCase: stateData.latinXSpecialCaseNotes,
+    nonhispanicSpecialCase: stateData.nonhispanicSpecialCaseNotes,
   }
-  const groupedEthnicityNotes = [
-    ...new Set(Object.values(ethnicityNotes)),
-  ].filter(value => value && value)
+
+  const groupedEthnicityNotes = [...new Set(Object.values(ethnicityNotes))]
+    .filter(value => value && value)
+    .reverse()
 
   if (!stateData.anyPosData && !stateData.anyDeathData) {
     return <NoData stateName={stateData.name} />

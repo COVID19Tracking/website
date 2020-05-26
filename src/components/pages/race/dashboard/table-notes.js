@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import tableNotesStyle from './table-notes.module.scss'
 
 export default ({ state, stateName, type, groupedNotes }) => {
@@ -18,7 +18,9 @@ export default ({ state, stateName, type, groupedNotes }) => {
       </h4>
       <ol>
         {groupedNotes.map((note, index) => (
-          <li key={`${state.toLowerCase()}-note-${index + 1}`}>{note}</li>
+          <Fragment key={`${state.toLowerCase()}-note-${index + 1}`}>
+            {note && note.trim().length && <li>{note}</li>}
+          </Fragment>
         ))}
       </ol>
     </>

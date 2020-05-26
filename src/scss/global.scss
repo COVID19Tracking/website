@@ -121,7 +121,9 @@ select,
   }
 
   .js-disabled-block {
-    display: block !important;
+    @media (min-width: $viewport-md) {
+      display: block !important;
+    }
   }
 }
 

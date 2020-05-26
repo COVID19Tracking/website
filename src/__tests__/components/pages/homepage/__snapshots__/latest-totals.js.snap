@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Homepage : Latest Totals renders correctly 1`] = `
+<div
+  className="container"
+>
+  <p
+    className="homepage-paragraph paragraph"
+  >
+    Every day, our volunteers compile the latest numbers on tests, confirmed cases, hospitalizations, and patient outcomes from every US state and territory.
+  </p>
+  <div
+    className="wrapper"
+  >
+    <div
+      className="headerContainer"
+    >
+      <h2>
+        Latest totals:
+      </h2>
+    </div>
+    <div
+      className="allTotals"
+    >
+      <div
+        className="total"
+        role="text"
+      >
+        <div
+          className="number"
+        >
+          5,795,728
+        </div>
+        <div
+          className="label"
+        >
+          Total test results
+        </div>
+      </div>
+      <div
+        className="total"
+        role="text"
+      >
+        <div
+          className="number"
+        >
+          1,005,592
+        </div>
+        <div
+          className="label"
+        >
+          Positive cases
+        </div>
+      </div>
+      <div
+        className="total"
+        role="text"
+      >
+        <div
+          className="number"
+        >
+          52,525
+        </div>
+        <div
+          className="label"
+        >
+          Deaths
+        </div>
+      </div>
+      <span
+        className="ctaLink"
+      >
+        <a
+          className="cta  "
+          href="/data"
+        >
+          See all data
+          <span
+            aria-hidden={true}
+            className="arrow"
+          >
+             
+            →
+          </span>
+        </a>
+      </span>
+    </div>
+  </div>
+</div>
+`;
