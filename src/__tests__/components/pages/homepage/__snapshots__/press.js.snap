@@ -92,7 +92,7 @@ exports[`Components : Pages : Homepage : Press renders correctly 1`] = `
     </div>
     <a
       className="cta centered "
-      href="about-project/in-the-press"
+      href="/about-project/in-the-press"
     >
       See what else our data powers
       <span
