@@ -1,30 +1,24 @@
 export const RadioOptions = [
   {
     shortname: 'data',
-    description: "I'd like to help collect and analyze your data.",
+    description: "I'd like to help build data tools, collect data, or analyze data.",
   },
 
   {
     shortname: 'website',
-    description: "I'd like to help design and build your website.",
+    description: "I'd like to help design or build your website.",
   },
 
   {
     shortname: 'writing',
     description:
-      "I'd like to help write content, monitor news sources, and do original journalism.",
-  },
-
-  {
-    shortname: 'management',
-    description:
-      "I'd like to help with program management, project management, or community management.",
+      "I'd like to help write content, monitor news sources, or do original journalism.",
   },
 ]
 
-export const HoursPerWeek = ['1-5', '5-10', '10-20', '20-30', '30-40', '40+']
+export const HoursPerWeek = ['-- Select hours per week -- ', '1-5', '5-10', '10-20', '20-30', '30-40', '40+']
 
-export const Timezone = ['Pacific', 'Mountain', 'Central', 'Eastern', 'Other']
+export const Timezone = ['-- Select time zone --', 'Pacific', 'Mountain', 'Central', 'Eastern', 'Other']
 
 export const Availability = [
   { shortname: 'morning', description: 'Morning, some or all weekdays' },

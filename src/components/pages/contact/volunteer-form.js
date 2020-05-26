@@ -75,7 +75,7 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <FormLabel htmlFor="hours">
-              About how many hours are you available to work?
+              About how many hours are you available to volunteer?
               <span className={VolunteerFormStyles.label}>required</span>
             </FormLabel>
             <select name="hours" id="hours" aria-required="true" required>
@@ -112,7 +112,7 @@ export default () => {
           <FormGroup className={VolunteerFormStyles.group}>
             <fieldset className={VolunteerFormStyles.fieldset}>
               <legend>
-                When are you most available to work?{' '}
+                When are you most available to volunteer?{' '}
                 <span className={VolunteerFormStyles.label}>required</span>
               </legend>
               <div className={VolunteerFormStyles.fieldsetOptions}>
