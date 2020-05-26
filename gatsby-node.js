@@ -159,3 +159,83 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
     })
   }
 }
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type CovidRaceDataSeparate implements Node {
+      blackANHPIPosNotes: String
+      blackANHPIDeathNotes: String
+      blackPosNotes: String
+      blackDeathNotes: String
+      blackSpecialCaseNotes: String
+      asianANHPIPosNotes: String
+      asianANHPIDeathNotes: String
+      asianPosNotes: String
+      asianDeathNotes: String
+      asianSpecialCaseNotes: String
+      aianANHPIPosNotes: String
+      aianANHPIDeathNotes: String
+      aianPosNotes: String
+      aianDeathNotes: String
+      aianSpecialCaseNotes: String
+      nhpiANHPIPosNotes: String
+      nhpiANHPIDeathNotes: String
+      nhpiPosNotes: String
+      nhpiDeathNotes: String
+      nhpiSpecialCaseNotes: String
+      twoANHPIPosNotes: String
+      twoANHPIDeathNotes: String
+      twoPosNotes: String
+      twoDeathNotes: String
+      twoSpecialCaseNotes: String
+      whiteANHPIPosNotes: String
+      whiteANHPIDeathNotes: String
+      whitePosNotes: String
+      whiteDeathNotes: String
+      whiteSpecialCaseNotes: String
+      otherANHPIPosNotes: String
+      otherANHPIDeathNotes: String
+      otherPosNotes: String
+      otherDeathNotes: String
+      otherSpecialCaseNotes: String
+      latinXANHPIPosNotes: String
+      latinXANHPIDeathNotes: String
+      latinXPosNotes: String
+      latinXDeathNotes: String
+      nonhispanicANHPIPosNotes: String
+      nonhispanicANHPIDeathNotes: String
+      nonhispanicPosNotes: String
+      nonhispanicDeathNotes: String
+      nonhispanicSpecialCaseNotes: String
+    }
+
+    type CovidRaceDataCombined implements Node {
+      blackANHPINotes: String
+      blackPosNotes: String
+      blackDeathNotes: String
+      asianANHPINotes: String
+      asianPosNotes: String
+      asianDeathNotes: String
+      aianANHPINotes: String
+      aianPosNotes: String
+      aianDeathNotes: String
+      nhpiANHPINotes: String
+      nhpiPosNotes: String
+      nhpiDeathNotes: String
+      twoANHPINotes: String
+      twoPosNotes: String
+      twoDeathNotes: String
+      whiteANHPINotes: String
+      whitePosNotes: String
+      whiteDeathNotes: String
+      otherANHPINotes: String
+      otherPosNotes: String
+      otherDeathNotes: String
+      latinXANHPINotes: String
+      latinXPosNotes: String
+      latinXDeathNotes: String
+    }
+  `
+  createTypes(typeDefs)
+}
