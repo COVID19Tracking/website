@@ -1,30 +1,36 @@
-/* eslint-disable jsx-a11y/aria-role */
+/* eslint-disable jsx-a11y/aria-role,react/prefer-stateless-function */
 import React from 'react'
 import { Link } from 'gatsby'
 import { Menu, MenuList, MenuButton, MenuLink } from '@reach/menu-button'
+import internalLink from '~components/utils/internal-link'
 import headerNavigationStyles from './navigation.module.scss'
 
-const MenuCaret = ({
-  children,
-  id,
-  onKeyDown,
-  onMouseDown,
-  'aria-controls': ariaControls,
-  'aria-expanded': ariaExpanded,
-}) => (
-  <button
-    type="button"
-    onKeyDown={onKeyDown}
-    onMouseDown={onMouseDown}
-    className={headerNavigationStyles.caret}
-    aria-controls={ariaControls}
-    aria-haspopup="true"
-    id={id}
-    aria-expanded={ariaExpanded ? 'true' : 'false'}
-  >
-    {children}
-  </button>
-)
+class MenuCaret extends React.Component {
+  render() {
+    const {
+      children,
+      id,
+      onKeyDown,
+      onMouseDown,
+      'aria-controls': ariaControls,
+      'aria-expanded': ariaExpanded,
+    } = this.props
+    return (
+      <button
+        type="button"
+        onKeyDown={onKeyDown}
+        onMouseDown={onMouseDown}
+        className={headerNavigationStyles.caret}
+        aria-controls={ariaControls}
+        aria-haspopup="true"
+        id={id}
+        aria-expanded={ariaExpanded ? 'true' : 'false'}
+      >
+        {children}
+      </button>
+    )
+  }
+}
 
 export default ({ topNavigation, subNavigation, isMobile }) => (
   <nav className="js-disabled-block" role="navigation">
@@ -34,7 +40,7 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
     >
       {topNavigation.map(item => (
         <li key={item.link} className={headerNavigationStyles.menuItem}>
-          <Link to={item.link}>{item.title}</Link>
+          <Link to={internalLink(item.link)}>{item.title}</Link>
           {item.subNavigation &&
             typeof subNavigation[item.subNavigation] !== 'undefined' && (
               <Menu>
@@ -69,7 +75,7 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
                     <MenuLink
                       key={subItem.link}
                       className={headerNavigationStyles.menuLink}
-                      to={subItem.link}
+                      to={internalLink(subItem.link)}
                       as={Link}
                     >
                       {subItem.title}
