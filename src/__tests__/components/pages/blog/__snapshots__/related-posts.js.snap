@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
+<div
+  className="container"
+>
+  <h2>
+    Related
+  </h2>
+  <div>
+    <h3>
+      <a
+        href="/blog/a-covid-blog-post"
+      >
+        A COVID Blog Post
+      </a>
+    </h3>
+    <p
+      className="oneLineByline"
+    >
+      By
+       
+      <span
+        className="author"
+      >
+        <span
+          className="authorInner"
+        >
+          Author Name
+        </span>
+      </span>
+      <span
+        className="relatedDate"
+      >
+        May 6, 2020
+      </span>
+    </p>
+  </div>
+  <div>
+    <h3>
+      <a
+        href="/blog/another-blog-post"
+      >
+        Another Blog Post
+      </a>
+    </h3>
+    <p
+      className="oneLineByline"
+    >
+      By
+       
+      <span
+        className="author"
+      >
+        <span
+          className="authorInner"
+        >
+          Author Middle Last
+        </span>
+      </span>
+      <span
+        className="relatedDate"
+      >
+        April 6, 2020
+      </span>
+    </p>
+  </div>
+</div>
+`;

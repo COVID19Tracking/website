@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Charts : Tooltip renders correctly 1`] = `
+<div
+  className="root"
+  style={
+    Object {
+      "left": 30,
+      "top": 12,
+    }
+  }
+>
+  Test content
+</div>
+`;
+
+exports[`Components : Charts : Tooltip renders correctly 2`] = `
+<div
+  className="root"
+  style={
+    Object {
+      "left": 0,
+      "top": 12,
+    }
+  }
+>
+  Test content
+</div>
+`;

@@ -71,5 +71,30 @@ describe('Components : Layout : Header', () => {
       .create(<Header title="Sample title" titleLink="/link" />)
       .toJSON()
     expect(linkTree).toMatchSnapshot()
+
+    const mockNavigation = [
+      {
+        node: {
+          pages: [
+            {
+              title: 'State by State',
+              link: '/data',
+            },
+            {
+              title: 'Totals for the U.S.',
+              link: '/data/us-daily',
+            },
+            {
+              title: 'Data API',
+              link: '/api',
+            },
+          ],
+        },
+      },
+    ]
+    const navigationTree = renderer
+      .create(<Header title="Sample title" navigation={mockNavigation} />)
+      .toJSON()
+    expect(navigationTree).toMatchSnapshot()
   })
 })

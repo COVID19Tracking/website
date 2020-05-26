@@ -21,5 +21,18 @@ describe('Components : Charts: Area chart', () => {
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
+
+    const treeUseDefaults = renderer
+      .create(
+        <HorizontalBarChart
+          fill="#333"
+          data={data}
+          xTicks={2}
+          height={200}
+          width={200}
+        />,
+      )
+      .toJSON()
+    expect(treeUseDefaults).toMatchSnapshot()
   })
 })
