@@ -41,6 +41,7 @@ module.exports = {
         ['~components', './src/components'],
         ['~context', './src/context'],
         ['~data', './src/data'],
+        ['~images', './src/images'],
         ['~pages', './src/pages'],
         ['~scss', './src/scss'],
         ['~templates', './src/templates'],        
