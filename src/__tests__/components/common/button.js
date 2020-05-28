@@ -4,7 +4,7 @@ import {
   ButtonAnchor,
   ButtonLink,
   Button,
-} from '../../../components/common/button'
+} from '~components/common/button'
 
 describe('Components : Common: Button: Link component button', () => {
   it('renders correctly', () => {

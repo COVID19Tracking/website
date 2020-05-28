@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery, StaticQuery } from 'gatsby'
-import Layout from '../../../components/layout/index'
+import Layout from '~components/layout/index'
 
 beforeEach(() => {
   StaticQuery.mockImplementation(({ render }) =>
