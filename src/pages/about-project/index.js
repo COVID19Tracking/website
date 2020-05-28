@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import ContentfulContent from '~components/common/contentful-content'
 import Layout from '../../components/layout'
 import VolunteersList from '../../components/common/volunteers-list'
 
@@ -11,20 +12,20 @@ export default ({ data }) => (
     textHeavy
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
-    <div
-      dangerouslySetInnerHTML={{
-        __html:
-          data.preamble.edges[0].node.childContentfulSnippetContentTextNode
-            .childMarkdownRemark.html,
-      }}
+    <ContentfulContent
+      content={
+        data.preamble.edges[0].node.childContentfulSnippetContentTextNode
+          .childMarkdownRemark.html
+      }
+      id={data.preamble.edges[0].node.contentful_id}
     />
     <VolunteersList items={data.allCovidVolunteers.edges} />
-    <div
-      dangerouslySetInnerHTML={{
-        __html:
-          data.pastContributors.edges[0].node
-            .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
-      }}
+    <ContentfulContent
+      content={
+        data.pastContributors.edges[0].node
+          .childContentfulSnippetContentTextNode.childMarkdownRemark.html
+      }
+      id={data.pastContributors.edges[0].node.contentful_id}
     />
   </Layout>
 )
@@ -36,6 +37,7 @@ export const query = graphql`
     ) {
       edges {
         node {
+          contentful_id
           childContentfulSnippetContentTextNode {
             childMarkdownRemark {
               html
@@ -49,6 +51,7 @@ export const query = graphql`
     ) {
       edges {
         node {
+          contentful_id
           childContentfulSnippetContentTextNode {
             childMarkdownRemark {
               html

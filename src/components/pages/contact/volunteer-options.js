@@ -37,8 +37,8 @@ export const Timezone = [
 ]
 
 export const Availability = [
-  { shortname: 'morning', description: 'Morning, some or all weekdays' },
-  { shortname: 'afternoon', description: 'Afternoon, some or all weekdays' },
-  { shortname: 'evening', description: 'Evening, some or all weekdays' },
+  { shortname: 'weekdays', description: 'Weekdays' },
+  { shortname: 'mornings', description: 'Weekday mornings' },
+  { shortname: 'evenings', description: 'Weekday evenings' },
   { shortname: 'weekends', description: 'Weekends' },
 ]
