@@ -6,7 +6,10 @@ const fs = require('fs-extra')
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
-  if (typeof process.env.DEV_ENVIRONMENT_VARIABLE_FILE !== 'undefined') {
+  if (
+    typeof process.env.DEV_ENVIRONMENT_VARIABLE_FILE !== 'undefined' &&
+    process.env.DEV_ENVIRONMENT_VARIABLE_FILE
+  ) {
     createRedirect({
       fromPath: '/__developer/env-vars',
       toPath: process.env.DEV_ENVIRONMENT_VARIABLE_FILE,
