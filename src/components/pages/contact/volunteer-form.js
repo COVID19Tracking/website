@@ -26,7 +26,6 @@ export default () => {
             <input type="hidden" name="form-name" value="volunteer" />
             <FormLabel htmlFor="name">
               Name
-
               <span className={VolunteerFormStyles.label}>required</span>
             </FormLabel>
             <input
@@ -112,12 +111,11 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <fieldset className={VolunteerFormStyles.fieldset}>
-              <FormLabel htmlFor="availability">
-		<legend>
+              <legend>
                 When are you most available to volunteer?{' '}
                 <span className={VolunteerFormStyles.label}>required</span>
-		</legend>
-              </FormLabel>
+              </legend>
+
               <div className={VolunteerFormStyles.fieldsetOptions}>
                 {Availability.map(item => {
                   return (
@@ -164,12 +162,11 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <fieldset className={VolunteerFormStyles.fieldset}>
-             <FormLabel htmlFor="workstream">
-		<legend>
+              <legend>
                 What would you like to volunteer to do?{' '}
                 <span className={VolunteerFormStyles.label}>required</span>
-		</legend>
-              </FormLabel>
+              </legend>
+
               <div className={VolunteerFormStyles.fieldsetOptions}>
                 {RadioOptions.map(item => {
                   return (
