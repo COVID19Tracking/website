@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Contentful content renders correctly 1`] = `
+<div
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<p>This is a paragraph</p>",
+    }
+  }
+/>
+`;
+
+exports[`Components : Common: Contentful content renders correctly with an editor 1`] = `
+Array [
+  <a
+    className="edit"
+    href="https://app.contentful.com/spaces/1234/entries/1234"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Edit this content
+  </a>,
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>This is a paragraph</p>",
+      }
+    }
+  />,
+]
+`;
+
+exports[`Components : Common: Contentful content renders correctly without an editor 1`] = `
+<div
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<p>This is a paragraph</p>",
+    }
+  }
+/>
+`;

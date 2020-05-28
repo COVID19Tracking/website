@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import ReCaptcha from 'react-recaptcha'
+import ContentfulContent from '~components/common/contentful-content'
 import Layout from '../../components/layout'
 import { Form, FormGroup, FormLabel } from '~components/common/form'
 import { AlertInfobox } from '~components/common/infobox'
@@ -28,13 +29,13 @@ export default ({ data }) => {
       narrow
       textHeavy
     >
-      <div
+      <ContentfulContent
         className="module-content"
-        dangerouslySetInnerHTML={{
-          __html:
-            data.allContentfulSnippet.edges[0].node
-              .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
-        }}
+        content={
+          data.allContentfulSnippet.edges[0].node
+            .childContentfulSnippetContentTextNode.childMarkdownRemark.html
+        }
+        id={data.allContentfulSnippet.edges[0].node.contentful_id}
       />
       <Form>
         <form
@@ -134,6 +135,7 @@ export const query = graphql`
     allContentfulSnippet(filter: { slug: { eq: "contact-page-form" } }) {
       edges {
         node {
+          contentful_id
           childContentfulSnippetContentTextNode {
             childMarkdownRemark {
               html
