@@ -15,9 +15,9 @@ export default ({ content, className, id }) => {
   const [isEditable, setIsEditable] = useState(false)
   useEffect(() => {
     if (
-      typeof document !== 'undefined' &&
-      typeof document.cookie !== 'undefined' &&
-      document.cookie.search('inEdit=true') > -1
+      typeof window !== 'undefined' &&
+      typeof window.location !== 'undefined' &&
+      window.location.hash.search('#edit') > -1
     ) {
       setIsEditable(true)
     }
