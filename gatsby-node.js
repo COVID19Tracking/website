@@ -169,6 +169,9 @@ exports.createSchemaCustomization = ({ actions }) => {
     type CovidScreenshot implements Node {
       dateChecked: String
     }
+    type allCovidStateDaily implements Node {
+      date: String
+    }
     type CovidRaceDataSeparate implements Node {
       blackANHPIPosNotes: String
       blackANHPIDeathNotes: String
