@@ -17,7 +17,7 @@ export default () => {
         className={VolunteerFormStyles.contactForm}
         method="POST"
         name="volunteer"
-        action="/contact/volunteer/success"
+        action="/contact/volunteer-success"
         netlify-honeypot="covid-bot-field"
         data-netlify="true"
       >
