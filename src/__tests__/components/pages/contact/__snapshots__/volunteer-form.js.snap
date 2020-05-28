@@ -5,7 +5,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
   className="form"
 >
   <form
-    action="/contact/success"
+    action="/contact/volunteer-success"
     className="contactForm"
     data-netlify="true"
     method="POST"
@@ -113,7 +113,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           className="label"
           htmlFor="hours"
         >
-          About how many hours are you available to volunteer?
+          About how many hours are you available to volunteer each week?
           <span
             className="label"
           >
@@ -243,39 +243,39 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
           >
             <label
               className="checkboxLabel"
-              htmlFor="morning"
+              htmlFor="weekdays"
             >
               <input
-                id="morning"
+                id="weekdays"
                 name="availability"
                 type="checkbox"
-                value="Morning, some or all weekdays"
+                value="Weekdays"
               />
-              Morning, some or all weekdays
+              Weekdays
             </label>
             <label
               className="checkboxLabel"
-              htmlFor="afternoon"
+              htmlFor="mornings"
             >
               <input
-                id="afternoon"
+                id="mornings"
                 name="availability"
                 type="checkbox"
-                value="Afternoon, some or all weekdays"
+                value="Weekday mornings"
               />
-              Afternoon, some or all weekdays
+              Weekday mornings
             </label>
             <label
               className="checkboxLabel"
-              htmlFor="evening"
+              htmlFor="evenings"
             >
               <input
-                id="evening"
+                id="evenings"
                 name="availability"
                 type="checkbox"
-                value="Evening, some or all weekdays"
+                value="Weekday evenings"
               />
-              Evening, some or all weekdays
+              Weekday evenings
             </label>
             <label
               className="checkboxLabel"
