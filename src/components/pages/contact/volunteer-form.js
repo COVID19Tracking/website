@@ -113,8 +113,10 @@ export default () => {
           <FormGroup className={VolunteerFormStyles.group}>
             <fieldset className={VolunteerFormStyles.fieldset}>
               <FormLabel htmlFor="availability">
+		<legend>
                 When are you most available to volunteer?{' '}
                 <span className={VolunteerFormStyles.label}>required</span>
+		</legend>
               </FormLabel>
               <div className={VolunteerFormStyles.fieldsetOptions}>
                 {Availability.map(item => {
@@ -162,9 +164,11 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <fieldset className={VolunteerFormStyles.fieldset}>
-              <FormLabel htmlFor="workstream">
+             <FormLabel htmlFor="workstream">
+		<legend>
                 What would you like to volunteer to do?{' '}
                 <span className={VolunteerFormStyles.label}>required</span>
+		</legend>
               </FormLabel>
               <div className={VolunteerFormStyles.fieldsetOptions}>
                 {RadioOptions.map(item => {
