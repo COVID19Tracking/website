@@ -8,7 +8,7 @@
 
 [context.deploy-preview]
   command = "npm run build-preview"
-  environment = {DEV_ENVIRONMENT_VARIABLE_FILE = "false", ALGOLIA_ADMIN_KEY = 0}
+  environment = {DEV_ENVIRONMENT_VARIABLE_FILE = "false", ALGOLIA_ADMIN_KEY = "0"}
 
 [context.branch-deploy]
   command = "npm run build-preview"
