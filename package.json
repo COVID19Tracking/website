@@ -133,6 +133,7 @@
   },
   "scripts": {
     "build": "run-s setup:api-repo build:gatsby build:data build:test",
+    "build-preview": "run-s setup build:gatsby build:data build:test",
     "build:gatsby": "gatsby build",
     "build:data": "cp -R _api/* public/api/",
     "build:test": "jest --verbose --config=\"{}\" -- src/__tests__/build/index.js",
