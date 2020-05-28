@@ -5,22 +5,23 @@
 
 .fieldset {
   margin-bottom: 50px;
-  border: 1px solid #c5c5c5!important;
+  border: 1px solid #c5c5c5 !important;
   border-radius: 5px;
 
-  .radio-label, .checkbox-label {
+  .radio-label,
+  .checkbox-label {
     display: flex;
     align-items: baseline;
     font-size: 0.8em;
   }
 
   .fieldset-options {
-    padding:10px;
+    padding: 10px;
   }
 }
 
 legend {
-  width:100%;
+  width: 100%;
 }
 
 input {
