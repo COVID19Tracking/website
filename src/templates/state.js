@@ -85,7 +85,6 @@ export const query = graphql`
           url
           state
           date
-          time: dateChecked(formatString: "h:mm a")
           dateChecked
         }
       }
