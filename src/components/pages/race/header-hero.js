@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import Container from '~components/common/container'
 import HeroHeader from '~components/common/landing-page/hero/header'
 import HeroText from '~components/common/landing-page/hero/text'
-import headerHeroStyle from './header-hero.module.scss'
+import headerHeroStyle from '~components/pages/race/header-hero.module.scss'
 
 export default () => {
   const data = useStaticQuery(graphql`

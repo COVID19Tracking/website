@@ -2,15 +2,11 @@ import React, { useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { format } from 'd3-format'
 
-import AreaChart from '../../../components/charts/area-chart'
-import {
-  parseDate,
-  totalColor,
-  positiveColor,
-} from '../../../utilities/visualization'
+import AreaChart from '~components/charts/area-chart'
+import { parseDate, totalColor, positiveColor } from '~utilities/visualization'
 
-import dashboardStyles from './dashboard.module.scss'
-import TotalAndPositiveLegend from './_TotalAndPositiveLegend'
+import dashboardStyles from '~pages/about-data/visualization-guide/dashboard.module.scss'
+import TotalAndPositiveLegend from '~pages/about-data/visualization-guide/_TotalAndPositiveLegend'
 
 function yFormat(tick, i, totalTicks) {
   const formattedTick = format('~s')(tick)

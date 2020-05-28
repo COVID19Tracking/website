@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import Helmet from 'react-helmet'
-import './swagger-sandbox.scss'
+import '~components/common/swagger-sandbox.scss'
 import SwaggerUI from 'swagger-ui'
 
 export default () => {

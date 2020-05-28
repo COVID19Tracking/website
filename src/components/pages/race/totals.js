@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Total from '~components/common/landing-page/total'
-import totalsStyle from './totals.module.scss'
+import totalsStyle from '~components/pages/race/totals.module.scss'
 
 export default () => {
   const data = useStaticQuery(graphql`

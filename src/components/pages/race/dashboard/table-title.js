@@ -1,5 +1,5 @@
 import React from 'react'
-import TableSymbolKey from './table-symbol-key'
+import TableSymbolKey from '~components/pages/race/dashboard/table-symbol-key'
 
 export default ({ titleText, state }) => (
   <div>

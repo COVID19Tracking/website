@@ -1,5 +1,5 @@
 import React from 'react'
-import listArrowStyles from './list-arrow.module.scss'
+import listArrowStyles from '~components/common/list-arrow.module.scss'
 
 export default ({ items }) => {
   return (

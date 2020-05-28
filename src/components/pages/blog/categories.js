@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import categoryStyles from './categories.module.scss'
+import categoryStyles from '~components/pages/blog/categories.module.scss'
 
 export default ({ categories }) => {
   if (!categories) {

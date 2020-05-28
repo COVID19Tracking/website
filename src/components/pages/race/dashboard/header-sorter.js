@@ -1,5 +1,5 @@
 import React from 'react'
-import headerSorterStyles from './header-sorter.module.scss'
+import headerSorterStyles from '~components/pages/race/dashboard/header-sorter.module.scss'
 
 export default ({ stateName, stateReports }) => (
   // stateReports like: 'race' or 'ethnicity' or 'race/ethnicity'

@@ -4,7 +4,7 @@ import {
   SyncInfobox,
   QuestionInfobox,
   AlertInfobox,
-} from '../../components/common/infobox'
+} from '~components/common/infobox'
 
 export default {
   title: 'Infobox',

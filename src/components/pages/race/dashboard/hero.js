@@ -1,5 +1,5 @@
 import React from 'react'
-import HeroStyles from './hero.module.scss'
+import HeroStyles from '~components/pages/race/dashboard/hero.module.scss'
 
 export default ({ ledeContent }) => (
   <div className={HeroStyles.container}>

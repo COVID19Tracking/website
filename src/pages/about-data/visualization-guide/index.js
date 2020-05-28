@@ -1,15 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../../../components/layout'
-// import CDCComparisonContainer from './_CDCComparisonContainer'
-import MapContainer from './_MapContainer'
-import StateCumulativeTestsContainer from './_StateCumulativeTestsContainer'
-import StateCumulativeDeathsContainer from './_StateCumulativeDeathsContainer'
-import UsDailyDeathsContainer from './_UsDailyDeathsContainer'
-import UsPositiveAndTotalTestsContainer from './_UsPositiveAndTotalTestsContainer'
+import Layout from '~components/layout'
+// import CDCComparisonContainer from '~pages/about-data/visualization-guide/_CDCComparisonContainer'
+import MapContainer from '~pages/about-data/visualization-guide/_MapContainer'
+import StateCumulativeTestsContainer from '~pages/about-data/visualization-guide/_StateCumulativeTestsContainer'
+import StateCumulativeDeathsContainer from '~pages/about-data/visualization-guide/_StateCumulativeDeathsContainer'
+import UsDailyDeathsContainer from '~pages/about-data/visualization-guide/_UsDailyDeathsContainer'
+import UsPositiveAndTotalTestsContainer from '~pages/about-data/visualization-guide/_UsPositiveAndTotalTestsContainer'
 
-import './dashboard.scss'
-import dashboardStyles from './dashboard.module.scss'
+import '~pages/about-data/visualization-guide/dashboard.scss'
+import dashboardStyles from '~pages/about-data/visualization-guide/dashboard.module.scss'
 
 const VisualizationGuidePage = ({ data }) => {
   return (

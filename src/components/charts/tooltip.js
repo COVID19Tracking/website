@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './tooltip.module.scss'
+import styles from '~components/charts/tooltip.module.scss'
 
 const rightBuffer = 265
 

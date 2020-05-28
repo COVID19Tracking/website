@@ -3,10 +3,10 @@ import { timeParse } from 'd3-time-format'
 import React, { useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import cloneDeep from 'lodash/cloneDeep'
-import BarChart from '../../../components/charts/bar-chart'
-import { parseDate, totalColor } from '../../../utilities/visualization'
+import BarChart from '~components/charts/bar-chart'
+import { parseDate, totalColor } from '~utilities/visualization'
 
-import dashboardStyles from './dashboard.module.scss'
+import dashboardStyles from '~pages/about-data/visualization-guide/dashboard.module.scss'
 
 const parseCdcDate = timeParse('%m/%d/%Y')
 

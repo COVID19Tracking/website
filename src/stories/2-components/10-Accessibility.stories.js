@@ -1,7 +1,7 @@
 import React from 'react'
 import VisuallyHidden from '@reach/visually-hidden'
-import Alert from '../../components/utils/alert'
-import SkipNavigation from '../../components/utils/skip-navigation'
+import Alert from '~components/utils/alert'
+import SkipNavigation from '~components/utils/skip-navigation'
 
 export default {
   title: 'Accessibility utilities',

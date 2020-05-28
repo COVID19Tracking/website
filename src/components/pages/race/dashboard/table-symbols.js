@@ -1,5 +1,5 @@
 import React from 'react'
-import tableSymbolsStyles from './table-symbols.module.scss'
+import tableSymbolsStyles from '~components/pages/race/dashboard/table-symbols.module.scss'
 
 const Notes = ({ index, title, linkTo }) => {
   if (!linkTo || !title) {

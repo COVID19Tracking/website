@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import tableNotesStyle from './table-notes.module.scss'
+import tableNotesStyle from '~components/pages/race/dashboard/table-notes.module.scss'
 
 export default ({ state, stateName, type, groupedNotes }) => {
   if (!groupedNotes.length) {

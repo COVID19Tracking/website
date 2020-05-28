@@ -3,7 +3,7 @@ import {
   ButtonAnchor,
   ButtonLink,
   Button,
-} from '../../components/common/button'
+} from '~components/common/button'
 
 export default {
   title: 'Buttons',

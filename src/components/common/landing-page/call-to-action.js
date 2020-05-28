@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import ctaLinkStyle from './call-to-action.module.scss'
+import ctaLinkStyle from '~components/common/landing-page/call-to-action.module.scss'
 
 const Arrow = () => (
   <span className={ctaLinkStyle.arrow} aria-hidden>

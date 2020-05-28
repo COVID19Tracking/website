@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
-import DetailText from './detail-text'
-import tableStyle from './table.module.scss'
+import DetailText from '~components/common/detail-text'
+import tableStyle from '~components/common/table.module.scss'
 
 const Th = ({
   children,

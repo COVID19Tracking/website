@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { OneLineByline } from './byline'
-import RelatedPostsStyles from './related-posts.module.scss'
+import { OneLineByline } from '~components/pages/blog/byline'
+import RelatedPostsStyles from '~components/pages/blog/related-posts.module.scss'
 
 export default ({ posts }) => (
   <div className={RelatedPostsStyles.container}>

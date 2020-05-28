@@ -1,5 +1,5 @@
 import React from 'react'
-import DetailText from '../../components/common/detail-text'
+import DetailText from '~components/common/detail-text'
 
 export default {
   title: 'Detail text',

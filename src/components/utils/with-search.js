@@ -1,6 +1,6 @@
 import React from 'react'
-import withLocation from './with-location'
-import { SearchProvider } from '../../context/search-context'
+import withLocation from '~components/utils/with-location'
+import { SearchProvider } from '~context/search-context'
 
 const withSearch = Comp => props => {
   const CompWithLocation = withLocation(({ search }) => (

@@ -6,20 +6,16 @@ import { max } from 'd3-array'
 import { nest } from 'd3-collection'
 import { scaleSqrt, scaleThreshold } from 'd3-scale'
 
-import StatesWithPopulation from '../../../../data/visualization/state-populations.json'
+import StatesWithPopulation from '~data/visualization/state-populations.json'
 
-import {
-  formatNumber,
-  formatDate,
-  parseDate,
-} from '../../../../utilities/visualization'
+import { formatNumber, formatDate, parseDate } from '~utilities/visualization'
 
-import './map.scss'
+import '~pages/about-data/visualization-guide/charts/map.scss'
 
-import ChoroLegend from './_ChoroLegend'
+import ChoroLegend from '~pages/about-data/visualization-guide/charts/_ChoroLegend'
 
-import breakpoints from '../../../../scss/breakpoints.module.scss'
-import importedColors from '../../../../scss/colors.module.scss'
+import breakpoints from '~scss/breakpoints.module.scss'
+import importedColors from '~scss/colors.module.scss'
 
 const viewportSm = parseInt(breakpoints.viewportSm, 10)
 

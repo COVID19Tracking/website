@@ -1,5 +1,5 @@
 import React from 'react'
-import listsStyles from './lists.module.scss'
+import listsStyles from '~components/common/lists.module.scss'
 
 const OrderedList = ({ children }) => <ol>{children}</ol>
 

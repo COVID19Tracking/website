@@ -6,7 +6,7 @@ import CleanSpacing from '~components/utils/clean-spacing'
 import Container from '~components/common/landing-page/container'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
 import Paragraph from '~components/common/landing-page/paragraph'
-import blogListStyles from './blog-list.module.scss'
+import blogListStyles from '~components/pages/homepage/blog-list.module.scss'
 
 export default () => {
   const data = useStaticQuery(graphql`

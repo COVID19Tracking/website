@@ -81,7 +81,7 @@
     "marked": "^0.8.2",
     "netlify-cms-app": "^2.11.32",
     "node-fetch": "^2.6.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "nprogress": "^0.2.0",
     "object-hash": "^2.0.3",
     "prairie": "^3.10.2",

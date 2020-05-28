@@ -1,14 +1,14 @@
 import React from 'react'
 import { Form, FormGroup, FormLabel } from '~components/common/form'
 import DetailText from '~components/common/detail-text'
-import { Button } from '../../common/button'
-import VolunteerFormStyles from './volunteer-form.module.scss'
+import { Button } from '~components/common/button'
+import VolunteerFormStyles from '~components/pages/contact/volunteer-form.module.scss'
 import {
   RadioOptions,
   HoursPerWeek,
   Timezone,
   Availability,
-} from './volunteer-options'
+} from '~components/pages/contact/volunteer-options'
 
 export default () => {
   return (

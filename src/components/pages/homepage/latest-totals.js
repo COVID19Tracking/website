@@ -4,7 +4,7 @@ import { FormatNumber } from '~components/utils/format'
 import Paragraph from '~components/common/landing-page/paragraph'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
 import Total from '~components/common/landing-page/total'
-import latestTotalsStyles from './latest-totals.module.scss'
+import latestTotalsStyles from '~components/pages/homepage/latest-totals.module.scss'
 
 export default () => {
   const data = useStaticQuery(graphql`

@@ -1,5 +1,5 @@
 import React from 'react'
-import totalStyle from './total.module.scss'
+import totalStyle from '~components/common/landing-page/total.module.scss'
 
 const role = 'text'
 export default ({ number, label }) => (

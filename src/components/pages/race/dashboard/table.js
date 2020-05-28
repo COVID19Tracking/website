@@ -1,10 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { Table, Th, Td } from '~components/common/table'
-import Percent from './percent'
-import { Notes, CautionSymbol, DisparitySymbol } from './table-symbols'
-import alertBang from '../../../../images/race-dashboard/alert-bang-orange.svg'
-import stateTableStyle from './table.module.scss'
+import Percent from '~components/pages/race/dashboard/percent'
+import {
+  Notes,
+  CautionSymbol,
+  DisparitySymbol,
+} from '~components/pages/race/dashboard/table-symbols'
+import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
+import stateTableStyle from '~components/pages/race/dashboard/table.module.scss'
 
 const StateTable = Table
 

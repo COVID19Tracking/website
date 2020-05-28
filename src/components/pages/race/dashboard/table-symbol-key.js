@@ -1,7 +1,10 @@
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react'
-import { CautionSymbol, DisparitySymbol } from './table-symbols'
-import tableSymbolStyles from './table-symbol-key.module.scss'
+import {
+  CautionSymbol,
+  DisparitySymbol,
+} from '~components/pages/race/dashboard/table-symbols'
+import tableSymbolStyles from '~components/pages/race/dashboard/table-symbol-key.module.scss'
 
 export default ({ state }) => {
   const [disparityOpen, setDisparityOpen] = useState(false)

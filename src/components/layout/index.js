@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { SkipNavContent } from '@reach/skip-nav'
-import Header from './header'
-import Footer from './footer'
-import SEO from '../utils/seo'
-import Container from '../common/container'
-import SkipNavigation from '../utils/skip-navigation'
-import '../../scss/global.scss'
+import Header from '~components/layout/header'
+import Footer from '~components/layout/footer'
+import SEO from '~components/utils/seo'
+import Container from '~components/common/container'
+import SkipNavigation from '~components/utils/skip-navigation'
+import '~scss/global.scss'
 
 const Layout = ({
   title,

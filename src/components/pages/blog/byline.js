@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import bylineStyles from './byline.module.scss'
+import bylineStyles from '~components/pages/blog/byline.module.scss'
 import AuthorSpacer from '~components/utils/list-spacer'
 
 const getAuthorLink = author => {

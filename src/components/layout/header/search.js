@@ -1,10 +1,10 @@
 import React from 'react'
 import { navigate } from 'gatsby'
 import { useSearch } from '~context/search-context'
-import headerStyle from './header.module.scss'
+import headerStyle from '~components/layout/header/header.module.scss'
 
-import searchIcon from '../../../images/icons/search.svg'
-import searchIconInvert from '../../../images/icons/search-inverted.svg'
+import searchIcon from '~images/icons/search.svg'
+import searchIconInvert from '~images/icons/search-inverted.svg'
 
 export default ({ children }) => {
   const [searchState] = useSearch()

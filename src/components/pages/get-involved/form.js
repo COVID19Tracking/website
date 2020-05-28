@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, FormGroup, FormLabel } from '~components/common/form'
 import DetailText from '~components/common/detail-text'
-import formStyle from './form.module.scss'
+import formStyle from '~components/pages/get-involved/form.module.scss'
 
 export default () => (
   <Form>

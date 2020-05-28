@@ -1,5 +1,5 @@
 import React from 'react'
-import State from './state-data'
+import State from '~components/pages/data/state-data'
 
 export default ({ states, stateData }) => {
   const stateList = []

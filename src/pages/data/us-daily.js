@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../../components/layout'
-import { FormatDate, FormatNumber } from '../../components/utils/format'
-import { SyncInfobox } from '../../components/common/infobox'
-import { Th, Td, Table } from '../../components/common/table'
+import Layout from '~components/layout'
+import { FormatDate, FormatNumber } from '~components/utils/format'
+import { SyncInfobox } from '~components/common/infobox'
+import { Th, Td, Table } from '~components/common/table'
 
 const ContentPage = ({ data }) => (
   <Layout

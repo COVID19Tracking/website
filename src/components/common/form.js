@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import formStyles from './form.module.scss'
+import formStyles from '~components/common/form.module.scss'
 
 const Form = ({ children }) => <div className={formStyles.form}>{children}</div>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import countyChartLegendStyle from './county-chart-legend.module.scss'
+import countyChartLegendStyle from '~components/pages/race/charts/county-chart-legend.module.scss'
 
 const legendStyles = {
   'Black or African American alone':

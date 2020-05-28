@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import stateGradeStyle from './state-grade.module.scss'
-import gradeAPlus from '../../../images/state-grades/grade-a-plus.svg'
-import gradeA from '../../../images/state-grades/grade-a.svg'
-import gradeB from '../../../images/state-grades/grade-b.svg'
-import gradeC from '../../../images/state-grades/grade-c.svg'
-import gradeD from '../../../images/state-grades/grade-d.svg'
-import gradeF from '../../../images/state-grades/grade-f.svg'
-import gradeNA from '../../../images/state-grades/grade-na.svg'
+import stateGradeStyle from '~components/pages/state/state-grade.module.scss'
+import gradeAPlus from '~images/state-grades/grade-a-plus.svg'
+import gradeA from '~images/state-grades/grade-a.svg'
+import gradeB from '~images/state-grades/grade-b.svg'
+import gradeC from '~images/state-grades/grade-c.svg'
+import gradeD from '~images/state-grades/grade-d.svg'
+import gradeF from '~images/state-grades/grade-f.svg'
+import gradeNA from '~images/state-grades/grade-na.svg'
 
 const StateGrade = ({ letterGrade = 'na' }) => {
   const grades = {

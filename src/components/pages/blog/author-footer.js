@@ -1,5 +1,5 @@
 import React from 'react'
-import AuthorFooterStyles from './author-footer.module.scss'
+import AuthorFooterStyles from '~components/pages/blog/author-footer.module.scss'
 
 export default ({ authors }) => {
   const footerAuthors = authors.filter(

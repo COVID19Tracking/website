@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import DetailText from '~components/common/detail-text'
-import resultStyle from './search-result.module.scss'
+import resultStyle from '~components/search/search-result.module.scss'
 
 const SearchResult = ({
   title,
