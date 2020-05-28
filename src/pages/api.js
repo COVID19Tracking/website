@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import ContentfulContent from '~components/common/contentful-content'
 import SwaggerSandbox from '../components/common/swagger-sandbox'
 import Layout from '../components/layout'
 
@@ -9,12 +10,12 @@ export default ({ data }) => (
     path="/api"
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
-    <div
-      dangerouslySetInnerHTML={{
-        __html:
-          data.allContentfulSnippet.edges[0].node
-            .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
-      }}
+    <ContentfulContent
+      content={
+        data.allContentfulSnippet.edges[0].node
+          .childContentfulSnippetContentTextNode.childMarkdownRemark.html
+      }
+      id={data.allContentfulSnippet.edges[0].node.contentful_id}
     />
     <SwaggerSandbox />
   </Layout>
@@ -25,6 +26,7 @@ export const query = graphql`
     allContentfulSnippet(filter: { slug: { eq: "api-preamble" } }) {
       edges {
         node {
+          contentful_id
           childContentfulSnippetContentTextNode {
             childMarkdownRemark {
               html
