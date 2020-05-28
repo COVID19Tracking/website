@@ -17,7 +17,7 @@ export default ({ content, className, id }) => {
     if (
       typeof window !== 'undefined' &&
       typeof window.location !== 'undefined' &&
-      window.location.search.search('?edit') > -1
+      window.location.search.search('\\?edit') > -1
     ) {
       setIsEditable(true)
     }
