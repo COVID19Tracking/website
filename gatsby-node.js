@@ -166,6 +166,9 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
+    type CovidScreenshot implements Node {
+      dateChecked: String
+    }
     type CovidRaceDataSeparate implements Node {
       blackANHPIPosNotes: String
       blackANHPIDeathNotes: String
