@@ -17,7 +17,7 @@ export default () => {
         className={VolunteerFormStyles.contactForm}
         method="POST"
         name="volunteer"
-        action="/contact/success"
+        action="/contact/volunteer/success"
         netlify-honeypot="covid-bot-field"
         data-netlify="true"
       >
@@ -26,6 +26,7 @@ export default () => {
             <input type="hidden" name="form-name" value="volunteer" />
             <FormLabel htmlFor="name">
               Name
+
               <span className={VolunteerFormStyles.label}>required</span>
             </FormLabel>
             <input
@@ -75,7 +76,7 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <FormLabel htmlFor="hours">
-              About how many hours are you available to volunteer?
+              About how many hours are you available to volunteer each week?
               <span className={VolunteerFormStyles.label}>required</span>
             </FormLabel>
             <select name="hours" id="hours" aria-required="true" required>
@@ -111,10 +112,10 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <fieldset className={VolunteerFormStyles.fieldset}>
-              <legend>
+              <FormLabel htmlFor="availability">
                 When are you most available to volunteer?{' '}
                 <span className={VolunteerFormStyles.label}>required</span>
-              </legend>
+              </FormLabel>
               <div className={VolunteerFormStyles.fieldsetOptions}>
                 {Availability.map(item => {
                   return (
@@ -161,10 +162,10 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <fieldset className={VolunteerFormStyles.fieldset}>
-              <legend>
+              <FormLabel htmlFor="workstream">
                 What would you like to volunteer to do?{' '}
                 <span className={VolunteerFormStyles.label}>required</span>
-              </legend>
+              </FormLabel>
               <div className={VolunteerFormStyles.fieldsetOptions}>
                 {RadioOptions.map(item => {
                   return (
