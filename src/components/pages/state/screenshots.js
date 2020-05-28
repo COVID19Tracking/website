@@ -6,7 +6,7 @@ export default ({ date, screenshots }) => {
   const dateScreenshots = []
   const currentDate = DateTime.fromISO(date)
   screenshots.forEach(({ node }) => {
-    if (DateTime.fromISO(node.dateChecked).hasSame(currentDate, 'day')) {
+    if (DateTime.fromISO(node.date).hasSame(currentDate, 'day')) {
       dateScreenshots.push(node)
     }
   })

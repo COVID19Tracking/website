@@ -84,6 +84,7 @@ export const query = graphql`
           size
           url
           state
+          date
           dateChecked
         }
       }
