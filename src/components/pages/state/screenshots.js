@@ -3,7 +3,7 @@ import { DateTime } from 'luxon'
 
 export default ({ date, screenshots }) => {
   const dateScreenshots = []
-  const currentDate = DateTime.fromISO(date)
+  const currentDate = DateTime.fromISO(date).setZone('America/New_York')
   screenshots.forEach(({ node }) => {
     if (DateTime.fromISO(node.date).hasSame(currentDate, 'day')) {
       dateScreenshots.push(node)
