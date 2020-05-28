@@ -17,6 +17,7 @@ export const getStateId = (stateList, selectedItem) =>
   })
 
 export const setWindowLocation = str => {
+  document.activeElement.blur()
   window.location.hash = str
 }
 
