@@ -71,7 +71,7 @@ export const query = graphql`
           negative
           hospitalized
           death
-          dateChecked
+          date
         }
       }
     }

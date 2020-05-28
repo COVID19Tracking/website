@@ -26,10 +26,10 @@ export default ({ history, screenshots }) => (
       {history.map(({ node }) => (
         <tr key={`history-${node.dateChecked}`}>
           <Td alignLeft>
-            <FormatDate date={node.dateChecked} format="ccc LLL d yyyy" />
+            <FormatDate date={node.date} format="ccc LLL d yyyy" />
           </Td>
           <Td alignLeft>
-            <Screenshots date={node.dateChecked} screenshots={screenshots} />
+            <Screenshots date={node.date} screenshots={screenshots} />
           </Td>
           <Td>
             <FormatNumber number={node.totalTestResultsIncrease} />
