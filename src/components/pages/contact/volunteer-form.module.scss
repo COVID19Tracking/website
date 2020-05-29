@@ -1,0 +1,37 @@
+@import '../../../scss/colors.module.scss';
+@import '../../../scss/breakpoints.module.scss';
+@import './contact-form.module.scss';
+@import '../get-involved/form.module.scss';
+
+.fieldset {
+  margin-bottom: 50px;
+  border: 0;
+
+  .radio-label,
+  .checkbox-label {
+    display: flex;
+    align-items: baseline;
+    font-size: 0.8em;
+  }
+
+  .fieldset-options {
+    padding: 10px;
+  }
+}
+
+legend {
+  width: 100%;
+}
+
+input {
+  flex: 0 auto;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+  margin-right: 10px;
+}
+
+.group {
+  width: 100%;
+}

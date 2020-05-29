@@ -20,6 +20,7 @@ const gatsbyConfig = {
       .toFormat('h:mm a')
       .toLowerCase(),
     inDST: DateTime.fromObject({ zone: 'America/New_York' }).isInDST,
+    contentfulSpace: process.env.CONTENTFUL_SPACE,
   },
   plugins: [
     'gatsby-plugin-sitemap',
@@ -104,6 +105,7 @@ const gatsbyConfig = {
       options: {
         file: './_api/v1/internal/volunteers.json',
         type: 'CovidVolunteers',
+        sortField: 'name',
       },
     },
     {

@@ -1,5 +1,5 @@
-@import '../../scss/colors.module.scss';
-@import '../../scss/breakpoints.module.scss';
+@import '../../../scss/colors.module.scss';
+@import '../../../scss/breakpoints.module.scss';
 
 .contact-form {
   margin-top: 30px;
@@ -8,7 +8,7 @@
   input[type='email'],
   select,
   textarea {
-    width: 50%;
+    width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -17,21 +17,13 @@
     margin-bottom: 16px;
     resize: vertical;
     margin-bottom: 50px;
-    display:block;
-    font-weight:400;
+    display: block;
+    font-weight: 400;
     font-size: 1rem;
   }
 
-  @media (max-width: $viewport-md) {
-    input[type='text'],
-    input[type='email'],
-    select,
-    textarea {
-      width: 100%;
-    }
-  }
-
-  .input-header {
+  .input-header,
+  legend {
     margin-bottom: 5px;
     font-weight: 600;
     font-size: 24px;

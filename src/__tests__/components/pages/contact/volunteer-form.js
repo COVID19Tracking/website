@@ -1,12 +1,10 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import ContactFrom from '../../../components/common/contact-form'
+import VolunteerForm from '../../../../components/pages/contact/volunteer-form'
 
 describe('Components : Common: Contact form', () => {
   it('renders correctly', () => {
-    const tree = renderer
-      .create(<ContactFrom name="test-form" message="Test message" />)
-      .toJSON()
+    const tree = renderer.create(<VolunteerForm />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

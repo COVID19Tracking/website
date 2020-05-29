@@ -140,7 +140,7 @@
     "clean": "run-p clean:*",
     "clean:gatsby": "gatsby clean",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,json,md,scss}\"",
     "start": "npm run develop",
     "start:gatsby": "gatsby serve",
     "storybook": "start-storybook -p 6006",
