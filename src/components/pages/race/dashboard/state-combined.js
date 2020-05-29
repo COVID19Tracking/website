@@ -28,15 +28,22 @@ export default ({ state }) => {
   }
   if (stateData.asianPosCaution) {
     // if a state's Asian positives include NH/PI
-    notes.asianPos = stateData.asianANHPIPosNotes
-    notes.nhpiPos = stateData.nhpiANHPIPosNotes
+    notes.asianPos += stateData.asianANHPIPosNotes
+    notes.nhpiPos += stateData.nhpiANHPIPosNotes
     stateData.nhpiPctPos = null // handled in Percent
   }
   if (stateData.asianDeathCaution) {
     // if a state's Asian deaths include NH/PI
-    notes.asianDeath = stateData.asianANHPIDeathNotes
-    notes.nhpiDeath = stateData.nhpiANHPIDeathNotes
+    notes.asianDeath += stateData.asianANHPIDeathNotes
+    notes.nhpiDeath += stateData.nhpiANHPIDeathNotes
     stateData.nhpiPctDeath = null // handled in Percent
+  }
+
+  if (stateData.nhpiPosCaution) {
+    notes.nhpiPos += stateData.nhpiANHPIPosNotes
+  }
+  if (stateData.nhpiIDeathCaution) {
+    notes.nhpiDeath += stateData.nhpiANHPIDeathNotes
   }
 
   const groupedNotes = [...new Set(Object.values(notes))]
