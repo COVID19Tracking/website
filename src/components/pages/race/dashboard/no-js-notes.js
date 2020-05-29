@@ -6,7 +6,11 @@ import {
 
 export default () => (
   <div>
-    <DisparityWarningContent />
-    <ComparableWarningContent />
+    <div id="table-disparity-key">
+      <DisparityWarningContent />
+    </div>
+    <div id="table-comparable-key">
+      <ComparableWarningContent />
+    </div>
   </div>
 )
