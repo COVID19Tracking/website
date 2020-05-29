@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import ContentfulContent from '~components/common/contentful-content'
 import Layout from '../components/layout'
 
 const ContentPage = ({ data, path }) => {
@@ -14,9 +15,10 @@ const ContentPage = ({ data, path }) => {
       narrow
       textHeavy
     >
-      <div
+      <ContentfulContent
         className="module-content"
-        dangerouslySetInnerHTML={{ __html: page.body.childMarkdownRemark.html }}
+        id={page.contentful_id}
+        content={page.body.childMarkdownRemark.html}
       />
     </Layout>
   )
@@ -31,6 +33,7 @@ export const query = graphql`
         node {
           title
           slug
+          contentful_id
           returnLinkTitle
           returnLinkUrl
           body {

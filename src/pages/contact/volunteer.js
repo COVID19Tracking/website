@@ -1,17 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import ContentfulContent from '~components/common/contentful-content'
 import Layout from '../../components/layout'
 import VolunteerForm from '../../components/pages/contact/volunteer-form'
 
 export default ({ data }) => (
   <Layout title="Contact us &mdash; Volunteering" narrow textHeavy>
-    <div
-      className="module-content"
-      dangerouslySetInnerHTML={{
-        __html:
-          data.allContentfulSnippet.edges[0].node
-            .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
-      }}
+    <ContentfulContent
+      content={
+        data.allContentfulSnippet.edges[0].node
+          .childContentfulSnippetContentTextNode.childMarkdownRemark.html
+      }
+      id={data.allContentfulSnippet.edges[0].node.contentful_id}
     />
     <VolunteerForm />
   </Layout>
@@ -22,6 +22,7 @@ export const query = graphql`
     allContentfulSnippet(filter: { slug: { eq: "volunteer-form" } }) {
       edges {
         node {
+          contentful_id
           childContentfulSnippetContentTextNode {
             childMarkdownRemark {
               html

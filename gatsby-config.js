@@ -20,6 +20,7 @@ const gatsbyConfig = {
       .toFormat('h:mm a')
       .toLowerCase(),
     inDST: DateTime.fromObject({ zone: 'America/New_York' }).isInDST,
+    contentfulSpace: process.env.CONTENTFUL_SPACE,
   },
   plugins: [
     'gatsby-plugin-sitemap',
@@ -97,13 +98,6 @@ const gatsbyConfig = {
       options: {
         file: './_data/v1/states/screenshots.json',
         type: 'CovidScreenshot',
-      },
-    },
-    {
-      resolve: 'gatsby-source-covid-tracking-api',
-      options: {
-        file: './_data/v1/cdc/daily.json',
-        type: 'CDCDaily',
       },
     },
     {

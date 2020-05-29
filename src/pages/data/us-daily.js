@@ -1,5 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+
+import ContentfulContent from '~components/common/contentful-content'
 import Layout from '../../components/layout'
 import { FormatDate, FormatNumber } from '../../components/utils/format'
 import { SyncInfobox } from '../../components/common/infobox'
@@ -12,13 +14,13 @@ const ContentPage = ({ data }) => (
     description="Cumulative record of our daily totals."
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
-    <div
+    <ContentfulContent
       className="module-content"
-      dangerouslySetInnerHTML={{
-        __html:
-          data.allContentfulSnippet.edges[0].node
-            .childContentfulSnippetContentTextNode.childMarkdownRemark.html,
-      }}
+      content={
+        data.allContentfulSnippet.edges[0].node
+          .childContentfulSnippetContentTextNode.childMarkdownRemark.html
+      }
+      id={data.allContentfulSnippet.edges[0].node.contentful_id}
     />
 
     <SyncInfobox />
@@ -80,6 +82,7 @@ export const query = graphql`
     allContentfulSnippet(filter: { slug: { eq: "us-daily" } }) {
       edges {
         node {
+          contentful_id
           childContentfulSnippetContentTextNode {
             childMarkdownRemark {
               html

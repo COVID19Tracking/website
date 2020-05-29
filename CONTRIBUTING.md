@@ -12,6 +12,8 @@ The project README file includes all the information you need to build a local v
 
 We use the [Airbnb style guide](https://github.com/airbnb/javascript), except with semicolons turned off. We suggest using Prettier in your environment to make sure your code files are all balanced and beautiful.
 
+This repo includes an [EditorConfig file](https://editorconfig.org/), which can help keep our style consistent in your development environment.
+
 ### Style and SCSS Modules
 
 We use Gatsby's [CSS modules](https://www.gatsbyjs.org/docs/css-modules/), but with Sass files. Every Sass file should be in the same directory as its related component. There are also common colors and breakpoints defined in `/src/sass`.
