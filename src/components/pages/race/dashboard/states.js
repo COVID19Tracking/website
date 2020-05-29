@@ -13,9 +13,6 @@ export default () => {
         sort: { fields: stateName }
       ) {
         nodes {
-          id
-          name: stateName
-          state
           aianANHPIDeathNotes
           aianANHPIPosNotes
           aianDeathCaution
@@ -61,6 +58,7 @@ export default () => {
           blackPosDispFlag
           blackPositives
           blackPosNotes
+          id
           knownRaceEthDeath
           knownRaceEthPos
           latinXANHPINotes
@@ -75,6 +73,7 @@ export default () => {
           latinXPosDispFlag
           latinXPositives
           latinXPosNotes
+          name: stateName
           nhpiANHPIDeathNotes
           nhpiANHPINotes
           nhpiANHPIPosNotes
@@ -106,6 +105,7 @@ export default () => {
           otherPositives
           otherPosNotes
           otherPosNotes
+          state
           state
           stateName
           twoANHPIDeathNotes
@@ -145,170 +145,170 @@ export default () => {
         sort: { fields: stateName }
       ) {
         nodes {
-          id
-          state
-          name: stateName
-          anyPosData
-          anyDeathData
-          posRaceData
-          posEthData
-          deathRaceData
-          deathEthData
-          whitePositives
-          whitePosDispFlag
-          whitePosCaution
-          whitePctPos
-          whitePctPop
-          whitePctDeath
-          whiteDeaths
-          whiteDeathDispFlag
-          whiteDeathCaution
-          unknownRacePos
-          unknownRaceDeath
-          unknownEthPos
-          unknownEthDeath
-          twoPositives
-          twoPosNotes
-          twoPosDispFlag
-          twoPosCaution
-          twoPctPos
-          twoPctPop
-          twoPctDeath
-          twoDeaths
-          twoDeathNotes
-          twoDeathDispFlag
-          twoDeathCaution
-          otherPositives
-          otherPosNotes
-          otherPosDispFlag
-          otherPosCaution
-          otherPctPos
-          otherPctPop
-          otherPctDeath
-          otherDeaths
-          otherDeathCaution
-          otherDeathNotes
-          otherDeathDispFlag
-          otherDeathCaution
-          nonhispanicPositives
-          nonhispanicPosDispFlag
-          nonhispanicPosCaution
-          nonhispanicPctPos
-          nonhispanicPctPop
-          nonhispanicPctDeath
-          nonhispanicDeaths
-          nonhispanicDeathDispFlag
-          nonhispanicDeathCaution
-          nhpiPositives
-          nhpiPosNotes
-          nhpiPosDispFlag
-          nhpiPosCaution
-          nhpiPctPos
-          nhpiPctPop
-          nhpiPctDeath
-          nhpiDeaths
-          nhpiDeathNotes
-          nhpiDeathDispFlag
-          nhpiDeathCaution
-          nhpiANHPIPosNotes
-          nhpiANHPIDeathNotes
-          latinXPositives
-          latinXPosDispFlag
-          latinXPosCaution
-          latinXPctPos
-          latinXPctPop
-          latinXPctDeath
-          latinXDeaths
-          latinXDeathDispFlag
-          latinXDeathCaution
-          knownRacePos
-          knownRaceDeath
-          knownEthPos
-          knownEthDeath
-          blackPositives
-          blackPosDispFlag
-          blackPosCaution
-          blackPctPos
-          blackPctPop
-          blackPctDeath
-          blackDeaths
-          blackDeathDispFlag
-          blackDeathCaution
-          asianSpecialCaseNotes
-          blackSpecialCaseNotes
-          asianPositives
-          asianPosNotes
-          asianPosDispFlag
-          asianPosCaution
-          asianPctPos
-          asianPctPop
-          asianPctDeath
-          asianDeaths
-          asianDeathNotes
-          asianDeathDispFlag
-          asianDeathCaution
-          asianANHPIPosNotes
-          asianANHPIDeathNotes
+          aianANHPIDeathNotes
+          aianANHPIPosNotes
+          aianDeathCaution
+          aianDeathDispFlag
+          aianDeathNotes
+          aianDeathNotes
+          aianDeaths
+          aianPctDeath
+          aianPctPop
+          aianPctPos
+          aianPosCaution
+          aianPosDispFlag
           aianPositives
           aianPosNotes
-          aianPosDispFlag
-          aianPosCaution
-          aianPctPos
-          aianPctPop
-          aianPctDeath
-          aianDeaths
-          aianDeathNotes
-          aianDeathDispFlag
-          aianDeathCaution
-          aianSpecialCaseNotes
-          nhpiSpecialCaseNotes
-          twoSpecialCaseNotes
-          whiteSpecialCaseNotes
-          otherSpecialCaseNotes
-          blackANHPIPosNotes
-          blackANHPIDeathNotes
-          blackPosNotes
-          blackDeathNotes
-          blackSpecialCaseNotes
-          asianANHPIPosNotes
-          asianANHPIDeathNotes
-          asianPosNotes
-          asianDeathNotes
-          asianSpecialCaseNotes
-          aianANHPIPosNotes
-          aianANHPIDeathNotes
           aianPosNotes
-          aianDeathNotes
           aianSpecialCaseNotes
-          nhpiANHPIPosNotes
-          nhpiANHPIDeathNotes
-          nhpiPosNotes
-          nhpiDeathNotes
-          nhpiSpecialCaseNotes
-          twoANHPIPosNotes
-          twoANHPIDeathNotes
-          twoPosNotes
-          twoDeathNotes
-          twoSpecialCaseNotes
-          whiteANHPIPosNotes
-          whiteANHPIDeathNotes
-          whitePosNotes
-          whiteDeathNotes
-          whiteSpecialCaseNotes
-          otherANHPIPosNotes
-          otherANHPIDeathNotes
-          otherPosNotes
-          otherDeathNotes
-          otherSpecialCaseNotes
-          latinXANHPIPosNotes
+          aianSpecialCaseNotes
+          anyDeathData
+          anyPosData
+          asianANHPIDeathNotes
+          asianANHPIDeathNotes
+          asianANHPIPosNotes
+          asianANHPIPosNotes
+          asianDeathCaution
+          asianDeathDispFlag
+          asianDeathNotes
+          asianDeathNotes
+          asianDeaths
+          asianPctDeath
+          asianPctPop
+          asianPctPos
+          asianPosCaution
+          asianPosDispFlag
+          asianPositives
+          asianPosNotes
+          asianPosNotes
+          asianSpecialCaseNotes
+          asianSpecialCaseNotes
+          blackANHPIDeathNotes
+          blackANHPIPosNotes
+          blackDeathCaution
+          blackDeathDispFlag
+          blackDeathNotes
+          blackDeaths
+          blackPctDeath
+          blackPctPop
+          blackPctPos
+          blackPosCaution
+          blackPosDispFlag
+          blackPositives
+          blackPosNotes
+          blackSpecialCaseNotes
+          blackSpecialCaseNotes
+          deathEthData
+          deathRaceData
+          id
+          knownEthDeath
+          knownEthPos
+          knownRaceDeath
+          knownRacePos
           latinXANHPIDeathNotes
-          latinXPosNotes
+          latinXANHPIPosNotes
+          latinXDeathCaution
+          latinXDeathDispFlag
           latinXDeathNotes
-          nonhispanicANHPIPosNotes
+          latinXDeaths
+          latinXPctDeath
+          latinXPctPop
+          latinXPctPos
+          latinXPosCaution
+          latinXPosDispFlag
+          latinXPositives
+          latinXPosNotes
+          name: stateName
+          nhpiANHPIDeathNotes
+          nhpiANHPIDeathNotes
+          nhpiANHPIPosNotes
+          nhpiANHPIPosNotes
+          nhpiDeathCaution
+          nhpiDeathDispFlag
+          nhpiDeathNotes
+          nhpiDeathNotes
+          nhpiDeaths
+          nhpiPctDeath
+          nhpiPctPop
+          nhpiPctPos
+          nhpiPosCaution
+          nhpiPosDispFlag
+          nhpiPositives
+          nhpiPosNotes
+          nhpiPosNotes
+          nhpiSpecialCaseNotes
+          nhpiSpecialCaseNotes
           nonhispanicANHPIDeathNotes
-          nonhispanicPosNotes
+          nonhispanicANHPIPosNotes
+          nonhispanicDeathCaution
+          nonhispanicDeathDispFlag
           nonhispanicDeathNotes
+          nonhispanicDeaths
+          nonhispanicPctDeath
+          nonhispanicPctPop
+          nonhispanicPctPos
+          nonhispanicPosCaution
+          nonhispanicPosDispFlag
+          nonhispanicPositives
+          nonhispanicPosNotes
           nonhispanicSpecialCaseNotes
+          otherANHPIDeathNotes
+          otherANHPIPosNotes
+          otherDeathCaution
+          otherDeathCaution
+          otherDeathDispFlag
+          otherDeathNotes
+          otherDeathNotes
+          otherDeaths
+          otherPctDeath
+          otherPctPop
+          otherPctPos
+          otherPosCaution
+          otherPosDispFlag
+          otherPositives
+          otherPosNotes
+          otherPosNotes
+          otherSpecialCaseNotes
+          otherSpecialCaseNotes
+          posEthData
+          posRaceData
+          state
+          twoANHPIDeathNotes
+          twoANHPIPosNotes
+          twoDeathCaution
+          twoDeathDispFlag
+          twoDeathNotes
+          twoDeathNotes
+          twoDeaths
+          twoPctDeath
+          twoPctPop
+          twoPctPos
+          twoPosCaution
+          twoPosDispFlag
+          twoPositives
+          twoPosNotes
+          twoPosNotes
+          twoSpecialCaseNotes
+          twoSpecialCaseNotes
+          unknownEthDeath
+          unknownEthPos
+          unknownRaceDeath
+          unknownRacePos
+          whiteANHPIDeathNotes
+          whiteANHPIPosNotes
+          whiteDeathCaution
+          whiteDeathDispFlag
+          whiteDeathNotes
+          whiteDeaths
+          whitePctDeath
+          whitePctPop
+          whitePctPos
+          whitePosCaution
+          whitePosDispFlag
+          whitePositives
+          whitePosNotes
+          whiteSpecialCaseNotes
+          whiteSpecialCaseNotes
         }
       }
     }
