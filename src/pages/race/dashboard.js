@@ -1,8 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../../components/layout'
+
+import Layout from '~components/layout'
 import StateNav from '~components/common/state-nav'
 import Hero from '~components/pages/race/dashboard/hero'
+import NoJSNotes from '~components/pages/race/dashboard/no-js-notes'
 import States from '~components/pages/race/dashboard/states'
 import UsOverview from '~components/pages/race/dashboard/us-overview'
 
@@ -41,6 +43,7 @@ export default ({ data }) => {
         stateList={stateList.sort((a, b) => (a.name < b.name ? -1 : 1))}
       />
       <States />
+      <NoJSNotes />
     </Layout>
   )
 }
