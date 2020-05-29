@@ -1,10 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import {
-  ButtonAnchor,
-  ButtonLink,
-  Button,
-} from '~components/common/button'
+import { ButtonAnchor, ButtonLink, Button } from '~components/common/button'
 
 describe('Components : Common: Button: Link component button', () => {
   it('renders correctly', () => {
