@@ -21,6 +21,7 @@ const gatsbyConfig = {
       .toLowerCase(),
     inDST: DateTime.fromObject({ zone: 'America/New_York' }).isInDST,
     contentfulSpace: process.env.CONTENTFUL_SPACE,
+    hiddenApiTags: ['Racial data tracker', 'Internal Endpoints'],
   },
   plugins: [
     'gatsby-plugin-sitemap',
