@@ -8,7 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   if (
     typeof process.env.DEV_ENVIRONMENT_VARIABLE_FILE !== 'undefined' &&
-    process.env.DEV_ENVIRONMENT_VARIABLE_FILE
+    process.env.DEV_ENVIRONMENT_VARIABLE_FILE != 'false'
   ) {
     createRedirect({
       fromPath: '/__developer/env-vars',
