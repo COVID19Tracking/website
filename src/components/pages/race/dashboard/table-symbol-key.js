@@ -55,59 +55,67 @@ const ComparableWarningContent = () => (
   </>
 )
 
+const TableKeyContentItem = ({
+  state,
+  symbol,
+  description,
+  divAnchor,
+  setOpenMethod,
+  openBoolean,
+  alternateBoolean,
+  setOpenAlternate,
+}) => (
+  <p className={tableSymbolKeyStyles.key}>
+    {symbol}
+    <span>{description}</span>
+    <button
+      className={`js-enabled ${tableSymbolKeyStyles.disclosureButton}`}
+      aria-expanded={alternateBoolean}
+      aria-controls={`table-symbol-notComparible-${state.toLowerCase()}`}
+      onClick={event => {
+        event.preventDefault()
+        setOpenMethod(!openBoolean)
+        if (alternateBoolean) {
+          setOpenAlternate(false)
+        }
+      }}
+    >
+      <span className={tableSymbolKeyStyles.text}>See why</span>{' '}
+      <span aria-hidden>{openBoolean ? <>↑</> : <>↓</>}</span>
+    </button>
+    <a href={divAnchor} className="js-disabled">
+      <span className={tableSymbolKeyStyles.text}>See why</span>{' '}
+      <span aria-hidden>{openBoolean ? <>↑</> : <>↓</>}</span>
+    </a>
+  </p>
+)
+
 export default ({ state }) => {
   const [disparityOpen, setDisparityOpen] = useState(false)
   const [comparibleOpen, setComparibleOpen] = useState(false)
 
   return (
     <div className={tableSymbolKeyStyles.container}>
-      <p className={tableSymbolKeyStyles.key}>
-        <DisparitySymbol inkey />
-        <span>Racial/ethnic disparity likely. </span>
-        <button
-          className={`js-enabled ${tableSymbolKeyStyles.disclosureButton}`}
-          aria-expanded={disparityOpen}
-          aria-controls={`table-symbol-disparity-${state.toLowerCase()}`}
-          onClick={event => {
-            event.preventDefault()
-            setDisparityOpen(!disparityOpen)
-            if (comparibleOpen) {
-              setComparibleOpen(false)
-            }
-          }}
-        >
-          <span className={tableSymbolKeyStyles.text}>See why</span>{' '}
-          <span aria-hidden>{disparityOpen ? <>↑</> : <>↓</>}</span>
-        </button>
-        <a href="#table-disparity-key" className="js-disabled">
-          <span className={tableSymbolKeyStyles.text}>See why</span>{' '}
-          <span aria-hidden>{disparityOpen ? <>↑</> : <>↓</>}</span>
-        </a>
-      </p>
-      <p className={tableSymbolKeyStyles.key}>
-        <CautionSymbol inkey />
-        <span>Should not be compared with percentage of population. </span>
-        <button
-          className={`js-enabled ${tableSymbolKeyStyles.disclosureButton}`}
-          aria-expanded={disparityOpen}
-          aria-controls={`table-symbol-notComparible-${state.toLowerCase()}`}
-          onClick={event => {
-            event.preventDefault()
-            setComparibleOpen(!comparibleOpen)
-            if (disparityOpen) {
-              setDisparityOpen(false)
-            }
-          }}
-        >
-          <span className={tableSymbolKeyStyles.text}>See why</span>{' '}
-          <span aria-hidden>{comparibleOpen ? <>↑</> : <>↓</>}</span>
-        </button>
-        <a href="#table-comparable-key" className="js-disabled">
-          <span className={tableSymbolKeyStyles.text}>See why</span>{' '}
-          <span aria-hidden>{disparityOpen ? <>↑</> : <>↓</>}</span>
-        </a>
-      </p>
-      <div />
+      <TableKeyContentItem
+        state={state}
+        symbol={<CautionSymbol inkey />}
+        description="Should not be compared with percentage of population. "
+        divAnchor="#table-comparable-key"
+        setOpenMethod={setDisparityOpen}
+        openBoolean={disparityOpen}
+        alternateBoolean={comparibleOpen}
+        setOpenAlternate={setComparibleOpen}
+      />
+      <TableKeyContentItem
+        state={state}
+        symbol={<DisparitySymbol inkey />}
+        description="Racial/ethnic disparity likely. "
+        divAnchor="#table-disparity-key"
+        setOpenMethod={setComparibleOpen}
+        openBoolean={comparibleOpen}
+        alternateBoolean={disparityOpen}
+        setOpenAlternate={setDisparityOpen}
+      />
       <div
         id={`table-symbol-disparity-${state.toLowerCase()}`}
         hidden={!disparityOpen}
