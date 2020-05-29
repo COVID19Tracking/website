@@ -205,7 +205,7 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <FormLabel htmlFor="why">
-              Why are you interested in volunteering for us?{' '}
+              What kinds of projects or tasks would you most like to help with?{' '}
               <span className={VolunteerFormStyles.label}>optional</span>
               <textarea name="why" id="why" rows="5" />
             </FormLabel>
