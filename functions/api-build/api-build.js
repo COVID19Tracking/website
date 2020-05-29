@@ -20,8 +20,9 @@ exports.handler = async (event, context) => {
         },
       },
     ).then(response => {
-      return { statusCode: 200, body: 'Done' }
+      return response.text()
     })
+    return { statusCode: 200, body: 'Done' }
   } catch (err) {
     return { statusCode: 500, body: err.toString() }
   }
