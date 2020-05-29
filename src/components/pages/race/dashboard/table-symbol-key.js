@@ -1,19 +1,19 @@
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react'
 import { CautionSymbol, DisparitySymbol } from './table-symbols'
-import tableSymbolStyles from './table-symbol-key.module.scss'
+import tableSymbolKeyStyles from './table-symbol-key.module.scss'
 
 export default ({ state }) => {
   const [disparityOpen, setDisparityOpen] = useState(false)
   const [comparibleOpen, setComparibleOpen] = useState(false)
 
   return (
-    <div className={tableSymbolStyles.container}>
-      <p className={tableSymbolStyles.key}>
+    <div className={tableSymbolKeyStyles.container}>
+      <p className={tableSymbolKeyStyles.key}>
         <DisparitySymbol inkey />
         Racial/ethnic disparity likely.{' '}
         <button
-          className={tableSymbolStyles.disclosureButton}
+          className={tableSymbolKeyStyles.disclosureButton}
           aria-expanded={disparityOpen}
           aria-controls={`table-symbol-disparity-${state.toLowerCase()}`}
           onClick={event => {
@@ -24,15 +24,15 @@ export default ({ state }) => {
             }
           }}
         >
-          <span className={tableSymbolStyles.text}>See why</span>{' '}
+          <span className={tableSymbolKeyStyles.text}>See why</span>{' '}
           <span aria-hidden>{disparityOpen ? <>↑</> : <>↓</>}</span>
         </button>
       </p>
-      <p className={tableSymbolStyles.key}>
+      <p className={tableSymbolKeyStyles.key}>
         <CautionSymbol inkey />
         Should not be compared with percentage of population.{' '}
         <button
-          className={tableSymbolStyles.disclosureButton}
+          className={tableSymbolKeyStyles.disclosureButton}
           aria-expanded={disparityOpen}
           aria-controls={`table-symbol-notComparible-${state.toLowerCase()}`}
           onClick={event => {
@@ -43,7 +43,7 @@ export default ({ state }) => {
             }
           }}
         >
-          <span className={tableSymbolStyles.text}>See why</span>{' '}
+          <span className={tableSymbolKeyStyles.text}>See why</span>{' '}
           <span aria-hidden>{comparibleOpen ? <>↑</> : <>↓</>}</span>
         </button>
       </p>
@@ -51,7 +51,7 @@ export default ({ state }) => {
       <div
         id={`table-symbol-disparity-${state.toLowerCase()}`}
         hidden={!disparityOpen}
-        className={tableSymbolStyles.disclosurePane}
+        className={tableSymbolKeyStyles.disclosurePane}
         data-expanded={disparityOpen}
       >
         <h3>How we calculate likely racial/ethnic disparity</h3>
@@ -74,7 +74,7 @@ export default ({ state }) => {
       <div
         id={`table-symbol-notComparible-${state.toLowerCase()}`}
         hidden={!comparibleOpen}
-        className={tableSymbolStyles.disclosurePane}
+        className={tableSymbolKeyStyles.disclosurePane}
         data-expanded={comparibleOpen}
       >
         <h3>How we decide data is not comparable</h3>
