@@ -61,7 +61,6 @@ export default () => {
           id
           knownRaceEthDeath
           knownRaceEthPos
-          latinXANHPINotes
           latinXDeathCaution
           latinXDeathDispFlag
           latinXDeathNotes
@@ -75,7 +74,6 @@ export default () => {
           latinXPosNotes
           name: stateName
           nhpiANHPIDeathNotes
-          nhpiANHPINotes
           nhpiANHPIPosNotes
           nhpiDeathCaution
           nhpiDeathDispFlag
