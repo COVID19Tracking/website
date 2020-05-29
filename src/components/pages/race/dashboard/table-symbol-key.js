@@ -114,7 +114,7 @@ export default ({ state }) => {
         className={tableSymbolKeyStyles.disclosurePane}
         data-expanded={disparityOpen}
       >
-        {DisparityWarningContent}
+        <DisparityWarningContent />
       </div>
       <div
         id={`table-symbol-notComparible-${state.toLowerCase()}`}
@@ -122,7 +122,7 @@ export default ({ state }) => {
         className={tableSymbolKeyStyles.disclosurePane}
         data-expanded={comparibleOpen}
       >
-        {ComparableWarningContent}
+        <ComparableWarningContent />
       </div>
     </div>
   )
