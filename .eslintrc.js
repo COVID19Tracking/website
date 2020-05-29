@@ -37,15 +37,15 @@ module.exports = {
       'sample-chart-data',
     ],
     'import/resolver': {
-      'alias': [
+      alias: [
         ['~components', './src/components'],
         ['~context', './src/context'],
         ['~data', './src/data'],
         ['~pages', './src/pages'],
         ['~scss', './src/scss'],
-        ['~templates', './src/templates'],        
-        ['~utilities', './src/utilities'],        
-      ]
-    }
+        ['~templates', './src/templates'],
+        ['~utilities', './src/utilities'],
+      ],
+    },
   },
 }
