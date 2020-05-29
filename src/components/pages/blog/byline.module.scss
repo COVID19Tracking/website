@@ -20,7 +20,7 @@
     white-space: pre;
   }
   .author::after {
-    content: "  |  ";
+    content: '  |  ';
     white-space: pre;
   }
   * {
@@ -54,7 +54,6 @@
   }
 }
 
-
 .byline--small-margin--image {
   @extend .byline-base;
   margin-top: 0;
@@ -74,7 +73,7 @@
   font-size: 1rem;
   line-height: 2.5;
   .author::after {
-    content: "  \2022  ";
+    content: '  \2022  ';
     color: $color-slate-500;
   }
   .author {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import DetailText from '~components/common/detail-text'
+import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
 import StateList from '~components/pages/data/state-list'
 import StatesNoScriptNav from '~components/pages/data/state-nav-no-script'
@@ -19,11 +20,10 @@ export default ({ data }) => {
       description="Our most up-to-date data on COVID-19 in the US."
       navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
     >
-      <div
+      <ContentfulContent
         className="module-content"
-        dangerouslySetInnerHTML={{
-          __html: data.dataPreamble.nodes[0].content.childMarkdownRemark.html,
-        }}
+        content={data.dataPreamble.nodes[0].content.childMarkdownRemark.html}
+        id={data.dataPreamble.nodes[0].contentful_id}
       />
       <SyncInfobox />
       <SummaryTable data={data.allCovidUs.edges[0].node} showOutcomes={false} />
@@ -55,6 +55,7 @@ export const query = graphql`
     ) {
       nodes {
         id
+        contentful_id
         name
         content {
           childMarkdownRemark {
@@ -68,6 +69,7 @@ export const query = graphql`
     ) {
       nodes {
         id
+        contentful_id
         name
         content {
           childMarkdownRemark {

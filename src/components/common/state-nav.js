@@ -1,6 +1,6 @@
 /* eslint jsx-a11y/label-has-associated-control: 0 */
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useLayoutEffect } from 'react'
 import {
   Combobox,
   ComboboxInput,
@@ -51,6 +51,17 @@ export default ({ title, stateList }) => {
 
   const results = searchStates(searchTerm)
 
+  const inputRef = useRef()
+
+  useLayoutEffect(() => {
+    const handleHashChange = () => inputRef.current.blur()
+    window.addEventListener('hashchange', handleHashChange)
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  })
+
   return (
     <div className={`state-nav-header ${stateNavStyles.stateNav}`}>
       <div className={stateNavStyles.stateNavInner}>
@@ -79,6 +90,7 @@ export default ({ title, stateList }) => {
               id="jump-to-state"
               placeholder="State or territory"
               autoComplete="false"
+              ref={inputRef}
               onKeyDown={event => selectFirstItemOnKeyDown(event, results)}
               onChange={event => {
                 setSearchTerm(event.target.value)

@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
-// import CDCComparisonContainer from '~pages/about-data/visualization-guide/_CDCComparisonContainer'
 import MapContainer from '~pages/about-data/visualization-guide/_MapContainer'
 import StateCumulativeTestsContainer from '~pages/about-data/visualization-guide/_StateCumulativeTestsContainer'
 import StateCumulativeDeathsContainer from '~pages/about-data/visualization-guide/_StateCumulativeDeathsContainer'

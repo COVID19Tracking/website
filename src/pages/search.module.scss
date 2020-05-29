@@ -1,44 +1,43 @@
 @import '~scss/colors.module.scss';
 
 .search-form {
-    margin-bottom: 2rem;
-    
-    position: relative;
-    
-    input {
-        width: 100%;
-        padding: .4rem 3.4rem .4rem 6rem;
-    }
+  margin-bottom: 2rem;
+
+  position: relative;
+
+  input {
+    width: 100%;
+    padding: 0.4rem 3.4rem 0.4rem 6rem;
+  }
 }
 
 .search-submit {
-    position: absolute;
-    right: .4rem;
-    top: 50%;
-    transform: translateY(-50%);
+  position: absolute;
+  right: 0.4rem;
+  top: 50%;
+  transform: translateY(-50%);
 
-    appearance: none;
-    background: none;
-    border: none;
-    box-shadow: none;
+  appearance: none;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 .search-icon {
-    width: 1.25rem;
+  width: 1.25rem;
 }
 
 .label {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
 
-    color: $placeholder;
+  color: $placeholder;
 }
 
 .search-results {
-    h2 {
-        margin-bottom: 48px;
-    }
+  h2 {
+    margin-bottom: 48px;
+  }
 }
-
