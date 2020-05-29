@@ -4,6 +4,7 @@ import HeaderSorter from './header-sorter'
 import TableNotes from './table-notes'
 import PercentageOverview from './percentage-overview'
 import TableTitle from './table-title'
+import anhpiNotes from './anhpi-notes'
 import NoData from './no-data'
 import { RaceTable, EthnicityTable } from './breakdown-tables'
 import stateStyle from './state.module.scss'
@@ -35,25 +36,8 @@ export default ({ state }) => {
     whiteSpecialCase: stateData.whiteSpecialCaseNotes,
     otherSpecialCase: stateData.otherSpecialCaseNotes,
   }
-  if (stateData.asianPosCaution) {
-    // if a state's Asian positives include NH/PI
-    raceNotes.asianPos += stateData.asianANHPIPosNotes
-    raceNotes.nhpiPos += stateData.nhpiANHPIPosNotes
-    stateData.nhpiPctPos = null // handled in Percent
-  }
-  if (stateData.asianDeathCaution) {
-    // if a state's Asian deaths include NH/PI
-    raceNotes.asianDeath += stateData.asianANHPIDeathNotes
-    raceNotes.nhpiDeath += stateData.nhpiANHPIDeathNotes
-    stateData.nhpiPctDeath = null // handled in Percent
-  }
 
-  if (stateData.nhpiPosCaution) {
-    raceNotes.nhpiPos += stateData.nhpiANHPIPosNotes
-  }
-  if (stateData.nhpiIDeathCaution) {
-    raceNotes.nhpiDeath += stateData.nhpiANHPIDeathNotes
-  }
+  anhpiNotes(stateData, raceNotes)
 
   const groupedRaceNotes = [...new Set(Object.values(raceNotes))]
     .filter(value => value && value)
