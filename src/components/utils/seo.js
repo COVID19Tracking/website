@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import defaultCard from '../../images/card.png'
+import crdtCard from '../../images/crdt-card.png'
 
-function SEO({ lang, meta, title, description }) {
+function SEO({ lang, meta, title, description, isRace = false }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -17,6 +18,8 @@ function SEO({ lang, meta, title, description }) {
       }
     `,
   )
+
+  const card = isRace ? crdtCard : defaultCard
 
   return (
     <Helmet
@@ -37,7 +40,7 @@ function SEO({ lang, meta, title, description }) {
         },
         {
           name: `og:image`,
-          content: defaultCard,
+          content: card,
         },
         {
           name: `twitter:title`,
@@ -45,11 +48,11 @@ function SEO({ lang, meta, title, description }) {
         },
         {
           name: `twitter:card`,
-          content: defaultCard,
+          content: card,
         },
         {
           name: `twitter:image`,
-          content: defaultCard,
+          content: card,
         },
         {
           name: `twitter:site`,
