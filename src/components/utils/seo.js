@@ -34,6 +34,7 @@ function SEO({ lang, meta, title, socialCard }) {
     imageSrc = defaultSocialCard.image.resize.src
   } else if (socialCard.description && !socialCard.image) {
     imageSrc = defaultSocialCard.image.resize.src
+    description = socialCard.description.description
   } else {
     imageSrc = socialCard.image.resize.src
     description = socialCard.description.description
