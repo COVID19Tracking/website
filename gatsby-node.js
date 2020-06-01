@@ -44,6 +44,11 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             slug
+            document {
+              file {
+                url
+              }
+            }
           }
         }
       }
@@ -95,6 +100,11 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/document/${node.slug}`,
       component: path.resolve(`./src/templates/document.js`),
       context: node,
+    })
+    createRedirect({
+      fromPath: `/document/download/${node.slug}`,
+      toPath: node.document.file.url,
+      statusCode: 200,
     })
   })
 

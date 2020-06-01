@@ -11,7 +11,7 @@ const StatePage = ({ data, path }) => {
           __html: doc.description.childMarkdownRemark.html,
         }}
       />
-      <a href={doc.document.file.url}>
+      <a href={`/document/download${doc.slug}`}>
         Download <i>{doc.name}</i>
       </a>
     </Layout>
