@@ -13,8 +13,8 @@ import colors from '~scss/colors.module.scss'
 import breakpoints from '~scss/breakpoints.module.scss'
 import headerStyle from './header.module.scss'
 
-import projectLogo from '../../../images/project-logo.svg'
-import atlanticLogo from '../../../images/atlantic-logo.svg'
+import projectLogo from '~images/project-logo.svg'
+import atlanticLogo from '~images/atlantic-logo.svg'
 
 import MobileMenu from './mobile-menu'
 import HeaderSubNavigation from './sub-navigation'

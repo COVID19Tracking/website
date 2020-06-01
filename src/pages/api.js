@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
-import SwaggerSandbox from '../components/common/swagger-sandbox'
-import Layout from '../components/layout'
+import SwaggerSandbox from '~components/common/swagger-sandbox'
+import Layout from '~components/layout'
 
 export default ({ data }) => (
   <Layout

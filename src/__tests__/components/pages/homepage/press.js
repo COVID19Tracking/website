@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery } from 'gatsby'
-import Press from '../../../../components/pages/homepage/press'
+import Press from '~components/pages/homepage/press'
 
 beforeEach(() => {
   useStaticQuery.mockImplementation(() => ({

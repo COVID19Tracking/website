@@ -1,6 +1,6 @@
 import React from 'react'
 import { DateTime } from 'luxon'
-import { FormatDate } from '../../utils/format'
+import { FormatDate } from '~components/utils/format'
 
 export default ({ date, screenshots }) => {
   const dateScreenshots = []

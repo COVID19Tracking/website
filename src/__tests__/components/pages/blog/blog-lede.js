@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import BlogLede from '../../../../components/pages/blog/blog-lede'
+import BlogLede from '~components/pages/blog/blog-lede'
 
 describe('Components : Pages : Blog : Lede', () => {
   it('renders correctly', () => {
