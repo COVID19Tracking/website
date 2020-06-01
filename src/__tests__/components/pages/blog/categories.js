@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Categories from '../../../../components/pages/blog/categories'
+import Categories from '~components/pages/blog/categories'
 
 describe('Components : Pages : Blog : Categories', () => {
   it('renders correctly', () => {

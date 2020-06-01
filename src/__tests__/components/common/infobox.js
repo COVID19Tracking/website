@@ -6,7 +6,7 @@ import {
   SyncInfobox,
   AlertInfobox,
   QuestionInfobox,
-} from '../../../components/common/infobox'
+} from '~components/common/infobox'
 
 beforeEach(() => {
   StaticQuery.mockImplementationOnce(({ render }) =>

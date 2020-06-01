@@ -1,5 +1,5 @@
 import React from 'react'
-import { Th, Td, Table } from '../../components/common/table'
+import { Th, Td, Table } from '~components/common/table'
 
 const ExampleTable = () => (
   <>

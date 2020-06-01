@@ -3,7 +3,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import SwaggerUI from 'swagger-ui'
-import SwaggerSandbox from '../../../components/common/swagger-sandbox'
+import SwaggerSandbox from '~components/common/swagger-sandbox'
 
 beforeEach(() => {
   window.SwaggerUI = SwaggerUI
