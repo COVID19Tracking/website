@@ -17,7 +17,9 @@ export default ({ data }) => {
   return (
     <Layout
       title="Our Data"
-      description="Our most up-to-date data on COVID-19 in the US."
+      socialCard={{
+        description: 'Our most up-to-date data on COVID-19 in the US.',
+      }}
       navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
     >
       <ContentfulContent

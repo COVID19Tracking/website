@@ -10,7 +10,9 @@ const ContentPage = ({ data }) => (
   <Layout
     title="US Historical Data"
     path="/data/us-daily"
-    description="Cumulative record of our daily totals."
+    socialCard={{
+      description: 'Cumulative record of our daily totals.',
+    }}
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
     <ContentfulContent
