@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
-import defaultCard from '../../images/card.png'
-import crdtCard from '../../images/crdt-card.png'
+import defaultCard from '~images/card.png'
+import crdtCard from '~images/crdt-card.png'
 
 function SEO({ lang, meta, title, description, isRace = false }) {
   const { site } = useStaticQuery(

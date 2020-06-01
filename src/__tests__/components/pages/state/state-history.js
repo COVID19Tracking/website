@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 import { useStaticQuery } from 'gatsby'
 import sampleScreenshots from 'screenshots'
 import sampleHistory from 'state-history'
-import StateHistory from '../../../../components/pages/state/state-history'
+import StateHistory from '~components/pages/state/state-history'
 
 beforeEach(() => {
   useStaticQuery.mockImplementation(() => ({

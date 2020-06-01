@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '../../common/button'
+import { Button } from '~components/common/button'
 import ContactFormStyles from './contact-form.module.scss'
 
 export default ({ name, messageCopy }) => {

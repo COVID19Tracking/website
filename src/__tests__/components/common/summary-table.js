@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery } from 'gatsby'
-import SummaryTable from '../../../components/common/summary-table'
+import SummaryTable from '~components/common/summary-table'
 
 beforeEach(() => {
   useStaticQuery.mockImplementation(() => ({

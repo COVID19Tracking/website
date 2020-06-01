@@ -5,7 +5,7 @@ import { shallow } from 'enzyme'
 import StateNav, {
   getStateId,
   selectFirstItemOnKeyDown,
-} from '../../../../components/common/state-nav'
+} from '~components/common/state-nav'
 
 jest.mock('@reach/combobox', () => {
   return {

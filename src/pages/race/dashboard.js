@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../../components/layout'
+import Layout from '~components/layout'
 import StateNav from '~components/common/state-nav'
 import Hero from '~components/pages/race/dashboard/hero'
 import States from '~components/pages/race/dashboard/states'

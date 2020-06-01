@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
 
 import sampleScreenshots from 'screenshots'
-import Screenshots from '../../../../components/pages/state/screenshots'
+import Screenshots from '~components/pages/state/screenshots'
 
 describe('Components : Pages : State : Screenshots', () => {
   it('renders correctly', () => {

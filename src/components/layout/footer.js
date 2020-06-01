@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Container from '../common/container'
-import logo from '../../images/project-logo.svg'
+import Container from '~components/common/container'
+import logo from '~images/project-logo.svg'
 import footerStyles from './footer.module.scss'
 
 const Footer = () => (

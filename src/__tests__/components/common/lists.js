@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { OrderedList, UnstyledList } from '../../../components/common/lists'
+import { OrderedList, UnstyledList } from '~components/common/lists'
 
 const SampleItems = () => (
   <>
