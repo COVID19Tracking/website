@@ -104,7 +104,6 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: `/document/download/${node.slug}`,
       toPath: node.document.file.url,
-      statusCode: 200,
     })
   })
 
