@@ -96,8 +96,12 @@ workflows:
       - gatsby-build:
           requires:
             - api
-      - gatsby-lint
-      - gatsby-test
+      - gatsby-lint:
+          requires:
+            - api
+      - gatsby-test:
+          requires:
+            - api
       - storybook-test:
           requires:
             - api
