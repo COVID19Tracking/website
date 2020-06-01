@@ -2,7 +2,7 @@ import {
   getStateName,
   formatDate,
   formatNumber,
-} from '../../utilities/visualization'
+} from '~utilities/visualization'
 
 describe('Utilities : Visualization', () => {
   test('getStateName returns name', () => {

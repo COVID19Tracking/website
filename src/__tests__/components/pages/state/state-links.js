@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import StateLinks from '../../../../components/pages/state/state-links'
+import StateLinks from '~components/pages/state/state-links'
 
 describe('Components : Pages : State : State links', () => {
   it('renders correctly', () => {

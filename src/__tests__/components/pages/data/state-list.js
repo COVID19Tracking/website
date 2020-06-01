@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery } from 'gatsby'
 import sampleState from 'sample-state'
-import StateList from '../../../../components/pages/data/state-list'
+import StateList from '~components/pages/data/state-list'
 
 beforeEach(() => {
   useStaticQuery.mockImplementation(() => ({

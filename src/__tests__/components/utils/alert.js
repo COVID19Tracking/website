@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Alert from '../../../components/utils/alert'
+import Alert from '~components/utils/alert'
 
 describe('Accessibility alert', () => {
   it('renders correctly', () => {
