@@ -2,24 +2,40 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
-import defaultCard from '~images/card.png'
-import crdtCard from '~images/crdt-card.png'
 
-function SEO({ lang, meta, title, description, isRace = false }) {
-  const { site } = useStaticQuery(
+function SEO({ lang, meta, title, socialCard }) {
+  const { site, contentfulSocialCard } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
+          }
+        }
+        contentfulSocialCard(slug: { eq: "default" }) {
+          description {
             description
+          }
+          image {
+            resize(width: 1200) {
+              src
+            }
           }
         }
       }
     `,
   )
 
-  const card = isRace ? crdtCard : defaultCard
+  const defaultSocialCard = contentfulSocialCard
+  let description
+  let imageSrc
+  if (!socialCard) {
+    description = defaultSocialCard.description.description
+    imageSrc = defaultSocialCard.image.resize.src
+  } else {
+    description = socialCard.description.description
+    imageSrc = socialCard.image.resize.src
+  }
 
   return (
     <Helmet
@@ -40,7 +56,7 @@ function SEO({ lang, meta, title, description, isRace = false }) {
         },
         {
           name: `og:image`,
-          content: card,
+          content: imageSrc,
         },
         {
           name: `twitter:title`,
@@ -48,11 +64,11 @@ function SEO({ lang, meta, title, description, isRace = false }) {
         },
         {
           name: `twitter:card`,
-          content: card,
+          content: imageSrc,
         },
         {
           name: `twitter:image`,
-          content: card,
+          content: imageSrc,
         },
         {
           name: `twitter:site`,

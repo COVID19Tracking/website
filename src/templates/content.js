@@ -12,6 +12,7 @@ const ContentPage = ({ data, path }) => {
       path={path}
       returnLink={page.returnLinkUrl}
       returnLinkTitle={page.returnLinkTitle}
+      socialCard={page.socialCard}
       narrow
       textHeavy
     >
@@ -50,6 +51,16 @@ export const query = graphql`
               ... on ContentfulNavigationLink {
                 title
                 link: url
+              }
+            }
+          }
+          socialCard {
+            description {
+              id
+            }
+            image {
+              resize(width: 1200) {
+                src
               }
             }
           }
