@@ -18,27 +18,4 @@ describe('Website build', () => {
     const exists = fs.pathExistsSync('./public/api/index.html')
     expect(exists).toBe(true)
   })
-
-  it('has a /public/API/states endpoint with over 1764 items in array', () => {
-    const exists = fs.readFileSync('./public/api/v1/states/daily.json', 'utf8')
-    expect(JSON.parse(exists).length).toBeGreaterThan(1764)
-  })
-
-  it('has a /public/API/us endpoint with over 33 items in array', () => {
-    const exists = fs.readFileSync('./public/api/v1/us/daily.json', 'utf8')
-    expect(JSON.parse(exists).length).toBeGreaterThan(33)
-  })
-
-  it('should contain over 50 reports for the most recent date', () => {
-    const statesDaily = JSON.parse(
-      fs.readFileSync('./public/api/v1/states/daily.json', 'utf8'),
-    )
-    const mostRecent = getMostRecent(
-      getSortedDatesUnique(statesDaily.map(state => state.dateChecked)),
-    )
-    const allLatestReports = statesDaily.filter(
-      state => state.dateChecked === mostRecent,
-    )
-    expect(allLatestReports.length).toBeGreaterThan(50)
-  })
 })

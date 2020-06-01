@@ -132,10 +132,9 @@
     "set-tz": "^0.2.0"
   },
   "scripts": {
-    "build": "run-s setup:api-repo build:gatsby build:data build:test",
-    "build-preview": "run-s setup build:gatsby build:data build:test",
+    "build": "run-s setup:api-repo build:gatsby build:test",
+    "build-preview": "run-s setup build:gatsby build:test",
     "build:gatsby": "gatsby build",
-    "build:data": "cp -R _api/* public/api/",
     "build:test": "jest --verbose --config=\"{}\" -- src/__tests__/build/index.js",
     "clean": "run-p clean:*",
     "clean:gatsby": "gatsby clean",
