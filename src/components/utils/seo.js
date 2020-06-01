@@ -32,9 +32,11 @@ function SEO({ lang, meta, title, socialCard }) {
   if (!socialCard) {
     description = defaultSocialCard.description.description
     imageSrc = defaultSocialCard.image.resize.src
+  } else if (socialCard.description && !socialCard.image) {
+    imageSrc = defaultSocialCard.image.resize.src
   } else {
-    description = socialCard.description.description
     imageSrc = socialCard.image.resize.src
+    description = socialCard.description.description
   }
 
   return (
