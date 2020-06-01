@@ -1,5 +1,5 @@
 import React from 'react'
-import percentageOverviewStyles from '~components/pages/race/dashboard/percentage-overview.module.scss'
+import percentageOverviewStyles from './percentage-overview.module.scss'
 
 export default ({ statesCasesCount, statesDeathsCount, className }) => (
   <div className={className}>

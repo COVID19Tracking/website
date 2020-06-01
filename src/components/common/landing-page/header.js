@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import paragraphStyle from '~components/common/landing-page/paragraph.module.scss'
+import paragraphStyle from './paragraph.module.scss'
 
 export default ({
   children,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import partnershipBanner from '~components/layout/header/partnership-banner.module.scss'
+import partnershipBanner from './partnership-banner.module.scss'
 
 export default () => (
   <div className={partnershipBanner.banner}>

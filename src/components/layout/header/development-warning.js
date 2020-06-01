@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Alert from '~components/utils/alert'
-import developmentWarningStyle from '~components/layout/header/development-warning.module.scss'
+import developmentWarningStyle from './development-warning.module.scss'
 
 export default () => (
   <StaticQuery

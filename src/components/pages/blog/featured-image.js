@@ -1,6 +1,6 @@
 import React from 'react'
-import BlogImage from '~components/pages/blog/blog-image'
-import featuredImageStyles from '~components/pages/blog/featured-image.module.scss'
+import BlogImage from './blog-image'
+import featuredImageStyles from './featured-image.module.scss'
 
 export default ({ image }) => (
   <>

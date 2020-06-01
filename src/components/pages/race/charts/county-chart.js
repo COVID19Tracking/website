@@ -1,7 +1,7 @@
 import React from 'react'
 import { max } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
-import countyChartStyles from '~components/pages/race/charts/county-chart.module.scss'
+import countyChartStyles from './county-chart.module.scss'
 
 const groupClasses = {
   'White alone': 'whiteAlone',

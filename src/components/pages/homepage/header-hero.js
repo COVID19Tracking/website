@@ -1,5 +1,5 @@
 import React from 'react'
-import heroStyle from '~components/pages/homepage/header-hero.module.scss'
+import heroStyle from './header-hero.module.scss'
 import HeroHeader from '~components/common/landing-page/hero/header'
 import containerStyle from '~components/common/container.module.scss'
 import homepageContainerStyle from '~components/common/landing-page/container.module.scss'

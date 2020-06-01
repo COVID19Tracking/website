@@ -8,10 +8,10 @@ import { area } from 'd3-shape'
 
 import merge from 'lodash/merge'
 
-import Tooltip from '~components/charts/tooltip'
+import Tooltip from './tooltip'
 
 import { formatDate, formatNumber } from '~utilities/visualization'
-import chartStyles from '~components/charts/charts.module.scss'
+import chartStyles from './charts.module.scss'
 
 const AreaChart = ({
   annotations,

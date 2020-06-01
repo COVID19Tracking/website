@@ -1,8 +1,8 @@
 import React from 'react'
-import PressLogos from '~components/pages/homepage/press-logos'
-import InThePress from '~components/pages/homepage/in-the-press'
+import PressLogos from './press-logos'
+import InThePress from './in-the-press'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
-import pressStyles from '~components/pages/homepage/press.module.scss'
+import pressStyles from './press.module.scss'
 
 export default () => (
   <section>

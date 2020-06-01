@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import Container from '~components/common/landing-page/container'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
 import ImageCredit from '~components/common/image-credit'
-import largeProjectStyles from '~components/pages/homepage/large-project.module.scss'
+import largeProjectStyles from './large-project.module.scss'
 
 export default () => {
   const data = useStaticQuery(graphql`

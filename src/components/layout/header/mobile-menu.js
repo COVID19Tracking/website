@@ -2,10 +2,10 @@ import React, { useRef, useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import classNames from 'classnames'
 import { useSearch } from '~context/search-context'
-import HeaderSearch from '~components/layout/header/search'
-import HeaderNavigation from '~components/layout/header/navigation'
-import SearchAutocomplete from '~components/layout/header/search-autocomplete'
-import headerStyle from '~components/layout/header/header.module.scss'
+import HeaderSearch from './search'
+import HeaderNavigation from './navigation'
+import SearchAutocomplete from './search-autocomplete'
+import headerStyle from './header.module.scss'
 
 export default ({ expanded, topNavigation, subNavigation }) => {
   const [searchState] = useSearch()

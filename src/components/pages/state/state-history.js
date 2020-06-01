@@ -1,9 +1,9 @@
 import React from 'react'
-import Screenshots from '~components/pages/state/screenshots'
+import Screenshots from './screenshots'
 import { Th, Td, Table } from '~components/common/table'
 import { FormatNumber, FormatDate } from '~components/utils/format'
 import Timezone from '~components/common/timezone'
-import stateHistoryStyle from '~components/pages/state/state-history.module.scss'
+import stateHistoryStyle from './state-history.module.scss'
 
 export default ({ history, screenshots }) => (
   <Table>

@@ -1,6 +1,6 @@
 import React from 'react'
-import SearchResult from '~components/search/search-result'
-import sectionStyle from '~components/search/search-result-section.module.scss'
+import SearchResult from './search-result'
+import sectionStyle from './search-result-section.module.scss'
 
 const SearchResultSection = ({
   results,

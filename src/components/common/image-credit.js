@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import imageCreditStyle from '~components/common/image-credit.module.scss'
+import imageCreditStyle from './image-credit.module.scss'
 
 export default ({ children, white }) => (
   <div

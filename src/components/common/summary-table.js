@@ -1,7 +1,7 @@
 import React from 'react'
-import { Th, Td, Table } from '~components/common/table'
+import { Th, Td, Table } from './table'
 import { FormatDate, FormatNumber } from '~components/utils/format'
-import Timezone from '~components/common/timezone'
+import Timezone from './timezone'
 
 // The following two functions are useful for rendering column group styling.
 

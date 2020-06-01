@@ -1,7 +1,7 @@
 import React from 'react'
-import { Byline } from '~components/pages/blog/byline'
-import blogLedeStyles from '~components/pages/blog/blog-lede.module.scss'
-import FeaturedImage from '~components/pages/blog/featured-image'
+import { Byline } from './byline'
+import blogLedeStyles from './blog-lede.module.scss'
+import FeaturedImage from './featured-image'
 import CleanSpacing from '~components/utils/clean-spacing'
 
 export default ({ headline, authors, date, lede, featuredImage }) => (

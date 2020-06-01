@@ -3,7 +3,7 @@ import {
   CtaLink,
   CtaAnchorLink,
 } from '~components/common/landing-page/call-to-action'
-import ctaLinksStyle from '~components/pages/race/cta-links.module.scss'
+import ctaLinksStyle from './cta-links.module.scss'
 
 export default () => (
   <div className={ctaLinksStyle.links}>

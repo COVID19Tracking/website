@@ -5,7 +5,7 @@ import { scaleBand, scaleLinear } from 'd3-scale'
 import React from 'react'
 
 import { formatDate, formatNumber } from '~utilities/visualization'
-import chartStyles from '~components/charts/charts.module.scss'
+import chartStyles from './charts.module.scss'
 
 const BarChart = ({
   data,

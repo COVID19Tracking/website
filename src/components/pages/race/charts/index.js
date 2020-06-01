@@ -8,11 +8,11 @@ import {
 import Feature from '~components/common/landing-page/feature'
 import LandingPageContainer from '~components/common/landing-page/container'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
-import chartsStyle from '~components/pages/race/charts/charts.module.scss'
+import chartsStyle from './charts.module.scss'
 
-import CountyTable from '~components/pages/race/charts/county-table'
-import CountyChart from '~components/pages/race/charts/county-chart'
-import CountyChartLegend from '~components/pages/race/charts/county-chart-legend'
+import CountyTable from './county-table'
+import CountyChart from './county-chart'
+import CountyChartLegend from './county-chart-legend'
 
 const numberToWord = [
   'Zero',

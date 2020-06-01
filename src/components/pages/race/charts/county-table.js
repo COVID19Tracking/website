@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Alert from '@reach/alert'
 import { Table, Th, Td } from '~components/common/table'
-import countiesTableStyle from '~components/pages/race/charts/counties-table.module.scss'
+import countiesTableStyle from './counties-table.module.scss'
 import { FormatNumber } from '~components/utils/format'
 
 const sortDescription = {

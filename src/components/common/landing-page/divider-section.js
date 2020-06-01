@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import dividerSectionStyle from '~components/common/landing-page/divider-section.module.scss'
+import dividerSectionStyle from './divider-section.module.scss'
 
 export default ({ children, noBorder, noMargin, noBottomBorder }) => (
   <section

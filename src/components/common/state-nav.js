@@ -9,7 +9,7 @@ import {
   ComboboxOption,
 } from '@reach/combobox'
 import '@reach/combobox/styles.css'
-import stateNavStyles from '~components/common/state-nav.module.scss'
+import stateNavStyles from './state-nav.module.scss'
 
 export const getStateId = (stateList, selectedItem) =>
   stateList.find(node => {

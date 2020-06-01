@@ -1,5 +1,5 @@
 import React from 'react'
-import volunteersListStyles from '~components/common/volunteers-list.module.scss'
+import volunteersListStyles from './volunteers-list.module.scss'
 
 function fixWebsitePrefix(website) {
   if (!website.startsWith('http')) {

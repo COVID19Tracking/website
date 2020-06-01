@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  StateTable,
-  StateTableHeader,
-  StateTableBody,
-} from '~components/pages/race/dashboard/table'
+import { StateTable, StateTableHeader, StateTableBody } from './table'
 
 const RaceTable = ({
   data,

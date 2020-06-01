@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import featureStyle from '~components/common/landing-page/feature.module.scss'
+import featureStyle from './feature.module.scss'
 
 const FeatureInfo = ({ title, text }) => (
   <>

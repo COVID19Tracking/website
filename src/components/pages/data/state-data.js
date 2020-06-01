@@ -5,7 +5,7 @@ import slug from '~utilities/slug'
 import { UnstyledList } from '~components/common/lists'
 import StateGrade from '~components/pages/state/state-grade'
 import SummaryTable from '~components/common/summary-table'
-import stateDataStyles from '~components/pages/data/state-data.module.scss'
+import stateDataStyles from './state-data.module.scss'
 
 const State = ({ state }) => (
   <>

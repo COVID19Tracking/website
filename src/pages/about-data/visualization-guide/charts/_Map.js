@@ -10,9 +10,9 @@ import StatesWithPopulation from '~data/visualization/state-populations.json'
 
 import { formatNumber, formatDate, parseDate } from '~utilities/visualization'
 
-import '~pages/about-data/visualization-guide/charts/map.scss'
+import './map.scss'
 
-import ChoroLegend from '~pages/about-data/visualization-guide/charts/_ChoroLegend'
+import ChoroLegend from './_ChoroLegend'
 
 import breakpoints from '~scss/breakpoints.module.scss'
 import importedColors from '~scss/colors.module.scss'

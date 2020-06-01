@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Menu, MenuList, MenuButton, MenuLink } from '@reach/menu-button'
 import internalLink from '~components/utils/internal-link'
-import headerNavigationStyles from '~components/layout/header/navigation.module.scss'
+import headerNavigationStyles from './navigation.module.scss'
 
 class MenuCaret extends React.Component {
   render() {

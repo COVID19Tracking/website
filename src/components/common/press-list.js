@@ -1,10 +1,7 @@
 import React from 'react'
-import pressListStyle from '~components/common/press-list.module.scss'
-import {
-  PublicationTitle,
-  PublicationSource,
-} from '~components/common/publication'
-import DetailText from '~components/common/detail-text'
+import pressListStyle from './press-list.module.scss'
+import { PublicationTitle, PublicationSource } from './publication'
+import DetailText from './detail-text'
 
 export default ({ items }) => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import pressLogoStyles from '~components/pages/homepage/press-logos.module.scss'
+import pressLogoStyles from './press-logos.module.scss'
 
 export default ({ onlyFeatured, extraMargin }) => {
   const data = useStaticQuery(graphql`

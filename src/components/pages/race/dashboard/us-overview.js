@@ -1,7 +1,7 @@
 import React from 'react'
-import UsReportingCount from '~components/pages/race/dashboard/us-reporting-count'
-import StatesNotReporting from '~components/pages/race/dashboard/states-not-reporting'
-import UsOverviewStyles from '~components/pages/race/dashboard/us-overview.module.scss'
+import UsReportingCount from './us-reporting-count'
+import StatesNotReporting from './states-not-reporting'
+import UsOverviewStyles from './us-overview.module.scss'
 import { SyncInfobox } from '~components/common/infobox'
 
 export default ({

@@ -1,5 +1,5 @@
 import React from 'react'
-import multiplierHighlightStyle from '~components/pages/race/multiplier-highlight.module.scss'
+import multiplierHighlightStyle from './multiplier-highlight.module.scss'
 
 function range(multiplier) {
   if (multiplier >= 136 && multiplier <= 149) {

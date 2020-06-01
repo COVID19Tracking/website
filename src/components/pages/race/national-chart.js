@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { useStaticQuery, graphql } from 'gatsby'
-import nationalChartStyle from '~components/pages/race/national-chart.module.scss'
+import nationalChartStyle from './national-chart.module.scss'
 
 const DonutChart = ({ value, children, mobileOnly, desktopOnly }) => (
   <div

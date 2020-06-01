@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import headerStyle from '~components/layout/header/header.module.scss'
+import headerStyle from './header.module.scss'
 
 export default ({ currentItem, returnLinkTitle }) => {
   if (!currentItem || currentItem.top) {

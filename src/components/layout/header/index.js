@@ -2,24 +2,24 @@
 import React, { useEffect, useState } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import Expand from 'react-expand-animated'
-import DevelopmentWarning from '~components/layout/header/development-warning'
-import PartnershipBanner from '~components/layout/header/partnership-banner'
-import SearchAutocomplete from '~components/layout/header/search-autocomplete'
-import HeaderNavigation from '~components/layout/header/navigation'
+import DevelopmentWarning from './development-warning'
+import PartnershipBanner from './partnership-banner'
+import SearchAutocomplete from './search-autocomplete'
+import HeaderNavigation from './navigation'
 import Container from '~components/common/container'
 import withSearch from '~components/utils/with-search'
 
 import colors from '~scss/colors.module.scss'
 import breakpoints from '~scss/breakpoints.module.scss'
-import headerStyle from '~components/layout/header/header.module.scss'
+import headerStyle from './header.module.scss'
 
 import projectLogo from '~images/project-logo.svg'
 import atlanticLogo from '~images/atlantic-logo.svg'
 
-import MobileMenu from '~components/layout/header/mobile-menu'
-import HeaderSubNavigation from '~components/layout/header/sub-navigation'
-import ReturnLink from '~components/layout/header/return-link'
-import HeaderSearch from '~components/layout/header/search'
+import MobileMenu from './mobile-menu'
+import HeaderSubNavigation from './sub-navigation'
+import ReturnLink from './return-link'
+import HeaderSearch from './search'
 
 const expandStyles = {
   open: { background: colors.colorPlum800 },

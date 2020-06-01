@@ -1,5 +1,5 @@
 import React from 'react'
-import stateNavNoJsStyle from '~components/pages/data/state-nav-no-js.module.scss'
+import stateNavNoJsStyle from './state-nav-no-js.module.scss'
 
 export default ({ stateList }) => (
   <>

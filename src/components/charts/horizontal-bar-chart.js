@@ -4,7 +4,7 @@ import { max } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
 import { format } from 'd3-format'
 
-import chartStyles from '~components/charts/charts.module.scss'
+import chartStyles from './charts.module.scss'
 
 export default function HorizontalBarChart({
   data,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import noDataStyles from '~components/pages/race/dashboard/no-data.module.scss'
+import noDataStyles from './no-data.module.scss'
 import alertBang from '~images/race-dashboard/alert-bang-white.svg'
 
 export default ({ stateName }) => (

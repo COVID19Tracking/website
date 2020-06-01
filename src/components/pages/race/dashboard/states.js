@@ -1,9 +1,9 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import slugify from 'slugify'
-import StateSeparate from '~components/pages/race/dashboard/state-separate'
-import StateCombined from '~components/pages/race/dashboard/state-combined'
-import statesStyle from '~components/pages/race/dashboard/states.module.scss'
+import StateSeparate from './state-separate'
+import StateCombined from './state-combined'
+import statesStyle from './states.module.scss'
 
 export default () => {
   const data = useStaticQuery(graphql`

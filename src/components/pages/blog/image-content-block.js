@@ -1,5 +1,5 @@
 import React from 'react'
-import BlogImage from '~components/pages/blog/blog-image'
+import BlogImage from './blog-image'
 
 export default ({ image, caption }) => (
   <BlogImage
