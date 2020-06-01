@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import {
   Disclosure,
@@ -26,43 +26,54 @@ const Fields = ({ schema }) => {
   )
 }
 
+const Path = ({ path }) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <Disclosure onChange={() => setIsOpen(!isOpen)}>
+      <DisclosureButton className={explorerStyles.button}>
+        <h3>
+          {definition.paths[path].get.description}{' '}
+          <span aria-hidden>{isOpen ? <>↑</> : <>↓</>}</span>
+        </h3>
+      </DisclosureButton>
+      <DisclosurePanel className={explorerStyles.panel}>
+        <p>
+          <strong>JSON URL:</strong>{' '}
+          <code>
+            <a href={path.replace('{format}', 'json')}>
+              {path.replace('{format}', 'json')}
+            </a>
+          </code>
+        </p>
+        <p>
+          <strong>CSV URL:</strong>{' '}
+          <code>
+            <a href={path.replace('{format}', 'json')}>
+              {path.replace('{format}', 'json')}
+            </a>
+          </code>
+        </p>
+        <h4>Fields</h4>
+        <Fields
+          schema={
+            definition.paths[path].get.responses[200].content[
+              'application/json'
+            ].schema.items.$ref
+          }
+        />
+      </DisclosurePanel>
+    </Disclosure>
+  )
+}
+
 const Tag = ({ tag }) => (
   <>
     <h2>{tag}</h2>
     {Object.keys(definition.paths).map(path => (
       <>
         {definition.paths[path].get.tags.indexOf(tag) > -1 && (
-          <Disclosure>
-            <DisclosureButton className={explorerStyles.button}>
-              <h3>{definition.paths[path].get.description}</h3>
-            </DisclosureButton>
-            <DisclosurePanel className={explorerStyles.panel}>
-              <p>
-                <strong>JSON URL:</strong>{' '}
-                <code>
-                  <a href={path.replace('{format}', 'json')}>
-                    {path.replace('{format}', 'json')}
-                  </a>
-                </code>
-              </p>
-              <p>
-                <strong>CSV URL:</strong>{' '}
-                <code>
-                  <a href={path.replace('{format}', 'json')}>
-                    {path.replace('{format}', 'json')}
-                  </a>
-                </code>
-              </p>
-              <h4>Fields</h4>
-              <Fields
-                schema={
-                  definition.paths[path].get.responses[200].content[
-                    'application/json'
-                  ].schema.items.$ref
-                }
-              />
-            </DisclosurePanel>
-          </Disclosure>
+          <Path path={path} />
         )}
       </>
     ))}
