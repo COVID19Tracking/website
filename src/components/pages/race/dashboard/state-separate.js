@@ -1,15 +1,13 @@
 import React from 'react'
 import classnames from 'classnames'
-import HeaderSorter from '~components/pages/race/dashboard/header-sorter'
-import TableNotes from '~components/pages/race/dashboard/table-notes'
-import PercentageOverview from '~components/pages/race/dashboard/percentage-overview'
-import TableTitle from '~components/pages/race/dashboard/table-title'
-import NoData from '~components/pages/race/dashboard/no-data'
-import {
-  RaceTable,
-  EthnicityTable,
-} from '~components/pages/race/dashboard/breakdown-tables'
-import stateStyle from '~components/pages/race/dashboard/state.module.scss'
+import HeaderSorter from './header-sorter'
+import TableNotes from './table-notes'
+import PercentageOverview from './percentage-overview'
+import TableTitle from './table-title'
+import anhpiNotes from './anhpi-notes'
+import NoData from './no-data'
+import { RaceTable, EthnicityTable } from './breakdown-tables'
+import stateStyle from './state.module.scss'
 
 export default ({ state }) => {
   const stateData = state
@@ -38,18 +36,8 @@ export default ({ state }) => {
     whiteSpecialCase: stateData.whiteSpecialCaseNotes,
     otherSpecialCase: stateData.otherSpecialCaseNotes,
   }
-  if (stateData.asianPosCaution) {
-    // if a state's Asian positives include NH/PI
-    raceNotes.asianPos = stateData.asianANHPIPosNotes
-    raceNotes.nhpiPos = stateData.nhpiANHPIPosNotes
-    stateData.nhpiPctPos = null // handled in Percent
-  }
-  if (stateData.asianDeathCaution) {
-    // if a state's Asian deaths include NH/PI
-    raceNotes.asianDeath = stateData.asianANHPIDeathNotes
-    raceNotes.nhpiDeath = stateData.nhpiANHPIDeathNotes
-    stateData.nhpiPctDeath = null // handled in Percent
-  }
+
+  anhpiNotes(stateData, raceNotes)
 
   const groupedRaceNotes = [...new Set(Object.values(raceNotes))]
     .filter(value => value && value)

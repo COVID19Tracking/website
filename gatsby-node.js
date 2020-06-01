@@ -211,30 +211,37 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type CovidRaceDataCombined implements Node {
-      blackANHPINotes: String
-      blackPosNotes: String
-      blackDeathNotes: String
-      asianANHPINotes: String
-      asianPosNotes: String
-      asianDeathNotes: String
-      aianANHPINotes: String
-      aianPosNotes: String
+      aianANHPIDeathNotes: String
+      aianANHPIPosNotes: String
       aianDeathNotes: String
-      nhpiANHPINotes: String
-      nhpiPosNotes: String
-      nhpiDeathNotes: String
-      twoANHPINotes: String
-      twoPosNotes: String
-      twoDeathNotes: String
-      whiteANHPINotes: String
-      whitePosNotes: String
-      whiteDeathNotes: String
-      otherANHPINotes: String
-      otherPosNotes: String
-      otherDeathNotes: String
+      aianPosNotes: String
+      asianANHPIDeathNotes: String
+      asianANHPIPosNotes: String
+      asianDeathNotes: String
+      asianPosNotes: String
+      blackANHPIDeathNotes: String
+      blackANHPIPosNotes: String
+      blackDeathNotes: String
+      blackPosNotes: String
       latinXANHPINotes: String
-      latinXPosNotes: String
       latinXDeathNotes: String
+      latinXPosNotes: String
+      nhpiANHPIDeathNotes: String
+      nhpiANHPIPosNotes: String
+      nhpiDeathNotes: String
+      nhpiPosNotes: String
+      otherANHPIDeathNotes: String
+      otherANHPIPosNotes: String
+      otherDeathNotes: String
+      otherPosNotes: String
+      twoANHPIDeathNotes: String
+      twoANHPIPosNotes: String
+      twoDeathNotes: String
+      twoPosNotes: String
+      whiteANHPIDeathNotes: String
+      whiteANHPIPosNotes: String
+      whiteDeathNotes: String
+      whitePosNotes: String
     }
   `
   createTypes(typeDefs)
