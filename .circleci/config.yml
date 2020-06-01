@@ -58,6 +58,8 @@ jobs:
     executor: main-executor
     steps:
       - checkout
+      - attach_workspace:
+          at: *workspace_root
       - run:
           name: install
           command: 'npm install'
@@ -70,6 +72,8 @@ jobs:
     executor: main-executor
     steps:
       - checkout
+      - attach_workspace:
+          at: *workspace_root
       - run:
           name: install
           command: 'npm install'
