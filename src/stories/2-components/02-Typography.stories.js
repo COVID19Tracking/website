@@ -1,6 +1,6 @@
 import React from 'react'
-import { OrderedList, UnstyledList } from '../../components/common/lists'
-import { FormatDate, FormatNumber } from '../../components/utils/format'
+import { OrderedList, UnstyledList } from '~components/common/lists'
+import { FormatDate, FormatNumber } from '~components/utils/format'
 
 const sampleText = `Testing is a crucial part of any public health response, 
 and sharing test data is essential to understanding this outbreak. The CDC is 

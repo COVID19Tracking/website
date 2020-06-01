@@ -5,8 +5,8 @@ import Layout from '~components/layout'
 import withSearch from '~components/utils/with-search'
 import SearchNoResults from '~components/search/search-no-results'
 import SearchResultSection from '~components/search/search-result-section'
-import searchStyle from './search.module.scss'
-import searchIcon from '../images/icons/search-inverted.svg'
+import searchStyle from '~pages/search.module.scss'
+import searchIcon from '~images/icons/search-inverted.svg'
 
 import {
   types,

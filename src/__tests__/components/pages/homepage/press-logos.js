@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery } from 'gatsby'
-import PressLogos from '../../../../components/pages/homepage/press-logos'
+import PressLogos from '~components/pages/homepage/press-logos'
 
 beforeEach(() => {
   useStaticQuery.mockImplementation(() => ({

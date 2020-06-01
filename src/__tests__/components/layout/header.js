@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery, StaticQuery } from 'gatsby'
-import Header from '../../../components/layout/header'
+import Header from '~components/layout/header'
 
 beforeEach(() => {
   StaticQuery.mockImplementation(({ render }) =>
