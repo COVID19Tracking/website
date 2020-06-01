@@ -21,6 +21,7 @@ export default ({ data }) => {
       returnLink="/race"
       returnLinkTitle="Racial Data Tracker"
       path="/race/dashboard"
+      isRace
     >
       <Hero
         ledeContent={

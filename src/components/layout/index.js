@@ -23,6 +23,7 @@ const Layout = ({
   hasHero,
   narrow,
   textHeavy,
+  isRace,
 }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -36,7 +37,7 @@ const Layout = ({
 
   return (
     <>
-      <SEO title={title} description={description} />
+      <SEO title={title} description={description} isRace={isRace} />
       <SkipNavigation />
       <Header
         siteTitle={data.site.siteMetadata.title}
