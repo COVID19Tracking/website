@@ -21,7 +21,7 @@ export default ({ data }) => {
       returnLink="/race"
       returnLinkTitle="Racial Data Tracker"
       path="/race/dashboard"
-      isRace
+      socialCard={data.contentfulSocialCard}
     >
       <Hero
         ledeContent={
@@ -56,6 +56,16 @@ export const query = graphql`
               html
             }
           }
+        }
+      }
+    }
+    contentfulSocialCard(slug: { eq: "racial-data-tracker" }) {
+      description {
+        description
+      }
+      image {
+        resize(width: 1200) {
+          src
         }
       }
     }
