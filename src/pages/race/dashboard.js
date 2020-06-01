@@ -17,7 +17,6 @@ export default ({ data }) => {
   return (
     <Layout
       title="Racial Data Dashboard"
-      description="The COVID-19 pandemic isn’t affecting all communities the same way. The COVID Racial Data Dashboard helps us track this inequity by publishing topline racial data compared with state demographic data."
       returnLink="/race"
       returnLinkTitle="Racial Data Tracker"
       path="/race/dashboard"
