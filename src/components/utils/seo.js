@@ -54,12 +54,20 @@ function SEO({ lang, meta, title, socialCard }) {
           content: site.siteMetadata.title,
         },
         {
+          property: `og:type`,
+          content: 'website',
+        },
+        {
           property: `og:title`,
           content: title,
         },
         {
-          name: `og:image`,
+          property: `og:image`,
           content: imageSrc,
+        },
+        {
+          property: `og:description`,
+          content: description || site.siteMetadata.description,
         },
         {
           name: `twitter:title`,
