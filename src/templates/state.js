@@ -10,7 +10,7 @@ import { SyncInfobox } from '~components/common/infobox'
 
 const StatePage = ({ pageContext, data, path }) => {
   const state = pageContext
-  const summary = data.allCovidState.edges[0].node
+  const summary = data.covidState
   return (
     <Layout title={state.name} returnLink="/data" path={path}>
       <StateLinks {...state} />
@@ -38,25 +38,21 @@ export default StatePage
 
 export const query = graphql`
   query($state: String!) {
-    allCovidState(sort: {}, filter: { state: { eq: $state } }) {
-      edges {
-        node {
-          positive
-          negative
-          pending
-          hospitalizedCurrently
-          hospitalizedCumulative
-          inIcuCurrently
-          inIcuCumulative
-          recovered
-          onVentilatorCurrently
-          onVentilatorCumulative
-          death
-          totalTestResults
-          dateModified
-          dataQualityGrade
-        }
-      }
+    covidState(state: { eq: $state }) {
+      positive
+      negative
+      pending
+      hospitalizedCurrently
+      hospitalizedCumulative
+      inIcuCurrently
+      inIcuCumulative
+      recovered
+      onVentilatorCurrently
+      onVentilatorCumulative
+      death
+      totalTestResults
+      dateModified
+      dataQualityGrade
     }
     allCovidStateDaily(
       filter: { state: { eq: $state } }
