@@ -11,7 +11,7 @@ import { AlertInfobox } from '~components/common/infobox'
 const reasons = [
   'I have questions about the state data grades',
   'I have feedback on the COVID Racial Data Tracker',
-  "I’m a journalist with a media question",
+  'I’m a journalist with a media question',
   'I want to report an issue with the website or web accessibility',
   'I want to report an issue with your data',
   'Something else!',
@@ -32,10 +32,10 @@ export default ({ data }) => {
       <ContentfulContent
         className="module-content"
         content={
-          data.allContentfulSnippet.edges[0].node
-            .childContentfulSnippetContentTextNode.childMarkdownRemark.html
+          data.contentfulSnippet.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
         }
-        id={data.allContentfulSnippet.edges[0].node.contentful_id}
+        id={data.contentfulSnippet.contentful_id}
       />
       <Form>
         <form
@@ -132,15 +132,11 @@ export const query = graphql`
         recaptchaKey
       }
     }
-    allContentfulSnippet(filter: { slug: { eq: "contact-page-form" } }) {
-      edges {
-        node {
-          contentful_id
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+    contentfulSnippet(slug: { eq: "contact-page-form" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }
