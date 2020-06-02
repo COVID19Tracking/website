@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import { Location } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
 
 function SEO({ lang, meta, title, socialCard }) {
@@ -10,6 +11,7 @@ function SEO({ lang, meta, title, socialCard }) {
         site {
           siteMetadata {
             title
+            siteUrl
           }
         }
         contentfulSocialCard(slug: { eq: "default" }) {
@@ -43,61 +45,69 @@ function SEO({ lang, meta, title, socialCard }) {
   const urlSchema = 'https:'
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      defaultTitle={site.siteMetadata.title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          property: `og:site_name`,
-          content: site.siteMetadata.title,
-        },
-        {
-          property: `og:type`,
-          content: 'website',
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:image`,
-          content: `${urlSchema}${imageSrc}`,
-        },
-        {
-          property: `og:description`,
-          content: description || site.siteMetadata.description,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:card`,
-          content: 'summary_large_image',
-        },
-        {
-          name: `twitter:image`,
-          content: `${urlSchema}${imageSrc}`,
-        },
-        {
-          name: `twitter:site`,
-          content: '@COVID19Tracking',
-        },
+    <Location>
+      {({ location }) => (
+        <Helmet
+          htmlAttributes={{
+            lang,
+          }}
+          title={title}
+          defaultTitle={site.siteMetadata.title}
+          titleTemplate={`%s | ${site.siteMetadata.title}`}
+          meta={[
+            {
+              property: `og:site_name`,
+              content: site.siteMetadata.title,
+            },
+            {
+              property: `og:type`,
+              content: 'website',
+            },
+            {
+              property: `og:title`,
+              content: title,
+            },
+            {
+              property: `og:url`,
+              content: `${site.siteMetadata.siteUrl}${location.pathname}`,
+            },
+            {
+              property: `og:image`,
+              content: `${urlSchema}${imageSrc}`,
+            },
+            {
+              property: `og:description`,
+              content: description || site.siteMetadata.description,
+            },
+            {
+              name: `twitter:title`,
+              content: title,
+            },
+            {
+              name: `twitter:card`,
+              content: 'summary_large_image',
+            },
+            {
+              name: `twitter:image`,
+              content: `${urlSchema}${imageSrc}`,
+            },
+            {
+              name: `twitter:site`,
+              content: '@COVID19Tracking',
+            },
 
-        {
-          name: `twitter:creator`,
-          content: '@COVID19Tracking',
-        },
-        {
-          name: 'description',
-          content: description || site.siteMetadata.description,
-        },
-      ].concat(meta)}
-    />
+            {
+              name: `twitter:creator`,
+              content: '@COVID19Tracking',
+            },
+            {
+              name: 'description',
+              content: description || site.siteMetadata.description,
+            },
+          ].concat(meta)}
+        />
+      )}
+    </Location>
   )
 }
 
