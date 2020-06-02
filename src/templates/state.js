@@ -71,7 +71,7 @@ export const query = graphql`
           negative
           hospitalized
           death
-          dateChecked
+          date
         }
       }
     }
@@ -84,6 +84,7 @@ export const query = graphql`
           size
           url
           state
+          date
           dateChecked
         }
       }

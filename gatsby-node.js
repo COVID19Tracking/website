@@ -6,7 +6,10 @@ const fs = require('fs-extra')
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
-  if (typeof process.env.DEV_ENVIRONMENT_VARIABLE_FILE !== 'undefined') {
+  if (
+    typeof process.env.DEV_ENVIRONMENT_VARIABLE_FILE !== 'undefined' &&
+    process.env.DEV_ENVIRONMENT_VARIABLE_FILE != 'false'
+  ) {
     createRedirect({
       fromPath: '/__developer/env-vars',
       toPath: process.env.DEV_ENVIRONMENT_VARIABLE_FILE,
@@ -188,6 +191,12 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
+    type CovidScreenshot implements Node {
+      dateChecked: String
+    }
+    type allCovidStateDaily implements Node {
+      date: String
+    }
     type CovidRaceDataSeparate implements Node {
       blackANHPIPosNotes: String
       blackANHPIDeathNotes: String

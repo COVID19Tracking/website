@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
-import SwaggerSandbox from '~components/common/swagger-sandbox'
-import Layout from '~components/layout'
+import ApiExplorer from '~components/pages/data/api/explorer'
+import Layout from '../components/layout'
 
 export default ({ data }) => (
   <Layout
@@ -17,7 +17,7 @@ export default ({ data }) => (
       }
       id={data.allContentfulSnippet.edges[0].node.contentful_id}
     />
-    <SwaggerSandbox />
+    <ApiExplorer />
   </Layout>
 )
 
