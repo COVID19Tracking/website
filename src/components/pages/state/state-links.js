@@ -1,5 +1,5 @@
 import React from 'react'
-import { UnstyledList } from '../../common/lists'
+import { UnstyledList } from '~components/common/lists'
 
 export default ({ name, twitter, covid19Site, dataSource }) => (
   <UnstyledList>

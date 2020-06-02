@@ -1,5 +1,4 @@
 const fs = require('fs-extra')
-const stateNames = require('../../../build/datasources/stateNames.js')
 
 const getSortedDatesUnique = dates => [...new Set(dates)].sort()
 const getMostRecent = arr => arr[arr.length - 1]
@@ -41,21 +40,5 @@ describe('Website build', () => {
       state => state.dateChecked === mostRecent,
     )
     expect(allLatestReports.length).toBeGreaterThan(50)
-  })
-
-  it('contains only reports from states that are a subset of states in stateNames.js', () => {
-    const statesDaily = JSON.parse(
-      fs.readFileSync('./public/api/v1/states/daily.json', 'utf8'),
-    )
-    const mostRecent = getMostRecent(
-      getSortedDatesUnique(statesDaily.map(state => state.dateChecked)),
-    )
-    const allLatestReports = statesDaily.filter(
-      state => state.dateChecked === mostRecent,
-    )
-    const arr = [...new Set(allLatestReports.map(item => item.state))]
-    expect(Object.keys(stateNames.allStates)).toEqual(
-      expect.arrayContaining(arr),
-    )
   })
 })

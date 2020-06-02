@@ -6,7 +6,10 @@ const fs = require('fs-extra')
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
-  if (typeof process.env.DEV_ENVIRONMENT_VARIABLE_FILE !== 'undefined') {
+  if (
+    typeof process.env.DEV_ENVIRONMENT_VARIABLE_FILE !== 'undefined' &&
+    process.env.DEV_ENVIRONMENT_VARIABLE_FILE != 'false'
+  ) {
     createRedirect({
       fromPath: '/__developer/env-vars',
       toPath: process.env.DEV_ENVIRONMENT_VARIABLE_FILE,
@@ -36,6 +39,19 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             slug
+          }
+        }
+      }
+      allContentfulDocument {
+        edges {
+          node {
+            id
+            slug
+            document {
+              file {
+                url
+              }
+            }
           }
         }
       }
@@ -79,6 +95,18 @@ exports.createPages = async ({ graphql, actions }) => {
       path: node.slug,
       component: path.resolve(`./src/templates/content.js`),
       context: node,
+    })
+  })
+
+  result.data.allContentfulDocument.edges.forEach(({ node }) => {
+    createPage({
+      path: `/document/${node.slug}`,
+      component: path.resolve(`./src/templates/document.js`),
+      context: node,
+    })
+    createRedirect({
+      fromPath: `/document/download/${node.slug}`,
+      toPath: node.document.file.url,
     })
   })
 
@@ -163,6 +191,12 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
+    type CovidScreenshot implements Node {
+      dateChecked: String
+    }
+    type allCovidStateDaily implements Node {
+      date: String
+    }
     type CovidRaceDataSeparate implements Node {
       blackANHPIPosNotes: String
       blackANHPIDeathNotes: String
@@ -211,30 +245,37 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type CovidRaceDataCombined implements Node {
-      blackANHPINotes: String
-      blackPosNotes: String
-      blackDeathNotes: String
-      asianANHPINotes: String
-      asianPosNotes: String
-      asianDeathNotes: String
-      aianANHPINotes: String
-      aianPosNotes: String
+      aianANHPIDeathNotes: String
+      aianANHPIPosNotes: String
       aianDeathNotes: String
-      nhpiANHPINotes: String
-      nhpiPosNotes: String
-      nhpiDeathNotes: String
-      twoANHPINotes: String
-      twoPosNotes: String
-      twoDeathNotes: String
-      whiteANHPINotes: String
-      whitePosNotes: String
-      whiteDeathNotes: String
-      otherANHPINotes: String
-      otherPosNotes: String
-      otherDeathNotes: String
+      aianPosNotes: String
+      asianANHPIDeathNotes: String
+      asianANHPIPosNotes: String
+      asianDeathNotes: String
+      asianPosNotes: String
+      blackANHPIDeathNotes: String
+      blackANHPIPosNotes: String
+      blackDeathNotes: String
+      blackPosNotes: String
       latinXANHPINotes: String
-      latinXPosNotes: String
       latinXDeathNotes: String
+      latinXPosNotes: String
+      nhpiANHPIDeathNotes: String
+      nhpiANHPIPosNotes: String
+      nhpiDeathNotes: String
+      nhpiPosNotes: String
+      otherANHPIDeathNotes: String
+      otherANHPIPosNotes: String
+      otherDeathNotes: String
+      otherPosNotes: String
+      twoANHPIDeathNotes: String
+      twoANHPIPosNotes: String
+      twoDeathNotes: String
+      twoPosNotes: String
+      whiteANHPIDeathNotes: String
+      whiteANHPIPosNotes: String
+      whiteDeathNotes: String
+      whitePosNotes: String
     }
   `
   createTypes(typeDefs)

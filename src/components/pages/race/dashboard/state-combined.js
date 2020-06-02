@@ -3,6 +3,7 @@ import HeaderSorter from './header-sorter'
 import TableNotes from './table-notes'
 import PercentageOverview from './percentage-overview'
 import TableTitle from './table-title'
+import anhpiNotes from './anhpi-notes'
 import { RaceTable } from './breakdown-tables'
 import stateStyle from './state.module.scss'
 
@@ -26,18 +27,7 @@ export default ({ state }) => {
     blackDeath: stateData.blackDeathNotes,
     blackPos: stateData.blackPosNotes,
   }
-  if (stateData.asianPosCaution) {
-    // if a state's Asian positives include NH/PI
-    notes.asianPos = stateData.asianANHPIPosNotes
-    notes.nhpiPos = stateData.nhpiANHPIPosNotes
-    stateData.nhpiPctPos = null // handled in Percent
-  }
-  if (stateData.asianDeathCaution) {
-    // if a state's Asian deaths include NH/PI
-    notes.asianDeath = stateData.asianANHPIDeathNotes
-    notes.nhpiDeath = stateData.nhpiANHPIDeathNotes
-    stateData.nhpiPctDeath = null // handled in Percent
-  }
+  anhpiNotes(stateData, notes)
 
   const groupedNotes = [...new Set(Object.values(notes))]
     .reverse()

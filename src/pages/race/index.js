@@ -35,7 +35,7 @@ export default () => {
   } = data.covidRaceDataHomepage
   return (
     <>
-      <SEO title="The COVID Racial Data Tracker" />
+      <SEO title="The COVID Racial Data Tracker" isRace />
       <SkipNavigation />
       <Header
         siteTitle="The COVID Tracking Project"

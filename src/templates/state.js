@@ -1,12 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import marked from 'marked'
-import Layout from '../components/layout'
-import StateGrade from '../components/pages/state/state-grade'
-import StateHistory from '../components/pages/state/state-history'
-import StateLinks from '../components/pages/state/state-links'
-import SummaryTable from '../components/common/summary-table'
-import { SyncInfobox } from '../components/common/infobox'
+import Layout from '~components/layout'
+import StateGrade from '~components/pages/state/state-grade'
+import StateHistory from '~components/pages/state/state-history'
+import StateLinks from '~components/pages/state/state-links'
+import SummaryTable from '~components/common/summary-table'
+import { SyncInfobox } from '~components/common/infobox'
 
 const StatePage = ({ pageContext, data, path }) => {
   const state = pageContext
@@ -71,7 +71,7 @@ export const query = graphql`
           negative
           hospitalized
           death
-          dateChecked
+          date
         }
       }
     }
@@ -84,6 +84,7 @@ export const query = graphql`
           size
           url
           state
+          date
           dateChecked
         }
       }

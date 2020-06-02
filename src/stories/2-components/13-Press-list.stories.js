@@ -1,5 +1,5 @@
 import React from 'react'
-import PressList from '../../components/common/press-list'
+import PressList from '~components/common/press-list'
 
 export default {
   title: 'Press List',

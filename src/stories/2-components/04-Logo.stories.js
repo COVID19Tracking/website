@@ -1,7 +1,7 @@
 import React from 'react'
-import logoWhite from '../../images/project-logo.svg'
-import logoBlack from '../../images/project-logo-black.svg'
-import iconImage from '../../images/icon.svg'
+import logoWhite from '~images/project-logo.svg'
+import logoBlack from '~images/project-logo-black.svg'
+import iconImage from '~images/icon.svg'
 
 export default {
   title: 'Logo ',

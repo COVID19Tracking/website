@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Layout from '~components/layout'
 import ContentfulContent from '~components/common/contentful-content'
-import Layout from '../components/layout'
 
 const NotFoundPage = ({ data }) => (
   <Layout title="Page not found">
