@@ -8,6 +8,31 @@ import {
 import explorerStyles from './explorer.module.scss'
 import definition from '../../../../../_api/v1/openapi.json'
 
+const PreviewUrl = ({ path, format, parameters }) => {
+  let examplePath = path.replace('{format}', format)
+  parameters.forEach(parameter => {
+    if (parameter.name !== 'format') {
+      examplePath = examplePath.replace(
+        `{${parameter.name}}`,
+        parameter.schema.example,
+      )
+    }
+  })
+  return (
+    <>
+      <p>
+        <code>{path.replace('{format}', format)}</code>
+      </p>
+      <p>
+        <strong>Example:</strong>{' '}
+        <code>
+          <a href={examplePath}>{examplePath}</a>
+        </code>
+      </p>
+    </>
+  )
+}
+
 const Fields = ({ schema }) => {
   const fields =
     definition.components.schemas[schema.split('/').pop()].properties
@@ -38,22 +63,18 @@ const Path = ({ path }) => {
         </h3>
       </DisclosureButton>
       <DisclosurePanel className={explorerStyles.panel}>
-        <p>
-          <strong>JSON URL:</strong>{' '}
-          <code>
-            <a href={path.replace('{format}', 'json')}>
-              {path.replace('{format}', 'json')}
-            </a>
-          </code>
-        </p>
-        <p>
-          <strong>CSV URL:</strong>{' '}
-          <code>
-            <a href={path.replace('{format}', 'json')}>
-              {path.replace('{format}', 'json')}
-            </a>
-          </code>
-        </p>
+        <h4>JSON format</h4>
+        <PreviewUrl
+          path={path}
+          format="json"
+          parameters={definition.paths[path].get.parameters}
+        />
+        <h4>CSV format</h4>
+        <PreviewUrl
+          path={path}
+          format="csv"
+          parameters={definition.paths[path].get.parameters}
+        />
         <h4>Fields</h4>
         <Fields
           schema={
@@ -90,6 +111,7 @@ export default () => {
       }
     }
   `)
+
   const { hiddenApiTags } = data.site.siteMetadata
   const tags = []
   Object.keys(definition.paths).forEach(path => {
