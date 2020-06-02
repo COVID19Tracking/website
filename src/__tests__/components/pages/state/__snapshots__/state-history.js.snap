@@ -26,10 +26,10 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           >
             Screenshots (
             <abbr
-              aria-label="Eastern Standard Time"
-              title="Eastern Standard Time"
+              aria-label="Eastern Time"
+              title="Eastern Time"
             >
-              EST
+              ET
             </abbr>
             )
           </span>
