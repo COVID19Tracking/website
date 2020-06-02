@@ -5,7 +5,7 @@ import BlogTeaserList from '~components/pages/blog/blog-teaser-list'
 
 export default ({ data, path }) => (
   <Layout
-    title={`Blog: ${data.allContentfulBlogCategory.edges[0].node.name}`}
+    title={`Blog: ${data.contentfulBlogCategory.name}`}
     path={path}
     textHeavy
     narrow
@@ -16,12 +16,8 @@ export default ({ data, path }) => (
 
 export const query = graphql`
   query($id: String!) {
-    allContentfulBlogCategory(filter: { id: { eq: $id } }) {
-      edges {
-        node {
-          name
-        }
-      }
+    contentfulBlogCategory(id: { eq: $id }) {
+      name
     }
     allContentfulBlogPost(
       sort: { fields: publishDate, order: DESC }
