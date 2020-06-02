@@ -10,47 +10,37 @@ export default ({ data }) => (
   <Layout title="Get Involved" narrow textHeavy>
     <ContentfulContent
       content={
-        data.helpPreamble.edges[0].node.childContentfulSnippetContentTextNode
+        data.helpPreamble.childContentfulSnippetContentTextNode
           .childMarkdownRemark.html
       }
-      id={data.helpPreamble.edges[0].node.contentful_id}
+      id={data.helpPreamble.contentful_id}
     />
     <GetInvolvedForm />
     <ContentfulContent
       content={
-        data.helpClosure.edges[0].node.childContentfulSnippetContentTextNode
+        data.helpClosure.childContentfulSnippetContentTextNode
           .childMarkdownRemark.html
       }
-      id={data.helpClosure.edges[0].node.contentful_id}
+      id={data.helpClosure.contentful_id}
     />
   </Layout>
 )
 
 export const query = graphql`
   query {
-    helpPreamble: allContentfulSnippet(
-      filter: { slug: { eq: "help-preamble" } }
-    ) {
-      edges {
-        node {
-          contentful_id
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+    helpPreamble: contentfulSnippet(slug: { eq: "help-preamble" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }
-    helpClosure: allContentfulSnippet(filter: { slug: { eq: "help-close" } }) {
-      edges {
-        node {
-          contentful_id
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+    helpClosure: contentfulSnippet(slug: { eq: "help-close" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }
