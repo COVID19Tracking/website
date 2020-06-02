@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import {
   Disclosure,
@@ -38,16 +38,14 @@ const Fields = ({ schema }) => {
     definition.components.schemas[schema.split('/').pop()].properties
 
   return (
-    <ul>
+    <dl>
       {Object.keys(fields).map(property => (
-        <li>
-          <strong>
-            <code>{property}</code>
-          </strong>{' '}
-          - {fields[property].description}
-        </li>
+        <Fragment key={`${schema}-${property}`}>
+          <dt>{property}</dt>
+          <dd>{fields[property].description}</dd>
+        </Fragment>
       ))}
-    </ul>
+    </dl>
   )
 }
 
