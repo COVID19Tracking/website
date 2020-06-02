@@ -56,7 +56,7 @@ export const query = graphql`
           }
           socialCard {
             description {
-              id
+              description
             }
             image {
               resize(width: 1200) {
