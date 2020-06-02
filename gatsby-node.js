@@ -42,6 +42,19 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allContentfulDocument {
+        edges {
+          node {
+            id
+            slug
+            document {
+              file {
+                url
+              }
+            }
+          }
+        }
+      }
       allContentfulBlogPost(sort: { fields: updatedAt }) {
         edges {
           node {
@@ -82,6 +95,18 @@ exports.createPages = async ({ graphql, actions }) => {
       path: node.slug,
       component: path.resolve(`./src/templates/content.js`),
       context: node,
+    })
+  })
+
+  result.data.allContentfulDocument.edges.forEach(({ node }) => {
+    createPage({
+      path: `/document/${node.slug}`,
+      component: path.resolve(`./src/templates/document.js`),
+      context: node,
+    })
+    createRedirect({
+      fromPath: `/document/download/${node.slug}`,
+      toPath: node.document.file.url,
     })
   })
 
