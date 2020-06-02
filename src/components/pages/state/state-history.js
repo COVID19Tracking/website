@@ -26,7 +26,11 @@ export default ({ history, screenshots }) => (
       {history.map(({ node }) => (
         <tr key={`history-${node.dateChecked}`}>
           <Td alignLeft>
-            <FormatDate date={node.date} format="ccc LLL d yyyy" />
+            <FormatDate
+              date={node.date}
+              format="ccc LLL d yyyy"
+              timezone={false}
+            />
           </Td>
           <Td alignLeft>
             <Screenshots date={node.date} screenshots={screenshots} />
