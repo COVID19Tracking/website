@@ -11,7 +11,7 @@ import { AlertInfobox } from '~components/common/infobox'
 const reasons = [
   'I have questions about the state data grades',
   'I have feedback on the COVID Racial Data Tracker',
-  "I'm a journalist with a media question",
+  "I’m a journalist with a media question",
   'I want to report an issue with the website or web accessibility',
   'I want to report an issue with your data',
   'Something else!',
