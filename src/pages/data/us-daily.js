@@ -11,15 +11,15 @@ const ContentPage = ({ data }) => (
     title="US Historical Data"
     path="/data/us-daily"
     description="Cumulative record of our daily totals."
-    navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
+    navigation={data.contentfulNavigationGroup.pages}
   >
     <ContentfulContent
       className="module-content"
       content={
-        data.allContentfulSnippet.edges[0].node
-          .childContentfulSnippetContentTextNode.childMarkdownRemark.html
+        data.contentfulSnippet.childContentfulSnippetContentTextNode
+          .childMarkdownRemark.html
       }
-      id={data.allContentfulSnippet.edges[0].node.contentful_id}
+      id={data.contentfulSnippet.contentful_id}
     />
 
     <SyncInfobox />
@@ -78,15 +78,11 @@ export default ContentPage
 
 export const query = graphql`
   query {
-    allContentfulSnippet(filter: { slug: { eq: "us-daily" } }) {
-      edges {
-        node {
-          contentful_id
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+    contentfulSnippet(slug: { eq: "us-daily" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }
@@ -105,19 +101,15 @@ export const query = graphql`
         }
       }
     }
-    allContentfulNavigationGroup(filter: { slug: { eq: "data" } }) {
-      edges {
-        node {
-          pages {
-            ... on ContentfulPage {
-              title
-              link: slug
-            }
-            ... on ContentfulNavigationLink {
-              title
-              link: url
-            }
-          }
+    contentfulNavigationGroup(slug: { eq: "data" }) {
+      pages {
+        ... on ContentfulPage {
+          title
+          link: slug
+        }
+        ... on ContentfulNavigationLink {
+          title
+          link: url
         }
       }
     }
