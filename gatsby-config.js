@@ -3,7 +3,6 @@ require(`@babel/register`)({
   plugins: ['@babel/plugin-transform-runtime'],
 })
 require('dotenv').config()
-const { DateTime } = require('luxon')
 const algoliaQueries = require('./src/utilities/algolia').queries
 
 const gatsbyConfig = {
@@ -16,10 +15,6 @@ const gatsbyConfig = {
     production:
       typeof process.env.BRANCH !== 'undefined' &&
       process.env.BRANCH === 'master',
-    buildDate: DateTime.fromObject({ zone: 'America/New_York' })
-      .toFormat('h:mm a')
-      .toLowerCase(),
-    inDST: DateTime.fromObject({ zone: 'America/New_York' }).isInDST,
     contentfulSpace: process.env.CONTENTFUL_SPACE,
   },
   plugins: [
@@ -27,6 +22,7 @@ const gatsbyConfig = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-transformer-yaml',
+    'gatsby-transformer-json',
     'gatsby-plugin-eslint',
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sharp',
@@ -150,6 +146,13 @@ const gatsbyConfig = {
       options: {
         name: 'press-logos',
         path: `${__dirname}/src/data/homepage-press.yml`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'api-status',
+        path: `${__dirname}/_api/v1/status.json`,
       },
     },
     {
