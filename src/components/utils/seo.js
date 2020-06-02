@@ -75,7 +75,7 @@ function SEO({ lang, meta, title, socialCard }) {
         },
         {
           name: `twitter:card`,
-          content: imageSrc,
+          content: 'summary',
         },
         {
           name: `twitter:image`,
