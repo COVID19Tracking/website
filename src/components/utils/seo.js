@@ -40,6 +40,8 @@ function SEO({ lang, meta, title, socialCard }) {
     description = socialCard.description.description
   }
 
+  const urlSchema = 'https:'
+
   return (
     <Helmet
       htmlAttributes={{
@@ -63,7 +65,7 @@ function SEO({ lang, meta, title, socialCard }) {
         },
         {
           property: `og:image`,
-          content: imageSrc,
+          content: `${urlSchema}${imageSrc}`,
         },
         {
           property: `og:description`,
@@ -79,7 +81,7 @@ function SEO({ lang, meta, title, socialCard }) {
         },
         {
           name: `twitter:image`,
-          content: imageSrc,
+          content: `${urlSchema}${imageSrc}`,
         },
         {
           name: `twitter:site`,
