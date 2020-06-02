@@ -35,22 +35,16 @@ beforeEach(() => {
         },
       ],
     },
-    allNavigationYaml: {
-      edges: [
+    navigationYaml: {
+      items: [
         {
-          node: {
-            items: [
-              {
-                link: '/test-a',
-                title: 'Test A',
-                subNavigation: 'test-a',
-              },
-              {
-                link: '/test-b',
-                title: 'Test B',
-              },
-            ],
-          },
+          link: '/test-a',
+          title: 'Test A',
+          subNavigation: 'test-a',
+        },
+        {
+          link: '/test-b',
+          title: 'Test B',
         },
       ],
     },
