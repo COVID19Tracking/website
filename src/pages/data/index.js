@@ -26,7 +26,7 @@ export default ({ data }) => {
         id={data.dataPreamble.contentful_id}
       />
       <SyncInfobox />
-      <SummaryTable data={data.allCovidUs.edges[0].node} showOutcomes={false} />
+      <SummaryTable data={data.covidUs} showOutcomes={false} />
       <DetailText>
         <span
           className="module-content"
@@ -70,23 +70,19 @@ export const query = graphql`
         }
       }
     }
-    allCovidUs {
-      edges {
-        node {
-          positive
-          negative
-          pending
-          hospitalizedCurrently
-          hospitalizedCumulative
-          inIcuCurrently
-          inIcuCumulative
-          recovered
-          onVentilatorCurrently
-          onVentilatorCumulative
-          death
-          totalTestResults
-        }
-      }
+    covidUs {
+      positive
+      negative
+      pending
+      hospitalizedCurrently
+      hospitalizedCumulative
+      inIcuCurrently
+      inIcuCumulative
+      recovered
+      onVentilatorCurrently
+      onVentilatorCumulative
+      death
+      totalTestResults
     }
     allCovidStateInfo(sort: { fields: name }) {
       edges {
