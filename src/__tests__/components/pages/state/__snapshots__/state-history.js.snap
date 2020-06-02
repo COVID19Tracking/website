@@ -112,10 +112,33 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
       <tr>
         <td
           className="alignLeft"
-        />
+        >
+          Fri Apr 17 2020
+        </td>
         <td
           className="alignLeft"
-        />
+        >
+          <ul>
+            <li>
+              <a
+                href="https://covidtracking.com/screenshot/1.png"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                2:15 am
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://covidtracking.com/screenshot/2.png"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                6:15 am
+              </a>
+            </li>
+          </ul>
+        </td>
         <td
           className=""
         >
@@ -155,7 +178,9 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
       <tr>
         <td
           className="alignLeft"
-        />
+        >
+          Thu Apr 16 2020
+        </td>
         <td
           className="alignLeft"
         />
@@ -198,7 +223,9 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
       <tr>
         <td
           className="alignLeft"
-        />
+        >
+          Wed Apr 15 2020
+        </td>
         <td
           className="alignLeft"
         />

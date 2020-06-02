@@ -43,7 +43,11 @@ const ContentPage = ({ data }) => (
         {data.allCovidUsDaily.edges.map(({ node }) => (
           <tr>
             <Td alignLeft>
-              <FormatDate date={node.date} format="ccc LLL d yyyy" />
+              <FormatDate
+                date={node.date}
+                format="ccc LLL d yyyy"
+                timezone={false}
+              />
             </Td>
             <Td>{node.states}</Td>
             <Td>
