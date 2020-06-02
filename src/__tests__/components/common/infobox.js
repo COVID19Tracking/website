@@ -11,20 +11,14 @@ import {
 beforeEach(() => {
   StaticQuery.mockImplementationOnce(({ render }) =>
     render({
-      site: {
-        siteMetadata: {
-          buildDate: '6:00 pm ET',
-          inDST: false,
-        },
+      v1Json: {
+        buildTime: '2020-06-02T10:16:47.239Z',
       },
     }),
   )
   useStaticQuery.mockImplementation(() => ({
-    site: {
-      siteMetadata: {
-        buildDate: '6:00 pm ET',
-        inDST: false,
-      },
+    v1Json: {
+      buildTime: '2020-06-02T10:16:47.239Z',
     },
   }))
 })

@@ -293,10 +293,10 @@ Array [
       Fri Apr 17 2020 12:00 am
        
       <abbr
-        aria-label="Eastern Standard Time"
-        title="Eastern Standard Time"
+        aria-label="Eastern Time"
+        title="Eastern Time"
       >
-        EST
+        ET
       </abbr>
     </div>
   </div>,

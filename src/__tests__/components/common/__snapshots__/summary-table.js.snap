@@ -261,10 +261,10 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
     Wed Apr 1 2020 12:00 am
      
     <abbr
-      aria-label="Eastern Standard Time"
-      title="Eastern Standard Time"
+      aria-label="Eastern Time"
+      title="Eastern Time"
     >
-      EST
+      ET
     </abbr>
   </div>
 </div>
@@ -411,10 +411,10 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
     Wed Apr 1 2020 12:00 am
      
     <abbr
-      aria-label="Eastern Standard Time"
-      title="Eastern Standard Time"
+      aria-label="Eastern Time"
+      title="Eastern Time"
     >
-      EST
+      ET
     </abbr>
   </div>
 </div>

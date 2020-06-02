@@ -1,5 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import { FormatDate } from '~components/utils/format'
 import infoBoxStyle from './infobox.module.scss'
 import syncIcon from '~images/infobox-icons/sync.svg'
 import alertIcon from '~images/infobox-icons/alert.svg'
@@ -41,10 +42,8 @@ const SyncInfobox = () => (
   <StaticQuery
     query={graphql`
       query {
-        site {
-          siteMetadata {
-            buildDate
-          }
+        v1Json {
+          buildTime
         }
       }
     `}
@@ -55,7 +54,8 @@ const SyncInfobox = () => (
         <img src={syncIcon} alt="Sync icon" />
         <div>
           <InfoboxInner header="Last updated from our data:">
-            {data.site.siteMetadata.buildDate} <Timezone />
+            <FormatDate date={data.v1Json.buildTime} format="h:mm a" />{' '}
+            <Timezone />
           </InfoboxInner>
         </div>
       </div>
