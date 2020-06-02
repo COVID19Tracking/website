@@ -4,7 +4,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
 
 const ContentPage = ({ data, path }) => {
-  const page = data.allContentfulPage.edges[0].node
+  const page = data.contentfulPage
   return (
     <Layout
       title={page.title}
@@ -28,30 +28,26 @@ export default ContentPage
 
 export const query = graphql`
   query($id: String!) {
-    allContentfulPage(filter: { id: { eq: $id } }) {
-      edges {
-        node {
-          title
-          slug
-          contentful_id
-          returnLinkTitle
-          returnLinkUrl
-          body {
-            childMarkdownRemark {
-              html
-            }
+    contentfulPage(id: { eq: $id }) {
+      title
+      slug
+      contentful_id
+      returnLinkTitle
+      returnLinkUrl
+      body {
+        childMarkdownRemark {
+          html
+        }
+      }
+      navigationGroup {
+        pages {
+          ... on ContentfulPage {
+            title
+            link: slug
           }
-          navigationGroup {
-            pages {
-              ... on ContentfulPage {
-                title
-                link: slug
-              }
-              ... on ContentfulNavigationLink {
-                title
-                link: url
-              }
-            }
+          ... on ContentfulNavigationLink {
+            title
+            link: url
           }
         }
       }
