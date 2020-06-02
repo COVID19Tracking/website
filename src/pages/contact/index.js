@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import ReCaptcha from 'react-recaptcha'
 import ContentfulContent from '~components/common/contentful-content'
-import Layout from '../../components/layout'
+import Layout from '~components/layout'
 import { Form, FormGroup, FormLabel } from '~components/common/form'
 import { AlertInfobox } from '~components/common/infobox'
 

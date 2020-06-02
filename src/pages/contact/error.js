@@ -1,6 +1,6 @@
 import React from 'react'
 import withLocation from '~components/utils/with-location'
-import Layout from '../../components/layout'
+import Layout from '~components/layout'
 
 export default withLocation(({ search }) => (
   <Layout title="Sorry" narrow textHeavy>

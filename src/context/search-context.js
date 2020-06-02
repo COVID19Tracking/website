@@ -3,7 +3,7 @@ import algoliasearch from 'algoliasearch'
 import NProgress from 'nprogress'
 import each from 'lodash/each'
 import truncate from 'lodash/truncate'
-import { prefixSearchIndex } from '../utilities/algolia'
+import { prefixSearchIndex } from '~utilities/algolia'
 
 export const types = {
   STATE: 'state',

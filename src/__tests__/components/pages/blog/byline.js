@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { Byline } from '../../../../components/pages/blog/byline'
+import { Byline } from '~components/pages/blog/byline'
 
 describe('Components : Pages : Blog : Byline', () => {
   it('renders correctly', () => {

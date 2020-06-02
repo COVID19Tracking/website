@@ -1,6 +1,6 @@
 import React from 'react'
 import percentageOverview from './percentage-overview.module.scss'
-import alertBang from '../../../../images/race-dashboard/alert-bang-orange.svg'
+import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 
 const PercentContent = ({ percent }) => {
   if (percent) {

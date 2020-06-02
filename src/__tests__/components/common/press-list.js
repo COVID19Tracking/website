@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import PressList from '../../../components/common/press-list'
+import PressList from '~components/common/press-list'
 
 const pressListItems = [
   {

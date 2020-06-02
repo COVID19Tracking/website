@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, FormGroup, FormLabel } from '~components/common/form'
 import DetailText from '~components/common/detail-text'
-import { Button } from '../../common/button'
+import { Button } from '~components/common/button'
 import VolunteerFormStyles from './volunteer-form.module.scss'
 import {
   RadioOptions,
@@ -205,7 +205,7 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <FormLabel htmlFor="why">
-              Why are you interested in volunteering for us?{' '}
+              What kinds of projects or tasks would you most like to help with?{' '}
               <span className={VolunteerFormStyles.label}>optional</span>
               <textarea name="why" id="why" rows="5" />
             </FormLabel>

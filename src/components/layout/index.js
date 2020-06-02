@@ -4,10 +4,10 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { SkipNavContent } from '@reach/skip-nav'
 import Header from './header'
 import Footer from './footer'
-import SEO from '../utils/seo'
-import Container from '../common/container'
-import SkipNavigation from '../utils/skip-navigation'
-import '../../scss/global.scss'
+import SEO from '~components/utils/seo'
+import Container from '~components/common/container'
+import SkipNavigation from '~components/utils/skip-navigation'
+import '~scss/global.scss'
 
 const Layout = ({
   title,
@@ -23,6 +23,7 @@ const Layout = ({
   hasHero,
   narrow,
   textHeavy,
+  isRace,
 }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -36,7 +37,7 @@ const Layout = ({
 
   return (
     <>
-      <SEO title={title} description={description} />
+      <SEO title={title} description={description} isRace={isRace} />
       <SkipNavigation />
       <Header
         siteTitle={data.site.siteMetadata.title}

@@ -1,5 +1,5 @@
 import React from 'react'
-import alertBang from '../../../../images/race-dashboard/alert-bang-orange.svg'
+import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import statesNotReportingStyles from './states-not-reporting.module.scss'
 
 export default ({ content }) => (

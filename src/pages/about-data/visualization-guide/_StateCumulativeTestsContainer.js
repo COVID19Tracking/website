@@ -4,19 +4,19 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React, { useMemo, useState } from 'react'
 import cloneDeep from 'lodash/cloneDeep'
 
-import AreaChart from '../../../components/charts/area-chart'
-import TotalAndPositiveLegend from './_TotalAndPositiveLegend'
-import StatesWithPopulation from '../../../data/visualization/state-populations.json'
+import AreaChart from '~components/charts/area-chart'
+import TotalAndPositiveLegend from '~pages/about-data/visualization-guide/_TotalAndPositiveLegend'
+import StatesWithPopulation from '~data/visualization/state-populations.json'
 
 import {
   getStateName,
   parseDate,
   totalColor,
   positiveColor,
-} from '../../../utilities/visualization'
+} from '~utilities/visualization'
 
-import './dashboard.scss'
-import dashboardStyles from './dashboard.module.scss'
+import '~pages/about-data/visualization-guide/dashboard.scss'
+import dashboardStyles from '~pages/about-data/visualization-guide/dashboard.module.scss'
 
 // these come from this google spreadsheet owned by Júlia Ledur
 // https://docs.google.com/spreadsheets/d/1mD_NhlJR1fM2Pv_pY8YixUrX2p2F8rAE0xPTtsTJOiM/edit#gid=0

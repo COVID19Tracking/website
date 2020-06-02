@@ -1,7 +1,7 @@
-@import '../../../scss/colors.module.scss';
-@import '../../../scss/breakpoints.module.scss';
-@import './contact-form.module.scss';
-@import '../get-involved/form.module.scss';
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+@import '~components/pages/contact/contact-form.module.scss';
+@import '~components/pages/get-involved/form.module.scss';
 
 .fieldset {
   margin-bottom: 50px;

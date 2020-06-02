@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import VolunteersList from '../../../components/common/volunteers-list'
+import VolunteersList from '~components/common/volunteers-list'
 
 const sampleVolunteers = [
   {

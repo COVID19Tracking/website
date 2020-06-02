@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import DetailText from '../../../components/common/detail-text'
+import DetailText from '~components/common/detail-text'
 
 describe('Components : Common: Detail text', () => {
   it('renders correctly', () => {

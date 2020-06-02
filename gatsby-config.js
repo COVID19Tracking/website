@@ -55,56 +55,56 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/press.json',
+        file: './_api/v1/internal/press.json',
         type: 'CovidPress',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/us/current.json',
+        file: './_api/v1/us/current.json',
         type: 'CovidUs',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/us/daily.json',
+        file: './_api/v1/us/daily.json',
         type: 'CovidUsDaily',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/states/current.json',
+        file: './_api/v1/states/current.json',
         type: 'CovidState',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/states/info.json',
+        file: './_api/v1/states/info.json',
         type: 'CovidStateInfo',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/states/daily.json',
+        file: './_api/v1/states/daily.json',
         type: 'CovidStateDaily',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/states/screenshots.json',
+        file: './_api/v1/states/screenshots.json',
         type: 'CovidScreenshot',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/volunteers.json',
+        file: './_api/v1/internal/volunteers.json',
         type: 'CovidVolunteers',
         sortField: 'name',
       },
