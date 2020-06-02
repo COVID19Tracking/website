@@ -16,6 +16,7 @@ const gatsbyConfig = {
       typeof process.env.BRANCH !== 'undefined' &&
       process.env.BRANCH === 'master',
     contentfulSpace: process.env.CONTENTFUL_SPACE,
+    hiddenApiTags: ['Racial data tracker', 'Internal Endpoints'],
   },
   plugins: [
     'gatsby-plugin-sitemap',

@@ -1,0 +1,30 @@
+@import '~scss/colors.module.scss';
+
+.button {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-bottom: 1px solid $color-slate-500;
+  display: block;
+  background: transparent;
+  cursor: pointer;
+}
+
+.panel {
+  margin-left: 2rem;
+  p {
+    margin-bottom: 0;
+    margin-left: 2rem;
+  }
+  dl {
+    margin-left: 2rem;
+    dt {
+      font-weight: bold;
+      font-family: monospace;
+      font-size: 1.2rem;
+    }
+    dd {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
