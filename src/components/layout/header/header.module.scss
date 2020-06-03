@@ -412,6 +412,10 @@
             margin-right: 1rem;
           }
 
+          &:focus {
+            @include link-focus-dark-bg;
+          }
+
           &:hover,
           &[aria-current] {
             border-bottom: 3px solid $color-blueberry-200;
