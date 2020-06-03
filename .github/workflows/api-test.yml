@@ -17,25 +17,7 @@ jobs:
       - name: Install
         run: npm install
 
-      - name: Run
+      - name: Test
         env:
           JEST_COVID_API_HOST: ${{ steps.preview.outputs.url }}
         run: npm run test:api-header-test
-      
-      - name: Read output
-        id: readoutput
-        env:
-          JEST_COVID_API_HOST: ${{ steps.preview.outputs.url }}
-        run: |
-          OUTPUT=$(less /tmp/api-output.txt)
-          echo "::set-output name=result::$OUTPUT"
-
-      - name: Comment
-        uses: marocchino/sticky-pull-request-comment@v1.4.0
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          message: |
-            API CORS test results
-            ```
-            ${{ steps.readoutput.outputs.result }}
-            ```
