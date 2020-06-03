@@ -58,6 +58,8 @@ jobs:
     executor: main-executor
     steps:
       - checkout
+      - attach_workspace:
+          at: *workspace_root
       - run:
           name: install
           command: 'npm install'
@@ -70,6 +72,8 @@ jobs:
     executor: main-executor
     steps:
       - checkout
+      - attach_workspace:
+          at: *workspace_root
       - run:
           name: install
           command: 'npm install'
@@ -96,8 +100,12 @@ workflows:
       - gatsby-build:
           requires:
             - api
-      - gatsby-lint
-      - gatsby-test
+      - gatsby-lint:
+          requires:
+            - api
+      - gatsby-test:
+          requires:
+            - api
       - storybook-test:
           requires:
             - api

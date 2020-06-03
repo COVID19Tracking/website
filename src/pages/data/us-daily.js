@@ -10,7 +10,9 @@ const ContentPage = ({ data }) => (
   <Layout
     title="US Historical Data"
     path="/data/us-daily"
-    description="Cumulative record of our daily totals."
+    socialCard={{
+      description: 'Cumulative record of our daily totals.',
+    }}
     navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
   >
     <ContentfulContent
@@ -43,7 +45,11 @@ const ContentPage = ({ data }) => (
         {data.allCovidUsDaily.edges.map(({ node }) => (
           <tr>
             <Td alignLeft>
-              <FormatDate date={node.date} format="ccc LLL d yyyy" />
+              <FormatDate
+                date={node.date}
+                format="ccc LLL d yyyy"
+                timezone={false}
+              />
             </Td>
             <Td>{node.states}</Td>
             <Td>
