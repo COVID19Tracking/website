@@ -22,7 +22,6 @@
       font-size: 36px;
     }
     a {
-      text-decoration: none;
       color: $text;
       &:hover {
         @include link-hover;
