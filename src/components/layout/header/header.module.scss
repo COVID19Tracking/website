@@ -230,15 +230,6 @@
     line-height: 1.2;
     color: white;
 
-    a {
-      color: white;
-      text-decoration: none;
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-      }
-    }
-
     @media (max-width: $viewport-md) {
       font-size: 1.56rem;
     }
