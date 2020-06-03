@@ -1,3 +1,5 @@
+@import '~scss/links.module.scss';
+
 .press-list {
   list-style-type: none;
   margin: 0;
@@ -15,7 +17,7 @@
     display: block;
     margin-bottom: 0.25rem;
     &:hover {
-      text-decoration: underline;
+      @include link-hover;
     }
   }
   .dot-separator {
