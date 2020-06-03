@@ -1,8 +1,5 @@
 const fs = require('fs-extra')
 
-const getSortedDatesUnique = dates => [...new Set(dates)].sort()
-const getMostRecent = arr => arr[arr.length - 1]
-
 describe('Website build', () => {
   it('has a homepage', () => {
     const exists = fs.pathExistsSync('./public/index.html')
