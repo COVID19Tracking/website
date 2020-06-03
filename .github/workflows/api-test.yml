@@ -10,6 +10,7 @@ jobs:
         id: preview
         with:
           site_name: "focused-tereshkova-0e2f4b"
+          max_timeout: 600
 
       - uses: actions/checkout@v1
 
