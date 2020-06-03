@@ -8,3 +8,4 @@ excluded_files:
 
 excluded_words:
   - covid
+  - lede
