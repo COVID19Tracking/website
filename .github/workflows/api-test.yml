@@ -13,8 +13,6 @@ jobs:
           max_timeout: 600
 
       - uses: actions/checkout@v1
-        with:
-          path: ./
 
       - name: Install
         run: npm install
@@ -22,7 +20,7 @@ jobs:
       - name: Run
         env:
           JEST_COVID_API_HOST: ${{ steps.preview.outputs.url }}
-        run: npm run test:api-header-test
+        run: ls && npm run test:api-header-test
 
       - name: Comment
         uses: marocchino/sticky-pull-request-comment@v1
