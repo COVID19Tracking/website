@@ -17,11 +17,10 @@ export default ({ data }) => {
   return (
     <Layout
       title="Racial Data Dashboard"
-      description="The COVID-19 pandemic isn’t affecting all communities the same way. The COVID Racial Data Dashboard helps us track this inequity by publishing topline racial data compared with state demographic data."
       returnLink="/race"
       returnLinkTitle="Racial Data Tracker"
       path="/race/dashboard"
-      isRace
+      socialCard={data.contentfulSocialCard}
     >
       <Hero
         ledeContent={
@@ -52,6 +51,16 @@ export const query = graphql`
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
           html
+        }
+      }
+    }
+    contentfulSocialCard(slug: { eq: "racial-data-tracker" }) {
+      description {
+        description
+      }
+      image {
+        resize(width: 1200) {
+          src
         }
       }
     }

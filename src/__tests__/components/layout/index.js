@@ -53,6 +53,16 @@ beforeEach(() => {
         },
       ],
     },
+    contentfulSocialCard: {
+      description: {
+        description: 'Social media description',
+      },
+      image: {
+        resize: {
+          src: '//image.url',
+        },
+      },
+    },
   }))
 })
 
@@ -61,7 +71,13 @@ describe('Components : Layout : Header', () => {
     const tree = renderer
       .create(
         <>
-          <Layout title="Sample title">
+          <Layout
+            title="Sample title"
+            socialCard={{
+              description: 'social card',
+              image: { resize: { src: '//image.url' } },
+            }}
+          >
             <p>Content</p>
           </Layout>
         </>,

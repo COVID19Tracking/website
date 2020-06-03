@@ -27,6 +27,16 @@ export default () => {
         blackLivesLost
         blackLivesExpectedMultiplier
       }
+      contentfulSocialCard(slug: { eq: "racial-data-tracker" }) {
+        description {
+          description
+        }
+        image {
+          resize(width: 1200) {
+            src
+          }
+        }
+      }
     }
   `)
   const {
@@ -35,7 +45,10 @@ export default () => {
   } = data.covidRaceDataHomepage
   return (
     <>
-      <SEO title="The COVID Racial Data Tracker" isRace />
+      <SEO
+        title="The COVID Racial Data Tracker"
+        socialCard={data.contentfulSocialCard}
+      />
       <SkipNavigation />
       <Header
         siteTitle="The COVID Tracking Project"

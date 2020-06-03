@@ -48,11 +48,12 @@ const options = {
 
 export default ({ data, path }) => {
   const blogPost = data.contentfulBlogPost
+  const socialCard = blogPost.socialCard || { description: blogPost.lede.lede }
   return (
     <Layout
       title={`Blog | ${blogPost.title}`}
       displayTitle="Blog"
-      description={blogPost.lede.lede}
+      socialCard={socialCard}
       returnLink="/blog"
       returnLinkTitle="All posts"
       path={path}
@@ -101,6 +102,16 @@ export const query = graphql`
             width
             height
             src
+          }
+          socialCard {
+            description {
+              description
+            }
+            image {
+              resize(width: 1200) {
+                src
+              }
+            }
           }
         }
       }
