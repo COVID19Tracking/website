@@ -1,8 +1,8 @@
-name: API output test
+name: Test deployed API
 on: [pull_request]
 
 jobs:
-  trigger:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Wait for Netlify
