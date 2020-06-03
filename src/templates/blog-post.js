@@ -103,15 +103,15 @@ export const query = graphql`
             height
             src
           }
-          socialCard {
-            description {
-              description
-            }
-            image {
-              resize(width: 1200) {
-                src
-              }
-            }
+        }
+      }
+      socialCard {
+        description {
+          description
+        }
+        image {
+          resize(width: 1200) {
+            src
           }
         }
       }

@@ -40,6 +40,16 @@ export const query = graphql`
           html
         }
       }
+      socialCard {
+        description {
+          description
+        }
+        image {
+          resize(width: 1200) {
+            src
+          }
+        }
+      }
       navigationGroup {
         pages {
           ... on ContentfulPage {
@@ -49,16 +59,6 @@ export const query = graphql`
           ... on ContentfulNavigationLink {
             title
             link: url
-          }
-          socialCard {
-            description {
-              description
-            }
-            image {
-              resize(width: 1200) {
-                src
-              }
-            }
           }
         }
       }
