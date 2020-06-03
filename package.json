@@ -108,6 +108,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.3.0",
     "jest-junit": "^10.0.0",
+    "node-fetch": "^2.6.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.13.1",
@@ -134,7 +135,7 @@
     "test:coverage": "jest --coverage --maxWorkers 1",
     "test:lint": "eslint ./src",
     "test:dev": "run-s test:lint test",
-    "test:api-header-test": "jest --config='{}' ./src/__tests__/api/index.js --no-color 2>/tmp/api-output.txt",
+    "test:api-header-test": "jest --config='{}' ./src/__tests__/api/index.js",
     "setup": "run-s setup:api-repo setup:env-vars",
     "setup:env-vars": "curl -L https://covidtracking.com/__developer/env-vars > .env",
     "setup:api-repo": "rm -rf _api || true && git clone --depth 1 https://github.com/COVID19Tracking/covid-public-api.git _api && rm -rf _api/.git"
