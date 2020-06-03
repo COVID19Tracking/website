@@ -74,13 +74,11 @@
     display: block;
     padding: 0.5em 1em;
     cursor: pointer;
-    &:hover {
+    &:hover,
+    &[data-selected],
+    &:focus {
       color: white;
-      background: $color-plum-600;
-    }
-    &[data-selected] {
-      color: white;
-      background: $color-plum-600;
+      background: black;
     }
   }
 }
