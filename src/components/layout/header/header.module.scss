@@ -1,4 +1,5 @@
 @import '~scss/colors.module.scss';
+@import '~scss/links.module.scss';
 @import '~scss/breakpoints.module.scss';
 
 .tools {
@@ -101,9 +102,11 @@
 
   transition: all 0.2s;
 
-  &:hover,
+  &:hover {
+    @include link-hover;
+  }
   &:focus {
-    color: $color-blueberry-500;
+    @include link-focus;
     background: $color-blueberry-200;
   }
 
@@ -285,9 +288,11 @@
             z-index: 2;
           }
 
-          a:hover,
+          a:hover {
+            @include link-hover-dark-bg;
+          }
           a:focus {
-            color: rgba(255, 255, 255, 0.6);
+            @include link-focus-dark-bg;
           }
           &:hover > a {
             border-bottom: 3px solid $color-blueberry-200;
@@ -316,7 +321,6 @@
   }
 
   .return-link {
-    // height: 1.3rem;
     margin-bottom: 0.75rem;
 
     @media (max-width: $viewport-md) {
