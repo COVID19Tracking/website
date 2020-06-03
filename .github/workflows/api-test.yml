@@ -20,7 +20,7 @@ jobs:
       - name: Run
         env:
           JEST_COVID_API_HOST: ${{ steps.preview.outputs.url }}
-        run: jest ./src/__tests__/api/index.js --no-color 2>/tmp/api-output.txt
+        run: npm run test:api-header-test
 
       - name: Comment
         uses: marocchino/sticky-pull-request-comment@v1
