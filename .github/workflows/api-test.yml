@@ -9,7 +9,7 @@ jobs:
         uses: JakePartusch/wait-for-netlify-action@v1.2
         id: preview
         with:
-          site_name: "focused-tereshkova-0e2f4b"
+          site_name: "upbeat-lovelace-3e9fff"
           max_timeout: 600
 
       - uses: actions/checkout@v1
