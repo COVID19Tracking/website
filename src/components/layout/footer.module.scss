@@ -21,6 +21,14 @@
     width: 176px;
     margin: 0;
   }
+  a {
+    &:focus {
+      @include link-focus-dark-bg;
+    }
+    &:hover {
+      @include link-hover-dark-bg;
+    }
+  }
   .footer-list {
     list-style-type: none;
     margin: 0 0 0 49px;
@@ -42,12 +50,6 @@
     }
     a {
       color: white;
-      &:hover {
-        @include link-hover-dark-bg;
-      }
-      &:focus {
-        @include link-focus-dark-bg;
-      }
     }
     .back-to-top {
       display: block;
