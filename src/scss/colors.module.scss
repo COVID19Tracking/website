@@ -52,7 +52,9 @@ Color primitives
 */
 $color-link: $color-plum-600;
 $color-link--active: $color-plum-400;
-$color-link--hover: $color-plum-400;
+
+$color-link--hover: black;
+$color-link--hover--dark-bg: white;
 
 $color-infobox-question-light: #fef9cd;
 $color-infobox-question-dark: #5e4f24;
