@@ -1,0 +1,25 @@
+name: API output test
+on: [pull_request]
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Netlify
+        uses: JakePartusch/wait-for-netlify-action@v1.2
+        id: preview
+        with:
+          site_name: "focused-tereshkova-0e2f4b"
+
+      - uses: actions/checkout@v1
+
+      - name: Run
+        env:
+          JEST_COVID_API_HOST: ${{ steps.preview.outputs.url }}
+        run: jest ./src/__tests__/api/index.js --no-color 2>/tmp/api-output.txt
+
+      - name: Comment
+        uses: marocchino/sticky-pull-request-comment@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: /tmp/api-output.txt
