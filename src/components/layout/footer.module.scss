@@ -1,4 +1,5 @@
 @import '~scss/colors.module.scss';
+@import '~scss/links.module.scss';
 @import '~scss/breakpoints.module.scss';
 
 .footer {
@@ -41,10 +42,11 @@
     }
     a {
       color: white;
-
-      &:hover,
+      &:hover {
+        @include link-hover-dark-bg;
+      }
       &:focus {
-        color: $color-plum-200;
+        @include link-focus-dark-bg;
       }
     }
     .back-to-top {
