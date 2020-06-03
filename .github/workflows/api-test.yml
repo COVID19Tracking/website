@@ -18,11 +18,16 @@ jobs:
         run: npm install
 
       - name: Run
-        id: apitest
+        env:
+          JEST_COVID_API_HOST: ${{ steps.preview.outputs.url }}
+        run: npm run test:api-header-test
+      
+      - name: Read output
+        id: readoutput
         env:
           JEST_COVID_API_HOST: ${{ steps.preview.outputs.url }}
         run: |
-          OUTPUT=$(npm run test:api-header-test)
+          OUTPUT=$(less /tmp/api-output.txt)
           echo "::set-output name=result::$OUTPUT"
 
       - name: Comment
@@ -32,5 +37,5 @@ jobs:
           message: |
             API CORS test results
             ```
-            ${{ steps.apitest.outputs.result }}
+            ${{ steps.readoutput.outputs.result }}
             ```
