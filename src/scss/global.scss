@@ -82,6 +82,12 @@ a {
   }
 }
 
+p {
+  a {
+    color: inherit;
+  }
+}
+
 button,
 select,
 [role='switch'] {
