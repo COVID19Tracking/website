@@ -1,4 +1,5 @@
 @import '~scss/colors.module.scss';
+@import '~scss/links.module.scss';
 @import '~scss/breakpoints.module.scss';
 
 .caret {
@@ -56,6 +57,9 @@
     [data-reach-menu] {
       display: block;
     }
+  }
+  a:focus {
+    @include link-focus-dark-bg;
   }
 }
 
