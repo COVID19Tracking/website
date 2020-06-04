@@ -23,7 +23,7 @@ export default ({ history, screenshots }) => (
       </tr>
     </thead>
     <tbody className={`state-history-table ${stateHistoryStyle.history}`}>
-      {history.map(({ node }) => (
+      {history.map(node => (
         <tr key={`history-${node.dateChecked}`}>
           <Td alignLeft>
             <FormatDate

@@ -38,30 +38,24 @@ const Header = withSearch(
   }) => {
     const data = useStaticQuery(graphql`
       query {
-        allNavigationYaml(filter: { name: { eq: "header" } }) {
-          edges {
-            node {
-              items {
-                link
-                title
-                subNavigation
-              }
-            }
+        navigationYaml(name: { eq: "header" }) {
+          items {
+            link
+            title
+            subNavigation
           }
         }
         allContentfulNavigationGroup {
-          edges {
-            node {
-              slug
-              pages {
-                ... on ContentfulPage {
-                  title
-                  link: slug
-                }
-                ... on ContentfulNavigationLink {
-                  title
-                  link: url
-                }
+          nodes {
+            slug
+            pages {
+              ... on ContentfulPage {
+                title
+                link: slug
+              }
+              ... on ContentfulNavigationLink {
+                title
+                link: url
               }
             }
           }
@@ -70,10 +64,10 @@ const Header = withSearch(
     `)
     const subNavigation = {}
     let pathNavigation = false
-    data.allContentfulNavigationGroup.edges.forEach(({ node }) => {
+    data.allContentfulNavigationGroup.nodes.forEach(node => {
       subNavigation[node.slug] = node.pages
     })
-    const topNavigation = data.allNavigationYaml.edges[0].node.items
+    const topNavigation = data.navigationYaml.items
     if (returnLink && returnLinkTitle) {
       pathNavigation = {
         top: false,

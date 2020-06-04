@@ -3,11 +3,11 @@ import State from './state-data'
 
 export default ({ states, stateData }) => {
   const stateList = []
-  states.forEach(({ node }) => {
+  states.forEach(node => {
     const state = node
     stateData.forEach(data => {
-      if (data.node.state === state.state) {
-        state.stateData = data.node
+      if (data.state === state.state) {
+        state.stateData = data
       }
     })
     stateList.push(state)
