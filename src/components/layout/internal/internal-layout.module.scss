@@ -1,0 +1,28 @@
+@import '~scss/colors.module.scss';
+
+.header {
+  background: $color-plum-800;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .logo {
+    width: 20%;
+    display: flex;
+    img {
+      max-width: 150px;
+    }
+  }
+  h1 {
+    width: 70%;
+    padding-left: 2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: white;
+    a {
+      color: white;
+    }
+  }
+}

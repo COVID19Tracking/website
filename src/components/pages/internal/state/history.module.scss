@@ -1,0 +1,11 @@
+@import '~scss/colors.module.scss';
+
+.button {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: $color-link;
+  text-decoration: underline;
+  cursor: pointer;
+}
