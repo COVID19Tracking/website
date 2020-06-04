@@ -117,7 +117,7 @@
   "scripts": {
     "build": "run-s setup:api-repo build:gatsby build:test",
     "build-preview": "run-s setup build:gatsby build:test",
-    "build:gatsby": "gatsby build",
+    "build:gatsby": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build",
     "build:test": "jest --verbose --config=\"{}\" -- src/__tests__/build/index.js",
     "clean": "run-p clean:*",
     "clean:gatsby": "gatsby clean",
