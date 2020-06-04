@@ -43,7 +43,8 @@ export default () => {
           , which brings data and expert analysis together in one place. The
           initiative is designed to help policymakers and the public understand
           the trajectory of the pandemic, and make decisions about the path
-          forward.
+          forward. (Please note this visualization is not a dynamic
+          representation of case data, and will not update automatically.)
         </p>
       </div>
     </div>
