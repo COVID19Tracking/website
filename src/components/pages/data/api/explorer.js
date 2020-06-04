@@ -21,10 +21,10 @@ const PreviewUrl = ({ path, format, parameters }) => {
   })
   return (
     <>
-      <p>
+      <p className={explorerStyles.pathDescription}>
         <code>{path.replace('{format}', format)}</code>
       </p>
-      <p>
+      <p className={explorerStyles.pathDescription}>
         <strong>Example:</strong>{' '}
         <code>
           <a href={examplePath}>{examplePath}</a>
@@ -73,13 +73,28 @@ const Path = ({ path }) => {
       <DisclosureButton className={explorerStyles.button}>
         <h3>
           {definition.paths[path].get.summary}{' '}
-          <span aria-hidden>{isOpen ? <>↑</> : <>↓</>}</span>
+          <span aria-hidden className={explorerStyles.toggle}>
+            {isOpen ? <>↑</> : <>↓</>}
+          </span>
         </h3>
       </DisclosureButton>
       <DisclosurePanel className={explorerStyles.panel}>
-        <p className={explorerStyles.description}>
-          {definition.paths[path].get.description}
-        </p>
+        <p>{definition.paths[path].get.description}</p>
+        {definition.paths[path].get['x-public-source-url'] && (
+          <p>
+            <a
+              href={definition.paths[path].get['x-public-source-url']}
+              target="_blank"
+              without
+              rel="noreferrer"
+            >
+              View data source{' '}
+              <span className="a11y-only">
+                for {definition.paths[path].get.summary}
+              </span>
+            </a>
+          </p>
+        )}
         <h4>JSON format</h4>
         <PreviewUrl
           path={path}

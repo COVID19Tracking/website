@@ -10,16 +10,17 @@
   cursor: pointer;
 }
 
+.toggle {
+  display: inline-block;
+  margin-left: 2rem;
+}
+
 .panel {
   padding-top: 2rem;
   margin-left: 2rem;
-  p {
+  .path-description {
     margin-bottom: 0;
     margin-left: 2rem;
-    &.description {
-      margin-left: 0;
-      margin-bottom: 2rem;
-    }
   }
   dl {
     margin-left: 2rem;
