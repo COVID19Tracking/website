@@ -100,20 +100,17 @@
   display: inline-block;
   vertical-align: top;
   padding: 0.4rem 0.5rem;
-
   font-weight: bold;
   background: #ffffff;
   color: $color-blueberry-500;
   text-decoration: none;
-
   transition: all 0.2s;
 
   &:hover {
-    @include link-hover;
+    text-decoration: none;
   }
   &:focus {
     @include link-focus;
-    background: $color-blueberry-200;
   }
 
   @media (max-width: $viewport-lg) {
