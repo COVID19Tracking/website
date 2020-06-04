@@ -21,10 +21,16 @@
     dt {
       font-weight: bold;
       font-family: monospace;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
     dd {
-      margin-bottom: 0.5rem;
+      margin-bottom: 2rem;
     }
   }
+}
+
+.type {
+  color: $color-slate-700;
+  margin-left: 1rem;
+  font-size: 1rem;
 }

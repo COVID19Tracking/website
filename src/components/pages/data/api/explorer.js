@@ -5,6 +5,7 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@reach/disclosure'
+import DetailText from '~components/common/detail-text'
 import explorerStyles from './explorer.module.scss'
 import definition from '../../../../../_api/v1/openapi.json'
 
@@ -41,8 +42,22 @@ const Fields = ({ schema }) => {
     <dl>
       {Object.keys(fields).map(property => (
         <Fragment key={`${schema}-${property}`}>
-          <dt>{property}</dt>
-          <dd>{fields[property].description}</dd>
+          <dt>
+            {property}{' '}
+            <span className={explorerStyles.type}>
+              <span className="a11y-only">Field type: </span>
+              {fields[property].type}
+            </span>
+          </dt>
+          <dd>
+            {fields[property].description}
+
+            {fields[property].type === 'integer' && fields[property].nullable && (
+              <DetailText>
+                Returns <code>null</code> if no data is available
+              </DetailText>
+            )}
+          </dd>
         </Fragment>
       ))}
     </dl>
