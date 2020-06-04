@@ -294,14 +294,11 @@
             z-index: 2;
           }
 
-          a:hover {
-            @include link-hover-dark-bg;
-          }
           a:focus {
             @include link-focus-dark-bg;
           }
           &:hover > a {
-            border-bottom: 3px solid $color-blueberry-200;
+            @include link-hover-dark-bg;
           }
         }
       }
