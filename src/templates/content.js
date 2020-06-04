@@ -4,22 +4,26 @@ import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
 
 const ContentPage = ({ data, path }) => {
-  const page = data.contentfulPage
+  const { contentfulPage } = data
   return (
     <Layout
-      title={page.title}
-      navigation={page.navigationGroup ? page.navigationGroup.pages : false}
+      title={contentfulPage.title}
+      navigation={
+        contentfulPage.navigationGroup
+          ? contentfulPage.navigationGroup.pages
+          : false
+      }
       path={path}
-      returnLink={page.returnLinkUrl}
-      returnLinkTitle={page.returnLinkTitle}
-      socialCard={page.socialCard}
+      returnLink={contentfulPage.returnLinkUrl}
+      returnLinkTitle={contentfulPage.returnLinkTitle}
+      socialCard={contentfulPage.socialCard}
       narrow
       textHeavy
     >
       <ContentfulContent
         className="module-content"
-        id={page.contentful_id}
-        content={page.body.childMarkdownRemark.html}
+        id={contentfulPage.contentful_id}
+        content={contentfulPage.body.childMarkdownRemark.html}
       />
     </Layout>
   )

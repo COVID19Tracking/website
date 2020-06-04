@@ -10,11 +10,11 @@ import { SyncInfobox } from '~components/common/infobox'
 
 const StatePage = ({ pageContext, data, path }) => {
   const state = pageContext
-  const summary = data.covidState
+  const { covidState } = data
   return (
     <Layout title={state.name} returnLink="/data" path={path}>
       <StateLinks {...state} />
-      <StateGrade letterGrade={summary.dataQualityGrade} />
+      <StateGrade letterGrade={covidState.dataQualityGrade} />
       {state.notes && (
         <div
           className="module-content"
@@ -24,7 +24,7 @@ const StatePage = ({ pageContext, data, path }) => {
         />
       )}
       <SyncInfobox />
-      <SummaryTable data={summary} lastUpdated={summary.dateModified} />
+      <SummaryTable data={covidState} lastUpdated={covidState.dateModified} />
       <h2 id="historical">History</h2>
       <StateHistory
         history={data.allCovidStateDaily.edges}
