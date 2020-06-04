@@ -13,18 +13,16 @@ export default () => {
         sort: { fields: publishDate, order: DESC }
         limit: 4
       ) {
-        edges {
-          node {
-            id
-            title
-            url
-            publication
-            publishDate(formatString: "MMMM D, YYYY")
-          }
+        nodes {
+          id
+          title
+          url
+          publication
+          publishDate(formatString: "MMMM D, YYYY")
         }
       }
     }
   `)
 
-  return <PressList items={data.allCovidPress.edges} />
+  return <PressList items={data.allCovidPress.nodes} />
 }

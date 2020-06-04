@@ -11,7 +11,7 @@ import { SyncInfobox } from '~components/common/infobox'
 
 export default ({ data }) => {
   const stateNavList = []
-  data.allCovidStateInfo.edges.forEach(({ node }) => {
+  data.allCovidStateInfo.nodes.forEach(node => {
     stateNavList.push(node)
   })
   return (
@@ -20,31 +20,29 @@ export default ({ data }) => {
       socialCard={{
         description: 'Our most up-to-date data on COVID-19 in the US.',
       }}
-      navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
+      navigation={data.contentfulNavigationGroup.pages}
     >
       <ContentfulContent
         className="module-content"
-        content={data.dataPreamble.nodes[0].content.childMarkdownRemark.html}
-        id={data.dataPreamble.nodes[0].contentful_id}
+        content={data.dataPreamble.content.childMarkdownRemark.html}
+        id={data.dataPreamble.contentful_id}
       />
       <SyncInfobox />
-      <SummaryTable data={data.allCovidUs.edges[0].node} showOutcomes={false} />
+      <SummaryTable data={data.covidUs} showOutcomes={false} />
       <DetailText>
         <span
           className="module-content"
           dangerouslySetInnerHTML={{
-            __html:
-              data.dataSummaryFootnote.nodes[0].content.childMarkdownRemark
-                .html,
+            __html: data.dataSummaryFootnote.content.childMarkdownRemark.html,
           }}
         />
       </DetailText>
       <StatesNav title="Totals by state" stateList={stateNavList} />
 
-      <StatesNoScriptNav stateList={data.allCovidStateInfo.edges} />
+      <StatesNoScriptNav stateList={data.allCovidStateInfo.nodes} />
       <StateList
-        states={data.allCovidStateInfo.edges}
-        stateData={data.allCovidState.edges}
+        states={data.allCovidStateInfo.nodes}
+        stateData={data.allCovidState.nodes}
       />
     </Layout>
   )
@@ -52,98 +50,80 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    dataSummaryFootnote: allContentfulSnippet(
-      filter: { slug: { eq: "data-summary-footnote" } }
+    dataSummaryFootnote: contentfulSnippet(
+      slug: { eq: "data-summary-footnote" }
     ) {
-      nodes {
-        id
-        contentful_id
-        name
-        content {
-          childMarkdownRemark {
-            html
-          }
+      id
+      contentful_id
+      name
+      content {
+        childMarkdownRemark {
+          html
         }
       }
     }
-    dataPreamble: allContentfulSnippet(
-      filter: { slug: { eq: "data-preamble" } }
-    ) {
-      nodes {
-        id
-        contentful_id
-        name
-        content {
-          childMarkdownRemark {
-            html
-          }
+    dataPreamble: contentfulSnippet(slug: { eq: "data-preamble" }) {
+      id
+      contentful_id
+      name
+      content {
+        childMarkdownRemark {
+          html
         }
       }
     }
-    allCovidUs {
-      edges {
-        node {
-          positive
-          negative
-          pending
-          hospitalizedCurrently
-          hospitalizedCumulative
-          inIcuCurrently
-          inIcuCumulative
-          recovered
-          onVentilatorCurrently
-          onVentilatorCumulative
-          death
-          totalTestResults
-        }
-      }
+    covidUs {
+      positive
+      negative
+      pending
+      hospitalizedCurrently
+      hospitalizedCumulative
+      inIcuCurrently
+      inIcuCumulative
+      recovered
+      onVentilatorCurrently
+      onVentilatorCumulative
+      death
+      totalTestResults
     }
     allCovidStateInfo(sort: { fields: name }) {
-      edges {
-        node {
-          name
-          state
-          notes
-          covid19Site
-          covid19SiteSecondary
-          twitter
-        }
+      nodes {
+        name
+        state
+        notes
+        covid19Site
+        covid19SiteSecondary
+        twitter
       }
     }
     allCovidState {
-      edges {
-        node {
-          totalTestResults
-          state
-          dataQualityGrade
-          dateModified
-          positive
-          negative
-          pending
-          hospitalizedCurrently
-          hospitalizedCumulative
-          inIcuCurrently
-          inIcuCumulative
-          recovered
-          onVentilatorCurrently
-          onVentilatorCumulative
-          death
-        }
+      nodes {
+        totalTestResults
+        state
+        dataQualityGrade
+        dateModified
+        positive
+        negative
+        pending
+        hospitalizedCurrently
+        hospitalizedCumulative
+        inIcuCurrently
+        inIcuCumulative
+        recovered
+        onVentilatorCurrently
+        onVentilatorCumulative
+        death
       }
     }
-    allContentfulNavigationGroup(filter: { slug: { eq: "data" } }) {
-      edges {
-        node {
-          pages {
-            ... on ContentfulPage {
-              title
-              link: slug
-            }
-            ... on ContentfulNavigationLink {
-              title
-              link: url
-            }
-          }
+    contentfulNavigationGroup(slug: { eq: "data" }) {
+      pages {
+        ... on ContentfulPage {
+          title
+          link: slug
+        }
+        ... on ContentfulNavigationLink {
+          title
+          link: url
         }
       }
     }
