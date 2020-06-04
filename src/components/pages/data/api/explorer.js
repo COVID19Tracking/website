@@ -42,15 +42,13 @@ const Fields = ({ schema }) => {
     <dl>
       {Object.keys(fields).map(property => (
         <Fragment key={`${schema}-${property}`}>
-          <dt>
-            {property}{' '}
-            <span className={explorerStyles.type}>
+          <dt>{property}</dt>
+          <dd>
+            <div className={explorerStyles.type}>
               <span className="a11y-only">Field type: </span>
               {fields[property].type}
-            </span>
-          </dt>
-          <dd>
-            {fields[property].description}
+            </div>
+            <p>{fields[property].description}</p>
 
             {fields[property].type === 'integer' && fields[property].nullable && (
               <DetailText>

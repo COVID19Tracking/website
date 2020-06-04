@@ -25,12 +25,15 @@
     }
     dd {
       margin-bottom: 2rem;
+
+      p {
+        margin: 0.5rem 0;
+      }
     }
   }
 }
 
 .type {
-  color: $color-slate-700;
-  margin-left: 1rem;
-  font-size: 1rem;
+  color: $color-slate-600;
+  font-family: monospace;
 }
