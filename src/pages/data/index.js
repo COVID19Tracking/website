@@ -11,7 +11,7 @@ import { SyncInfobox } from '~components/common/infobox'
 
 export default ({ data }) => {
   const stateNavList = []
-  data.allCovidStateInfo.edges.forEach(({ node }) => {
+  data.allCovidStateInfo.nodes.forEach(node => {
     stateNavList.push(node)
   })
   return (
@@ -39,10 +39,10 @@ export default ({ data }) => {
       </DetailText>
       <StatesNav title="Totals by state" stateList={stateNavList} />
 
-      <StatesNoScriptNav stateList={data.allCovidStateInfo.edges} />
+      <StatesNoScriptNav stateList={data.allCovidStateInfo.nodes} />
       <StateList
-        states={data.allCovidStateInfo.edges}
-        stateData={data.allCovidState.edges}
+        states={data.allCovidStateInfo.nodes}
+        stateData={data.allCovidState.nodes}
       />
     </Layout>
   )
@@ -87,36 +87,32 @@ export const query = graphql`
       totalTestResults
     }
     allCovidStateInfo(sort: { fields: name }) {
-      edges {
-        node {
-          name
-          state
-          notes
-          covid19Site
-          covid19SiteSecondary
-          twitter
-        }
+      nodes {
+        name
+        state
+        notes
+        covid19Site
+        covid19SiteSecondary
+        twitter
       }
     }
     allCovidState {
-      edges {
-        node {
-          totalTestResults
-          state
-          dataQualityGrade
-          dateModified
-          positive
-          negative
-          pending
-          hospitalizedCurrently
-          hospitalizedCumulative
-          inIcuCurrently
-          inIcuCumulative
-          recovered
-          onVentilatorCurrently
-          onVentilatorCumulative
-          death
-        }
+      nodes {
+        totalTestResults
+        state
+        dataQualityGrade
+        dateModified
+        positive
+        negative
+        pending
+        hospitalizedCurrently
+        hospitalizedCumulative
+        inIcuCurrently
+        inIcuCumulative
+        recovered
+        onVentilatorCurrently
+        onVentilatorCumulative
+        death
       }
     }
     contentfulNavigationGroup(slug: { eq: "data" }) {

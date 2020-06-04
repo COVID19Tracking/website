@@ -6,7 +6,7 @@ import DetailText from './detail-text'
 export default ({ items }) => {
   return (
     <ul className={`press-list ${pressListStyle.pressList}`}>
-      {items.map(({ node }) => (
+      {items.map(node => (
         <li key={`homepage-press-${node.id}`}>
           <PublicationTitle>
             <a href={node.url}>{node.title}</a>

@@ -10,7 +10,7 @@ export default ({ data, path }) => (
     textHeavy
     narrow
   >
-    <BlogTeaserList items={data.allContentfulBlogPost.edges} />
+    <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
   </Layout>
 )
 
@@ -23,28 +23,26 @@ export const query = graphql`
       sort: { fields: publishDate, order: DESC }
       filter: { categories: { elemMatch: { id: { eq: $id } } } }
     ) {
-      edges {
-        node {
-          title
-          slug
-          authors {
-            name
-            twitterLink
-            headshot {
-              file {
-                fileName
-              }
-              resize(width: 100) {
-                width
-                height
-                src
-              }
+      nodes {
+        title
+        slug
+        authors {
+          name
+          twitterLink
+          headshot {
+            file {
+              fileName
+            }
+            resize(width: 100) {
+              width
+              height
+              src
             }
           }
-          publishDate(formatString: "MMMM D, YYYY")
-          lede {
-            lede
-          }
+        }
+        publishDate(formatString: "MMMM D, YYYY")
+        lede {
+          lede
         }
       }
     }

@@ -10,7 +10,7 @@ import { SyncInfobox } from '~components/common/infobox'
 
 const StatePage = ({ pageContext, data, path }) => {
   const state = pageContext
-  const { covidState } = data
+  const { covidState, allCovidStateDaily, allCovidScreenshot } = data
   return (
     <Layout title={state.name} returnLink="/data" path={path}>
       <StateLinks {...state} />
@@ -27,8 +27,8 @@ const StatePage = ({ pageContext, data, path }) => {
       <SummaryTable data={covidState} lastUpdated={covidState.dateModified} />
       <h2 id="historical">History</h2>
       <StateHistory
-        history={data.allCovidStateDaily.edges}
-        screenshots={data.allCovidScreenshot.edges}
+        history={allCovidStateDaily.nodes}
+        screenshots={allCovidScreenshot.nodes}
       />
     </Layout>
   )
@@ -58,31 +58,27 @@ export const query = graphql`
       filter: { state: { eq: $state } }
       sort: { fields: date, order: DESC }
     ) {
-      edges {
-        node {
-          totalTestResults
-          totalTestResultsIncrease
-          positive
-          pending
-          negative
-          hospitalized
-          death
-          date
-        }
+      nodes {
+        totalTestResults
+        totalTestResultsIncrease
+        positive
+        pending
+        negative
+        hospitalized
+        death
+        date
       }
     }
     allCovidScreenshot(
       filter: { state: { eq: $state }, secondary: { eq: false } }
       sort: { fields: dateChecked }
     ) {
-      edges {
-        node {
-          size
-          url
-          state
-          date
-          dateChecked
-        }
+      nodes {
+        size
+        url
+        state
+        date
+        dateChecked
       }
     }
   }

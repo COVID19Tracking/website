@@ -42,7 +42,7 @@ const ContentPage = ({ data }) => (
         </tr>
       </thead>
       <tbody>
-        {data.allCovidUsDaily.edges.map(({ node }) => (
+        {data.allCovidUsDaily.nodes.map(node => (
           <tr>
             <Td alignLeft>
               <FormatDate
@@ -93,18 +93,16 @@ export const query = graphql`
       }
     }
     allCovidUsDaily(sort: { order: DESC, fields: date }) {
-      edges {
-        node {
-          totalTestResults
-          totalTestResultsIncrease
-          states
-          positive
-          pending
-          negative
-          hospitalized
-          death
-          date
-        }
+      nodes {
+        totalTestResults
+        totalTestResultsIncrease
+        states
+        positive
+        pending
+        negative
+        hospitalized
+        death
+        date
       }
     }
     contentfulNavigationGroup(slug: { eq: "data" }) {

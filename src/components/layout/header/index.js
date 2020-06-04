@@ -46,18 +46,16 @@ const Header = withSearch(
           }
         }
         allContentfulNavigationGroup {
-          edges {
-            node {
-              slug
-              pages {
-                ... on ContentfulPage {
-                  title
-                  link: slug
-                }
-                ... on ContentfulNavigationLink {
-                  title
-                  link: url
-                }
+          nodes {
+            slug
+            pages {
+              ... on ContentfulPage {
+                title
+                link: slug
+              }
+              ... on ContentfulNavigationLink {
+                title
+                link: url
               }
             }
           }
@@ -66,7 +64,7 @@ const Header = withSearch(
     `)
     const subNavigation = {}
     let pathNavigation = false
-    data.allContentfulNavigationGroup.edges.forEach(({ node }) => {
+    data.allContentfulNavigationGroup.nodes.forEach(node => {
       subNavigation[node.slug] = node.pages
     })
     const topNavigation = data.navigationYaml.items

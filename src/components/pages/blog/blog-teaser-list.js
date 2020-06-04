@@ -5,7 +5,7 @@ import CleanSpacing from '~components/utils/clean-spacing'
 
 export default ({ items }) => (
   <>
-    {items.map(({ node }) => (
+    {items.map(node => (
       <Fragment key={`blog-${node.slug}`}>
         <h2 className={`hed-primary `}>
           <Link to={`/blog/${node.slug}`}>{node.title}</Link>
