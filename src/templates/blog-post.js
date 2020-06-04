@@ -47,7 +47,7 @@ const options = {
 }
 
 export default ({ data, path }) => {
-  const blogPost = data.allContentfulBlogPost.edges[0].node
+  const blogPost = data.contentfulBlogPost
   const socialCard = blogPost.socialCard || { description: blogPost.lede.lede }
   return (
     <Layout
@@ -82,58 +82,54 @@ export default ({ data, path }) => {
 
 export const query = graphql`
   query($id: String!) {
-    allContentfulBlogPost(filter: { id: { eq: $id } }) {
-      edges {
-        node {
-          title
-          authors {
-            name
-            twitterLink
-            twitterHandle
-            link
-            childContentfulAuthorBiographyTextNode {
-              childMarkdownRemark {
-                html
-              }
-            }
-            headshot {
-              file {
-                fileName
-              }
-              resize(width: 200) {
-                width
-                height
-                src
-              }
-            }
+    contentfulBlogPost(id: { eq: $id }) {
+      title
+      authors {
+        name
+        twitterLink
+        twitterHandle
+        link
+        childContentfulAuthorBiographyTextNode {
+          childMarkdownRemark {
+            html
           }
-          categories {
-            name
-            slug
+        }
+        headshot {
+          file {
+            fileName
           }
-          childContentfulBlogPostBlogContentRichTextNode {
-            json
+          resize(width: 200) {
+            width
+            height
+            src
           }
-          slug
-          lede {
-            lede
+        }
+      }
+      socialCard {
+        description {
+          description
+        }
+        image {
+          resize(width: 1200) {
+            src
           }
-          publishDate(formatString: "MMMM D, YYYY")
-          childContentfulBlogPostBodyTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
-          socialCard {
-            description {
-              description
-            }
-            image {
-              resize(width: 1200) {
-                src
-              }
-            }
-          }
+        }
+      }
+      categories {
+        name
+        slug
+      }
+      childContentfulBlogPostBlogContentRichTextNode {
+        json
+      }
+      slug
+      lede {
+        lede
+      }
+      publishDate(formatString: "MMMM D, YYYY")
+      childContentfulBlogPostBodyTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }

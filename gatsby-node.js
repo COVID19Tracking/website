@@ -23,52 +23,42 @@ exports.createPages = async ({ graphql, actions }) => {
         filter: { name: { ne: null } }
         sort: { fields: state }
       ) {
-        edges {
-          node {
-            covid19Site
-            covid19SiteSecondary
-            notes
-            name
-            state
-            twitter
-          }
+        nodes {
+          covid19Site
+          covid19SiteSecondary
+          notes
+          name
+          state
+          twitter
         }
       }
       allContentfulPage {
-        edges {
-          node {
-            id
-            slug
-          }
+        nodes {
+          id
+          slug
         }
       }
       allContentfulDocument {
-        edges {
-          node {
-            id
-            slug
-            document {
-              file {
-                url
-              }
+        nodes {
+          id
+          slug
+          document {
+            file {
+              url
             }
           }
         }
       }
       allContentfulBlogPost(sort: { fields: updatedAt }) {
-        edges {
-          node {
-            id
-            slug
-          }
+        nodes {
+          id
+          slug
         }
       }
       allContentfulBlogCategory {
-        edges {
-          node {
-            slug
-            id
-          }
+        nodes {
+          slug
+          id
         }
       }
       allCounties(filter: { demographics: { total: { gt: 0 } } }) {
@@ -89,8 +79,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  // Create all the pages based on Markdown files in src/content/pages
-  result.data.allContentfulPage.edges.forEach(({ node }) => {
+  result.data.allContentfulPage.nodes.forEach(node => {
     createPage({
       path: node.slug,
       component: path.resolve(`./src/templates/content.js`),
@@ -98,7 +87,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  result.data.allContentfulDocument.edges.forEach(({ node }) => {
+  result.data.allContentfulDocument.nodes.forEach(node => {
     createPage({
       path: `/document/${node.slug}`,
       component: path.resolve(`./src/templates/document.js`),
@@ -110,7 +99,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  result.data.allCovidStateInfo.edges.forEach(({ node }) => {
+  result.data.allCovidStateInfo.nodes.forEach(node => {
     createPage({
       path: `/data/state/${slugify(node.name, { strict: true, lower: true })}`,
       component: path.resolve(`./src/templates/state.js`),
@@ -118,7 +107,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  result.data.allContentfulBlogPost.edges.forEach(({ node }) => {
+  result.data.allContentfulBlogPost.nodes.forEach(node => {
     createPage({
       path: `/blog/${node.slug}`,
       component: path.resolve(`./src/templates/blog-post.js`),
@@ -126,7 +115,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  result.data.allContentfulBlogCategory.edges.forEach(({ node }) => {
+  result.data.allContentfulBlogCategory.nodes.forEach(node => {
     createPage({
       path: `/blog/category/${node.slug}`,
       component: path.resolve(`./src/templates/blog-category.js`),

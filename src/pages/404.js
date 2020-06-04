@@ -8,10 +8,10 @@ const NotFoundPage = ({ data }) => (
     <ContentfulContent
       className="module-content"
       content={
-        data.allContentfulSnippet.edges[0].node
-          .childContentfulSnippetContentTextNode.childMarkdownRemark.html
+        data.contentfulSnippet.childContentfulSnippetContentTextNode
+          .childMarkdownRemark.html
       }
-      id={data.allContentfulSnippet.edges[0].node.contentful_id}
+      id={data.contentfulSnippet.contentful_id}
     />
   </Layout>
 )
@@ -20,15 +20,11 @@ export default NotFoundPage
 
 export const query = graphql`
   query {
-    allContentfulSnippet(filter: { slug: { eq: "page-not-found" } }) {
-      edges {
-        node {
-          contentful_id
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+    contentfulSnippet(slug: { eq: "page-not-found" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }
