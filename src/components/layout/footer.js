@@ -29,7 +29,7 @@ const Footer = () => (
           </li>
           <li>
             <a href="#reach-skip-nav" className={footerStyles.backToTop}>
-              Back to top.
+              Back to top
             </a>
           </li>
         </ul>
