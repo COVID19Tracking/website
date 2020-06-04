@@ -6,30 +6,24 @@ import PressLogos from '~components/pages/homepage/press-logos'
 beforeEach(() => {
   useStaticQuery.mockImplementation(() => ({
     allHomepagePressYaml: {
-      edges: [
+      nodes: [
         {
-          node: {
-            name: 'test A',
-            logo: 'test-a.png',
-            width: 300,
-            featured: false,
-          },
+          name: 'test A',
+          logo: 'test-a.png',
+          width: 300,
+          featured: false,
         },
         {
-          node: {
-            name: 'test B',
-            logo: 'test-b.png',
-            width: 300,
-            featured: true,
-          },
+          name: 'test B',
+          logo: 'test-b.png',
+          width: 300,
+          featured: true,
         },
         {
-          node: {
-            name: 'test C',
-            logo: 'test-c.png',
-            width: 400,
-            featured: true,
-          },
+          name: 'test C',
+          logo: 'test-c.png',
+          width: 400,
+          featured: true,
         },
       ],
     },

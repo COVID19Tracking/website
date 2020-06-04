@@ -15,35 +15,33 @@ export default () => {
         sort: { fields: publishDate, order: DESC }
         limit: 3
       ) {
-        edges {
-          node {
-            title
-            slug
-            authors {
-              name
-              twitterLink
-              link
-              headshot {
-                file {
-                  fileName
-                }
-                resize(width: 100) {
-                  width
-                  height
-                  src
-                }
+        nodes {
+          title
+          slug
+          authors {
+            name
+            twitterLink
+            link
+            headshot {
+              file {
+                fileName
+              }
+              resize(width: 100) {
+                width
+                height
+                src
               }
             }
-            publishDate(formatString: "MMMM D, YYYY")
-            lede {
-              lede
-            }
+          }
+          publishDate(formatString: "MMMM D, YYYY")
+          lede {
+            lede
           }
         }
       }
     }
   `)
-  const posts = data.allContentfulBlogPost.edges
+  const posts = data.allContentfulBlogPost.nodes
   return (
     <div className={blogListStyles.wrapper}>
       <Container>
@@ -53,7 +51,7 @@ export default () => {
         </Paragraph>
         <div className={blogListStyles.container}>
           <ul className={`press-list ${pressListStyle.pressList}`}>
-            {posts.map(({ node }) => (
+            {posts.map(node => (
               <li
                 key={`homepage-blog-${node.slug}`}
                 className={blogListStyles.blogItem}
