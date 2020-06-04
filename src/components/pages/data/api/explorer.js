@@ -40,24 +40,27 @@ const Fields = ({ schema }) => {
 
   return (
     <dl>
-      {Object.keys(fields).map(property => (
-        <Fragment key={`${schema}-${property}`}>
-          <dt>{property}</dt>
-          <dd>
-            <div className={explorerStyles.type}>
-              <span className="a11y-only">Field type: </span>
-              {fields[property].type}
-            </div>
-            <p>{fields[property].description}</p>
+      {Object.keys(fields)
+        .sort()
+        .map(property => (
+          <Fragment key={`${schema}-${property}`}>
+            <dt>{property}</dt>
+            <dd>
+              <div className={explorerStyles.type}>
+                <span className="a11y-only">Field type: </span>
+                {fields[property].type}
+              </div>
+              <p>{fields[property].description}</p>
 
-            {fields[property].type === 'integer' && fields[property].nullable && (
-              <DetailText>
-                Returns <code>null</code> if no data is available
-              </DetailText>
-            )}
-          </dd>
-        </Fragment>
-      ))}
+              {fields[property].type === 'integer' &&
+                fields[property].nullable && (
+                  <DetailText>
+                    Returns <code>null</code> if no data is available
+                  </DetailText>
+                )}
+            </dd>
+          </Fragment>
+        ))}
     </dl>
   )
 }
