@@ -11,6 +11,12 @@
   }
 }
 
+.project-logo {
+  &:focus {
+    @include link-focus-dark-bg;
+  }
+}
+
 .search-input {
   display: inline-flex;
   align-items: center;

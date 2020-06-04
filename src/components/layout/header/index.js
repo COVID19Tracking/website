@@ -185,7 +185,7 @@ const Header = withSearch(
             <Container>
               <div className={headerStyle.siteTitleContainer}>
                 <div className={headerStyle.siteTitleInner}>
-                  <Link to="/">
+                  <Link to="/" className={headerStyle.projectLogo}>
                     <img
                       src={projectLogo}
                       alt="The COVID Tracking Project"
