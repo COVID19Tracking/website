@@ -21,22 +21,20 @@ beforeEach(() => {
       },
     },
     allContentfulNavigationGroup: {
-      edges: [
+      nodes: [
         {
-          node: {
-            slug: 'test-a',
-            pages: [
-              {
-                title: 'Contentful a',
-                link: '/contentful-a',
-              },
+          slug: 'test-a',
+          pages: [
+            {
+              title: 'Contentful a',
+              link: '/contentful-a',
+            },
 
-              {
-                title: 'Contentful B',
-                link: '/contentful-b',
-              },
-            ],
-          },
+            {
+              title: 'Contentful B',
+              link: '/contentful-b',
+            },
+          ],
         },
       ],
     },
