@@ -67,7 +67,7 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
                 className="backToTop"
                 href="#reach-skip-nav"
               >
-                Back to top.
+                Back to top
               </a>
             </li>
           </ul>
