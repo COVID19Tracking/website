@@ -72,11 +72,14 @@ const Path = ({ path }) => {
     <Disclosure onChange={() => setIsOpen(!isOpen)}>
       <DisclosureButton className={explorerStyles.button}>
         <h3>
-          {definition.paths[path].get.description}{' '}
+          {definition.paths[path].get.summary}{' '}
           <span aria-hidden>{isOpen ? <>↑</> : <>↓</>}</span>
         </h3>
       </DisclosureButton>
       <DisclosurePanel className={explorerStyles.panel}>
+        <p className={explorerStyles.description}>
+          {definition.paths[path].get.description}
+        </p>
         <h4>JSON format</h4>
         <PreviewUrl
           path={path}

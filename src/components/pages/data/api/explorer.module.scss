@@ -11,10 +11,15 @@
 }
 
 .panel {
+  padding-top: 2rem;
   margin-left: 2rem;
   p {
     margin-bottom: 0;
     margin-left: 2rem;
+    &.description {
+      margin-left: 0;
+      margin-bottom: 2rem;
+    }
   }
   dl {
     margin-left: 2rem;
