@@ -5,6 +5,7 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@reach/disclosure'
+import DetailText from '~components/common/detail-text'
 import explorerStyles from './explorer.module.scss'
 import definition from '../../../../../_api/v1/openapi.json'
 
@@ -20,10 +21,10 @@ const PreviewUrl = ({ path, format, parameters }) => {
   })
   return (
     <>
-      <p>
+      <p className={explorerStyles.pathDescription}>
         <code>{path.replace('{format}', format)}</code>
       </p>
-      <p>
+      <p className={explorerStyles.pathDescription}>
         <strong>Example:</strong>{' '}
         <code>
           <a href={examplePath}>{examplePath}</a>
@@ -39,12 +40,27 @@ const Fields = ({ schema }) => {
 
   return (
     <dl>
-      {Object.keys(fields).map(property => (
-        <Fragment key={`${schema}-${property}`}>
-          <dt>{property}</dt>
-          <dd>{fields[property].description}</dd>
-        </Fragment>
-      ))}
+      {Object.keys(fields)
+        .sort()
+        .map(property => (
+          <Fragment key={`${schema}-${property}`}>
+            <dt>{property}</dt>
+            <dd>
+              <div className={explorerStyles.type}>
+                <span className="a11y-only">Field type: </span>
+                {fields[property].type}
+              </div>
+              <p>{fields[property].description}</p>
+
+              {fields[property].type === 'integer' &&
+                fields[property].nullable && (
+                  <DetailText>
+                    Returns <code>null</code> if no data is available
+                  </DetailText>
+                )}
+            </dd>
+          </Fragment>
+        ))}
     </dl>
   )
 }
@@ -56,11 +72,29 @@ const Path = ({ path }) => {
     <Disclosure onChange={() => setIsOpen(!isOpen)}>
       <DisclosureButton className={explorerStyles.button}>
         <h3>
-          {definition.paths[path].get.description}{' '}
-          <span aria-hidden>{isOpen ? <>↑</> : <>↓</>}</span>
+          {definition.paths[path].get.summary}{' '}
+          <span aria-hidden className={explorerStyles.toggle}>
+            {isOpen ? <>↑</> : <>↓</>}
+          </span>
         </h3>
       </DisclosureButton>
       <DisclosurePanel className={explorerStyles.panel}>
+        <p>{definition.paths[path].get.description}</p>
+        {definition.paths[path].get['x-public-source-url'] && (
+          <p>
+            <a
+              href={definition.paths[path].get['x-public-source-url']}
+              target="_blank"
+              without
+              rel="noreferrer"
+            >
+              View data source{' '}
+              <span className="a11y-only">
+                for {definition.paths[path].get.summary}
+              </span>
+            </a>
+          </p>
+        )}
         <h4>JSON format</h4>
         <PreviewUrl
           path={path}
