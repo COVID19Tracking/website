@@ -50,6 +50,11 @@
     }
     a {
       color: white;
+      font-weight: bold;
+      text-decoration: none;
+      &:hover {
+        @include link-hover-dark-bg;
+      }
     }
     .back-to-top {
       display: block;
