@@ -421,7 +421,7 @@
 
           &:hover,
           &[aria-current] {
-            border-bottom: 3px solid $color-blueberry-200;
+            @include link-hover-dark-bg;
           }
           @media (min-width: $viewport-ms) {
             margin: 0 1em;
