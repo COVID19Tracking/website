@@ -552,6 +552,13 @@ Array [
               </li>
               <li>
                 <a
+                  href="/terms-and-conditions"
+                >
+                  Terms and Conditions
+                </a>
+              </li>
+              <li>
+                <a
                   href="/license"
                 >
                   License
@@ -1140,6 +1147,13 @@ Array [
               </li>
               <li>
                 <a
+                  href="/terms-and-conditions"
+                >
+                  Terms and Conditions
+                </a>
+              </li>
+              <li>
+                <a
                   href="/license"
                 >
                   License
@@ -1724,6 +1738,13 @@ Array [
                   href="/accessibility"
                 >
                   Accessibility
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/terms-and-conditions"
+                >
+                  Terms and Conditions
                 </a>
               </li>
               <li>
