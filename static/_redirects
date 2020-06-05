@@ -41,5 +41,3 @@
 /help                                         /get-involved
 /about-project/help                           /get-involved
 /documents/CDC%20Data%20Report%20%20-%20The%20COVID%20Tracking%20Project.pdf /documents/CDC_Report_CTP.pdf
-
-/internal/* 200! Role=internal
