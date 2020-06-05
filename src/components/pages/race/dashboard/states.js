@@ -309,6 +309,26 @@ export default () => {
           whiteSpecialCaseNotes
         }
       }
+      disparityNote: contentfulSnippet(
+        slug: { eq: "race-dashboard-disparity" }
+      ) {
+        contentful_id
+        childContentfulSnippetContentTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+      comparibleNote: contentfulSnippet(
+        slug: { eq: "race-dashboard-not-comparable" }
+      ) {
+        contentful_id
+        childContentfulSnippetContentTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
     }
   `)
 
@@ -347,6 +367,24 @@ export default () => {
             </div>
           </div>
         ))}
+      <div className="js-disabled">
+        <div
+          id="notes-disparity"
+          dangerouslySetInnerHTML={{
+            __html:
+              data.disparityNote.childContentfulSnippetContentTextNode
+                .childMarkdownRemark.html,
+          }}
+        />
+        <div
+          id="notes-comparible"
+          dangerouslySetInnerHTML={{
+            __html:
+              data.comparibleNote.childContentfulSnippetContentTextNode
+                .childMarkdownRemark.html,
+          }}
+        />
+      </div>
     </section>
   )
 }
