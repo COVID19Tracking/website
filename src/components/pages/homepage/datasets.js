@@ -56,7 +56,7 @@ export default () => {
         <a href="https://covidexitstrategy.org">covidexitstrategy.org</a>{' '}
         identifies critical interventions needed to stop the spread of COVID-19,
         and urges government decision-makers to apply them. They use our data to
-        power a dashboard comparing each state&apos;s interventions and testing
+        power a dashboard comparing each state&#8217;s interventions and testing
         levels with case counts and deaths over time.
       </Feature>
     </div>

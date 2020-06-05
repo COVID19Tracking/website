@@ -57,7 +57,7 @@ export default ({ state }) => {
         <h3>How we calculate likely racial/ethnic disparity</h3>
 
         <p>
-          We flag a group&apos;s case or death proportion as suggestive of
+          We flag a group&#8217;s case or death proportion as suggestive of
           racial/ethnic disparity when it meets three criteria:
         </p>
         <ol>
