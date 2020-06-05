@@ -7,7 +7,6 @@ import ApiPreview from '~components/pages/internal/state/api-preview'
 import RawData from '~components/pages/internal/state/raw-data'
 
 export default ({ pageContext, data }) => {
-  console.log(data)
   const { covidStateInfo, allCovidScreenshot, covidStateDaily } = data
   const { date } = pageContext
   const screenshots = []

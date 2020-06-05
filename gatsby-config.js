@@ -208,6 +208,12 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-plugin-load-script',
+      options: {
+        src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-netlify',
       options: {
         mergeSecurityHeaders: false,
