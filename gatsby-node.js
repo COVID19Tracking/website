@@ -32,6 +32,12 @@ exports.createPages = async ({ graphql, actions }) => {
           twitter
         }
       }
+      allCovidStateDaily {
+        nodes {
+          state
+          date
+        }
+      }
       allContentfulPage {
         nodes {
           id
@@ -109,6 +115,14 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/internal/state/${node.state.toLowerCase()}`,
       component: path.resolve(`./src/templates/internal/state.js`),
+      context: node,
+    })
+  })
+
+  result.data.allCovidStateDaily.nodes.forEach(node => {
+    createPage({
+      path: `/internal/state/${node.state.toLowerCase()}/${node.date}`,
+      component: path.resolve(`./src/templates/internal/state-date.js`),
       context: node,
     })
   })

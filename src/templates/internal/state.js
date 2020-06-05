@@ -33,6 +33,7 @@ export default ({ data }) => {
         />
       )}
       <InternalStateHistory
+        state={covidStateInfo}
         history={allCovidStateDaily.nodes}
         screenshots={screenshots}
       />
