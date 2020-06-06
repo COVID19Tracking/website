@@ -66,6 +66,17 @@ $color-infobox-alert-dark: #802509;
 $color-error-light: #f9ded9;
 $color-error-dark: #e35942;
 
+
+// Six Color Palette
+$color-palette-100: #8dd3c7;
+$color-palette-200: #ffffb3;
+$color-palette-300: #bebada;
+$color-palette-400: #fb8072;
+$color-palette-500: #80b1d3;
+$color-palette-600: #fdb462;
+
+
+
 :export {
   text: $text;
   link: $color-link;
@@ -99,4 +110,10 @@ $color-error-dark: #e35942;
   colorSlate600: $color-slate-600;
   colorSlate700: $color-slate-700;
   colorSlate800: $color-slate-800;
+  colorPalette100: $color-palette-100;
+  colorPalette200: $color-palette-200;
+  colorPalette300: $color-palette-300;
+  colorPalette400: $color-palette-400;
+  colorPalette500: $color-palette-500;
+  colorPalette600: $color-palette-600;
 }
