@@ -43,6 +43,20 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
             </li>
             <li>
               <a
+                href="/terms-and-conditions"
+              >
+                Terms and Conditions
+              </a>
+            </li>
+            <li>
+              <a
+                href="/license"
+              >
+                License
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://github.com/COVID19Tracking"
               >
                 GitHub

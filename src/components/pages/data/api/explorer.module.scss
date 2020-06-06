@@ -1,0 +1,45 @@
+@import '~scss/colors.module.scss';
+
+.button {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-bottom: 1px solid $color-slate-500;
+  display: block;
+  background: transparent;
+  cursor: pointer;
+}
+
+.toggle {
+  display: inline-block;
+  margin-left: 2rem;
+}
+
+.panel {
+  padding-top: 2rem;
+  margin-left: 2rem;
+  .path-description {
+    margin-bottom: 0;
+    margin-left: 2rem;
+  }
+  dl {
+    margin-left: 2rem;
+    dt {
+      font-weight: bold;
+      font-family: monospace;
+      font-size: 1.5rem;
+    }
+    dd {
+      margin-bottom: 2rem;
+
+      p {
+        margin: 0.5rem 0;
+      }
+    }
+  }
+}
+
+.type {
+  color: $color-slate-600;
+  font-family: monospace;
+}

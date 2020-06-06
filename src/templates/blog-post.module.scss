@@ -1,11 +1,12 @@
-@import '../scss/colors.module.scss';
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
 
 .blog-content {
   blockquote {
     color: $color-plum-600;
     border-left: 2px solid $color-plum-600;
     padding-left: 1.5rem;
-    margin-left: .25rem;
+    margin-left: 0.25rem;
     &::before {
       content: '“';
     }
@@ -15,6 +16,12 @@
     p {
       margin: 0;
       display: inline;
+    }
+  }
+
+  table {
+    @media only screen and (max-width: $viewport-lg) {
+      white-space: initial;
     }
   }
 }

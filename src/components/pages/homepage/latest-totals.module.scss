@@ -48,55 +48,22 @@
   }
 }
 
-.total {
-  background-color: $color-blueberry-100;
-  text-align: right;
-  // margin-bottom: 1.5rem;
-  @include margin(24, bottom);
-  // ===
-  // toRem helper translates pixels to rem depending on base font size. 
-  // Can be made responsive easily.
-  // ===
-  padding: toRem(12) toRem(15);
-
-  @media (min-width: $viewport-lg) {
-    margin-bottom: 0;
-    // padding: 0;
-  }
-  .number,
-  .label {
-    // margin-right: 8px;
-    @include margin(8, right);
-  }
-  .number {
-    font-weight: bold;
-    font-size: 30px;
-    font-size: 1.875rem;
-    line-height: 1.2;
-    // margin-top: 6px;
-    // margin-bottom: 2px;
-    // ===
-    // Direct helper usage for fine-grained control
-    // ===
-    margin-top: spacer(8);
-    margin-bottom: spacer(4);
-  }
-  .label {
-    // ===
-    // toRem helper translates pixels to rem depending on base font size. 
-    // Can be made responsive easily.
-    // ===
-    font-size: toRem(13);
-    font-size: 0.8125rem;
-    line-height: 1rem;
-    font-weight: 700;
-    // margin-bottom: 6px;
-    @include margin(8, bottom);
-  }
+.container {
+  margin: 4rem 0;
 }
 
-.cta-link {
-  position: absolute;
-  top: 0;
-  right: 0;
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4rem;
+  * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  h2,
+  a {
+    font-size: 18px;
+    line-height: 150%;
+  }
 }

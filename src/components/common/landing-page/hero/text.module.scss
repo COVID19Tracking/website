@@ -1,0 +1,11 @@
+@import '~scss/breakpoints.module.scss';
+
+.text {
+  @media (min-width: $viewport-lg) {
+    font-size: 23px;
+    max-width: 38rem;
+  }
+  @media (min-width: $viewport-xl) {
+    max-width: 50rem;
+  }
+}

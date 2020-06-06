@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery, StaticQuery } from 'gatsby'
-import Header from '../../../components/layout/header'
+import Header from '~components/layout/header'
 
 beforeEach(() => {
   StaticQuery.mockImplementation(({ render }) =>
@@ -15,21 +15,34 @@ beforeEach(() => {
   )
 
   useStaticQuery.mockImplementation(() => ({
-    allNavigationYaml: {
-      edges: [
+    allContentfulNavigationGroup: {
+      nodes: [
         {
-          node: {
-            items: [
-              {
-                link: '/test-a',
-                title: 'Test A',
-              },
-              {
-                link: '/test-b',
-                title: 'Test B',
-              },
-            ],
-          },
+          slug: 'test-a',
+          pages: [
+            {
+              title: 'Contentful a',
+              link: '/contentful-a',
+            },
+
+            {
+              title: 'Contentful B',
+              link: '/contentful-b',
+            },
+          ],
+        },
+      ],
+    },
+    navigationYaml: {
+      items: [
+        {
+          link: '/test-a',
+          title: 'Test A',
+          subNavigation: 'test-a',
+        },
+        {
+          link: '/test-b',
+          title: 'Test B',
         },
       ],
     },
@@ -50,5 +63,30 @@ describe('Components : Layout : Header', () => {
       .create(<Header title="Sample title" titleLink="/link" />)
       .toJSON()
     expect(linkTree).toMatchSnapshot()
+
+    const mockNavigation = [
+      {
+        node: {
+          pages: [
+            {
+              title: 'State by State',
+              link: '/data',
+            },
+            {
+              title: 'Totals for the U.S.',
+              link: '/data/us-daily',
+            },
+            {
+              title: 'Data API',
+              link: '/api',
+            },
+          ],
+        },
+      },
+    ]
+    const navigationTree = renderer
+      .create(<Header title="Sample title" navigation={mockNavigation} />)
+      .toJSON()
+    expect(navigationTree).toMatchSnapshot()
   })
 })

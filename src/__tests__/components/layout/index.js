@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery, StaticQuery } from 'gatsby'
-import Layout from '../../../components/layout/index'
+import Layout from '~components/layout/index'
 
 beforeEach(() => {
   StaticQuery.mockImplementation(({ render }) =>
@@ -20,23 +20,46 @@ beforeEach(() => {
         title: 'Test site',
       },
     },
-    allNavigationYaml: {
-      edges: [
+    allContentfulNavigationGroup: {
+      nodes: [
         {
-          node: {
-            items: [
-              {
-                link: '/test-a',
-                title: 'Test A',
-              },
-              {
-                link: '/test-b',
-                title: 'Test B',
-              },
-            ],
-          },
+          slug: 'test-a',
+          pages: [
+            {
+              title: 'Contentful a',
+              link: '/contentful-a',
+            },
+
+            {
+              title: 'Contentful B',
+              link: '/contentful-b',
+            },
+          ],
         },
       ],
+    },
+    navigationYaml: {
+      items: [
+        {
+          link: '/test-a',
+          title: 'Test A',
+          subNavigation: 'test-a',
+        },
+        {
+          link: '/test-b',
+          title: 'Test B',
+        },
+      ],
+    },
+    contentfulSocialCard: {
+      description: {
+        description: 'Social media description',
+      },
+      image: {
+        resize: {
+          src: '//image.url',
+        },
+      },
     },
   }))
 })
@@ -46,7 +69,13 @@ describe('Components : Layout : Header', () => {
     const tree = renderer
       .create(
         <>
-          <Layout title="Sample title">
+          <Layout
+            title="Sample title"
+            socialCard={{
+              description: 'social card',
+              image: { resize: { src: '//image.url' } },
+            }}
+          >
             <p>Content</p>
           </Layout>
         </>,
@@ -64,5 +93,16 @@ describe('Components : Layout : Header', () => {
       )
       .toJSON()
     expect(textHeavytree).toMatchSnapshot()
+
+    const displayTitleTree = renderer
+      .create(
+        <>
+          <Layout title="Sample title" displayTitle="Another title">
+            <p>Content</p>
+          </Layout>
+        </>,
+      )
+      .toJSON()
+    expect(displayTitleTree).toMatchSnapshot()
   })
 })

@@ -1,4 +1,4 @@
-@import '../../../scss/colors.module.scss';
+@import '~scss/colors.module.scss';
 
 .categories-container {
   display: flex;
@@ -14,7 +14,7 @@
       text-decoration: none;
     }
     &::after {
-      content: "  |  ";
+      content: '  |  ';
       white-space: pre;
       color: $text;
       font-weight: normal;

@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import ListArrow from '../../../components/common/list-arrow'
+import ListArrow from '~components/common/list-arrow'
 
 describe('Components : Common: Get Involved', () => {
   it('renders correctly', () => {

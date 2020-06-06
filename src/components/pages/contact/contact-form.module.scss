@@ -1,0 +1,46 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+.contact-form {
+  margin-top: 30px;
+
+  input[type='text'],
+  input[type='email'],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    margin-bottom: 50px;
+    display: block;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  .input-header,
+  legend {
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 24px;
+  }
+
+  button {
+    width: 210px;
+    height: 58px;
+    border: none;
+    background: $color-blueberry-200;
+    border-radius: 4px;
+    line-height: 33px;
+    color: $color-blueberry-400;
+    font-size: 22px;
+  }
+
+  .bot-field {
+    display: none;
+  }
+}

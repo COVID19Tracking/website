@@ -1,8 +1,8 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import Container from './container'
-import CtaLink from './cta-link'
+import Container from '~components/common/landing-page/container'
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 import ImageCredit from '~components/common/image-credit'
 import largeProjectStyles from './large-project.module.scss'
 
@@ -45,8 +45,8 @@ export default () => {
         <p>
           We&apos;re tracking racial and ethnic data from every state that
           reports it—and pushing those that don&apos;t to start. Together with
-          the the Antiracist Research &amp; Policy Center, we&apos;re analyzing
-          this data to uncover the true impact of the outbreak on vulnerable
+          the Antiracist Research &amp; Policy Center, we&apos;re analyzing this
+          data to uncover the true impact of the outbreak on vulnerable
           communities.
         </p>
         <CtaLink to="/race" centered>

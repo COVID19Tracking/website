@@ -1,0 +1,46 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+th.group {
+  width: 28%;
+  @media (min-width: $viewport-xl) {
+    min-width: 32%;
+  }
+}
+
+.percent {
+  width: 24%;
+}
+
+.missing-data {
+  background-color: $color-error-light;
+  a {
+    color: black;
+  }
+  span {
+    line-height: 1.5;
+  }
+}
+
+td.missing-data {
+  text-align: left;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+th.missing-data {
+  img {
+    max-width: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  span {
+    display: inline-flex;
+  }
+}
+
+.symbol-spacer {
+  display: inline-block;
+  width: 3rem;
+  margin-left: 0.5rem;
+  text-align: left;
+}

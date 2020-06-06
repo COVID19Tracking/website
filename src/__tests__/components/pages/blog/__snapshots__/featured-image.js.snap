@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Blog : Featured Image renders correctly 1`] = `
+Array [
+  <div>
+    <img
+      alt="An Example Image"
+      src="//images.ctfassets.net/anexampleimage"
+    />
+    <div
+      className="credit"
+    >
+      An Example Image
+    </div>
+  </div>,
+  <hr
+    className="featuredImageRule"
+  />,
+]
+`;

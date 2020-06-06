@@ -1,7 +1,6 @@
 @import './normalize.css';
-@import './colors.module.scss';
-@import './breakpoints.module.scss';
-@import './breakpoints.module.scss';
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
 
 html {
   box-sizing: border-box;
@@ -90,6 +89,10 @@ select,
   }
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 * {
   transition: color 0.2s;
   transition: background-color 0.2s;
@@ -118,7 +121,9 @@ select,
   }
 
   .js-disabled-block {
-    display: block !important;
+    @media (min-width: $viewport-md) {
+      display: block !important;
+    }
   }
 }
 

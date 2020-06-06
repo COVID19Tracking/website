@@ -6,13 +6,11 @@ export default ({ onlyFeatured, extraMargin }) => {
   const data = useStaticQuery(graphql`
     query {
       allHomepagePressYaml {
-        edges {
-          node {
-            name
-            logo
-            width
-            featured
-          }
+        nodes {
+          name
+          logo
+          width
+          featured
         }
       }
     }
@@ -28,7 +26,7 @@ export default ({ onlyFeatured, extraMargin }) => {
         CNN, Vox, ProPublica, and The Wall Street Journal use our data in their
         reporting.
       </p>
-      {data.allHomepagePressYaml.edges.map(({ node }) => (
+      {data.allHomepagePressYaml.nodes.map(node => (
         <React.Fragment key={node.name}>
           {(!onlyFeatured || node.featured) && (
             <img

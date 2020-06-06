@@ -1,71 +1,113 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import { Location } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
-import card from '../../images/card.png'
 
-function SEO({ lang, meta, title }) {
-  const { site } = useStaticQuery(
+function SEO({ lang, meta, title, socialCard }) {
+  const { site, contentfulSocialCard } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
+            siteUrl
+          }
+        }
+        contentfulSocialCard(slug: { eq: "default" }) {
+          description {
             description
+          }
+          image {
+            resize(width: 1200) {
+              src
+            }
           }
         }
       }
     `,
   )
 
-  return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      defaultTitle={site.siteMetadata.title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          property: `og:site_name`,
-          content: site.siteMetadata.title,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          name: `og:image`,
-          content: card,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:card`,
-          content: card,
-        },
-        {
-          name: `twitter:image`,
-          content: card,
-        },
-        {
-          name: `twitter:site`,
-          content: '@COVID19Tracking',
-        },
+  const defaultSocialCard = contentfulSocialCard
+  let description
+  let imageSrc
+  if (!socialCard) {
+    description = defaultSocialCard.description.description
+    imageSrc = defaultSocialCard.image.resize.src
+  } else if (socialCard.description && !socialCard.image) {
+    imageSrc = defaultSocialCard.image.resize.src
+    description = socialCard.description.description
+  } else {
+    imageSrc = socialCard.image.resize.src
+    description = socialCard.description.description
+  }
 
-        {
-          name: `twitter:creator`,
-          content: '@COVID19Tracking',
-        },
-        {
-          name: 'description',
-          content: site.siteMetadata.description,
-        },
-      ].concat(meta)}
-    />
+  const urlSchema = 'https:'
+
+  return (
+    <Location>
+      {({ location }) => (
+        <Helmet
+          htmlAttributes={{
+            lang,
+          }}
+          title={title}
+          defaultTitle={site.siteMetadata.title}
+          titleTemplate={`%s | ${site.siteMetadata.title}`}
+          meta={[
+            {
+              property: `og:site_name`,
+              content: site.siteMetadata.title,
+            },
+            {
+              property: `og:type`,
+              content: 'website',
+            },
+            {
+              property: `og:title`,
+              content: title,
+            },
+            {
+              property: `og:url`,
+              content: `${site.siteMetadata.siteUrl}${location.pathname}`,
+            },
+            {
+              property: `og:image`,
+              content: `${urlSchema}${imageSrc}`,
+            },
+            {
+              property: `og:description`,
+              content: description || site.siteMetadata.description,
+            },
+            {
+              name: `twitter:title`,
+              content: title,
+            },
+            {
+              name: `twitter:card`,
+              content: 'summary_large_image',
+            },
+            {
+              name: `twitter:image`,
+              content: `${urlSchema}${imageSrc}`,
+            },
+            {
+              name: `twitter:site`,
+              content: '@COVID19Tracking',
+            },
+
+            {
+              name: `twitter:creator`,
+              content: '@COVID19Tracking',
+            },
+            {
+              name: 'description',
+              content: description || site.siteMetadata.description,
+            },
+          ].concat(meta)}
+        />
+      )}
+    </Location>
   )
 }
 

@@ -11,55 +11,98 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           className="alignLeft"
           scope="col"
         >
-          Date
+          <span
+            role="text"
+          >
+            Date
+          </span>
         </th>
         <th
           className="alignLeft"
           scope="col"
         >
-          Screenshots (
-          <abbr
-            aria-label="Eastern Standard Time"
-            title="Eastern Standard Time"
+          <span
+            role="text"
           >
-            EST
-          </abbr>
-          )
+            Screenshots (
+            <abbr
+              aria-label="Eastern Time"
+              title="Eastern Time"
+            >
+              ET
+            </abbr>
+            )
+          </span>
         </th>
         <th
+          className=""
           scope="col"
         >
-          New Tests
+          <span
+            role="text"
+          >
+            New Tests
+          </span>
         </th>
         <th
+          className=""
           scope="col"
         >
-          Positive
+          <span
+            role="text"
+          >
+            Positive
+          </span>
         </th>
         <th
+          className=""
           scope="col"
         >
-          Negative
+          <span
+            role="text"
+          >
+            Negative
+          </span>
         </th>
         <th
+          className=""
           scope="col"
         >
-          Pending
+          <span
+            role="text"
+          >
+            Pending
+          </span>
         </th>
         <th
+          className=""
           scope="col"
         >
-          Hospitalized
+          <span
+            role="text"
+          >
+            Hospitalized
+          </span>
         </th>
         <th
+          className=""
           scope="col"
         >
-          Deaths
+          <span
+            role="text"
+          >
+            Deaths
+          </span>
         </th>
         <th
+          className=""
           scope="col"
         >
-          Total
+          <span
+            role="text"
+          >
+            Total
+          </span>
         </th>
       </tr>
     </thead>
@@ -96,25 +139,39 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
             </li>
           </ul>
         </td>
-        <td>
+        <td
+          className=""
+        >
           1,457
         </td>
-        <td>
+        <td
+          className=""
+        >
           4,530
         </td>
-        <td>
+        <td
+          className=""
+        >
           33,318
         </td>
-        <td>
+        <td
+          className=""
+        >
           N/A
         </td>
-        <td>
+        <td
+          className=""
+        >
           594
         </td>
-        <td>
+        <td
+          className=""
+        >
           144
         </td>
-        <td>
+        <td
+          className=""
+        >
           37,848
         </td>
       </tr>
@@ -127,25 +184,39 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
         <td
           className="alignLeft"
         />
-        <td>
+        <td
+          className=""
+        >
           2,314
         </td>
-        <td>
+        <td
+          className=""
+        >
           4,345
         </td>
-        <td>
+        <td
+          className=""
+        >
           32,046
         </td>
-        <td>
+        <td
+          className=""
+        >
           N/A
         </td>
-        <td>
+        <td
+          className=""
+        >
           553
         </td>
-        <td>
+        <td
+          className=""
+        >
           133
         </td>
-        <td>
+        <td
+          className=""
+        >
           36,391
         </td>
       </tr>
@@ -158,25 +229,39 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
         <td
           className="alignLeft"
         />
-        <td>
+        <td
+          className=""
+        >
           960
         </td>
-        <td>
+        <td
+          className=""
+        >
           4,113
         </td>
-        <td>
+        <td
+          className=""
+        >
           29,964
         </td>
-        <td>
+        <td
+          className=""
+        >
           N/A
         </td>
-        <td>
+        <td
+          className=""
+        >
           525
         </td>
-        <td>
+        <td
+          className=""
+        >
           121
         </td>
-        <td>
+        <td
+          className=""
+        >
           34,077
         </td>
       </tr>

@@ -3,31 +3,37 @@ require(`@babel/register`)({
   plugins: ['@babel/plugin-transform-runtime'],
 })
 require('dotenv').config()
-const { DateTime } = require('luxon')
 const algoliaQueries = require('./src/utilities/algolia').queries
 
 const gatsbyConfig = {
   siteMetadata: {
     title: 'The COVID Tracking Project',
+    siteUrl: 'https://covidtracking.com/',
+    recaptchaKey: '6LcZIPQUAAAAAB-y_TpTUDQ0HvCk0c7a8kXgZVGD',
     description:
       'The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.',
     production:
       typeof process.env.BRANCH !== 'undefined' &&
       process.env.BRANCH === 'master',
-    buildDate: DateTime.fromObject({ zone: 'America/New_York' })
-      .toFormat('h:mm a')
-      .toLowerCase(),
-    inDST: DateTime.fromObject({ zone: 'America/New_York' }).isInDST,
+    contentfulSpace: process.env.CONTENTFUL_SPACE,
+    hiddenApiTags: ['Racial data tracker', 'Internal Endpoints'],
   },
   plugins: [
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-transformer-yaml',
+    'gatsby-transformer-json',
     'gatsby-plugin-eslint',
     'gatsby-plugin-remove-trailing-slashes',
-    'gatsby-plugin-netlify',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-plugin-polyfill-io',
+      options: {
+        features: ['core-js', 'Intl'],
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -36,66 +42,88 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'raceProjectImages',
+        path: `${__dirname}/src/images/race-project`,
+      },
+    },
+    {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/press.json',
+        file: './_api/v1/internal/press.json',
         type: 'CovidPress',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/us/current.json',
+        file: './_api/v1/us/current.json',
         type: 'CovidUs',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/us/daily.json',
+        file: './_api/v1/us/daily.json',
         type: 'CovidUsDaily',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/states/current.json',
+        file: './_api/v1/states/current.json',
         type: 'CovidState',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/states/info.json',
+        file: './_api/v1/states/info.json',
         type: 'CovidStateInfo',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/states/daily.json',
+        file: './_api/v1/states/daily.json',
         type: 'CovidStateDaily',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/states/screenshots.json',
+        file: './_api/v1/states/screenshots.json',
         type: 'CovidScreenshot',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/cdc/daily.json',
-        type: 'CDCDaily',
+        file: './_api/v1/internal/volunteers.json',
+        type: 'CovidVolunteers',
+        sortField: 'name',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/v1/volunteers.json',
-        type: 'CovidVolunteers',
+        file: './_api/v1/internal/race-homepage.json',
+        type: 'CovidRaceDataHomepage',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_api/v1/race/states-combined.json',
+        type: 'CovidRaceDataCombined',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_api/v1/race/states-separate.json',
+        type: 'CovidRaceDataSeparate',
       },
     },
     {
@@ -119,6 +147,22 @@ const gatsbyConfig = {
       options: {
         name: 'press-logos',
         path: `${__dirname}/src/data/homepage-press.yml`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'api-status',
+        path: `${__dirname}/_api/v1/status.json`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-counties',
+      options: {
+        type: 'Counties',
+        nytimesUrl:
+          'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv',
+        demographics: `${__dirname}/src/data/race/counties/demographics.json`,
       },
     },
     {
@@ -157,10 +201,24 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-nprogress`,
+      resolve: 'gatsby-plugin-nprogress',
       options: {
-        color: `#924F34`,
+        color: '#924F34',
         showSpinner: false,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        mergeSecurityHeaders: false,
+        headers: {
+          '/*': [
+            'X-Frame-Options: DENY',
+            'X-XSS-Protection: 1; mode=block',
+            'X-Content-Type-Options: nosniff',
+            'Referrer-Policy: strict-origin-when-cross-origin',
+          ],
+        },
       },
     },
   ],

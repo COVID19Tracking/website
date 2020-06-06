@@ -1,11 +1,12 @@
-@import '../../scss/colors.module.scss';
-@import '../../scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
 
 .state-nav {
   position: relative;
   @media (min-width: $viewport-ms) {
     background: white;
     position: sticky;
+    z-index: 1;
     top: 0;
     width: calc(
       100% + 1px

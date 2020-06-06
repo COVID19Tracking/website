@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Container from '../common/container'
-import logo from '../../images/project-logo.svg'
+import Container from '~components/common/container'
+import logo from '~images/project-logo.svg'
 import footerStyles from './footer.module.scss'
 
 const Footer = () => (
@@ -17,6 +17,12 @@ const Footer = () => (
           </li>
           <li>
             <Link to="/accessibility">Accessibility</Link>
+          </li>
+          <li>
+            <Link to="/terms-and-conditions">Terms and Conditions</Link>
+          </li>
+          <li>
+            <Link to="/license">License</Link>
           </li>
           <li>
             <a href="https://github.com/COVID19Tracking">GitHub</a>

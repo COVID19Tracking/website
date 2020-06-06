@@ -1,5 +1,7 @@
 $text: #303030;
 
+$placeholder: #7a7a7a;
+
 /*
 
 Brand colors
@@ -60,6 +62,9 @@ $color-infobox-sync-dark: #264a8c;
 
 $color-infobox-alert-light: #fedcd2;
 $color-infobox-alert-dark: #802509;
+
+$color-error-light: #f9ded9;
+$color-error-dark: #e35942;
 
 :export {
   text: $text;

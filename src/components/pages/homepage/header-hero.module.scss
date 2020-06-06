@@ -6,6 +6,8 @@ $mobile-offset-y: -3%;
 $label-offset-x: 120;
 $label-offset-y: 25;
 
+$chart-color: #0f1551;
+
 .hero {
   padding-top: 35px;
   background: $color-plum-550;
@@ -14,52 +16,32 @@ $label-offset-y: 25;
     text-decoration: none;
   }
   @media (min-width: $viewport-md) {
-    padding: 70px 0 30px 0;
+    padding: 35px 0 30px 0;
   }
   .container {
-    position: static;
+    padding-bottom: 1.5rem;
     @media (min-width: $viewport-lg) {
       position: relative;
-    }
-  }
-  .header {
-    font-size: 1.75rem;
-    line-height: 1.25;
-    font-weight: bold;
-    margin-top: 0;
-    @media (min-width: $viewport-ms) {
-      font-size: 2rem;
-    }
-    @media (min-width: $viewport-md) {
-      font-size: 3rem;
-    }
-    @media (min-width: $viewport-lg) {
-      max-width: 38rem;
-      position: absolute;
-    }
-    @media (min-width: $viewport-xl) {
-      max-width: 48rem;
+      padding-bottom: 2rem;
     }
   }
 
   .paragraph {
-    font-size: 1rem;
     @media (min-width: $viewport-lg) {
-      font-size: 16px;
+      font-size: 18px;
       max-width: 30rem;
-      bottom: 9rem;
+      bottom: 2.5rem;
       position: absolute;
     }
     @media (min-width: $viewport-xl) {
       // max-width: 30rem;
-      bottom: 12rem;
+      bottom: 9rem;
     }
   }
   .chart-wrapper {
     overflow-x: hidden;
 
     @media (min-width: $viewport-lg) {
-      padding-top: 8rem;
       max-width: 80%;
       margin-left: 20%;
     }
@@ -77,12 +59,18 @@ $label-offset-y: 25;
 .chart-bar {
   margin: 0 1px;
   transform: translateY($mobile-offset-y);
-  width: 10px;
+  width: 8px;
   @media (min-width: $viewport-ms) {
     transform: translateY(0);
   }
   @media (min-width: $viewport-lg) {
-    width: 5px;
+    width: 9px;
+  }
+  &.ctp {
+    fill: $chart-color;
+  }
+  &.cdc {
+    fill: $color-plum-100;
   }
 }
 
@@ -111,27 +99,27 @@ $label-offset-y: 25;
   }
 }
 
-.chart-x-axis {
-}
-
 .chart-y-axis {
   transform: translateX($mobile-offset-x) translateY($mobile-offset-y);
 
-  @media (min-width: $viewport-ms) {
+  @media (min-width: $viewport-lg) {
     transform: translateX(0) translateY(0);
   }
 }
 
-.ctp-count {
-  border-bottom: 3px solid $color-honey-400;
-  @media (max-width: $viewport-md) {
-    border-width: 3px;
+.legend {
+  display: inline-block;
+  color: $color-plum-600;
+  font-weight: bold;
+  padding: 1px 3px;
+  @media (min-width: $viewport-md) {
+    padding: 2px 5px;
   }
-}
-
-.cdc-count {
-  border-bottom: 3px solid white;
-  @media (max-width: $viewport-md) {
-    border-width: 3px;
+  &.cdc {
+    background: white;
+  }
+  &.ctp {
+    background: $chart-color;
+    color: white;
   }
 }

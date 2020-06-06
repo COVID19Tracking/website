@@ -1,0 +1,93 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+.form {
+  input[type='text'],
+  input[type='email'],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid $color-slate-300;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    margin-bottom: 50px;
+    display: block;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  textarea {
+    height: 150px;
+  }
+
+  .group {
+    margin: 2rem 0;
+  }
+
+  legend {
+    font-weight: bold;
+  }
+
+  [type='radio'],
+  [type='checkbox'] {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  label {
+    display: block;
+  }
+
+  .label {
+    font-weight: bold;
+    .required {
+      display: block;
+      float: right;
+      font-size: 0.8rem;
+    }
+  }
+
+  fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media (max-width: $viewport-md) {
+    input[type='text'],
+    input[type='email'],
+    select,
+    textarea {
+      width: 100%;
+    }
+  }
+
+  .input-header {
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 24px;
+  }
+
+  button,
+  [type='submit'] {
+    cursor: pointer;
+    border: none;
+    background: $color-plum-700;
+    border-radius: 3px;
+    padding: 1rem;
+    color: white;
+    &[disabled] {
+      cursor: not-allowed;
+      background: $color-plum-200;
+      color: $color-plum-800;
+    }
+  }
+
+  .bot-field {
+    display: none;
+  }
+}
