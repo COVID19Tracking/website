@@ -2,13 +2,25 @@
 @import '~scss/breakpoints.module.scss';
 
 .black-african-american-alone {
-  fill: #ffad4a;
+  fill: $color-palette-600;
 }
 .white-alone {
-  fill: #585bc1;
+  fill: $color-palette-500;
 }
 .hispanic-latino {
-  fill: green;
+  fill: $color-palette-400;
+}
+.asian-alone {
+  fill: $color-palette-300;
+}
+.aian-alone {
+  fill: $color-palette-200;
+}
+.nhpi-alone {
+  fill: $color-palette-100;
+}
+.two-or-more {
+  fill: red;
 }
 
 .chart {

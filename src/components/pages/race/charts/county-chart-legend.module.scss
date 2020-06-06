@@ -1,13 +1,26 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
 
 .black-african-american-alone {
-  background: #ffad4a;
+  background: $color-palette-600;
 }
 .white-alone {
-  background: #585bc1;
+  background: $color-palette-500;
 }
 .hispanic-latino {
-  background: green;
+  background: $color-palette-400;
+}
+.asian-alone {
+  background: $color-palette-300;
+}
+.aian-alone {
+  background: $color-palette-200;
+}
+.nhpi-alone {
+  background: $color-palette-100;
+}
+.two-or-more {
+  background: #444;
 }
 
 .swatch {
