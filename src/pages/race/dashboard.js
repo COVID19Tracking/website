@@ -24,15 +24,15 @@ export default ({ data }) => {
     >
       <Hero
         ledeContent={
-          data.allContentfulSnippet.edges[0].node
-            .childContentfulSnippetContentTextNode.childMarkdownRemark.html
+          data.raceHeroSnippet.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
         }
       />
       <UsOverview
         statesCasesCount={data.covidRaceDataHomepage.statesReportingCases}
         statesDeathsCount={data.covidRaceDataHomepage.statesReportingDeaths}
         statesNotReporting={
-          data.noDataSnippet.edges[0].node.childContentfulSnippetContentTextNode
+          data.noDataSnippet.childContentfulSnippetContentTextNode
             .childMarkdownRemark.html
         }
       />
@@ -47,14 +47,10 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allContentfulSnippet(filter: { slug: { eq: "race-hero-lede" } }) {
-      edges {
-        node {
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+    raceHeroSnippet: contentfulSnippet(slug: { eq: "race-hero-lede" }) {
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }
@@ -68,16 +64,10 @@ export const query = graphql`
         }
       }
     }
-    noDataSnippet: allContentfulSnippet(
-      filter: { slug: { eq: "race-dashboard-no-data" } }
-    ) {
-      edges {
-        node {
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+    noDataSnippet: contentfulSnippet(slug: { eq: "race-dashboard-no-data" }) {
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }

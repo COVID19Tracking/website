@@ -1,4 +1,5 @@
 @import '~scss/colors.module.scss';
+@import '~scss/links.module.scss';
 
 .cta {
   color: $color-honey-700;
@@ -8,7 +9,7 @@
     margin-left: 0.2rem;
   }
   &:hover {
-    color: $text;
+    @include link-hover;
   }
 }
 

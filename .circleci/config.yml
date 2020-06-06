@@ -44,9 +44,6 @@ jobs:
           name: build
           command: 'npm run build:gatsby'
       - run:
-          name: copy-data
-          command: 'npm run build:data'
-      - run:
           name: test
           command: 'npm run build:test'
       - persist_to_workspace:

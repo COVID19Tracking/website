@@ -1,4 +1,5 @@
 @import '~scss/colors.module.scss';
+@import '~scss/links.module.scss';
 @import '~scss/breakpoints.module.scss';
 
 .tools {
@@ -7,6 +8,12 @@
 
   @media (min-width: $viewport-lg) {
     display: block;
+  }
+}
+
+.project-logo {
+  &:focus {
+    @include link-focus-dark-bg;
   }
 }
 
@@ -93,22 +100,24 @@
   display: inline-block;
   vertical-align: top;
   padding: 0.4rem 0.5rem;
-
   font-weight: bold;
   background: #ffffff;
   color: $color-blueberry-500;
   text-decoration: none;
-
   transition: all 0.2s;
 
-  &:hover,
+  &:hover {
+    text-decoration: none;
+  }
   &:focus {
-    color: $color-blueberry-500;
-    background: $color-blueberry-200;
+    @include link-focus;
   }
 
   @media (max-width: $viewport-lg) {
     margin-top: 1.75rem;
+    &:focus {
+      @include link-focus-dark-bg;
+    }
   }
 }
 
@@ -230,15 +239,6 @@
     line-height: 1.2;
     color: white;
 
-    a {
-      color: white;
-      text-decoration: none;
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-      }
-    }
-
     @media (max-width: $viewport-md) {
       font-size: 1.56rem;
     }
@@ -294,12 +294,11 @@
             z-index: 2;
           }
 
-          a:hover,
           a:focus {
-            color: rgba(255, 255, 255, 0.6);
+            @include link-focus-dark-bg;
           }
           &:hover > a {
-            border-bottom: 3px solid $color-blueberry-200;
+            @include link-hover-dark-bg;
           }
         }
       }
@@ -325,7 +324,6 @@
   }
 
   .return-link {
-    // height: 1.3rem;
     margin-bottom: 0.75rem;
 
     @media (max-width: $viewport-md) {
@@ -417,9 +415,13 @@
             margin-right: 1rem;
           }
 
+          &:focus {
+            @include link-focus-dark-bg;
+          }
+
           &:hover,
           &[aria-current] {
-            border-bottom: 3px solid $color-blueberry-200;
+            @include link-hover-dark-bg;
           }
           @media (min-width: $viewport-ms) {
             margin: 0 1em;

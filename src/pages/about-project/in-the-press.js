@@ -7,7 +7,7 @@ import Layout from '~components/layout'
 export default ({ data }) => (
   <Layout title="In the press" path="/about-project/in-the-press" textHeavy>
     <PressLogos extraMargin />
-    <PressList items={data.allCovidPress.edges} />
+    <PressList items={data.allCovidPress.nodes} />
   </Layout>
 )
 
@@ -20,13 +20,11 @@ export const query = graphql`
       }
       sort: { fields: publishDate, order: DESC }
     ) {
-      edges {
-        node {
-          title
-          url
-          publication
-          publishDate(formatString: "MMMM D YYYY")
-        }
+      nodes {
+        title
+        url
+        publication
+        publishDate(formatString: "MMMM D YYYY")
       }
     }
   }

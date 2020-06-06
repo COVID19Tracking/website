@@ -6,16 +6,7 @@ describe('Components : Pages : Data : Navigation with no JS enabled', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(
-        <StateNavNoScript
-          stateList={[
-            {
-              node: { state: 'AK' },
-            },
-            {
-              node: { state: 'CA' },
-            },
-          ]}
-        />,
+        <StateNavNoScript stateList={[{ state: 'AK' }, { state: 'CA' }]} />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

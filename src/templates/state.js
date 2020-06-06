@@ -10,11 +10,11 @@ import { SyncInfobox } from '~components/common/infobox'
 
 const StatePage = ({ pageContext, data, path }) => {
   const state = pageContext
-  const summary = data.allCovidState.edges[0].node
+  const { covidState, allCovidStateDaily, allCovidScreenshot } = data
   return (
     <Layout title={state.name} returnLink="/data" path={path}>
       <StateLinks {...state} />
-      <StateGrade letterGrade={summary.dataQualityGrade} />
+      <StateGrade letterGrade={covidState.dataQualityGrade} />
       {state.notes && (
         <div
           className="module-content"
@@ -24,11 +24,11 @@ const StatePage = ({ pageContext, data, path }) => {
         />
       )}
       <SyncInfobox />
-      <SummaryTable data={summary} lastUpdated={summary.dateModified} />
+      <SummaryTable data={covidState} lastUpdated={covidState.dateModified} />
       <h2 id="historical">History</h2>
       <StateHistory
-        history={data.allCovidStateDaily.edges}
-        screenshots={data.allCovidScreenshot.edges}
+        history={allCovidStateDaily.nodes}
+        screenshots={allCovidScreenshot.nodes}
       />
     </Layout>
   )
@@ -38,55 +38,47 @@ export default StatePage
 
 export const query = graphql`
   query($state: String!) {
-    allCovidState(sort: {}, filter: { state: { eq: $state } }) {
-      edges {
-        node {
-          positive
-          negative
-          pending
-          hospitalizedCurrently
-          hospitalizedCumulative
-          inIcuCurrently
-          inIcuCumulative
-          recovered
-          onVentilatorCurrently
-          onVentilatorCumulative
-          death
-          totalTestResults
-          dateModified
-          dataQualityGrade
-        }
-      }
+    covidState(state: { eq: $state }) {
+      positive
+      negative
+      pending
+      hospitalizedCurrently
+      hospitalizedCumulative
+      inIcuCurrently
+      inIcuCumulative
+      recovered
+      onVentilatorCurrently
+      onVentilatorCumulative
+      death
+      totalTestResults
+      dateModified
+      dataQualityGrade
     }
     allCovidStateDaily(
       filter: { state: { eq: $state } }
       sort: { fields: date, order: DESC }
     ) {
-      edges {
-        node {
-          totalTestResults
-          totalTestResultsIncrease
-          positive
-          pending
-          negative
-          hospitalized
-          death
-          date
-        }
+      nodes {
+        totalTestResults
+        totalTestResultsIncrease
+        positive
+        pending
+        negative
+        hospitalized
+        death
+        date
       }
     }
     allCovidScreenshot(
       filter: { state: { eq: $state }, secondary: { eq: false } }
       sort: { fields: dateChecked }
     ) {
-      edges {
-        node {
-          size
-          url
-          state
-          date
-          dateChecked
-        }
+      nodes {
+        size
+        url
+        state
+        date
+        dateChecked
       }
     }
   }

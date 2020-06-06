@@ -9,10 +9,8 @@ export default ({ stateList }) => (
       <h3>Jump to a state:</h3>
       <ul>
         {stateList.map(state => (
-          <li key={state.node.state}>
-            <a href={`#state-${state.node.state.toLowerCase()}`}>
-              {state.node.state}
-            </a>
+          <li key={state.state}>
+            <a href={`#state-${state.state.toLowerCase()}`}>{state.state}</a>
           </li>
         ))}
       </ul>

@@ -1,5 +1,6 @@
 @import './normalize.css';
 @import '~scss/colors.module.scss';
+@import '~scss/links.module.scss';
 @import '~scss/breakpoints.module.scss';
 
 html {
@@ -73,14 +74,20 @@ a {
   &:active {
     color: $color-link--active;
   }
-  &:hover,
+  &:hover {
+    @include link-hover;
+  }
   &:focus {
-    color: $color-link--hover;
-    text-decoration: none;
+    @include link-focus;
   }
 }
 
-a,
+p {
+  a {
+    color: inherit;
+  }
+}
+
 button,
 select,
 [role='switch'] {
