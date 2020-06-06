@@ -1,6 +1,7 @@
 @import './normalize.css';
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
+@import '~scss/helpers.module.scss';
 
 html {
   box-sizing: border-box;
@@ -33,14 +34,17 @@ ul[class] {
 li > :first-child {
   margin-top: 0;
 }
+
 li > :last-child {
   margin-bottom: 0;
 }
+
 li > p:first-child:not(:last-child) {
-  margin-bottom: 0.5em;
+  @include margin(8, bottom);
 }
+
 li > ul:last-child {
-  margin-bottom: 0.5em;
+  @include margin(8, bottom);
 }
 
 #gatsby-noscript {
@@ -133,14 +137,17 @@ Layout blocks
 
 */
 .layout-region {
-  padding: 3rem 0;
+  @include padding(32, top bottom)
 }
+
 .module {
-  margin-bottom: 3rem;
+  @include margin(32, bottom);
 }
+
 .module:last-child {
   margin-bottom: 0;
 }
+
 @media (min-width: $viewport-md) {
   .layout--content-and-rail {
     display: flex;
@@ -153,6 +160,7 @@ Layout blocks
     flex: 0 1 40%;
   }
 }
+
 @media (min-width: $viewport-lg) {
   .layout--content-primary {
     flex-basis: 60%;
@@ -171,40 +179,47 @@ Headline treatments
 .module-content h2 {
   font-size: 1.375rem;
   line-height: 1.25;
-  margin: 0 0 0.75em;
+  @include margin(16, bottom);
 }
+
 @media (min-width: $viewport-md) {
   .hed-primary,
   .module-content h2 {
     font-size: 1.875rem;
   }
 }
+
 .hed-secondary {
   font-size: 1.125rem;
-  margin-bottom: 0.5em;
+  @include margin(8, bottom);
 }
+
 @media (min-width: $viewport-md) {
   .hed-secondary {
     font-size: 1.4375rem;
   }
 }
+
 .hed-featured {
   font-size: 1.4rem;
   font-weight: 300;
   line-height: 1.25;
-  margin: 0 0 0.75em;
+  @include margin(16, bottom);
 }
+
 @media (min-width: $viewport-md) {
   .hed-featured {
     font-size: 1.75rem;
   }
 }
+
 .hed-landscape {
   color: $color-slate-700;
   font-size: 1.125rem;
   text-align: center;
   font-variant: all-small-caps;
-  margin: 0 0 0.2rem;
+  // margin: 0 0 0.2rem;
+  @include margin(4, bottom);
 }
 
 /*
@@ -225,14 +240,16 @@ Typography
     }
   }
 }
+
 .layout--content-primary {
   @media (min-width: $viewport-lg) {
     font-size: 18px;
     font-size: 1.125rem;
   }
 }
+
 .module-featured {
-  margin: 2.5em auto;
+  margin: spacer(32) auto;
   max-width: 42em;
   + section,
   + div {
@@ -241,6 +258,7 @@ Typography
     padding: 1.5em 0 1em;
   }
 }
+
 .layout--content-primary {
   p,
   ul,
@@ -248,27 +266,32 @@ Typography
     margin: 0 0 1.5em;
   }
 }
+
 .module-content {
   h2 {
     font-size: 24px;
     font-size: 1.5rem;
     line-height: 1.25;
-    margin: 2em 0 0.25em;
+    margin: spacer(32) 0 spacer(4);
     @media (min-width: $viewport-lg) {
       font-size: 30px;
       font-size: 1.875rem;
     }
   }
+
   h2:first-child {
     margin-top: 0;
   }
+  
   h3 {
     font-size: 1.35rem;
-    margin: 2em 0 0.25em;
+    margin: spacer(32) 0 spacer(4);
   }
+  
   li {
-    margin-bottom: 0.5em;
+    @include margin(8, bottom);
   }
+  
   p:not([class]),
   ul:not([class]),
   ol:not([class]) {

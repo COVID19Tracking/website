@@ -4,7 +4,7 @@
 $base-font-size: 16;
 
 // Spacer keys are the PX values used in the Figma files:
-// 4, 8, 16, 24, 32, 64, 96, 120
+// 4, 8, 16, 24, 32, 64, 80, 120
 $spacers: (
   0: 0, // 0
   4: .25rem, // 1
@@ -13,11 +13,15 @@ $spacers: (
   24: 1.5rem, // 4
   32: 2rem, // 5
   64: 4rem, // 6
-  96: 6rem, // 7
+  80: 5rem, // 7
   120: 7.5rem, // 8
 );
 
 @function spacer($key) {
+  @if map-has-key($spacers, $key) == false {
+    @error "$spacers map has no #{$key} key."
+  }
+
   $size: map-get($spacers, $key);
   @return $size;
 }

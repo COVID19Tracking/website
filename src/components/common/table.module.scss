@@ -1,5 +1,6 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
+@import '~scss/helpers.module.scss';
 
 .align-left {
   text-align: left;
@@ -45,7 +46,7 @@
 .table {
   line-height: 1rem;
   border-collapse: collapse;
-  margin: 0.5rem 0 1.5rem;
+  margin: spacer(8) 0 spacer(24);
   font-variant-numeric: lining-nums tabular-nums;
   width: 100%;
 
@@ -60,7 +61,7 @@
     text-align: left;
     font-weight: bold;
     font-size: 1.05rem;
-    margin-bottom: 1rem;
+    margin-bottom: spacer(16);
   }
 
   thead {
@@ -68,7 +69,9 @@
   }
 
   th {
-    padding: 2.25rem 0.5rem 0.5rem;
+    padding: spacer(32) spacer(8) spacer(8);
+    // STYLE CHECK
+    // padding: 2.25rem 0.5rem 0.5rem;
     line-height: 1.15;
     vertical-align: bottom;
     position: relative;
@@ -80,7 +83,7 @@
 
       .sort {
         display: inline-block;
-        margin-right: 0.5rem;
+        margin-right: spacer(8);
       }
 
       .sort-button {
@@ -104,7 +107,9 @@
     &[scope='row'] {
       font-weight: normal;
       text-align: right;
-      padding: 0.75rem 0.5rem;
+      padding: spacer(16) spacer(8);
+      // STYLE CHECK
+      // padding: 0.75rem 0.5rem;
     }
     &.wide {
       min-width: 13em;
@@ -127,7 +132,9 @@
   }
   td {
     text-align: right;
-    padding: 0.75rem 0.5rem;
+    padding: spacer(16) spacer(8);
+    // STYLE CHECK
+    // padding: 0.75rem 0.5rem;    
     font-size: 1rem;
 
     &.align-left {

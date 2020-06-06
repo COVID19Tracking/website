@@ -1,8 +1,11 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
+@import '~scss/helpers.module.scss';
 
 .banner {
-  padding: 0.7rem 0;
+  padding: spacer(8) 0;
+  // STYLE CHECK
+  // padding: 0.7rem 0;
 
   text-align: center;
   font-weight: bold;
@@ -16,7 +19,9 @@
   }
 
   @media (max-width: $viewport-sm) {
-    padding: 0.7rem;
+    padding: spacer(8);
+    // STYLE CHECK
+    // padding: 0.7rem;
     text-align: left;
   }
 
@@ -31,7 +36,7 @@
   }
   .new {
     display: inline-block;
-    margin-right: 1rem;
+    margin-right: spacer(16);
     text-transform: uppercase;
   }
 }

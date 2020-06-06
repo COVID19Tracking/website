@@ -1,15 +1,20 @@
 @import '~scss/colors.module.scss';
+@import '~scss/helpers.module.scss';
 
 .infobox {
   display: inline-flex;
-  padding: 0.5rem;
-  padding-right: 2rem;
+  padding: spacer(8);
+  padding-right: spacer(32);
+  margin: spacer(16) 0;
+
   border-radius: 4px;
   font-size: 0.9rem;
-  margin: 1rem 0;
+  
   img {
-    width: 16px;
-    margin: 2px 12px 4px 8px;
+    width: toRem(16);
+    margin: spacer(4) spacer(16) spacer(4) spacer(8);
+    // STYLE CHECK
+    // margin: 2px 12px 4px 8px;
     align-self: flex-start;
   }
 
@@ -23,7 +28,7 @@
   }
 
   .content {
-    margin-top: 0.25rem;
+    margin-top: spacer(4);
   }
 
   &.sync {

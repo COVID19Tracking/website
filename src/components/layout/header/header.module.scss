@@ -1,5 +1,6 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
+@import '~scss/helpers.module.scss';
 
 .tools {
   display: none;
@@ -20,7 +21,7 @@
 
   @media (min-width: $viewport-lg) {
     justify-content: center;
-    margin-right: 0.5rem;
+    margin-right: spacer(8);
   }
 
   > form {
@@ -43,7 +44,9 @@
 
   input {
     width: 100%;
-    padding: 0.55rem 3rem 0.55rem 5rem;
+    padding: spacer(8) spacer(32) spacer(8) spacer(80);
+    // STYLE CHECK
+    // padding: 0.55rem 3rem 0.55rem 5rem;
 
     font-weight: bold;
     border: 0;
@@ -92,7 +95,9 @@
 .get-involved {
   display: inline-block;
   vertical-align: top;
-  padding: 0.4rem 0.5rem;
+  padding: spacer(8);
+  // STYLE CHECK
+  // padding: 0.4rem 0.5rem;
 
   font-weight: bold;
   background: #ffffff;
@@ -108,7 +113,7 @@
   }
 
   @media (max-width: $viewport-lg) {
-    margin-top: 1.75rem;
+    margin-top: spacer(24);
   }
 }
 
@@ -121,7 +126,7 @@
 }
 
 .atlantic-banner {
-  margin-top: 1rem;
+  margin-top: spacer(16);
   display: flex;
   color: white;
   text-transform: uppercase;
@@ -129,14 +134,14 @@
   span,
   img {
     display: flex;
-    margin-right: 1rem;
+    margin-right: spacer(16);
   }
   img {
-    padding-bottom: 0.2rem;
+    padding-bottom: spacer(4);
   }
   span {
     padding-bottom: 0.1rem;
-    margin-right: 0.5rem;
+    margin-right: spacer(8);
     font-size: 0.625rem;
     line-height: 0.8rem;
   }
@@ -151,13 +156,14 @@
 
 .container {
   background: $color-plum-550;
-  padding-bottom: 2em;
+  padding-bottom: spacer(32);
   &.has-navigation {
     padding-bottom: 0;
   }
 }
 
 .site-header {
+  // STYLE CHECK
   margin-bottom: 3rem;
   &.no-margin {
     margin-bottom: 0;
@@ -166,7 +172,7 @@
   .mobile-menu {
     background: $color-plum-800;
     position: relative;
-    padding: 1rem 1rem 2rem 1rem;
+    padding: spacer(16) spacer(16) spacer(32) spacer(16);
     @media (min-width: $viewport-lg) {
       display: none;
     }
@@ -183,9 +189,9 @@
       display: block;
       li {
         margin-bottom: 0.5rem;
-        line-height: 40px;
+        line-height: toRem(40);
         @media (hover: none) {
-          margin-bottom: 1.75rem;
+          margin-bottom: spacer(24);
           line-height: 1;
         }
       }
@@ -212,7 +218,7 @@
     background: transparent;
     border: none;
     font-weight: bold;
-    margin-top: 1.5rem;
+    margin-top: spacer(24);
     color: white;
     cursor: pointer;
     @media (min-width: $viewport-lg) {
@@ -225,7 +231,7 @@
   }
 
   .page-title {
-    margin: 0 0 0.5rem;
+    margin: 0 0 spacer(8);
     font-size: 2.2rem;
     line-height: 1.2;
     color: white;
@@ -247,7 +253,7 @@
   .nav-container {
     display: flex;
     float: right;
-    padding-top: 1rem;
+    padding-top: spacer(16);
     @media (min-width: $viewport-lg) {
       float: none;
       padding-top: 0;
@@ -256,14 +262,14 @@
 
   nav {
     display: none;
-    margin-top: 1.75rem;
+    margin-top: spacer(24);
     align-self: center;
     break-before: always;
-    padding-bottom: 0.5rem;
+    padding-bottom: spacer(8);
 
     @media (min-width: $viewport-lg) {
       display: block;
-      margin-top: 1.825rem;
+      margin-top: spacer(32);
       position: relative;
       z-index: 1;
     }
@@ -283,13 +289,13 @@
         margin-bottom: 0.5625rem;
         @media (min-width: $viewport-lg) {
           display: inline-block;
-          margin-right: 1.5em;
+          margin-right: spacer(24);
           margin-bottom: 0;
           line-height: 1;
           position: relative;
 
           a {
-            padding-bottom: 5px;
+            padding-bottom: spacer(4);
             position: relative;
             z-index: 2;
           }
@@ -318,7 +324,7 @@
   .site-title-inner {
     width: 40%;
     display: flex;
-    padding-top: 1.5rem;
+    padding-top: spacer(24);
     @media (min-width: $viewport-md) {
       width: 20%;
     }
@@ -326,10 +332,10 @@
 
   .return-link {
     // height: 1.3rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: spacer(8);
 
     @media (max-width: $viewport-md) {
-      margin-bottom: 1rem;
+      margin-bottom: spacer(16);
     }
 
     a {
@@ -342,18 +348,22 @@
   }
 
   .title-subnav-container {
-    margin-top: 4.25rem;
+    margin-top: spacer(64);
     @media (max-width: $viewport-md) {
-      margin-top: 3rem;
+      margin-top: spacer(32);
+      // STYLE CHECK
+      // margin-top: 3rem;
     }
     &.has-return-link {
-      margin-top: 1.75rem;
+      margin-top: spacer(24);
+      // STYLE CHECK
+      // margin-top: 1.75rem;
       @media (max-width: $viewport-md) {
-        margin-top: 2rem;
+        margin-top: spacer(32);
       }
 
       .page-title {
-        margin: 0 0 1.5rem;
+        margin: 0 0 spacer(24);
         @media (max-width: $viewport-md) {
           margin-bottom: 0;
         }
@@ -397,7 +407,7 @@
         text-align: left;
 
         @media (min-width: $viewport-lg) {
-          padding-bottom: 1rem;
+          padding-bottom: spacer(16);
         }
 
         a {
@@ -405,6 +415,7 @@
           font-weight: bold;
           color: white;
           display: block;
+          // STYLE CHECK
           margin: 0 0.6rem 0 0;
           padding: 0.2rem 0 0.1rem;
           font-size: 1rem;
@@ -412,9 +423,9 @@
 
           @media (max-width: $viewport-md) {
             font-size: 0.8rem;
-            padding: 0.5rem 0;
-            margin-left: 1rem;
-            margin-right: 1rem;
+            padding: spacer(8) 0;
+            margin-left: spacer(16);
+            margin-right: spacer(16);
           }
 
           &:hover,
@@ -422,7 +433,7 @@
             border-bottom: 3px solid $color-blueberry-200;
           }
           @media (min-width: $viewport-ms) {
-            margin: 0 1em;
+            margin: 0 spacer(16);
           }
         }
         li {

@@ -1,12 +1,17 @@
+@import '~scss/helpers.module.scss';
+
 .root {
-  border: solid black 1px;
-  position: fixed;
-  pointer-events: none;
+  width: 240px;
+  @include padding(8);
   display: flex;
   flex-direction: column;
+  position: fixed;
+
   background-color: white;
-  padding: 10px;
+  border: solid black 1px;
+  
+  font-size: toRem(15);
   text-transform: lowercase;
-  width: 240px;
-  font-size: 15px;
+
+  pointer-events: none;
 }

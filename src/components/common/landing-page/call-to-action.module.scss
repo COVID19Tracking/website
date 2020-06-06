@@ -1,11 +1,12 @@
 @import '~scss/colors.module.scss';
+@import '~scss/helpers.module.scss';
 
 .cta {
   color: $color-honey-700;
   .arrow {
     text-decoration: none;
     display: inline-block;
-    margin-left: 0.2rem;
+    @include margin(4, left);
   }
   &:hover {
     color: $text;

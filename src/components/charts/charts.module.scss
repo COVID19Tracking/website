@@ -15,7 +15,7 @@
 
 .label {
   fill: $color-slate-500;
-  font-size: 14px;
+  font-size: toRem(14);
 }
 
 .grid-line {

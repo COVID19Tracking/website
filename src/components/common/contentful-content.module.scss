@@ -1,10 +1,11 @@
 @import '~scss/colors.module.scss';
+@import '~scss/helpers.module.scss';
 
 .edit {
   display: block;
   color: white;
   background: $color-plum-700;
-  margin: 2rem 0;
-  padding: 0.5rem 0;
+  margin: spacer(32) 0;
+  padding: spacer(8) 0;
   text-align: center;
 }

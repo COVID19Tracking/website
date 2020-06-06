@@ -1,31 +1,36 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
+@import '~scss/helpers.module.scss';
 
 .form {
   input[type='text'],
   input[type='email'],
   select,
   textarea {
+    display: block;
     width: 100%;
-    padding: 12px;
+    @include padding(16);
+    // STYLE CHECK
+    // padding: 12px;
+
+    margin-top: spacer(8);
+    margin-bottom: spacer(64);
+
     border: 1px solid $color-slate-300;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
     resize: vertical;
-    margin-bottom: 50px;
-    display: block;
+    
     font-weight: 400;
     font-size: 1rem;
   }
 
   textarea {
-    height: 150px;
+    height: toRem(150);
   }
 
   .group {
-    margin: 2rem 0;
+    margin: toRem(32) 0;
   }
 
   legend {
@@ -35,7 +40,7 @@
   [type='radio'],
   [type='checkbox'] {
     display: inline-block;
-    margin-right: 1rem;
+    @include margin(16, right);
   }
 
   label {
@@ -67,19 +72,24 @@
   }
 
   .input-header {
-    margin-bottom: 5px;
+    @include margin(4, bottom);
+    // STYLE CHECK
+    // margin-bottom: 5px;
     font-weight: 600;
-    font-size: 24px;
+    font-size: toRem(24);
   }
 
   button,
   [type='submit'] {
+    @include padding(16);
+
     cursor: pointer;
     border: none;
     background: $color-plum-700;
     border-radius: 3px;
-    padding: 1rem;
+
     color: white;
+
     &[disabled] {
       cursor: not-allowed;
       background: $color-plum-200;

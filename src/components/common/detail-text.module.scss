@@ -1,4 +1,5 @@
 @import '~scss/colors.module.scss';
+@import '~scss/helpers.module.scss';
 
 .detail-text {
   color: $color-slate-600;
@@ -7,6 +8,7 @@
     font-style: italic;
   }
 }
+
 table + .detail-text {
-  margin-bottom: 1.5em;
+  @include margin(24, bottom);
 }

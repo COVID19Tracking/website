@@ -1,4 +1,5 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/helpers.module.scss';
 
 .paragraph {
   font-weight: bold;
@@ -18,7 +19,7 @@
   }
 
   &.narrow {
-    max-width: 700px;
+    max-width: toRem(700);
     @media (min-width: $viewport-lg) {
       margin-left: auto;
       margin-right: auto;

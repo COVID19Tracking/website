@@ -1,13 +1,16 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
+@import '~scss/helpers.module.scss';
 
 .footer {
   background-image: url(~images/hero-bg.svg);
   background-size: auto 300%;
   background-color: $color-plum-550;
   color: white;
-  margin-top: 3rem;
-  padding: 2rem 0;
+  margin-top: spacer(32);
+  // STYLE CHECK
+  // margin-top: 3rem;
+  padding: spacer(32) 0;
 
   @media (min-width: $viewport-md) {
     .container {
@@ -17,12 +20,14 @@
     }
   }
   img {
-    width: 176px;
+    width: toRem(176);
     margin: 0;
   }
   .footer-list {
     list-style-type: none;
-    margin: 0 0 0 49px;
+    margin: 0 0 0 spacer(64);
+    // STYLE CHECK
+    // margin: 0 0 0 49px;
     padding: 0;
 
     @media (min-width: $viewport-md) {
@@ -32,7 +37,7 @@
     @media (min-width: $viewport-sm) {
       li {
         display: inline-block;
-        margin-right: 1.5rem;
+        margin-right: spacer(24);
         margin-bottom: 0;
         &:last-of-type {
           margin-right: 0;
@@ -49,7 +54,7 @@
     }
     .back-to-top {
       display: block;
-      margin-top: 2em;
+      margin-top: spacer(32);
       font-weight: bold;
       @media (min-width: $viewport-sm) {
         display: inline;
