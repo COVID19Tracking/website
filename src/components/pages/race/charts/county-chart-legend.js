@@ -6,6 +6,11 @@ const legendStyles = {
     countyChartLegendStyle.blackAfricanAmericanAlone,
   'White alone': countyChartLegendStyle.whiteAlone,
   'Hispanic or Latino': countyChartLegendStyle.hispanicLatino,
+  'Asian alone': countyChartLegendStyle.asianAlone,
+  'Two or more races': countyChartLegendStyle.twoOrMore,
+  'American Indian and Alaskan Native alone': countyChartLegendStyle.aianAlone,
+  'Native Hawaiian and Other Pacific Islander alone':
+    countyChartLegendStyle.nhpiAlone,
 }
 
 export default ({ data }) => {
