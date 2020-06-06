@@ -78,9 +78,10 @@
       color: white;
       background: $color-plum-600;
     }
-    &[data-selected] {
-      color: white;
-      background: $color-plum-600;
+    &[data-selected],
+    &:focus {
+      background: white;
+      color: black;
     }
   }
 }
