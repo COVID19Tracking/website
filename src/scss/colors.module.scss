@@ -13,7 +13,6 @@ $color-plum-200: #d1d1e8;
 $color-plum-300: #b6b7db;
 $color-plum-400: #8b8dc7;
 $color-plum-500: #6164ba;
-$color-plum-550: #5667ad;
 $color-plum-600: #575aad;
 $color-plum-700: #31347a;
 $color-plum-800: #111354;
@@ -67,13 +66,13 @@ $color-error-light: #f9ded9;
 $color-error-dark: #e35942;
 
 
-// Six Color Palette
-$color-palette-100: #B5E3DB;
-$color-palette-200: #CCCC00;
-$color-palette-300: #A19BCA;
-$color-palette-400: #F4A071;
-$color-palette-500: #2F6488;
-$color-palette-600: #527740;
+// Qualitative Six Color Palette, Colorblind Safe
+$qualitative-color-palette-100: #B5E3DB;
+$qualitative-color-palette-200: #CCCC00;
+$qualitative-color-palette-300: #A19BCA;
+$qualitative-color-palette-400: #F4A071;
+$qualitative-color-palette-500: #2F6488;
+$qualitative-color-palette-600: #527740;
 
 
 
@@ -110,10 +109,10 @@ $color-palette-600: #527740;
   colorSlate600: $color-slate-600;
   colorSlate700: $color-slate-700;
   colorSlate800: $color-slate-800;
-  colorPalette100: $color-palette-100;
-  colorPalette200: $color-palette-200;
-  colorPalette300: $color-palette-300;
-  colorPalette400: $color-palette-400;
-  colorPalette500: $color-palette-500;
-  colorPalette600: $color-palette-600;
+  qualitativeColorPalette100: $qualitative-color-palette-100;
+  qualiTativecolorPalette200: $qualitative-color-palette-200;
+  qualiTativecolorPalette300: $qualitative-color-palette-300;
+  qualiTativecolorPalette400: $qualitative-color-palette-400;
+  qualiTativecolorPalette500: $qualitative-color-palette-500;
+  qualiTativecolorPalette600: $qualitative-color-palette-600;
 }
