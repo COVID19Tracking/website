@@ -10,7 +10,7 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
     <p
       className="homepage-paragraph paragraph"
     >
-      See how we work, what we're learning, and what's changing in our data on our project blog.
+      See how we work, what we’re learning, and what’s changing in our data on our project blog.
     </p>
     <div
       className="container"

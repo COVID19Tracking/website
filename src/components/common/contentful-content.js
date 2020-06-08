@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import smartypants from 'smartypants'
 import contentfulContentStyles from './contentful-content.module.scss'
 
 export default ({ content, className, id }) => {
@@ -36,7 +37,7 @@ export default ({ content, className, id }) => {
       )}
       <div
         className={className}
-        dangerouslySetInnerHTML={{ __html: content }}
+        dangerouslySetInnerHTML={{ __html: smartypants(content, 1) }}
       />
     </>
   )

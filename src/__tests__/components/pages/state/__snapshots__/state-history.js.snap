@@ -183,7 +183,19 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
         </td>
         <td
           className="alignLeft"
-        />
+        >
+          <ul>
+            <li>
+              <a
+                href="https://covidtracking.com/screenshot/3.png"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                5:15 am
+              </a>
+            </li>
+          </ul>
+        </td>
         <td
           className=""
         >
