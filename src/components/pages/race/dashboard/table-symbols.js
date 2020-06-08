@@ -34,7 +34,7 @@ const DisparitySymbol = ({ inkey = false }) => (
     <span className="a11y-only">
       Figure is significantly higher than population proportion
     </span>
-    <div className={tableSymbolsStyles.inner} />
+    <span className={tableSymbolsStyles.inner} />
   </span>
 )
 

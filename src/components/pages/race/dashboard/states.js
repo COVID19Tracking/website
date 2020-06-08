@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import slugify from 'slugify'
+import smartypants from 'smartypants'
 import StateSeparate from './state-separate'
 import StateCombined from './state-combined'
 import statesStyle from './states.module.scss'
@@ -309,6 +310,26 @@ export default () => {
           whiteSpecialCaseNotes
         }
       }
+      disparityNote: contentfulSnippet(
+        slug: { eq: "race-dashboard-disparity" }
+      ) {
+        contentful_id
+        childContentfulSnippetContentTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+      comparibleNote: contentfulSnippet(
+        slug: { eq: "race-dashboard-not-comparable" }
+      ) {
+        contentful_id
+        childContentfulSnippetContentTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
     }
   `)
 
@@ -347,6 +368,26 @@ export default () => {
             </div>
           </div>
         ))}
+      <div className="js-disabled">
+        <div
+          id="notes-disparity"
+          dangerouslySetInnerHTML={{
+            __html: smartypants(
+              data.disparityNote.childContentfulSnippetContentTextNode
+                .childMarkdownRemark.html,
+            ),
+          }}
+        />
+        <div
+          id="notes-comparible"
+          dangerouslySetInnerHTML={{
+            __html: smartypants(
+              data.comparibleNote.childContentfulSnippetContentTextNode
+                .childMarkdownRemark.html,
+            ),
+          }}
+        />
+      </div>
     </section>
   )
 }
