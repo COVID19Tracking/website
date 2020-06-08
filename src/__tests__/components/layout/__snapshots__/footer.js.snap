@@ -50,6 +50,13 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
             </li>
             <li>
               <a
+                href="https://www.theatlantic.com/privacy-policy/"
+              >
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a
                 href="/license"
               >
                 License
@@ -78,6 +85,15 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
               </a>
             </li>
           </ul>
+        </div>
+        <div
+          className="copyright"
+        >
+          <span>
+            CovidTracking.com Copyright © 
+            2020
+             by The Atlantic Monthly Group. (CC BY-NC 4.0)
+          </span>
         </div>
       </div>
     </div>
