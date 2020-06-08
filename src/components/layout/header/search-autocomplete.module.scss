@@ -10,7 +10,7 @@
   left: 0;
   font-weight: normal;
   text-align: left;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   opacity: 1;
   transform: translateY(0.4rem);
   color: $text;
@@ -25,10 +25,13 @@
     margin: 0;
   }
   li:not(.popoverSeparator) {
-    &:hover,
-    &:focus,
-    &[aria-selected='true'] {
-      background: transparentize($color-blueberry-200, 0.77);
+    &:hover {
+      background: $color-blueberry-hover;
+    }
+    &[aria-selected='true'],
+    &:focus {
+      color: white;
+      background: black;
     }
   }
 }

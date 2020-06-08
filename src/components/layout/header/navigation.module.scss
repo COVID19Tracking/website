@@ -1,4 +1,5 @@
 @import '~scss/colors.module.scss';
+@import '~scss/links.module.scss';
 @import '~scss/breakpoints.module.scss';
 
 .caret {
@@ -57,6 +58,9 @@
       display: block;
     }
   }
+  a:focus {
+    @include link-focus-dark-bg;
+  }
 }
 
 .sub-menu {
@@ -74,13 +78,11 @@
     display: block;
     padding: 0.5em 1em;
     cursor: pointer;
-    &:hover {
+    &:hover,
+    &[data-selected],
+    &:focus {
       color: white;
-      background: $color-plum-600;
-    }
-    &[data-selected] {
-      color: white;
-      background: $color-plum-600;
+      background: black;
     }
   }
 }
