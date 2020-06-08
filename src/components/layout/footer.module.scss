@@ -15,8 +15,8 @@
       display: flex;
       justify-content: space-between;
     }
-    a:first-child{
-      margin-right:20px;
+    a:first-child {
+      margin-right: 20px;
     }
   }
   img {
@@ -40,7 +40,6 @@
     justify-content: center;
     @media (min-width: $viewport-md) {
       margin: 0;
-
     }
 
     @media (min-width: $viewport-sm) {
