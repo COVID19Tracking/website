@@ -1,8 +1,8 @@
 @import '~scss/colors.module.scss';
+@import '~scss/links.module.scss';
 @import '~scss/breakpoints.module.scss';
 
 .footer {
-  background-image: url(~images/hero-bg.svg);
   background-size: auto 300%;
   background-color: $color-plum-550;
   color: white;
@@ -19,6 +19,14 @@
   img {
     width: 176px;
     margin: 0;
+  }
+  a {
+    &:focus {
+      @include link-focus-dark-bg;
+    }
+    &:hover {
+      @include link-hover-dark-bg;
+    }
   }
   .footer-list {
     list-style-type: none;
@@ -41,10 +49,10 @@
     }
     a {
       color: white;
-
-      &:hover,
-      &:focus {
-        color: $color-plum-200;
+      font-weight: bold;
+      text-decoration: none;
+      &:hover {
+        @include link-hover-dark-bg;
       }
     }
     .back-to-top {
