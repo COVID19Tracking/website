@@ -45,7 +45,7 @@ const Footer = () => (
       <div className={footerStyles.copyright}>
         <span>
           CovidTracking.com Copyright &copy; {new Date().getFullYear()} by The
-          Atlantic Monthly Group. (CC BY-NC 4.0)
+          Atlantic Monthly Group. <Link to="/license">(CC BY-NC 4.0)</Link>
         </span>
       </div>
     </Container>

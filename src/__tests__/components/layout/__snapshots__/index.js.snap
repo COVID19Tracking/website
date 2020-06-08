@@ -601,7 +601,12 @@ Array [
             <span>
               CovidTracking.com Copyright © 
               2020
-               by The Atlantic Monthly Group. (CC BY-NC 4.0)
+               by The Atlantic Monthly Group. 
+              <a
+                href="/license"
+              >
+                (CC BY-NC 4.0)
+              </a>
             </span>
           </div>
         </div>
@@ -1212,7 +1217,12 @@ Array [
             <span>
               CovidTracking.com Copyright © 
               2020
-               by The Atlantic Monthly Group. (CC BY-NC 4.0)
+               by The Atlantic Monthly Group. 
+              <a
+                href="/license"
+              >
+                (CC BY-NC 4.0)
+              </a>
             </span>
           </div>
         </div>
@@ -1823,7 +1833,12 @@ Array [
             <span>
               CovidTracking.com Copyright © 
               2020
-               by The Atlantic Monthly Group. (CC BY-NC 4.0)
+               by The Atlantic Monthly Group. 
+              <a
+                href="/license"
+              >
+                (CC BY-NC 4.0)
+              </a>
             </span>
           </div>
         </div>
