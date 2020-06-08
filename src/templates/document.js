@@ -1,15 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import ContentfulContent from '~components/common/contentful-content'
 import Layout from '../components/layout'
 
 const StatePage = ({ data, path }) => {
   const doc = data.contentfulDocument
   return (
     <Layout title={doc.name} path={path} narrow>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: doc.description.childMarkdownRemark.html,
-        }}
+      <ContentfulContent
+        content={doc.description.childMarkdownRemark.html}
+        id={doc.contentful_id}
       />
       <a href={`/document/download/${doc.slug}`}>
         Download <i>{doc.name}</i>
@@ -23,6 +23,7 @@ export default StatePage
 export const query = graphql`
   query($slug: String!) {
     contentfulDocument(slug: { eq: $slug }) {
+      contentful_id
       name
       slug
       description {
