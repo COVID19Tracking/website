@@ -22,6 +22,11 @@ const Footer = () => (
             <Link to="/terms-and-conditions">Terms and Conditions</Link>
           </li>
           <li>
+            <a href="https://www.theatlantic.com/privacy-policy/">
+              Privacy Policy
+            </a>
+          </li>
+          <li>
             <Link to="/license">License</Link>
           </li>
           <li>
