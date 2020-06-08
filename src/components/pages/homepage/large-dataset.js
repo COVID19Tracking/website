@@ -27,7 +27,7 @@ export default () => {
         {data.file.childImageSharp && (
           <Img
             fluid={data.file.childImageSharp.fluid}
-            alt="Chart from the Johns Hopkins COVID-19 Testing Insights Initiative depicting daily total tests and daily positive tests using COVID Tracking Project data."
+            alt="Chart from the Johns Hopkins COVID-19 Testing Insights Initiative depicting daily total tests and daily positive tests using COVID Tracking Project data. This visualization is not a dynamic representation of case data and will not update automatically"
           />
         )}
         <h3>Johns Hopkins</h3>
@@ -43,8 +43,11 @@ export default () => {
           , which brings data and expert analysis together in one place. The
           initiative is designed to help policymakers and the public understand
           the trajectory of the pandemic, and make decisions about the path
-          forward. (Please note this visualization is not a dynamic
-          representation of case data, and will not update automatically.)
+          forward.{' '}
+          <em>
+            Please note this visualization is not a dynamic representation of
+            case data and will not update automatically.
+          </em>
         </p>
       </div>
     </div>
