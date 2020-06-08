@@ -1,4 +1,5 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/links.module.scss';
 @import '~scss/colors.module.scss';
 
 .wrapper {
@@ -21,11 +22,9 @@
       font-size: 36px;
     }
     a {
-      text-decoration: none;
       color: $text;
-      &:hover,
-      &:focus {
-        text-decoration: underline;
+      &:hover {
+        @include link-hover;
       }
     }
   }

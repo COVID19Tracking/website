@@ -35,12 +35,10 @@ export default () => {
           </>
         )}
         <h3>
-          <Link to="/race">
-            COVID-19 isn&#8217;t affecting all communities equally. We&#8217;ve
-            partnered with the Antiracist Research &amp; Policy Center to
-            collect the most complete racial data anywhere in the COVID Racial
-            Data Tracker.
-          </Link>
+          COVID-19 isn&apos;t affecting all communities equally. We&apos;ve
+          partnered with the Antiracist Research &amp; Policy Center to collect
+          the most complete racial data anywhere in the{' '}
+          <Link to="/race">COVID Racial Data Tracker.</Link>
         </h3>
         <p>
           We&#8217;re tracking racial and ethnic data from every state that
