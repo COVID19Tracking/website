@@ -1,4 +1,5 @@
 import React from 'react'
+import smartypants from 'smartypants'
 import HeroStyles from './hero.module.scss'
 
 export default ({ ledeContent }) => (
@@ -9,7 +10,7 @@ export default ({ ledeContent }) => (
     </h1>
     <div
       dangerouslySetInnerHTML={{
-        __html: ledeContent,
+        __html: smartypants(ledeContent),
       }}
     />
   </div>
