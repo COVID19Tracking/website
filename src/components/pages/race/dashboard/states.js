@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import slugify from 'slugify'
+import smartypants from 'smartypants'
 import StateSeparate from './state-separate'
 import StateCombined from './state-combined'
 import statesStyle from './states.module.scss'
@@ -371,17 +372,19 @@ export default () => {
         <div
           id="notes-disparity"
           dangerouslySetInnerHTML={{
-            __html:
+            __html: smartypants(
               data.disparityNote.childContentfulSnippetContentTextNode
                 .childMarkdownRemark.html,
+            ),
           }}
         />
         <div
           id="notes-comparible"
           dangerouslySetInnerHTML={{
-            __html:
+            __html: smartypants(
               data.comparibleNote.childContentfulSnippetContentTextNode
                 .childMarkdownRemark.html,
+            ),
           }}
         />
       </div>
