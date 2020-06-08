@@ -254,6 +254,7 @@ Array [
                 className="siteTitleInner"
               >
                 <a
+                  className="projectLogo"
                   href="/"
                 >
                   <img
@@ -582,7 +583,7 @@ Array [
                   className="backToTop"
                   href="#reach-skip-nav"
                 >
-                  Back to top.
+                  Back to top
                 </a>
               </li>
             </ul>
@@ -848,6 +849,7 @@ Array [
                 className="siteTitleInner"
               >
                 <a
+                  className="projectLogo"
                   href="/"
                 >
                   <img
@@ -1176,7 +1178,7 @@ Array [
                   className="backToTop"
                   href="#reach-skip-nav"
                 >
-                  Back to top.
+                  Back to top
                 </a>
               </li>
             </ul>
@@ -1442,6 +1444,7 @@ Array [
                 className="siteTitleInner"
               >
                 <a
+                  className="projectLogo"
                   href="/"
                 >
                   <img
@@ -1770,7 +1773,7 @@ Array [
                   className="backToTop"
                   href="#reach-skip-nav"
                 >
-                  Back to top.
+                  Back to top
                 </a>
               </li>
             </ul>

@@ -246,6 +246,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
               className="siteTitleInner"
             >
               <a
+                className="projectLogo"
                 href="/"
               >
                 <img
@@ -726,6 +727,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
               className="siteTitleInner"
             >
               <a
+                className="projectLogo"
                 href="/"
               >
                 <img
@@ -1206,6 +1208,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
               className="siteTitleInner"
             >
               <a
+                className="projectLogo"
                 href="/"
               >
                 <img
@@ -1690,6 +1693,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
               className="siteTitleInner"
             >
               <a
+                className="projectLogo"
                 href="/"
               >
                 <img
