@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../../components/layout'
+import Layout from '~components/layout'
 import StateNav from '~components/common/state-nav'
 import Hero from '~components/pages/race/dashboard/hero'
 import States from '~components/pages/race/dashboard/states'
@@ -17,22 +17,22 @@ export default ({ data }) => {
   return (
     <Layout
       title="Racial Data Dashboard"
-      description="The COVID-19 pandemic isn’t affecting all communities the same way. The COVID Racial Data Dashboard helps us track this inequity by publishing topline racial data compared with state demographic data."
       returnLink="/race"
       returnLinkTitle="Racial Data Tracker"
       path="/race/dashboard"
+      socialCard={data.contentfulSocialCard}
     >
       <Hero
         ledeContent={
-          data.allContentfulSnippet.edges[0].node
-            .childContentfulSnippetContentTextNode.childMarkdownRemark.html
+          data.raceHeroSnippet.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
         }
       />
       <UsOverview
         statesCasesCount={data.covidRaceDataHomepage.statesReportingCases}
         statesDeathsCount={data.covidRaceDataHomepage.statesReportingDeaths}
         statesNotReporting={
-          data.noDataSnippet.edges[0].node.childContentfulSnippetContentTextNode
+          data.noDataSnippet.childContentfulSnippetContentTextNode
             .childMarkdownRemark.html
         }
       />
@@ -47,27 +47,27 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allContentfulSnippet(filter: { slug: { eq: "race-hero-lede" } }) {
-      edges {
-        node {
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+    raceHeroSnippet: contentfulSnippet(slug: { eq: "race-hero-lede" }) {
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }
-    noDataSnippet: allContentfulSnippet(
-      filter: { slug: { eq: "race-dashboard-no-data" } }
-    ) {
-      edges {
-        node {
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+    contentfulSocialCard(slug: { eq: "racial-data-tracker" }) {
+      description {
+        description
+      }
+      image {
+        resize(width: 1200) {
+          src
+        }
+      }
+    }
+    noDataSnippet: contentfulSnippet(slug: { eq: "race-dashboard-no-data" }) {
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }

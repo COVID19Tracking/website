@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery, StaticQuery } from 'gatsby'
-import Header from '../../../components/layout/header'
+import Header from '~components/layout/header'
 
 beforeEach(() => {
   StaticQuery.mockImplementation(({ render }) =>
@@ -16,41 +16,33 @@ beforeEach(() => {
 
   useStaticQuery.mockImplementation(() => ({
     allContentfulNavigationGroup: {
-      edges: [
+      nodes: [
         {
-          node: {
-            slug: 'test-a',
-            pages: [
-              {
-                title: 'Contentful a',
-                link: '/contentful-a',
-              },
+          slug: 'test-a',
+          pages: [
+            {
+              title: 'Contentful a',
+              link: '/contentful-a',
+            },
 
-              {
-                title: 'Contentful B',
-                link: '/contentful-b',
-              },
-            ],
-          },
+            {
+              title: 'Contentful B',
+              link: '/contentful-b',
+            },
+          ],
         },
       ],
     },
-    allNavigationYaml: {
-      edges: [
+    navigationYaml: {
+      items: [
         {
-          node: {
-            items: [
-              {
-                link: '/test-a',
-                title: 'Test A',
-                subNavigation: 'test-a',
-              },
-              {
-                link: '/test-b',
-                title: 'Test B',
-              },
-            ],
-          },
+          link: '/test-a',
+          title: 'Test A',
+          subNavigation: 'test-a',
+        },
+        {
+          link: '/test-b',
+          title: 'Test B',
         },
       ],
     },

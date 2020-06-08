@@ -1,26 +1,27 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-
 import ContentfulContent from '~components/common/contentful-content'
-import Layout from '../../components/layout'
-import { FormatDate, FormatNumber } from '../../components/utils/format'
-import { SyncInfobox } from '../../components/common/infobox'
-import { Th, Td, Table } from '../../components/common/table'
+import Layout from '~components/layout'
+import { FormatDate, FormatNumber } from '~components/utils/format'
+import { SyncInfobox } from '~components/common/infobox'
+import { Th, Td, Table } from '~components/common/table'
 
 const ContentPage = ({ data }) => (
   <Layout
     title="US Historical Data"
     path="/data/us-daily"
-    description="Cumulative record of our daily totals."
-    navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
+    socialCard={{
+      description: 'Cumulative record of our daily totals.',
+    }}
+    navigation={data.contentfulNavigationGroup.pages}
   >
     <ContentfulContent
       className="module-content"
       content={
-        data.allContentfulSnippet.edges[0].node
-          .childContentfulSnippetContentTextNode.childMarkdownRemark.html
+        data.contentfulSnippet.childContentfulSnippetContentTextNode
+          .childMarkdownRemark.html
       }
-      id={data.allContentfulSnippet.edges[0].node.contentful_id}
+      id={data.contentfulSnippet.contentful_id}
     />
 
     <SyncInfobox />
@@ -41,10 +42,14 @@ const ContentPage = ({ data }) => (
         </tr>
       </thead>
       <tbody>
-        {data.allCovidUsDaily.edges.map(({ node }) => (
+        {data.allCovidUsDaily.nodes.map(node => (
           <tr>
             <Td alignLeft>
-              <FormatDate date={node.date} format="ccc LLL d yyyy" />
+              <FormatDate
+                date={node.date}
+                format="ccc LLL d yyyy"
+                timezone={false}
+              />
             </Td>
             <Td>{node.states}</Td>
             <Td>
@@ -79,46 +84,36 @@ export default ContentPage
 
 export const query = graphql`
   query {
-    allContentfulSnippet(filter: { slug: { eq: "us-daily" } }) {
-      edges {
-        node {
-          contentful_id
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+    contentfulSnippet(slug: { eq: "us-daily" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }
     allCovidUsDaily(sort: { order: DESC, fields: date }) {
-      edges {
-        node {
-          totalTestResults
-          totalTestResultsIncrease
-          states
-          positive
-          pending
-          negative
-          hospitalized
-          death
-          date
-        }
+      nodes {
+        totalTestResults
+        totalTestResultsIncrease
+        states
+        positive
+        pending
+        negative
+        hospitalized
+        death
+        date
       }
     }
-    allContentfulNavigationGroup(filter: { slug: { eq: "data" } }) {
-      edges {
-        node {
-          pages {
-            ... on ContentfulPage {
-              title
-              link: slug
-            }
-            ... on ContentfulNavigationLink {
-              title
-              link: url
-            }
-          }
+    contentfulNavigationGroup(slug: { eq: "data" }) {
+      pages {
+        ... on ContentfulPage {
+          title
+          link: slug
+        }
+        ... on ContentfulNavigationLink {
+          title
+          link: url
         }
       }
     }

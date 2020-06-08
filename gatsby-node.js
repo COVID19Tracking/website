@@ -6,7 +6,10 @@ const fs = require('fs-extra')
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
-  if (typeof process.env.DEV_ENVIRONMENT_VARIABLE_FILE !== 'undefined') {
+  if (
+    typeof process.env.DEV_ENVIRONMENT_VARIABLE_FILE !== 'undefined' &&
+    process.env.DEV_ENVIRONMENT_VARIABLE_FILE != 'false'
+  ) {
     createRedirect({
       fromPath: '/__developer/env-vars',
       toPath: process.env.DEV_ENVIRONMENT_VARIABLE_FILE,
@@ -20,39 +23,42 @@ exports.createPages = async ({ graphql, actions }) => {
         filter: { name: { ne: null } }
         sort: { fields: state }
       ) {
-        edges {
-          node {
-            covid19Site
-            covid19SiteSecondary
-            notes
-            name
-            state
-            twitter
-          }
+        nodes {
+          covid19Site
+          covid19SiteSecondary
+          notes
+          name
+          state
+          twitter
         }
       }
       allContentfulPage {
-        edges {
-          node {
-            id
-            slug
+        nodes {
+          id
+          slug
+        }
+      }
+      allContentfulDocument {
+        nodes {
+          id
+          slug
+          document {
+            file {
+              url
+            }
           }
         }
       }
       allContentfulBlogPost(sort: { fields: updatedAt }) {
-        edges {
-          node {
-            id
-            slug
-          }
+        nodes {
+          id
+          slug
         }
       }
       allContentfulBlogCategory {
-        edges {
-          node {
-            slug
-            id
-          }
+        nodes {
+          slug
+          id
         }
       }
       allCounties(filter: { demographics: { total: { gt: 0 } } }) {
@@ -73,8 +79,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  // Create all the pages based on Markdown files in src/content/pages
-  result.data.allContentfulPage.edges.forEach(({ node }) => {
+  result.data.allContentfulPage.nodes.forEach(node => {
     createPage({
       path: node.slug,
       component: path.resolve(`./src/templates/content.js`),
@@ -82,7 +87,19 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  result.data.allCovidStateInfo.edges.forEach(({ node }) => {
+  result.data.allContentfulDocument.nodes.forEach(node => {
+    createPage({
+      path: `/document/${node.slug}`,
+      component: path.resolve(`./src/templates/document.js`),
+      context: node,
+    })
+    createRedirect({
+      fromPath: `/document/download/${node.slug}`,
+      toPath: node.document.file.url,
+    })
+  })
+
+  result.data.allCovidStateInfo.nodes.forEach(node => {
     createPage({
       path: `/data/state/${slugify(node.name, { strict: true, lower: true })}`,
       component: path.resolve(`./src/templates/state.js`),
@@ -90,7 +107,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  result.data.allContentfulBlogPost.edges.forEach(({ node }) => {
+  result.data.allContentfulBlogPost.nodes.forEach(node => {
     createPage({
       path: `/blog/${node.slug}`,
       component: path.resolve(`./src/templates/blog-post.js`),
@@ -98,7 +115,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  result.data.allContentfulBlogCategory.edges.forEach(({ node }) => {
+  result.data.allContentfulBlogCategory.nodes.forEach(node => {
     createPage({
       path: `/blog/category/${node.slug}`,
       component: path.resolve(`./src/templates/blog-category.js`),
@@ -163,6 +180,12 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
+    type CovidScreenshot implements Node {
+      dateChecked: String
+    }
+    type allCovidStateDaily implements Node {
+      date: String
+    }
     type CovidRaceDataSeparate implements Node {
       blackANHPIPosNotes: String
       blackANHPIDeathNotes: String
@@ -211,30 +234,37 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type CovidRaceDataCombined implements Node {
-      blackANHPINotes: String
-      blackPosNotes: String
-      blackDeathNotes: String
-      asianANHPINotes: String
-      asianPosNotes: String
-      asianDeathNotes: String
-      aianANHPINotes: String
-      aianPosNotes: String
+      aianANHPIDeathNotes: String
+      aianANHPIPosNotes: String
       aianDeathNotes: String
-      nhpiANHPINotes: String
-      nhpiPosNotes: String
-      nhpiDeathNotes: String
-      twoANHPINotes: String
-      twoPosNotes: String
-      twoDeathNotes: String
-      whiteANHPINotes: String
-      whitePosNotes: String
-      whiteDeathNotes: String
-      otherANHPINotes: String
-      otherPosNotes: String
-      otherDeathNotes: String
+      aianPosNotes: String
+      asianANHPIDeathNotes: String
+      asianANHPIPosNotes: String
+      asianDeathNotes: String
+      asianPosNotes: String
+      blackANHPIDeathNotes: String
+      blackANHPIPosNotes: String
+      blackDeathNotes: String
+      blackPosNotes: String
       latinXANHPINotes: String
-      latinXPosNotes: String
       latinXDeathNotes: String
+      latinXPosNotes: String
+      nhpiANHPIDeathNotes: String
+      nhpiANHPIPosNotes: String
+      nhpiDeathNotes: String
+      nhpiPosNotes: String
+      otherANHPIDeathNotes: String
+      otherANHPIPosNotes: String
+      otherDeathNotes: String
+      otherPosNotes: String
+      twoANHPIDeathNotes: String
+      twoANHPIPosNotes: String
+      twoDeathNotes: String
+      twoPosNotes: String
+      whiteANHPIDeathNotes: String
+      whiteANHPIPosNotes: String
+      whiteDeathNotes: String
+      whitePosNotes: String
     }
   `
   createTypes(typeDefs)

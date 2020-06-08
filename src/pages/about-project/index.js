@@ -1,62 +1,50 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
-import Layout from '../../components/layout'
-import VolunteersList from '../../components/common/volunteers-list'
+import Layout from '~components/layout'
+import VolunteersList from '~components/common/volunteers-list'
 
 export default ({ data }) => (
   <Layout
-    title="About us"
+    title="About Us"
     path="/about-project"
     narrow
     textHeavy
-    navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
+    navigation={data.contentfulNavigationGroup.pages}
   >
     <ContentfulContent
       content={
-        data.preamble.edges[0].node.childContentfulSnippetContentTextNode
-          .childMarkdownRemark.html
+        data.preamble.childContentfulSnippetContentTextNode.childMarkdownRemark
+          .html
       }
-      id={data.preamble.edges[0].node.contentful_id}
+      id={data.preamble.contentful_id}
     />
     <VolunteersList items={data.allCovidVolunteers.edges} />
     <ContentfulContent
       content={
-        data.pastContributors.edges[0].node
-          .childContentfulSnippetContentTextNode.childMarkdownRemark.html
+        data.pastContributors.childContentfulSnippetContentTextNode
+          .childMarkdownRemark.html
       }
-      id={data.pastContributors.edges[0].node.contentful_id}
+      id={data.pastContributors.contentful_id}
     />
   </Layout>
 )
 
 export const query = graphql`
   query {
-    preamble: allContentfulSnippet(
-      filter: { slug: { eq: "about-us-preamble" } }
-    ) {
-      edges {
-        node {
-          contentful_id
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+    preamble: contentfulSnippet(slug: { eq: "about-us-preamble" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }
-    pastContributors: allContentfulSnippet(
-      filter: { slug: { eq: "past-contributors" } }
-    ) {
-      edges {
-        node {
-          contentful_id
-          childContentfulSnippetContentTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+    pastContributors: contentfulSnippet(slug: { eq: "past-contributors" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }
@@ -68,19 +56,15 @@ export const query = graphql`
         }
       }
     }
-    allContentfulNavigationGroup(filter: { slug: { eq: "about-project" } }) {
-      edges {
-        node {
-          pages {
-            ... on ContentfulPage {
-              title
-              link: slug
-            }
-            ... on ContentfulNavigationLink {
-              title
-              link: url
-            }
-          }
+    contentfulNavigationGroup(slug: { eq: "about-project" }) {
+      pages {
+        ... on ContentfulPage {
+          title
+          link: slug
+        }
+        ... on ContentfulNavigationLink {
+          title
+          link: url
         }
       }
     }

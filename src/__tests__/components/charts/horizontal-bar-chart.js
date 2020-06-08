@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import data from 'sample-chart-data'
-import HorizontalBarChart from '../../../components/charts/horizontal-bar-chart'
+import HorizontalBarChart from '~components/charts/horizontal-bar-chart'
 
 describe('Components : Charts: Area chart', () => {
   it('renders correctly', () => {

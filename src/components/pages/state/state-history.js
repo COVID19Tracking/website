@@ -1,8 +1,8 @@
 import React from 'react'
 import Screenshots from './screenshots'
-import { Th, Td, Table } from '../../common/table'
-import { FormatNumber, FormatDate } from '../../utils/format'
-import Timezone from '../../common/timezone'
+import { Th, Td, Table } from '~components/common/table'
+import { FormatNumber, FormatDate } from '~components/utils/format'
+import Timezone from '~components/common/timezone'
 import stateHistoryStyle from './state-history.module.scss'
 
 export default ({ history, screenshots }) => (
@@ -23,13 +23,17 @@ export default ({ history, screenshots }) => (
       </tr>
     </thead>
     <tbody className={`state-history-table ${stateHistoryStyle.history}`}>
-      {history.map(({ node }) => (
+      {history.map(node => (
         <tr key={`history-${node.dateChecked}`}>
           <Td alignLeft>
-            <FormatDate date={node.dateChecked} format="ccc LLL d yyyy" />
+            <FormatDate
+              date={node.date}
+              format="ccc LLL d yyyy"
+              timezone={false}
+            />
           </Td>
           <Td alignLeft>
-            <Screenshots date={node.dateChecked} screenshots={screenshots} />
+            <Screenshots date={node.date} screenshots={screenshots} />
           </Td>
           <Td>
             <FormatNumber number={node.totalTestResultsIncrease} />

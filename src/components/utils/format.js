@@ -16,8 +16,18 @@ function formatDateToString(date, format = 'ccc LLL d yyyy h:mm a') {
   )
 }
 
-const FormatDate = ({ date, format = 'ccc LLL d yyyy h:mm a' }) => {
-  return <>{formatDateToString(date, format)}</>
+const FormatDate = ({
+  date,
+  format = 'ccc LLL d yyyy h:mm a',
+  timezone = true,
+}) => {
+  return (
+    <>
+      {timezone
+        ? formatDateToString(date, format)
+        : DateTime.fromISO(date).toFormat(format)}
+    </>
+  )
 }
 
 const FormatNumber = ({ number }) => (

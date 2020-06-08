@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 import {
   PublicationTitle,
   PublicationSource,
-} from '../../../components/common/publication'
+} from '~components/common/publication'
 
 describe('Components : Common: Publication: Title', () => {
   it('renders correctly', () => {

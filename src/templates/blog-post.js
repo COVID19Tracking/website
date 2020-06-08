@@ -3,15 +3,15 @@ import { graphql } from 'gatsby'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
-import AuthorFooter from '../components/pages/blog/author-footer'
-import Categories from '../components/pages/blog/categories'
+import AuthorFooter from '~components/pages/blog/author-footer'
+import Categories from '~components/pages/blog/categories'
 import CleanSpacing from '~components/utils/clean-spacing'
-import ImageContentBlock from '../components/pages/blog/image-content-block'
-import Layout from '../components/layout'
-import Lede from '../components/pages/blog/blog-lede'
-import TableContentBlock from '../components/pages/blog/table-content-block'
+import ImageContentBlock from '~components/pages/blog/image-content-block'
+import Layout from '~components/layout'
+import Lede from '~components/pages/blog/blog-lede'
+import TableContentBlock from '~components/pages/blog/table-content-block'
 
-import blogPostStyles from './blog-post.module.scss'
+import blogPostStyles from '~templates/blog-post.module.scss'
 
 const options = {
   renderNode: {
@@ -47,12 +47,13 @@ const options = {
 }
 
 export default ({ data, path }) => {
-  const blogPost = data.allContentfulBlogPost.edges[0].node
+  const blogPost = data.contentfulBlogPost
+  const socialCard = blogPost.socialCard || { description: blogPost.lede.lede }
   return (
     <Layout
       title={`Blog | ${blogPost.title}`}
       displayTitle="Blog"
-      description={blogPost.lede.lede}
+      socialCard={socialCard}
       returnLink="/blog"
       returnLinkTitle="All posts"
       path={path}
@@ -81,48 +82,60 @@ export default ({ data, path }) => {
 
 export const query = graphql`
   query($id: String!) {
-    allContentfulBlogPost(filter: { id: { eq: $id } }) {
-      edges {
-        node {
-          title
-          authors {
-            name
-            twitterLink
-            twitterHandle
-            link
-            childContentfulAuthorBiographyTextNode {
-              childMarkdownRemark {
-                html
-              }
-            }
-            headshot {
-              file {
-                fileName
-              }
-              resize(width: 200) {
-                width
-                height
-                src
-              }
-            }
+    contentfulBlogPost(id: { eq: $id }) {
+      title
+      authors {
+        name
+        twitterLink
+        twitterHandle
+        link
+        childContentfulAuthorBiographyTextNode {
+          childMarkdownRemark {
+            html
           }
-          categories {
-            name
-            slug
+        }
+        headshot {
+          file {
+            fileName
           }
-          childContentfulBlogPostBlogContentRichTextNode {
-            json
+          resize(width: 200) {
+            width
+            height
+            src
           }
-          slug
-          lede {
-            lede
+        }
+      }
+      socialCard {
+        description {
+          description
+        }
+        image {
+          resize(width: 1200) {
+            src
           }
-          publishDate(formatString: "MMMM D, YYYY")
-          childContentfulBlogPostBodyTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
+        }
+      }
+      categories {
+        name
+        slug
+      }
+      childContentfulBlogPostBlogContentRichTextNode {
+        json
+      }
+      featuredImage {
+        resize(width: 900) {
+          src
+        }
+        title
+      }
+      slug
+      lede {
+        lede
+      }
+      publishDate(formatString: "MMMM D, YYYY")
+      childContentfulBlogPostBodyTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }

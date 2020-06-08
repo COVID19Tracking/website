@@ -1,4 +1,4 @@
-import slug from '../../utilities/slug'
+import slug from '~utilities/slug'
 
 describe('Utilities: Slug', () => {
   test('it creates a valid slug', () => {

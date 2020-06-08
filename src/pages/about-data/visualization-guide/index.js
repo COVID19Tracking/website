@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../../../components/layout'
+import Layout from '~components/layout'
 import MapContainer from './_MapContainer'
 import StateCumulativeTestsContainer from './_StateCumulativeTestsContainer'
 import StateCumulativeDeathsContainer from './_StateCumulativeDeathsContainer'
@@ -15,7 +15,7 @@ const VisualizationGuidePage = ({ data }) => {
     <Layout
       title="Visualization Guide"
       path="/about-data/visualization-guide"
-      navigation={data.allContentfulNavigationGroup.edges[0].node.pages}
+      navigation={data.contentfulNavigationGroup.pages}
     >
       <div className="module-featured">
         <h2 className="hed-featured">
@@ -272,19 +272,15 @@ export default VisualizationGuidePage
 
 export const query = graphql`
   query {
-    allContentfulNavigationGroup(filter: { slug: { eq: "about-data" } }) {
-      edges {
-        node {
-          pages {
-            ... on ContentfulPage {
-              title
-              link: slug
-            }
-            ... on ContentfulNavigationLink {
-              title
-              link: url
-            }
-          }
+    contentfulNavigationGroup(slug: { eq: "about-data" }) {
+      pages {
+        ... on ContentfulPage {
+          title
+          link: slug
+        }
+        ... on ContentfulNavigationLink {
+          title
+          link: url
         }
       }
     }
