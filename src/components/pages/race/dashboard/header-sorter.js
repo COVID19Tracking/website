@@ -6,7 +6,7 @@ export default ({ stateName, stateReports }) => (
   <div className={headerSorterStyles.container}>
     <p>
       The following tables reflect only those cases and deaths where{' '}
-      {stateReports} is known and reported by {stateName}. If this state&apos;s
+      {stateReports} is known and reported by {stateName}. If this state&#8217;s
       reporting percentages are low, interpret with caution.
     </p>
   </div>

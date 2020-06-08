@@ -1,16 +1,10 @@
 import React from 'react'
-import { DateTime } from 'luxon'
 import { FormatDate } from '~components/utils/format'
 
 export default ({ date, screenshots }) => {
   const dateScreenshots = []
-  const currentDate = DateTime.fromISO(date).setZone('America/New_York')
   screenshots.forEach(node => {
-    if (
-      DateTime.fromISO(node.dateChecked)
-        .setZone('America/New_York')
-        .hasSame(currentDate, 'day')
-    ) {
+    if (parseInt(node.date, 10) === date) {
       dateScreenshots.push(node)
     }
   })

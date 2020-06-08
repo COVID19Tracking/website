@@ -1,4 +1,5 @@
 @import '~scss/colors.module.scss';
+@import '~scss/links.module.scss';
 @import '~scss/breakpoints.module.scss';
 
 .banner {
@@ -24,9 +25,11 @@
     color: white;
     text-decoration: none;
 
-    &:hover,
+    &:hover {
+      @include link-hover-dark-bg;
+    }
     &:focus {
-      color: white;
+      @include link-focus-dark-bg;
     }
   }
   .new {

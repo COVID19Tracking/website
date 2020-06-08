@@ -1,6 +1,7 @@
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import smartypants from 'smartypants'
 import classnames from 'classnames'
 import { CautionSymbol, DisparitySymbol } from './table-symbols'
 import tableSymbolStyles from './table-symbol-key.module.scss'
@@ -92,9 +93,10 @@ export default ({ state }) => {
         className={tableSymbolStyles.disclosurePane}
         data-expanded={disparityOpen}
         dangerouslySetInnerHTML={{
-          __html:
+          __html: smartypants(
             content.disparityNote.childContentfulSnippetContentTextNode
               .childMarkdownRemark.html,
+          ),
         }}
       />
       <div
@@ -103,9 +105,10 @@ export default ({ state }) => {
         className={tableSymbolStyles.disclosurePane}
         data-expanded={comparibleOpen}
         dangerouslySetInnerHTML={{
-          __html:
+          __html: smartypants(
             content.comparibleNote.childContentfulSnippetContentTextNode
               .childMarkdownRemark.html,
+          ),
         }}
       />
     </div>

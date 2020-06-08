@@ -35,7 +35,7 @@ const DisclaimerNY = ({ data }) => (
     {data.find(county => county.name === 'New York City') && (
       <span className={chartsStyle.nycDisclaimer}>
         Note that <em>The New York Times</em> county dataset combines the five
-        counties that make up New York City&apos;s boroughs (New York County,
+        counties that make up New York City&#8217;s boroughs (New York County,
         Kings County, Bronx County, Richmond County, and Queens County) into one
         listing for New York City. When combined, these counties show up as
         predominantly White, non-Hispanic. However, Bronx County, which is

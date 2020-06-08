@@ -6,7 +6,7 @@ import pressStyles from './press.module.scss'
 
 export default () => (
   <section>
-    <h3 className={pressStyles.header}>Who&apos;s using our data</h3>
+    <h3 className={pressStyles.header}>Who&#8217;s using our data</h3>
     <div className={pressStyles.press}>
       <div className={pressStyles.list}>
         <InThePress />

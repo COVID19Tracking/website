@@ -19,6 +19,9 @@ const Footer = () => (
             <Link to="/accessibility">Accessibility</Link>
           </li>
           <li>
+            <Link to="/terms-and-conditions">Terms and Conditions</Link>
+          </li>
+          <li>
             <Link to="/license">License</Link>
           </li>
           <li>
@@ -29,7 +32,7 @@ const Footer = () => (
           </li>
           <li>
             <a href="#reach-skip-nav" className={footerStyles.backToTop}>
-              Back to top.
+              Back to top
             </a>
           </li>
         </ul>
