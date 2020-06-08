@@ -9,3 +9,5 @@ excluded_files:
 excluded_words:
   - covid
   - lede
+  - nhpi
+  - aian
