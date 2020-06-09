@@ -7,6 +7,10 @@ const groupClasses = {
   'White alone': 'whiteAlone',
   'Black or African American alone': 'blackAfricanAmericanAlone',
   'Hispanic or Latino': 'hispanicLatino',
+  'Asian alone': 'asianAlone',
+  'Two or more races': 'twoOrMore',
+  'American Indian and Alaskan Native alone': 'aianAlone',
+  'Native Hawaiian and Other Pacific Islander alone': 'nhpiAlone',
 }
 
 export default ({ data, field, label }) => {

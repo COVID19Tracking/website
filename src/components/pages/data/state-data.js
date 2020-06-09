@@ -1,5 +1,6 @@
 import React from 'react'
 import marked from 'marked'
+import smartypants from 'smartypants'
 import { Link } from 'gatsby'
 import slug from '~utilities/slug'
 import { UnstyledList } from '~components/common/lists'
@@ -44,7 +45,7 @@ const State = ({ state }) => (
       <div
         className={`module-content ${stateDataStyles.notes}`}
         dangerouslySetInnerHTML={{
-          __html: marked(state.notes),
+          __html: smartypants(marked(state.notes)),
         }}
       />
     )}

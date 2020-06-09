@@ -229,7 +229,7 @@ export default () => {
 
         <div className={VolunteerFormStyles.botField}>
           <label htmlFor="covid-bot-field">
-            If you are a human, don&apos;t fill out this field:
+            If you are a human, don&#8217;t fill out this field:
             <input type="text" name="covid-bot-field" id="covid-bot-field" />
           </label>
         </div>

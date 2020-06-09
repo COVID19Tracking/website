@@ -41,10 +41,10 @@ export default () => {
           <Link to="/race">COVID Racial Data Tracker.</Link>
         </h3>
         <p>
-          We&apos;re tracking racial and ethnic data from every state that
-          reports it—and pushing those that don&apos;t to start. Together with
-          the Antiracist Research &amp; Policy Center, we&apos;re analyzing this
-          data to uncover the true impact of the outbreak on vulnerable
+          We&#8217;re tracking racial and ethnic data from every state that
+          reports it—and pushing those that don&#8217;t to start. Together with
+          the Antiracist Research &amp; Policy Center, we&#8217;re analyzing
+          this data to uncover the true impact of the outbreak on vulnerable
           communities.
         </p>
         <CtaLink to="/race" centered>

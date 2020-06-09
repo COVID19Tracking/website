@@ -1,4 +1,5 @@
 import React from 'react'
+import smartypants from 'smartypants'
 import AuthorFooterStyles from './author-footer.module.scss'
 
 export default ({ authors }) => {
@@ -22,9 +23,10 @@ export default ({ authors }) => {
           <div className={AuthorFooterStyles.textContent}>
             <div
               dangerouslySetInnerHTML={{
-                __html:
+                __html: smartypants(
                   author.childContentfulAuthorBiographyTextNode
                     .childMarkdownRemark.html,
+                ),
               }}
             />
             {author.twitterHandle && (

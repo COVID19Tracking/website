@@ -99,7 +99,7 @@ exports[`Components : Pages : Homepage : Large Project renders correctly 1`] = `
       </a>
     </h3>
     <p>
-      We're tracking racial and ethnic data from every state that reports it—and pushing those that don't to start. Together with the Antiracist Research & Policy Center, we're analyzing this data to uncover the true impact of the outbreak on vulnerable communities.
+      We’re tracking racial and ethnic data from every state that reports it—and pushing those that don’t to start. Together with the Antiracist Research & Policy Center, we’re analyzing this data to uncover the true impact of the outbreak on vulnerable communities.
     </p>
     <a
       className="cta centered "
