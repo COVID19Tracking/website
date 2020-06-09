@@ -135,6 +135,28 @@ select,
 
 /*
 
+Headers
+
+*/
+
+h1 {
+  @include type-size(700);
+}
+h2 {
+  @include type-size(600);
+}
+h3 {
+  @include type-size(500);
+}
+h4 {
+  @include type-size(400);
+}
+h5 {
+  @include type-size(300);
+}
+
+/*
+
 Layout blocks
 
 */
