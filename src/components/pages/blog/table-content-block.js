@@ -10,7 +10,7 @@ const renderCell = cell =>
 
 const parseMarkdownTable = table => {
   const rows = []
-  const tableData = table.split(/\n/)
+  const tableData = table.split(/\n/).map(row => row.replace(/^\|+|\|+$/g, ''))
   const headers = tableData[0]
     .split('|')
     .map(item => renderCell(item.trim().replace(/_/g, '')))

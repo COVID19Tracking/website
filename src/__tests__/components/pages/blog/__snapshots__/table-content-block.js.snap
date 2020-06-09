@@ -1,0 +1,533 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Blog : Table Content Block renders correctly 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr
+      className="header"
+    >
+      <th>
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "test",
+            }
+          }
+        />
+      </th>
+      <th>
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "header",
+            }
+          }
+        />
+      </th>
+      <th>
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "this",
+            }
+          }
+        />
+      </th>
+      <th>
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "is",
+            }
+          }
+        />
+      </th>
+      <th>
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "header",
+            }
+          }
+        />
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      className="row"
+    >
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "test",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "header",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<hr>",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "this",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<hr>",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "is",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<hr>",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "header",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<hr>",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": undefined,
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<hr>",
+            }
+          }
+        />
+      </td>
+    </tr>
+    <tr
+      className="row"
+    >
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "test",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "header",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "1,000",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "this",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "2,000",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "is",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "3,000",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "header",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "4,000",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": undefined,
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "5,000",
+            }
+          }
+        />
+      </td>
+    </tr>
+    <tr
+      className="row"
+    >
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "test",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "header",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "N/A",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "this",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "N/A",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "is",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "This",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "header",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "is c",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": undefined,
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "a cell",
+            }
+          }
+        />
+      </td>
+    </tr>
+    <tr
+      className="row"
+    >
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "test",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "header",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Woot",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "this",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "De",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "is",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Doot",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "header",
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "De",
+            }
+          }
+        />
+      </td>
+      <td
+        alignLeft={true}
+      >
+        <span
+          className="cellLabel"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": undefined,
+            }
+          }
+        />
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Doo",
+            }
+          }
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
