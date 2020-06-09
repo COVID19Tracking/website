@@ -2,7 +2,14 @@ import React from 'react'
 import classnames from 'classnames'
 import formStyles from './form.module.scss'
 
-const Form = ({ children }) => <div className={formStyles.form}>{children}</div>
+const Form = props => {
+  const { children } = props
+  return (
+    <form className={formStyles.form} {...props}>
+      {children}
+    </form>
+  )
+}
 
 const FormGroup = ({ children, className }) => (
   <div className={classnames([formStyles.group, className])}>{children}</div>
@@ -10,32 +17,40 @@ const FormGroup = ({ children, className }) => (
 const FormLabel = ({ children, htmlFor, required }) => (
   <label className={formStyles.label} htmlFor={htmlFor}>
     {children}
-    {required && <span className={formStyles.required}>required</span>}
+    {required ? (
+      <span className={formStyles.required}>required</span>
+    ) : (
+      <span className={formStyles.required}>optional</span>
+    )}
   </label>
 )
 
 const FormInput = props => {
-  const { inputType, htmlFor, required, label } = props
+  const { inputtype, htmlFor, required, label } = props
 
   let inputElement = null
-  switch (inputType) {
+  switch (inputtype) {
     case 'text':
-      inputElement = <textarea {...props} />
+      inputElement = (
+        <>
+          <FormLabel htmlFor={htmlFor} required={required}>
+            <textarea {...props} />
+          </FormLabel>
+        </>
+      )
       break
     case 'input':
       inputElement = (
         <>
-          <label className={formStyles.label} htmlFor={htmlFor}>
+          <FormLabel htmlFor={htmlFor} required={required}>
             {label}
-            {required ? (
-              <span className={formStyles.required}>required</span>
-            ) : (
-              <span className={formStyles.required}>optional</span>
-            )}
-          </label>
+          </FormLabel>
           <input {...props} />
         </>
       )
+      break
+    case 'justinput':
+      inputElement = <input {...props} />
       break
     default:
       inputElement = <input {...props} />
