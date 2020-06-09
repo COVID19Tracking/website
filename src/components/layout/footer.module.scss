@@ -9,19 +9,30 @@
   margin-top: 3rem;
   padding: 2rem 0;
 
+  @media (max-width: $viewport-ms) {
+    .footer-list {
+      flex-direction: column;
+    }
+  }
+
   @media (min-width: $viewport-md) {
+    a:first-child {
+      margin-right: 20px;
+    }
+  }
+
+  @media (min-width: $viewport-ms) {
     .container {
       align-items: center;
       display: flex;
       justify-content: space-between;
     }
-    a:first-child {
-      margin-right: 20px;
-    }
   }
+
   img {
     width: 176px;
     margin: 0;
+    margin-right: 1rem;
   }
   a {
     &:focus {
@@ -33,11 +44,10 @@
   }
   .footer-list {
     list-style-type: none;
-    margin: 0 0 0 49px;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: right;
     @media (min-width: $viewport-md) {
       margin: 0;
     }
@@ -45,13 +55,19 @@
     @media (min-width: $viewport-sm) {
       li {
         display: inline-block;
-        margin-right: 1.5rem;
-        margin-bottom: 0;
-        &:last-of-type {
-          margin-right: 0;
+        margin: 0.25rem 0 0.25rem 1.5rem;
+        &:first-of-type {
+          margin-left: 0;
         }
       }
     }
+
+    @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
+      li:first-of-type {
+        margin-left: 1.5rem;
+      }
+    }
+
     a {
       color: white;
       font-weight: bold;
