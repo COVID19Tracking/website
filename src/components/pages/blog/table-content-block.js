@@ -1,7 +1,6 @@
 /* eslint-disable react/no-array-index-key,jsx-a11y/control-has-associated-label */
 import React from 'react'
 import marked from 'marked'
-import { Table, Th, Td } from '~components/common/table'
 import tableStyle from './table-content-block.module.scss'
 
 const renderCell = cell =>
@@ -38,13 +37,13 @@ const parseMarkdownTable = table => {
 export default ({ table }) => {
   const { headers, rows } = parseMarkdownTable(table)
   return (
-    <Table>
+    <table className={tableStyle.table}>
       <thead>
         <tr className={tableStyle.header}>
           {headers.map(item => (
-            <Th key={`header-${item}`}>
+            <th key={`header-${item}`}>
               <span dangerouslySetInnerHTML={{ __html: item }} />
-            </Th>
+            </th>
           ))}
         </tr>
       </thead>
@@ -52,17 +51,17 @@ export default ({ table }) => {
         {rows.map((row, index) => (
           <tr key={`row-${index}`} className={tableStyle.row}>
             {row.map((item, itemIndex) => (
-              <Td key={`row-${index}-${item}`} alignLeft>
+              <td key={`row-${index}-${item}`} alignLeft>
                 <span
                   className={tableStyle.cellLabel}
                   dangerouslySetInnerHTML={{ __html: headers[itemIndex] }}
                 />
                 <span dangerouslySetInnerHTML={{ __html: item }} />
-              </Td>
+              </td>
             ))}
           </tr>
         ))}
       </tbody>
-    </Table>
+    </table>
   )
 }

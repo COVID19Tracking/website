@@ -1,6 +1,22 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
 
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  tr,
+  td,
+  th {
+    border-bottom: 1px solid $color-slate-200;
+    text-align: left;
+    font-size: 1rem;
+    vertical-align: top;
+  }
+  th {
+    font-weight: bolder;
+  }
+}
+
 .cell-label {
   display: block;
   font-weight: bold;
@@ -20,18 +36,30 @@
 
 .row {
   display: block;
-  @media (max-width: $viewport-lg) {
-    border-top: 1px solid $color-slate-700;
-    border-bottom: 1px solid $color-slate-700;
-  }
-  td {
-    display: block;
-    padding: 1rem 0;
-    @media (min-width: $viewport-lg) {
-      display: table-cell;
-    }
+  border-bottom: 1px solid $color-slate-500;
+  padding: 2rem 0;
+  &:first-child {
+    padding-top: 0;
   }
   @media (min-width: $viewport-lg) {
     display: table-row;
+    border-bottom: 1px solid $color-slate-200;
+    transition: background-color 0.2s;
+    padding: 0;
+  }
+  td {
+    margin: 0;
+    display: block;
+    border: 0;
+    @media (min-width: $viewport-lg) {
+      display: table-cell;
+      padding: 1rem;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
   }
 }
