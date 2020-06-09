@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, FormGroup, FormLabel } from '~components/common/form'
+import { Form, FormGroup, FormInput } from '~components/common/form'
 import DetailText from '~components/common/detail-text'
 import formStyle from './form.module.scss'
 
@@ -13,10 +13,10 @@ export default () => (
     >
       <div className={formStyle.fieldGroup}>
         <FormGroup className={formStyle.group}>
-          <FormLabel htmlFor="action-form-first-name">
-            First name <span className={formStyle.label}>required</span>
-          </FormLabel>
-          <input
+          <FormInput
+            htmlFor="action-form-first-name"
+            label="First name"
+            inputType="input"
             type="text"
             name="FNAME"
             id="action-form-first-name"
@@ -25,10 +25,10 @@ export default () => (
           />
         </FormGroup>
         <FormGroup className={formStyle.group}>
-          <FormLabel htmlFor="action-form-last-name">
-            Last name <span className={formStyle.label}>required</span>
-          </FormLabel>
-          <input
+          <FormInput
+            htmlFor="action-form-last-name"
+            label="Last name"
+            inputType="input"
             type="text"
             name="LNAME"
             id="action-form-last-name"
@@ -39,10 +39,10 @@ export default () => (
       </div>
       <div className={formStyle.fieldGroup}>
         <FormGroup className={formStyle.group}>
-          <FormLabel htmlFor="action-form-email">
-            Email address <span className={formStyle.label}>required</span>
-          </FormLabel>
-          <input
+          <FormInput
+            htmlFor="action-form-email"
+            label="Email address"
+            inputType="input"
             type="email"
             name="EMAIL"
             id="action-form-email"
@@ -51,17 +51,16 @@ export default () => (
           />
         </FormGroup>
         <FormGroup className={formStyle.group}>
-          <FormLabel htmlFor="action-form-zip">
-            Zip code <span className={formStyle.label}>optional</span>
-          </FormLabel>
-          <input
+          <FormInput
+            htmlFor="action-form-zip"
+            label="Zip code"
+            inputType="input"
             type="text"
             name="MMERGE3"
             id="action-form-zip"
             maxLength="5"
             className={formStyle.zip}
             aria-required
-            required
           />
           <DetailText>
             To receive updates specific to your location, please enter a zip
