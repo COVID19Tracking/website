@@ -135,7 +135,6 @@ export default () => {
                         name="availability"
                         value={item.description}
                         id={item.shortname}
-                        aria-required="true"
                       />
                       {item.description}
                     </label>
