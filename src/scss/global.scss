@@ -14,6 +14,7 @@ html {
 }
 
 body {
+  font-size: 16px;
   color: $text;
   font: normal 100%/1.5 'system-ui', '-apple-system', 'BlinkMacSystemFont',
     'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
@@ -282,16 +283,16 @@ Typography
   h2:first-child {
     margin-top: 0;
   }
-  
+
   h3 {
     font-size: 1.35rem;
     margin: spacer(32) 0 spacer(4);
   }
-  
+
   li {
     @include margin(8, bottom);
   }
-  
+
   p:not([class]),
   ul:not([class]),
   ol:not([class]) {
