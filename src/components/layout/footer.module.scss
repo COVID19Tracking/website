@@ -86,4 +86,14 @@
   padding: 1.5rem 2rem 0.5rem;
   text-align: center;
   font-size: 1rem;
+
+  a {
+    color: white;
+    &:hover {
+      @include link-hover-dark-bg;
+    }
+    &:focus {
+      @include link-focus-dark-bg;
+    }
+  }
 }
