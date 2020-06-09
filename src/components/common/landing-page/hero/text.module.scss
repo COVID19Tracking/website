@@ -1,9 +1,10 @@
 @import '~scss/breakpoints.module.scss';
 @import '~scss/helpers.module.scss';
+@import '~scss/type.module.scss';
 
 .text {
   @media (min-width: $viewport-lg) {
-    font-size: toRem(23);
+    @include type-size(400);
     max-width: 38rem;
   }
   @media (min-width: $viewport-xl) {

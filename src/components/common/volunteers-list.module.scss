@@ -1,5 +1,6 @@
 @import '~scss/breakpoints.module.scss';
 @import '~scss/helpers.module.scss';
+@import '~scss/type.module.scss';
 
 .list {
   column-count: 2;
@@ -13,5 +14,5 @@
 }
 
 .note {
-  font-size: 1rem;
+  @include type-size(200);
 }

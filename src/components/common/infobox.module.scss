@@ -1,5 +1,6 @@
 @import '~scss/colors.module.scss';
 @import '~scss/helpers.module.scss';
+@import '~scss/type.module.scss';
 
 .infobox {
   display: inline-flex;
@@ -8,8 +9,8 @@
   margin: spacer(16) 0;
 
   border-radius: 4px;
-  font-size: 0.9rem;
-  
+  @include type-size(100);
+
   img {
     width: toRem(16);
     margin: spacer(4) spacer(16) spacer(4) spacer(8);

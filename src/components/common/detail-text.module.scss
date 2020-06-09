@@ -1,9 +1,10 @@
 @import '~scss/colors.module.scss';
 @import '~scss/helpers.module.scss';
+@import '~scss/type.module.scss';
 
 .detail-text {
   color: $color-slate-600;
-  font-size: 1rem;
+  @include type-size(200);
   cite {
     font-style: italic;
   }

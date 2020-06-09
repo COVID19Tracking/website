@@ -1,4 +1,5 @@
 @import '~scss/colors.module.scss';
+@import '~scss/type.module.scss';
 
 .chart {
   overflow: visible !important;
@@ -15,7 +16,7 @@
 
 .label {
   fill: $color-slate-500;
-  font-size: toRem(14);
+  @include type-size(100);
 }
 
 .grid-line {

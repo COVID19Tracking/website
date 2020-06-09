@@ -1,4 +1,5 @@
 @import '~scss/helpers.module.scss';
+@import '~scss/type.module.scss';
 
 .press-list {
   list-style-type: none;
@@ -13,14 +14,14 @@
     color: black;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.125rem;
+    @include type-size(300);
     display: block;
     margin-bottom: spacer(4);
     &:hover {
       text-decoration: underline;
     }
   }
-  
+
   .dot-separator {
     display: inline-block;
     margin: 0 spacer(8);

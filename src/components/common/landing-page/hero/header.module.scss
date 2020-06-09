@@ -1,22 +1,21 @@
 @import '~scss/breakpoints.module.scss';
 @import '~scss/helpers.module.scss';
+@import '~scss/type.module.scss';
+
 
 .header {
-  font-size: toRem(30);
+  @include type-size(500);
   line-height: 1.25;
   font-weight: bold;
   margin-top: 0;
-  @media (min-width: $viewport-ms) {
-    font-size: 2rem;
-  }
   @media (min-width: $viewport-md) {
-    font-size: toRem(36);
+    @include type-size(600);
   }
   @media (min-width: $viewport-lg) {
     max-width: 38rem;
-    font-size: toRem(36);
+    @include type-size(600);
   }
   @media (min-width: $viewport-xl) {
-    font-size: toRem(48);
+    @include type-size(700);
   }
 }

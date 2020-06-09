@@ -1,6 +1,7 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
 @import '~scss/helpers.module.scss';
+@import '~scss/type.module.scss';
 
 .form {
   input[type='text'],
@@ -20,9 +21,9 @@
     border-radius: 4px;
     box-sizing: border-box;
     resize: vertical;
-    
+
     font-weight: 400;
-    font-size: 1rem;
+    @include type-size(200);
   }
 
   textarea {
@@ -52,7 +53,7 @@
     .required {
       display: block;
       float: right;
-      font-size: 0.8rem;
+      @include type-size(100);
     }
   }
 
@@ -75,8 +76,7 @@
     @include margin(4, bottom);
     // STYLE CHECK
     // margin-bottom: 5px;
-    font-weight: 600;
-    font-size: toRem(24);
+    @include bold-type-size(400);
   }
 
   button,

@@ -1,4 +1,5 @@
 @import '~scss/helpers.module.scss';
+@import '~scss/type.module.scss';
 
 .root {
   width: 240px;
@@ -9,8 +10,8 @@
 
   background-color: white;
   border: solid black 1px;
-  
-  font-size: toRem(15);
+
+  @include type-size(200);
   text-transform: lowercase;
 
   pointer-events: none;

@@ -1,6 +1,7 @@
 @import '~scss/breakpoints.module.scss';
 @import '~scss/colors.module.scss';
 @import '~scss/helpers.module.scss';
+@import '~scss/type.module.scss';
 
 .total {
   background-color: $color-blueberry-100;
@@ -19,9 +20,7 @@
 }
 
 .number {
-  font-weight: bold;
-  font-size: 30px;
-  font-size: 1.875rem;
+  @include bold-type-size(500);
   line-height: 1.2;
   // STYLE CHECK
   margin-top: toRem(6);
@@ -29,8 +28,7 @@
 }
 
 .label {
-  font-size: 13px;
-  font-size: 0.8125rem;
+  @include type-size(100);
   line-height: 1rem;
   font-weight: 700;
   // STYLE CHECK

@@ -1,5 +1,6 @@
 @import '~scss/colors.module.scss';
 @import '~scss/helpers.module.scss';
+@import '~scss/type.module.scss';
 
 .cta {
   color: $color-honey-700;
@@ -17,8 +18,7 @@
   display: block;
   margin: 0 auto;
   text-align: center;
-  font-size: 18px;
-  font-size: 1.125rem;
+  @include type-size(300);
 }
 
 .bold {
