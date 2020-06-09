@@ -15,12 +15,6 @@
     }
   }
 
-  @media (min-width: $viewport-md) {
-    a:first-child {
-      margin-right: 20px;
-    }
-  }
-
   @media (min-width: $viewport-ms) {
     .container {
       align-items: center;
