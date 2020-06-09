@@ -1,4 +1,5 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/type.module.scss';
 
 $chart-max-width: 500px;
 $chart-two-col-max-width: 250px;
@@ -78,12 +79,12 @@ $chart-gutter-md: 100px;
 
 .chart-title {
   @extend %chart-titles;
-  font-size: 16px;
+  @include type-size(200);
   margin: 0 0 1.5rem;
 }
 
 .chart-subtitle {
   @extend %chart-titles;
-  font-size: 13px;
+  @include type-size(100);
   margin: 0 0 1rem;
 }

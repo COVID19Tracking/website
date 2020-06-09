@@ -1,5 +1,6 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
+@import '~scss/type.module.scss';
 
 .state-map {
   margin-bottom: 3rem;
@@ -187,7 +188,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 12px;
+    @include type-size(100);
     &.column {
       white-space: nowrap;
     }

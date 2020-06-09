@@ -1,5 +1,6 @@
 @import '~scss/breakpoints.module.scss';
 @import '~scss/colors.module.scss';
+@import '~scss/type.module.scss';
 
 .dashboard-button {
   color: #000;
@@ -7,7 +8,7 @@
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
-  font-size: 14px;
+  @include type-size(100);
   line-height: 1.8;
   margin: 0 0 2rem;
   padding: 2px 15px;
@@ -32,10 +33,10 @@
 
 .dashboard-toggle-label {
   margin-right: 1rem;
-  font-size: 0.78rem;
+  @include type-size(100);
 
   @media screen and (min-width: $viewport-sm) {
-    font-size: 1rem;
+    @include type-size(200);
   }
 }
 
@@ -46,7 +47,7 @@
 
   span {
     @extend %dashboard-toggle-inactive;
-    font-size: 14px;
+    @include type-size(100);
     margin: -1px;
     padding: 2px 15px;
     white-space: nowrap;
@@ -90,7 +91,7 @@
 .chart-legend {
   display: flex;
   flex-direction: row;
-  font-size: 14px;
+  @include type-size(100);
   list-style-type: none;
   margin: 0 0 2rem;
 
@@ -154,12 +155,12 @@
 }
 
 .chart-legend-note {
-  font-size: 14px;
+  @include type-size(100);
   color: #676b6d;
 }
 
 .tips-section-title {
-  font-size: 1.1em;
+  @include type-size(300);
   font-weight: bold;
 }
 
@@ -215,7 +216,7 @@ $small-multiples-chart-gutter: 1%;
   white-space: nowrap;
 
   h4 {
-    font-size: 14px;
+    @include type-size(100);
     line-height: 1.2;
     margin: 0;
   }
@@ -282,7 +283,7 @@ $small-multiples-chart-gutter: 1%;
 
   p {
     color: #000000;
-    font-size: 10pt;
+    @include type-size(100);
     top: -0.2rem;
     margin-bottom: 0.2rem;
     text-align: left;
@@ -292,15 +293,14 @@ $small-multiples-chart-gutter: 1%;
 
 .subhead {
   font-weight: lighter;
-  font-size: 25px;
+  @include type-size(400);
   line-height: 33px;
   margin-bottom: 70px;
 }
 
 .notes-section {
   border-top: 1px solid $color-slate-300;
-  font-size: 14px;
-  font-size: 0.875rem;
+  @include type-size(100);
   color: #676b6d;
   margin-top: 2.77rem;
   padding-top: 1.5rem;
