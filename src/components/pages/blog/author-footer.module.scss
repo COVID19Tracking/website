@@ -1,3 +1,4 @@
+@import '~scss/type.module.scss';
 
 .container {
   margin: 2rem 0 0;
@@ -13,7 +14,7 @@
     margin-bottom: 1.5em; // matches layout content-primary p
   }
   .text-content {
-    font-size: 16px;
+    @include type-size(200);
     line-height: 1.75;
     font-style: italic;
     padding-left: 0.875rem;

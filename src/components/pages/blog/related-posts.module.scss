@@ -1,11 +1,12 @@
 @import '~scss/colors.module.scss';
+@import '~scss/type.module.scss';
 
 .container {
   h2 {
     margin: 1.5rem 0 1rem;
   }
   h3 {
-    font-size: 22px;
+    @include type-size(400);
     line-height: 28px;
     margin: 0;
   }
