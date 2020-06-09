@@ -25,8 +25,7 @@ export default () => {
           <FormGroup className={VolunteerFormStyles.group}>
             <input type="hidden" name="form-name" value="volunteer" />
             <FormLabel htmlFor="name">
-              Name
-              <span className={VolunteerFormStyles.label}>required</span>
+              Name <span className={VolunteerFormStyles.label}>required</span>
             </FormLabel>
             <input
               type="text"
@@ -40,8 +39,7 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <FormLabel htmlFor="email">
-              Email
-              <span className={VolunteerFormStyles.label}>required</span>
+              Email <span className={VolunteerFormStyles.label}>required</span>
             </FormLabel>
             <DetailText>
               If possible, this should be a Gmail or Google-linked address,
@@ -62,20 +60,26 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <FormLabel htmlFor="url">
-              URL <span className={VolunteerFormStyles.label}>optional</span>
+              URL <span className={VolunteerFormStyles.label}>required</span>
             </FormLabel>
             <DetailText>
-              Personal website, LinkedIn, or other website that will tell us
+              Personal website, LinkedIn, or other web page that will tell us
               about you.
             </DetailText>
-            <input type="text" name="url" id="url" />
+            <input
+              type="text"
+              name="url"
+              id="url"
+              aria-required="true"
+              required
+            />
           </FormGroup>
         </div>
 
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <FormLabel htmlFor="hours">
-              About how many hours are you available to volunteer each week?
+              About how many hours are you available to volunteer each week?{' '}
               <span className={VolunteerFormStyles.label}>required</span>
             </FormLabel>
             <select name="hours" id="hours" aria-required="true" required>
@@ -93,7 +97,7 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <FormLabel htmlFor="timezone">
-              What time zone are you in?
+              What time zone are you in?{' '}
               <span className={VolunteerFormStyles.label}>required</span>
             </FormLabel>
             <select name="timezone" id="timezone" aria-required="true" required>
@@ -112,8 +116,10 @@ export default () => {
           <FormGroup className={VolunteerFormStyles.group}>
             <fieldset className={VolunteerFormStyles.fieldset}>
               <legend>
-                When are you most available to volunteer?{' '}
-                <span className={VolunteerFormStyles.label}>required</span>
+                <FormLabel htmlFor="availability">
+                  When are you most available to volunteer?{' '}
+                  <span className={VolunteerFormStyles.label}>required</span>
+                </FormLabel>
               </legend>
 
               <div className={VolunteerFormStyles.fieldsetOptions}>
@@ -142,7 +148,7 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <FormLabel htmlFor="skills">
-              Specializations / Skills
+              Specializations / Skills{' '}
               <span className={VolunteerFormStyles.label}>required</span>
             </FormLabel>
             <DetailText>
@@ -163,8 +169,10 @@ export default () => {
           <FormGroup className={VolunteerFormStyles.group}>
             <fieldset className={VolunteerFormStyles.fieldset}>
               <legend>
-                What would you like to volunteer to do?{' '}
-                <span className={VolunteerFormStyles.label}>required</span>
+                <FormLabel htmlFor="workstream">
+                  What would you like to volunteer to do?{' '}
+                  <span className={VolunteerFormStyles.label}>required</span>
+                </FormLabel>
               </legend>
 
               <div className={VolunteerFormStyles.fieldsetOptions}>
@@ -194,21 +202,27 @@ export default () => {
 
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
-            <FormLabel htmlFor="referred">
-              I was referred by ...{' '}
-              <span className={VolunteerFormStyles.label}>optional</span>
+            <FormLabel htmlFor="why">
+              What kinds of projects or tasks would you most like to help with?{' '}
+              <span className={VolunteerFormStyles.label}>required</span>
+              <textarea
+                name="why"
+                id="why"
+                rows="5"
+                aria-required="true"
+                required
+              />
             </FormLabel>
-            <input type="text" id="referred" name="referred" />
           </FormGroup>
         </div>
 
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
-            <FormLabel htmlFor="why">
-              What kinds of projects or tasks would you most like to help with?{' '}
+            <FormLabel htmlFor="referred">
+              I was referred by ...{' '}
               <span className={VolunteerFormStyles.label}>optional</span>
-              <textarea name="why" id="why" rows="5" />
             </FormLabel>
+            <input type="text" id="referred" name="referred" />
           </FormGroup>
         </div>
 
