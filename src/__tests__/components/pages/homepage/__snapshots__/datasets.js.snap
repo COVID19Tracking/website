@@ -195,7 +195,7 @@ exports[`Components : Pages : Homepage : Datasets renders correctly 1`] = `
           covidexitstrategy.org
         </a>
          
-        identifies critical interventions needed to stop the spread of COVID-19, and urges government decision-makers to apply them. They use our data to power a dashboard comparing each state's interventions and testing levels with case counts and deaths over time.
+        identifies critical interventions needed to stop the spread of COVID-19, and urges government decision-makers to apply them. They use our data to power a dashboard comparing each state’s interventions and testing levels with case counts and deaths over time.
       </p>
     </div>
   </div>

@@ -22,6 +22,11 @@ const Footer = () => (
             <Link to="/terms-and-conditions">Terms and Conditions</Link>
           </li>
           <li>
+            <a href="https://www.theatlantic.com/privacy-policy/">
+              Privacy Policy
+            </a>
+          </li>
+          <li>
             <Link to="/license">License</Link>
           </li>
           <li>
@@ -36,6 +41,12 @@ const Footer = () => (
             </a>
           </li>
         </ul>
+      </div>
+      <div className={footerStyles.copyright}>
+        <span>
+          CovidTracking.com Copyright &copy; {new Date().getFullYear()} by The
+          Atlantic Monthly Group. <Link to="/license">(CC BY-NC 4.0)</Link>
+        </span>
       </div>
     </Container>
   </footer>

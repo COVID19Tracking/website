@@ -45,7 +45,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
     <label
       htmlFor="covid-bot-field"
     >
-      If you are a human, don't fill out this field:
+      If you are a human, don’t fill out this field:
       <input
         id="covid-bot-field"
         name="covid-bot-field"

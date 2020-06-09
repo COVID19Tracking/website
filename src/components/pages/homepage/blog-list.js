@@ -46,8 +46,8 @@ export default () => {
     <div className={blogListStyles.wrapper}>
       <Container>
         <Paragraph>
-          See how we work, what we&apos;re learning, and what&apos;s changing in
-          our data on our project blog.
+          See how we work, what we&#8217;re learning, and what&#8217;s changing
+          in our data on our project blog.
         </Paragraph>
         <div className={blogListStyles.container}>
           <ul className={`press-list ${pressListStyle.pressList}`}>

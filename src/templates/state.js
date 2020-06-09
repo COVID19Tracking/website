@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import marked from 'marked'
+import smartypants from 'smartypants'
 import Layout from '~components/layout'
 import StateGrade from '~components/pages/state/state-grade'
 import StateHistory from '~components/pages/state/state-history'
@@ -19,7 +20,7 @@ const StatePage = ({ pageContext, data, path }) => {
         <div
           className="module-content"
           dangerouslySetInnerHTML={{
-            __html: marked(state.notes),
+            __html: smartypants(marked(state.notes)),
           }}
         />
       )}
