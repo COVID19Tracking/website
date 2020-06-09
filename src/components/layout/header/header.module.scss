@@ -1,10 +1,11 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
 @import '~scss/helpers.module.scss';
+@import '~scss/type.module.scss';
 
 .tools {
   display: none;
-  font-size: 0.81rem;
+  @include type-size(100);
 
   @media (min-width: $viewport-lg) {
     display: block;
@@ -142,7 +143,7 @@
   span {
     padding-bottom: 0.1rem;
     margin-right: spacer(8);
-    font-size: 0.625rem;
+    font-size: 0.625rem; /* exception to the type mixins */
     line-height: 0.8rem;
   }
   div {
@@ -232,7 +233,7 @@
 
   .page-title {
     margin: 0 0 spacer(8);
-    font-size: 2.2rem;
+    @include type-size(600);
     line-height: 1.2;
     color: white;
 
@@ -246,7 +247,7 @@
     }
 
     @media (max-width: $viewport-md) {
-      font-size: 1.56rem;
+      @include type-size(500);
     }
   }
 
@@ -418,11 +419,12 @@
           // STYLE CHECK
           margin: 0 0.6rem 0 0;
           padding: 0.2rem 0 0.1rem;
-          font-size: 1rem;
+          @include type-size(200);
           border-bottom: 3px solid transparent;
 
           @media (max-width: $viewport-md) {
             font-size: 0.8rem;
+            @include type-size(100);
             padding: spacer(8) 0;
             margin-left: spacer(16);
             margin-right: spacer(16);
