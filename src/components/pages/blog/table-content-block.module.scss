@@ -1,11 +1,37 @@
 @import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
 
-.table {
-  width: 100%;
-  tr,
-  td,
-  th {
-    border-bottom: 1px solid $color-slate-200;
-    text-align: left;
+.cell-label {
+  display: block;
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 0.75rem 0;
+  @media (min-width: $viewport-lg) {
+    display: none;
+  }
+}
+
+.header {
+  display: none;
+  @media (min-width: $viewport-lg) {
+    display: table-row;
+  }
+}
+
+.row {
+  display: block;
+  @media (max-width: $viewport-lg) {
+    border-top: 1px solid $color-slate-700;
+    border-bottom: 1px solid $color-slate-700;
+  }
+  td {
+    display: block;
+    padding: 1rem 0;
+    @media (min-width: $viewport-lg) {
+      display: table-cell;
+    }
+  }
+  @media (min-width: $viewport-lg) {
+    display: table-row;
   }
 }
