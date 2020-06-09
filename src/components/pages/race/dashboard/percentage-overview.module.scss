@@ -1,5 +1,6 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
+@import '~scss/type.module.scss';
 
 .container {
   display: flex;
@@ -32,7 +33,7 @@
 
 .percent {
   display: block;
-  font-size: 4rem;
+  font-size: 4rem; /* exception to the type mixins */
   color: $color-plum-600;
   font-weight: bold;
   line-height: 5rem;
@@ -42,5 +43,5 @@
   display: block;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 24px;
+  @include type-size(400);
 }

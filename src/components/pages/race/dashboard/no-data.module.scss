@@ -1,5 +1,6 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
+@import '~scss/type.module.scss';
 
 .container {
   position: relative;
@@ -45,15 +46,14 @@
   p {
     margin-bottom: 0;
   }
-  font-size: 16px;
+  @include type-size(200);
   line-height: 150%;
 }
 
 .title {
   background-color: $color-error-dark;
   color: white;
-  font-size: 2rem;
-  font-weight: bold;
+  @include bold-type-size(500);
   line-height: 1;
   flex-basis: 37.5%;
   text-transform: uppercase;

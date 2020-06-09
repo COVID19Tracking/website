@@ -1,5 +1,6 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
+@import '~scss/type.module.scss';
 
 $mobile-offset-x: -82%;
 $mobile-offset-y: -3%;
@@ -28,7 +29,7 @@ $chart-color: #0f1551;
 
   .paragraph {
     @media (min-width: $viewport-lg) {
-      font-size: 18px;
+      @include type-size(300);
       max-width: 30rem;
       bottom: 2.5rem;
       position: absolute;
@@ -86,16 +87,16 @@ $chart-color: #0f1551;
 
 .chart-legend {
   fill: white;
-  font-size: 35px;
+  @include type-size(600);
   overflow: visible !important;
   text-anchor: end;
 
   @media (min-width: $viewport-ms) {
-    font-size: 20px;
+    @include type-size(400);
   }
 
   @media (min-width: $viewport-lg) {
-    font-size: 18px;
+    @include type-size(300);
   }
 }
 

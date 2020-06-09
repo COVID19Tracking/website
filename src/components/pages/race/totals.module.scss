@@ -1,9 +1,10 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/type.module.scss';
 
 .totals {
   margin: 64px 0 0;
   h3 {
-    font-size: 1rem;
+    @include type-size(200);
   }
 }
 

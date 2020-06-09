@@ -1,4 +1,5 @@
 @import '~scss/colors.module.scss';
+@import '~scss/type.module.scss';
 
 .caution,
 .disparity-symbol,
@@ -10,7 +11,7 @@
   background-color: $color-blueberry-400;
   color: white;
   display: inline-block;
-  font-size: 0.8rem;
+  @include type-size(100);
   padding: 0.15rem;
   border-radius: 100%;
   width: 1rem;

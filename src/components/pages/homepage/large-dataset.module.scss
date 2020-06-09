@@ -1,6 +1,7 @@
 @import '~scss/breakpoints.module.scss';
 @import '~scss/colors.module.scss';
 @import '~scss/helpers.module.scss';
+@import '~scss/type.module.scss';
 
 .large-dataset {
   // margin-top: 2rem;
@@ -16,10 +17,10 @@
   img {
     border: 1px solid $color-slate-200;
   }
-  
+
   h3 {
     @media (min-width: $viewport-lg) {
-      font-size: 1.5rem;
+      @include type-size(400);
     }
     margin-bottom: spacer(8);
   }

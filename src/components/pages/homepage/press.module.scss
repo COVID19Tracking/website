@@ -1,4 +1,5 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/type.module.scss';
 
 .list,
 .logos {
@@ -23,8 +24,8 @@
 }
 
 .header {
-  font-size: 1.125rem;
+  @include type-size(300);
   @media (min-width: $viewport-lg) {
-    font-size: 1.5rem;
+    @include type-size(400);
   }
 }

@@ -1,5 +1,6 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
+@import '~scss/type.module.scss';
 
 .hero {
   padding: 20px 0;
@@ -36,8 +37,7 @@
   display: block;
   text-align: right;
   color: $color-plum-200;
-  font-size: 14px;
-  font-size: 0.875rem;
+  @include type-size(100);
   line-height: 2.5;
   margin-bottom: 0.5rem;
 }

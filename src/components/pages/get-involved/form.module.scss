@@ -1,4 +1,5 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/type.module.scss';
 
 .field-group {
   @media (min-width: $viewport-lg) {
@@ -11,7 +12,7 @@
 }
 
 .label {
-  font-size: 0.8rem;
+  @include type-size(100);
   display: block;
   float: right;
 }

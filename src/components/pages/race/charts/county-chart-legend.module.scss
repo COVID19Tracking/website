@@ -1,4 +1,5 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/type.module.scss';
 
 .black-african-american-alone {
   background: #ffad4a;
@@ -15,12 +16,12 @@
   width: 15px;
   height: 15px;
   margin-right: 0.5rem;
-  font-size: 0.8rem;
+  @include type-size(100);
 }
 
 .legend {
   margin-top: 2rem;
-  font-size: 14px;
+  @include type-size(100);
   h4 {
     margin: 0;
   }

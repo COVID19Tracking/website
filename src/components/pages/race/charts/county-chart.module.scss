@@ -1,5 +1,6 @@
 @import '~scss/colors.module.scss';
 @import '~scss/breakpoints.module.scss';
+@import '~scss/type.module.scss';
 
 .black-african-american-alone {
   fill: #ffad4a;
@@ -25,5 +26,5 @@
 
 .label {
   fill: black;
-  font-size: 13.5px;
+  @include type-size(100);
 }

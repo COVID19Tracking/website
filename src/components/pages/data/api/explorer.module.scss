@@ -1,4 +1,5 @@
 @import '~scss/colors.module.scss';
+@import '~scss/type.module.scss';
 
 .button {
   width: 100%;
@@ -27,7 +28,7 @@
     dt {
       font-weight: bold;
       font-family: monospace;
-      font-size: 1.5rem;
+      @include type-size(400);
     }
     dd {
       margin-bottom: 2rem;

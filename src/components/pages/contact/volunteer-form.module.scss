@@ -2,6 +2,7 @@
 @import '~scss/breakpoints.module.scss';
 @import '~components/pages/contact/contact-form.module.scss';
 @import '~components/pages/get-involved/form.module.scss';
+@import '~scss/type.module.scss';
 
 .fieldset {
   margin-bottom: 50px;
@@ -11,7 +12,7 @@
   .checkbox-label {
     display: flex;
     align-items: baseline;
-    font-size: 0.8em;
+    @include type-size(100);
   }
 
   .fieldset-options {

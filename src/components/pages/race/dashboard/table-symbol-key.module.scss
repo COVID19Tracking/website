@@ -1,4 +1,5 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/type.module.scss';
 
 .container {
   p {
@@ -15,7 +16,7 @@
 }
 
 .key {
-  font-size: 0.8rem;
+  @include type-size(100);
 }
 
 .disclosure-button {

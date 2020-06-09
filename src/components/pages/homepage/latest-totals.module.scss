@@ -1,6 +1,7 @@
 @import '~scss/breakpoints.module.scss';
 @import '~scss/colors.module.scss';
 @import '~scss/helpers.module.scss';
+@import '~scss/type.module.scss';
 
 .container {
   // margin: 4rem 0;
@@ -32,7 +33,7 @@
 
   h2,
   a {
-    font-size: 18px;
+    @include type-size(300);
     line-height: 150%;
   }
 }
@@ -63,7 +64,7 @@
   }
   h2,
   a {
-    font-size: 18px;
+    @include type-size(300);
     line-height: 150%;
   }
 }
