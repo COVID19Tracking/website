@@ -20,7 +20,6 @@ const parseMarkdownTable = table => {
     const rowData = row.split('|')
     let isDivider = true
     rowData.forEach(item => {
-      console.log(item)
       if (item.search(/[^-]/) > -1) {
         isDivider = false
       }
