@@ -25,8 +25,7 @@ export default () => {
           <FormGroup className={VolunteerFormStyles.group}>
             <input type="hidden" name="form-name" value="volunteer" />
             <FormLabel htmlFor="name">
-              Name{' '}
-              <span className={VolunteerFormStyles.label}>required</span>
+              Name <span className={VolunteerFormStyles.label}>required</span>
             </FormLabel>
             <input
               type="text"
@@ -40,8 +39,7 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <FormLabel htmlFor="email">
-              Email{' '}
-              <span className={VolunteerFormStyles.label}>required</span>
+              Email <span className={VolunteerFormStyles.label}>required</span>
             </FormLabel>
             <DetailText>
               If possible, this should be a Gmail or Google-linked address,
@@ -62,14 +60,19 @@ export default () => {
         <div className={VolunteerFormStyles.fieldGroup}>
           <FormGroup className={VolunteerFormStyles.group}>
             <FormLabel htmlFor="url">
-              URL{' '} 
-	    <span className={VolunteerFormStyles.label}>required</span>
+              URL <span className={VolunteerFormStyles.label}>required</span>
             </FormLabel>
             <DetailText>
               Personal website, LinkedIn, or other web page that will tell us
               about you.
             </DetailText>
-            <input type="text" name="url" id="url" aria-required="true" />
+            <input
+              type="text"
+              name="url"
+              id="url"
+              aria-required="true"
+              required
+            />
           </FormGroup>
         </div>
 
@@ -113,10 +116,10 @@ export default () => {
           <FormGroup className={VolunteerFormStyles.group}>
             <fieldset className={VolunteerFormStyles.fieldset}>
               <legend>
-		<FormLabel htmlFor="availability">
-                When are you most available to volunteer?{' '}
-                <span className={VolunteerFormStyles.label}>required</span>
-		</FormLabel>
+                <FormLabel htmlFor="availability">
+                  When are you most available to volunteer?{' '}
+                  <span className={VolunteerFormStyles.label}>required</span>
+                </FormLabel>
               </legend>
 
               <div className={VolunteerFormStyles.fieldsetOptions}>
@@ -132,7 +135,7 @@ export default () => {
                         name="availability"
                         value={item.description}
                         id={item.shortname}
-			aria-required="true"
+                        aria-required="true"
                       />
                       {item.description}
                     </label>
@@ -167,10 +170,10 @@ export default () => {
           <FormGroup className={VolunteerFormStyles.group}>
             <fieldset className={VolunteerFormStyles.fieldset}>
               <legend>
-		<FormLabel htmlFor="workstream">
-                What would you like to volunteer to do?{' '}
-                <span className={VolunteerFormStyles.label}>required</span>
-		</FormLabel>
+                <FormLabel htmlFor="workstream">
+                  What would you like to volunteer to do?{' '}
+                  <span className={VolunteerFormStyles.label}>required</span>
+                </FormLabel>
               </legend>
 
               <div className={VolunteerFormStyles.fieldsetOptions}>
@@ -203,7 +206,13 @@ export default () => {
             <FormLabel htmlFor="why">
               What kinds of projects or tasks would you most like to help with?{' '}
               <span className={VolunteerFormStyles.label}>required</span>
-              <textarea name="why" id="why" rows="5" aria-required="true" />
+              <textarea
+                name="why"
+                id="why"
+                rows="5"
+                aria-required="true"
+                required
+              />
             </FormLabel>
           </FormGroup>
         </div>
