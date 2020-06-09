@@ -59,7 +59,7 @@
   input {
     @include padding(4);
     border: 1px solid $color-slate-600;
-    
+
     @media (max-width: $viewport-ms) {
       width: 100%;
       @include padding(8);

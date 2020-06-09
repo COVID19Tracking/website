@@ -139,7 +139,7 @@ Layout blocks
 
 */
 .layout-region {
-  @include padding(32, top bottom)
+  @include padding(32, top bottom);
 }
 
 .module {

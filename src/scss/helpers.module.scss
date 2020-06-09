@@ -5,6 +5,7 @@ $base-font-size: 16;
 
 // Spacer keys are the PX values used in the Figma files:
 // 4, 8, 16, 24, 32, 64, 80, 120
+// prettier-ignore
 $spacers: (
   0: 0, // 0
   4: .25rem, // 1
@@ -19,7 +20,7 @@ $spacers: (
 
 @function spacer($key) {
   @if map-has-key($spacers, $key) == false {
-    @error "$spacers map has no #{$key} key."
+    @error "$spacers map has no #{$key} key.";
   }
 
   $size: map-get($spacers, $key);
@@ -28,13 +29,12 @@ $spacers: (
 
 @mixin margin($key, $sides: (top right bottom left)) {
   @if type-of($sides) != 'list' {
-    $sides: ($sides)
+    $sides: ($sides);
   }
 
   @if length($sides) == 4 {
     margin: spacer($key);
-  }
-  @else {
+  } @else {
     @each $side in $sides {
       margin-#{$side}: spacer($key);
     }
@@ -43,13 +43,12 @@ $spacers: (
 
 @mixin padding($key, $sides: (top right bottom left)) {
   @if type-of($sides) != 'list' {
-    $sides: ($sides)
+    $sides: ($sides);
   }
 
   @if length($sides) == 4 {
     padding: spacer($key);
-  }
-  @else {
+  } @else {
     @each $side in $sides {
       padding-#{$side}: spacer($key);
     }

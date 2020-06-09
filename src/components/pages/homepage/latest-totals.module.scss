@@ -8,7 +8,7 @@
   // ===
   // Basic margin mixin usage with 2 sides.
   // ===
-  @include margin(64, (top bottom))
+  @include margin(64, (top bottom));
 }
 
 .wrapper {
@@ -28,7 +28,7 @@
   * {
     // margin-top: 0;
     // margin-bottom: 0;
-    @include margin(0, (top bottom))
+    @include margin(0, (top bottom));
   }
 
   h2,
