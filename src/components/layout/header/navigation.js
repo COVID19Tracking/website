@@ -71,6 +71,13 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
                   }}
                   portal={false}
                 >
+                  <MenuLink
+                    className={headerNavigationStyles.menuLink}
+                    to={internalLink(item.link)}
+                    as={Link}
+                  >
+                    {item.title}
+                  </MenuLink>
                   {subNavigation[item.subNavigation].map(subItem => (
                     <MenuLink
                       key={subItem.link}
