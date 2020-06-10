@@ -30,8 +30,6 @@ const options = {
         node.data.target.sys.contentType.sys.contentful_id ===
         'contentBlockTable'
       ) {
-        console.log(node.data.target.fields.table['en-US'])
-
         return (
           <TableContentBlock table={node.data.target.fields.table['en-US']} />
         )
