@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import Layout from '~components/layout'
 import MapContainer from './_MapContainer'
 import StateCumulativeTestsContainer from './_StateCumulativeTestsContainer'
@@ -39,15 +40,23 @@ const VisualizationGuidePage = ({ data }) => {
           authorities as we showed in{' '}
           <a href="/cdc-paper">a detailed evaluation</a> of the new CDC data.
         </p>
+        <h3>Comparing state-reported test count data with the CDC data</h3>
         <p>
-          <strong>Please note:</strong> Our data will always be an undercount.
-          We can only track tests that states report, and not all states report
-          all tests. More significantly, per-capita testing levels in the US
-          remain low, which means that an unknown but probably very large number
-          of people are sick, but aren&rsquo;t being tested. But this is the
-          data we can collect, and it provides the most detailed information
-          available about the shape and relative severity of outbreaks in US
-          states and territories.
+          There are large discrepencies in the test counts reported by the CDC
+          and state public health agencies.
+        </p>
+        <Img
+          fluid={data.file.childImageSharp.fluid}
+          alt="A comparison of reported tests from the CDC and the Covid Tracking Project."
+        />
+        <p>
+          <strong>Notes:</strong> Data as of May 15; All units are in absolute
+          numbers and states are only included if the testing count differs by
+          5% or more. Our data will always be an undercount. We can only track
+          tests that states report, and not all states report all tests. More
+          significantly, per-capita testing levels in the US remain low, which
+          means that an unknown but probably very large number of people are
+          sick, but aren’t being tested.
         </p>
       </div>
 
@@ -281,6 +290,14 @@ export const query = graphql`
         ... on ContentfulNavigationLink {
           title
           link: url
+        }
+      }
+    }
+    file(relativePath: { regex: "/cdc-comparison-chart.png/" }) {
+      relativePath
+      childImageSharp {
+        fluid(maxWidth: 1200, traceSVG: { color: "#A7DEF6" }) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
