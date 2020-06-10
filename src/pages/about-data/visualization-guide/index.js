@@ -40,7 +40,9 @@ const VisualizationGuidePage = ({ data }) => {
           authorities as we showed in{' '}
           <a href="/cdc-paper">a detailed evaluation</a> of the new CDC data.
         </p>
-        <h3>Comparing state-reported test count data with the CDC data</h3>
+        <h3 className={dashboardStyles.chartTitle}>
+          Comparing state-reported test count data with the CDC data
+        </h3>
         <p>
           There are large discrepencies in the test counts reported by the CDC
           and state public health agencies.
