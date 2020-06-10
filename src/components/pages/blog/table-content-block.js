@@ -10,11 +10,12 @@ const renderCell = cell =>
 
 const parseMarkdownTable = table => {
   const rows = []
+  // break the table into an array of rows and headers
   const tableData = table.split(/\n/).map(row => row.replace(/^\|+|\|+$/g, ''))
   const headers = tableData[0]
     .split('|')
     .map(item => renderCell(item.trim().replace(/_/g, '')))
-  tableData.shift()
+  tableData.shift()  // remove the header
   tableData.forEach(row => {
     const rowData = row.split('|')
     let isDivider = true
