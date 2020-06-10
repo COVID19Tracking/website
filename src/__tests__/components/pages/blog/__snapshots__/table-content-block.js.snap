@@ -8,51 +8,41 @@ exports[`Components : Pages : Blog : Table Content Block renders correctly 1`] =
     <tr
       className="header"
     >
-      <th>
-        <span
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "test",
-            }
+      <th
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "test",
           }
-        />
-      </th>
-      <th>
-        <span
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "header",
-            }
+        }
+      />
+      <th
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "header",
           }
-        />
-      </th>
-      <th>
-        <span
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "this",
-            }
+        }
+      />
+      <th
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "this",
           }
-        />
-      </th>
-      <th>
-        <span
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "is",
-            }
+        }
+      />
+      <th
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "is",
           }
-        />
-      </th>
-      <th>
-        <span
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "header",
-            }
+        }
+      />
+      <th
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "header",
           }
-        />
-      </th>
+        }
+      />
     </tr>
   </thead>
   <tbody>
