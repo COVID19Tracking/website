@@ -15,12 +15,12 @@
   display: inline-block;
   width: 15px;
   height: 15px;
-  margin-right: 0.5rem;
+  margin-right: spacer(8);
   @include type-size(100);
 }
 
 .legend {
-  margin-top: 2rem;
+  margin-top: spacer(32);
   @include type-size(100);
   h4 {
     margin: 0;
@@ -32,7 +32,7 @@
     li {
       @media (min-width: $viewport-lg) {
         display: inline-block;
-        margin-right: 2rem;
+        margin-right: spacer(32);
       }
     }
   }

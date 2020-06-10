@@ -3,7 +3,7 @@
 .history {
   th:last-child,
   td:last-child {
-    padding-right: 0.25em;
+    padding-right: spacer(4);
   }
 
   ul {
@@ -14,13 +14,13 @@
 
   li {
     padding-left: 0;
-    margin-bottom: 0.5em;
+    margin-bottom: spacer(8);
   }
   @media (min-width: $viewport-md) {
     li {
       display: inline;
       margin-bottom: 0;
-      margin-left: 0.75em;
+      margin-left: spacer(8);
     }
     li:first-child {
       margin-left: 0;

@@ -5,16 +5,16 @@
   background: transparent;
   font-weight: bold;
   border: 0;
-  margin-top: 1rem;
+  margin-top: spacer(16);
   padding: 0;
   cursor: pointer;
   abbr {
     display: inline-block;
-    margin-left: 1rem;
+    margin-left: spacer(16);
   }
 }
 
 .nyc-disclaimer {
-  margin-top: 1rem;
+  margin-top: spacer(16);
   display: block;
 }

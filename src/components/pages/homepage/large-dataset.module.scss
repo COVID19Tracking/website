@@ -4,13 +4,9 @@
 @import '~scss/type.module.scss';
 
 .large-dataset {
-  // margin-top: 2rem;
-  // margin-bottom: 2rem;
   @include margin(32, (top bottom));
 
   @media (min-width: $viewport-lg) {
-    // margin-top: spacer(6);
-    // margin-bottom: 4.5rem;
     @include margin(64, (top bottom));
   }
 
@@ -33,7 +29,6 @@
     margin-bottom: spacer(32);
 
     @media (min-width: $viewport-lg) {
-      // margin-bottom: 5rem;
       margin-bottom: spacer(64);
     }
   }

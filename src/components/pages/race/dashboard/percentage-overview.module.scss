@@ -13,7 +13,7 @@
 }
 
 .title {
-  margin-bottom: 0.25rem;
+  margin-bottom: spacer(4);
   margin-top: 0;
 }
 
@@ -26,7 +26,7 @@
   display: flex;
   justify-content: space-between;
   img {
-    width: 46px;
+    width: toRem(46);
   }
   flex-direction: row;
 }

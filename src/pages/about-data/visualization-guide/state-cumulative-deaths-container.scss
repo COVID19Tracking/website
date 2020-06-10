@@ -1,7 +1,7 @@
 @import '~scss/breakpoints.module.scss';
 section.state-cumulative-death-container {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: spacer(24);
   div {
     width: 50%;
   }

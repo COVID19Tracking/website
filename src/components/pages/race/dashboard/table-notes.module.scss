@@ -2,8 +2,8 @@
 
 .header {
   @media (min-width: $viewport-md) {
-    margin-top: -50px;
-    padding-top: 50px;
+    margin-top: toRem(-50);
+    padding-top: toRem(50);
     display: inline-block;
   }
 }

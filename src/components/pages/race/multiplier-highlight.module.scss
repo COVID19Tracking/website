@@ -3,12 +3,13 @@
 @import '~scss/type.module.scss';
 
 .highlight {
+  // STYLE CHECK
   margin-top: 40px;
   p {
     @include type-size(300);
     margin: 0;
     @media (min-width: $viewport-md) {
-      max-width: 600px;
+      max-width: toRem(600);
       margin: 0 auto;
       @include type-size(400);
       text-align: center;

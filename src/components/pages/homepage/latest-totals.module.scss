@@ -4,10 +4,6 @@
 @import '~scss/type.module.scss';
 
 .container {
-  // margin: 4rem 0;
-  // ===
-  // Basic margin mixin usage with 2 sides.
-  // ===
   @include margin(64, (top bottom));
 }
 
@@ -19,15 +15,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // margin-top: 4rem;
-  // ===
-  // only one side, () are not necessary
-  // ===
   @include margin(64, top);
 
   * {
-    // margin-top: 0;
-    // margin-bottom: 0;
     @include margin(0, (top bottom));
   }
 
@@ -39,7 +29,6 @@
 }
 
 .all-totals {
-  // margin-top: 1.5rem;
   @include margin(24, top);
 
   @media (min-width: $viewport-lg) {
@@ -50,14 +39,14 @@
 }
 
 .container {
-  margin: 4rem 0;
+  margin: spacer(64) 0;
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 4rem;
+  margin-top: spacer(64);
   * {
     margin-top: 0;
     margin-bottom: 0;

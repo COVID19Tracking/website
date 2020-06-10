@@ -3,7 +3,7 @@
 .container {
   background-color: $color-plum-100;
   max-width: 38rem;
-  padding: 2rem;
+  padding: spacer(32);
   border-radius: 4px;
   p {
     margin: 0;

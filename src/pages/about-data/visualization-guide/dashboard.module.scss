@@ -11,7 +11,7 @@ $chart-gutter-md: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin: 0 auto 1rem;
+  margin: 0 auto spacer(16);
   max-width: $chart-max-width;
 }
 
@@ -37,7 +37,7 @@ $chart-gutter-md: 100px;
 }
 
 .charts-container-inner {
-  margin: 0 0 1rem;
+  margin: 0 0 spacer(16);
   width: 100%;
 
   .charts-two-column & {
@@ -80,11 +80,11 @@ $chart-gutter-md: 100px;
 .chart-title {
   @extend %chart-titles;
   @include type-size(200);
-  margin: 0 0 1.5rem;
+  margin: 0 0 spacer(24);
 }
 
 .chart-subtitle {
   @extend %chart-titles;
   @include type-size(100);
-  margin: 0 0 1rem;
+  margin: 0 0 spacer(16);
 }

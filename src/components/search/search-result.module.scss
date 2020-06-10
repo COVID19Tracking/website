@@ -3,16 +3,16 @@
 @import '~scss/type.module.scss';
 
 .result {
-  margin-bottom: 1.5rem;
+  margin-bottom: spacer(24);
 
   h3 {
     @include type-size(400);
     font-weight: bold;
-    margin-bottom: 0.3rem;
+    margin-bottom: spacer(24);
     margin-top: 0;
   }
   p {
-    margin-bottom: 0.75rem;
+    margin-bottom: spacer(16);
 
     &:last-child {
       margin-bottom: 0;
@@ -25,5 +25,5 @@
 }
 
 .resultDetails {
-  margin-top: 0.75rem;
+  margin-top: spacer(16);
 }

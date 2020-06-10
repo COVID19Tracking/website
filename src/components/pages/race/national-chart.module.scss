@@ -4,6 +4,8 @@
 
 .header {
   font-weight: normal;
+
+  // STYLE CHECK
   margin: 60px 0 40px;
   @include type-size(300);
   @media (min-width: $viewport-lg) {
@@ -52,7 +54,7 @@
 
 p.chart-legend {
   text-align: left;
-  margin: 1rem auto;
+  margin: spacer(16) auto;
   @include type-size(100);
   @media (min-width: $viewport-md) {
     width: 50%;
@@ -86,7 +88,7 @@ $chart-breakpoint: $viewport-ms;
   width: $chart-mobile-size;
   height: $chart-mobile-size;
   background: $color-plum-600;
-  margin-left: 1rem;
+  margin-left: spacer(16);
   @media (min-width: $viewport-md) {
     margin: 0 auto;
   }

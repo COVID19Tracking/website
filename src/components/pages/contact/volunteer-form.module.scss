@@ -5,7 +5,7 @@
 @import '~scss/type.module.scss';
 
 .fieldset {
-  margin-bottom: 50px;
+  margin-bottom: spacer(64);
   border: 0;
 
   .radio-label,
@@ -16,7 +16,7 @@
   }
 
   .fieldset-options {
-    padding: 10px;
+    @include padding(8);
   }
 }
 
@@ -30,7 +30,7 @@ input {
 
 input[type='radio'],
 input[type='checkbox'] {
-  margin-right: 10px;
+  margin-right: spacer(8);
 }
 
 .group {

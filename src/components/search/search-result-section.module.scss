@@ -3,6 +3,6 @@
 
 .section {
   &:not(:last-of-type) {
-    margin-bottom: 2em;
+    margin-bottom: spacer(32);
   }
 }

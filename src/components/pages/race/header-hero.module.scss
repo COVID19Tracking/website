@@ -3,11 +3,11 @@
 @import '~scss/type.module.scss';
 
 .hero {
-  padding: 20px 0;
+  padding: spacer(24) 0;
   background: $color-plum-550;
   color: white;
   @media (min-width: $viewport-lg) {
-    padding: 35px 0;
+    padding: spacer(32) 0;
   }
 }
 
@@ -20,7 +20,7 @@
 .content {
   @media (min-width: $viewport-ms) {
     width: 60%;
-    padding-right: 2rem;
+    padding-right: spacer(32);
   }
 }
 
@@ -29,7 +29,7 @@
     width: 40%;
   }
   @media (min-width: $viewport-lg) {
-    margin-top: -150px;
+    margin-top: toRem(-150);
   }
 }
 
@@ -39,5 +39,5 @@
   color: $color-plum-200;
   @include type-size(100);
   line-height: 2.5;
-  margin-bottom: 0.5rem;
+  margin-bottom: spacer(8);
 }

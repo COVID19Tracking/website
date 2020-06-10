@@ -10,7 +10,8 @@
   font-weight: 500;
   @include type-size(100);
   line-height: 1.8;
-  margin: 0 0 2rem;
+  margin: 0 0 spacer(32);
+  // STYLE CHECK
   padding: 2px 15px;
 }
 
@@ -32,7 +33,7 @@
 }
 
 .dashboard-toggle-label {
-  margin-right: 1rem;
+  margin-right: spacer(16);
   @include type-size(100);
 
   @media screen and (min-width: $viewport-sm) {
@@ -49,6 +50,7 @@
     @extend %dashboard-toggle-inactive;
     @include type-size(100);
     margin: -1px;
+    // STYLE CHECK
     padding: 2px 15px;
     white-space: nowrap;
 
@@ -79,12 +81,12 @@
 .chart-header {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: spacer(32);
 
   @media screen and (min-width: $viewport-lg) {
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 0 2rem;
+    margin: 0 0 spacer(32);
   }
 }
 
@@ -93,11 +95,11 @@
   flex-direction: row;
   @include type-size(100);
   list-style-type: none;
-  margin: 0 0 2rem;
+  margin: 0 0 spacer(32);
 
   .dashboard-cumulative-tests & {
     flex-direction: column;
-    margin: 2rem 0 0;
+    margin: spacer(32) 0 0;
 
     @media screen and (min-width: $viewport-ms) {
       flex-direction: row;
@@ -114,22 +116,22 @@
     align-items: center;
     display: flex;
     line-height: 1.2;
-    margin: 0 2rem 0 0;
+    margin: 0 spacer(32) 0 0;
     white-space: nowrap;
 
     .dashboard-cumulative-tests & {
-      margin-bottom: 1rem;
+      margin-bottom: spacer(16);
 
       &:last-child {
         margin-bottom: 0;
       }
 
       @media screen and (min-width: $viewport-ms) {
-        margin: 0 2rem 0 0;
+        margin: 0 spacer(32) 0 0;
       }
 
       @media screen and (min-width: $viewport-lg) {
-        margin: 0 0 0 2rem;
+        margin: 0 0 0 spacer(32);
 
         &:nth-child(1) {
           margin-left: 0;
@@ -141,12 +143,14 @@
 
 .chart-legend-color {
   display: inline-block;
+  // STYLE CHECK
   height: 14px;
-  margin: 0 8px 0 0;
+  margin: 0 spacer(8) 0 0;
   width: 14px;
 
   &.chart-legend-stay-at-home {
     background-color: #000;
+    // STYLE CHECK
     height: 20px;
     margin: 0 14px 0 6px;
     vertical-align: middle;
@@ -176,9 +180,10 @@
 }
 
 .chart-tests-toggle {
-  margin-bottom: 1rem;
+  margin-bottom: spacer(16);
+  // STYLE CHECK
   max-width: 260px;
-  padding: 0 5px;
+  padding: 0 spacer(4);
 }
 
 $small-multiples-chart-gutter: 1%;
@@ -212,7 +217,7 @@ $small-multiples-chart-gutter: 1%;
 
 .small-multiples-chart__see-all-link {
   display: inline-block;
-  margin-bottom: 0.4rem;
+  margin-bottom: spacer(8);
   white-space: nowrap;
 
   h4 {
@@ -263,7 +268,7 @@ $small-multiples-chart-gutter: 1%;
 
 .small-multiples-chart-collapse-button {
   align-self: flex-start;
-  margin-bottom: 2rem;
+  margin-bottom: spacer(32);
 
   @media screen and (min-width: $viewport-xl) {
     display: none;
@@ -277,7 +282,7 @@ $small-multiples-chart-gutter: 1%;
   cursor: pointer;
   cursor: pointer;
   text-align: center;
-  padding: 0.4rem;
+  padding: spacer(8);
   float: left;
   color: #4c5559;
 
@@ -285,7 +290,7 @@ $small-multiples-chart-gutter: 1%;
     color: #000000;
     @include type-size(100);
     top: -0.2rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: spacer(4);
     text-align: left;
     width: 86%;
   }
@@ -295,15 +300,16 @@ $small-multiples-chart-gutter: 1%;
   font-weight: lighter;
   @include type-size(400);
   line-height: 33px;
-  margin-bottom: 70px;
+  margin-bottom: spacer(64);
 }
 
 .notes-section {
   border-top: 1px solid $color-slate-300;
   @include type-size(100);
   color: #676b6d;
+  // STYLE CHECK
   margin-top: 2.77rem;
-  padding-top: 1.5rem;
+  padding-top: spacer(24);
 
   p {
     margin-bottom: 0;
@@ -311,9 +317,9 @@ $small-multiples-chart-gutter: 1%;
 }
 
 .source-section {
-  margin-top: 0.56rem;
+  margin-top: spacer(8);
 }
 
 .byline-section {
-  margin-top: 2.22rem;
+  margin-top: spacer(32);
 }

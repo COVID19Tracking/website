@@ -25,14 +25,14 @@
   display: flex;
   margin: 0 auto;
   max-width: 38rem;
-  padding-top: 1.55rem;
+  padding-top: spacer(24);
   padding-bottom: 3rem;
   @media (max-width: $viewport-ms) {
     flex-direction: column;
     padding-top: 0;
   }
   div {
-    padding: 1rem;
+    padding: spacer(16);
     align-items: center;
   }
 }
@@ -59,9 +59,9 @@
   text-transform: uppercase;
   display: flex;
   span {
-    padding-bottom: 0.3rem;
+    padding-bottom: spacer(4);
   }
   img {
-    padding-right: 1rem;
+    padding-right: spacer(16);
   }
 }

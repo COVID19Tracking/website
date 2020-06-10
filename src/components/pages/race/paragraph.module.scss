@@ -8,7 +8,7 @@
   @media (min-width: $viewport-lg) {
     text-align: center;
     @include type-size(400);
-    margin: 1rem auto;
-    max-width: 704px;
+    margin: spacer(16) auto;
+    max-width: toRem(704);
   }
 }

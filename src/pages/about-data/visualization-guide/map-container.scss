@@ -10,12 +10,12 @@
   align-items: center;
   width: 100%;
   @media screen and (max-width: $viewport-sm) {
-    margin-top: 20px;
+    margin-top: spacer(24);
   }
 
   p,
   h2 {
-    margin-bottom: 5px;
+    margin-bottom: spacer(4);
     margin-top: 0;
     text-align: center;
     width: 100%;
@@ -34,7 +34,7 @@
   }
 
   .chart-legend-note {
-    margin-top: 20px;
+    margin-top: spacer(24);
     text-align: left;
   }
 }
@@ -52,14 +52,14 @@
 
 .add-margin-small {
   @media screen and (max-width: $viewport-sm) {
-    margin-top: 10px;
+    margin-top: spacer(8);
   }
 }
 .map-time-scrubber {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10px;
+  padding-top: spacer(8);
   @media screen and (max-width: $viewport-sm) {
     align-items: initial;
   }
@@ -70,7 +70,8 @@
   .map-start-stop {
     cursor: pointer;
     display: inline-block;
-    margin-right: 5px;
+    margin-right: spacer(4);
+    // STYLE CHECK
     width: 16px;
     height: 16px;
 
@@ -87,14 +88,15 @@
   .map-start-stop-controls {
     display: flex;
     align-items: center;
-    margin: 6px 0;
+    margin: spacer(8) 0;
+    // STYLE CHECK
     width: 150px;
 
     // cross-browser compatible range styling from http://danielstern.ca/range.css/
     input[type='range'] {
       -webkit-appearance: none;
       width: 100%;
-      margin: 5px 0;
+      margin: spacer(4) 0;
 
       &:focus {
         outline: none;
@@ -102,6 +104,7 @@
 
       &::-webkit-slider-runnable-track {
         width: 100%;
+        // STYLE CHECK
         height: 10px;
         cursor: pointer;
         background: #edf1f2;
@@ -111,13 +114,14 @@
 
       &::-webkit-slider-thumb {
         border: 1px solid #000000;
+        // STYLE CHECK
         height: 20px;
         width: 20px;
         border-radius: 10px;
         background: #ffffff;
         cursor: pointer;
         -webkit-appearance: none;
-        margin-top: -6px;
+        margin-top: toRem(-6);
       }
 
       &:focus::-webkit-slider-runnable-track {
@@ -184,7 +188,7 @@
   }
   .map-start-stop-label {
     width: 166px;
-    padding-left: 15px;
+    padding-left: spacer(16);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -194,7 +198,7 @@
     }
     @media screen and(max-width: $viewport-sm) {
       width: 158px;
-      padding-left: 9px;
+      padding-left: spacer(8);
     }
   }
 }

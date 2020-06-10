@@ -3,7 +3,7 @@
 .container {
   background-color: $color-error-light;
   max-width: 32rem;
-  padding: 2rem;
+  padding: spacer(32);
   border-radius: 4px;
   p:last-child {
     margin: 0;
@@ -17,8 +17,8 @@
 .icon-container {
   flex-basis: 20%;
   text-align: center;
-  padding: 0.5rem 1rem 0 0;
+  padding: spacer(8) spacer(16) 0 0;
   img {
-    width: 24px;
+    width: toRem(24);
   }
 }

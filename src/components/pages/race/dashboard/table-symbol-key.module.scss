@@ -6,7 +6,7 @@
     @media (min-width: $viewport-lg) {
       display: inline-block;
       &:first-child {
-        margin-right: 2rem;
+        margin-right: spacer(32);
       }
     }
   }

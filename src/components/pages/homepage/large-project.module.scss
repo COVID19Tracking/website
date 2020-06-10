@@ -4,20 +4,16 @@
 @import '~scss/type.module.scss';
 
 .wrapper {
-  // padding: 60px 0;
   @include padding(64, (top bottom));
   border-top: 1px solid $color-slate-200;
   border-bottom: 1px solid $color-slate-200;
 
   p {
-    // margin-bottom: 1.5rem;
     @include margin(4, bottom);
     color: $color-slate-700;
 
     @media (min-width: $viewport-lg) {
-      // margin: 0 5rem;
       margin: 0 spacer(64) spacer(32) spacer(64);
-      // margin-bottom: 3rem;
     }
   }
 
