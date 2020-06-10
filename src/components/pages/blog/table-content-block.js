@@ -1,4 +1,5 @@
-/* eslint-disable react/no-array-index-key,jsx-a11y/control-has-associated-label */
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react'
 import marked from 'marked'
 import tableStyle from './table-content-block.module.scss'
@@ -15,7 +16,7 @@ const parseMarkdownTable = table => {
   const headers = tableData[0]
     .split('|')
     .map(item => renderCell(item.trim().replace(/_/g, '')))
-  tableData.shift()  // remove the header
+  tableData.shift() // remove the header
   tableData.forEach(row => {
     const rowData = row.split('|')
     let isDivider = true
@@ -42,9 +43,10 @@ export default ({ table }) => {
       <thead>
         <tr className={tableStyle.header}>
           {headers.map(item => (
-            <th key={`header-${item}`}>
-              <span dangerouslySetInnerHTML={{ __html: item }} />
-            </th>
+            <th
+              key={`header-${item}`}
+              dangerouslySetInnerHTML={{ __html: item }}
+            />
           ))}
         </tr>
       </thead>
