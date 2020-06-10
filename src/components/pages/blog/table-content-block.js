@@ -15,7 +15,7 @@ const parseMarkdownTable = table => {
   const headers = tableData[0]
     .split('|')
     .map(item => renderCell(item.trim().replace(/_/g, '')))
-  tableData.shift()
+  tableData.shift()  // remove the header
   tableData.forEach(row => {
     const rowData = row.split('|')
     let isDivider = true
