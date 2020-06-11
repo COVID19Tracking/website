@@ -87,7 +87,7 @@ const FormInput = props => {
         </>
       )
       break
-      
+
     case 'justinput':
       inputElement = <input {...props} />
       break
