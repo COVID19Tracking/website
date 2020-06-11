@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import Layout from '~components/layout'
 import MapContainer from './_MapContainer'
+import CdcComparisonChart from './_CdcComparisonChart'
 import StateCumulativeTestsContainer from './_StateCumulativeTestsContainer'
 import StateCumulativeDeathsContainer from './_StateCumulativeDeathsContainer'
 import UsDailyDeathsContainer from './_UsDailyDeathsContainer'
@@ -34,32 +34,7 @@ const VisualizationGuidePage = ({ data }) => {
           numbers for COVID-19 case, death, and testing in the US with full
           daily updates.
         </p>
-        <p>
-          The CDC has now published a COVID Data Tracker, but their data only
-          partially matches the numbers we get from the state public health
-          authorities as we showed in{' '}
-          <a href="/cdc-paper">a detailed evaluation</a> of the new CDC data.
-        </p>
-        <h3 className={dashboardStyles.chartTitle}>
-          Comparing state-reported test count data with the CDC data
-        </h3>
-        <p>
-          There are large discrepencies in the test counts reported by the CDC
-          and state public health agencies.
-        </p>
-        <Img
-          fluid={data.file.childImageSharp.fluid}
-          alt="A comparison of reported tests from the CDC and the Covid Tracking Project."
-        />
-        <p>
-          <strong>Notes:</strong> Data as of May 15; All units are in absolute
-          numbers and states are only included if the testing count differs by
-          5% or more. Our data will always be an undercount. We can only track
-          tests that states report, and not all states report all tests. More
-          significantly, per-capita testing levels in the US remain low, which
-          means that an unknown but probably very large number of people are
-          sick, but aren’t being tested.
-        </p>
+        <CdcComparisonChart image={data.file.childImageSharp} />
       </div>
 
       <div className="module-featured">
