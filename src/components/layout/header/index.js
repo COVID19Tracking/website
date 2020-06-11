@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import Expand from 'react-expand-animated'
+import { useSearch } from '~context/search-context'
+
 import DevelopmentWarning from './development-warning'
 import PartnershipBanner from './partnership-banner'
 import SearchAutocomplete from './search-autocomplete'
@@ -141,6 +143,9 @@ const Header = withSearch(
       }
     }, [])
 
+    const searchState = useSearch()[0]
+    const { autocompleteHasFocus } = searchState
+
     return (
       <>
         <DevelopmentWarning />
@@ -187,34 +192,33 @@ const Header = withSearch(
                     />
                   </Link>
                 </div>
-                <div className={headerStyle.siteNavContainer}>
-                  <div className={headerStyle.navContainer}>
-                    <button
-                      className={headerStyle.mobileToggle}
-                      type="button"
-                      aria-expanded={showMobileMenu}
-                      onClick={() => {
-                        setShowMobileMenu(!showMobileMenu)
-                      }}
-                    >
-                      {showMobileMenu ? <>Close</> : <>Menu</>}
-                    </button>
-                  </div>
-                  <div className={headerStyle.tools}>
-                    <HeaderSearch>
-                      <SearchAutocomplete />
-                    </HeaderSearch>
-                    <Link
-                      to="/get-involved"
-                      className={headerStyle.getInvolved}
-                    >
-                      Get involved
-                    </Link>
-                  </div>
+                <div
+                  className={`${autocompleteHasFocus ? headerStyle.hidden : ''}
+                  ${headerStyle.navContainer}
+                  `}
+                >
+                  <button
+                    className={headerStyle.mobileToggle}
+                    type="button"
+                    aria-expanded={showMobileMenu}
+                    onClick={() => {
+                      setShowMobileMenu(!showMobileMenu)
+                    }}
+                  >
+                    {showMobileMenu ? <>Close</> : <>Menu</>}
+                  </button>
                   <HeaderNavigation
                     topNavigation={topNavigation}
                     subNavigation={subNavigation}
                   />
+                </div>
+                <div className={headerStyle.tools}>
+                  <HeaderSearch>
+                    <SearchAutocomplete />
+                  </HeaderSearch>
+                  <Link to="/get-involved" className={headerStyle.getInvolved}>
+                    Get involved
+                  </Link>
                 </div>
               </div>
               <div className={headerStyle.atlanticBanner}>

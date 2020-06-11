@@ -20,6 +20,8 @@
 .search-input {
   display: inline-flex;
   align-items: center;
+  border-radius: 4px;
+  z-index: 2;
 
   background: transparentize($color-plum-400, 0.2);
   color: white;
@@ -27,7 +29,7 @@
 
   @media (min-width: $viewport-lg) {
     justify-content: center;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
   }
 
   > form {
@@ -35,22 +37,24 @@
   }
 
   label {
+    display: none;
+  }
+
+  .label-focus {
+    display: inline;
     position: absolute;
     left: 0.75rem;
     top: 50%;
     transform: translateY(-50%);
 
     font-weight: bold;
-    color: #ffffff;
-  }
-
-  .label-focus {
-    color: $placeholder;
+    text-transform: uppercase;
+    color: $color-plum-500;
   }
 
   input {
     width: 100%;
-    padding: 0.55rem 3rem 0.55rem 5rem;
+    padding: 0.55rem 2rem;
 
     font-weight: bold;
     border: 0;
@@ -64,8 +68,9 @@
     }
 
     &:focus {
+      padding: 0.55rem 3rem 0.55rem 5rem;
       background: #ffffff;
-      outline: solid 2px #2f80ed;
+      outline: solid 2px $color-plum-200;
       outline-offset: -1px;
 
       &,
@@ -78,8 +83,8 @@
       }
     }
 
-    @media (min-width: $viewport-lg) {
-      width: 5.6rem;
+    @media (min-width: $viewport-md) {
+      width: 2rem;
     }
   }
 }
@@ -100,11 +105,13 @@
   display: inline-block;
   vertical-align: top;
   padding: 0.4rem 0.5rem;
-  font-weight: bold;
-  background: #ffffff;
-  color: $color-blueberry-500;
-  text-decoration: none;
   transition: all 0.2s;
+
+  font-weight: bold;
+  background: $color-honey-300;
+  color: $color-plum-800;
+  border-radius: 4px;
+  text-decoration: none;
 
   &:hover {
     text-decoration: none;
@@ -159,7 +166,7 @@
 }
 
 .container {
-  background: $color-plum-550;
+  background: $color-plum-700;
   padding-bottom: 2em;
   &.has-navigation {
     padding-bottom: 0;
@@ -254,16 +261,19 @@
     }
   }
 
+  .hidden {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
+
   nav {
     display: none;
-    margin-top: 1.75rem;
     align-self: center;
     break-before: always;
-    padding-bottom: 0.5rem;
 
     @media (min-width: $viewport-lg) {
       display: block;
-      margin-top: 1.825rem;
       position: relative;
       z-index: 1;
     }
@@ -311,13 +321,16 @@
 
   .site-title-container {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin-top: 1.5rem;
   }
 
   .site-title-inner {
     width: 40%;
     display: flex;
-    padding-top: 1.5rem;
     @media (min-width: $viewport-md) {
       width: 20%;
     }
