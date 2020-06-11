@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import formStyles from './form.module.scss'
+import DetailText from '~components/common/detail-text'
 
 const Form = props => {
   const { children } = props
@@ -14,10 +15,11 @@ const Form = props => {
 const FormGroup = ({ children, className }) => (
   <div className={classnames([formStyles.group, className])}>{children}</div>
 )
-const FormLabel = ({ children, htmlFor, required }) => (
+
+const FormLabel = ({ children, htmlFor, isRequired }) => (
   <label className={formStyles.label} htmlFor={htmlFor}>
     {children}
-    {required ? (
+    {isRequired ? (
       <span className={formStyles.required}>required</span>
     ) : (
       <span className={formStyles.required}>optional</span>
@@ -26,29 +28,66 @@ const FormLabel = ({ children, htmlFor, required }) => (
 )
 
 const FormInput = props => {
-  const { inputtype, htmlFor, required, label } = props
+  const {
+    inputtype,
+    htmlFor,
+    isRequired,
+    label,
+    detailText,
+    optionsArray,
+  } = props
 
   let inputElement = null
   switch (inputtype) {
     case 'text':
       inputElement = (
         <>
-          <FormLabel htmlFor={htmlFor} required={required}>
-            <textarea {...props} />
+          <FormLabel htmlFor={htmlFor} isRequired={isRequired}>
+            {label}
           </FormLabel>
+          <textarea {...props} />
         </>
       )
       break
     case 'input':
       inputElement = (
         <>
-          <FormLabel htmlFor={htmlFor} required={required}>
+          <FormLabel htmlFor={htmlFor} isRequired={isRequired}>
             {label}
           </FormLabel>
           <input {...props} />
         </>
       )
       break
+    case `inputWithDetail`:
+      inputElement = (
+        <>
+          <FormLabel htmlFor={htmlFor} isRequired={isRequired}>
+            {label}
+          </FormLabel>
+          <input {...props} />
+          <DetailText>{detailText}</DetailText>
+        </>
+      )
+      break
+
+    case `select`:
+      inputElement = (
+        <>
+          <FormLabel htmlFor={htmlFor} isRequired={isRequired}>
+            {label}
+          </FormLabel>
+          <select {...props}>
+            {optionsArray.map(item => (
+              <option key={`hours-${item}`} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </>
+      )
+      break
+      
     case 'justinput':
       inputElement = <input {...props} />
       break

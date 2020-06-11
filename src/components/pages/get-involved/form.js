@@ -20,7 +20,7 @@ export default () => (
           name="FNAME"
           id="action-form-first-name"
           aria-required
-          required
+          isRequired
         />
       </FormGroup>
       <FormGroup className={formStyle.group}>
@@ -32,7 +32,7 @@ export default () => (
           name="LNAME"
           id="action-form-last-name"
           aria-required
-          required
+          isRequired
         />
       </FormGroup>
     </div>
@@ -46,7 +46,7 @@ export default () => (
           name="EMAIL"
           id="action-form-email"
           aria-required
-          required
+          isRequired
         />
       </FormGroup>
       <FormGroup className={formStyle.group}>
