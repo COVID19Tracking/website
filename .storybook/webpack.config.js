@@ -33,7 +33,17 @@ module.exports = ({ config }) => {
           localIdentName: '[name]__[local]___[hash:base64:5]',
         },
       },
-      require.resolve('sass-loader'),
+      {
+        loader: require.resolve('sass-loader'),
+
+        options: {
+          data: `@import '~scss/type.module.scss';
+        @import '~scss/helpers.module.scss';
+        @import '~scss/colors.module.scss';
+        @import '~scss/links.module.scss';
+        @import '~scss/breakpoints.module.scss';`,
+        },
+      },
     ],
   })
 
