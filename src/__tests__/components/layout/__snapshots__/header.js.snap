@@ -51,7 +51,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
               onClick={[Function]}
               onFocus={[Function]}
               onKeyDown={[Function]}
-              onSelect={[Function]}
               role="combobox"
               value=""
             />
@@ -430,7 +429,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
-                onSelect={[Function]}
                 role="combobox"
                 value=""
               />
@@ -550,7 +548,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
               onClick={[Function]}
               onFocus={[Function]}
               onKeyDown={[Function]}
-              onSelect={[Function]}
               role="combobox"
               value=""
             />
@@ -929,7 +926,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
-                onSelect={[Function]}
                 role="combobox"
                 value=""
               />
@@ -1049,7 +1045,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
               onClick={[Function]}
               onFocus={[Function]}
               onKeyDown={[Function]}
-              onSelect={[Function]}
               role="combobox"
               value=""
             />
@@ -1428,7 +1423,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
-                onSelect={[Function]}
                 role="combobox"
                 value=""
               />
@@ -1552,7 +1546,6 @@ exports[`Components : Layout : Header renders correctly 4`] = `
               onClick={[Function]}
               onFocus={[Function]}
               onKeyDown={[Function]}
-              onSelect={[Function]}
               role="combobox"
               value=""
             />
@@ -1931,7 +1924,6 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
-                onSelect={[Function]}
                 role="combobox"
                 value=""
               />
