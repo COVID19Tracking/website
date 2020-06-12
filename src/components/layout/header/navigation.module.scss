@@ -24,9 +24,9 @@
     outline: 2px dotted white;
   }
   @media (any-hover: hover) {
-    width: 40px;
-    height: 40px;
-    margin-left: 0;
+    width: 24px;
+    height: 24px;
+    margin-left: 0.5rem;
     svg {
       margin-bottom: 3px;
     }
@@ -66,10 +66,12 @@
   .nav-label {
     display: flex;
     align-items: center;
+  }
+}
+
+@media (max-width: $viewport-sm) {
+  .nav-label {
     justify-content: space-between;
-    & > a {
-      margin-bottom: 1rem;
-    }
   }
 }
 
@@ -106,18 +108,39 @@
 }
 
 .mobile {
+  display: grid;
+  row-gap: 0.5rem;
+  grid-template-columns: 100%;
+
+  @media (max-width: $viewport-xl) and (min-width: $viewport-ms) {
+    row-gap: 1rem;
+    grid-template-columns: repeat(3, 33%);
+  }
+  @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
+    grid-template-columns: repeat(2, 49%);
+  }
+
   .sub-menu {
-    position: relative;
-    border: 0;
-    top: 0;
-    background: transparent;
-    padding-left: 1rem;
-    a,
-    a[aria-current] {
-      color: $color-plum-100;
-    }
-    &:focus {
-      @include link-focus-dark-bg;
+    border-top: none;
+    top: auto;
+    line-height: 1rem;
+    z-index: 2;
+  }
+
+  @media (max-width: $viewport-sm) {
+    .sub-menu {
+      position: relative;
+      border: 0;
+      top: 0;
+      background: transparent;
+      padding-left: 1rem;
+      a,
+      a[aria-current] {
+        color: $color-plum-100;
+      }
+      &:focus {
+        @include link-focus-dark-bg;
+      }
     }
   }
   .menu-item {

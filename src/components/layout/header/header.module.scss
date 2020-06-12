@@ -201,6 +201,12 @@
     background: $color-plum-800;
     position: relative;
     padding: 1rem 1rem 2rem 1rem;
+    @media (max-width: $viewport-xl) and (min-width: $viewport-ms) {
+      margin: 0 3rem;
+    }
+    @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
+      margin: 0 1rem;
+    }
     @media (min-width: $viewport-xl) {
       display: none;
     }
@@ -212,12 +218,12 @@
       bottom: -15px;
       background: $color-plum-800;
       transform: rotate(-45deg);
+      z-index: 0;
     }
     nav {
       display: block;
       margin-top: 1rem;
       li {
-        margin-bottom: 1rem;
         line-height: 40px;
         @media (hover: none) {
           margin-bottom: 1rem;
