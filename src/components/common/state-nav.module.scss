@@ -15,6 +15,7 @@
   }
   h2 {
     margin: 0;
+    @include type-size(500);
   }
   .state-nav-inner {
     border-bottom: 2px solid $color-slate-500;
