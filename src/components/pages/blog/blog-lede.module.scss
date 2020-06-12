@@ -3,6 +3,7 @@
     @include type-size(700);
     line-height: 1.15;
     margin-bottom: spacer(16);
+    margin-top: 0;
   }
   .lede-content {
     @include type-size(400);
