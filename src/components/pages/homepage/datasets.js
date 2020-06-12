@@ -17,7 +17,7 @@ export default () => {
       covidExit: file(relativePath: { regex: "/covid-exit-strategy.png/" }) {
         relativePath
         childImageSharp {
-          fluid(maxWidth: 1200, traceSVG: { color: "#A7DEF6" }) {
+          fluid(maxWidth: 1200, traceSVG: { color: "#E2D2CE" }) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
