@@ -189,7 +189,7 @@ Layout blocks
 
 @media (min-width: $viewport-lg) {
   .layout--content-primary {
-    flex-basis: 60%;
+    flex-basis: 606;
   }
   .layout--content-secondary {
     flex-basis: 32%;
@@ -255,11 +255,7 @@ Typography
 */
 .layout--content-and-rail {
   .layout--content-primary {
-    font-size: 18px;
     @include type-size(300);
-    @media (min-width: $viewport-lg) {
-      @include type-size(400);
-    }
     h2:first-child {
       margin-top: 0;
     }
