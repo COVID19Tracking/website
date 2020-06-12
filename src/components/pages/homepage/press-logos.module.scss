@@ -9,14 +9,11 @@
   img {
     filter: grayscale(1);
     height: 1.5rem;
-    margin: 0 spacer(32) spacer(32) spacer(32);
-    // STYLE CHECK
-    // margin: 0 1.8rem 2rem 1.8rem;
+    margin: 0 1.8rem 2rem 1.8rem; // ignore-style-rule
     @media (min-width: $viewport-lg) {
       height: 2rem;
       margin: 0 spacer(32) spacer(64) spacer(32);
-      // STYLE CHECK
-      // margin: 0 1.8rem 3.125rem 1.8rem;
+      margin: 0 1.8rem 3.125rem 1.8rem; // ignore-style-rule
     }
   }
 }

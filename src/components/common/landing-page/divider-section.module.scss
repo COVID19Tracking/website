@@ -5,9 +5,6 @@ $border: 1px solid $color-slate-100;
   border-bottom: $border;
   padding: spacer(32) 0;
   margin: spacer(32) 0;
-  // STYLE CHECK
-  // padding: 40px 0;
-  // margin: 40px 0;
   @media (min-width: $viewport-lg) {
     padding: spacer(80) 0;
     margin: spacer(80) 0;

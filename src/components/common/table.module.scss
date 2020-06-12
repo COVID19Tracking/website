@@ -64,8 +64,6 @@
 
   th {
     padding: spacer(32) spacer(8) spacer(8);
-    // STYLE CHECK
-    // padding: 2.25rem 0.5rem 0.5rem;
     line-height: 1.15;
     vertical-align: bottom;
     position: relative;
@@ -100,8 +98,6 @@
       font-weight: normal;
       text-align: right;
       padding: spacer(16) spacer(8);
-      // STYLE CHECK
-      // padding: 0.75rem 0.5rem;
     }
     &.wide {
       min-width: 13em;
@@ -125,8 +121,6 @@
   td {
     text-align: right;
     padding: spacer(16) spacer(8);
-    // STYLE CHECK
-    // padding: 0.75rem 0.5rem;
     @include type-size(200);
 
     &.align-left {

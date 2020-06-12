@@ -1,7 +1,5 @@
 .banner {
   padding: spacer(8) 0;
-  // STYLE CHECK
-  // padding: 0.7rem 0;
 
   text-align: center;
   font-weight: bold;
@@ -16,8 +14,6 @@
 
   @media (max-width: $viewport-sm) {
     padding: spacer(8);
-    // STYLE CHECK
-    // padding: 0.7rem;
     text-align: left;
   }
 

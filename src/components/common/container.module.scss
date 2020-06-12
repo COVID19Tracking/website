@@ -3,10 +3,7 @@
   @include margin(24, left right);
 
   @media (min-width: $viewport-md) {
-    // STYLE CHECK
     @include margin(32, left right);
-    // margin-left: 3rem;
-    // margin-right: 3rem;
   }
   @media (min-width: $viewport-lg) {
     margin-left: auto;

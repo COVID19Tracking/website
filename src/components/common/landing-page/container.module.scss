@@ -4,9 +4,6 @@
 
   @media (min-width: $viewport-md) {
     @include margin(64, left right);
-    // STYLE CHECK
-    // margin-left: 3rem;
-    // margin-right: 3rem;
   }
 
   @media (min-width: $viewport-lg) {
@@ -19,9 +16,6 @@
 
     @media (min-width: $viewport-md) {
       @include margin(64, left right);
-      // STYLE CHECK
-      // margin-left: 3rem;
-      // margin-right: 3rem;
     }
 
     @media (min-width: $viewport-lg) {

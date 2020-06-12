@@ -6,8 +6,6 @@
     display: block;
     width: 100%;
     @include padding(16);
-    // STYLE CHECK
-    // padding: 12px;
 
     margin-top: spacer(8);
     margin-bottom: spacer(64);
@@ -69,8 +67,7 @@
 
   .input-header {
     @include margin(4, bottom);
-    // STYLE CHECK
-    // margin-bottom: 5px;
+    margin-bottom: spacer(4);
     @include bold-type-size(400);
   }
 

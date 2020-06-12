@@ -46,9 +46,7 @@
 
   input {
     width: 100%;
-    padding: spacer(8) spacer(32) spacer(8) spacer(80);
-    // STYLE CHECK
-    // padding: 0.55rem 3rem 0.55rem 5rem;
+    padding: 0.55rem 3rem 0.55rem 5rem; // ignore-style-rule
 
     font-weight: bold;
     border: 0;
@@ -97,9 +95,7 @@
 .get-involved {
   display: inline-block;
   vertical-align: top;
-  padding: spacer(8);
-  // STYLE CHECK
-  // padding: 0.4rem 0.5rem;
+  padding: 0.4rem 0.5rem; // ignore-style-rule
   font-weight: bold;
   background: #ffffff;
   color: $color-blueberry-500;
@@ -168,8 +164,7 @@
 }
 
 .site-header {
-  // STYLE CHECK
-  margin-bottom: 3rem;
+  margin-bottom: 3rem; // ignore-style-rule
   &.no-margin {
     margin-bottom: 0;
   }
@@ -344,14 +339,10 @@
   .title-subnav-container {
     margin-top: spacer(64);
     @media (max-width: $viewport-md) {
-      margin-top: spacer(32);
-      // STYLE CHECK
-      // margin-top: 3rem;
+      margin-top: 3rem; // ignore-style-rule
     }
     &.has-return-link {
       margin-top: spacer(24);
-      // STYLE CHECK
-      // margin-top: 1.75rem;
       @media (max-width: $viewport-md) {
         margin-top: spacer(32);
       }
@@ -409,8 +400,7 @@
           font-weight: bold;
           color: white;
           display: block;
-          // STYLE CHECK
-          margin: 0 0.6rem 0 0;
+          margin: 0 0.6rem 0 0; // ignore-style-rule
           padding: 0.2rem 0 0.1rem;
           @include type-size(200);
           border-bottom: 3px solid transparent;

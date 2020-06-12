@@ -67,7 +67,6 @@
     cursor: pointer;
     display: inline-block;
     margin-right: spacer(4);
-    // STYLE CHECK
     width: 16px;
     height: 16px;
 
@@ -85,7 +84,6 @@
     display: flex;
     align-items: center;
     margin: spacer(8) 0;
-    // STYLE CHECK
     width: 150px;
 
     // cross-browser compatible range styling from http://danielstern.ca/range.css/
@@ -100,7 +98,6 @@
 
       &::-webkit-slider-runnable-track {
         width: 100%;
-        // STYLE CHECK
         height: 10px;
         cursor: pointer;
         background: #edf1f2;
@@ -110,7 +107,6 @@
 
       &::-webkit-slider-thumb {
         border: 1px solid #000000;
-        // STYLE CHECK
         height: 20px;
         width: 20px;
         border-radius: 10px;

@@ -1,8 +1,6 @@
 .header {
   font-weight: normal;
-
-  // STYLE CHECK
-  margin: 60px 0 40px;
+  margin: 60px 0 40px; // ignore-style-rule
   @include type-size(300);
   @media (min-width: $viewport-lg) {
     text-align: center;

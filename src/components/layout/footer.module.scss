@@ -3,8 +3,6 @@
   background-color: $color-plum-550;
   color: white;
   margin-top: spacer(32);
-  // STYLE CHECK
-  // margin-top: 3rem;
   padding: spacer(32) 0;
 
   @media (max-width: $viewport-ms) {
@@ -37,8 +35,6 @@
   .footer-list {
     list-style-type: none;
     margin: 0 0 0 spacer(64);
-    // STYLE CHECK
-    // margin: 0 0 0 49px;
     padding: 0;
     display: flex;
     flex-wrap: wrap;

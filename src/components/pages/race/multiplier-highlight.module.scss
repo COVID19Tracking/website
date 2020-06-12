@@ -1,6 +1,5 @@
 .highlight {
-  // STYLE CHECK
-  margin-top: 40px;
+  margin-top: spacer(32);
   p {
     @include type-size(300);
     margin: 0;
