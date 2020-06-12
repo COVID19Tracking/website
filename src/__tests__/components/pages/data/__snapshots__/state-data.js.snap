@@ -46,16 +46,15 @@ Array [
             <span
               role="text"
             >
-              Positive
               <span
-                className="headerLabel headerLabel3"
+                className="headerLabel headerLabel1"
               >
-                Tests
+                Cases
               </span>
             </span>
           </th>
           <th
-            className=""
+            className="alignLeft borderLeft"
             scope="col"
           >
             <span
@@ -63,7 +62,7 @@ Array [
             >
               Negative
               <span
-                className="headerLabelHidden headerLabel3"
+                className="headerLabel headerLabel2"
               >
                 Tests
               </span>
@@ -78,7 +77,7 @@ Array [
             >
               Pending
               <span
-                className="headerLabelHidden headerLabel3"
+                className="headerLabelHidden headerLabel2"
               >
                 Tests
               </span>
@@ -229,7 +228,7 @@ Array [
             4,572
           </td>
           <td
-            className=""
+            className="borderLeft"
           >
             33,318
           </td>
