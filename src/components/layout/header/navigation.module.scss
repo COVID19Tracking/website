@@ -7,6 +7,9 @@
   background: none;
   @media (max-width: $viewport-lg) {
     background-color: $color-plum-500;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
   }
   border: none;
   box-shadow: none;
@@ -18,11 +21,6 @@
   top: 3px;
   &:focus {
     outline: 2px dotted white;
-  }
-  @media (hover: none) {
-    border-radius: 10px;
-    height: 22px;
-    width: 22px;
   }
   @media (any-hover: hover) {
     width: 40px;
@@ -116,6 +114,9 @@
     a,
     a[aria-current] {
       color: $color-plum-100;
+    }
+    &:focus {
+      outline: none;
     }
   }
   .menu-item {
