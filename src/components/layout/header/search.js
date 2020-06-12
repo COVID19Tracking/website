@@ -10,7 +10,10 @@ export default ({ children }) => {
   const [searchState, searchDispatch] = useSearch()
   const { query, autocompleteHasFocus } = searchState
 
-  function toggleFocus() {
+  function toggleFocusOrQuery() {
+    if (autocompleteHasFocus && query) {
+      navigate(`/search?q=${query}`)
+    }
     searchDispatch({ type: 'toggleAutocompleteFocus' })
   }
 
@@ -21,12 +24,8 @@ export default ({ children }) => {
         type="button"
         className={headerStyle.searchSubmit}
         aria-label="Submit search"
-        onClick={() => {
-          if (autocompleteHasFocus && query) {
-            navigate(`/search?q=${query}`)
-          }
-          toggleFocus()
-        }}
+        onClick={() => toggleFocusOrQuery()}
+        onBlur={() => toggleFocusOrQuery()}
       >
         <img
           src={autocompleteHasFocus ? searchIconInvert : searchIcon}

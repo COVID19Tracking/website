@@ -95,9 +95,9 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
 
   const { bestHits, otherHits } = partitionHitsByRelevance(results)
 
-  // function toggleFocus() {
-  //   searchDispatch({ type: 'toggleAutocompleteFocus' })
-  // }
+  function toggleFocus() {
+    searchDispatch({ type: 'toggleAutocompleteFocus' })
+  }
 
   return (
     <Combobox>
@@ -117,9 +117,8 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
         onKeyDown={event =>
           event.key === 'Enter' && goToResultOrSearch(event.target.value)
         }
-        // onSelect={() => {}}
-        // onFocus={() => !autocompleteHasFocus && toggleFocus()}
-        // toggle opening the search bar
+        onFocus={() => !autocompleteHasFocus && toggleFocus()}
+        onBlur={() => toggleFocus()}
       />
       {totalHits && showResults ? (
         <ComboboxPopover
