@@ -112,7 +112,7 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
           event.key === 'Enter' && goToResultOrSearch(event.target.value)
         }
         onSelect={() => {}}
-        onFocus={() => toggleFocus()}
+        onFocus={() => toggleFocus()} // toggle opening the search bar
         onBlur={() => toggleFocus()}
       />
       {totalHits && showResults ? (
