@@ -11,13 +11,13 @@ export default ({ twitter, covid19Site, dataSource }) => (
     )}
     {covid19Site && (
       <li>
-        <a href={covid19Site}>Best current data source</a>
+        <a href={covid19Site}>Best Current Data Source</a>
         {dataSource ? <span>{'\u2022'}</span> : ''}
       </li>
     )}
     {dataSource && (
       <li>
-        <a href={dataSource}>Data source</a>
+        <a href={dataSource}>Data Source</a>
       </li>
     )}
   </UnstyledList>

@@ -8,15 +8,17 @@ exports[`Components : Pages : State : State links renders correctly 1`] = `
     <a
       href="https://twitter.com/california-covid"
     >
-      California
-       on Twitter
+      Official Twitter
     </a>
+    <span>
+      •
+    </span>
   </li>
   <li>
     <a
       href="https://example.com"
     >
-      Data source
+      Data Source
     </a>
   </li>
 </ul>
@@ -30,22 +32,27 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
     <a
       href="https://twitter.com/california-covid"
     >
-      California
-       on Twitter
+      Official Twitter
     </a>
+    <span>
+      •
+    </span>
   </li>
   <li>
     <a
       href="https://example.com"
     >
-      Best current data source
+      Best Current Data Source
     </a>
+    <span>
+      •
+    </span>
   </li>
   <li>
     <a
       href="https://example.com"
     >
-      Data source
+      Data Source
     </a>
   </li>
 </ul>
