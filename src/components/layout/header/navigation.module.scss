@@ -4,8 +4,9 @@
 
 .caret {
   appearance: none;
-  background: none;
-  border: none;
+  background-color: $color-plum-600;
+  border-radius: 50%;
+  border: 6px solid $color-plum-800;
   box-shadow: none;
   margin-left: 7px;
   position: relative;
