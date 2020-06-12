@@ -36,7 +36,7 @@ export default () => {
             number={<FormatNumber number={totals.posNeg} />}
           />
           <Total
-            label="Positive cases"
+            label="Cases"
             number={<FormatNumber number={totals.positive} />}
           />
           <Total
