@@ -83,6 +83,7 @@
       }
     }
 
+    width: 100%;
     @media (min-width: $viewport-md) {
       width: 2rem;
     }
@@ -326,14 +327,6 @@
     justify-content: space-between;
 
     margin-top: 1.5rem;
-  }
-
-  .site-title-inner {
-    width: 40%;
-    display: flex;
-    @media (min-width: $viewport-md) {
-      width: 20%;
-    }
   }
 
   .return-link {
