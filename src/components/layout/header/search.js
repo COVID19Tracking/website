@@ -21,11 +21,12 @@ export default ({ children }) => {
         type="button"
         className={headerStyle.searchSubmit}
         aria-label="Submit search"
-        onClick={() =>
-          autocompleteHasFocus
-            ? query && navigate(`/search?q=${query}`)
-            : toggleFocus()
-        }
+        onClick={() => {
+          if (autocompleteHasFocus && query) {
+            navigate(`/search?q=${query}`)
+          }
+          toggleFocus()
+        }}
       >
         <img
           src={autocompleteHasFocus ? searchIconInvert : searchIcon}
