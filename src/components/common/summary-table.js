@@ -36,10 +36,15 @@ const renderColumns = columnData =>
     ))
   })
 
-export default ({ data, lastUpdated, showOutcomes = true }) => {
+export default ({
+  data,
+  lastUpdated,
+  showOutcomes = true,
+  showFootnote = false,
+}) => {
   const columns = [
     {
-      header: 'Cases',
+      header: `Cases${showFootnote ? ' *' : ''}`,
       columns: [
         {
           header: null,

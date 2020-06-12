@@ -28,7 +28,7 @@ export default ({ data }) => {
         id={data.dataPreamble.contentful_id}
       />
       <SyncInfobox />
-      <SummaryTable data={data.covidUs} showOutcomes={false} />
+      <SummaryTable data={data.covidUs} showOutcomes={false} showFootnote />
       <DetailText>
         <span
           className="module-content"
