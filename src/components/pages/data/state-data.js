@@ -23,21 +23,21 @@ const State = ({ state }) => (
     <UnstyledList>
       {state.twitter && (
         <li>
-          <a href={`https://twitter.com/${state.twitter}`}>
-            {state.name} on Twitter
-          </a>
+          <a href={`https://twitter.com/${state.twitter}`}>Official Twitter</a>
+          <span>{'\u2022'}</span>
         </li>
       )}
       {state.covid19Site && (
-        <li>
-          <a href={state.covid19Site}>
-            Best current data source for {state.name}
-          </a>
-        </li>
+        <>
+          <li>
+            <a href={state.covid19Site}>Official Data Source</a>
+            <span>{'\u2022'}</span>
+          </li>
+        </>
       )}
       <li>
         <Link to={`/data/state/${slug(state.name)}#historical`}>
-          Historical data for {state.name}
+          Historical Data
         </Link>
       </li>
     </UnstyledList>
