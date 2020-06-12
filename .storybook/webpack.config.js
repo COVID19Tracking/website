@@ -1,5 +1,5 @@
 const path = require('path')
-const srcPath = path.resolve(__dirname, '../src')
+const sassImports = require('../src/utilities/sass-imports')
 
 module.exports = ({ config }) => {
   // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
@@ -37,11 +37,7 @@ module.exports = ({ config }) => {
         loader: require.resolve('sass-loader'),
 
         options: {
-          data: `@import '~scss/type.module.scss';
-        @import '~scss/helpers.module.scss';
-        @import '~scss/colors.module.scss';
-        @import '~scss/links.module.scss';
-        @import '~scss/breakpoints.module.scss';`,
+          data: sassImports,
         },
       },
     ],

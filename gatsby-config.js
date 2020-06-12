@@ -3,7 +3,9 @@ require(`@babel/register`)({
   plugins: ['@babel/plugin-transform-runtime'],
 })
 require('dotenv').config()
+
 const algoliaQueries = require('./src/utilities/algolia').queries
+const sassImports = require('./src/utilities/sass-imports.js')
 
 const gatsbyConfig = {
   siteMetadata: {
@@ -30,11 +32,7 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        data: `@import '~scss/type.module.scss';
-        @import '~scss/helpers.module.scss';
-        @import '~scss/colors.module.scss';
-        @import '~scss/links.module.scss';
-        @import '~scss/breakpoints.module.scss';`,
+        data: sassImports,
       },
     },
     {
