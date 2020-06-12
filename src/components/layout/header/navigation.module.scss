@@ -1,6 +1,7 @@
 @import '~scss/colors.module.scss';
 @import '~scss/links.module.scss';
 @import '~scss/breakpoints.module.scss';
+@import '~scss/links.module.scss';
 
 .caret {
   appearance: none;
@@ -116,7 +117,7 @@
       color: $color-plum-100;
     }
     &:focus {
-      outline: none;
+      @include link-focus-dark-bg;
     }
   }
   .menu-item {
