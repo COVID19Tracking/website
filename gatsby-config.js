@@ -21,13 +21,22 @@ const gatsbyConfig = {
   plugins: [
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
     'gatsby-transformer-yaml',
     'gatsby-transformer-json',
     'gatsby-plugin-eslint',
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        data: `@import '~scss/type.module.scss';
+        @import '~scss/helpers.module.scss';
+        @import '~scss/colors.module.scss';
+        @import '~scss/links.module.scss';
+        @import '~scss/breakpoints.module.scss';`,
+      },
+    },
     {
       resolve: 'gatsby-plugin-polyfill-io',
       options: {

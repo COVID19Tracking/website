@@ -1,7 +1,3 @@
-@import '~scss/breakpoints.module.scss';
-@import '~scss/colors.module.scss';
-@import '~scss/type.module.scss';
-
 .paragraph {
   color: $color-slate-700;
   @include type-size(200);

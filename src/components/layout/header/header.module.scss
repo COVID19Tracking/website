@@ -1,9 +1,3 @@
-@import '~scss/colors.module.scss';
-@import '~scss/links.module.scss';
-@import '~scss/breakpoints.module.scss';
-@import '~scss/helpers.module.scss';
-@import '~scss/type.module.scss';
-
 .tools {
   display: none;
   @include type-size(100);

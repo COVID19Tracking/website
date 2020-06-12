@@ -1,7 +1,3 @@
-@import '~scss/colors.module.scss';
-@import '~scss/helpers.module.scss';
-@import '~scss/type.module.scss';
-
 .credit {
   @include type-size(100);
   line-height: 2.5;
