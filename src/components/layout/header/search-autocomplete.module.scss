@@ -27,10 +27,13 @@
     margin: 0;
   }
   li:not(.popoverSeparator) {
-    &:hover,
-    &:focus,
-    &[aria-selected='true'] {
-      background: transparentize($color-blueberry-200, 0.77);
+    &:hover {
+      background: $color-blueberry-hover;
+    }
+    &[aria-selected='true'],
+    &:focus {
+      color: white;
+      background: black;
     }
   }
 }

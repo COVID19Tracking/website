@@ -1,9 +1,9 @@
 @import '~scss/colors.module.scss';
+@import '~scss/links.module.scss';
 @import '~scss/breakpoints.module.scss';
 @import '~scss/helpers.module.scss';
 
 .footer {
-  background-image: url(~images/hero-bg.svg);
   background-size: auto 300%;
   background-color: $color-plum-550;
   color: white;
@@ -12,16 +12,32 @@
   // margin-top: 3rem;
   padding: spacer(32) 0;
 
-  @media (min-width: $viewport-md) {
+  @media (max-width: $viewport-ms) {
+    .footer-list {
+      flex-direction: column;
+    }
+  }
+
+  @media (min-width: $viewport-ms) {
     .container {
       align-items: center;
       display: flex;
       justify-content: space-between;
     }
   }
+
   img {
     width: toRem(176);
     margin: 0;
+    margin-right: 1rem;
+  }
+  a {
+    &:focus {
+      @include link-focus-dark-bg;
+    }
+    &:hover {
+      @include link-hover-dark-bg;
+    }
   }
   .footer-list {
     list-style-type: none;
@@ -29,7 +45,9 @@
     // STYLE CHECK
     // margin: 0 0 0 49px;
     padding: 0;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
     @media (min-width: $viewport-md) {
       margin: 0;
     }
@@ -37,19 +55,29 @@
     @media (min-width: $viewport-sm) {
       li {
         display: inline-block;
-        margin-right: spacer(24);
+        margin: spacer(4) 0 spacer(4) spacer(24);
         margin-bottom: 0;
         &:last-of-type {
           margin-right: 0;
         }
+        &:first-of-type {
+          margin-left: 0;
+        }
       }
     }
+
+    @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
+      li:first-of-type {
+        margin-left: 1.5rem;
+      }
+    }
+
     a {
       color: white;
-
-      &:hover,
-      &:focus {
-        color: $color-plum-200;
+      font-weight: bold;
+      text-decoration: none;
+      &:hover {
+        @include link-hover-dark-bg;
       }
     }
     .back-to-top {
@@ -60,6 +88,22 @@
         display: inline;
         margin-top: 0;
       }
+    }
+  }
+}
+
+.copyright {
+  padding: 1.5rem 2rem 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+
+  a {
+    color: white;
+    &:hover {
+      @include link-hover-dark-bg;
+    }
+    &:focus {
+      @include link-focus-dark-bg;
     }
   }
 }

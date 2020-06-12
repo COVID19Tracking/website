@@ -34,6 +34,7 @@ $color-blueberry-200: #8cc7f4;
 $color-blueberry-300: #0091ea;
 $color-blueberry-400: #004399;
 $color-blueberry-500: #012656;
+$color-blueberry-hover: transparentize($color-blueberry-200, 0.77);
 
 // Slate
 $color-slate-100: #edf1f2;
@@ -50,9 +51,11 @@ $color-slate-800: #313638;
 Color primitives
 
 */
-$color-link: $color-plum-600;
+$color-link: black;
 $color-link--active: $color-plum-400;
-$color-link--hover: $color-plum-400;
+
+$color-link--hover: black;
+$color-link--hover--dark-bg: white;
 
 $color-infobox-question-light: #fef9cd;
 $color-infobox-question-dark: #5e4f24;
@@ -65,6 +68,14 @@ $color-infobox-alert-dark: #802509;
 
 $color-error-light: #f9ded9;
 $color-error-dark: #e35942;
+
+// Qualitative Six Color Palette, Colorblind Safe
+$qualitative-color-palette-100: #b5e3db;
+$qualitative-color-palette-200: #cccc00;
+$qualitative-color-palette-300: #a19bca;
+$qualitative-color-palette-400: #f4a071;
+$qualitative-color-palette-500: #2f6488;
+$qualitative-color-palette-600: #527740;
 
 :export {
   text: $text;
@@ -99,4 +110,10 @@ $color-error-dark: #e35942;
   colorSlate600: $color-slate-600;
   colorSlate700: $color-slate-700;
   colorSlate800: $color-slate-800;
+  qualitativeColorPalette100: $qualitative-color-palette-100;
+  qualiTativecolorPalette200: $qualitative-color-palette-200;
+  qualiTativecolorPalette300: $qualitative-color-palette-300;
+  qualiTativecolorPalette400: $qualitative-color-palette-400;
+  qualiTativecolorPalette500: $qualitative-color-palette-500;
+  qualiTativecolorPalette600: $qualitative-color-palette-600;
 }

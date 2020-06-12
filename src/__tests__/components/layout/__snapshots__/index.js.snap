@@ -254,6 +254,7 @@ Array [
                 className="siteTitleInner"
               >
                 <a
+                  className="projectLogo"
                   href="/"
                 >
                   <img
@@ -558,6 +559,13 @@ Array [
               </li>
               <li>
                 <a
+                  href="https://www.theatlantic.com/privacy-policy/"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
                   href="/license"
                 >
                   License
@@ -582,10 +590,24 @@ Array [
                   className="backToTop"
                   href="#reach-skip-nav"
                 >
-                  Back to top.
+                  Back to top
                 </a>
               </li>
             </ul>
+          </div>
+          <div
+            className="copyright"
+          >
+            <span>
+              CovidTracking.com Copyright © 
+              2020
+               by The Atlantic Monthly Group. 
+              <a
+                href="/license"
+              >
+                (CC BY-NC 4.0)
+              </a>
+            </span>
           </div>
         </div>
       </div>
@@ -848,6 +870,7 @@ Array [
                 className="siteTitleInner"
               >
                 <a
+                  className="projectLogo"
                   href="/"
                 >
                   <img
@@ -1152,6 +1175,13 @@ Array [
               </li>
               <li>
                 <a
+                  href="https://www.theatlantic.com/privacy-policy/"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
                   href="/license"
                 >
                   License
@@ -1176,10 +1206,24 @@ Array [
                   className="backToTop"
                   href="#reach-skip-nav"
                 >
-                  Back to top.
+                  Back to top
                 </a>
               </li>
             </ul>
+          </div>
+          <div
+            className="copyright"
+          >
+            <span>
+              CovidTracking.com Copyright © 
+              2020
+               by The Atlantic Monthly Group. 
+              <a
+                href="/license"
+              >
+                (CC BY-NC 4.0)
+              </a>
+            </span>
           </div>
         </div>
       </div>
@@ -1442,6 +1486,7 @@ Array [
                 className="siteTitleInner"
               >
                 <a
+                  className="projectLogo"
                   href="/"
                 >
                   <img
@@ -1746,6 +1791,13 @@ Array [
               </li>
               <li>
                 <a
+                  href="https://www.theatlantic.com/privacy-policy/"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
                   href="/license"
                 >
                   License
@@ -1770,10 +1822,24 @@ Array [
                   className="backToTop"
                   href="#reach-skip-nav"
                 >
-                  Back to top.
+                  Back to top
                 </a>
               </li>
             </ul>
+          </div>
+          <div
+            className="copyright"
+          >
+            <span>
+              CovidTracking.com Copyright © 
+              2020
+               by The Atlantic Monthly Group. 
+              <a
+                href="/license"
+              >
+                (CC BY-NC 4.0)
+              </a>
+            </span>
           </div>
         </div>
       </div>

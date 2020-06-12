@@ -1,4 +1,5 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/links.module.scss';
 @import '~scss/colors.module.scss';
 @import '~scss/helpers.module.scss';
 @import '~scss/type.module.scss';
@@ -26,12 +27,10 @@
     }
 
     a {
-      text-decoration: none;
       color: $text;
-
-      &:hover,
-      &:focus {
-        text-decoration: underline;
+      &:focus,
+      &:hover {
+        @include link-hover;
       }
     }
   }

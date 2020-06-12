@@ -1,14 +1,27 @@
 @import '~scss/breakpoints.module.scss';
 @import '~scss/type.module.scss';
+@import '~scss/colors.module.scss';
 
-.black-african-american-alone {
-  background: #ffad4a;
+.asian-alone {
+  background: $qualitative-color-palette-100;
 }
 .white-alone {
-  background: #585bc1;
+  background: $qualitative-color-palette-200;
+}
+.black-african-american-alone {
+  background: $qualitative-color-palette-300;
 }
 .hispanic-latino {
-  background: green;
+  background: $qualitative-color-palette-400;
+}
+.aian-alone {
+  background: $qualitative-color-palette-500;
+}
+.nhpi-alone {
+  background: $qualitative-color-palette-600;
+}
+.two-or-more {
+  background: #555;
 }
 
 .swatch {

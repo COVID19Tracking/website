@@ -90,14 +90,16 @@ exports[`Components : Pages : Homepage : Large Project renders correctly 1`] = `
       Mohini Dutta / COVID Tracking Project
     </div>
     <h3>
+      COVID-19 isn't affecting all communities equally. We've partnered with the Antiracist Research & Policy Center to collect the most complete racial data anywhere in the
+       
       <a
         href="/race"
       >
-        COVID-19 isn't affecting all communities equally. We've partnered with the Antiracist Research & Policy Center to collect the most complete racial data anywhere in the COVID Racial Data Tracker.
+        COVID Racial Data Tracker.
       </a>
     </h3>
     <p>
-      We're tracking racial and ethnic data from every state that reports it—and pushing those that don't to start. Together with the Antiracist Research & Policy Center, we're analyzing this data to uncover the true impact of the outbreak on vulnerable communities.
+      We’re tracking racial and ethnic data from every state that reports it—and pushing those that don’t to start. Together with the Antiracist Research & Policy Center, we’re analyzing this data to uncover the true impact of the outbreak on vulnerable communities.
     </p>
     <a
       className="cta centered "

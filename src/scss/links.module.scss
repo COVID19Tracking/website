@@ -1,0 +1,19 @@
+@import '~scss/colors.module.scss';
+
+@mixin link-hover {
+  text-decoration: underline;
+  color: $color-link--hover;
+}
+
+@mixin link-hover-dark-bg {
+  text-decoration: underline;
+  color: $color-link--hover--dark-bg;
+}
+
+@mixin link-focus {
+  outline: black dotted 2px;
+}
+
+@mixin link-focus-dark-bg {
+  outline: white dotted 2px;
+}

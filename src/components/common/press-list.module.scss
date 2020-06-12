@@ -1,5 +1,6 @@
 @import '~scss/helpers.module.scss';
 @import '~scss/type.module.scss';
+@import '~scss/links.module.scss';
 
 .press-list {
   list-style-type: none;
@@ -12,13 +13,12 @@
 
   a {
     color: black;
-    text-decoration: none;
     font-weight: bold;
     @include type-size(300);
     display: block;
     margin-bottom: spacer(4);
     &:hover {
-      text-decoration: underline;
+      @include link-hover;
     }
   }
 
