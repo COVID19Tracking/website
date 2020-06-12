@@ -113,7 +113,8 @@
     top: 0;
     background: transparent;
     padding-left: 1rem;
-    a {
+    a,
+    a[aria-current] {
       color: $color-plum-100;
     }
   }
