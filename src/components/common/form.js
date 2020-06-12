@@ -71,6 +71,10 @@ const FormInput = props => {
       )
       break
 
+    case 'justinput':
+      inputElement = <input {...props} />
+      break
+
     case `select`:
       inputElement = (
         <>
@@ -88,9 +92,40 @@ const FormInput = props => {
       )
       break
 
-    case 'justinput':
-      inputElement = <input {...props} />
+    case `fieldset`:
+      inputElement = (
+        <>
+          <fieldset className={formStyles.fieldset}>
+            <legend className={formStyles.label}>
+              {label}
+              {isRequired ? (
+                <span className={formStyles.required}>required</span>
+              ) : (
+                <span className={formStyles.required}>optional</span>
+              )}
+            </legend>
+            <div className={formStyles.fieldsetOptions}>
+              {optionsArray &&
+                optionsArray.map(item => (
+                  <label
+                    key={`availability-${item.shortname}`}
+                    htmlFor={item.shortname}
+                    className={formStyles.checkboxLabel}
+                  >
+                    <input
+                      {...props}
+                      value={item.description}
+                      id={item.shortname}
+                    />
+                    {item.description}
+                  </label>
+                ))}
+            </div>
+          </fieldset>
+        </>
+      )
       break
+
     default:
       inputElement = <input {...props} />
   }
