@@ -39,13 +39,18 @@ const renderColumns = columnData =>
 export default ({ data, lastUpdated, showOutcomes = true }) => {
   const columns = [
     {
-      header: 'Tests',
+      header: 'Cases',
       columns: [
         {
-          header: 'Positive',
+          header: null,
           alignLeft: !showOutcomes,
           data: data.positive,
         },
+      ],
+    },
+    {
+      header: 'Tests',
+      columns: [
         {
           header: 'Negative',
           alignLeft: !showOutcomes,
