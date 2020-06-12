@@ -9,7 +9,7 @@ export default () => {
       whiteHouse: file(relativePath: { regex: "/white-house.png/" }) {
         relativePath
         childImageSharp {
-          fluid(maxWidth: 1200, traceSVG: { color: "#A7DEF6" }) {
+          fluid(maxWidth: 1200, traceSVG: { color: "#182E4E" }) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
