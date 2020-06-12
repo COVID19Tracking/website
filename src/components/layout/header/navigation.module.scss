@@ -5,7 +5,7 @@
 .caret {
   appearance: none;
   background: none;
-  @media (max-width: $viewport-lg) {
+  @media (max-width: $viewport-xl) {
     background-color: $color-plum-500;
     border-radius: 50%;
     height: 22px;
@@ -61,7 +61,7 @@
   }
 }
 
-@media (max-width: $viewport-lg) {
+@media (max-width: $viewport-xl) {
   .nav-label {
     display: flex;
     align-items: center;
@@ -95,7 +95,7 @@
     }
   }
   div {
-    @media (max-width: $viewport-lg) {
+    @media (max-width: $viewport-xl) {
       margin-bottom: 0.5rem;
       &:last-of-type {
         margin-bottom: 0;
