@@ -14,16 +14,15 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           <span
             role="text"
           >
-            Positive
             <span
-              className="headerLabel headerLabel3"
+              className="headerLabel headerLabel1"
             >
-              Tests
+              Cases
             </span>
           </span>
         </th>
         <th
-          className=""
+          className="alignLeft borderLeft"
           scope="col"
         >
           <span
@@ -31,7 +30,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           >
             Negative
             <span
-              className="headerLabelHidden headerLabel3"
+              className="headerLabel headerLabel2"
             >
               Tests
             </span>
@@ -46,7 +45,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           >
             Pending
             <span
-              className="headerLabelHidden headerLabel3"
+              className="headerLabelHidden headerLabel2"
             >
               Tests
             </span>
@@ -197,7 +196,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
           4,572
         </td>
         <td
-          className=""
+          className="borderLeft"
         >
           33,318
         </td>
@@ -284,16 +283,15 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
           <span
             role="text"
           >
-            Positive
             <span
-              className="headerLabel headerLabel3"
+              className="headerLabel headerLabel1"
             >
-              Tests
+              Cases
             </span>
           </span>
         </th>
         <th
-          className="alignLeft"
+          className="alignLeft borderLeft"
           scope="col"
         >
           <span
@@ -301,7 +299,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
           >
             Negative
             <span
-              className="headerLabelHidden headerLabel3"
+              className="headerLabel headerLabel2"
             >
               Tests
             </span>
@@ -316,7 +314,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
           >
             Pending
             <span
-              className="headerLabelHidden headerLabel3"
+              className="headerLabelHidden headerLabel2"
             >
               Tests
             </span>
@@ -377,7 +375,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
           4,572
         </td>
         <td
-          className="alignLeft"
+          className="alignLeft borderLeft"
         >
           33,318
         </td>
