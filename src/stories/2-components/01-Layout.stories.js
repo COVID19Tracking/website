@@ -54,9 +54,7 @@ export const spacing = () => (
     {spacerItems.map(spacer => (
       <div className={spacers.key} key={spacer.size}>
         <div className={spacers.wrap}>
-          <div
-            className={classnames(spacers.spacer, spacers[spacer.class])}
-          ></div>
+          <div className={classnames(spacers.spacer, spacers[spacer.class])} />
         </div>
         <code>spacer({spacer.size})</code>
       </div>
