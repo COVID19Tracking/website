@@ -27,21 +27,7 @@
   color: white;
   position: relative;
 
-  @media (min-width: $viewport-lg) {
-    justify-content: center;
-    margin-right: 1rem;
-  }
-
-  > form {
-    width: 100%;
-  }
-
   label {
-    display: none;
-  }
-
-  .label-focus {
-    display: inline;
     position: absolute;
     left: 0.75rem;
     top: 50%;
@@ -50,6 +36,29 @@
     font-weight: bold;
     text-transform: uppercase;
     color: $color-plum-500;
+
+    @media (max-width: $viewport-md) {
+      color: $color-plum-100;
+    }
+  }
+
+  @media (min-width: $viewport-lg) {
+    justify-content: center;
+    margin-right: 1rem;
+    label {
+      display: none;
+    }
+  }
+
+  > form {
+    width: 100%;
+  }
+
+  .label-focus {
+    display: inline;
+    @media (max-width: $viewport-md) {
+      color: $color-plum-500;
+    }
   }
 
   input {
@@ -61,16 +70,22 @@
     background: transparent;
     color: #f2f2f2;
     transition: width 0.05s;
+    border-radius: 4px;
 
     &::placeholder {
       color: #f2f2f2;
       opacity: 1;
     }
 
+    @media (max-width: $viewport-md) {
+      background: $color-plum-500;
+      width: 100%;
+    }
+
     &:focus {
       padding: 0.55rem 3rem 0.55rem 5rem;
       background: #ffffff;
-      outline: solid 2px $color-plum-200;
+      outline: solid 4px $color-plum-200;
       outline-offset: -1px;
 
       &,
@@ -181,6 +196,7 @@
   }
 
   .mobile-menu {
+    color: $color-plum-200;
     background: $color-plum-800;
     position: relative;
     padding: 1rem 1rem 2rem 1rem;
@@ -198,8 +214,9 @@
     }
     nav {
       display: block;
+      margin-top: 1rem;
       li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
         line-height: 40px;
         @media (hover: none) {
           margin-bottom: 1.75rem;
