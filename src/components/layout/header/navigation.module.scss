@@ -6,7 +6,7 @@
 .caret {
   appearance: none;
   background: none;
-  @media (max-width: $viewport-xl) {
+  @media (max-width: $viewport-lg) {
     background-color: $color-plum-500;
     border-radius: 50%;
     height: 22px;
@@ -62,7 +62,7 @@
   }
 }
 
-@media (max-width: $viewport-xl) {
+@media (max-width: $viewport-lg) {
   .nav-label {
     display: flex;
     align-items: center;
@@ -98,7 +98,7 @@
     }
   }
   div {
-    @media (max-width: $viewport-xl) {
+    @media (max-width: $viewport-lg) {
       margin-bottom: 0.5rem;
       &:last-of-type {
         margin-bottom: 0;
@@ -112,7 +112,7 @@
   row-gap: 0.5rem;
   grid-template-columns: 100%;
 
-  @media (max-width: $viewport-xl) and (min-width: $viewport-ms) {
+  @media (max-width: $viewport-lg) and (min-width: $viewport-ms) {
     row-gap: 1rem;
     grid-template-columns: repeat(3, 33%);
   }

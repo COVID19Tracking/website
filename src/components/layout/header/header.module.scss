@@ -6,7 +6,7 @@
   display: none;
   font-size: 0.81rem;
 
-  @media (min-width: $viewport-xl) {
+  @media (min-width: $viewport-lg) {
     display: block;
   }
 }
@@ -37,12 +37,12 @@
     text-transform: uppercase;
     color: $color-plum-500;
 
-    @media (max-width: $viewport-xl) {
+    @media (max-width: $viewport-lg) {
       color: $color-plum-100;
     }
   }
 
-  @media (min-width: $viewport-xl) {
+  @media (min-width: $viewport-lg) {
     justify-content: center;
     margin-right: 1rem;
     label {
@@ -56,7 +56,7 @@
 
   .label-focus {
     display: inline;
-    @media (max-width: $viewport-xl) {
+    @media (max-width: $viewport-lg) {
       color: $color-plum-500;
     }
   }
@@ -77,7 +77,7 @@
       opacity: 1;
     }
 
-    @media (max-width: $viewport-xl) {
+    @media (max-width: $viewport-lg) {
       background: $color-plum-500;
       width: 100%;
       padding: 0.55rem 3rem 0.55rem 5rem;
@@ -94,13 +94,13 @@
         color: $placeholder;
       }
 
-      @media (min-width: $viewport-xl) {
+      @media (min-width: $viewport-lg) {
         width: 28.5rem;
       }
     }
 
     width: 100%;
-    @media (min-width: $viewport-xl) {
+    @media (min-width: $viewport-lg) {
       width: 2rem;
     }
   }
@@ -137,7 +137,7 @@
     @include link-focus;
   }
 
-  @media (max-width: $viewport-xl) {
+  @media (max-width: $viewport-lg) {
     margin-top: 1.75rem;
     &:focus {
       @include link-focus-dark-bg;
@@ -201,13 +201,13 @@
     background: $color-plum-800;
     position: relative;
     padding: 1rem 1rem 2rem 1rem;
-    @media (max-width: $viewport-xl) and (min-width: $viewport-ms) {
+    @media (max-width: $viewport-lg) and (min-width: $viewport-ms) {
       margin: 0 3rem;
     }
     @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
       margin: 0 1rem;
     }
-    @media (min-width: $viewport-xl) {
+    @media (min-width: $viewport-lg) {
       display: none;
     }
     .mobile-pointer {
@@ -244,7 +244,7 @@
 
   .mobile-menu-expanded {
     display: block;
-    @media (min-width: $viewport-xl) {
+    @media (min-width: $viewport-lg) {
       display: none;
     }
   }
@@ -256,7 +256,7 @@
     margin-top: 1.5rem;
     color: white;
     cursor: pointer;
-    @media (min-width: $viewport-xl) {
+    @media (min-width: $viewport-lg) {
       display: none;
     }
   }
@@ -280,7 +280,7 @@
     display: flex;
     float: right;
     padding-top: 1rem;
-    @media (min-width: $viewport-xl) {
+    @media (min-width: $viewport-lg) {
       float: none;
       padding-top: 0;
     }
@@ -297,7 +297,7 @@
     align-self: center;
     break-before: always;
 
-    @media (min-width: $viewport-xl) {
+    @media (min-width: $viewport-lg) {
       display: block;
       position: relative;
       z-index: 1;
@@ -316,7 +316,7 @@
 
       li {
         margin-bottom: 0.5625rem;
-        @media (min-width: $viewport-xl) {
+        @media (min-width: $viewport-lg) {
           display: inline-block;
           margin-right: 1.5em;
           margin-bottom: 0;
@@ -397,7 +397,7 @@
         margin: 0 -1rem;
       }
 
-      @media (max-width: $viewport-xl) and (min-width: $viewport-ms) {
+      @media (max-width: $viewport-lg) and (min-width: $viewport-ms) {
         margin-left: 0;
       }
 
@@ -424,7 +424,7 @@
         padding-left: 0;
         text-align: left;
 
-        @media (min-width: $viewport-xl) {
+        @media (min-width: $viewport-lg) {
           padding-bottom: 1rem;
         }
 
@@ -475,5 +475,8 @@
   padding: 0 3rem;
   @media (max-width: $viewport-sm) {
     padding: 0 1rem;
+  }
+  @media (min-width: $viewport-lg) {
+    padding: 0 0.5rem; // todo increase to 1rem if there's space with smaller search box
   }
 }
