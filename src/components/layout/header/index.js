@@ -181,7 +181,7 @@ const Header = withSearch(
             >
               {!showMobileMenu && <PartnershipBanner />}
             </Expand>
-            <Container>
+            <div className={headerStyle.wrapper}>
               <div className={headerStyle.siteTitleContainer}>
                 <div className={headerStyle.siteTitleInner}>
                   <Link to="/" className={headerStyle.projectLogo}>
@@ -225,6 +225,8 @@ const Header = withSearch(
                 <span>At</span> <img src={atlanticLogo} alt="The Atlantic" />
                 <div />
               </div>
+            </div>
+            <Container>
               {title && (
                 <div
                   className={`${headerStyle.titleSubnavContainer} ${
