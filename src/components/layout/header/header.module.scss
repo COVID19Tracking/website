@@ -20,8 +20,12 @@
 .search-input {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+
   border-radius: 4px;
   z-index: 2;
+
+  height: 35px;
 
   background: transparentize($color-plum-400, 0.2);
   color: white;
@@ -63,7 +67,7 @@
 
   input {
     width: 100%;
-    padding: 0.55rem 2rem;
+    padding: 0.55rem calc(35px / 2);
 
     font-weight: bold;
     border: 0;
@@ -101,16 +105,18 @@
 
     width: 100%;
     @media (min-width: $viewport-lg) {
-      width: 2rem;
+      width: 0;
     }
   }
 }
 
 .search-submit {
   position: absolute;
-  right: 0.25rem;
-  top: 50%;
-  transform: translateY(-50%);
+
+  // the search box is 35px wide, the icon is 14px wide
+  // (35px - 14px ) / 2 = 10.5px
+  right: 10.5px;
+  padding: 0;
 
   appearance: none;
   background: none;
