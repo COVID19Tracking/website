@@ -7,8 +7,13 @@ import searchIcon from '~images/icons/search.svg'
 import searchIconInvert from '~images/icons/search-inverted.svg'
 
 export default ({ children }) => {
-  const [searchState] = useSearch()
+  const [searchState, searchDispatch] = useSearch()
   const { query, autocompleteHasFocus } = searchState
+
+  function toggleFocus() {
+    searchDispatch({ type: 'toggleAutocompleteFocus' })
+  }
+
   return (
     <div className={headerStyle.searchInput}>
       {children}
@@ -16,7 +21,12 @@ export default ({ children }) => {
         type="button"
         className={headerStyle.searchSubmit}
         aria-label="Submit search"
-        onClick={() => query && navigate(`/search?q=${query}`)}
+        onClick={() => {
+          if (autocompleteHasFocus && query) {
+            navigate(`/search?q=${query}`)
+          }
+          toggleFocus()
+        }}
       >
         <img
           src={autocompleteHasFocus ? searchIconInvert : searchIcon}

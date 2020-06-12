@@ -41,6 +41,16 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
   }, [visible])
 
   useEffect(() => {
+    if (searchInputRef.current !== null) {
+      if (autocompleteHasFocus) {
+        searchInputRef.current.focus()
+      } else {
+        searchInputRef.current.blur()
+      }
+    }
+  }, [autocompleteHasFocus])
+
+  useEffect(() => {
     if (query) {
       querySearch(searchState, searchDispatch)
     }
@@ -85,9 +95,9 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
 
   const { bestHits, otherHits } = partitionHitsByRelevance(results)
 
-  function toggleFocus() {
-    searchDispatch({ type: 'toggleAutocompleteFocus' })
-  }
+  // function toggleFocus() {
+  //   searchDispatch({ type: 'toggleAutocompleteFocus' })
+  // }
 
   return (
     <Combobox>
@@ -107,9 +117,9 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
         onKeyDown={event =>
           event.key === 'Enter' && goToResultOrSearch(event.target.value)
         }
-        onSelect={() => {}}
-        onFocus={() => toggleFocus()}
-        onBlur={() => toggleFocus()}
+        // onSelect={() => {}}
+        // onFocus={() => !autocompleteHasFocus && toggleFocus()}
+        // toggle opening the search bar
       />
       {totalHits && showResults ? (
         <ComboboxPopover
