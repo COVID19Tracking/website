@@ -473,4 +473,7 @@
   margin: 0 auto;
   max-width: calc(1136px + 3rem);
   padding: 0 3rem;
+  @media (max-width: $viewport-sm) {
+    padding: 0 1rem;
+  }
 }
