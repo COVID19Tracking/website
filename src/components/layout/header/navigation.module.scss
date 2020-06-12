@@ -63,6 +63,17 @@
   }
 }
 
+@media (max-width: $viewport-lg) {
+  .nav-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & > a {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
 .sub-menu {
   display: block;
   position: absolute;
@@ -83,6 +94,14 @@
     &:focus {
       color: white;
       background: black;
+    }
+  }
+  div {
+    @media (max-width: $viewport-lg) {
+      margin-bottom: 0.5rem;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
   }
 }
