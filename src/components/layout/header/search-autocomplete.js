@@ -36,11 +36,7 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
 
   useEffect(() => {
     if (mobile && searchInputRef.current !== null) {
-      if (visible) {
-        searchInputRef.current.focus()
-      } else {
-        searchInputRef.current.blur()
-      }
+      searchInputRef.current.blur()
     }
   }, [visible])
 
