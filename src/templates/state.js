@@ -14,7 +14,12 @@ const StatePage = ({ pageContext, data, path }) => {
   const { covidState, allCovidStateDaily, allCovidScreenshot } = data
   return (
     <Layout title={state.name} returnLink="/data" path={path}>
-      <StateLinks {...state} />
+      <StateLinks
+        twitter={state.twitter}
+        covid19Site={state.covid19Site}
+        covid19SiteSecondary={state.covid19SiteSecondary}
+        stateName={state.name}
+      />
       <StateGrade letterGrade={covidState.dataQualityGrade} />
       {state.notes && (
         <div

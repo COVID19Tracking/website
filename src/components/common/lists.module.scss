@@ -1,24 +1,7 @@
-@import '~scss/colors.module.scss';
-@import '~scss/breakpoints.module.scss';
-
 .list-unstyled {
   list-style-type: none;
   margin: 0;
-  span {
-    color: $color-slate-200;
-    font-size: .75em;
-    padding: 0 1em;
-  }
   li {
-    display: inline;
     margin: 0;
-  }
-  @media (max-width: $viewport-sm) {
-    li {
-      display: block;
-    }
-    span {
-      display: none;
-    }
   }
 }

@@ -303,7 +303,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
     </div>
   </div>
   <ul
-    className="list-unstyled listUnstyled"
+    className="list"
   >
     <li>
       <a

@@ -23,6 +23,7 @@ const State = ({ state }) => (
     <StateLinks
       twitter={state.twitter}
       covid19Site={state.covid19Site}
+      covid19SiteSecondary={state.covid19SiteSecondary}
       stateName={state.name}
       historicalSlug={state.name}
     />

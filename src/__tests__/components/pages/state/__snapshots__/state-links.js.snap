@@ -2,7 +2,7 @@
 
 exports[`Components : Pages : State : State links renders correctly 1`] = `
 <ul
-  className="list-unstyled listUnstyled"
+  className="list"
 >
   <li>
     <a
@@ -11,40 +11,7 @@ exports[`Components : Pages : State : State links renders correctly 1`] = `
       <span
         className="a11y-only"
       >
-        's 
-      </span>
-      Official Twitter
-    </a>
-    <span>
-      •
-    </span>
-  </li>
-  <li>
-    <a
-      href="https://example.com"
-    >
-      Data Source
-      <span
-        className="a11y-only"
-      >
-         for 
-      </span>
-    </a>
-  </li>
-</ul>
-`;
-
-exports[`Components : Pages : State : State links renders correctly 2`] = `
-<ul
-  className="list-unstyled listUnstyled"
->
-  <li>
-    <a
-      href="https://twitter.com/california-covid"
-    >
-      <span
-        className="a11y-only"
-      >
+        California
         's 
       </span>
       Official Twitter
@@ -60,6 +27,7 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
       <span
         className="a11y-only"
       >
+        California
         's 
       </span>
       Best Current Data Source
@@ -70,15 +38,70 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
   </li>
   <li>
     <a
-      href="https://example.com"
+      href="https://example.com2"
     >
-      Data Source
+      Secondary Data Source
       <span
         className="a11y-only"
       >
          for 
+        California
       </span>
     </a>
+    
+  </li>
+</ul>
+`;
+
+exports[`Components : Pages : State : State links renders correctly 2`] = `
+<ul
+  className="list"
+>
+  <li>
+    <a
+      href="https://twitter.com/california-covid"
+    >
+      <span
+        className="a11y-only"
+      >
+        California
+        's 
+      </span>
+      Official Twitter
+    </a>
+    <span>
+      •
+    </span>
+  </li>
+  <li>
+    <a
+      href="https://example.com"
+    >
+      <span
+        className="a11y-only"
+      >
+        California
+        's 
+      </span>
+      Best Current Data Source
+    </a>
+    <span>
+      •
+    </span>
+  </li>
+  <li>
+    <a
+      href="https://example.com2"
+    >
+      Secondary Data Source
+      <span
+        className="a11y-only"
+      >
+         for 
+        California
+      </span>
+    </a>
+    
   </li>
 </ul>
 `;

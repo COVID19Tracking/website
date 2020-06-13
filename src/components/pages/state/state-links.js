@@ -1,23 +1,23 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import slug from '~utilities/slug'
-import { UnstyledList } from '~components/common/lists'
+import stateLinksStyle from './state-links.module.scss'
 
 export default ({
   twitter,
   covid19Site,
-  dataSource,
+  covid19SiteSecondary,
   stateName,
   historicalSlug,
 }) => (
-  <UnstyledList>
+  <ul className={stateLinksStyle.list}>
     {twitter && (
       <li>
         <a href={`https://twitter.com/${twitter}`}>
           <span className="a11y-only">{stateName}&apos;s </span>
           Official Twitter
         </a>
-        {covid19Site || dataSource ? <span>{'\u2022'}</span> : ''}
+        {covid19Site || covid19SiteSecondary ? <span>{'\u2022'}</span> : ''}
       </li>
     )}
     {covid19Site && (
@@ -26,15 +26,16 @@ export default ({
           <span className="a11y-only">{stateName}&apos;s </span>
           Best Current Data Source
         </a>
-        {dataSource || historicalSlug ? <span>{'\u2022'}</span> : ''}
+        {covid19SiteSecondary || historicalSlug ? <span>{'\u2022'}</span> : ''}
       </li>
     )}
-    {dataSource && (
+    {covid19SiteSecondary && (
       <li>
-        <a href={dataSource}>
-          Data Source
+        <a href={covid19SiteSecondary}>
+          Secondary Data Source
           <span className="a11y-only"> for {stateName}</span>
         </a>
+        {historicalSlug ? <span>{'\u2022'}</span> : ''}
       </li>
     )}
     {historicalSlug && (
@@ -45,5 +46,5 @@ export default ({
         </Link>
       </li>
     )}
-  </UnstyledList>
+  </ul>
 )
