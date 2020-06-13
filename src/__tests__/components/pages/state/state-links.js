@@ -7,9 +7,10 @@ describe('Components : Pages : State : State links', () => {
     const tree = renderer
       .create(
         <StateLinks
-          name="California"
+          stateName="California"
           twitter="california-covid"
-          dataSource="https://example.com"
+          covid19Site="https://example.com"
+          covid19SiteSecondary="https://example.com2"
         />,
       )
       .toJSON()
@@ -18,10 +19,10 @@ describe('Components : Pages : State : State links', () => {
     const covid19SiteTree = renderer
       .create(
         <StateLinks
-          name="California"
+          stateName="California"
           twitter="california-covid"
           covid19Site="https://example.com"
-          dataSource="https://example.com"
+          covid19SiteSecondary="https://example.com2"
         />,
       )
       .toJSON()
