@@ -14,6 +14,7 @@ export default ({ data }) => (
       id={data.contentfulSnippet.contentful_id}
     />
     <VolunteerForm />
+    <br />
   </Layout>
 )
 

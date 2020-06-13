@@ -20,13 +20,26 @@
     font-size: 1rem;
   }
 
+
   textarea {
     height: 150px;
   }
 
-  .group {
-    margin: 2rem 0;
+ .field-group {
+  @media (min-width: $viewport-lg) {
+    display: flex;
   }
+}
+
+.child {
+  margin-bottom: 0.3rem !important;
+  @media (min-width: $viewport-lg) {
+    width: 50%;
+    &:first-child {
+      padding-right: 3rem;
+    }
+  } 
+}
 
   legend {
     font-weight: bold;

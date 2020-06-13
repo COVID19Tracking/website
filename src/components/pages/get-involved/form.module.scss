@@ -1,11 +1,5 @@
 @import '~scss/breakpoints.module.scss';
 
-.field-group {
-  @media (min-width: $viewport-lg) {
-    display: flex;
-  }
-}
-
 .zip {
   max-width: 6rem;
 }
@@ -16,12 +10,3 @@
   float: right;
 }
 
-.group {
-  margin-bottom: 0.3rem !important;
-  @media (min-width: $viewport-lg) {
-    width: 50%;
-    &:first-child {
-      padding-right: 3rem;
-    }
-  } 
-}

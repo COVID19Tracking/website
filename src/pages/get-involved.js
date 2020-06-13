@@ -16,6 +16,7 @@ export default ({ data }) => (
       id={data.helpPreamble.contentful_id}
     />
     <GetInvolvedForm />
+    <br />
     <ContentfulContent
       content={
         data.helpClosure.childContentfulSnippetContentTextNode

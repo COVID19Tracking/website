@@ -1,5 +1,5 @@
 import React from 'react'
-import classnames from 'classnames'
+// import classnames from 'classnames'
 import formStyles from './form.module.scss'
 import DetailText from '~components/common/detail-text'
 
@@ -12,8 +12,12 @@ const Form = props => {
   )
 }
 
-const FormGroup = ({ children, className }) => (
-  <div className={classnames([formStyles.group, className])}>{children}</div>
+const FormGroup = ({ children }) => (
+  <div className={formStyles.fieldGroup}>{children}</div>
+)
+
+const FormGroupChild = ({ children }) => (
+  <div className={formStyles.child}>{children}</div>
 )
 
 const FormLabel = ({ children, htmlFor, isRequired }) => (
@@ -98,7 +102,7 @@ const FormInput = props => {
       inputElement = (
         <>
           <fieldset className={formStyles.fieldset}>
-            <legend>
+            <legend className={formStyles.label}>
               {label}
               {isRequired ? (
                 <span className={formStyles.required}>required</span>
@@ -134,4 +138,4 @@ const FormInput = props => {
   return inputElement
 }
 
-export { Form, FormGroup, FormInput, FormLabel }
+export { Form, FormInput, FormLabel, FormGroupChild, FormGroup }
