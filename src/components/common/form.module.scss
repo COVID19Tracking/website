@@ -1,6 +1,9 @@
 .form {
+  margin-bottom: 2rem;
+  position: relative;
   input[type='text'],
   input[type='email'],
+  input[type='search'],
   select,
   textarea {
     display: block;

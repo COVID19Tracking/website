@@ -7,7 +7,7 @@ import SearchNoResults from '~components/search/search-no-results'
 import SearchResultSection from '~components/search/search-result-section'
 import searchStyle from '~pages/search.module.scss'
 import searchIcon from '~images/icons/search-inverted.svg'
-
+import { Form, FormInput } from '~components/common/form'
 import {
   types,
   useSearch,
@@ -47,7 +47,7 @@ export default withSearch(({ navigate, search }) => {
 
   return (
     <Layout title="Search results" textHeavy narrow>
-      <form
+      <Form
         className={searchStyle.searchForm}
         onSubmit={event => {
           event.preventDefault()
@@ -55,7 +55,7 @@ export default withSearch(({ navigate, search }) => {
       >
         <button
           type="button"
-          className={searchStyle.searchSubmit}
+          className={searchStyle.submit}
           aria-label="Submit search"
           onClick={() => query && navigate(`/search?q=${query}`)}
         >
@@ -70,7 +70,8 @@ export default withSearch(({ navigate, search }) => {
         <label htmlFor="search-page-input" className={searchStyle.label}>
           Search
         </label>
-        <input
+        <FormInput
+          inputtype="justinput"
           type="search"
           id="search-page-input"
           name="search"
@@ -86,7 +87,7 @@ export default withSearch(({ navigate, search }) => {
           }}
         />
         {/* eslint-enable jsx-a11y/label-has-associated-control */}
-      </form>
+      </Form>
       {totalHits > 0 ? (
         <div className={searchStyle.searchResults}>
           <h2>

@@ -1,28 +1,38 @@
 .search-form {
   margin-bottom: 2rem;
-
   position: relative;
 
   input {
-    width: 100%;
-    padding: 0.4rem 3.4rem 0.4rem 6rem;
-  }
+      width: 100%;
+      padding: 12px;
+      border: 1px solid $color-slate-300;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+      margin-bottom: 50px;
+      display: block;
+      font-weight: 400;
+      font-size: 1rem;
+    }
+  
 }
 
-.search-submit {
+.submit {
   position: absolute;
   right: 0.4rem;
   top: 50%;
   transform: translateY(-50%);
-
   appearance: none;
-  background: none;
+  background:none;
   border: none;
   box-shadow: none;
 }
 
 .search-icon {
   width: 1.25rem;
+  background:none;
 }
 
 .label {
