@@ -2,8 +2,11 @@
 @import '~scss/breakpoints.module.scss';
 
 .form {
+  margin-bottom: 2rem;
+  position: relative;
   input[type='text'],
   input[type='email'],
+  input[type='search'],
   select,
   textarea {
     width: 100%;

@@ -99,6 +99,15 @@ export default ({ data }) => {
           />
         )}
 
+        <input
+          type="text"
+          aria-hidden
+          style={{ display: 'none' }}
+          name="subject"
+          tabIndex="-1"
+          value={`${name} - ${reason}`}
+        />
+
         {reason === defaultReason && (
           <AlertInfobox>
             Please let us know{' '}
