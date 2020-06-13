@@ -1,12 +1,12 @@
 .state-nav {
   display: none;
   h3 {
-    margin-bottom: 0.5rem;
+    margin-bottom: spacer(8);
   }
 
   li {
     display: inline;
-    padding: 0.25rem 0.75rem;
+    padding: spacer(4) spacer(16);
   }
 
   ul {

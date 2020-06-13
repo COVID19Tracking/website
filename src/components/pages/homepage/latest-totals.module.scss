@@ -1,13 +1,5 @@
-@import '~scss/breakpoints.module.scss';
-@import '~scss/colors.module.scss';
-
-.all-totals {
-  margin-top: 1.5rem;
-  @media (min-width: $viewport-lg) {
-    display: grid;
-    grid-column-gap: 1%;
-    grid-template-columns: repeat(3, 32.66666%);
-  }
+.container {
+  @include margin(64, (top bottom));
 }
 
 .wrapper {
@@ -20,22 +12,49 @@
   right: 0;
 }
 
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include margin(64, top);
+
+  * {
+    @include margin(0, (top bottom));
+  }
+
+  h2,
+  a {
+    @include type-size(300);
+    line-height: 150%;
+  }
+}
+
+.all-totals {
+  @include margin(24, top);
+
+  @media (min-width: $viewport-lg) {
+    display: grid;
+    grid-column-gap: 1%;
+    grid-template-columns: repeat(3, 32.66666%);
+  }
+}
+
 .container {
-  margin: 4rem 0;
+  margin: spacer(64) 0;
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 4rem;
+  margin-top: spacer(64);
   * {
     margin-top: 0;
     margin-bottom: 0;
   }
   h2,
   a {
-    font-size: 18px;
+    @include type-size(300);
     line-height: 150%;
   }
 }

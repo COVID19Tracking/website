@@ -1,11 +1,9 @@
-@import '~scss/breakpoints.module.scss';
-
 .container {
   p {
     @media (min-width: $viewport-lg) {
       display: inline-block;
       &:first-child {
-        margin-right: 2rem;
+        margin-right: spacer(32);
       }
     }
   }
@@ -15,7 +13,7 @@
 }
 
 .key {
-  font-size: 0.8rem;
+  @include type-size(100);
 }
 
 .disclosure-button {

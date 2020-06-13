@@ -300,30 +300,51 @@ Array [
     </div>
   </div>,
   <ul
-    className="list-unstyled listUnstyled"
+    className="list"
   >
     <li>
       <a
         href="https://twitter.com/@alpublichealth"
       >
-        Alabama
-         on Twitter
+        <span
+          className="a11y-only"
+        >
+          Alabama
+          's 
+        </span>
+        Official Twitter
       </a>
+      <span>
+        •
+      </span>
     </li>
     <li>
       <a
         href="https://alpublichealth.maps.arcgis.com/apps/opsdashboard/index.html#/6d2771faa9da4a2786a509d82c8cf0f7"
       >
-        Best current data source for 
-        Alabama
+        <span
+          className="a11y-only"
+        >
+          Alabama
+          's 
+        </span>
+        Best Current Data Source
       </a>
+      <span>
+        •
+      </span>
     </li>
     <li>
       <a
         href="/data/state/alabama#historical"
       >
-        Historical data for 
-        Alabama
+        Historical Data
+        <span
+          className="a11y-only"
+        >
+          for 
+          Alabama
+        </span>
       </a>
     </li>
   </ul>,

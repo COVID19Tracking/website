@@ -1,6 +1,3 @@
-@import '~scss/colors.module.scss';
-@import '~scss/breakpoints.module.scss';
-
 .header {
   display: flex;
   flex-direction: column;
@@ -9,10 +6,10 @@
   }
 
   h3 {
-    margin-bottom: 0.75em;
+    margin-bottom: spacer(16);
     @media (min-width: $viewport-md) {
-      margin-top: -50px;
-      padding-top: 50px;
+      margin-top: toRem(-50);
+      padding-top: toRem(50);
       display: inline-block;
     }
   }
@@ -33,6 +30,6 @@
 
 .top-link {
   color: $color-slate-600;
-  margin-top: 1.8rem;
+  margin-top: spacer(32);
   display: inline-block;
 }

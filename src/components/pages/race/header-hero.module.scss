@@ -1,12 +1,9 @@
-@import '~scss/colors.module.scss';
-@import '~scss/breakpoints.module.scss';
-
 .hero {
-  padding: 20px 0;
+  padding: spacer(24) 0;
   background: $color-plum-550;
   color: white;
   @media (min-width: $viewport-lg) {
-    padding: 35px 0;
+    padding: spacer(32) 0;
   }
 }
 
@@ -19,7 +16,7 @@
 .content {
   @media (min-width: $viewport-ms) {
     width: 60%;
-    padding-right: 2rem;
+    padding-right: spacer(32);
   }
 }
 
@@ -28,7 +25,7 @@
     width: 40%;
   }
   @media (min-width: $viewport-lg) {
-    margin-top: -150px;
+    margin-top: toRem(-150);
   }
 }
 
@@ -36,8 +33,7 @@
   display: block;
   text-align: right;
   color: $color-plum-200;
-  font-size: 14px;
-  font-size: 0.875rem;
+  @include type-size(100);
   line-height: 2.5;
-  margin-bottom: 0.5rem;
+  margin-bottom: spacer(8);
 }

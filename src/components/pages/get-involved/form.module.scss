@@ -1,5 +1,3 @@
-@import '~scss/breakpoints.module.scss';
-
 .field-group {
   @media (min-width: $viewport-lg) {
     display: flex;
@@ -11,21 +9,21 @@
 }
 
 .label {
-  font-size: 0.8rem;
+  @include type-size(100);
   display: block;
   float: right;
 }
 
 .group {
-  margin-bottom: 0.3rem !important;
+  margin-bottom: spacer(4) !important;
   @media (min-width: $viewport-lg) {
     width: 50%;
     &:first-child {
-      padding-right: 3rem;
+      padding-right: spacer(32);
     }
   }
   input[type='text'],
   input[type='email'] {
-    margin-bottom: 0.2rem;
+    margin-bottom: spacer(4);
   }
 }
