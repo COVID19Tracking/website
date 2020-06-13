@@ -1,5 +1,10 @@
 import React from 'react'
-import { Form, FormGroup, FormInput } from '~components/common/form'
+import {
+  Form,
+  FormInput,
+  FormGroup,
+  FormGroupChild,
+} from '~components/common/form'
 import formStyle from './form.module.scss'
 
 export default () => (
@@ -9,8 +14,8 @@ export default () => (
     target="_blank"
     noValidate
   >
-    <div className={formStyle.fieldGroup}>
-      <div className={formStyle.group}>
+    <FormGroup>
+      <FormGroupChild>
         <FormInput
           htmlFor="action-form-first-name"
           label="First name"
@@ -21,8 +26,8 @@ export default () => (
           aria-required
           isRequired
         />
-      </div>
-      <div className={formStyle.group}>
+      </FormGroupChild>
+      <FormGroupChild>
         <FormInput
           htmlFor="action-form-last-name"
           label="Last name"
@@ -33,10 +38,10 @@ export default () => (
           aria-required
           isRequired
         />
-      </div>
-    </div>
-    <div className={formStyle.fieldGroup}>
-      <div className={formStyle.group}>
+      </FormGroupChild>
+    </FormGroup>
+    <FormGroup>
+      <FormGroupChild>
         <FormInput
           htmlFor="action-form-email"
           label="Email address"
@@ -47,8 +52,8 @@ export default () => (
           aria-required
           isRequired
         />
-      </div>
-      <div className={formStyle.group}>
+      </FormGroupChild>
+      <FormGroupChild>
         <FormInput
           htmlFor="action-form-zip"
           label="Zip code"
@@ -61,18 +66,16 @@ export default () => (
           className={formStyle.zip}
           aria-required
         />
-      </div>
-    </div>
-    <FormGroup>
-      <input
-        type="text"
-        name="b_0921fdd380ed1e2245d87c3b6_14a2b6d1bd"
-        tabIndex="-1"
-        value=""
-        style={{ display: 'none' }}
-        aria-hidden
-      />
-      <button type="submit">Subscribe</button>
+      </FormGroupChild>
     </FormGroup>
+    <input
+      type="text"
+      name="b_0921fdd380ed1e2245d87c3b6_14a2b6d1bd"
+      tabIndex="-1"
+      value=""
+      style={{ display: 'none' }}
+      aria-hidden
+    />
+    <button type="submit">Subscribe</button>
   </Form>
 )
