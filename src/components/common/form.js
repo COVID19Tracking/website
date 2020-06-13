@@ -81,7 +81,7 @@ const FormInput = props => {
           <FormLabel htmlFor={htmlFor} isRequired={isRequired}>
             {label}
           </FormLabel>
-          <select {...props}>
+          <select {...props} className={formStyles.select}>
             {optionsArray.map(item => (
               <option key={`hours-${item}`} value={item}>
                 {item}
