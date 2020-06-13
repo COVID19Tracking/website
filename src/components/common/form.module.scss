@@ -37,12 +37,11 @@
     @include margin(16, right);
   }
 
-  label {
-    display: block;
-  }
-
   .label {
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     .required {
       display: block;
       float: right;

@@ -65,8 +65,10 @@ const FormInput = props => {
           <FormLabel htmlFor={htmlFor} isRequired={isRequired}>
             {label}
           </FormLabel>
-          <input {...props} />
-          <DetailText>{detailText}</DetailText>
+          <input {...props} style={{ marginBottom: `0px` }} />
+          <div style={{ marginBottom: `50px` }}>
+            <DetailText>{detailText}</DetailText>
+          </div>
         </>
       )
       break
@@ -96,7 +98,7 @@ const FormInput = props => {
       inputElement = (
         <>
           <fieldset className={formStyles.fieldset}>
-            <legend className={formStyles.label}>
+            <legend>
               {label}
               {isRequired ? (
                 <span className={formStyles.required}>required</span>

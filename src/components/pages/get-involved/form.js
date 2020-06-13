@@ -1,6 +1,5 @@
 import React from 'react'
 import { Form, FormGroup, FormInput } from '~components/common/form'
-import DetailText from '~components/common/detail-text'
 import formStyle from './form.module.scss'
 
 export default () => (
@@ -11,7 +10,7 @@ export default () => (
     noValidate
   >
     <div className={formStyle.fieldGroup}>
-      <FormGroup className={formStyle.group}>
+      <div className={formStyle.group}>
         <FormInput
           htmlFor="action-form-first-name"
           label="First name"
@@ -22,8 +21,8 @@ export default () => (
           aria-required
           isRequired
         />
-      </FormGroup>
-      <FormGroup className={formStyle.group}>
+      </div>
+      <div className={formStyle.group}>
         <FormInput
           htmlFor="action-form-last-name"
           label="Last name"
@@ -34,10 +33,10 @@ export default () => (
           aria-required
           isRequired
         />
-      </FormGroup>
+      </div>
     </div>
     <div className={formStyle.fieldGroup}>
-      <FormGroup className={formStyle.group}>
+      <div className={formStyle.group}>
         <FormInput
           htmlFor="action-form-email"
           label="Email address"
@@ -48,12 +47,13 @@ export default () => (
           aria-required
           isRequired
         />
-      </FormGroup>
-      <FormGroup className={formStyle.group}>
+      </div>
+      <div className={formStyle.group}>
         <FormInput
           htmlFor="action-form-zip"
           label="Zip code"
-          inputtype="input"
+          inputtype="inputWithDetail"
+          detailText="To receive updates specific to your location, please enter a zip code."
           type="text"
           name="MMERGE3"
           id="action-form-zip"
@@ -61,10 +61,7 @@ export default () => (
           className={formStyle.zip}
           aria-required
         />
-        <DetailText>
-          To receive updates specific to your location, please enter a zip code.
-        </DetailText>
-      </FormGroup>
+      </div>
     </div>
     <FormGroup>
       <input
