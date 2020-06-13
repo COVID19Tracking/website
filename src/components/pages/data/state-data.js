@@ -3,7 +3,7 @@ import marked from 'marked'
 import smartypants from 'smartypants'
 import { Link } from 'gatsby'
 import slug from '~utilities/slug'
-import { UnstyledList } from '~components/common/lists'
+import StateLinks from '~components/pages/state/state-links'
 import StateGrade from '~components/pages/state/state-grade'
 import SummaryTable from '~components/common/summary-table'
 import stateDataStyles from './state-data.module.scss'
@@ -20,33 +20,12 @@ const State = ({ state }) => (
       data={state.stateData}
       lastUpdated={state.stateData.dateModified}
     />
-    <UnstyledList>
-      {state.twitter && (
-        <li>
-          <a href={`https://twitter.com/${state.twitter}`}>
-            <span className="a11y-only">{state.name}&apos;s</span>
-            Official Twitter
-          </a>
-          <span>{'\u2022'}</span>
-        </li>
-      )}
-      {state.covid19Site && (
-        <>
-          <li>
-            <a href={state.covid19Site}>
-              <span className="a11y-only">{state.name}&apos;s</span>
-              Official Data Source
-            </a>
-            <span>{'\u2022'}</span>
-          </li>
-        </>
-      )}
-      <li>
-        <Link to={`/data/state/${slug(state.name)}#historical`}>
-          Historical Data
-        </Link>
-      </li>
-    </UnstyledList>
+    <StateLinks
+      twitter={state.twitter}
+      covid19Site={state.covid19Site}
+      stateName={state.name}
+      historicalSlug={state.name}
+    />
     {state.notes && (
       <div
         className={`module-content ${stateDataStyles.notes}`}

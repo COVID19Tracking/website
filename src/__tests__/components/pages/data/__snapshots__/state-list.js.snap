@@ -314,7 +314,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
           className="a11y-only"
         >
           Alabama
-          's
+          's 
         </span>
         Official Twitter
       </a>
@@ -330,9 +330,9 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
           className="a11y-only"
         >
           Alabama
-          's
+          's 
         </span>
-        Official Data Source
+        Best Current Data Source
       </a>
       <span>
         •
@@ -343,6 +343,12 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
         href="/data/state/alabama#historical"
       >
         Historical Data
+        <span
+          className="a11y-only"
+        >
+          for 
+          Alabama
+        </span>
       </a>
     </li>
   </ul>

@@ -8,6 +8,11 @@ exports[`Components : Pages : State : State links renders correctly 1`] = `
     <a
       href="https://twitter.com/california-covid"
     >
+      <span
+        className="a11y-only"
+      >
+        's 
+      </span>
       Official Twitter
     </a>
     <span>
@@ -19,6 +24,11 @@ exports[`Components : Pages : State : State links renders correctly 1`] = `
       href="https://example.com"
     >
       Data Source
+      <span
+        className="a11y-only"
+      >
+         for 
+      </span>
     </a>
   </li>
 </ul>
@@ -32,6 +42,11 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
     <a
       href="https://twitter.com/california-covid"
     >
+      <span
+        className="a11y-only"
+      >
+        's 
+      </span>
       Official Twitter
     </a>
     <span>
@@ -42,6 +57,11 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
     <a
       href="https://example.com"
     >
+      <span
+        className="a11y-only"
+      >
+        's 
+      </span>
       Best Current Data Source
     </a>
     <span>
@@ -53,6 +73,11 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
       href="https://example.com"
     >
       Data Source
+      <span
+        className="a11y-only"
+      >
+         for 
+      </span>
     </a>
   </li>
 </ul>
