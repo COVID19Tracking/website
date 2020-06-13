@@ -1,12 +1,9 @@
-@import '~scss/colors.module.scss';
-@import '~scss/links.module.scss';
-
 .cta {
   color: $color-honey-700;
   .arrow {
     text-decoration: none;
     display: inline-block;
-    margin-left: 0.2rem;
+    @include margin(4, left);
   }
   &:hover {
     @include link-hover;
@@ -17,8 +14,7 @@
   display: block;
   margin: 0 auto;
   text-align: center;
-  font-size: 18px;
-  font-size: 1.125rem;
+  @include type-size(300);
 }
 
 .bold {

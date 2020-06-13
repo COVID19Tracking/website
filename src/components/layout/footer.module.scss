@@ -1,13 +1,9 @@
-@import '~scss/colors.module.scss';
-@import '~scss/links.module.scss';
-@import '~scss/breakpoints.module.scss';
-
 .footer {
   background-size: auto 300%;
   background-color: $color-plum-550;
   color: white;
-  margin-top: 3rem;
-  padding: 2rem 0;
+  margin-top: spacer(32);
+  padding: spacer(32) 0;
 
   @media (max-width: $viewport-ms) {
     .footer-list {
@@ -24,7 +20,7 @@
   }
 
   img {
-    width: 176px;
+    width: toRem(176);
     margin: 0;
     margin-right: 1rem;
   }
@@ -49,7 +45,11 @@
     @media (min-width: $viewport-sm) {
       li {
         display: inline-block;
-        margin: 0.25rem 0 0.25rem 1.5rem;
+        margin: spacer(4) 0 spacer(4) spacer(24);
+        margin-bottom: 0;
+        &:last-of-type {
+          margin-right: 0;
+        }
         &:first-of-type {
           margin-left: 0;
         }
@@ -72,7 +72,7 @@
     }
     .back-to-top {
       display: block;
-      margin-top: 2em;
+      margin-top: spacer(32);
       font-weight: bold;
       @media (min-width: $viewport-sm) {
         display: inline;

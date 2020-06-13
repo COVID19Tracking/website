@@ -2,12 +2,12 @@ import React from 'react'
 import { OrderedList, UnstyledList } from '~components/common/lists'
 import { FormatDate, FormatNumber } from '~components/utils/format'
 
-const sampleText = `Testing is a crucial part of any public health response, 
-and sharing test data is essential to understanding this outbreak. The CDC is 
-currently not publishing complete testing data, so we’re doing our best to 
-collect it from each state and provide it to the public. The information is 
-patchy and inconsistent, so we’re being transparent about what we find and 
-how we handle it—the spreadsheet includes our live comments about changing 
+const sampleText = `Testing is a crucial part of any public health response,
+and sharing test data is essential to understanding this outbreak. The CDC is
+currently not publishing complete testing data, so we’re doing our best to
+collect it from each state and provide it to the public. The information is
+patchy and inconsistent, so we’re being transparent about what we find and
+how we handle it—the spreadsheet includes our live comments about changing
 data and how we’re working with incomplete information.`
 
 const ExampleList = () => (
@@ -40,13 +40,40 @@ export const linkInText = () => (
   </p>
 )
 
+export const fontSizes = () => (
+  <p>
+    We use a set of font sizes that are defined in{' '}
+    <code>~scss/type.module.scss</code>. <br />
+    <ul>
+      <li>
+        These sizes range from 100 to 700. 100 is the smallest size and 700 is
+        the largest
+      </li>
+      <li>
+        These can be used with Sass <code>@include</code>
+      </li>
+      <li>
+        All of the sizes come in:
+        <ul>
+          <li>
+            Bold: <code>bold-type-size($size)</code>
+          </li>
+          <li>
+            Regular: <code>type-size($size)</code>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </p>
+)
+
 export const headers = () => (
   <>
-    <h1>Header level one</h1>
-    <h2>Header level two</h2>
-    <h3>Header level three</h3>
-    <h4>Header level four</h4>
-    <h5>Header level five</h5>
+    <h1>Header level one (48px / 3rem)</h1>
+    <h2>Header level two (36px / 2.25rem)</h2>
+    <h3>Header level three (30px / 1.8rem)</h3>
+    <h4>Header level four (23px / 1.45rem)</h4>
+    <h5>Header level five (18px / 1.125rem)</h5>
   </>
 )
 
