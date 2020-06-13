@@ -49,16 +49,15 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             <span
               role="text"
             >
-              Positive
               <span
-                className="headerLabel headerLabel3"
+                className="headerLabel headerLabel1"
               >
-                Tests
+                Cases
               </span>
             </span>
           </th>
           <th
-            className=""
+            className="alignLeft borderLeft"
             scope="col"
           >
             <span
@@ -66,7 +65,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Negative
               <span
-                className="headerLabelHidden headerLabel3"
+                className="headerLabel headerLabel2"
               >
                 Tests
               </span>
@@ -81,7 +80,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Pending
               <span
-                className="headerLabelHidden headerLabel3"
+                className="headerLabelHidden headerLabel2"
               >
                 Tests
               </span>
@@ -232,7 +231,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             4,572
           </td>
           <td
-            className=""
+            className="borderLeft"
           >
             33,318
           </td>

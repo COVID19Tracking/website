@@ -1,0 +1,25 @@
+.key {
+  display: flex;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid grey;
+  .wrap {
+    width: 30%;
+    display: flex;
+  }
+  code {
+    display: flex;
+    margin-left: 15px;
+  }
+}
+.spacer {
+  display: flex;
+  background: $color-plum-800;
+  color: white;
+  @each $key, $value in $spacers {
+    &.spacer-#{unquote($key)} {
+      width: spacer($key);
+      height: spacer($key);
+    }
+  }
+}
