@@ -6,11 +6,14 @@
   display: block;
   background: transparent;
   cursor: pointer;
+  h3 {
+    @include type-size(400);
+  }
 }
 
 .toggle {
   display: inline-block;
-  margin-left: spacer(32);
+  margin-left: spacer(16);
 }
 
 .panel {
