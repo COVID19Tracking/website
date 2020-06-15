@@ -13,7 +13,7 @@ const groupClasses = {
   'Native Hawaiian and Other Pacific Islander alone': 'nhpiAlone',
 }
 
-export default ({ data, field, label, verticalTicks }) => {
+export default ({ data, field, label, increments }) => {
   const height = 400
   const width = 400
   const labelOffset = 150
@@ -27,6 +27,12 @@ export default ({ data, field, label, verticalTicks }) => {
     .domain([0, max(data, d => d[field])])
     .nice()
     .range([0, width])
+
+  const verticalLines = []
+  for (let i = 0; i < max(data, d => d[field]); i += increments) {
+    verticalLines.push(i)
+  }
+
   return (
     <svg
       className={countyChartStyles.chart}
@@ -79,7 +85,7 @@ export default ({ data, field, label, verticalTicks }) => {
             ),
         )}
       </g>
-      {xScale.ticks(verticalTicks).map((tick, i) => (
+      {verticalLines.map((tick, i) => (
         <g key={`${field}-${tick}`}>
           <svg
             y={20}
@@ -90,7 +96,7 @@ export default ({ data, field, label, verticalTicks }) => {
               x1="0"
               y1="0"
               x2="0"
-              y2={height}
+              y2={height + heightOffset}
               className={countyChartStyles.verticalTick}
               style={{ height }}
             />
