@@ -12,7 +12,7 @@ export default () => {
       file(relativePath: { regex: "/crdt-landing-header.png/" }) {
         relativePath
         childImageSharp {
-          fluid(maxWidth: 1200, traceSVG: { color: "#8b8dc7" }) {
+          fluid(maxWidth: 1200, traceSVG: { color: "#FFAD4A" }) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
