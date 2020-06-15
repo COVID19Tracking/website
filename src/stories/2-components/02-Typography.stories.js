@@ -1,6 +1,7 @@
 import React from 'react'
 import { OrderedList, UnstyledList } from '~components/common/lists'
 import { FormatDate, FormatNumber } from '~components/utils/format'
+import typeSize from './type-size.module.scss'
 
 const sampleText = `Testing is a crucial part of any public health response,
 and sharing test data is essential to understanding this outbreak. The CDC is
@@ -40,31 +41,49 @@ export const linkInText = () => (
   </p>
 )
 
+const typeSizes = []
+Object.keys(typeSize).forEach(typeSizeName => {
+  if (typeSizeName.search('regular-type-') > -1) {
+    typeSizes.push({
+      class: typeSize[typeSizeName],
+      size: typeSizeName.replace('regular-type-', ''),
+    })
+  }
+})
+
+const boldTypeSizes = []
+Object.keys(typeSize).forEach(typeSizeName => {
+  if (typeSizeName.search('bold-type-') > -1) {
+    boldTypeSizes.push({
+      class: typeSize[typeSizeName],
+      size: typeSizeName.replace('bold-type-', ''),
+    })
+  }
+})
+
 export const fontSizes = () => (
-  <p>
-    We use a set of font sizes that are defined in{' '}
-    <code>~scss/type.module.scss</code>. <br />
-    <ul>
-      <li>
-        These sizes range from 100 to 700. 100 is the smallest size and 700 is
-        the largest
-      </li>
-      <li>
-        These can be used with Sass <code>@include</code>
-      </li>
-      <li>
-        All of the sizes come in:
-        <ul>
-          <li>
-            Bold: <code>bold-type-size($size)</code>
-          </li>
-          <li>
-            Regular: <code>type-size($size)</code>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </p>
+  <>
+    <p>
+      We use a set of font sizes that range from 100 to 700. 100 is the smallest
+      size and 700 is the largest. These can be used with Sass{' '}
+      <code>@include</code>:
+      <ul>
+        <li>
+          Bold: <code>bold-type-size($size)</code>
+        </li>
+        <li>
+          Regular: <code>type-size($size)</code>
+        </li>
+      </ul>
+    </p>
+    {typeSizes.map(size => (
+      <p className={size.class}>Sample text regular size {size.size}</p>
+    ))}
+
+    {boldTypeSizes.map(size => (
+      <p className={size.class}>Sample text bold size {size.size}</p>
+    ))}
+  </>
 )
 
 export const headers = () => (

@@ -51,6 +51,17 @@ Object.keys(spacers).forEach(spacer => {
 
 export const spacing = () => (
   <>
+    <p>
+      Instead of using absolute sizes for margins and paddings, use our standard
+      spacers. For example:
+    </p>
+    <code>
+      <pre>
+        {`.my-class {
+  margin: spacer(16);
+}`}
+      </pre>
+    </code>
     {spacerItems.map(spacer => (
       <div className={spacers.key} key={spacer.size}>
         <div className={spacers.wrap}>
