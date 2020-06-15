@@ -95,10 +95,6 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
 
   const { bestHits, otherHits } = partitionHitsByRelevance(results)
 
-  function toggleFocus() {
-    searchDispatch({ type: 'toggleAutocompleteFocus' })
-  }
-
   return (
     <Combobox>
       <label
@@ -117,8 +113,6 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
         onKeyDown={event =>
           event.key === 'Enter' && goToResultOrSearch(event.target.value)
         }
-        onFocus={() => !autocompleteHasFocus && toggleFocus()}
-        onBlur={() => toggleFocus()}
       />
       {totalHits && showResults ? (
         <ComboboxPopover
