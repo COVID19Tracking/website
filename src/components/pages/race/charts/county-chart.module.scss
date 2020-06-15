@@ -32,3 +32,9 @@
   fill: black;
   @include type-size(100);
 }
+
+.vertical-tick {
+  stroke: white;
+  height: 100%;
+  stroke-width: 2px;
+}

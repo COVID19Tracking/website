@@ -120,6 +120,7 @@ export default () => {
                   data={[...countiesByCases]}
                   field="casesPer100k"
                   label="Cases per 100,000 people"
+                  verticalTicks={5}
                 />
               </>
             }
@@ -170,6 +171,7 @@ export default () => {
                   data={[...countiesByDeaths]}
                   field="deathsPer100k"
                   label="Deaths per 100,000 people"
+                  verticalTicks={6}
                 />
               </>
             }

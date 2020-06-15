@@ -13,7 +13,7 @@ const groupClasses = {
   'Native Hawaiian and Other Pacific Islander alone': 'nhpiAlone',
 }
 
-export default ({ data, field, label }) => {
+export default ({ data, field, label, verticalTicks }) => {
   const height = 400
   const width = 400
   const labelOffset = 150
@@ -79,22 +79,41 @@ export default ({ data, field, label }) => {
             ),
         )}
       </g>
-      <g transform={`translate(0, ${heightOffset})`}>
-        {data.map((d, index) => (
-          <g key={`${d.field}-${d.county}`}>
-            <svg
-              y={yScale(index) + 10}
-              x={0}
-              width={labelOffset}
-              className={countyChartStyles.tick}
-            >
-              <text className={countyChartStyles.label}>
-                {d.name}, {d.demographics.abbreviation}
-              </text>
-            </svg>
-          </g>
-        ))}
-      </g>
+      {xScale.ticks(verticalTicks).map((tick, i) => (
+        <g key={`${field}-${tick}`}>
+          <svg
+            y={20}
+            x={xScale(tick) + labelOffset + (i > 0 ? -20 : 0)}
+            width={1}
+          >
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2={height}
+              className={countyChartStyles.verticalTick}
+              style={{ height }}
+            />
+          </svg>
+        </g>
+      ))}
+      {data.map((d, index) => (
+        <g
+          key={`${d.field}-${d.county}`}
+          transform={`translate(0, ${heightOffset})`}
+        >
+          <svg
+            y={yScale(index) + 10}
+            x={0}
+            width={labelOffset}
+            className={countyChartStyles.tick}
+          >
+            <text className={countyChartStyles.label}>
+              {d.name}, {d.demographics.abbreviation}
+            </text>
+          </svg>
+        </g>
+      ))}
     </svg>
   )
 }
