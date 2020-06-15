@@ -6,6 +6,9 @@
   display: block;
   background: transparent;
   cursor: pointer;
+  h3 {
+    @include type-size(400);
+  }
 }
 
 .toggle {
