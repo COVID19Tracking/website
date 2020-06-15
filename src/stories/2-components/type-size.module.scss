@@ -1,0 +1,11 @@
+@for $i from 1 through 7 {
+  .regular-type-#{$i}00 {
+    @include type-size($i * 100);
+  }
+}
+
+@for $i from 1 through 7 {
+  .bold-type-#{$i}00 {
+    @include bold-type-size($i * 100);
+  }
+}
