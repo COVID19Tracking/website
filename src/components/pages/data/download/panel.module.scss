@@ -1,0 +1,18 @@
+.button {
+  margin-bottom: spacer(24);
+  text-align: left;
+  border: 0;
+  padding: 0;
+  display: block;
+  background: transparent;
+  cursor: pointer;
+}
+
+.toggle {
+  display: inline-block;
+  margin-left: spacer(8);
+}
+
+.panel {
+  margin-left: spacer(32);
+}
