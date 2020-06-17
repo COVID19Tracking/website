@@ -68,6 +68,6 @@ Typography
     @include margin(8, bottom);
   }
   p {
-    @include margin(24, bottom);
+    margin: 0 0 spacer(24);
   }
 }
