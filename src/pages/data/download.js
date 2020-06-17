@@ -20,18 +20,21 @@ export default ({ data }) => (
       id={data.contentfulSnippet.contentful_id}
     />
 
-    <h2>US History</h2>
+    <h2>US Data</h2>
     <DownloadLink
-      desc="Download all history data"
+      desc="Download all available US data"
       path="/api/v1/us/daily.csv"
     />
     <Panel label="Field Descriptions">
       <Fields schema="Us" />
     </Panel>
 
-    <h2>State History</h2>
-    <DownloadLink desc="Download all states" path="/api/v1/states/daily.csv" />
-    <Panel label="Download single state">
+    <h2>State Data</h2>
+    <DownloadLink
+      desc="Download all available data for all states"
+      path="/api/v1/states/daily.csv"
+    />
+    <Panel label="Download all available data for a single state">
       {data.allCovidStateInfo.nodes.map(({ id, state, name }) => (
         <DownloadLink
           key={id}
