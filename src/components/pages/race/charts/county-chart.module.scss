@@ -1,6 +1,3 @@
-@import '~scss/colors.module.scss';
-@import '~scss/breakpoints.module.scss';
-
 .asian-alone {
   fill: $qualitative-color-palette-100;
 }
@@ -27,15 +24,11 @@
   width: 100%;
 }
 
-.bar {
-  width: 10;
-}
-
 .tick {
   overflow: visible !important;
 }
 
 .label {
   fill: black;
-  font-size: 13.5px;
+  @include type-size(100);
 }

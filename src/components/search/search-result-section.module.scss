@@ -1,8 +1,5 @@
-@import '~scss/colors.module.scss';
-@import '~scss/breakpoints.module.scss';
-
 .section {
   &:not(:last-of-type) {
-    margin-bottom: 2em;
+    margin-bottom: spacer(32);
   }
 }

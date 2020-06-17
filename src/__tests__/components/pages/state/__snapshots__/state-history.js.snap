@@ -51,7 +51,7 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           <span
             role="text"
           >
-            Positive
+            Cases
           </span>
         </th>
         <th

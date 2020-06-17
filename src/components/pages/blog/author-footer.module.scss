@@ -1,22 +1,23 @@
 .container {
-  margin: 2rem 0 0;
+  margin: spacer(32) 0 0;
 }
 
 .author-footer {
   display: flex;
   flex-direction: row;
+
   img {
     width: 85px;
     height: 85px;
     flex-shrink: 0;
-    margin-bottom: 1.5em; // matches layout content-primary p
+    margin-bottom: spacer(24); // matches layout content-primary p
   }
   .text-content {
-    font-size: 16px;
+    @include type-size(200);
     line-height: 1.75;
     font-style: italic;
-    padding-left: 0.875rem;
-    padding-right: 1.375rem;
+    padding-left: spacer(16);
+    padding-right: spacer(24);
     p {
       margin-bottom: 0;
     }

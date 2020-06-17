@@ -1,0 +1,21 @@
+.list {
+  list-style-type: none;
+  margin: 0;
+  span {
+    color: $color-slate-200;
+    @include type-size(100);
+    padding: 0 spacer(8);
+  }
+  li {
+    display: inline;
+    margin: 0;
+  }
+  @media (max-width: $viewport-sm) {
+    li {
+      display: block;
+    }
+    span {
+      display: none;
+    }
+  }
+}

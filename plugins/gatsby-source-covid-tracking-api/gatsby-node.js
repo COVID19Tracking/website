@@ -12,9 +12,9 @@ exports.sourceNodes = async (
     fs.statSync(configOptions.file)
   } catch {
     reporter.error(
-      `There is no file ${configOptions.file} directory. 
+      `There is no file ${configOptions.file}. 
     
-If you are developing on your local computer, be sure to download the latest data archive here: http://covidtracking.com/api/archive.tar.gz. Then expand it to the directory "_data".`,
+Make sure to run "npm run setup" to clone the most recent version of the COVID API files.`,
     )
     return
   }

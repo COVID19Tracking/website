@@ -1,5 +1,3 @@
-@import '~scss/breakpoints.module.scss';
-
 .state-overview {
   @media (min-width: $viewport-md) {
     display: flex;
@@ -18,5 +16,5 @@
 }
 
 .ethnicity-overview {
-  margin-top: 4rem;
+  margin-top: spacer(64);
 }

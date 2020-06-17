@@ -1,27 +1,26 @@
-@import '~scss/links.module.scss';
-
 .press-list {
   list-style-type: none;
   margin: 0;
   line-height: 1.3;
 
   li {
-    margin-bottom: 1.5rem;
+    margin-bottom: spacer(24);
   }
 
   a {
     color: black;
     font-weight: bold;
-    font-size: 1.125rem;
+    @include type-size(300);
     display: block;
-    margin-bottom: 0.25rem;
+    margin-bottom: spacer(4);
     &:hover {
       @include link-hover;
     }
   }
+
   .dot-separator {
     display: inline-block;
-    margin: 0 0.4rem;
+    margin: 0 spacer(8);
     opacity: 0.4;
   }
 }

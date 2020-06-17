@@ -36,16 +36,26 @@ const renderColumns = columnData =>
     ))
   })
 
-export default ({ data, lastUpdated, showOutcomes = true }) => {
+export default ({
+  data,
+  lastUpdated,
+  showOutcomes = true,
+  showFootnote = false,
+}) => {
   const columns = [
     {
-      header: 'Tests',
+      header: `Cases${showFootnote ? ' *' : ''}`,
       columns: [
         {
-          header: 'Positive',
+          header: null,
           alignLeft: !showOutcomes,
           data: data.positive,
         },
+      ],
+    },
+    {
+      header: 'Tests',
+      columns: [
         {
           header: 'Negative',
           alignLeft: !showOutcomes,

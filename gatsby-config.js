@@ -3,7 +3,9 @@ require(`@babel/register`)({
   plugins: ['@babel/plugin-transform-runtime'],
 })
 require('dotenv').config()
+
 const algoliaQueries = require('./src/utilities/algolia').queries
+const sassImports = require('./src/utilities/sass-imports.js')
 
 const gatsbyConfig = {
   siteMetadata: {
@@ -21,13 +23,18 @@ const gatsbyConfig = {
   plugins: [
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
     'gatsby-transformer-yaml',
     'gatsby-transformer-json',
     'gatsby-plugin-eslint',
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        data: sassImports,
+      },
+    },
     {
       resolve: 'gatsby-plugin-polyfill-io',
       options: {
