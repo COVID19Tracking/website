@@ -1,471 +1,622 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components : Common: Contact form renders correctly 1`] = `
-<div
+<form
+  action="/contact/volunteer-success"
   className="form"
+  data-netlify="true"
+  method="POST"
+  name="volunteer"
+  netlify-honeypot="covid-bot-field"
 >
-  <form
-    action="/contact/volunteer-success"
-    className="contactForm"
-    data-netlify="true"
-    method="POST"
-    name="volunteer"
-    netlify-honeypot="covid-bot-field"
+  <label
+    className="label"
+    htmlFor="name"
+  >
+    Name
+    <span
+      className="required"
+    >
+      required
+    </span>
+  </label>
+  <input
+    aria-required="true"
+    htmlFor="name"
+    id="name"
+    inputtype="input"
+    isRequired={true}
+    label="Name"
+    name="name"
+    type="text"
+  />
+  <label
+    className="label"
+    htmlFor="email"
+  >
+    Email
+    <span
+      className="required"
+    >
+      required
+    </span>
+  </label>
+  <input
+    aria-required="true"
+    detailText="If possible, this should be a Gmail or Google-linked address, since we rely heavily on Google Docs and Sheets. We will show your email internally to other volunteers but will not share it elsewhere."
+    htmlFor="email"
+    id="email"
+    inputtype="inputWithDetail"
+    isRequired={true}
+    label="Email"
+    name="email"
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    type="email"
+  />
+  <div
+    style={
+      Object {
+        "marginBottom": "50px",
+      }
+    }
   >
     <div
-      className="fieldGroup"
+      className="detail-text detailText"
     >
-      <div
-        className="group group"
-      >
-        <input
-          name="form-name"
-          type="hidden"
-          value="volunteer"
-        />
-        <label
-          className="label"
-          htmlFor="name"
-        >
-          Name
-          <span
-            className="label"
-          >
-            required
-          </span>
-        </label>
-        <input
-          aria-required="true"
-          id="name"
-          name="name"
-          required={true}
-          type="text"
-        />
-      </div>
+      If possible, this should be a Gmail or Google-linked address, since we rely heavily on Google Docs and Sheets. We will show your email internally to other volunteers but will not share it elsewhere.
     </div>
-    <div
-      className="fieldGroup"
+  </div>
+  <label
+    className="label"
+    htmlFor="url"
+  >
+    URL
+    <span
+      className="required"
     >
-      <div
-        className="group group"
-      >
-        <label
-          className="label"
-          htmlFor="email"
-        >
-          Email
-          <span
-            className="label"
-          >
-            required
-          </span>
-        </label>
-        <div
-          className="detail-text detailText"
-        >
-          If possible, this should be a Gmail or Google-linked address, since we rely heavily on Google Docs and Sheets. We will show your email internally to other volunteers but will not share it elsewhere.
-        </div>
-        <input
-          aria-required="true"
-          id="email"
-          name="email"
-          required={true}
-          type="email"
-        />
-      </div>
-    </div>
+      optional
+    </span>
+  </label>
+  <input
+    detailText="Personal website, LinkedIn, or other website that will tell us about you."
+    htmlFor="url"
+    id="url"
+    inputtype="inputWithDetail"
+    label="URL"
+    name="url"
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    type="text"
+  />
+  <div
+    style={
+      Object {
+        "marginBottom": "50px",
+      }
+    }
+  >
     <div
-      className="fieldGroup"
+      className="detail-text detailText"
     >
-      <div
-        className="group group"
-      >
-        <label
-          className="label"
-          htmlFor="url"
-        >
-          URL 
-          <span
-            className="label"
-          >
-            optional
-          </span>
-        </label>
-        <div
-          className="detail-text detailText"
-        >
-          Personal website, LinkedIn, or other website that will tell us about you.
-        </div>
-        <input
-          id="url"
-          name="url"
-          type="text"
-        />
-      </div>
+      Personal website, LinkedIn, or other website that will tell us about you.
     </div>
-    <div
-      className="fieldGroup"
+  </div>
+  <label
+    className="label"
+    htmlFor="hours"
+  >
+    About how many hours are you available to volunteer each week?
+    <span
+      className="required"
     >
-      <div
-        className="group group"
-      >
-        <label
-          className="label"
-          htmlFor="hours"
-        >
-          About how many hours are you available to volunteer each week?
-          <span
-            className="label"
-          >
-            required
-          </span>
-        </label>
-        <select
-          aria-required="true"
-          id="hours"
-          name="hours"
-          required={true}
-        >
-          <option
-            value="-- Select hours per week -- "
-          >
-            -- Select hours per week -- 
-          </option>
-          <option
-            value="1-5"
-          >
-            1-5
-          </option>
-          <option
-            value="5-10"
-          >
-            5-10
-          </option>
-          <option
-            value="10-20"
-          >
-            10-20
-          </option>
-          <option
-            value="20-30"
-          >
-            20-30
-          </option>
-          <option
-            value="30-40"
-          >
-            30-40
-          </option>
-          <option
-            value="40+"
-          >
-            40+
-          </option>
-        </select>
-      </div>
-    </div>
-    <div
-      className="fieldGroup"
+      required
+    </span>
+  </label>
+  <select
+    aria-required="true"
+    className="select"
+    htmlFor="hours"
+    id="hours"
+    inputtype="select"
+    isRequired={true}
+    label="About how many hours are you available to volunteer each week?"
+    name="hours"
+    optionsArray={
+      Array [
+        "-- Select hours per week -- ",
+        "1-5",
+        "5-10",
+        "10-20",
+        "20-30",
+        "30-40",
+        "40+",
+      ]
+    }
+    required={true}
+  >
+    <option
+      value="-- Select hours per week -- "
     >
-      <div
-        className="group group"
-      >
-        <label
-          className="label"
-          htmlFor="timezone"
-        >
-          What time zone are you in?
-          <span
-            className="label"
-          >
-            required
-          </span>
-        </label>
-        <select
-          aria-required="true"
-          id="timezone"
-          name="timezone"
-          required={true}
-        >
-          <option
-            value="-- Select time zone --"
-          >
-            -- Select time zone --
-          </option>
-          <option
-            value="Pacific"
-          >
-            Pacific
-          </option>
-          <option
-            value="Mountain"
-          >
-            Mountain
-          </option>
-          <option
-            value="Central"
-          >
-            Central
-          </option>
-          <option
-            value="Eastern"
-          >
-            Eastern
-          </option>
-          <option
-            value="Other"
-          >
-            Other
-          </option>
-        </select>
-      </div>
-    </div>
-    <div
-      className="fieldGroup"
+      -- Select hours per week -- 
+    </option>
+    <option
+      value="1-5"
     >
-      <div
-        className="group group"
-      >
-        <fieldset
-          className="fieldset"
-        >
-          <legend>
-            When are you most available to volunteer?
-             
-            <span
-              className="label"
-            >
-              required
-            </span>
-          </legend>
-          <div
-            className="fieldsetOptions"
-          >
-            <label
-              className="checkboxLabel"
-              htmlFor="weekdays"
-            >
-              <input
-                id="weekdays"
-                name="availability"
-                type="checkbox"
-                value="Weekdays"
-              />
-              Weekdays
-            </label>
-            <label
-              className="checkboxLabel"
-              htmlFor="mornings"
-            >
-              <input
-                id="mornings"
-                name="availability"
-                type="checkbox"
-                value="Weekday mornings"
-              />
-              Weekday mornings
-            </label>
-            <label
-              className="checkboxLabel"
-              htmlFor="evenings"
-            >
-              <input
-                id="evenings"
-                name="availability"
-                type="checkbox"
-                value="Weekday evenings"
-              />
-              Weekday evenings
-            </label>
-            <label
-              className="checkboxLabel"
-              htmlFor="weekends"
-            >
-              <input
-                id="weekends"
-                name="availability"
-                type="checkbox"
-                value="Weekends"
-              />
-              Weekends
-            </label>
-          </div>
-        </fieldset>
-      </div>
-    </div>
-    <div
-      className="fieldGroup"
+      1-5
+    </option>
+    <option
+      value="5-10"
     >
-      <div
-        className="group group"
-      >
-        <label
-          className="label"
-          htmlFor="skills"
-        >
-          Specializations / Skills
-          <span
-            className="label"
-          >
-            required
-          </span>
-        </label>
-        <div
-          className="detail-text detailText"
-        >
-          Examples: Python, SQL, Tableau, data viz, editing, social media, public health, research, journalism, etc.
-        </div>
-        <input
-          aria-required="true"
-          id="skills"
-          name="skills"
-          required={true}
-          type="text"
-        />
-      </div>
-    </div>
-    <div
-      className="fieldGroup"
+      5-10
+    </option>
+    <option
+      value="10-20"
     >
-      <div
-        className="group group"
-      >
-        <fieldset
-          className="fieldset"
-        >
-          <legend>
-            What would you like to volunteer to do?
-             
-            <span
-              className="label"
-            >
-              required
-            </span>
-          </legend>
-          <div
-            className="fieldsetOptions"
-          >
-            <div>
-              <label
-                className="radioLabel"
-                htmlFor="data"
-              >
-                <input
-                  id="data"
-                  name="workstream"
-                  required={true}
-                  type="radio"
-                  value="I'd like to help build data tools, collect data, or analyze data."
-                />
-                I'd like to help build data tools, collect data, or analyze data.
-              </label>
-            </div>
-            <div>
-              <label
-                className="radioLabel"
-                htmlFor="website"
-              >
-                <input
-                  id="website"
-                  name="workstream"
-                  required={true}
-                  type="radio"
-                  value="I'd like to help design or build your website."
-                />
-                I'd like to help design or build your website.
-              </label>
-            </div>
-            <div>
-              <label
-                className="radioLabel"
-                htmlFor="writing"
-              >
-                <input
-                  id="writing"
-                  name="workstream"
-                  required={true}
-                  type="radio"
-                  value="I'd like to help write content, monitor news sources, or do original journalism."
-                />
-                I'd like to help write content, monitor news sources, or do original journalism.
-              </label>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-    </div>
-    <div
-      className="fieldGroup"
+      10-20
+    </option>
+    <option
+      value="20-30"
     >
-      <div
-        className="group group"
-      >
-        <label
-          className="label"
-          htmlFor="referred"
-        >
-          I was referred by ...
-           
-          <span
-            className="label"
-          >
-            optional
-          </span>
-        </label>
-        <input
-          id="referred"
-          name="referred"
-          type="text"
-        />
-      </div>
-    </div>
-    <div
-      className="fieldGroup"
+      20-30
+    </option>
+    <option
+      value="30-40"
     >
-      <div
-        className="group group"
+      30-40
+    </option>
+    <option
+      value="40+"
+    >
+      40+
+    </option>
+  </select>
+  <label
+    className="label"
+    htmlFor="htimezone"
+  >
+    What time zone are you in?
+    <span
+      className="required"
+    >
+      required
+    </span>
+  </label>
+  <select
+    aria-required="true"
+    className="select"
+    htmlFor="htimezone"
+    id="timezone"
+    inputtype="select"
+    isRequired={true}
+    label="What time zone are you in?"
+    name="timezone"
+    optionsArray={
+      Array [
+        "-- Select time zone --",
+        "Pacific",
+        "Mountain",
+        "Central",
+        "Eastern",
+        "Other",
+      ]
+    }
+    required={true}
+  >
+    <option
+      value="-- Select time zone --"
+    >
+      -- Select time zone --
+    </option>
+    <option
+      value="Pacific"
+    >
+      Pacific
+    </option>
+    <option
+      value="Mountain"
+    >
+      Mountain
+    </option>
+    <option
+      value="Central"
+    >
+      Central
+    </option>
+    <option
+      value="Eastern"
+    >
+      Eastern
+    </option>
+    <option
+      value="Other"
+    >
+      Other
+    </option>
+  </select>
+  <fieldset
+    className="fieldset"
+  >
+    <legend
+      className="label"
+    >
+      When are you most available to volunteer?
+      <span
+        className="required"
       >
-        <label
-          className="label"
-          htmlFor="why"
-        >
-          What kinds of projects or tasks would you most like to help with?
-           
-          <span
-            className="label"
-          >
-            optional
-          </span>
-          <textarea
-            id="why"
-            name="why"
-            rows="5"
-          />
-        </label>
-      </div>
-    </div>
+        required
+      </span>
+    </legend>
     <div
-      className="botField"
+      className="fieldsetOptions"
     >
       <label
-        htmlFor="covid-bot-field"
+        className="checkboxLabel"
+        htmlFor="weekdays"
       >
-        If you are a human, don’t fill out this field:
         <input
-          id="covid-bot-field"
-          name="covid-bot-field"
-          type="text"
+          id="weekdays"
+          inputtype="fieldset"
+          isRequired={true}
+          label="When are you most available to volunteer?"
+          name="availability"
+          optionsArray={
+            Array [
+              Object {
+                "description": "Weekdays",
+                "shortname": "weekdays",
+              },
+              Object {
+                "description": "Weekday mornings",
+                "shortname": "mornings",
+              },
+              Object {
+                "description": "Weekday evenings",
+                "shortname": "evenings",
+              },
+              Object {
+                "description": "Weekends",
+                "shortname": "weekends",
+              },
+            ]
+          }
+          required={true}
+          type="checkbox"
+          value="Weekdays"
         />
+        Weekdays
+      </label>
+      <label
+        className="checkboxLabel"
+        htmlFor="mornings"
+      >
+        <input
+          id="mornings"
+          inputtype="fieldset"
+          isRequired={true}
+          label="When are you most available to volunteer?"
+          name="availability"
+          optionsArray={
+            Array [
+              Object {
+                "description": "Weekdays",
+                "shortname": "weekdays",
+              },
+              Object {
+                "description": "Weekday mornings",
+                "shortname": "mornings",
+              },
+              Object {
+                "description": "Weekday evenings",
+                "shortname": "evenings",
+              },
+              Object {
+                "description": "Weekends",
+                "shortname": "weekends",
+              },
+            ]
+          }
+          required={true}
+          type="checkbox"
+          value="Weekday mornings"
+        />
+        Weekday mornings
+      </label>
+      <label
+        className="checkboxLabel"
+        htmlFor="evenings"
+      >
+        <input
+          id="evenings"
+          inputtype="fieldset"
+          isRequired={true}
+          label="When are you most available to volunteer?"
+          name="availability"
+          optionsArray={
+            Array [
+              Object {
+                "description": "Weekdays",
+                "shortname": "weekdays",
+              },
+              Object {
+                "description": "Weekday mornings",
+                "shortname": "mornings",
+              },
+              Object {
+                "description": "Weekday evenings",
+                "shortname": "evenings",
+              },
+              Object {
+                "description": "Weekends",
+                "shortname": "weekends",
+              },
+            ]
+          }
+          required={true}
+          type="checkbox"
+          value="Weekday evenings"
+        />
+        Weekday evenings
+      </label>
+      <label
+        className="checkboxLabel"
+        htmlFor="weekends"
+      >
+        <input
+          id="weekends"
+          inputtype="fieldset"
+          isRequired={true}
+          label="When are you most available to volunteer?"
+          name="availability"
+          optionsArray={
+            Array [
+              Object {
+                "description": "Weekdays",
+                "shortname": "weekdays",
+              },
+              Object {
+                "description": "Weekday mornings",
+                "shortname": "mornings",
+              },
+              Object {
+                "description": "Weekday evenings",
+                "shortname": "evenings",
+              },
+              Object {
+                "description": "Weekends",
+                "shortname": "weekends",
+              },
+            ]
+          }
+          required={true}
+          type="checkbox"
+          value="Weekends"
+        />
+        Weekends
       </label>
     </div>
-    <div>
-      <button
-        className="button"
-        type="submit"
-      >
-        Send your email
-      </button>
+  </fieldset>
+  <label
+    className="label"
+    htmlFor="skills"
+  >
+    Specializations / Skills
+    <span
+      className="required"
+    >
+      required
+    </span>
+  </label>
+  <input
+    aria-required="true"
+    detailText="Examples: Python, SQL, Tableau, data viz, editing, social media, public health, research, journalism, etc."
+    htmlFor="skills"
+    id="skills"
+    inputtype="inputWithDetail"
+    isRequired={true}
+    label="Specializations / Skills"
+    name="skills"
+    style={
+      Object {
+        "marginBottom": "0px",
+      }
+    }
+    type="text"
+  />
+  <div
+    style={
+      Object {
+        "marginBottom": "50px",
+      }
+    }
+  >
+    <div
+      className="detail-text detailText"
+    >
+      Examples: Python, SQL, Tableau, data viz, editing, social media, public health, research, journalism, etc.
     </div>
-  </form>
-</div>
+  </div>
+  <fieldset
+    className="fieldset"
+  >
+    <legend
+      className="label"
+    >
+      What would you like to volunteer to do?
+      <span
+        className="required"
+      >
+        required
+      </span>
+    </legend>
+    <div
+      className="fieldsetOptions"
+    >
+      <label
+        className="checkboxLabel"
+        htmlFor="data"
+      >
+        <input
+          id="data"
+          inputtype="fieldset"
+          isRequired={true}
+          label="What would you like to volunteer to do?"
+          name="workstream"
+          optionsArray={
+            Array [
+              Object {
+                "description": "I'd like to help build data tools, collect data, or analyze data.",
+                "shortname": "data",
+              },
+              Object {
+                "description": "I'd like to help design or build your website.",
+                "shortname": "website",
+              },
+              Object {
+                "description": "I'd like to help write content, monitor news sources, or do original journalism.",
+                "shortname": "writing",
+              },
+            ]
+          }
+          required={true}
+          type="radio"
+          value="I'd like to help build data tools, collect data, or analyze data."
+        />
+        I'd like to help build data tools, collect data, or analyze data.
+      </label>
+      <label
+        className="checkboxLabel"
+        htmlFor="website"
+      >
+        <input
+          id="website"
+          inputtype="fieldset"
+          isRequired={true}
+          label="What would you like to volunteer to do?"
+          name="workstream"
+          optionsArray={
+            Array [
+              Object {
+                "description": "I'd like to help build data tools, collect data, or analyze data.",
+                "shortname": "data",
+              },
+              Object {
+                "description": "I'd like to help design or build your website.",
+                "shortname": "website",
+              },
+              Object {
+                "description": "I'd like to help write content, monitor news sources, or do original journalism.",
+                "shortname": "writing",
+              },
+            ]
+          }
+          required={true}
+          type="radio"
+          value="I'd like to help design or build your website."
+        />
+        I'd like to help design or build your website.
+      </label>
+      <label
+        className="checkboxLabel"
+        htmlFor="writing"
+      >
+        <input
+          id="writing"
+          inputtype="fieldset"
+          isRequired={true}
+          label="What would you like to volunteer to do?"
+          name="workstream"
+          optionsArray={
+            Array [
+              Object {
+                "description": "I'd like to help build data tools, collect data, or analyze data.",
+                "shortname": "data",
+              },
+              Object {
+                "description": "I'd like to help design or build your website.",
+                "shortname": "website",
+              },
+              Object {
+                "description": "I'd like to help write content, monitor news sources, or do original journalism.",
+                "shortname": "writing",
+              },
+            ]
+          }
+          required={true}
+          type="radio"
+          value="I'd like to help write content, monitor news sources, or do original journalism."
+        />
+        I'd like to help write content, monitor news sources, or do original journalism.
+      </label>
+    </div>
+  </fieldset>
+  <label
+    className="label"
+  >
+    What kinds of projects or tasks would you most like to help with?
+    <span
+      className="required"
+    >
+      optional
+    </span>
+  </label>
+  <textarea
+    id="why"
+    inputtype="text"
+    label="What kinds of projects or tasks would you most like to help with?"
+    name="why"
+    rows="5"
+  />
+  <label
+    className="label"
+  >
+    I was referred by ...
+    <span
+      className="required"
+    >
+      optional
+    </span>
+  </label>
+  <input
+    id="referred"
+    inputtype="input"
+    label="I was referred by ..."
+    name="referred"
+    type="text"
+  />
+  <div
+    className="botField"
+  >
+    <label
+      htmlFor="covid-bot-field"
+    >
+      If you are a human, don’t fill out this field:
+      <input
+        id="covid-bot-field"
+        name="covid-bot-field"
+        type="text"
+      />
+    </label>
+  </div>
+  <div
+    style={
+      Object {
+        "marginTop": "28px",
+      }
+    }
+  >
+    <button
+      className="button"
+      type="submit"
+    >
+      Send your email
+    </button>
+  </div>
+</form>
 `;

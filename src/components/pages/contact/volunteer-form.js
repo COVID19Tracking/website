@@ -1,7 +1,6 @@
 import React from 'react'
 import { Form, FormInput } from '~components/common/form'
 import { Button } from '~components/common/button'
-import VolunteerFormStyles from './volunteer-form.module.scss'
 import {
   RadioOptions,
   HoursPerWeek,
@@ -128,7 +127,7 @@ export default () => {
         name="referred"
       />
 
-      <div className={VolunteerFormStyles.botField}>
+      <div>
         <label htmlFor="covid-bot-field">
           If you are a human, don&#8217;t fill out this field:
           <input type="text" name="covid-bot-field" id="covid-bot-field" />
