@@ -3,10 +3,3 @@
 .zip {
   max-width: 6rem;
 }
-
-.label {
-  @include type-size(100);
-  display: block;
-  float: right;
-}
-
