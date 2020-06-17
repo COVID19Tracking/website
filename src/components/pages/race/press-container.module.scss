@@ -1,9 +1,7 @@
-@import '~scss/breakpoints.module.scss';
-
 .container {
   max-width: 600px;
-  margin-right: 1.5rem;
-  margin-left: 1.5rem;
+  margin-right: spacer(24);
+  margin-left: spacer(24);
   margin-top: 60px;
   @media (min-width: $viewport-md) {
     margin-left: 3rem;

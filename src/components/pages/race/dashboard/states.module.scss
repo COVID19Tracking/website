@@ -1,6 +1,3 @@
-@import '~scss/breakpoints.module.scss';
-@import '~scss/colors.module.scss';
-
 .header {
   @media (min-width: $viewport-md) {
     margin-top: -50px;
@@ -11,6 +8,6 @@
 
 .state {
   border-bottom: 1px solid $color-slate-500;
-  padding-bottom: 2rem;
+  padding-bottom: spacer(32);
   padding-top: 3rem;
 }

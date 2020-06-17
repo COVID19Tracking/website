@@ -1,13 +1,10 @@
-@import '~scss/breakpoints.module.scss';
-@import '~scss/colors.module.scss';
-
 .header {
   font-weight: normal;
-  margin: 60px 0 40px;
-  font-size: 18px;
+  margin: 60px 0 40px; // ignore-style-rule
+  @include type-size(300);
   @media (min-width: $viewport-lg) {
     text-align: center;
-    font-size: 23px;
+    @include type-size(400);
   }
 }
 
@@ -51,11 +48,11 @@
 
 p.chart-legend {
   text-align: left;
-  margin: 1rem auto;
-  font-size: 13px;
+  margin: spacer(16) auto;
+  @include type-size(100);
   @media (min-width: $viewport-md) {
     width: 50%;
-    font-size: 18px;
+    @include type-size(300);
   }
   @media (min-width: $viewport-lg) {
     margin: 0;
@@ -67,9 +64,9 @@ p.chart-legend {
   display: block;
   font-weight: bold;
   line-height: 1;
-  font-size: 36px;
+  @include type-size(600);
   @media (min-width: $viewport-md) {
-    font-size: 48px;
+    @include type-size(700);
   }
 }
 
@@ -85,7 +82,7 @@ $chart-breakpoint: $viewport-ms;
   width: $chart-mobile-size;
   height: $chart-mobile-size;
   background: $color-plum-600;
-  margin-left: 1rem;
+  margin-left: spacer(16);
   @media (min-width: $viewport-md) {
     margin: 0 auto;
   }

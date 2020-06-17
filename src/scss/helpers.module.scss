@@ -1,0 +1,60 @@
+@import './breakpoints.module.scss';
+
+// Base font size. If need be, can be made responsive.
+$base-font-size: 16;
+
+// Spacer keys are the PX values used in the Figma files:
+// 4, 8, 16, 24, 32, 64, 80, 120
+// prettier-ignore
+$spacers: (
+  0: 0, // 0
+  4: .25rem, // 1
+  8: .5rem, // 2
+  16: 1rem, // 3
+  24: 1.5rem, // 4
+  32: 2rem, // 5
+  64: 4rem, // 6
+  80: 5rem, // 7
+  120: 7.5rem, // 8
+);
+
+@function spacer($key) {
+  @if map-has-key($spacers, $key) == false {
+    @error "$spacers map has no #{$key} key.";
+  }
+
+  $size: map-get($spacers, $key);
+  @return $size;
+}
+
+@mixin margin($key, $sides: (top right bottom left)) {
+  @if type-of($sides) != 'list' {
+    $sides: ($sides);
+  }
+
+  @if length($sides) == 4 {
+    margin: spacer($key);
+  } @else {
+    @each $side in $sides {
+      margin-#{$side}: spacer($key);
+    }
+  }
+}
+
+@mixin padding($key, $sides: (top right bottom left)) {
+  @if type-of($sides) != 'list' {
+    $sides: ($sides);
+  }
+
+  @if length($sides) == 4 {
+    padding: spacer($key);
+  } @else {
+    @each $side in $sides {
+      padding-#{$side}: spacer($key);
+    }
+  }
+}
+
+@function toRem($pixel: 16) {
+  @return ($pixel / 16) + rem;
+}

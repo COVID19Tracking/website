@@ -49,16 +49,15 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             <span
               role="text"
             >
-              Positive
               <span
-                className="headerLabel headerLabel3"
+                className="headerLabel headerLabel1"
               >
-                Tests
+                Cases
               </span>
             </span>
           </th>
           <th
-            className=""
+            className="alignLeft borderLeft"
             scope="col"
           >
             <span
@@ -66,7 +65,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Negative
               <span
-                className="headerLabelHidden headerLabel3"
+                className="headerLabel headerLabel2"
               >
                 Tests
               </span>
@@ -81,7 +80,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             >
               Pending
               <span
-                className="headerLabelHidden headerLabel3"
+                className="headerLabelHidden headerLabel2"
               >
                 Tests
               </span>
@@ -232,7 +231,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
             4,572
           </td>
           <td
-            className=""
+            className="borderLeft"
           >
             33,318
           </td>
@@ -304,30 +303,51 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
     </div>
   </div>
   <ul
-    className="list-unstyled listUnstyled"
+    className="list"
   >
     <li>
       <a
         href="https://twitter.com/@alpublichealth"
       >
-        Alabama
-         on Twitter
+        <span
+          className="a11y-only"
+        >
+          Alabama
+          's 
+        </span>
+        Official Twitter
       </a>
+      <span>
+        •
+      </span>
     </li>
     <li>
       <a
         href="https://alpublichealth.maps.arcgis.com/apps/opsdashboard/index.html#/6d2771faa9da4a2786a509d82c8cf0f7"
       >
-        Best current data source for 
-        Alabama
+        <span
+          className="a11y-only"
+        >
+          Alabama
+          's 
+        </span>
+        Best Current Data Source
       </a>
+      <span>
+        •
+      </span>
     </li>
     <li>
       <a
         href="/data/state/alabama#historical"
       >
-        Historical data for 
-        Alabama
+        Historical Data
+        <span
+          className="a11y-only"
+        >
+          for 
+          Alabama
+        </span>
       </a>
     </li>
   </ul>

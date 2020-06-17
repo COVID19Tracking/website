@@ -1,18 +1,15 @@
-@import '~scss/breakpoints.module.scss';
-
 .container {
-  max-width: 1000px;
-  margin-right: 1.5rem;
-  margin-left: 1.5rem;
+  max-width: toRem(1000);
+  @include margin(24, left right);
+
   @media (min-width: $viewport-md) {
-    margin-left: 3rem;
-    margin-right: 3rem;
+    @include margin(32, left right);
   }
   @media (min-width: $viewport-lg) {
     margin-left: auto;
     margin-right: auto;
   }
   @media (min-width: $viewport-xl) {
-    max-width: 1140px;
+    max-width: toRem(1140);
   }
 }
