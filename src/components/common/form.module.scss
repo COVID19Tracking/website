@@ -109,7 +109,7 @@
     .checkbox-label {
       display: flex;
       align-items: baseline;
-      @include type-size(100);
+      @include margin(8, top bottom);
     }
 
     .fieldset-options {
