@@ -10,7 +10,8 @@ export default ({ data }) => (
   <Layout
     title="Data Download"
     path="/data/download"
-    navigation={data.contentfulNavigationGroup.pages}
+    returnLink="/data"
+    returnLinkTitle="Our data"
   >
     <ContentfulContent
       content={
@@ -56,18 +57,6 @@ export const query = graphql`
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
           html
-        }
-      }
-    }
-    contentfulNavigationGroup(slug: { eq: "data" }) {
-      pages {
-        ... on ContentfulPage {
-          title
-          link: slug
-        }
-        ... on ContentfulNavigationLink {
-          title
-          link: url
         }
       }
     }
