@@ -78,4 +78,4 @@ The storybook is now available at `http://localhost:6006`.
 
 ## How to contribute
 
-No matter how you choose to help, we would love to have you as part of the project. Check our Contributing Guide for information on how to file issues and make pull requests.
+No matter how you choose to help, we would love to have you as part of the project. Check our [Contributing Guide](CONTRIBUTING.md) for information on how to file issues and make pull requests.
