@@ -17,7 +17,7 @@ const VisualizationGuidePage = ({ data }) => {
       path="/about-data/visualization-guide"
       navigation={data.contentfulNavigationGroup.pages}
     >
-      <div className="module-featured">
+      <div className={dashboardStyles.moduleFeatured}>
         <h2 className={dashboardStyles.hedFeatured}>
           Explore graphics made with the COVID Tracking Project dataset along
           with tips to help you present the data in the clearest and most
@@ -51,7 +51,7 @@ const VisualizationGuidePage = ({ data }) => {
         </p>
       </div>
 
-      <div className="module-featured">
+      <div className={dashboardStyles.moduleFeatured}>
         <p>
           According to our data, US metropolitan areas have been hit the
           hardest. New York leads the rest of the country in the number of
@@ -95,7 +95,7 @@ const VisualizationGuidePage = ({ data }) => {
 
       <MapContainer />
 
-      <div className="module-featured">
+      <div className={dashboardStyles.moduleFeatured}>
         <h3>Include the denominator.</h3>
         <p>
           Testing is one of the most important tools in controlling an outbreak.
@@ -118,7 +118,7 @@ const VisualizationGuidePage = ({ data }) => {
 
       <UsPositiveAndTotalTestsContainer />
 
-      <div className="module-featured">
+      <div className={dashboardStyles.moduleFeatured}>
         <h3>Be mindful when comparing states.</h3>
         <p>
           By comparing positive tests to total tests in each state and
@@ -133,7 +133,7 @@ const VisualizationGuidePage = ({ data }) => {
 
       <StateCumulativeTestsContainer />
 
-      <div className="module-featured">
+      <div className={dashboardStyles.moduleFeatured}>
         <h3>Don’t ignore data uncertainty.</h3>
 
         <p>
@@ -177,7 +177,7 @@ const VisualizationGuidePage = ({ data }) => {
         <StateCumulativeDeathsContainer />
       </div>
 
-      <div className="module-featured">
+      <div className={dashboardStyles.moduleFeatured}>
         <h3>Remember that even death counts are uncertain.</h3>
         <p>
           Data that tracks COVID-19 death counts is still a gray area. Though

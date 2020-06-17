@@ -11,6 +11,17 @@ $chart-gutter-md: 100px;
   @include margin(16, bottom);
 }
 
+.module-featured {
+  margin: spacer(32) auto;
+  max-width: 42em;
+  + section,
+  + div {
+    border-top: 1px solid $color-slate-300;
+    border-bottom: 1px solid $color-slate-300;
+    padding: 1.5em 0 1em;
+  }
+}
+
 @media (min-width: $viewport-md) {
   .hed-featured {
     @include type-size(500);
