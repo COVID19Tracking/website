@@ -64,9 +64,7 @@ Typography
 
 .content-primary {
   ul,
-  ol {
-    @include margin(8, bottom);
-  }
+  ol,
   p {
     margin: 0 0 spacer(24);
   }
