@@ -1,50 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { BLOCKS } from '@contentful/rich-text-types'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-
 import AuthorFooter from '~components/pages/blog/author-footer'
 import Categories from '~components/pages/blog/categories'
-import CleanSpacing from '~components/utils/clean-spacing'
-import ImageContentBlock from '~components/pages/blog/image-content-block'
 import Layout from '~components/layout'
 import Lede from '~components/pages/blog/blog-lede'
-import TableContentBlock from '~components/pages/blog/table-content-block'
-
-import blogPostStyles from '~templates/blog-post.module.scss'
-
-const options = {
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => (
-      <p>
-        {children.map(child => (
-          <CleanSpacing>{child}</CleanSpacing>
-        ))}
-      </p>
-    ),
-    [BLOCKS.EMBEDDED_ENTRY]: node => {
-      if (typeof node.data.target.fields === 'undefined') {
-        return null
-      }
-      if (
-        node.data.target.sys.contentType.sys.contentful_id ===
-        'contentBlockTable'
-      ) {
-        return (
-          <TableContentBlock table={node.data.target.fields.table['en-US']} />
-        )
-      }
-      if (
-        node.data.target.sys.contentType.sys.contentful_id ===
-        'contentBlockImage'
-      ) {
-        const { image, caption } = node.data.target.fields
-        return <ImageContentBlock image={image} caption={caption} />
-      }
-      return null
-    },
-  },
-}
+import BlogPostContent from '~components/pages/blog/blog-content'
 
 export default ({ data, path }) => {
   const blogPost = data.contentfulBlogPost
@@ -68,12 +28,10 @@ export default ({ data, path }) => {
         lede={blogPost.lede.lede}
         featuredImage={blogPost.featuredImage}
       />
-      <div className={blogPostStyles.blogContent}>
-        {documentToReactComponents(
-          blogPost.childContentfulBlogPostBlogContentRichTextNode.json,
-          options,
-        )}
-      </div>
+      <BlogPostContent
+        content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
+      />
+
       <hr />
       <AuthorFooter authors={blogPost.authors} />
     </Layout>
