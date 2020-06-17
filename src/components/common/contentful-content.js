@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import classnames from 'classnames'
 import smartypants from 'smartypants'
 import contentfulContentStyles from './contentful-content.module.scss'
+import markdwonContentStyles from './markdown-content.module.scss'
 
 export default ({ content, className, id }) => {
   const data = useStaticQuery(graphql`
@@ -36,7 +38,7 @@ export default ({ content, className, id }) => {
         </a>
       )}
       <div
-        className={className}
+        className={classnames(className, markdwonContentStyles.content)}
         dangerouslySetInnerHTML={{ __html: smartypants(content, 1) }}
       />
     </>

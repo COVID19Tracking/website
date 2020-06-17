@@ -13,3 +13,59 @@
     max-width: toRem(1140);
   }
 }
+
+/*
+
+Layout blocks
+
+*/
+
+@media (min-width: $viewport-md) {
+  .content-and-rail {
+    display: flex;
+    justify-content: space-between;
+  }
+  .content-primary {
+    flex: 0 1 55%;
+  }
+  .content-secondary {
+    flex: 0 1 40%;
+  }
+}
+
+@media (min-width: $viewport-lg) {
+  .content-primary {
+    flex-basis: 66%;
+  }
+  .content-secondary {
+    flex-basis: 32%;
+  }
+}
+
+/*
+
+Typography
+
+*/
+.content-and-rail {
+  .content-primary {
+    @include type-size(300);
+    h2:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.content-primary {
+  @media (min-width: $viewport-lg) {
+    @include type-size(300);
+  }
+}
+
+.content-primary {
+  ul,
+  ol,
+  p {
+    margin: 0 0 spacer(24);
+  }
+}
