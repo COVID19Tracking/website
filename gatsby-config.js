@@ -56,6 +56,13 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'visualizationGuideImages',
+        path: `${__dirname}/src/images/visualization-guide`,
+      },
+    },
+    {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_api/v1/internal/press.json',
