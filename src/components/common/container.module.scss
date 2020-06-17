@@ -69,10 +69,3 @@ Typography
     margin: 0 0 1.5em;
   }
 }
-
-@media (min-width: $viewport-md) {
-  .content-secondary {
-    @include type-size(300);
-    line-height: 1.3;
-  }
-}
