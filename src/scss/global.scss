@@ -162,17 +162,6 @@ h5 {
 Layout blocks
 
 */
-.layout-region {
-  @include padding(32, top bottom);
-}
-
-.module {
-  @include margin(32, bottom);
-}
-
-.module:last-child {
-  margin-bottom: 0;
-}
 
 @media (min-width: $viewport-md) {
   .layout--content-and-rail {

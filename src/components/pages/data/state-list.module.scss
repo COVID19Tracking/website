@@ -1,0 +1,6 @@
+.item {
+  @include padding(32, top bottom);
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
