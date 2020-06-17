@@ -18,15 +18,16 @@ const SearchNoResult = ({ query = false }) =>
       </p>
       <ul>
         <li>
-          <Link to="/data">State-by-state Data</Link> - A list of COVID19 data
-          by state
+          <Link to="/data">State-by-state Data</Link> - A list of COVID data by
+          state
         </li>
         <li>
-          <Link to="/data/us-daily">US Daily totals</Link> - A list of US
-          COVID19 totals by day
+          <Link to="/data/us-daily">US Daily totals</Link> - A list of US COVID
+          totals by day
         </li>
         <li>
-          <Link to="/about-data/faq">FAQ</Link> - FAQ about our data and process
+          <Link to="/about-data">About our data</Link> - More about our data and
+          methodology
         </li>
         <li>
           <Link to="/api">Data API</Link> - Our data API for developers
