@@ -18,7 +18,7 @@ const VisualizationGuidePage = ({ data }) => {
       navigation={data.contentfulNavigationGroup.pages}
     >
       <div className="module-featured">
-        <h2 className="hed-featured">
+        <h2 className={dashboardStyles.hedFeatured}>
           Explore graphics made with the COVID Tracking Project dataset along
           with tips to help you present the data in the clearest and most
           accurate way possible.
@@ -66,7 +66,7 @@ const VisualizationGuidePage = ({ data }) => {
           display data from the COVID Tracking Project yourself, please closely
           follow these design and visualization guidelines.
         </p>
-        <h3 className="hed-secondary">Consider normalizing the data.</h3>
+        <h3>Consider normalizing the data.</h3>
         <p>
           If you&rsquo;re creating a{' '}
           <a href="http://seeingdata.org/taketime/inside-the-chart-choropleth-map/">
@@ -82,7 +82,7 @@ const VisualizationGuidePage = ({ data }) => {
           </a>
           .
         </p>
-        <h3 className="hed-secondary">Choose colors carefully.</h3>
+        <h3>Choose colors carefully.</h3>
         <p>
           Readers are likely experiencing some latent anxiety, so do your best
           to neither make light of the situation nor be alarmist about it. One
@@ -96,7 +96,7 @@ const VisualizationGuidePage = ({ data }) => {
       <MapContainer />
 
       <div className="module-featured">
-        <h3 className="hed-secondary">Include the denominator.</h3>
+        <h3>Include the denominator.</h3>
         <p>
           Testing is one of the most important tools in controlling an outbreak.
           When universal testing is implemented, people who are infected with
@@ -119,7 +119,7 @@ const VisualizationGuidePage = ({ data }) => {
       <UsPositiveAndTotalTestsContainer />
 
       <div className="module-featured">
-        <h3 className="hed-secondary">Be mindful when comparing states.</h3>
+        <h3>Be mindful when comparing states.</h3>
         <p>
           By comparing positive tests to total tests in each state and
           territory, we can get a sense of how widespread a state’s testing
@@ -134,7 +134,7 @@ const VisualizationGuidePage = ({ data }) => {
       <StateCumulativeTestsContainer />
 
       <div className="module-featured">
-        <h3 className="hed-secondary">Don’t ignore data uncertainty.</h3>
+        <h3>Don’t ignore data uncertainty.</h3>
 
         <p>
           Though this is a national crisis, each US state or territory reports
@@ -152,9 +152,7 @@ const VisualizationGuidePage = ({ data }) => {
           </a>
           .
         </p>
-        <h3 className="hed-secondary">
-          Use absolute numbers for death counts.
-        </h3>
+        <h3>Use absolute numbers for death counts.</h3>
         <p>
           An organized, collective, and timely response from the government and
           other authorities is a key factor in saving lives. One metric you can
@@ -180,9 +178,7 @@ const VisualizationGuidePage = ({ data }) => {
       </div>
 
       <div className="module-featured">
-        <h3 className="hed-secondary">
-          Remember that even death counts are uncertain.
-        </h3>
+        <h3>Remember that even death counts are uncertain.</h3>
         <p>
           Data that tracks COVID-19 death counts is still a gray area. Though
           some experts prefer to measure the pandemic&rsquo;s severity using the
@@ -220,7 +216,7 @@ const VisualizationGuidePage = ({ data }) => {
           beginning of the outbreak to fatalities during the same period in
           previous years.
         </p>
-        <h3 className="hed-secondary">Be clear and honest.</h3>
+        <h3>Be clear and honest.</h3>
         <p>
           While news is moving faster than ever to keep up with the pace of the
           pandemic spread, designers and visualization experts&rsquo; goal is to

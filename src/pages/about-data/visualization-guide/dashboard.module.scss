@@ -4,6 +4,19 @@ $chart-two-col-lg-max-width: 400px;
 $chart-gutter-sm: 20px;
 $chart-gutter-md: 100px;
 
+.hed-featured {
+  @include type-size(400);
+  font-weight: 300;
+  line-height: 1.25;
+  @include margin(16, bottom);
+}
+
+@media (min-width: $viewport-md) {
+  .hed-featured {
+    @include type-size(500);
+  }
+}
+
 .charts-container {
   display: flex;
   flex-wrap: wrap;

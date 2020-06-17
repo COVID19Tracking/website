@@ -215,30 +215,6 @@ Headline treatments
   }
 }
 
-.hed-secondary {
-  @include type-size(300);
-  @include margin(8, bottom);
-}
-
-@media (min-width: $viewport-md) {
-  .hed-secondary {
-    @include type-size(400);
-  }
-}
-
-.hed-featured {
-  @include type-size(400);
-  font-weight: 300;
-  line-height: 1.25;
-  @include margin(16, bottom);
-}
-
-@media (min-width: $viewport-md) {
-  .hed-featured {
-    @include type-size(500);
-  }
-}
-
 .hed-landscape {
   color: $color-slate-700;
   @include type-size(300);
