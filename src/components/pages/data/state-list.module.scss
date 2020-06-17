@@ -1,5 +1,5 @@
 .item {
-  @include padding(32, top bottom);
+  @include margin(32, bottom);
   &:last-child {
     margin-bottom: 0;
   }
