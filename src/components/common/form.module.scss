@@ -6,43 +6,37 @@
   input[type='search'],
   select,
   textarea {
-    display: block;
     width: 100%;
     @include padding(16);
-
-    margin-top: spacer(8);
-    margin-bottom: spacer(64);
-
     border: 1px solid $color-slate-300;
     border-radius: 4px;
     box-sizing: border-box;
+    margin-top: spacer(4);
+    margin-bottom: spacer(32);
     resize: vertical;
-
-    font-weight: 400;
-    @include type-size(200);
+    display: block;
   }
 
 
   textarea {
-    height: toRem(150);
+    height: 150px;
   }
 
- .field-group {
-  @media (min-width: $viewport-lg) {
-    display: flex;
-  }
-}
-
-.child {
-  margin-bottom: 0.3rem !important;
-  @media (min-width: $viewport-lg) {
-    width: 50%;
-    &:first-child {
-      padding-right: 3rem;
+  .field-group {
+    @media (min-width: $viewport-lg) {
+      display: flex;
     }
-  } 
-}
+  }
 
+  .child {
+    margin-bottom: spacer(8) !important;
+    @media (min-width: $viewport-lg) {
+      width: 50%;
+      &:first-child {
+        @include padding(32, right);
+      }
+    }
+  }
 
   [type='radio'],
   [type='checkbox'] {
@@ -56,8 +50,6 @@
     align-items: center;
     justify-content: space-between;
     .required {
-      display: block;
-      float: right;
       @include type-size(100);
     }
   }
@@ -79,25 +71,21 @@
 
   .input-header {
     @include margin(4, bottom);
-    margin-bottom: spacer(4);
-    @include bold-type-size(400);
+    @include type-size(500);
   }
 
   button,
   [type='submit'] {
-    @include padding(16);
-
     cursor: pointer;
     border: none;
-    background: $color-plum-700;
+    background: $color-plum-800;
     border-radius: 3px;
-
+    @include padding(16);
     color: white;
-
     &[disabled] {
       cursor: not-allowed;
-      background: $color-plum-200;
-      color: $color-plum-800;
+      background: $color-plum-600;
+      color: white;
     }
   }
 
@@ -108,30 +96,29 @@
   input {
     flex: 0 auto;
   }
-  
+
   .select {
     background-color: white;
   }
 
   .fieldset {
-    margin-bottom: 50px;
+    @include margin(64, bottom);
     border: 0;
-  
+
     .radio-label,
     .checkbox-label {
       display: flex;
       align-items: baseline;
-      font-size: 0.8em;
+      @include type-size(100);
     }
-  
+
     .fieldset-options {
-      padding: 10px;
+      @include padding(4);
     }
   }
 
   input[type='radio'],
   input[type='checkbox'] {
-  margin-right: 10px;
-}
-
+    @include margin(4, right);
+  }
 }
