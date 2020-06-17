@@ -1,6 +1,7 @@
 .list {
   list-style-type: none;
   margin: 0;
+  padding-left: 0;
   span {
     color: $color-slate-200;
     @include type-size(100);

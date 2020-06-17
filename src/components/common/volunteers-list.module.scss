@@ -1,9 +1,9 @@
 .list {
   column-count: 2;
-  line-height: 1.3;
   list-style-type: none;
   margin-top: spacer(24);
   margin-left: 0;
+  padding-left: 0;
   @media (max-width: $viewport-md) {
     column-count: 1;
   }
