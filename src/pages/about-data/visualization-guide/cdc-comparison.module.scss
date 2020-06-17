@@ -1,13 +1,11 @@
-@import '~scss/colors.module.scss';
-
 .chart-label {
-  font-size: 14px;
+  @include type-size(100);
   color: $color-slate-600;
 }
 
 .subhead,
 .legend-container {
-  font-size: 14px;
+  @include type-size(100);
 }
 
 .legend-container {
@@ -27,7 +25,7 @@
     width: 1rem;
     height: 1rem;
     display: inline-block;
-    margin-right: .5rem;
+    @include margin(8, right);
     color: black;
   }
 }
