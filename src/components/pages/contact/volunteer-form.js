@@ -127,7 +127,7 @@ export default () => {
         name="referred"
       />
 
-      <div>
+      <div style={{ display: 'none' }}>
         <label htmlFor="covid-bot-field">
           If you are a human, don&#8217;t fill out this field:
           <input type="text" name="covid-bot-field" id="covid-bot-field" />
