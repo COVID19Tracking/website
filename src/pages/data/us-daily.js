@@ -16,7 +16,6 @@ const ContentPage = ({ data }) => (
     navigation={data.contentfulNavigationGroup.pages}
   >
     <ContentfulContent
-      className="module-content"
       content={
         data.contentfulSnippet.childContentfulSnippetContentTextNode
           .childMarkdownRemark.html

@@ -89,7 +89,7 @@ export default withSearch(({ navigate, search }) => {
       </form>
       {totalHits > 0 ? (
         <div className={searchStyle.searchResults}>
-          <h2 className="hed-primary">
+          <h2>
             {totalHits} {totalHits === 1 ? 'result' : 'results'} matching &quot;
             {query}&quot;
           </h2>

@@ -239,13 +239,13 @@ Array [
         </div>
       </div>
       <div
-        className="container false container"
+        className="container container"
       >
         <div
-          className="layout--content-full"
+          className="contentFull"
         >
           <div
-            className="layout--content-primary"
+            className="contentPrimary"
           >
             <div
               className="siteTitleContainer"
@@ -495,13 +495,13 @@ Array [
       id="reach-skip-nav"
     />
     <div
-      className="container false container"
+      className="container container"
     >
       <div
-        className="layout--content-full"
+        className="contentFull"
       >
         <div
-          className="layout--content-primary"
+          className="contentPrimary"
         >
           <p>
             Content
@@ -514,13 +514,13 @@ Array [
     className="footer"
   >
     <div
-      className="container false container"
+      className="container container"
     >
       <div
-        className="layout--content-full"
+        className="contentFull"
       >
         <div
-          className="layout--content-primary"
+          className="contentPrimary"
         >
           <div
             className="container"
@@ -855,13 +855,13 @@ Array [
         </div>
       </div>
       <div
-        className="container false container"
+        className="container container"
       >
         <div
-          className="layout--content-full"
+          className="contentFull"
         >
           <div
-            className="layout--content-primary"
+            className="contentPrimary"
           >
             <div
               className="siteTitleContainer"
@@ -1111,13 +1111,13 @@ Array [
       id="reach-skip-nav"
     />
     <div
-      className="container textHeavy container"
+      className="container container textHeavy"
     >
       <div
-        className="layout--content-and-rail"
+        className="contentAndRail"
       >
         <div
-          className="layout--content-primary"
+          className="contentPrimary"
         >
           <p>
             Content
@@ -1130,13 +1130,13 @@ Array [
     className="footer"
   >
     <div
-      className="container false container"
+      className="container container"
     >
       <div
-        className="layout--content-full"
+        className="contentFull"
       >
         <div
-          className="layout--content-primary"
+          className="contentPrimary"
         >
           <div
             className="container"
@@ -1471,13 +1471,13 @@ Array [
         </div>
       </div>
       <div
-        className="container false container"
+        className="container container"
       >
         <div
-          className="layout--content-full"
+          className="contentFull"
         >
           <div
-            className="layout--content-primary"
+            className="contentPrimary"
           >
             <div
               className="siteTitleContainer"
@@ -1727,13 +1727,13 @@ Array [
       id="reach-skip-nav"
     />
     <div
-      className="container false container"
+      className="container container"
     >
       <div
-        className="layout--content-full"
+        className="contentFull"
       >
         <div
-          className="layout--content-primary"
+          className="contentPrimary"
         >
           <p>
             Content
@@ -1746,13 +1746,13 @@ Array [
     className="footer"
   >
     <div
-      className="container false container"
+      className="container container"
     >
       <div
-        className="layout--content-full"
+        className="contentFull"
       >
         <div
-          className="layout--content-primary"
+          className="contentPrimary"
         >
           <div
             className="container"

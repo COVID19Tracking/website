@@ -3,7 +3,7 @@
 exports[`Components : Pages : Blog : Blog Teaser List renders correctly 1`] = `
 Array [
   <h2
-    className="hed-primary "
+    className="title"
   >
     <a
       href="/blog/we-made-a-blog-post"
@@ -66,7 +66,7 @@ Array [
     Huh, this blog thing seems to be working! This is the lede.
   </p>,
   <h2
-    className="hed-primary "
+    className="title"
   >
     <a
       href="/blog/new-blog-post"

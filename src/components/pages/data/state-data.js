@@ -7,6 +7,7 @@ import StateLinks from '~components/pages/state/state-links'
 import StateGrade from '~components/pages/state/state-grade'
 import SummaryTable from '~components/common/summary-table'
 import stateDataStyles from './state-data.module.scss'
+import MarkdownContent from '~components/common/markdown-content'
 
 const State = ({ state }) => (
   <>
@@ -27,14 +28,7 @@ const State = ({ state }) => (
       stateName={state.name}
       historicalSlug={state.name}
     />
-    {state.notes && (
-      <div
-        className={`module-content ${stateDataStyles.notes}`}
-        dangerouslySetInnerHTML={{
-          __html: smartypants(marked(state.notes)),
-        }}
-      />
-    )}
+    {state.notes && <MarkdownContent html={smartypants(marked(state.notes))} />}
     <a
       className={`state-top-link ${stateDataStyles.topLink}`}
       href="#reach-skip-nav"

@@ -33,7 +33,6 @@ export default ({ data }) => {
       textHeavy
     >
       <ContentfulContent
-        className="module-content"
         content={
           data.contentfulSnippet.childContentfulSnippetContentTextNode
             .childMarkdownRemark.html

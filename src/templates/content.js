@@ -21,7 +21,6 @@ const ContentPage = ({ data, path }) => {
       textHeavy
     >
       <ContentfulContent
-        className="module-content"
         id={contentfulPage.contentful_id}
         content={contentfulPage.body.childMarkdownRemark.html}
       />
