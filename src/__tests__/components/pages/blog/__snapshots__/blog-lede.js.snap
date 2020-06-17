@@ -4,9 +4,7 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
 <div
   className="lede"
 >
-  <h1
-    className="hed-primary"
-  >
+  <h1>
     Test headline
   </h1>
   <p

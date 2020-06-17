@@ -349,7 +349,7 @@ Array [
     </li>
   </ul>,
   <div
-    className="module-content notes"
+    className="content"
     dangerouslySetInnerHTML={
       Object {
         "__html": "<p>Negatives = (Totals - Positives) 

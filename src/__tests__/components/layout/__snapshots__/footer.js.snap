@@ -5,13 +5,13 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
   className="footer"
 >
   <div
-    className="container false container"
+    className="container container"
   >
     <div
-      className="layout--content-full"
+      className="contentFull"
     >
       <div
-        className="layout--content-primary"
+        className="contentPrimary"
       >
         <div
           className="container"

@@ -2,13 +2,13 @@
 
 exports[`Components : Common: Container renders correctly 1`] = `
 <div
-  className="container false container"
+  className="container container"
 >
   <div
-    className="layout--content-full"
+    className="contentFull"
   >
     <div
-      className="layout--content-primary"
+      className="contentPrimary"
     >
       <p>
         Sample child
@@ -20,13 +20,13 @@ exports[`Components : Common: Container renders correctly 1`] = `
 
 exports[`Components : Common: Container renders correctly 2`] = `
 <div
-  className="container textHeavy container"
+  className="container container textHeavy"
 >
   <div
-    className="layout--content-full"
+    className="contentFull"
   >
     <div
-      className="layout--content-primary"
+      className="contentPrimary"
     >
       <p>
         Sample child
@@ -38,13 +38,13 @@ exports[`Components : Common: Container renders correctly 2`] = `
 
 exports[`Components : Common: Container renders correctly 3`] = `
 <div
-  className="container textHeavy container"
+  className="container container textHeavy"
 >
   <div
-    className="layout--content-full"
+    className="contentFull"
   >
     <div
-      className="layout--content-primary"
+      className="contentPrimary"
     >
       <p>
         Sample child
