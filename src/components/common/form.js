@@ -102,14 +102,9 @@ const FormInput = props => {
       inputElement = (
         <>
           <fieldset className={formStyles.fieldset}>
-            <legend className={formStyles.label}>
-              {label}
-              {isRequired ? (
-                <span className={formStyles.required}>required</span>
-              ) : (
-                <span className={formStyles.required}>optional</span>
-              )}
-            </legend>
+            <FormLabel isRequired={isRequired}>
+              <legend>{label}</legend>
+            </FormLabel>
             <div className={formStyles.fieldsetOptions}>
               {optionsArray &&
                 optionsArray.map(item => (

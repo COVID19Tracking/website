@@ -15,7 +15,6 @@
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 6px;
-    margin-bottom: 16px;
     resize: vertical;
     margin-bottom: 50px;
     display: block;
@@ -44,9 +43,6 @@
   } 
 }
 
-  legend {
-    font-weight: bold;
-  }
 
   [type='radio'],
   [type='checkbox'] {
@@ -60,8 +56,6 @@
     align-items: center;
     justify-content: space-between;
     .required {
-      display: block;
-      float: right;
       font-size: 0.8rem;
     }
   }
