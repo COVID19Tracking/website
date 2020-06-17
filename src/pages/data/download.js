@@ -1,12 +1,25 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import ContentfulContent from '~components/common/contentful-content'
 import Panel from '~components/pages/data/download/panel'
 import Fields from '~components/pages/data/download/fields'
 import DownloadLink from '~components/pages/data/download/download-link'
 import Layout from '~components/layout'
 
 export default ({ data }) => (
-  <Layout title="Data Download" path="/data/download">
+  <Layout
+    title="Data Download"
+    path="/data/download"
+    navigation={data.contentfulNavigationGroup.pages}
+  >
+    <ContentfulContent
+      content={
+        data.contentfulSnippet.childContentfulSnippetContentTextNode
+          .childMarkdownRemark.html
+      }
+      id={data.contentfulSnippet.contentful_id}
+    />
+
     <h2>US History</h2>
     <DownloadLink
       desc="Download all history data"
@@ -35,6 +48,26 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
+    contentfulSnippet(slug: { eq: "download-page-preamble" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    contentfulNavigationGroup(slug: { eq: "data" }) {
+      pages {
+        ... on ContentfulPage {
+          title
+          link: slug
+        }
+        ... on ContentfulNavigationLink {
+          title
+          link: url
+        }
+      }
+    }
     allCovidStateInfo(sort: { fields: name }) {
       nodes {
         id

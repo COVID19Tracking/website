@@ -35,6 +35,7 @@ module.exports = {
       'state-history',
       'sample-state',
       'sample-chart-data',
+      'sample-openapi',
     ],
     'import/resolver': {
       alias: [
