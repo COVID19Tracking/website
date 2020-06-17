@@ -198,34 +198,6 @@ Layout blocks
 
 /*
 
-Headline treatments
-
-*/
-.hed-primary,
-.module-content h2 {
-  @include type-size(400);
-  line-height: 1.25;
-  @include margin(16, bottom);
-}
-
-@media (min-width: $viewport-md) {
-  .hed-primary,
-  .module-content h2 {
-    @include type-size(500);
-  }
-}
-
-.hed-landscape {
-  color: $color-slate-700;
-  @include type-size(300);
-  text-align: center;
-  font-variant: all-small-caps;
-  // margin: 0 0 0.2rem;
-  @include margin(4, bottom);
-}
-
-/*
-
 Typography
 
 */
@@ -260,36 +232,6 @@ Typography
   ul,
   ol {
     margin: 0 0 1.5em;
-  }
-}
-
-.module-content {
-  h2 {
-    @include type-size(400);
-    line-height: 1.25;
-    margin: spacer(32) 0 spacer(4);
-    @media (min-width: $viewport-lg) {
-      @include type-size(500);
-    }
-  }
-
-  h2:first-child {
-    margin-top: 0;
-  }
-
-  h3 {
-    @include type-size(400);
-    margin: spacer(32) 0 spacer(4);
-  }
-
-  li {
-    @include margin(8, bottom);
-  }
-
-  p:not([class]),
-  ul:not([class]),
-  ol:not([class]) {
-    max-width: 40rem;
   }
 }
 

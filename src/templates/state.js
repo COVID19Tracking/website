@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import marked from 'marked'
 import smartypants from 'smartypants'
 import Layout from '~components/layout'
+import MarkdownContent from '~components/common/markdown-content'
 import StateGrade from '~components/pages/state/state-grade'
 import StateHistory from '~components/pages/state/state-history'
 import StateLinks from '~components/pages/state/state-links'
@@ -22,12 +23,7 @@ const StatePage = ({ pageContext, data, path }) => {
       />
       <StateGrade letterGrade={covidState.dataQualityGrade} />
       {state.notes && (
-        <div
-          className="module-content"
-          dangerouslySetInnerHTML={{
-            __html: smartypants(marked(state.notes)),
-          }}
-        />
+        <MarkdownContent html={smartypants(marked(state.notes))} />
       )}
       <SyncInfobox />
       <SummaryTable data={covidState} lastUpdated={covidState.dateModified} />

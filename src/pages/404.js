@@ -6,7 +6,6 @@ import ContentfulContent from '~components/common/contentful-content'
 const NotFoundPage = ({ data }) => (
   <Layout title="Page not found">
     <ContentfulContent
-      className="module-content"
       content={
         data.contentfulSnippet.childContentfulSnippetContentTextNode
           .childMarkdownRemark.html
