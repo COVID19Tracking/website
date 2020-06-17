@@ -243,16 +243,18 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
   <fieldset
     className="fieldset"
   >
-    <legend
+    <label
       className="label"
     >
-      When are you most available to volunteer?
+      <legend>
+        When are you most available to volunteer?
+      </legend>
       <span
         className="required"
       >
         required
       </span>
-    </legend>
+    </label>
     <div
       className="fieldsetOptions"
     >
@@ -445,16 +447,18 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
   <fieldset
     className="fieldset"
   >
-    <legend
+    <label
       className="label"
     >
-      What would you like to volunteer to do?
+      <legend>
+        What would you like to volunteer to do?
+      </legend>
       <span
         className="required"
       >
         required
       </span>
-    </legend>
+    </label>
     <div
       className="fieldsetOptions"
     >
@@ -590,9 +594,7 @@ exports[`Components : Common: Contact form renders correctly 1`] = `
     name="referred"
     type="text"
   />
-  <div
-    className="botField"
-  >
+  <div>
     <label
       htmlFor="covid-bot-field"
     >
