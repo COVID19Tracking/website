@@ -63,9 +63,11 @@ Typography
 }
 
 .content-primary {
-  p,
   ul,
   ol {
     @include margin(8, bottom);
+  }
+  p {
+    @include margin(24, bottom);
   }
 }
