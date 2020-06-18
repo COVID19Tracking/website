@@ -8,8 +8,6 @@ $grid-large-width: 12;
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-right: spacer(8) * -1;
-  margin-left: spacer(8) * -1;
 }
 
 @mixin col($width, $padding-left: 8 8 8, $padding-right: 8 8 8) {
@@ -19,6 +17,12 @@ $grid-large-width: 12;
   padding-right: spacer(nth($padding-right, 1));
   flex-basis: percentage(nth($width, 1) / $grid-small-width);
   max-width: percentage(nth($width, 1) / $grid-small-width);
+  &:first-child {
+    padding-left: 0 !important;
+  }
+  &:last-child {
+    padding-right: 0 !important;
+  }
   @media (min-width: $viewport-md) {
     flex-basis: percentage(nth($width, 2) / $grid-medium-width);
     max-width: percentage(nth($width, 2) / $grid-medium-width);

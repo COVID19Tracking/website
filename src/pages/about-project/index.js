@@ -9,7 +9,6 @@ export default ({ data }) => (
     title="About Us"
     path="/about-project"
     narrow
-    textHeavy
     navigation={data.contentfulNavigationGroup.pages}
   >
     <ContentfulContent

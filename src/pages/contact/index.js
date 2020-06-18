@@ -30,7 +30,6 @@ export default ({ data }) => {
           'The COVID Tracking Project runs on the effort and diligence of hundreds of volunteers, and we welcome your contribution.',
       }}
       narrow
-      textHeavy
     >
       <ContentfulContent
         content={

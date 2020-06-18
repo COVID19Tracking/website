@@ -7,7 +7,6 @@ export default ({ data, path }) => (
   <Layout
     title={`Blog: ${data.contentfulBlogCategory.name}`}
     path={path}
-    textHeavy
     narrow
   >
     <BlogTeaserList items={data.allContentfulBlogPost.nodes} />

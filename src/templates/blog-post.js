@@ -57,7 +57,6 @@ export default ({ data, path }) => {
       returnLink="/blog"
       returnLinkTitle="All posts"
       path={path}
-      textHeavy
       narrow
     >
       <Categories categories={blogPost.categories} />

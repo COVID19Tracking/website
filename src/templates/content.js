@@ -18,7 +18,6 @@ const ContentPage = ({ data, path }) => {
       returnLinkTitle={contentfulPage.returnLinkTitle}
       socialCard={contentfulPage.socialCard}
       narrow
-      textHeavy
     >
       <ContentfulContent
         id={contentfulPage.contentful_id}
