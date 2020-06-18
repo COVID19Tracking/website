@@ -1,5 +1,20 @@
 import React from 'react'
 
+import BarChart from '../../../charts/bar-chart'
+
+import {
+  deathsBarColor,
+  positiveColor,
+  totalColor,
+  parseDate,
+} from '~utilities/visualization'
+
+import chartsStyles from './charts.module.scss'
+
+// should probably increase the efficiency of this to speed up build
+// currently O(n*range) where n is length of history
+// could make it O(2*n) quite easily
+// eslint-disable-next-line no-unused-vars
 const dailyAverage = (history, field, range = 7) => {
   const average = []
   history.forEach((row, rowIndex) => {
@@ -14,11 +29,53 @@ const dailyAverage = (history, field, range = 7) => {
   return average
 }
 
-export default ({ history }) => (
-  <div>
-    Charts go here. Daily avereage of positive:{' '}
-    {dailyAverage(history, 'positive').map(average => (
-      <>{average} </>
-    ))}
-  </div>
-)
+// must be of format:
+//  {
+//   date: Date
+//   value: number
+// }
+const getDataForField = (data, field) => {
+  return data.map(d => ({
+    date: parseDate(d.date),
+    value: d[field],
+  }))
+}
+
+// we need a combined bar + line chart
+
+export default ({ history }) => {
+  const data = history.sort((a, b) => a.date - b.date)
+  const props = {
+    height: 300,
+    width: 300,
+    marginBottom: 40,
+    marginLeft: 80,
+    marginRight: 10,
+    marginTop: 10,
+    xTicks: 3,
+    showTicks: 6,
+  }
+
+  // eslint-disable-next-line no-debugger
+  debugger
+  return (
+    <div className={chartsStyles.chartsContainer}>
+      <BarChart
+        data={getDataForField(data, 'totalTestResultsIncrease')}
+        lineData={dailyAverage(data, 'totalTestResultsIncrease')}
+        fill={totalColor}
+        {...props}
+      />
+      <BarChart
+        data={getDataForField(data, 'positiveIncrease')}
+        fill={positiveColor}
+        {...props}
+      />
+      <BarChart
+        data={getDataForField(data, 'deathIncrease')}
+        fill={deathsBarColor}
+        {...props}
+      />
+    </div>
+  )
+}
