@@ -70,7 +70,7 @@ const FormInput = props => {
             {label}
           </FormLabel>
           <input {...props} style={{ marginBottom: `0px` }} />
-          <div style={{ marginBottom: `50px` }}>
+          <div className={formStyles.detailContainer}>
             <DetailText>{detailText}</DetailText>
           </div>
         </>
