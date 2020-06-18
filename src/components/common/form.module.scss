@@ -114,7 +114,7 @@
   }
 
   .fieldset {
-    @include margin(64, bottom);
+    @include margin(32, bottom);
     border: 0;
 
     .radio-label,
