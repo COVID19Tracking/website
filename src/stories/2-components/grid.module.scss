@@ -1,3 +1,8 @@
+.rowComponent {
+  background: $color-plum-100;
+  padding: 1rem;
+}
+
 .row {
   @include row();
   background: $color-plum-100;

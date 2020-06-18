@@ -1,6 +1,6 @@
-$small-width: 4;
-$medium-width: 6;
-$large-width: 12;
+$grid-small-width: 4;
+$grid-medium-width: 6;
+$grid-large-width: 12;
 
 @mixin row() {
   box-sizing: border-box;
@@ -17,17 +17,17 @@ $large-width: 12;
   flex: 0 0 auto;
   padding-left: spacer(nth($padding-left, 1));
   padding-right: spacer(nth($padding-right, 1));
-  flex-basis: percentage(nth($width, 1) / $small-width);
-  max-width: percentage(nth($width, 1) / $small-width);
+  flex-basis: percentage(nth($width, 1) / $grid-small-width);
+  max-width: percentage(nth($width, 1) / $grid-small-width);
   @media (min-width: $viewport-md) {
-    flex-basis: percentage(nth($width, 2) / $medium-width);
-    max-width: percentage(nth($width, 2) / $medium-width);
+    flex-basis: percentage(nth($width, 2) / $grid-medium-width);
+    max-width: percentage(nth($width, 2) / $grid-medium-width);
     padding-left: spacer(nth($padding-left, 2));
     padding-right: spacer(nth($padding-right, 2));
   }
   @media (min-width: $viewport-lg) {
-    flex-basis: percentage(nth($width, 3) / $large-width);
-    max-width: percentage(nth($width, 3) / $large-width);
+    flex-basis: percentage(nth($width, 3) / $grid-large-width);
+    max-width: percentage(nth($width, 3) / $grid-large-width);
     padding-left: spacer(nth($padding-left, 3));
     padding-right: spacer(nth($padding-right, 3));
   }

@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import Container from '~components/common/container'
+import { Row, Col } from '~components/common/grid'
 import spacers from './spacers.module.scss'
 import grid from './grid.module.scss'
 
@@ -81,6 +82,29 @@ containerNarrow.story = {
     },
   },
 }
+
+export const grids = () => (
+  <div className={grid.rowComponent}>
+    <Row>
+      <Col width={[1, 3, 6]}>
+        <div className={grid.col}>{`<Col width={[1, 3, 6]}>`}</div>
+      </Col>
+      <Col width={[1, 3, 6]}>
+        <div className={grid.col}>{`<Col width={[1, 3, 6]}>`}</div>
+      </Col>
+    </Row>
+    <Row>
+      <Col width={[2, 3, 8]}>
+        <div className={grid.col}>{`<Col width={[2, 3, 8]}>`}</div>
+      </Col>
+      <Col width={[1, 3, 4]} paddingLeft={[6, 8, 32]}>
+        <div
+          className={grid.col}
+        >{`<Col width={[1, 3, 4]} paddingLeft={[6, 8, 32]}>`}</div>
+      </Col>
+    </Row>
+  </div>
+)
 
 export const gridWithSass = () => (
   <div>
