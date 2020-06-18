@@ -8,6 +8,10 @@ import BlogPostContent from '~components/pages/blog/blog-content'
 
 export default ({ data, path }) => {
   const blogPost = data.contentfulBlogPost
+  const blogImages = {}
+  data.allContentfulContentBlockImage.nodes.forEach(image => {
+    blogImages[image.contentful_id] = image
+  })
   const socialCard = blogPost.socialCard || { description: blogPost.lede.lede }
   return (
     <Layout
@@ -30,6 +34,7 @@ export default ({ data, path }) => {
       />
       <BlogPostContent
         content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
+        images={blogImages}
       />
 
       <hr />
@@ -39,7 +44,7 @@ export default ({ data, path }) => {
 }
 
 export const query = graphql`
-  query($id: String!) {
+  query($id: String!, $blogImages: [String]) {
     contentfulBlogPost(id: { eq: $id }) {
       title
       authors {
@@ -94,6 +99,23 @@ export const query = graphql`
       childContentfulBlogPostBodyTextNode {
         childMarkdownRemark {
           html
+        }
+      }
+    }
+    allContentfulContentBlockImage(
+      filter: { contentful_id: { in: $blogImages } }
+    ) {
+      nodes {
+        contentful_id
+        image {
+          title
+          fluid(maxWidth: 2000, sizes: "4") {
+            aspectRatio
+            sizes
+            src
+            srcSet
+            tracedSVG
+          }
         }
       }
     }
