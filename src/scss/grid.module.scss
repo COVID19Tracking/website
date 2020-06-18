@@ -1,0 +1,34 @@
+$small-width: 4;
+$medium-width: 6;
+$large-width: 12;
+
+@mixin row() {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: spacer(8) * -1;
+  margin-left: spacer(8) * -1;
+}
+
+@mixin col($width, $padding-left: 8 8 8, $padding-right: 8 8 8) {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  padding-left: spacer(nth($padding-left, 1));
+  padding-right: spacer(nth($padding-right, 1));
+  flex-basis: percentage(nth($width, 1) / $small-width);
+  max-width: percentage(nth($width, 1) / $small-width);
+  @media (min-width: $viewport-md) {
+    flex-basis: percentage(nth($width, 2) / $medium-width);
+    max-width: percentage(nth($width, 2) / $medium-width);
+    padding-left: spacer(nth($padding-left, 2));
+    padding-right: spacer(nth($padding-right, 2));
+  }
+  @media (min-width: $viewport-lg) {
+    flex-basis: percentage(nth($width, 3) / $large-width);
+    max-width: percentage(nth($width, 3) / $large-width);
+    padding-left: spacer(nth($padding-left, 3));
+    padding-right: spacer(nth($padding-right, 3));
+  }
+}
