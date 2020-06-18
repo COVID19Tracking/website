@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
+import LongContent from '~components/common/long-content'
 import AuthorFooter from '~components/pages/blog/author-footer'
 import Categories from '~components/pages/blog/categories'
 import CleanSpacing from '~components/utils/clean-spacing'
@@ -67,12 +68,14 @@ export default ({ data, path }) => {
         lede={blogPost.lede.lede}
         featuredImage={blogPost.featuredImage}
       />
-      <div className={blogPostStyles.blogContent}>
-        {documentToReactComponents(
-          blogPost.childContentfulBlogPostBlogContentRichTextNode.json,
-          options,
-        )}
-      </div>
+      <LongContent>
+        <div className={blogPostStyles.blogContent}>
+          {documentToReactComponents(
+            blogPost.childContentfulBlogPostBlogContentRichTextNode.json,
+            options,
+          )}
+        </div>
+      </LongContent>
       <hr />
       <AuthorFooter authors={blogPost.authors} />
     </Layout>
