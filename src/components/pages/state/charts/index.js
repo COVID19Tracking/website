@@ -53,8 +53,6 @@ export default ({ history }) => {
     showTicks: 6,
   }
 
-  // eslint-disable-next-line no-debugger
-  debugger
   return (
     <div className={chartsStyles.chartsContainer}>
       <BarChart
