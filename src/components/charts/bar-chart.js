@@ -40,7 +40,6 @@ const BarChart = ({
     xScaleDomain.length,
     Math.floor(xScaleDomain.length / xTicks),
   )
-  console.log('lineData: ', lineData)
 
   return (
     <div style={{ width, height }}>

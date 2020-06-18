@@ -11,10 +11,7 @@ import {
 
 import chartsStyles from './charts.module.scss'
 
-// should probably increase the efficiency of this to speed up build
-// currently O(n*range) where n is length of history
-// could make it O(2*n) quite easily
-// eslint-disable-next-line no-unused-vars
+// TODO: optimize if this slows down build (use rolling window)
 const dailyAverage = (history, field, range = 7) => {
   const average = []
   history.forEach((row, rowIndex) => {
