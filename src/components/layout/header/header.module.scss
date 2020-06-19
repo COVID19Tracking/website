@@ -20,7 +20,7 @@
 .search-input {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 
   border-radius: 4px;
   z-index: 2;
@@ -48,7 +48,6 @@
   }
 
   @media (min-width: $viewport-lg) {
-    justify-content: center;
     margin-right: 1rem;
     label {
       display: none;
@@ -60,15 +59,14 @@
   }
 
   input {
-    width: 100%;
+    width: 0;
     padding: 0.55rem calc(35px / 2);
 
     font-size: 1rem;
-    font-weight: 400;
-    color: #303030;
+    font-weight: 300;
+    color: #f2f2f2;
     border: 0;
     background: transparent;
-    transition: width 0.05s;
     border-radius: 4px;
 
     &::placeholder {
@@ -79,36 +77,36 @@
     @media (max-width: $viewport-lg) {
       background: $color-plum-500;
       width: 100%;
-      padding: 0.55rem 3rem 0.55rem 5.5rem;
-    }
-
-    &:focus {
       padding: 0.55rem 3rem 0.55rem 5rem;
-      background: #ffffff;
-      border-radius: 4px;
-      box-shadow: 0 0 0 2px $color-honey-200;
-      animation: outline 3s infinite;
+    }
+  }
+}
+.search-input-focused {
+  input {
+    width: 28.5rem;
+    color: #303030;
+    font-weight: 400;
+    padding: 0.55rem 3rem 0.55rem 5rem;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px $color-honey-200;
+    animation: outline 3s infinite;
+    transition: width 0.05s;
 
-      &,
-      &::placeholder {
-        color: $placeholder;
-      }
+    &,
+    &::placeholder {
+      color: $placeholder;
+    }
 
-      @media (min-width: $viewport-lg) {
-        width: 28.5rem;
-      }
-
-      + label {
-        display: inline;
-        @media (max-width: $viewport-lg) {
-          color: $color-plum-500;
-        }
+    + label {
+      display: inline;
+      @media (max-width: $viewport-lg) {
+        color: $color-plum-500;
       }
     }
 
-    width: 100%;
-    @media (min-width: $viewport-lg) {
-      width: 0;
+    @media (max-width: $viewport-lg) {
+      width: 100%;
     }
   }
 }
@@ -310,12 +308,6 @@
     @media (min-width: $viewport-lg) {
       float: none;
     }
-  }
-
-  .hidden {
-    position: absolute !important;
-    top: -9999px !important;
-    left: -9999px !important;
   }
 
   nav {

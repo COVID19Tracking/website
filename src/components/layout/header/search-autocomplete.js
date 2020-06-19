@@ -18,7 +18,7 @@ import {
 } from '~context/search-context'
 import searchAutocompleteStyle from './search-autocomplete.module.scss'
 
-export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
+export default forwardRef(({ mobile, visible, onClick }, popoverRef) => {
   const [searchState, searchDispatch] = useSearch()
   const [showResults, setShowResults] = useState(true)
   const searchInputRef = useRef()
@@ -106,6 +106,7 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
         onKeyDown={event =>
           event.key === 'Enter' && goToResultOrSearch(event.target.value)
         }
+        onClick={!autocompleteHasFocus && onClick}
       />
       {totalHits && showResults ? (
         <ComboboxPopover

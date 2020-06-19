@@ -6,7 +6,6 @@ import { useSearch } from '~context/search-context'
 
 import DevelopmentWarning from './development-warning'
 import PartnershipBanner from './partnership-banner'
-import SearchAutocomplete from './search-autocomplete'
 import HeaderNavigation from './navigation'
 import Container from '~components/common/container'
 import withSearch from '~components/utils/with-search'
@@ -192,30 +191,26 @@ const Header = withSearch(
                     />
                   </Link>
                 </div>
-                <div
-                  className={`${autocompleteHasFocus ? headerStyle.hidden : ''}
-                  ${headerStyle.navContainer}
-                  `}
-                >
-                  <button
-                    className={headerStyle.mobileToggle}
-                    type="button"
-                    aria-expanded={showMobileMenu}
-                    onClick={() => {
-                      setShowMobileMenu(!showMobileMenu)
-                    }}
-                  >
-                    {showMobileMenu ? <>Close</> : <>Menu</>}
-                  </button>
-                  <HeaderNavigation
-                    topNavigation={topNavigation}
-                    subNavigation={subNavigation}
-                  />
-                </div>
+                {(showMobileMenu || !autocompleteHasFocus) && (
+                  <div className={headerStyle.navContainer}>
+                    <button
+                      className={headerStyle.mobileToggle}
+                      type="button"
+                      aria-expanded={showMobileMenu}
+                      onClick={() => {
+                        setShowMobileMenu(!showMobileMenu)
+                      }}
+                    >
+                      {showMobileMenu ? <>Close</> : <>Menu</>}
+                    </button>
+                    <HeaderNavigation
+                      topNavigation={topNavigation}
+                      subNavigation={subNavigation}
+                    />
+                  </div>
+                )}
                 <div className={headerStyle.tools}>
-                  <HeaderSearch>
-                    <SearchAutocomplete />
-                  </HeaderSearch>
+                  <HeaderSearch />
                   <Link to="/get-involved" className={headerStyle.getInvolved}>
                     Get involved
                   </Link>
