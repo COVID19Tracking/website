@@ -12,6 +12,14 @@ There is a single "space" in Contentful: **Website Content**.
 
 Since some pages are a mix of Contentful snippets and other elements, finding what-goes-where is sometimes confusing. To find all editable parts of a page on the website, add `?edit` to the end of the URL and blue "Edit this content" buttons will appear over all editable areas of the page.
 
+## Previewing changes
+
+If you want to preview a piece of content, you can edit or create content in a separate "preview" section of Contentful. Any content published in this preview environment will not be published to the covidtracking.com website, but instead be published to [https://contentful-preview--upbeat-lovelace-3e9fff.netlify.app/](https://contentful-preview--upbeat-lovelace-3e9fff.netlify.app/).
+
+- When you are in Contentful, you can click the menu in the upper-left, then the teensy arrow near "Website content" to view all environments in Contentful. Select "Preview" to switch to the preview environment.
+- Anything you do in preview will NOT show up on the main website. However, they will trigger a test build of the website.
+- The upper-left will show you which environment you are in. Only the green "master" environment is content that will make it to covidtracking.com when it is published.
+
 ## Managing content
 
 You manage content in the **Content** tab on top of the screen. This will list all the content on the site. You can search and filter to find existing content. To add content, use the **Add a...** button on the upper-right.
@@ -39,17 +47,29 @@ Whenever you Publish or Unpublish/archive a piece of content, the website is ask
 To edit blog posts, select the Content tab on top of the screen, you’ll see a list of all content on the website, and can filter by just Blog posts.
 
 <div style={{padding: '1rem', background: '#efbbab'}}>
-<strong>IMPORTANT:</strong> The website always expects there to be at least one blog post. If you unpublish all of them, the website won’t build. As of the start of this project, there is a boilerplate blog post you can edit or remove after publishing your first “real” post.
+<strong>IMPORTANT:</strong> The website always expects there to be at least one blog post. If you unpublish all of them, the website won’t build.
 </div>
 
 Blog posts have the following fields:
 
 - Title - The title
-- Teaser - Used for the blog listing page, feel free to copy/paste the first paragraph, or fine tune the teaser.
-- Body - The blog content
-- Slug - Slug
+- Featured image - This image is displayed on top of the blog post, within the lede.
+- Lede - A short sentence summarizing the blog post. Will be used in social cards, blog listings, and on top of the post.
+- Author(s) - You can related one or more "Author" content types to a blog post. Authors should at least have a name and headshot.
+- Body (for search) - Because our blog post content are complicated structures, pasting in the raw text of the blog post makes it easier for our search index.
+- Blog content - A rich text field that allows embedding other content. Covered below.
+- Slug - The URL of this blog post
+- Publish date - The date to show on the blog post.
+- Related blog posts - You can relate a post to others, and the related posts will show below this blog post.
+- Categories - One or more blog categories.
+- Social card - The [social card](#social-cards) associated with this blog post. If not used, the lede will be used instead.
 
-The last updated date of the content is the date that appears on the blog page.
+### Body field Rich text
+
+The body field has a familiar layout for setting text to bold, creating links, and adding headlines. You can also embed other pieces of content within the blog post. These include:
+
+- Image - An image with an optional caption.
+- Table - A table. To create your table, you will need to paste in the table in [Markdown format](https://www.tablesgenerator.com/markdown_tables).
 
 ## Managing pages
 
@@ -84,3 +104,11 @@ When you search for Snippets, you will see they have descriptive titles. Each sn
 - Content - The snippet content.
 
 New snippets must be assigned by a developer to a place on the website. Unlike blog posts, pages, or navigation, any new snippets do not appear on the website automatically. Edits to snippets get pushed to the website like all the rest of the content.
+
+## Social cards
+
+Social cards define what people see when they paste in a URL to our website in social platforms. They have an associated image, title, and description.
+
+For blog posts and pages, you can create a new social card to add a better sharing experience for that post. Theese are not required, and if not used, a generic card will be created for your page.
+
+To create a new social card, select "Create new entry" under the "Social card" field of your post. You will need to upload an image of a specific dimension, or re-use one of our already uploaded card images.
