@@ -129,6 +129,7 @@
   vertical-align: top;
   padding: 0.4rem 0.5rem;
   transition: all 0.2s;
+  height: 35px; // match the search box height
 
   font-weight: bold;
   background: $color-honey-300;
@@ -259,9 +260,9 @@
     background: transparent;
     border: none;
     font-weight: bold;
-    margin-top: 1.5rem;
     color: white;
     cursor: pointer;
+    margin-top: 0;
     @media (min-width: $viewport-lg) {
       display: none;
     }
@@ -285,10 +286,9 @@
   .nav-container {
     display: flex;
     float: right;
-    padding-top: 1rem;
+    padding-top: 0;
     @media (min-width: $viewport-lg) {
       float: none;
-      padding-top: 0;
     }
   }
 
@@ -324,7 +324,7 @@
         margin-bottom: 0.5625rem;
         @media (min-width: $viewport-lg) {
           display: inline-block;
-          margin-right: 1.5em;
+          margin-right: 2em;
           margin-bottom: 0;
           line-height: 1;
           position: relative;

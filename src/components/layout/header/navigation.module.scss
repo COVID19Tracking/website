@@ -84,11 +84,12 @@
   background-color: #ffffff;
   min-width: 15em;
   padding: 0.25em;
+  color: $color-plum-700;
   a.menu-link,
   a.menu-link[aria-current] {
-    color: $color-plum-600;
+    color: $color-plum-700;
     display: block;
-    padding: 0.5em 1em;
+    padding: 0.5em;
     cursor: pointer;
     &:hover,
     &[data-selected],
