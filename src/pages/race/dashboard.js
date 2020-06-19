@@ -1,8 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import smartypants from 'smartypants'
 import Layout from '~components/layout'
+import Container from '~components/common/container'
 import StateNav from '~components/common/state-nav'
-import Hero from '~components/pages/race/dashboard/hero'
 import States from '~components/pages/race/dashboard/states'
 import LongContent from '~components/common/long-content'
 import UsOverview from '~components/pages/race/dashboard/us-overview'
@@ -24,12 +25,20 @@ export default ({ data }) => {
       socialCard={data.contentfulSocialCard}
     >
       <LongContent>
-        <Hero
-          ledeContent={
-            data.raceHeroSnippet.childContentfulSnippetContentTextNode
-              .childMarkdownRemark.html
-          }
-        />
+        <Container narrow>
+          <h1>
+            Here&#8217;s the latest race and ethnicity data from every state and
+            territory that reports it.
+          </h1>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: smartypants(
+                data.raceHeroSnippet.childContentfulSnippetContentTextNode
+                  .childMarkdownRemark.html,
+              ),
+            }}
+          />
+        </Container>
         <UsOverview
           statesCasesCount={data.covidRaceDataHomepage.statesReportingCases}
           statesDeathsCount={data.covidRaceDataHomepage.statesReportingDeaths}
