@@ -1,3 +1,12 @@
+@mixin padding-children() {
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
 .row {
   @include row();
 }
@@ -7,31 +16,38 @@
   flex: 0 0 auto;
   padding-left: spacer(8);
   padding-right: spacer(8);
+  @include padding-children();
   @each $name, $value in $spacers {
     &.padding-left-small-#{$name} {
       padding-left: spacer($name);
+      @include padding-children();
     }
     &.padding-left-medium-#{$name} {
       @media (min-width: $viewport-md) {
         padding-left: spacer($name);
+        @include padding-children();
       }
     }
     &.padding-left-large-#{$name} {
       @media (min-width: $viewport-lg) {
         padding-left: spacer($name);
+        @include padding-children();
       }
     }
     &.padding-right-small-#{$name} {
       padding-right: spacer($name);
+      @include padding-children();
     }
     &.padding-right-medium-#{$name} {
       @media (min-width: $viewport-md) {
         padding-right: spacer($name);
+        @include padding-children();
       }
     }
     &.padding-right-large-#{$name} {
       @media (min-width: $viewport-lg) {
         padding-right: spacer($name);
+        @include padding-children();
       }
     }
   }
