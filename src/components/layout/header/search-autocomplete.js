@@ -17,7 +17,6 @@ import {
   partitionHitsByRelevance,
 } from '~context/search-context'
 import searchAutocompleteStyle from './search-autocomplete.module.scss'
-import headerStyle from './header.module.scss'
 
 export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
   const [searchState, searchDispatch] = useSearch()
@@ -97,12 +96,6 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
 
   return (
     <Combobox>
-      <label
-        htmlFor={id}
-        className={autocompleteHasFocus ? headerStyle.labelFocus : ''}
-      >
-        Search
-      </label>
       <ComboboxInput
         id={id}
         ref={searchInputRef}
@@ -166,6 +159,7 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
       ) : (
         false
       )}
+      <label htmlFor={id}>Search</label>
     </Combobox>
   )
 })

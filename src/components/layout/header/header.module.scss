@@ -38,6 +38,7 @@
     transform: translateY(-50%);
 
     font-weight: bold;
+    font-size: 13px;
     text-transform: uppercase;
     color: $color-plum-500;
 
@@ -58,21 +59,15 @@
     width: 100%;
   }
 
-  .label-focus {
-    display: inline;
-    @media (max-width: $viewport-lg) {
-      color: $color-plum-500;
-    }
-  }
-
   input {
     width: 100%;
     padding: 0.55rem calc(35px / 2);
 
-    font-weight: bold;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #303030;
     border: 0;
     background: transparent;
-    color: #f2f2f2;
     transition: width 0.05s;
     border-radius: 4px;
 
@@ -84,14 +79,15 @@
     @media (max-width: $viewport-lg) {
       background: $color-plum-500;
       width: 100%;
-      padding: 0.55rem 3rem 0.55rem 5rem;
+      padding: 0.55rem 3rem 0.55rem 5.5rem;
     }
 
     &:focus {
       padding: 0.55rem 3rem 0.55rem 5rem;
       background: #ffffff;
-      outline: solid 4px $color-plum-200;
-      outline-offset: -1px;
+      border-radius: 4px;
+      box-shadow: 0 0 0 2px $color-honey-200;
+      animation: outline 3s infinite;
 
       &,
       &::placeholder {
@@ -101,6 +97,13 @@
       @media (min-width: $viewport-lg) {
         width: 28.5rem;
       }
+
+      + label {
+        display: inline;
+        @media (max-width: $viewport-lg) {
+          color: $color-plum-500;
+        }
+      }
     }
 
     width: 100%;
@@ -108,6 +111,23 @@
       width: 0;
     }
   }
+}
+
+@-webkit-keyframes outline {
+  0%   { box-shadow: 0 0 0 2px $color-honey-700 }
+  50% { box-shadow: 0 0 0 2px $color-honey-200; }
+}
+@-moz-keyframes outline {
+  0%   { box-shadow: 0 0 0 2px $color-honey-700 }
+  50% { box-shadow: 0 0 0 2px $color-honey-200; }
+}
+@-o-keyframes outline {
+  0%   { box-shadow: 0 0 0 2px $color-honey-700 }
+  50% { box-shadow: 0 0 0 2px $color-honey-200; }
+}
+@keyframes outline {
+  0%   { box-shadow: 0 0 0 2px $color-honey-700 }
+  50% { box-shadow: 0 0 0 2px $color-honey-200; }
 }
 
 .search-submit {
@@ -355,6 +375,7 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
+    transition: display 150ms;
 
     margin-top: 1.5rem;
   }
