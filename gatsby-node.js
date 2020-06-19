@@ -53,6 +53,9 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           id
           slug
+          childContentfulBlogPostBlogContentRichTextNode {
+            json
+          }
         }
       }
       allContentfulBlogCategory {
@@ -108,10 +111,21 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   result.data.allContentfulBlogPost.nodes.forEach(node => {
+    const blogImages = []
+    node.childContentfulBlogPostBlogContentRichTextNode.json.content
+      .filter(
+        block =>
+          block.nodeType === 'embedded-entry-block' &&
+          block.data.target.sys.contentType.sys.id === 'contentBlockImage',
+      )
+      .forEach(image => {
+        blogImages.push(image.data.target.sys.contentful_id)
+      })
+
     createPage({
       path: `/blog/${node.slug}`,
       component: path.resolve(`./src/templates/blog-post.js`),
-      context: node,
+      context: { ...node, blogImages },
     })
   })
 
