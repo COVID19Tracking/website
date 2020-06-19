@@ -4,6 +4,18 @@ const scssFiles = danger.git.modified_files
   .concat(danger.git.created_files)
   .filter(file => file.search(/src\/(.*).scss/) > -1)
 
+const parseCssLine = line => {
+  if (line.search(':') === -1) {
+    return false
+  }
+  const items = line.split(':')
+  const values = line[1].split(' ')
+  return {
+    name: items[0],
+    values,
+  }
+}
+
 const checkFiles = () => {
   return new Promise((resolve, reject) => {
     const scssErrors = {
@@ -19,11 +31,26 @@ const checkFiles = () => {
               change.type === 'add' &&
               change.content.search('ignore-style-rule') === -1
             ) {
+              const parsedLine = parseCssLine(change.content)
+              if (!parsedLine) {
+                return
+              }
+              const { name, values } = parsedLine
               if (
-                (change.content.search('margin') > -1 ||
-                  change.content.search('padding') > -1) &&
-                change.content.search('spacer') === -1 &&
-                change.content.search('toRem') === -1
+                (name.search('margin') > -1 || name.search('padding') > -1) &&
+                values.filter(value => {
+                  if (value === 'auto') {
+                    return false
+                  }
+                  if (
+                    value.search('px') ||
+                    value.search('%') ||
+                    value.search('rem')
+                  ) {
+                    return true
+                  }
+                  return false
+                }).length > 0
               ) {
                 // Capture any margin or padding that doesn't use spacer
                 if (typeof scssErrors.noSpacing[file] === 'undefined') {
@@ -35,8 +62,7 @@ const checkFiles = () => {
                 })
               }
               if (
-                (change.content.search('margin') > -1 ||
-                  change.content.search('padding') > -1) &&
+                (name.search('margin') > -1 || name.search('padding') > -1) &&
                 change.content.search('toRem') > -1
               ) {
                 // Capture any margin or padding that uses toRem
@@ -48,7 +74,7 @@ const checkFiles = () => {
                   content: change.content,
                 })
               }
-              if (change.content.search('font-size') > -1) {
+              if (name == 'font-size') {
                 // Capture any font-size
                 if (typeof scssErrors.fontSize[file] === 'undefined') {
                   scssErrors.fontSize[file] = []
