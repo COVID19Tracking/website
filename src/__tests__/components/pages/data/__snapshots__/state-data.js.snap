@@ -349,16 +349,24 @@ Array [
     </li>
   </ul>,
   <div
-    className="content"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "<p>Negatives = (Totals - Positives) 
+    className="container container"
+  >
+    <div
+      className="narrow"
+    >
+      <div
+        className="content"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<p>Negatives = (Totals - Positives) 
 Positives occasionally update before totals do; do not revise negatives down, keep the last calculated negative.
 Last Updated (Local Time) = (current date + time = 00:00)</p>
 ",
-      }
-    }
-  />,
+          }
+        }
+      />
+    </div>
+  </div>,
   <a
     className="state-top-link topLink"
     href="#reach-skip-nav"
