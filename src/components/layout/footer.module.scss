@@ -105,7 +105,7 @@ hr.divider {
 }
 
 .copyright {
-  @include padding(16, bottom);
+  @include padding(32, bottom);
   @include padding(8, top);
 
   @include row();
@@ -118,6 +118,7 @@ hr.divider {
     a {
       font-weight: normal;
       display: inline;
+      text-decoration: underline;
     }
   }
 
