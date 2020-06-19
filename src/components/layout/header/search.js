@@ -10,6 +10,15 @@ export default ({ mobile, visible, popoverRef }) => {
   const { query, autocompleteHasFocus } = searchState
   const searchRef = useRef()
 
+  function handleBlur() {
+    if (!document.hasFocus()) {
+      searchDispatch({
+        type: 'setAutocompleteFocus',
+        hasFocus: false,
+      })
+    }
+  }
+
   function handleOutsideClick(e) {
     if (searchRef.current && searchRef.current.contains(e.target)) {
       return
@@ -46,6 +55,7 @@ export default ({ mobile, visible, popoverRef }) => {
       className={`${headerStyle.searchInput} ${
         autocompleteHasFocus ? headerStyle.searchInputFocused : ''
       }`}
+      onBlur={handleBlur}
     >
       <SearchAutocomplete
         ref={popoverRef}
