@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { Col, Row } from '~components/common/grid'
 import { FormatNumber } from '~components/utils/format'
 import Paragraph from '~components/common/landing-page/paragraph'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
@@ -27,27 +28,32 @@ export default () => {
         territory.
       </Paragraph>
       <div className={latestTotalsStyles.wrapper}>
+        <span className={latestTotalsStyles.ctaLink}>
+          <CtaLink to="/data">See all data</CtaLink>
+        </span>
         <div className={latestTotalsStyles.headerContainer}>
           <h2>Latest totals:</h2>
         </div>
-        <div className={latestTotalsStyles.allTotals}>
-          <Total
-            label="Total test results"
-            number={<FormatNumber number={totals.posNeg} />}
-          />
-          <Total
-            label="Cases"
-            number={<FormatNumber number={totals.positive} />}
-          />
-          <Total
-            label="Deaths"
-            number={<FormatNumber number={totals.death} />}
-          />
-
-          <span className={latestTotalsStyles.ctaLink}>
-            <CtaLink to="/data">See all data</CtaLink>
-          </span>
-        </div>
+        <Row className={latestTotalsStyles.allTotals}>
+          <Col width={[4, 6, 4]}>
+            <Total
+              label="Total test results"
+              number={<FormatNumber number={totals.posNeg} />}
+            />
+          </Col>
+          <Col width={[4, 6, 4]}>
+            <Total
+              label="Cases"
+              number={<FormatNumber number={totals.positive} />}
+            />
+          </Col>
+          <Col width={[4, 6, 4]}>
+            <Total
+              label="Deaths"
+              number={<FormatNumber number={totals.death} />}
+            />
+          </Col>
+        </Row>
       </div>
     </div>
   )
