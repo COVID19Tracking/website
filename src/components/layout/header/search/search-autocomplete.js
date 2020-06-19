@@ -7,6 +7,7 @@ import {
   ComboboxList,
   ComboboxOption,
 } from '@reach/combobox'
+import classNames from 'classnames'
 import { navigate } from 'gatsby'
 import '@reach/combobox/styles.css'
 import {
@@ -16,7 +17,7 @@ import {
   getSanitizedSlug,
   partitionHitsByRelevance,
 } from '~context/search-context'
-import searchAutocompleteStyle from './search-autocomplete.module.scss'
+import styles from './search-autocomplete.module.scss'
 
 export default forwardRef(({ mobile, visible, onClick }, popoverRef) => {
   const [searchState, searchDispatch] = useSearch()
@@ -99,6 +100,9 @@ export default forwardRef(({ mobile, visible, onClick }, popoverRef) => {
       <ComboboxInput
         id={id}
         ref={searchInputRef}
+        className={classNames(styles.searchInput, {
+          [styles.searchInputFocused]: autocompleteHasFocus,
+        })}
         autoComplete="off"
         onChange={event => {
           setQuery(event.currentTarget.value)
@@ -108,24 +112,20 @@ export default forwardRef(({ mobile, visible, onClick }, popoverRef) => {
         }
         onClick={!autocompleteHasFocus && onClick}
       />
-      <label htmlFor={id}>Search</label>
+      <label htmlFor={id} className={styles.searchLabel}>
+        Search
+      </label>
       {totalHits && showResults ? (
         <ComboboxPopover
           ref={popoverRef}
           portal={false}
           id="search-results-popover"
-          className={searchAutocompleteStyle.popover}
+          className={styles.popover}
         >
           {totalHits > 0 ? (
-            <ComboboxList
-              aria-label="Results"
-              className={searchAutocompleteStyle.popoverList}
-            >
+            <ComboboxList aria-label="Results">
               {bestHits.length > 0 && (
-                <li
-                  tabIndex="-1"
-                  className={searchAutocompleteStyle.popoverSeparator}
-                >
+                <li tabIndex="-1" className={styles.popoverSeparator}>
                   Best results
                 </li>
               )}
@@ -137,10 +137,7 @@ export default forwardRef(({ mobile, visible, onClick }, popoverRef) => {
                 />
               ))}
               {otherHits.length > 0 && (
-                <li
-                  tabIndex="-1"
-                  className={searchAutocompleteStyle.popoverSeparator}
-                >
+                <li tabIndex="-1" className={styles.popoverSeparator}>
                   Other results
                 </li>
               )}

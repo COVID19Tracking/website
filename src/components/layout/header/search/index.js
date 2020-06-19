@@ -3,7 +3,7 @@ import { navigate } from 'gatsby'
 import { useSearch } from '~context/search-context'
 import SearchAutocomplete from './search-autocomplete'
 import SearchButton from './search-button'
-import headerStyle from './header.module.scss'
+import styles from './search.module.scss'
 
 export default ({ mobile, visible, popoverRef }) => {
   const [searchState, searchDispatch] = useSearch()
@@ -50,13 +50,7 @@ export default ({ mobile, visible, popoverRef }) => {
   }
 
   return (
-    <div
-      ref={searchRef}
-      className={`${headerStyle.searchInput} ${
-        autocompleteHasFocus ? headerStyle.searchInputFocused : ''
-      }`}
-      onBlur={handleBlur}
-    >
+    <div ref={searchRef} className={styles.search} onBlur={handleBlur}>
       <SearchAutocomplete
         ref={popoverRef}
         mobile={mobile}
@@ -64,7 +58,7 @@ export default ({ mobile, visible, popoverRef }) => {
         onClick={toggleFocusOrQuery}
       />
 
-      <SearchButton toggleFocusOrQuery={toggleFocusOrQuery} />
+      <SearchButton onClick={toggleFocusOrQuery} />
     </div>
   )
 }
