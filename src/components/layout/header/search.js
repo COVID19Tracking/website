@@ -1,15 +1,23 @@
 import React, { useRef } from 'react'
 import { navigate } from 'gatsby'
 import { useSearch } from '~context/search-context'
+import SearchAutocomplete from './search-autocomplete'
+import SearchButton from './search-button'
 import headerStyle from './header.module.scss'
 
-import searchIcon from '~images/icons/search.svg'
-import searchIconInvert from '~images/icons/search-inverted.svg'
-
-export default ({ children }) => {
+export default ({ mobile, visible, popoverRef }) => {
   const [searchState, searchDispatch] = useSearch()
   const { query, autocompleteHasFocus } = searchState
   const searchRef = useRef()
+
+  function handleBlur() {
+    if (!document.hasFocus()) {
+      searchDispatch({
+        type: 'setAutocompleteFocus',
+        hasFocus: false,
+      })
+    }
+  }
 
   function handleOutsideClick(e) {
     if (searchRef.current && searchRef.current.contains(e.target)) {
@@ -29,6 +37,10 @@ export default ({ children }) => {
       navigate(`/search?q=${query}`)
     }
 
+    if (mobile && autocompleteHasFocus) {
+      return
+    }
+
     searchDispatch({
       type: 'setAutocompleteFocus',
       hasFocus: !autocompleteHasFocus,
@@ -38,21 +50,21 @@ export default ({ children }) => {
   }
 
   return (
-    <div ref={searchRef} className={headerStyle.searchInput}>
-      {children}
-
-      <button
-        type="button"
-        className={headerStyle.searchSubmit}
-        aria-label="Submit search"
+    <div
+      ref={searchRef}
+      className={`${headerStyle.searchInput} ${
+        autocompleteHasFocus ? headerStyle.searchInputFocused : ''
+      }`}
+      onBlur={handleBlur}
+    >
+      <SearchAutocomplete
+        ref={popoverRef}
+        mobile={mobile}
+        visible={visible}
         onClick={toggleFocusOrQuery}
-      >
-        <img
-          src={autocompleteHasFocus ? searchIconInvert : searchIcon}
-          alt=""
-          aria-hidden="true"
-        />
-      </button>
+      />
+
+      <SearchButton toggleFocusOrQuery={toggleFocusOrQuery} />
     </div>
   )
 }

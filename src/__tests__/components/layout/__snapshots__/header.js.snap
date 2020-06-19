@@ -27,7 +27,8 @@ exports[`Components : Layout : Header renders correctly 1`] = `
         }
       >
         <div
-          className="searchInput"
+          className="searchInput "
+          onBlur={[Function]}
         >
           <div
             data-reach-combobox=""
@@ -257,9 +258,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
           </a>
         </div>
         <div
-          className="
-                  navContainer
-                  "
+          className="navContainer"
         >
           <button
             aria-expanded={false}
@@ -404,7 +403,8 @@ exports[`Components : Layout : Header renders correctly 1`] = `
           className="tools"
         >
           <div
-            className="searchInput"
+            className="searchInput "
+            onBlur={[Function]}
           >
             <div
               data-reach-combobox=""
@@ -522,7 +522,8 @@ exports[`Components : Layout : Header renders correctly 2`] = `
         }
       >
         <div
-          className="searchInput"
+          className="searchInput "
+          onBlur={[Function]}
         >
           <div
             data-reach-combobox=""
@@ -752,9 +753,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
           </a>
         </div>
         <div
-          className="
-                  navContainer
-                  "
+          className="navContainer"
         >
           <button
             aria-expanded={false}
@@ -899,7 +898,8 @@ exports[`Components : Layout : Header renders correctly 2`] = `
           className="tools"
         >
           <div
-            className="searchInput"
+            className="searchInput "
+            onBlur={[Function]}
           >
             <div
               data-reach-combobox=""
@@ -1017,7 +1017,8 @@ exports[`Components : Layout : Header renders correctly 3`] = `
         }
       >
         <div
-          className="searchInput"
+          className="searchInput "
+          onBlur={[Function]}
         >
           <div
             data-reach-combobox=""
@@ -1247,9 +1248,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
           </a>
         </div>
         <div
-          className="
-                  navContainer
-                  "
+          className="navContainer"
         >
           <button
             aria-expanded={false}
@@ -1394,7 +1393,8 @@ exports[`Components : Layout : Header renders correctly 3`] = `
           className="tools"
         >
           <div
-            className="searchInput"
+            className="searchInput "
+            onBlur={[Function]}
           >
             <div
               data-reach-combobox=""
@@ -1516,7 +1516,8 @@ exports[`Components : Layout : Header renders correctly 4`] = `
         }
       >
         <div
-          className="searchInput"
+          className="searchInput "
+          onBlur={[Function]}
         >
           <div
             data-reach-combobox=""
@@ -1746,9 +1747,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
           </a>
         </div>
         <div
-          className="
-                  navContainer
-                  "
+          className="navContainer"
         >
           <button
             aria-expanded={false}
@@ -1893,7 +1892,8 @@ exports[`Components : Layout : Header renders correctly 4`] = `
           className="tools"
         >
           <div
-            className="searchInput"
+            className="searchInput "
+            onBlur={[Function]}
           >
             <div
               data-reach-combobox=""
