@@ -108,6 +108,7 @@ export default forwardRef(({ mobile, visible, onClick }, popoverRef) => {
         }
         onClick={!autocompleteHasFocus && onClick}
       />
+      <label htmlFor={id}>Search</label>
       {totalHits && showResults ? (
         <ComboboxPopover
           ref={popoverRef}
@@ -160,7 +161,6 @@ export default forwardRef(({ mobile, visible, onClick }, popoverRef) => {
       ) : (
         false
       )}
-      <label htmlFor={id}>Search</label>
     </Combobox>
   )
 })
