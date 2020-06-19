@@ -37,7 +37,7 @@
   .project-logo {
     width: toRem(176);
     margin: 0;
-    margin-right: 1rem;
+    @include margin(16, right);
   }
 }
 
