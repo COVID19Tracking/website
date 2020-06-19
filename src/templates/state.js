@@ -66,10 +66,12 @@ export const query = graphql`
         totalTestResults
         totalTestResultsIncrease
         positive
+        positiveIncrease
         pending
         negative
         hospitalized
         death
+        deathIncrease
         date
       }
     }
