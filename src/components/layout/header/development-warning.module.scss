@@ -1,9 +1,7 @@
-@import '~scss/colors.module.scss';
-
 .development-warning {
   color: white;
   background: $color-infobox-alert-dark;
-  padding: 1rem;
+  padding: spacer(16);
   a {
     color: white;
   }

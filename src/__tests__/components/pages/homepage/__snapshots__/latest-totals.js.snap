@@ -49,7 +49,7 @@ exports[`Components : Pages : Homepage : Latest Totals renders correctly 1`] = `
         <div
           className="label"
         >
-          Positive cases
+          Cases
         </div>
       </div>
       <div

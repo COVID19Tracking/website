@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import DetailText from '~components/common/detail-text'
 import ContentfulContent from '~components/common/contentful-content'
+import MarkdownContent from '~components/common/markdown-content'
 import Layout from '~components/layout'
 import StateList from '~components/pages/data/state-list'
 import StatesNoScriptNav from '~components/pages/data/state-nav-no-script'
@@ -23,18 +24,14 @@ export default ({ data }) => {
       navigation={data.contentfulNavigationGroup.pages}
     >
       <ContentfulContent
-        className="module-content"
         content={data.dataPreamble.content.childMarkdownRemark.html}
         id={data.dataPreamble.contentful_id}
       />
       <SyncInfobox />
-      <SummaryTable data={data.covidUs} showOutcomes={false} />
+      <SummaryTable data={data.covidUs} showOutcomes={false} showFootnote />
       <DetailText>
-        <span
-          className="module-content"
-          dangerouslySetInnerHTML={{
-            __html: data.dataSummaryFootnote.content.childMarkdownRemark.html,
-          }}
+        <MarkdownContent
+          html={data.dataSummaryFootnote.content.childMarkdownRemark.html}
         />
       </DetailText>
       <StatesNav title="Totals by state" stateList={stateNavList} />

@@ -4,36 +4,35 @@ import { Meta } from '@storybook/addon-docs/blocks'
 
 # Styling
 
-We use a simple SASS include model for applying style to the website.
+We use [SASS Modules](https://www.gatsbyjs.org/docs/css-modules/) to keep our styles scoped to components and prevent global styles. Individual components should have their own file, and that file should mirror that component's place in the directory. So, for example, a component in `/src/components/common/beetle.js` should have a SCSS file at `/src/scss/components/common/beetle.css`.
 
-## Typography
+If you create a `margin`, `padding`, or `font-size` that does not use our pre-defined spacing or type mixins, your PR will be flagged. To prevent this, add `// ignore-style-rule` to the end of the style declarataion:
 
-All font family declarations, line height, and header font balance is defined using [Typography.js](https://kyleamathews.github.io/typography.js/). The typographic theme can be found in `/src/utilities/typography.js`.
-
-Because of this **it's important** to not try and override any font family declarations within separate SCSS files.
-
-## Sass Files
-
-All our styles are in [Sass](https://sass-lang.com/) files located in `/src/scss`. There are several important files to note:
-
-- `colors.module.scss` - Variables defining our color palette. Use these instead of hex codes in separate modules.
-- `breakpoints.module.scss` - Breakpoints for all our viewports.
-
-To import these variables into your SCSS file, just use the normal `@import 'file.scss';` declaration.
-
-Individual components should have their own file, and that file should mirror that component's place in the directory. So, for example, a component in `/src/components/common/beetle.js` should have a SCSS file at `/src/scss/components/common/beetle.css`.
-
-You can include any SCSS file into a component using a direct component. For example, in our file `/src/components/common/beetle.js` we can just import like any Javascript module:
-
-```javascript
-import '~components/common/beetle.scss'
+```
+margin: 45px; // ignore-style-rule
 ```
 
-## Class modules
+## Spacing
 
-We **do not** automatically import all the SCSS files. Gatsby builds a custom CSS file from all the SCSS files that are imported, so that we have the smallest CSS size possible. This means you have to explicitly include any style files that are needed for your component to work.
+Avoid using absolute margin and padding in your style. Instead, use our pre-defined spacer mixins:
 
-To avoid namespace collisions, you should always use a module-based syntax for your class names, i.e. `.beetle-something`. We're working on formalizing this more in the future, but just preface your class names for now.
+```
+margin: spacer(4)
+```
+
+The definitions of the type sizes are in `src/scss/helpers.module.scss` and in the [website documentation](https://covid19tracking.github.io/website-docs/?path=/story/layout--container).
+
+
+## Type sizing
+
+Avoid using absolute font sizes in your style. Instead, use our pre-defined font size mixin:
+
+```
+@include type-size(200);
+```
+
+The definitions of the type sizes are in `src/scss/type.module.scss` and in the [website documentation](https://covid19tracking.github.io/website-docs/?path=/story/typography--link).
+
 
 ## Utility classes
 

@@ -1,15 +1,14 @@
-@import '~scss/colors.module.scss';
-
 .byline-base {
   display: flex;
   align-items: center;
-  font-size: 22px;
-  font-size: 1.375rem;
+  @include type-size(400);
   line-height: 1.5;
+
   .headshot-container {
-    margin-right: 12px;
+    margin-right: spacer(16);
     display: inline-flex;
     align-items: flex-start;
+
     img {
       max-width: 47px;
       border-radius: 50%;
@@ -24,8 +23,8 @@
     white-space: pre;
   }
   * {
-    margin: 0.5rem 0;
-    font-size: 1.125rem;
+    margin: spacer(8) 0;
+    @include type-size(300);
     display: inline;
   }
   .author-inner {
@@ -39,7 +38,7 @@
 
 .byline {
   @extend .byline-base;
-  margin: 16px 0;
+  margin: spacer(16) 0;
 
   .byline-text {
     margin: 0;
@@ -48,16 +47,16 @@
 
 .byline--small-margin {
   @extend .byline-base;
-  margin: 8px 0;
+  margin: spacer(8) 0;
   p {
-    margin-bottom: 8px;
+    margin-bottom: spacer(8);
   }
 }
 
 .byline--small-margin--image {
   @extend .byline-base;
   margin-top: 0;
-  margin-bottom: 8px;
+  margin-bottom: spacer(8);
   .byline-text {
     margin: 0;
   }
@@ -69,8 +68,7 @@
 }
 
 .one-line-byline {
-  font-size: 16px;
-  font-size: 1rem;
+  @include type-size(100);
   line-height: 2.5;
   .author::after {
     content: '  \2022  ';

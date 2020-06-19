@@ -1,18 +1,71 @@
-@import '~scss/breakpoints.module.scss';
-
 .container {
-  max-width: 1000px;
-  margin-right: 1.5rem;
-  margin-left: 1.5rem;
+  max-width: toRem(1000);
+  @include margin(24, left right);
+
   @media (min-width: $viewport-md) {
-    margin-left: 3rem;
-    margin-right: 3rem;
+    @include margin(32, left right);
   }
   @media (min-width: $viewport-lg) {
     margin-left: auto;
     margin-right: auto;
   }
   @media (min-width: $viewport-xl) {
-    max-width: 1140px;
+    max-width: toRem(1140);
+  }
+}
+
+/*
+
+Layout blocks
+
+*/
+
+@media (min-width: $viewport-md) {
+  .content-and-rail {
+    display: flex;
+    justify-content: space-between;
+  }
+  .content-primary {
+    flex: 0 1 55%;
+  }
+  .content-secondary {
+    flex: 0 1 40%;
+  }
+}
+
+@media (min-width: $viewport-lg) {
+  .content-primary {
+    flex-basis: 66%;
+  }
+  .content-secondary {
+    flex-basis: 32%;
+  }
+}
+
+/*
+
+Typography
+
+*/
+.content-and-rail {
+  .content-primary {
+    @include type-size(300);
+    h2:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.content-primary {
+  @media (min-width: $viewport-lg) {
+    @include type-size(300);
+  }
+}
+
+.content-primary {
+  ul,
+  ol,
+  p {
+    margin: 0 0 spacer(24);
   }
 }

@@ -1,12 +1,9 @@
-@import '~scss/colors.module.scss';
-@import '~scss/breakpoints.module.scss';
-
-.blog-content {
+.content {
   blockquote {
     color: $color-plum-600;
     border-left: 2px solid $color-plum-600;
-    padding-left: 1.5rem;
-    margin-left: 0.25rem;
+    padding-left: spacer(24);
+    margin-left: spacer(4);
     &::before {
       content: '“';
     }

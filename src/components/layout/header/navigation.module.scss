@@ -1,8 +1,3 @@
-@import '~scss/colors.module.scss';
-@import '~scss/links.module.scss';
-@import '~scss/breakpoints.module.scss';
-@import '~scss/links.module.scss';
-
 .caret {
   appearance: none;
   background: none;
@@ -14,7 +9,7 @@
   }
   border: none;
   box-shadow: none;
-  margin-left: 7px;
+  margin-left: spacer(8);
   position: relative;
   z-index: 1;
   cursor: pointer;
@@ -24,11 +19,11 @@
     outline: 2px dotted white;
   }
   @media (any-hover: hover) {
-    width: 24px;
-    height: 24px;
+    width: spacer(24);
+    height: spacer(24);
     margin-left: 0.5rem;
     svg {
-      margin-bottom: 3px;
+      margin-bottom: spacer(4);
     }
   }
 
@@ -83,13 +78,13 @@
   text-align: left;
   background-color: #ffffff;
   min-width: 15em;
-  padding: 0.25em;
+  padding: spacer(4);
   color: $color-plum-700;
   a.menu-link,
   a.menu-link[aria-current] {
     color: $color-plum-700;
     display: block;
-    padding: 0.5em;
+    padding: spacer(8);
     cursor: pointer;
     &:hover,
     &[data-selected],
@@ -134,7 +129,7 @@
       border: 0;
       top: 0;
       background: transparent;
-      padding-left: 1rem;
+      padding-left: spacer(16);
       a,
       a[aria-current] {
         color: $color-plum-100;

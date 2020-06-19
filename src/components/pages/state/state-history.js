@@ -14,7 +14,7 @@ export default ({ history, screenshots }) => (
           Screenshots (<Timezone />)
         </Th>
         <Th>New Tests</Th>
-        <Th>Positive</Th>
+        <Th>Cases</Th>
         <Th>Negative</Th>
         <Th>Pending</Th>
         <Th>Hospitalized</Th>

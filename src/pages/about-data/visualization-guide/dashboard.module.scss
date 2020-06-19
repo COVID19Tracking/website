@@ -1,16 +1,38 @@
-@import '~scss/breakpoints.module.scss';
-
 $chart-max-width: 500px;
 $chart-two-col-max-width: 250px;
 $chart-two-col-lg-max-width: 400px;
 $chart-gutter-sm: 20px;
 $chart-gutter-md: 100px;
 
+.hed-featured {
+  @include type-size(400);
+  font-weight: 300;
+  line-height: 1.25;
+  @include margin(16, bottom);
+}
+
+.module-featured {
+  margin: spacer(32) auto;
+  max-width: 42em;
+  + section,
+  + div {
+    border-top: 1px solid $color-slate-300;
+    border-bottom: 1px solid $color-slate-300;
+    padding: 1.5em 0 1em;
+  }
+}
+
+@media (min-width: $viewport-md) {
+  .hed-featured {
+    @include type-size(500);
+  }
+}
+
 .charts-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin: 0 auto 1rem;
+  margin: 0 auto spacer(16);
   max-width: $chart-max-width;
 }
 
@@ -36,7 +58,7 @@ $chart-gutter-md: 100px;
 }
 
 .charts-container-inner {
-  margin: 0 0 1rem;
+  margin: 0 0 spacer(16);
   width: 100%;
 
   .charts-two-column & {
@@ -78,12 +100,12 @@ $chart-gutter-md: 100px;
 
 .chart-title {
   @extend %chart-titles;
-  font-size: 16px;
-  margin: 0 0 1.5rem;
+  @include type-size(200);
+  margin: 0 0 spacer(24);
 }
 
 .chart-subtitle {
   @extend %chart-titles;
-  font-size: 13px;
-  margin: 0 0 1rem;
+  @include type-size(100);
+  margin: 0 0 spacer(16);
 }

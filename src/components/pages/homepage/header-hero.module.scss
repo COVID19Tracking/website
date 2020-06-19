@@ -1,6 +1,3 @@
-@import '~scss/colors.module.scss';
-@import '~scss/breakpoints.module.scss';
-
 $mobile-offset-x: -82%;
 $mobile-offset-y: -3%;
 $label-offset-x: 120;
@@ -9,26 +6,26 @@ $label-offset-y: 25;
 $chart-color: #0f1551;
 
 .hero {
-  padding-top: 35px;
+  padding-top: spacer(32);
   background: $color-plum-700;
   color: white;
   abbr[title] {
     text-decoration: none;
   }
   @media (min-width: $viewport-md) {
-    padding: 35px 0 30px 0;
+    padding: spacer(32) 0 spacer(32) 0;
   }
   .container {
-    padding-bottom: 1.5rem;
+    padding-bottom: spacer(24);
     @media (min-width: $viewport-lg) {
       position: relative;
-      padding-bottom: 2rem;
+      padding-bottom: spacer(32);
     }
   }
 
   .paragraph {
     @media (min-width: $viewport-lg) {
-      font-size: 18px;
+      @include type-size(300);
       max-width: 30rem;
       bottom: 2.5rem;
       position: absolute;
@@ -86,16 +83,16 @@ $chart-color: #0f1551;
 
 .chart-legend {
   fill: white;
-  font-size: 35px;
+  @include type-size(600);
   overflow: visible !important;
   text-anchor: end;
 
   @media (min-width: $viewport-ms) {
-    font-size: 20px;
+    @include type-size(400);
   }
 
   @media (min-width: $viewport-lg) {
-    font-size: 18px;
+    @include type-size(300);
   }
 }
 
@@ -111,9 +108,9 @@ $chart-color: #0f1551;
   display: inline-block;
   color: $color-plum-600;
   font-weight: bold;
-  padding: 1px 3px;
+  padding: toRem(1) toRem(3);
   @media (min-width: $viewport-md) {
-    padding: 2px 5px;
+    padding: toRem(2) toRem(5);
   }
   &.cdc {
     background: white;

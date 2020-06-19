@@ -479,13 +479,13 @@ exports[`Components : Layout : Header renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="container false container"
+      className="container container"
     >
       <div
-        className="layout--content-full"
+        className="contentFull"
       >
         <div
-          className="layout--content-primary"
+          className="contentPrimary"
         >
           <div
             className="titleSubnavContainer "
@@ -986,13 +986,13 @@ exports[`Components : Layout : Header renders correctly 2`] = `
       </div>
     </div>
     <div
-      className="container false container"
+      className="container container"
     >
       <div
-        className="layout--content-full"
+        className="contentFull"
       >
         <div
-          className="layout--content-primary"
+          className="contentPrimary"
         >
           <div
             className="titleSubnavContainer "
@@ -1493,13 +1493,13 @@ exports[`Components : Layout : Header renders correctly 3`] = `
       </div>
     </div>
     <div
-      className="container false container"
+      className="container container"
     >
       <div
-        className="layout--content-full"
+        className="contentFull"
       >
         <div
-          className="layout--content-primary"
+          className="contentPrimary"
         >
           <div
             className="titleSubnavContainer "
@@ -2004,13 +2004,13 @@ exports[`Components : Layout : Header renders correctly 4`] = `
       </div>
     </div>
     <div
-      className="container false container"
+      className="container container"
     >
       <div
-        className="layout--content-full"
+        className="contentFull"
       >
         <div
-          className="layout--content-primary"
+          className="contentPrimary"
         >
           <div
             className="titleSubnavContainer "

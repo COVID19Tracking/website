@@ -1,20 +1,23 @@
 import React from 'react'
+import classnames from 'classnames'
 import containerStyles from './container.module.scss'
 
 export default ({ children, narrow, textHeavy = false }) => {
   return (
     <div
-      className={`container ${textHeavy && containerStyles.textHeavy} ${
-        containerStyles.container
-      }`}
+      className={classnames(
+        'container',
+        containerStyles.container,
+        textHeavy && containerStyles.textHeavy,
+      )}
     >
       {narrow ? (
-        <div className="layout--content-and-rail">
-          <div className="layout--content-primary">{children}</div>
+        <div className={containerStyles.contentAndRail}>
+          <div className={containerStyles.contentPrimary}>{children}</div>
         </div>
       ) : (
-        <div className="layout--content-full">
-          <div className="layout--content-primary">{children}</div>
+        <div className={containerStyles.contentFull}>
+          <div className={containerStyles.contentPrimary}>{children}</div>
         </div>
       )}
     </div>

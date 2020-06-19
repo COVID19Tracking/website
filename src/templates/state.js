@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import marked from 'marked'
 import smartypants from 'smartypants'
 import Layout from '~components/layout'
+import MarkdownContent from '~components/common/markdown-content'
 import StateGrade from '~components/pages/state/state-grade'
 import StateHistory from '~components/pages/state/state-history'
 import StateLinks from '~components/pages/state/state-links'
@@ -14,15 +15,15 @@ const StatePage = ({ pageContext, data, path }) => {
   const { covidState, allCovidStateDaily, allCovidScreenshot } = data
   return (
     <Layout title={state.name} returnLink="/data" path={path}>
-      <StateLinks {...state} />
+      <StateLinks
+        twitter={state.twitter}
+        covid19Site={state.covid19Site}
+        covid19SiteSecondary={state.covid19SiteSecondary}
+        stateName={state.name}
+      />
       <StateGrade letterGrade={covidState.dataQualityGrade} />
       {state.notes && (
-        <div
-          className="module-content"
-          dangerouslySetInnerHTML={{
-            __html: smartypants(marked(state.notes)),
-          }}
-        />
+        <MarkdownContent html={smartypants(marked(state.notes))} />
       )}
       <SyncInfobox />
       <SummaryTable data={covidState} lastUpdated={covidState.dateModified} />
@@ -71,7 +72,11 @@ export const query = graphql`
       }
     }
     allCovidScreenshot(
-      filter: { state: { eq: $state }, secondary: { eq: false } }
+      filter: {
+        state: { eq: $state }
+        secondary: { eq: false }
+        tertiary: { eq: false }
+      }
       sort: { fields: dateChecked }
     ) {
       nodes {

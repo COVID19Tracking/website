@@ -1,7 +1,4 @@
 @import './normalize.css';
-@import '~scss/colors.module.scss';
-@import '~scss/links.module.scss';
-@import '~scss/breakpoints.module.scss';
 
 html {
   box-sizing: border-box;
@@ -14,6 +11,7 @@ html {
 }
 
 body {
+  @include type-size(200);
   color: $text;
   font: normal 100%/1.5 'system-ui', '-apple-system', 'BlinkMacSystemFont',
     'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
@@ -24,24 +22,20 @@ img {
   max-width: 100%;
 }
 
-ol[class],
-ul[class] {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 li > :first-child {
   margin-top: 0;
 }
+
 li > :last-child {
   margin-bottom: 0;
 }
+
 li > p:first-child:not(:last-child) {
-  margin-bottom: 0.5em;
+  @include margin(8, bottom);
 }
+
 li > ul:last-child {
-  margin-bottom: 0.5em;
+  @include margin(8, bottom);
 }
 
 #gatsby-noscript {
@@ -136,156 +130,22 @@ select,
 
 /*
 
-Layout blocks
+Headers
 
 */
-.layout-region {
-  padding: 3rem 0;
-}
-.module {
-  margin-bottom: 3rem;
-}
-.module:last-child {
-  margin-bottom: 0;
-}
-@media (min-width: $viewport-md) {
-  .layout--content-and-rail {
-    display: flex;
-    justify-content: space-between;
-  }
-  .layout--content-primary {
-    flex: 0 1 55%;
-  }
-  .layout--content-secondary {
-    flex: 0 1 40%;
-  }
-}
-@media (min-width: $viewport-lg) {
-  .layout--content-primary {
-    flex-basis: 60%;
-  }
-  .layout--content-secondary {
-    flex-basis: 32%;
-  }
-}
 
-/*
-
-Headline treatments
-
-*/
-.hed-primary,
-.module-content h2 {
-  font-size: 1.375rem;
-  line-height: 1.25;
-  margin: 0 0 0.75em;
+h1 {
+  @include type-size(700);
 }
-@media (min-width: $viewport-md) {
-  .hed-primary,
-  .module-content h2 {
-    font-size: 1.875rem;
-  }
+h2 {
+  @include type-size(600);
 }
-.hed-secondary {
-  font-size: 1.125rem;
-  margin-bottom: 0.5em;
+h3 {
+  @include type-size(500);
 }
-@media (min-width: $viewport-md) {
-  .hed-secondary {
-    font-size: 1.4375rem;
-  }
+h4 {
+  @include type-size(400);
 }
-.hed-featured {
-  font-size: 1.4rem;
-  font-weight: 300;
-  line-height: 1.25;
-  margin: 0 0 0.75em;
-}
-@media (min-width: $viewport-md) {
-  .hed-featured {
-    font-size: 1.75rem;
-  }
-}
-.hed-landscape {
-  color: $color-slate-700;
-  font-size: 1.125rem;
-  text-align: center;
-  font-variant: all-small-caps;
-  margin: 0 0 0.2rem;
-}
-
-/*
-
-Typography
-
-*/
-.layout--content-and-rail {
-  .layout--content-primary {
-    font-size: 18px;
-    font-size: 1.125rem;
-    @media (min-width: $viewport-lg) {
-      font-size: 22px;
-      font-size: 1.375rem;
-    }
-    h2:first-child {
-      margin-top: 0;
-    }
-  }
-}
-.layout--content-primary {
-  @media (min-width: $viewport-lg) {
-    font-size: 18px;
-    font-size: 1.125rem;
-  }
-}
-.module-featured {
-  margin: 2.5em auto;
-  max-width: 42em;
-  + section,
-  + div {
-    border-top: 1px solid $color-slate-300;
-    border-bottom: 1px solid $color-slate-300;
-    padding: 1.5em 0 1em;
-  }
-}
-.layout--content-primary {
-  p,
-  ul,
-  ol {
-    margin: 0 0 1.5em;
-  }
-}
-.module-content {
-  h2 {
-    font-size: 24px;
-    font-size: 1.5rem;
-    line-height: 1.25;
-    margin: 2em 0 0.25em;
-    @media (min-width: $viewport-lg) {
-      font-size: 30px;
-      font-size: 1.875rem;
-    }
-  }
-  h2:first-child {
-    margin-top: 0;
-  }
-  h3 {
-    font-size: 1.35rem;
-    margin: 2em 0 0.25em;
-  }
-  li {
-    margin-bottom: 0.5em;
-  }
-  p:not([class]),
-  ul:not([class]),
-  ol:not([class]) {
-    max-width: 40rem;
-  }
-}
-
-@media (min-width: $viewport-md) {
-  .layout--content-secondary {
-    font-size: 1.125rem;
-    line-height: 1.3;
-  }
+h5 {
+  @include type-size(300);
 }
