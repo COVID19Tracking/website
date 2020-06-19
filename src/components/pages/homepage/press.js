@@ -10,7 +10,11 @@ export default () => (
     <h3 className={pressStyles.header}>Who&#8217;s using our data</h3>
     <div className={pressStyles.press}>
       <Row>
-        <Col width={[4, 6, 6]} paddingRight={[8, 8, 64]}>
+        <Col
+          width={[4, 6, 6]}
+          paddingRight={[8, 8, 64]}
+          paddingBottom={[32, 32, 0]}
+        >
           <InThePress />
         </Col>
         <Col width={[4, 6, 6]} paddingLeft={[0, 0, 0]}>

@@ -1,53 +1,35 @@
-@mixin padding-children() {
-  &:first-child {
-    padding-left: 0;
-  }
-  &:last-child {
-    padding-right: 0;
-  }
-}
-
 .row {
   @include row();
 }
+
+$grid-class-sides: top, right, bottom, left;
 
 .col {
   box-sizing: border-box;
   flex: 0 0 auto;
   padding-left: spacer(8);
   padding-right: spacer(8);
-  @include padding-children();
+  &:first-child {
+    padding-left: 0 !important;
+  }
+  &:last-child {
+    padding-right: 0 !important;
+  }
+
   @each $name, $value in $spacers {
-    &.padding-left-small-#{$name} {
-      padding-left: spacer($name);
-      @include padding-children();
-    }
-    &.padding-left-medium-#{$name} {
-      @media (min-width: $viewport-md) {
-        padding-left: spacer($name);
-        @include padding-children();
+    @each $side in $grid-class-sides {
+      &.padding-#{$side}-small-#{$name} {
+        padding-#{$side}: spacer($name);
       }
-    }
-    &.padding-left-large-#{$name} {
-      @media (min-width: $viewport-lg) {
-        padding-left: spacer($name);
-        @include padding-children();
+      &.padding-#{$side}-medium-#{$name} {
+        @media (min-width: $viewport-md) {
+          padding-#{$side}: spacer($name);
+        }
       }
-    }
-    &.padding-right-small-#{$name} {
-      padding-right: spacer($name);
-      @include padding-children();
-    }
-    &.padding-right-medium-#{$name} {
-      @media (min-width: $viewport-md) {
-        padding-right: spacer($name);
-        @include padding-children();
-      }
-    }
-    &.padding-right-large-#{$name} {
-      @media (min-width: $viewport-lg) {
-        padding-right: spacer($name);
-        @include padding-children();
+      &.padding-#{$side}-large-#{$name} {
+        @media (min-width: $viewport-lg) {
+          padding-#{$side}: spacer($name);
+        }
       }
     }
   }
