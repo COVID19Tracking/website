@@ -35,46 +35,52 @@ Array [
           }
         >
           <div
-            className="searchInput "
-            onBlur={[Function]}
+            className="mobileSearchContainer"
           >
             <div
-              data-reach-combobox=""
+              className="search"
+              onBlur={[Function]}
             >
-              <input
-                aria-autocomplete="both"
-                aria-controls="listbox--1"
-                aria-expanded={false}
-                aria-haspopup="listbox"
-                autoComplete="off"
-                data-reach-combobox-input=""
-                id="header-search-autocomplete-mobile"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="combobox"
-                value=""
-              />
-              <label
-                htmlFor="header-search-autocomplete-mobile"
+              <div
+                data-reach-combobox=""
               >
-                Search
-              </label>
+                <input
+                  aria-autocomplete="both"
+                  aria-controls="listbox--1"
+                  aria-expanded={false}
+                  aria-haspopup="listbox"
+                  autoComplete="off"
+                  className="searchInput"
+                  data-reach-combobox-input=""
+                  id="header-search-autocomplete-mobile"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="combobox"
+                  value=""
+                />
+                <label
+                  className="searchLabel"
+                  htmlFor="header-search-autocomplete-mobile"
+                >
+                  Search
+                </label>
+              </div>
+              <button
+                aria-label="Submit search"
+                className="searchSubmit"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  src="test-file-stub"
+                />
+              </button>
             </div>
-            <button
-              aria-label="Submit search"
-              className="searchSubmit"
-              onClick={[Function]}
-              type="button"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                src="test-file-stub"
-              />
-            </button>
           </div>
           <nav
             className="js-disabled-block"
@@ -411,46 +417,52 @@ Array [
             className="tools"
           >
             <div
-              className="searchInput "
-              onBlur={[Function]}
+              className="searchContainer"
             >
               <div
-                data-reach-combobox=""
+                className="search"
+                onBlur={[Function]}
               >
-                <input
-                  aria-autocomplete="both"
-                  aria-controls="listbox--2"
-                  aria-expanded={false}
-                  aria-haspopup="listbox"
-                  autoComplete="off"
-                  data-reach-combobox-input=""
-                  id="header-search-autocomplete"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  role="combobox"
-                  value=""
-                />
-                <label
-                  htmlFor="header-search-autocomplete"
+                <div
+                  data-reach-combobox=""
                 >
-                  Search
-                </label>
+                  <input
+                    aria-autocomplete="both"
+                    aria-controls="listbox--2"
+                    aria-expanded={false}
+                    aria-haspopup="listbox"
+                    autoComplete="off"
+                    className="searchInput"
+                    data-reach-combobox-input=""
+                    id="header-search-autocomplete"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    role="combobox"
+                    value=""
+                  />
+                  <label
+                    className="searchLabel"
+                    htmlFor="header-search-autocomplete"
+                  >
+                    Search
+                  </label>
+                </div>
+                <button
+                  aria-label="Submit search"
+                  className="searchSubmit"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    src="test-file-stub"
+                  />
+                </button>
               </div>
-              <button
-                aria-label="Submit search"
-                className="searchSubmit"
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  src="test-file-stub"
-                />
-              </button>
             </div>
             <a
               className="getInvolved"
@@ -665,46 +677,52 @@ Array [
           }
         >
           <div
-            className="searchInput "
-            onBlur={[Function]}
+            className="mobileSearchContainer"
           >
             <div
-              data-reach-combobox=""
+              className="search"
+              onBlur={[Function]}
             >
-              <input
-                aria-autocomplete="both"
-                aria-controls="listbox--5"
-                aria-expanded={false}
-                aria-haspopup="listbox"
-                autoComplete="off"
-                data-reach-combobox-input=""
-                id="header-search-autocomplete-mobile"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="combobox"
-                value=""
-              />
-              <label
-                htmlFor="header-search-autocomplete-mobile"
+              <div
+                data-reach-combobox=""
               >
-                Search
-              </label>
+                <input
+                  aria-autocomplete="both"
+                  aria-controls="listbox--5"
+                  aria-expanded={false}
+                  aria-haspopup="listbox"
+                  autoComplete="off"
+                  className="searchInput"
+                  data-reach-combobox-input=""
+                  id="header-search-autocomplete-mobile"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="combobox"
+                  value=""
+                />
+                <label
+                  className="searchLabel"
+                  htmlFor="header-search-autocomplete-mobile"
+                >
+                  Search
+                </label>
+              </div>
+              <button
+                aria-label="Submit search"
+                className="searchSubmit"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  src="test-file-stub"
+                />
+              </button>
             </div>
-            <button
-              aria-label="Submit search"
-              className="searchSubmit"
-              onClick={[Function]}
-              type="button"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                src="test-file-stub"
-              />
-            </button>
           </div>
           <nav
             className="js-disabled-block"
@@ -1041,46 +1059,52 @@ Array [
             className="tools"
           >
             <div
-              className="searchInput "
-              onBlur={[Function]}
+              className="searchContainer"
             >
               <div
-                data-reach-combobox=""
+                className="search"
+                onBlur={[Function]}
               >
-                <input
-                  aria-autocomplete="both"
-                  aria-controls="listbox--6"
-                  aria-expanded={false}
-                  aria-haspopup="listbox"
-                  autoComplete="off"
-                  data-reach-combobox-input=""
-                  id="header-search-autocomplete"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  role="combobox"
-                  value=""
-                />
-                <label
-                  htmlFor="header-search-autocomplete"
+                <div
+                  data-reach-combobox=""
                 >
-                  Search
-                </label>
+                  <input
+                    aria-autocomplete="both"
+                    aria-controls="listbox--6"
+                    aria-expanded={false}
+                    aria-haspopup="listbox"
+                    autoComplete="off"
+                    className="searchInput"
+                    data-reach-combobox-input=""
+                    id="header-search-autocomplete"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    role="combobox"
+                    value=""
+                  />
+                  <label
+                    className="searchLabel"
+                    htmlFor="header-search-autocomplete"
+                  >
+                    Search
+                  </label>
+                </div>
+                <button
+                  aria-label="Submit search"
+                  className="searchSubmit"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    src="test-file-stub"
+                  />
+                </button>
               </div>
-              <button
-                aria-label="Submit search"
-                className="searchSubmit"
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  src="test-file-stub"
-                />
-              </button>
             </div>
             <a
               className="getInvolved"
@@ -1295,46 +1319,52 @@ Array [
           }
         >
           <div
-            className="searchInput "
-            onBlur={[Function]}
+            className="mobileSearchContainer"
           >
             <div
-              data-reach-combobox=""
+              className="search"
+              onBlur={[Function]}
             >
-              <input
-                aria-autocomplete="both"
-                aria-controls="listbox--8"
-                aria-expanded={false}
-                aria-haspopup="listbox"
-                autoComplete="off"
-                data-reach-combobox-input=""
-                id="header-search-autocomplete-mobile"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="combobox"
-                value=""
-              />
-              <label
-                htmlFor="header-search-autocomplete-mobile"
+              <div
+                data-reach-combobox=""
               >
-                Search
-              </label>
+                <input
+                  aria-autocomplete="both"
+                  aria-controls="listbox--8"
+                  aria-expanded={false}
+                  aria-haspopup="listbox"
+                  autoComplete="off"
+                  className="searchInput"
+                  data-reach-combobox-input=""
+                  id="header-search-autocomplete-mobile"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="combobox"
+                  value=""
+                />
+                <label
+                  className="searchLabel"
+                  htmlFor="header-search-autocomplete-mobile"
+                >
+                  Search
+                </label>
+              </div>
+              <button
+                aria-label="Submit search"
+                className="searchSubmit"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  src="test-file-stub"
+                />
+              </button>
             </div>
-            <button
-              aria-label="Submit search"
-              className="searchSubmit"
-              onClick={[Function]}
-              type="button"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                src="test-file-stub"
-              />
-            </button>
           </div>
           <nav
             className="js-disabled-block"
@@ -1671,46 +1701,52 @@ Array [
             className="tools"
           >
             <div
-              className="searchInput "
-              onBlur={[Function]}
+              className="searchContainer"
             >
               <div
-                data-reach-combobox=""
+                className="search"
+                onBlur={[Function]}
               >
-                <input
-                  aria-autocomplete="both"
-                  aria-controls="listbox--9"
-                  aria-expanded={false}
-                  aria-haspopup="listbox"
-                  autoComplete="off"
-                  data-reach-combobox-input=""
-                  id="header-search-autocomplete"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  role="combobox"
-                  value=""
-                />
-                <label
-                  htmlFor="header-search-autocomplete"
+                <div
+                  data-reach-combobox=""
                 >
-                  Search
-                </label>
+                  <input
+                    aria-autocomplete="both"
+                    aria-controls="listbox--9"
+                    aria-expanded={false}
+                    aria-haspopup="listbox"
+                    autoComplete="off"
+                    className="searchInput"
+                    data-reach-combobox-input=""
+                    id="header-search-autocomplete"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    role="combobox"
+                    value=""
+                  />
+                  <label
+                    className="searchLabel"
+                    htmlFor="header-search-autocomplete"
+                  >
+                    Search
+                  </label>
+                </div>
+                <button
+                  aria-label="Submit search"
+                  className="searchSubmit"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    src="test-file-stub"
+                  />
+                </button>
               </div>
-              <button
-                aria-label="Submit search"
-                className="searchSubmit"
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  src="test-file-stub"
-                />
-              </button>
             </div>
             <a
               className="getInvolved"
