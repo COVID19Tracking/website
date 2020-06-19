@@ -41,7 +41,7 @@ const getDataForField = (data, field) => {
 // we need a combined bar + line chart
 
 export default ({ history }) => {
-  const data = history.sort((a, b) => a.date - b.date)
+  const data = [...history].sort((a, b) => a.date - b.date)
   const props = {
     height: 300,
     width: 300,
