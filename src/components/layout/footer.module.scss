@@ -62,12 +62,16 @@
     @include col(4 6 7);
     ul {
       display: grid;
-      grid-template-columns: repeat(3, 33%);
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-auto-flow: column;
       @media (max-width: $viewport-lg) and (min-width: $viewport-md) {
-        grid-template-columns: repeat(2, 50%);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
       }
       @media (max-width: $viewport-md) {
-        grid-template-columns: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
       }
     }
 
