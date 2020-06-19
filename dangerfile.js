@@ -26,6 +26,9 @@ const checkFiles = () => {
     scssFiles.forEach((file, index) => {
       danger.git.structuredDiffForFile(file).then(diff => {
         diff.chunks.forEach(chunk => {
+          if (file.search('src/stories/') > -1) {
+            return
+          }
           chunk.changes.forEach(change => {
             if (
               change.type === 'add' &&
@@ -38,19 +41,9 @@ const checkFiles = () => {
               const { name, values } = parsedLine
               if (
                 (name.search('margin') > -1 || name.search('padding') > -1) &&
-                values.filter(value => {
-                  if (value === 'auto') {
-                    return false
-                  }
-                  if (
-                    value.search('px') ||
-                    value.search('%') ||
-                    value.search('rem')
-                  ) {
-                    return true
-                  }
-                  return false
-                }).length > 0
+                (change.content.search('px') > -1 ||
+                  change.content.search('rem') > -1 ||
+                  change.content.search('%') > -1)
               ) {
                 // Capture any margin or padding that doesn't use spacer
                 if (typeof scssErrors.noSpacing[file] === 'undefined') {
