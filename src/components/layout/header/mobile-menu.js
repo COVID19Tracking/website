@@ -51,7 +51,9 @@ export default ({ expanded, topNavigation, subNavigation }) => {
         minHeight: `${menuHeight.current}px`,
       }}
     >
-      <HeaderSearch popoverRef={resultPopoverRef} mobile visible={expanded} />
+      <div className={headerStyle.mobileSearchContainer}>
+        <HeaderSearch popoverRef={resultPopoverRef} mobile visible={expanded} />
+      </div>
 
       <HeaderNavigation
         topNavigation={topNavigation}

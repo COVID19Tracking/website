@@ -15,12 +15,4 @@
   background: transparentize($color-plum-400, 0.2);
   color: white;
   position: relative;
-
-  @media (max-width: $viewport-lg) {
-    width: 100%;
-  }
-
-  @media (min-width: $viewport-lg) {
-    margin-right: 1rem;
-  }
 }

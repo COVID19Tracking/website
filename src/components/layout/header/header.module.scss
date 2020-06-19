@@ -7,8 +7,17 @@
   font-size: 0.81rem;
 
   @media (min-width: $viewport-lg) {
-    display: block;
+    display: flex;
   }
+}
+
+.searchContainer {
+  margin-right: 1rem;
+}
+.mobileSearchContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .project-logo {

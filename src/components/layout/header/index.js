@@ -210,7 +210,9 @@ const Header = withSearch(
                   </div>
                 )}
                 <div className={headerStyle.tools}>
-                  <HeaderSearch />
+                  <div className={headerStyle.searchContainer}>
+                    <HeaderSearch />
+                  </div>
                   <Link to="/get-involved" className={headerStyle.getInvolved}>
                     Get involved
                   </Link>
