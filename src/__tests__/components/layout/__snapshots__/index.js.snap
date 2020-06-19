@@ -40,12 +40,6 @@ Array [
             <div
               data-reach-combobox=""
             >
-              <label
-                className=""
-                htmlFor="header-search-autocomplete-mobile"
-              >
-                Search
-              </label>
               <input
                 aria-autocomplete="both"
                 aria-controls="listbox--1"
@@ -62,6 +56,11 @@ Array [
                 role="combobox"
                 value=""
               />
+              <label
+                htmlFor="header-search-autocomplete-mobile"
+              >
+                Search
+              </label>
             </div>
             <button
               aria-label="Submit search"
@@ -418,12 +417,6 @@ Array [
               <div
                 data-reach-combobox=""
               >
-                <label
-                  className=""
-                  htmlFor="header-search-autocomplete"
-                >
-                  Search
-                </label>
                 <input
                   aria-autocomplete="both"
                   aria-controls="listbox--2"
@@ -440,6 +433,11 @@ Array [
                   role="combobox"
                   value=""
                 />
+                <label
+                  htmlFor="header-search-autocomplete"
+                >
+                  Search
+                </label>
               </div>
               <button
                 aria-label="Submit search"
@@ -672,12 +670,6 @@ Array [
             <div
               data-reach-combobox=""
             >
-              <label
-                className=""
-                htmlFor="header-search-autocomplete-mobile"
-              >
-                Search
-              </label>
               <input
                 aria-autocomplete="both"
                 aria-controls="listbox--5"
@@ -694,6 +686,11 @@ Array [
                 role="combobox"
                 value=""
               />
+              <label
+                htmlFor="header-search-autocomplete-mobile"
+              >
+                Search
+              </label>
             </div>
             <button
               aria-label="Submit search"
@@ -1050,12 +1047,6 @@ Array [
               <div
                 data-reach-combobox=""
               >
-                <label
-                  className=""
-                  htmlFor="header-search-autocomplete"
-                >
-                  Search
-                </label>
                 <input
                   aria-autocomplete="both"
                   aria-controls="listbox--6"
@@ -1072,6 +1063,11 @@ Array [
                   role="combobox"
                   value=""
                 />
+                <label
+                  htmlFor="header-search-autocomplete"
+                >
+                  Search
+                </label>
               </div>
               <button
                 aria-label="Submit search"
@@ -1304,12 +1300,6 @@ Array [
             <div
               data-reach-combobox=""
             >
-              <label
-                className=""
-                htmlFor="header-search-autocomplete-mobile"
-              >
-                Search
-              </label>
               <input
                 aria-autocomplete="both"
                 aria-controls="listbox--8"
@@ -1326,6 +1316,11 @@ Array [
                 role="combobox"
                 value=""
               />
+              <label
+                htmlFor="header-search-autocomplete-mobile"
+              >
+                Search
+              </label>
             </div>
             <button
               aria-label="Submit search"
@@ -1682,12 +1677,6 @@ Array [
               <div
                 data-reach-combobox=""
               >
-                <label
-                  className=""
-                  htmlFor="header-search-autocomplete"
-                >
-                  Search
-                </label>
                 <input
                   aria-autocomplete="both"
                   aria-controls="listbox--9"
@@ -1704,6 +1693,11 @@ Array [
                   role="combobox"
                   value=""
                 />
+                <label
+                  htmlFor="header-search-autocomplete"
+                >
+                  Search
+                </label>
               </div>
               <button
                 aria-label="Submit search"

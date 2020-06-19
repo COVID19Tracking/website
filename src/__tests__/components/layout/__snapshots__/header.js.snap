@@ -32,12 +32,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
           <div
             data-reach-combobox=""
           >
-            <label
-              className=""
-              htmlFor="header-search-autocomplete-mobile"
-            >
-              Search
-            </label>
             <input
               aria-autocomplete="both"
               aria-controls="listbox--1"
@@ -54,6 +48,11 @@ exports[`Components : Layout : Header renders correctly 1`] = `
               role="combobox"
               value=""
             />
+            <label
+              htmlFor="header-search-autocomplete-mobile"
+            >
+              Search
+            </label>
           </div>
           <button
             aria-label="Submit search"
@@ -410,12 +409,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             <div
               data-reach-combobox=""
             >
-              <label
-                className=""
-                htmlFor="header-search-autocomplete"
-              >
-                Search
-              </label>
               <input
                 aria-autocomplete="both"
                 aria-controls="listbox--2"
@@ -432,6 +425,11 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 role="combobox"
                 value=""
               />
+              <label
+                htmlFor="header-search-autocomplete"
+              >
+                Search
+              </label>
             </div>
             <button
               aria-label="Submit search"
@@ -529,12 +527,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
           <div
             data-reach-combobox=""
           >
-            <label
-              className=""
-              htmlFor="header-search-autocomplete-mobile"
-            >
-              Search
-            </label>
             <input
               aria-autocomplete="both"
               aria-controls="listbox--5"
@@ -551,6 +543,11 @@ exports[`Components : Layout : Header renders correctly 2`] = `
               role="combobox"
               value=""
             />
+            <label
+              htmlFor="header-search-autocomplete-mobile"
+            >
+              Search
+            </label>
           </div>
           <button
             aria-label="Submit search"
@@ -907,12 +904,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             <div
               data-reach-combobox=""
             >
-              <label
-                className=""
-                htmlFor="header-search-autocomplete"
-              >
-                Search
-              </label>
               <input
                 aria-autocomplete="both"
                 aria-controls="listbox--6"
@@ -929,6 +920,11 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                 role="combobox"
                 value=""
               />
+              <label
+                htmlFor="header-search-autocomplete"
+              >
+                Search
+              </label>
             </div>
             <button
               aria-label="Submit search"
@@ -1026,12 +1022,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
           <div
             data-reach-combobox=""
           >
-            <label
-              className=""
-              htmlFor="header-search-autocomplete-mobile"
-            >
-              Search
-            </label>
             <input
               aria-autocomplete="both"
               aria-controls="listbox--8"
@@ -1048,6 +1038,11 @@ exports[`Components : Layout : Header renders correctly 3`] = `
               role="combobox"
               value=""
             />
+            <label
+              htmlFor="header-search-autocomplete-mobile"
+            >
+              Search
+            </label>
           </div>
           <button
             aria-label="Submit search"
@@ -1404,12 +1399,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             <div
               data-reach-combobox=""
             >
-              <label
-                className=""
-                htmlFor="header-search-autocomplete"
-              >
-                Search
-              </label>
               <input
                 aria-autocomplete="both"
                 aria-controls="listbox--9"
@@ -1426,6 +1415,11 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 role="combobox"
                 value=""
               />
+              <label
+                htmlFor="header-search-autocomplete"
+              >
+                Search
+              </label>
             </div>
             <button
               aria-label="Submit search"
@@ -1527,12 +1521,6 @@ exports[`Components : Layout : Header renders correctly 4`] = `
           <div
             data-reach-combobox=""
           >
-            <label
-              className=""
-              htmlFor="header-search-autocomplete-mobile"
-            >
-              Search
-            </label>
             <input
               aria-autocomplete="both"
               aria-controls="listbox--11"
@@ -1549,6 +1537,11 @@ exports[`Components : Layout : Header renders correctly 4`] = `
               role="combobox"
               value=""
             />
+            <label
+              htmlFor="header-search-autocomplete-mobile"
+            >
+              Search
+            </label>
           </div>
           <button
             aria-label="Submit search"
@@ -1905,12 +1898,6 @@ exports[`Components : Layout : Header renders correctly 4`] = `
             <div
               data-reach-combobox=""
             >
-              <label
-                className=""
-                htmlFor="header-search-autocomplete"
-              >
-                Search
-              </label>
               <input
                 aria-autocomplete="both"
                 aria-controls="listbox--12"
@@ -1927,6 +1914,11 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                 role="combobox"
                 value=""
               />
+              <label
+                htmlFor="header-search-autocomplete"
+              >
+                Search
+              </label>
             </div>
             <button
               aria-label="Submit search"
