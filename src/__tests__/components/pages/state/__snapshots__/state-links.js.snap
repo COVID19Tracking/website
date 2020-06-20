@@ -7,6 +7,7 @@ exports[`Components : Pages : State : State links renders correctly 1`] = `
   <li>
     <a
       href="https://twitter.com/california-covid"
+      onClick={[Function]}
     >
       <span
         className="a11y-only"
@@ -23,6 +24,7 @@ exports[`Components : Pages : State : State links renders correctly 1`] = `
   <li>
     <a
       href="https://example.com"
+      onClick={[Function]}
     >
       <span
         className="a11y-only"
@@ -39,6 +41,7 @@ exports[`Components : Pages : State : State links renders correctly 1`] = `
   <li>
     <a
       href="https://example.com2"
+      onClick={[Function]}
     >
       Secondary Data Source
       <span
@@ -60,6 +63,7 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
   <li>
     <a
       href="https://twitter.com/california-covid"
+      onClick={[Function]}
     >
       <span
         className="a11y-only"
@@ -76,6 +80,7 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
   <li>
     <a
       href="https://example.com"
+      onClick={[Function]}
     >
       <span
         className="a11y-only"
@@ -92,6 +97,7 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
   <li>
     <a
       href="https://example.com2"
+      onClick={[Function]}
     >
       Secondary Data Source
       <span
