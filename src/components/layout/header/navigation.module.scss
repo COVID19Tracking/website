@@ -21,7 +21,7 @@
   @media (any-hover: hover) {
     width: spacer(24);
     height: spacer(24);
-    margin-left: 0.5rem;
+    margin-left: spacer(8);
     svg {
       margin-bottom: spacer(4);
     }
@@ -95,7 +95,7 @@
   }
   div {
     @media (max-width: $viewport-lg) {
-      margin-bottom: 0.5rem;
+      @include margin(8, bottom);
       &:last-of-type {
         margin-bottom: 0;
       }

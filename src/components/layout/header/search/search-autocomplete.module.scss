@@ -23,7 +23,7 @@
 
 .search-input {
   width: 0;
-  padding: 0.55rem calc(35px / 2);
+  padding: 0.55rem calc(35px / 2); // ignore-style-rule
 
   font-size: 1rem;
   font-weight: 300;
@@ -40,14 +40,14 @@
   @media (max-width: $viewport-lg) {
     width: 100%;
     background: $color-plum-500;
-    padding: 0.55rem 3rem 0.55rem 5rem;
+    padding: 0.55rem 3rem 0.55rem 5rem; // ignore-style-rule
   }
 }
 .search-input-focused {
   width: 28.5rem;
   color: #303030;
   font-weight: 400;
-  padding: 0.55rem 3rem 0.55rem 5rem;
+  padding: 0.55rem 3rem 0.55rem 5rem; // ignore-style-rule
   outline: none;
   background: #ffffff;
   border-radius: 4px;
@@ -100,7 +100,7 @@
   left: 0;
   font-weight: normal;
   text-align: left;
-  padding: 0.25rem;
+  @include padding(4);
   opacity: 1;
   transform: translateY(0.4rem);
   color: $text;
@@ -127,12 +127,12 @@
 }
 
 .popoverSeparator {
-  padding-left: 0.5rem;
+  @include padding(8, left);
   text-align: left;
   font-size: 0.8rem;
   font-style: italic;
   pointer-events: none;
   &:not(:first-child) {
-    margin-top: 0.5rem;
+    @include margin(8, top);
   }
 }

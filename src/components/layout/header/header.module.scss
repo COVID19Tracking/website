@@ -8,7 +8,7 @@
 }
 
 .searchContainer {
-  margin-right: 1rem;
+  @include margin(16, right);
 }
 .mobileSearchContainer {
   display: flex;
@@ -25,7 +25,7 @@
 .get-involved {
   display: inline-block;
   line-height: 1.75;
-  padding: 0.4rem 0.5rem;
+  padding: 0.4rem 0.5rem; // ignore-style-rule
   transition: all 0.2s;
   height: 35px; // match the search box height
 
@@ -128,7 +128,7 @@
     }
     nav {
       display: block;
-      margin-top: 1rem;
+      @include margin(16, top);
       li {
         line-height: toRem(40);
         @media (hover: none) {
@@ -249,7 +249,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     transition: display 150ms;
-    margin-top: 1.5rem;
+    @include margin(24, top);
   }
 
   .return-link {
@@ -371,11 +371,12 @@
 .wrapper {
   margin: 0 auto;
   max-width: calc(1136px + 3rem);
-  padding: 0 3rem;
+  padding: 0 spacer(32);
   @media (max-width: $viewport-sm) {
-    padding: 0 1rem;
+    padding: 0 spacer(16);
   }
   @media (min-width: $viewport-lg) {
-    padding: 0 0.5rem; // todo increase to 1rem if there's space with smaller search box
+    // todo increase to 1rem if there's space with smaller search box
+    padding: 0 spacer(8);
   }
 }
