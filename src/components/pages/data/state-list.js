@@ -16,7 +16,7 @@ export default ({ states, stateData }) => {
 
   return stateList.map(state => (
     <div
-      key={state}
+      key={`state-list-${state.state}`}
       id={`state-list-${state.state}`}
       className={stateListStyles.item}
     >
