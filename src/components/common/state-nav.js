@@ -17,6 +17,9 @@ export const getStateId = (stateList, selectedItem) =>
   })
 
 export const setWindowLocation = str => {
+  if (typeof window.fathom !== 'undefined') {
+    window.fathom.trackGoal('U4EOIB2V', 0)
+  }
   window.location.hash = str
 }
 
