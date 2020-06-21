@@ -37,6 +37,9 @@ const Footer = () => (
             <li>
               <Link to="/accessibility">Accessibility</Link>
             </li>
+            <li>
+              <a href="/rss.xml">RSS</a>
+            </li>
           </ul>
         </div>
         <ul className={footerStyles.social}>
