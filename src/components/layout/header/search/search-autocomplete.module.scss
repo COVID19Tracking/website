@@ -51,9 +51,7 @@
   outline: none;
   background: #ffffff;
   border-radius: 4px;
-  box-shadow: 0 0 0 2px $color-honey-200;
-  animation: outline 3s infinite;
-  animation-direction: alternate;
+  box-shadow: 0 0 0 2px $color-honey-400;
   transition: width 0.05s;
 
   &,
@@ -71,23 +69,6 @@
   @media (max-width: $viewport-lg) {
     width: 100%;
   }
-}
-
-@-webkit-keyframes outline {
-  from { box-shadow: 0 0 0 2px $color-honey-700 }
-  to { box-shadow: 0 0 0 2px $color-honey-200; }
-}
-@-moz-keyframes outline {
-  from { box-shadow: 0 0 0 2px $color-honey-700 }
-  to { box-shadow: 0 0 0 2px $color-honey-200; }
-}
-@-o-keyframes outline {
-  from { box-shadow: 0 0 0 2px $color-honey-700 }
-  to { box-shadow: 0 0 0 2px $color-honey-200; }
-}
-@keyframes outline {
-  from { box-shadow: 0 0 0 2px $color-honey-700 }
-  to { box-shadow: 0 0 0 2px $color-honey-200; }
 }
 
 .popover {
