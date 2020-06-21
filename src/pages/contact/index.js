@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-// import ReCaptcha from 'react-recaptcha'
+import ReCaptcha from 'react-recaptcha'
 import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
 import { Form, FormInput } from '~components/common/form'
@@ -91,12 +91,14 @@ export default ({ data }) => {
           aria-required
           id="contact-message"
         />
-        {/* {typeof window !== 'undefined' && (
+        {typeof window !== 'undefined' && (
           <ReCaptcha
             sitekey={data.site.siteMetadata.recaptchaKey}
             elementID="contact-form-captcha"
+            render="explicit"
+            onloadCallback={console.log('Loaded')}
           />
-        )} */}
+        )}
 
         <input
           type="text"
