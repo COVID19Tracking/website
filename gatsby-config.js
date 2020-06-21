@@ -258,8 +258,8 @@ const gatsbyConfig = {
                   title: node.title,
                   description: node.lede.lede,
                   date: node.publishDate,
-                  url: site.siteMetadata.siteUrl + node.slug,
-                  guid: site.siteMetadata.siteUrl + node.slug,
+                  url: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
                 })
               })
             },
