@@ -68,7 +68,6 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
               RSS
             </a>
           </li>
-
         </ul>
       </div>
       <ul
