@@ -564,11 +564,10 @@ Array [
             </li>
             <li>
               <a
-                href="/accessibility"
+                href="/rss.xml"
               >
                 RSS
               </a>
-               
             </li>
           </ul>
         </div>
@@ -1195,11 +1194,10 @@ Array [
             </li>
             <li>
               <a
-                href="/accessibility"
+                href="/rss.xml"
               >
                 RSS
               </a>
-               
             </li>
           </ul>
         </div>
