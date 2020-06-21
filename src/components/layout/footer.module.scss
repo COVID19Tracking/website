@@ -85,7 +85,7 @@
     @include margin(0, (top, bottom));
 
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
 
     @media (max-width: $viewport-lg) {
       order: 2;
@@ -127,7 +127,7 @@ hr.divider {
 
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: flex-end;
 
     span {
       @include padding(16, right);
