@@ -61,14 +61,6 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
               Accessibility
             </a>
           </li>
-          <li>
-            <a
-              href="/accessibility"
-            >
-              RSS
-            </a>
-             
-          </li>
         </ul>
       </div>
       <ul
