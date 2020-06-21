@@ -2,9 +2,10 @@
 import React, { useEffect, useState } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import Expand from 'react-expand-animated'
+import { useSearch } from '~context/search-context'
+
 import DevelopmentWarning from './development-warning'
 import PartnershipBanner from './partnership-banner'
-import SearchAutocomplete from './search-autocomplete'
 import HeaderNavigation from './navigation'
 import Container from '~components/common/container'
 import withSearch from '~components/utils/with-search'
@@ -141,6 +142,9 @@ const Header = withSearch(
       }
     }, [])
 
+    const searchState = useSearch()[0]
+    const { autocompleteHasFocus } = searchState
+
     return (
       <>
         <DevelopmentWarning />
@@ -176,7 +180,7 @@ const Header = withSearch(
             >
               {!showMobileMenu && <PartnershipBanner />}
             </Expand>
-            <Container>
+            <div className={headerStyle.wrapper}>
               <div className={headerStyle.siteTitleContainer}>
                 <div className={headerStyle.siteTitleInner}>
                   <Link to="/" className={headerStyle.projectLogo}>
@@ -187,7 +191,7 @@ const Header = withSearch(
                     />
                   </Link>
                 </div>
-                <div className={headerStyle.siteNavContainer}>
+                {(showMobileMenu || !autocompleteHasFocus) && (
                   <div className={headerStyle.navContainer}>
                     <button
                       className={headerStyle.mobileToggle}
@@ -199,28 +203,27 @@ const Header = withSearch(
                     >
                       {showMobileMenu ? <>Close</> : <>Menu</>}
                     </button>
+                    <HeaderNavigation
+                      topNavigation={topNavigation}
+                      subNavigation={subNavigation}
+                    />
                   </div>
-                  <div className={headerStyle.tools}>
-                    <HeaderSearch>
-                      <SearchAutocomplete />
-                    </HeaderSearch>
-                    <Link
-                      to="/get-involved"
-                      className={headerStyle.getInvolved}
-                    >
-                      Get involved
-                    </Link>
+                )}
+                <div className={headerStyle.tools}>
+                  <div className={headerStyle.searchContainer}>
+                    <HeaderSearch />
                   </div>
-                  <HeaderNavigation
-                    topNavigation={topNavigation}
-                    subNavigation={subNavigation}
-                  />
+                  <Link to="/get-involved" className={headerStyle.getInvolved}>
+                    Get involved
+                  </Link>
                 </div>
               </div>
               <div className={headerStyle.atlanticBanner}>
                 <span>At</span> <img src={atlanticLogo} alt="The Atlantic" />
                 <div />
               </div>
+            </div>
+            <Container>
               {title && (
                 <div
                   className={`${headerStyle.titleSubnavContainer} ${
