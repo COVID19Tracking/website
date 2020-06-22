@@ -6,7 +6,7 @@ $label-offset-y: 25;
 $chart-color: #0f1551;
 
 .hero {
-  padding-top: spacer(32);
+  @include padding(32, top bottom);
   background: $color-plum-700;
   color: white;
   abbr[title] {

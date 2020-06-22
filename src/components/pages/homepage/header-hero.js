@@ -1,14 +1,12 @@
 import React from 'react'
-import heroStyle from './header-hero.module.scss'
+import Container from '~components/common/landing-page/container'
 import HeroHeader from '~components/common/landing-page/hero/header'
-import homepageContainerStyle from '~components/common/landing-page/container.module.scss'
+import heroStyle from './header-hero.module.scss'
 
 export default () => {
   return (
     <div className={`hero ${heroStyle.hero}`}>
-      <div
-        className={`${homepageContainerStyle.container} ${homepageContainerStyle.header}`}
-      >
+      <Container>
         <HeroHeader>
           The public deserves the most complete data available about COVID-19 in
           the{' '}
@@ -18,7 +16,7 @@ export default () => {
           . No official source is providing it,{' '}
           <span className="nowrap">so we are</span>.
         </HeroHeader>
-      </div>
+      </Container>
     </div>
   )
 }
