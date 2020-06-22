@@ -44,14 +44,12 @@ const getDataForField = (data, field) => {
 // we need a combined bar + line chart
 
 export default ({ history }) => {
-  // change below
+  // Change below to update range of chart
   const NUM_DAYS = 90
   const data = [...history]
     .slice(0, NUM_DAYS)
     // .slice(history.length - NUM_DAYS, history.length)
     .sort((a, b) => a.date - b.date)
-  // eslint-disable-next-line no-debugger
-  debugger
 
   const hasHospitalizationData = history[0].hospitalized !== null
 
