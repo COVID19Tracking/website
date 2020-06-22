@@ -143,7 +143,7 @@ export default ({
       tableLabel={
         lastUpdated && (
           <>
-            Last updated: <FormatDate date={lastUpdated} /> <Timezone />
+            Last updated: <FormatDate date={lastUpdated} inEt /> <Timezone />
           </>
         )
       }
