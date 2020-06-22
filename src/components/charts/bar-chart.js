@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types' // ES6
 
-import { max, range } from 'd3-array'
-import { scaleBand, scaleLinear } from 'd3-scale'
+import { extent, max, range } from 'd3-array'
+import { scaleBand, scaleLinear, scaleTime } from 'd3-scale'
+import { line, curveCardinal } from 'd3-shape'
 import React from 'react'
 
 import { formatDate, formatNumber } from '~utilities/visualization'
@@ -24,6 +25,9 @@ const BarChart = ({
 }) => {
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
+  // The x range is over the area in which the chart should be displaying.
+  // We don't use an X transform to place it in the correct spot, we use range
+  // instead
   const xScale = scaleBand()
     .domain(data.map(d => d.date))
     .range([marginLeft, width - marginRight])
@@ -40,7 +44,19 @@ const BarChart = ({
     xScaleDomain.length,
     Math.floor(xScaleDomain.length / xTicks),
   )
+  let lineFn = null
+  if (lineData) {
+    const dateDomain = extent(data, d => d.date)
 
+    const xScaleLine = scaleTime()
+      .domain(dateDomain)
+      .range([marginLeft, width - marginRight])
+
+    lineFn = line()
+      .curve(curveCardinal)
+      .x(d => xScaleLine(d.date))
+      .y(d => yScale(d.value))
+  }
   return (
     <div style={{ width, height }}>
       <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
@@ -94,12 +110,22 @@ const BarChart = ({
               y={yScale(d.value)}
               height={yScale(0) - yScale(d.value)}
               width={xScale.bandwidth()}
+              fillOpacity={lineData ? 1 : 0.8}
               fill={fill}
             />
           ))}
         </g>
         {/* line */}
-        {lineData && <g> hello Im line data</g>}
+        {lineData && (
+          <g transform={`translate(0 ${marginTop})`}>
+            <path
+              d={lineFn(lineData)}
+              stroke={fill}
+              strokeWidth="3"
+              fill="none"
+            />
+          </g>
+        )}
       </svg>
     </div>
   )
