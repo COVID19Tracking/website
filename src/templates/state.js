@@ -21,6 +21,7 @@ const StatePage = ({ pageContext, data, path }) => {
         covid19Site={state.covid19Site}
         covid19SiteSecondary={state.covid19SiteSecondary}
         stateName={state.name}
+        fathomGoal="DNRI0GQP"
       />
       <StateGrade letterGrade={covidState.dataQualityGrade} />
       {state.notes && (

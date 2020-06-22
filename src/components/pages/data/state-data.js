@@ -28,6 +28,7 @@ const State = ({ state }) => (
       covid19SiteSecondary={state.covid19SiteSecondary}
       stateName={state.name}
       historicalSlug={state.name}
+      fathomGoal="2YKBL0ZP"
     />
     {state.notes && (
       <Container narrow>
