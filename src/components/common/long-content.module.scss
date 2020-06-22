@@ -1,0 +1,10 @@
+.content {
+  @include type-size(300);
+  h2 {
+    @include margin(4, bottom);
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: spacer(24);
+  }
+}

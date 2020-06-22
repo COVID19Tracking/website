@@ -5,51 +5,11 @@ exports[`Components : Common: Container renders correctly 1`] = `
   className="container container"
 >
   <div
-    className="contentFull"
+    className="full"
   >
-    <div
-      className="contentPrimary"
-    >
-      <p>
-        Sample child
-      </p>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Components : Common: Container renders correctly 2`] = `
-<div
-  className="container container textHeavy"
->
-  <div
-    className="contentFull"
-  >
-    <div
-      className="contentPrimary"
-    >
-      <p>
-        Sample child
-      </p>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Components : Common: Container renders correctly 3`] = `
-<div
-  className="container container textHeavy"
->
-  <div
-    className="contentFull"
-  >
-    <div
-      className="contentPrimary"
-    >
-      <p>
-        Sample child
-      </p>
-    </div>
+    <p>
+      Sample child
+    </p>
   </div>
 </div>
 `;

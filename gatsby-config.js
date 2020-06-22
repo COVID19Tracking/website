@@ -235,6 +235,58 @@ const gatsbyConfig = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allContentfulBlogPost } }) => {
+              return allContentfulBlogPost.nodes.map(node => {
+                return Object.assign({}, {
+                  title: node.title,
+                  description: node.lede.lede,
+                  date: node.publishDate,
+                  url: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
+                })
+              })
+            },
+            query: `
+              {
+                allContentfulBlogPost(sort: { fields: publishDate, order: DESC }) {
+                  nodes {
+                    title
+                    slug
+                    authors {
+                      name
+                    }
+                    publishDate(formatString: "MMMM D, YYYY")
+                    lede {
+                      lede
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "The COVID Tracking Project - RSS Feed",
+            match: "^/blog/",
+          },
+        ],
+      },
+    },
   ],
 }
 

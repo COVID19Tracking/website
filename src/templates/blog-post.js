@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import LongContent from '~components/common/long-content'
 import AuthorFooter from '~components/pages/blog/author-footer'
 import Categories from '~components/pages/blog/categories'
 import Layout from '~components/layout'
@@ -21,7 +22,6 @@ export default ({ data, path }) => {
       returnLink="/blog"
       returnLinkTitle="All posts"
       path={path}
-      textHeavy
       narrow
     >
       <Categories categories={blogPost.categories} />
@@ -32,10 +32,12 @@ export default ({ data, path }) => {
         lede={blogPost.lede.lede}
         featuredImage={blogPost.featuredImage}
       />
-      <BlogPostContent
-        content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
-        images={blogImages}
-      />
+      <LongContent>
+        <BlogPostContent
+          content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
+          images={blogImages}
+        />
+      </LongContent>
 
       <hr />
       <AuthorFooter authors={blogPost.authors} />

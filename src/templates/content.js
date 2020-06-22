@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
+import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 
 const ContentPage = ({ data, path }) => {
@@ -18,12 +19,13 @@ const ContentPage = ({ data, path }) => {
       returnLinkTitle={contentfulPage.returnLinkTitle}
       socialCard={contentfulPage.socialCard}
       narrow
-      textHeavy
     >
-      <ContentfulContent
-        id={contentfulPage.contentful_id}
-        content={contentfulPage.body.childMarkdownRemark.html}
-      />
+      <LongContent>
+        <ContentfulContent
+          id={contentfulPage.contentful_id}
+          content={contentfulPage.body.childMarkdownRemark.html}
+        />
+      </LongContent>
     </Layout>
   )
 }

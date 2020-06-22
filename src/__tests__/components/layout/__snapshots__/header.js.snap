@@ -482,23 +482,19 @@ exports[`Components : Layout : Header renders correctly 1`] = `
       className="container container"
     >
       <div
-        className="contentFull"
+        className="full"
       >
         <div
-          className="contentPrimary"
+          className="titleSubnavContainer "
         >
           <div
-            className="titleSubnavContainer "
+            className="title"
           >
-            <div
-              className="title"
+            <h1
+              className="page-title pageTitle"
             >
-              <h1
-                className="page-title pageTitle"
-              >
-                Sample title
-              </h1>
-            </div>
+              Sample title
+            </h1>
           </div>
         </div>
       </div>
@@ -989,23 +985,19 @@ exports[`Components : Layout : Header renders correctly 2`] = `
       className="container container"
     >
       <div
-        className="contentFull"
+        className="full"
       >
         <div
-          className="contentPrimary"
+          className="titleSubnavContainer "
         >
           <div
-            className="titleSubnavContainer "
+            className="title"
           >
-            <div
-              className="title"
+            <h1
+              className="page-title pageTitle"
             >
-              <h1
-                className="page-title pageTitle"
-              >
-                Sample title
-              </h1>
-            </div>
+              Sample title
+            </h1>
           </div>
         </div>
       </div>
@@ -1496,27 +1488,23 @@ exports[`Components : Layout : Header renders correctly 3`] = `
       className="container container"
     >
       <div
-        className="contentFull"
+        className="full"
       >
         <div
-          className="contentPrimary"
+          className="titleSubnavContainer "
         >
           <div
-            className="titleSubnavContainer "
+            className="title"
           >
-            <div
-              className="title"
+            <h1
+              className="page-title pageTitle"
             >
-              <h1
-                className="page-title pageTitle"
+              <a
+                href="/link"
               >
-                <a
-                  href="/link"
-                >
-                  Sample title
-                </a>
-              </h1>
-            </div>
+                Sample title
+              </a>
+            </h1>
           </div>
         </div>
       </div>
@@ -2007,23 +1995,19 @@ exports[`Components : Layout : Header renders correctly 4`] = `
       className="container container"
     >
       <div
-        className="contentFull"
+        className="full"
       >
         <div
-          className="contentPrimary"
+          className="titleSubnavContainer "
         >
           <div
-            className="titleSubnavContainer "
+            className="title"
           >
-            <div
-              className="title"
+            <h1
+              className="page-title pageTitle"
             >
-              <h1
-                className="page-title pageTitle"
-              >
-                Sample title
-              </h1>
-            </div>
+              Sample title
+            </h1>
           </div>
         </div>
       </div>

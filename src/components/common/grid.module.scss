@@ -1,0 +1,61 @@
+.row {
+  @include row();
+}
+
+$grid-class-sides: top, right, bottom, left;
+
+.col {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  padding-left: spacer(8);
+  padding-right: spacer(8);
+  &:first-child {
+    padding-left: 0 !important;
+  }
+  &:last-child {
+    padding-right: 0 !important;
+  }
+
+  @each $name, $value in $spacers {
+    @each $side in $grid-class-sides {
+      &.padding-#{$side}-small-#{$name} {
+        padding-#{$side}: spacer($name);
+      }
+      &.padding-#{$side}-medium-#{$name} {
+        @media (min-width: $viewport-md) {
+          padding-#{$side}: spacer($name);
+        }
+      }
+      &.padding-#{$side}-large-#{$name} {
+        @media (min-width: $viewport-lg) {
+          padding-#{$side}: spacer($name);
+        }
+      }
+    }
+  }
+}
+
+@for $i from 1 through $grid-small-width {
+  .col-small-#{$i} {
+    flex-basis: percentage($i / $grid-small-width);
+    max-width: percentage($i / $grid-small-width);
+  }
+}
+
+@for $i from 1 through $grid-medium-width {
+  .col-medium-#{$i} {
+    @media (min-width: $viewport-md) {
+      flex-basis: percentage($i / $grid-medium-width);
+      max-width: percentage($i / $grid-medium-width);
+    }
+  }
+}
+
+@for $i from 1 through $grid-large-width {
+  .col-large-#{$i} {
+    @media (min-width: $viewport-lg) {
+      flex-basis: percentage($i / $grid-large-width);
+      max-width: percentage($i / $grid-large-width);
+    }
+  }
+}

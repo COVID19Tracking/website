@@ -47,6 +47,7 @@
 }
 
 .menu-item {
+  @include type-size(300);
   &:hover {
     [data-reach-menu] {
       display: block;

@@ -1,0 +1,36 @@
+.rowComponent {
+  background: $color-plum-100;
+  padding: 1rem;
+}
+
+.row {
+  @include row();
+  background: $color-plum-100;
+  padding: 1rem;
+}
+
+.col {
+  background: $color-plum-800;
+  height: 2rem;
+  color: white;
+  font-family: monospace;
+  text-align: center;
+}
+
+.half {
+  @include col(2 3 6);
+}
+.quarter {
+  @include col(1 2 3);
+}
+.full {
+  @include col(4 6 12);
+}
+
+.twoThirds {
+  @include col(4 3 8);
+}
+
+.oneThird {
+  @include col(4 3 4, 8 16 32);
+}
