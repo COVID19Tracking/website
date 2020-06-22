@@ -257,7 +257,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 1`] =
     className="detail-text detailText"
   >
     Last updated: 
-    Wed Apr 1 2020 12:00 am
+    Wed Apr 1 2020 4:00 am
      
     <abbr
       aria-label="Eastern Time"
@@ -406,7 +406,7 @@ exports[`Components : Common: Publication: Summary table renders correctly 2`] =
     className="detail-text detailText"
   >
     Last updated: 
-    Wed Apr 1 2020 12:00 am
+    Wed Apr 1 2020 4:00 am
      
     <abbr
       aria-label="Eastern Time"

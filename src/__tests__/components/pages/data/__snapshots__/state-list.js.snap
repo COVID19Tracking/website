@@ -292,7 +292,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
       className="detail-text detailText"
     >
       Last updated: 
-      Fri Apr 17 2020 12:00 am
+      Fri Apr 17 2020 4:00 am
        
       <abbr
         aria-label="Eastern Time"
