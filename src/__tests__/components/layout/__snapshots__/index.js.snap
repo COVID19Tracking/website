@@ -562,6 +562,13 @@ Array [
                 Accessibility
               </a>
             </li>
+            <li>
+              <a
+                href="/rss.xml"
+              >
+                RSS
+              </a>
+            </li>
           </ul>
         </div>
         <ul
@@ -1183,6 +1190,13 @@ Array [
                 href="/accessibility"
               >
                 Accessibility
+              </a>
+            </li>
+            <li>
+              <a
+                href="/rss.xml"
+              >
+                RSS
               </a>
             </li>
           </ul>
