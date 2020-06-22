@@ -503,25 +503,27 @@ Array [
     </div>
   </main>,
   <footer
-    className="footer"
+    className="wrapper"
   >
     <div
-      className="container container"
+      className="footer"
     >
       <div
-        className="full"
+        className="main"
       >
-        <div
-          className="container"
+        <a
+          className="ctpLogo"
+          href="/"
         >
-          <a
-            href="/"
-          >
-            <img
-              alt="The COVID Tracking Project"
-              src="test-file-stub"
-            />
-          </a>
+          <img
+            alt="The COVID Tracking Project"
+            className="projectLogo"
+            src="test-file-stub"
+          />
+        </a>
+        <div
+          className="links"
+        >
           <ul
             className="footerList"
           >
@@ -534,23 +536,9 @@ Array [
             </li>
             <li>
               <a
-                href="/accessibility"
-              >
-                Accessibility
-              </a>
-            </li>
-            <li>
-              <a
                 href="/terms-and-conditions"
               >
                 Terms and Conditions
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.theatlantic.com/privacy-policy/"
-              >
-                Privacy Policy
               </a>
             </li>
             <li>
@@ -562,43 +550,81 @@ Array [
             </li>
             <li>
               <a
-                href="https://github.com/COVID19Tracking"
+                href="https://www.theatlantic.com/privacy-policy/"
               >
-                GitHub
+                Privacy Policy
               </a>
             </li>
             <li>
               <a
-                href="https://twitter.com/COVID19Tracking"
+                href="/accessibility"
               >
-                Twitter
+                Accessibility
               </a>
             </li>
             <li>
               <a
-                className="backToTop"
-                href="#reach-skip-nav"
+                href="/rss.xml"
               >
-                Back to top
+                RSS
               </a>
             </li>
           </ul>
         </div>
-        <div
-          className="copyright"
+        <ul
+          className="social"
         >
-          <span>
-            CovidTracking.com Copyright © 
-            2020
-             by The Atlantic Monthly Group. 
+          <li>
             <a
-              href="/license"
+              href="https://github.com/COVID19Tracking"
             >
-              (CC BY-NC 4.0)
+              <img
+                alt="GitHub"
+                src="test-file-stub"
+              />
             </a>
-          </span>
-        </div>
+          </li>
+          <li>
+            <a
+              href="https://twitter.com/COVID19Tracking"
+            >
+              <img
+                alt="Twitter"
+                src="test-file-stub"
+              />
+            </a>
+          </li>
+        </ul>
       </div>
+    </div>
+    <hr
+      className="divider"
+    />
+    <div
+      className="copyright"
+    >
+      <span>
+        CovidTracking.com Copyright © 
+        2020
+         by The Atlantic Monthly Group. 
+        <a
+          href="/license"
+        >
+          (CC BY-NC 4.0)
+        </a>
+      </span>
+      <a
+        className="backToTop"
+        href="#reach-skip-nav"
+      >
+        <span>
+          Back to top
+        </span>
+        <img
+          alt="Back to top"
+          src="test-file-stub"
+        />
+      </a>
     </div>
   </footer>,
 ]
@@ -1107,25 +1133,27 @@ Array [
     </div>
   </main>,
   <footer
-    className="footer"
+    className="wrapper"
   >
     <div
-      className="container container"
+      className="footer"
     >
       <div
-        className="full"
+        className="main"
       >
-        <div
-          className="container"
+        <a
+          className="ctpLogo"
+          href="/"
         >
-          <a
-            href="/"
-          >
-            <img
-              alt="The COVID Tracking Project"
-              src="test-file-stub"
-            />
-          </a>
+          <img
+            alt="The COVID Tracking Project"
+            className="projectLogo"
+            src="test-file-stub"
+          />
+        </a>
+        <div
+          className="links"
+        >
           <ul
             className="footerList"
           >
@@ -1138,23 +1166,9 @@ Array [
             </li>
             <li>
               <a
-                href="/accessibility"
-              >
-                Accessibility
-              </a>
-            </li>
-            <li>
-              <a
                 href="/terms-and-conditions"
               >
                 Terms and Conditions
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.theatlantic.com/privacy-policy/"
-              >
-                Privacy Policy
               </a>
             </li>
             <li>
@@ -1166,43 +1180,81 @@ Array [
             </li>
             <li>
               <a
-                href="https://github.com/COVID19Tracking"
+                href="https://www.theatlantic.com/privacy-policy/"
               >
-                GitHub
+                Privacy Policy
               </a>
             </li>
             <li>
               <a
-                href="https://twitter.com/COVID19Tracking"
+                href="/accessibility"
               >
-                Twitter
+                Accessibility
               </a>
             </li>
             <li>
               <a
-                className="backToTop"
-                href="#reach-skip-nav"
+                href="/rss.xml"
               >
-                Back to top
+                RSS
               </a>
             </li>
           </ul>
         </div>
-        <div
-          className="copyright"
+        <ul
+          className="social"
         >
-          <span>
-            CovidTracking.com Copyright © 
-            2020
-             by The Atlantic Monthly Group. 
+          <li>
             <a
-              href="/license"
+              href="https://github.com/COVID19Tracking"
             >
-              (CC BY-NC 4.0)
+              <img
+                alt="GitHub"
+                src="test-file-stub"
+              />
             </a>
-          </span>
-        </div>
+          </li>
+          <li>
+            <a
+              href="https://twitter.com/COVID19Tracking"
+            >
+              <img
+                alt="Twitter"
+                src="test-file-stub"
+              />
+            </a>
+          </li>
+        </ul>
       </div>
+    </div>
+    <hr
+      className="divider"
+    />
+    <div
+      className="copyright"
+    >
+      <span>
+        CovidTracking.com Copyright © 
+        2020
+         by The Atlantic Monthly Group. 
+        <a
+          href="/license"
+        >
+          (CC BY-NC 4.0)
+        </a>
+      </span>
+      <a
+        className="backToTop"
+        href="#reach-skip-nav"
+      >
+        <span>
+          Back to top
+        </span>
+        <img
+          alt="Back to top"
+          src="test-file-stub"
+        />
+      </a>
     </div>
   </footer>,
 ]
