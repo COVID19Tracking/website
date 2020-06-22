@@ -10,6 +10,9 @@ import StatesNav from '~components/common/state-nav'
 import SummaryTable from '~components/common/summary-table'
 import { SyncInfobox } from '~components/common/infobox'
 
+// TODO: We will want to move this component if we really want to keep this.
+import StateCharts from '~components/pages/state/charts'
+
 export default ({ data }) => {
   const stateNavList = []
   data.allCovidStateInfo.nodes.forEach(node => {
@@ -29,6 +32,7 @@ export default ({ data }) => {
       />
       <SyncInfobox />
       <SummaryTable data={data.covidUs} showOutcomes={false} showFootnote />
+      <StateCharts history={data.allCovidUsDaily.nodes} />
       <DetailText>
         <MarkdownContent
           html={data.dataSummaryFootnote.content.childMarkdownRemark.html}
@@ -91,6 +95,15 @@ export const query = graphql`
         covid19Site
         covid19SiteSecondary
         twitter
+      }
+    }
+    allCovidUsDaily {
+      nodes {
+        date
+        totalTestResultsIncrease
+        positiveIncrease
+        hospitalizedIncrease
+        deathIncrease
       }
     }
     allCovidState {

@@ -70,6 +70,7 @@ export const query = graphql`
         pending
         negative
         hospitalized
+        hospitalizedIncrease
         death
         deathIncrease
         date
