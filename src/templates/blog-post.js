@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import AuthorFooter from '~components/pages/blog/author-footer'
 import Categories from '~components/pages/blog/categories'
 import Layout from '~components/layout'
+import Container from '~components/common/container'
 import Lede from '~components/pages/blog/blog-lede'
 import BlogPostContent from '~components/pages/blog/blog-content'
 
@@ -22,23 +23,25 @@ export default ({ data, path }) => {
       returnLinkTitle="All posts"
       path={path}
       textHeavy
-      narrow
     >
-      <Categories categories={blogPost.categories} />
-      <Lede
-        headline={blogPost.title}
-        authors={blogPost.authors}
-        date={blogPost.publishDate}
-        lede={blogPost.lede.lede}
-        featuredImage={blogPost.featuredImage}
-      />
+      <Container narrow>
+        <Categories categories={blogPost.categories} />
+        <Lede
+          headline={blogPost.title}
+          authors={blogPost.authors}
+          date={blogPost.publishDate}
+          lede={blogPost.lede.lede}
+          featuredImage={blogPost.featuredImage}
+        />
+      </Container>
       <BlogPostContent
         content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
         images={blogImages}
       />
-
-      <hr />
-      <AuthorFooter authors={blogPost.authors} />
+      <Container narrow>
+        <hr />
+        <AuthorFooter authors={blogPost.authors} />
+      </Container>
     </Layout>
   )
 }
