@@ -5,7 +5,7 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
   className="hero hero"
 >
   <div
-    className="container header"
+    className="container"
   >
     <h2
       className="hero-header header"
