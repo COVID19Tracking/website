@@ -12,6 +12,23 @@ exports[`Components : Pages : Homepage : Latest Totals renders correctly 1`] = `
   <div
     className="wrapper"
   >
+    <span
+      className="ctaLink"
+    >
+      <a
+        className="cta  "
+        href="/data"
+      >
+        See all data
+        <span
+          aria-hidden={true}
+          className="arrow"
+        >
+           
+          →
+        </span>
+      </a>
+    </span>
     <div
       className="headerContainer"
     >
@@ -20,70 +37,65 @@ exports[`Components : Pages : Homepage : Latest Totals renders correctly 1`] = `
       </h2>
     </div>
     <div
-      className="allTotals"
+      className="row allTotals"
     >
       <div
-        className="total"
-        role="text"
+        className="col colSmall4 colMedium6 colLarge4"
       >
         <div
-          className="number"
+          className="total"
+          role="text"
         >
-          5,795,728
-        </div>
-        <div
-          className="label"
-        >
-          Total test results
-        </div>
-      </div>
-      <div
-        className="total"
-        role="text"
-      >
-        <div
-          className="number"
-        >
-          1,005,592
-        </div>
-        <div
-          className="label"
-        >
-          Cases
-        </div>
-      </div>
-      <div
-        className="total"
-        role="text"
-      >
-        <div
-          className="number"
-        >
-          52,525
-        </div>
-        <div
-          className="label"
-        >
-          Deaths
-        </div>
-      </div>
-      <span
-        className="ctaLink"
-      >
-        <a
-          className="cta  "
-          href="/data"
-        >
-          See all data
-          <span
-            aria-hidden={true}
-            className="arrow"
+          <div
+            className="number"
           >
-             
-            →
-          </span>
-        </a>
-      </span>
+            5,795,728
+          </div>
+          <div
+            className="label"
+          >
+            Total test results
+          </div>
+        </div>
+      </div>
+      <div
+        className="col colSmall4 colMedium6 colLarge4"
+      >
+        <div
+          className="total"
+          role="text"
+        >
+          <div
+            className="number"
+          >
+            1,005,592
+          </div>
+          <div
+            className="label"
+          >
+            Cases
+          </div>
+        </div>
+      </div>
+      <div
+        className="col colSmall4 colMedium6 colLarge4"
+      >
+        <div
+          className="total"
+          role="text"
+        >
+          <div
+            className="number"
+          >
+            52,525
+          </div>
+          <div
+            className="label"
+          >
+            Deaths
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

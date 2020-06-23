@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import ReCaptcha from 'react-recaptcha'
 import ContentfulContent from '~components/common/contentful-content'
+import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 import { Form, FormInput } from '~components/common/form'
 import { AlertInfobox } from '~components/common/infobox'
@@ -32,7 +33,6 @@ export default ({ data }) => {
           'The COVID Tracking Project runs on the effort and diligence of hundreds of volunteers, and we welcome your contribution.',
       }}
       narrow
-      textHeavy
     >
       <ContentfulContent
         content={
@@ -117,6 +117,16 @@ export default ({ data }) => {
           </AlertInfobox>
         )}
         <br />
+        <input
+          type="hidden"
+          name="autoreply-from"
+          value="support@covidtracking.com"
+        />
+        <input
+          type="hidden"
+          name="autoreply-sender-name"
+          value="The COVID Tracking Project"
+        />
         <button
           type="submit"
           disabled={reason === defaultReason}

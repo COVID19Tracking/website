@@ -4,7 +4,7 @@ import Layout from '~components/layout'
 import BlogTeaserList from '~components/pages/blog/blog-teaser-list'
 
 export default ({ data }) => (
-  <Layout title="Blog" path="/blog" textHeavy narrow>
+  <Layout title="Blog" path="/blog" narrow>
     <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
   </Layout>
 )

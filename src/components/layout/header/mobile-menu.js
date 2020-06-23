@@ -4,7 +4,6 @@ import classNames from 'classnames'
 import { useSearch } from '~context/search-context'
 import HeaderSearch from './search'
 import HeaderNavigation from './navigation'
-import SearchAutocomplete from './search-autocomplete'
 import headerStyle from './header.module.scss'
 
 export default ({ expanded, topNavigation, subNavigation }) => {
@@ -52,9 +51,9 @@ export default ({ expanded, topNavigation, subNavigation }) => {
         minHeight: `${menuHeight.current}px`,
       }}
     >
-      <HeaderSearch>
-        <SearchAutocomplete ref={resultPopoverRef} mobile visible={expanded} />
-      </HeaderSearch>
+      <div className={headerStyle.mobileSearchContainer}>
+        <HeaderSearch popoverRef={resultPopoverRef} mobile visible={expanded} />
+      </div>
 
       <HeaderNavigation
         topNavigation={topNavigation}

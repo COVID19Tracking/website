@@ -1,0 +1,18 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+.search {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+
+  border-radius: 4px;
+  z-index: 2;
+
+  height: 35px;
+
+  background: transparentize($color-plum-400, 0.2);
+  color: white;
+  position: relative;
+}
