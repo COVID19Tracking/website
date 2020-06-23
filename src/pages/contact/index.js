@@ -119,6 +119,16 @@ export default ({ data }) => {
                   can route your message to the right team.
                 </AlertInfobox>
               )}
+              <input
+                type="hidden"
+                name="autoreply-from"
+                value="support@covidtracking.com"
+              />
+              <input
+                type="hidden"
+                name="autoreply-sender-name"
+                value="The COVID Tracking Project"
+              />
               <button
                 type="submit"
                 disabled={reason === defaultReason}
