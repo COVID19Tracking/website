@@ -106,9 +106,9 @@ export default ({ data, field, label, increments }) => {
         >
           <svg
             y={yScale(index) + 10}
-            x={0}
+            x={labelOffset - 10}
             width={labelOffset}
-            className={countyChartStyles.tick}
+            className={countyChartStyles.countyLabel}
           >
             <text className={countyChartStyles.label}>
               {d.name}, {d.demographics.abbreviation}

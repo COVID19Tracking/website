@@ -33,6 +33,11 @@
   @include type-size(100);
 }
 
+.county-label {
+  overflow: visible !important;
+  text-anchor: end;
+}
+
 .vertical-tick {
   stroke: white;
   height: 100%;
