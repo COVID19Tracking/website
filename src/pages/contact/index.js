@@ -95,6 +95,8 @@ export default ({ data }) => {
           <ReCaptcha
             sitekey={data.site.siteMetadata.recaptchaKey}
             elementID="contact-form-captcha"
+            render="explicit"
+            onloadCallback={console.log('Loaded')}
           />
         )}
 
