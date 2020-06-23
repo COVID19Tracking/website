@@ -1,6 +1,7 @@
 import React from 'react'
 import { max } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
+import classnames from 'classnames'
 import countyChartStyles from './county-chart.module.scss'
 
 const groupClasses = {
@@ -91,7 +92,12 @@ export default ({ data, field, label, increments }) => {
                   width={labelOffset}
                   className={countyChartStyles.tick}
                 >
-                  <text className={countyChartStyles.label}>
+                  <text
+                    className={classnames(
+                      countyChartStyles.label,
+                      countyChartStyles.centered,
+                    )}
+                  >
                     {tick.toLocaleString()}
                   </text>
                 </svg>
