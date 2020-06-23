@@ -1,122 +1,23 @@
-$mobile-offset-x: -82%;
-$mobile-offset-y: -3%;
-$label-offset-x: 120;
-$label-offset-y: 25;
-
-$chart-color: #0f1551;
-
 .hero {
-  padding-top: spacer(32);
-  background: $color-plum-550;
+  @include padding(32, top bottom);
+  background: $color-plum-700;
   color: white;
   abbr[title] {
     text-decoration: none;
   }
-  @media (min-width: $viewport-md) {
-    padding: spacer(32) 0 spacer(32) 0;
-  }
-  .container {
-    padding-bottom: spacer(24);
-    @media (min-width: $viewport-lg) {
-      position: relative;
-      padding-bottom: spacer(32);
+  h2 {
+    @include type-size(500);
+    line-height: 1.25;
+    font-weight: bold;
+    margin-top: 0;
+    @media (min-width: $viewport-md) {
+      @include type-size(600);
     }
-  }
-
-  .paragraph {
     @media (min-width: $viewport-lg) {
-      @include type-size(300);
-      max-width: 30rem;
-      bottom: 2.5rem;
-      position: absolute;
+      @include type-size(600);
     }
     @media (min-width: $viewport-xl) {
-      // max-width: 30rem;
-      bottom: 9rem;
+      @include type-size(700);
     }
-  }
-  .chart-wrapper {
-    overflow-x: hidden;
-
-    @media (min-width: $viewport-lg) {
-      max-width: 80%;
-      margin-left: 20%;
-    }
-  }
-}
-
-.chart {
-  padding-bottom: $label-offset-y;
-  padding-left: 5%;
-  @media (min-width: $viewport-md) {
-    padding-left: 0;
-  }
-}
-
-.chart-bar {
-  margin: 0 1px;
-  transform: translateY($mobile-offset-y);
-  width: 8px;
-  @media (min-width: $viewport-ms) {
-    transform: translateY(0);
-  }
-  @media (min-width: $viewport-lg) {
-    width: 9px;
-  }
-  &.ctp {
-    fill: $chart-color;
-  }
-  &.cdc {
-    fill: $color-plum-100;
-  }
-}
-
-.chart-line {
-  stroke: $color-plum-550;
-  stroke-width: 1.5px;
-  transform: translateX($mobile-offset-x * -1.1);
-
-  @media (min-width: $viewport-ms) {
-    transform: translateX(0);
-  }
-}
-
-.chart-legend {
-  fill: white;
-  @include type-size(600);
-  overflow: visible !important;
-  text-anchor: end;
-
-  @media (min-width: $viewport-ms) {
-    @include type-size(400);
-  }
-
-  @media (min-width: $viewport-lg) {
-    @include type-size(300);
-  }
-}
-
-.chart-y-axis {
-  transform: translateX($mobile-offset-x) translateY($mobile-offset-y);
-
-  @media (min-width: $viewport-lg) {
-    transform: translateX(0) translateY(0);
-  }
-}
-
-.legend {
-  display: inline-block;
-  color: $color-plum-600;
-  font-weight: bold;
-  padding: toRem(1) toRem(3);
-  @media (min-width: $viewport-md) {
-    padding: toRem(2) toRem(5);
-  }
-  &.cdc {
-    background: white;
-  }
-  &.ctp {
-    background: $chart-color;
-    color: white;
   }
 }

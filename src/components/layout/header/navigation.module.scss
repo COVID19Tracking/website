@@ -1,28 +1,27 @@
 .caret {
   appearance: none;
   background: none;
+  @media (max-width: $viewport-lg) {
+    background-color: $color-plum-500;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+  }
   border: none;
   box-shadow: none;
   margin-left: spacer(8);
   position: relative;
-  z-index: 2;
+  z-index: 1;
   cursor: pointer;
   padding: 0;
   top: 3px;
   &:focus {
     outline: 2px dotted white;
   }
-  @media (hover: none) {
-    background-color: #ffffff;
-    border-radius: 10px;
-    height: toRem(22);
-    width: toRem(22);
-  }
-
   @media (any-hover: hover) {
-    width: toRem(40);
-    height: toRem(40);
-    margin-left: 0;
+    width: spacer(24);
+    height: spacer(24);
+    margin-left: spacer(8);
     svg {
       margin-bottom: spacer(4);
     }
@@ -34,7 +33,6 @@
     transform-origin: center;
 
     @media (hover: none) {
-      fill: $color-plum-600;
       position: absolute;
       top: 8px;
       left: 5px;
@@ -49,6 +47,7 @@
 }
 
 .menu-item {
+  @include type-size(300);
   &:hover {
     [data-reach-menu] {
       display: block;
@@ -59,20 +58,34 @@
   }
 }
 
+@media (max-width: $viewport-lg) {
+  .nav-label {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: $viewport-sm) {
+  .nav-label {
+    justify-content: space-between;
+  }
+}
+
 .sub-menu {
   display: block;
   position: absolute;
-  border-top: 20px solid #5667ad;
+  border-top: 20px solid $color-plum-700;
   top: 20px;
   text-align: left;
   background-color: #ffffff;
   min-width: 15em;
-  padding: spacer(8) 0;
+  padding: spacer(4);
+  color: $color-plum-700;
   a.menu-link,
   a.menu-link[aria-current] {
-    color: $color-plum-600;
+    color: $color-plum-700;
     display: block;
-    padding: spacer(8) spacer(16);
+    padding: spacer(8);
     cursor: pointer;
     &:hover,
     &[data-selected],
@@ -81,17 +94,50 @@
       background: black;
     }
   }
+  div {
+    @media (max-width: $viewport-lg) {
+      @include margin(8, bottom);
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 
 .mobile {
+  display: grid;
+  row-gap: 0.5rem;
+  grid-template-columns: 100%;
+
+  @media (max-width: $viewport-lg) and (min-width: $viewport-ms) {
+    row-gap: 1rem;
+    grid-template-columns: repeat(3, 33%);
+  }
+  @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
+    grid-template-columns: repeat(2, 49%);
+  }
+
   .sub-menu {
-    position: relative;
-    border: 0;
-    top: 0;
-    background: transparent;
-    padding-left: spacer(16);
-    a {
-      color: white;
+    border-top: none;
+    top: auto;
+    line-height: 1rem;
+    z-index: 2;
+  }
+
+  @media (max-width: $viewport-sm) {
+    .sub-menu {
+      position: relative;
+      border: 0;
+      top: 0;
+      background: transparent;
+      padding-left: spacer(16);
+      a,
+      a[aria-current] {
+        color: $color-plum-100;
+      }
+      &:focus {
+        @include link-focus-dark-bg;
+      }
     }
   }
   .menu-item {

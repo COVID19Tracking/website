@@ -1,0 +1,119 @@
+@import '~scss/colors.module.scss';
+@import '~scss/breakpoints.module.scss';
+
+.search-label {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: $color-plum-500;
+
+  @media (max-width: $viewport-lg) {
+    color: $color-plum-100;
+  }
+
+  @media (min-width: $viewport-lg) {
+    display: none;
+  }
+}
+
+.search-input {
+  width: 0;
+  padding: 0.55rem calc(35px / 2); // ignore-style-rule
+
+  font-size: 1rem;
+  font-weight: 300;
+  color: #f2f2f2;
+  border: 0;
+  background: transparent;
+  border-radius: 4px;
+
+  &::placeholder {
+    color: #f2f2f2;
+    opacity: 1;
+  }
+
+  @media (max-width: $viewport-lg) {
+    width: 100%;
+    background: $color-plum-500;
+    padding: 0.55rem 3rem 0.55rem 5rem; // ignore-style-rule
+  }
+}
+.search-input-focused {
+  width: 28.5rem;
+  color: #303030;
+  font-weight: 400;
+  padding: 0.55rem 3rem 0.55rem 5rem; // ignore-style-rule
+  outline: none;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px $color-honey-400;
+  transition: width 0.05s;
+
+  &,
+  &::placeholder {
+    color: $placeholder;
+  }
+
+  + label {
+    display: inline;
+    @media (max-width: $viewport-lg) {
+      color: $color-plum-500;
+    }
+  }
+
+  @media (max-width: $viewport-lg) {
+    width: 100%;
+  }
+}
+
+.popover {
+  background: #ffffff;
+  border: 1px solid $color-slate-600;
+  font-size: 1rem;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  left: 0;
+  font-weight: normal;
+  text-align: left;
+  @include padding(4);
+  opacity: 1;
+  transform: translateY(0.4rem);
+  color: $text;
+
+  [data-user-value] {
+    font-weight: bold;
+  }
+  [data-suggested-value] {
+    font-weight: normal;
+  }
+  ul.popover-list {
+    margin: 0;
+  }
+  li:not(.popoverSeparator) {
+    &:hover {
+      background: $color-blueberry-hover;
+    }
+    &[aria-selected='true'],
+    &:focus {
+      color: white;
+      background: black;
+    }
+  }
+}
+
+.popoverSeparator {
+  @include padding(8, left);
+  text-align: left;
+  font-size: 0.8rem;
+  font-style: italic;
+  pointer-events: none;
+  &:not(:first-child) {
+    @include margin(8, top);
+  }
+}

@@ -1,10 +1,10 @@
 import React from 'react'
-import BlogImage from './blog-image'
+import Img from 'gatsby-image'
+import ImageCredit from '~components/common/image-credit'
 
-export default ({ image, caption }) => (
-  <BlogImage
-    imageSource={image['en-US'].fields.file['en-US'].url}
-    imageAlt={image['en-US'].fields.title['en-US']}
-    caption={caption && caption['en-US']}
-  />
+export default ({ caption, image }) => (
+  <div>
+    <Img fluid={image.fluid} alt={image.title} />
+    {caption && <ImageCredit>{caption['en-US']}</ImageCredit>}
+  </div>
 )

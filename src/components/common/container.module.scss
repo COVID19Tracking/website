@@ -1,15 +1,25 @@
 .container {
-  max-width: toRem(1000);
+  @include row();
   @include margin(24, left right);
 
   @media (min-width: $viewport-md) {
-    @include margin(32, left right);
+    margin-left: 3.5rem; // ignore-style-rule
+    margin-right: 3.5rem; // ignore-style-rule
   }
   @media (min-width: $viewport-lg) {
-    margin-left: auto;
-    margin-right: auto;
+    @include margin(32, left right);
   }
   @media (min-width: $viewport-xl) {
     max-width: toRem(1140);
+    margin-left: auto;
+    margin-right: auto;
   }
+}
+
+.full {
+  @include col(4 6 12);
+}
+
+.narrow {
+  @include col(4 6 8);
 }

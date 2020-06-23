@@ -1,23 +1,6 @@
-.list,
-.logos {
-  @media (min-width: $viewport-lg) {
-    width: 50%;
-  }
-}
-
-.list {
-  margin-bottom: 3rem;
-  @media (min-width: $viewport-lg) {
-    padding-right: spacer(64);
-    margin-bottom: 0;
-  }
-}
-
 .press {
   margin-top: spacer(16);
   margin-bottom: spacer(80);
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .header {

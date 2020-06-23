@@ -12,23 +12,5 @@ describe('Components : Common: Container', () => {
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
-
-    const textHeavyTree = renderer
-      .create(
-        <Container textHeavy>
-          <p>Sample child</p>
-        </Container>,
-      )
-      .toJSON()
-    expect(textHeavyTree).toMatchSnapshot()
-
-    const narrowTree = renderer
-      .create(
-        <Container textHeavy>
-          <p>Sample child</p>
-        </Container>,
-      )
-      .toJSON()
-    expect(narrowTree).toMatchSnapshot()
   })
 })

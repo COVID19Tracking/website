@@ -6,6 +6,12 @@ import { Meta } from '@storybook/addon-docs/blocks'
 
 We use [SASS Modules](https://www.gatsbyjs.org/docs/css-modules/) to keep our styles scoped to components and prevent global styles. Individual components should have their own file, and that file should mirror that component's place in the directory. So, for example, a component in `/src/components/common/beetle.js` should have a SCSS file at `/src/scss/components/common/beetle.css`.
 
+If you create a `margin`, `padding`, or `font-size` that does not use our pre-defined spacing or type mixins, your PR will be flagged. To prevent this, add `// ignore-style-rule` to the end of the style declarataion:
+
+```
+margin: 45px; // ignore-style-rule
+```
+
 ## Spacing
 
 Avoid using absolute margin and padding in your style. Instead, use our pre-defined spacer mixins:

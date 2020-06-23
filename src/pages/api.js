@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
 import ApiExplorer from '~components/pages/data/api/explorer'
+import LongContent from '~components/common/long-content'
 import Layout from '../components/layout'
 
 export default ({ data }) => (
@@ -10,13 +11,15 @@ export default ({ data }) => (
     path="/api"
     navigation={data.contentfulNavigationGroup.pages}
   >
-    <ContentfulContent
-      content={
-        data.contentfulSnippet.childContentfulSnippetContentTextNode
-          .childMarkdownRemark.html
-      }
-      id={data.contentfulSnippet.contentful_id}
-    />
+    <LongContent>
+      <ContentfulContent
+        content={
+          data.contentfulSnippet.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
+        }
+        id={data.contentfulSnippet.contentful_id}
+      />
+    </LongContent>
     <ApiExplorer />
   </Layout>
 )

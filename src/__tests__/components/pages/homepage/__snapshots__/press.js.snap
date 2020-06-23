@@ -11,83 +11,87 @@ exports[`Components : Pages : Homepage : Press renders correctly 1`] = `
     className="press"
   >
     <div
-      className="list"
-    >
-      <ul
-        className="press-list pressList"
-      >
-        <li>
-          <cite
-            className="title"
-          >
-            <a
-              href="https://abc7news.com/coronavirus-testing-california-covid-19-in-tests-ca-pandemic/6111601/"
-            >
-              Coronavirus testin: California continues to lag compared to other states
-            </a>
-          </cite>
-          <div
-            className="detail-text detailText"
-          >
-            <span
-              className="source"
-            >
-              ABC 7 News
-            </span>
-            <span
-              aria-hidden={true}
-              className="dotSeparator"
-            >
-              •
-            </span>
-            April 18, 2020
-          </div>
-        </li>
-        <li>
-          <cite
-            className="title"
-          >
-            <a
-              href="https://www.bostonglobe.com/2020/04/18/nation/amid-flurry-national-coronavirus-data-massachusetts-remains-hot-spot-infection/"
-            >
-              Amid flurry of national coronavirus data, Massachusetts remains a hot spot of infection
-            </a>
-          </cite>
-          <div
-            className="detail-text detailText"
-          >
-            <span
-              className="source"
-            >
-              The Boston Globe
-            </span>
-            <span
-              aria-hidden={true}
-              className="dotSeparator"
-            >
-              •
-            </span>
-            April 18, 2020
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div
-      className="logos"
+      className="row"
     >
       <div
-        className="homepage-press-logos logos undefined"
+        className="col colSmall4 colMedium6 colLarge6 paddingRightSmall8 paddingRightMedium8 paddingRightLarge64 paddingBottomSmall32 paddingBottomMedium32 paddingBottomLarge0"
       >
-        <p
-          className="a11y-only"
+        <ul
+          className="press-list pressList"
         >
-          News organizations including The New York Times, The Washington Post, CNN, Vox, ProPublica, and The Wall Street Journal use our data in their reporting.
-        </p>
-        <img
-          alt="test B logo"
-          aria-hidden={true}
-          src="/images/press-logos/test-b.png"
-        />
+          <li>
+            <cite
+              className="title"
+            >
+              <a
+                href="https://abc7news.com/coronavirus-testing-california-covid-19-in-tests-ca-pandemic/6111601/"
+              >
+                Coronavirus testin: California continues to lag compared to other states
+              </a>
+            </cite>
+            <div
+              className="detail-text detailText"
+            >
+              <span
+                className="source"
+              >
+                ABC 7 News
+              </span>
+              <span
+                aria-hidden={true}
+                className="dotSeparator"
+              >
+                •
+              </span>
+              April 18, 2020
+            </div>
+          </li>
+          <li>
+            <cite
+              className="title"
+            >
+              <a
+                href="https://www.bostonglobe.com/2020/04/18/nation/amid-flurry-national-coronavirus-data-massachusetts-remains-hot-spot-infection/"
+              >
+                Amid flurry of national coronavirus data, Massachusetts remains a hot spot of infection
+              </a>
+            </cite>
+            <div
+              className="detail-text detailText"
+            >
+              <span
+                className="source"
+              >
+                The Boston Globe
+              </span>
+              <span
+                aria-hidden={true}
+                className="dotSeparator"
+              >
+                •
+              </span>
+              April 18, 2020
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        className="col colSmall4 colMedium6 colLarge6 paddingLeftSmall0 paddingLeftMedium0 paddingLeftLarge0"
+      >
+        <div
+          className="homepage-press-logos logos undefined"
+        >
+          <p
+            className="a11y-only"
+          >
+            News organizations including The New York Times, The Washington Post, CNN, Vox, ProPublica, and The Wall Street Journal use our data in their reporting.
+          </p>
+          <img
+            alt="test B logo"
+            aria-hidden={true}
+            src="/images/press-logos/test-b.png"
+          />
+        </div>
       </div>
     </div>
     <a

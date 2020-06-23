@@ -3,8 +3,17 @@
   @include type-size(100);
 
   @media (min-width: $viewport-lg) {
-    display: block;
+    display: flex;
   }
+}
+
+.searchContainer {
+  @include margin(16, right);
+}
+.mobileSearchContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .project-logo {
@@ -13,94 +22,18 @@
   }
 }
 
-.search-input {
-  display: inline-flex;
-  align-items: center;
-
-  background: transparentize($color-plum-400, 0.2);
-  color: white;
-  position: relative;
-
-  @media (min-width: $viewport-lg) {
-    justify-content: center;
-    margin-right: spacer(8);
-  }
-
-  > form {
-    width: 100%;
-  }
-
-  label {
-    position: absolute;
-    left: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-
-    font-weight: bold;
-    color: #ffffff;
-  }
-
-  .label-focus {
-    color: $placeholder;
-  }
-
-  input {
-    width: 100%;
-    padding: 0.55rem 3rem 0.55rem 5rem; // ignore-style-rule
-
-    font-weight: bold;
-    border: 0;
-    background: transparent;
-    color: #f2f2f2;
-    transition: width 0.05s;
-
-    &::placeholder {
-      color: #f2f2f2;
-      opacity: 1;
-    }
-
-    &:focus {
-      background: #ffffff;
-      outline: solid 2px #2f80ed;
-      outline-offset: -1px;
-
-      &,
-      &::placeholder {
-        color: $placeholder;
-      }
-
-      @media (min-width: $viewport-lg) {
-        width: 28.5rem;
-      }
-    }
-
-    @media (min-width: $viewport-lg) {
-      width: 5.6rem;
-    }
-  }
-}
-
-.search-submit {
-  position: absolute;
-  right: 0.25rem;
-  top: 50%;
-  transform: translateY(-50%);
-
-  appearance: none;
-  background: none;
-  border: none;
-  box-shadow: none;
-}
-
 .get-involved {
   display: inline-block;
-  vertical-align: top;
+  line-height: 1.75;
   padding: 0.4rem 0.5rem; // ignore-style-rule
-  font-weight: bold;
-  background: #ffffff;
-  color: $color-blueberry-500;
-  text-decoration: none;
   transition: all 0.2s;
+  height: 35px; // match the search box height
+
+  font-weight: bold;
+  background: $color-honey-300;
+  color: $color-plum-800;
+  border-radius: 4px;
+  text-decoration: none;
 
   &:hover {
     text-decoration: none;
@@ -156,7 +89,7 @@
 }
 
 .container {
-  background: $color-plum-550;
+  background: $color-plum-700;
   padding-bottom: spacer(32);
   &.has-navigation {
     padding-bottom: 0;
@@ -170,9 +103,16 @@
   }
 
   .mobile-menu {
+    color: $color-plum-200;
     background: $color-plum-800;
     position: relative;
     padding: spacer(16) spacer(16) spacer(32) spacer(16);
+    @media (max-width: $viewport-lg) and (min-width: $viewport-ms) {
+      margin: spacer(0) spacer(32);
+    }
+    @media (max-width: $viewport-ms) and (min-width: $viewport-sm) {
+      margin: spacer(0) spacer(16);
+    }
     @media (min-width: $viewport-lg) {
       display: none;
     }
@@ -184,11 +124,12 @@
       bottom: -15px;
       background: $color-plum-800;
       transform: rotate(-45deg);
+      z-index: 0;
     }
     nav {
       display: block;
+      @include margin(16, top);
       li {
-        margin-bottom: 0.5rem;
         line-height: toRem(40);
         @media (hover: none) {
           margin-bottom: spacer(24);
@@ -221,6 +162,7 @@
     margin-top: spacer(24);
     color: white;
     cursor: pointer;
+    margin-top: 0;
     @media (min-width: $viewport-lg) {
       display: none;
     }
@@ -244,29 +186,24 @@
   .nav-container {
     display: flex;
     float: right;
-    padding-top: spacer(16);
     @media (min-width: $viewport-lg) {
       float: none;
-      padding-top: 0;
     }
   }
 
   nav {
     display: none;
-    margin-top: spacer(24);
     align-self: center;
     break-before: always;
-    padding-bottom: spacer(8);
 
     @media (min-width: $viewport-lg) {
       display: block;
-      margin-top: spacer(32);
       position: relative;
       z-index: 1;
     }
 
     a {
-      color: white;
+      color: $color-plum-100;
       text-decoration: none;
       font-weight: bold;
     }
@@ -308,20 +245,14 @@
 
   .site-title-container {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-  }
-
-  .site-title-inner {
-    width: 40%;
-    display: flex;
-    padding-top: spacer(24);
-    @media (min-width: $viewport-md) {
-      width: 20%;
-    }
+    justify-content: space-between;
+    transition: display 150ms;
+    @include margin(24, top);
   }
 
   .return-link {
-    // height: 1.3rem;
     margin-bottom: spacer(8);
     @media (max-width: $viewport-md) {
       margin-bottom: spacer(16);
@@ -433,5 +364,19 @@
         }
       }
     }
+  }
+}
+
+
+.wrapper {
+  margin: 0 auto;
+  max-width: calc(1136px + 3rem);
+  padding: 0 spacer(32);
+  @media (max-width: $viewport-sm) {
+    padding: 0 spacer(16);
+  }
+  @media (min-width: $viewport-lg) {
+    // todo increase to 1rem if there's space with smaller search box
+    padding: 0 spacer(8);
   }
 }

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Data : Download : Fields renders correctly 1`] = `
+<dl
+  className="fields"
+>
+  <div>
+    <dt>
+      totalTestResults
+    </dt>
+    <dd>
+      <div
+        className="type"
+      >
+        <span
+          className="a11y-only"
+        >
+          Field type: 
+        </span>
+        integer
+      </div>
+      <p>
+        Total Test Results Provided by the State
+      </p>
+      <div
+        className="detail-text detailText"
+      >
+        Returns 
+        <code>
+          null
+        </code>
+         if no data is available
+      </div>
+    </dd>
+  </div>
+</dl>
+`;

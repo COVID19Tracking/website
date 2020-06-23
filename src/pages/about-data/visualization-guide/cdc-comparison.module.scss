@@ -1,0 +1,31 @@
+.chart-label {
+  @include type-size(100);
+  color: $color-slate-600;
+}
+
+.subhead,
+.legend-container {
+  @include type-size(100);
+}
+
+.legend-container {
+  display: flex;
+  div {
+    padding: 0.5rem;
+    &:first-of-type {
+      padding-left: 0;
+    }
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .legend-color {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    @include margin(8, right);
+    color: black;
+  }
+}

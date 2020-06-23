@@ -1,29 +1,13 @@
 .hero {
   padding: spacer(24) 0;
-  background: $color-plum-550;
+  background: $color-plum-700;
   color: white;
   @media (min-width: $viewport-lg) {
     padding: spacer(32) 0;
   }
 }
 
-.content-wrapper {
-  @media (min-width: $viewport-ms) {
-    display: flex;
-  }
-}
-
-.content {
-  @media (min-width: $viewport-ms) {
-    width: 60%;
-    padding-right: spacer(32);
-  }
-}
-
 .image {
-  @media (min-width: $viewport-ms) {
-    width: 40%;
-  }
   @media (min-width: $viewport-lg) {
     margin-top: toRem(-150);
   }

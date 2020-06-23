@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
+import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 import VolunteersList from '~components/common/volunteers-list'
 
@@ -9,24 +10,25 @@ export default ({ data }) => (
     title="About Us"
     path="/about-project"
     narrow
-    textHeavy
     navigation={data.contentfulNavigationGroup.pages}
   >
-    <ContentfulContent
-      content={
-        data.preamble.childContentfulSnippetContentTextNode.childMarkdownRemark
-          .html
-      }
-      id={data.preamble.contentful_id}
-    />
-    <VolunteersList items={data.allCovidVolunteers.edges} />
-    <ContentfulContent
-      content={
-        data.pastContributors.childContentfulSnippetContentTextNode
-          .childMarkdownRemark.html
-      }
-      id={data.pastContributors.contentful_id}
-    />
+    <LongContent>
+      <ContentfulContent
+        content={
+          data.preamble.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
+        }
+        id={data.preamble.contentful_id}
+      />
+      <VolunteersList items={data.allCovidVolunteers.edges} />
+      <ContentfulContent
+        content={
+          data.pastContributors.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
+        }
+        id={data.pastContributors.contentful_id}
+      />
+    </LongContent>
   </Layout>
 )
 

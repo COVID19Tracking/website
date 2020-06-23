@@ -7,6 +7,7 @@ import {
   ComboboxList,
   ComboboxOption,
 } from '@reach/combobox'
+import classNames from 'classnames'
 import { navigate } from 'gatsby'
 import '@reach/combobox/styles.css'
 import {
@@ -16,10 +17,9 @@ import {
   getSanitizedSlug,
   partitionHitsByRelevance,
 } from '~context/search-context'
-import searchAutocompleteStyle from './search-autocomplete.module.scss'
-import headerStyle from './header.module.scss'
+import styles from './search-autocomplete.module.scss'
 
-export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
+export default forwardRef(({ mobile, visible, onClick }, popoverRef) => {
   const [searchState, searchDispatch] = useSearch()
   const [showResults, setShowResults] = useState(true)
   const searchInputRef = useRef()
@@ -36,13 +36,19 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
 
   useEffect(() => {
     if (mobile && searchInputRef.current !== null) {
-      if (visible) {
+      searchInputRef.current.blur()
+    }
+  }, [visible])
+
+  useEffect(() => {
+    if (searchInputRef.current !== null) {
+      if (autocompleteHasFocus) {
         searchInputRef.current.focus()
       } else {
         searchInputRef.current.blur()
       }
     }
-  }, [visible])
+  }, [autocompleteHasFocus])
 
   useEffect(() => {
     if (query) {
@@ -89,21 +95,14 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
 
   const { bestHits, otherHits } = partitionHitsByRelevance(results)
 
-  function toggleFocus() {
-    searchDispatch({ type: 'toggleAutocompleteFocus' })
-  }
-
   return (
     <Combobox>
-      <label
-        htmlFor={id}
-        className={autocompleteHasFocus ? headerStyle.labelFocus : ''}
-      >
-        Search
-      </label>
       <ComboboxInput
         id={id}
         ref={searchInputRef}
+        className={classNames(styles.searchInput, {
+          [styles.searchInputFocused]: autocompleteHasFocus,
+        })}
         autoComplete="off"
         onChange={event => {
           setQuery(event.currentTarget.value)
@@ -111,27 +110,22 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
         onKeyDown={event =>
           event.key === 'Enter' && goToResultOrSearch(event.target.value)
         }
-        onSelect={() => {}}
-        onFocus={() => toggleFocus()}
-        onBlur={() => toggleFocus()}
+        onClick={!autocompleteHasFocus && onClick}
       />
+      <label htmlFor={id} className={styles.searchLabel}>
+        Search
+      </label>
       {totalHits && showResults ? (
         <ComboboxPopover
           ref={popoverRef}
           portal={false}
           id="search-results-popover"
-          className={searchAutocompleteStyle.popover}
+          className={styles.popover}
         >
           {totalHits > 0 ? (
-            <ComboboxList
-              aria-label="Results"
-              className={searchAutocompleteStyle.popoverList}
-            >
+            <ComboboxList aria-label="Results">
               {bestHits.length > 0 && (
-                <li
-                  tabIndex="-1"
-                  className={searchAutocompleteStyle.popoverSeparator}
-                >
+                <li tabIndex="-1" className={styles.popoverSeparator}>
                   Best results
                 </li>
               )}
@@ -143,10 +137,7 @@ export default forwardRef(({ mobile = false, visible = true }, popoverRef) => {
                 />
               ))}
               {otherHits.length > 0 && (
-                <li
-                  tabIndex="-1"
-                  className={searchAutocompleteStyle.popoverSeparator}
-                >
+                <li tabIndex="-1" className={styles.popoverSeparator}>
                   Other results
                 </li>
               )}

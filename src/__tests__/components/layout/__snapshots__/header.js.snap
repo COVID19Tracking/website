@@ -27,47 +27,52 @@ exports[`Components : Layout : Header renders correctly 1`] = `
         }
       >
         <div
-          className="searchInput"
+          className="mobileSearchContainer"
         >
           <div
-            data-reach-combobox=""
+            className="search"
+            onBlur={[Function]}
           >
-            <label
-              className=""
-              htmlFor="header-search-autocomplete-mobile"
+            <div
+              data-reach-combobox=""
             >
-              Search
-            </label>
-            <input
-              aria-autocomplete="both"
-              aria-controls="listbox--1"
-              aria-expanded={false}
-              aria-haspopup="listbox"
-              autoComplete="off"
-              data-reach-combobox-input=""
-              id="header-search-autocomplete-mobile"
-              onBlur={[Function]}
-              onChange={[Function]}
+              <input
+                aria-autocomplete="both"
+                aria-controls="listbox--1"
+                aria-expanded={false}
+                aria-haspopup="listbox"
+                autoComplete="off"
+                className="searchInput"
+                data-reach-combobox-input=""
+                id="header-search-autocomplete-mobile"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="combobox"
+                value=""
+              />
+              <label
+                className="searchLabel"
+                htmlFor="header-search-autocomplete-mobile"
+              >
+                Search
+              </label>
+            </div>
+            <button
+              aria-label="Submit search"
+              className="searchSubmit"
               onClick={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onSelect={[Function]}
-              role="combobox"
-              value=""
-            />
+              type="button"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="test-file-stub"
+              />
+            </button>
           </div>
-          <button
-            aria-label="Submit search"
-            className="searchSubmit"
-            onClick={[Function]}
-            type="button"
-          >
-            <img
-              alt=""
-              aria-hidden="true"
-              src="test-file-stub"
-            />
-          </button>
         </div>
         <nav
           className="js-disabled-block"
@@ -80,40 +85,44 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             <li
               className="menuItem"
             >
-              <a
-                href="/test-a"
+              <div
+                className="navLabel"
               >
-                Test A
-              </a>
-              <button
-                aria-controls="menu--1"
-                aria-expanded="false"
-                aria-haspopup="true"
-                className="caret"
-                id="menu-button--menu"
-                onKeyDown={[Function]}
-                onMouseDown={[Function]}
-                type="button"
-              >
-                <svg
-                  aria-hidden={true}
-                  fill="none"
-                  height="7"
-                  viewBox="0 0 12 7"
-                  width="12"
-                  xmlns="http://www.w3.org/2000/svg"
+                <a
+                  href="/test-a"
                 >
-                  <path
-                    d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
-                  />
-                </svg>
-                <span
-                  className="a11y-only"
-                >
-                  show menu for 
                   Test A
-                </span>
-              </button>
+                </a>
+                <button
+                  aria-controls="menu--1"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  className="caret"
+                  id="menu-button--menu"
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  type="button"
+                >
+                  <svg
+                    aria-hidden={true}
+                    fill="none"
+                    height="7"
+                    viewBox="0 0 12 7"
+                    width="12"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
+                    />
+                  </svg>
+                  <span
+                    className="a11y-only"
+                  >
+                    show menu for 
+                    Test A
+                  </span>
+                </button>
+              </div>
               <div
                 data-reach-menu=""
                 data-reach-menu-popover=""
@@ -183,11 +192,15 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             <li
               className="menuItem"
             >
-              <a
-                href="/test-b"
+              <div
+                className="navLabel"
               >
-                Test B
-              </a>
+                <a
+                  href="/test-b"
+                >
+                  Test B
+                </a>
+              </div>
             </li>
           </ul>
         </nav>
@@ -231,248 +244,257 @@ exports[`Components : Layout : Header renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="container false container"
+      className="wrapper"
     >
       <div
-        className="layout--content-full"
+        className="siteTitleContainer"
       >
         <div
-          className="layout--content-primary"
+          className="siteTitleInner"
         >
-          <div
-            className="siteTitleContainer"
+          <a
+            className="projectLogo"
+            href="/"
           >
-            <div
-              className="siteTitleInner"
+            <img
+              alt="The COVID Tracking Project"
+              src="test-file-stub"
+              width="176px"
+            />
+          </a>
+        </div>
+        <div
+          className="navContainer"
+        >
+          <button
+            aria-expanded={false}
+            className="mobileToggle"
+            onClick={[Function]}
+            type="button"
+          >
+            Menu
+          </button>
+          <nav
+            className="js-disabled-block"
+            role="navigation"
+          >
+            <ul
+              className=""
+              role="menubar"
             >
-              <a
-                className="projectLogo"
-                href="/"
-              >
-                <img
-                  alt="The COVID Tracking Project"
-                  src="test-file-stub"
-                  width="176px"
-                />
-              </a>
-            </div>
-            <div
-              className="siteNavContainer"
-            >
-              <div
-                className="navContainer"
-              >
-                <button
-                  aria-expanded={false}
-                  className="mobileToggle"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Menu
-                </button>
-              </div>
-              <div
-                className="tools"
+              <li
+                className="menuItem"
               >
                 <div
-                  className="searchInput"
+                  className="navLabel"
                 >
-                  <div
-                    data-reach-combobox=""
+                  <a
+                    href="/test-a"
                   >
-                    <label
-                      className=""
-                      htmlFor="header-search-autocomplete"
-                    >
-                      Search
-                    </label>
-                    <input
-                      aria-autocomplete="both"
-                      aria-controls="listbox--2"
-                      aria-expanded={false}
-                      aria-haspopup="listbox"
-                      autoComplete="off"
-                      data-reach-combobox-input=""
-                      id="header-search-autocomplete"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      onSelect={[Function]}
-                      role="combobox"
-                      value=""
-                    />
-                  </div>
+                    Test A
+                  </a>
                   <button
-                    aria-label="Submit search"
-                    className="searchSubmit"
-                    onClick={[Function]}
+                    aria-controls="menu--3"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    className="caret"
+                    id="menu-button--menu"
+                    onKeyDown={[Function]}
+                    onMouseDown={[Function]}
                     type="button"
                   >
-                    <img
-                      alt=""
-                      aria-hidden="true"
-                      src="test-file-stub"
-                    />
+                    <svg
+                      aria-hidden={true}
+                      fill="none"
+                      height="7"
+                      viewBox="0 0 12 7"
+                      width="12"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
+                      />
+                    </svg>
+                    <span
+                      className="a11y-only"
+                    >
+                      show menu for 
+                      Test A
+                    </span>
                   </button>
                 </div>
-                <a
-                  className="getInvolved"
-                  href="/get-involved"
+                <div
+                  data-reach-menu=""
+                  data-reach-menu-popover=""
+                  hidden={true}
                 >
-                  Get involved
-                </a>
-              </div>
-              <nav
-                className="js-disabled-block"
-                role="navigation"
-              >
-                <ul
-                  className=""
-                  role="menubar"
-                >
-                  <li
-                    className="menuItem"
+                  <div
+                    aria-labelledby="menu-button--menu"
+                    className="subMenu"
+                    data-reach-menu-items=""
+                    data-reach-menu-list=""
+                    id="menu--3"
+                    onKeyDown={[Function]}
+                    role={false}
+                    tabIndex={-1}
                   >
-                    <a
-                      href="/test-a"
-                    >
-                      Test A
-                    </a>
-                    <button
-                      aria-controls="menu--2"
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      className="caret"
-                      id="menu-button--menu"
-                      onKeyDown={[Function]}
-                      onMouseDown={[Function]}
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden={true}
-                        fill="none"
-                        height="7"
-                        viewBox="0 0 12 7"
-                        width="12"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
-                        />
-                      </svg>
-                      <span
-                        className="a11y-only"
-                      >
-                        show menu for 
-                        Test A
-                      </span>
-                    </button>
                     <div
-                      data-reach-menu=""
-                      data-reach-menu-popover=""
-                      hidden={true}
+                      role="none"
+                      tabIndex={-1}
                     >
-                      <div
-                        aria-labelledby="menu-button--menu"
-                        className="subMenu"
-                        data-reach-menu-items=""
-                        data-reach-menu-list=""
-                        id="menu--2"
-                        onKeyDown={[Function]}
-                        role={false}
+                      <a
+                        className="menuLink"
+                        data-reach-menu-item=""
+                        data-reach-menu-link=""
+                        data-selected=""
+                        data-valuetext=""
+                        href="/contentful-a"
+                        onClick={[Function]}
+                        onDragStart={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseMove={[Function]}
+                        onMouseUp={[Function]}
+                        role="menuitem"
                         tabIndex={-1}
                       >
-                        <div
-                          role="none"
-                          tabIndex={-1}
-                        >
-                          <a
-                            className="menuLink"
-                            data-reach-menu-item=""
-                            data-reach-menu-link=""
-                            data-selected=""
-                            data-valuetext=""
-                            href="/contentful-a"
-                            onClick={[Function]}
-                            onDragStart={[Function]}
-                            onMouseDown={[Function]}
-                            onMouseEnter={[Function]}
-                            onMouseLeave={[Function]}
-                            onMouseMove={[Function]}
-                            onMouseUp={[Function]}
-                            role="menuitem"
-                            tabIndex={-1}
-                          >
-                            Contentful a
-                          </a>
-                        </div>
-                        <div
-                          role="none"
-                          tabIndex={-1}
-                        >
-                          <a
-                            className="menuLink"
-                            data-reach-menu-item=""
-                            data-reach-menu-link=""
-                            data-selected=""
-                            data-valuetext=""
-                            href="/contentful-b"
-                            onClick={[Function]}
-                            onDragStart={[Function]}
-                            onMouseDown={[Function]}
-                            onMouseEnter={[Function]}
-                            onMouseLeave={[Function]}
-                            onMouseMove={[Function]}
-                            onMouseUp={[Function]}
-                            role="menuitem"
-                            tabIndex={-1}
-                          >
-                            Contentful B
-                          </a>
-                        </div>
-                      </div>
+                        Contentful a
+                      </a>
                     </div>
-                  </li>
-                  <li
-                    className="menuItem"
-                  >
-                    <a
-                      href="/test-b"
+                    <div
+                      role="none"
+                      tabIndex={-1}
                     >
-                      Test B
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
+                      <a
+                        className="menuLink"
+                        data-reach-menu-item=""
+                        data-reach-menu-link=""
+                        data-selected=""
+                        data-valuetext=""
+                        href="/contentful-b"
+                        onClick={[Function]}
+                        onDragStart={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseMove={[Function]}
+                        onMouseUp={[Function]}
+                        role="menuitem"
+                        tabIndex={-1}
+                      >
+                        Contentful B
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li
+                className="menuItem"
+              >
+                <div
+                  className="navLabel"
+                >
+                  <a
+                    href="/test-b"
+                  >
+                    Test B
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          className="tools"
+        >
           <div
-            className="atlanticBanner"
-          >
-            <span>
-              At
-            </span>
-             
-            <img
-              alt="The Atlantic"
-              src="test-file-stub"
-            />
-            <div />
-          </div>
-          <div
-            className="titleSubnavContainer "
+            className="searchContainer"
           >
             <div
-              className="title"
+              className="search"
+              onBlur={[Function]}
             >
-              <h1
-                className="page-title pageTitle"
+              <div
+                data-reach-combobox=""
               >
-                Sample title
-              </h1>
+                <input
+                  aria-autocomplete="both"
+                  aria-controls="listbox--2"
+                  aria-expanded={false}
+                  aria-haspopup="listbox"
+                  autoComplete="off"
+                  className="searchInput"
+                  data-reach-combobox-input=""
+                  id="header-search-autocomplete"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="combobox"
+                  value=""
+                />
+                <label
+                  className="searchLabel"
+                  htmlFor="header-search-autocomplete"
+                >
+                  Search
+                </label>
+              </div>
+              <button
+                aria-label="Submit search"
+                className="searchSubmit"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  src="test-file-stub"
+                />
+              </button>
             </div>
+          </div>
+          <a
+            className="getInvolved"
+            href="/get-involved"
+          >
+            Get involved
+          </a>
+        </div>
+      </div>
+      <div
+        className="atlanticBanner"
+      >
+        <span>
+          At
+        </span>
+         
+        <img
+          alt="The Atlantic"
+          src="test-file-stub"
+        />
+        <div />
+      </div>
+    </div>
+    <div
+      className="container container"
+    >
+      <div
+        className="full"
+      >
+        <div
+          className="titleSubnavContainer "
+        >
+          <div
+            className="title"
+          >
+            <h1
+              className="page-title pageTitle"
+            >
+              Sample title
+            </h1>
           </div>
         </div>
       </div>
@@ -508,47 +530,52 @@ exports[`Components : Layout : Header renders correctly 2`] = `
         }
       >
         <div
-          className="searchInput"
+          className="mobileSearchContainer"
         >
           <div
-            data-reach-combobox=""
+            className="search"
+            onBlur={[Function]}
           >
-            <label
-              className=""
-              htmlFor="header-search-autocomplete-mobile"
+            <div
+              data-reach-combobox=""
             >
-              Search
-            </label>
-            <input
-              aria-autocomplete="both"
-              aria-controls="listbox--5"
-              aria-expanded={false}
-              aria-haspopup="listbox"
-              autoComplete="off"
-              data-reach-combobox-input=""
-              id="header-search-autocomplete-mobile"
-              onBlur={[Function]}
-              onChange={[Function]}
+              <input
+                aria-autocomplete="both"
+                aria-controls="listbox--5"
+                aria-expanded={false}
+                aria-haspopup="listbox"
+                autoComplete="off"
+                className="searchInput"
+                data-reach-combobox-input=""
+                id="header-search-autocomplete-mobile"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="combobox"
+                value=""
+              />
+              <label
+                className="searchLabel"
+                htmlFor="header-search-autocomplete-mobile"
+              >
+                Search
+              </label>
+            </div>
+            <button
+              aria-label="Submit search"
+              className="searchSubmit"
               onClick={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onSelect={[Function]}
-              role="combobox"
-              value=""
-            />
+              type="button"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="test-file-stub"
+              />
+            </button>
           </div>
-          <button
-            aria-label="Submit search"
-            className="searchSubmit"
-            onClick={[Function]}
-            type="button"
-          >
-            <img
-              alt=""
-              aria-hidden="true"
-              src="test-file-stub"
-            />
-          </button>
         </div>
         <nav
           className="js-disabled-block"
@@ -561,51 +588,55 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             <li
               className="menuItem"
             >
-              <a
-                href="/test-a"
+              <div
+                className="navLabel"
               >
-                Test A
-              </a>
-              <button
-                aria-controls="menu--5"
-                aria-expanded="false"
-                aria-haspopup="true"
-                className="caret"
-                id="menu-button--menu--5"
-                onKeyDown={[Function]}
-                onMouseDown={[Function]}
-                type="button"
-              >
-                <svg
-                  aria-hidden={true}
-                  fill="none"
-                  height="7"
-                  viewBox="0 0 12 7"
-                  width="12"
-                  xmlns="http://www.w3.org/2000/svg"
+                <a
+                  href="/test-a"
                 >
-                  <path
-                    d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
-                  />
-                </svg>
-                <span
-                  className="a11y-only"
-                >
-                  show menu for 
                   Test A
-                </span>
-              </button>
+                </a>
+                <button
+                  aria-controls="menu--9"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  className="caret"
+                  id="menu-button--menu--9"
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  type="button"
+                >
+                  <svg
+                    aria-hidden={true}
+                    fill="none"
+                    height="7"
+                    viewBox="0 0 12 7"
+                    width="12"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
+                    />
+                  </svg>
+                  <span
+                    className="a11y-only"
+                  >
+                    show menu for 
+                    Test A
+                  </span>
+                </button>
+              </div>
               <div
                 data-reach-menu=""
                 data-reach-menu-popover=""
                 hidden={true}
               >
                 <div
-                  aria-labelledby="menu-button--menu--5"
+                  aria-labelledby="menu-button--menu--9"
                   className="subMenu"
                   data-reach-menu-items=""
                   data-reach-menu-list=""
-                  id="menu--5"
+                  id="menu--9"
                   onKeyDown={[Function]}
                   role={false}
                   tabIndex={-1}
@@ -664,11 +695,15 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             <li
               className="menuItem"
             >
-              <a
-                href="/test-b"
+              <div
+                className="navLabel"
               >
-                Test B
-              </a>
+                <a
+                  href="/test-b"
+                >
+                  Test B
+                </a>
+              </div>
             </li>
           </ul>
         </nav>
@@ -712,248 +747,257 @@ exports[`Components : Layout : Header renders correctly 2`] = `
       </div>
     </div>
     <div
-      className="container false container"
+      className="wrapper"
     >
       <div
-        className="layout--content-full"
+        className="siteTitleContainer"
       >
         <div
-          className="layout--content-primary"
+          className="siteTitleInner"
         >
-          <div
-            className="siteTitleContainer"
+          <a
+            className="projectLogo"
+            href="/"
           >
-            <div
-              className="siteTitleInner"
+            <img
+              alt="The COVID Tracking Project"
+              src="test-file-stub"
+              width="176px"
+            />
+          </a>
+        </div>
+        <div
+          className="navContainer"
+        >
+          <button
+            aria-expanded={false}
+            className="mobileToggle"
+            onClick={[Function]}
+            type="button"
+          >
+            Menu
+          </button>
+          <nav
+            className="js-disabled-block"
+            role="navigation"
+          >
+            <ul
+              className=""
+              role="menubar"
             >
-              <a
-                className="projectLogo"
-                href="/"
-              >
-                <img
-                  alt="The COVID Tracking Project"
-                  src="test-file-stub"
-                  width="176px"
-                />
-              </a>
-            </div>
-            <div
-              className="siteNavContainer"
-            >
-              <div
-                className="navContainer"
-              >
-                <button
-                  aria-expanded={false}
-                  className="mobileToggle"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Menu
-                </button>
-              </div>
-              <div
-                className="tools"
+              <li
+                className="menuItem"
               >
                 <div
-                  className="searchInput"
+                  className="navLabel"
                 >
-                  <div
-                    data-reach-combobox=""
+                  <a
+                    href="/test-a"
                   >
-                    <label
-                      className=""
-                      htmlFor="header-search-autocomplete"
-                    >
-                      Search
-                    </label>
-                    <input
-                      aria-autocomplete="both"
-                      aria-controls="listbox--6"
-                      aria-expanded={false}
-                      aria-haspopup="listbox"
-                      autoComplete="off"
-                      data-reach-combobox-input=""
-                      id="header-search-autocomplete"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      onSelect={[Function]}
-                      role="combobox"
-                      value=""
-                    />
-                  </div>
+                    Test A
+                  </a>
                   <button
-                    aria-label="Submit search"
-                    className="searchSubmit"
-                    onClick={[Function]}
+                    aria-controls="menu--11"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    className="caret"
+                    id="menu-button--menu--11"
+                    onKeyDown={[Function]}
+                    onMouseDown={[Function]}
                     type="button"
                   >
-                    <img
-                      alt=""
-                      aria-hidden="true"
-                      src="test-file-stub"
-                    />
+                    <svg
+                      aria-hidden={true}
+                      fill="none"
+                      height="7"
+                      viewBox="0 0 12 7"
+                      width="12"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
+                      />
+                    </svg>
+                    <span
+                      className="a11y-only"
+                    >
+                      show menu for 
+                      Test A
+                    </span>
                   </button>
                 </div>
-                <a
-                  className="getInvolved"
-                  href="/get-involved"
+                <div
+                  data-reach-menu=""
+                  data-reach-menu-popover=""
+                  hidden={true}
                 >
-                  Get involved
-                </a>
-              </div>
-              <nav
-                className="js-disabled-block"
-                role="navigation"
-              >
-                <ul
-                  className=""
-                  role="menubar"
-                >
-                  <li
-                    className="menuItem"
+                  <div
+                    aria-labelledby="menu-button--menu--11"
+                    className="subMenu"
+                    data-reach-menu-items=""
+                    data-reach-menu-list=""
+                    id="menu--11"
+                    onKeyDown={[Function]}
+                    role={false}
+                    tabIndex={-1}
                   >
-                    <a
-                      href="/test-a"
-                    >
-                      Test A
-                    </a>
-                    <button
-                      aria-controls="menu--6"
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      className="caret"
-                      id="menu-button--menu--6"
-                      onKeyDown={[Function]}
-                      onMouseDown={[Function]}
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden={true}
-                        fill="none"
-                        height="7"
-                        viewBox="0 0 12 7"
-                        width="12"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
-                        />
-                      </svg>
-                      <span
-                        className="a11y-only"
-                      >
-                        show menu for 
-                        Test A
-                      </span>
-                    </button>
                     <div
-                      data-reach-menu=""
-                      data-reach-menu-popover=""
-                      hidden={true}
+                      role="none"
+                      tabIndex={-1}
                     >
-                      <div
-                        aria-labelledby="menu-button--menu--6"
-                        className="subMenu"
-                        data-reach-menu-items=""
-                        data-reach-menu-list=""
-                        id="menu--6"
-                        onKeyDown={[Function]}
-                        role={false}
+                      <a
+                        className="menuLink"
+                        data-reach-menu-item=""
+                        data-reach-menu-link=""
+                        data-selected=""
+                        data-valuetext=""
+                        href="/contentful-a"
+                        onClick={[Function]}
+                        onDragStart={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseMove={[Function]}
+                        onMouseUp={[Function]}
+                        role="menuitem"
                         tabIndex={-1}
                       >
-                        <div
-                          role="none"
-                          tabIndex={-1}
-                        >
-                          <a
-                            className="menuLink"
-                            data-reach-menu-item=""
-                            data-reach-menu-link=""
-                            data-selected=""
-                            data-valuetext=""
-                            href="/contentful-a"
-                            onClick={[Function]}
-                            onDragStart={[Function]}
-                            onMouseDown={[Function]}
-                            onMouseEnter={[Function]}
-                            onMouseLeave={[Function]}
-                            onMouseMove={[Function]}
-                            onMouseUp={[Function]}
-                            role="menuitem"
-                            tabIndex={-1}
-                          >
-                            Contentful a
-                          </a>
-                        </div>
-                        <div
-                          role="none"
-                          tabIndex={-1}
-                        >
-                          <a
-                            className="menuLink"
-                            data-reach-menu-item=""
-                            data-reach-menu-link=""
-                            data-selected=""
-                            data-valuetext=""
-                            href="/contentful-b"
-                            onClick={[Function]}
-                            onDragStart={[Function]}
-                            onMouseDown={[Function]}
-                            onMouseEnter={[Function]}
-                            onMouseLeave={[Function]}
-                            onMouseMove={[Function]}
-                            onMouseUp={[Function]}
-                            role="menuitem"
-                            tabIndex={-1}
-                          >
-                            Contentful B
-                          </a>
-                        </div>
-                      </div>
+                        Contentful a
+                      </a>
                     </div>
-                  </li>
-                  <li
-                    className="menuItem"
-                  >
-                    <a
-                      href="/test-b"
+                    <div
+                      role="none"
+                      tabIndex={-1}
                     >
-                      Test B
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
+                      <a
+                        className="menuLink"
+                        data-reach-menu-item=""
+                        data-reach-menu-link=""
+                        data-selected=""
+                        data-valuetext=""
+                        href="/contentful-b"
+                        onClick={[Function]}
+                        onDragStart={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseMove={[Function]}
+                        onMouseUp={[Function]}
+                        role="menuitem"
+                        tabIndex={-1}
+                      >
+                        Contentful B
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li
+                className="menuItem"
+              >
+                <div
+                  className="navLabel"
+                >
+                  <a
+                    href="/test-b"
+                  >
+                    Test B
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          className="tools"
+        >
           <div
-            className="atlanticBanner"
-          >
-            <span>
-              At
-            </span>
-             
-            <img
-              alt="The Atlantic"
-              src="test-file-stub"
-            />
-            <div />
-          </div>
-          <div
-            className="titleSubnavContainer "
+            className="searchContainer"
           >
             <div
-              className="title"
+              className="search"
+              onBlur={[Function]}
             >
-              <h1
-                className="page-title pageTitle"
+              <div
+                data-reach-combobox=""
               >
-                Sample title
-              </h1>
+                <input
+                  aria-autocomplete="both"
+                  aria-controls="listbox--6"
+                  aria-expanded={false}
+                  aria-haspopup="listbox"
+                  autoComplete="off"
+                  className="searchInput"
+                  data-reach-combobox-input=""
+                  id="header-search-autocomplete"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="combobox"
+                  value=""
+                />
+                <label
+                  className="searchLabel"
+                  htmlFor="header-search-autocomplete"
+                >
+                  Search
+                </label>
+              </div>
+              <button
+                aria-label="Submit search"
+                className="searchSubmit"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  src="test-file-stub"
+                />
+              </button>
             </div>
+          </div>
+          <a
+            className="getInvolved"
+            href="/get-involved"
+          >
+            Get involved
+          </a>
+        </div>
+      </div>
+      <div
+        className="atlanticBanner"
+      >
+        <span>
+          At
+        </span>
+         
+        <img
+          alt="The Atlantic"
+          src="test-file-stub"
+        />
+        <div />
+      </div>
+    </div>
+    <div
+      className="container container"
+    >
+      <div
+        className="full"
+      >
+        <div
+          className="titleSubnavContainer "
+        >
+          <div
+            className="title"
+          >
+            <h1
+              className="page-title pageTitle"
+            >
+              Sample title
+            </h1>
           </div>
         </div>
       </div>
@@ -989,47 +1033,52 @@ exports[`Components : Layout : Header renders correctly 3`] = `
         }
       >
         <div
-          className="searchInput"
+          className="mobileSearchContainer"
         >
           <div
-            data-reach-combobox=""
+            className="search"
+            onBlur={[Function]}
           >
-            <label
-              className=""
-              htmlFor="header-search-autocomplete-mobile"
+            <div
+              data-reach-combobox=""
             >
-              Search
-            </label>
-            <input
-              aria-autocomplete="both"
-              aria-controls="listbox--8"
-              aria-expanded={false}
-              aria-haspopup="listbox"
-              autoComplete="off"
-              data-reach-combobox-input=""
-              id="header-search-autocomplete-mobile"
-              onBlur={[Function]}
-              onChange={[Function]}
+              <input
+                aria-autocomplete="both"
+                aria-controls="listbox--8"
+                aria-expanded={false}
+                aria-haspopup="listbox"
+                autoComplete="off"
+                className="searchInput"
+                data-reach-combobox-input=""
+                id="header-search-autocomplete-mobile"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="combobox"
+                value=""
+              />
+              <label
+                className="searchLabel"
+                htmlFor="header-search-autocomplete-mobile"
+              >
+                Search
+              </label>
+            </div>
+            <button
+              aria-label="Submit search"
+              className="searchSubmit"
               onClick={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onSelect={[Function]}
-              role="combobox"
-              value=""
-            />
+              type="button"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="test-file-stub"
+              />
+            </button>
           </div>
-          <button
-            aria-label="Submit search"
-            className="searchSubmit"
-            onClick={[Function]}
-            type="button"
-          >
-            <img
-              alt=""
-              aria-hidden="true"
-              src="test-file-stub"
-            />
-          </button>
         </div>
         <nav
           className="js-disabled-block"
@@ -1042,51 +1091,55 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             <li
               className="menuItem"
             >
-              <a
-                href="/test-a"
+              <div
+                className="navLabel"
               >
-                Test A
-              </a>
-              <button
-                aria-controls="menu--11"
-                aria-expanded="false"
-                aria-haspopup="true"
-                className="caret"
-                id="menu-button--menu--11"
-                onKeyDown={[Function]}
-                onMouseDown={[Function]}
-                type="button"
-              >
-                <svg
-                  aria-hidden={true}
-                  fill="none"
-                  height="7"
-                  viewBox="0 0 12 7"
-                  width="12"
-                  xmlns="http://www.w3.org/2000/svg"
+                <a
+                  href="/test-a"
                 >
-                  <path
-                    d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
-                  />
-                </svg>
-                <span
-                  className="a11y-only"
-                >
-                  show menu for 
                   Test A
-                </span>
-              </button>
+                </a>
+                <button
+                  aria-controls="menu--18"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  className="caret"
+                  id="menu-button--menu--18"
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  type="button"
+                >
+                  <svg
+                    aria-hidden={true}
+                    fill="none"
+                    height="7"
+                    viewBox="0 0 12 7"
+                    width="12"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
+                    />
+                  </svg>
+                  <span
+                    className="a11y-only"
+                  >
+                    show menu for 
+                    Test A
+                  </span>
+                </button>
+              </div>
               <div
                 data-reach-menu=""
                 data-reach-menu-popover=""
                 hidden={true}
               >
                 <div
-                  aria-labelledby="menu-button--menu--11"
+                  aria-labelledby="menu-button--menu--18"
                   className="subMenu"
                   data-reach-menu-items=""
                   data-reach-menu-list=""
-                  id="menu--11"
+                  id="menu--18"
                   onKeyDown={[Function]}
                   role={false}
                   tabIndex={-1}
@@ -1145,11 +1198,15 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             <li
               className="menuItem"
             >
-              <a
-                href="/test-b"
+              <div
+                className="navLabel"
               >
-                Test B
-              </a>
+                <a
+                  href="/test-b"
+                >
+                  Test B
+                </a>
+              </div>
             </li>
           </ul>
         </nav>
@@ -1193,252 +1250,261 @@ exports[`Components : Layout : Header renders correctly 3`] = `
       </div>
     </div>
     <div
-      className="container false container"
+      className="wrapper"
     >
       <div
-        className="layout--content-full"
+        className="siteTitleContainer"
       >
         <div
-          className="layout--content-primary"
+          className="siteTitleInner"
         >
-          <div
-            className="siteTitleContainer"
+          <a
+            className="projectLogo"
+            href="/"
           >
-            <div
-              className="siteTitleInner"
+            <img
+              alt="The COVID Tracking Project"
+              src="test-file-stub"
+              width="176px"
+            />
+          </a>
+        </div>
+        <div
+          className="navContainer"
+        >
+          <button
+            aria-expanded={false}
+            className="mobileToggle"
+            onClick={[Function]}
+            type="button"
+          >
+            Menu
+          </button>
+          <nav
+            className="js-disabled-block"
+            role="navigation"
+          >
+            <ul
+              className=""
+              role="menubar"
             >
-              <a
-                className="projectLogo"
-                href="/"
-              >
-                <img
-                  alt="The COVID Tracking Project"
-                  src="test-file-stub"
-                  width="176px"
-                />
-              </a>
-            </div>
-            <div
-              className="siteNavContainer"
-            >
-              <div
-                className="navContainer"
-              >
-                <button
-                  aria-expanded={false}
-                  className="mobileToggle"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Menu
-                </button>
-              </div>
-              <div
-                className="tools"
+              <li
+                className="menuItem"
               >
                 <div
-                  className="searchInput"
+                  className="navLabel"
                 >
-                  <div
-                    data-reach-combobox=""
+                  <a
+                    href="/test-a"
                   >
-                    <label
-                      className=""
-                      htmlFor="header-search-autocomplete"
-                    >
-                      Search
-                    </label>
-                    <input
-                      aria-autocomplete="both"
-                      aria-controls="listbox--9"
-                      aria-expanded={false}
-                      aria-haspopup="listbox"
-                      autoComplete="off"
-                      data-reach-combobox-input=""
-                      id="header-search-autocomplete"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      onSelect={[Function]}
-                      role="combobox"
-                      value=""
-                    />
-                  </div>
+                    Test A
+                  </a>
                   <button
-                    aria-label="Submit search"
-                    className="searchSubmit"
-                    onClick={[Function]}
+                    aria-controls="menu--20"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    className="caret"
+                    id="menu-button--menu--20"
+                    onKeyDown={[Function]}
+                    onMouseDown={[Function]}
                     type="button"
                   >
-                    <img
-                      alt=""
-                      aria-hidden="true"
-                      src="test-file-stub"
-                    />
+                    <svg
+                      aria-hidden={true}
+                      fill="none"
+                      height="7"
+                      viewBox="0 0 12 7"
+                      width="12"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
+                      />
+                    </svg>
+                    <span
+                      className="a11y-only"
+                    >
+                      show menu for 
+                      Test A
+                    </span>
                   </button>
                 </div>
-                <a
-                  className="getInvolved"
-                  href="/get-involved"
+                <div
+                  data-reach-menu=""
+                  data-reach-menu-popover=""
+                  hidden={true}
                 >
-                  Get involved
-                </a>
-              </div>
-              <nav
-                className="js-disabled-block"
-                role="navigation"
-              >
-                <ul
-                  className=""
-                  role="menubar"
-                >
-                  <li
-                    className="menuItem"
+                  <div
+                    aria-labelledby="menu-button--menu--20"
+                    className="subMenu"
+                    data-reach-menu-items=""
+                    data-reach-menu-list=""
+                    id="menu--20"
+                    onKeyDown={[Function]}
+                    role={false}
+                    tabIndex={-1}
                   >
-                    <a
-                      href="/test-a"
-                    >
-                      Test A
-                    </a>
-                    <button
-                      aria-controls="menu--12"
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      className="caret"
-                      id="menu-button--menu--12"
-                      onKeyDown={[Function]}
-                      onMouseDown={[Function]}
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden={true}
-                        fill="none"
-                        height="7"
-                        viewBox="0 0 12 7"
-                        width="12"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
-                        />
-                      </svg>
-                      <span
-                        className="a11y-only"
-                      >
-                        show menu for 
-                        Test A
-                      </span>
-                    </button>
                     <div
-                      data-reach-menu=""
-                      data-reach-menu-popover=""
-                      hidden={true}
+                      role="none"
+                      tabIndex={-1}
                     >
-                      <div
-                        aria-labelledby="menu-button--menu--12"
-                        className="subMenu"
-                        data-reach-menu-items=""
-                        data-reach-menu-list=""
-                        id="menu--12"
-                        onKeyDown={[Function]}
-                        role={false}
+                      <a
+                        className="menuLink"
+                        data-reach-menu-item=""
+                        data-reach-menu-link=""
+                        data-selected=""
+                        data-valuetext=""
+                        href="/contentful-a"
+                        onClick={[Function]}
+                        onDragStart={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseMove={[Function]}
+                        onMouseUp={[Function]}
+                        role="menuitem"
                         tabIndex={-1}
                       >
-                        <div
-                          role="none"
-                          tabIndex={-1}
-                        >
-                          <a
-                            className="menuLink"
-                            data-reach-menu-item=""
-                            data-reach-menu-link=""
-                            data-selected=""
-                            data-valuetext=""
-                            href="/contentful-a"
-                            onClick={[Function]}
-                            onDragStart={[Function]}
-                            onMouseDown={[Function]}
-                            onMouseEnter={[Function]}
-                            onMouseLeave={[Function]}
-                            onMouseMove={[Function]}
-                            onMouseUp={[Function]}
-                            role="menuitem"
-                            tabIndex={-1}
-                          >
-                            Contentful a
-                          </a>
-                        </div>
-                        <div
-                          role="none"
-                          tabIndex={-1}
-                        >
-                          <a
-                            className="menuLink"
-                            data-reach-menu-item=""
-                            data-reach-menu-link=""
-                            data-selected=""
-                            data-valuetext=""
-                            href="/contentful-b"
-                            onClick={[Function]}
-                            onDragStart={[Function]}
-                            onMouseDown={[Function]}
-                            onMouseEnter={[Function]}
-                            onMouseLeave={[Function]}
-                            onMouseMove={[Function]}
-                            onMouseUp={[Function]}
-                            role="menuitem"
-                            tabIndex={-1}
-                          >
-                            Contentful B
-                          </a>
-                        </div>
-                      </div>
+                        Contentful a
+                      </a>
                     </div>
-                  </li>
-                  <li
-                    className="menuItem"
-                  >
-                    <a
-                      href="/test-b"
+                    <div
+                      role="none"
+                      tabIndex={-1}
                     >
-                      Test B
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
+                      <a
+                        className="menuLink"
+                        data-reach-menu-item=""
+                        data-reach-menu-link=""
+                        data-selected=""
+                        data-valuetext=""
+                        href="/contentful-b"
+                        onClick={[Function]}
+                        onDragStart={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseMove={[Function]}
+                        onMouseUp={[Function]}
+                        role="menuitem"
+                        tabIndex={-1}
+                      >
+                        Contentful B
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li
+                className="menuItem"
+              >
+                <div
+                  className="navLabel"
+                >
+                  <a
+                    href="/test-b"
+                  >
+                    Test B
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          className="tools"
+        >
           <div
-            className="atlanticBanner"
-          >
-            <span>
-              At
-            </span>
-             
-            <img
-              alt="The Atlantic"
-              src="test-file-stub"
-            />
-            <div />
-          </div>
-          <div
-            className="titleSubnavContainer "
+            className="searchContainer"
           >
             <div
-              className="title"
+              className="search"
+              onBlur={[Function]}
             >
-              <h1
-                className="page-title pageTitle"
+              <div
+                data-reach-combobox=""
               >
-                <a
-                  href="/link"
+                <input
+                  aria-autocomplete="both"
+                  aria-controls="listbox--9"
+                  aria-expanded={false}
+                  aria-haspopup="listbox"
+                  autoComplete="off"
+                  className="searchInput"
+                  data-reach-combobox-input=""
+                  id="header-search-autocomplete"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="combobox"
+                  value=""
+                />
+                <label
+                  className="searchLabel"
+                  htmlFor="header-search-autocomplete"
                 >
-                  Sample title
-                </a>
-              </h1>
+                  Search
+                </label>
+              </div>
+              <button
+                aria-label="Submit search"
+                className="searchSubmit"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  src="test-file-stub"
+                />
+              </button>
             </div>
+          </div>
+          <a
+            className="getInvolved"
+            href="/get-involved"
+          >
+            Get involved
+          </a>
+        </div>
+      </div>
+      <div
+        className="atlanticBanner"
+      >
+        <span>
+          At
+        </span>
+         
+        <img
+          alt="The Atlantic"
+          src="test-file-stub"
+        />
+        <div />
+      </div>
+    </div>
+    <div
+      className="container container"
+    >
+      <div
+        className="full"
+      >
+        <div
+          className="titleSubnavContainer "
+        >
+          <div
+            className="title"
+          >
+            <h1
+              className="page-title pageTitle"
+            >
+              <a
+                href="/link"
+              >
+                Sample title
+              </a>
+            </h1>
           </div>
         </div>
       </div>
@@ -1474,47 +1540,52 @@ exports[`Components : Layout : Header renders correctly 4`] = `
         }
       >
         <div
-          className="searchInput"
+          className="mobileSearchContainer"
         >
           <div
-            data-reach-combobox=""
+            className="search"
+            onBlur={[Function]}
           >
-            <label
-              className=""
-              htmlFor="header-search-autocomplete-mobile"
+            <div
+              data-reach-combobox=""
             >
-              Search
-            </label>
-            <input
-              aria-autocomplete="both"
-              aria-controls="listbox--11"
-              aria-expanded={false}
-              aria-haspopup="listbox"
-              autoComplete="off"
-              data-reach-combobox-input=""
-              id="header-search-autocomplete-mobile"
-              onBlur={[Function]}
-              onChange={[Function]}
+              <input
+                aria-autocomplete="both"
+                aria-controls="listbox--11"
+                aria-expanded={false}
+                aria-haspopup="listbox"
+                autoComplete="off"
+                className="searchInput"
+                data-reach-combobox-input=""
+                id="header-search-autocomplete-mobile"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="combobox"
+                value=""
+              />
+              <label
+                className="searchLabel"
+                htmlFor="header-search-autocomplete-mobile"
+              >
+                Search
+              </label>
+            </div>
+            <button
+              aria-label="Submit search"
+              className="searchSubmit"
               onClick={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onSelect={[Function]}
-              role="combobox"
-              value=""
-            />
+              type="button"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="test-file-stub"
+              />
+            </button>
           </div>
-          <button
-            aria-label="Submit search"
-            className="searchSubmit"
-            onClick={[Function]}
-            type="button"
-          >
-            <img
-              alt=""
-              aria-hidden="true"
-              src="test-file-stub"
-            />
-          </button>
         </div>
         <nav
           className="js-disabled-block"
@@ -1527,51 +1598,55 @@ exports[`Components : Layout : Header renders correctly 4`] = `
             <li
               className="menuItem"
             >
-              <a
-                href="/test-a"
+              <div
+                className="navLabel"
               >
-                Test A
-              </a>
-              <button
-                aria-controls="menu--15"
-                aria-expanded="false"
-                aria-haspopup="true"
-                className="caret"
-                id="menu-button--menu--15"
-                onKeyDown={[Function]}
-                onMouseDown={[Function]}
-                type="button"
-              >
-                <svg
-                  aria-hidden={true}
-                  fill="none"
-                  height="7"
-                  viewBox="0 0 12 7"
-                  width="12"
-                  xmlns="http://www.w3.org/2000/svg"
+                <a
+                  href="/test-a"
                 >
-                  <path
-                    d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
-                  />
-                </svg>
-                <span
-                  className="a11y-only"
-                >
-                  show menu for 
                   Test A
-                </span>
-              </button>
+                </a>
+                <button
+                  aria-controls="menu--25"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  className="caret"
+                  id="menu-button--menu--25"
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  type="button"
+                >
+                  <svg
+                    aria-hidden={true}
+                    fill="none"
+                    height="7"
+                    viewBox="0 0 12 7"
+                    width="12"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
+                    />
+                  </svg>
+                  <span
+                    className="a11y-only"
+                  >
+                    show menu for 
+                    Test A
+                  </span>
+                </button>
+              </div>
               <div
                 data-reach-menu=""
                 data-reach-menu-popover=""
                 hidden={true}
               >
                 <div
-                  aria-labelledby="menu-button--menu--15"
+                  aria-labelledby="menu-button--menu--25"
                   className="subMenu"
                   data-reach-menu-items=""
                   data-reach-menu-list=""
-                  id="menu--15"
+                  id="menu--25"
                   onKeyDown={[Function]}
                   role={false}
                   tabIndex={-1}
@@ -1630,11 +1705,15 @@ exports[`Components : Layout : Header renders correctly 4`] = `
             <li
               className="menuItem"
             >
-              <a
-                href="/test-b"
+              <div
+                className="navLabel"
               >
-                Test B
-              </a>
+                <a
+                  href="/test-b"
+                >
+                  Test B
+                </a>
+              </div>
             </li>
           </ul>
         </nav>
@@ -1678,248 +1757,257 @@ exports[`Components : Layout : Header renders correctly 4`] = `
       </div>
     </div>
     <div
-      className="container false container"
+      className="wrapper"
     >
       <div
-        className="layout--content-full"
+        className="siteTitleContainer"
       >
         <div
-          className="layout--content-primary"
+          className="siteTitleInner"
         >
-          <div
-            className="siteTitleContainer"
+          <a
+            className="projectLogo"
+            href="/"
           >
-            <div
-              className="siteTitleInner"
+            <img
+              alt="The COVID Tracking Project"
+              src="test-file-stub"
+              width="176px"
+            />
+          </a>
+        </div>
+        <div
+          className="navContainer"
+        >
+          <button
+            aria-expanded={false}
+            className="mobileToggle"
+            onClick={[Function]}
+            type="button"
+          >
+            Menu
+          </button>
+          <nav
+            className="js-disabled-block"
+            role="navigation"
+          >
+            <ul
+              className=""
+              role="menubar"
             >
-              <a
-                className="projectLogo"
-                href="/"
-              >
-                <img
-                  alt="The COVID Tracking Project"
-                  src="test-file-stub"
-                  width="176px"
-                />
-              </a>
-            </div>
-            <div
-              className="siteNavContainer"
-            >
-              <div
-                className="navContainer"
-              >
-                <button
-                  aria-expanded={false}
-                  className="mobileToggle"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Menu
-                </button>
-              </div>
-              <div
-                className="tools"
+              <li
+                className="menuItem"
               >
                 <div
-                  className="searchInput"
+                  className="navLabel"
                 >
-                  <div
-                    data-reach-combobox=""
+                  <a
+                    href="/test-a"
                   >
-                    <label
-                      className=""
-                      htmlFor="header-search-autocomplete"
-                    >
-                      Search
-                    </label>
-                    <input
-                      aria-autocomplete="both"
-                      aria-controls="listbox--12"
-                      aria-expanded={false}
-                      aria-haspopup="listbox"
-                      autoComplete="off"
-                      data-reach-combobox-input=""
-                      id="header-search-autocomplete"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      onSelect={[Function]}
-                      role="combobox"
-                      value=""
-                    />
-                  </div>
+                    Test A
+                  </a>
                   <button
-                    aria-label="Submit search"
-                    className="searchSubmit"
-                    onClick={[Function]}
+                    aria-controls="menu--27"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    className="caret"
+                    id="menu-button--menu--27"
+                    onKeyDown={[Function]}
+                    onMouseDown={[Function]}
                     type="button"
                   >
-                    <img
-                      alt=""
-                      aria-hidden="true"
-                      src="test-file-stub"
-                    />
+                    <svg
+                      aria-hidden={true}
+                      fill="none"
+                      height="7"
+                      viewBox="0 0 12 7"
+                      width="12"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
+                      />
+                    </svg>
+                    <span
+                      className="a11y-only"
+                    >
+                      show menu for 
+                      Test A
+                    </span>
                   </button>
                 </div>
-                <a
-                  className="getInvolved"
-                  href="/get-involved"
+                <div
+                  data-reach-menu=""
+                  data-reach-menu-popover=""
+                  hidden={true}
                 >
-                  Get involved
-                </a>
-              </div>
-              <nav
-                className="js-disabled-block"
-                role="navigation"
-              >
-                <ul
-                  className=""
-                  role="menubar"
-                >
-                  <li
-                    className="menuItem"
+                  <div
+                    aria-labelledby="menu-button--menu--27"
+                    className="subMenu"
+                    data-reach-menu-items=""
+                    data-reach-menu-list=""
+                    id="menu--27"
+                    onKeyDown={[Function]}
+                    role={false}
+                    tabIndex={-1}
                   >
-                    <a
-                      href="/test-a"
-                    >
-                      Test A
-                    </a>
-                    <button
-                      aria-controls="menu--16"
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      className="caret"
-                      id="menu-button--menu--16"
-                      onKeyDown={[Function]}
-                      onMouseDown={[Function]}
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden={true}
-                        fill="none"
-                        height="7"
-                        viewBox="0 0 12 7"
-                        width="12"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M5.59523 6.56387C5.7446 6.71053 5.91203 6.7381 6.0001 6.7381C6.09838 6.7381 6.25421 6.71136 6.40443 6.56387L10.9015 1.76778C11.1074 1.5483 11.093 1.20669 10.8695 1.00471C10.6459 0.802637 10.298 0.817297 10.0924 1.03625L5.99993 5.40006L1.90754 1.03625C1.70151 0.816664 1.35357 0.802742 1.13034 1.00471C0.906907 1.20669 0.892512 1.5483 1.09823 1.76778L5.59523 6.56387Z"
-                        />
-                      </svg>
-                      <span
-                        className="a11y-only"
-                      >
-                        show menu for 
-                        Test A
-                      </span>
-                    </button>
                     <div
-                      data-reach-menu=""
-                      data-reach-menu-popover=""
-                      hidden={true}
+                      role="none"
+                      tabIndex={-1}
                     >
-                      <div
-                        aria-labelledby="menu-button--menu--16"
-                        className="subMenu"
-                        data-reach-menu-items=""
-                        data-reach-menu-list=""
-                        id="menu--16"
-                        onKeyDown={[Function]}
-                        role={false}
+                      <a
+                        className="menuLink"
+                        data-reach-menu-item=""
+                        data-reach-menu-link=""
+                        data-selected=""
+                        data-valuetext=""
+                        href="/contentful-a"
+                        onClick={[Function]}
+                        onDragStart={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseMove={[Function]}
+                        onMouseUp={[Function]}
+                        role="menuitem"
                         tabIndex={-1}
                       >
-                        <div
-                          role="none"
-                          tabIndex={-1}
-                        >
-                          <a
-                            className="menuLink"
-                            data-reach-menu-item=""
-                            data-reach-menu-link=""
-                            data-selected=""
-                            data-valuetext=""
-                            href="/contentful-a"
-                            onClick={[Function]}
-                            onDragStart={[Function]}
-                            onMouseDown={[Function]}
-                            onMouseEnter={[Function]}
-                            onMouseLeave={[Function]}
-                            onMouseMove={[Function]}
-                            onMouseUp={[Function]}
-                            role="menuitem"
-                            tabIndex={-1}
-                          >
-                            Contentful a
-                          </a>
-                        </div>
-                        <div
-                          role="none"
-                          tabIndex={-1}
-                        >
-                          <a
-                            className="menuLink"
-                            data-reach-menu-item=""
-                            data-reach-menu-link=""
-                            data-selected=""
-                            data-valuetext=""
-                            href="/contentful-b"
-                            onClick={[Function]}
-                            onDragStart={[Function]}
-                            onMouseDown={[Function]}
-                            onMouseEnter={[Function]}
-                            onMouseLeave={[Function]}
-                            onMouseMove={[Function]}
-                            onMouseUp={[Function]}
-                            role="menuitem"
-                            tabIndex={-1}
-                          >
-                            Contentful B
-                          </a>
-                        </div>
-                      </div>
+                        Contentful a
+                      </a>
                     </div>
-                  </li>
-                  <li
-                    className="menuItem"
-                  >
-                    <a
-                      href="/test-b"
+                    <div
+                      role="none"
+                      tabIndex={-1}
                     >
-                      Test B
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
+                      <a
+                        className="menuLink"
+                        data-reach-menu-item=""
+                        data-reach-menu-link=""
+                        data-selected=""
+                        data-valuetext=""
+                        href="/contentful-b"
+                        onClick={[Function]}
+                        onDragStart={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseMove={[Function]}
+                        onMouseUp={[Function]}
+                        role="menuitem"
+                        tabIndex={-1}
+                      >
+                        Contentful B
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li
+                className="menuItem"
+              >
+                <div
+                  className="navLabel"
+                >
+                  <a
+                    href="/test-b"
+                  >
+                    Test B
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          className="tools"
+        >
           <div
-            className="atlanticBanner"
-          >
-            <span>
-              At
-            </span>
-             
-            <img
-              alt="The Atlantic"
-              src="test-file-stub"
-            />
-            <div />
-          </div>
-          <div
-            className="titleSubnavContainer "
+            className="searchContainer"
           >
             <div
-              className="title"
+              className="search"
+              onBlur={[Function]}
             >
-              <h1
-                className="page-title pageTitle"
+              <div
+                data-reach-combobox=""
               >
-                Sample title
-              </h1>
+                <input
+                  aria-autocomplete="both"
+                  aria-controls="listbox--12"
+                  aria-expanded={false}
+                  aria-haspopup="listbox"
+                  autoComplete="off"
+                  className="searchInput"
+                  data-reach-combobox-input=""
+                  id="header-search-autocomplete"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="combobox"
+                  value=""
+                />
+                <label
+                  className="searchLabel"
+                  htmlFor="header-search-autocomplete"
+                >
+                  Search
+                </label>
+              </div>
+              <button
+                aria-label="Submit search"
+                className="searchSubmit"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  src="test-file-stub"
+                />
+              </button>
             </div>
+          </div>
+          <a
+            className="getInvolved"
+            href="/get-involved"
+          >
+            Get involved
+          </a>
+        </div>
+      </div>
+      <div
+        className="atlanticBanner"
+      >
+        <span>
+          At
+        </span>
+         
+        <img
+          alt="The Atlantic"
+          src="test-file-stub"
+        />
+        <div />
+      </div>
+    </div>
+    <div
+      className="container container"
+    >
+      <div
+        className="full"
+      >
+        <div
+          className="titleSubnavContainer "
+        >
+          <div
+            className="title"
+          >
+            <h1
+              className="page-title pageTitle"
+            >
+              Sample title
+            </h1>
           </div>
         </div>
       </div>

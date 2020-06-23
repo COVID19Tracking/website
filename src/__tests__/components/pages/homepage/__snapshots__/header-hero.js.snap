@@ -5,32 +5,33 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
   className="hero hero"
 >
   <div
-    className="container container"
+    className="container"
   >
-    <div
-      className="container header"
-    >
-      <h2
-        className="hero-header header"
+    <h2>
+      The public deserves the most complete data available about
+       
+      <span
+        className="nowrap"
       >
-        The public deserves the most complete data available about COVID-19 in the
-         
-        <abbr
-          aria-label="United States"
-          title="United States"
-        >
-          US
-        </abbr>
-        . No official source is providing it,
-         
-        <span
-          className="nowrap"
-        >
-          so we are
-        </span>
-        .
-      </h2>
-    </div>
+        COVID-19
+      </span>
+       in the
+       
+      <abbr
+        aria-label="United States"
+        title="United States"
+      >
+        US
+      </abbr>
+      . No official source is providing it,
+       
+      <span
+        className="nowrap"
+      >
+        so we are
+      </span>
+      .
+    </h2>
   </div>
 </div>
 `;
