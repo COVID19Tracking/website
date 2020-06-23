@@ -109,7 +109,13 @@ export default () => {
       <LandingPageContainer>
         <Disclosure
           open={isCasesOpen}
-          onChange={() => setIsCasesOpen(!isCasesOpen)}
+          onChange={() => {
+            setIsCasesOpen(!isCasesOpen)
+            if (typeof window.fathom === 'undefined') {
+              return
+            }
+            window.fathom.trackGoal('O8WBUGRP', 0)
+          }}
         >
           <Feature
             element={
@@ -159,7 +165,13 @@ export default () => {
         </Disclosure>
         <Disclosure
           open={isDeathsOpen}
-          onChange={() => setIsDeathsOpen(!isDeathsOpen)}
+          onChange={() => {
+            setIsDeathsOpen(!isDeathsOpen)
+            if (typeof window.fathom === 'undefined') {
+              return
+            }
+            window.fathom.trackGoal('O8WBUGRP', 0)
+          }}
         >
           <Feature
             element={
