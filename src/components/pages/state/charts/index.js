@@ -1,6 +1,6 @@
 import React from 'react'
 
-import BarChart from '../../../charts/bar-chart'
+import BarChart from '~components/charts/bar-chart'
 
 import {
   deathsBarColor,
@@ -9,7 +9,9 @@ import {
   parseDate,
 } from '~utilities/visualization'
 
-import chartsStyles from './charts.module.scss'
+import { Row, Col } from '~components/common/grid'
+
+// import chartsStyles from './charts.module.scss'
 
 // TODO: optimize if this slows down build (use rolling window)
 const dailyAverage = (history, field, range = 7) => {
@@ -63,10 +65,11 @@ export default ({ history }) => {
     xTicks: 3,
     showTicks: 6,
   }
+  const colWidth = [4, 3, 3]
 
   return (
-    <div className={chartsStyles.chartsContainer}>
-      <div>
+    <Row>
+      <Col width={colWidth}>
         <h5>New tests</h5>
         <BarChart
           data={getDataForField(data, 'totalTestResultsIncrease')}
@@ -74,8 +77,8 @@ export default ({ history }) => {
           fill={totalColor}
           {...props}
         />
-      </div>
-      <div>
+      </Col>
+      <Col width={colWidth}>
         <h5>New cases</h5>
         <BarChart
           data={getDataForField(data, 'positiveIncrease')}
@@ -83,19 +86,21 @@ export default ({ history }) => {
           fill={positiveColor}
           {...props}
         />
-      </div>
-      {hasHospitalizationData && (
-        <div>
-          <h5>New hospitalizations</h5>
-          <BarChart
-            data={getDataForField(data, 'hospitalizedIncrease')}
-            lineData={dailyAverage(data, 'hospitalizedIncrease')}
-            fill={positiveColor}
-            {...props}
-          />
-        </div>
-      )}
-      <div>
+      </Col>
+      <Col width={colWidth}>
+        {hasHospitalizationData && (
+          <>
+            <h5>New hospitalizations</h5>
+            <BarChart
+              data={getDataForField(data, 'hospitalizedIncrease')}
+              lineData={dailyAverage(data, 'hospitalizedIncrease')}
+              fill={positiveColor}
+              {...props}
+            />
+          </>
+        )}
+      </Col>
+      <Col width={colWidth}>
         <h5>New deaths</h5>
         <BarChart
           data={getDataForField(data, 'deathIncrease')}
@@ -103,7 +108,7 @@ export default ({ history }) => {
           fill={deathsBarColor}
           {...props}
         />
-      </div>
-    </div>
+      </Col>
+    </Row>
   )
 }
