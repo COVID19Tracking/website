@@ -31,4 +31,18 @@
 .label {
   fill: black;
   @include type-size(100);
+  &.centered {
+    text-anchor: middle;
+  }
+}
+
+.county-label {
+  overflow: visible !important;
+  text-anchor: end;
+}
+
+.vertical-tick {
+  stroke: white;
+  height: 100%;
+  stroke-width: 2px;
 }
