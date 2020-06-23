@@ -84,7 +84,21 @@ containerNarrow.story = {
 }
 
 export const grids = () => (
-  <div className={grid.rowComponent}>
+  <>
+    <Row>
+      <Col width={[4, 3, 3]}>
+        <div className={grid.col}>{`<Col width={[4, 3, 3]}>`}</div>
+      </Col>
+      <Col width={[4, 3, 3]}>
+        <div className={grid.col}>{`<Col width={[4, 3, 3]}>`}</div>
+      </Col>
+      <Col width={[4, 3, 3]}>
+        <div className={grid.col}>{`<Col width={[4, 3, 3]}>`}</div>
+      </Col>
+      <Col width={[4, 3, 3]}>
+        <div className={grid.col}>{`<Col width={[4, 3, 3]}>`}</div>
+      </Col>
+    </Row>
     <Row>
       <Col width={[1, 3, 6]}>
         <div className={grid.col}>{`<Col width={[1, 3, 6]}>`}</div>
@@ -103,8 +117,36 @@ export const grids = () => (
         >{`<Col width={[1, 3, 4]} paddingLeft={[6, 8, 32]}>`}</div>
       </Col>
     </Row>
-  </div>
+    <h4>Things to know</h4>
+    <p>
+      The grid system has a predfined number of cols per row for each screen
+      size.
+    </p>
+    <ul>
+      <li>Small - 4 cols</li>
+      <li>Medium - 6 cols</li>
+      <li>Large - 12 cols</li>
+    </ul>
+    <p>
+      The <code>width</code> prop of the <code>Col</code> component takes an
+      array which specifies the number of cols the item should take up for each
+      screensize.
+    </p>
+    <code>
+      {
+        'width={[<COLS_ON_SMALL_SCREEN>,<COLS_ON_MEDIUM_SCREEN>,<COLS_ON_LARGE_SCREEN>]}'
+      }
+    </code>
+  </>
 )
+
+grid.story = {
+  parameters: {
+    info: {
+      text: 'Use the mixin `spacer([number]) to define margins and padding.',
+    },
+  },
+}
 
 export const gridWithSass = () => (
   <div>
