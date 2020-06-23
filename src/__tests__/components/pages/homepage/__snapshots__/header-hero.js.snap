@@ -7,10 +7,15 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
   <div
     className="container"
   >
-    <h2
-      className="hero-header header"
-    >
-      The public deserves the most complete data available about COVID-19 in the
+    <h2>
+      The public deserves the most complete data available about
+       
+      <span
+        className="nowrap"
+      >
+        COVID-19
+      </span>
+       in the
        
       <abbr
         aria-label="United States"
