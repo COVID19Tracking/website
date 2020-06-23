@@ -57,6 +57,20 @@ export default ({ data, field, label, increments }) => {
           />
         ))}
       </g>
+      {verticalLines.map(tick => (
+        <g key={`${field}-${tick}`}>
+          <svg y={20} x={xScale(tick) + labelOffset} width={1}>
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2={height + heightOffset}
+              className={countyChartStyles.verticalTick}
+              style={{ height }}
+            />
+          </svg>
+        </g>
+      ))}
 
       <g transform="translate(0, 15)">
         <svg
@@ -73,7 +87,7 @@ export default ({ data, field, label, increments }) => {
               <g key={`${field}-${tick}`}>
                 <svg
                   y={20}
-                  x={xScale(tick) + labelOffset + (i > 0 ? -20 : 0)}
+                  x={xScale(tick) + labelOffset}
                   width={labelOffset}
                   className={countyChartStyles.tick}
                 >
@@ -85,24 +99,6 @@ export default ({ data, field, label, increments }) => {
             ),
         )}
       </g>
-      {verticalLines.map((tick, i) => (
-        <g key={`${field}-${tick}`}>
-          <svg
-            y={20}
-            x={xScale(tick) + labelOffset + (i > 0 ? -20 : 0)}
-            width={1}
-          >
-            <line
-              x1="0"
-              y1="0"
-              x2="0"
-              y2={height + heightOffset}
-              className={countyChartStyles.verticalTick}
-              style={{ height }}
-            />
-          </svg>
-        </g>
-      ))}
       {data.map((d, index) => (
         <g
           key={`${d.field}-${d.county}`}
