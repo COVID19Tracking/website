@@ -83,17 +83,6 @@ describe('Components : Layout : Header', () => {
       .toJSON()
     expect(tree).toMatchSnapshot()
 
-    const textHeavytree = renderer
-      .create(
-        <>
-          <Layout title="Sample title" textHeavy narrow>
-            <p>Content</p>
-          </Layout>
-        </>,
-      )
-      .toJSON()
-    expect(textHeavytree).toMatchSnapshot()
-
     const displayTitleTree = renderer
       .create(
         <>

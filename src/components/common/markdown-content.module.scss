@@ -20,10 +20,4 @@
   li {
     @include margin(8, bottom);
   }
-
-  p:not([class]),
-  ul:not([class]),
-  ol:not([class]) {
-    max-width: 40rem;
-  }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import DetailText from '~components/common/detail-text'
+import Container from '~components/common/container'
 import ContentfulContent from '~components/common/contentful-content'
 import MarkdownContent from '~components/common/markdown-content'
 import Layout from '~components/layout'
@@ -33,11 +34,14 @@ export default ({ data }) => {
       <SyncInfobox />
       <SummaryTable data={data.covidUs} showOutcomes={false} showFootnote />
       <StateCharts history={data.allCovidUsDaily.nodes} />
-      <DetailText>
-        <MarkdownContent
-          html={data.dataSummaryFootnote.content.childMarkdownRemark.html}
-        />
-      </DetailText>
+
+      <Container narrow>
+        <DetailText>
+          <MarkdownContent
+            html={data.dataSummaryFootnote.content.childMarkdownRemark.html}
+          />
+        </DetailText>
+      </Container>
       <StatesNav title="Totals by state" stateList={stateNavList} />
 
       <StatesNoScriptNav stateList={data.allCovidStateInfo.nodes} />

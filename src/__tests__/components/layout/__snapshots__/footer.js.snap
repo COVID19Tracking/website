@@ -2,106 +2,128 @@
 
 exports[`Components : Layout : Footer renders correctly 1`] = `
 <footer
-  className="footer"
+  className="wrapper"
 >
   <div
-    className="container container"
+    className="footer"
   >
     <div
-      className="contentFull"
+      className="main"
     >
-      <div
-        className="contentPrimary"
+      <a
+        className="ctpLogo"
+        href="/"
       >
-        <div
-          className="container"
+        <img
+          alt="The COVID Tracking Project"
+          className="projectLogo"
+          src="test-file-stub"
+        />
+      </a>
+      <div
+        className="links"
+      >
+        <ul
+          className="footerList"
         >
-          <a
-            href="/"
-          >
-            <img
-              alt="The COVID Tracking Project"
-              src="test-file-stub"
-            />
-          </a>
-          <ul
-            className="footerList"
-          >
-            <li>
-              <a
-                href="/contact"
-              >
-                Contact
-              </a>
-            </li>
-            <li>
-              <a
-                href="/accessibility"
-              >
-                Accessibility
-              </a>
-            </li>
-            <li>
-              <a
-                href="/terms-and-conditions"
-              >
-                Terms and Conditions
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.theatlantic.com/privacy-policy/"
-              >
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a
-                href="/license"
-              >
-                License
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/COVID19Tracking"
-              >
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://twitter.com/COVID19Tracking"
-              >
-                Twitter
-              </a>
-            </li>
-            <li>
-              <a
-                className="backToTop"
-                href="#reach-skip-nav"
-              >
-                Back to top
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div
-          className="copyright"
-        >
-          <span>
-            CovidTracking.com Copyright © 
-            2020
-             by The Atlantic Monthly Group. 
+          <li>
+            <a
+              href="/contact"
+            >
+              Contact
+            </a>
+          </li>
+          <li>
+            <a
+              href="/terms-and-conditions"
+            >
+              Terms and Conditions
+            </a>
+          </li>
+          <li>
             <a
               href="/license"
             >
-              (CC BY-NC 4.0)
+              License
             </a>
-          </span>
-        </div>
+          </li>
+          <li>
+            <a
+              href="https://www.theatlantic.com/privacy-policy/"
+            >
+              Privacy Policy
+            </a>
+          </li>
+          <li>
+            <a
+              href="/accessibility"
+            >
+              Accessibility
+            </a>
+          </li>
+          <li>
+            <a
+              href="/rss.xml"
+            >
+              RSS
+            </a>
+          </li>
+        </ul>
       </div>
+      <ul
+        className="social"
+      >
+        <li>
+          <a
+            href="https://github.com/COVID19Tracking"
+          >
+            <img
+              alt="GitHub"
+              src="test-file-stub"
+            />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://twitter.com/COVID19Tracking"
+          >
+            <img
+              alt="Twitter"
+              src="test-file-stub"
+            />
+          </a>
+        </li>
+      </ul>
     </div>
+  </div>
+  <hr
+    className="divider"
+  />
+  <div
+    className="copyright"
+  >
+    <span>
+      CovidTracking.com Copyright © 
+      2020
+       by The Atlantic Monthly Group. 
+      <a
+        href="/license"
+      >
+        (CC BY-NC 4.0)
+      </a>
+    </span>
+    <a
+      className="backToTop"
+      href="#reach-skip-nav"
+    >
+      <span>
+        Back to top
+      </span>
+      <img
+        alt="Back to top"
+        src="test-file-stub"
+      />
+    </a>
   </div>
 </footer>
 `;

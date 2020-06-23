@@ -3,6 +3,7 @@ import marked from 'marked'
 import smartypants from 'smartypants'
 import { Link } from 'gatsby'
 import slug from '~utilities/slug'
+import Container from '~components/common/container'
 import StateLinks from '~components/pages/state/state-links'
 import StateGrade from '~components/pages/state/state-grade'
 import SummaryTable from '~components/common/summary-table'
@@ -27,8 +28,13 @@ const State = ({ state }) => (
       covid19SiteSecondary={state.covid19SiteSecondary}
       stateName={state.name}
       historicalSlug={state.name}
+      fathomGoal="2YKBL0ZP"
     />
-    {state.notes && <MarkdownContent html={smartypants(marked(state.notes))} />}
+    {state.notes && (
+      <Container narrow>
+        <MarkdownContent html={smartypants(marked(state.notes))} />
+      </Container>
+    )}
     <a
       className={`state-top-link ${stateDataStyles.topLink}`}
       href="#reach-skip-nav"

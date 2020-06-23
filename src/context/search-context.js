@@ -72,10 +72,10 @@ function searchReducer(state, action) {
         isFetching: false,
         results: action.payload,
       }
-    case 'toggleAutocompleteFocus':
+    case 'setAutocompleteFocus':
       return {
         ...state,
-        autocompleteHasFocus: !state.autocompleteHasFocus,
+        autocompleteHasFocus: action.hasFocus,
       }
   }
 }
