@@ -6,10 +6,11 @@ import ReCaptcha from 'react-recaptcha'
 import ContentfulContent from '~components/common/contentful-content'
 import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
-import { Form, FormGroup, FormLabel } from '~components/common/form'
+import { Form, Textarea, Select, Input } from '~components/common/form'
 import { AlertInfobox } from '~components/common/infobox'
 
 const reasons = [
+  '-- Select a reason --',
   'I have questions about the state data grades',
   'I have feedback on the COVID Racial Data Tracker',
   'I’m a journalist with a media question',
@@ -23,6 +24,7 @@ const defaultReason = '-- Select a reason --'
 export default ({ data }) => {
   const [name, setName] = useState('')
   const [reason, setReason] = useState(defaultReason)
+
   return (
     <Layout
       title="Contact"
@@ -40,106 +42,86 @@ export default ({ data }) => {
           }
           id={data.contentfulSnippet.contentful_id}
         />
-        <Form>
-          <form
-            method="POST"
-            name="fa-form-1"
-            action="https://webhook.frontapp.com/forms/c3c09a5603c02d2b7f86/KU--_qKvaSkUZHR2T92KQZ8hy5TatxTkRexeSE4NtpFltSVYROQxxbkIdSNH3RcHlZUI4RGGlHL7NwDr00Ki8WMFSOoBBMmgZ28PppSbXx-SQVi51ogAj28bbn6M"
-            encType="multipart/form-data"
-            acceptCharset="utf-8"
-            referrerpolicy="unsafe-url"
-          >
-            <FormGroup>
-              <FormLabel htmlFor="contact-reason" required>
-                What are you contacting us about?
-              </FormLabel>
-              <select
-                id="contact-reason"
-                name="reason"
-                aria-required
-                onChange={event => setReason(event.target.value)}
-              >
-                <option value={defaultReason}>{defaultReason}</option>
-                {reasons.map(value => (
-                  <option value={value}>{value}</option>
-                ))}
-              </select>
-            </FormGroup>
-            <FormGroup>
-              <FormLabel htmlFor="contact-name" required>
-                Your name
-              </FormLabel>
-              <input
-                type="text"
-                name="name"
-                id="contact-name"
-                aria-required
-                onChange={event => setName(event.target.value)}
-              />
-            </FormGroup>
-            <FormGroup>
-              <FormLabel htmlFor="contact-email" required>
-                Your email address
-              </FormLabel>
-              <input
-                type="email"
-                name="email"
-                aria-required
-                id="contact-email"
-              />
-            </FormGroup>
-
-            <FormGroup>
-              <FormLabel htmlFor="contact-message" required>
-                Message
-              </FormLabel>
-              <textarea name="body" aria-required id="contact-message" />
-            </FormGroup>
-            <FormGroup>
-              {typeof window !== 'undefined' && (
-                <ReCaptcha
-                  sitekey={data.site.siteMetadata.recaptchaKey}
-                  elementID="contact-form-captcha"
-                />
-              )}
-            </FormGroup>
-            <FormGroup>
-              <input
-                type="text"
-                aria-hidden
-                style={{ display: 'none' }}
-                name="subject"
-                tabIndex="-1"
-                value={`${name} - ${reason}`}
-              />
-              {reason === defaultReason && (
-                <AlertInfobox>
-                  Please let us know{' '}
-                  <a href="#contact-reason">why you are contacting us</a> so we
-                  can route your message to the right team.
-                </AlertInfobox>
-              )}
-              <input
-                type="hidden"
-                name="autoreply-from"
-                value="support@covidtracking.com"
-              />
-              <input
-                type="hidden"
-                name="autoreply-sender-name"
-                value="The COVID Tracking Project"
-              />
-              <button
-                type="submit"
-                disabled={reason === defaultReason}
-                aria-disabled={reason === defaultReason}
-              >
-                Contact us
-              </button>
-            </FormGroup>
-          </form>
-        </Form>
       </LongContent>
+      <Form
+        method="POST"
+        name="fa-form-1"
+        action="https://webhook.frontapp.com/forms/c3c09a5603c02d2b7f86/KU--_qKvaSkUZHR2T92KQZ8hy5TatxTkRexeSE4NtpFltSVYROQxxbkIdSNH3RcHlZUI4RGGlHL7NwDr00Ki8WMFSOoBBMmgZ28PppSbXx-SQVi51ogAj28bbn6M"
+        encType="multipart/form-data"
+        acceptCharset="utf-8"
+        referrerPolicy="unsafe-url"
+      >
+        <Select
+          isRequired
+          label="What are you contacting us about?"
+          id="contact-reason"
+          name="reason"
+          options={reasons}
+          onChange={event => setReason(event.target.value)}
+        />
+        <Input
+          isRequired
+          label="Your name"
+          type="text"
+          name="name"
+          id="contact-name"
+          onChange={event => setName(event.target.value)}
+        />
+        <Input
+          isRequired
+          type="email"
+          label="Your email address"
+          name="email"
+          id="contact-email"
+        />
+        <Textarea label="Message" name="body" id="contact-message" />
+        <div>
+          {typeof window !== 'undefined' && (
+            <ReCaptcha
+              sitekey={data.site.siteMetadata.recaptchaKey}
+              render="explicit"
+              elementID={`contact-form-captcha-${Math.round(
+                Math.random() * 1000,
+              )}`}
+            />
+          )}
+        </div>
+
+        {reason === defaultReason && (
+          <AlertInfobox>
+            Please let us know{' '}
+            <a href="#contact-reason">why you are contacting us</a> so we can
+            route your message to the right team.
+          </AlertInfobox>
+        )}
+
+        <input
+          type="text"
+          aria-hidden
+          style={{ display: 'none' }}
+          name="subject"
+          tabIndex="-1"
+          value={`${name} - ${reason}`}
+        />
+        <br />
+        <input
+          type="hidden"
+          name="autoreply-from"
+          value="support@covidtracking.com"
+        />
+        <input
+          type="hidden"
+          name="autoreply-sender-name"
+          value="The COVID Tracking Project"
+        />
+        <button
+          type="submit"
+          disabled={reason === defaultReason}
+          aria-disabled={reason === defaultReason}
+        >
+          Contact us
+        </button>
+      </Form>
     </Layout>
   )
 }

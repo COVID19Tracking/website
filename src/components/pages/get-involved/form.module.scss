@@ -1,29 +1,3 @@
-.field-group {
-  @media (min-width: $viewport-lg) {
-    display: flex;
-  }
-}
-
 .zip {
   max-width: 6rem;
-}
-
-.label {
-  @include type-size(100);
-  display: block;
-  float: right;
-}
-
-.group {
-  margin-bottom: spacer(4) !important;
-  @media (min-width: $viewport-lg) {
-    width: 50%;
-    &:first-child {
-      padding-right: spacer(32);
-    }
-  }
-  input[type='text'],
-  input[type='email'] {
-    margin-bottom: spacer(4);
-  }
 }

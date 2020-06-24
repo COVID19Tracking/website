@@ -89,7 +89,6 @@ export default ({ title, stateList }) => {
             <label htmlFor="jump-to-state" className="a11y-only">
               Jump to state or territory
             </label>
-            {/* form wrapper is to ensure chrome doesn't try to autofill the input */}
             <form>
               <ComboboxInput
                 id="jump-to-state"
