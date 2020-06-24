@@ -102,6 +102,9 @@
       }
     }
   }
+  &[hidden] {
+    display: none;
+  }
 }
 
 .mobile {
