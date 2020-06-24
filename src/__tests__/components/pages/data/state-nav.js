@@ -33,13 +33,27 @@ describe('Components : Pages : Data : Navigation with JS enabled', () => {
     const tree = renderer.create(<StateNav stateList={stateList} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
-  it('can filter on user input', () => {
+
+  it('can filter on user input for state name', () => {
     const wrapper = shallow(
       <StateNav title="Test title" stateList={stateList} />,
     )
 
     const input = wrapper.find('#jump-to-state')
     input.simulate('change', { target: { value: 'ala' } })
+    expect(wrapper.exists('#state-nav-results-popover')).toBe(true)
+
+    input.simulate('change', { target: { value: '' } })
+    expect(wrapper.exists('#state-nav-results-popover')).toBe(false)
+  })
+
+  it('can filter on user input for state code', () => {
+    const wrapper = shallow(
+      <StateNav title="Test title" stateList={stateList} />,
+    )
+
+    const input = wrapper.find('#jump-to-state')
+    input.simulate('change', { target: { value: 'ak' } })
     expect(wrapper.exists('#state-nav-results-popover')).toBe(true)
 
     input.simulate('change', { target: { value: '' } })
