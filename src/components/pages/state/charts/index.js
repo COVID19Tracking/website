@@ -1,20 +1,20 @@
-import React from 'react'
+import React, { useState, useMemo } from 'react'
 
 import BarChart from '~components/charts/bar-chart'
 
-import {
-  deathsBarColor,
-  positiveColor,
-  totalColor,
-  parseDate,
-} from '~utilities/visualization'
+import { parseDate } from '~utilities/visualization'
+
+import colors from '~scss/colors.module.scss'
 
 import { Row, Col } from '~components/common/grid'
+
+import Toggle from '~components/common/toggle'
 
 // import chartsStyles from './charts.module.scss'
 
 // TODO: optimize if this slows down build (use rolling window)
 const dailyAverage = (history, field, range = 7) => {
+  if (!history) return null
   const average = []
   history.forEach((row, rowIndex) => {
     const pastRows = []
@@ -45,13 +45,20 @@ const getDataForField = (data, field) => {
 
 // we need a combined bar + line chart
 
-export default ({ history }) => {
+export default ({ history, usHistory }) => {
   // Change below to update range of chart
   const NUM_DAYS = 90
-  const data = [...history]
-    .slice(0, NUM_DAYS)
-    // .slice(history.length - NUM_DAYS, history.length)
-    .sort((a, b) => a.date - b.date)
+
+  const [usePerCap, setUsePerCap] = useState(false)
+
+  const data = [...history].slice(0, NUM_DAYS).sort((a, b) => a.date - b.date)
+  // eslint-disable-next-line no-unused-vars
+  const usData = useMemo(
+    () =>
+      usHistory &&
+      [...usHistory].slice(0, NUM_DAYS).sort((a, b) => a.date - b.date),
+    [usHistory, usePerCap],
+  )
 
   const hasHospitalizationData = history[0].hospitalized !== null
 
@@ -66,49 +73,67 @@ export default ({ history }) => {
     showTicks: 6,
   }
   const colWidth = [4, 3, 3]
-
   return (
-    <Row>
-      <Col width={colWidth}>
-        <h5>New tests</h5>
-        <BarChart
-          data={getDataForField(data, 'totalTestResultsIncrease')}
-          lineData={dailyAverage(data, 'totalTestResultsIncrease')}
-          fill={totalColor}
-          {...props}
-        />
-      </Col>
-      <Col width={colWidth}>
-        <h5>New cases</h5>
-        <BarChart
-          data={getDataForField(data, 'positiveIncrease')}
-          lineData={dailyAverage(data, 'positiveIncrease')}
-          fill={positiveColor}
-          {...props}
-        />
-      </Col>
-      <Col width={colWidth}>
-        {hasHospitalizationData && (
-          <>
-            <h5>New hospitalizations</h5>
-            <BarChart
-              data={getDataForField(data, 'hospitalizedIncrease')}
-              lineData={dailyAverage(data, 'hospitalizedIncrease')}
-              fill={positiveColor}
-              {...props}
-            />
-          </>
-        )}
-      </Col>
-      <Col width={colWidth}>
-        <h5>New deaths</h5>
-        <BarChart
-          data={getDataForField(data, 'deathIncrease')}
-          lineData={dailyAverage(data, 'deathIncrease')}
-          fill={deathsBarColor}
-          {...props}
-        />
-      </Col>
-    </Row>
+    <>
+      <Toggle
+        options={['Totals', 'Per capita']}
+        state={usePerCap}
+        setState={setUsePerCap}
+      />
+      <Row>
+        <Col width={colWidth}>
+          <h5>New tests</h5>
+          <BarChart
+            data={getDataForField(data, 'totalTestResultsIncrease')}
+            lineData={dailyAverage(data, 'totalTestResultsIncrease')}
+            refLineData={dailyAverage(
+              data,
+              'totalTestResultsIncrease',
+            ).map(({ date, value }) => ({ date, value: value / 4 }))}
+            fill={colors.colorPlum300}
+            lineColor={colors.colorPlum600}
+            {...props}
+          />
+        </Col>
+        <Col width={colWidth}>
+          <h5>New cases</h5>
+          <BarChart
+            data={getDataForField(data, 'positiveIncrease')}
+            lineData={dailyAverage(data, 'positiveIncrease')}
+            refLineData={dailyAverage(
+              data,
+              'positiveIncrease',
+            ).map(({ date, value }) => ({ date, value: value / 2 }))}
+            fill={colors.colorHoney300}
+            lineColor={colors.colorHoney600}
+            {...props}
+          />
+        </Col>
+        <Col width={colWidth}>
+          {hasHospitalizationData && (
+            <>
+              <h5>New hospitalizations</h5>
+              <BarChart
+                data={getDataForField(data, 'hospitalizedIncrease')}
+                lineData={dailyAverage(data, 'hospitalizedIncrease')}
+                fill={colors.colorHoney300}
+                lineColor={colors.colorHoney600}
+                {...props}
+              />
+            </>
+          )}
+        </Col>
+        <Col width={colWidth}>
+          <h5>New deaths</h5>
+          <BarChart
+            data={getDataForField(data, 'deathIncrease')}
+            lineData={dailyAverage(data, 'deathIncrease')}
+            fill={colors.colorSlate300}
+            lineColor={colors.colorSlate600}
+            {...props}
+          />
+        </Col>
+      </Row>
+    </>
   )
 }

@@ -14,7 +14,12 @@ import { SyncInfobox } from '~components/common/infobox'
 
 const StatePage = ({ pageContext, data, path }) => {
   const state = pageContext
-  const { covidState, allCovidStateDaily, allCovidScreenshot } = data
+  const {
+    covidState,
+    allCovidStateDaily,
+    allCovidScreenshot,
+    allCovidUsDaily,
+  } = data
   return (
     <Layout title={state.name} returnLink="/data" path={path}>
       <StateLinks
@@ -32,7 +37,10 @@ const StatePage = ({ pageContext, data, path }) => {
       )}
       <SyncInfobox />
       <SummaryTable data={covidState} lastUpdated={covidState.dateModified} />
-      <StateCharts history={allCovidStateDaily.nodes} />
+      <StateCharts
+        history={allCovidStateDaily.nodes}
+        usHistory={allCovidUsDaily.nodes}
+      />
       <h2 id="historical">History</h2>
       <StateHistory
         history={allCovidStateDaily.nodes}
@@ -46,6 +54,21 @@ export default StatePage
 
 export const query = graphql`
   query($state: String!) {
+    allCovidUsDaily {
+      nodes {
+        totalTestResults
+        totalTestResultsIncrease
+        positive
+        positiveIncrease
+        pending
+        negative
+        hospitalized
+        hospitalizedIncrease
+        death
+        deathIncrease
+        date
+      }
+    }
     covidState(state: { eq: $state }) {
       positive
       negative

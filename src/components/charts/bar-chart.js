@@ -11,7 +11,9 @@ import chartStyles from './charts.module.scss'
 const BarChart = ({
   data,
   lineData,
+  refLineData,
   fill,
+  lineColor,
   height,
   marginBottom,
   marginLeft,
@@ -120,8 +122,20 @@ const BarChart = ({
           <g transform={`translate(0 ${marginTop})`}>
             <path
               d={lineFn(lineData)}
-              stroke={fill}
+              stroke={lineColor}
               strokeWidth="3"
+              fill="none"
+            />
+          </g>
+        )}
+        {/* reference line */}
+        {refLineData && (
+          <g transform={`translate(0 ${marginTop})`}>
+            <path
+              d={lineFn(refLineData)}
+              stroke="black"
+              strokeWidth="2"
+              strokeDasharray="4"
               fill="none"
             />
           </g>
@@ -133,6 +147,7 @@ const BarChart = ({
 
 BarChart.defaultProps = {
   lineData: null,
+  refLineData: null,
   marginBottom: 0,
   marginLeft: 0,
   marginRight: 0,
@@ -156,7 +171,14 @@ BarChart.propTypes = {
       value: PropTypes.number,
     }),
   ),
+  refLineData: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.instanceOf(Date).isRequired,
+      value: PropTypes.number,
+    }),
+  ),
   fill: PropTypes.string.isRequired,
+  lineColor: PropTypes.string.isRequired,
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
   marginBottom: PropTypes.number,
