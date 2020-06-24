@@ -262,14 +262,8 @@ export const query = graphql`
   query {
     contentfulNavigationGroup(slug: { eq: "about-data" }) {
       pages {
-        ... on ContentfulPage {
-          title
-          link: slug
-        }
-        ... on ContentfulNavigationLink {
-          title
-          link: url
-        }
+        title
+        link: url
       }
     }
     file(relativePath: { regex: "/cdc-comparison-chart.png/" }) {
