@@ -34,13 +34,15 @@ export default ({ data }) => {
       }}
       narrow
     >
-      <ContentfulContent
-        content={
-          data.contentfulSnippet.childContentfulSnippetContentTextNode
-            .childMarkdownRemark.html
-        }
-        id={data.contentfulSnippet.contentful_id}
-      />
+      <LongContent>
+        <ContentfulContent
+          content={
+            data.contentfulSnippet.childContentfulSnippetContentTextNode
+              .childMarkdownRemark.html
+          }
+          id={data.contentfulSnippet.contentful_id}
+        />
+      </LongContent>
       <Form
         method="POST"
         name="fa-form-1"
@@ -91,13 +93,24 @@ export default ({ data }) => {
           aria-required
           id="contact-message"
         />
-        {typeof window !== 'undefined' && (
-          <ReCaptcha
-            sitekey={data.site.siteMetadata.recaptchaKey}
-            elementID="contact-form-captcha"
-            render="explicit"
-            onloadCallback={console.log('Loaded')}
-          />
+        <div>
+          {typeof window !== 'undefined' && (
+            <ReCaptcha
+              sitekey={data.site.siteMetadata.recaptchaKey}
+              render="explicit"
+              elementID={`contact-form-captcha-${Math.round(
+                Math.random() * 1000,
+              )}`}
+            />
+          )}
+        </div>
+
+        {reason === defaultReason && (
+          <AlertInfobox>
+            Please let us know{' '}
+            <a href="#contact-reason">why you are contacting us</a> so we can
+            route your message to the right team.
+          </AlertInfobox>
         )}
 
         <input
@@ -108,14 +121,6 @@ export default ({ data }) => {
           tabIndex="-1"
           value={`${name} - ${reason}`}
         />
-
-        {reason === defaultReason && (
-          <AlertInfobox>
-            Please let us know{' '}
-            <a href="#contact-reason">why you are contacting us</a> so we can
-            route your message to the right team.
-          </AlertInfobox>
-        )}
         <br />
         <input
           type="hidden"
