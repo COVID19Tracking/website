@@ -1,27 +1,20 @@
 .search-form {
   margin-bottom: 2rem;
+
   position: relative;
 
   input {
     width: 100%;
-    @include padding(16);
-    border: 1px solid $color-slate-300;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: spacer(4);
-    margin-bottom: spacer(32);
-    resize: vertical;
-    display: block;
-    font-weight: 400;
-    font-size: 1rem;
+    padding: 0.4rem 3.4rem 0.4rem 6rem;
   }
 }
 
-.submit {
+.search-submit {
   position: absolute;
   right: 0.4rem;
   top: 50%;
   transform: translateY(-50%);
+
   appearance: none;
   background: none;
   border: none;
@@ -30,7 +23,6 @@
 
 .search-icon {
   width: 1.25rem;
-  background: none;
 }
 
 .label {

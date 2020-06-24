@@ -12,14 +12,6 @@ const Form = props => {
   )
 }
 
-const FormGroup = ({ children }) => (
-  <div className={formStyles.fieldGroup}>{children}</div>
-)
-
-const FormGroupChild = ({ children }) => (
-  <div className={formStyles.child}>{children}</div>
-)
-
 const FormLabel = ({ children, htmlFor, isRequired }) => (
   <label className={formStyles.label} htmlFor={htmlFor}>
     {children}
@@ -31,106 +23,122 @@ const FormLabel = ({ children, htmlFor, isRequired }) => (
   </label>
 )
 
-const FormInput = props => {
-  const {
-    inputtype,
-    htmlFor,
-    isRequired,
-    label,
-    detailText,
-    optionsArray,
-  } = props
-
-  let inputElement = null
-  switch (inputtype) {
-    case 'text':
-      inputElement = (
-        <>
-          <FormLabel htmlFor={htmlFor} isRequired={isRequired}>
-            {label}
-          </FormLabel>
-          <textarea {...props} />
-        </>
-      )
-      break
-    case 'input':
-      inputElement = (
-        <>
-          <FormLabel htmlFor={htmlFor} isRequired={isRequired}>
-            {label}
-          </FormLabel>
-          <input {...props} />
-        </>
-      )
-      break
-    case `inputWithDetail`:
-      inputElement = (
-        <>
-          <FormLabel htmlFor={htmlFor} isRequired={isRequired}>
-            {label}
-          </FormLabel>
-          <input {...props} style={{ marginBottom: `0px` }} />
-          <div className={formStyles.detailContainer}>
-            <DetailText>{detailText}</DetailText>
-          </div>
-        </>
-      )
-      break
-
-    case 'justinput':
-      inputElement = <input {...props} />
-      break
-
-    case `select`:
-      inputElement = (
-        <>
-          <FormLabel htmlFor={htmlFor} isRequired={isRequired}>
-            {label}
-          </FormLabel>
-          <select {...props} className={formStyles.select}>
-            {optionsArray.map(item => (
-              <option key={`hours-${item}`} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-        </>
-      )
-      break
-
-    case `fieldset`:
-      inputElement = (
-        <>
-          <fieldset className={formStyles.fieldset}>
-            <FormLabel isRequired={isRequired}>
-              <legend>{label}</legend>
-            </FormLabel>
-            <div className={formStyles.fieldsetOptions}>
-              {optionsArray &&
-                optionsArray.map(item => (
-                  <label
-                    key={`availability-${item.shortname}`}
-                    htmlFor={item.shortname}
-                    className={formStyles.checkboxLabel}
-                  >
-                    <input
-                      {...props}
-                      value={item.description}
-                      id={item.shortname}
-                    />
-                    {item.description}
-                  </label>
-                ))}
-            </div>
-          </fieldset>
-        </>
-      )
-      break
-
-    default:
-      inputElement = <input {...props} />
+const FieldDetailText = ({ detailText }) => {
+  if (!detailText) {
+    return null
   }
-  return inputElement
+  return (
+    <div className={formStyles.detailContainer}>
+      <DetailText>{detailText}</DetailText>
+    </div>
+  )
 }
 
-export { Form, FormInput, FormLabel, FormGroupChild, FormGroup }
+const Textarea = ({
+  label,
+  id,
+  name,
+  isRequired,
+  detailText,
+  rows,
+  onChange,
+}) => (
+  <>
+    <FormLabel htmlFor={id} isRequired={isRequired}>
+      {label}
+    </FormLabel>
+    <textarea
+      name={name}
+      id={id}
+      aria-required={isRequired}
+      rows={rows}
+      onChange={onChange}
+    />
+    <FieldDetailText detailText={detailText} />
+  </>
+)
+
+const Input = ({
+  label,
+  type,
+  id,
+  name,
+  isRequired,
+  detailText,
+  onChange,
+  maxLength,
+  className,
+}) => (
+  <>
+    <FormLabel htmlFor={id} isRequired={isRequired}>
+      {label}
+    </FormLabel>
+    <input
+      name={name}
+      id={id}
+      type={type}
+      aria-required={isRequired}
+      onChange={onChange}
+      maxLength={maxLength}
+      className={className}
+    />
+    <FieldDetailText detailText={detailText} />
+  </>
+)
+
+const Select = ({
+  label,
+  id,
+  name,
+  isRequired,
+  detailText,
+  options,
+  onChange,
+  value,
+}) => (
+  <>
+    <FormLabel htmlFor={id} isRequired={isRequired}>
+      {label}
+    </FormLabel>
+    <select
+      id={id}
+      name={name}
+      onChange={onChange}
+      value={value}
+      className={formStyles.select}
+    >
+      {options.map(item => (
+        <option key={`${id}-${item}`} value={item}>
+          {item}
+        </option>
+      ))}
+    </select>
+    <FieldDetailText detailText={detailText} />
+  </>
+)
+
+const List = ({ type, name, options, label, isRequired, detailText }) => (
+  <>
+    <fieldset className={formStyles.fieldset}>
+      <FormLabel isRequired={isRequired}>
+        <legend>{label}</legend>
+      </FormLabel>
+      <div className={formStyles.fieldsetOptions}>
+        {options &&
+          options.map(item => (
+            <label
+              key={`${name}-${item.value}`}
+              htmlFor={item.value}
+              className={formStyles.checkboxLabel}
+            >
+              <input type={type} value={item.label} id={item.value} />
+              {item.label}
+            </label>
+          ))}
+      </div>
+      <FieldDetailText detailText={detailText} />
+    </fieldset>
+  </>
+)
+
+export { Form, FormLabel, Textarea, Select, Input, List }

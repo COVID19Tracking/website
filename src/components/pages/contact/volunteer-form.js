@@ -1,12 +1,5 @@
 import React from 'react'
-import { Form, FormInput } from '~components/common/form'
-import { Button } from '~components/common/button'
-import {
-  RadioOptions,
-  HoursPerWeek,
-  Timezone,
-  Availability,
-} from './volunteer-options'
+import { Form, Input, Select, List, Textarea } from '~components/common/form'
 
 export default () => {
   return (
@@ -17,25 +10,13 @@ export default () => {
       netlify-honeypot="covid-bot-field"
       data-netlify="true"
     >
-      <FormInput
-        htmlFor="name"
-        label="Name"
-        inputtype="input"
-        type="text"
-        name="name"
-        id="name"
-        aria-required="true"
-        isRequired
-      />
+      <Input label="Name" type="text" name="name" id="name" isRequired />
 
-      <FormInput
-        htmlFor="email"
+      <Input
         label="Email"
-        inputtype="inputWithDetail"
         type="email"
         name="email"
         id="email"
-        aria-required="true"
         isRequired
         detailText="If possible, this should be a Gmail or Google-linked address,
               since we rely heavily on Google Docs and Sheets. We will show your
@@ -43,10 +24,8 @@ export default () => {
               elsewhere."
       />
 
-      <FormInput
-        htmlFor="url"
+      <Input
         label="URL"
-        inputtype="inputWithDetail"
         type="text"
         name="url"
         id="url"
@@ -54,64 +33,87 @@ export default () => {
               about you."
       />
 
-      <FormInput
-        htmlFor="hours"
+      <Select
         label="About how many hours are you available to volunteer each week?"
-        inputtype="select"
         name="hours"
         id="hours"
-        optionsArray={HoursPerWeek}
-        aria-required="true"
+        options={[
+          '-- Select hours per week -- ',
+          '1-5',
+          '5-10',
+          '10-20',
+          '20-30',
+          '30-40',
+          '40+',
+        ]}
         isRequired
-        required
       />
 
-      <FormInput
-        htmlFor="htimezone"
+      <Select
         label="What time zone are you in?"
-        inputtype="select"
         name="timezone"
         id="timezone"
-        aria-required="true"
-        optionsArray={Timezone}
+        options={[
+          '-- Select time zone --',
+          'Pacific',
+          'Mountain',
+          'Central',
+          'Eastern',
+          'Other',
+        ]}
         isRequired
-        required
       />
 
-      <FormInput
+      <List
         label="When are you most available to volunteer?"
         isRequired
-        inputtype="fieldset"
-        optionsArray={Availability}
-        required
+        options={[
+          { value: 'weekdays', label: 'Weekdays' },
+          { value: 'mornings', label: 'Weekday mornings' },
+          { value: 'evenings', label: 'Weekday evenings' },
+          { value: 'weekends', label: 'Weekends' },
+        ]}
         type="checkbox"
         name="availability"
       />
 
-      <FormInput
-        htmlFor="skills"
+      <Input
         label="Specializations / Skills"
-        inputtype="inputWithDetail"
         type="text"
         name="skills"
         id="skills"
-        aria-required="true"
         isRequired
         detailText="Examples: Python, SQL, Tableau, data viz, editing, social media,
               public health, research, journalism, etc."
       />
 
-      <FormInput
+      <List
         label="What would you like to volunteer to do?"
         isRequired
-        inputtype="fieldset"
-        optionsArray={RadioOptions}
-        required
         type="radio"
+        options={[
+          {
+            value: 'data',
+            label:
+              "I'd like to help build data tools, collect data, or analyze data.",
+          },
+
+          {
+            value: 'website',
+            label: "I'd like to help design or build your website.",
+          },
+
+          {
+            value: 'writing',
+            label:
+              "I'd like to help write content, monitor news sources, or do original journalism.",
+          },
+        ]}
+        id="workstream"
         name="workstream"
       />
 
-      <FormInput
+      <Textarea
         label="What kinds of projects or tasks would you most like to help with?"
         inputtype="text"
         name="why"
@@ -119,9 +121,8 @@ export default () => {
         rows="5"
       />
 
-      <FormInput
+      <Input
         label="I was referred by ..."
-        inputtype="input"
         type="text"
         id="referred"
         name="referred"
@@ -134,9 +135,7 @@ export default () => {
         </label>
       </div>
 
-      <div style={{ marginTop: `28px` }}>
-        <Button type="submit">Send your email</Button>
-      </div>
+      <button type="submit">Apply to volunteer</button>
     </Form>
   )
 }

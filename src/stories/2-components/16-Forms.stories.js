@@ -1,17 +1,5 @@
 import React from 'react'
-import {
-  HoursPerWeek,
-  Availability,
-} from '../../components/pages/contact/volunteer-options'
-
-import {
-  Form,
-  FormInput,
-  FormGroup,
-  FormGroupChild,
-} from '../../components/common/form'
-
-import VolunteerFormExample from '../../components/pages/contact/volunteer-form'
+import { Form, Input, Select, List } from '../../components/common/form'
 
 export default {
   title: 'Form',
@@ -21,14 +9,7 @@ Form.displayName = 'Form'
 
 export const input = () => (
   <Form>
-    <FormInput
-      label="Name"
-      inputtype="input"
-      type="text"
-      name="name"
-      id="name"
-      isRequired
-    />
+    <Input label="Name" type="text" name="name" id="name" isRequired />
   </Form>
 )
 
@@ -36,20 +17,18 @@ input.story = {
   parameters: {
     info: {
       text:
-        'How to set up a input for a form. You can pass any normal input props inside',
+        'All form input elements accept `label`, `id`, `name`, `isRequired`, and `detailText` props.',
     },
   },
 }
 
 export const inputWithDetail = () => (
   <Form>
-    <FormInput
+    <Input
       label="Email"
-      inputtype="inputWithDetail"
       type="email"
       name="email"
       id="email"
-      aria-required="true"
       isRequired
       detailText="If possible, this should be a Gmail or Google-linked address,
               since we rely heavily on Google Docs and Sheets. We will show your
@@ -62,23 +41,19 @@ export const inputWithDetail = () => (
 inputWithDetail.story = {
   parameters: {
     info: {
-      text:
-        'Input field with a detail element on it. You will need to pass the it in `detailText`.You can pass any normal input props inside',
+      text: 'Input field with detail text.',
     },
   },
 }
 
 export const inputSelect = () => (
   <Form>
-    <FormInput
+    <Select
       label="About how many hours are you available to volunteer each week?"
-      inputtype="select"
       name="hours"
       id="hours"
-      optionsArray={HoursPerWeek}
-      aria-required="true"
+      options={['5-10', '10-15', '15-20']}
       isRequired
-      required
     />
   </Form>
 )
@@ -91,75 +66,26 @@ inputSelect.story = {
   },
 }
 
-export const inputFieldSet = () => (
+export const inputList = () => (
   <Form>
-    <FormInput
+    <List
       label="When are you most available to volunteer?"
-      isRequired
-      inputtype="fieldset"
-      optionsArray={Availability}
-      required
       type="checkbox"
       name="availability"
+      options={[
+        { value: 'weekdays', label: 'Weekdays' },
+        { value: 'mornings', label: 'Weekday mornings' },
+        { value: 'evenings', label: 'Weekday evenings' },
+        { value: 'weekends', label: 'Weekends' },
+      ]}
     />
   </Form>
 )
 
-inputFieldSet.story = {
+inputList.story = {
   parameters: {
     info: {
-      text:
-        'A fieldset input element. Please note the the styling is not working 100%',
-    },
-  },
-}
-
-export const groupHalfWidth = () => (
-  <Form>
-    <FormGroup>
-      <FormGroupChild>
-        <FormInput
-          //   htmlFor="action-form-first-name"
-          label="First name"
-          inputtype="input"
-          type="text"
-          name="FNAME"
-          id="action-form-first-name"
-          aria-required
-          isRequired
-        />
-      </FormGroupChild>
-      <FormGroupChild>
-        <FormInput
-          //   htmlFor="action-form-last-name"
-          label="Last name"
-          inputtype="input"
-          type="text"
-          name="LNAME"
-          id="action-form-last-name"
-          aria-required
-        />
-      </FormGroupChild>
-    </FormGroup>
-  </Form>
-)
-
-groupHalfWidth.story = {
-  parameters: {
-    info: {
-      text:
-        'A responsive form that will be responsive with elements taking half the width of the screen',
-    },
-  },
-}
-
-export const volunteerFormExample = () => <VolunteerFormExample />
-
-volunteerFormExample.story = {
-  parameters: {
-    info: {
-      text:
-        'Example of the Volunteer Form. Please note the the styling is not working 100%',
+      text: 'Lists can either be a `checkbox` or `radio`.',
     },
   },
 }
