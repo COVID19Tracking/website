@@ -107,7 +107,7 @@ export default ({ data }) => {
         <input
           type="hidden"
           name="autoreply-from"
-          value="support@covidtracking.com"
+          value="contact@covidtracking.com"
         />
         <input
           type="hidden"
