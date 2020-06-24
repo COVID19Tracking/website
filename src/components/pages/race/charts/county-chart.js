@@ -1,6 +1,7 @@
 import React from 'react'
 import { max } from 'd3-array'
 import { scaleBand, scaleLinear } from 'd3-scale'
+import classnames from 'classnames'
 import countyChartStyles from './county-chart.module.scss'
 
 const groupClasses = {
@@ -13,7 +14,7 @@ const groupClasses = {
   'Native Hawaiian and Other Pacific Islander alone': 'nhpiAlone',
 }
 
-export default ({ data, field, label }) => {
+export default ({ data, field, label, increments }) => {
   const height = 400
   const width = 400
   const labelOffset = 150
@@ -27,6 +28,12 @@ export default ({ data, field, label }) => {
     .domain([0, max(data, d => d[field])])
     .nice()
     .range([0, width])
+
+  const verticalLines = []
+  for (let i = 0; i < max(data, d => d[field]); i += increments) {
+    verticalLines.push(i)
+  }
+
   return (
     <svg
       className={countyChartStyles.chart}
@@ -51,6 +58,20 @@ export default ({ data, field, label }) => {
           />
         ))}
       </g>
+      {verticalLines.map(tick => (
+        <g key={`${field}-${tick}`}>
+          <svg y={20} x={xScale(tick) + labelOffset} width={1}>
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2={height + heightOffset}
+              className={countyChartStyles.verticalTick}
+              style={{ height }}
+            />
+          </svg>
+        </g>
+      ))}
 
       <g transform="translate(0, 15)">
         <svg
@@ -67,11 +88,16 @@ export default ({ data, field, label }) => {
               <g key={`${field}-${tick}`}>
                 <svg
                   y={20}
-                  x={xScale(tick) + labelOffset + (i > 0 ? -20 : 0)}
+                  x={xScale(tick) + labelOffset}
                   width={labelOffset}
                   className={countyChartStyles.tick}
                 >
-                  <text className={countyChartStyles.label}>
+                  <text
+                    className={classnames(
+                      countyChartStyles.label,
+                      countyChartStyles.centered,
+                    )}
+                  >
                     {tick.toLocaleString()}
                   </text>
                 </svg>
@@ -79,22 +105,23 @@ export default ({ data, field, label }) => {
             ),
         )}
       </g>
-      <g transform={`translate(0, ${heightOffset})`}>
-        {data.map((d, index) => (
-          <g key={`${d.field}-${d.county}`}>
-            <svg
-              y={yScale(index) + 10}
-              x={0}
-              width={labelOffset}
-              className={countyChartStyles.tick}
-            >
-              <text className={countyChartStyles.label}>
-                {d.name}, {d.demographics.abbreviation}
-              </text>
-            </svg>
-          </g>
-        ))}
-      </g>
+      {data.map((d, index) => (
+        <g
+          key={`${d.field}-${d.county}`}
+          transform={`translate(0, ${heightOffset})`}
+        >
+          <svg
+            y={yScale(index) + 10}
+            x={labelOffset - 10}
+            width={labelOffset}
+            className={countyChartStyles.countyLabel}
+          >
+            <text className={countyChartStyles.label}>
+              {d.name}, {d.demographics.abbreviation}
+            </text>
+          </svg>
+        </g>
+      ))}
     </svg>
   )
 }

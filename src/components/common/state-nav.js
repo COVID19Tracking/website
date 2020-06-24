@@ -89,16 +89,18 @@ export default ({ title, stateList }) => {
             <label htmlFor="jump-to-state" className="a11y-only">
               Jump to state or territory
             </label>
-            <ComboboxInput
-              id="jump-to-state"
-              placeholder="State or territory"
-              autoComplete="false"
-              ref={inputRef}
-              onKeyDown={event => selectFirstItemOnKeyDown(event, results)}
-              onChange={event => {
-                setSearchTerm(event.target.value)
-              }}
-            />
+            <form>
+              <ComboboxInput
+                id="jump-to-state"
+                placeholder="State or territory"
+                autoComplete="off"
+                ref={inputRef}
+                onKeyDown={event => selectFirstItemOnKeyDown(event, results)}
+                onChange={event => {
+                  setSearchTerm(event.target.value)
+                }}
+              />
+            </form>
             {results ? (
               <ComboboxPopover
                 className={stateNavStyles.popover}

@@ -25,9 +25,11 @@ exports[`Components : Pages : Data : Navigation with JS enabled renders correctl
         >
           Jump to state or territory
         </label>
-        <input
-          type="text"
-        />
+        <form>
+          <input
+            type="text"
+          />
+        </form>
         <div>
           <ul>
             <li />
