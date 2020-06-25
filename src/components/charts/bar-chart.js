@@ -36,7 +36,7 @@ const BarChart = ({
     .padding(0.1)
 
   const yScale = scaleLinear()
-    .domain([0, yMax || max(data, d => d.value)])
+    .domain([0, yMax || max([...data, ...(refLineData || [])], d => d.value)])
     .nice()
     .range([height - totalYMargin, 0])
 
