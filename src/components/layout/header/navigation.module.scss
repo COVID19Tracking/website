@@ -49,8 +49,16 @@
 .menu-item {
   @include type-size(300);
   &:hover {
-    [data-reach-menu] {
+    .sub-menu[hidden] {
       display: block;
+      [data-selected] {
+        background: transparent;
+        color: $color-plum-700;
+        &:hover {
+          color: white;
+          background: black;
+        }
+      }
     }
   }
   a:focus {
@@ -81,6 +89,9 @@
   min-width: 15em;
   padding: spacer(4);
   color: $color-plum-700;
+  &:focus {
+    @include link-focus();
+  }
   a.menu-link,
   a.menu-link[aria-current] {
     color: $color-plum-700;
@@ -140,13 +151,6 @@
       }
       &:focus {
         @include link-focus-dark-bg;
-      }
-    }
-  }
-  .menu-item {
-    &:hover {
-      [data-reach-menu][hidden] {
-        display: none;
       }
     }
   }

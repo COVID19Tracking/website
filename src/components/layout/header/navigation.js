@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'gatsby'
 import slug from '~utilities/slug'
 import internalLink from '~components/utils/internal-link'
@@ -17,10 +17,40 @@ const MenuCaret = () => (
   </svg>
 )
 
-const Menu = ({ item, id, subNavigation }) => {
+const Menu = ({ item, id, subNavigation, onOpen, onClose, otherIsOpened }) => {
   const [isOpen, setIsOpen] = useState(false)
-  // const [currentItem, setCurrentItem] = useState(0)
+  const [currentItem, setCurrentItem] = useState(0)
   const menuRef = useRef(false)
+  const buttonRef = useRef(false)
+
+  const handleKeyDown = event => {
+    if (event.key === 'Escape') {
+      setIsOpen(false)
+      onClose()
+      buttonRef.current.focus()
+    }
+    if (event.key === 'ArrowDown' || event.key === 'Tab') {
+      event.preventDefault()
+      if (currentItem >= subNavigation.length - 1) {
+        return
+      }
+      setCurrentItem(currentItem + 1)
+    }
+    if (event.key === 'ArrowUp') {
+      event.preventDefault()
+      if (currentItem === 0) {
+        return
+      }
+      setCurrentItem(currentItem - 1)
+    }
+  }
+
+  useEffect(() => {
+    if (otherIsOpened) {
+      setIsOpen(false)
+    }
+  }, [otherIsOpened])
+
   return (
     <div className={headerNavigationStyles.navLabel}>
       <Link id={id} to={internalLink(item.link)}>
@@ -31,13 +61,19 @@ const Menu = ({ item, id, subNavigation }) => {
           <>
             <button
               type="button"
+              ref={buttonRef}
               className={headerNavigationStyles.caret}
               aria-haspopup="true"
               aria-expanded={isOpen ? 'true' : 'false'}
               aria-controls={`menu-${id}`}
               onClick={() => {
                 setIsOpen(!isOpen)
-                menuRef.current.focus()
+                if (!isOpen) {
+                  setTimeout(() => menuRef.current.focus(), 100)
+                  onOpen()
+                } else {
+                  onClose()
+                }
               }}
             >
               <MenuCaret />
@@ -51,23 +87,25 @@ const Menu = ({ item, id, subNavigation }) => {
               ref={menuRef}
               role="menu"
               tabIndex="-1"
-              onKeyDown={event => {
-                if (event.key === 'Escape') {
-                  setIsOpen(false)
-                }
-              }}
+              onKeyDown={handleKeyDown}
             >
-              {subNavigation[item.subNavigation].map(subItem => (
-                <Link
-                  key={subItem.link}
-                  tabIndex="-1"
-                  role="menuitem"
-                  className={headerNavigationStyles.menuLink}
-                  to={internalLink(subItem.link)}
-                >
-                  {subItem.title}
-                </Link>
-              ))}
+              {subNavigation[item.subNavigation].map(
+                (subItem, subItemIndex) => (
+                  <Link
+                    key={subItem.link}
+                    tabIndex={subItemIndex === currentItem ? 0 : '-1'}
+                    role="menuitem"
+                    onKeyDown={handleKeyDown}
+                    data-selected={
+                      subItemIndex === currentItem ? '' : undefined
+                    }
+                    className={headerNavigationStyles.menuLink}
+                    to={internalLink(subItem.link)}
+                  >
+                    {subItem.title}
+                  </Link>
+                ),
+              )}
             </div>
           </>
         )}
@@ -76,17 +114,25 @@ const Menu = ({ item, id, subNavigation }) => {
 }
 
 export default ({ topNavigation, subNavigation, isMobile }) => {
+  const [opened, setOpened] = useState(false)
+
   return (
     <nav className="js-disabled-block" role="navigation">
       <ul
         role="menubar"
         className={isMobile ? headerNavigationStyles.mobile : ''}
       >
-        {topNavigation.map(item => (
+        {topNavigation.map((item, itemKey) => (
           <li key={item.link} className={headerNavigationStyles.menuItem}>
             <Menu
               item={item}
-              onOpen
+              onOpen={() => {
+                setOpened(itemKey)
+              }}
+              onClose={() => {
+                setOpened(false)
+              }}
+              otherIsOpened={opened !== false && opened !== itemKey}
               subNavigation={subNavigation}
               id={`navigation-${slug(item.title)}`}
             />
