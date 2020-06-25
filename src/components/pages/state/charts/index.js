@@ -1,14 +1,10 @@
 import React, { useState, useMemo } from 'react'
-
+import { useStaticQuery, graphql } from 'gatsby'
 import BarChart from '~components/charts/bar-chart'
-
 import { parseDate } from '~utilities/visualization'
-
-import colors from '~scss/colors.module.scss'
-
 import { Row, Col } from '~components/common/grid'
-
 import Toggle from '~components/common/toggle'
+import colors from '~scss/colors.module.scss'
 
 // import chartsStyles from './charts.module.scss'
 
@@ -46,17 +42,29 @@ const getDataForField = (data, field) => {
 // we need a combined bar + line chart
 
 export default ({ history, usHistory }) => {
-  // Change below to update range of chart
-  const NUM_DAYS = 90
+  const siteData = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          stateChartDateRange
+        }
+      }
+    }
+  `)
+  const { stateChartDateRange } = siteData.site.siteMetadata
 
   const [usePerCap, setUsePerCap] = useState(false)
 
-  const data = [...history].slice(0, NUM_DAYS).sort((a, b) => a.date - b.date)
+  const data = [...history]
+    .slice(0, stateChartDateRange)
+    .sort((a, b) => a.date - b.date)
   // eslint-disable-next-line no-unused-vars
   const usData = useMemo(
     () =>
       usHistory &&
-      [...usHistory].slice(0, NUM_DAYS).sort((a, b) => a.date - b.date),
+      [...usHistory]
+        .slice(0, stateChartDateRange)
+        .sort((a, b) => a.date - b.date),
     [usHistory, usePerCap],
   )
 
