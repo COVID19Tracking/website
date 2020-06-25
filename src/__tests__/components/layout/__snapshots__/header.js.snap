@@ -96,9 +96,9 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 </a>
                 <button
                   aria-controls="menu--1"
-                  aria-expanded="false"
-                  aria-haspopup="true"
+                  aria-haspopup={true}
                   className="caret"
+                  data-reach-menu-button=""
                   id="menu-button--menu"
                   onKeyDown={[Function]}
                   onMouseDown={[Function]}
@@ -296,9 +296,9 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                   </a>
                   <button
                     aria-controls="menu--3"
-                    aria-expanded="false"
-                    aria-haspopup="true"
+                    aria-haspopup={true}
                     className="caret"
+                    data-reach-menu-button=""
                     id="menu-button--menu"
                     onKeyDown={[Function]}
                     onMouseDown={[Function]}
@@ -601,9 +601,9 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                 </a>
                 <button
                   aria-controls="menu--9"
-                  aria-expanded="false"
-                  aria-haspopup="true"
+                  aria-haspopup={true}
                   className="caret"
+                  data-reach-menu-button=""
                   id="menu-button--menu--9"
                   onKeyDown={[Function]}
                   onMouseDown={[Function]}
@@ -801,9 +801,9 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                   </a>
                   <button
                     aria-controls="menu--11"
-                    aria-expanded="false"
-                    aria-haspopup="true"
+                    aria-haspopup={true}
                     className="caret"
+                    data-reach-menu-button=""
                     id="menu-button--menu--11"
                     onKeyDown={[Function]}
                     onMouseDown={[Function]}
@@ -1106,9 +1106,9 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 </a>
                 <button
                   aria-controls="menu--18"
-                  aria-expanded="false"
-                  aria-haspopup="true"
+                  aria-haspopup={true}
                   className="caret"
+                  data-reach-menu-button=""
                   id="menu-button--menu--18"
                   onKeyDown={[Function]}
                   onMouseDown={[Function]}
@@ -1306,9 +1306,9 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                   </a>
                   <button
                     aria-controls="menu--20"
-                    aria-expanded="false"
-                    aria-haspopup="true"
+                    aria-haspopup={true}
                     className="caret"
+                    data-reach-menu-button=""
                     id="menu-button--menu--20"
                     onKeyDown={[Function]}
                     onMouseDown={[Function]}
@@ -1615,9 +1615,9 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                 </a>
                 <button
                   aria-controls="menu--25"
-                  aria-expanded="false"
-                  aria-haspopup="true"
+                  aria-haspopup={true}
                   className="caret"
+                  data-reach-menu-button=""
                   id="menu-button--menu--25"
                   onKeyDown={[Function]}
                   onMouseDown={[Function]}
@@ -1815,9 +1815,9 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                   </a>
                   <button
                     aria-controls="menu--27"
-                    aria-expanded="false"
-                    aria-haspopup="true"
+                    aria-haspopup={true}
                     className="caret"
+                    data-reach-menu-button=""
                     id="menu-button--menu--27"
                     onKeyDown={[Function]}
                     onMouseDown={[Function]}
