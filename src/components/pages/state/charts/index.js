@@ -47,6 +47,7 @@ export default ({ name, history, usHistory }) => {
       site {
         siteMetadata {
           stateChartDateRange
+          stateChartPerCapMeasure
         }
       }
     }
@@ -195,6 +196,6 @@ const LegendComponent = ({ name }) => (
         strokeDasharray={!name && '4'}
       />
     </svg>
-    {name || 'National'} 7-day Avg
+    {name || 'National'} 7-day average
   </div>
 )
