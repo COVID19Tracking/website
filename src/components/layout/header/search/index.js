@@ -56,6 +56,12 @@ export default ({ mobile, visible, popoverRef }) => {
         mobile={mobile}
         visible={visible}
         onClick={toggleFocusOrQuery}
+        hideAutocomplete={() => {
+          searchDispatch({
+            type: 'setAutocompleteFocus',
+            hasFocus: false,
+          })
+        }}
       />
 
       <SearchButton onClick={toggleFocusOrQuery} />
