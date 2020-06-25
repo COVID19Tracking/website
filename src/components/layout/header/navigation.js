@@ -25,24 +25,34 @@ const Menu = ({ item, id, subNavigation, onOpen, onClose, otherIsOpened }) => {
 
   const handleKeyDown = event => {
     if (event.key === 'Escape') {
+      event.preventDefault()
       setIsOpen(false)
       onClose()
       buttonRef.current.focus()
     }
     if (event.key === 'ArrowDown' || event.key === 'Tab') {
       event.preventDefault()
-      if (currentItem >= subNavigation.length - 1) {
-        return
+      if (currentItem + 1 >= subNavigation[item.subNavigation].length) {
+        return false
       }
       setCurrentItem(currentItem + 1)
+      return false
     }
     if (event.key === 'ArrowUp') {
       event.preventDefault()
       if (currentItem === 0) {
-        return
+        return false
       }
       setCurrentItem(currentItem - 1)
+      return false
     }
+    if (event.key === 'Enter') {
+      event.preventDefault()
+      setIsOpen(false)
+      onClose()
+      event.target.querySelector('[data-selected]').click()
+    }
+    return null
   }
 
   useEffect(() => {
@@ -52,13 +62,13 @@ const Menu = ({ item, id, subNavigation, onOpen, onClose, otherIsOpened }) => {
   }, [otherIsOpened])
 
   return (
-    <div className={headerNavigationStyles.navLabel}>
-      <Link id={id} to={internalLink(item.link)}>
-        {item.title}
-      </Link>
-      {item.subNavigation &&
-        typeof subNavigation[item.subNavigation] !== 'undefined' && (
-          <>
+    <>
+      <div className={headerNavigationStyles.navLabel}>
+        <Link id={id} to={internalLink(item.link)}>
+          {item.title}
+        </Link>
+        {item.subNavigation &&
+          typeof subNavigation[item.subNavigation] !== 'undefined' && (
             <button
               type="button"
               ref={buttonRef}
@@ -66,7 +76,8 @@ const Menu = ({ item, id, subNavigation, onOpen, onClose, otherIsOpened }) => {
               aria-haspopup="true"
               aria-expanded={isOpen ? 'true' : 'false'}
               aria-controls={`menu-${id}`}
-              onClick={() => {
+              onClick={event => {
+                event.preventDefault()
                 setIsOpen(!isOpen)
                 if (!isOpen) {
                   setTimeout(() => menuRef.current.focus(), 100)
@@ -79,37 +90,36 @@ const Menu = ({ item, id, subNavigation, onOpen, onClose, otherIsOpened }) => {
               <MenuCaret />
               <span className="a11y-only">show menu for {item.title}</span>
             </button>
-            <div
-              className={headerNavigationStyles.subMenu}
-              hidden={!isOpen}
-              aria-labelledby={id}
-              id={`menu-${id}`}
-              ref={menuRef}
-              role="menu"
-              tabIndex="-1"
-              onKeyDown={handleKeyDown}
-            >
-              {subNavigation[item.subNavigation].map(
-                (subItem, subItemIndex) => (
-                  <Link
-                    key={subItem.link}
-                    tabIndex={subItemIndex === currentItem ? 0 : '-1'}
-                    role="menuitem"
-                    onKeyDown={handleKeyDown}
-                    data-selected={
-                      subItemIndex === currentItem ? '' : undefined
-                    }
-                    className={headerNavigationStyles.menuLink}
-                    to={internalLink(subItem.link)}
-                  >
-                    {subItem.title}
-                  </Link>
-                ),
-              )}
-            </div>
-          </>
+          )}
+      </div>
+      {item.subNavigation &&
+        typeof subNavigation[item.subNavigation] !== 'undefined' && (
+          <div
+            className={headerNavigationStyles.subMenu}
+            hidden={!isOpen}
+            aria-labelledby={id}
+            id={`menu-${id}`}
+            ref={menuRef}
+            role="menu"
+            tabIndex="-1"
+            onKeyDown={handleKeyDown}
+          >
+            {subNavigation[item.subNavigation].map((subItem, subItemIndex) => (
+              <Link
+                key={subItem.link}
+                tabIndex={subItemIndex === currentItem ? 0 : '-1'}
+                role="menuitem"
+                onKeyDown={handleKeyDown}
+                data-selected={subItemIndex === currentItem ? '' : undefined}
+                className={headerNavigationStyles.menuLink}
+                to={internalLink(subItem.link)}
+              >
+                {subItem.title}
+              </Link>
+            ))}
+          </div>
         )}
-    </div>
+    </>
   )
 }
 
