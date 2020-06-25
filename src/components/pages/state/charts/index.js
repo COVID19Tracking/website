@@ -1,14 +1,10 @@
 import React, { useState, useMemo } from 'react'
-
+import { useStaticQuery, graphql } from 'gatsby'
 import BarChart from '~components/charts/bar-chart'
-
 import { parseDate } from '~utilities/visualization'
-
-import colors from '~scss/colors.module.scss'
-
 import { Row, Col } from '~components/common/grid'
-
 import Toggle from '~components/common/toggle'
+import colors from '~scss/colors.module.scss'
 
 import styles from './charts.module.scss'
 
@@ -46,10 +42,19 @@ const getDataForField = (data, field) => {
 }
 
 export default ({ name, history, usHistory }) => {
-  // TODO: move these to gatsby-config
-  // Change below to update range of chart
-  const NUM_DAYS = 90
-  const perCapMeasure = 1000000 // 1 million
+  const siteData = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          stateChartDateRange
+        }
+      }
+    }
+  `)
+  const {
+    stateChartDateRange,
+    stateChartPerCapMeasure,
+  } = siteData.site.siteMetadata
 
   const [usePerCap, setUsePerCap] = useState(false)
 
@@ -58,13 +63,14 @@ export default ({ name, history, usHistory }) => {
   const hoistPerCapProps = node => {
     const obj = {}
     Object.keys(node.childPopulation).forEach(t => {
-      obj[`perCap_${t}`] = node.childPopulation[t].percent * perCapMeasure
+      obj[`perCap_${t}`] =
+        node.childPopulation[t].percent * stateChartPerCapMeasure
     })
     return { ...node, ...obj }
   }
 
   const data = [...history]
-    .slice(0, NUM_DAYS)
+    .slice(0, stateChartDateRange)
     .sort((a, b) => a.date - b.date)
     .map(hoistPerCapProps)
 
@@ -76,9 +82,10 @@ export default ({ name, history, usHistory }) => {
       usHistory &&
       usePerCap &&
       [...usHistory]
-        .slice(0, NUM_DAYS)
+        .slice(0, stateChartDateRange)
         .sort((a, b) => a.date - b.date)
         .map(hoistPerCapProps),
+
     [usHistory, usePerCap],
   )
   // Below enables the charts to switch between the per cap & not data
