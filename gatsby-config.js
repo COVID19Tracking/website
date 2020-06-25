@@ -196,6 +196,7 @@ const gatsbyConfig = {
         fields: [
           'hospitalizedCumulative',
           'hospitalizedCurrently',
+          'hospitalizedIncrease',
           'death',
           'deathIncrease',
           'inIcuCumulative',

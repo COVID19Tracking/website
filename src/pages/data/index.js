@@ -108,6 +108,20 @@ export const query = graphql`
         positiveIncrease
         hospitalizedIncrease
         deathIncrease
+        childPopulation {
+          deathIncrease {
+            percent
+          }
+          hospitalizedIncrease {
+            percent
+          }
+          positiveIncrease {
+            percent
+          }
+          totalTestResultsIncrease {
+            percent
+          }
+        }
       }
     }
     allCovidState {

@@ -10,11 +10,13 @@ import { Row, Col } from '~components/common/grid'
 
 import Toggle from '~components/common/toggle'
 
-// import chartsStyles from './charts.module.scss'
+import styles from './charts.module.scss'
 
 // TODO: optimize if this slows down build (use rolling window)
+// Also the US dailyAverage is calculated once per state page right now.
+// Hoist or perform in a transformer plugin to cut out repeated work.
 const dailyAverage = (history, field, range = 7) => {
-  if (!history) return null
+  if (!history || !field) return null
   const average = []
   history.forEach((row, rowIndex) => {
     const pastRows = []
@@ -43,23 +45,53 @@ const getDataForField = (data, field) => {
   }))
 }
 
-// we need a combined bar + line chart
-
-export default ({ history, usHistory }) => {
+export default ({ name, history, usHistory }) => {
+  // TODO: move these to gatsby-config
   // Change below to update range of chart
   const NUM_DAYS = 90
+  const perCapMeasure = 1000000 // 1 million
 
   const [usePerCap, setUsePerCap] = useState(false)
 
-  const data = [...history].slice(0, NUM_DAYS).sort((a, b) => a.date - b.date)
-  // eslint-disable-next-line no-unused-vars
+  // This enables us to use the getDataForField & dailyAverage functions above
+  // without enable triple nested properties
+  const hoistPerCapProps = node => {
+    const obj = {}
+    Object.keys(node.childPopulation).forEach(t => {
+      obj[`perCap_${t}`] = node.childPopulation[t].percent * perCapMeasure
+    })
+    return { ...node, ...obj }
+  }
+
+  const data = [...history]
+    .slice(0, NUM_DAYS)
+    .sort((a, b) => a.date - b.date)
+    .map(hoistPerCapProps)
+
+  // Could be made more efficent by memoizing the sliced, sorted & mapped
+  // result and then returning that or null but this doesn't seem necessary
+  // for now.
   const usData = useMemo(
     () =>
       usHistory &&
-      [...usHistory].slice(0, NUM_DAYS).sort((a, b) => a.date - b.date),
+      usePerCap &&
+      [...usHistory]
+        .slice(0, NUM_DAYS)
+        .sort((a, b) => a.date - b.date)
+        .map(hoistPerCapProps),
     [usHistory, usePerCap],
   )
-
+  // Below enables the charts to switch between the per cap & not data
+  // using the toggle state
+  const prepend = useMemo(() => (usePerCap ? 'perCap_' : ''), [usePerCap])
+  const testField = useMemo(() => `${prepend}totalTestResultsIncrease`, [
+    prepend,
+  ])
+  const positiveField = useMemo(() => `${prepend}positiveIncrease`, [prepend])
+  const hospitalizedField = useMemo(() => `${prepend}hospitalizedIncrease`, [
+    prepend,
+  ])
+  const deathField = useMemo(() => `${prepend}deathIncrease`, [prepend])
   const hasHospitalizationData = history[0].hospitalized !== null
 
   const props = {
@@ -72,24 +104,30 @@ export default ({ history, usHistory }) => {
     xTicks: 3,
     showTicks: 6,
   }
+
+  // 1 chart per line on small, 2 on medium & 4 on large sreens
   const colWidth = [4, 3, 3]
+
   return (
     <>
-      <Toggle
-        options={['Totals', 'Per capita']}
-        state={usePerCap}
-        setState={setUsePerCap}
-      />
+      <div className={styles.infoLine}>
+        <div className={styles.toggleContainer}>
+          <Toggle
+            options={['Totals', 'Per capita']}
+            state={usePerCap}
+            setState={setUsePerCap}
+          />
+        </div>
+        <LegendComponent name={name || 'National'} />
+        {usData && usePerCap && <LegendComponent />}
+      </div>
       <Row>
         <Col width={colWidth}>
           <h5>New tests</h5>
           <BarChart
-            data={getDataForField(data, 'totalTestResultsIncrease')}
-            lineData={dailyAverage(data, 'totalTestResultsIncrease')}
-            refLineData={dailyAverage(
-              data,
-              'totalTestResultsIncrease',
-            ).map(({ date, value }) => ({ date, value: value / 4 }))}
+            data={getDataForField(data, testField)}
+            lineData={dailyAverage(data, testField)}
+            refLineData={dailyAverage(usData, testField)}
             fill={colors.colorPlum300}
             lineColor={colors.colorPlum600}
             {...props}
@@ -98,12 +136,9 @@ export default ({ history, usHistory }) => {
         <Col width={colWidth}>
           <h5>New cases</h5>
           <BarChart
-            data={getDataForField(data, 'positiveIncrease')}
-            lineData={dailyAverage(data, 'positiveIncrease')}
-            refLineData={dailyAverage(
-              data,
-              'positiveIncrease',
-            ).map(({ date, value }) => ({ date, value: value / 2 }))}
+            data={getDataForField(data, positiveField)}
+            lineData={dailyAverage(data, positiveField)}
+            refLineData={dailyAverage(usData, positiveField)}
             fill={colors.colorHoney300}
             lineColor={colors.colorHoney600}
             {...props}
@@ -114,8 +149,9 @@ export default ({ history, usHistory }) => {
             <>
               <h5>New hospitalizations</h5>
               <BarChart
-                data={getDataForField(data, 'hospitalizedIncrease')}
-                lineData={dailyAverage(data, 'hospitalizedIncrease')}
+                data={getDataForField(data, hospitalizedField)}
+                lineData={dailyAverage(data, hospitalizedField)}
+                refLineData={dailyAverage(usData, hospitalizedField)}
                 fill={colors.colorHoney300}
                 lineColor={colors.colorHoney600}
                 {...props}
@@ -126,8 +162,9 @@ export default ({ history, usHistory }) => {
         <Col width={colWidth}>
           <h5>New deaths</h5>
           <BarChart
-            data={getDataForField(data, 'deathIncrease')}
-            lineData={dailyAverage(data, 'deathIncrease')}
+            data={getDataForField(data, deathField)}
+            lineData={dailyAverage(data, deathField)}
+            refLineData={dailyAverage(usData, deathField)}
             fill={colors.colorSlate300}
             lineColor={colors.colorSlate600}
             {...props}
@@ -137,3 +174,20 @@ export default ({ history, usHistory }) => {
     </>
   )
 }
+
+const LegendComponent = ({ name }) => (
+  <div className={styles.legendComponent}>
+    <svg height="4" width="50">
+      <line
+        x1="0"
+        y1="3"
+        x2="45"
+        y2="3"
+        stroke="black"
+        strokeWidth="2"
+        strokeDasharray={!name && '4'}
+      />
+    </svg>
+    {name || 'National'} 7-day Avg
+  </div>
+)

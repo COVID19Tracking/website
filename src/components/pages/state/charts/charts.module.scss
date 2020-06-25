@@ -1,2 +1,12 @@
-.charts-container {
+.info-line {
+  display: flex;
+  .toggle-container {
+    flex-grow: 1;
+  }
+}
+
+.legend-component {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
 }

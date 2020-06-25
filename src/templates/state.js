@@ -38,6 +38,7 @@ const StatePage = ({ pageContext, data, path }) => {
       <SyncInfobox />
       <SummaryTable data={covidState} lastUpdated={covidState.dateModified} />
       <StateCharts
+        name={state.name}
         history={allCovidStateDaily.nodes}
         usHistory={allCovidUsDaily.nodes}
       />
@@ -67,6 +68,20 @@ export const query = graphql`
         death
         deathIncrease
         date
+        childPopulation {
+          deathIncrease {
+            percent
+          }
+          hospitalizedIncrease {
+            percent
+          }
+          positiveIncrease {
+            percent
+          }
+          totalTestResultsIncrease {
+            percent
+          }
+        }
       }
     }
     covidState(state: { eq: $state }) {
@@ -101,6 +116,20 @@ export const query = graphql`
         death
         deathIncrease
         date
+        childPopulation {
+          deathIncrease {
+            percent
+          }
+          hospitalizedIncrease {
+            percent
+          }
+          positiveIncrease {
+            percent
+          }
+          totalTestResultsIncrease {
+            percent
+          }
+        }
       }
     }
     allCovidScreenshot(
