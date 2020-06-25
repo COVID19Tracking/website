@@ -51,6 +51,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 onFocus={[Function]}
                 onKeyDown={[Function]}
                 role="combobox"
+                tabIndex="-1"
                 value=""
               />
               <label
@@ -433,6 +434,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   role="combobox"
+                  tabIndex="-1"
                   value=""
                 />
                 <label
@@ -554,6 +556,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                 onFocus={[Function]}
                 onKeyDown={[Function]}
                 role="combobox"
+                tabIndex="-1"
                 value=""
               />
               <label
@@ -936,6 +939,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   role="combobox"
+                  tabIndex="-1"
                   value=""
                 />
                 <label
@@ -1057,6 +1061,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 onFocus={[Function]}
                 onKeyDown={[Function]}
                 role="combobox"
+                tabIndex="-1"
                 value=""
               />
               <label
@@ -1439,6 +1444,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   role="combobox"
+                  tabIndex="-1"
                   value=""
                 />
                 <label
@@ -1564,6 +1570,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                 onFocus={[Function]}
                 onKeyDown={[Function]}
                 role="combobox"
+                tabIndex="-1"
                 value=""
               />
               <label
@@ -1946,6 +1953,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   role="combobox"
+                  tabIndex="-1"
                   value=""
                 />
                 <label

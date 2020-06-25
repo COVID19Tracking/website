@@ -59,6 +59,7 @@ Array [
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   role="combobox"
+                  tabIndex="-1"
                   value=""
                 />
                 <label
@@ -441,6 +442,7 @@ Array [
                     onFocus={[Function]}
                     onKeyDown={[Function]}
                     role="combobox"
+                    tabIndex="-1"
                     value=""
                   />
                   <label
@@ -715,6 +717,7 @@ Array [
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   role="combobox"
+                  tabIndex="-1"
                   value=""
                 />
                 <label
@@ -1097,6 +1100,7 @@ Array [
                     onFocus={[Function]}
                     onKeyDown={[Function]}
                     role="combobox"
+                    tabIndex="-1"
                     value=""
                   />
                   <label
