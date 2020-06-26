@@ -9,7 +9,6 @@ export default ({ data }) => (
   <Layout
     title="About Us"
     path="/about-project"
-    narrow
     navigation={data.contentfulNavigationGroup.pages}
   >
     <LongContent>
