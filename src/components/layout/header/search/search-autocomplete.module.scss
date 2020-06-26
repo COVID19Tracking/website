@@ -17,7 +17,7 @@
   }
 
   @media (min-width: $viewport-lg) {
-    @include a11y-only();
+    display: none;
   }
 }
 
