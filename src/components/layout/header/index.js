@@ -219,7 +219,7 @@ const Header = withSearch(
               </div>
             </div>
             <Container>
-              {title && (
+              {title && !hero && (
                 <div
                   className={`${headerStyle.titleSubnavContainer} ${
                     pathNavigation && !pathNavigation.top
@@ -248,9 +248,9 @@ const Header = withSearch(
                       <HeaderSubNavigation navigation={navigation} />
                     </div>
                   )}
-                  {hero}
                 </div>
               )}
+              {hero}
             </Container>
           </div>
         </header>
