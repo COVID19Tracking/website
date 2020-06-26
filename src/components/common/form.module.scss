@@ -8,7 +8,7 @@
   textarea {
     width: 100%;
     @include padding(16);
-    border: 1px solid $color-slate-800;
+    border: 1px solid $color-link;
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: spacer(4);
@@ -72,7 +72,7 @@
   [type='submit'] {
     cursor: pointer;
     border: none;
-    background: $color-slate-800;
+    background: $color-link;
     border-radius: 3px;
     @include padding(16);
     color: white;
@@ -95,7 +95,7 @@
     background-color: transparent;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg fill='$color-slate-800' height='30' viewBox='0 0 24 24' width='30' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg fill='$color-link' height='30' viewBox='0 0 24 24' width='30' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
     background-repeat: no-repeat;
     background-position-x: 100%;
     background-position-y: 50%;
