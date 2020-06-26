@@ -61,7 +61,11 @@ const BarChart = ({
   }
   return (
     <div style={{ width, height }}>
-      <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
+      <svg
+        className={chartStyles.chart}
+        viewBox={`0 0 ${width} ${height}`}
+        aria-hidden
+      >
         {/* y ticks */}
         <g transform={`translate(${marginLeft} ${marginTop})`}>
           {yScale.ticks(yTicks).map(

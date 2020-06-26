@@ -20,6 +20,7 @@ const Infobox = ({ header, children }) => (
   </div>
 )
 
+// Currently the only one using fullSize but this could be added to any/all
 const AlertInfobox = ({ header, children, fullSize = false }) => (
   <div
     className={`infobox alert ${infoBoxStyle.infobox} ${
