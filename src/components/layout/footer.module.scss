@@ -136,7 +136,7 @@ hr.divider {
       font-weight: normal;
 
       @media (max-width: $viewport-lg) {
-        display: none;
+        @include a11y-only();
       }
     }
   }
