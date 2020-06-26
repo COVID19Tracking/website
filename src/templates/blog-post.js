@@ -2,25 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import LongContent from '~components/common/long-content'
 import AuthorFooter from '~components/pages/blog/author-footer'
-import Container from '~components/common/container'
-import Categories from '~components/pages/blog/categories'
+import Hero from '~components/pages/blog/blog-hero'
 import Layout from '~components/layout'
-import Lede from '~components/pages/blog/blog-lede'
 import BlogPostContent from '~components/pages/blog/blog-content'
-
-const Hero = ({ categories, headline, authors, date, lede, featuredImage }) => (
-  <Container narrow centered>
-    <Categories categories={categories} />
-    <Lede
-      headline={headline}
-      authors={authors}
-      date={date}
-      lede={lede}
-      featuredImage={featuredImage}
-      darkBackground
-    />
-  </Container>
-)
 
 export default ({ data, path }) => {
   const blogPost = data.contentfulBlogPost
@@ -37,6 +21,7 @@ export default ({ data, path }) => {
       date={blogPost.publishDate}
       lede={blogPost.lede.lede}
       featuredImage={blogPost.featuredImage}
+      slug={blogPost.slug}
     />
   )
 

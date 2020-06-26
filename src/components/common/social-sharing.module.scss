@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  margin-top: spacer(32);
+}
+
+.social-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+
+  height: 32px;
+  border-radius: 4px;
+  background: $color-plum-300;
+
+  margin-right: spacer(16);
+  &:last-child {
+    margin-right: 0;
+  }
+}
