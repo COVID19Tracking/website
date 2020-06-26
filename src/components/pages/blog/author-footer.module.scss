@@ -2,15 +2,20 @@
   margin: spacer(32) 0;
 }
 
-.author-footer {
+.author {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  margin-bottom: spacer(24);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   img {
     width: 85px;
     height: 85px;
     flex-shrink: 0;
-    margin-bottom: spacer(24); // matches layout content-primary p
   }
   .text-content {
     @include type-size(200);
@@ -19,7 +24,7 @@
     padding-left: spacer(16);
     padding-right: spacer(24);
     p {
-      margin-bottom: 0;
+      margin: 0;
     }
   }
 }
