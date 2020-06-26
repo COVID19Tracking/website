@@ -1,11 +1,10 @@
 .categories-container {
   display: flex;
   .category {
-    text-transform: uppercase;
     font-weight: 600;
-    @include type-size(300);
-    line-height: 33px;
-    color: $color-plum-600;
+    @include type-size(100);
+    line-height: 1rem;
+    color: $color-plum-100;
     margin-bottom: 0;
     a {
       text-decoration: none;
@@ -13,7 +12,7 @@
     &::after {
       content: '  |  ';
       white-space: pre;
-      color: $text;
+      color: $color-plum-100;
       font-weight: normal;
     }
     &:last-child::after {
