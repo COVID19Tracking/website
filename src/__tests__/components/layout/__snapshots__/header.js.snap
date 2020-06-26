@@ -136,7 +136,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                   data-reach-menu-list=""
                   id="menu--1"
                   onKeyDown={[Function]}
-                  role={false}
                   tabIndex={-1}
                 >
                   <div
@@ -336,7 +335,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                     data-reach-menu-list=""
                     id="menu--3"
                     onKeyDown={[Function]}
-                    role={false}
                     tabIndex={-1}
                   >
                     <div
@@ -641,7 +639,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                   data-reach-menu-list=""
                   id="menu--9"
                   onKeyDown={[Function]}
-                  role={false}
                   tabIndex={-1}
                 >
                   <div
@@ -841,7 +838,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                     data-reach-menu-list=""
                     id="menu--11"
                     onKeyDown={[Function]}
-                    role={false}
                     tabIndex={-1}
                   >
                     <div
@@ -1146,7 +1142,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                   data-reach-menu-list=""
                   id="menu--18"
                   onKeyDown={[Function]}
-                  role={false}
                   tabIndex={-1}
                 >
                   <div
@@ -1346,7 +1341,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                     data-reach-menu-list=""
                     id="menu--20"
                     onKeyDown={[Function]}
-                    role={false}
                     tabIndex={-1}
                   >
                     <div
@@ -1655,7 +1649,6 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                   data-reach-menu-list=""
                   id="menu--25"
                   onKeyDown={[Function]}
-                  role={false}
                   tabIndex={-1}
                 >
                   <div
@@ -1855,7 +1848,6 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                     data-reach-menu-list=""
                     id="menu--27"
                     onKeyDown={[Function]}
-                    role={false}
                     tabIndex={-1}
                   >
                     <div

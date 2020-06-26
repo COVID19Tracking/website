@@ -144,7 +144,6 @@ Array [
                     data-reach-menu-list=""
                     id="menu--1"
                     onKeyDown={[Function]}
-                    role={false}
                     tabIndex={-1}
                   >
                     <div
@@ -344,7 +343,6 @@ Array [
                       data-reach-menu-list=""
                       id="menu--3"
                       onKeyDown={[Function]}
-                      role={false}
                       tabIndex={-1}
                     >
                       <div
@@ -649,7 +647,8 @@ Array [
           Back to top
         </span>
         <img
-          alt="Back to top"
+          alt=""
+          aria-hidden={true}
           src="test-file-stub"
         />
       </a>
@@ -802,7 +801,6 @@ Array [
                     data-reach-menu-list=""
                     id="menu--9"
                     onKeyDown={[Function]}
-                    role={false}
                     tabIndex={-1}
                   >
                     <div
@@ -1002,7 +1000,6 @@ Array [
                       data-reach-menu-list=""
                       id="menu--11"
                       onKeyDown={[Function]}
-                      role={false}
                       tabIndex={-1}
                     >
                       <div
@@ -1307,7 +1304,8 @@ Array [
           Back to top
         </span>
         <img
-          alt="Back to top"
+          alt=""
+          aria-hidden={true}
           src="test-file-stub"
         />
       </a>
