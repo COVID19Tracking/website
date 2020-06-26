@@ -13,25 +13,64 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
     This is a test blog lede.
   </p>
   <div
-    className="byline"
+    className="bylineRow"
   >
-    <span
-      className="author"
+    <div
+      className="byline"
     >
-      By 
-      <a
-        className="authorInner"
-        href="https://twitter.com/test"
+      <span
+        className="bylineText"
       >
-        test name
-      </a>
-    </span>
-    <span
-      className="date"
+        <span
+          className="author"
+        >
+          By 
+          <a
+            className="authorInner"
+            href="https://twitter.com/test"
+          >
+            test name
+          </a>
+        </span>
+        <span
+          className="date"
+        >
+          Aug 1 2020
+        </span>
+      </span>
+    </div>
+    <div
+      className="wrapper"
     >
-      Aug 1 2020
-    </span>
+      <a
+        className="socialButton"
+        href="https://www.facebook.com/sharer/sharer.php?u=https://covidtracking.com/blog/undefined"
+      >
+        <img
+          alt="Share on Facebook"
+          src="test-file-stub"
+        />
+      </a>
+      <a
+        className="socialButton"
+        href="https://twitter.com/intent/tweet?url=https://covidtracking.com/blog/undefined&text=This is a test blog lede."
+      >
+        <img
+          alt="Share on Twitter"
+          src="test-file-stub"
+        />
+      </a>
+      <a
+        className="socialButton hideOnMobile"
+        href="#"
+        onClick={[Function]}
+      >
+        <img
+          alt="Copy link"
+          src="test-file-stub"
+        />
+      </a>
+    </div>
   </div>
-  <hr />
 </div>
 `;

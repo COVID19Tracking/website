@@ -37,27 +37,31 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
             className="bylineSmallMargin"
           >
             <span
-              className="author"
+              className="bylineText"
             >
-              By 
               <span
-                className="authorInner"
+                className="author"
               >
-                Prajakta Ranade
+                By 
+                <span
+                  className="authorInner"
+                >
+                  Prajakta Ranade
+                </span>
+                 
+                &
+                 
+                <span
+                  className="authorInner"
+                >
+                  Harrison Frank
+                </span>
               </span>
-               
-              &
-               
               <span
-                className="authorInner"
+                className="date"
               >
-                Harrison Frank
+                April 23, 2020
               </span>
-            </span>
-            <span
-              className="date"
-            >
-              April 23, 2020
             </span>
           </div>
         </li>
@@ -88,20 +92,24 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
               />
             </div>
             <span
-              className="author"
+              className="bylineText"
             >
-              By 
-              <a
-                className="authorInner"
-                href="https://www.theatlantic.com/author/alexis-madrigal"
+              <span
+                className="author"
               >
-                Alexis Madrigal
-              </a>
-            </span>
-            <span
-              className="date"
-            >
-              April 15, 2020
+                By 
+                <a
+                  className="authorInner"
+                  href="https://www.theatlantic.com/author/alexis-madrigal"
+                >
+                  Alexis Madrigal
+                </a>
+              </span>
+              <span
+                className="date"
+              >
+                April 15, 2020
+              </span>
             </span>
           </div>
         </li>

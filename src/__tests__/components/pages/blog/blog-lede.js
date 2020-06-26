@@ -1,6 +1,17 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { useStaticQuery } from 'gatsby'
 import BlogLede from '~components/pages/blog/blog-lede'
+
+beforeEach(() => {
+  useStaticQuery.mockImplementation(() => ({
+    site: {
+      siteMetadata: {
+        siteUrl: "https://covidtracking.com"
+      }
+    },
+  }))
+})
 
 describe('Components : Pages : Blog : Lede', () => {
   it('renders correctly', () => {

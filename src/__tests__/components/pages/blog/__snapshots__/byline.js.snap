@@ -13,20 +13,24 @@ exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
     />
   </div>
   <span
-    className="author"
+    className="bylineText"
   >
-    By 
-    <a
-      className="authorInner"
-      href="https://twitter.com/test"
+    <span
+      className="author"
     >
-      test name
-    </a>
-  </span>
-  <span
-    className="date"
-  >
-    Aug 1 2020
+      By 
+      <a
+        className="authorInner"
+        href="https://twitter.com/test"
+      >
+        test name
+      </a>
+    </span>
+    <span
+      className="date"
+    >
+      Aug 1 2020
+    </span>
   </span>
 </div>
 `;
@@ -36,19 +40,23 @@ exports[`Components : Pages : Blog : Byline renders correctly 2`] = `
   className="byline"
 >
   <span
-    className="author"
+    className="bylineText"
   >
-    By 
     <span
-      className="authorInner"
+      className="author"
     >
-      test name
+      By 
+      <span
+        className="authorInner"
+      >
+        test name
+      </span>
     </span>
-  </span>
-  <span
-    className="date"
-  >
-    Aug 1 2020
+    <span
+      className="date"
+    >
+      Aug 1 2020
+    </span>
   </span>
 </div>
 `;
