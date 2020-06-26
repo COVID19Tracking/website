@@ -143,7 +143,7 @@ export default ({
       tableLabel={
         lastUpdated && (
           <>
-            Last updated: {lastUpdated} <Timezone />
+            State’s last reported update time: {lastUpdated} <Timezone />
           </>
         )
       }
