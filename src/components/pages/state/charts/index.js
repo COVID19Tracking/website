@@ -7,6 +7,7 @@ import Toggle from '~components/common/toggle'
 import colors from '~scss/colors.module.scss'
 
 import styles from './charts.module.scss'
+import { AlertInfobox } from '~components/common/infobox'
 
 // TODO: optimize if this slows down build (use rolling window)
 // Also the US dailyAverage is calculated once per state page right now.
@@ -41,7 +42,7 @@ const getDataForField = (data, field) => {
   }))
 }
 
-export default ({ name, history, usHistory }) => {
+export default ({ name = 'National', history, usHistory }) => {
   const siteData = useStaticQuery(graphql`
     {
       site {
@@ -106,8 +107,8 @@ export default ({ name, history, usHistory }) => {
     height: 300,
     width: 300,
     marginBottom: 40,
-    marginLeft: 80,
-    marginRight: 10,
+    marginLeft: 60,
+    marginRight: 30,
     marginTop: 10,
     xTicks: 3,
     showTicks: 6,
@@ -118,41 +119,21 @@ export default ({ name, history, usHistory }) => {
 
   return (
     <>
-      <h2>{name || 'National'} overview</h2>
+      <h2>{name} overview</h2>
       <div className={styles.infoLine}>
         <div className={styles.toggleContainer}>
-          <Toggle
-            options={['Totals', 'Per 1M people']}
-            state={usePerCap}
-            setState={setUsePerCap}
-          />
+          {usHistory && (
+            <Toggle
+              options={['Totals', 'Per 1M people']}
+              state={usePerCap}
+              setState={setUsePerCap}
+            />
+          )}
         </div>
         {usData && usePerCap && <LegendComponent />}
         <LegendComponent name={name || 'National'} />
       </div>
       <Row>
-        <Col width={colWidth}>
-          <h5>New cases</h5>
-          <BarChart
-            data={getDataForField(data, positiveField)}
-            lineData={dailyAverage(data, positiveField)}
-            refLineData={dailyAverage(usData, positiveField)}
-            fill={colors.colorStrawberry100}
-            lineColor={colors.colorStrawberry200}
-            {...props}
-          />
-        </Col>
-        <Col width={colWidth}>
-          <h5>New deaths</h5>
-          <BarChart
-            data={getDataForField(data, deathField)}
-            lineData={dailyAverage(data, deathField)}
-            refLineData={dailyAverage(usData, deathField)}
-            fill={colors.colorSlate300}
-            lineColor={colors.colorSlate700}
-            {...props}
-          />
-        </Col>
         <Col width={colWidth}>
           <h5>New tests</h5>
           <BarChart
@@ -165,19 +146,47 @@ export default ({ name, history, usHistory }) => {
           />
         </Col>
         <Col width={colWidth}>
-          {hasHospitalizationData && (
-            <>
-              <h5>Current hospitalizations</h5>
-              <BarChart
-                data={getDataForField(data, hospitalizedField)}
-                lineData={dailyAverage(data, hospitalizedField)}
-                refLineData={dailyAverage(usData, hospitalizedField)}
-                fill={colors.colorBlueberry200}
-                lineColor={colors.colorBlueberry400}
-                {...props}
+          <h5>New cases</h5>
+          <BarChart
+            data={getDataForField(data, positiveField)}
+            lineData={dailyAverage(data, positiveField)}
+            refLineData={dailyAverage(usData, positiveField)}
+            fill={colors.colorStrawberry100}
+            lineColor={colors.colorStrawberry200}
+            {...props}
+          />
+        </Col>
+        <Col width={colWidth}>
+          <h5>Current hospitalizations</h5>
+
+          {hasHospitalizationData ? (
+            <BarChart
+              data={getDataForField(data, hospitalizedField)}
+              lineData={dailyAverage(data, hospitalizedField)}
+              refLineData={dailyAverage(usData, hospitalizedField)}
+              fill={colors.colorBlueberry200}
+              lineColor={colors.colorBlueberry400}
+              {...props}
+            />
+          ) : (
+            <div className={styles.alertInfoboxContainer}>
+              <AlertInfobox
+                header={`${name} does not currently report hospitalization data.`}
+                fullSize
               />
-            </>
+            </div>
           )}
+        </Col>
+        <Col width={colWidth}>
+          <h5>New deaths</h5>
+          <BarChart
+            data={getDataForField(data, deathField)}
+            lineData={dailyAverage(data, deathField)}
+            refLineData={dailyAverage(usData, deathField)}
+            fill={colors.colorSlate300}
+            lineColor={colors.colorSlate700}
+            {...props}
+          />
         </Col>
       </Row>
     </>

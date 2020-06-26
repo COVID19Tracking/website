@@ -20,9 +20,11 @@ const Infobox = ({ header, children }) => (
   </div>
 )
 
-const AlertInfobox = ({ header, children }) => (
+const AlertInfobox = ({ header, children, fullSize = false }) => (
   <div
-    className={`infobox alert ${infoBoxStyle.infobox} ${infoBoxStyle.alert}`}
+    className={`infobox alert ${infoBoxStyle.infobox} ${
+      infoBoxStyle.alert
+    } ${fullSize && infoBoxStyle.fullSize}`}
   >
     <img src={alertIcon} alt="Alert icon" />
     <InfoboxInner header={header}>{children}</InfoboxInner>

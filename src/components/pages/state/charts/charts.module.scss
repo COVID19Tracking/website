@@ -1,12 +1,24 @@
+@import '~scss/breakpoints.module.scss';
+
 .info-line {
   display: flex;
   .toggle-container {
     flex-grow: 1;
   }
+  .legend-component {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+  @media screen and (max-width: $viewport-md) {
+    flex-direction: column;
+    .legend-component {
+      margin-top: 10px;
+    }
+  }
 }
 
-.legend-component {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
+.alert-infobox-container {
+  height: 286px;
+  width: 272px;
 }
