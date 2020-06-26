@@ -1,11 +1,12 @@
 %toggle-active {
-  color: black;
+  color: white;
+  background-color: black;
   border-color: black;
   font-weight: 500;
 }
 
 %toggle-inactive {
-  color: lightgray;
+  color: black;
   border: solid lightgray 2px;
   font-weight: initial;
 }
@@ -35,14 +36,8 @@
     margin: -1px;
     padding: 2px 15px; // ignore-style-rule
     white-space: nowrap;
+    border: solid black 1px;
 
-    &:nth-child(1) {
-      border-radius: 8px 0 0 8px;
-    }
-    &:nth-child(2) {
-      border-radius: 0 8px 8px 0;
-      border-left-color: black !important;
-    }
     &.active {
       @extend %toggle-active;
     }

@@ -122,13 +122,13 @@ export default ({ name, history, usHistory }) => {
       <div className={styles.infoLine}>
         <div className={styles.toggleContainer}>
           <Toggle
-            options={['Totals', 'Per capita']}
+            options={['Totals', 'Per 1M people']}
             state={usePerCap}
             setState={setUsePerCap}
           />
         </div>
-        <LegendComponent name={name || 'National'} />
         {usData && usePerCap && <LegendComponent />}
+        <LegendComponent name={name || 'National'} />
       </div>
       <Row>
         <Col width={colWidth}>
