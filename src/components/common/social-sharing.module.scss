@@ -9,12 +9,23 @@
   justify-content: center;
   flex-grow: 1;
 
-  height: 32px;
   border-radius: 4px;
   background: $color-plum-300;
+  height: 32px;
+  @media (min-width: $viewport-lg) {
+    width: 32px;
+  }
 
   margin-right: spacer(16);
   &:last-child {
     margin-right: 0;
+  }
+
+  &:hover {
+    @include link-hover-dark-bg;
+  }
+
+  &:focus {
+    @include link-focus-dark-bg;
   }
 }

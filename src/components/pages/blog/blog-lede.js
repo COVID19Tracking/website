@@ -32,12 +32,14 @@ export default ({
       <p className={blogLedeStyles.ledeContent}>
         <CleanSpacing>{lede}</CleanSpacing>
       </p>
-      <Byline authors={authors} date={date} darkBackground={darkBackground} />
-      <SocialSharing
-        shares={['facebook', 'twitter', 'link']}
-        url={`${site.siteMetadata.siteUrl}/blog/${slug}`}
-        text={lede}
-      />
+      <div className={blogLedeStyles.bylineRow}>
+        <Byline authors={authors} date={date} darkBackground={darkBackground} />
+        <SocialSharing
+          shares={['facebook', 'twitter', 'link']}
+          url={`${site.siteMetadata.siteUrl}/blog/${slug}`}
+          text={lede}
+        />
+      </div>
       {featuredImage && <FeaturedImage image={featuredImage} />}
     </div>
   )
