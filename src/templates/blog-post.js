@@ -7,6 +7,19 @@ import Layout from '~components/layout'
 import Lede from '~components/pages/blog/blog-lede'
 import BlogPostContent from '~components/pages/blog/blog-content'
 
+const Hero = ({ categories, headline, authors, date, lede, featuredImage }) => (
+  <>
+    <Categories categories={categories} />
+    <Lede
+      headline={headline}
+      authors={authors}
+      date={date}
+      lede={lede}
+      featuredImage={featuredImage}
+    />
+  </>
+)
+
 export default ({ data, path }) => {
   const blogPost = data.contentfulBlogPost
   const blogImages = {}
@@ -14,6 +27,17 @@ export default ({ data, path }) => {
     blogImages[image.contentful_id] = image
   })
   const socialCard = blogPost.socialCard || { description: blogPost.lede.lede }
+  const hero = (
+    <Hero
+      categories={blogPost.categories}
+      headline={blogPost.title}
+      authors={blogPost.authors}
+      date={blogPost.publishDate}
+      lede={blogPost.lede.lede}
+      featuredImage={blogPost.featuredImage}
+    />
+  )
+
   return (
     <Layout
       title={`Blog | ${blogPost.title}`}
@@ -22,23 +46,15 @@ export default ({ data, path }) => {
       returnLink="/blog"
       returnLinkTitle="All posts"
       path={path}
+      hero={hero}
       narrow
     >
-      <Categories categories={blogPost.categories} />
-      <Lede
-        headline={blogPost.title}
-        authors={blogPost.authors}
-        date={blogPost.publishDate}
-        lede={blogPost.lede.lede}
-        featuredImage={blogPost.featuredImage}
-      />
       <LongContent>
         <BlogPostContent
           content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
           images={blogImages}
         />
       </LongContent>
-
       <hr />
       <AuthorFooter authors={blogPost.authors} />
     </Layout>
