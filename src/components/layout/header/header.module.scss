@@ -24,7 +24,9 @@
 
 .get-involved {
   display: inline-block;
-  line-height: 1.75;
+  @media (min-width: $viewport-lg) {
+    line-height: 1.75;
+  }
   padding: 0.4rem 0.5rem; // ignore-style-rule
   transition: all 0.2s;
   height: 35px; // match the search box height
