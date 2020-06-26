@@ -12,13 +12,13 @@
   border-radius: 4px;
   background: $color-plum-300;
   height: 32px;
-  @media (min-width: $viewport-lg) {
+  @media (min-width: $viewport-md) {
     width: 32px;
   }
 
-  margin-right: spacer(16);
-  &:last-child {
-    margin-right: 0;
+  margin-left: spacer(16);
+  &:first-child {
+    margin-left: 0;
   }
 
   &:hover {
@@ -27,5 +27,11 @@
 
   &:focus {
     @include link-focus-dark-bg;
+  }
+}
+
+.hide-on-mobile {
+  @media (max-width: $viewport-lg) {
+    display: none;
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import copy from 'copy-to-clipboard'
+import classnames from 'classnames'
 
 import facebookIcon from '~images/social-shares/facebook.svg'
 import twitterIcon from '~images/social-shares/twitter.svg'
@@ -20,7 +21,13 @@ export default ({ shares, url, text }) => {
       alt: 'Share on Twitter',
       url: `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
     },
-    link: { icon: linkIcon, alt: 'Copy link', url: '#', onClick: copyUrl },
+    link: {
+      icon: linkIcon,
+      alt: 'Copy link',
+      url: '#',
+      onClick: copyUrl,
+      hideOnMobile: true,
+    },
     // todo include copy success message/icon change
   }
   return (
@@ -29,7 +36,10 @@ export default ({ shares, url, text }) => {
         <a
           href={types[share].url}
           onClick={types[share].onClick}
-          className={socialSharingStyles.socialButton}
+          className={classnames(
+            socialSharingStyles.socialButton,
+            types[share].hideOnMobile && socialSharingStyles.hideOnMobile,
+          )}
         >
           <img src={types[share].icon} alt={types[share].alt} />
         </a>

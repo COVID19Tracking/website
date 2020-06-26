@@ -15,7 +15,7 @@
 }
 
 .byline-row {
-  @media (min-width: $viewport-lg) {
+  @media (min-width: $viewport-md) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
