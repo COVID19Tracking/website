@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import classnames from 'classnames'
 import bylineStyles from './byline.module.scss'
 import AuthorSpacer from '~components/utils/list-spacer'
 
@@ -48,12 +49,22 @@ const AuthorsText = ({ authors }) => (
   </>
 )
 
-const Byline = ({ authors, date, smallmargin = false }) => {
+const Byline = ({
+  authors,
+  date,
+  smallmargin = false,
+  darkBackground = false,
+}) => {
   const authorsWithHeadshots = authors.filter(author => author.headshot)
   const hasHeadshots = authorsWithHeadshots.length > 0
   const bylineClass = getBylineClass(smallmargin, hasHeadshots)
   return (
-    <div className={bylineClass}>
+    <div
+      className={classnames(
+        bylineClass,
+        darkBackground && bylineStyles.darkBackground,
+      )}
+    >
       {hasHeadshots && (
         <div className={bylineStyles.headshotContainer}>
           {authorsWithHeadshots.map(author => (
@@ -65,10 +76,12 @@ const Byline = ({ authors, date, smallmargin = false }) => {
           ))}
         </div>
       )}
-      <span className={bylineStyles.author}>
-        By <AuthorsText authors={authors} />
+      <span className={bylineStyles.bylineText}>
+        <span className={bylineStyles.author}>
+          By <AuthorsText authors={authors} />
+        </span>
+        <span className={bylineStyles.date}>{date}</span>
       </span>
-      <span className={bylineStyles.date}>{date}</span>
     </div>
   )
 }

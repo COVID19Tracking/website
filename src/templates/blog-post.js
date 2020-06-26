@@ -16,6 +16,7 @@ const Hero = ({ categories, headline, authors, date, lede, featuredImage }) => (
       date={date}
       lede={lede}
       featuredImage={featuredImage}
+      darkBackground
     />
   </>
 )
