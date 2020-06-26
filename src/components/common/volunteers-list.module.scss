@@ -1,9 +1,16 @@
 .list {
-  column-count: 2;
+  column-count: 1;
+  @media (min-width: $viewport-md) {
+    column-count: 3;
+  }
+  @media (min-width: $viewport-lg) {
+    column-count: 6;
+  }
   list-style-type: none;
   margin-top: spacer(24);
   margin-left: 0;
   padding-left: 0;
+  line-height: 150%;
   @media (max-width: $viewport-md) {
     column-count: 1;
   }
