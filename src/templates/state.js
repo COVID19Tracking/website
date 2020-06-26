@@ -65,6 +65,7 @@ export const query = graphql`
         negative
         hospitalized
         hospitalizedIncrease
+        hospitalizedCurrently
         death
         deathIncrease
         date
@@ -72,7 +73,7 @@ export const query = graphql`
           deathIncrease {
             percent
           }
-          hospitalizedIncrease {
+          hospitalizedCurrently {
             percent
           }
           positiveIncrease {
@@ -112,6 +113,7 @@ export const query = graphql`
         pending
         negative
         hospitalized
+        hospitalizedCurrently
         hospitalizedIncrease
         death
         deathIncrease
@@ -120,7 +122,7 @@ export const query = graphql`
           deathIncrease {
             percent
           }
-          hospitalizedIncrease {
+          hospitalizedCurrently {
             percent
           }
           positiveIncrease {

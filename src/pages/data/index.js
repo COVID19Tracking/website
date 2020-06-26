@@ -106,13 +106,13 @@ export const query = graphql`
         date
         totalTestResultsIncrease
         positiveIncrease
-        hospitalizedIncrease
+        hospitalizedCurrently
         deathIncrease
         childPopulation {
           deathIncrease {
             percent
           }
-          hospitalizedIncrease {
+          hospitalizedCurrently {
             percent
           }
           positiveIncrease {

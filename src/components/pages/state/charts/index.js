@@ -96,7 +96,7 @@ export default ({ name, history, usHistory }) => {
     prepend,
   ])
   const positiveField = useMemo(() => `${prepend}positiveIncrease`, [prepend])
-  const hospitalizedField = useMemo(() => `${prepend}hospitalizedIncrease`, [
+  const hospitalizedField = useMemo(() => `${prepend}hospitalizedCurrently`, [
     prepend,
   ])
   const deathField = useMemo(() => `${prepend}deathIncrease`, [prepend])
@@ -118,6 +118,7 @@ export default ({ name, history, usHistory }) => {
 
   return (
     <>
+      <h2>{name || 'National'} overview</h2>
       <div className={styles.infoLine}>
         <div className={styles.toggleContainer}>
           <Toggle
@@ -131,41 +132,15 @@ export default ({ name, history, usHistory }) => {
       </div>
       <Row>
         <Col width={colWidth}>
-          <h5>New tests</h5>
-          <BarChart
-            data={getDataForField(data, testField)}
-            lineData={dailyAverage(data, testField)}
-            refLineData={dailyAverage(usData, testField)}
-            fill={colors.colorPlum300}
-            lineColor={colors.colorPlum600}
-            {...props}
-          />
-        </Col>
-        <Col width={colWidth}>
           <h5>New cases</h5>
           <BarChart
             data={getDataForField(data, positiveField)}
             lineData={dailyAverage(data, positiveField)}
             refLineData={dailyAverage(usData, positiveField)}
-            fill={colors.colorHoney300}
-            lineColor={colors.colorHoney600}
+            fill={colors.colorStrawberry100}
+            lineColor={colors.colorStrawberry200}
             {...props}
           />
-        </Col>
-        <Col width={colWidth}>
-          {hasHospitalizationData && (
-            <>
-              <h5>New hospitalizations</h5>
-              <BarChart
-                data={getDataForField(data, hospitalizedField)}
-                lineData={dailyAverage(data, hospitalizedField)}
-                refLineData={dailyAverage(usData, hospitalizedField)}
-                fill={colors.colorHoney300}
-                lineColor={colors.colorHoney600}
-                {...props}
-              />
-            </>
-          )}
         </Col>
         <Col width={colWidth}>
           <h5>New deaths</h5>
@@ -174,9 +149,35 @@ export default ({ name, history, usHistory }) => {
             lineData={dailyAverage(data, deathField)}
             refLineData={dailyAverage(usData, deathField)}
             fill={colors.colorSlate300}
-            lineColor={colors.colorSlate600}
+            lineColor={colors.colorSlate700}
             {...props}
           />
+        </Col>
+        <Col width={colWidth}>
+          <h5>New tests</h5>
+          <BarChart
+            data={getDataForField(data, testField)}
+            lineData={dailyAverage(data, testField)}
+            refLineData={dailyAverage(usData, testField)}
+            fill={colors.colorPlum200}
+            lineColor={colors.colorPlum700}
+            {...props}
+          />
+        </Col>
+        <Col width={colWidth}>
+          {hasHospitalizationData && (
+            <>
+              <h5>Current hospitalizations</h5>
+              <BarChart
+                data={getDataForField(data, hospitalizedField)}
+                lineData={dailyAverage(data, hospitalizedField)}
+                refLineData={dailyAverage(usData, hospitalizedField)}
+                fill={colors.colorBlueberry200}
+                lineColor={colors.colorBlueberry400}
+                {...props}
+              />
+            </>
+          )}
         </Col>
       </Row>
     </>
