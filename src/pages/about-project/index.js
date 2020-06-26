@@ -13,7 +13,7 @@ export default ({ data }) => (
     navigation={data.contentfulNavigationGroup.pages}
   >
     <LongContent>
-      <Container narrow>
+      <Container narrow centered>
         <ContentfulContent
           content={
             data.preamble.childContentfulSnippetContentTextNode
@@ -23,7 +23,7 @@ export default ({ data }) => (
         />
       </Container>
       <VolunteersList items={data.allCovidVolunteers.edges} />
-      <Container narrow>
+      <Container narrow centered>
         <ContentfulContent
           content={
             data.pastContributors.childContentfulSnippetContentTextNode
