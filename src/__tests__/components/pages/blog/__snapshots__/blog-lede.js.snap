@@ -15,30 +15,22 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
   <div
     className="byline"
   >
-    <p
-      className="bylineText"
+    <span
+      className="author"
     >
-      <span
-        className="spacer"
+      By 
+      <a
+        className="authorInner"
+        href="https://twitter.com/test"
       >
-        By 
-      </span>
-      <span
-        className="author"
-      >
-        <a
-          className="authorInner"
-          href="https://twitter.com/test"
-        >
-          test name
-        </a>
-      </span>
-      <span
-        className="date"
-      >
-        Aug 1 2020
-      </span>
-    </p>
+        test name
+      </a>
+    </span>
+    <span
+      className="date"
+    >
+      Aug 1 2020
+    </span>
   </div>
   <hr />
 </div>
