@@ -38,7 +38,7 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
             {item.subNavigation &&
               typeof subNavigation[item.subNavigation] !== 'undefined' && (
                 <MenuList
-                  role={false}
+                  role={undefined}
                   className={headerNavigationStyles.subMenu}
                   onKeyDown={event => {
                     if (event.key === 'Tab') {
