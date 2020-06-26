@@ -18,6 +18,6 @@ export default ({
       <CleanSpacing>{lede}</CleanSpacing>
     </p>
     <Byline authors={authors} date={date} darkBackground={darkBackground} />
-    {featuredImage ? <FeaturedImage image={featuredImage} /> : <hr />}
+    {featuredImage && <FeaturedImage image={featuredImage} />}
   </div>
 )
