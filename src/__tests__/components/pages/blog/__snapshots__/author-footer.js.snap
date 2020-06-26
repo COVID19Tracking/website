@@ -5,7 +5,7 @@ exports[`Components : Pages : Blog : Author Footer renders correctly 1`] = `
   className="container"
 >
   <div
-    className="authorFooter"
+    className="author"
   >
     <img
       alt="filename.png"
