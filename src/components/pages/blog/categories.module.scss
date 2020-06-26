@@ -8,6 +8,12 @@
     margin-bottom: 0;
     a {
       text-decoration: none;
+      &:hover {
+        @include link-hover-dark-bg;
+      }
+      &:focus {
+        @include link-focus-dark-bg;
+      }
     }
     &::after {
       content: '  |  ';
