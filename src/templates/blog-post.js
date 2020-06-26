@@ -2,13 +2,14 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import LongContent from '~components/common/long-content'
 import AuthorFooter from '~components/pages/blog/author-footer'
+import Container from '~components/common/container'
 import Categories from '~components/pages/blog/categories'
 import Layout from '~components/layout'
 import Lede from '~components/pages/blog/blog-lede'
 import BlogPostContent from '~components/pages/blog/blog-content'
 
 const Hero = ({ categories, headline, authors, date, lede, featuredImage }) => (
-  <>
+  <Container narrow centered>
     <Categories categories={categories} />
     <Lede
       headline={headline}
@@ -18,7 +19,7 @@ const Hero = ({ categories, headline, authors, date, lede, featuredImage }) => (
       featuredImage={featuredImage}
       darkBackground
     />
-  </>
+  </Container>
 )
 
 export default ({ data, path }) => {
@@ -49,6 +50,7 @@ export default ({ data, path }) => {
       path={path}
       hero={hero}
       narrow
+      centered
     >
       <LongContent>
         <BlogPostContent
