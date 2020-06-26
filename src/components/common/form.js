@@ -73,27 +73,17 @@ const Input = ({
     <FormLabel htmlFor={id} isRequired={isRequired}>
       {label}
     </FormLabel>
-    {detailText ? (
-      <input
-        name={name}
-        id={id}
-        type={type}
-        aria-required={isRequired}
-        onChange={onChange}
-        maxLength={maxLength}
-        className={`${className} ${formStyles.inputDescription}`}
-      />
-    ) : (
-      <input
-        name={name}
-        id={id}
-        type={type}
-        aria-required={isRequired}
-        onChange={onChange}
-        maxLength={maxLength}
-        className={className}
-      />
-    )}
+    <input
+      name={name}
+      id={id}
+      type={type}
+      aria-required={isRequired}
+      onChange={onChange}
+      maxLength={maxLength}
+      className={`${className} ${
+        detailText ? formStyles.inputDescription : null
+      }`}
+    />
     <FieldDetailText detailText={detailText} />
   </>
 )
@@ -117,7 +107,9 @@ const Select = ({
       name={name}
       onChange={onChange}
       value={value}
-      className={formStyles.select}
+      className={`${formStyles.select} ${
+        detailText ? formStyles.inputDescription : null
+      }`}
     >
       {options.map(item => (
         <option key={`${id}-${item}`} value={item}>
@@ -135,7 +127,11 @@ const List = ({ type, name, options, label, isRequired, detailText }) => (
       <FormLabel isRequired={isRequired}>
         <legend>{label}</legend>
       </FormLabel>
-      <div className={formStyles.fieldsetOptions}>
+      <div
+        className={`${formStyles.fieldsetOptions} ${
+          detailText ? formStyles.inputDescription : null
+        }`}
+      >
         {options &&
           options.map(item => (
             <label

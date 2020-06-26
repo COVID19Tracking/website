@@ -54,6 +54,7 @@ export default ({ data }) => {
         <Select
           isRequired
           label="What are you contacting us about?"
+          detailText="Please let us know why you are contacting us so we can route your message to the right team"
           id="contact-reason"
           name="reason"
           options={reasons}
