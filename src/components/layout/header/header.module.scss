@@ -26,10 +26,10 @@
   display: inline-block;
   @media (min-width: $viewport-lg) {
     line-height: 1.75;
+    height: 35px; // match the search box height
   }
   padding: 0.4rem 0.5rem; // ignore-style-rule
   transition: all 0.2s;
-  height: 35px; // match the search box height
 
   font-weight: bold;
   background: $color-honey-300;
