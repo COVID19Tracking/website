@@ -1,13 +1,15 @@
 .lede {
   h1 {
-    @include type-size(700);
-    line-height: 1.15;
+    @include type-size(600);
+    line-height: 120%;
     margin-bottom: spacer(16);
-    margin-top: 0;
+    margin-top: spacer(8);
+    color: $color-plum-100;
   }
   .lede-content {
     @include type-size(400);
-    line-height: 1.5;
-    margin-bottom: spacer(16);
+    line-height: 130%;
+    color: $color-plum-300;
+    margin-bottom: spacer(32);
   }
 }
