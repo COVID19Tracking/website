@@ -14,3 +14,29 @@ describe('Components : Common: Container', () => {
     expect(tree).toMatchSnapshot()
   })
 })
+
+describe('Components : Common: Container: Centered', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(
+        <Container centered>
+          <p>Sample child</p>
+        </Container>,
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})
+
+describe('Components : Common: Container: Narrow', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(
+        <Container narrow>
+          <p>Sample child</p>
+        </Container>,
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})
