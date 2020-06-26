@@ -22,5 +22,5 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: "master"
           TO_BRANCH: "contentful-preview"
-          PULL_REQUEST_TITLE: "chore: Sync Contentful preview branch"
+          PULL_REQUEST_TITLE: "chore: Sync Contentful preview branch [skip netlify]"
           PULL_REQUEST_BODY: "The `contentful-preview` branch is used for our content editors to have a space to preview content changes. This PR keeps that branch up to sync with master."
