@@ -1,5 +1,5 @@
 .form {
-  margin-bottom: spacer(4);
+  margin-bottom: spacer(64);
   position: relative;
   input[type='text'],
   input[type='email'],
@@ -8,13 +8,17 @@
   textarea {
     width: 100%;
     @include padding(16);
-    border: 1px solid $color-slate-300;
+    border: 1px solid $color-slate-800;
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: spacer(4);
     margin-bottom: spacer(32);
     resize: vertical;
     display: block;
+  }
+
+  .input-description { 
+    margin-bottom: spacer(16) !important;
   }
 
   textarea {
@@ -32,14 +36,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: spacer(16);
     .required {
       @include type-size(100);
+      text-transform: uppercase;
+      color: $color-slate-500;
     }
   }
 
   .detail-container {
     margin-bottom: spacer(32);
-    margin-top: spacer(8);
   }
 
   fieldset {
@@ -66,13 +72,13 @@
   [type='submit'] {
     cursor: pointer;
     border: none;
-    background: $color-plum-800;
+    background: $color-slate-800;
     border-radius: 3px;
     @include padding(16);
     color: white;
     &[disabled] {
       cursor: not-allowed;
-      background: $color-plum-600;
+      background: $color-slate-600;
       color: white;
     }
   }

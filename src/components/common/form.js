@@ -73,15 +73,27 @@ const Input = ({
     <FormLabel htmlFor={id} isRequired={isRequired}>
       {label}
     </FormLabel>
-    <input
-      name={name}
-      id={id}
-      type={type}
-      aria-required={isRequired}
-      onChange={onChange}
-      maxLength={maxLength}
-      className={className}
-    />
+    {detailText ? (
+      <input
+        name={name}
+        id={id}
+        type={type}
+        aria-required={isRequired}
+        onChange={onChange}
+        maxLength={maxLength}
+        className={`${className} ${formStyles.inputDescription}`}
+      />
+    ) : (
+      <input
+        name={name}
+        id={id}
+        type={type}
+        aria-required={isRequired}
+        onChange={onChange}
+        maxLength={maxLength}
+        className={className}
+      />
+    )}
     <FieldDetailText detailText={detailText} />
   </>
 )
