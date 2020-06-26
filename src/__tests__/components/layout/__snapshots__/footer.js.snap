@@ -120,7 +120,8 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
         Back to top
       </span>
       <img
-        alt="Back to top"
+        alt=""
+        aria-hidden={true}
         src="test-file-stub"
       />
     </a>
