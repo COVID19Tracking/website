@@ -1,5 +1,9 @@
 .byline-base {
-  display: flex;
+  @media (min-width: $viewport-ms) {
+    display: flex;
+  }
+  display: inline-grid;
+  grid-template-columns: 1fr 4fr;
   align-items: center;
   @include type-size(400);
   line-height: 1.5;
@@ -15,12 +19,11 @@
       margin-right: -5px;
     }
   }
-  .spacer {
-    white-space: pre;
-  }
-  .author::after {
-    content: '  |  ';
-    white-space: pre;
+  @media (min-width: $viewport-ms) {
+    .author::after {
+      content: '  |  ';
+      white-space: pre;
+    }
   }
   * {
     margin: spacer(8) 0;
@@ -33,6 +36,10 @@
   }
   .date {
     color: $color-slate-700;
+    @media (max-width: $viewport-ms) {
+      margin-top: 0;
+    }
+    grid-column-start: span 2;
   }
 }
 

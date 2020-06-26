@@ -36,37 +36,29 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
           <div
             className="bylineSmallMargin"
           >
-            <p
-              className="bylineText"
+            <span
+              className="author"
             >
+              By 
               <span
-                className="spacer"
+                className="authorInner"
               >
-                By 
+                Prajakta Ranade
               </span>
+               
+              &
+               
               <span
-                className="author"
+                className="authorInner"
               >
-                <span
-                  className="authorInner"
-                >
-                  Prajakta Ranade
-                </span>
-                 
-                &
-                 
-                <span
-                  className="authorInner"
-                >
-                  Harrison Frank
-                </span>
+                Harrison Frank
               </span>
-              <span
-                className="date"
-              >
-                April 23, 2020
-              </span>
-            </p>
+            </span>
+            <span
+              className="date"
+            >
+              April 23, 2020
+            </span>
           </div>
         </li>
         <li
@@ -95,30 +87,22 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
                 src="//images.ctfassets.net/o2ll9t4ee8tq/3vW1aeLjPFSMAZOqHv9TQS/b4ffb03526cf67724c6732c6e11a6cef/original.png?w=100&fl=progressive&q=50"
               />
             </div>
-            <p
-              className="bylineText"
+            <span
+              className="author"
             >
-              <span
-                className="spacer"
+              By 
+              <a
+                className="authorInner"
+                href="https://www.theatlantic.com/author/alexis-madrigal"
               >
-                By 
-              </span>
-              <span
-                className="author"
-              >
-                <a
-                  className="authorInner"
-                  href="https://www.theatlantic.com/author/alexis-madrigal"
-                >
-                  Alexis Madrigal
-                </a>
-              </span>
-              <span
-                className="date"
-              >
-                April 15, 2020
-              </span>
-            </p>
+                Alexis Madrigal
+              </a>
+            </span>
+            <span
+              className="date"
+            >
+              April 15, 2020
+            </span>
           </div>
         </li>
       </ul>

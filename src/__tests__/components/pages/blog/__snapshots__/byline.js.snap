@@ -12,30 +12,22 @@ exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
       src="//images.ctfassets.net/arandomfile"
     />
   </div>
-  <p
-    className="bylineText"
+  <span
+    className="author"
   >
-    <span
-      className="spacer"
+    By 
+    <a
+      className="authorInner"
+      href="https://twitter.com/test"
     >
-      By 
-    </span>
-    <span
-      className="author"
-    >
-      <a
-        className="authorInner"
-        href="https://twitter.com/test"
-      >
-        test name
-      </a>
-    </span>
-    <span
-      className="date"
-    >
-      Aug 1 2020
-    </span>
-  </p>
+      test name
+    </a>
+  </span>
+  <span
+    className="date"
+  >
+    Aug 1 2020
+  </span>
 </div>
 `;
 
@@ -43,28 +35,20 @@ exports[`Components : Pages : Blog : Byline renders correctly 2`] = `
 <div
   className="byline"
 >
-  <p
-    className="bylineText"
+  <span
+    className="author"
   >
+    By 
     <span
-      className="spacer"
+      className="authorInner"
     >
-      By 
+      test name
     </span>
-    <span
-      className="author"
-    >
-      <span
-        className="authorInner"
-      >
-        test name
-      </span>
-    </span>
-    <span
-      className="date"
-    >
-      Aug 1 2020
-    </span>
-  </p>
+  </span>
+  <span
+    className="date"
+  >
+    Aug 1 2020
+  </span>
 </div>
 `;

@@ -26,39 +26,31 @@ Array [
         src="//images.ctfassets.net/aspecificfile"
       />
     </div>
-    <p
-      className="bylineText"
+    <span
+      className="author"
     >
-      <span
-        className="spacer"
+      By 
+      <a
+        className="authorInner"
+        href="https://twitter.com/test"
       >
-        By 
-      </span>
-      <span
-        className="author"
+        test name
+      </a>
+       
+      &
+       
+      <a
+        className="authorInner"
+        href="https://twitter.com/testii"
       >
-        <a
-          className="authorInner"
-          href="https://twitter.com/test"
-        >
-          test name
-        </a>
-         
-        &
-         
-        <a
-          className="authorInner"
-          href="https://twitter.com/testii"
-        >
-          test name II
-        </a>
-      </span>
-      <span
-        className="date"
-      >
-        Aug 1 2020
-      </span>
-    </p>
+        test name II
+      </a>
+    </span>
+    <span
+      className="date"
+    >
+      Aug 1 2020
+    </span>
   </div>,
   <p
     className="lede"
@@ -89,39 +81,31 @@ Array [
         src="//images.ctfassets.net/aspecificfile"
       />
     </div>
-    <p
-      className="bylineText"
+    <span
+      className="author"
     >
-      <span
-        className="spacer"
+      By 
+      <a
+        className="authorInner"
+        href="https://twitter.com/test"
       >
-        By 
-      </span>
-      <span
-        className="author"
+        test name
+      </a>
+       
+      &
+       
+      <a
+        className="authorInner"
+        href="https://twitter.com/testii"
       >
-        <a
-          className="authorInner"
-          href="https://twitter.com/test"
-        >
-          test name
-        </a>
-         
-        &
-         
-        <a
-          className="authorInner"
-          href="https://twitter.com/testii"
-        >
-          test name II
-        </a>
-      </span>
-      <span
-        className="date"
-      >
-        Apr 15 2020
-      </span>
-    </p>
+        test name II
+      </a>
+    </span>
+    <span
+      className="date"
+    >
+      Apr 15 2020
+    </span>
   </div>,
   <p
     className="lede"
