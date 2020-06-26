@@ -7,8 +7,8 @@ beforeEach(() => {
   useStaticQuery.mockImplementation(() => ({
     site: {
       siteMetadata: {
-        siteUrl: "https://covidtracking.com"
-      }
+        siteUrl: 'https://covidtracking.com'
+      },
     },
   }))
 })
