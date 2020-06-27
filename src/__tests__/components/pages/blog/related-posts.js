@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import RelatedPosts from '~components/pages/blog/related-posts'
 
-describe('Components : Pages : Blog : Byline', () => {
+describe('Components : Pages : Blog : Related Posts', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(
