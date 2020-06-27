@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery } from 'gatsby'
 import RelatedPosts from '~components/pages/blog/related-posts'
 
 describe('Components : Pages : Blog : Related Posts : Recent Posts', () => {
@@ -127,7 +127,6 @@ describe('Components : Pages : Blog : Related Posts : Category Posts', () => {
     expect(tree).toMatchSnapshot()
   })
 })
-
 
 describe('Components : Pages : Blog : Related Posts : Explicit Related Posts', () => {
   it('renders correctly', () => {
