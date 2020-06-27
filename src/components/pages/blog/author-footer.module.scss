@@ -5,7 +5,7 @@
   }
 }
 
-.author-footer {
+.author {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -15,7 +15,6 @@
   @media (min-width: $viewport-md) {
     margin-bottom: spacer(32);
   }
-
 
   img {
     width: 80px;
