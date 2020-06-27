@@ -5,6 +5,7 @@ import AuthorFooter from '~components/pages/blog/author-footer'
 import Hero from '~components/pages/blog/blog-hero'
 import Layout from '~components/layout'
 import BlogPostContent from '~components/pages/blog/blog-content'
+import RelatedPosts from '~components/pages/blog/related-posts'
 
 export default ({ data, path }) => {
   const blogPost = data.contentfulBlogPost
@@ -45,6 +46,7 @@ export default ({ data, path }) => {
       </LongContent>
       <hr />
       <AuthorFooter authors={blogPost.authors} />
+      <RelatedPosts blogPost={blogPost} />
     </Layout>
   )
 }
@@ -84,9 +86,67 @@ export const query = graphql`
           }
         }
       }
+      relatedBlogPosts {
+        slug
+        publishDate(formatString: "MMMM D, YYYY")
+        authors {
+          name
+          twitterLink
+          twitterHandle
+          link
+          childContentfulAuthorBiographyTextNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+          headshot {
+            file {
+              fileName
+            }
+            resize(width: 200) {
+              width
+              height
+              src
+            }
+          }
+        }
+        title
+        lede {
+          lede
+        }
+      }
       categories {
         name
         slug
+        blog_post {
+          slug
+          publishDate(formatString: "MMMM D, YYYY")
+          authors {
+            name
+            twitterLink
+            twitterHandle
+            link
+            childContentfulAuthorBiographyTextNode {
+              childMarkdownRemark {
+                html
+              }
+            }
+            headshot {
+              file {
+                fileName
+              }
+              resize(width: 200) {
+                width
+                height
+                src
+              }
+            }
+          }
+          title
+          lede {
+            lede
+          }
+        }
       }
       childContentfulBlogPostBlogContentRichTextNode {
         json

@@ -1,10 +1,19 @@
 .container {
+  margin-bottom: spacer(120);
   h2 {
-    margin: spacer(24) 0 spacer(16);
+    margin: spacer(64) 0 spacer(32);
+    @include type-size(500);
   }
   h3 {
     @include type-size(400);
-    line-height: 28px;
+    line-height: 130%;
     margin: 0;
+    margin-bottom: spacer(16);
   }
+}
+
+.lede {
+  color: $color-slate-500;
+  @include type-size(300);
+  line-height: 150%;
 }
