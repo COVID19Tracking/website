@@ -10,7 +10,6 @@ describe('Components : Charts: Area chart', () => {
         <BarChart
           fill="#333"
           data={data}
-          xTicks={2}
           height={200}
           width={200}
           marginBottom={30}

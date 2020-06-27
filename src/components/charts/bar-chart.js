@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types' // ES6
 
-import { extent, max, range } from 'd3-array'
+import { extent, max } from 'd3-array'
 import { scaleBand, scaleLinear, scaleTime } from 'd3-scale'
 import { line, curveCardinal } from 'd3-shape'
+import { timeMonth } from 'd3-time'
 import React from 'react'
 
 import { formatDate, formatNumber } from '~utilities/visualization'
 import chartStyles from './charts.module.scss'
+
+import colors from '~scss/colors.module.scss'
 
 const BarChart = ({
   data,
@@ -20,7 +23,6 @@ const BarChart = ({
   marginRight,
   marginTop,
   showTicks,
-  xTicks,
   width,
   yMax,
   yTicks,
@@ -34,29 +36,25 @@ const BarChart = ({
     .domain(data.map(d => d.date))
     .range([marginLeft, width - marginRight])
     .padding(0.1)
+  const dateDomain = extent(data, d => d.date)
+  // Should probably refactor to use a single x-axis scale
+  // but the bars make use of the band.
+  const xScaleTime = scaleTime()
+    .domain(dateDomain)
+    .range([marginLeft, width - marginRight])
 
   const yScale = scaleLinear()
     .domain([0, yMax || max([...data, ...(refLineData || [])], d => d.value)])
     .nice()
     .range([height - totalYMargin, 0])
 
-  const xScaleDomain = xScale.domain()
-  const ticks = range(
-    0,
-    xScaleDomain.length,
-    Math.floor(xScaleDomain.length / xTicks),
-  )
+  const xTickAmount = timeMonth.every(1)
+
   let lineFn = null
   if (lineData) {
-    const dateDomain = extent(data, d => d.date)
-
-    const xScaleLine = scaleTime()
-      .domain(dateDomain)
-      .range([marginLeft, width - marginRight])
-
     lineFn = line()
       .curve(curveCardinal)
-      .x(d => xScaleLine(d.date))
+      .x(d => xScaleTime(d.date))
       .y(d => yScale(d.value))
   }
   return (
@@ -95,15 +93,24 @@ const BarChart = ({
         </g>
         {/* x ticks (dates) */}
         <g transform={`translate(0, ${height - marginBottom})`}>
-          {ticks.map(d => {
-            const date = xScale.domain()[d]
+          {xScaleTime.ticks(xTickAmount).map(d => {
             return (
-              <text
-                className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
-                key={d}
-                x={xScale(date)}
-                y="25"
-              >{`${formatDate(date)}`}</text>
+              <>
+                <text
+                  className={chartStyles.label}
+                  key={d}
+                  x={xScaleTime(d)}
+                  y="20"
+                >{`${formatDate(d)}`}</text>
+                <line
+                  className={chartStyles.label}
+                  stroke={colors.colorSlate500}
+                  x1={xScaleTime(d)}
+                  y1="0"
+                  x2={xScaleTime(d)}
+                  y2="5"
+                />
+              </>
             )
           })}
         </g>
@@ -156,7 +163,6 @@ BarChart.defaultProps = {
   marginLeft: 0,
   marginRight: 0,
   marginTop: 0,
-  xTicks: 5,
   yMax: null,
   yTicks: 4,
   showTicks: 4,
@@ -190,7 +196,6 @@ BarChart.propTypes = {
   marginRight: PropTypes.number,
   marginTop: PropTypes.number,
   showTicks: PropTypes.number,
-  xTicks: PropTypes.number,
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
 }
