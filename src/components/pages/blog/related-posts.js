@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import { Byline } from './byline'
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 import RelatedPostsStyles from './related-posts.module.scss'
 
 export default ({ blogPost }) => {
@@ -60,8 +61,10 @@ export default ({ blogPost }) => {
   footerPosts = footerPosts.slice(0, 3) // max 3 blog posts
   return (
     <div className={RelatedPostsStyles.container}>
-      {/* todo add cta */}
       <h2>{relatedTitle}</h2>
+      <div className={RelatedPostsStyles.ctaWrapper}>
+        <CtaLink to="blog">See all blog posts</CtaLink>
+      </div>
       {footerPosts.map(post => (
         <div key={post.slug} className={RelatedPostsStyles.post}>
           <h3>
