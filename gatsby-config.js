@@ -1,4 +1,4 @@
-import stringifyList from "./src/utilities/list-formatter";
+import {stringifyList} from "./src/utilities/list-formatter";
 
 require(`@babel/register`)({
   presets: ['@babel/preset-env', '@babel/preset-react'],
