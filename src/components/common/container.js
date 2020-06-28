@@ -8,7 +8,7 @@ export default ({ children, narrow, centered }) => {
       <div
         className={classnames(
           centered && containerStyles.centered,
-          narrow ? containerStyles.narrow : containerStyles.full,
+          narrow || centered ? containerStyles.narrow : containerStyles.full,
         )}
       >
         {children}

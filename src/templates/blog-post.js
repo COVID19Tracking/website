@@ -22,7 +22,7 @@ export default ({ data, path }) => {
       returnLink="/blog"
       returnLinkTitle="All posts"
       path={path}
-      narrow
+      centered
     >
       <Categories categories={blogPost.categories} />
       <Lede
