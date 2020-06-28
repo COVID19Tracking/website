@@ -1,3 +1,5 @@
+import stringifyList from "./src/utilities/list-formatter";
+
 require(`@babel/register`)({
   presets: ['@babel/preset-env', '@babel/preset-react'],
   plugins: ['@babel/plugin-transform-runtime'],
@@ -254,12 +256,14 @@ const gatsbyConfig = {
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) => {
               return allContentfulBlogPost.nodes.map(node => {
+                const authors = stringifyList(node.authors.map(a => a.name))
                 return Object.assign({}, {
                   title: node.title,
                   description: node.lede.lede,
                   date: node.publishDate,
                   url: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
                   guid: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
+                  author: authors
                 })
               })
             },

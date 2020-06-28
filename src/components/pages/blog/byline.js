@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import bylineStyles from './byline.module.scss'
-import AuthorSpacer from '~components/utils/list-spacer'
+import listSpacer from '~utilities/list-formatter'
 
 const getAuthorLink = author => {
   if (author.link) {
@@ -42,7 +42,7 @@ const AuthorsText = ({ authors }) => (
     {authors.map((author, index) => (
       <Fragment key={`author-${author.name}`}>
         <Author author={author} />
-        <AuthorSpacer index={index} length={authors.length} />
+        {listSpacer({ index, length: authors.length })}
       </Fragment>
     ))}
   </>
