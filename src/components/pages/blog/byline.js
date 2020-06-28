@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import bylineStyles from './byline.module.scss'
-import listSpacer from '~utilities/list-formatter'
+import { listSpacer } from '~utilities/list-formatter'
 
 const getAuthorLink = author => {
   if (author.link) {
