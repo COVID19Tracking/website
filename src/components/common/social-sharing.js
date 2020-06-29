@@ -1,6 +1,4 @@
-/* eslint-disable no-param-reassign */
-
-import React from 'react'
+import React, { useState } from 'react'
 import copy from 'copy-to-clipboard'
 
 import facebookIcon from '~images/social-shares/facebook.svg'
@@ -9,11 +7,9 @@ import linkIcon from '~images/social-shares/link.svg'
 
 import socialSharingStyles from './social-sharing.module.scss'
 
-export default ({ shares, url, text, isCopied = false }) => {
-  const copyUrl = () => {
-    isCopied = true
-    copy(url)
-  }
+export default ({ shares, url, text }) => {
+  const [isCopied, setIsCopied] = useState(false)
+
   const types = {
     facebook: {
       icon: facebookIcon,
@@ -29,17 +25,20 @@ export default ({ shares, url, text, isCopied = false }) => {
       icon: linkIcon,
       alt: 'Copy link',
       url: '#',
-      onClick: copyUrl,
+      onClick: event => {
+        event.preventDefault()
+        copy(url)
+        setIsCopied(true)
+        setTimeout(() => {
+          setIsCopied(false)
+        }, 4000)
+      },
     },
   }
   return (
     <div className={socialSharingStyles.wrapper}>
       {isCopied && (
-        <span
-          className={socialSharingStyles.linkCopied}
-          aria-live="polite"
-          aria-hidden="true"
-        >
+        <span className={socialSharingStyles.linkCopied} aria-live="polite">
           Link copied!
         </span>
       )}
