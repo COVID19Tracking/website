@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col } from '~components/common/grid'
-import { Form, Input } from '~components/common/form'
+import { Form, Input, InputDefinedLength } from '~components/common/form'
 import formStyle from './form.module.scss'
 
 export default () => (
@@ -41,7 +41,7 @@ export default () => (
         />
       </Col>
       <Col width={[4, 6, 6]}>
-        <Input
+        <InputDefinedLength
           label="Zip code"
           detailText="To receive updates specific to your location, please enter a zip code."
           type="text"

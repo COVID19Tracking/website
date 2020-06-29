@@ -21,6 +21,13 @@
     margin-bottom: spacer(16) !important;
   }
 
+  .input-defined-length { 
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-gap: spacer(16);
+      align-items: end;
+  }
+
   textarea {
     height: 150px;
   }

@@ -1,5 +1,4 @@
 import React from 'react'
-// import classnames from 'classnames'
 import formStyles from './form.module.scss'
 import DetailText from '~components/common/detail-text'
 
@@ -56,6 +55,36 @@ const Textarea = ({
     />
     <FieldDetailText detailText={detailText} />
   </>
+)
+
+const InputDefinedLength = ({
+  label,
+  type,
+  id,
+  name,
+  isRequired,
+  detailText,
+  onChange,
+  maxLength,
+  className,
+}) => (
+  <div className={formStyles.inputDefinedLength}>
+    <div>
+      <FormLabel htmlFor={id} isRequired={isRequired}>
+        {label}
+      </FormLabel>
+      <input
+        name={name}
+        id={id}
+        type={type}
+        aria-required={isRequired}
+        onChange={onChange}
+        maxLength={maxLength}
+        className={className}
+      />
+    </div>
+    <FieldDetailText detailText={detailText} />
+  </div>
 )
 
 const Input = ({
@@ -149,4 +178,4 @@ const List = ({ type, name, options, label, isRequired, detailText }) => (
   </>
 )
 
-export { Form, FormLabel, Textarea, Select, Input, List }
+export { Form, FormLabel, Textarea, Select, Input, List, InputDefinedLength }
