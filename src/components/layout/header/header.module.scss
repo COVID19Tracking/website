@@ -98,6 +98,10 @@
 
 .site-header {
   margin-bottom: 3rem; // ignore-style-rule
+  @media (min-width: $viewport-md) {
+    margin-bottom: spacer(64); // 4rem
+  }
+
   &.no-margin {
     margin-bottom: 0;
   }
