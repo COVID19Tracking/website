@@ -1,0 +1,11 @@
+.eight-col-wrapper {
+  @include row;
+  @include col(4 6 8);
+  margin: 0 auto;
+}
+
+.full-width {
+  margin-left: calc(50% - 49vw); // ignore-style-rule
+  margin-right: calc(50% - 49vw); // ignore-style-rule
+  width: 98vw;
+}
