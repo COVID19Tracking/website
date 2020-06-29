@@ -59,6 +59,7 @@ Array [
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   role="combobox"
+                  tabIndex="-1"
                   value=""
                 />
                 <label
@@ -103,9 +104,9 @@ Array [
                   </a>
                   <button
                     aria-controls="menu--1"
-                    aria-expanded="false"
-                    aria-haspopup="true"
+                    aria-haspopup={true}
                     className="caret"
+                    data-reach-menu-button=""
                     id="menu-button--menu"
                     onKeyDown={[Function]}
                     onMouseDown={[Function]}
@@ -143,7 +144,6 @@ Array [
                     data-reach-menu-list=""
                     id="menu--1"
                     onKeyDown={[Function]}
-                    role={false}
                     tabIndex={-1}
                   >
                     <div
@@ -303,9 +303,9 @@ Array [
                     </a>
                     <button
                       aria-controls="menu--3"
-                      aria-expanded="false"
-                      aria-haspopup="true"
+                      aria-haspopup={true}
                       className="caret"
+                      data-reach-menu-button=""
                       id="menu-button--menu"
                       onKeyDown={[Function]}
                       onMouseDown={[Function]}
@@ -343,7 +343,6 @@ Array [
                       data-reach-menu-list=""
                       id="menu--3"
                       onKeyDown={[Function]}
-                      role={false}
                       tabIndex={-1}
                     >
                       <div
@@ -441,6 +440,7 @@ Array [
                     onFocus={[Function]}
                     onKeyDown={[Function]}
                     role="combobox"
+                    tabIndex="-1"
                     value=""
                   />
                   <label
@@ -647,7 +647,8 @@ Array [
           Back to top
         </span>
         <img
-          alt="Back to top"
+          alt=""
+          aria-hidden={true}
           src="test-file-stub"
         />
       </a>
@@ -715,6 +716,7 @@ Array [
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   role="combobox"
+                  tabIndex="-1"
                   value=""
                 />
                 <label
@@ -759,9 +761,9 @@ Array [
                   </a>
                   <button
                     aria-controls="menu--9"
-                    aria-expanded="false"
-                    aria-haspopup="true"
+                    aria-haspopup={true}
                     className="caret"
+                    data-reach-menu-button=""
                     id="menu-button--menu--9"
                     onKeyDown={[Function]}
                     onMouseDown={[Function]}
@@ -799,7 +801,6 @@ Array [
                     data-reach-menu-list=""
                     id="menu--9"
                     onKeyDown={[Function]}
-                    role={false}
                     tabIndex={-1}
                   >
                     <div
@@ -959,9 +960,9 @@ Array [
                     </a>
                     <button
                       aria-controls="menu--11"
-                      aria-expanded="false"
-                      aria-haspopup="true"
+                      aria-haspopup={true}
                       className="caret"
+                      data-reach-menu-button=""
                       id="menu-button--menu--11"
                       onKeyDown={[Function]}
                       onMouseDown={[Function]}
@@ -999,7 +1000,6 @@ Array [
                       data-reach-menu-list=""
                       id="menu--11"
                       onKeyDown={[Function]}
-                      role={false}
                       tabIndex={-1}
                     >
                       <div
@@ -1097,6 +1097,7 @@ Array [
                     onFocus={[Function]}
                     onKeyDown={[Function]}
                     role="combobox"
+                    tabIndex="-1"
                     value=""
                   />
                   <label
@@ -1303,7 +1304,8 @@ Array [
           Back to top
         </span>
         <img
-          alt="Back to top"
+          alt=""
+          aria-hidden={true}
           src="test-file-stub"
         />
       </a>

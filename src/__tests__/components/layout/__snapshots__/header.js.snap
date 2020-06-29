@@ -51,6 +51,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 onFocus={[Function]}
                 onKeyDown={[Function]}
                 role="combobox"
+                tabIndex="-1"
                 value=""
               />
               <label
@@ -95,9 +96,9 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 </a>
                 <button
                   aria-controls="menu--1"
-                  aria-expanded="false"
-                  aria-haspopup="true"
+                  aria-haspopup={true}
                   className="caret"
+                  data-reach-menu-button=""
                   id="menu-button--menu"
                   onKeyDown={[Function]}
                   onMouseDown={[Function]}
@@ -135,7 +136,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                   data-reach-menu-list=""
                   id="menu--1"
                   onKeyDown={[Function]}
-                  role={false}
                   tabIndex={-1}
                 >
                   <div
@@ -295,9 +295,9 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                   </a>
                   <button
                     aria-controls="menu--3"
-                    aria-expanded="false"
-                    aria-haspopup="true"
+                    aria-haspopup={true}
                     className="caret"
+                    data-reach-menu-button=""
                     id="menu-button--menu"
                     onKeyDown={[Function]}
                     onMouseDown={[Function]}
@@ -335,7 +335,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                     data-reach-menu-list=""
                     id="menu--3"
                     onKeyDown={[Function]}
-                    role={false}
                     tabIndex={-1}
                   >
                     <div
@@ -433,6 +432,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   role="combobox"
+                  tabIndex="-1"
                   value=""
                 />
                 <label
@@ -554,6 +554,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                 onFocus={[Function]}
                 onKeyDown={[Function]}
                 role="combobox"
+                tabIndex="-1"
                 value=""
               />
               <label
@@ -598,9 +599,9 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                 </a>
                 <button
                   aria-controls="menu--9"
-                  aria-expanded="false"
-                  aria-haspopup="true"
+                  aria-haspopup={true}
                   className="caret"
+                  data-reach-menu-button=""
                   id="menu-button--menu--9"
                   onKeyDown={[Function]}
                   onMouseDown={[Function]}
@@ -638,7 +639,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                   data-reach-menu-list=""
                   id="menu--9"
                   onKeyDown={[Function]}
-                  role={false}
                   tabIndex={-1}
                 >
                   <div
@@ -798,9 +798,9 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                   </a>
                   <button
                     aria-controls="menu--11"
-                    aria-expanded="false"
-                    aria-haspopup="true"
+                    aria-haspopup={true}
                     className="caret"
+                    data-reach-menu-button=""
                     id="menu-button--menu--11"
                     onKeyDown={[Function]}
                     onMouseDown={[Function]}
@@ -838,7 +838,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                     data-reach-menu-list=""
                     id="menu--11"
                     onKeyDown={[Function]}
-                    role={false}
                     tabIndex={-1}
                   >
                     <div
@@ -936,6 +935,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   role="combobox"
+                  tabIndex="-1"
                   value=""
                 />
                 <label
@@ -1057,6 +1057,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 onFocus={[Function]}
                 onKeyDown={[Function]}
                 role="combobox"
+                tabIndex="-1"
                 value=""
               />
               <label
@@ -1101,9 +1102,9 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 </a>
                 <button
                   aria-controls="menu--18"
-                  aria-expanded="false"
-                  aria-haspopup="true"
+                  aria-haspopup={true}
                   className="caret"
+                  data-reach-menu-button=""
                   id="menu-button--menu--18"
                   onKeyDown={[Function]}
                   onMouseDown={[Function]}
@@ -1141,7 +1142,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                   data-reach-menu-list=""
                   id="menu--18"
                   onKeyDown={[Function]}
-                  role={false}
                   tabIndex={-1}
                 >
                   <div
@@ -1301,9 +1301,9 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                   </a>
                   <button
                     aria-controls="menu--20"
-                    aria-expanded="false"
-                    aria-haspopup="true"
+                    aria-haspopup={true}
                     className="caret"
+                    data-reach-menu-button=""
                     id="menu-button--menu--20"
                     onKeyDown={[Function]}
                     onMouseDown={[Function]}
@@ -1341,7 +1341,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                     data-reach-menu-list=""
                     id="menu--20"
                     onKeyDown={[Function]}
-                    role={false}
                     tabIndex={-1}
                   >
                     <div
@@ -1439,6 +1438,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   role="combobox"
+                  tabIndex="-1"
                   value=""
                 />
                 <label
@@ -1564,6 +1564,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                 onFocus={[Function]}
                 onKeyDown={[Function]}
                 role="combobox"
+                tabIndex="-1"
                 value=""
               />
               <label
@@ -1608,9 +1609,9 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                 </a>
                 <button
                   aria-controls="menu--25"
-                  aria-expanded="false"
-                  aria-haspopup="true"
+                  aria-haspopup={true}
                   className="caret"
+                  data-reach-menu-button=""
                   id="menu-button--menu--25"
                   onKeyDown={[Function]}
                   onMouseDown={[Function]}
@@ -1648,7 +1649,6 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                   data-reach-menu-list=""
                   id="menu--25"
                   onKeyDown={[Function]}
-                  role={false}
                   tabIndex={-1}
                 >
                   <div
@@ -1808,9 +1808,9 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                   </a>
                   <button
                     aria-controls="menu--27"
-                    aria-expanded="false"
-                    aria-haspopup="true"
+                    aria-haspopup={true}
                     className="caret"
+                    data-reach-menu-button=""
                     id="menu-button--menu--27"
                     onKeyDown={[Function]}
                     onMouseDown={[Function]}
@@ -1848,7 +1848,6 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                     data-reach-menu-list=""
                     id="menu--27"
                     onKeyDown={[Function]}
-                    role={false}
                     tabIndex={-1}
                   >
                     <div
@@ -1946,6 +1945,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   role="combobox"
+                  tabIndex="-1"
                   value=""
                 />
                 <label

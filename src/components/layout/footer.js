@@ -64,7 +64,7 @@ const Footer = () => (
       </span>
       <a href="#reach-skip-nav" className={footerStyles.backToTop}>
         <span>Back to top</span>
-        <img src={upArrow} alt="Back to top" />
+        <img src={upArrow} alt="" aria-hidden />
       </a>
     </div>
   </footer>

@@ -23,3 +23,8 @@
 .narrow {
   @include col(4 6 8);
 }
+
+.centered {
+  @include col(4 6 8);
+  margin: 0 auto;
+}

@@ -11,7 +11,7 @@ export default ({ authors }) => {
     <div className={AuthorFooterStyles.container}>
       {footerAuthors.map(author => (
         <div
-          className={AuthorFooterStyles.authorFooter}
+          className={AuthorFooterStyles.author}
           key={`author-${author.name}`}
         >
           {author.headshot && (
