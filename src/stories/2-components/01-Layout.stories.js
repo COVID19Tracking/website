@@ -50,7 +50,7 @@ containerCentered.story = {
   parameters: {
     info: {
       text:
-        'A contered container, the default container for long-form content..',
+        'A centered container, uses the same width as the `narrow` container, but centered on the page in large breakpoints. This should be used for pages of long content.',
     },
   },
 }
