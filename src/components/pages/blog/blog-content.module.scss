@@ -1,4 +1,21 @@
 .content {
+  @include row();
+  @include col(4 6 10);
+  margin: 0 auto;
+
+  & > *:not(.image) { // non-image items become 8 cols wide
+    @media (min-width: $viewport-lg) {
+      flex-basis: 80%;
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .image {
+    width: 100%;
+  }
+
   blockquote {
     color: $color-plum-600;
     border-left: 2px solid $color-plum-600;
@@ -22,8 +39,10 @@
     }
   }
 }
+
 hr {
   height: 1px;
-  background-color: $color-slate-300;
+  background-color: $color-slate-200;
   border: none;
+  width: 67%;
 }
