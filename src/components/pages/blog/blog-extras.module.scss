@@ -5,7 +5,7 @@
 }
 
 .full-width {
-  margin-left: calc(50% - 49vw);
-  margin-right: calc(50% - 49vw);
+  margin-left: calc(50% - 49vw); // ignore-style-rule
+  margin-right: calc(50% - 49vw); // ignore-style-rule
   width: 98vw;
 }
