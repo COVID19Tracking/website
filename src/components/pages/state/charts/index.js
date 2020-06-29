@@ -118,7 +118,9 @@ export default ({ name = 'National', history, usHistory }) => {
     prepend,
   ])
   const deathField = useMemo(() => `${prepend}deathIncrease`, [prepend])
-  const hasHospitalizationData = history[0].hospitalized !== null
+  const hasHospitalizationData =
+    history.filter(item => item.hospitalizedCurrently !== null).length >=
+    history.length * 0.3
 
   const props = {
     height: 300,

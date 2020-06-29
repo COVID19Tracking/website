@@ -1,10 +1,10 @@
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types' // ES6
 
 import { extent, max } from 'd3-array'
 import { scaleBand, scaleLinear, scaleTime } from 'd3-scale'
 import { line, curveCardinal } from 'd3-shape'
 import { timeMonth } from 'd3-time'
-import React from 'react'
 
 import { formatDate, formatNumber } from '~utilities/visualization'
 import chartStyles from './charts.module.scss'
@@ -95,7 +95,7 @@ const BarChart = ({
         <g transform={`translate(0, ${height - marginBottom})`}>
           {xScaleTime.ticks(xTickAmount).map(d => {
             return (
-              <>
+              <Fragment key={`x-${d}`}>
                 <text
                   className={chartStyles.label}
                   key={d}
@@ -110,7 +110,7 @@ const BarChart = ({
                   x2={xScaleTime(d)}
                   y2="5"
                 />
-              </>
+              </Fragment>
             )
           })}
         </g>
