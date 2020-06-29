@@ -1,3 +1,11 @@
 .featured-image-rule {
   margin: 0 0 spacer(32);
 }
+
+.container {
+  @include margin(8, top);
+}
+
+.image div {
+  color: $color-plum-300;
+}
