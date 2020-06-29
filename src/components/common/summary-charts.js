@@ -14,7 +14,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import { AlertInfobox } from '~components/common/infobox'
 import colors from '~scss/colors.module.scss'
 
-import styles from './charts.module.scss'
+import styles from './summary-charts.module.scss'
 
 // TODO: optimize if this slows down build (use rolling window)
 // Also the US dailyAverage is calculated once per state page right now.
