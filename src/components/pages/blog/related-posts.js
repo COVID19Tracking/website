@@ -12,9 +12,13 @@ export default ({ blogPost }) => {
     // 1. Use the explicitly declared related posts
     footerPosts = relatedBlogPosts
     relatedTitle = 'Related posts'
-  } else if (categories) {
+  } else if (
+    categories &&
+    categories[0].blog_post.filter(post => post.slug !== blogPost.slug)
+      .length >= 3
+  ) {
     // 2. (if no explicit related posts) Use recent posts from the
-    //    post's first category
+    //    post's first category if there are at least 3 others
     footerPosts = categories[0].blog_post.filter(post => post.publishDate)
     relatedTitle = `More “${categories[0].name}” posts`
   } else {
