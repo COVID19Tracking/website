@@ -3,7 +3,10 @@
 }
 
 .container {
-  @include margin(8, top);
+  @include margin(24, top);
+  @media (min-width: $viewport-md) {
+    @include margin(8, top);
+  }
 }
 
 .image div {
