@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 import React from 'react'
 import copy from 'copy-to-clipboard'
 
@@ -7,8 +9,11 @@ import linkIcon from '~images/social-shares/link.svg'
 
 import socialSharingStyles from './social-sharing.module.scss'
 
-export default ({ shares, url, text }) => {
-  const copyUrl = () => copy(url)
+export default ({ shares, url, text, isCopied = false }) => {
+  const copyUrl = () => {
+    isCopied = true
+    copy(url)
+  }
   const types = {
     facebook: {
       icon: facebookIcon,
@@ -26,10 +31,18 @@ export default ({ shares, url, text }) => {
       url: '#',
       onClick: copyUrl,
     },
-    // todo include copy success message/icon change
   }
   return (
     <div className={socialSharingStyles.wrapper}>
+      {isCopied && (
+        <span
+          className={socialSharingStyles.linkCopied}
+          aria-live="polite"
+          aria-hidden="true"
+        >
+          Link copied!
+        </span>
+      )}
       {shares.map(share => (
         <a
           href={types[share].url}

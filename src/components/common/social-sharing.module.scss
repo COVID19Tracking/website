@@ -1,6 +1,5 @@
 .wrapper {
   display: flex;
-  margin-top: spacer(32);
 }
 
 .social-button {
@@ -28,4 +27,10 @@
   &:focus {
     @include link-focus-dark-bg;
   }
+}
+
+.link-copied {
+  color: white;
+  position: relative;
+  line-height: 2rem;
 }
