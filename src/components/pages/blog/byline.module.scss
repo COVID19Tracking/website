@@ -16,11 +16,6 @@
       border-radius: 50%;
       margin-right: spacer(8);
     }
-
-    @media (max-width: $viewport-md) {
-      display: none;
-    }
-
   }
   .byline-text {
     span {
