@@ -5,7 +5,7 @@ import smartypants from 'smartypants'
 import Layout from '~components/layout'
 import Container from '~components/common/container'
 import MarkdownContent from '~components/common/markdown-content'
-import StateCharts from '~components/pages/state/charts'
+import SummaryCharts from '~components/common/summary-charts'
 import StateGrade from '~components/pages/state/state-grade'
 import StateHistory from '~components/pages/state/state-history'
 import StateLinks from '~components/pages/state/state-links'
@@ -37,7 +37,7 @@ const StatePage = ({ pageContext, data, path }) => {
       )}
       <SyncInfobox />
       <SummaryTable data={covidState} lastUpdated={covidState.dateModified} />
-      <StateCharts
+      <SummaryCharts
         name={state.name}
         history={allCovidStateDaily.nodes}
         usHistory={allCovidUsDaily.nodes}

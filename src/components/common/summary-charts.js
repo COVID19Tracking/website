@@ -14,7 +14,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import { AlertInfobox } from '~components/common/infobox'
 import colors from '~scss/colors.module.scss'
 
-import styles from './charts.module.scss'
+import styles from './summary-charts.module.scss'
 
 // TODO: optimize if this slows down build (use rolling window)
 // Also the US dailyAverage is calculated once per state page right now.
@@ -135,8 +135,8 @@ export default ({ name = 'National', history, usHistory }) => {
   const deathField = useMemo(() => `${prepend}deathIncrease`, [prepend])
 
   const props = {
-    height: 300,
-    width: 300,
+    height: 280, // these control the dimensions used to render the svg but not the final size
+    width: 280, // that is determined by the containing element
     marginBottom: 40,
     marginLeft: 60,
     marginRight: 30,

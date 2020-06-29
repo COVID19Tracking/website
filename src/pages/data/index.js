@@ -11,8 +11,7 @@ import StatesNav from '~components/common/state-nav'
 import SummaryTable from '~components/common/summary-table'
 import { SyncInfobox } from '~components/common/infobox'
 
-// TODO: We will want to move this component if we really want to keep this.
-import StateCharts from '~components/pages/state/charts'
+import SummaryCharts from '~components/common/summary-charts'
 
 export default ({ data }) => {
   const stateNavList = []
@@ -33,7 +32,7 @@ export default ({ data }) => {
       />
       <SyncInfobox />
       <SummaryTable data={data.covidUs} showOutcomes={false} showFootnote />
-      <StateCharts history={data.allCovidUsDaily.nodes} />
+      <SummaryCharts history={data.allCovidUsDaily.nodes} />
 
       <Container narrow>
         <DetailText>

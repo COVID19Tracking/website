@@ -36,17 +36,17 @@ export default function UsAreaChartContainer() {
       className={`${dashboardStyles.chartsContainerInner} ${dashboardStyles.chartsContainerInnerLeft}`}
     >
       <h3 className={dashboardStyles.chartTitle}>Daily deaths in the US</h3>
-      <div>
+      <div style={{ width: 400, height: 400 }}>
         <BarChart
           data={data}
           fill={deathsBarColor}
-          height={400}
           marginBottom={40}
           marginLeft={80}
           marginRight={10}
           marginTop={10}
           showTicks={6}
           width={400}
+          height={400}
         />
       </div>
     </div>
