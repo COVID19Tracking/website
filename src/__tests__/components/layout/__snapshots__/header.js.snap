@@ -482,7 +482,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
       className="container container"
     >
       <div
-        className="full"
+        className="centered full"
       >
         <div
           className="titleSubnavContainer "
@@ -985,7 +985,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
       className="container container"
     >
       <div
-        className="full"
+        className="centered full"
       >
         <div
           className="titleSubnavContainer "
@@ -1488,7 +1488,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
       className="container container"
     >
       <div
-        className="full"
+        className="centered full"
       >
         <div
           className="titleSubnavContainer "
@@ -1995,7 +1995,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
       className="container container"
     >
       <div
-        className="full"
+        className="centered full"
       >
         <div
           className="titleSubnavContainer "

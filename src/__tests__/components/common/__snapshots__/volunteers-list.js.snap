@@ -25,10 +25,18 @@ Array [
       </a>
     </li>
   </ul>,
-  <p
-    className="note"
+  <div
+    className="container container"
   >
-    Are you a volunteer who wants to be added to this list? Edit your profile in Slack and scroll down to "Volunteer web page."
-  </p>,
+    <div
+      className="centered full"
+    >
+      <p
+        className="note"
+      >
+        Are you a volunteer who wants to be added to this list? Edit your profile in Slack and scroll down to "Volunteer web page."
+      </p>
+    </div>
+  </div>,
 ]
 `;

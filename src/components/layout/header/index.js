@@ -218,7 +218,7 @@ const Header = withSearch(
                 <div />
               </div>
             </div>
-            <Container>
+            <Container centered>
               {title && !hero && (
                 <div
                   className={`${headerStyle.titleSubnavContainer} ${
