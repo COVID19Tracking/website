@@ -61,7 +61,7 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
         />
       </a>
       <a
-        className="socialButton hideOnMobile"
+        className="socialButton"
         href="#"
         onClick={[Function]}
       >
