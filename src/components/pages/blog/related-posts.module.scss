@@ -7,11 +7,12 @@
     grid-template-columns: 100%;
   }
 
-  margin-bottom: spacer(120);
+  margin-bottom: spacer(64);
   margin-top: spacer(64);
 
   h2 {
     margin: 0;
+    margin-bottom: spacer(16);
     @include type-size(500);
   }
   h3 {
@@ -23,8 +24,7 @@
 }
 
 .post {
-  margin-bottom: spacer(32);
-  margin-top: spacer(32);
+  margin-top: spacer(16);
   grid-column-start: span 2;
   @media (max-width: $viewport-md) {
     grid-column-start: span 1;
