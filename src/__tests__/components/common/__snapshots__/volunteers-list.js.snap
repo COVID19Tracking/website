@@ -29,7 +29,7 @@ Array [
     className="container container"
   >
     <div
-      className="centered full"
+      className="centered narrow"
     >
       <p
         className="note"
