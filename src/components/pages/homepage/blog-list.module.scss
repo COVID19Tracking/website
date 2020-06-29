@@ -1,6 +1,6 @@
 .wrapper {
   border-top: 1px solid $color-slate-200;
-  // padding-top: 1.75rem;
+  border-bottom: 1px solid $color-slate-200;
   @include padding(24, top);
 }
 
