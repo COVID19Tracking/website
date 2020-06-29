@@ -43,9 +43,8 @@ export default () => {
         <p>
           We&#8217;re tracking racial and ethnic data from every state that
           reports it—and pushing those that don&#8217;t to start. Together with
-          the Center for Antiracist Research, we&#8217;re analyzing
-          this data to uncover the true impact of the outbreak on vulnerable
-          communities.
+          the Center for Antiracist Research, we&#8217;re analyzing this data to
+          uncover the true impact of the outbreak on vulnerable communities.
         </p>
         <CtaLink to="/race" centered>
           See the racial data tracker
