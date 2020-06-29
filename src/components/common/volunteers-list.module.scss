@@ -14,6 +14,10 @@
   @media (max-width: $viewport-md) {
     column-count: 1;
   }
+  li {
+    @include padding(16, right);
+    @include margin(16, bottom);
+  }
 }
 
 .note {
