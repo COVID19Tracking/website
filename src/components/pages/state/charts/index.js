@@ -49,6 +49,15 @@ const getDataForField = (data, field) => {
   }))
 }
 
+const ChartAlert = ({ name, field }) => (
+  <div className={styles.alertInfoboxContainer}>
+    <AlertInfobox
+      header={`${name} does not currently report ${field} data, or the data is empty.`}
+      fullSize
+    />
+  </div>
+)
+
 export default ({ name = 'National', history, usHistory }) => {
   const siteData = useStaticQuery(graphql`
     {
@@ -76,6 +85,10 @@ export default ({ name = 'National', history, usHistory }) => {
   const { contentfulSnippet } = siteData
 
   const [usePerCap, setUsePerCap] = useState(false)
+
+  const hasData = field =>
+    history.filter(item => item[field] !== null).length >=
+      history.length * 0.3 && history.filter(item => item[field] > 0).length > 0
 
   // This enables us to use the getDataForField & dailyAverage functions above
   // without enable triple nested properties
@@ -118,9 +131,6 @@ export default ({ name = 'National', history, usHistory }) => {
     prepend,
   ])
   const deathField = useMemo(() => `${prepend}deathIncrease`, [prepend])
-  const hasHospitalizationData =
-    history.filter(item => item.hospitalizedCurrently !== null).length >=
-    history.length * 0.3
 
   const props = {
     height: 300,
@@ -166,19 +176,23 @@ export default ({ name = 'National', history, usHistory }) => {
         </Col>
         <Col width={colWidth}>
           <h5>New cases</h5>
-          <BarChart
-            data={getDataForField(data, positiveField)}
-            lineData={dailyAverage(data, positiveField)}
-            refLineData={dailyAverage(usData, positiveField)}
-            fill={colors.colorStrawberry100}
-            lineColor={colors.colorStrawberry200}
-            {...props}
-          />
+          {hasData(positiveField) ? (
+            <BarChart
+              data={getDataForField(data, positiveField)}
+              lineData={dailyAverage(data, positiveField)}
+              refLineData={dailyAverage(usData, positiveField)}
+              fill={colors.colorStrawberry100}
+              lineColor={colors.colorStrawberry200}
+              {...props}
+            />
+          ) : (
+            <ChartAlert name={name} field="new case" />
+          )}
         </Col>
         <Col width={colWidth}>
           <h5>Current hospitalizations</h5>
 
-          {hasHospitalizationData ? (
+          {hasData(hospitalizedField) ? (
             <BarChart
               data={getDataForField(data, hospitalizedField)}
               lineData={dailyAverage(data, hospitalizedField)}
@@ -188,24 +202,23 @@ export default ({ name = 'National', history, usHistory }) => {
               {...props}
             />
           ) : (
-            <div className={styles.alertInfoboxContainer}>
-              <AlertInfobox
-                header={`${name} does not currently report hospitalization data.`}
-                fullSize
-              />
-            </div>
+            <ChartAlert name={name} field="hospitalization" />
           )}
         </Col>
         <Col width={colWidth}>
           <h5>New deaths</h5>
-          <BarChart
-            data={getDataForField(data, deathField)}
-            lineData={dailyAverage(data, deathField)}
-            refLineData={dailyAverage(usData, deathField)}
-            fill={colors.colorSlate300}
-            lineColor={colors.colorSlate700}
-            {...props}
-          />
+          {hasData(deathField) ? (
+            <BarChart
+              data={getDataForField(data, deathField)}
+              lineData={dailyAverage(data, deathField)}
+              refLineData={dailyAverage(usData, deathField)}
+              fill={colors.colorSlate300}
+              lineColor={colors.colorSlate700}
+              {...props}
+            />
+          ) : (
+            <ChartAlert name={name} field="death" />
+          )}
         </Col>
       </Row>
       <Disclosure>
