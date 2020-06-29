@@ -114,8 +114,18 @@ const BarChart = ({
             )
           })}
         </g>
-        {/* bars (data) */}
-        <g transform={`translate(0 ${marginTop})`}>
+        <mask id="dataMask">
+          <rect
+            x="0"
+            y="0"
+            width={width - marginRight}
+            height={height - totalYMargin}
+            fill="white"
+          />
+        </mask>
+        {/* data */}
+        <g transform={`translate(0 ${marginTop})`} mask="url(#dataMask)">
+          {/* bars (data) */}
           {data.map(d => (
             <rect
               key={d.date + d.value}
@@ -127,21 +137,17 @@ const BarChart = ({
               fill={fill}
             />
           ))}
-        </g>
-        {/* line */}
-        {lineData && (
-          <g transform={`translate(0 ${marginTop})`}>
+          {/* line */}
+          {lineData && (
             <path
               d={lineFn(lineData)}
               stroke={lineColor}
               strokeWidth="3"
               fill="none"
             />
-          </g>
-        )}
-        {/* reference line */}
-        {refLineData && (
-          <g transform={`translate(0 ${marginTop})`}>
+          )}
+          {/* reference line */}
+          {refLineData && (
             <path
               d={lineFn(refLineData)}
               stroke="black"
@@ -149,8 +155,8 @@ const BarChart = ({
               strokeDasharray="4"
               fill="none"
             />
-          </g>
-        )}
+          )}
+        </g>
       </svg>
     </div>
   )
