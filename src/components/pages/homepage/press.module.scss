@@ -9,3 +9,7 @@
     @include type-size(400);
   }
 }
+
+.section {
+  @include margin(80, top);
+}

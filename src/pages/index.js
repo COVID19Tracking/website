@@ -30,9 +30,11 @@ export default () => (
       <Container>
         <LargeDataset />
         <Datasets />
-        <Press />
       </Container>
       <BlogList />
+      <Container>
+        <Press />
+      </Container>
     </main>
     <Footer />
   </>
