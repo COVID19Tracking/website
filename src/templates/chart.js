@@ -39,7 +39,7 @@ const ChartPage = ({ data, path }) => {
           <TableauChart
             id={chart.contentful_id}
             height={chart.height}
-            embedCode={chart.tableauEmbedCode.tableauEmbedCode}
+            viewUrl={chart.tableauViewUrl}
           />
         )}
       </Container>
@@ -66,9 +66,7 @@ export const query = graphql`
         name
         slug
       }
-      tableauEmbedCode {
-        tableauEmbedCode
-      }
+      tableauViewUrl
       childContentfulChartDescriptionTextNode {
         childMarkdownRemark {
           html
