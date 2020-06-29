@@ -36,6 +36,7 @@ const ContentPage = ({ data }) => (
           <Th>Negative</Th>
           <Th>Pos + Neg</Th>
           <Th>Pending</Th>
+          <Th>Hospitalizations</Th>
           <Th>Deaths</Th>
           <Th>Total Tests</Th>
         </tr>
@@ -67,6 +68,9 @@ const ContentPage = ({ data }) => (
               <FormatNumber number={node.pending} />
             </Td>
             <Td>
+              <FormatNumber number={node.hospitalizedCumulative} />
+            </Td>
+            <Td>
               <FormatNumber number={node.death} />
             </Td>
             <Td>
@@ -95,6 +99,7 @@ export const query = graphql`
       nodes {
         totalTestResults
         totalTestResultsIncrease
+        hospitalizedCumulative
         states
         positive
         pending

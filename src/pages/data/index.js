@@ -29,7 +29,7 @@ export default ({ data }) => {
         id={data.dataPreamble.contentful_id}
       />
       <SyncInfobox />
-      <SummaryTable data={data.covidUs} showOutcomes={false} showFootnote />
+      <SummaryTable data={data.covidUs} showOutcomes showFootnote />
 
       <Container narrow>
         <DetailText>
