@@ -26,11 +26,11 @@ export default ({ shares, url, text }) => {
       alt: 'Copy link',
       url: '#',
       onClick: event => {
-        event.preventDefault()
-        copy(url)
-        setIsCopied(true)
+        event.preventDefault() // don't follow the link
+        copy(url) // copy the url to the clipboard
+        setIsCopied(true) // update state to show span
         setTimeout(() => {
-          setIsCopied(false)
+          setIsCopied(false) // revert state in 4s
         }, 4000)
       },
     },
