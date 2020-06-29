@@ -6,7 +6,7 @@ import Layout from '~components/layout'
 import VolunteerForm from '~components/pages/contact/volunteer-form'
 
 export default ({ data }) => (
-  <Layout title="Contact Us &mdash; Volunteering" narrow>
+  <Layout title="Contact Us &mdash; Volunteering" centered>
     <LongContent>
       <ContentfulContent
         content={

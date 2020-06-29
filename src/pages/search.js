@@ -46,7 +46,7 @@ export default withSearch(({ navigate, search }) => {
   let searchEvent
 
   return (
-    <Layout title="Search results" narrow>
+    <Layout title="Search results" centered>
       <form
         className={searchStyle.searchForm}
         onSubmit={event => {

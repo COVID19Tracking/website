@@ -21,7 +21,6 @@ const Layout = ({
   navigation,
   noMargin,
   hasHero,
-  narrow,
   centered,
   socialCard,
   hero,
@@ -54,9 +53,7 @@ const Layout = ({
       />
       <main id="main">
         <SkipNavContent />
-        <Container narrow={narrow} centered={centered}>
-          {children}
-        </Container>
+        <Container centered={centered}>{children}</Container>
       </main>
       <Footer />
     </>

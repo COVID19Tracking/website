@@ -6,8 +6,10 @@ import BlogTeaserList from '~components/pages/blog/blog-teaser-list'
 export default ({ data, path }) => (
   <Layout
     title={`Blog: ${data.contentfulBlogCategory.name}`}
+    returnLink="/blog"
+    returnLinkTitle="All posts"
     path={path}
-    narrow
+    centered
   >
     <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
   </Layout>

@@ -60,7 +60,7 @@ export default () => {
           { link: '/race/dashboard', title: 'Racial Data Dashboard' },
           {
             href:
-              'https://docs.google.com/spreadsheets/d/e/2PACX-1vR_xmYt4ACPDZCDJcY12kCiMiH0ODyx3E1ZvgOHB8ae1tRcjXbs_yWBOA4j4uoCEADVfC1PS2jYO68B/pub?gid=902690690&single=true&output=csv',
+              'https://docs.google.com/spreadsheets/d/e/2PACX-1vR_xmYt4ACPDZCDJcY12kCiMiH0ODyx3E1ZvgOHB8ae1tRcjXbs_yWBOA4j4uoCEADVfC1PS2jYO68B/pub?gid=43720681&single=true&output=csv',
             title: 'Complete Dataset (CSV)',
           },
         ]}
