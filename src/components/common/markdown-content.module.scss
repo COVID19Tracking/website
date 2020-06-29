@@ -1,10 +1,10 @@
 .content {
   h2 {
-    @include type-size(400);
     line-height: 1.25;
-    margin: spacer(32) 0 spacer(4);
-    @media (min-width: $viewport-lg) {
-      @include type-size(500);
+
+    @include type-size(500);
+    @media (min-width: $viewport-md) {
+      @include type-size(600);
     }
   }
 
