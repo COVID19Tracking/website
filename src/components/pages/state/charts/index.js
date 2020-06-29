@@ -86,10 +86,6 @@ export default ({ name = 'National', history, usHistory }) => {
 
   const [usePerCap, setUsePerCap] = useState(false)
 
-  const hasData = field =>
-    history.filter(item => item[field] !== null).length >=
-      history.length * 0.3 && history.filter(item => item[field] > 0).length > 0
-
   // This enables us to use the getDataForField & dailyAverage functions above
   // without enable triple nested properties
   const hoistPerCapProps = node => {
@@ -120,6 +116,12 @@ export default ({ name = 'National', history, usHistory }) => {
 
     [usHistory, usePerCap],
   )
+
+  const hasData = field =>
+    data.filter(item => item[field.replace('perCap_', '')] !== null).length >=
+      data.length * 0.3 &&
+    data.filter(item => item[field.replace('perCap_', '')] > 0).length > 0
+
   // Below enables the charts to switch between the per cap & not data
   // using the toggle state
   const prepend = useMemo(() => (usePerCap ? 'perCap_' : ''), [usePerCap])
