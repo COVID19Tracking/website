@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import LongContent from '~components/common/long-content'
 import AuthorFooter from '~components/pages/blog/author-footer'
 import Hero from '~components/pages/blog/blog-hero'
 import Layout from '~components/layout'
@@ -35,15 +34,11 @@ export default ({ data, path }) => {
       returnLinkTitle="All posts"
       path={path}
       hero={hero}
-      narrow
-      centered
     >
-      <LongContent>
-        <BlogPostContent
-          content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
-          images={blogImages}
-        />
-      </LongContent>
+      <BlogPostContent
+        content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
+        images={blogImages}
+      />
       <hr />
       <AuthorFooter authors={blogPost.authors} />
       <RelatedPosts blogPost={blogPost} />
