@@ -22,3 +22,30 @@
   height: 286px;
   width: 272px;
 }
+
+.disclosure {
+  background: none;
+  text-decoration: underline;
+  color: $color-slate-600;
+  border: 0;
+  @include type-size(200);
+  padding: 0;
+  cursor: pointer;
+  span {
+    @include margin(8, left);
+  }
+  .arrow-down {
+    display: inline-block;
+  }
+  .arrow-up {
+    display: none;
+  }
+  &[aria-expanded='true'] {
+    .arrow-down {
+      display: none;
+    }
+    .arrow-up {
+      display: inline-block;
+    }
+  }
+}

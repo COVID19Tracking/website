@@ -1,13 +1,20 @@
 import React, { useState, useMemo } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@reach/disclosure'
+import Container from '~components/common/container'
 import BarChart from '~components/charts/bar-chart'
 import { parseDate } from '~utilities/visualization'
 import { Row, Col } from '~components/common/grid'
 import Toggle from '~components/common/toggle'
+import ContentfulContent from '~components/common/contentful-content'
+import { AlertInfobox } from '~components/common/infobox'
 import colors from '~scss/colors.module.scss'
 
 import styles from './charts.module.scss'
-import { AlertInfobox } from '~components/common/infobox'
 
 // TODO: optimize if this slows down build (use rolling window)
 // Also the US dailyAverage is calculated once per state page right now.
@@ -51,12 +58,22 @@ export default ({ name = 'National', history, usHistory }) => {
           stateChartPerCapMeasure
         }
       }
+      contentfulSnippet(slug: { eq: "data-chart-disclaimer" }) {
+        contentful_id
+        childContentfulSnippetContentTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
     }
   `)
   const {
     stateChartDateRange,
     stateChartPerCapMeasure,
   } = siteData.site.siteMetadata
+
+  const { contentfulSnippet } = siteData
 
   const [usePerCap, setUsePerCap] = useState(false)
 
@@ -189,6 +206,28 @@ export default ({ name = 'National', history, usHistory }) => {
           />
         </Col>
       </Row>
+      <Disclosure>
+        <DisclosureButton className={styles.disclosure}>
+          Chart information and data{' '}
+          <span className={styles.arrowDown} aria-hidden>
+            ↓
+          </span>
+          <span className={styles.arrowUp} aria-hidden>
+            ↑
+          </span>
+        </DisclosureButton>
+        <DisclosurePanel>
+          <Container narrow>
+            <ContentfulContent
+              content={
+                contentfulSnippet.childContentfulSnippetContentTextNode
+                  .childMarkdownRemark.html
+              }
+              id={contentfulSnippet.contentful_id}
+            />
+          </Container>
+        </DisclosurePanel>
+      </Disclosure>
     </>
   )
 }
