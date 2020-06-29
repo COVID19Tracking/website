@@ -133,8 +133,8 @@ export default ({ name = 'National', history, usHistory }) => {
   const deathField = useMemo(() => `${prepend}deathIncrease`, [prepend])
 
   const props = {
-    height: 300,
-    width: 300,
+    height: 280, // these control the dimensions used to render the svg but not the final size
+    width: 280, // that is determined by the containing element
     marginBottom: 40,
     marginLeft: 60,
     marginRight: 30,

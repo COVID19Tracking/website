@@ -17,13 +17,13 @@ const BarChart = ({
   refLineData,
   fill,
   lineColor,
-  height,
   marginBottom,
   marginLeft,
   marginRight,
   marginTop,
   showTicks,
   width,
+  height,
   yMax,
   yTicks,
 }) => {
@@ -58,107 +58,105 @@ const BarChart = ({
       .y(d => yScale(d.value))
   }
   return (
-    <div style={{ width, height }}>
-      <svg
-        className={chartStyles.chart}
-        viewBox={`0 0 ${width} ${height}`}
-        aria-hidden
-      >
-        {/* y ticks */}
-        <g transform={`translate(${marginLeft} ${marginTop})`}>
-          {yScale.ticks(yTicks).map(
-            (tick, i) =>
-              i < showTicks && (
-                <g key={tick}>
-                  {/* Do not remove nested svg. See https://github.com/COVID19Tracking/website/pull/645#discussion_r411676987 */}
-                  <svg
-                    y={yScale(tick) + 6}
-                    x="-10"
-                    className={chartStyles.yTickLabel}
-                  >
-                    <text className={chartStyles.label}>
-                      {formatNumber(tick)}
-                    </text>
-                  </svg>
-                  <line
-                    className={chartStyles.gridLine}
-                    x1={0}
-                    x2={width - totalXMargin}
-                    y1={yScale(tick)}
-                    y2={yScale(tick)}
-                  />
-                </g>
-              ),
-          )}
-        </g>
-        {/* x ticks (dates) */}
-        <g transform={`translate(0, ${height - marginBottom})`}>
-          {xScaleTime.ticks(xTickAmount).map(d => {
-            return (
-              <Fragment key={`x-${d}`}>
-                <text
-                  className={chartStyles.label}
-                  key={d}
-                  x={xScaleTime(d)}
-                  y="20"
-                >{`${formatDate(d)}`}</text>
+    <svg
+      className={chartStyles.chart}
+      viewBox={`0 0 ${width} ${height}`}
+      aria-hidden
+    >
+      {/* y ticks */}
+      <g transform={`translate(${marginLeft} ${marginTop})`}>
+        {yScale.ticks(yTicks).map(
+          (tick, i) =>
+            i < showTicks && (
+              <g key={tick}>
+                {/* Do not remove nested svg. See https://github.com/COVID19Tracking/website/pull/645#discussion_r411676987 */}
+                <svg
+                  y={yScale(tick) + 6}
+                  x="-10"
+                  className={chartStyles.yTickLabel}
+                >
+                  <text className={chartStyles.label}>
+                    {formatNumber(tick)}
+                  </text>
+                </svg>
                 <line
-                  className={chartStyles.label}
-                  stroke={colors.colorSlate500}
-                  x1={xScaleTime(d)}
-                  y1="0"
-                  x2={xScaleTime(d)}
-                  y2="5"
+                  className={chartStyles.gridLine}
+                  x1={0}
+                  x2={width - totalXMargin}
+                  y1={yScale(tick)}
+                  y2={yScale(tick)}
                 />
-              </Fragment>
-            )
-          })}
-        </g>
-        <mask id="dataMask">
+              </g>
+            ),
+        )}
+      </g>
+      {/* x ticks (dates) */}
+      <g transform={`translate(0, ${height - marginBottom})`}>
+        {xScaleTime.ticks(xTickAmount).map(d => {
+          return (
+            <Fragment key={`x-${d}`}>
+              <text
+                className={chartStyles.label}
+                key={d}
+                x={xScaleTime(d)}
+                y="20"
+              >{`${formatDate(d)}`}</text>
+              <line
+                className={chartStyles.label}
+                stroke={colors.colorSlate500}
+                x1={xScaleTime(d)}
+                y1="0"
+                x2={xScaleTime(d)}
+                y2="5"
+              />
+            </Fragment>
+          )
+        })}
+      </g>
+      <mask id="dataMask">
+        <rect
+          x="0"
+          y="0"
+          width={width - marginRight}
+          height={height - totalYMargin}
+          fill="white"
+        />
+      </mask>
+      {/* data */}
+      <g transform={`translate(0 ${marginTop})`} mask="url(#dataMask)">
+        {/* bars (data) */}
+        {data.map(d => (
           <rect
-            x="0"
-            y="0"
-            width={width - marginRight}
-            height={height - totalYMargin}
-            fill="white"
+            key={d.date + d.value}
+            x={xScale(d.date)}
+            y={yScale(d.value)}
+            height={yScale(0) - yScale(d.value)}
+            width={xScale.bandwidth()}
+            fillOpacity={lineData ? 1 : 0.8}
+            fill={fill}
           />
-        </mask>
-        {/* data */}
-        <g transform={`translate(0 ${marginTop})`} mask="url(#dataMask)">
-          {/* bars (data) */}
-          {data.map(d => (
-            <rect
-              key={d.date + d.value}
-              x={xScale(d.date)}
-              y={yScale(d.value)}
-              height={yScale(0) - yScale(d.value)}
-              width={xScale.bandwidth()}
-              fillOpacity={lineData ? 1 : 0.8}
-              fill={fill}
-            />
-          ))}
-          {/* line */}
-          {lineData && (
-            <path
-              d={lineFn(lineData)}
-              stroke={lineColor}
-              strokeWidth="3"
-              fill="none"
-            />
-          )}
-          {/* reference line */}
-          {refLineData && (
-            <path
-              d={lineFn(refLineData)}
-              stroke="black"
-              strokeWidth="2"
-              strokeDasharray="4"
-              fill="none"
-            />
-          )}
-        </g>
-      </svg>
-    </div>
+        ))}
+        {/* line */}
+        {lineData && (
+          <path
+            d={lineFn(lineData)}
+            stroke={lineColor}
+            strokeWidth="3"
+            fill="none"
+          />
+        )}
+        {/* reference line */}
+        {refLineData && (
+          <path
+            d={lineFn(refLineData)}
+            stroke="black"
+            strokeWidth="2"
+            strokeDasharray="4"
+            fill="none"
+          />
+        )}
+      </g>
+    </svg>
   )
 }
 
@@ -169,6 +167,8 @@ BarChart.defaultProps = {
   marginLeft: 0,
   marginRight: 0,
   marginTop: 0,
+  width: 300,
+  height: 300,
   yMax: null,
   yTicks: 4,
   showTicks: 4,
@@ -195,8 +195,8 @@ BarChart.propTypes = {
   ),
   fill: PropTypes.string.isRequired,
   lineColor: PropTypes.string.isRequired,
-  width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
+  width: PropTypes.number,
+  height: PropTypes.number,
   marginBottom: PropTypes.number,
   marginLeft: PropTypes.number,
   marginRight: PropTypes.number,
