@@ -1,10 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import AuthorFooter from '~components/pages/blog/author-footer'
 import Hero from '~components/pages/blog/blog-hero'
 import Layout from '~components/layout'
 import BlogPostContent from '~components/pages/blog/blog-content'
-import RelatedPosts from '~components/pages/blog/related-posts'
+import BlogPostExtras from '~components/pages/blog/blog-extras'
 
 export default ({ data, path }) => {
   const blogPost = data.contentfulBlogPost
@@ -39,9 +38,7 @@ export default ({ data, path }) => {
         content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
         images={blogImages}
       />
-      <hr />
-      <AuthorFooter authors={blogPost.authors} />
-      <RelatedPosts blogPost={blogPost} />
+      <BlogPostExtras blogPost={blogPost} />
     </Layout>
   )
 }
