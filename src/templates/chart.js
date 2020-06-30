@@ -17,13 +17,15 @@ const ChartPage = ({ data, path }) => {
     >
       <Container narrow>
         <LongContent>
-          <ContentfulContent
-            content={
-              chart.childContentfulChartDescriptionTextNode.childMarkdownRemark
-                .html
-            }
-            id={chart.contentful_id}
-          />
+          {chart.childContentfulChartDescriptionTextNode && (
+            <ContentfulContent
+              content={
+                chart.childContentfulChartDescriptionTextNode
+                  .childMarkdownRemark.html
+              }
+              id={chart.contentful_id}
+            />
+          )}
           <div
             className="a11y-only"
             dangerouslySetInnerHTML={{

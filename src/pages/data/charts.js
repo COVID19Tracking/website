@@ -16,12 +16,14 @@ export default ({ data }) => (
                 <h3>
                   <Link to={`/data/charts/${item.slug}`}>{item.title}</Link>
                 </h3>
-                <MarkdownContent
-                  html={
-                    item.childContentfulChartDescriptionTextNode
-                      .childMarkdownRemark.html
-                  }
-                />
+                {item.childContentfulChartDescriptionTextNode && (
+                  <MarkdownContent
+                    html={
+                      item.childContentfulChartDescriptionTextNode
+                        .childMarkdownRemark.html
+                    }
+                  />
+                )}
               </>
             ))}
           </>
