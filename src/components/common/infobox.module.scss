@@ -9,8 +9,7 @@
 
   img {
     width: toRem(16);
-    margin: spacer(4) spacer(16) spacer(4) spacer(8);
-    align-self: flex-start;
+    margin: spacer(4) spacer(16) spacer(8) spacer(8);
   }
 
   p {
@@ -40,5 +39,14 @@
   &.question {
     background-color: $color-infobox-question-light;
     color: $color-infobox-question-dark;
+  }
+  &.full-size {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: spacer(8);
+    text-align: center;
   }
 }
