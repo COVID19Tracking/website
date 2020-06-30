@@ -4,7 +4,16 @@
   @include padding(16);
   h3, a {
     @include type-size(100);
+    color: $color-plum-700;
+    line-height: 1.6;
   }
+
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   h3 {
     margin: 0;
@@ -12,8 +21,15 @@
 }
 
 .category-list {
+  border-top: 1px solid $color-plum-300;
   list-style-type: none;
-  padding-left: 0;
+  @include padding(0, left);
+  @include margin(0, bottom);
+  @include margin(4, top);
+
+  li:first-child {
+    @include padding(4, top);
+  }
 }
 
 .caret {

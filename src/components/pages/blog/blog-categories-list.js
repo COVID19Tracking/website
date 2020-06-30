@@ -26,7 +26,7 @@ export default () => {
 
   return (
     <div className={blogCategoriesListStyles.container}>
-      <div>
+      <div className={blogCategoriesListStyles.header}>
         <h3>Posts by Category</h3>
         <button
           className={blogCategoriesListStyles.caret}
