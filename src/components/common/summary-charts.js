@@ -228,7 +228,6 @@ export default ({ name = 'National', history, usHistory }) => {
               data={getDataForField(data, deathField)}
               lineData={dailyAverage(data, deathField)}
               refLineData={dailyAverage(usData, deathField)}
-              annotations={deathAnnotations}
               fill={colors.colorSlate300}
               lineColor={colors.colorSlate700}
               {...props}
@@ -254,11 +253,9 @@ export default ({ name = 'National', history, usHistory }) => {
           <Container narrow>
             {deathAnnotations.length > 0 && (
               <>
-                <ol className={styles.annotationList}>
-                  {deathAnnotations.map(a => (
-                    <li>{a.text}</li>
-                  ))}
-                </ol>
+                {deathAnnotations.map(a => (
+                  <p>* {a.text}</p>
+                ))}
                 <hr />
               </>
             )}
