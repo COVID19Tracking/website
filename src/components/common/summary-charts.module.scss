@@ -8,12 +8,12 @@
   .legend-component {
     display: flex;
     align-items: center;
-    margin-left: 10px;
+    margin-left: 10px; // ignore-style-rule
   }
   @media screen and (max-width: $viewport-md) {
     flex-direction: column;
     .legend-component {
-      margin-top: 10px;
+      margin-top: 10px; // ignore-style-rule
     }
   }
 }

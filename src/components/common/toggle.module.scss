@@ -33,7 +33,7 @@
   span {
     @extend %toggle-inactive;
     @include type-size(100);
-    margin: -1px;
+    margin: -1px; // ignore-style-rule
     padding: 2px 15px; // ignore-style-rule
     white-space: nowrap;
     border: solid black 1px;
