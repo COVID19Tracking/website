@@ -23,8 +23,11 @@
       margin: 0;
     }
   }
-  .author-inner {
-    display: inline;
+  .author {
+    display: inherit;
+    .author-inner {
+      display: inline;
+    }
   }
   .date {
     color: $color-slate-600;
