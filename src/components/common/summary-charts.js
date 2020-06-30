@@ -5,6 +5,7 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@reach/disclosure'
+import { DateTime } from 'luxon'
 import Container from '~components/common/container'
 import BarChart from '~components/charts/bar-chart'
 import { parseDate } from '~utilities/visualization'
@@ -16,9 +17,6 @@ import colors from '~scss/colors.module.scss'
 
 import styles from './summary-charts.module.scss'
 
-// TODO: optimize if this slows down build (use rolling window)
-// Also the US dailyAverage is calculated once per state page right now.
-// Hoist or perform in a transformer plugin to cut out repeated work.
 const dailyAverage = (history, field, range = 7) => {
   if (!history || !field) return null
   const average = []
@@ -158,6 +156,8 @@ export default ({ name = 'National', history, usHistory }) => {
         ]
       : []
 
+  const showTodaysChartTick =
+    DateTime.fromISO(data[data.length - 1].date).day > 10
   return (
     <>
       <h2>{name} overview</h2>
@@ -183,6 +183,7 @@ export default ({ name = 'National', history, usHistory }) => {
             refLineData={dailyAverage(usData, testField)}
             fill={colors.colorPlum200}
             lineColor={colors.colorPlum700}
+            lastXTick={showTodaysChartTick}
             {...props}
           />
         </Col>
@@ -195,6 +196,7 @@ export default ({ name = 'National', history, usHistory }) => {
               refLineData={dailyAverage(usData, positiveField)}
               fill={colors.colorStrawberry100}
               lineColor={colors.colorStrawberry200}
+              lastXTick={showTodaysChartTick}
               {...props}
             />
           ) : (
@@ -213,6 +215,7 @@ export default ({ name = 'National', history, usHistory }) => {
               refLineData={dailyAverage(usData, hospitalizedField)}
               fill={colors.colorBlueberry200}
               lineColor={colors.colorBlueberry400}
+              lastXTick={showTodaysChartTick}
               {...props}
             />
           ) : (
@@ -231,6 +234,7 @@ export default ({ name = 'National', history, usHistory }) => {
               annotations={deathAnnotations}
               fill={colors.colorSlate300}
               lineColor={colors.colorSlate700}
+              lastXTick={showTodaysChartTick}
               {...props}
             />
           ) : (

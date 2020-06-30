@@ -4,7 +4,7 @@ import PropTypes from 'prop-types' // ES6
 import { extent, max } from 'd3-array'
 import { scaleBand, scaleLinear, scaleTime } from 'd3-scale'
 import { line, curveCardinal } from 'd3-shape'
-import { timeMonth } from 'd3-time'
+import { timeMonth, timeDay } from 'd3-time'
 
 import { formatDate, formatNumber } from '~utilities/visualization'
 import chartStyles from './charts.module.scss'
@@ -27,6 +27,7 @@ const BarChart = ({
   height,
   yMax,
   yTicks,
+  lastXTick,
 }) => {
   // Used when placing annotations
   const getValueForDate = date => {
@@ -55,6 +56,8 @@ const BarChart = ({
     .range([height - totalYMargin, 0])
 
   const xTickAmount = timeMonth.every(1)
+
+  const lastTime = xScaleTime.ticks(timeDay.every(1)).pop()
 
   let lineFn = null
   if (lineData) {
@@ -98,27 +101,43 @@ const BarChart = ({
       </g>
       {/* x ticks (dates) */}
       <g transform={`translate(0, ${height - marginBottom})`}>
-        {xScaleTime.ticks(xTickAmount).map(d => {
-          return (
-            <Fragment key={`x-${d}`}>
-              <text
-                className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
-                key={d}
-                x={xScaleTime(d)}
-                y="20"
-              >{`${formatDate(d)}`}</text>
-              <line
-                className={chartStyles.label}
-                stroke={colors.colorSlate500}
-                x1={xScaleTime(d)}
-                y1="0"
-                x2={xScaleTime(d)}
-                y2="5"
-              />
-            </Fragment>
-          )
-        })}
+        {xScaleTime.ticks(xTickAmount).map(d => (
+          <Fragment key={`x-${d}`}>
+            <text
+              className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
+              key={d}
+              x={xScaleTime(d)}
+              y="20"
+            >{`${formatDate(d)}`}</text>
+            <line
+              className={chartStyles.label}
+              stroke={colors.colorSlate500}
+              x1={xScaleTime(d)}
+              y1="0"
+              x2={xScaleTime(d)}
+              y2="5"
+            />
+          </Fragment>
+        ))}
+        {lastXTick && (
+          <>
+            <text
+              className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
+              x={xScaleTime(lastTime)}
+              y="20"
+            >{`${formatDate(lastTime)}`}</text>
+            <line
+              className={chartStyles.label}
+              stroke={colors.colorSlate500}
+              x1={xScaleTime(lastTime)}
+              y1="0"
+              x2={xScaleTime(lastTime)}
+              y2="5"
+            />
+          </>
+        )}
       </g>
+
       <mask id="dataMask">
         <rect
           x="0"

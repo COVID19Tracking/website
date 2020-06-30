@@ -20,5 +20,22 @@ describe('Components : Charts: Area chart', () => {
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
+
+    const xAxisTree = renderer
+      .create(
+        <BarChart
+          fill="#333"
+          data={data}
+          height={200}
+          width={200}
+          marginBottom={30}
+          marginTop={30}
+          marginLeft={30}
+          marginRight={30}
+          lastXTick
+        />,
+      )
+      .toJSON()
+    expect(xAxisTree).toMatchSnapshot()
   })
 })

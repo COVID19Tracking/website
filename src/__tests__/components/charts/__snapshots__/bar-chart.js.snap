@@ -126,3 +126,146 @@ exports[`Components : Charts: Area chart renders correctly 1`] = `
   </g>
 </svg>
 `;
+
+exports[`Components : Charts: Area chart renders correctly 2`] = `
+<svg
+  aria-hidden={true}
+  className="chart"
+  viewBox="0 0 200 200"
+>
+  <g
+    transform="translate(30 30)"
+  >
+    <g>
+      <svg
+        className="yTickLabel"
+        x="-10"
+        y={146}
+      >
+        <text
+          className="label"
+        >
+          0
+        </text>
+      </svg>
+      <line
+        className="gridLine"
+        x1={0}
+        x2={140}
+        y1={140}
+        y2={140}
+      />
+    </g>
+    <g>
+      <svg
+        className="yTickLabel"
+        x="-10"
+        y={92.15384615384616}
+      >
+        <text
+          className="label"
+        >
+          500
+        </text>
+      </svg>
+      <line
+        className="gridLine"
+        x1={0}
+        x2={140}
+        y1={86.15384615384616}
+        y2={86.15384615384616}
+      />
+    </g>
+    <g>
+      <svg
+        className="yTickLabel"
+        x="-10"
+        y={38.3076923076923}
+      >
+        <text
+          className="label"
+        >
+          1,000
+        </text>
+      </svg>
+      <line
+        className="gridLine"
+        x1={0}
+        x2={140}
+        y1={32.3076923076923}
+        y2={32.3076923076923}
+      />
+    </g>
+  </g>
+  <g
+    transform="translate(0, 170)"
+  >
+    <text
+      className="label xTickLabel"
+      x={59.16666666666667}
+      y="20"
+    >
+      Mar  4
+    </text>
+    <line
+      className="label"
+      stroke="colorSlate500"
+      x1={59.16666666666667}
+      x2={59.16666666666667}
+      y1="0"
+      y2="5"
+    />
+  </g>
+  <mask
+    id="dataMask"
+  >
+    <rect
+      fill="white"
+      height={140}
+      width={170}
+      x="0"
+      y="0"
+    />
+  </mask>
+  <g
+    transform="translate(0 30)"
+  />
+  <g
+    mask="url(#dataMask)"
+    transform="translate(0 30)"
+  >
+    <rect
+      fill="#333"
+      fillOpacity={0.8}
+      height={132.8923076923077}
+      width={59.99999999999999}
+      x={36.66666666666668}
+      y={7.107692307692311}
+    />
+    <rect
+      fill="#333"
+      fillOpacity={0.8}
+      height={13.246153846153845}
+      width={59.99999999999999}
+      x={103.33333333333334}
+      y={126.75384615384615}
+    />
+    <rect
+      fill="#333"
+      fillOpacity={0.8}
+      height={132.7846153846154}
+      width={59.99999999999999}
+      x={36.66666666666668}
+      y={7.215384615384615}
+    />
+    <rect
+      fill="#333"
+      fillOpacity={0.8}
+      height={14.215384615384622}
+      width={59.99999999999999}
+      x={103.33333333333334}
+      y={125.78461538461538}
+    />
+  </g>
+</svg>
+`;
