@@ -32,7 +32,6 @@ export default ({ data, path }) => {
       returnLink="/blog"
       returnLinkTitle="All posts"
       path={path}
-      centered
       hero={hero}
     >
       <BlogPostContent
