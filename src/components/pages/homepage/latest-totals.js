@@ -13,7 +13,6 @@ export default () => {
       covidUs {
         posNeg
         positive
-        hospitalizedCumulative
         death
       }
     }
@@ -34,25 +33,19 @@ export default () => {
           <h2>Latest totals:</h2>
         </div>
         <Row className={latestTotalsStyles.allTotals}>
-          <Col width={[4, 6, 3]}>
+          <Col width={[4, 6, 4]}>
             <Total
               label="Total test results"
               number={<FormatNumber number={totals.posNeg} />}
             />
           </Col>
-          <Col width={[4, 6, 3]}>
-            <Total
-              label="Hospitalization"
-              number={<FormatNumber number={totals.hospitalizedCumulative} />}
-            />
-          </Col>
-          <Col width={[4, 6, 3]}>
+          <Col width={[4, 6, 4]}>
             <Total
               label="Cases"
               number={<FormatNumber number={totals.positive} />}
             />
           </Col>
-          <Col width={[4, 6, 3]}>
+          <Col width={[4, 6, 4]}>
             <Total
               label="Deaths"
               number={<FormatNumber number={totals.death} />}
