@@ -31,7 +31,7 @@ export default ({ data }) => {
         id={data.dataPreamble.contentful_id}
       />
       <SyncInfobox />
-      <SummaryTable data={data.covidUs} showOutcomes={false} showFootnote />
+      <SummaryTable data={data.covidUs} usData showFootnote />
       <SummaryCharts history={data.allCovidUsDaily.nodes} />
 
       <Container narrow>

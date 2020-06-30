@@ -10,16 +10,14 @@ import latestTotalsStyles from './latest-totals.module.scss'
 export default () => {
   const data = useStaticQuery(graphql`
     {
-      allCovidUs {
-        nodes {
-          posNeg
-          positive
-          death
-        }
+      covidUs {
+        posNeg
+        positive
+        death
       }
     }
   `)
-  const totals = data.allCovidUs.nodes[0]
+  const totals = data.covidUs
   return (
     <div className={latestTotalsStyles.container}>
       <Paragraph>
