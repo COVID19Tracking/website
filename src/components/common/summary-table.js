@@ -15,7 +15,7 @@ const renderColumnHeaders = columnData =>
             key={`${group.header}-${column.header}-th`}
             header={group.header}
             isFirst={i === 0}
-            alignLeft={column.alignLeft || i === 0} // Left-align the column header underneath the group header
+            alignLeft
             columnWidth={group.columns.length}
             wide={column.wide ? column.wide : false}
           >
@@ -35,7 +35,7 @@ const renderColumns = columnData =>
           <Td
             key={`${group.header}-${column.header}-td`}
             isFirst={i === 0}
-            alignLeft={column.alignLeft}
+            alignLeft
           >
             <FormatNumber number={column.data} />
           </Td>
@@ -56,7 +56,6 @@ export default ({
       columns: [
         {
           header: null,
-          alignLeft: !usData,
           data: data.positive,
         },
       ],
@@ -66,18 +65,16 @@ export default ({
       columns: [
         {
           header: 'Negative',
-          alignLeft: !usData,
           data: data.negative,
         },
         {
           header: 'Pending',
-          alignLeft: !usData,
           data: data.pending,
         },
       ],
     },
     {
-      header: 'Hospitalized',
+      header: `Hospitalized${showFootnote ? ' *' : ''}`,
       columns: [
         {
           header: 'Currently',
@@ -92,7 +89,7 @@ export default ({
     },
     {
       header: 'In ICU',
-      isHidden: !!usData,
+      isHidden: usData,
       columns: [
         {
           header: 'Currently',
