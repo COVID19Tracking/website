@@ -66,6 +66,8 @@ const BarChart = ({
       .x(d => xScaleTime(d.date))
       .y(d => yScale(d.value))
   }
+
+  const lastDay = data[data.length - 1]
   return (
     <svg
       className={chartStyles.chart}
