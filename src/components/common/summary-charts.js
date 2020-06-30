@@ -94,8 +94,11 @@ export default ({ name = 'National', history, usHistory }) => {
     return { ...node, ...obj }
   }
 
+  // Used for testing older sections of data
+  const sliceIndex = 0
+
   const data = [...history]
-    .slice(0, stateChartDateRange)
+    .slice(sliceIndex, stateChartDateRange)
     .sort((a, b) => a.date - b.date)
     .map(hoistPerCapProps)
 
@@ -107,7 +110,7 @@ export default ({ name = 'National', history, usHistory }) => {
       usHistory &&
       usePerCap &&
       [...usHistory]
-        .slice(0, stateChartDateRange)
+        .slice(sliceIndex, stateChartDateRange)
         .sort((a, b) => a.date - b.date)
         .map(hoistPerCapProps),
 
@@ -153,7 +156,7 @@ export default ({ name = 'National', history, usHistory }) => {
           {
             number: 1,
             date: new Date('2020-6-25'),
-            text: `New Jersey added ~2k probable deaths on June 25th which includes deaths from the previous months.`,
+            text: `New Jersey added ~2,000 probable deaths on June 25th which includes deaths from the previous months.`,
           },
         ]
       : []

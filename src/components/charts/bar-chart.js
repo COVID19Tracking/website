@@ -63,6 +63,8 @@ const BarChart = ({
       .x(d => xScaleTime(d.date))
       .y(d => yScale(d.value))
   }
+
+  const lastDay = data[data.length - 1]
   return (
     <svg
       className={chartStyles.chart}
@@ -98,26 +100,48 @@ const BarChart = ({
       </g>
       {/* x ticks (dates) */}
       <g transform={`translate(0, ${height - marginBottom})`}>
-        {xScaleTime.ticks(xTickAmount).map(d => {
-          return (
-            <Fragment key={`x-${d}`}>
-              <text
-                className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
-                key={d}
-                x={xScaleTime(d)}
-                y="20"
-              >{`${formatDate(d)}`}</text>
-              <line
-                className={chartStyles.label}
-                stroke={colors.colorSlate500}
-                x1={xScaleTime(d)}
-                y1="0"
-                x2={xScaleTime(d)}
-                y2="5"
-              />
-            </Fragment>
+        {xScaleTime
+          .ticks(xTickAmount)
+          .filter(
+            d =>
+              d.getMonth() !== lastDay.date.getMonth() ||
+              lastDay.date.getDate() > 15,
           )
-        })}
+          .map(d => {
+            return (
+              <Fragment key={`x-${d}`}>
+                <text
+                  className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
+                  key={d}
+                  x={xScaleTime(d)}
+                  y="20"
+                >{`${formatDate(d)}`}</text>
+                <line
+                  className={chartStyles.label}
+                  stroke={colors.colorSlate500}
+                  x1={xScaleTime(d)}
+                  y1="0"
+                  x2={xScaleTime(d)}
+                  y2="5"
+                />
+              </Fragment>
+            )
+          })}
+        <Fragment key="today">
+          <text
+            className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
+            x={xScaleTime(lastDay.date)}
+            y="20"
+          >{`${formatDate(lastDay.date)}`}</text>
+          <line
+            className={chartStyles.label}
+            stroke={colors.colorSlate500}
+            x1={xScaleTime(lastDay.date)}
+            y1="0"
+            x2={xScaleTime(lastDay.date)}
+            y2="5"
+          />
+        </Fragment>
       </g>
       <mask id="dataMask">
         <rect
