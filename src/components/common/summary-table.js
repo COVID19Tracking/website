@@ -79,6 +79,7 @@ export default ({
         {
           header: 'Currently',
           data: data.hospitalizedCurrently,
+          wide: usData,
         },
         {
           header: 'Cumulative',
