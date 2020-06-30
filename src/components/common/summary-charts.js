@@ -49,12 +49,9 @@ const getDataForField = (data, field) => {
   }))
 }
 
-const ChartAlert = ({ name, field }) => (
+const ChartAlert = ({ message }) => (
   <div className={styles.alertInfoboxContainer}>
-    <AlertInfobox
-      header={`${name} does not currently report ${field} data, or the data is empty.`}
-      fullSize
-    />
+    <AlertInfobox header={message} fullSize />
   </div>
 )
 
@@ -188,7 +185,9 @@ export default ({ name = 'National', history, usHistory }) => {
               {...props}
             />
           ) : (
-            <ChartAlert name={name} field="new case" />
+            <ChartAlert
+              message={`${name} does not have any current COVID-19 cases.`}
+            />
           )}
         </Col>
         <Col width={colWidth}>
@@ -204,7 +203,9 @@ export default ({ name = 'National', history, usHistory }) => {
               {...props}
             />
           ) : (
-            <ChartAlert name={name} field="hospitalization" />
+            <ChartAlert
+              message={`${name} does not report data on current COVID-19 hospitalizations.`}
+            />
           )}
         </Col>
         <Col width={colWidth}>
@@ -219,7 +220,9 @@ export default ({ name = 'National', history, usHistory }) => {
               {...props}
             />
           ) : (
-            <ChartAlert name={name} field="death" />
+            <ChartAlert
+              message={`${name} does not have any current COVID-19 deaths.`}
+            />
           )}
         </Col>
       </Row>
