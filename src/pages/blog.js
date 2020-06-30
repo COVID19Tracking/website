@@ -4,11 +4,12 @@ import Layout from '~components/layout'
 import Container from '~components/common/container'
 import BlogTeaserList from '~components/pages/blog/blog-teaser-list'
 import BlogCategoriesList from '~components/pages/blog/blog-categories-list'
+import blogStyles from '~components/pages/blog/blog.module.scss'
 
 export default ({ data }) => (
   <Layout title="Blog" path="/blog">
-    <BlogCategoriesList />
-    <Container narrow>
+    <Container className={blogStyles.container}>
+      <BlogCategoriesList />
       <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
     </Container>
   </Layout>

@@ -1,3 +1,10 @@
+@media (min-width: $viewport-lg) {
+  .container > div {
+    flex-basis: calc(66.6666% + 8rem);
+    max-width: calc(66.6666% + 8rem);
+  }
+}
+
 .title {
   @include type-size(400);
   line-height: 1.25;

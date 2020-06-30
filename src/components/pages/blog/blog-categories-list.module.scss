@@ -8,6 +8,11 @@
     line-height: 1.6;
   }
 
+  @media (min-width: $viewport-lg) {
+    @include margin(24, top);
+    @include margin(64, left);
+    min-width: 12rem;
+  }
 }
 
 .header,
