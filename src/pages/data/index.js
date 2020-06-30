@@ -128,7 +128,7 @@ export const query = graphql`
         totalTestResults
         state
         dataQualityGrade
-        dateModified
+        lastUpdateEt
         positive
         negative
         pending

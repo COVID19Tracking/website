@@ -20,7 +20,7 @@ const State = ({ state }) => (
     </div>
     <SummaryTable
       data={state.stateData}
-      lastUpdated={state.stateData.dateModified}
+      lastUpdated={state.stateData.lastUpdateEt}
     />
     <StateLinks
       twitter={state.twitter}

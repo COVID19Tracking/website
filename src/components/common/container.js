@@ -2,10 +2,15 @@ import React from 'react'
 import classnames from 'classnames'
 import containerStyles from './container.module.scss'
 
-export default ({ children, narrow }) => {
+export default ({ children, narrow, centered }) => {
   return (
     <div className={classnames('container', containerStyles.container)}>
-      <div className={narrow ? containerStyles.narrow : containerStyles.full}>
+      <div
+        className={classnames(
+          centered && containerStyles.centered,
+          narrow ? containerStyles.narrow : containerStyles.full,
+        )}
+      >
         {children}
       </div>
     </div>

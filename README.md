@@ -4,6 +4,10 @@ The COVID Tracking Project collects information from 50 U.S. states, the Distric
 
 This repository is for the project's **website**: https://covidtracking.com/.
 
+## Documentation
+
+Additional documentation can be found [at our documentation and Storybook website](https://covid19tracking.github.io/website-docs).
+
 ## Development
 
 The website is built on [GatsbyJS](https://www.gatsbyjs.org/). If you are not familiar with Gatsby, we suggest checking out their [excellent documentation](hhttps://www.gatsbyjs.org/docs).
@@ -65,6 +69,8 @@ npm run test:update
 Before pushing your local branch to the repository, make sure to run `npm run test:dev`. This will make sure the project is linted and all tests pass. Make sure that every test passes. Pull requests are automatically checked against these same tests.
 
 ## Storybook
+
+[View our Storybook](https://covid19tracking.github.io/website-docs)
 
 All common components throughout the site are documented in [Storybook](https://storybook.js.org/). You can find all our component stories in `/src/stories`.
 

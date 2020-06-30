@@ -36,7 +36,7 @@ const StatePage = ({ pageContext, data, path }) => {
         </Container>
       )}
       <SyncInfobox />
-      <SummaryTable data={covidState} lastUpdated={covidState.dateModified} />
+      <SummaryTable data={covidState} lastUpdated={covidState.lastUpdateEt} />
       <SummaryCharts
         name={state.name}
         history={allCovidStateDaily.nodes}
@@ -88,6 +88,7 @@ export const query = graphql`
     covidState(state: { eq: $state }) {
       positive
       negative
+      lastUpdateEt
       pending
       hospitalizedCurrently
       hospitalizedCumulative
