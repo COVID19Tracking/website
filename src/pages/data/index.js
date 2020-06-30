@@ -34,7 +34,6 @@ export default ({ data }) => {
       <SummaryTable data={data.covidUs} usData showFootnote />
       <SummaryCharts history={data.allCovidUsDaily.nodes} />
 
-
       <Container narrow>
         <DetailText>
           <MarkdownContent
