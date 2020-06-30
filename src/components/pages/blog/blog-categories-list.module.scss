@@ -1,13 +1,18 @@
 .container {
   border-radius: 4px;
   background-color: $color-plum-100;
-  @include padding(16);
+  @include padding(8, (top, bottom));
   h3, a {
     @include type-size(100);
     color: $color-plum-700;
     line-height: 1.6;
   }
 
+}
+
+.header,
+.category {
+  @include padding(16, (left, right));
 }
 
 .header {
@@ -25,7 +30,7 @@
   list-style-type: none;
   @include padding(0, left);
   @include margin(0, bottom);
-  @include margin(4, top);
+  @include margin(8, top);
 
   li:first-child {
     @include padding(4, top);
@@ -45,23 +50,29 @@
 
   background-color: $color-plum-200;
   border-radius: 50%;
-  height: 24px;
-  width: 24px;
+  height: 14px;
+  width: 14px;
 
   margin-bottom: spacer(4);
 
   svg {
     fill: $color-plum-700;
+
+    transform: rotate(-180deg);
     transition: transform 0.2s ease-in;
     transform-origin: center;
 
     position: absolute;
-    top: 8px;
-    left: 5px;
+    top: 5px;
+    left: 3px;
+
+    transition: top 0.2s ease-in;
   }
 
   &[aria-expanded='true'] svg {
-    transform: rotate(-180deg);
+    top: 4px;
+    transform: rotate(0deg);
+    transition: top 0.2s ease-out;
     transform-origin: center;
     transition: transform 0.2s ease-out;
   }
