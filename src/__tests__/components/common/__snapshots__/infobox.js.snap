@@ -2,7 +2,7 @@
 
 exports[`Components : Common: Infobox: Alert infobox renders correctly 1`] = `
 <div
-  className="infobox alert infobox alert"
+  className="infobox alert infobox alert false"
 >
   <img
     alt="Alert icon"

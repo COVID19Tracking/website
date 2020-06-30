@@ -1,0 +1,55 @@
+@import '~scss/breakpoints.module.scss';
+
+.info-line {
+  display: flex;
+  .toggle-container {
+    flex-grow: 1;
+  }
+  .legend-component {
+    display: flex;
+    align-items: center;
+    margin-left: 10px; // ignore-style-rule
+  }
+  @media screen and (max-width: $viewport-md) {
+    flex-direction: column;
+    .legend-component {
+      margin-top: 10px; // ignore-style-rule
+    }
+  }
+}
+
+.alert-infobox-container {
+  height: 286px;
+  width: 272px;
+}
+
+.disclosure {
+  background: none;
+  text-decoration: underline;
+  color: $color-slate-600;
+  border: 0;
+  @include type-size(200);
+  padding: 0;
+  cursor: pointer;
+  span {
+    @include margin(8, left);
+  }
+  .arrow-down {
+    display: inline-block;
+  }
+  .arrow-up {
+    display: none;
+  }
+  &[aria-expanded='true'] {
+    .arrow-down {
+      display: none;
+    }
+    .arrow-up {
+      display: inline-block;
+    }
+  }
+}
+
+.annotation-list {
+  padding-inline-start: 15px; // ignore-style-rule
+}

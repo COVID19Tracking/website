@@ -31,7 +31,11 @@ export default function HorizontalBarChart({
     .range([0, width - totalXMargin])
 
   return (
-    <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
+    <svg
+      className={chartStyles.chart}
+      viewBox={`0 0 ${width} ${height}`}
+      aria-hidden
+    >
       <g transform={`translate(${marginLeft} ${marginTop})`}>
         {xScale.ticks(xTicks).map(tick => (
           <g key={tick}>
