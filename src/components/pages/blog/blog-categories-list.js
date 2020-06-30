@@ -58,7 +58,7 @@ export default () => {
               className={blogCategoriesListStyles.category}
               key={category.slug}
             >
-              <Link to={category.slug}>
+              <Link to={`/blog/category/${category.slug}`}>
                 {category.name} ({category.blog_post.length})
               </Link>
             </li>
