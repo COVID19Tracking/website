@@ -1,0 +1,52 @@
+.container {
+  border-radius: 4px;
+  background-color: $color-plum-100;
+  @include padding(16);
+  h3, a {
+    @include type-size(100);
+  }
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.category-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.caret {
+  background: none;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  padding: 0;
+
+  z-index: 1;
+  cursor: pointer;
+  top: 3px;
+
+  background-color: $color-plum-200;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+
+  margin-bottom: spacer(4);
+
+  svg {
+    fill: $color-plum-700;
+    transition: transform 0.2s ease-in;
+    transform-origin: center;
+
+    position: absolute;
+    top: 8px;
+    left: 5px;
+  }
+
+  &[aria-expanded='true'] svg {
+    transform: rotate(-180deg);
+    transform-origin: center;
+    transition: transform 0.2s ease-out;
+  }
+}

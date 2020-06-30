@@ -1,11 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
+import Container from '~components/common/container'
 import BlogTeaserList from '~components/pages/blog/blog-teaser-list'
+import BlogCategoriesList from '~components/pages/blog/blog-categories-list'
 
 export default ({ data }) => (
-  <Layout title="Blog" path="/blog" narrow>
-    <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
+  <Layout title="Blog" path="/blog">
+    <BlogCategoriesList />
+    <Container narrow>
+      <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
+    </Container>
   </Layout>
 )
 
