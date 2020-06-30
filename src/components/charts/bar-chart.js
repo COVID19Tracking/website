@@ -15,6 +15,7 @@ const BarChart = ({
   data,
   lineData,
   refLineData,
+  annotations,
   fill,
   lineColor,
   marginBottom,
@@ -27,6 +28,11 @@ const BarChart = ({
   yMax,
   yTicks,
 }) => {
+  // Used when placing annotations
+  const getValueForDate = date => {
+    const dateData = data.find(d => d.date.getTime() === date.getTime())
+    return dateData && dateData.value
+  }
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
   // The x range is over the area in which the chart should be displaying.
@@ -96,7 +102,7 @@ const BarChart = ({
           return (
             <Fragment key={`x-${d}`}>
               <text
-                className={chartStyles.label}
+                className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
                 key={d}
                 x={xScaleTime(d)}
                 y="20"
@@ -122,6 +128,19 @@ const BarChart = ({
           fill="white"
         />
       </mask>
+      {/* annotations */}
+      <g transform={`translate(0 ${marginTop})`}>
+        {annotations.map(d => (
+          <text
+            key={d}
+            className={`${chartStyles.annotation}`}
+            x={xScaleTime(d.date)}
+            y={yScale(getValueForDate(d.date))}
+          >
+            {d.number}
+          </text>
+        ))}
+      </g>
       {/* data */}
       <g transform={`translate(0 ${marginTop})`} mask="url(#dataMask)">
         {/* bars (data) */}
@@ -163,6 +182,7 @@ const BarChart = ({
 BarChart.defaultProps = {
   lineData: null,
   refLineData: null,
+  annotations: [],
   marginBottom: 0,
   marginLeft: 0,
   marginRight: 0,
@@ -178,17 +198,24 @@ BarChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
-      value: PropTypes.number,
+      value: PropTypes.number.isRequired,
     }),
   ).isRequired,
   lineData: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
-      value: PropTypes.number,
+      value: PropTypes.number.isRequired,
     }),
   ),
   refLineData: PropTypes.arrayOf(
     PropTypes.shape({
+      date: PropTypes.instanceOf(Date).isRequired,
+      value: PropTypes.number.isRequired,
+    }),
+  ),
+  annotations: PropTypes.arrayOf(
+    PropTypes.shape({
+      number: PropTypes.number.isRequired,
       date: PropTypes.instanceOf(Date).isRequired,
       value: PropTypes.number,
     }),

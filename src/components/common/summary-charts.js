@@ -145,6 +145,19 @@ export default ({ name = 'National', history, usHistory }) => {
   // 1 chart per line on small, 2 on medium & 4 on large sreens
   const colWidth = [4, 3, 3]
 
+  // Hacky annotation for New Jersey
+  // To be replaced by sheet or Contentful data
+  const deathAnnotations =
+    name === 'National' || name === 'New Jersey'
+      ? [
+          {
+            number: 1,
+            date: new Date('2020-6-25'),
+            text: `New Jersey added ~2k probable deaths on June 25th which includes deaths from the previous months.`,
+          },
+        ]
+      : []
+
   return (
     <>
       <h2>{name} overview</h2>
@@ -215,6 +228,7 @@ export default ({ name = 'National', history, usHistory }) => {
               data={getDataForField(data, deathField)}
               lineData={dailyAverage(data, deathField)}
               refLineData={dailyAverage(usData, deathField)}
+              annotations={deathAnnotations}
               fill={colors.colorSlate300}
               lineColor={colors.colorSlate700}
               {...props}
@@ -238,6 +252,16 @@ export default ({ name = 'National', history, usHistory }) => {
         </DisclosureButton>
         <DisclosurePanel>
           <Container narrow>
+            {deathAnnotations.length > 0 && (
+              <>
+                <ol className={styles.annotationList}>
+                  {deathAnnotations.map(a => (
+                    <li>{a.text}</li>
+                  ))}
+                </ol>
+                <hr />
+              </>
+            )}
             <ContentfulContent
               content={
                 contentfulSnippet.childContentfulSnippetContentTextNode
