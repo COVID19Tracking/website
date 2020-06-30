@@ -85,6 +85,9 @@ exports[`Components : Charts: Area chart renders correctly 1`] = `
     />
   </mask>
   <g
+    transform="translate(0 30)"
+  />
+  <g
     mask="url(#dataMask)"
     transform="translate(0 30)"
   >
