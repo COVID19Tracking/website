@@ -22,6 +22,7 @@ const Layout = ({
   noMargin,
   hasHero,
   narrow,
+  centered,
   socialCard,
 }) => {
   const data = useStaticQuery(graphql`
@@ -51,7 +52,9 @@ const Layout = ({
       />
       <main id="main">
         <SkipNavContent />
-        <Container narrow={narrow}>{children}</Container>
+        <Container narrow={narrow} centered={centered}>
+          {children}
+        </Container>
       </main>
       <Footer />
     </>

@@ -5,33 +5,6 @@ import { Menu, MenuList, MenuButton, MenuLink } from '@reach/menu-button'
 import internalLink from '~components/utils/internal-link'
 import headerNavigationStyles from './navigation.module.scss'
 
-class MenuCaret extends React.Component {
-  render() {
-    const {
-      children,
-      id,
-      onKeyDown,
-      onMouseDown,
-      'aria-controls': ariaControls,
-      'aria-expanded': ariaExpanded,
-    } = this.props
-    return (
-      <button
-        type="button"
-        onKeyDown={onKeyDown}
-        onMouseDown={onMouseDown}
-        className={headerNavigationStyles.caret}
-        aria-controls={ariaControls}
-        aria-haspopup="true"
-        id={id}
-        aria-expanded={ariaExpanded ? 'true' : 'false'}
-      >
-        {children}
-      </button>
-    )
-  }
-}
-
 export default ({ topNavigation, subNavigation, isMobile }) => (
   <nav className="js-disabled-block" role="navigation">
     <ul
@@ -45,7 +18,7 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
               <Link to={internalLink(item.link)}>{item.title}</Link>
               {item.subNavigation &&
                 typeof subNavigation[item.subNavigation] !== 'undefined' && (
-                  <MenuButton as={MenuCaret}>
+                  <MenuButton className={headerNavigationStyles.caret}>
                     <svg
                       width="12"
                       height="7"
@@ -65,7 +38,7 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
             {item.subNavigation &&
               typeof subNavigation[item.subNavigation] !== 'undefined' && (
                 <MenuList
-                  role={false}
+                  role={undefined}
                   className={headerNavigationStyles.subMenu}
                   onKeyDown={event => {
                     if (event.key === 'Tab') {

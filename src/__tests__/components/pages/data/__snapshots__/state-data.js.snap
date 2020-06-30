@@ -285,19 +285,6 @@ Array [
         </tr>
       </tbody>
     </table>
-    <div
-      className="detail-text detailText"
-    >
-      Last updated: 
-      Fri Apr 17 2020 12:00 am
-       
-      <abbr
-        aria-label="Eastern Time"
-        title="Eastern Time"
-      >
-        ET
-      </abbr>
-    </div>
   </div>,
   <ul
     className="list"

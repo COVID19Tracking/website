@@ -45,7 +45,10 @@ export default ({ title, stateList }) => {
     }
     const results = []
     stateList.forEach(node => {
-      if (node.name.toLowerCase().search(term.toLowerCase().trim()) === 0) {
+      if (
+        node.name.toLowerCase().search(term.toLowerCase().trim()) === 0 ||
+        node.state.toLowerCase().search(term.toLowerCase().trim()) === 0
+      ) {
         results.push(node)
       }
     })
