@@ -1,69 +1,340 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components : Pages : Blog : Byline renders correctly 1`] = `
+exports[`Components : Pages : Blog : Related Posts : Category Posts renders correctly 1`] = `
 <div
   className="container"
 >
   <h2>
-    Related
+    Latest posts
   </h2>
-  <div>
-    <h3>
-      <a
-        href="/blog/a-covid-blog-post"
-      >
-        A COVID Blog Post
-      </a>
-    </h3>
-    <p
-      className="oneLineByline"
+  <div
+    className="ctaWrapper"
+  >
+    <a
+      className="cta  "
+      href="blog"
     >
-      By
-       
+      See all blog posts
       <span
-        className="author"
+        aria-hidden={true}
+        className="arrow"
       >
-        <span
-          className="authorInner"
-        >
-          Author Name
-        </span>
+         
+        →
       </span>
-      <span
-        className="relatedDate"
-      >
-        May 6, 2020
-      </span>
-    </p>
+    </a>
   </div>
-  <div>
+  <div
+    className="post"
+  >
     <h3>
       <a
-        href="/blog/another-blog-post"
+        href="/blog/blogslug"
       >
-        Another Blog Post
+        Post title
       </a>
     </h3>
     <p
-      className="oneLineByline"
+      className="lede"
     >
-      By
-       
+      La la blog lede
+    </p>
+    <div
+      className="byline"
+    >
       <span
-        className="author"
+        className="bylineText"
       >
         <span
-          className="authorInner"
+          className="author"
         >
-          Author Middle Last
+          By 
+          <span
+            className="authorInner"
+          >
+            Author
+          </span>
+        </span>
+        <span
+          className="date"
+        >
+          June 26, 2020
         </span>
       </span>
-      <span
-        className="relatedDate"
+    </div>
+  </div>
+  <div
+    className="post"
+  >
+    <h3>
+      <a
+        href="/blog/blog-slug-number-two"
       >
-        April 6, 2020
-      </span>
+        a blog post
+      </a>
+    </h3>
+    <p
+      className="lede"
+    >
+      A strange combination of authors.
     </p>
+    <div
+      className="byline"
+    >
+      <span
+        className="bylineText"
+      >
+        <span
+          className="author"
+        >
+          By 
+          <span
+            className="authorInner"
+          >
+            Edgar Allen Poe
+          </span>
+           
+          &
+           
+          <span
+            className="authorInner"
+          >
+            Julia Child
+          </span>
+        </span>
+        <span
+          className="date"
+        >
+          June 25, 2020
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Pages : Blog : Related Posts : Explicit Related Posts renders correctly 1`] = `
+<div
+  className="container"
+>
+  <h2>
+    Latest posts
+  </h2>
+  <div
+    className="ctaWrapper"
+  >
+    <a
+      className="cta  "
+      href="blog"
+    >
+      See all blog posts
+      <span
+        aria-hidden={true}
+        className="arrow"
+      >
+         
+        →
+      </span>
+    </a>
+  </div>
+  <div
+    className="post"
+  >
+    <h3>
+      <a
+        href="/blog/blogslug"
+      >
+        Post title
+      </a>
+    </h3>
+    <p
+      className="lede"
+    >
+      La la blog lede
+    </p>
+    <div
+      className="byline"
+    >
+      <span
+        className="bylineText"
+      >
+        <span
+          className="author"
+        >
+          By 
+          <span
+            className="authorInner"
+          >
+            Author
+          </span>
+        </span>
+        <span
+          className="date"
+        >
+          June 26, 2020
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    className="post"
+  >
+    <h3>
+      <a
+        href="/blog/blog-slug-number-two"
+      >
+        a blog post
+      </a>
+    </h3>
+    <p
+      className="lede"
+    >
+      A strange combination of authors.
+    </p>
+    <div
+      className="byline"
+    >
+      <span
+        className="bylineText"
+      >
+        <span
+          className="author"
+        >
+          By 
+          <span
+            className="authorInner"
+          >
+            Edgar Allen Poe
+          </span>
+           
+          &
+           
+          <span
+            className="authorInner"
+          >
+            Julia Child
+          </span>
+        </span>
+        <span
+          className="date"
+        >
+          June 25, 2020
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Pages : Blog : Related Posts : Recent Posts renders correctly 1`] = `
+<div
+  className="container"
+>
+  <h2>
+    Latest posts
+  </h2>
+  <div
+    className="ctaWrapper"
+  >
+    <a
+      className="cta  "
+      href="blog"
+    >
+      See all blog posts
+      <span
+        aria-hidden={true}
+        className="arrow"
+      >
+         
+        →
+      </span>
+    </a>
+  </div>
+  <div
+    className="post"
+  >
+    <h3>
+      <a
+        href="/blog/blogslug"
+      >
+        Post title
+      </a>
+    </h3>
+    <p
+      className="lede"
+    >
+      La la blog lede
+    </p>
+    <div
+      className="byline"
+    >
+      <span
+        className="bylineText"
+      >
+        <span
+          className="author"
+        >
+          By 
+          <span
+            className="authorInner"
+          >
+            Author
+          </span>
+        </span>
+        <span
+          className="date"
+        >
+          June 26, 2020
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    className="post"
+  >
+    <h3>
+      <a
+        href="/blog/blog-slug-number-two"
+      >
+        a blog post
+      </a>
+    </h3>
+    <p
+      className="lede"
+    >
+      A strange combination of authors.
+    </p>
+    <div
+      className="byline"
+    >
+      <span
+        className="bylineText"
+      >
+        <span
+          className="author"
+        >
+          By 
+          <span
+            className="authorInner"
+          >
+            Edgar Allen Poe
+          </span>
+           
+          &
+           
+          <span
+            className="authorInner"
+          >
+            Julia Child
+          </span>
+        </span>
+        <span
+          className="date"
+        >
+          June 25, 2020
+        </span>
+      </span>
+    </div>
   </div>
 </div>
 `;

@@ -1,4 +1,5 @@
 import React from 'react'
+import Container from './container'
 import volunteersListStyles from './volunteers-list.module.scss'
 
 function fixWebsitePrefix(website) {
@@ -22,9 +23,11 @@ export default ({ items }) => (
         </li>
       ))}
     </ul>
-    <p className={volunteersListStyles.note}>
-      Are you a volunteer who wants to be added to this list? Edit your profile
-      in Slack and scroll down to &quot;Volunteer web page.&quot;
-    </p>
+    <Container centered>
+      <p className={volunteersListStyles.note}>
+        Are you a volunteer who wants to be added to this list? Edit your
+        profile in Slack and scroll down to &quot;Volunteer web page.&quot;
+      </p>
+    </Container>
   </>
 )

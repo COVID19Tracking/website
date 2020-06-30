@@ -1,5 +1,9 @@
 .wrapper {
   background-color: $color-plum-700;
+  margin-top: 3rem; // ignore-style-rule
+  @media (min-width: $viewport-md) {
+    @include margin(64, top); // 4rem
+  }
 }
 
 .footer,

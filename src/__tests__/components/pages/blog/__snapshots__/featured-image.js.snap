@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components : Pages : Blog : Featured Image renders correctly 1`] = `
-Array [
-  <div>
+<div
+  className="container"
+>
+  <div
+    className="image"
+  >
     <img
       alt="An Example Image"
       src="//images.ctfassets.net/anexampleimage"
@@ -12,9 +16,6 @@ Array [
     >
       An Example Image
     </div>
-  </div>,
-  <hr
-    className="featuredImageRule"
-  />,
-]
+  </div>
+</div>
 `;
