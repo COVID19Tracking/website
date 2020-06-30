@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components : Pages : Homepage : Press renders correctly 1`] = `
-<section>
+<section
+  className="section"
+>
   <h3
     className="header"
   >
