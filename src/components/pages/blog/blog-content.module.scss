@@ -12,6 +12,15 @@
     }
   }
 
+  ul {
+    @include margin(0, top);
+    @include margin(32, bottom);
+
+    & > li > p {
+      @include margin(0, bottom);
+    }
+  }
+
   .image {
     width: 100%;
     margin-bottom: spacer(24);
