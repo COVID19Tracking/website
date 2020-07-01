@@ -20,7 +20,6 @@
   .byline-text {
     span {
       display: block;
-      margin: 0;
     }
   }
   .author {
@@ -31,9 +30,7 @@
   }
   .date {
     color: $color-slate-600;
-    @media (max-width: $viewport-ms) {
-      margin-top: 0;
-    }
+    @include margin(4, top);
     grid-column-start: span 2;
   }
 }
