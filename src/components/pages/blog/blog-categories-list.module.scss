@@ -37,8 +37,18 @@
   @include margin(0, bottom);
   @include margin(8, top);
 
+  display: none;
+
   li:first-child {
     @include padding(4, top);
+  }
+
+  &.opened {
+    display: block;
+  }
+
+  @media (min-width: $viewport-lg) {
+    display: block;
   }
 }
 
@@ -59,6 +69,10 @@
   width: 14px;
 
   margin-bottom: spacer(4);
+
+  @media (min-width: $viewport-lg) {
+    display: none;
+  }
 
   svg {
     fill: $color-plum-700;

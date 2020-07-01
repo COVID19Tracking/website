@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
+import classnames from 'classnames'
 import blogCategoriesListStyles from './blog-categories-list.module.scss'
 
 export default () => {
@@ -48,24 +49,25 @@ export default () => {
             <span className="a11y-only">todo hide/show categories</span>
           </button>
         </div>
-        {isOpen && (
-          <ul
-            role="navigation"
-            aria-label="Categories"
-            className={blogCategoriesListStyles.categoryList}
-          >
-            {categories.map(category => (
-              <li
-                className={blogCategoriesListStyles.category}
-                key={category.slug}
-              >
-                <Link to={`/blog/category/${category.slug}`}>
-                  {category.name} ({category.blog_post.length})
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
+        <ul
+          role="navigation"
+          aria-label="Categories"
+          className={classnames(
+            blogCategoriesListStyles.categoryList,
+            isOpen && blogCategoriesListStyles.opened,
+          )}
+        >
+          {categories.map(category => (
+            <li
+              className={blogCategoriesListStyles.category}
+              key={category.slug}
+            >
+              <Link to={`/blog/category/${category.slug}`}>
+                {category.name} ({category.blog_post.length})
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   )
