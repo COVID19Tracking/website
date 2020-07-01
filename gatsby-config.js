@@ -21,6 +21,8 @@ const gatsbyConfig = {
       process.env.BRANCH === 'master',
     contentfulSpace: process.env.CONTENTFUL_SPACE,
     hiddenApiTags: ['Racial data tracker', 'Internal Endpoints'],
+    stateChartDateRange: 90,
+    stateChartPerCapMeasure: 1000000,
   },
   plugins: [
     'gatsby-plugin-sitemap',
@@ -188,6 +190,37 @@ const gatsbyConfig = {
         accessToken: process.env.CONTENTFUL_TOKEN,
       },
     },
+
+    {
+      resolve: 'gatsby-transformer-covid-census',
+      options: {
+        stateType: 'CovidStateDaily',
+        usType: 'CovidUsDaily',
+        stateInfoType: 'CovidStateInfo',
+        fields: [
+          'hospitalizedCumulative',
+          'hospitalizedCurrently',
+          'hospitalizedIncrease',
+          'death',
+          'deathIncrease',
+          'inIcuCumulative',
+          'inIcuCurrently',
+          'negativeIncrease',
+          'negativeRegularScore',
+          'onVentilatorCumulative',
+          'onVentilatorCurrently',
+          'positiveCasesViral',
+          'positiveIncrease',
+          'positiveTestsViral',
+          'totalTestResults',
+          'totalTestResultsIncrease',
+          'totalTestsViral',
+          'negativeTestsViral',
+          'positive',
+          'negative',
+        ],
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -284,9 +317,9 @@ const gatsbyConfig = {
                 }
               }
             `,
-            output: "/rss.xml",
-            title: "The COVID Tracking Project - RSS Feed",
-            match: "^/blog/",
+            output: '/rss.xml',
+            title: 'The COVID Tracking Project - RSS Feed',
+            match: '^/blog/',
           },
         ],
       },

@@ -11,6 +11,8 @@ import StatesNav from '~components/common/state-nav'
 import SummaryTable from '~components/common/summary-table'
 import { SyncInfobox } from '~components/common/infobox'
 
+import SummaryCharts from '~components/common/summary-charts'
+
 export default ({ data }) => {
   const stateNavList = []
   data.allCovidStateInfo.nodes.forEach(node => {
@@ -29,7 +31,8 @@ export default ({ data }) => {
         id={data.dataPreamble.contentful_id}
       />
       <SyncInfobox />
-      <SummaryTable data={data.covidUs} showOutcomes={false} showFootnote />
+      <SummaryTable data={data.covidUs} usData showFootnote />
+      <SummaryCharts history={data.allCovidUsDaily.nodes} />
 
       <Container narrow>
         <DetailText>
@@ -95,6 +98,29 @@ export const query = graphql`
         covid19Site
         covid19SiteSecondary
         twitter
+      }
+    }
+    allCovidUsDaily {
+      nodes {
+        date
+        totalTestResultsIncrease
+        positiveIncrease
+        hospitalizedCurrently
+        deathIncrease
+        childPopulation {
+          deathIncrease {
+            percent
+          }
+          hospitalizedCurrently {
+            percent
+          }
+          positiveIncrease {
+            percent
+          }
+          totalTestResultsIncrease {
+            percent
+          }
+        }
       }
     }
     allCovidState {
