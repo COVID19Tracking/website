@@ -116,6 +116,7 @@ exports.createPages = async ({ graphql, actions }) => {
       .filter(
         block =>
           block.nodeType === 'embedded-entry-block' &&
+          block.data.target.sys.contentType &&
           block.data.target.sys.contentType.sys.id === 'contentBlockImage',
       )
       .forEach(image => {

@@ -287,7 +287,6 @@ export default function CumulativeTestsByStateContainer() {
                 yTicks={2}
                 showTicks={false}
                 focusable={false}
-                ariaHidden
                 dateExtent={dateExtent}
                 renderTooltipContents={d => (
                   <TotalAndPositiveLegend

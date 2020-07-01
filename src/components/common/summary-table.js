@@ -9,16 +9,20 @@ const renderColumnHeaders = columnData =>
   columnData.map(group => {
     if (group.isHidden) return null
     return group.columns.map((column, i) => (
-      <Th
-        key={`${group.header}-${column.header}-th`}
-        header={group.header}
-        isFirst={i === 0}
-        alignLeft={column.alignLeft || i === 0} // Left-align the column header underneath the group header
-        columnWidth={group.columns.length}
-        wide={column.wide ? column.wide : false}
-      >
-        {column.header}
-      </Th>
+      <>
+        {column.isHidden ? null : (
+          <Th
+            key={`${group.header}-${column.header}-th`}
+            header={group.header}
+            isFirst={i === 0}
+            alignLeft
+            columnWidth={group.columns.length}
+            wide={column.wide ? column.wide : false}
+          >
+            {column.header}
+          </Th>
+        )}
+      </>
     ))
   })
 
@@ -26,21 +30,25 @@ const renderColumns = columnData =>
   columnData.map(group => {
     if (group.isHidden) return null
     return group.columns.map((column, i) => (
-      <Td
-        key={`${group.header}-${column.header}-td`}
-        isFirst={i === 0}
-        alignLeft={column.alignLeft}
-      >
-        <FormatNumber number={column.data} />
-      </Td>
+      <>
+        {column.isHidden ? null : (
+          <Td
+            key={`${group.header}-${column.header}-td`}
+            isFirst={i === 0}
+            alignLeft
+          >
+            <FormatNumber number={column.data} />
+          </Td>
+        )}
+      </>
     ))
   })
 
 export default ({
   data,
   lastUpdated,
-  showOutcomes = true,
   showFootnote = false,
+  usData = false,
 }) => {
   const columns = [
     {
@@ -48,7 +56,6 @@ export default ({
       columns: [
         {
           header: null,
-          alignLeft: !showOutcomes,
           data: data.positive,
         },
       ],
@@ -58,33 +65,32 @@ export default ({
       columns: [
         {
           header: 'Negative',
-          alignLeft: !showOutcomes,
           data: data.negative,
         },
         {
           header: 'Pending',
-          alignLeft: !showOutcomes,
           data: data.pending,
         },
       ],
     },
     {
-      header: 'Hospitalized',
-      isHidden: !showOutcomes,
+      header: `Hospitalized${showFootnote ? ' *' : ''}`,
       columns: [
         {
           header: 'Currently',
           data: data.hospitalizedCurrently,
+          wide: usData,
         },
         {
           header: 'Cumulative',
           data: data.hospitalizedCumulative,
+          isHidden: usData,
         },
       ],
     },
     {
       header: 'In ICU',
-      isHidden: !showOutcomes,
+      isHidden: usData,
       columns: [
         {
           header: 'Currently',
@@ -98,7 +104,7 @@ export default ({
     },
     {
       header: 'On Ventilator',
-      isHidden: !showOutcomes,
+      isHidden: !!usData,
       columns: [
         {
           header: 'Currently',
@@ -115,12 +121,10 @@ export default ({
       columns: [
         {
           header: 'Recovered',
-          alignLeft: !showOutcomes,
           data: data.recovered,
         },
         {
           header: 'Deaths',
-          alignLeft: !showOutcomes,
           data: data.death,
         },
       ],
@@ -130,7 +134,6 @@ export default ({
       columns: [
         {
           header: 'Positive + Negative',
-          alignLeft: !showOutcomes,
           data: data.totalTestResults,
           wide: true,
         },

@@ -1,47 +1,79 @@
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types' // ES6
 
-import { max, range } from 'd3-array'
-import { scaleBand, scaleLinear } from 'd3-scale'
-import React from 'react'
+import { extent, max } from 'd3-array'
+import { scaleBand, scaleLinear, scaleTime } from 'd3-scale'
+import { line, curveCardinal } from 'd3-shape'
+import { timeMonth, timeDay } from 'd3-time'
 
 import { formatDate, formatNumber } from '~utilities/visualization'
 import chartStyles from './charts.module.scss'
 
+import colors from '~scss/colors.module.scss'
+
 const BarChart = ({
   data,
+  lineData,
+  refLineData,
+  annotations,
   fill,
-  height,
+  lineColor,
   marginBottom,
   marginLeft,
   marginRight,
   marginTop,
   showTicks,
-  xTicks,
   width,
+  height,
   yMax,
   yTicks,
+  lastXTick,
 }) => {
+  // Used when placing annotations
+  const getValueForDate = date => {
+    const dateData = data.find(d => d.date.getTime() === date.getTime())
+    return dateData && dateData.value
+  }
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
+  // The x range is over the area in which the chart should be displaying.
+  // We don't use an X transform to place it in the correct spot, we use range
+  // instead
   const xScale = scaleBand()
     .domain(data.map(d => d.date))
-    .range([0, width - totalXMargin])
+    .range([marginLeft, width - marginRight])
     .padding(0.1)
+  const dateDomain = extent(data, d => d.date)
+  // Should probably refactor to use a single x-axis scale
+  // but the bars make use of the band.
+  const xScaleTime = scaleTime()
+    .domain(dateDomain)
+    .range([marginLeft, width - marginRight])
 
   const yScale = scaleLinear()
-    .domain([0, yMax || max(data, d => d.value)])
+    .domain([0, yMax || max([...data, ...(refLineData || [])], d => d.value)])
     .nice()
     .range([height - totalYMargin, 0])
 
-  const xScaleDomain = xScale.domain()
-  const ticks = range(
-    0,
-    xScaleDomain.length,
-    Math.floor(xScaleDomain.length / xTicks),
-  )
+  const xTickAmount = timeMonth.every(1)
+
+  const lastTime = xScaleTime.ticks(timeDay.every(1)).pop()
+
+  let lineFn = null
+  if (lineData) {
+    lineFn = line()
+      .curve(curveCardinal)
+      .x(d => xScaleTime(d.date))
+      .y(d => yScale(d.value))
+  }
 
   return (
-    <svg className={chartStyles.chart} viewBox={`0 0 ${width} ${height}`}>
+    <svg
+      className={chartStyles.chart}
+      viewBox={`0 0 ${width} ${height}`}
+      aria-hidden
+    >
+      {/* y ticks */}
       <g transform={`translate(${marginLeft} ${marginTop})`}>
         {yScale.ticks(yTicks).map(
           (tick, i) =>
@@ -68,21 +100,70 @@ const BarChart = ({
             ),
         )}
       </g>
-      <g transform={`translate(${marginLeft}, ${height - marginBottom})`}>
-        {ticks.map(d => {
-          const date = xScale.domain()[d]
-          return (
+      {/* x ticks (dates) */}
+      <g transform={`translate(0, ${height - marginBottom})`}>
+        {xScaleTime.ticks(xTickAmount).map(d => (
+          <Fragment key={`x-${d}`}>
             <text
               className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
               key={d}
-              x={xScale(date)}
-              y="25"
-            >{`${formatDate(date)}`}</text>
-          )
-        })}
+              x={xScaleTime(d)}
+              y="20"
+            >{`${formatDate(d)}`}</text>
+            <line
+              className={chartStyles.label}
+              stroke={colors.colorSlate500}
+              x1={xScaleTime(d)}
+              y1="0"
+              x2={xScaleTime(d)}
+              y2="5"
+            />
+          </Fragment>
+        ))}
+        {lastXTick && (
+          <>
+            <text
+              className={`${chartStyles.label} ${chartStyles.xTickLabel}`}
+              x={xScaleTime(lastTime)}
+              y="20"
+            >{`${formatDate(lastTime)}`}</text>
+            <line
+              className={chartStyles.label}
+              stroke={colors.colorSlate500}
+              x1={xScaleTime(lastTime)}
+              y1="0"
+              x2={xScaleTime(lastTime)}
+              y2="5"
+            />
+          </>
+        )}
       </g>
 
-      <g transform={`translate(${marginLeft} ${marginTop})`}>
+      <mask id="dataMask">
+        <rect
+          x="0"
+          y="0"
+          width={width - marginRight}
+          height={height - totalYMargin}
+          fill="white"
+        />
+      </mask>
+      {/* annotations */}
+      <g transform={`translate(0 ${marginTop})`}>
+        {annotations.map(d => (
+          <text
+            key={d}
+            className={`${chartStyles.annotation}`}
+            x={xScaleTime(d.date)}
+            y={yScale(getValueForDate(d.date))}
+          >
+            {d.number}
+          </text>
+        ))}
+      </g>
+      {/* data */}
+      <g transform={`translate(0 ${marginTop})`} mask="url(#dataMask)">
+        {/* bars (data) */}
         {data.map(d => (
           <rect
             key={d.date + d.value}
@@ -90,20 +171,44 @@ const BarChart = ({
             y={yScale(d.value)}
             height={yScale(0) - yScale(d.value)}
             width={xScale.bandwidth()}
+            fillOpacity={lineData ? 1 : 0.8}
             fill={fill}
           />
         ))}
+        {/* line */}
+        {lineData && (
+          <path
+            d={lineFn(lineData)}
+            stroke={lineColor}
+            strokeWidth="3"
+            fill="none"
+          />
+        )}
+        {/* reference line */}
+        {refLineData && (
+          <path
+            d={lineFn(refLineData)}
+            stroke="black"
+            strokeWidth="2"
+            strokeDasharray="4"
+            fill="none"
+          />
+        )}
       </g>
     </svg>
   )
 }
 
 BarChart.defaultProps = {
+  lineData: null,
+  refLineData: null,
+  annotations: [],
   marginBottom: 0,
   marginLeft: 0,
   marginRight: 0,
   marginTop: 0,
-  xTicks: 5,
+  width: 300,
+  height: 300,
   yMax: null,
   yTicks: 4,
   showTicks: 4,
@@ -113,18 +218,37 @@ BarChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
-      value: PropTypes.number,
+      value: PropTypes.number.isRequired,
     }),
   ).isRequired,
+  lineData: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.instanceOf(Date).isRequired,
+      value: PropTypes.number.isRequired,
+    }),
+  ),
+  refLineData: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.instanceOf(Date).isRequired,
+      value: PropTypes.number.isRequired,
+    }),
+  ),
+  annotations: PropTypes.arrayOf(
+    PropTypes.shape({
+      number: PropTypes.number.isRequired,
+      date: PropTypes.instanceOf(Date).isRequired,
+      value: PropTypes.number,
+    }),
+  ),
   fill: PropTypes.string.isRequired,
-  width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
+  lineColor: PropTypes.string.isRequired,
+  width: PropTypes.number,
+  height: PropTypes.number,
   marginBottom: PropTypes.number,
   marginLeft: PropTypes.number,
   marginRight: PropTypes.number,
   marginTop: PropTypes.number,
   showTicks: PropTypes.number,
-  xTicks: PropTypes.number,
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
 }

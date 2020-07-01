@@ -6,7 +6,7 @@ import { CtaLink } from '~components/common/landing-page/call-to-action'
 import pressStyles from './press.module.scss'
 
 export default () => (
-  <section>
+  <section className={pressStyles.section}>
     <h3 className={pressStyles.header}>Who&#8217;s using our data</h3>
     <div className={pressStyles.press}>
       <Row>

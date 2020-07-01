@@ -70,7 +70,6 @@ export const barChart = () => {
       marginLeft={80}
       marginRight={10}
       marginTop={10}
-      xTicks={2}
       width={400}
     />
   )
