@@ -88,5 +88,12 @@ describe('Components : Layout : Header', () => {
       .create(<Header title="Sample title" navigation={mockNavigation} />)
       .toJSON()
     expect(navigationTree).toMatchSnapshot()
+
+    const navigationCenter = renderer
+      .create(
+        <Header title="Sample title" navigation={mockNavigation} centerTitle />,
+      )
+      .toJSON()
+    expect(navigationCenter).toMatchSnapshot()
   })
 })
