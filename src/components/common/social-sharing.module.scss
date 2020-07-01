@@ -30,7 +30,18 @@
 }
 
 .link-copied {
-  color: white;
+  color: $color-infobox-question-dark;
+  background-color: $color-infobox-question-light;
   position: relative;
+
+  border: 1px solid $color-infobox-question-dark;
+  border-radius: 4px;
+
+  @include padding(8, (left, right));
+  @include margin(16, (bottom));
+
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
   line-height: 2rem;
 }
