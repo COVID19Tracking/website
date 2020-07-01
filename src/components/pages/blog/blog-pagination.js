@@ -12,35 +12,24 @@ export default ({ currentPage, numPages }) => {
   const disabledPrev = isFirst ? blogPaginationStyle.disabledLink : ''
   const disableNext = isLast ? blogPaginationStyle.disabledLink : ''
 
-  /* eslint-disable  no-console */
-  console.group()
-  console.log(`currentPage: ${currentPage}`)
-  console.log(`prevPage: ${prevPage}`)
-  console.log(`nextPage: ${nextPage}`)
-  console.log(`numPages: ${numPages}`)
-  console.groupEnd()
-
   return (
     <div className={blogPaginationStyle.navigationContainer}>
       <div className={blogPaginationStyle.navigation}>
-        <div className={blogPaginationStyle.navigationItem}>
-          <Link
-            to={isFirst ? '/blog' : prevPage}
-            rel="prev"
-            className={disabledPrev}
-          >
-            ← Previous Page
-          </Link>
-        </div>
-        <div className={blogPaginationStyle.navigationItem}>
-          <Link
-            to={isLast ? '/blog' : nextPage}
-            rel="next"
-            className={disableNext}
-          >
-            Next Page →
-          </Link>
-        </div>
+        <Link
+          to={isFirst ? '/blog' : prevPage}
+          rel="prev"
+          className={`${disabledPrev} ${blogPaginationStyle.navigationItem}`}
+        >
+          ← Previous Page
+        </Link>
+
+        <Link
+          to={isLast ? '/blog' : nextPage}
+          rel="next"
+          className={`${disableNext} ${blogPaginationStyle.navigationItem}`}
+        >
+          Next Page →
+        </Link>
       </div>
       <div className={blogPaginationStyle.pageNavigation}>
         <p>Page:</p>
