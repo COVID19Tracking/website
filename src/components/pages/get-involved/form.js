@@ -20,7 +20,7 @@ export default () => (
           isRequired
         />
       </Col>
-      <Col width={[4, 6, 6]}>
+      <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]}>
         <Input
           label="Last name"
           type="text"
@@ -40,7 +40,7 @@ export default () => (
           isRequired
         />
       </Col>
-      <Col width={[4, 6, 6]}>
+      <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]}>
         <InputDefinedLength
           label="Zip code"
           detailText="To receive updates specific to your location, please enter a zip code."
