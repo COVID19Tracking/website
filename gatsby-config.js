@@ -1,3 +1,4 @@
+
 require(`@babel/register`)({
   presets: ['@babel/preset-env', '@babel/preset-react'],
   plugins: ['@babel/plugin-transform-runtime'],
@@ -6,6 +7,7 @@ require('dotenv').config()
 
 const algoliaQueries = require('./src/utilities/algolia').queries
 const sassImports = require('./src/utilities/sass-imports.js')
+const stringifyList = require('./src/utilities/list-formatter').stringifyList
 
 const gatsbyConfig = {
   siteMetadata: {
@@ -287,16 +289,15 @@ const gatsbyConfig = {
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) => {
               return allContentfulBlogPost.nodes.map(node => {
-                return Object.assign(
-                  {},
-                  {
-                    title: node.title,
-                    description: node.lede.lede,
-                    date: node.publishDate,
-                    url: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
-                    guid: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
-                  },
-                )
+                const authors = stringifyList({arr: node.authors.map(a => a.name)})
+                return Object.assign({}, {
+                  title: node.title,
+                  description: node.lede.lede,
+                  date: node.publishDate,
+                  url: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
+                  author: authors
+                })
               })
             },
             query: `
