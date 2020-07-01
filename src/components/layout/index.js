@@ -21,9 +21,9 @@ const Layout = ({
   navigation,
   noMargin,
   hasHero,
-  narrow,
   centered,
   socialCard,
+  hero,
 }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -49,12 +49,11 @@ const Layout = ({
         hasHero={hasHero}
         returnLink={returnLink}
         returnLinkTitle={returnLinkTitle}
+        hero={hero}
       />
       <main id="main">
         <SkipNavContent />
-        <Container narrow={narrow} centered={centered}>
-          {children}
-        </Container>
+        <Container centered={centered}>{children}</Container>
       </main>
       <Footer />
     </>

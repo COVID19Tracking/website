@@ -1,8 +1,8 @@
 .credit {
   @include type-size(100);
-  line-height: 2.5;
+  line-height: 1.5;
   color: $color-slate-600;
-  margin-bottom: spacer(8);
+  margin-top: spacer(8);
 
   &.white {
     color: white;

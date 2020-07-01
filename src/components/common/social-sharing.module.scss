@@ -1,0 +1,46 @@
+.wrapper {
+  display: flex;
+}
+
+.social-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+
+  border-radius: 4px;
+  background: $color-plum-300;
+  height: 32px;
+  @media (min-width: $viewport-md) {
+    width: 32px;
+  }
+
+  margin-left: spacer(16);
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:hover {
+    @include link-hover-dark-bg;
+  }
+
+  &:focus {
+    @include link-focus-dark-bg;
+  }
+}
+
+.link-copied {
+  color: $color-infobox-question-dark;
+  background-color: $color-infobox-question-light;
+  position: relative;
+
+  border: 1px solid $color-infobox-question-dark;
+  border-radius: 4px;
+
+  @include padding(8, (left, right));
+
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  line-height: 2rem;
+}
