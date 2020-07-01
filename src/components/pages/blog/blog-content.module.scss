@@ -19,6 +19,10 @@
     & > li > p {
       @include margin(0, bottom);
     }
+
+    li + li {
+      @include margin(24, top);
+    }
   }
 
   .image {
