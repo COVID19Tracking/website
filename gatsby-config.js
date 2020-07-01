@@ -1,3 +1,4 @@
+
 require(`@babel/register`)({
   presets: ['@babel/preset-env', '@babel/preset-react'],
   plugins: ['@babel/plugin-transform-runtime'],
@@ -288,6 +289,7 @@ const gatsbyConfig = {
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) => {
               return allContentfulBlogPost.nodes.map(node => {
+
                 return Object.assign(
                   {},
                   {

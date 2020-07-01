@@ -159,6 +159,11 @@ export default ({ name = 'National', history, usHistory }) => {
         ]
       : []
 
+  const getAlertMessage = (field, current = false) =>
+    `${name} has not reported data on  ${
+      current ? 'current' : ''
+    }  COVID-19 ${field} for at least 30% of the past 90 days.`
+
   const showTodaysChartTick =
     DateTime.fromISO(data[data.length - 1].date).day > 10
   return (
@@ -203,9 +208,7 @@ export default ({ name = 'National', history, usHistory }) => {
               {...props}
             />
           ) : (
-            <ChartAlert
-              message={`${name} does not have any current COVID-19 cases.`}
-            />
+            <ChartAlert message={getAlertMessage('cases')} />
           )}
         </Col>
         <Col width={colWidth}>
@@ -222,9 +225,7 @@ export default ({ name = 'National', history, usHistory }) => {
               {...props}
             />
           ) : (
-            <ChartAlert
-              message={`${name} does not report data on current COVID-19 hospitalizations.`}
-            />
+            <ChartAlert message={getAlertMessage('hospitalizations', true)} />
           )}
         </Col>
         <Col width={colWidth}>
@@ -240,9 +241,7 @@ export default ({ name = 'National', history, usHistory }) => {
               {...props}
             />
           ) : (
-            <ChartAlert
-              message={`${name} does not have any current COVID-19 deaths.`}
-            />
+            <ChartAlert message={getAlertMessage('deaths')} />
           )}
         </Col>
       </Row>
