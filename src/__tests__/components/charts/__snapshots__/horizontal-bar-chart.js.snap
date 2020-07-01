@@ -2,6 +2,7 @@
 
 exports[`Components : Charts: Area chart renders correctly 1`] = `
 <svg
+  aria-hidden={true}
   className="chart"
   viewBox="0 0 200 200"
 >
@@ -126,6 +127,7 @@ exports[`Components : Charts: Area chart renders correctly 1`] = `
 
 exports[`Components : Charts: Area chart renders correctly 2`] = `
 <svg
+  aria-hidden={true}
   className="chart"
   viewBox="0 0 200 200"
 >
