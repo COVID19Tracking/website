@@ -3,15 +3,7 @@ import Categories from '~components/pages/blog/categories'
 import Lede from '~components/pages/blog/blog-lede'
 import blogHeroStyles from './blog-hero.module.scss'
 
-export default ({
-  categories,
-  headline,
-  authors,
-  date,
-  lede,
-  featuredImage,
-  slug,
-}) => (
+export default ({ categories, headline, authors, date, lede, slug }) => (
   <div className={blogHeroStyles.container} narrow centered>
     <Categories categories={categories} />
     <Lede
@@ -19,7 +11,6 @@ export default ({
       authors={authors}
       date={date}
       lede={lede}
-      featuredImage={featuredImage}
       slug={slug}
       darkBackground
     />
