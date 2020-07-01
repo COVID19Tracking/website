@@ -14,6 +14,7 @@
 
   .image {
     width: 100%;
+    margin-bottom: spacer(24);
   }
 
   blockquote {
@@ -44,5 +45,4 @@ hr {
   height: 1px;
   background-color: $color-slate-200;
   border: none;
-  width: 67%;
 }

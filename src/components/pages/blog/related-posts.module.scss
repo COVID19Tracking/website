@@ -7,7 +7,7 @@
     grid-template-columns: 100%;
   }
 
-  margin-top: spacer(64);
+  margin-top: 0;
 
   h2 {
     margin: 0;
@@ -19,6 +19,9 @@
     line-height: 130%;
     margin: 0;
     margin-bottom: spacer(16);
+    a {
+      text-decoration: none;
+    }
   }
 }
 
