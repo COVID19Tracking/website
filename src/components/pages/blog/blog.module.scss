@@ -1,0 +1,6 @@
+@media (min-width: $viewport-lg) {
+  .container > div {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
