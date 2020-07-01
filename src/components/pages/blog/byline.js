@@ -1,16 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import bylineStyles from './byline.module.scss'
-import { listSpacer } from '~utilities/list-formatter'
 
-const getAuthorLink = author => {
-  if (author.link) {
-    return author.link
-  }
-  if (author.twitterLink) {
-    return author.twitterLink
-  }
-  return null
-}
+import { FormatItemList } from '~components/utils/format'
+import getAuthorLink from '~components/utils/get-author-link'
+
 
 const getBylineClass = (isSmallMargin, hasImage) => {
   if (isSmallMargin) {
@@ -37,16 +30,12 @@ const Author = ({ author }) => {
   )
 }
 
-const AuthorsText = ({ authors }) => (
-  <>
-    {authors.map((author, index) => (
-      <Fragment key={`author-${author.name}`}>
-        <Author author={author} />
-        {listSpacer({ index, length: authors.length })}
-      </Fragment>
-    ))}
-  </>
-)
+
+const AuthorsText = ({ authors }) => {
+  const keys = authors.map(author => `author-${author.name}`)
+  const items = authors.map(author => <Author author={author} />)
+  return <FormatItemList items={items} keys={keys} />
+}
 
 const Byline = ({ authors, date, smallmargin = false }) => {
   const authorsWithHeadshots = authors.filter(author => author.headshot)
