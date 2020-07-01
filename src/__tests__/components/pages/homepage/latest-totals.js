@@ -5,14 +5,10 @@ import LatestTotals from '~components/pages/homepage/latest-totals'
 
 beforeEach(() => {
   useStaticQuery.mockImplementation(() => ({
-    allCovidUs: {
-      nodes: [
-        {
-          posNeg: 5795728,
-          positive: 1005592,
-          death: 52525,
-        },
-      ],
+    covidUs: {
+      posNeg: 5795728,
+      positive: 1005592,
+      death: 52525,
     },
   }))
 })

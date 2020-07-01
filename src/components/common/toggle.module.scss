@@ -1,0 +1,45 @@
+%toggle-active {
+  color: white;
+  background-color: black;
+  border-color: black;
+  font-weight: 500;
+}
+
+%toggle-inactive {
+  color: black;
+  border: solid lightgray 2px;
+  font-weight: initial;
+}
+
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-label {
+  margin-right: spacer(16);
+  @include type-size(100);
+
+  @media screen and (min-width: $viewport-sm) {
+    @include type-size(200);
+  }
+}
+
+.toggle {
+  align-self: flex-start;
+  cursor: pointer;
+  display: flex;
+  width: fit-content;
+  span {
+    @extend %toggle-inactive;
+    @include type-size(100);
+    margin: -1px; // ignore-style-rule
+    padding: 2px 15px; // ignore-style-rule
+    white-space: nowrap;
+    border: solid black 1px;
+
+    &.active {
+      @extend %toggle-active;
+    }
+  }
+}
