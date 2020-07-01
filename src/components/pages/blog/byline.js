@@ -2,8 +2,16 @@ import React from 'react'
 import bylineStyles from './byline.module.scss'
 
 import { FormatItemList } from '~components/utils/format'
-import getAuthorLink from '~components/utils/get-author-link'
 
+const getAuthorLink = author => {
+  if (author.link) {
+    return author.link
+  }
+  if (author.twitterLink) {
+    return author.twitterLink
+  }
+  return null
+}
 
 const getBylineClass = (isSmallMargin, hasImage) => {
   if (isSmallMargin) {
@@ -29,7 +37,6 @@ const Author = ({ author }) => {
     </>
   )
 }
-
 
 const AuthorsText = ({ authors }) => {
   const keys = authors.map(author => `author-${author.name}`)
