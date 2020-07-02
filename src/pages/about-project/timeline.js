@@ -21,6 +21,7 @@ export const query = graphql`
       nodes {
         title
         date
+        dateEnd
         timeline
         externalLink
         childContentfulEventDescriptionTextNode {

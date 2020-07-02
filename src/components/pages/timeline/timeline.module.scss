@@ -1,11 +1,17 @@
 .timeline {
   @include row();
 
+  .bar-container {
+    width: 10%;
+  }
+
   .bar {
-    @include col(1, 1, 2);
+    height: 100%;
+    width: 10px;
+    background: $color-plum-700;
   }
 
   .events {
-    @include col(3, 5, 10);
+    width: 90%;
   }
 }
