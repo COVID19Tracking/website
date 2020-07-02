@@ -48,8 +48,14 @@
 
   display: none;
 
-  li:first-child {
-    @include padding(8, top);
+  li {
+      @media (max-width: $viewport-lg) {
+        font-size: 1rem;
+        line-height: 2;
+      }
+      &:first-child {
+        @include padding(8, top);
+    }
   }
 
   &.opened {
