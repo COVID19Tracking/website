@@ -12,10 +12,10 @@ export default ({ items }) => (
         <h2 className={blogTeaserListStyle.title}>
           <Link to={`/blog/${node.slug}`}>{node.title}</Link>
         </h2>
-        <Byline authors={node.authors} date={node.publishDate} smallmargin />
         <p className="lede">
           <CleanSpacing>{node.lede.lede}</CleanSpacing>
         </p>
+        <Byline authors={node.authors} date={node.publishDate} smallmargin />
       </div>
     ))}
   </Container>
