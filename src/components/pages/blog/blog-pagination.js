@@ -6,8 +6,10 @@ export default ({ currentPage, numPages }) => {
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
   const prevPage =
-    currentPage - 1 === 1 ? '/blog' : `/blog/${(currentPage - 1).toString()}`
-  const nextPage = `/blog/${(currentPage + 1).toString()}`
+    currentPage - 1 === 1
+      ? '/blog'
+      : `/blog/page/${(currentPage - 1).toString()}`
+  const nextPage = `/blog/page/${(currentPage + 1).toString()}`
 
   const disabledPrev = isFirst ? blogPaginationStyle.disabledLink : ''
   const disableNext = isLast ? blogPaginationStyle.disabledLink : ''
@@ -16,17 +18,19 @@ export default ({ currentPage, numPages }) => {
     <div className={blogPaginationStyle.navigationContainer}>
       <div className={blogPaginationStyle.navigation}>
         <Link
-          to={isFirst ? '/blog' : prevPage}
+          to={prevPage}
           rel="prev"
           className={`${disabledPrev} ${blogPaginationStyle.navigationItem}`}
+          aria-current={isFirst ? 'false' : 'step'}
         >
           ← Previous Page
         </Link>
 
         <Link
-          to={isLast ? '/blog' : nextPage}
+          to={nextPage}
           rel="next"
           className={`${disableNext} ${blogPaginationStyle.navigationItem}`}
+          aria-current={isLast ? 'false' : 'step'}
         >
           Next Page →
         </Link>
@@ -40,10 +44,11 @@ export default ({ currentPage, numPages }) => {
               className={blogPaginationStyle.page}
             >
               <Link
-                to={`/blog/${i === 0 ? '' : i + 1}`}
+                to={`/blog${i === 0 ? '' : `/page/${i + 1}`}`}
                 className={`${blogPaginationStyle.pageLink} ${
                   i + 1 === currentPage ? blogPaginationStyle.pageActive : ''
                 }`}
+                aria-current={i + 1 === currentPage ? 'page' : 'false'}
               >
                 {i + 1}
               </Link>
