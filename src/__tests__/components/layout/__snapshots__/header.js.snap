@@ -80,6 +80,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
           role="navigation"
         >
           <ul
+            aria-label="Main"
             className="mobile"
             role="menubar"
           >
@@ -279,6 +280,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className=""
               role="menubar"
             >
@@ -583,6 +585,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
           role="navigation"
         >
           <ul
+            aria-label="Main"
             className="mobile"
             role="menubar"
           >
@@ -782,6 +785,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className=""
               role="menubar"
             >
@@ -1086,6 +1090,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
           role="navigation"
         >
           <ul
+            aria-label="Main"
             className="mobile"
             role="menubar"
           >
@@ -1285,6 +1290,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className=""
               role="menubar"
             >
@@ -1593,6 +1599,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
           role="navigation"
         >
           <ul
+            aria-label="Main"
             className="mobile"
             role="menubar"
           >
@@ -1792,6 +1799,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className=""
               role="menubar"
             >
@@ -2096,6 +2104,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
           role="navigation"
         >
           <ul
+            aria-label="Main"
             className="mobile"
             role="menubar"
           >
@@ -2295,6 +2304,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className=""
               role="menubar"
             >
