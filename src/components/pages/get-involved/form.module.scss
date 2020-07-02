@@ -1,3 +1,5 @@
 .zip {
-  max-width: 10rem;
+  @media( max-width: $viewport-ms) {
+    max-width: 10rem
+  }
 }

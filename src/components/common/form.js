@@ -27,7 +27,7 @@ const FieldDetailText = ({ detailText }) => {
     return null
   }
   return (
-    <div className={formStyles.detailContainer}>
+    <div>
       <DetailText>{detailText}</DetailText>
     </div>
   )
@@ -80,10 +80,14 @@ const InputDefinedLength = ({
         aria-required={isRequired}
         onChange={onChange}
         maxLength={maxLength}
-        className={className}
+        className={`${className} ${
+          detailText ? formStyles.inputDescription : null
+        }`}
       />
     </div>
-    <FieldDetailText detailText={detailText} />
+    <div className={formStyles.descriptionContainer}>
+      <FieldDetailText detailText={detailText} />
+    </div>
   </div>
 )
 
@@ -113,7 +117,9 @@ const Input = ({
         detailText ? formStyles.inputDescription : null
       }`}
     />
-    <FieldDetailText detailText={detailText} />
+    <div className={formStyles.descriptionContainer}>
+      <FieldDetailText detailText={detailText} />
+    </div>
   </>
 )
 
@@ -146,7 +152,9 @@ const Select = ({
         </option>
       ))}
     </select>
-    <FieldDetailText detailText={detailText} />
+    <div className={formStyles.descriptionContainer}>
+      <FieldDetailText detailText={detailText} />
+    </div>
   </>
 )
 
@@ -173,7 +181,9 @@ const List = ({ type, name, options, label, isRequired, detailText }) => (
             </label>
           ))}
       </div>
-      <FieldDetailText detailText={detailText} />
+      <div className={formStyles.descriptionContainer}>
+        <FieldDetailText detailText={detailText} />
+      </div>
     </fieldset>
   </>
 )
