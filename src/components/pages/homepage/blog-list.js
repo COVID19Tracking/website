@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import pressListStyle from '~components/common/press-list.module.scss'
 import { Byline } from '~components/pages/blog/byline'
 import CleanSpacing from '~components/utils/clean-spacing'
 import Container from '~components/common/landing-page/container'
@@ -50,7 +49,7 @@ export default () => {
           in our data on our project blog.
         </Paragraph>
         <div className={blogListStyles.container}>
-          <ul className={`press-list ${pressListStyle.pressList}`}>
+          <ul className={`press-list ${blogListStyles.blogList}`}>
             {posts.map(node => (
               <li
                 key={`homepage-blog-${node.slug}`}
