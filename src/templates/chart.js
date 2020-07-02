@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import ContentfulContent from '~components/common/contentful-content'
 import Container from '~components/common/container'
 import LongContent from '~components/common/long-content'
 import TableauChart from '~components/charts/tableau'
@@ -17,15 +16,6 @@ const ChartPage = ({ data, path }) => {
     >
       <Container narrow>
         <LongContent>
-          {chart.childContentfulChartDescriptionTextNode && (
-            <ContentfulContent
-              content={
-                chart.childContentfulChartDescriptionTextNode
-                  .childMarkdownRemark.html
-              }
-              id={chart.contentful_id}
-            />
-          )}
           <div
             className="a11y-only"
             dangerouslySetInnerHTML={{
@@ -69,11 +59,6 @@ export const query = graphql`
         slug
       }
       tableauViewUrl
-      childContentfulChartDescriptionTextNode {
-        childMarkdownRemark {
-          html
-        }
-      }
     }
   }
 `
