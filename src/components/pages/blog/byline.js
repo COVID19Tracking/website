@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import classnames from 'classnames'
 import bylineStyles from './byline.module.scss'
 
 import { FormatItemList } from '~components/utils/format'
@@ -44,12 +45,22 @@ const AuthorsText = ({ authors }) => {
   return <FormatItemList items={items} keys={keys} />
 }
 
-const Byline = ({ authors, date, smallmargin = false }) => {
+const Byline = ({
+  authors,
+  date,
+  smallmargin = false,
+  darkBackground = false,
+}) => {
   const authorsWithHeadshots = authors.filter(author => author.headshot)
   const hasHeadshots = authorsWithHeadshots.length > 0
   const bylineClass = getBylineClass(smallmargin, hasHeadshots)
   return (
-    <div className={bylineClass}>
+    <div
+      className={classnames(
+        bylineClass,
+        darkBackground && bylineStyles.darkBackground,
+      )}
+    >
       {hasHeadshots && (
         <div className={bylineStyles.headshotContainer}>
           {authorsWithHeadshots.map(author => (
@@ -61,13 +72,12 @@ const Byline = ({ authors, date, smallmargin = false }) => {
           ))}
         </div>
       )}
-      <p className={bylineStyles.bylineText}>
-        <span className={bylineStyles.spacer}>By </span>
+      <span className={bylineStyles.bylineText}>
         <span className={bylineStyles.author}>
-          <AuthorsText authors={authors} />
+          By <AuthorsText authors={authors} />
         </span>
         <span className={bylineStyles.date}>{date}</span>
-      </p>
+      </span>
     </div>
   )
 }

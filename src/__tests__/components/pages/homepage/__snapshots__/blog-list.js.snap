@@ -16,7 +16,7 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
       className="container"
     >
       <ul
-        className="press-list pressList"
+        className="press-list blogList"
       >
         <li
           className="blogItem"
@@ -36,17 +36,13 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
           <div
             className="bylineSmallMargin"
           >
-            <p
+            <span
               className="bylineText"
             >
               <span
-                className="spacer"
-              >
-                By 
-              </span>
-              <span
                 className="author"
               >
+                By 
                 <span
                   className="authorInner"
                 >
@@ -64,7 +60,7 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
               >
                 April 23, 2020
               </span>
-            </p>
+            </span>
           </div>
         </li>
         <li
@@ -93,17 +89,13 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
                 src="//images.ctfassets.net/o2ll9t4ee8tq/3vW1aeLjPFSMAZOqHv9TQS/b4ffb03526cf67724c6732c6e11a6cef/original.png?w=100&fl=progressive&q=50"
               />
             </div>
-            <p
+            <span
               className="bylineText"
             >
               <span
-                className="spacer"
-              >
-                By 
-              </span>
-              <span
                 className="author"
               >
+                By 
                 <a
                   className="authorInner"
                   href="https://www.theatlantic.com/author/alexis-madrigal"
@@ -116,7 +108,7 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
               >
                 April 15, 2020
               </span>
-            </p>
+            </span>
           </div>
         </li>
       </ul>

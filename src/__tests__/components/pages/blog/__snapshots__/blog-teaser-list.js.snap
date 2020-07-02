@@ -26,17 +26,13 @@ Array [
         src="//images.ctfassets.net/aspecificfile"
       />
     </div>
-    <p
+    <span
       className="bylineText"
     >
       <span
-        className="spacer"
-      >
-        By 
-      </span>
-      <span
         className="author"
       >
+        By 
         <a
           className="authorInner"
           href="https://twitter.com/test"
@@ -56,7 +52,7 @@ Array [
       >
         Aug 1 2020
       </span>
-    </p>
+    </span>
   </div>,
   <p
     className="lede"
@@ -87,17 +83,13 @@ Array [
         src="//images.ctfassets.net/aspecificfile"
       />
     </div>
-    <p
+    <span
       className="bylineText"
     >
       <span
-        className="spacer"
-      >
-        By 
-      </span>
-      <span
         className="author"
       >
+        By 
         <a
           className="authorInner"
           href="https://twitter.com/test"
@@ -117,7 +109,7 @@ Array [
       >
         Apr 15 2020
       </span>
-    </p>
+    </span>
   </div>,
   <p
     className="lede"

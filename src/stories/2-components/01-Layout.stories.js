@@ -36,7 +36,21 @@ containerNarrow.story = {
   parameters: {
     info: {
       text:
-        'A narrow element that aligns to the left side of the page and is useful to wrap content.',
+        'A narrow element that aligns to the left side of the page and is useful to wrap long content within a full container.',
+    },
+  },
+}
+
+export const containerCentered = () => (
+  <Container centered>
+    <SampleContainer />
+  </Container>
+)
+containerCentered.story = {
+  parameters: {
+    info: {
+      text:
+        'A centered container, uses the same width as the `narrow` container, but centered on the page in large breakpoints. This should be used for pages of long content.',
     },
   },
 }

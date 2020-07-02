@@ -27,3 +27,14 @@
     margin-bottom: 8px;
   }
 }
+
+.blog-list {
+  list-style-type: none;
+  margin: 0;
+  line-height: 1.3;
+  padding-left: 0;
+
+  li {
+    margin-bottom: spacer(24);
+  }
+}

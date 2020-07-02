@@ -8,7 +8,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import GetInvolvedForm from '~components/pages/get-involved/form'
 
 export default ({ data }) => (
-  <Layout title="Get Involved" narrow>
+  <Layout title="Get Involved" centered>
     <LongContent>
       <ContentfulContent
         content={
