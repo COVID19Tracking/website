@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Container from '~components/common/container'
 import LongContent from '~components/common/long-content'
 import TableauChart from '~components/charts/tableau'
+import ChartList from '~components/pages/data/charts/chart-list'
 import Layout from '../components/layout'
 
 const ChartPage = ({ data, path }) => {
@@ -34,6 +35,7 @@ const ChartPage = ({ data, path }) => {
             viewUrl={chart.tableauViewUrl}
           />
         )}
+        <ChartList />
       </Container>
     </Layout>
   )
