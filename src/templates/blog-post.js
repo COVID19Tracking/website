@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Hero from '~components/pages/blog/blog-hero'
 import Layout from '~components/layout'
+import FeaturedImage from '~components/pages/blog/featured-image'
 import BlogPostContent from '~components/pages/blog/blog-content'
 import BlogPostExtras from '~components/pages/blog/blog-extras'
 
@@ -19,7 +20,6 @@ export default ({ data, path }) => {
       authors={blogPost.authors}
       date={blogPost.publishDate}
       lede={blogPost.lede.lede}
-      featuredImage={blogPost.featuredImage}
       slug={blogPost.slug}
     />
   )
@@ -33,7 +33,11 @@ export default ({ data, path }) => {
       returnLinkTitle="All posts"
       path={path}
       hero={hero}
+      centerTitle
     >
+      {blogPost.featuredImage && (
+        <FeaturedImage image={blogPost.featuredImage} />
+      )}
       <BlogPostContent
         content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
         images={blogImages}

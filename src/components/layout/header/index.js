@@ -37,6 +37,7 @@ const Header = withSearch(
     returnLink,
     returnLinkTitle,
     hero,
+    centerTitle,
   }) => {
     const data = useStaticQuery(graphql`
       query {
@@ -218,7 +219,7 @@ const Header = withSearch(
                 <div />
               </div>
             </div>
-            <Container centered>
+            <Container centered={centerTitle}>
               {title && !hero && (
                 <div
                   className={`${headerStyle.titleSubnavContainer} ${

@@ -2,19 +2,10 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Byline } from './byline'
 import blogLedeStyles from './blog-lede.module.scss'
-import FeaturedImage from './featured-image'
 import CleanSpacing from '~components/utils/clean-spacing'
 import SocialSharing from '~components/common/social-sharing'
 
-export default ({
-  headline,
-  authors,
-  date,
-  lede,
-  featuredImage,
-  slug,
-  darkBackground,
-}) => {
+export default ({ headline, authors, date, lede, slug, darkBackground }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -40,7 +31,6 @@ export default ({
           text={lede}
         />
       </div>
-      {featuredImage && <FeaturedImage image={featuredImage} />}
     </div>
   )
 }

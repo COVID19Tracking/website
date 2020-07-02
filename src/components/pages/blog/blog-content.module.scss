@@ -12,6 +12,19 @@
     }
   }
 
+  ul {
+    @include margin(0, top);
+    @include margin(32, bottom);
+
+    & > li > p {
+      @include margin(0, bottom);
+    }
+
+    li + li {
+      @include margin(24, top);
+    }
+  }
+
   .image {
     width: 100%;
   }
@@ -44,5 +57,4 @@ hr {
   height: 1px;
   background-color: $color-slate-200;
   border: none;
-  width: 67%;
 }

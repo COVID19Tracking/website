@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
 
-  @include type-size(200);
+  @include type-size(100);
   line-height: 1.2;
 
   .headshot-container {
@@ -31,9 +31,7 @@
   .date {
     margin-top: 0.125rem;
     color: $color-slate-600;
-    @media (max-width: $viewport-ms) {
-      margin-top: 0;
-    }
+    @include margin(4, top);
     grid-column-start: span 2;
   }
 }

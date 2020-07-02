@@ -49,7 +49,7 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
                   Prajakta Ranade
                 </span>
                  
-                &
+                and
                  
                 <span
                   className="authorInner"

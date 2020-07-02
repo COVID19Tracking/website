@@ -1,5 +1,5 @@
 .container {
-  margin: spacer(16) 0 spacer(32);
+  margin: spacer(16) 0 0;
   @media (min-width: $viewport-md) {
     margin-top: spacer(32);
   }
