@@ -7,7 +7,7 @@ import BlogPagination from '~components/pages/blog/blog-pagination'
 export default ({ data, pageContext }) => {
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
-  const title = isFirst ? 'Blog' : `Blog - Page ${currentPage}`
+  const title = isFirst ? 'Blog' : `Blog – Page ${currentPage}`
 
   return (
     <Layout title={title} path="/blog" narrow>

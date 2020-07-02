@@ -29,6 +29,7 @@
     }
   }
   .date {
+    margin-top: 0.125rem; //ignore-style-rule
     color: $color-slate-600;
     @include margin(4, top);
     grid-column-start: span 2;
