@@ -88,6 +88,7 @@ Array [
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className="mobile"
               role="menubar"
             >
@@ -287,6 +288,7 @@ Array [
               role="navigation"
             >
               <ul
+                aria-label="Main"
                 className=""
                 role="menubar"
               >
@@ -490,7 +492,7 @@ Array [
         className="container container"
       >
         <div
-          className="centered narrow"
+          className="full"
         >
           <div
             className="titleSubnavContainer "
@@ -745,6 +747,7 @@ Array [
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className="mobile"
               role="menubar"
             >
@@ -944,6 +947,7 @@ Array [
               role="navigation"
             >
               <ul
+                aria-label="Main"
                 className=""
                 role="menubar"
               >
@@ -1147,7 +1151,7 @@ Array [
         className="container container"
       >
         <div
-          className="centered narrow"
+          className="full"
         >
           <div
             className="titleSubnavContainer "
