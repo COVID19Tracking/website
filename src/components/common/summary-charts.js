@@ -53,6 +53,27 @@ const ChartAlert = ({ message }) => (
   </div>
 )
 
+const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
+  if (
+    !annotations ||
+    !annotations.nodes ||
+    !annotations.nodes.filter(
+      annotation => annotation.dataElement === dataElement,
+    ).length
+  ) {
+    return null
+  }
+  return (
+    <a
+      href="#chart-annotations"
+      className={styles.annotationIndicator}
+      onClick={() => openDisclosure()}
+    >
+      Notes
+    </a>
+  )
+}
+
 export default ({ name = 'National', history, usHistory, annotations }) => {
   const siteData = useStaticQuery(graphql`
     {
@@ -80,6 +101,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   const { contentfulSnippet } = siteData
 
   const [usePerCap, setUsePerCap] = useState(false)
+  const [isDisclosureOpen, setDisclosureOpen] = useState(false)
 
   // This enables us to use the getDataForField & dailyAverage functions above
   // without enable triple nested properties
@@ -171,7 +193,14 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
       </div>
       <Row>
         <Col width={colWidth}>
-          <h5>New tests</h5>
+          <h5>
+            New tests{' '}
+            <AnnotationIndicator
+              annotations={annotations}
+              dataElement="tests"
+              openDisclosure={() => setDisclosureOpen(true)}
+            />
+          </h5>
           <BarChart
             data={getDataForField(data, testField)}
             lineData={dailyAverage(data, testField)}
@@ -183,7 +212,14 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
           />
         </Col>
         <Col width={colWidth}>
-          <h5>New cases</h5>
+          <h5>
+            New cases{' '}
+            <AnnotationIndicator
+              annotations={annotations}
+              dataElement="cases"
+              openDisclosure={() => setDisclosureOpen(true)}
+            />
+          </h5>
           {hasData(positiveField) ? (
             <BarChart
               data={getDataForField(data, positiveField)}
@@ -199,7 +235,14 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
           )}
         </Col>
         <Col width={colWidth}>
-          <h5>Current hospitalizations</h5>
+          <h5>
+            Current hospitalizations{' '}
+            <AnnotationIndicator
+              annotations={annotations}
+              dataElement="hospitalizations"
+              openDisclosure={() => setDisclosureOpen(true)}
+            />
+          </h5>
 
           {hasData(hospitalizedField) ? (
             <BarChart
@@ -216,7 +259,14 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
           )}
         </Col>
         <Col width={colWidth}>
-          <h5>New deaths</h5>
+          <h5>
+            New deaths{' '}
+            <AnnotationIndicator
+              annotations={annotations}
+              dataElement="death"
+              openDisclosure={() => setDisclosureOpen(true)}
+            />
+          </h5>
           {hasData(deathField) ? (
             <BarChart
               data={getDataForField(data, deathField)}
@@ -232,8 +282,11 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
           )}
         </Col>
       </Row>
-      <Disclosure>
-        <DisclosureButton className={styles.disclosure}>
+      <Disclosure
+        open={isDisclosureOpen}
+        onChange={() => setDisclosureOpen(!isDisclosureOpen)}
+      >
+        <DisclosureButton id="chart-annotations" className={styles.disclosure}>
           Chart information and data{' '}
           <span className={styles.arrowDown} aria-hidden>
             ↓

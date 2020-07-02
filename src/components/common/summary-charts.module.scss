@@ -57,3 +57,10 @@
 .annotation-title {
   @include type-size(300);
 }
+
+.annotation-indicator {
+  @include type-size(200);
+  font-weight: normal;
+  display: block;
+  float: right;
+}
