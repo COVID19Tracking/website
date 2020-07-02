@@ -8,7 +8,7 @@ import ChartList from '~components/pages/data/charts/chart-list'
 
 export default ({ data }) => (
   <Layout title="Charts" returnLink="/data" returnLinkTitle="Our Data">
-    <ChartList charts={data.allContentfulChartCategory.nodes} />
+    <ChartList chartCategories={data.allContentfulChartCategory.nodes} />
 
     <Container centered>
       <LongContent>
@@ -26,16 +26,14 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
-    allContentfulChartCategory(
-      sort: { fields: [order, chart___title], order: ASC }
-    ) {
+    allContentfulChartCategory(sort: { fields: [order], order: ASC }) {
       nodes {
-        chart {
+        name
+        slug
+        charts {
           title
           slug
         }
-        name
-        slug
       }
     }
     contentfulSnippet(slug: { eq: "chart-page-content" }) {

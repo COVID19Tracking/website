@@ -54,10 +54,6 @@ export const query = graphql`
         }
       }
       chartProvider
-      category {
-        name
-        slug
-      }
       tableauViewUrl
     }
   }
