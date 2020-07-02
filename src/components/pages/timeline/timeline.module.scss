@@ -1,0 +1,11 @@
+.timeline {
+  @include row();
+
+  .bar {
+    @include col(1, 1, 2);
+  }
+
+  .events {
+    @include col(3, 5, 10);
+  }
+}
