@@ -69,7 +69,7 @@ Array [
             </span>
           </th>
           <th
-            className=""
+            className="alignLeft"
             scope="col"
           >
             <span
@@ -99,7 +99,7 @@ Array [
             </span>
           </th>
           <th
-            className=""
+            className="alignLeft"
             scope="col"
           >
             <span
@@ -129,7 +129,7 @@ Array [
             </span>
           </th>
           <th
-            className=""
+            className="alignLeft"
             scope="col"
           >
             <span
@@ -159,7 +159,7 @@ Array [
             </span>
           </th>
           <th
-            className=""
+            className="alignLeft"
             scope="col"
           >
             <span
@@ -189,7 +189,7 @@ Array [
             </span>
           </th>
           <th
-            className=""
+            className="alignLeft"
             scope="col"
           >
             <span
@@ -223,62 +223,62 @@ Array [
       <tbody>
         <tr>
           <td
-            className="borderLeft"
+            className="alignLeft borderLeft"
           >
             4,572
           </td>
           <td
-            className="borderLeft"
+            className="alignLeft borderLeft"
           >
             33,318
           </td>
           <td
-            className=""
+            className="alignLeft"
           >
             N/A
           </td>
           <td
-            className="borderLeft"
+            className="alignLeft borderLeft"
           >
             N/A
           </td>
           <td
-            className=""
+            className="alignLeft"
           >
             594
           </td>
           <td
-            className="borderLeft"
+            className="alignLeft borderLeft"
           >
             N/A
           </td>
           <td
-            className=""
+            className="alignLeft"
           >
             247
           </td>
           <td
-            className="borderLeft"
+            className="alignLeft borderLeft"
           >
             N/A
           </td>
           <td
-            className=""
+            className="alignLeft"
           >
             148
           </td>
           <td
-            className="borderLeft"
+            className="alignLeft borderLeft"
           >
             N/A
           </td>
           <td
-            className=""
+            className="alignLeft"
           >
             151
           </td>
           <td
-            className="borderLeft"
+            className="alignLeft borderLeft"
           >
             37,890
           </td>

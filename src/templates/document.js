@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 const StatePage = ({ data, path }) => {
   const doc = data.contentfulDocument
   return (
-    <Layout title={doc.name} path={path} narrow>
+    <Layout title={doc.name} path={path} centered>
       <LongContent>
         <ContentfulContent
           content={doc.description.childMarkdownRemark.html}

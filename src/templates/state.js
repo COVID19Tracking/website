@@ -5,6 +5,7 @@ import smartypants from 'smartypants'
 import Layout from '~components/layout'
 import Container from '~components/common/container'
 import MarkdownContent from '~components/common/markdown-content'
+import SummaryCharts from '~components/common/summary-charts'
 import StateGrade from '~components/pages/state/state-grade'
 import StateHistory from '~components/pages/state/state-history'
 import StateLinks from '~components/pages/state/state-links'
@@ -13,7 +14,12 @@ import { SyncInfobox } from '~components/common/infobox'
 
 const StatePage = ({ pageContext, data, path }) => {
   const state = pageContext
-  const { covidState, allCovidStateDaily, allCovidScreenshot } = data
+  const {
+    covidState,
+    allCovidStateDaily,
+    allCovidScreenshot,
+    allCovidUsDaily,
+  } = data
   return (
     <Layout title={state.name} returnLink="/data" path={path}>
       <StateLinks
@@ -31,6 +37,11 @@ const StatePage = ({ pageContext, data, path }) => {
       )}
       <SyncInfobox />
       <SummaryTable data={covidState} lastUpdated={covidState.lastUpdateEt} />
+      <SummaryCharts
+        name={state.name}
+        history={allCovidStateDaily.nodes}
+        usHistory={allCovidUsDaily.nodes}
+      />
       <h2 id="historical">History</h2>
       <StateHistory
         history={allCovidStateDaily.nodes}
@@ -44,6 +55,36 @@ export default StatePage
 
 export const query = graphql`
   query($state: String!) {
+    allCovidUsDaily {
+      nodes {
+        totalTestResults
+        totalTestResultsIncrease
+        positive
+        positiveIncrease
+        pending
+        negative
+        hospitalized
+        hospitalizedIncrease
+        hospitalizedCurrently
+        death
+        deathIncrease
+        date
+        childPopulation {
+          deathIncrease {
+            percent
+          }
+          hospitalizedCurrently {
+            percent
+          }
+          positiveIncrease {
+            percent
+          }
+          totalTestResultsIncrease {
+            percent
+          }
+        }
+      }
+    }
     covidState(state: { eq: $state }) {
       positive
       negative
@@ -69,11 +110,29 @@ export const query = graphql`
         totalTestResults
         totalTestResultsIncrease
         positive
+        positiveIncrease
         pending
         negative
         hospitalized
+        hospitalizedCurrently
+        hospitalizedIncrease
         death
+        deathIncrease
         date
+        childPopulation {
+          deathIncrease {
+            percent
+          }
+          hospitalizedCurrently {
+            percent
+          }
+          positiveIncrease {
+            percent
+          }
+          totalTestResultsIncrease {
+            percent
+          }
+        }
       }
     }
     allCovidScreenshot(

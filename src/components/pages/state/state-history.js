@@ -24,7 +24,7 @@ export default ({ history, screenshots }) => (
     </thead>
     <tbody className={`state-history-table ${stateHistoryStyle.history}`}>
       {history.map(node => (
-        <tr key={`history-${node.dateChecked}`}>
+        <tr key={`history-${node.date}`}>
           <Td alignLeft>
             <FormatDate
               date={node.date}

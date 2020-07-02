@@ -19,7 +19,7 @@ exports[`Components : Common: Container: Centered renders correctly 1`] = `
   className="container container"
 >
   <div
-    className="centered full"
+    className="centered narrow"
   >
     <p>
       Sample child

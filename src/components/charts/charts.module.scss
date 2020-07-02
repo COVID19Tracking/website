@@ -16,6 +16,11 @@
   @include type-size(100);
 }
 
+.annotation {
+  fill: $color-slate-700;
+  @include type-size(200);
+}
+
 .grid-line {
   stroke: $color-slate-300;
   stroke-width: 0.7px;
