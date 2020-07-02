@@ -1,7 +1,7 @@
 .content {
   @include type-size(300);
   h2 {
-    @include margin(4, bottom);
+    @include margin(32, bottom);
   }
   p {
     margin-top: 0;

@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components : Pages : Blog : Image Content Block renders correctly 1`] = `
-<div>
+<div
+  className="image"
+>
   <div
     className=" gatsby-image-wrapper"
     style={

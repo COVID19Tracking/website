@@ -3,19 +3,18 @@ import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import BlogTeaserList from '~components/pages/blog/blog-teaser-list'
 
-export default ({ data, path }) => {
-  return (
-    <Layout
-      title={`Blog: ${data.contentfulBlogCategory.name}`}
-      returnLink="/blog"
-      returnLinkTitle="All posts"
-      path={path}
-      narrow
-    >
-      <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
-    </Layout>
-  )
-}
+export default ({ data, path }) => (
+  <Layout
+    title={`Blog: ${data.contentfulBlogCategory.name}`}
+    returnLink="/blog"
+    returnLinkTitle="All posts"
+    path={path}
+    centered
+  >
+    <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
+  </Layout>
+)
+
 export const query = graphql`
   query($id: String!) {
     contentfulBlogCategory(id: { eq: $id }) {

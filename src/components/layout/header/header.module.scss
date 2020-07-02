@@ -100,6 +100,10 @@
 
 .site-header {
   margin-bottom: 3rem; // ignore-style-rule
+  @media (min-width: $viewport-md) {
+    @include margin(64, bottom); // 4rem
+  }
+
   &.no-margin {
     margin-bottom: 0;
   }
@@ -257,7 +261,7 @@
   .return-link {
     margin-bottom: spacer(8);
     @media (max-width: $viewport-md) {
-      margin-bottom: spacer(16);
+      margin: spacer(16);
     }
 
     a {

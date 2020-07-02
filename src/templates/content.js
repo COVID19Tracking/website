@@ -18,7 +18,7 @@ const ContentPage = ({ data, path }) => {
       returnLink={contentfulPage.returnLinkUrl}
       returnLinkTitle={contentfulPage.returnLinkTitle}
       socialCard={contentfulPage.socialCard}
-      narrow
+      centered
     >
       <LongContent>
         <ContentfulContent
