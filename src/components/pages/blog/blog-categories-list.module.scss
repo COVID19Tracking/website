@@ -13,7 +13,7 @@
   @media (min-width: $viewport-lg) {
     @include margin(24, top);
     @include margin(64, left);
-    min-width: 12rem;
+    min-width: 13rem;
   }
 }
 
@@ -33,6 +33,10 @@
 
   h3 {
     margin: 0;
+    @media (max-width: $viewport-lg) {
+      font-size: 1rem;
+      line-height: 2rem;
+    }
   }
 }
 
