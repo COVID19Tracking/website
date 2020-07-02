@@ -9,7 +9,7 @@ export default ({ data, path }) => (
     returnLink="/blog"
     returnLinkTitle="All posts"
     path={path}
-    narrow
+    centered
   >
     <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
   </Layout>

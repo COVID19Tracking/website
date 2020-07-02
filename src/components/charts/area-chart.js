@@ -30,7 +30,6 @@ const AreaChart = ({
   yTicks,
   showTicks,
   focusable,
-  ariaHidden,
   dateExtent,
   renderTooltipContents,
 }) => {
@@ -111,7 +110,7 @@ const AreaChart = ({
         className={chartStyles.chart}
         viewBox={`0 0 ${width} ${height}`}
         focusable={focusable}
-        aria-hidden={ariaHidden}
+        aria-hidden
         onTouchStart={handleMouseMove}
         onTouchEndCapture={handleTouchEndCapture}
         onMouseMoveCapture={handleMouseMove}

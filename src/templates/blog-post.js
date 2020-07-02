@@ -1,11 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import LongContent from '~components/common/long-content'
-import AuthorFooter from '~components/pages/blog/author-footer'
-import Categories from '~components/pages/blog/categories'
+import Hero from '~components/pages/blog/blog-hero'
 import Layout from '~components/layout'
-import Lede from '~components/pages/blog/blog-lede'
+import FeaturedImage from '~components/pages/blog/featured-image'
 import BlogPostContent from '~components/pages/blog/blog-content'
+import BlogPostExtras from '~components/pages/blog/blog-extras'
 
 export default ({ data, path }) => {
   const blogPost = data.contentfulBlogPost
@@ -14,6 +13,17 @@ export default ({ data, path }) => {
     blogImages[image.contentful_id] = image
   })
   const socialCard = blogPost.socialCard || { description: blogPost.lede.lede }
+  const hero = (
+    <Hero
+      categories={blogPost.categories}
+      headline={blogPost.title}
+      authors={blogPost.authors}
+      date={blogPost.publishDate}
+      lede={blogPost.lede.lede}
+      slug={blogPost.slug}
+    />
+  )
+
   return (
     <Layout
       title={`Blog | ${blogPost.title}`}
@@ -22,25 +32,17 @@ export default ({ data, path }) => {
       returnLink="/blog"
       returnLinkTitle="All posts"
       path={path}
-      narrow
+      hero={hero}
+      centerTitle
     >
-      <Categories categories={blogPost.categories} />
-      <Lede
-        headline={blogPost.title}
-        authors={blogPost.authors}
-        date={blogPost.publishDate}
-        lede={blogPost.lede.lede}
-        featuredImage={blogPost.featuredImage}
+      {blogPost.featuredImage && (
+        <FeaturedImage image={blogPost.featuredImage} />
+      )}
+      <BlogPostContent
+        content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
+        images={blogImages}
       />
-      <LongContent>
-        <BlogPostContent
-          content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
-          images={blogImages}
-        />
-      </LongContent>
-
-      <hr />
-      <AuthorFooter authors={blogPost.authors} />
+      <BlogPostExtras blogPost={blogPost} />
     </Layout>
   )
 }
@@ -80,9 +82,67 @@ export const query = graphql`
           }
         }
       }
+      relatedBlogPosts {
+        slug
+        publishDate(formatString: "MMMM D, YYYY")
+        authors {
+          name
+          twitterLink
+          twitterHandle
+          link
+          childContentfulAuthorBiographyTextNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+          headshot {
+            file {
+              fileName
+            }
+            resize(width: 200) {
+              width
+              height
+              src
+            }
+          }
+        }
+        title
+        lede {
+          lede
+        }
+      }
       categories {
         name
         slug
+        blog_post {
+          slug
+          publishDate(formatString: "MMMM D, YYYY")
+          authors {
+            name
+            twitterLink
+            twitterHandle
+            link
+            childContentfulAuthorBiographyTextNode {
+              childMarkdownRemark {
+                html
+              }
+            }
+            headshot {
+              file {
+                fileName
+              }
+              resize(width: 200) {
+                width
+                height
+                src
+              }
+            }
+          }
+          title
+          lede {
+            lede
+          }
+        }
       }
       childContentfulBlogPostBlogContentRichTextNode {
         json

@@ -1,6 +1,7 @@
 import React from 'react'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import LongContent from '~components/common/long-content'
 import CleanSpacing from '~components/utils/clean-spacing'
 import TableContentBlock from './table-content-block'
 import ImageContentBlock from './image-content-block'
@@ -37,6 +38,7 @@ export default ({ content, images }) => {
             <ImageContentBlock
               image={images[node.data.target.sys.contentful_id].image}
               caption={caption}
+              className={blogContentStyles.image}
             />
           )
         }
@@ -45,8 +47,10 @@ export default ({ content, images }) => {
     },
   }
   return (
-    <div className={blogContentStyles.content}>
-      {documentToReactComponents(content, options)}
-    </div>
+    <LongContent>
+      <div className={blogContentStyles.content}>
+        {documentToReactComponents(content, options)}
+      </div>
+    </LongContent>
   )
 }

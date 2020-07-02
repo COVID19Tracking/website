@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ index, length, useAmbersand = true }) => {
+export default ({ index, length, useAmbersand = false }) => {
   const andSign = useAmbersand ? '&' : 'and'
   if (index === 0 && length === 2) {
     return <> {andSign} </> // first author, only two items in the list

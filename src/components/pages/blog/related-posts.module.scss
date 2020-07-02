@@ -1,10 +1,51 @@
 .container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 3fr 1fr;
+
+  @media (max-width: $viewport-md) {
+    grid-template-columns: 100%;
+  }
+
+  margin-top: 0;
+
   h2 {
-    margin: spacer(24) 0 spacer(16);
+    margin: 0;
+    margin-bottom: spacer(16);
+    @include type-size(500);
   }
   h3 {
     @include type-size(400);
-    line-height: 28px;
+    line-height: 130%;
     margin: 0;
+    margin-bottom: spacer(16);
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.post {
+  margin-top: spacer(16);
+  grid-column-start: span 2;
+  @media (max-width: $viewport-md) {
+    grid-column-start: span 1;
+  }
+}
+
+.lede {
+  color: $color-slate-500;
+  @include type-size(300);
+  line-height: 150%;
+}
+
+.cta-wrapper {
+  text-align: right;
+  @media (max-width: $viewport-md) {
+    order: 99;
+    text-align: left;
   }
 }
