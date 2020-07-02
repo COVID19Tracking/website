@@ -1,20 +1,29 @@
 .container {
-  margin: spacer(32) 0;
+  margin: spacer(16) 0 0;
+  @media (min-width: $viewport-md) {
+    margin-top: spacer(32);
+  }
 }
 
 .author {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  margin-bottom: spacer(24);
+  align-items: flex-start;
+
+  margin-bottom: spacer(16);
+
+  @media (min-width: $viewport-md) {
+    margin-bottom: spacer(32);
+  }
 
   &:last-child {
     margin-bottom: 0;
   }
 
   img {
-    width: 85px;
-    height: 85px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
     flex-shrink: 0;
   }
   .text-content {

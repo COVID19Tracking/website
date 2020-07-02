@@ -1,3 +1,15 @@
-.featured-image-rule {
-  margin: 0 0 spacer(32);
+.image {
+  margin: 0 0 spacer(24);
+}
+
+.container {
+  img {
+    width: 100%;
+  }
+  margin: 0 auto;
+  @include col(4 6 10);
+  @include margin(24, top);
+  @media (min-width: $viewport-md) {
+    @include margin(8, top);
+  }
 }
