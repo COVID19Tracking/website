@@ -13,3 +13,10 @@
     @include type-size(500);
   }
 }
+
+.teaser {
+  @include margin(64, bottom);
+  @media (max-width: $viewport-lg) {
+    @include margin(32, bottom);
+  }
+}
