@@ -64,6 +64,12 @@ exports.createPages = async ({ graphql, actions }) => {
           id
         }
       }
+      allContentfulChart {
+        nodes {
+          id
+          slug
+        }
+      }
       allCounties(filter: { demographics: { total: { gt: 0 } } }) {
         nodes {
           name
@@ -99,6 +105,14 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: `/document/download/${node.slug}`,
       toPath: node.document.file.url,
+    })
+  })
+
+  result.data.allContentfulChart.nodes.forEach(node => {
+    createPage({
+      path: `/data/charts/${node.slug}`,
+      component: path.resolve(`./src/templates/chart.js`),
+      context: node,
     })
   })
 
