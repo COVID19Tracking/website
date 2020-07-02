@@ -18,6 +18,9 @@
   @media (min-width: $viewport-lg) {
     @include type-size(500);
   }
+  a {
+    text-decoration: none;
+  }
 }
 
 .teaser {
