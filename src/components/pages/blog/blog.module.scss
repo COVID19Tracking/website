@@ -8,3 +8,9 @@
     margin: 0 auto;
   }
 }
+
+@media (max-width: $viewport-lg) {
+  .container {
+    margin: 0;
+  }
+}
