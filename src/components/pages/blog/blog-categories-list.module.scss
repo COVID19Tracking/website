@@ -11,8 +11,7 @@
   }
 
   @media (min-width: $viewport-lg) {
-    @include margin(24, top);
-    @include margin(64, left);
+    @include margin(24, left);
     min-width: 13rem;
   }
 }

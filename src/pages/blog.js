@@ -7,7 +7,7 @@ import BlogCategoriesList from '~components/pages/blog/blog-categories-list'
 import blogStyles from '~components/pages/blog/blog.module.scss'
 
 export default ({ data }) => (
-  <Layout title="Blog" path="/blog">
+  <Layout title="Blog" path="/blog" centerTitle>
     <Container className={blogStyles.container}>
       <BlogCategoriesList />
       <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
