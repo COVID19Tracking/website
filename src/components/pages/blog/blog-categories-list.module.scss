@@ -1,7 +1,9 @@
 .container {
   border-radius: 4px;
   background-color: $color-plum-100;
-  @include padding(8, (top, bottom));
+  padding-top: 0.75rem; // ignore-style-rule
+  @include padding(16, bottom);
+
   h3, a {
     @include type-size(100);
     color: $color-plum-700;
@@ -40,7 +42,7 @@
   display: none;
 
   li:first-child {
-    @include padding(4, top);
+    @include padding(8, top);
   }
 
   &.opened {
