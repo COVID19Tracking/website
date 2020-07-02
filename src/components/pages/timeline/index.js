@@ -3,21 +3,25 @@ import { FormatDate } from '~components/utils/format'
 import timelineStyle from './timeline.module.scss'
 
 const TimelineItem = ({ item }) => (
-  <div>
-    <h3>{item.title}</h3>
-    <FormatDate date={item.date} format="LLL d yyyy" />
-    {item.dateEnd && (
-      <>
-        {' to '}
-        <FormatDate date={item.dateEnd} format="LLL d yyyy" />
-      </>
-    )}
-    <div
-      dangerouslySetInnerHTML={{
-        __html:
-          item.childContentfulEventDescriptionTextNode.childMarkdownRemark.html,
-      }}
-    />
+  <div className={timelineStyle.eventWrapper}>
+    <div className={timelineStyle.dot} />
+    <div className={timelineStyle.event}>
+      <h3>{item.title}</h3>
+      <FormatDate date={item.date} format="LLL d yyyy" />
+      {item.dateEnd && (
+        <>
+          {' to '}
+          <FormatDate date={item.dateEnd} format="LLL d yyyy" />
+        </>
+      )}
+      <div
+        dangerouslySetInnerHTML={{
+          __html:
+            item.childContentfulEventDescriptionTextNode.childMarkdownRemark
+              .html,
+        }}
+      />
+    </div>
   </div>
 )
 
