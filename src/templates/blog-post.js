@@ -33,6 +33,7 @@ export default ({ data, path }) => {
       returnLinkTitle="All posts"
       path={path}
       hero={hero}
+      centerTitle
     >
       {blogPost.featuredImage && (
         <FeaturedImage image={blogPost.featuredImage} />

@@ -490,7 +490,7 @@ Array [
         className="container container"
       >
         <div
-          className="centered narrow"
+          className="full"
         >
           <div
             className="titleSubnavContainer "
@@ -1147,7 +1147,7 @@ Array [
         className="container container"
       >
         <div
-          className="centered narrow"
+          className="full"
         >
           <div
             className="titleSubnavContainer "
