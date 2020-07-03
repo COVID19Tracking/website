@@ -66,6 +66,7 @@ const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
   return (
     <a
       href="#chart-annotations"
+      id="chart-annotations"
       className={styles.annotationIndicator}
       onClick={() => openDisclosure()}
     >
