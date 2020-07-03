@@ -9,7 +9,7 @@ import VolunteersList from '~components/common/volunteers-list'
 export default ({ data }) => (
   <Layout
     title="About Us"
-    path="/about-project"
+    path="/about"
     navigation={data.contentfulNavigationGroup.pages}
   >
     <LongContent>
