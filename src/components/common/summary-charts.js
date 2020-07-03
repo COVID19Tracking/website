@@ -277,20 +277,10 @@ export default ({ name = 'National', history, usHistory }) => {
               <Container narrow>
                 {deathAnnotations.length > 0 && (
                   <>
-<<<<<<< Updated upstream
                     {deathAnnotations.map(a => (
                       <p>* {a.text}</p>
                     ))}
                     <hr />
-=======
-                    <ContentfulContent
-                      content={
-                        annotation.childContentfulEventDescriptionTextNode
-                          .childMarkdownRemark.html
-                      }
-                      id={annotation.contentful_id}
-                    />
->>>>>>> Stashed changes
                   </>
                 )}
                 <ContentfulContent
