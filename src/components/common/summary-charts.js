@@ -19,6 +19,8 @@ import colors from '~scss/colors.module.scss'
 
 import styles from './summary-charts.module.scss'
 
+import TooltipContents from '~components/charts/tooltip-contents'
+
 const dailyAverage = (history, field, range = 7) => {
   if (!history || !field) return null
   const average = []
@@ -168,6 +170,12 @@ export default ({ name = 'National', history, usHistory }) => {
 
   const showTodaysChartTick =
     DateTime.fromISO(data[data.length - 1].date).day > 10
+
+  // will need to be modified to support mutliple values
+  const makeRenderTooltipContents = text => d => (
+    <TooltipContents date={d.date} items={[{ text, value: d.value }]} />
+  )
+
   return (
     <>
       <h2>{name} overview</h2>
@@ -194,6 +202,7 @@ export default ({ name = 'National', history, usHistory }) => {
             fill={colors.colorPlum200}
             lineColor={colors.colorPlum700}
             lastXTick={showTodaysChartTick}
+            renderTooltipContents={makeRenderTooltipContents('new tests')}
             {...props}
           />
         </Col>
@@ -207,6 +216,7 @@ export default ({ name = 'National', history, usHistory }) => {
               fill={colors.colorStrawberry100}
               lineColor={colors.colorStrawberry200}
               lastXTick={showTodaysChartTick}
+              renderTooltipContents={makeRenderTooltipContents('new cases')}
               {...props}
             />
           ) : (
@@ -224,6 +234,9 @@ export default ({ name = 'National', history, usHistory }) => {
               fill={colors.colorBlueberry200}
               lineColor={colors.colorBlueberry400}
               lastXTick={showTodaysChartTick}
+              renderTooltipContents={makeRenderTooltipContents(
+                'current hospitalizations',
+              )}
               {...props}
             />
           ) : (
@@ -240,6 +253,7 @@ export default ({ name = 'National', history, usHistory }) => {
               fill={colors.colorSlate300}
               lineColor={colors.colorSlate700}
               lastXTick={showTodaysChartTick}
+              renderTooltipContents={makeRenderTooltipContents('new deaths')}
               {...props}
             />
           ) : (
@@ -263,10 +277,20 @@ export default ({ name = 'National', history, usHistory }) => {
               <Container narrow>
                 {deathAnnotations.length > 0 && (
                   <>
+<<<<<<< Updated upstream
                     {deathAnnotations.map(a => (
                       <p>* {a.text}</p>
                     ))}
                     <hr />
+=======
+                    <ContentfulContent
+                      content={
+                        annotation.childContentfulEventDescriptionTextNode
+                          .childMarkdownRemark.html
+                      }
+                      id={annotation.contentful_id}
+                    />
+>>>>>>> Stashed changes
                   </>
                 )}
                 <ContentfulContent
