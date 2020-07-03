@@ -56,7 +56,7 @@
 }
 
 .chart-logo {
-  margin: 0 1rem;
+  margin: 0 spacer(16);
   @media screen and (max-width: $viewport-lg) {
     display: none;
   }
