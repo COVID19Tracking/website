@@ -155,8 +155,8 @@ export const query = graphql`
     }
     allContentfulEvent(
       filter: {
-        stateOrTerritory: { elemMatch: { code: { eq: $state } } }
-        annotation: { eq: true }
+        state: { elemMatch: { code: { eq: $state } } }
+        displayStateChart: { eq: true }
       }
       sort: { fields: date, order: DESC }
     ) {

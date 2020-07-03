@@ -186,7 +186,6 @@ const gatsbyConfig = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE,
         accessToken: process.env.CONTENTFUL_TOKEN,
-        environment: 'timeline-events',
       },
     },
 
