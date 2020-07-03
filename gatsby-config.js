@@ -33,6 +33,7 @@ const gatsbyConfig = {
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    `gatsby-plugin-svgr`,
     {
       resolve: 'gatsby-plugin-sass',
       options: {

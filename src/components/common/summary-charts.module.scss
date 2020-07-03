@@ -1,4 +1,5 @@
 @import '~scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
 
 .info-line {
   display: flex;
@@ -52,4 +53,14 @@
 
 .annotation-list {
   padding-inline-start: 15px; // ignore-style-rule
+}
+
+.chart-logo {
+  margin: 0 spacer(16);
+  @media screen and (max-width: $viewport-lg) {
+    display: none;
+  }
+  * {
+    fill: $color-slate-300;
+  }
 }

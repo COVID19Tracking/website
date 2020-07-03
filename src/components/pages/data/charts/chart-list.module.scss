@@ -1,0 +1,14 @@
+.list {
+  list-style-type: none;
+  padding: 0;
+  li {
+    @include margin(8, top bottom);
+  }
+}
+
+.charts {
+  @include margin(64, bottom);
+  h2 {
+    @include type-size(400);
+  }
+}
