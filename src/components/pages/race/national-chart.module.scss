@@ -130,3 +130,26 @@ $chart-breakpoint: $viewport-ms;
     }
   }
 }
+
+.show-notes {
+  display: block;
+  &:hover {
+    text-decoration: underline;
+  }
+  background: transparent;
+  border: 0;
+  text-decoration: underline;
+  color: $color-slate-600;
+  margin-top: spacer(16);
+  margin-bottom: spacer(16);
+  padding: 0;
+  cursor: pointer;
+  abbr {
+    display: inline-block;
+    margin-left: spacer(16);
+  }
+}
+
+.notes {
+  color: $color-slate-600;
+}

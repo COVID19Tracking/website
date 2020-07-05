@@ -12,15 +12,15 @@ exports[`Components : Charts: Area chart renders correctly 1`] = `
     <g>
       <text
         className="label xTickLabel"
-        x={46.666666666666664}
+        x={0}
         y={170}
       >
-        500
+        0
       </text>
       <line
         className="gridLine"
-        x1={46.666666666666664}
-        x2={46.666666666666664}
+        x1={0}
+        x2={0}
         y1={0}
         y2={140}
       />
@@ -28,15 +28,31 @@ exports[`Components : Charts: Area chart renders correctly 1`] = `
     <g>
       <text
         className="label xTickLabel"
-        x={105}
+        x={76.92307692307693}
+        y={170}
+      >
+        500
+      </text>
+      <line
+        className="gridLine"
+        x1={76.92307692307693}
+        x2={76.92307692307693}
+        y1={0}
+        y2={140}
+      />
+    </g>
+    <g>
+      <text
+        className="label xTickLabel"
+        x={153.84615384615387}
         y={170}
       >
         1k
       </text>
       <line
         className="gridLine"
-        x1={105}
-        x2={105}
+        x1={153.84615384615387}
+        x2={153.84615384615387}
         y1={0}
         y2={140}
       />
@@ -96,28 +112,28 @@ exports[`Components : Charts: Area chart renders correctly 1`] = `
     <rect
       fill="#333"
       height={26.666666666666664}
-      width={132.29999999999998}
+      width={189.84615384615384}
       x={0}
       y={6.6666666666666785}
     />
     <rect
       fill="#333"
       height={26.666666666666664}
-      width={2.683333333333333}
+      width={18.923076923076923}
       x={0}
       y={40.00000000000001}
     />
     <rect
       fill="#333"
       height={26.666666666666664}
-      width={132.18333333333334}
+      width={189.69230769230768}
       x={0}
       y={73.33333333333334}
     />
     <rect
       fill="#333"
       height={26.666666666666664}
-      width={3.7333333333333334}
+      width={20.307692307692307}
       x={0}
       y={106.66666666666666}
     />
@@ -137,15 +153,15 @@ exports[`Components : Charts: Area chart renders correctly 2`] = `
     <g>
       <text
         className="label xTickLabel"
-        x={66.66666666666666}
+        x={0}
         y={200}
       >
-        500
+        0
       </text>
       <line
         className="gridLine"
-        x1={66.66666666666666}
-        x2={66.66666666666666}
+        x1={0}
+        x2={0}
         y1={0}
         y2={200}
       />
@@ -153,15 +169,31 @@ exports[`Components : Charts: Area chart renders correctly 2`] = `
     <g>
       <text
         className="label xTickLabel"
-        x={150}
+        x={76.92307692307693}
+        y={200}
+      >
+        500
+      </text>
+      <line
+        className="gridLine"
+        x1={76.92307692307693}
+        x2={76.92307692307693}
+        y1={0}
+        y2={200}
+      />
+    </g>
+    <g>
+      <text
+        className="label xTickLabel"
+        x={153.84615384615387}
         y={200}
       >
         1k
       </text>
       <line
         className="gridLine"
-        x1={150}
-        x2={150}
+        x1={153.84615384615387}
+        x2={153.84615384615387}
         y1={0}
         y2={200}
       />
@@ -221,28 +253,28 @@ exports[`Components : Charts: Area chart renders correctly 2`] = `
     <rect
       fill="#333"
       height={38.095238095238095}
-      width={189}
+      width={189.84615384615384}
       x={0}
       y={9.523809523809518}
     />
     <rect
       fill="#333"
       height={38.095238095238095}
-      width={3.833333333333333}
+      width={18.923076923076923}
       x={0}
       y={57.14285714285714}
     />
     <rect
       fill="#333"
       height={38.095238095238095}
-      width={188.83333333333334}
+      width={189.69230769230768}
       x={0}
       y={104.76190476190476}
     />
     <rect
       fill="#333"
       height={38.095238095238095}
-      width={5.333333333333334}
+      width={20.307692307692307}
       x={0}
       y={152.38095238095238}
     />
