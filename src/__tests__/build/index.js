@@ -12,7 +12,7 @@ describe('Website build', () => {
   })
 
   it('has an API page', () => {
-    const exists = fs.pathExistsSync('./public/api/index.html')
+    const exists = fs.pathExistsSync('./public/data/api/index.html')
     expect(exists).toBe(true)
   })
 })
