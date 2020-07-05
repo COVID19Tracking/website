@@ -215,7 +215,7 @@ Array [
           </nav>
           <a
             className="getInvolved"
-            href="/about-project/help"
+            href="/about/newsletter"
           >
             Get Involved
           </a>
@@ -468,7 +468,7 @@ Array [
             </div>
             <a
               className="getInvolved"
-              href="/get-involved"
+              href="/about/newsletter"
             >
               Get involved
             </a>
@@ -874,7 +874,7 @@ Array [
           </nav>
           <a
             className="getInvolved"
-            href="/about-project/help"
+            href="/about/newsletter"
           >
             Get Involved
           </a>
@@ -1127,7 +1127,7 @@ Array [
             </div>
             <a
               className="getInvolved"
-              href="/get-involved"
+              href="/about/newsletter"
             >
               Get involved
             </a>
