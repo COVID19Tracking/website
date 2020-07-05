@@ -1,8 +1,18 @@
 [
   {
-    "blackLivesLost": 15517,
-    "blackLivesExpectedMultiplier": 2.3,
-    "statesReportingCases": 46,
-    "statesReportingDeaths": 41
+    "blackLivesLost": "26,425",
+    "blackPercentOfPopulation": "0.1267",
+    "blackPercentOfDeath": "0.2332735988",
+    "blackLivesExpectedMultiplier": "1.841149162",
+    "statesReportingCases": "49",
+    "statesReportingDeaths": "48",
+    "blackMortalityRate": "64.0",
+    "aianMortalityRate": "30.1",
+    "nhpiMortalityRate": "20.1",
+    "twoMortalityRate": "2.4",
+    "whiteMortalityRate": "25.2",
+    "otherMortalityRate": "24.8",
+    "latinXMortalityRate": "29.2",
+    "blackwhiteRateRatio": "2.5"
   }
 ]
