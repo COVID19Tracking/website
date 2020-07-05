@@ -13,14 +13,6 @@ exports[`Components : Pages : Blog : Blog Teaser List renders correctly 1`] = `
       <h2
         className="title"
       >
-        By 
-        <a
-          className="authorInner"
-          href="https://twitter.com/test"
-        >
-          test name
-        </a>
-         & 
         <a
           href="/blog/we-made-a-blog-post"
         >
@@ -60,9 +52,7 @@ exports[`Components : Pages : Blog : Blog Teaser List renders correctly 1`] = `
             >
               test name
             </a>
-             
-            and
-             
+             & 
             <a
               className="authorInner"
               href="https://twitter.com/testii"
@@ -89,16 +79,9 @@ exports[`Components : Pages : Blog : Blog Teaser List renders correctly 1`] = `
         >
           New Blog Post
         </a>
-         & 
-        <a
-          className="authorInner"
-          href="https://twitter.com/testii"
-        >
-          test name II
-        </a>
-      </span>
-      <span
-        className="date"
+      </h2>
+      <p
+        className="lede"
       >
         This is a new blog post, not an old one.
       </p>
@@ -130,9 +113,7 @@ exports[`Components : Pages : Blog : Blog Teaser List renders correctly 1`] = `
             >
               test name
             </a>
-             
-            and
-             
+             & 
             <a
               className="authorInner"
               href="https://twitter.com/testii"
