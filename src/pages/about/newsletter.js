@@ -8,7 +8,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import GetInvolvedForm from '~components/pages/get-involved/form'
 
 export default ({ data }) => (
-  <Layout title="Get Involved" centered>
+  <Layout title="Sign up for our newsletter" centered>
     <LongContent>
       <ContentfulContent
         content={
@@ -18,13 +18,6 @@ export default ({ data }) => (
         id={data.helpPreamble.contentful_id}
       />
       <GetInvolvedForm />
-      <ContentfulContent
-        content={
-          data.helpClosure.childContentfulSnippetContentTextNode
-            .childMarkdownRemark.html
-        }
-        id={data.helpClosure.contentful_id}
-      />
     </LongContent>
   </Layout>
 )
@@ -32,14 +25,6 @@ export default ({ data }) => (
 export const query = graphql`
   query {
     helpPreamble: contentfulSnippet(slug: { eq: "help-preamble" }) {
-      contentful_id
-      childContentfulSnippetContentTextNode {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
-    helpClosure: contentfulSnippet(slug: { eq: "help-close" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
