@@ -6,8 +6,11 @@ import {
   DisclosurePanel,
 } from '@reach/disclosure'
 import classnames from 'classnames'
-import nationalChartStyle from './national-chart.module.scss'
+
+import RacialDataParagraph from '~components/pages/race/paragraph'
 import { FormatNumber } from '~components/utils/format'
+
+import nationalChartStyle from './national-chart.module.scss'
 
 export default () => {
   const { covidRaceDataHomepage } = useStaticQuery(graphql`
@@ -21,16 +24,20 @@ export default () => {
         otherMortalityRate
         twoMortalityRate
         whiteMortalityRate
+        blackLivesLost
+        blackPercentOfDeath
       }
     }
   `)
 
-  // get the maximum deaths per 100,000 value
-  const maxRate = Math.max(
-    ...Object.entries(covidRaceDataHomepage).map(e => parseFloat(e[1])),
+  const raceApiContent = Object.entries(covidRaceDataHomepage).filter(
+    e => e[0] !== 'blackLivesLost' && e[0] !== 'blackPercentOfDeath',
   )
 
-  const mortalityRateData = Object.entries(covidRaceDataHomepage)
+  // get the maximum deaths per 100,000 value
+  const maxRate = Math.max(...raceApiContent.map(e => parseFloat(e[1])))
+
+  const mortalityRateData = raceApiContent
     .map(e => ({
       mortalityRate: parseFloat(e[1]),
       width: (parseFloat(e[1]) / maxRate) * 75, // converts values to percentiles*
@@ -118,6 +125,12 @@ export default () => {
           </DisclosurePanel>
         </Disclosure>
       </div>
+      <RacialDataParagraph>
+        We’ve lost at least {covidRaceDataHomepage.blackLivesLost} Black lives
+        to COVID-19 to date. Black people account for{' '}
+        {parseFloat(covidRaceDataHomepage.blackPercentOfDeath).toFixed(2) * 100}
+        % of COVID-19 deaths where race is known.
+      </RacialDataParagraph>
     </div>
   )
 }
