@@ -285,51 +285,61 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
           )}
         </Col>
       </Row>
-      <Disclosure
-        open={isDisclosureOpen}
-        onChange={() => setDisclosureOpen(!isDisclosureOpen)}
-      >
-        <DisclosureButton id="chart-annotations" className={styles.disclosure}>
-          Chart information and data{' '}
-          <span className={styles.arrowDown} aria-hidden>
-            ↓
-          </span>
-          <span className={styles.arrowUp} aria-hidden>
-            ↑
-          </span>
-        </DisclosureButton>
-        <DisclosurePanel>
-          <Container narrow>
-            {annotations && annotations.nodes && (
-              <>
-                {annotations.nodes.map(annotation => (
+      <Row>
+        <Col width={[4, 6, 10]}>
+          <Disclosure
+            open={isDisclosureOpen}
+            onChange={() => setDisclosureOpen(!isDisclosureOpen)}
+          >
+            <DisclosureButton
+              id="chart-annotations"
+              className={styles.disclosure}
+            >
+              Chart information and data{' '}
+              <span className={styles.arrowDown} aria-hidden>
+                ↓
+              </span>
+              <span className={styles.arrowUp} aria-hidden>
+                ↑
+              </span>
+            </DisclosureButton>
+            <DisclosurePanel>
+              <Container narrow>
+                {annotations && annotations.nodes && (
                   <>
-                    <h3 className={styles.annotationTitle}>
-                      {annotation.title}
-                    </h3>
-                    <ContentfulContent
-                      content={
-                        annotation.childContentfulEventDescriptionTextNode
-                          .childMarkdownRemark.html
-                      }
-                      id={annotation.contentful_id}
-                    />
+                    {annotations.nodes.map(annotation => (
+                      <>
+                        <h3 className={styles.annotationTitle}>
+                          {annotation.title}
+                        </h3>
+                        <ContentfulContent
+                          content={
+                            annotation.childContentfulEventDescriptionTextNode
+                              .childMarkdownRemark.html
+                          }
+                          id={annotation.contentful_id}
+                        />
+                      </>
+                    ))}
+                    <hr />
                   </>
-                ))}
-                <hr />
-              </>
-            )}
+                )}
 
-            <ContentfulContent
-              content={
-                contentfulSnippet.childContentfulSnippetContentTextNode
-                  .childMarkdownRemark.html
-              }
-              id={contentfulSnippet.contentful_id}
-            />
-          </Container>
-        </DisclosurePanel>
-      </Disclosure>
+                <ContentfulContent
+                  content={
+                    contentfulSnippet.childContentfulSnippetContentTextNode
+                      .childMarkdownRemark.html
+                  }
+                  id={contentfulSnippet.contentful_id}
+                />
+              </Container>
+            </DisclosurePanel>
+          </Disclosure>
+        </Col>
+        <Col width={[4, 6, 2]}>
+          <CtpLogo className={styles.chartLogo} />
+        </Col>
+      </Row>
     </>
   )
 }
