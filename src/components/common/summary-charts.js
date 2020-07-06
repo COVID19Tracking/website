@@ -168,8 +168,11 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
     showTicks: 6,
   }
 
-  // 1 chart per line on small, 2 on medium & 4 on large sreens
-  const colWidth = [4, 3, 3]
+  const colProps = {
+    width: [4, 3, 3], // 1 chart per line on small, 2 on medium & 4 on large screens
+    paddingLeft: [0, 0, 0],
+    paddingRight: [0, 0, 0],
+  }
 
   const getAlertMessage = (field, current = false) =>
     `${name} has not reported data on  ${
@@ -195,7 +198,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
         <LegendComponent name={name || 'National'} />
       </div>
       <Row>
-        <Col width={colWidth}>
+        <Col {...colProps}>
           <h5>
             New tests{' '}
             <AnnotationIndicator
@@ -214,7 +217,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             {...props}
           />
         </Col>
-        <Col width={colWidth}>
+        <Col {...colProps}>
           <h5>
             New cases{' '}
             <AnnotationIndicator
@@ -237,7 +240,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             <ChartAlert message={getAlertMessage('cases')} />
           )}
         </Col>
-        <Col width={colWidth}>
+        <Col {...colProps}>
           <h5>
             Current hospitalizations{' '}
             <AnnotationIndicator
@@ -261,7 +264,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             <ChartAlert message={getAlertMessage('hospitalizations', true)} />
           )}
         </Col>
-        <Col width={colWidth}>
+        <Col {...colProps}>
           <h5>
             New deaths{' '}
             <AnnotationIndicator
