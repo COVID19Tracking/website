@@ -1,3 +1,4 @@
+
 require(`@babel/register`)({
   presets: ['@babel/preset-env', '@babel/preset-react'],
   plugins: ['@babel/plugin-transform-runtime'],
@@ -6,6 +7,7 @@ require('dotenv').config()
 
 const algoliaQueries = require('./src/utilities/algolia').queries
 const sassImports = require('./src/utilities/sass-imports.js')
+const formatStringList = require('./src/components/utils/format').formatStringList
 
 const gatsbyConfig = {
   siteMetadata: {
@@ -31,6 +33,7 @@ const gatsbyConfig = {
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    `gatsby-plugin-svgr`,
     {
       resolve: 'gatsby-plugin-sass',
       options: {
@@ -287,6 +290,7 @@ const gatsbyConfig = {
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) => {
               return allContentfulBlogPost.nodes.map(node => {
+
                 return Object.assign(
                   {},
                   {
@@ -295,6 +299,7 @@ const gatsbyConfig = {
                     date: node.publishDate,
                     url: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
                     guid: `${site.siteMetadata.siteUrl}/blog/${node.slug}`,
+                    author: formatStringList(node.authors.map(author => author.name))
                   },
                 )
               })
