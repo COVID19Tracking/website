@@ -1,0 +1,12 @@
+.chart {
+  @include margin(32, top bottom);
+
+  iframe {
+    border: none;
+    width: 100%;
+    height: 500px;
+    @media (min-width: $viewport-lg) {
+      height: 702px;
+    }
+  }
+}
