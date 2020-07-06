@@ -20,6 +20,10 @@
 .charts {
   width: 100%;
 
+  @media (max-width: $viewport-md) {
+    overflow: hidden; // see .race-row note below
+  }
+
   .header {
     display: flex;
     @include margin(4, bottom);
@@ -29,6 +33,7 @@
 
       @media (max-width: $viewport-md) {
         flex-basis: 0%;
+        @include margin(8, bottom);
       }
     }
 
@@ -43,6 +48,13 @@
     @include margin(16, bottom);
     align-items: center;
 
+    @media (max-width: $viewport-md) {
+      flex-wrap: wrap;
+      // this makes the flex-basis bars (max. 80%) expand to
+      // fill the whitespace on smaller devices
+      width: 120%;
+    }
+
     div {
       @include type-size(300);
       text-align: right;
@@ -55,6 +67,14 @@
       align-items: center;
       justify-content: right;
       flex-basis: 20%;
+
+      @media (max-width: $viewport-md) {
+        height: auto;
+        padding-right: 0;
+        justify-content: left;
+        flex-basis: 100%;
+        margin-bottom: 4px;
+      }
     }
 
     .bar {
