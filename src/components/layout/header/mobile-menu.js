@@ -60,7 +60,7 @@ export default ({ expanded, topNavigation, subNavigation }) => {
         subNavigation={subNavigation}
         isMobile
       />
-      <Link to="/about-project/help" className={headerStyle.getInvolved}>
+      <Link to="/contact/volunteer" className={headerStyle.getInvolved}>
         Get Involved
       </Link>
       <div className={headerStyle.mobilePointer} />
