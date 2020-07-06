@@ -8,19 +8,6 @@
   }
 }
 
-.versus {
-  text-transform: uppercase;
-  font-weight: bold;
-  color: $color-slate-500;
-  text-align: center;
-  align-items: center;
-  display: flex;
-  abbr[title] {
-    text-decoration: none;
-    margin: 0 auto;
-  }
-}
-
 .charts {
   display: grid;
   grid-column-gap: 1%;
@@ -32,102 +19,6 @@
   p {
     font-weight: bold;
     margin-top: 0;
-  }
-}
-
-.chart {
-  @media (min-width: $viewport-lg) {
-    display: flex;
-    &.flip {
-      .chart-legend {
-        text-align: left;
-      }
-    }
-  }
-}
-
-p.chart-legend {
-  text-align: left;
-  margin: spacer(16) auto;
-  @include type-size(100);
-  @media (min-width: $viewport-md) {
-    width: 50%;
-    @include type-size(300);
-  }
-  @media (min-width: $viewport-lg) {
-    margin: 0;
-    text-align: right;
-  }
-}
-
-.number {
-  display: block;
-  font-weight: bold;
-  line-height: 1;
-  @include type-size(600);
-  @media (min-width: $viewport-md) {
-    @include type-size(700);
-  }
-}
-
-$chart-size: 120px;
-$chart-width: 10px;
-$chart-mobile-size: $chart-size * 2/3;
-$chart-breakpoint: $viewport-ms;
-
-.donut-chart {
-  position: relative;
-  border-radius: 50%;
-  overflow: hidden;
-  width: $chart-mobile-size;
-  height: $chart-mobile-size;
-  background: $color-plum-600;
-  margin-left: spacer(16);
-  @media (min-width: $viewport-md) {
-    margin: 0 auto;
-  }
-  @media (min-width: $chart-breakpoint) {
-    width: $chart-size;
-    height: $chart-size;
-  }
-
-  &.mobile-only {
-    display: block;
-    @media (min-width: $viewport-lg) {
-      display: none;
-    }
-  }
-  &.desktop-only {
-    display: none;
-    @media (min-width: $viewport-lg) {
-      display: block;
-    }
-  }
-  .slice {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    clip: rect(0 $chart-mobile-size $chart-mobile-size/2 0);
-    background: $color-slate-200;
-
-    @media (min-width: $chart-breakpoint) {
-      clip: rect(0 $chart-size $chart-size/2 0);
-    }
-  }
-  .center {
-    position: absolute;
-    border-radius: 50%;
-    top: $chart-width;
-    left: $chart-width;
-    width: $chart-mobile-size - ($chart-width * 2);
-    height: $chart-mobile-size - ($chart-width * 2);
-    background: white;
-    @media (min-width: $chart-breakpoint) {
-      width: $chart-size - ($chart-width * 2);
-      height: $chart-size - ($chart-width * 2);
-    }
   }
 }
 
