@@ -78,8 +78,14 @@ export default () => {
               style={{ flexBasis: `${race.width}%` }}
               className={nationalChartStyle.bar}
             />
+            <span className="a11y-only">
+              {endpointToLabel[race.label].label} people experience
+            </span>
             <span className={nationalChartStyle.mortalityRateLabel}>
               {race.mortalityRate.toFixed(0)}
+            </span>
+            <span className="a11y-only">
+              deaths per <FormatNumber number={perXPeople} />.
             </span>
           </div>
         ))}
