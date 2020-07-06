@@ -1,10 +1,8 @@
 .header {
   font-weight: normal;
-  margin: 60px 0 40px; // ignore-style-rule
-  @include type-size(300);
+  @include margin(24, top);
   @media (min-width: $viewport-lg) {
     text-align: center;
-    @include type-size(400);
   }
 }
 
@@ -39,7 +37,7 @@
 
     span {
       font-weight: bold;
-      @include type-size(400);
+      @include type-size(300);
     }
   }
 
