@@ -7,6 +7,7 @@ import {
 } from '@reach/disclosure'
 import classnames from 'classnames'
 
+import chartsStyle from '~components/pages/race/charts/charts.module.scss'
 import RacialDataParagraph from '~components/pages/race/paragraph'
 import { FormatNumber } from '~components/utils/format'
 
@@ -105,7 +106,7 @@ export default () => {
           open={isCollapsed}
           onChange={() => toggleIsCollapsed(!isCollapsed)}
         >
-          <DisclosureButton className={nationalChartStyle.showNotes}>
+          <DisclosureButton className={chartsStyle.showChartData}>
             {isCollapsed ? (
               <>
                 Notes <span aria-hidden>↑</span>
