@@ -571,7 +571,7 @@ Array [
             </li>
             <li>
               <a
-                href="/license"
+                href="/about-data/license"
               >
                 License
               </a>
@@ -585,7 +585,7 @@ Array [
             </li>
             <li>
               <a
-                href="/accessibility"
+                href="/about/accessibility"
               >
                 Accessibility
               </a>
@@ -1230,7 +1230,7 @@ Array [
             </li>
             <li>
               <a
-                href="/license"
+                href="/about-data/license"
               >
                 License
               </a>
@@ -1244,7 +1244,7 @@ Array [
             </li>
             <li>
               <a
-                href="/accessibility"
+                href="/about/accessibility"
               >
                 Accessibility
               </a>
