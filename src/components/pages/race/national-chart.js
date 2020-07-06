@@ -28,6 +28,7 @@ export default () => {
   const maxRate = Math.max(
     ...Object.entries(covidRaceDataHomepage).map(e => parseFloat(e[1])),
   )
+
   const mortalityRateData = Object.entries(covidRaceDataHomepage)
     .map(e => ({
       mortalityRate: parseFloat(e[1]),

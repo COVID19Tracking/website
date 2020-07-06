@@ -26,6 +26,7 @@ export default () => {
         blackLivesLost
         blackPercentOfDeath
         blackLivesExpectedMultiplier
+        blackwhiteRateRatio
       }
       contentfulSocialCard(slug: { eq: "racial-data-tracker" }) {
         description {
@@ -39,8 +40,11 @@ export default () => {
       }
     }
   `)
-  const { blackLivesLost, blackPercentOfDeath } = data.covidRaceDataHomepage
-  const blackwhiteRateRatio = 2.5
+  const {
+    blackLivesLost,
+    blackPercentOfDeath,
+    blackwhiteRateRatio,
+  } = data.covidRaceDataHomepage
   return (
     <>
       <SEO
