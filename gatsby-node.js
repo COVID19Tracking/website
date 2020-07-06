@@ -70,6 +70,12 @@ exports.createPages = async ({ graphql, actions }) => {
           slug
         }
       }
+      allContentfulDataDefinition {
+        nodes {
+          id
+          slug
+        }
+      }
       allCounties(filter: { demographics: { total: { gt: 0 } } }) {
         nodes {
           name
@@ -128,6 +134,14 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/data/charts/${node.slug}`,
       component: path.resolve(`./src/templates/chart.js`),
+      context: node,
+    })
+  })
+
+  result.data.allContentfulDataDefinition.nodes.forEach(node => {
+    createPage({
+      path: `/about-data/data-definitions/${node.slug}`,
+      component: path.resolve(`./src/templates/data-definition.js`),
       context: node,
     })
   })
