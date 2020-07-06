@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components: Utilities: Format FormatItemList renders 1 item 1`] = `"Apple"`;
+
+exports[`Components: Utilities: Format FormatItemList renders 2 items 1`] = `
+Array [
+  "Apple",
+  " & ",
+  "Orange",
+]
+`;
+
+exports[`Components: Utilities: Format FormatItemList renders 3 items 1`] = `
+Array [
+  "Apple",
+  ", ",
+  "Orange",
+  ", & ",
+  "Pear",
+]
+`;
+
+exports[`Components: Utilities: Format FormatItemList uses "and" when specified 1`] = `
+Array [
+  "Apple",
+  " and ",
+  "Orange",
+]
+`;
