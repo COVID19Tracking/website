@@ -55,6 +55,17 @@
   padding-inline-start: 15px; // ignore-style-rule
 }
 
+.annotation-title {
+  @include type-size(300);
+}
+
+.annotation-indicator {
+  @include type-size(200);
+  font-weight: normal;
+  display: block;
+  float: right;
+}
+
 .chart-logo {
   margin: 0 spacer(16);
   @media screen and (max-width: $viewport-lg) {
