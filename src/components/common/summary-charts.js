@@ -104,6 +104,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   const { contentfulSnippet } = siteData
 
   const [usePerCap, setUsePerCap] = useState(false)
+  const [useFullRange, setUseFullRange] = useState(false)
   const [isDisclosureOpen, setDisclosureOpen] = useState(false)
 
   // This enables us to use the getDataForField & dailyAverage functions above
@@ -118,12 +119,18 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   }
 
   // Used for testing older sections of data
-  const sliceIndex = 0
+  const sliceStart = 0
+  const sliceEnd = useFullRange ? history.length : stateChartDateRange
 
-  const data = [...history]
-    .slice(sliceIndex, stateChartDateRange)
-    .sort((a, b) => a.date - b.date)
-    .map(hoistPerCapProps)
+  const data = useMemo(
+    () =>
+      [...history]
+        .slice(sliceStart, sliceEnd)
+        .sort((a, b) => a.date - b.date)
+        .map(hoistPerCapProps),
+
+    [history, sliceStart, sliceEnd],
+  )
 
   // Could be made more efficent by memoizing the sliced, sorted & mapped
   // result and then returning that or null but this doesn't seem necessary
@@ -133,11 +140,11 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
       usHistory &&
       usePerCap &&
       [...usHistory]
-        .slice(sliceIndex, stateChartDateRange)
+        .slice(sliceStart, sliceEnd)
         .sort((a, b) => a.date - b.date)
         .map(hoistPerCapProps),
 
-    [usHistory, usePerCap],
+    [usHistory, usePerCap, sliceStart, sliceEnd],
   )
 
   const hasData = field =>
@@ -193,9 +200,16 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               setState={setUsePerCap}
             />
           )}
+          <Toggle
+            options={['Last 90 days', 'Full range']}
+            state={useFullRange}
+            setState={setUseFullRange}
+          />
         </div>
-        {usData && usePerCap && <LegendComponent />}
-        <LegendComponent name={name || 'National'} />
+        <div className={styles.legendContainer}>
+          {usData && usePerCap && <LegendComponent />}
+          <LegendComponent name={name || 'National'} />
+        </div>
       </div>
       <Row>
         <Col {...colProps}>
