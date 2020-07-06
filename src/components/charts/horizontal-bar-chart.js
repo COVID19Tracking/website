@@ -9,14 +9,16 @@ import chartStyles from './charts.module.scss'
 export default function HorizontalBarChart({
   data,
   fill,
-  highlight = fill,
   height,
   marginBottom = 0,
   marginLeft = 0,
+  marginRight = 0,
   marginTop = 0,
   xTicks,
   width,
+  xMax = null,
 }) {
+  const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
   const yScale = scaleBand()
     .domain(data.map(d => d.name))
@@ -24,9 +26,9 @@ export default function HorizontalBarChart({
     .padding(0.2)
   const formatTick = format('~s')
   const xScale = scaleLinear()
-    .domain([0, max(data, d => d.value)])
+    .domain([120, xMax || max(data, d => d.value)])
     .nice()
-    .range([0, width])
+    .range([0, width - totalXMargin])
 
   return (
     <svg
@@ -77,7 +79,7 @@ export default function HorizontalBarChart({
             y={yScale(d.name)}
             height={yScale.bandwidth()}
             width={xScale(d.value)}
-            fill={d.highlight ? highlight : fill}
+            fill={fill}
           />
         ))}
       </g>

@@ -1,103 +1,50 @@
 import React, { useState } from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
 } from '@reach/disclosure'
 import nationalChartStyle from './national-chart.module.scss'
-import HorizontalBarChart from '~components/charts/horizontal-bar-chart'
-import { totalColor, lightColor } from '~utilities/visualization'
 import { FormatNumber } from '~components/utils/format'
 
 export default () => {
-  const {
-    blackMortalityRate,
-    aianMortalityRate,
-    nhpiMortalityRate,
-    twoMortalityRate,
-    whiteMortalityRate,
-    otherMortalityRate,
-    latinXMortalityRate,
-  } = {
-    // hardcoded for now
-    blackLivesLost: 26425,
-    blackPercentOfPopulation: 0.1267,
-    blackPercentOfDeath: 0.2332735988,
-    blackLivesExpectedMultiplier: 1.841149162,
-    statesReportingCases: 49,
-    statesReportingDeaths: 48,
-    blackMortalityRate: 64,
-    aianMortalityRate: 30,
-    nhpiMortalityRate: 20,
-    twoMortalityRate: 2,
-    whiteMortalityRate: 25,
-    otherMortalityRate: 24,
-    latinXMortalityRate: 29,
-    blackwhiteRateRatio: 2.5,
-  }
-  const data = [
+  const { covidRaceDataHomepage } = useStaticQuery(graphql`
     {
-      name: 'Black',
-      value: blackMortalityRate,
-      highlight: true,
-    },
-    {
-      name: 'Hispanic or Latinx',
-      value: latinXMortalityRate,
-      highlight: false,
-    },
-    {
-      name: 'American Indian/Alaska Native',
-      value: aianMortalityRate,
-      highlight: false,
-    },
-    {
-      name: 'Asian',
-      value: 27, // Missing?
-      highlight: false,
-    },
-    {
-      name: 'White',
-      value: whiteMortalityRate,
-      highlight: true,
-    },
-    {
-      name: 'Other',
-      value: otherMortalityRate,
-      highlight: false,
-    },
-    {
-      name: 'Native Hawaiian/ Other Pacific Islander',
-      value: nhpiMortalityRate,
-      highlight: false,
-    },
-    {
-      name: 'Two or more races',
-      value: twoMortalityRate,
-    },
-  ]
+      covidRaceDataHomepage {
+        whiteMortalityRate
+        twoMortalityRate
+        otherMortalityRate
+        nhpiMortalityRate
+        latinXMortalityRate
+        blackMortalityRate
+        aianMortalityRate
+      }
+    }
+  `)
+
+  const maxRate = Math.max(
+    ...Object.entries(covidRaceDataHomepage).map(e => parseFloat(e[1])),
+  )
+  const mortalityRateData = Object.entries(covidRaceDataHomepage)
+    .map(e => [
+      e[0].substring(0, e[0].length - 13), // strips "MortalityRate" from labels
+      (parseFloat(e[1]) / maxRate) * 100, // converts values to percentiles
+    ])
+    .sort((a, b) => b[1] - a[1])
+
   const perXPeople = 100000
   const [isCollapsed, toggleIsCollapsed] = useState(true)
   return (
-    <div className={nationalChartStyle.wrapper}>
+    <div>
       <h4 className={nationalChartStyle.header}>
         Deaths per <FormatNumber number={perXPeople} /> people by race or
         ethnicity
       </h4>
       <div className={nationalChartStyle.charts}>
-        <HorizontalBarChart
-          data={data}
-          fill={lightColor}
-          highlight={totalColor}
-          height={400}
-          marginBottom={40}
-          marginLeft={136}
-          marginRight={40}
-          marginTop={20}
-          xTicks={4}
-          yTicks={data.length}
-          width={400}
-        />
+        {mortalityRateData.map(race => (
+          <div width={`${race[1]}%`} />
+        ))}
       </div>
       <div>
         <Disclosure
