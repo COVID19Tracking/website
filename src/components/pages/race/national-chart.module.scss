@@ -26,6 +26,10 @@
 
     .header-spacer {
       flex-basis: 20%;
+
+      @media (max-width: $viewport-md) {
+        flex-basis: 0%;
+      }
     }
 
     span {
