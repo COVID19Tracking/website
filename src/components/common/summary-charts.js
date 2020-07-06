@@ -169,7 +169,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   }
 
   const colProps = {
-    width: [4, 3, 3], // 1 chart per line on small, 2 on medium & 4 on large sreens
+    width: [4, 3, 3], // 1 chart per line on small, 2 on medium & 4 on large screens
     paddingLeft: [0, 0, 0],
     paddingRight: [0, 0, 0],
   }
