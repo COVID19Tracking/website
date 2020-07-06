@@ -10,21 +10,22 @@ import nationalChartStyle from './national-chart.module.scss'
 import { FormatNumber } from '~components/utils/format'
 
 export default () => {
-  // todo add asianMortalityRate
   const { covidRaceDataHomepage } = useStaticQuery(graphql`
     {
       covidRaceDataHomepage {
-        whiteMortalityRate
-        twoMortalityRate
-        otherMortalityRate
-        nhpiMortalityRate
-        latinXMortalityRate
-        blackMortalityRate
         aianMortalityRate
+        asianMortalityRate
+        blackMortalityRate
+        latinXMortalityRate
+        nhpiMortalityRate
+        otherMortalityRate
+        twoMortalityRate
+        whiteMortalityRate
       }
     }
   `)
 
+  // get the maximum deaths per 100,000 value
   const maxRate = Math.max(
     ...Object.entries(covidRaceDataHomepage).map(e => parseFloat(e[1])),
   )
@@ -32,10 +33,12 @@ export default () => {
   const mortalityRateData = Object.entries(covidRaceDataHomepage)
     .map(e => ({
       mortalityRate: parseFloat(e[1]),
-      width: (parseFloat(e[1]) / maxRate) * 75, // converts values to percentiles
+      width: (parseFloat(e[1]) / maxRate) * 75, // converts values to percentiles*
       label: e[0].substring(0, e[0].length - 13), // strips "MortalityRate" from labels
     }))
     .sort((a, b) => b.width - a.width)
+  // * the 75% value is the maximum width that a bar can be.
+  // Labels, etc. represent the rest of the width
 
   const perXPeople = 100000
 
