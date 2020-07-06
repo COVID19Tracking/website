@@ -5,10 +5,12 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@reach/disclosure'
+import classnames from 'classnames'
 import nationalChartStyle from './national-chart.module.scss'
 import { FormatNumber } from '~components/utils/format'
 
 export default () => {
+  // todo add asianMortalityRate
   const { covidRaceDataHomepage } = useStaticQuery(graphql`
     {
       covidRaceDataHomepage {
@@ -27,14 +29,27 @@ export default () => {
     ...Object.entries(covidRaceDataHomepage).map(e => parseFloat(e[1])),
   )
   const mortalityRateData = Object.entries(covidRaceDataHomepage)
-    .map(e => [
-      e[0].substring(0, e[0].length - 13), // strips "MortalityRate" from labels
-      (parseFloat(e[1]) / maxRate) * 100, // converts values to percentiles
-    ])
-    .sort((a, b) => b[1] - a[1])
+    .map(e => ({
+      mortalityRate: parseFloat(e[1]),
+      width: (parseFloat(e[1]) / maxRate) * 75, // converts values to percentiles
+      label: e[0].substring(0, e[0].length - 13), // strips "MortalityRate" from labels
+    }))
+    .sort((a, b) => b.width - a.width)
 
   const perXPeople = 100000
-  const [isCollapsed, toggleIsCollapsed] = useState(true)
+
+  const endpointToLabel = {
+    white: { label: 'White', emphasis: true },
+    two: { label: 'Two or more races', emphasis: false },
+    other: { label: 'Other', emphasis: false },
+    nhpi: { label: 'Native Hawaiian and Pacific Islander', emphasis: false },
+    latinX: { label: 'Hispanic or Latino', emphasis: false },
+    black: { label: 'Black or African American', emphasis: true },
+    aian: { label: 'American Indian or Alaska Native', emphasis: false },
+    asian: { label: 'Asian', emphasis: false },
+  }
+
+  const [isCollapsed, toggleIsCollapsed] = useState(false)
   return (
     <div>
       <h4 className={nationalChartStyle.header}>
@@ -43,7 +58,26 @@ export default () => {
       </h4>
       <div className={nationalChartStyle.charts}>
         {mortalityRateData.map(race => (
-          <div width={`${race[1]}%`} />
+          <div
+            className={classnames(
+              nationalChartStyle.raceRow,
+              endpointToLabel[race.label].emphasis &&
+                nationalChartStyle.emphasis,
+            )}
+          >
+            <div>
+              <span className={nationalChartStyle.rowLabel}>
+                {endpointToLabel[race.label].label}
+              </span>
+            </div>
+            <div
+              style={{ flexBasis: `${race.width}%` }}
+              className={nationalChartStyle.bar}
+            />
+            <span className={nationalChartStyle.mortalityRateLabel}>
+              {race.mortalityRate.toFixed(0)}
+            </span>
+          </div>
         ))}
       </div>
       <div>

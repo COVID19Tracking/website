@@ -8,17 +8,48 @@
   }
 }
 
-.charts {
-  display: grid;
-  grid-column-gap: 1%;
-  grid-template-columns: 45% 10% 45%;
-  align-items: start center start;
-  @media (min-width: $viewport-lg) {
-    align-items: center;
+.race-row.emphasis {
+  div.bar {
+    background-color: $color-plum-500;
   }
-  p {
+  .mortality-rate-label {
     font-weight: bold;
-    margin-top: 0;
+  }
+}
+
+.charts {
+  width: 100%;
+
+  .race-row {
+    display: flex;
+    @include margin(16, bottom);
+    align-items: center;
+
+    div {
+      @include type-size(300);
+      text-align: right;
+      line-height: 1.2;
+
+      height: 2.4rem;
+      @include padding(8, right);
+
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      flex-basis: 20%;
+    }
+
+    .bar {
+      height: 2rem;
+      background-color: $color-plum-300;
+      border: 1px solid black;
+    }
+
+    .mortality-rate-label {
+      flex-basis: 5%;
+      @include type-size(300);
+      @include padding(8, left);
+    }
   }
 }
 
