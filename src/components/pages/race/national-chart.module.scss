@@ -73,7 +73,7 @@
         padding-right: 0;
         justify-content: left;
         flex-basis: 100%;
-        margin-bottom: 4px;
+        @include margin(4, bottom);
       }
     }
 
