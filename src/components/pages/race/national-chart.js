@@ -82,7 +82,7 @@ export default () => {
               className={nationalChartStyle.bar}
             />
             <span className="a11y-only">
-              {endpointToLabel[race.label].label} people experience
+              {endpointToLabel[race.label].label} people have experienced
             </span>
             <span className={nationalChartStyle.mortalityRateLabel}>
               {race.mortalityRate.toFixed(0)}
