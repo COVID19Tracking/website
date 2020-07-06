@@ -3,12 +3,12 @@ items:
   - title: Our Data
     link: /data
     subNavigation: data
-  - title: How to Use It
+  - title: About the Data
     link: /about-data
     subNavigation: about-data
-  - title: Why It Matters
-    link: /why-it-matters
-    subNavigation: why-it-matters
+  - title: Race and COVID-19
+    link: /race
+    subNavigation: race
   - title: About Us
     link: /about-project
     subNavigation: about-project

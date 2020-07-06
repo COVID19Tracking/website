@@ -210,7 +210,7 @@ const Header = withSearch(
                     <HeaderSearch />
                   </div>
                   <Link
-                    to="/about/newsletter"
+                    to="/contact/volunteer"
                     className={headerStyle.getInvolved}
                   >
                     Get involved
