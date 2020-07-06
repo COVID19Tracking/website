@@ -23,9 +23,6 @@ export default () => {
   const data = useStaticQuery(graphql`
     query {
       covidRaceDataHomepage {
-        blackLivesLost
-        blackPercentOfDeath
-        blackLivesExpectedMultiplier
         blackwhiteRateRatio
       }
       contentfulSocialCard(slug: { eq: "racial-data-tracker" }) {
@@ -40,11 +37,7 @@ export default () => {
       }
     }
   `)
-  const {
-    blackLivesLost,
-    blackPercentOfDeath,
-    blackwhiteRateRatio,
-  } = data.covidRaceDataHomepage
+  const { blackwhiteRateRatio } = data.covidRaceDataHomepage
   return (
     <>
       <SEO
@@ -80,12 +73,6 @@ export default () => {
               white people.
             </LargeHeader>
             <NationalChart />
-            <LargeHeader center>
-              We&apos;ve lost at least <FormatNumber number={blackLivesLost} />
-              &nbsp;Black lives to COVID-19 to date. Black people account for
-              &nbsp;{Math.round(blackPercentOfDeath * 100)}% of COVID-19 deaths
-              where race is known.
-            </LargeHeader>
           </LandingPageContainer>
         </LandingPageSection>
         <LandingPageSection noMargin>
