@@ -111,3 +111,9 @@
 .notes {
   color: $color-slate-600;
 }
+
+.paragraph {
+  @media (max-width: $viewport-md) {
+    @include type-size(300);
+  }
+}

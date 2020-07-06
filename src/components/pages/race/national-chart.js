@@ -6,8 +6,6 @@ import {
   DisclosurePanel,
 } from '@reach/disclosure'
 import classnames from 'classnames'
-
-import chartsStyle from '~components/pages/race/charts/charts.module.scss'
 import RacialDataParagraph from '~components/pages/race/paragraph'
 import { FormatNumber } from '~components/utils/format'
 
@@ -106,7 +104,7 @@ export default () => {
           open={isCollapsed}
           onChange={() => toggleIsCollapsed(!isCollapsed)}
         >
-          <DisclosureButton className={chartsStyle.showChartData}>
+          <DisclosureButton className={nationalChartStyle.showNotes}>
             {isCollapsed ? (
               <>
                 Notes <span aria-hidden>↑</span>
@@ -126,7 +124,7 @@ export default () => {
           </DisclosurePanel>
         </Disclosure>
       </div>
-      <RacialDataParagraph>
+      <RacialDataParagraph className={nationalChartStyle.paragraph}>
         We’ve lost at least {covidRaceDataHomepage.blackLivesLost} Black lives
         to COVID-19 to date. Black people account for{' '}
         {parseFloat(covidRaceDataHomepage.blackPercentOfDeath).toFixed(2) * 100}
