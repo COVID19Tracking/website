@@ -85,6 +85,16 @@ export default ({ name = 'National', history, usHistory }) => {
 
   const [usePerCap, setUsePerCap] = useState(false)
 
+  // will need to be modified to support mutliple values
+  const makeRenderTooltipContents = text => d => (
+    <TooltipContents
+      date={d.date}
+      items={[
+        { text: `${text}${usePerCap ? ' per 1M people' : ''}`, value: d.value },
+      ]}
+    />
+  )
+
   // This enables us to use the getDataForField & dailyAverage functions above
   // without enable triple nested properties
   const hoistPerCapProps = node => {
@@ -171,11 +181,6 @@ export default ({ name = 'National', history, usHistory }) => {
   const showTodaysChartTick =
     DateTime.fromISO(data[data.length - 1].date).day > 10
 
-  // will need to be modified to support mutliple values
-  const makeRenderTooltipContents = text => d => (
-    <TooltipContents date={d.date} items={[{ text, value: d.value }]} />
-  )
-
   return (
     <>
       <h2>{name} overview</h2>
@@ -202,7 +207,7 @@ export default ({ name = 'National', history, usHistory }) => {
             fill={colors.colorPlum200}
             lineColor={colors.colorPlum700}
             lastXTick={showTodaysChartTick}
-            renderTooltipContents={makeRenderTooltipContents('new tests')}
+            renderTooltipContents={makeRenderTooltipContents(`new tests`)}
             {...props}
           />
         </Col>
