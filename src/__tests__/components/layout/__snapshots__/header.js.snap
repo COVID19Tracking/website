@@ -239,6 +239,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
          
         <a
           href="/race"
+          onClick={[Function]}
         >
           We just launched the COVID Racial Data Tracker
         </a>
@@ -744,6 +745,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
          
         <a
           href="/race"
+          onClick={[Function]}
         >
           We just launched the COVID Racial Data Tracker
         </a>
@@ -1249,6 +1251,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
          
         <a
           href="/race"
+          onClick={[Function]}
         >
           We just launched the COVID Racial Data Tracker
         </a>
@@ -1758,6 +1761,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
          
         <a
           href="/race"
+          onClick={[Function]}
         >
           We just launched the COVID Racial Data Tracker
         </a>
@@ -2263,6 +2267,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
          
         <a
           href="/race"
+          onClick={[Function]}
         >
           We just launched the COVID Racial Data Tracker
         </a>

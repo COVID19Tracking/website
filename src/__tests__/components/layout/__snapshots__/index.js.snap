@@ -247,6 +247,7 @@ Array [
            
           <a
             href="/race"
+            onClick={[Function]}
           >
             We just launched the COVID Racial Data Tracker
           </a>
@@ -906,6 +907,7 @@ Array [
            
           <a
             href="/race"
+            onClick={[Function]}
           >
             We just launched the COVID Racial Data Tracker
           </a>
