@@ -34,30 +34,9 @@ const BarChart = ({
   renderTooltipContents,
 }) => {
   const [tooltip, setTooltip] = useState(null)
-
-  /* WIP tooltip optimization
+  // Used for tooltip optimization
   const [timeoutRef, setTimeoutRef] = useState(null)
-  const [cleared, setCleared] = useState(false)
 
-  const resetIfNotCleared = () => {
-    // eslint-disable-next-line no-debugger
-    debugger
-    if (cleared && timeoutRef) {
-      clearTimeout(timeoutRef)
-      console.log('dont close tooltip')
-    } else {
-      console.log('close tooltip')
-      setTooltip(null)
-    }
-  }
-  const mouseOut = () => {
-    if (timeoutRef) {
-      clearTimeout(timeoutRef)
-    }
-    setTimeoutRef(setTimeout(resetIfNotCleared, 1000))
-    setTimeout(() => setCleared(false), 10)
-  }
-  */
   // Used when placing annotations
   const getValueForDate = date => {
     const dateData = data.find(d => d.date.getTime() === date.getTime())
@@ -96,7 +75,10 @@ const BarChart = ({
       .y(d => yScale(d.value))
   }
   const hover = (event, d) => {
-    // setCleared(true)
+    // Ensure that tooltip doesn't flash when transitioning between bars
+    if (timeoutRef) {
+      clearTimeout(timeoutRef)
+    }
     const isTouchEvent = !event.clientX
     const eventX = isTouchEvent ? event.touches[0].clientX : event.clientX
     const eventY = isTouchEvent ? event.touches[0].clientY : event.clientY
@@ -107,9 +89,11 @@ const BarChart = ({
     })
   }
   const mouseOut = () => {
-    setTooltip(null)
+    if (timeoutRef) {
+      clearTimeout(timeoutRef)
+    }
+    setTimeoutRef(setTimeout(() => setTooltip(null), 200))
   }
-
   return (
     <>
       <svg
