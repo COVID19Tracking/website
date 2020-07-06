@@ -20,6 +20,20 @@
 .charts {
   width: 100%;
 
+  .header {
+    display: flex;
+    @include margin(4, bottom);
+
+    .header-spacer {
+      flex-basis: 20%;
+    }
+
+    span {
+      font-weight: bold;
+      @include type-size(400);
+    }
+  }
+
   .race-row {
     display: flex;
     @include margin(16, bottom);

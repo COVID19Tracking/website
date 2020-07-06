@@ -52,11 +52,14 @@ export default () => {
   const [isCollapsed, toggleIsCollapsed] = useState(false)
   return (
     <div>
-      <h4 className={nationalChartStyle.header}>
-        Deaths per <FormatNumber number={perXPeople} /> people by race or
-        ethnicity
-      </h4>
       <div className={nationalChartStyle.charts}>
+        <div className={nationalChartStyle.header}>
+          <div className={nationalChartStyle.headerSpacer} />
+          <span>
+            Deaths per <FormatNumber number={perXPeople} /> people by race or
+            ethnicity
+          </span>
+        </div>
         {mortalityRateData.map(race => (
           <div
             className={classnames(
