@@ -35,7 +35,6 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   collectCoverageFrom: [
     './src/**/*.js',
-    '!./src/components/pages/**/*.js',
     '!./src/pages/**/*.js',
     '!./src/templates/**/*.js',
     '!./src/stories/**',
