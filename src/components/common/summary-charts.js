@@ -90,7 +90,21 @@ export default ({ name = 'National', history, usHistory }) => {
     <TooltipContents
       date={d.date}
       items={[
-        { text: `${text}${usePerCap ? ' per 1M people' : ''}`, value: d.value },
+        {
+          text: (
+            <>
+              {text}
+              {usePerCap ? (
+                <>
+                  <br /> per 1M people
+                </>
+              ) : (
+                ''
+              )}
+            </>
+          ),
+          value: d.value,
+        },
       ]}
     />
   )
@@ -240,7 +254,10 @@ export default ({ name = 'National', history, usHistory }) => {
               lineColor={colors.colorBlueberry400}
               lastXTick={showTodaysChartTick}
               renderTooltipContents={makeRenderTooltipContents(
-                'current hospitalizations',
+                <>
+                  current <br />
+                  hospitalizations
+                </>,
               )}
               {...props}
             />

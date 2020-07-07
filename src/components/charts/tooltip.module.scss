@@ -8,7 +8,5 @@
   border: solid black 1px;
 
   @include type-size(200);
-  text-transform: lowercase;
-
   pointer-events: none;
 }
