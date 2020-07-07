@@ -17,15 +17,13 @@ import Charts from '~components/pages/race/charts'
 import Totals from '~components/pages/race/totals'
 import Press from '~components/pages/race/press'
 import Publication from '~components/pages/race/citation'
-import RaceMultiplierHighlight from '~components/pages/race/multiplier-highlight'
 import { FormatNumber } from '~components/utils/format'
 
 export default () => {
   const data = useStaticQuery(graphql`
     query {
       covidRaceDataHomepage {
-        blackLivesLost
-        blackLivesExpectedMultiplier
+        blackwhiteRateRatio
       }
       contentfulSocialCard(slug: { eq: "racial-data-tracker" }) {
         description {
@@ -39,10 +37,7 @@ export default () => {
       }
     }
   `)
-  const {
-    blackLivesLost,
-    blackLivesExpectedMultiplier,
-  } = data.covidRaceDataHomepage
+  const { blackwhiteRateRatio } = data.covidRaceDataHomepage
   return (
     <>
       <SEO
@@ -73,15 +68,11 @@ export default () => {
         <LandingPageSection noBorder noMargin>
           <LandingPageContainer>
             <LargeHeader center narrow>
-              We’ve lost at least <FormatNumber number={blackLivesLost} /> Black
-              lives to COVID-19 to date.
+              Nationwide, Black people are dying at a rate&nbsp;
+              <FormatNumber number={blackwhiteRateRatio} /> times higher than
+              white people.
             </LargeHeader>
             <NationalChart />
-            {Number(blackLivesExpectedMultiplier) > 1.36 && (
-              <RaceMultiplierHighlight
-                multiplier={blackLivesExpectedMultiplier}
-              />
-            )}
           </LandingPageContainer>
         </LandingPageSection>
         <LandingPageSection noMargin>

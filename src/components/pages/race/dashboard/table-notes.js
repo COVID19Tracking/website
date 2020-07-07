@@ -16,7 +16,7 @@ export default ({ state, stateName, type, groupedNotes }) => {
           {type && <>on {type}</>} for {stateName}
         </span>
       </h4>
-      <ol>
+      <ol className={tableNotesStyle.list}>
         {groupedNotes.map((note, index) => (
           <Fragment key={`${state.toLowerCase()}-note-${index + 1}`}>
             {note && note.trim().length && <li>{note}</li>}
