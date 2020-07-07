@@ -46,7 +46,7 @@
     "emotion-theming": "^10.0.27",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-loader": "^3.0.3",
-    "gatsby": "^2.22.15",
+    "gatsby": "^2.23.22",
     "gatsby-image": "^2.2.44",
     "gatsby-plugin-algolia": "^0.7.0",
     "gatsby-plugin-eslint": "^2.0.8",
