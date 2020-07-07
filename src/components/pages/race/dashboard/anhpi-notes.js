@@ -29,4 +29,5 @@ export default (data, stateNotes) => {
       ? data.nhpiANHPIDeathNotes
       : notes.nhpiDeath
   }
+  return notes
 }
