@@ -133,7 +133,7 @@ const List = ({ type, name, options, label, isRequired, detailText }) => (
             >
               <input
                 type={type}
-                name={type === 'radio' ? name : item.label}
+                name={name ? name : item.label}
                 value={item.label}
                 id={item.value}
               />
