@@ -215,7 +215,7 @@ Array [
           </nav>
           <a
             className="getInvolved"
-            href="/about-project/help"
+            href="/contact/volunteer"
           >
             Get Involved
           </a>
@@ -247,6 +247,7 @@ Array [
            
           <a
             href="/race"
+            onClick={[Function]}
           >
             We just launched the COVID Racial Data Tracker
           </a>
@@ -468,7 +469,7 @@ Array [
             </div>
             <a
               className="getInvolved"
-              href="/get-involved"
+              href="/contact/volunteer"
             >
               Get involved
             </a>
@@ -571,7 +572,7 @@ Array [
             </li>
             <li>
               <a
-                href="/license"
+                href="/about-data/license"
               >
                 License
               </a>
@@ -585,7 +586,7 @@ Array [
             </li>
             <li>
               <a
-                href="/accessibility"
+                href="/about/accessibility"
               >
                 Accessibility
               </a>
@@ -874,7 +875,7 @@ Array [
           </nav>
           <a
             className="getInvolved"
-            href="/about-project/help"
+            href="/contact/volunteer"
           >
             Get Involved
           </a>
@@ -906,6 +907,7 @@ Array [
            
           <a
             href="/race"
+            onClick={[Function]}
           >
             We just launched the COVID Racial Data Tracker
           </a>
@@ -1127,7 +1129,7 @@ Array [
             </div>
             <a
               className="getInvolved"
-              href="/get-involved"
+              href="/contact/volunteer"
             >
               Get involved
             </a>
@@ -1230,7 +1232,7 @@ Array [
             </li>
             <li>
               <a
-                href="/license"
+                href="/about-data/license"
               >
                 License
               </a>
@@ -1244,7 +1246,7 @@ Array [
             </li>
             <li>
               <a
-                href="/accessibility"
+                href="/about/accessibility"
               >
                 Accessibility
               </a>

@@ -3,19 +3,43 @@
 
 .info-line {
   display: flex;
+  @media screen and (max-width: $viewport-md) {
+    flex-direction: column;
+  }
   .toggle-container {
     flex-grow: 1;
+    display: flex;
+    > * {
+      margin-right: spacer(8);
+    }
+    @media screen and (max-width: $viewport-lg) {
+      flex-direction: column;
+      > * {
+        margin-right: 0;
+        margin-bottom: spacer(8);
+      }
+    }
+    @media screen and (max-width: $viewport-md) {
+      flex-grow: initial;
+    }
+  }
+  .legend-container {
+    display: flex;
+    > * {
+      margin-left: spacer(8);
+    }
+    @media screen and (max-width: $viewport-lg) {
+      flex-direction: column-reverse;
+      flex-grow: initial;
+      > * {
+        margin-left: 0;
+        margin-bottom: spacer(8);
+      }
+    }
   }
   .legend-component {
     display: flex;
     align-items: center;
-    margin-left: 10px; // ignore-style-rule
-  }
-  @media screen and (max-width: $viewport-md) {
-    flex-direction: column;
-    .legend-component {
-      margin-top: 10px; // ignore-style-rule
-    }
   }
 }
 
@@ -53,6 +77,17 @@
 
 .annotation-list {
   padding-inline-start: 15px; // ignore-style-rule
+}
+
+.annotation-title {
+  @include type-size(300);
+}
+
+.annotation-indicator {
+  @include type-size(200);
+  font-weight: normal;
+  display: block;
+  float: right;
 }
 
 .chart-logo {

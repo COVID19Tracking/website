@@ -1,14 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import marked from 'marked'
-import smartypants from 'smartypants'
+
 import Layout from '~components/layout'
-import Container from '~components/common/container'
-import MarkdownContent from '~components/common/markdown-content'
-import SummaryCharts from '~components/common/summary-charts'
 import StateGrade from '~components/pages/state/state-grade'
 import StateHistory from '~components/pages/state/state-history'
 import StateLinks from '~components/pages/state/state-links'
+import StateNotes from '~components/pages/state/state-notes'
+import SummaryCharts from '~components/common/summary-charts'
 import SummaryTable from '~components/common/summary-table'
 import { SyncInfobox } from '~components/common/infobox'
 
@@ -19,6 +17,7 @@ const StatePage = ({ pageContext, data, path }) => {
     allCovidStateDaily,
     allCovidScreenshot,
     allCovidUsDaily,
+    allContentfulEvent,
   } = data
   return (
     <Layout title={state.name} returnLink="/data" path={path}>
@@ -30,17 +29,14 @@ const StatePage = ({ pageContext, data, path }) => {
         fathomGoal="DNRI0GQP"
       />
       <StateGrade letterGrade={covidState.dataQualityGrade} />
-      {state.notes && (
-        <Container narrow>
-          <MarkdownContent html={smartypants(marked(state.notes))} />
-        </Container>
-      )}
+      {state.notes && <StateNotes notes={state.notes} />}
       <SyncInfobox />
       <SummaryTable data={covidState} lastUpdated={covidState.lastUpdateEt} />
       <SummaryCharts
         name={state.name}
         history={allCovidStateDaily.nodes}
         usHistory={allCovidUsDaily.nodes}
+        annotations={allContentfulEvent}
       />
       <h2 id="historical">History</h2>
       <StateHistory
@@ -149,6 +145,25 @@ export const query = graphql`
         state
         date
         dateChecked
+      }
+    }
+    allContentfulEvent(
+      filter: {
+        state: { elemMatch: { code: { eq: $state } } }
+        displayStateChart: { eq: true }
+      }
+      sort: { fields: date, order: DESC }
+    ) {
+      nodes {
+        title
+        date(formatString: "YYYYMMDD")
+        dataElement
+        contentful_id
+        childContentfulEventDescriptionTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
   }

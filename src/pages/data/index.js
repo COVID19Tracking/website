@@ -24,6 +24,7 @@ export default ({ data }) => {
       socialCard={{
         description: 'Our most up-to-date data on COVID-19 in the US.',
       }}
+      path="/data"
       navigation={data.contentfulNavigationGroup.pages}
     >
       <ContentfulContent

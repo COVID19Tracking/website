@@ -1,32 +1,35 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 import React from 'react'
 import { graphql } from 'gatsby'
-import ContentfulContent from '~components/common/contentful-content'
-import ApiExplorer from '~components/pages/data/api/explorer'
+import Layout from '~components/layout'
 import LongContent from '~components/common/long-content'
-import Layout from '../components/layout'
+import ContentfulContent from '~components/common/contentful-content'
+import GetInvolvedForm from '~components/pages/get-involved/form'
 
 export default ({ data }) => (
   <Layout
-    title="Data API"
-    path="/api"
+    title="Sign up for our newsletter"
+    path="/about/newsletter"
     navigation={data.contentfulNavigationGroup.pages}
+    centered
   >
     <LongContent>
       <ContentfulContent
         content={
-          data.contentfulSnippet.childContentfulSnippetContentTextNode
+          data.helpPreamble.childContentfulSnippetContentTextNode
             .childMarkdownRemark.html
         }
-        id={data.contentfulSnippet.contentful_id}
+        id={data.helpPreamble.contentful_id}
       />
+      <GetInvolvedForm />
     </LongContent>
-    <ApiExplorer />
   </Layout>
 )
 
 export const query = graphql`
   query {
-    contentfulSnippet(slug: { eq: "api-preamble" }) {
+    helpPreamble: contentfulSnippet(slug: { eq: "help-preamble" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {

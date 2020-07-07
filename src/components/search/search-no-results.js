@@ -30,7 +30,7 @@ const SearchNoResult = ({ query = false }) =>
           methodology
         </li>
         <li>
-          <Link to="/api">Data API</Link> - Our data API for developers
+          <Link to="/data/api">Data API</Link> - Our data API for developers
         </li>
       </ul>
     </div>

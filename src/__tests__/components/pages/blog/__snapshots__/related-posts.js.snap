@@ -93,9 +93,7 @@ exports[`Components : Pages : Blog : Related Posts : Category Posts renders corr
           >
             Edgar Allen Poe
           </span>
-           
-          and
-           
+           & 
           <span
             className="authorInner"
           >
@@ -206,9 +204,7 @@ exports[`Components : Pages : Blog : Related Posts : Explicit Related Posts rend
           >
             Edgar Allen Poe
           </span>
-           
-          and
-           
+           & 
           <span
             className="authorInner"
           >
@@ -319,9 +315,7 @@ exports[`Components : Pages : Blog : Related Posts : Recent Posts renders correc
           >
             Edgar Allen Poe
           </span>
-           
-          and
-           
+           & 
           <span
             className="authorInner"
           >

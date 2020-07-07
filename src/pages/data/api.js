@@ -1,16 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
+import ApiExplorer from '~components/pages/data/api/explorer'
 import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
-import VolunteerForm from '~components/pages/contact/volunteer-form'
 
 export default ({ data }) => (
   <Layout
-    title="Contact Us &mdash; Volunteering"
+    title="Data API"
+    path="/data/api"
     navigation={data.contentfulNavigationGroup.pages}
-    path="/contact/volunteer"
-    centered
   >
     <LongContent>
       <ContentfulContent
@@ -20,14 +19,14 @@ export default ({ data }) => (
         }
         id={data.contentfulSnippet.contentful_id}
       />
-      <VolunteerForm />
     </LongContent>
+    <ApiExplorer />
   </Layout>
 )
 
 export const query = graphql`
   query {
-    contentfulSnippet(slug: { eq: "volunteer-form" }) {
+    contentfulSnippet(slug: { eq: "api-preamble" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
