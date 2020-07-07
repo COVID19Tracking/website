@@ -77,6 +77,7 @@ export default () => {
               endpointToLabel[race.label].emphasis &&
                 nationalChartStyle.emphasis,
             )}
+            key={race.label}
           >
             <div>
               <span className={nationalChartStyle.rowLabel}>
