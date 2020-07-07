@@ -15,6 +15,15 @@
   }
 }
 
+.spacer {
+  flex-basis: 20%;
+
+  @media (max-width: $viewport-md) {
+    flex-basis: 0%;
+    @include margin(8, bottom);
+  }
+}
+
 .charts {
   width: 100%;
 
@@ -25,15 +34,6 @@
   .header {
     display: flex;
     @include margin(4, bottom);
-
-    .header-spacer {
-      flex-basis: 20%;
-
-      @media (max-width: $viewport-md) {
-        flex-basis: 0%;
-        @include margin(8, bottom);
-      }
-    }
 
     span {
       font-weight: bold;
@@ -90,22 +90,34 @@
   }
 }
 
-.show-notes {
-  display: block;
-  &:hover {
-    text-decoration: underline;
+.disclosure-wrapper {
+  display: flex;
+
+  .disclosure-container {
+    flex-basis: 80%;
+
+    @media (max-width: $viewport-md) {
+      flex-basis: 100%;
+    }
   }
-  background: transparent;
-  border: 0;
-  text-decoration: underline;
-  color: $color-slate-600;
-  margin-top: spacer(16);
-  margin-bottom: spacer(16);
-  padding: 0;
-  cursor: pointer;
-  abbr {
-    display: inline-block;
-    margin-left: spacer(16);
+
+  .show-notes {
+    display: block;
+    &:hover {
+      text-decoration: underline;
+    }
+    background: transparent;
+    border: 0;
+    text-decoration: underline;
+    color: $color-slate-600;
+    margin-top: spacer(16);
+    margin-bottom: spacer(16);
+    padding: 0;
+    cursor: pointer;
+    abbr {
+      display: inline-block;
+      margin-left: spacer(16);
+    }
   }
 }
 
