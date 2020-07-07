@@ -1,18 +1,14 @@
 .list {
-  column-count: 1;
-  @media (min-width: $viewport-md) {
-    column-count: 3;
-  }
-  @media (min-width: $viewport-lg) {
-    column-count: 6;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  
   list-style-type: none;
   margin-top: spacer(24);
   margin-left: 0;
   padding-left: 0;
   line-height: 150%;
-  @media (max-width: $viewport-md) {
-    column-count: 1;
+  @media (max-width: $viewport-ms) {
+    @include margin(24, right left)
   }
   li {
     @include padding(16, right);
