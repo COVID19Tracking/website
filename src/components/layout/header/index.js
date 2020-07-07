@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import Expand from 'react-expand-animated'
+import classnames from 'classnames'
 import { useSearch } from '~context/search-context'
 
 import DevelopmentWarning from './development-warning'
@@ -147,16 +148,23 @@ const Header = withSearch(
       <>
         <DevelopmentWarning />
         <header
-          className={`site-header ${headerStyle.siteHeader} ${
-            showMobileMenu ? headerStyle.showMobileMenu : ''
-          } ${noMargin ? headerStyle.noMargin : ''}`}
+          className={classnames(
+            'site-header',
+            headerStyle.siteHeader,
+            showMobileMenu && headerStyle.showMobileMenu,
+            noMargin && headerStyle.noMargin,
+          )}
         >
           <div
-            className={`container ${headerStyle.container} ${
-              pathNavigation && pathNavigation.top
-                ? headerStyle.hasNavigation
-                : ''
-            }`}
+            className={classnames(
+              'container',
+              headerStyle.container,
+
+              pathNavigation &&
+                pathNavigation.top &&
+                pathNavigation.subNavigation &&
+                headerStyle.hasNavigation,
+            )}
           >
             <Expand
               open={showMobileMenu}
@@ -227,11 +235,12 @@ const Header = withSearch(
             <Container centered={centerTitle}>
               {title && !hero && (
                 <div
-                  className={`${headerStyle.titleSubnavContainer} ${
-                    pathNavigation && !pathNavigation.top
-                      ? headerStyle.hasReturnLink
-                      : ''
-                  }`}
+                  className={classnames(
+                    headerStyle.titleSubnavContainer,
+                    pathNavigation &&
+                      !pathNavigation.top &&
+                      headerStyle.hasReturnLink,
+                  )}
                 >
                   <div className={headerStyle.title}>
                     {pathNavigation && !forceSubNavigation && (
@@ -241,7 +250,12 @@ const Header = withSearch(
                       />
                     )}
 
-                    <h1 className={`page-title ${headerStyle.pageTitle}`}>
+                    <h1
+                      className={classnames(
+                        'page-title',
+                        headerStyle.pageTitle,
+                      )}
+                    >
                       {titleLink ? (
                         <Link to={titleLink}>{title}</Link>
                       ) : (
@@ -249,7 +263,7 @@ const Header = withSearch(
                       )}
                     </h1>
                   </div>
-                  {pathNavigation.top && (
+                  {pathNavigation.top && pathNavigation.subNavigation && (
                     <div className={headerStyle.tabContainer}>
                       <HeaderSubNavigation
                         navigation={pathNavigation.subNavigation}
