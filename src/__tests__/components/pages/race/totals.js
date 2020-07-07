@@ -6,9 +6,9 @@ import Totals from '~components/pages/race/totals'
 beforeEach(() => {
   useStaticQuery.mockImplementation(() => ({
     covidRaceDataHomepage: {
-      statesReportingCases: "42",
-      statesReportingDeaths: "41"
-    }
+      statesReportingCases: '42',
+      statesReportingDeaths: '41',
+    },
   }))
 })
 
