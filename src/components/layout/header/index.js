@@ -31,7 +31,6 @@ const Header = withSearch(
     title,
     titleLink,
     noMargin,
-    navigation,
     forceSubNavigation,
     path,
     returnLink,
@@ -79,6 +78,7 @@ const Header = withSearch(
         pathNavigation = {
           top: true,
           parent: false,
+          subNavigation: subNavigation[item.subNavigation],
         }
         return
       }
@@ -89,6 +89,7 @@ const Header = withSearch(
         pathNavigation = {
           top: false,
           parent: item,
+          subNavigation: false,
         }
         return
       }
@@ -105,6 +106,7 @@ const Header = withSearch(
             pathNavigation = {
               top: false,
               parent: item,
+              subNavigation: false,
             }
           }
         })
@@ -151,7 +153,7 @@ const Header = withSearch(
         >
           <div
             className={`container ${headerStyle.container} ${
-              navigation && pathNavigation && pathNavigation.top
+              pathNavigation && pathNavigation.top
                 ? headerStyle.hasNavigation
                 : ''
             }`}
@@ -247,9 +249,11 @@ const Header = withSearch(
                       )}
                     </h1>
                   </div>
-                  {navigation && (pathNavigation.top || forceSubNavigation) && (
+                  {pathNavigation.top && (
                     <div className={headerStyle.tabContainer}>
-                      <HeaderSubNavigation navigation={navigation} />
+                      <HeaderSubNavigation
+                        navigation={pathNavigation.subNavigation}
+                      />
                     </div>
                   )}
                 </div>
