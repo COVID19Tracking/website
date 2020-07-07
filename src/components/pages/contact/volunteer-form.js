@@ -6,7 +6,6 @@ export default () => {
     <Form
       method="POST"
       name="volunteer"
-      action="/contact/volunteer-success"
       netlify-honeypot="covid-bot-field"
       data-netlify="true"
     >
