@@ -6,7 +6,12 @@ import Layout from '~components/layout'
 import VolunteerForm from '~components/pages/contact/volunteer-form'
 
 export default ({ data }) => (
-  <Layout title="Contact Us &mdash; Volunteering" centered>
+  <Layout
+    title="Contact Us &mdash; Volunteering"
+    navigation={data.contentfulNavigationGroup.pages}
+    path="/contact/volunteer"
+    centered
+  >
     <LongContent>
       <ContentfulContent
         content={
@@ -28,6 +33,12 @@ export const query = graphql`
         childMarkdownRemark {
           html
         }
+      }
+    }
+    contentfulNavigationGroup(slug: { eq: "data" }) {
+      pages {
+        title
+        link: url
       }
     }
   }
