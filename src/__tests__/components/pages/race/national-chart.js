@@ -19,7 +19,7 @@ beforeEach(() => {
   }))
 })
 
-describe('Components : Race : Header Hero', () => {
+describe('Components : Race : National Chart', () => {
   it('renders correctly', () => {
     const tree = renderer.create(<NationalChart />).toJSON()
     expect(tree).toMatchSnapshot()
