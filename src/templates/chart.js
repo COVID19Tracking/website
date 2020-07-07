@@ -33,6 +33,7 @@ const ChartPage = ({ data, path }) => {
             id={chart.contentful_id}
             height={chart.height}
             viewUrl={chart.tableauViewUrl}
+            viewUrlMobile={chart.tableauViewUrlMobile}
           />
         )}
         <ChartList />
@@ -57,6 +58,7 @@ export const query = graphql`
       }
       chartProvider
       tableauViewUrl
+      tableauViewUrlMobile
     }
   }
 `
