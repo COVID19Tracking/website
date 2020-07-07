@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Race : Totals renders correctly 1`] = `
+<div
+  className="totals"
+>
+  <h3>
+    States and territories reporting race and ethnicity data
+  </h3>
+  <div
+    className="totalsWrap"
+  >
+    <div
+      className="total"
+      role="text"
+    >
+      <div
+        className="number"
+      >
+        42 states/territories
+      </div>
+      <div
+        className="label"
+      >
+        Reporting positive cases
+      </div>
+    </div>
+    <div
+      className="total"
+      role="text"
+    >
+      <div
+        className="number"
+      >
+        41 states/territories
+      </div>
+      <div
+        className="label"
+      >
+        Reporting deaths
+      </div>
+    </div>
+  </div>
+</div>
+`;
