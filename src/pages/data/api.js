@@ -3,12 +3,12 @@ import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
 import ApiExplorer from '~components/pages/data/api/explorer'
 import LongContent from '~components/common/long-content'
-import Layout from '../components/layout'
+import Layout from '~components/layout'
 
 export default ({ data }) => (
   <Layout
     title="Data API"
-    path="/api"
+    path="/data/api"
     navigation={data.contentfulNavigationGroup.pages}
   >
     <LongContent>

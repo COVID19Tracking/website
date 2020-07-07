@@ -21,7 +21,7 @@ export default () => (
           <PressLogos onlyFeatured />
         </Col>
       </Row>
-      <CtaLink to="/about-project/in-the-press" centered>
+      <CtaLink to="/about/press" centered>
         See what else our data powers
       </CtaLink>
     </div>

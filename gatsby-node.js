@@ -85,6 +85,12 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allContentfulRedirect {
+        nodes {
+          from
+          redirectTo
+        }
+      }
     }
   `)
 
@@ -121,6 +127,13 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: `/document/download/${node.slug}`,
       toPath: node.document.file.url,
+    })
+  })
+
+  result.data.allContentfulRedirect.nodes.forEach(({ from, redirectTo }) => {
+    createRedirect({
+      fromPath: from,
+      toPath: redirectTo,
     })
   })
 

@@ -17,6 +17,7 @@ const StatePage = ({ pageContext, data, path }) => {
     allCovidStateDaily,
     allCovidScreenshot,
     allCovidUsDaily,
+    allContentfulEvent,
   } = data
   return (
     <Layout title={state.name} returnLink="/data" path={path}>
@@ -35,6 +36,7 @@ const StatePage = ({ pageContext, data, path }) => {
         name={state.name}
         history={allCovidStateDaily.nodes}
         usHistory={allCovidUsDaily.nodes}
+        annotations={allContentfulEvent}
       />
       <h2 id="historical">History</h2>
       <StateHistory
@@ -143,6 +145,25 @@ export const query = graphql`
         state
         date
         dateChecked
+      }
+    }
+    allContentfulEvent(
+      filter: {
+        state: { elemMatch: { code: { eq: $state } } }
+        displayStateChart: { eq: true }
+      }
+      sort: { fields: date, order: DESC }
+    ) {
+      nodes {
+        title
+        date(formatString: "YYYYMMDD")
+        dataElement
+        contentful_id
+        childContentfulEventDescriptionTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
   }
