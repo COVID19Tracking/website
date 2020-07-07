@@ -43,10 +43,11 @@
 
   .race-row {
     display: flex;
-    @include margin(16, bottom);
+    @include margin(8, bottom);
     align-items: center;
 
     @media (max-width: $viewport-md) {
+      @include margin(16, bottom);
       flex-wrap: wrap;
       // this makes the flex-basis bars (max. 80%) expand to
       // fill the whitespace on smaller devices
@@ -54,7 +55,7 @@
     }
 
     div {
-      @include type-size(300);
+      @include type-size(200);
       text-align: right;
       line-height: 1.2;
 
