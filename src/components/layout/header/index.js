@@ -79,12 +79,7 @@ const Header = withSearch(
         pathNavigation = {
           top: true,
           parent: false,
-          subNavigation:
-            typeof subNavigation[item.subNavigation] !== 'undefined'
-              ? subNavigation[item.subNavigation].slice(
-                  subNavigation[item.subNavigation] * -1 + 1,
-                )
-              : false,
+          subNavigation: subNavigation[item.subNavigation],
         }
         return
       }
