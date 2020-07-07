@@ -28,10 +28,12 @@ export default ({ data }) => {
   return (
     <Layout
       title="Contact"
+      path="/contact"
       socialCard={{
         description:
           'The COVID Tracking Project runs on the effort and diligence of hundreds of volunteers, and we welcome your contribution.',
       }}
+      navigation={data.contentfulNavigationGroup.pages}
       narrow
     >
       <LongContent>
@@ -139,6 +141,12 @@ export const query = graphql`
         childMarkdownRemark {
           html
         }
+      }
+    }
+    contentfulNavigationGroup(slug: { eq: "data" }) {
+      pages {
+        title
+        link: url
       }
     }
   }

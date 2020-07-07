@@ -1,8 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
+import Container from '~components/common/container'
+import BlogCategoriesList from '~components/pages/blog/blog-categories-list'
 import BlogTeaserList from '~components/pages/blog/blog-teaser-list'
 import BlogPagination from '~components/pages/blog/blog-pagination'
+import blogStyles from '~components/pages/blog/blog.module.scss'
 
 export default ({ data, pageContext }) => {
   const { currentPage, numPages } = pageContext
@@ -10,8 +13,11 @@ export default ({ data, pageContext }) => {
   const title = isFirst ? 'Blog' : `Blog – Page ${currentPage}`
 
   return (
-    <Layout title={title} path="/blog" narrow>
-      <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
+    <Layout title={title} path="/blog" centerTitle>
+      <Container className={blogStyles.container}>
+        <BlogCategoriesList />
+        <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
+      </Container>
       <BlogPagination currentPage={currentPage} numPages={numPages} />
     </Layout>
   )

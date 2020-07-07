@@ -209,7 +209,10 @@ const Header = withSearch(
                   <div className={headerStyle.searchContainer}>
                     <HeaderSearch />
                   </div>
-                  <Link to="/get-involved" className={headerStyle.getInvolved}>
+                  <Link
+                    to="/contact/volunteer"
+                    className={headerStyle.getInvolved}
+                  >
                     Get involved
                   </Link>
                 </div>

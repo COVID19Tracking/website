@@ -9,7 +9,6 @@ function fixWebsitePrefix(website) {
   }
   return website
 }
-
 export default ({ items }) => (
   <>
     <ul className={volunteersListStyles.list}>
