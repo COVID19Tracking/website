@@ -79,7 +79,9 @@ const Header = withSearch(
         pathNavigation = {
           top: true,
           parent: false,
-          subNavigation: subNavigation[item.subNavigation],
+          subNavigation: subNavigation[item.subNavigation].slice(
+            subNavigation[item.subNavigation] * -1 + 1,
+          ),
         }
         return
       }
