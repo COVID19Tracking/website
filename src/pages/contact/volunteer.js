@@ -8,7 +8,6 @@ import VolunteerForm from '~components/pages/contact/volunteer-form'
 export default ({ data }) => (
   <Layout
     title="Contact Us &mdash; Volunteering"
-    navigation={data.contentfulNavigationGroup.pages}
     path="/contact/volunteer"
     centered
   >
@@ -33,12 +32,6 @@ export const query = graphql`
         childMarkdownRemark {
           html
         }
-      }
-    }
-    contentfulNavigationGroup(slug: { eq: "data" }) {
-      pages {
-        title
-        link: url
       }
     }
   }

@@ -2,10 +2,10 @@
 
 exports[`Components : Layout : Header renders correctly 1`] = `
 <header
-  className="site-header siteHeader  "
+  className="site-header siteHeader"
 >
   <div
-    className="container container "
+    className="container container"
   >
     <div
       className=""
@@ -488,7 +488,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
         className="full"
       >
         <div
-          className="titleSubnavContainer "
+          className="titleSubnavContainer"
         >
           <div
             className="title"
@@ -508,10 +508,10 @@ exports[`Components : Layout : Header renders correctly 1`] = `
 
 exports[`Components : Layout : Header renders correctly 2`] = `
 <header
-  className="site-header siteHeader  noMargin"
+  className="site-header siteHeader noMargin"
 >
   <div
-    className="container container "
+    className="container container"
   >
     <div
       className=""
@@ -994,7 +994,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
         className="full"
       >
         <div
-          className="titleSubnavContainer "
+          className="titleSubnavContainer"
         >
           <div
             className="title"
@@ -1014,10 +1014,10 @@ exports[`Components : Layout : Header renders correctly 2`] = `
 
 exports[`Components : Layout : Header renders correctly 3`] = `
 <header
-  className="site-header siteHeader  "
+  className="site-header siteHeader"
 >
   <div
-    className="container container "
+    className="container container"
   >
     <div
       className=""
@@ -1500,7 +1500,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
         className="full"
       >
         <div
-          className="titleSubnavContainer "
+          className="titleSubnavContainer"
         >
           <div
             className="title"
@@ -1524,10 +1524,10 @@ exports[`Components : Layout : Header renders correctly 3`] = `
 
 exports[`Components : Layout : Header renders correctly 4`] = `
 <header
-  className="site-header siteHeader  "
+  className="site-header siteHeader"
 >
   <div
-    className="container container "
+    className="container container"
   >
     <div
       className=""
@@ -2010,7 +2010,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
         className="full"
       >
         <div
-          className="titleSubnavContainer "
+          className="titleSubnavContainer"
         >
           <div
             className="title"
@@ -2030,10 +2030,10 @@ exports[`Components : Layout : Header renders correctly 4`] = `
 
 exports[`Components : Layout : Header renders correctly 5`] = `
 <header
-  className="site-header siteHeader  "
+  className="site-header siteHeader"
 >
   <div
-    className="container container "
+    className="container container"
   >
     <div
       className=""
@@ -2516,7 +2516,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
         className="centered narrow"
       >
         <div
-          className="titleSubnavContainer "
+          className="titleSubnavContainer"
         >
           <div
             className="title"

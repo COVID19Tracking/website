@@ -7,11 +7,7 @@ import Layout from '~components/layout'
 import VolunteersList from '~components/common/volunteers-list'
 
 export default ({ data }) => (
-  <Layout
-    title="About Us"
-    path="/about"
-    navigation={data.contentfulNavigationGroup.pages}
-  >
+  <Layout title="About Us" path="/about">
     <LongContent>
       <Container centered>
         <ContentfulContent
@@ -60,12 +56,6 @@ export const query = graphql`
           name
           website
         }
-      }
-    }
-    contentfulNavigationGroup(slug: { eq: "about-project" }) {
-      pages {
-        title
-        link: url
       }
     }
   }
