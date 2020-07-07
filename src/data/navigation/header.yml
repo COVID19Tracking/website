@@ -10,7 +10,7 @@ items:
     link: /race
     subNavigation: race
   - title: About Us
-    link: /about-project
+    link: /about
     subNavigation: about-project
   - title: Blog
     link: /blog
