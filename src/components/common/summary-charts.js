@@ -13,6 +13,8 @@ import { Row, Col } from '~components/common/grid'
 import Toggle from '~components/common/toggle'
 import ContentfulContent from '~components/common/contentful-content'
 import { AlertInfobox } from '~components/common/infobox'
+
+import { ReactComponent as CtpLogo } from '~images/project-logo.svg'
 import colors from '~scss/colors.module.scss'
 
 import styles from './summary-charts.module.scss'
@@ -245,36 +247,43 @@ export default ({ name = 'National', history, usHistory }) => {
           )}
         </Col>
       </Row>
-      <Disclosure>
-        <DisclosureButton className={styles.disclosure}>
-          Chart information and data{' '}
-          <span className={styles.arrowDown} aria-hidden>
-            ↓
-          </span>
-          <span className={styles.arrowUp} aria-hidden>
-            ↑
-          </span>
-        </DisclosureButton>
-        <DisclosurePanel>
-          <Container narrow>
-            {deathAnnotations.length > 0 && (
-              <>
-                {deathAnnotations.map(a => (
-                  <p>* {a.text}</p>
-                ))}
-                <hr />
-              </>
-            )}
-            <ContentfulContent
-              content={
-                contentfulSnippet.childContentfulSnippetContentTextNode
-                  .childMarkdownRemark.html
-              }
-              id={contentfulSnippet.contentful_id}
-            />
-          </Container>
-        </DisclosurePanel>
-      </Disclosure>
+      <Row>
+        <Col width={[4, 6, 10]}>
+          <Disclosure>
+            <DisclosureButton className={styles.disclosure}>
+              Chart information and data{' '}
+              <span className={styles.arrowDown} aria-hidden>
+                ↓
+              </span>
+              <span className={styles.arrowUp} aria-hidden>
+                ↑
+              </span>
+            </DisclosureButton>
+            <DisclosurePanel>
+              <Container narrow>
+                {deathAnnotations.length > 0 && (
+                  <>
+                    {deathAnnotations.map(a => (
+                      <p>* {a.text}</p>
+                    ))}
+                    <hr />
+                  </>
+                )}
+                <ContentfulContent
+                  content={
+                    contentfulSnippet.childContentfulSnippetContentTextNode
+                      .childMarkdownRemark.html
+                  }
+                  id={contentfulSnippet.contentful_id}
+                />
+              </Container>
+            </DisclosurePanel>
+          </Disclosure>
+        </Col>
+        <Col width={[4, 6, 2]}>
+          <CtpLogo className={styles.chartLogo} />
+        </Col>
+      </Row>
     </>
   )
 }

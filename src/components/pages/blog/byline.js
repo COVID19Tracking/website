@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import classnames from 'classnames'
 import bylineStyles from './byline.module.scss'
-import AuthorSpacer from '~components/utils/list-spacer'
+
+import { FormatItemList } from '~components/utils/format'
 
 const getAuthorLink = author => {
   if (author.link) {
@@ -38,16 +39,11 @@ const Author = ({ author }) => {
   )
 }
 
-const AuthorsText = ({ authors }) => (
-  <>
-    {authors.map((author, index) => (
-      <Fragment key={`author-${author.name}`}>
-        <Author author={author} />
-        <AuthorSpacer index={index} length={authors.length} />
-      </Fragment>
-    ))}
-  </>
-)
+const AuthorsText = ({ authors }) => {
+  const keys = authors.map(author => `author-${author.name}`)
+  const items = authors.map(author => <Author author={author} />)
+  return <FormatItemList items={items} keys={keys} />
+}
 
 const Byline = ({
   authors,

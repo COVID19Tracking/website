@@ -88,6 +88,7 @@ Array [
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className="mobile"
               role="menubar"
             >
@@ -287,6 +288,7 @@ Array [
               role="navigation"
             >
               <ul
+                aria-label="Main"
                 className=""
                 role="menubar"
               >
@@ -745,6 +747,7 @@ Array [
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className="mobile"
               role="menubar"
             >
@@ -944,6 +947,7 @@ Array [
               role="navigation"
             >
               <ul
+                aria-label="Main"
                 className=""
                 role="menubar"
               >

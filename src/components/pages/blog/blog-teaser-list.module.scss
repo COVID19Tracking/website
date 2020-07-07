@@ -1,8 +1,39 @@
+@media (min-width: $viewport-lg) {
+  .container > div {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: $viewport-xl) {
+  .container {
+    margin: 0;
+  }
+}
+
 .title {
   @include type-size(400);
   line-height: 1.25;
   @include margin(16, bottom);
-  @media (min-width: $viewport-md) {
+  @media (min-width: $viewport-lg) {
     @include type-size(500);
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.teaser {
+  @include margin(64, bottom);
+  @media (max-width: $viewport-lg) {
+    @include margin(32, bottom);
+  }
+  &:first-child {
+    .title {
+      @include margin(24, top);
+      @media (min-width: $viewport-lg) {
+        margin-top: 0;
+      }
+    }
   }
 }
