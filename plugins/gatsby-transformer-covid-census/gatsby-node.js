@@ -19,7 +19,7 @@ const onCreateNode = async (
       id: createNodeId(`${node.id}.population >>> CENSUS`),
       children: [],
       parent: node.id,
-      population: population,
+      population,
       internal: {
         contentDigest: createContentDigest(digest),
         type: 'population',

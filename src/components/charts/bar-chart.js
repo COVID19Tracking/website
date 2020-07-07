@@ -10,6 +10,7 @@ import { formatDate, formatNumber } from '~utilities/visualization'
 import chartStyles from './charts.module.scss'
 
 import colors from '~scss/colors.module.scss'
+import { renderedComponent } from '~plugins/gatsby-render-components'
 
 const BarChart = ({
   data,
@@ -252,4 +253,7 @@ BarChart.propTypes = {
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
 }
+
+export const RenderedBarChart = renderedComponent(BarChart)
+
 export default BarChart

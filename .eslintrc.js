@@ -39,6 +39,7 @@ module.exports = {
     ],
     'import/resolver': {
       alias: [
+        ['~plugins', './plugins'],
         ['~components', './src/components'],
         ['~context', './src/context'],
         ['~data', './src/data'],
