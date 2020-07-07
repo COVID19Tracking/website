@@ -1,14 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import marked from 'marked'
-import smartypants from 'smartypants'
+
 import Layout from '~components/layout'
-import Container from '~components/common/container'
-import MarkdownContent from '~components/common/markdown-content'
-import SummaryCharts from '~components/common/summary-charts'
 import StateGrade from '~components/pages/state/state-grade'
 import StateHistory from '~components/pages/state/state-history'
 import StateLinks from '~components/pages/state/state-links'
+import StateNotes from '~components/pages/state/state-notes'
+import SummaryCharts from '~components/common/summary-charts'
 import SummaryTable from '~components/common/summary-table'
 import { SyncInfobox } from '~components/common/infobox'
 
@@ -31,11 +29,7 @@ const StatePage = ({ pageContext, data, path }) => {
         fathomGoal="DNRI0GQP"
       />
       <StateGrade letterGrade={covidState.dataQualityGrade} />
-      {state.notes && (
-        <Container narrow>
-          <MarkdownContent html={smartypants(marked(state.notes))} />
-        </Container>
-      )}
+      {state.notes && <StateNotes notes={state.notes} />}
       <SyncInfobox />
       <SummaryTable data={covidState} lastUpdated={covidState.lastUpdateEt} />
       <SummaryCharts
