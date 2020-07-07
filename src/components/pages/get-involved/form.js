@@ -11,7 +11,11 @@ export default () => (
     noValidate
   >
     <Row>
-      <Col width={[4, 6, 6]} paddingRight={[0, 0, 32]}>
+      <Col
+        width={[4, 6, 6]}
+        paddingRight={[0, 0, 32]}
+        className={formStyle.grid}
+      >
         <Input
           label="First name"
           type="text"
@@ -20,7 +24,7 @@ export default () => (
           isRequired
         />
       </Col>
-      <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]}>
+      <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]} className={formStyle.grid}>
         <Input
           label="Last name"
           type="text"
@@ -31,7 +35,11 @@ export default () => (
       </Col>
     </Row>
     <Row>
-      <Col width={[4, 6, 6]} paddingRight={[0, 0, 32]}>
+      <Col
+        width={[4, 6, 6]}
+        paddingRight={[0, 0, 32]}
+        className={formStyle.grid}
+      >
         <Input
           label="Email address"
           type="email"
@@ -40,7 +48,7 @@ export default () => (
           isRequired
         />
       </Col>
-      <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]}>
+      <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]} className={formStyle.grid}>
         <InputDefinedLength
           label="Zip code"
           detailText="To receive updates specific to your location, please enter a zip code."

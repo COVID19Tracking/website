@@ -3,3 +3,7 @@
     max-width: 10rem
   }
 }
+
+.grid { 
+  @include col(2 3 6)
+}

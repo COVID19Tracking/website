@@ -176,7 +176,6 @@ export const query = graphql`
             sizes
             src
             srcSet
-            tracedSVG
           }
         }
       }
