@@ -10,6 +10,10 @@
     display: inline-flex;
     align-items: flex-start;
 
+    @media (max-width: $viewport-sm) {
+      display: none;
+    }
+
     img {
       width: 40px;
       height: 40px;
@@ -29,6 +33,7 @@
     }
   }
   .date {
+    margin-top: 0.125rem; //ignore-style-rule
     color: $color-slate-600;
     @include margin(4, top);
     grid-column-start: span 2;

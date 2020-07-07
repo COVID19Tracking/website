@@ -32,7 +32,10 @@ export default ({ data }) => {
       />
       <SyncInfobox />
       <SummaryTable data={data.covidUs} usData showFootnote />
-      <SummaryCharts history={data.allCovidUsDaily.nodes} />
+      <SummaryCharts
+        history={data.allCovidUsDaily.nodes}
+        annotations={data.allContentfulEvent}
+      />
 
       <Container narrow>
         <DetailText>
@@ -146,6 +149,22 @@ export const query = graphql`
       pages {
         title
         link: url
+      }
+    }
+    allContentfulEvent(
+      filter: { displayNationalChart: { eq: true } }
+      sort: { fields: date, order: DESC }
+    ) {
+      nodes {
+        title
+        date(formatString: "YYYYMMDD")
+        dataElement
+        contentful_id
+        childContentfulEventDescriptionTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
   }

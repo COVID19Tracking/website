@@ -79,3 +79,6 @@ storybook-static
 junit.xml
 # Local Netlify folder
 .netlify
+
+# IntelliJ
+.idea

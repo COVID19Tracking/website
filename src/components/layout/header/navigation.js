@@ -9,6 +9,7 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
   <nav className="js-disabled-block" role="navigation">
     <ul
       role="menubar"
+      aria-label="Main"
       className={isMobile ? headerNavigationStyles.mobile : ''}
     >
       {topNavigation.map(item => (

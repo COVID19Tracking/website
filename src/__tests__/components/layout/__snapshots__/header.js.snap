@@ -80,6 +80,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
           role="navigation"
         >
           <ul
+            aria-label="Main"
             className="mobile"
             role="menubar"
           >
@@ -206,7 +207,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
         </nav>
         <a
           className="getInvolved"
-          href="/about-project/help"
+          href="/contact/volunteer"
         >
           Get Involved
         </a>
@@ -238,6 +239,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
          
         <a
           href="/race"
+          onClick={[Function]}
         >
           We just launched the COVID Racial Data Tracker
         </a>
@@ -279,6 +281,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className=""
               role="menubar"
             >
@@ -458,7 +461,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
           </div>
           <a
             className="getInvolved"
-            href="/get-involved"
+            href="/contact/volunteer"
           >
             Get involved
           </a>
@@ -583,6 +586,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
           role="navigation"
         >
           <ul
+            aria-label="Main"
             className="mobile"
             role="menubar"
           >
@@ -709,7 +713,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
         </nav>
         <a
           className="getInvolved"
-          href="/about-project/help"
+          href="/contact/volunteer"
         >
           Get Involved
         </a>
@@ -741,6 +745,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
          
         <a
           href="/race"
+          onClick={[Function]}
         >
           We just launched the COVID Racial Data Tracker
         </a>
@@ -782,6 +787,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className=""
               role="menubar"
             >
@@ -961,7 +967,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
           </div>
           <a
             className="getInvolved"
-            href="/get-involved"
+            href="/contact/volunteer"
           >
             Get involved
           </a>
@@ -1086,6 +1092,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
           role="navigation"
         >
           <ul
+            aria-label="Main"
             className="mobile"
             role="menubar"
           >
@@ -1212,7 +1219,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
         </nav>
         <a
           className="getInvolved"
-          href="/about-project/help"
+          href="/contact/volunteer"
         >
           Get Involved
         </a>
@@ -1244,6 +1251,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
          
         <a
           href="/race"
+          onClick={[Function]}
         >
           We just launched the COVID Racial Data Tracker
         </a>
@@ -1285,6 +1293,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className=""
               role="menubar"
             >
@@ -1464,7 +1473,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
           </div>
           <a
             className="getInvolved"
-            href="/get-involved"
+            href="/contact/volunteer"
           >
             Get involved
           </a>
@@ -1593,6 +1602,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
           role="navigation"
         >
           <ul
+            aria-label="Main"
             className="mobile"
             role="menubar"
           >
@@ -1719,7 +1729,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
         </nav>
         <a
           className="getInvolved"
-          href="/about-project/help"
+          href="/contact/volunteer"
         >
           Get Involved
         </a>
@@ -1751,6 +1761,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
          
         <a
           href="/race"
+          onClick={[Function]}
         >
           We just launched the COVID Racial Data Tracker
         </a>
@@ -1792,6 +1803,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className=""
               role="menubar"
             >
@@ -1971,7 +1983,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
           </div>
           <a
             className="getInvolved"
-            href="/get-involved"
+            href="/contact/volunteer"
           >
             Get involved
           </a>
@@ -2096,6 +2108,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
           role="navigation"
         >
           <ul
+            aria-label="Main"
             className="mobile"
             role="menubar"
           >
@@ -2222,7 +2235,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
         </nav>
         <a
           className="getInvolved"
-          href="/about-project/help"
+          href="/contact/volunteer"
         >
           Get Involved
         </a>
@@ -2254,6 +2267,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
          
         <a
           href="/race"
+          onClick={[Function]}
         >
           We just launched the COVID Racial Data Tracker
         </a>
@@ -2295,6 +2309,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
             role="navigation"
           >
             <ul
+              aria-label="Main"
               className=""
               role="menubar"
             >
@@ -2474,7 +2489,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
           </div>
           <a
             className="getInvolved"
-            href="/get-involved"
+            href="/contact/volunteer"
           >
             Get involved
           </a>

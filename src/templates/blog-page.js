@@ -2,32 +2,33 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import Container from '~components/common/container'
-import BlogTeaserList from '~components/pages/blog/blog-teaser-list'
 import BlogCategoriesList from '~components/pages/blog/blog-categories-list'
+import BlogTeaserList from '~components/pages/blog/blog-teaser-list'
+import BlogPagination from '~components/pages/blog/blog-pagination'
 import blogStyles from '~components/pages/blog/blog.module.scss'
 
-export default ({ data, path }) => (
-  <Layout
-    title={`Blog: ${data.contentfulBlogCategory.name}`}
-    returnLink="/blog"
-    returnLinkTitle="All posts"
-    path={path}
-  >
-    <Container className={blogStyles.container}>
-      <BlogCategoriesList />
-      <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
-    </Container>
-  </Layout>
-)
+export default ({ data, pageContext }) => {
+  const { currentPage, numPages } = pageContext
+  const isFirst = currentPage === 1
+  const title = isFirst ? 'Blog' : `Blog – Page ${currentPage}`
+
+  return (
+    <Layout title={title} path="/blog" centerTitle>
+      <Container className={blogStyles.container}>
+        <BlogCategoriesList />
+        <BlogTeaserList items={data.allContentfulBlogPost.nodes} />
+      </Container>
+      <BlogPagination currentPage={currentPage} numPages={numPages} />
+    </Layout>
+  )
+}
 
 export const query = graphql`
-  query($id: String!) {
-    contentfulBlogCategory(id: { eq: $id }) {
-      name
-    }
+  query($skip: Int!, $limit: Int!) {
     allContentfulBlogPost(
       sort: { fields: publishDate, order: DESC }
-      filter: { categories: { elemMatch: { id: { eq: $id } } } }
+      limit: $limit
+      skip: $skip
     ) {
       nodes {
         title
@@ -35,6 +36,7 @@ export const query = graphql`
         authors {
           name
           twitterLink
+          link
           headshot {
             file {
               fileName

@@ -13,8 +13,12 @@ export default ({ options, state, setState }) => {
       aria-checked={state}
       tabIndex={0}
     >
-      <span className={!state && styles.active}>{options[0]}</span>
-      <span className={state && styles.active}>{options[1]}</span>
+      <span className={!state && styles.active} title={options[0]}>
+        {options[0]}
+      </span>
+      <span className={state && styles.active} title={options[1]}>
+        {options[1]}
+      </span>
     </div>
   )
 }

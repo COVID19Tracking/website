@@ -13,6 +13,8 @@ import { Row, Col } from '~components/common/grid'
 import Toggle from '~components/common/toggle'
 import ContentfulContent from '~components/common/contentful-content'
 import { AlertInfobox } from '~components/common/infobox'
+
+import { ReactComponent as CtpLogo } from '~images/project-logo.svg'
 import colors from '~scss/colors.module.scss'
 
 import styles from './summary-charts.module.scss'
@@ -53,7 +55,29 @@ const ChartAlert = ({ message }) => (
   </div>
 )
 
-export default ({ name = 'National', history, usHistory }) => {
+const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
+  if (
+    !annotations ||
+    !annotations.nodes ||
+    !annotations.nodes.filter(
+      annotation => annotation.dataElement === dataElement,
+    ).length
+  ) {
+    return null
+  }
+  return (
+    <a
+      href="#chart-annotations"
+      id="chart-annotations"
+      className={styles.annotationIndicator}
+      onClick={() => openDisclosure()}
+    >
+      Notes
+    </a>
+  )
+}
+
+export default ({ name = 'National', history, usHistory, annotations }) => {
   const siteData = useStaticQuery(graphql`
     {
       site {
@@ -80,6 +104,8 @@ export default ({ name = 'National', history, usHistory }) => {
   const { contentfulSnippet } = siteData
 
   const [usePerCap, setUsePerCap] = useState(false)
+  const [useFullRange, setUseFullRange] = useState(false)
+  const [isDisclosureOpen, setDisclosureOpen] = useState(false)
 
   // This enables us to use the getDataForField & dailyAverage functions above
   // without enable triple nested properties
@@ -93,12 +119,18 @@ export default ({ name = 'National', history, usHistory }) => {
   }
 
   // Used for testing older sections of data
-  const sliceIndex = 0
+  const sliceStart = 0
+  const sliceEnd = useFullRange ? history.length : stateChartDateRange
 
-  const data = [...history]
-    .slice(sliceIndex, stateChartDateRange)
-    .sort((a, b) => a.date - b.date)
-    .map(hoistPerCapProps)
+  const data = useMemo(
+    () =>
+      [...history]
+        .slice(sliceStart, sliceEnd)
+        .sort((a, b) => a.date - b.date)
+        .map(hoistPerCapProps),
+
+    [history, sliceStart, sliceEnd],
+  )
 
   // Could be made more efficent by memoizing the sliced, sorted & mapped
   // result and then returning that or null but this doesn't seem necessary
@@ -108,11 +140,11 @@ export default ({ name = 'National', history, usHistory }) => {
       usHistory &&
       usePerCap &&
       [...usHistory]
-        .slice(sliceIndex, stateChartDateRange)
+        .slice(sliceStart, sliceEnd)
         .sort((a, b) => a.date - b.date)
         .map(hoistPerCapProps),
 
-    [usHistory, usePerCap],
+    [usHistory, usePerCap, sliceStart, sliceEnd],
   )
 
   const hasData = field =>
@@ -143,21 +175,11 @@ export default ({ name = 'National', history, usHistory }) => {
     showTicks: 6,
   }
 
-  // 1 chart per line on small, 2 on medium & 4 on large sreens
-  const colWidth = [4, 3, 3]
-
-  // Hacky annotation for New Jersey
-  // To be replaced by sheet or Contentful data
-  const deathAnnotations =
-    name === 'National' || name === 'New Jersey'
-      ? [
-          {
-            number: 1,
-            date: new Date('2020-6-25'),
-            text: `New Jersey added ~2,000 probable deaths on June 25th which includes deaths from the previous months.`,
-          },
-        ]
-      : []
+  const colProps = {
+    width: [4, 3, 3], // 1 chart per line on small, 2 on medium & 4 on large screens
+    paddingLeft: [0, 0, 0],
+    paddingRight: [0, 0, 0],
+  }
 
   const getAlertMessage = (field, current = false) =>
     `${name} has not reported data on  ${
@@ -178,13 +200,27 @@ export default ({ name = 'National', history, usHistory }) => {
               setState={setUsePerCap}
             />
           )}
+          <Toggle
+            options={['Last 90 days', 'Full range']}
+            state={useFullRange}
+            setState={setUseFullRange}
+          />
         </div>
-        {usData && usePerCap && <LegendComponent />}
-        <LegendComponent name={name || 'National'} />
+        <div className={styles.legendContainer}>
+          {usData && usePerCap && <LegendComponent />}
+          <LegendComponent name={name || 'National'} />
+        </div>
       </div>
       <Row>
-        <Col width={colWidth}>
-          <h5>New tests</h5>
+        <Col {...colProps}>
+          <h5>
+            New tests{' '}
+            <AnnotationIndicator
+              annotations={annotations}
+              dataElement="tests"
+              openDisclosure={() => setDisclosureOpen(true)}
+            />
+          </h5>
           <BarChart
             data={getDataForField(data, testField)}
             lineData={dailyAverage(data, testField)}
@@ -195,8 +231,15 @@ export default ({ name = 'National', history, usHistory }) => {
             {...props}
           />
         </Col>
-        <Col width={colWidth}>
-          <h5>New cases</h5>
+        <Col {...colProps}>
+          <h5>
+            New cases{' '}
+            <AnnotationIndicator
+              annotations={annotations}
+              dataElement="cases"
+              openDisclosure={() => setDisclosureOpen(true)}
+            />
+          </h5>
           {hasData(positiveField) ? (
             <BarChart
               data={getDataForField(data, positiveField)}
@@ -211,8 +254,15 @@ export default ({ name = 'National', history, usHistory }) => {
             <ChartAlert message={getAlertMessage('cases')} />
           )}
         </Col>
-        <Col width={colWidth}>
-          <h5>Current hospitalizations</h5>
+        <Col {...colProps}>
+          <h5>
+            Current hospitalizations{' '}
+            <AnnotationIndicator
+              annotations={annotations}
+              dataElement="hospitalizations"
+              openDisclosure={() => setDisclosureOpen(true)}
+            />
+          </h5>
 
           {hasData(hospitalizedField) ? (
             <BarChart
@@ -228,8 +278,15 @@ export default ({ name = 'National', history, usHistory }) => {
             <ChartAlert message={getAlertMessage('hospitalizations', true)} />
           )}
         </Col>
-        <Col width={colWidth}>
-          <h5>New deaths</h5>
+        <Col {...colProps}>
+          <h5>
+            New deaths{' '}
+            <AnnotationIndicator
+              annotations={annotations}
+              dataElement="death"
+              openDisclosure={() => setDisclosureOpen(true)}
+            />
+          </h5>
           {hasData(deathField) ? (
             <BarChart
               data={getDataForField(data, deathField)}
@@ -245,36 +302,61 @@ export default ({ name = 'National', history, usHistory }) => {
           )}
         </Col>
       </Row>
-      <Disclosure>
-        <DisclosureButton className={styles.disclosure}>
-          Chart information and data{' '}
-          <span className={styles.arrowDown} aria-hidden>
-            ↓
-          </span>
-          <span className={styles.arrowUp} aria-hidden>
-            ↑
-          </span>
-        </DisclosureButton>
-        <DisclosurePanel>
-          <Container narrow>
-            {deathAnnotations.length > 0 && (
-              <>
-                {deathAnnotations.map(a => (
-                  <p>* {a.text}</p>
-                ))}
-                <hr />
-              </>
-            )}
-            <ContentfulContent
-              content={
-                contentfulSnippet.childContentfulSnippetContentTextNode
-                  .childMarkdownRemark.html
-              }
-              id={contentfulSnippet.contentful_id}
-            />
-          </Container>
-        </DisclosurePanel>
-      </Disclosure>
+      <Row>
+        <Col width={[4, 6, 10]}>
+          <Disclosure
+            open={isDisclosureOpen}
+            onChange={() => setDisclosureOpen(!isDisclosureOpen)}
+          >
+            <DisclosureButton
+              id="chart-annotations"
+              className={styles.disclosure}
+            >
+              Chart information and data{' '}
+              <span className={styles.arrowDown} aria-hidden>
+                ↓
+              </span>
+              <span className={styles.arrowUp} aria-hidden>
+                ↑
+              </span>
+            </DisclosureButton>
+            <DisclosurePanel>
+              <Container narrow>
+                {annotations && annotations.nodes && (
+                  <>
+                    {annotations.nodes.map(annotation => (
+                      <>
+                        <h3 className={styles.annotationTitle}>
+                          {annotation.title}
+                        </h3>
+                        <ContentfulContent
+                          content={
+                            annotation.childContentfulEventDescriptionTextNode
+                              .childMarkdownRemark.html
+                          }
+                          id={annotation.contentful_id}
+                        />
+                      </>
+                    ))}
+                    <hr />
+                  </>
+                )}
+
+                <ContentfulContent
+                  content={
+                    contentfulSnippet.childContentfulSnippetContentTextNode
+                      .childMarkdownRemark.html
+                  }
+                  id={contentfulSnippet.contentful_id}
+                />
+              </Container>
+            </DisclosurePanel>
+          </Disclosure>
+        </Col>
+        <Col width={[4, 6, 2]}>
+          <CtpLogo className={styles.chartLogo} />
+        </Col>
+      </Row>
     </>
   )
 }

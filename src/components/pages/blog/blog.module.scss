@@ -1,0 +1,16 @@
+@media (min-width: $viewport-lg) {
+  .container > div {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .container {
+    @include col(4 6 8);
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: $viewport-lg) {
+  .container {
+    margin: 0;
+  }
+}
