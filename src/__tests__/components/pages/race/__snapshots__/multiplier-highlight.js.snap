@@ -10,7 +10,7 @@ exports[`Components : Race : Multiplier Highlight : 1.5 times renders correctly 
     <span
       className="number"
     >
-      much
+      1.5 times
        higher
     </span>
      
@@ -29,7 +29,7 @@ exports[`Components : Race : Multiplier Highlight : 2 times renders correctly 1`
     <span
       className="number"
     >
-      much
+      2 times
        higher
     </span>
      
@@ -48,7 +48,7 @@ exports[`Components : Race : Multiplier Highlight : 2.5 times renders correctly 
     <span
       className="number"
     >
-      much
+      2.5 times
        higher
     </span>
      
@@ -67,7 +67,7 @@ exports[`Components : Race : Multiplier Highlight : 3 times renders correctly 1`
     <span
       className="number"
     >
-      much
+      3 times
        higher
     </span>
      
@@ -86,7 +86,7 @@ exports[`Components : Race : Multiplier Highlight : more than 1.5 times renders 
     <span
       className="number"
     >
-      much
+      more than 1.5 times
        higher
     </span>
      
@@ -105,7 +105,7 @@ exports[`Components : Race : Multiplier Highlight : more than 2 times renders co
     <span
       className="number"
     >
-      much
+      more than 2 times
        higher
     </span>
      
@@ -124,7 +124,7 @@ exports[`Components : Race : Multiplier Highlight : more than 2.5 times renders 
     <span
       className="number"
     >
-      much
+      more than 2.5 times
        higher
     </span>
      
@@ -143,7 +143,7 @@ exports[`Components : Race : Multiplier Highlight : more than 3 times renders co
     <span
       className="number"
     >
-      much
+      more than 3 times
        higher
     </span>
      
@@ -181,7 +181,7 @@ exports[`Components : Race : Multiplier Highlight : nearly 1.5 times renders cor
     <span
       className="number"
     >
-      much
+      nearly 1.5 times
        higher
     </span>
      
@@ -200,7 +200,7 @@ exports[`Components : Race : Multiplier Highlight : nearly 2 times renders corre
     <span
       className="number"
     >
-      much
+      nearly 2 times
        higher
     </span>
      
@@ -219,7 +219,7 @@ exports[`Components : Race : Multiplier Highlight : nearly 2.5 times renders cor
     <span
       className="number"
     >
-      much
+      nearly 2.5 times
        higher
     </span>
      
@@ -238,7 +238,7 @@ exports[`Components : Race : Multiplier Highlight : nearly 3 times renders corre
     <span
       className="number"
     >
-      much
+      nearly 3 times
        higher
     </span>
      
