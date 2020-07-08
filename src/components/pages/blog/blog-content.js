@@ -49,12 +49,16 @@ export default ({ content, images }) => {
           node.data.target.sys.contentType.sys.contentful_id ===
           'contentBlockImage'
         ) {
-          const { caption } = node.data.target.fields
+          const { caption, keepSize } = node.data.target.fields
           return (
             <ImageContentBlock
               image={images[node.data.target.sys.contentful_id].image}
               caption={caption}
+              keepSize={keepSize && keepSize['en-US']}
               className={blogContentStyles.image}
+              imageUrl={
+                node.data.target.fields.image['en-US'].fields.file['en-US'].url
+              }
             />
           )
         }
