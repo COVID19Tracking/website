@@ -3,11 +3,17 @@
     @include type-size(200);
     font-weight: bold;
     border-bottom: 1px solid black;
-    @include padding(16);
+    @include padding(16, top bottom);
     margin: 0;
+    @media (min-width: $viewport-md) {
+      @include padding(16);
+    }
   }
   .body {
-    @include padding(16);
+    @include padding(16, top bottom);
+    @media (min-width: $viewport-md) {
+      @include padding(16);
+    }
   }
 }
 
