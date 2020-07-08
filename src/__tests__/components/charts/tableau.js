@@ -1,6 +1,5 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import data from 'sample-chart-data'
 import TableauChart from '~components/charts/tableau'
 
 describe('Components : Charts: Tableau chart', () => {
