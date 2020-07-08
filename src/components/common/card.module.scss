@@ -1,0 +1,42 @@
+.card {
+  .title {
+    @include type-size(200);
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    @include padding(16);
+    margin: 0;
+  }
+  .body {
+    @include padding(16);
+  }
+}
+
+.disclosure-button {
+  background: none;
+  text-decoration: underline;
+  text-align: left;
+  color: $color-slate-600;
+  border: 0;
+  display: block;
+  padding: 0;
+  @include margin(16, top bottom);
+  @include type-size(200);
+  cursor: pointer;
+  span {
+    @include margin(8, left);
+  }
+  .arrow-down {
+    display: inline-block;
+  }
+  .arrow-up {
+    display: none;
+  }
+  &[aria-expanded='true'] {
+    .arrow-down {
+      display: none;
+    }
+    .arrow-up {
+      display: inline-block;
+    }
+  }
+}

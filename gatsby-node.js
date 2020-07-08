@@ -146,10 +146,63 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   result.data.allCovidStateInfo.nodes.forEach(node => {
+    const slug = slugify(node.name, { strict: true, lower: true })
+
     createPage({
-      path: `/data/state/${slugify(node.name, { strict: true, lower: true })}`,
-      component: path.resolve(`./src/templates/state.js`),
-      context: node,
+      path: `/data/state/${slug}`,
+      component: path.resolve(`./src/templates/state/state.js`),
+      context: {
+        ...node,
+        slug,
+      },
+    })
+    createPage({
+      path: `/data/state/${slug}/cases`,
+      component: path.resolve(`./src/templates/state/cases.js`),
+      context: {
+        ...node,
+        slug,
+      },
+    })
+    createPage({
+      path: `/data/state/${slug}/tests`,
+      component: path.resolve(`./src/templates/state/tests.js`),
+      context: {
+        ...node,
+        slug,
+      },
+    })
+    createPage({
+      path: `/data/state/${slug}/hospitalization`,
+      component: path.resolve(`./src/templates/state/hospitalization.js`),
+      context: {
+        ...node,
+        slug,
+      },
+    })
+    createPage({
+      path: `/data/state/${slug}/outcomes`,
+      component: path.resolve(`./src/templates/state/outcomes.js`),
+      context: {
+        ...node,
+        slug,
+      },
+    })
+    createPage({
+      path: `/data/state/${slug}/race-ethnicity`,
+      component: path.resolve(`./src/templates/state/race-ethnicity.js`),
+      context: {
+        ...node,
+        slug,
+      },
+    })
+    createPage({
+      path: `/data/state/${slug}/screenshots`,
+      component: path.resolve(`./src/templates/state/screenshots.js`),
+      context: {
+        ...node,
+        slug,
+      },
     })
   })
 

@@ -1,21 +1,35 @@
 import React from 'react'
-import { Disclosure, DisclosureButton, DisclosurePane } from '@reach/disclosure'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@reach/disclosure'
 import cardStyles from './card.module.scss'
 
 const CardDisclosure = ({ children }) => <Disclosure>{children}</Disclosure>
 
 const CardDisclsoureButton = ({ children }) => (
-  <DisclosureButton>{children}</DisclosureButton>
+  <DisclosureButton className={cardStyles.disclosureButton}>
+    {children}
+    <span className={cardStyles.arrowDown} aria-hidden>
+      ↓
+    </span>
+    <span className={cardStyles.arrowUp} aria-hidden>
+      ↑
+    </span>
+  </DisclosureButton>
 )
-const CardDisclosurePane = ({ children }) => (
-  <DisclosurePane>{children}</DisclosurePane>
+const CardDisclosurePanel = ({ children }) => (
+  <DisclosurePanel>{children}</DisclosurePanel>
 )
 
-const CardBody = ({ children }) => <div>{children}</div>
+const CardBody = ({ children }) => (
+  <div className={cardStyles.body}>{children}</div>
+)
 
 const Card = ({ title, children }) => (
   <div className={cardStyles.card}>
-    {title && <h3>{title}</h3>}
+    {title && <h3 className={cardStyles.title}>{title}</h3>}
     {children}
   </div>
 )
@@ -25,5 +39,5 @@ export {
   CardBody,
   CardDisclosure,
   CardDisclsoureButton,
-  CardDisclosurePane,
+  CardDisclosurePanel,
 }

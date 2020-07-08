@@ -7,7 +7,7 @@ import StateHistory from '~components/pages/state/state-history'
 import StateLinks from '~components/pages/state/state-links'
 import StateNotes from '~components/pages/state/state-notes'
 import SummaryCharts from '~components/common/summary-charts'
-import SummaryTable from '~components/common/summary-table'
+import StateSummary from '~components/common/state/summary'
 import { SyncInfobox } from '~components/common/infobox'
 
 const StatePage = ({ pageContext, data, path }) => {
@@ -18,6 +18,8 @@ const StatePage = ({ pageContext, data, path }) => {
     allCovidScreenshot,
     allCovidUsDaily,
     allContentfulEvent,
+    covidRaceDataCombined,
+    covidRaceDataSeparate,
   } = data
   return (
     <Layout title={state.name} returnLink="/data" path={path}>
@@ -31,7 +33,15 @@ const StatePage = ({ pageContext, data, path }) => {
       <StateGrade letterGrade={covidState.dataQualityGrade} />
       {state.notes && <StateNotes notes={state.notes} />}
       <SyncInfobox />
-      <SummaryTable data={covidState} lastUpdated={covidState.lastUpdateEt} />
+      <StateSummary
+        stateSlug={state.slug}
+        data={covidState}
+        raceData={{
+          combined: covidRaceDataCombined,
+          separate: covidRaceDataSeparate,
+        }}
+        lastUpdated={covidState.lastUpdateEt}
+      />
       <SummaryCharts
         name={state.name}
         history={allCovidStateDaily.nodes}
@@ -165,6 +175,16 @@ export const query = graphql`
           }
         }
       }
+    }
+    covidRaceDataCombined(state: { eq: $state }) {
+      knownRaceEthDeath
+      knownRaceEthPos
+    }
+    covidRaceDataSeparate(state: { eq: $state }) {
+      knownEthDeath
+      knownEthPos
+      knownRaceDeath
+      knownRacePos
     }
   }
 `

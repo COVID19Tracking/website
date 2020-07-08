@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Card renders correctly 1`] = `
+<div
+  className="card"
+>
+  <h3
+    className="title"
+  >
+    A sample card
+  </h3>
+  <div
+    className="body"
+  >
+    This is a card body.
+  </div>
+</div>
+`;
+
+exports[`Components : Common: Card renders correctly 2`] = `
+<div
+  className="card"
+>
+  <h3
+    className="title"
+  >
+    A sample card
+  </h3>
+  <div
+    className="body"
+  >
+    This is a card body.
+  </div>
+  <button
+    aria-controls="panel--1"
+    aria-expanded={false}
+    className="disclosureButton"
+    data-reach-disclosure-button=""
+    data-state="collapsed"
+    onClick={[Function]}
+  >
+    More information
+    <span
+      aria-hidden={true}
+      className="arrowDown"
+    >
+      ↓
+    </span>
+    <span
+      aria-hidden={true}
+      className="arrowUp"
+    >
+      ↑
+    </span>
+  </button>
+  <div
+    data-reach-disclosure-panel=""
+    data-state="collapsed"
+    hidden={true}
+    id="panel--1"
+    tabIndex={-1}
+  >
+    Additional information that is usually hidden.
+  </div>
+</div>
+`;

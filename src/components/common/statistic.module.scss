@@ -1,0 +1,18 @@
+.title {
+  font-weight: bold;
+}
+
+.value {
+  color: $color-slate-800;
+}
+
+.statistic {
+  @include margin(16, bottom);
+}
+
+.group {
+  display: flex;
+  .statistic {
+    width: 50%;
+  }
+}
