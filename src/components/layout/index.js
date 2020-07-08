@@ -18,7 +18,6 @@ const Layout = ({
   returnLinkTitle,
   description,
   children,
-  navigation,
   noMargin,
   hasHero,
   centered,
@@ -44,7 +43,6 @@ const Layout = ({
         siteTitle={data.site.siteMetadata.title}
         title={displayTitle || title}
         titleLink={titleLink}
-        navigation={navigation}
         path={path}
         noMargin={noMargin}
         hasHero={hasHero}

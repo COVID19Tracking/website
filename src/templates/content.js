@@ -9,11 +9,6 @@ const ContentPage = ({ data, path }) => {
   return (
     <Layout
       title={contentfulPage.title}
-      navigation={
-        contentfulPage.navigationGroup
-          ? contentfulPage.navigationGroup.pages
-          : false
-      }
       path={path}
       returnLink={contentfulPage.returnLinkUrl}
       returnLinkTitle={contentfulPage.returnLinkTitle}
@@ -53,12 +48,6 @@ export const query = graphql`
           resize(width: 1200) {
             src
           }
-        }
-      }
-      navigationGroup {
-        pages {
-          title
-          link: url
         }
       }
     }
