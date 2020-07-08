@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 import formStyles from './form.module.scss'
 import DetailText from '~components/common/detail-text'
 
@@ -80,9 +81,10 @@ const InputDefinedLength = ({
         aria-required={isRequired}
         onChange={onChange}
         maxLength={maxLength}
-        className={`${className} ${
-          detailText ? formStyles.inputDescription : null
-        }`}
+        className={classnames(
+          className,
+          detailText ? formStyles.inputDescription : null,
+        )}
       />
     </div>
     <div className={formStyles.descriptionContainer}>
@@ -113,9 +115,10 @@ const Input = ({
       aria-required={isRequired}
       onChange={onChange}
       maxLength={maxLength}
-      className={`${className} ${
-        detailText ? formStyles.inputDescription : null
-      }`}
+      className={classnames(
+        className,
+        detailText ? formStyles.inputDescription : null,
+      )}
     />
     <div className={formStyles.descriptionContainer}>
       <FieldDetailText detailText={detailText} />
@@ -142,9 +145,10 @@ const Select = ({
       name={name}
       onChange={onChange}
       value={value}
-      className={`${formStyles.select} ${
-        detailText ? formStyles.inputDescription : null
-      }`}
+      className={classnames(
+        formStyles.select,
+        detailText ? formStyles.inputDescription : null,
+      )}
     >
       {options.map(item => (
         <option key={`${id}-${item}`} value={item}>
@@ -165,9 +169,10 @@ const List = ({ type, name, options, label, isRequired, detailText }) => (
         <legend>{label}</legend>
       </FormLabel>
       <div
-        className={`${formStyles.fieldsetOptions} ${
-          detailText ? formStyles.inputDescription : null
-        }`}
+        className={classnames(
+          formStyles.fieldsetOptions,
+          detailText ? formStyles.inputDescription : null,
+        )}
       >
         {options &&
           options.map(item => (
