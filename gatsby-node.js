@@ -197,6 +197,14 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
     createPage({
+      path: `/data/state/${slug}/history`,
+      component: path.resolve(`./src/templates/state/history.js`),
+      context: {
+        ...node,
+        slug,
+      },
+    })
+    createPage({
       path: `/data/state/${slug}/screenshots`,
       component: path.resolve(`./src/templates/state/screenshots.js`),
       context: {

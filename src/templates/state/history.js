@@ -11,7 +11,7 @@ export default ({ pageContext, path }) => {
       returnLink={`/data/state/${state.slug}`}
       path={path}
     >
-      <p>Hospitalization</p>
+      <p>History</p>
     </Layout>
   )
 }

@@ -190,7 +190,6 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
     DateTime.fromISO(data[data.length - 1].date).day > 10
   return (
     <>
-      <h2>{name} overview</h2>
       <div className={styles.infoLine}>
         <div className={styles.toggleContainer}>
           {usHistory && (

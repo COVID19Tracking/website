@@ -1,9 +1,8 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
 import Layout from '~components/layout'
 import StateGrade from '~components/pages/state/state-grade'
-import StateHistory from '~components/pages/state/state-history'
 import StateLinks from '~components/pages/state/state-links'
 import StateNotes from '~components/pages/state/state-notes'
 import SummaryCharts from '~components/common/summary-charts'
@@ -15,7 +14,6 @@ const StatePage = ({ pageContext, data, path }) => {
   const {
     covidState,
     allCovidStateDaily,
-    allCovidScreenshot,
     allCovidUsDaily,
     allContentfulEvent,
     covidRaceDataCombined,
@@ -31,6 +29,8 @@ const StatePage = ({ pageContext, data, path }) => {
         fathomGoal="DNRI0GQP"
       />
       <StateGrade letterGrade={covidState.dataQualityGrade} />
+      <Link to={`${path}/screenshots`}>Screenshots</Link>{' '}
+      <Link to={`${path}/history`}>full history</Link>
       {state.notes && <StateNotes notes={state.notes} />}
       <SyncInfobox />
       <StateSummary
@@ -47,11 +47,6 @@ const StatePage = ({ pageContext, data, path }) => {
         history={allCovidStateDaily.nodes}
         usHistory={allCovidUsDaily.nodes}
         annotations={allContentfulEvent}
-      />
-      <h2 id="historical">History</h2>
-      <StateHistory
-        history={allCovidStateDaily.nodes}
-        screenshots={allCovidScreenshot.nodes}
       />
     </Layout>
   )
@@ -141,22 +136,7 @@ export const query = graphql`
         }
       }
     }
-    allCovidScreenshot(
-      filter: {
-        state: { eq: $state }
-        secondary: { eq: false }
-        tertiary: { eq: false }
-      }
-      sort: { fields: dateChecked }
-    ) {
-      nodes {
-        size
-        url
-        state
-        date
-        dateChecked
-      }
-    }
+
     allContentfulEvent(
       filter: {
         state: { elemMatch: { code: { eq: $state } } }
