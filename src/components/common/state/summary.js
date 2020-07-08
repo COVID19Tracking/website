@@ -91,12 +91,12 @@ export default ({ stateSlug, data, raceData }) => (
               <StatisticGroup>
                 <Statistic
                   title="Cases"
-                  value={raceData.combined.knownRaceEthPos}
+                  value={Math.round(raceData.combined.knownRaceEthPos * 100)}
                   suffix="%"
                 />
                 <Statistic
                   title="Death"
-                  value={raceData.combined.knownRaceEthDeath}
+                  value={Math.round(raceData.combined.knownRaceEthDeath * 100)}
                   suffix="%"
                 />
               </StatisticGroup>
@@ -108,12 +108,12 @@ export default ({ stateSlug, data, raceData }) => (
               <StatisticGroup>
                 <Statistic
                   title="Cases"
-                  value={raceData.separate.knownRacePos}
+                  value={Math.round(raceData.separate.knownRacePos * 100)}
                   suffix="%"
                 />
                 <Statistic
                   title="Death"
-                  value={raceData.separate.knownRaceDeath}
+                  value={Math.round(raceData.separate.knownRaceDeath * 100)}
                   suffix="%"
                 />
               </StatisticGroup>
@@ -121,12 +121,12 @@ export default ({ stateSlug, data, raceData }) => (
               <StatisticGroup>
                 <Statistic
                   title="Cases"
-                  value={raceData.separate.knownEthPos}
+                  value={Math.round(raceData.separate.knownEthPos * 100)}
                   suffix="%"
                 />
                 <Statistic
                   title="Death"
-                  value={raceData.separate.knownEthDeath}
+                  value={Math.round(raceData.separate.knownEthDeath * 100)}
                   suffix="%"
                 />
               </StatisticGroup>

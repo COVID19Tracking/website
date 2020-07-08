@@ -6,7 +6,7 @@ import slug from '~utilities/slug'
 import Container from '~components/common/container'
 import StateLinks from '~components/pages/state/state-links'
 import StateGrade from '~components/pages/state/state-grade'
-import SummaryTable from '~components/common/summary-table'
+import StateSummary from '~components/common/state/summary'
 import stateDataStyles from './state-data.module.scss'
 import MarkdownContent from '~components/common/markdown-content'
 
@@ -18,9 +18,14 @@ const State = ({ state }) => (
       </h3>
       <StateGrade letterGrade={state.stateData.dataQualityGrade} />
     </div>
-    <SummaryTable
+    <StateSummary
+      stateSlug={slug(state.name)}
       data={state.stateData}
-      lastUpdated={state.stateData.lastUpdateEt}
+      raceData={{
+        combined: false,
+        separate: false,
+      }}
+      lastUpdated={state.lastUpdateEt}
     />
     <StateLinks
       twitter={state.twitter}
