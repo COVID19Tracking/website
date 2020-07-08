@@ -24,7 +24,7 @@ export default ({ data }) => {
       socialCard={{
         description: 'Our most up-to-date data on COVID-19 in the US.',
       }}
-      navigation={data.contentfulNavigationGroup.pages}
+      path="/data"
     >
       <ContentfulContent
         content={data.dataPreamble.content.childMarkdownRemark.html}
@@ -143,12 +143,6 @@ export const query = graphql`
         onVentilatorCurrently
         onVentilatorCumulative
         death
-      }
-    }
-    contentfulNavigationGroup(slug: { eq: "data" }) {
-      pages {
-        title
-        link: url
       }
     }
     allContentfulEvent(

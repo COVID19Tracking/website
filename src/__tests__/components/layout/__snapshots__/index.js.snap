@@ -10,10 +10,10 @@ Array [
     Skip site navigation
   </a>,
   <header
-    className="site-header siteHeader  "
+    className="site-header siteHeader"
   >
     <div
-      className="container container "
+      className="container container"
     >
       <div
         className=""
@@ -496,7 +496,7 @@ Array [
           className="full"
         >
           <div
-            className="titleSubnavContainer "
+            className="titleSubnavContainer"
           >
             <div
               className="title"
@@ -670,10 +670,10 @@ Array [
     Skip site navigation
   </a>,
   <header
-    className="site-header siteHeader  "
+    className="site-header siteHeader"
   >
     <div
-      className="container container "
+      className="container container"
     >
       <div
         className=""
@@ -1156,7 +1156,7 @@ Array [
           className="full"
         >
           <div
-            className="titleSubnavContainer "
+            className="titleSubnavContainer"
           >
             <div
               className="title"

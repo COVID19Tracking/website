@@ -1,0 +1,10 @@
+.item {
+  margin: 6px 5px; // ignore-style-rule
+  line-height: 1rem;
+}
+.date {
+  text-transform: uppercase;
+  text-align: left;
+  @include bold-type-size(100);
+  color: gray;
+}
