@@ -1,5 +1,4 @@
 .root {
-  width: 240px;
   @include padding(8);
   display: flex;
   flex-direction: column;
@@ -9,7 +8,5 @@
   border: solid black 1px;
 
   @include type-size(200);
-  text-transform: lowercase;
-
   pointer-events: none;
 }

@@ -14,11 +14,7 @@ import dashboardStyles from './dashboard.module.scss'
 
 const VisualizationGuidePage = ({ data }) => {
   return (
-    <Layout
-      title="Visualization Guide"
-      path="/about-data/visualization-guide"
-      navigation={data.contentfulNavigationGroup.pages}
-    >
+    <Layout title="Visualization Guide" path="/about-data/visualization-guide">
       <LongContent>
         <div className={dashboardStyles.moduleFeatured}>
           <h2 className={dashboardStyles.hedFeatured}>
@@ -260,12 +256,6 @@ export default VisualizationGuidePage
 
 export const query = graphql`
   query {
-    contentfulNavigationGroup(slug: { eq: "about-data" }) {
-      pages {
-        title
-        link: url
-      }
-    }
     file(relativePath: { regex: "/cdc-comparison-chart.png/" }) {
       relativePath
       childImageSharp {

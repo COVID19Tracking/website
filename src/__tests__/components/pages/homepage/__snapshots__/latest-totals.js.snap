@@ -7,7 +7,7 @@ exports[`Components : Pages : Homepage : Latest Totals renders correctly 1`] = `
   <p
     className="homepage-paragraph paragraph"
   >
-    Every day, our volunteers compile the latest numbers on tests, confirmed cases, hospitalizations, and patient outcomes from every US state and territory.
+    Every day, our volunteers compile the latest numbers on tests, cases, hospitalizations, and patient outcomes from every US state and territory.
   </p>
   <div
     className="wrapper"
