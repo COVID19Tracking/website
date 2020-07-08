@@ -1,5 +1,6 @@
 import React from 'react'
 import { BLOCKS } from '@contentful/rich-text-types'
+import marked from 'marked'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import LongContent from '~components/common/long-content'
 import CleanSpacing from '~components/utils/clean-spacing'
@@ -54,6 +55,18 @@ export default ({ content, images }) => {
               image={images[node.data.target.sys.contentful_id].image}
               caption={caption}
               className={blogContentStyles.image}
+            />
+          )
+        }
+        if (
+          node.data.target.sys.contentType.sys.contentful_id ===
+          'contentBlockMarkdown'
+        ) {
+          return (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: marked(node.data.target.fields.content['en-US']),
+              }}
             />
           )
         }
