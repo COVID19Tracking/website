@@ -92,33 +92,53 @@ exports[`Components : Charts: Area chart renders correctly 1`] = `
     transform="translate(0 30)"
   >
     <rect
+      className={null}
       fill="#333"
       fillOpacity={0.8}
       height={132.8923076923077}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
       width={59.99999999999999}
       x={36.66666666666668}
       y={7.107692307692311}
     />
     <rect
+      className={null}
       fill="#333"
       fillOpacity={0.8}
       height={13.246153846153845}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
       width={59.99999999999999}
       x={103.33333333333334}
       y={126.75384615384615}
     />
     <rect
+      className={null}
       fill="#333"
       fillOpacity={0.8}
       height={132.7846153846154}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
       width={59.99999999999999}
       x={36.66666666666668}
       y={7.215384615384615}
     />
     <rect
+      className={null}
       fill="#333"
       fillOpacity={0.8}
       height={14.215384615384622}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
       width={59.99999999999999}
       x={103.33333333333334}
       y={125.78461538461538}
@@ -235,33 +255,53 @@ exports[`Components : Charts: Area chart renders correctly 2`] = `
     transform="translate(0 30)"
   >
     <rect
+      className={null}
       fill="#333"
       fillOpacity={0.8}
       height={132.8923076923077}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
       width={59.99999999999999}
       x={36.66666666666668}
       y={7.107692307692311}
     />
     <rect
+      className={null}
       fill="#333"
       fillOpacity={0.8}
       height={13.246153846153845}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
       width={59.99999999999999}
       x={103.33333333333334}
       y={126.75384615384615}
     />
     <rect
+      className={null}
       fill="#333"
       fillOpacity={0.8}
       height={132.7846153846154}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
       width={59.99999999999999}
       x={36.66666666666668}
       y={7.215384615384615}
     />
     <rect
+      className={null}
       fill="#333"
       fillOpacity={0.8}
       height={14.215384615384622}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
       width={59.99999999999999}
       x={103.33333333333334}
       y={125.78461538461538}

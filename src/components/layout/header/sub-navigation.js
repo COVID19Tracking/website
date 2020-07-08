@@ -6,7 +6,7 @@ export default ({ navigation }) => (
   <div className={`site-header-tabs ${headerStyle.headerTabs}`}>
     <div>
       <ul>
-        {navigation.map(item => (
+        {navigation.slice(navigation.length * -1 + 1).map(item => (
           <li key={`header-tab-${item.link}${item.href}`}>
             {item.href ? (
               <a href={item.href}>{item.title}</a>

@@ -324,6 +324,7 @@ const gatsbyConfig = {
             output: '/rss.xml',
             title: 'The COVID Tracking Project - RSS Feed',
             match: '^/blog/',
+            image_url: 'https://covidtracking.com/images/project-logo.png',
           },
         ],
       },
