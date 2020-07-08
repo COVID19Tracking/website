@@ -5,6 +5,7 @@ import LongContent from '~components/common/long-content'
 import CleanSpacing from '~components/utils/clean-spacing'
 import TableContentBlock from './table-content-block'
 import ImageContentBlock from './image-content-block'
+import TableauChart from '~components/charts/tableau'
 import blogContentStyles from './blog-content.module.scss'
 
 export default ({ content, images }) => {
@@ -27,6 +28,20 @@ export default ({ content, images }) => {
         ) {
           return (
             <TableContentBlock table={node.data.target.fields.table['en-US']} />
+          )
+        }
+        if (
+          node.data.target.sys.contentType.sys.contentful_id ===
+          'contentBlockTableauChart'
+        ) {
+          const { url, height, mobileUrl } = node.data.target.fields
+          return (
+            <TableauChart
+              id={node.data.target.sys.contentful_id}
+              viewUrl={url['en-US']}
+              viewUrlMobile={mobileUrl['en-US']}
+              height={height['en-US']}
+            />
           )
         }
         if (

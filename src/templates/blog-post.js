@@ -4,6 +4,7 @@ import Hero from '~components/pages/blog/blog-hero'
 import Layout from '~components/layout'
 import FeaturedImage from '~components/pages/blog/featured-image'
 import BlogPostContent from '~components/pages/blog/blog-content'
+import BlogPostFootnotes from '~components/pages/blog/blog-footnotes'
 import BlogPostExtras from '~components/pages/blog/blog-extras'
 
 export default ({ data, path }) => {
@@ -42,6 +43,14 @@ export default ({ data, path }) => {
         content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
         images={blogImages}
       />
+      {blogPost.childContentfulBlogPostFootnotesTextNode && (
+        <BlogPostFootnotes
+          footnotes={
+            blogPost.childContentfulBlogPostFootnotesTextNode
+              .childMarkdownRemark.html
+          }
+        />
+      )}
       <BlogPostExtras blogPost={blogPost} />
     </Layout>
   )
