@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react'
 import classnames from 'classnames'
 import tableauStyle from './tableau.module.scss'
 
-export default ({ id, viewUrl, viewUrlMobile, height }) => {
+export default ({ id, viewUrl, height, viewUrlMobile = false }) => {
   const chartRef = useRef(false)
   const mobileChartRef = useRef(false)
 
