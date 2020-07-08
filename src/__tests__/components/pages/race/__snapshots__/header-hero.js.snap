@@ -19,12 +19,12 @@ exports[`Components : Race : Header Hero renders correctly 1`] = `
           <h2
             className="hero-header header"
           >
-            COVID-19 is affecting people of color the most. We’re tracking the data in real time.
+            COVID-19 is affecting Black, Indigenous, Latinx, and other people of color the most.
           </h2>
           <p
             className="hero-text text"
           >
-            The COVID Racial Data Tracker is a collaboration between the COVID Tracking Project and the Boston University Center for Antiracist Research. Together, we’re gathering the most complete race and ethnicity data on COVID-19 in the United States.
+            The COVID Racial Data Tracker is a collaboration between the COVID Tracking Project and the Boston University Center for Antiracist Research. Together, we’re gathering the most complete and up-to-date race and ethnicity data on COVID-19 in the United States.
           </p>
         </div>
         <div

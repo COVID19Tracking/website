@@ -9,7 +9,7 @@ exports[`Components : Race : National Chart renders correctly 1`] = `
       className="header"
     >
       <div
-        className="headerSpacer"
+        className="spacer"
       />
       <span>
         Deaths per 
@@ -277,31 +277,40 @@ exports[`Components : Race : National Chart renders correctly 1`] = `
       </span>
     </div>
   </div>
-  <div>
-    <button
-      aria-controls="panel--1"
-      aria-expanded={false}
-      className="showNotes"
-      data-reach-disclosure-button=""
-      data-state="collapsed"
-      onClick={[Function]}
-    >
-      Notes 
-      <span
-        aria-hidden={true}
-      >
-        ↓
-      </span>
-    </button>
+  <div
+    className="disclosureWrapper"
+  >
     <div
-      className="notes"
-      data-reach-disclosure-panel=""
-      data-state="collapsed"
-      hidden={true}
-      id="panel--1"
-      tabIndex={-1}
+      className="spacer"
+    />
+    <div
+      className="disclosureContainer"
     >
-      These calculations are based on data from The Covid Racial Data Tracker and the U.S. Census Bureau. Race categories may overlap with Hispanic/Latinx ethnicity. Rates are not age-adjusted and some rates are underestimated due to lack of reporting of race and ethnicity categories for COVID-19 deaths.
+      <button
+        aria-controls="panel--1"
+        aria-expanded={false}
+        className="showNotes"
+        data-reach-disclosure-button=""
+        data-state="collapsed"
+        onClick={[Function]}
+      >
+        Notes 
+        <span
+          aria-hidden={true}
+        >
+          ↓
+        </span>
+      </button>
+      <div
+        className="notes"
+        data-reach-disclosure-panel=""
+        data-state="collapsed"
+        hidden={true}
+        id="panel--1"
+        tabIndex={-1}
+      >
+        These calculations are based on data from The Covid Racial Data Tracker and the U.S. Census Bureau. Race categories may overlap with Hispanic/Latinx ethnicity. Rates are not age-adjusted and some rates are underestimated due to lack of reporting of race and ethnicity categories for COVID-19 deaths.
+      </div>
     </div>
   </div>
   <p
