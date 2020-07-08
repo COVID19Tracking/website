@@ -172,10 +172,11 @@ export const query = graphql`
           html
         }
       }
-    }
-    childContentfulBlogPostFootnotesTextNode {
-      childMarkdownRemark {
-        html
+
+      childContentfulBlogPostFootnotesTextNode {
+        childMarkdownRemark {
+          html
+        }
       }
     }
     allContentfulContentBlockImage(
