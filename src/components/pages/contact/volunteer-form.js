@@ -10,6 +10,7 @@ export default () => {
       netlify-honeypot="covid-bot-field"
       data-netlify="true"
     >
+      <input type="hidden" name="form-name" value="volunteer" />
       <Input label="Name" type="text" name="name" id="name" isRequired />
 
       <Input
