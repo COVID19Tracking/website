@@ -131,7 +131,12 @@ const List = ({ type, name, options, label, isRequired, detailText }) => (
               htmlFor={item.value}
               className={formStyles.checkboxLabel}
             >
-              <input type={type} value={item.label} id={item.value} />
+              <input
+                type={type}
+                name={name || item.label}
+                value={item.label}
+                id={item.value}
+              />
               {item.label}
             </label>
           ))}

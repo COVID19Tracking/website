@@ -6,11 +6,7 @@ import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 
 export default ({ data }) => (
-  <Layout
-    title="Data API"
-    path="/data/api"
-    navigation={data.contentfulNavigationGroup.pages}
-  >
+  <Layout title="Data API" path="/data/api">
     <LongContent>
       <ContentfulContent
         content={
@@ -32,12 +28,6 @@ export const query = graphql`
         childMarkdownRemark {
           html
         }
-      }
-    }
-    contentfulNavigationGroup(slug: { eq: "data" }) {
-      pages {
-        title
-        link: url
       }
     }
   }

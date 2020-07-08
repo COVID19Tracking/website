@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Race : Multiplier Highlight : 1.5 times renders correctly 1`] = `
+<div
+  className="highlight"
+>
+  <p>
+    This means Black people are dying at a rate
+     
+    <span
+      className="number"
+    >
+      1.5 times
+       higher
+    </span>
+     
+    than their population share.
+  </p>
+</div>
+`;
+
+exports[`Components : Race : Multiplier Highlight : 2 times renders correctly 1`] = `
+<div
+  className="highlight"
+>
+  <p>
+    This means Black people are dying at a rate
+     
+    <span
+      className="number"
+    >
+      2 times
+       higher
+    </span>
+     
+    than their population share.
+  </p>
+</div>
+`;
+
+exports[`Components : Race : Multiplier Highlight : 2.5 times renders correctly 1`] = `
+<div
+  className="highlight"
+>
+  <p>
+    This means Black people are dying at a rate
+     
+    <span
+      className="number"
+    >
+      2.5 times
+       higher
+    </span>
+     
+    than their population share.
+  </p>
+</div>
+`;
+
+exports[`Components : Race : Multiplier Highlight : 3 times renders correctly 1`] = `
+<div
+  className="highlight"
+>
+  <p>
+    This means Black people are dying at a rate
+     
+    <span
+      className="number"
+    >
+      3 times
+       higher
+    </span>
+     
+    than their population share.
+  </p>
+</div>
+`;
+
+exports[`Components : Race : Multiplier Highlight : more than 1.5 times renders correctly 1`] = `
+<div
+  className="highlight"
+>
+  <p>
+    This means Black people are dying at a rate
+     
+    <span
+      className="number"
+    >
+      more than 1.5 times
+       higher
+    </span>
+     
+    than their population share.
+  </p>
+</div>
+`;
+
+exports[`Components : Race : Multiplier Highlight : more than 2 times renders correctly 1`] = `
+<div
+  className="highlight"
+>
+  <p>
+    This means Black people are dying at a rate
+     
+    <span
+      className="number"
+    >
+      more than 2 times
+       higher
+    </span>
+     
+    than their population share.
+  </p>
+</div>
+`;
+
+exports[`Components : Race : Multiplier Highlight : more than 2.5 times renders correctly 1`] = `
+<div
+  className="highlight"
+>
+  <p>
+    This means Black people are dying at a rate
+     
+    <span
+      className="number"
+    >
+      more than 2.5 times
+       higher
+    </span>
+     
+    than their population share.
+  </p>
+</div>
+`;
+
+exports[`Components : Race : Multiplier Highlight : more than 3 times renders correctly 1`] = `
+<div
+  className="highlight"
+>
+  <p>
+    This means Black people are dying at a rate
+     
+    <span
+      className="number"
+    >
+      more than 3 times
+       higher
+    </span>
+     
+    than their population share.
+  </p>
+</div>
+`;
+
+exports[`Components : Race : Multiplier Highlight : much renders correctly 1`] = `
+<div
+  className="highlight"
+>
+  <p>
+    This means Black people are dying at a rate
+     
+    <span
+      className="number"
+    >
+      much
+       higher
+    </span>
+     
+    than their population share.
+  </p>
+</div>
+`;
+
+exports[`Components : Race : Multiplier Highlight : nearly 1.5 times renders correctly 1`] = `
+<div
+  className="highlight"
+>
+  <p>
+    This means Black people are dying at a rate
+     
+    <span
+      className="number"
+    >
+      nearly 1.5 times
+       higher
+    </span>
+     
+    than their population share.
+  </p>
+</div>
+`;
+
+exports[`Components : Race : Multiplier Highlight : nearly 2 times renders correctly 1`] = `
+<div
+  className="highlight"
+>
+  <p>
+    This means Black people are dying at a rate
+     
+    <span
+      className="number"
+    >
+      nearly 2 times
+       higher
+    </span>
+     
+    than their population share.
+  </p>
+</div>
+`;
+
+exports[`Components : Race : Multiplier Highlight : nearly 2.5 times renders correctly 1`] = `
+<div
+  className="highlight"
+>
+  <p>
+    This means Black people are dying at a rate
+     
+    <span
+      className="number"
+    >
+      nearly 2.5 times
+       higher
+    </span>
+     
+    than their population share.
+  </p>
+</div>
+`;
+
+exports[`Components : Race : Multiplier Highlight : nearly 3 times renders correctly 1`] = `
+<div
+  className="highlight"
+>
+  <p>
+    This means Black people are dying at a rate
+     
+    <span
+      className="number"
+    >
+      nearly 3 times
+       higher
+    </span>
+     
+    than their population share.
+  </p>
+</div>
+`;

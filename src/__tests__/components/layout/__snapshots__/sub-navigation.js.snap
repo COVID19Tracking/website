@@ -8,13 +8,6 @@ exports[`Components : Layout : Header : Sub Navigation renders correctly 1`] = `
     <ul>
       <li>
         <a
-          href="/about"
-        >
-          A subnav item
-        </a>
-      </li>
-      <li>
-        <a
           href="https://nyan.cat"
         >
           Another subnav item

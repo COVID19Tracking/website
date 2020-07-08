@@ -21,8 +21,8 @@ export default () => {
   return (
     <div className={latestTotalsStyles.container}>
       <Paragraph>
-        Every day, our volunteers compile the latest numbers on tests, confirmed
-        cases, hospitalizations, and patient outcomes from every US state and
+        Every day, our volunteers compile the latest numbers on tests, cases,
+        hospitalizations, and patient outcomes from every US state and
         territory.
       </Paragraph>
       <div className={latestTotalsStyles.wrapper}>

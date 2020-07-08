@@ -13,7 +13,6 @@ const ContentPage = ({ data }) => (
     socialCard={{
       description: 'Cumulative record of our daily totals.',
     }}
-    navigation={data.contentfulNavigationGroup.pages}
   >
     <ContentfulContent
       content={
@@ -107,12 +106,6 @@ export const query = graphql`
         hospitalized
         death
         date
-      }
-    }
-    contentfulNavigationGroup(slug: { eq: "data" }) {
-      pages {
-        title
-        link: url
       }
     }
   }

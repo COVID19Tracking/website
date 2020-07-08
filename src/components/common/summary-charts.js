@@ -19,6 +19,8 @@ import colors from '~scss/colors.module.scss'
 
 import styles from './summary-charts.module.scss'
 
+import TooltipContents from '~components/charts/tooltip-contents'
+
 const dailyAverage = (history, field, range = 7) => {
   if (!history || !field) return null
   const average = []
@@ -107,6 +109,30 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   const [useFullRange, setUseFullRange] = useState(false)
   const [isDisclosureOpen, setDisclosureOpen] = useState(false)
 
+  // will need to be modified to support mutliple values
+  const makeRenderTooltipContents = text => d => (
+    <TooltipContents
+      date={d.date}
+      items={[
+        {
+          text: (
+            <>
+              {text}
+              {usePerCap ? (
+                <>
+                  <br /> per 1M people
+                </>
+              ) : (
+                ''
+              )}
+            </>
+          ),
+          value: d.value,
+        },
+      ]}
+    />
+  )
+
   // This enables us to use the getDataForField & dailyAverage functions above
   // without enable triple nested properties
   const hoistPerCapProps = node => {
@@ -188,6 +214,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
 
   const showTodaysChartTick =
     DateTime.fromISO(data[data.length - 1].date).day > 10
+
   return (
     <>
       <h2>{name} overview</h2>
@@ -228,6 +255,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             fill={colors.colorPlum200}
             lineColor={colors.colorPlum700}
             lastXTick={showTodaysChartTick}
+            renderTooltipContents={makeRenderTooltipContents(`new tests`)}
             {...props}
           />
         </Col>
@@ -248,6 +276,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               fill={colors.colorStrawberry100}
               lineColor={colors.colorStrawberry200}
               lastXTick={showTodaysChartTick}
+              renderTooltipContents={makeRenderTooltipContents('new cases')}
               {...props}
             />
           ) : (
@@ -272,6 +301,12 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               fill={colors.colorBlueberry200}
               lineColor={colors.colorBlueberry400}
               lastXTick={showTodaysChartTick}
+              renderTooltipContents={makeRenderTooltipContents(
+                <>
+                  current <br />
+                  hospitalizations
+                </>,
+              )}
               {...props}
             />
           ) : (
@@ -295,6 +330,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               fill={colors.colorSlate300}
               lineColor={colors.colorSlate700}
               lastXTick={showTodaysChartTick}
+              renderTooltipContents={makeRenderTooltipContents('new deaths')}
               {...props}
             />
           ) : (
