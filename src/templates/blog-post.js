@@ -173,6 +173,11 @@ export const query = graphql`
         }
       }
     }
+    childContentfulBlogPostFootnotesTextNode {
+      childMarkdownRemark {
+        html
+      }
+    }
     allContentfulContentBlockImage(
       filter: { contentful_id: { in: $blogImages } }
     ) {
