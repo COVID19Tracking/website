@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Race : Dashboard : Table Notes renders correctly 1`] = `
+Array [
+  <h4
+    className="header"
+    id="notes-nv"
+  >
+    Notes
+     
+    <span
+      className="a11y-only"
+    >
+      on 
+      ethnicity
+       for 
+      Nevada
+    </span>
+  </h4>,
+  <ol
+    className="list"
+  >
+    <li>
+      This is a note
+    </li>
+    <li>
+        This is another note with trailing space   
+    </li>
+  </ol>,
+]
+`;
