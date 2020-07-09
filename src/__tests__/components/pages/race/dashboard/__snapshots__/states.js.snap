@@ -1,0 +1,1022 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = `
+<section>
+  <div
+    className="state"
+  >
+    <h2
+      className="header"
+      id="state-arizona"
+    >
+      AZ
+    </h2>
+    <div>
+      <div>
+        <div
+          className="stateOverview"
+        >
+          <div
+            className="note"
+          >
+            <div
+              className="container"
+            >
+              <p>
+                The following tables reflect only those cases and deaths where
+                 
+                race/ethnicity
+                 is known and reported by 
+                AZ
+                . If this state’s reporting percentages are low, interpret with caution.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3>
+            Cases and deaths by race/ethnicity
+          </h3>
+          <div
+            className="container"
+          >
+            <p
+              className="key"
+            >
+              <span
+                className="disparitySymbol inKey"
+              >
+                <span
+                  className="a11y-only"
+                >
+                  Figure is significantly higher than population proportion
+                </span>
+                <span
+                  className="inner"
+                />
+              </span>
+              Racial/ethnic disparity likely.
+               
+              <a
+                className="js-disabled"
+                href="#notes-disparity"
+              >
+                See why 
+                <span
+                  aria-hidden={true}
+                >
+                  ↓
+                </span>
+              </a>
+              <button
+                aria-controls="table-symbol-disparity-arizona"
+                aria-expanded={false}
+                className="disclosureButton js-enabled"
+                onClick={[Function]}
+              >
+                <span
+                  className="text"
+                >
+                  See why
+                </span>
+                 
+                <span
+                  aria-hidden={true}
+                >
+                  ↓
+                </span>
+              </button>
+            </p>
+            <p
+              className="key"
+            >
+              <span
+                className="caution inKey"
+              >
+                <span
+                  className="a11y-only"
+                >
+                  This data is not reliable
+                </span>
+              </span>
+              Should not be compared with percentage of population.
+               
+              <a
+                className="js-disabled"
+                href="#notes-comparible"
+              >
+                See why 
+                <span
+                  aria-hidden={true}
+                >
+                  ↓
+                </span>
+              </a>
+              <button
+                aria-controls="table-symbol-notComparible-arizona"
+                aria-expanded={false}
+                className="disclosureButton js-enabled"
+                onClick={[Function]}
+              >
+                <span
+                  className="text"
+                >
+                  See why
+                </span>
+                 
+                <span
+                  aria-hidden={true}
+                >
+                  ↓
+                </span>
+              </button>
+            </p>
+            <div />
+            <div
+              className="disclosurePane"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<h2>Content</h2><p>More disparity snippet content</p>",
+                }
+              }
+              data-expanded={false}
+              hidden={true}
+              id="table-symbol-disparity-arizona"
+            />
+            <div
+              className="disclosurePane"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<h2>Content</h2><p>More comparible snippet content</p>",
+                }
+              }
+              data-expanded={false}
+              hidden={true}
+              id="table-symbol-notComparible-arizona"
+            />
+          </div>
+        </div>
+        <div>
+          <table
+            className="table"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="group"
+                  scope="col"
+                >
+                  <span
+                    role="text"
+                  >
+                    Race/ethnicity
+                  </span>
+                </th>
+                <th
+                  className="borderLeft percent"
+                  scope="col"
+                >
+                  <span
+                    role="text"
+                  >
+                    Percentage of population
+                  </span>
+                </th>
+                <th
+                  className="percent missingData"
+                  scope="col"
+                >
+                  <span
+                    role="text"
+                  >
+                    <img
+                      alt="Alert icon"
+                      src="test-file-stub"
+                    />
+                    Percentage of cases
+                    <div
+                      className="symbolSpacer"
+                    />
+                  </span>
+                </th>
+                <th
+                  className="percent missingData"
+                  scope="col"
+                >
+                  <span
+                    role="text"
+                  >
+                    <img
+                      alt="Alert icon"
+                      src="test-file-stub"
+                    />
+                    Percentage of deaths
+                    <div
+                      className="symbolSpacer"
+                    />
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    Black or African American alone
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+                <td
+                  className="missingData"
+                  rowSpan={8}
+                >
+                  <span>
+                    AZ
+                     does not report 
+                    race/ethnicity
+                     data for 
+                    cases
+                    .
+                     
+                    <a
+                      href="/get-involved"
+                    >
+                      Help us get better data.
+                    </a>
+                  </span>
+                </td>
+                <td
+                  className="missingData"
+                  rowSpan={8}
+                >
+                  <span>
+                    AZ
+                     does not report 
+                    race/ethnicity
+                     data for 
+                    deaths
+                    .
+                     
+                    <a
+                      href="/get-involved"
+                    >
+                      Help us get better data.
+                    </a>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    Hispanic or Latino *
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    Asian alone
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    Native Hawaiian and Pacific Islander alone
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    American Indian or Alaska Native alone
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    Two or more races
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    White alone
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    Some other race alone
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          * Hispanic or Latino ethnicity, any race. All other race categories in this table are defined as Not Hispanic or Latino.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="state"
+  >
+    <h2
+      className="header"
+      id="state-washington-dc"
+    >
+      DC
+    </h2>
+    <div>
+      <div>
+        <div
+          className="stateOverview"
+        >
+          <div
+            className="note"
+          >
+            <div
+              className="container"
+            >
+              <p>
+                The following tables reflect only those cases and deaths where
+                 
+                race/ethnicity
+                 is known and reported by 
+                DC
+                . If this state’s reporting percentages are low, interpret with caution.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3>
+            Cases and deaths by race/ethnicity
+          </h3>
+          <div
+            className="container"
+          >
+            <p
+              className="key"
+            >
+              <span
+                className="disparitySymbol inKey"
+              >
+                <span
+                  className="a11y-only"
+                >
+                  Figure is significantly higher than population proportion
+                </span>
+                <span
+                  className="inner"
+                />
+              </span>
+              Racial/ethnic disparity likely.
+               
+              <a
+                className="js-disabled"
+                href="#notes-disparity"
+              >
+                See why 
+                <span
+                  aria-hidden={true}
+                >
+                  ↓
+                </span>
+              </a>
+              <button
+                aria-controls="table-symbol-disparity-washington, dc"
+                aria-expanded={false}
+                className="disclosureButton js-enabled"
+                onClick={[Function]}
+              >
+                <span
+                  className="text"
+                >
+                  See why
+                </span>
+                 
+                <span
+                  aria-hidden={true}
+                >
+                  ↓
+                </span>
+              </button>
+            </p>
+            <p
+              className="key"
+            >
+              <span
+                className="caution inKey"
+              >
+                <span
+                  className="a11y-only"
+                >
+                  This data is not reliable
+                </span>
+              </span>
+              Should not be compared with percentage of population.
+               
+              <a
+                className="js-disabled"
+                href="#notes-comparible"
+              >
+                See why 
+                <span
+                  aria-hidden={true}
+                >
+                  ↓
+                </span>
+              </a>
+              <button
+                aria-controls="table-symbol-notComparible-washington, dc"
+                aria-expanded={false}
+                className="disclosureButton js-enabled"
+                onClick={[Function]}
+              >
+                <span
+                  className="text"
+                >
+                  See why
+                </span>
+                 
+                <span
+                  aria-hidden={true}
+                >
+                  ↓
+                </span>
+              </button>
+            </p>
+            <div />
+            <div
+              className="disclosurePane"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<h2>Content</h2><p>More disparity snippet content</p>",
+                }
+              }
+              data-expanded={false}
+              hidden={true}
+              id="table-symbol-disparity-washington, dc"
+            />
+            <div
+              className="disclosurePane"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<h2>Content</h2><p>More comparible snippet content</p>",
+                }
+              }
+              data-expanded={false}
+              hidden={true}
+              id="table-symbol-notComparible-washington, dc"
+            />
+          </div>
+        </div>
+        <div>
+          <table
+            className="table"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="group"
+                  scope="col"
+                >
+                  <span
+                    role="text"
+                  >
+                    Race/ethnicity
+                  </span>
+                </th>
+                <th
+                  className="borderLeft percent"
+                  scope="col"
+                >
+                  <span
+                    role="text"
+                  >
+                    Percentage of population
+                  </span>
+                </th>
+                <th
+                  className="percent missingData"
+                  scope="col"
+                >
+                  <span
+                    role="text"
+                  >
+                    <img
+                      alt="Alert icon"
+                      src="test-file-stub"
+                    />
+                    Percentage of cases
+                    <div
+                      className="symbolSpacer"
+                    />
+                  </span>
+                </th>
+                <th
+                  className="percent missingData"
+                  scope="col"
+                >
+                  <span
+                    role="text"
+                  >
+                    <img
+                      alt="Alert icon"
+                      src="test-file-stub"
+                    />
+                    Percentage of deaths
+                    <div
+                      className="symbolSpacer"
+                    />
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    Black or African American alone
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+                <td
+                  className="missingData"
+                  rowSpan={8}
+                >
+                  <span>
+                    DC
+                     does not report 
+                    race/ethnicity
+                     data for 
+                    cases
+                    .
+                     
+                    <a
+                      href="/get-involved"
+                    >
+                      Help us get better data.
+                    </a>
+                  </span>
+                </td>
+                <td
+                  className="missingData"
+                  rowSpan={8}
+                >
+                  <span>
+                    DC
+                     does not report 
+                    race/ethnicity
+                     data for 
+                    deaths
+                    .
+                     
+                    <a
+                      href="/get-involved"
+                    >
+                      Help us get better data.
+                    </a>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    Hispanic or Latino *
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    Asian alone
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    Native Hawaiian and Pacific Islander alone
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    American Indian or Alaska Native alone
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    Two or more races
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    White alone
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th
+                  className="group"
+                  scope="row"
+                >
+                  <span
+                    role="text"
+                  >
+                    Some other race alone
+                  </span>
+                </th>
+                <td
+                  className="borderLeft"
+                >
+                  &lt;1
+                  %
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          * Hispanic or Latino ethnicity, any race. All other race categories in this table are defined as Not Hispanic or Latino.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="state"
+  >
+    <h2
+      className="header"
+      id="state-georgia"
+    >
+      GA
+    </h2>
+    <div>
+      <div
+        className="container"
+      >
+        <table
+          aria-hidden={true}
+          className="table"
+          role="presentation"
+        >
+          <tbody>
+            <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
+            <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
+            <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
+            <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
+            <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
+            <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
+          </tbody>
+        </table>
+        <div
+          className="alert"
+        >
+          <div
+            className="title"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
+            />
+            <span>
+              No Data
+            </span>
+          </div>
+          <div
+            className="content"
+          >
+            <p>
+              GA
+               does not share data about race or ethnicity.
+               
+              <a
+                href="/get-involved"
+              >
+                Help us advocate for better data
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="state"
+  >
+    <h2
+      className="header"
+      id="state-washington"
+    >
+      WA
+    </h2>
+    <div>
+      <div
+        className="container"
+      >
+        <table
+          aria-hidden={true}
+          className="table"
+          role="presentation"
+        >
+          <tbody>
+            <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
+            <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
+            <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
+            <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
+            <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
+            <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
+          </tbody>
+        </table>
+        <div
+          className="alert"
+        >
+          <div
+            className="title"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
+            />
+            <span>
+              No Data
+            </span>
+          </div>
+          <div
+            className="content"
+          >
+            <p>
+              WA
+               does not share data about race or ethnicity.
+               
+              <a
+                href="/get-involved"
+              >
+                Help us advocate for better data
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="js-disabled"
+  >
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<h2>Content</h2><p>More disparity snippet content</p>",
+        }
+      }
+      id="notes-disparity"
+    />
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<h2>Content</h2><p>More comparible snippet content</p>",
+        }
+      }
+      id="notes-comparible"
+    />
+  </div>
+</section>
+`;
