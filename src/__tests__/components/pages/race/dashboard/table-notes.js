@@ -8,13 +8,13 @@ describe('Components : Pages : Race : Dashboard : Table Notes', () => {
     const headerTree = renderer
       .create(
         <TableNotes
-        state={'NV'}
-        stateName={'Nevada'}
-        type={'ethnicity'}
-        groupedNotes={[
-          'This is a note',
-          '  This is another note with trailing space   '
-        ]}
+          state={'NV'}
+          stateName={'Nevada'}
+          type={'ethnicity'}
+          groupedNotes={[
+            'This is a note',
+            '  This is another note with trailing space   ',
+          ]}
         />,
       )
       .toJSON()
