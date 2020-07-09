@@ -33,6 +33,39 @@ export const query = graphql`
       nodes {
         title
         slug
+        categories {
+          name
+          slug
+          blog_post {
+            slug
+            publishDate(formatString: "MMMM D, YYYY")
+            authors {
+              name
+              twitterLink
+              twitterHandle
+              link
+              childContentfulAuthorBiographyTextNode {
+                childMarkdownRemark {
+                  html
+                }
+              }
+              headshot {
+                file {
+                  fileName
+                }
+                resize(width: 200) {
+                  width
+                  height
+                  src
+                }
+              }
+            }
+            title
+            lede {
+              lede
+            }
+          }
+        }
         authors {
           name
           twitterLink
