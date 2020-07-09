@@ -1,12 +1,3 @@
-ul {
-  padding: 0;
-}
-
-li {
-  list-style: none;
-  text-decoration: none;
-}
-
 .navigation-container {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -22,6 +13,14 @@ li {
   grid-template-columns: repeat(2, auto);
   grid-gap: spacer(32);
   justify-self: start;
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    text-decoration: none;
+  }
 }
 
 .navigation-item {
