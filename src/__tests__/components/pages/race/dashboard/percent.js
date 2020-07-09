@@ -15,7 +15,9 @@ describe('Components : Race : Dashboard : Percent', () => {
       .toJSON()
     expect(greaterThanOneTree).toMatchSnapshot()
 
-    const lessThanOneTree = renderer.create(<Percent number={0.00034} />).toJSON()
+    const lessThanOneTree = renderer
+      .create(<Percent number={0.00034} />)
+      .toJSON()
     expect(lessThanOneTree).toMatchSnapshot()
   })
 })
