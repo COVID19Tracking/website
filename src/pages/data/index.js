@@ -151,7 +151,10 @@ export const query = graphql`
     ) {
       nodes {
         title
-        date(formatString: "YYYYMMDD")
+        description {
+          description
+        }
+        date(formatString: "YYYY/MM/DD")
         dataElement
         contentful_id
         childContentfulEventDescriptionTextNode {

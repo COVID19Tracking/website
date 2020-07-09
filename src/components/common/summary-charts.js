@@ -12,6 +12,7 @@ import { parseDate } from '~utilities/visualization'
 import { Row, Col } from '~components/common/grid'
 import Toggle from '~components/common/toggle'
 import ContentfulContent from '~components/common/contentful-content'
+import ContentfulRawContent from '~components/common/contentful-raw-content'
 import { AlertInfobox } from '~components/common/infobox'
 
 import { ReactComponent as CtpLogo } from '~images/project-logo.svg'
@@ -213,8 +214,8 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
 
   const colProps = {
     width: [4, 3, 3], // 1 chart per line on small, 2 on medium & 4 on large screens
-    paddingLeft: [0, 0, 0],
-    paddingRight: [0, 0, 0],
+    paddingLeft: [0, 8, 8],
+    paddingRight: [0, 8, 8],
   }
 
   const getAlertMessage = (field, current = false) =>
@@ -371,18 +372,14 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
                 {annotations && annotations.nodes && (
                   <>
                     {annotations.nodes.map(annotation => (
-                      <>
-                        <h3 className={styles.annotationTitle}>
-                          {annotation.title}
-                        </h3>
-                        <ContentfulContent
-                          content={
-                            annotation.childContentfulEventDescriptionTextNode
-                              .childMarkdownRemark.html
-                          }
+                      <p>
+                        <b>{annotation.date}</b>
+                        {' - '}
+                        <ContentfulRawContent
+                          content={annotation.description.description}
                           id={annotation.contentful_id}
                         />
-                      </>
+                      </p>
                     ))}
                     <hr />
                   </>
