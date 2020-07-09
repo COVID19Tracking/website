@@ -94,10 +94,9 @@ describe('Components : Pages : Race : Dashboard : State Separate', () => {
   it('renders correctly', () => {
     const state = {
       anyPosData: false,
-      anyDeathData: false
+      anyDeathData: false,
     }
     const noDataTree = renderer.create(<StateSeparate state={state} />).toJSON()
     expect(noDataTree).toMatchSnapshot()
   })
 })
-
