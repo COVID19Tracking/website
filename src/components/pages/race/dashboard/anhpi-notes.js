@@ -24,7 +24,7 @@ export default (data, stateNotes) => {
       ? data.nhpiANHPIPosNotes
       : notes.nhpiPos
   }
-  if (data.nhpiIDeathCaution) {
+  if (data.nhpiDeathCaution) {
     notes.nhpiDeath = data.nhpiANHPIDeathNotes
       ? data.nhpiANHPIDeathNotes
       : notes.nhpiDeath
