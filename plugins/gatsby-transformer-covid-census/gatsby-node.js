@@ -30,10 +30,10 @@ const onCreateNode = async (
         return
       }
       populationNode[field] = {
-        per100k: (node[field] / population) * 100000,
-        per10k: (node[field] / population) * 10000,
-        displayPercent: (node[field] / population) * 100,
-        percent: node[field] / population,
+        per100k: node[field] && (node[field] / population) * 100000,
+        per10k: node[field] && (node[field] / population) * 10000,
+        displayPercent: node[field] && (node[field] / population) * 100,
+        percent: node[field] && node[field] / population,
       }
     })
 
