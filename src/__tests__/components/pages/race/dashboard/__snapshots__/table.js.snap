@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Race : Dashboard : Table Content renders correctly 1`] = `
+<tbody>
+  <tr>
+    <th
+      className="group"
+      scope="row"
+    >
+      <span
+        role="text"
+      >
+        Black or African American alone
+      </span>
+    </th>
+    <td
+      className="borderLeft"
+    >
+      23
+      %
+    </td>
+    <td
+      className=""
+    >
+      46
+      %
+      <sup
+        className="note"
+      >
+        <a
+          href="#notes-ca"
+        >
+          <span
+            className="a11y-only"
+          >
+            Example note.
+          </span>
+          <span>
+            1
+          </span>
+        </a>
+      </sup>
+      <div
+        className="symbolSpacer"
+      >
+        <span
+          className="caution "
+        >
+          <span
+            className="a11y-only"
+          >
+            This data is not reliable
+          </span>
+        </span>
+        <span
+          className="disparitySymbol "
+        >
+          <span
+            className="a11y-only"
+          >
+            Figure is significantly higher than population proportion
+          </span>
+          <span
+            className="inner"
+          />
+        </span>
+      </div>
+    </td>
+    <td
+      className=""
+    >
+      38
+      %
+      <sup
+        className="note"
+      >
+        <a
+          href="#notes-ca"
+        >
+          <span
+            className="a11y-only"
+          >
+            This is a note!
+          </span>
+          <span>
+            2
+          </span>
+        </a>
+      </sup>
+      <div
+        className="symbolSpacer"
+      >
+        <span
+          className="caution "
+        >
+          <span
+            className="a11y-only"
+          >
+            This data is not reliable
+          </span>
+        </span>
+        <span
+          className="disparitySymbol "
+        >
+          <span
+            className="a11y-only"
+          >
+            Figure is significantly higher than population proportion
+          </span>
+          <span
+            className="inner"
+          />
+        </span>
+      </div>
+    </td>
+  </tr>
+</tbody>
+`;
+
+exports[`Components : Pages : Race : Dashboard : Table Header renders correctly 1`] = `
+<thead>
+  <tr>
+    <th
+      className="group"
+      scope="col"
+    >
+      <span
+        role="text"
+      >
+        Title
+      </span>
+    </th>
+    <th
+      className="borderLeft percent"
+      scope="col"
+    >
+      <span
+        role="text"
+      >
+        Percentage of population
+      </span>
+    </th>
+    <th
+      className="percent"
+      scope="col"
+    >
+      <span
+        role="text"
+      >
+        Percentage of cases
+        <div
+          className="symbolSpacer"
+        />
+      </span>
+    </th>
+    <th
+      className="percent"
+      scope="col"
+    >
+      <span
+        role="text"
+      >
+        Percentage of deaths
+        <div
+          className="symbolSpacer"
+        />
+      </span>
+    </th>
+  </tr>
+</thead>
+`;

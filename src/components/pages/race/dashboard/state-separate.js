@@ -11,7 +11,7 @@ import stateStyle from './state.module.scss'
 
 export default ({ state }) => {
   const stateData = state
-  const raceNotes = {
+  let raceNotes = {
     otherDeath: stateData.otherDeathNotes,
     otherPos: stateData.otherPosNotes,
     whiteDeath: stateData.whiteDeathNotes,
@@ -37,7 +37,7 @@ export default ({ state }) => {
     otherSpecialCase: stateData.otherSpecialCaseNotes,
   }
 
-  anhpiNotes(stateData, raceNotes)
+  raceNotes = anhpiNotes(stateData, raceNotes)
 
   const groupedRaceNotes = [...new Set(Object.values(raceNotes))]
     .filter(value => value && value)
