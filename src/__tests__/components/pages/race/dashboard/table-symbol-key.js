@@ -26,7 +26,7 @@ beforeEach(() => {
 
 describe('Components : Pages : Race : Dashboard : Table Symbol Key', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<TableSymbolKey state={'NV'} />).toJSON()
+    const tree = renderer.create(<TableSymbolKey state="NV" />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

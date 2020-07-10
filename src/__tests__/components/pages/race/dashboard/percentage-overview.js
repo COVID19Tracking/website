@@ -7,11 +7,11 @@ describe('Components : Race : Dashboard : Percentage Overview', () => {
     const tree = renderer
       .create(
         <PercentageOverview
-          stateName={'New Mexico'}
-          dataType={'race'}
+          stateName="New Mexico"
+          dataType="race"
           casePercent={0.22}
           deathPercent={0.043}
-          className={'race-class'}
+          className="race-class"
         />,
       )
       .toJSON()
@@ -20,9 +20,9 @@ describe('Components : Race : Dashboard : Percentage Overview', () => {
     const nullTree = renderer
       .create(
         <PercentageOverview
-          stateName={'New Mexico'}
-          dataType={'race'}
-          className={'race-class'}
+          stateName="New Mexico"
+          dataType="race"
+          className="race-class"
         />,
       )
       .toJSON()
@@ -31,10 +31,10 @@ describe('Components : Race : Dashboard : Percentage Overview', () => {
     const nullDeathTree = renderer
       .create(
         <PercentageOverview
-          stateName={'New Mexico'}
-          dataType={'race'}
+          stateName="New Mexico"
+          dataType="race"
           casePercent={0.22}
-          className={'race-class'}
+          className="race-class"
         />,
       )
       .toJSON()

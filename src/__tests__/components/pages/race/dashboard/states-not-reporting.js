@@ -1,6 +1,5 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { useStaticQuery } from 'gatsby'
 import StatesNotReporting from '~components/pages/race/dashboard/states-not-reporting'
 
 describe('Components : Pages : Race : Dashboard : States not Reporting', () => {

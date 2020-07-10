@@ -1,6 +1,5 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { useStaticQuery } from 'gatsby'
 import {
   StateTableHeader,
   StateTableBody,
@@ -11,7 +10,7 @@ describe('Components : Pages : Race : Dashboard : Table Header', () => {
     const headerTree = renderer
       .create(
         <StateTableHeader
-          groupTitle={'Title'}
+          groupTitle="Title"
           noDeaths={false}
           noPositives={false}
         />,
@@ -50,10 +49,10 @@ describe('Components : Pages : Race : Dashboard : Table Content', () => {
     const contentTree = renderer
       .create(
         <StateTableBody
-          state={'California'}
-          stateAbbr={'CA'}
+          state="California"
+          stateAbbr="CA"
           rows={rows}
-          type={'race'}
+          type="race"
         />,
       )
       .toJSON()

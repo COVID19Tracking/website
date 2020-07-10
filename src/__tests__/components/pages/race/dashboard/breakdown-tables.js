@@ -1,6 +1,5 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { useStaticQuery } from 'gatsby'
 import {
   RaceTable,
   EthnicityTable,
@@ -107,13 +106,13 @@ describe('Components : Pages : Race : Dashboard : Race Table', () => {
       .create(
         <RaceTable
           data={data}
-          type={'Type'}
+          type="Type"
           notes={notes}
           groupedNotes={groupedNotes}
-          noPositives={true}
-          isCombined={true}
-          noDeaths={true}
-          isInEthnicityState={true}
+          noPositives
+          isCombined
+          noDeaths
+          isInEthnicityState
         />,
       )
       .toJSON()
@@ -122,13 +121,13 @@ describe('Components : Pages : Race : Dashboard : Race Table', () => {
       .create(
         <RaceTable
           data={data}
-          type={'Type'}
+          type="Type"
           notes={notes}
           groupedNotes={groupedNotes}
-          noPositives={true}
+          noPositives
           isCombined={false}
-          noDeaths={true}
-          isInEthnicityState={true}
+          noDeaths
+          isInEthnicityState
         />,
       )
       .toJSON()
@@ -155,13 +154,13 @@ describe('Components : Pages : Race : Dashboard : Ethnicity Table', () => {
       .create(
         <EthnicityTable
           data={data}
-          type={'Type'}
+          type="Type"
           notes={notes}
           groupedNotes={groupedNotes}
-          noPositives={true}
-          isCombined={true}
-          noDeaths={true}
-          isInEthnicityState={true}
+          noPositives
+          isCombined
+          noDeaths
+          isInEthnicityState
         />,
       )
       .toJSON()

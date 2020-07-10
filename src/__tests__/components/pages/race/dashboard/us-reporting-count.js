@@ -1,6 +1,5 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { useStaticQuery } from 'gatsby'
 import UsReportingCount from '~components/pages/race/dashboard/us-reporting-count'
 
 describe('Components : Pages : Race : Dashboard : US Overview', () => {
@@ -10,7 +9,7 @@ describe('Components : Pages : Race : Dashboard : US Overview', () => {
         <UsReportingCount
           statesCasesCount={49}
           statesDeathsCount={48}
-          className={'css-class-name'}
+          className="css-class-name"
         />,
       )
       .toJSON()
