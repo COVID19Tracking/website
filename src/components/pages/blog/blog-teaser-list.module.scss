@@ -15,6 +15,7 @@
   @include type-size(400);
   line-height: 1.25;
   @include margin(16, bottom);
+  @include margin(0, top);
   @media (min-width: $viewport-lg) {
     @include type-size(500);
   }
@@ -25,15 +26,14 @@
 
 .teaser {
   @include margin(64, bottom);
+  @include margin(24, top);
   @media (max-width: $viewport-lg) {
     @include margin(32, bottom);
   }
   &:first-child {
-    .title {
-      @include margin(24, top);
-      @media (min-width: $viewport-lg) {
-        margin-top: 0;
-      }
+    @include margin(24, top);
+    @media (min-width: $viewport-lg) {
+      margin-top: 0;
     }
   }
 }
