@@ -8,12 +8,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import GetInvolvedForm from '~components/pages/get-involved/form'
 
 export default ({ data }) => (
-  <Layout
-    title="Sign up for our newsletter"
-    path="/about/newsletter"
-    navigation={data.contentfulNavigationGroup.pages}
-    centered
-  >
+  <Layout title="Sign up for our newsletter" path="/about/newsletter" centered>
     <LongContent>
       <ContentfulContent
         content={
@@ -35,12 +30,6 @@ export const query = graphql`
         childMarkdownRemark {
           html
         }
-      }
-    }
-    contentfulNavigationGroup(slug: { eq: "data" }) {
-      pages {
-        title
-        link: url
       }
     }
   }

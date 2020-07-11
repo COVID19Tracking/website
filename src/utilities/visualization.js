@@ -69,5 +69,6 @@ export const getStateName = abbr => {
 }
 
 export const totalColor = colors.colorPlum600
+export const lightColor = colors.colorPlum300
 export const positiveColor = colors.colorHoney500
 export const deathsBarColor = colors.colorSlate600

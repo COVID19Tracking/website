@@ -5,3 +5,13 @@
     display: inline-block;
   }
 }
+
+.list {
+  @include padding(0, left);
+  @include margin(0, top);
+
+  li {
+    list-style-position: inside;
+    list-style-type: decimal;
+  }
+}

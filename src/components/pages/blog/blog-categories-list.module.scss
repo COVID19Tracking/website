@@ -4,7 +4,8 @@
   padding-top: 0.75rem; // ignore-style-rule
   @include padding(16, bottom);
 
-  h3, a {
+  h3,
+  a {
     @include type-size(100);
     color: $color-plum-700;
     line-height: 1.6;
@@ -49,12 +50,12 @@
   display: none;
 
   li {
-      @media (max-width: $viewport-lg) {
-        font-size: 1rem;
-        line-height: 2;
-      }
-      &:first-child {
-        @include padding(8, top);
+    @media (max-width: $viewport-lg) {
+      font-size: 1rem;
+      line-height: 2;
+    }
+    &:first-child {
+      @include padding(8, top);
     }
   }
 

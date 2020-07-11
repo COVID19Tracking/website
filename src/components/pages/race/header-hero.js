@@ -27,14 +27,15 @@ export default () => {
         <Row>
           <Col width={[4, 4, 7]} paddingRight={[8, 0, 32]}>
             <HeroHeader>
-              COVID-19 is affecting people of color the most. We’re tracking the
-              data in real time.
+              COVID-19 is affecting Black, Indigenous, Latinx, and other people
+              of color the most.
             </HeroHeader>
             <HeroText>
               The COVID Racial Data Tracker is a collaboration between the COVID
               Tracking Project and the Boston University Center for Antiracist
-              Research. Together, we&#8217;re gathering the most complete race
-              and ethnicity data on COVID-19 in the United States.
+              Research. Together, we&#8217;re gathering the most complete and
+              up-to-date race and ethnicity data on COVID-19 in the United
+              States.
             </HeroText>
           </Col>
           <Col width={[4, 2, 5]}>

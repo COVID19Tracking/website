@@ -1,6 +1,15 @@
 .chart {
   @include margin(32, top bottom);
-
+  &.mobile {
+    @media (min-width: $viewport-md) {
+      display: none;
+    }
+  }
+  &.has-mobile-view {
+    @media (max-width: $viewport-md) {
+      display: none;
+    }
+  }
   iframe {
     border: none;
     width: 100%;

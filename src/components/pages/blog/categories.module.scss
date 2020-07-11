@@ -24,5 +24,21 @@
     &:last-child::after {
       content: none;
     }
+    &.light-bg {
+      color: $color-plum-700;
+      a {
+        text-decoration: none;
+        &:hover {
+          @include link-hover;
+        }
+        &:focus {
+          @include link-focus;
+        }
+      }
+      &::after {
+        color: $color-plum-700;
+      }
+    }
   }
 }
+

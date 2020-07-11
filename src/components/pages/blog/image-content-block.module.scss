@@ -1,3 +1,10 @@
 .image {
   margin-bottom: spacer(24);
+  &.keep-size {
+    img {
+      width: auto;
+      margin: 0 auto;
+      display: block;
+    }
+  }
 }

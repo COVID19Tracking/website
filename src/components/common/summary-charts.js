@@ -19,6 +19,8 @@ import colors from '~scss/colors.module.scss'
 
 import styles from './summary-charts.module.scss'
 
+import TooltipContents from '~components/charts/tooltip-contents'
+
 const dailyAverage = (history, field, range = 7) => {
   if (!history || !field) return null
   const average = []
@@ -107,6 +109,30 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   const [useFullRange, setUseFullRange] = useState(false)
   const [isDisclosureOpen, setDisclosureOpen] = useState(false)
 
+  // will need to be modified to support mutliple values
+  const makeRenderTooltipContents = text => d => (
+    <TooltipContents
+      date={d.date}
+      items={[
+        {
+          text: (
+            <>
+              {text}
+              {usePerCap ? (
+                <>
+                  <br /> per 1M people
+                </>
+              ) : (
+                ''
+              )}
+            </>
+          ),
+          value: d.value,
+        },
+      ]}
+    />
+  )
+
   // This enables us to use the getDataForField & dailyAverage functions above
   // without enable triple nested properties
   const hoistPerCapProps = node => {
@@ -193,6 +219,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
     width: 600,
     height: 400,
   }
+
   return (
     <>
       <h2>{name} overview</h2>
@@ -234,6 +261,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             lineColor={colors.colorPlum700}
             lastXTick={showTodaysChartTick}
             renderOptions={{ filename: 'new-tests', ...baseRenderOptions }}
+            renderTooltipContents={makeRenderTooltipContents(`new tests`)}
             {...props}
           />
         </Col>
@@ -258,6 +286,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
                 filename: 'new-cases',
                 ...baseRenderOptions,
               }}
+              renderTooltipContents={makeRenderTooltipContents('new cases')}
               {...props}
             />
           ) : (
@@ -286,6 +315,12 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
                 filename: 'hospitalizations',
                 ...baseRenderOptions,
               }}
+              renderTooltipContents={makeRenderTooltipContents(
+                <>
+                  current <br />
+                  hospitalizations
+                </>,
+              )}
               {...props}
             />
           ) : (
@@ -313,6 +348,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
                 filename: 'new-deaths',
                 ...baseRenderOptions,
               }}
+              renderTooltipContents={makeRenderTooltipContents('new deaths')}
               {...props}
             />
           ) : (

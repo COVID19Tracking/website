@@ -3,7 +3,8 @@
   @include col(4 6 10);
   margin: 0 auto;
 
-  & > *:not(.image) { // non-image items become 8 cols wide
+  & > *:not(.image) {
+    // non-image items become 8 cols wide
     @media (min-width: $viewport-lg) {
       flex-basis: 80%;
       max-width: 80%;
@@ -12,7 +13,8 @@
     }
   }
 
-  ul {
+  ul,
+  ol {
     @include margin(0, top);
     @include margin(32, bottom);
 
