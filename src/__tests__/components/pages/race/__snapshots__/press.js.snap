@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Race : Press renders correctly 1`] = `
+<ul
+  className="press-list pressList"
+>
+  <li>
+    <cite
+      className="title"
+    >
+      <a
+        href="https://crouton.net"
+      >
+        A race-related covid-19 article
+      </a>
+    </cite>
+    <div
+      className="detail-text detailText"
+    >
+      <span
+        className="source"
+      >
+        The Post
+      </span>
+      <span
+        aria-hidden={true}
+        className="dotSeparator"
+      >
+        •
+      </span>
+      May 4, 2020
+    </div>
+  </li>
+  <li>
+    <cite
+      className="title"
+    >
+      <a
+        href="https://the-journal.org"
+      >
+        covid-19 title
+      </a>
+    </cite>
+    <div
+      className="detail-text detailText"
+    >
+      <span
+        className="source"
+      >
+        The Journal
+      </span>
+      <span
+        aria-hidden={true}
+        className="dotSeparator"
+      >
+        •
+      </span>
+      March 15, 2020
+    </div>
+  </li>
+  <li>
+    <cite
+      className="title"
+    >
+      <a
+        href="https://www.newsorg.com/2020/04/21/covid-19-race-headline/"
+      >
+        covid-19 race headline
+      </a>
+    </cite>
+    <div
+      className="detail-text detailText"
+    >
+      <span
+        className="source"
+      >
+        The Press
+      </span>
+      <span
+        aria-hidden={true}
+        className="dotSeparator"
+      >
+        •
+      </span>
+      April 21, 2020
+    </div>
+  </li>
+</ul>
+`;

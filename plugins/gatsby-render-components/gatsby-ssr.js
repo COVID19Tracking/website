@@ -1,15 +1,11 @@
-const Cache = require('file-system-cache').default
-const path = require('path')
 const { createElement } = require('react')
 const { renderToStaticMarkup } = require('react-dom/server')
 
 const prettifyUrl = require('./prettify-url')
+const BuildCache = require('./build-cache').default
 const { setAddToRenderQueueCallback } = require('./rendered-component')
 
-const cache = Cache({
-  basePath: './.cache/component-rendering',
-  ns: 'component-rendering',
-})
+const cache = new BuildCache('./.cache/component-rendering')
 
 /**
  * Adds component HTML to the build cache so that gatsby-node can use puppeteer
@@ -24,15 +20,13 @@ setAddToRenderQueueCallback(
 
       const prettyPath = prettifyUrl(relativePath)
       const prettyFileName = prettifyUrl(filename)
-      const componentPath = path.resolve(prettyPath, prettyFileName)
 
-      cache.setSync(componentPath, {
+      cache.setSync(`components/${prettyPath}`, `${prettyFileName}.json`, {
         bodyHTML,
         width,
         height,
         dir: prettyPath,
         filename: prettyFileName,
-        isRenderable: true,
       })
     } catch (e) {
       console.error(e)
@@ -46,17 +40,20 @@ setAddToRenderQueueCallback(
  */
 exports.onPreRenderHTML = ({ getHeadComponents }) => {
   const headComponents = getHeadComponents()
-  const styles = headComponents.filter(headComponent => {
-    /* eslint-disable no-underscore-dangle */
-    return headComponent.type === 'style' &&
-      headComponent.props &&
-      headComponent.props.dangerouslySetInnerHTML &&
-      headComponent.props.dangerouslySetInnerHTML.__html
-    /* eslint-enable no-underscore-dangle */
-  }).map(headComponent => headComponent.props.dangerouslySetInnerHTML.__html)
+  /* eslint-disable no-underscore-dangle */
+  const styles = headComponents
+    .filter(headComponent => {
+      return (
+        headComponent.type === 'style' &&
+        headComponent.props &&
+        headComponent.props.dangerouslySetInnerHTML &&
+        headComponent.props.dangerouslySetInnerHTML.__html
+      )
+    })
+    .map(headComponent => headComponent.props.dangerouslySetInnerHTML.__html)
+  /* eslint-enable no-underscore-dangle */
 
-  // cache.fileExists is asynchronous, so use getSync instead
-  if (cache.getSync('_styles') === undefined) {
-    cache.setSync('_styles', { styles, isRenderable: false })
+  if (!cache.fileExistsSync('', 'styles.json')) {
+    cache.setSync('', 'styles.json', { styles })
   }
 }

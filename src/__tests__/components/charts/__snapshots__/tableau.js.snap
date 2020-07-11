@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Charts: Tableau chart renders correctly 1`] = `
+<div
+  className="chart"
+  id="chart-test"
+/>
+`;
+
+exports[`Components : Charts: Tableau chart renders correctly 2`] = `
+Array [
+  <div
+    className="chart hasMobileView"
+    id="chart-test"
+  />,
+  <div
+    className="chart mobile"
+    id="chart-mobile-test"
+  />,
+]
+`;

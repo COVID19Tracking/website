@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Race : Dashboard : Table Symbol Key renders correctly 1`] = `
+<div
+  className="container"
+>
+  <p
+    className="key"
+  >
+    <span
+      className="disparitySymbol inKey"
+    >
+      <span
+        className="a11y-only"
+      >
+        Figure is significantly higher than population proportion
+      </span>
+      <span
+        className="inner"
+      />
+    </span>
+    Racial/ethnic disparity likely.
+     
+    <a
+      className="js-disabled"
+      href="#notes-disparity"
+    >
+      See why 
+      <span
+        aria-hidden={true}
+      >
+        ↓
+      </span>
+    </a>
+    <button
+      aria-controls="table-symbol-disparity-nv"
+      aria-expanded={false}
+      className="disclosureButton js-enabled"
+      onClick={[Function]}
+    >
+      <span
+        className="text"
+      >
+        See why
+      </span>
+       
+      <span
+        aria-hidden={true}
+      >
+        ↓
+      </span>
+    </button>
+  </p>
+  <p
+    className="key"
+  >
+    <span
+      className="caution inKey"
+    >
+      <span
+        className="a11y-only"
+      >
+        This data is not reliable
+      </span>
+    </span>
+    Should not be compared with percentage of population.
+     
+    <a
+      className="js-disabled"
+      href="#notes-comparible"
+    >
+      See why 
+      <span
+        aria-hidden={true}
+      >
+        ↓
+      </span>
+    </a>
+    <button
+      aria-controls="table-symbol-notComparible-nv"
+      aria-expanded={false}
+      className="disclosureButton js-enabled"
+      onClick={[Function]}
+    >
+      <span
+        className="text"
+      >
+        See why
+      </span>
+       
+      <span
+        aria-hidden={true}
+      >
+        ↓
+      </span>
+    </button>
+  </p>
+  <div />
+  <div
+    className="disclosurePane"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<h2>Content</h2><p>More disparity snippet content</p>",
+      }
+    }
+    data-expanded={false}
+    hidden={true}
+    id="table-symbol-disparity-nv"
+  />
+  <div
+    className="disclosurePane"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<h2>Content</h2><p>More comparible snippet content</p>",
+      }
+    }
+    data-expanded={false}
+    hidden={true}
+    id="table-symbol-notComparible-nv"
+  />
+</div>
+`;
