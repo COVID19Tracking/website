@@ -27,13 +27,18 @@ const dailyAverage = (history, field, range = 7) => {
   history.forEach((row, rowIndex) => {
     const pastRows = []
     let pastIndex = rowIndex
-    while (pastIndex >= 0 && pastIndex > rowIndex - range) {
-      pastRows.push(history[pastIndex][field])
+    const dayHasData = row[field] !== null
+    while (dayHasData && pastIndex >= 0 && pastIndex > rowIndex - range) {
+      if (history[pastIndex][field] !== null) {
+        pastRows.push(history[pastIndex][field])
+      }
       pastIndex -= 1
     }
     average.push({
       date: parseDate(row.date),
-      value: pastRows.reduce((a, b) => a + b, 0) / pastRows.length,
+      value: dayHasData
+        ? pastRows.reduce((a, b) => a + b, 0) / pastRows.length
+        : null,
     })
   })
   return average
@@ -139,6 +144,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
     const obj = {}
     Object.keys(node.childPopulation).forEach(t => {
       obj[`perCap_${t}`] =
+        node.childPopulation[t].percent &&
         node.childPopulation[t].percent * stateChartPerCapMeasure
     })
     return { ...node, ...obj }
@@ -174,9 +180,10 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   )
 
   const hasData = field =>
-    data.filter(item => item[field.replace('perCap_', '')] !== null).length >=
+    name === 'Florida' ||
+    (data.filter(item => item[field.replace('perCap_', '')] !== null).length >=
       data.length * 0.3 &&
-    data.filter(item => item[field.replace('perCap_', '')] > 0).length > 0
+      data.filter(item => item[field.replace('perCap_', '')] > 0).length > 0)
 
   // Below enables the charts to switch between the per cap & not data
   // using the toggle state

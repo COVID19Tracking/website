@@ -70,6 +70,7 @@ const BarChart = ({
   let lineFn = null
   if (lineData) {
     lineFn = line()
+      .defined(d => !Number.isNaN(d.value) && d.value !== null)
       .curve(curveCardinal)
       .x(d => xScaleTime(d.date))
       .y(d => yScale(d.value))
