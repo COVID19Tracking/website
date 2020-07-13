@@ -55,7 +55,7 @@ exports[`Components : Pages : Blog : Byline renders correctly 2`] = `
     <span
       className="date"
     >
-      published at 
+      published on 
       Aug 1 2020
     </span>
     <span
