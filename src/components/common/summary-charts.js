@@ -220,17 +220,6 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   ])
   const deathField = useMemo(() => `${prepend}deathIncrease`, [prepend])
 
-  const props = {
-    height: 280, // these control the dimensions used to render the svg but not the final size
-    width: 280, // that is determined by the containing element
-    marginBottom: 40,
-    marginLeft: 60,
-    marginRight: 30,
-    marginTop: 10,
-    xTicks: 3,
-    showTicks: 6,
-  }
-
   const colProps = {
     width: [4, 3, 3], // 1 chart per line on small, 2 on medium & 4 on large screens
     paddingLeft: [0, 8, 8],
@@ -250,6 +239,19 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   const showTodaysChartTick =
     DateTime.fromISO(data[data.length - 1].date).day >= 15
 
+  const chartProps = {
+    height: 280, // these control the dimensions used to render the svg but not the final size
+    width: 280, // that is determined by the containing element
+    marginBottom: 40,
+    marginLeft: 60,
+    marginRight: 30,
+    marginTop: 10,
+    xTicks: 3,
+    showTicks: 6,
+    lastXTick: showTodaysChartTick,
+
+    handleAnnotationClick: () => setDisclosureOpen(true),
+  }
   return (
     <>
       <h2>{name} overview</h2>
@@ -289,10 +291,9 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             refLineData={dailyAverage(usData, testField)}
             fill={colors.colorPlum200}
             lineColor={colors.colorPlum700}
-            lastXTick={showTodaysChartTick}
             annotations={splitAnnotations.tests}
             renderTooltipContents={makeRenderTooltipContents(`new tests`)}
-            {...props}
+            {...chartProps}
           />
         </Col>
         <Col {...colProps}>
@@ -311,10 +312,9 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               refLineData={dailyAverage(usData, positiveField)}
               fill={colors.colorStrawberry100}
               lineColor={colors.colorStrawberry200}
-              lastXTick={showTodaysChartTick}
               annotations={splitAnnotations.cases}
               renderTooltipContents={makeRenderTooltipContents('new cases')}
-              {...props}
+              {...chartProps}
             />
           ) : (
             <ChartAlert message={getAlertMessage('cases')} />
@@ -337,7 +337,6 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               refLineData={dailyAverage(usData, hospitalizedField)}
               fill={colors.colorBlueberry200}
               lineColor={colors.colorBlueberry400}
-              lastXTick={showTodaysChartTick}
               annotations={splitAnnotations.hospitalizations}
               renderTooltipContents={makeRenderTooltipContents(
                 <>
@@ -345,7 +344,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
                   hospitalizations
                 </>,
               )}
-              {...props}
+              {...chartProps}
             />
           ) : (
             <ChartAlert message={getAlertMessage('hospitalizations', true)} />
@@ -367,10 +366,9 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               refLineData={dailyAverage(usData, deathField)}
               fill={colors.colorSlate300}
               lineColor={colors.colorSlate700}
-              lastXTick={showTodaysChartTick}
               annotations={splitAnnotations.death}
               renderTooltipContents={makeRenderTooltipContents('new deaths')}
-              {...props}
+              {...chartProps}
             />
           ) : (
             <ChartAlert message={getAlertMessage('deaths')} />

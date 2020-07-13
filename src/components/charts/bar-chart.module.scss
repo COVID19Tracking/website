@@ -12,18 +12,24 @@
   border-radius: 0.3em;
   text-align: center;
   font-weight: 700;
-}
-
-.annotation-bubble:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border: 8px solid transparent;
-  border-top-color: #d2d6d7;
-  border-bottom: 0;
-  margin-left: -8px;
-  margin-bottom: -4px;
+  text-decoration: none;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-top-color: $color-slate-200;
+    border-bottom: 0;
+    margin-left: -8px;
+    margin-bottom: -4px;
+  }
+  &:hover {
+    background: $color-slate-100;
+    &:after {
+      border-top-color: $color-slate-100;
+    }
+  }
 }

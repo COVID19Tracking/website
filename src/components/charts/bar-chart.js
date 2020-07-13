@@ -19,6 +19,7 @@ const BarChart = ({
   lineData,
   refLineData,
   annotations,
+  handleAnnotationClick,
   fill,
   lineColor,
   marginBottom,
@@ -38,7 +39,6 @@ const BarChart = ({
   const [timeoutRef, setTimeoutRef] = useState(null)
 
   // Used when placing annotations
-  // eslint-disable-next-line no-unused-vars
   const getValueForDate = date => {
     const dateData = data.find(d => d.date.getTime() === date.getTime())
     return dateData && dateData.value
@@ -189,9 +189,16 @@ const BarChart = ({
                 width={20}
                 height={32}
               >
-                <div className={styles.annotationBubble}>
-                  {d.annotationSymbol}
-                </div>
+                <a
+                  href="#chart-annotations"
+                  id="chart-annotations"
+                  onClick={handleAnnotationClick}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className={styles.annotationBubble}>
+                    {d.annotationSymbol}
+                  </div>
+                </a>
               </foreignObject>
             ))}
           </g>
@@ -248,6 +255,7 @@ BarChart.defaultProps = {
   lineColor: 'black',
   refLineData: null,
   annotations: [],
+  handleAnnotationClick: null,
   marginBottom: 0,
   marginLeft: 0,
   marginRight: 0,
@@ -286,6 +294,7 @@ BarChart.propTypes = {
       value: PropTypes.number,
     }),
   ),
+  handleAnnotationClick: PropTypes.func, // also requires chart Annotations to be present at #chart-annotations
   fill: PropTypes.string.isRequired,
   lineColor: PropTypes.string,
   width: PropTypes.number,
