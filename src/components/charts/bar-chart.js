@@ -178,18 +178,20 @@ const BarChart = ({
           />
         </mask>
         {/* annotations */}
-        <g transform={`translate(0 ${marginTop})`}>
-          {annotations.map(d => (
-            <text
-              key={d}
-              className={`${chartStyles.annotation}`}
-              x={xScaleTime(d.date)}
-              y={yScale(getValueForDate(d.date))}
-            >
-              {d.number}
-            </text>
-          ))}
-        </g>
+        {annotations && (
+          <g transform={`translate(0 ${marginTop})`}>
+            {annotations.map(d => (
+              <text
+                key={d}
+                className={`${chartStyles.annotation}`}
+                x={xScaleTime(d.date)}
+                y={yScale(getValueForDate(d.date))}
+              >
+                {d.annotationNumber}
+              </text>
+            ))}
+          </g>
+        )}
         {/* data */}
         <g transform={`translate(0 ${marginTop})`} mask="url(#dataMask)">
           {/* bars (data) */}

@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 import React, { useState, useMemo } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import {
@@ -6,9 +7,11 @@ import {
   DisclosurePanel,
 } from '@reach/disclosure'
 import { DateTime } from 'luxon'
+import { groupBy } from 'lodash'
+
 import Container from '~components/common/container'
 import BarChart from '~components/charts/bar-chart'
-import { parseDate } from '~utilities/visualization'
+import { parseDate, formatDate } from '~utilities/visualization'
 import { Row, Col } from '~components/common/grid'
 import Toggle from '~components/common/toggle'
 import ContentfulContent from '~components/common/contentful-content'
@@ -43,6 +46,23 @@ const dailyAverage = (history, field, range = 7) => {
     })
   })
   return average
+}
+
+const generateAnnotationNumbers = annotations => {
+  const splitAnnotations = groupBy(annotations, a => a.dataElement)
+  // proper order is Test, Cases, hospitalizations, deaths
+  let annotationNumber = 1
+  const generateForField = field => {
+    if (splitAnnotations[field]) {
+      splitAnnotations[field] = splitAnnotations[field].map(a => ({
+        ...a,
+        date: parseDate(a.date),
+        annotationNumber: annotationNumber++,
+      }))
+    }
+  }
+  ;['tests', 'cases', 'hospitalizations', 'death'].forEach(generateForField)
+  return splitAnnotations
 }
 
 // must be of format:
@@ -218,6 +238,12 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
     paddingRight: [0, 8, 8],
   }
 
+  const splitAnnotations = generateAnnotationNumbers(annotations.nodes)
+  // eslint-disable-next-line no-unused-vars
+  const flattenedAnnotations = Object.values(splitAnnotations)
+    .flat()
+    .sort((a, b) => a.annotationNumber - b.annotationNumber)
+
   const getAlertMessage = (field, current = false) =>
     `${name} has not reported data on  ${
       current ? 'current' : ''
@@ -266,6 +292,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             fill={colors.colorPlum200}
             lineColor={colors.colorPlum700}
             lastXTick={showTodaysChartTick}
+            annotations={splitAnnotations.tests}
             renderTooltipContents={makeRenderTooltipContents(`new tests`)}
             {...props}
           />
@@ -287,6 +314,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               fill={colors.colorStrawberry100}
               lineColor={colors.colorStrawberry200}
               lastXTick={showTodaysChartTick}
+              annotations={splitAnnotations.cases}
               renderTooltipContents={makeRenderTooltipContents('new cases')}
               {...props}
             />
@@ -312,6 +340,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               fill={colors.colorBlueberry200}
               lineColor={colors.colorBlueberry400}
               lastXTick={showTodaysChartTick}
+              annotations={splitAnnotations.hospitalizations}
               renderTooltipContents={makeRenderTooltipContents(
                 <>
                   current <br />
@@ -341,6 +370,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               fill={colors.colorSlate300}
               lineColor={colors.colorSlate700}
               lastXTick={showTodaysChartTick}
+              annotations={splitAnnotations.death}
               renderTooltipContents={makeRenderTooltipContents('new deaths')}
               {...props}
             />
@@ -369,11 +399,15 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             </DisclosureButton>
             <DisclosurePanel>
               <Container narrow>
-                {annotations && annotations.nodes && (
+                {flattenedAnnotations && (
                   <>
-                    {annotations.nodes.map(annotation => (
+                    {flattenedAnnotations.map(annotation => (
                       <p>
-                        <b>{annotation.date}</b>
+                        <b>{annotation.annotationNumber}</b>
+                        {' - '}
+                        <span className={styles.annotationDate}>
+                          {formatDate(annotation.date)}
+                        </span>
                         {' - '}
                         <ContentfulRawContent
                           content={annotation.description.description}

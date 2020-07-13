@@ -159,7 +159,7 @@ export const query = graphql`
         description {
           description
         }
-        date(formatString: "YYYY/MM/DD")
+        date(formatString: "YYYYMMDD")
         dataElement
         contentful_id
         childContentfulEventDescriptionTextNode {
