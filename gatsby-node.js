@@ -52,6 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
       allContentfulBlogPost(sort: { fields: updatedAt }) {
         nodes {
           id
+          contentful_id
           slug
           childContentfulBlogPostBlogContentRichTextNode {
             json
@@ -167,7 +168,7 @@ exports.createPages = async ({ graphql, actions }) => {
       })
 
     const longPath = `/blog/${node.slug}`
-    const shortPath = `/${node.id}`
+    const shortPath = `/${node.contentful_id}`
 
     createRedirect({
       fromPath: shortPath,
