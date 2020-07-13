@@ -21,7 +21,7 @@ describe('Components : Pages : Blog : Byline', () => {
               },
             },
           ]}
-          date="Aug 1 2020"
+          published="Aug 1 2020"
         />,
       )
       .toJSON()
@@ -35,7 +35,8 @@ describe('Components : Pages : Blog : Byline', () => {
               name: 'test name',
             },
           ]}
-          date="Aug 1 2020"
+          published="Aug 1 2020"
+          updated="2020-07-13T18:22:44Z"
         />,
       )
       .toJSON()
