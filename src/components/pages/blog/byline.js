@@ -1,8 +1,8 @@
 import React from 'react'
 import classnames from 'classnames'
+import Timezone from '~components/common/timezone'
+import { FormatDate, FormatItemList } from '~components/utils/format'
 import bylineStyles from './byline.module.scss'
-
-import { FormatItemList } from '~components/utils/format'
 
 const getAuthorLink = author => {
   if (author.link) {
@@ -47,7 +47,8 @@ const AuthorsText = ({ authors }) => {
 
 const Byline = ({
   authors,
-  date,
+  published,
+  updated,
   smallmargin = false,
   darkBackground = false,
 }) => {
@@ -76,7 +77,12 @@ const Byline = ({
         <span className={bylineStyles.author}>
           By <AuthorsText authors={authors} />
         </span>
-        <span className={bylineStyles.date}>{date}</span>
+        <span className={bylineStyles.date}>{published}</span>
+        {updated && (
+          <span className={bylineStyles.date}>
+            <FormatDate date={updated} /> <Timezone />
+          </span>
+        )}
       </span>
     </div>
   )
