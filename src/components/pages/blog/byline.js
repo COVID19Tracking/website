@@ -78,7 +78,7 @@ const Byline = ({
           By <AuthorsText authors={authors} />
         </span>
         <span className={bylineStyles.date}>
-          {updated && <>published at </>}
+          {updated && <>published on </>}
           {published}
         </span>
         {updated && (
