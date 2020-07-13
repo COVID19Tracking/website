@@ -241,6 +241,7 @@ const BarChart = ({
 
 BarChart.defaultProps = {
   lineData: null,
+  lineColor: 'black',
   refLineData: null,
   annotations: [],
   marginBottom: 0,
@@ -282,7 +283,7 @@ BarChart.propTypes = {
     }),
   ),
   fill: PropTypes.string.isRequired,
-  lineColor: PropTypes.string.isRequired,
+  lineColor: PropTypes.string,
   width: PropTypes.number,
   height: PropTypes.number,
   marginBottom: PropTypes.number,

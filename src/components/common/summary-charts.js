@@ -50,7 +50,6 @@ const dailyAverage = (history, field, range = 7) => {
 
 const generateAnnotationNumbers = annotations => {
   const splitAnnotations = groupBy(annotations, a => a.dataElement)
-  // proper order is Test, Cases, hospitalizations, deaths
   let annotationNumber = 1
   const generateForField = field => {
     if (splitAnnotations[field]) {
@@ -61,7 +60,7 @@ const generateAnnotationNumbers = annotations => {
       }))
     }
   }
-  ;['tests', 'cases', 'hospitalizations', 'death'].forEach(generateForField)
+  ;['tests', 'cases', 'hospitalizations', 'death'].forEach(generateForField) // dath is the only non-plural on contentful
   return splitAnnotations
 }
 
@@ -239,7 +238,6 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   }
 
   const splitAnnotations = generateAnnotationNumbers(annotations.nodes)
-  // eslint-disable-next-line no-unused-vars
   const flattenedAnnotations = Object.values(splitAnnotations)
     .flat()
     .sort((a, b) => a.annotationNumber - b.annotationNumber)
