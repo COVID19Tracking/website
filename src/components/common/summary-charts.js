@@ -50,13 +50,13 @@ const dailyAverage = (history, field, range = 7) => {
 
 const generateAnnotationNumbers = annotations => {
   const splitAnnotations = groupBy(annotations, a => a.dataElement)
-  let annotationNumber = 1
+  let asciiCode = 97
   const generateForField = field => {
     if (splitAnnotations[field]) {
       splitAnnotations[field] = splitAnnotations[field].map(a => ({
         ...a,
         date: parseDate(a.date),
-        annotationNumber: annotationNumber++,
+        annotationSymbol: String.fromCharCode(asciiCode++),
       }))
     }
   }
@@ -238,7 +238,9 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   }
 
   const splitAnnotations = generateAnnotationNumbers(annotations.nodes)
-  const flattenedAnnotations = Object.values(splitAnnotations)
+  // Gatsby doesn't allow Object.values(...)
+  const flattenedAnnotations = Object.keys(splitAnnotations)
+    .map(key => splitAnnotations[key])
     .flat()
     .sort((a, b) => a.annotationNumber - b.annotationNumber)
 
@@ -401,7 +403,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
                   <>
                     {flattenedAnnotations.map(annotation => (
                       <p>
-                        <b>{annotation.annotationNumber}</b>
+                        <b>{annotation.annotationSymbol}</b>
                         {' - '}
                         <span className={styles.annotationDate}>
                           {formatDate(annotation.date)}

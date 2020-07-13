@@ -187,7 +187,7 @@ const BarChart = ({
                 x={xScaleTime(d.date)}
                 y={yScale(getValueForDate(d.date))}
               >
-                {d.annotationNumber}
+                {d.annotationSymbol}
               </text>
             ))}
           </g>
