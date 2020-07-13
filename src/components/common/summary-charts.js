@@ -238,10 +238,8 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   }
 
   const splitAnnotations = generateAnnotationNumbers(annotations.nodes)
-  // Gatsby doesn't allow Object.values(...)
-  const flattenedAnnotations = Object.keys(splitAnnotations)
-    .map(key => splitAnnotations[key])
-    .flat()
+  const flattenedAnnotations = Object.values(splitAnnotations)
+    .reduce((acc, val) => [...acc, ...val], []) // .flat() // doesn't work in node
     .sort((a, b) => a.annotationNumber - b.annotationNumber)
 
   const getAlertMessage = (field, current = false) =>
