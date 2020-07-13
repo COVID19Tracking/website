@@ -223,7 +223,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
     }  COVID-19 ${field} for at least 30% of the past 90 days.`
 
   const showTodaysChartTick =
-    DateTime.fromISO(data[data.length - 1].date).day > 10
+    DateTime.fromISO(data[data.length - 1].date).day >= 15
 
   return (
     <>
