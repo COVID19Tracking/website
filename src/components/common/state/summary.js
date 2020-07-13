@@ -25,7 +25,12 @@ export default ({ stateSlug, data, raceData }) => (
   <>
     <SummaryRow>
       <SummaryCol>
-        <Card title={<Link to={`/data/state/${stateSlug}/cases`}>Cases</Link>}>
+        <Card
+          title="Cases"
+          link={
+            <Link to={`/data/state/${stateSlug}/cases`}>Historical data</Link>
+          }
+        >
           <CardBody>
             <Statistic title="Total cases" value={data.positive}>
               <StatisticLink to="#">See Sourcing</StatisticLink>
@@ -34,7 +39,12 @@ export default ({ stateSlug, data, raceData }) => (
         </Card>
       </SummaryCol>
       <SummaryCol>
-        <Card title={<Link to={`/data/state/${stateSlug}/tests`}>Test</Link>}>
+        <Card
+          title="Tests"
+          link={
+            <Link to={`/data/state/${stateSlug}/tests`}>Historical data</Link>
+          }
+        >
           <CardBody>
             <Statistic title="Negative" value={data.negative} />
             <Statistic title="Pending" value={data.pending} />
@@ -44,9 +54,10 @@ export default ({ stateSlug, data, raceData }) => (
       </SummaryCol>
       <SummaryCol>
         <Card
-          title={
+          title="Hospitalization"
+          link={
             <Link to={`/data/state/${stateSlug}/hospitalization`}>
-              Hospitalization
+              Historical data
             </Link>
           }
         >
@@ -84,7 +95,12 @@ export default ({ stateSlug, data, raceData }) => (
     <SummaryRow>
       <SummaryCol>
         <Card
-          title={<Link to={`/data/state/${stateSlug}/outcomes`}>Outcomes</Link>}
+          title="Outcomes"
+          link={
+            <Link to={`/data/state/${stateSlug}/outcomes`}>
+              Historical data
+            </Link>
+          }
         >
           <CardBody>
             <Statistic title="Death" value={data.death} />
@@ -94,9 +110,10 @@ export default ({ stateSlug, data, raceData }) => (
       </SummaryCol>
       <SummaryCol width={[4, 3, 4]}>
         <Card
-          title={
+          title="Race &amp; Ethnicity"
+          link={
             <Link to={`/data/state/${stateSlug}/race-ethnicity`}>
-              Race &amp; Ethnicity
+              Historical data
             </Link>
           }
         >
