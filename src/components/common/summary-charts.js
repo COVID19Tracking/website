@@ -50,7 +50,7 @@ const dailyAverage = (history, field, range = 7) => {
 
 const generateAnnotationNumbers = annotations => {
   const splitAnnotations = groupBy(annotations, a => a.dataElement)
-  let asciiCode = 97
+  let asciiCode = 'A'.charCodeAt(0)
   const generateForField = field => {
     if (splitAnnotations[field]) {
       splitAnnotations[field] = splitAnnotations[field].map(a => ({
@@ -399,20 +399,20 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               <Container narrow>
                 {flattenedAnnotations && (
                   <>
-                    {flattenedAnnotations.map(annotation => (
-                      <p>
-                        <b>{annotation.annotationSymbol}</b>
-                        {' - '}
-                        <span className={styles.annotationDate}>
+                    <ol className={styles.annotationList}>
+                      {flattenedAnnotations.map(annotation => (
+                        <li className={styles.annotationItem}>
                           {formatDate(annotation.date)}
-                        </span>
-                        {' - '}
-                        <ContentfulRawContent
-                          content={annotation.description.description}
-                          id={annotation.contentful_id}
-                        />
-                      </p>
-                    ))}
+                          {': '}
+                          <span>
+                            <ContentfulRawContent
+                              content={annotation.description.description}
+                              id={annotation.contentful_id}
+                            />
+                          </span>
+                        </li>
+                      ))}
+                    </ol>
                     <hr />
                   </>
                 )}

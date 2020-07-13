@@ -76,7 +76,16 @@
 }
 
 .annotation-list {
-  padding-inline-start: 15px; // ignore-style-rule
+  padding-inline-start: 20px; // ignore-style-rule
+  list-style-type: upper-alpha;
+
+  .annotation-item {
+    font-weight: 700;
+    padding-inline-start: 4px;
+    span {
+      font-weight: 400;
+    }
+  }
 }
 
 .annotation-title {

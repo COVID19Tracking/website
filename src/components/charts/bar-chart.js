@@ -38,6 +38,7 @@ const BarChart = ({
   const [timeoutRef, setTimeoutRef] = useState(null)
 
   // Used when placing annotations
+  // eslint-disable-next-line no-unused-vars
   const getValueForDate = date => {
     const dateData = data.find(d => d.date.getTime() === date.getTime())
     return dateData && dateData.value
@@ -181,14 +182,17 @@ const BarChart = ({
         {annotations && (
           <g transform={`translate(0 ${marginTop})`}>
             {annotations.map(d => (
-              <text
+              <foreignObject
+                x={xScaleTime(d.date) - 11}
                 key={d}
-                className={`${chartStyles.annotation}`}
-                x={xScaleTime(d.date)}
-                y={yScale(getValueForDate(d.date))}
+                y={yScale(getValueForDate(d.date)) - 32}
+                width={20}
+                height={32}
               >
-                {d.annotationSymbol}
-              </text>
+                <div className={styles.annotationBubble}>
+                  {d.annotationSymbol}
+                </div>
+              </foreignObject>
             ))}
           </g>
         )}
