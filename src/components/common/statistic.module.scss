@@ -1,13 +1,19 @@
 .title {
   font-weight: bold;
+  width: 50%;
 }
 
 .value {
-  color: $color-slate-800;
+  width: 50%;
+  text-align: right;
+  @include type-size(300);
+  font-weight: bold;
 }
 
 .statistic {
-  @include margin(16, bottom);
+  @include margin(8, bottom);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .group {
@@ -15,4 +21,15 @@
   .statistic {
     width: 50%;
   }
+}
+
+.info {
+  flex: 100%;
+}
+
+.link {
+  color: $color-plum-600;
+  @include type-size(100);
+  display: inline-block;
+  @include margin(8, right);
 }

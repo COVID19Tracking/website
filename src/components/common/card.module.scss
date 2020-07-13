@@ -1,13 +1,22 @@
 .card {
+  @media (min-width: $viewport-md) {
+    border: 2px solid $color-slate-200;
+  }
+  .header {
+    background: $color-plum-100;
+    @include padding(16);
+  }
+  .link {
+    float: right;
+    display: block;
+    a {
+      color: $color-plum-600;
+    }
+  }
   .title {
     @include type-size(200);
     font-weight: bold;
-    border-bottom: 1px solid black;
-    @include padding(16, top bottom);
     margin: 0;
-    @media (min-width: $viewport-md) {
-      @include padding(16);
-    }
   }
   .body {
     @include padding(16, top bottom);
@@ -17,32 +26,35 @@
   }
 }
 
-.disclosure-button {
-  background: none;
-  text-decoration: underline;
-  text-align: left;
-  color: $color-slate-600;
-  border: 0;
-  display: block;
-  padding: 0;
-  @include margin(16, top bottom);
-  @include type-size(200);
-  cursor: pointer;
-  span {
-    @include margin(8, left);
-  }
-  .arrow-down {
-    display: inline-block;
-  }
-  .arrow-up {
-    display: none;
-  }
-  &[aria-expanded='true'] {
-    .arrow-down {
+.disclosure {
+  @include margin(8, top);
+  @include padding(8, top);
+  border-top: 1px solid $color-slate-200;
+  button[aria-controls] {
+    background: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-align: left;
+    border: 0;
+    display: block;
+    padding: 0;
+    margin: 0;
+    @include type-size(100);
+    cursor: pointer;
+    .closed {
+      display: inline-block;
+    }
+    .expanded {
       display: none;
     }
-    .arrow-up {
-      display: inline-block;
+    &[aria-expanded='true'] {
+      .closed {
+        display: none;
+      }
+      .expanded {
+        display: inline-block;
+      }
     }
   }
 }

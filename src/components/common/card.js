@@ -6,17 +6,16 @@ import {
 } from '@reach/disclosure'
 import cardStyles from './card.module.scss'
 
-const CardDisclosure = ({ children }) => <Disclosure>{children}</Disclosure>
+const CardDisclosure = ({ children }) => (
+  <div className={cardStyles.disclosure}>
+    <Disclosure>{children}</Disclosure>
+  </div>
+)
 
-const CardDisclsoureButton = ({ children }) => (
-  <DisclosureButton className={cardStyles.disclosureButton}>
-    {children}
-    <span className={cardStyles.arrowDown} aria-hidden>
-      ↓
-    </span>
-    <span className={cardStyles.arrowUp} aria-hidden>
-      ↑
-    </span>
+const CardDisclsoureButton = ({ closed, expanded }) => (
+  <DisclosureButton>
+    <span className={cardStyles.closed}>{closed}</span>
+    <span className={cardStyles.expanded}>{expanded}</span>
   </DisclosureButton>
 )
 const CardDisclosurePanel = ({ children }) => (
@@ -27,9 +26,14 @@ const CardBody = ({ children }) => (
   <div className={cardStyles.body}>{children}</div>
 )
 
-const Card = ({ title, children }) => (
+const Card = ({ title, link, children }) => (
   <div className={cardStyles.card}>
-    {title && <h3 className={cardStyles.title}>{title}</h3>}
+    {(title || link) && (
+      <div className={cardStyles.header}>
+        {link && <span className={cardStyles.link}>{link}</span>}
+        {title && <h3 className={cardStyles.title}>{title}</h3>}
+      </div>
+    )}
     {children}
   </div>
 )
