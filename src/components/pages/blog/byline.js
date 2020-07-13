@@ -77,10 +77,14 @@ const Byline = ({
         <span className={bylineStyles.author}>
           By <AuthorsText authors={authors} />
         </span>
-        <span className={bylineStyles.date}>{published}</span>
+        <span className={bylineStyles.date}>
+          {updated && <>published at </>}
+          {published}
+        </span>
         {updated && (
           <span className={bylineStyles.date}>
-            <FormatDate date={updated} /> <Timezone />
+            updated at <FormatDate date={updated} format="h:mm a" />{' '}
+            <Timezone /> on <FormatDate date={updated} format="LLLL d, yyyy" />
           </span>
         )}
       </span>
