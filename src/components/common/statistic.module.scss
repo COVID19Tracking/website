@@ -1,10 +1,8 @@
 .title {
   font-weight: bold;
-  width: 50%;
 }
 
 .value {
-  width: 50%;
   text-align: right;
   @include type-size(300);
   font-weight: bold;
@@ -13,6 +11,7 @@
 .statistic {
   @include margin(8, bottom);
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
