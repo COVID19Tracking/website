@@ -60,7 +60,7 @@ export default () => {
             <LargeHeader center narrow>
               Nationwide, Black people are dying at{' '}
               <FormatNumber number={blackwhiteRateRatio} /> times the rate of
-              white people
+              white people.
             </LargeHeader>
             <NationalChart />
           </LandingPageContainer>
