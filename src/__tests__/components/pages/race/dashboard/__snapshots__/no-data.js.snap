@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Race : Dashboard : No Data renders correctly 1`] = `
+<div
+  className="container"
+>
+  <table
+    aria-hidden={true}
+    className="table"
+    role="presentation"
+  >
+    <tbody>
+      <tr>
+        <td />
+        <td />
+        <td />
+        <td />
+      </tr>
+      <tr>
+        <td />
+        <td />
+        <td />
+        <td />
+      </tr>
+      <tr>
+        <td />
+        <td />
+        <td />
+        <td />
+      </tr>
+      <tr>
+        <td />
+        <td />
+        <td />
+        <td />
+      </tr>
+      <tr>
+        <td />
+        <td />
+        <td />
+        <td />
+      </tr>
+      <tr>
+        <td />
+        <td />
+        <td />
+        <td />
+      </tr>
+    </tbody>
+  </table>
+  <div
+    className="alert"
+  >
+    <div
+      className="title"
+    >
+      <img
+        alt="Alert icon"
+        src="test-file-stub"
+      />
+      <span>
+        No Data
+      </span>
+    </div>
+    <div
+      className="content"
+    >
+      <p>
+        Arizona
+         does not share data about race or ethnicity.
+         
+        <a
+          href="/get-involved"
+        >
+          Help us advocate for better data
+        </a>
+        .
+      </p>
+    </div>
+  </div>
+</div>
+`;

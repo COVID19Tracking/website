@@ -1,0 +1,603 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correctly 1`] = `
+<div>
+  <table
+    className="table"
+  >
+    <thead>
+      <tr>
+        <th
+          className="group"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Type
+          </span>
+        </th>
+        <th
+          className="borderLeft percent"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Percentage of population
+          </span>
+        </th>
+        <th
+          className="percent missingData"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
+            />
+            Percentage of cases
+            <div
+              className="symbolSpacer"
+            />
+          </span>
+        </th>
+        <th
+          className="percent missingData"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
+            />
+            Percentage of deaths
+            <div
+              className="symbolSpacer"
+            />
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            Hispanic or Latino
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          91
+          %
+        </td>
+        <td
+          className="missingData"
+          rowSpan={2}
+        >
+          <span>
+             does not report 
+            type
+             data for 
+            cases
+            .
+             
+            <a
+              href="/get-involved"
+            >
+              Help us get better data.
+            </a>
+          </span>
+        </td>
+        <td
+          className="missingData"
+          rowSpan={2}
+        >
+          <span>
+             does not report 
+            type
+             data for 
+            deaths
+            .
+             
+            <a
+              href="/get-involved"
+            >
+              Help us get better data.
+            </a>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            Not Hispanic or Latino
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          0%
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`] = `
+<div>
+  <table
+    className="table"
+  >
+    <thead>
+      <tr>
+        <th
+          className="group"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Type
+          </span>
+        </th>
+        <th
+          className="borderLeft percent"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Percentage of population
+          </span>
+        </th>
+        <th
+          className="percent missingData"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
+            />
+            Percentage of cases
+            <div
+              className="symbolSpacer"
+            />
+          </span>
+        </th>
+        <th
+          className="percent missingData"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
+            />
+            Percentage of deaths
+            <div
+              className="symbolSpacer"
+            />
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            Black or African American alone
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          22
+          %
+        </td>
+        <td
+          className="missingData"
+          rowSpan={7}
+        >
+          <span>
+             does not report 
+            type
+             data for 
+            cases
+            .
+             
+            <a
+              href="/get-involved"
+            >
+              Help us get better data.
+            </a>
+          </span>
+        </td>
+        <td
+          className="missingData"
+          rowSpan={7}
+        >
+          <span>
+             does not report 
+            type
+             data for 
+            deaths
+            .
+             
+            <a
+              href="/get-involved"
+            >
+              Help us get better data.
+            </a>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            Asian alone
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          85
+          %
+        </td>
+      </tr>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            Native Hawaiian and Pacific Islander alone
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          36
+          %
+        </td>
+      </tr>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            American Indian or Alaska Native alone
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          79
+          %
+        </td>
+      </tr>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            Two or more races
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          99
+          %
+        </td>
+      </tr>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            White alone
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          3
+          %
+        </td>
+      </tr>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            Some other race alone
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          31
+          %
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`] = `
+<div>
+  <table
+    className="table"
+  >
+    <thead>
+      <tr>
+        <th
+          className="group"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Type
+          </span>
+        </th>
+        <th
+          className="borderLeft percent"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            Percentage of population
+          </span>
+        </th>
+        <th
+          className="percent missingData"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
+            />
+            Percentage of cases
+            <div
+              className="symbolSpacer"
+            />
+          </span>
+        </th>
+        <th
+          className="percent missingData"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
+            />
+            Percentage of deaths
+            <div
+              className="symbolSpacer"
+            />
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            Black or African American alone
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          22
+          %
+        </td>
+        <td
+          className="missingData"
+          rowSpan={7}
+        >
+          <span>
+             does not report 
+            type
+             data for 
+            cases
+            .
+             
+            <a
+              href="/get-involved"
+            >
+              Help us get better data.
+            </a>
+          </span>
+        </td>
+        <td
+          className="missingData"
+          rowSpan={7}
+        >
+          <span>
+             does not report 
+            type
+             data for 
+            deaths
+            .
+             
+            <a
+              href="/get-involved"
+            >
+              Help us get better data.
+            </a>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            Asian alone
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          85
+          %
+        </td>
+      </tr>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            Native Hawaiian and Pacific Islander alone
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          36
+          %
+        </td>
+      </tr>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            American Indian or Alaska Native alone
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          79
+          %
+        </td>
+      </tr>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            Two or more races
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          99
+          %
+        </td>
+      </tr>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            White alone
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          3
+          %
+        </td>
+      </tr>
+      <tr>
+        <th
+          className="group"
+          scope="row"
+        >
+          <span
+            role="text"
+          >
+            Some other race alone
+          </span>
+        </th>
+        <td
+          className="borderLeft"
+        >
+          31
+          %
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

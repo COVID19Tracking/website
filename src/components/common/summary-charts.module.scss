@@ -87,7 +87,9 @@
   @include type-size(200);
   font-weight: normal;
   display: block;
-  float: right;
+  font-size: 0.8rem;
+  display: inline;
+  @include margin(4, left);
 }
 
 .chart-logo {

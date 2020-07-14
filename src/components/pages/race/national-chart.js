@@ -64,7 +64,7 @@ export default () => {
     <div>
       <div className={nationalChartStyle.charts}>
         <div className={nationalChartStyle.header}>
-          <div className={nationalChartStyle.headerSpacer} />
+          <div className={nationalChartStyle.spacer} />
           <span>
             Deaths per <FormatNumber number={perXPeople} /> people by race or
             ethnicity
@@ -77,6 +77,7 @@ export default () => {
               endpointToLabel[race.label].emphasis &&
                 nationalChartStyle.emphasis,
             )}
+            key={race.label}
           >
             <div>
               <span className={nationalChartStyle.rowLabel}>
@@ -99,30 +100,33 @@ export default () => {
           </div>
         ))}
       </div>
-      <div>
-        <Disclosure
-          open={isCollapsed}
-          onChange={() => toggleIsCollapsed(!isCollapsed)}
-        >
-          <DisclosureButton className={nationalChartStyle.showNotes}>
-            {isCollapsed ? (
-              <>
-                Notes <span aria-hidden>↑</span>
-              </>
-            ) : (
-              <>
-                Notes <span aria-hidden>↓</span>
-              </>
-            )}
-          </DisclosureButton>
-          <DisclosurePanel className={nationalChartStyle.notes}>
-            These calculations are based on data from The Covid Racial Data
-            Tracker and the U.S. Census Bureau. Race categories may overlap with
-            Hispanic/Latinx ethnicity. Rates are not age-adjusted and some rates
-            are underestimated due to lack of reporting of race and ethnicity
-            categories for COVID-19 deaths.
-          </DisclosurePanel>
-        </Disclosure>
+      <div className={nationalChartStyle.disclosureWrapper}>
+        <div className={nationalChartStyle.spacer} />
+        <div className={nationalChartStyle.disclosureContainer}>
+          <Disclosure
+            open={isCollapsed}
+            onChange={() => toggleIsCollapsed(!isCollapsed)}
+          >
+            <DisclosureButton className={nationalChartStyle.showNotes}>
+              {isCollapsed ? (
+                <>
+                  Notes <span aria-hidden>↑</span>
+                </>
+              ) : (
+                <>
+                  Notes <span aria-hidden>↓</span>
+                </>
+              )}
+            </DisclosureButton>
+            <DisclosurePanel className={nationalChartStyle.notes}>
+              These calculations are based on data from The Covid Racial Data
+              Tracker and the U.S. Census Bureau. Race categories may overlap
+              with Hispanic/Latinx ethnicity. Rates are not age-adjusted and
+              some rates are underestimated due to lack of reporting of race and
+              ethnicity categories for COVID-19 deaths.
+            </DisclosurePanel>
+          </Disclosure>
+        </div>
       </div>
       <RacialDataParagraph className={nationalChartStyle.paragraph}>
         We’ve lost at least {covidRaceDataHomepage.blackLivesLost} Black lives

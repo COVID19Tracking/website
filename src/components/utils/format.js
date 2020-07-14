@@ -21,6 +21,7 @@ const FormatDate = ({
   format = 'ccc LLL d yyyy h:mm a',
   timezone = true,
 }) => {
+  // tokens spec: https://moment.github.io/luxon/docs/manual/formatting.html#table-of-tokens
   return (
     <>
       {timezone

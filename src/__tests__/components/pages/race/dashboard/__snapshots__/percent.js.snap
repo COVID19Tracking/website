@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Race : Dashboard : Percent renders correctly 1`] = `"0%"`;
+
+exports[`Components : Race : Dashboard : Percent renders correctly 2`] = `"–"`;
+
+exports[`Components : Race : Dashboard : Percent renders correctly 3`] = `
+Array [
+  "20",
+  "%",
+]
+`;
+
+exports[`Components : Race : Dashboard : Percent renders correctly 4`] = `"0%"`;

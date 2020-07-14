@@ -19,19 +19,26 @@ import colors from '~scss/colors.module.scss'
 
 import styles from './summary-charts.module.scss'
 
+import TooltipContents from '~components/charts/tooltip-contents'
+
 const dailyAverage = (history, field, range = 7) => {
   if (!history || !field) return null
   const average = []
   history.forEach((row, rowIndex) => {
     const pastRows = []
     let pastIndex = rowIndex
-    while (pastIndex >= 0 && pastIndex > rowIndex - range) {
-      pastRows.push(history[pastIndex][field])
+    const dayHasData = row[field] !== null
+    while (dayHasData && pastIndex >= 0 && pastIndex > rowIndex - range) {
+      if (history[pastIndex][field] !== null) {
+        pastRows.push(history[pastIndex][field])
+      }
       pastIndex -= 1
     }
     average.push({
       date: parseDate(row.date),
-      value: pastRows.reduce((a, b) => a + b, 0) / pastRows.length,
+      value: dayHasData
+        ? pastRows.reduce((a, b) => a + b, 0) / pastRows.length
+        : null,
     })
   })
   return average
@@ -66,14 +73,17 @@ const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
     return null
   }
   return (
-    <a
-      href="#chart-annotations"
-      id="chart-annotations"
-      className={styles.annotationIndicator}
-      onClick={() => openDisclosure()}
-    >
-      Notes
-    </a>
+    <span className={styles.annotationIndicator}>
+      (
+      <a
+        href="#chart-annotations"
+        id="chart-annotations"
+        onClick={() => openDisclosure()}
+      >
+        Notes
+      </a>
+      )
+    </span>
   )
 }
 
@@ -107,12 +117,37 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   const [useFullRange, setUseFullRange] = useState(false)
   const [isDisclosureOpen, setDisclosureOpen] = useState(false)
 
+  // will need to be modified to support mutliple values
+  const makeRenderTooltipContents = text => d => (
+    <TooltipContents
+      date={d.date}
+      items={[
+        {
+          text: (
+            <>
+              {text}
+              {usePerCap ? (
+                <>
+                  <br /> per 1M people
+                </>
+              ) : (
+                ''
+              )}
+            </>
+          ),
+          value: d.value,
+        },
+      ]}
+    />
+  )
+
   // This enables us to use the getDataForField & dailyAverage functions above
   // without enable triple nested properties
   const hoistPerCapProps = node => {
     const obj = {}
     Object.keys(node.childPopulation).forEach(t => {
       obj[`perCap_${t}`] =
+        node.childPopulation[t].percent &&
         node.childPopulation[t].percent * stateChartPerCapMeasure
     })
     return { ...node, ...obj }
@@ -148,9 +183,10 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   )
 
   const hasData = field =>
-    data.filter(item => item[field.replace('perCap_', '')] !== null).length >=
+    name === 'Florida' ||
+    (data.filter(item => item[field.replace('perCap_', '')] !== null).length >=
       data.length * 0.3 &&
-    data.filter(item => item[field.replace('perCap_', '')] > 0).length > 0
+      data.filter(item => item[field.replace('perCap_', '')] > 0).length > 0)
 
   // Below enables the charts to switch between the per cap & not data
   // using the toggle state
@@ -187,7 +223,8 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
     }  COVID-19 ${field} for at least 30% of the past 90 days.`
 
   const showTodaysChartTick =
-    DateTime.fromISO(data[data.length - 1].date).day > 10
+    DateTime.fromISO(data[data.length - 1].date).day >= 15
+
   return (
     <>
       <div className={styles.infoLine}>
@@ -227,6 +264,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             fill={colors.colorPlum200}
             lineColor={colors.colorPlum700}
             lastXTick={showTodaysChartTick}
+            renderTooltipContents={makeRenderTooltipContents(`new tests`)}
             {...props}
           />
         </Col>
@@ -247,6 +285,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               fill={colors.colorStrawberry100}
               lineColor={colors.colorStrawberry200}
               lastXTick={showTodaysChartTick}
+              renderTooltipContents={makeRenderTooltipContents('new cases')}
               {...props}
             />
           ) : (
@@ -271,6 +310,12 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               fill={colors.colorBlueberry200}
               lineColor={colors.colorBlueberry400}
               lastXTick={showTodaysChartTick}
+              renderTooltipContents={makeRenderTooltipContents(
+                <>
+                  current <br />
+                  hospitalizations
+                </>,
+              )}
               {...props}
             />
           ) : (
@@ -294,6 +339,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               fill={colors.colorSlate300}
               lineColor={colors.colorSlate700}
               lastXTick={showTodaysChartTick}
+              renderTooltipContents={makeRenderTooltipContents('new deaths')}
               {...props}
             />
           ) : (

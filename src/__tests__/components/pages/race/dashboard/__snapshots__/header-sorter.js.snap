@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Race : Dashboard : Header Sorter renders correctly 1`] = `
+<div
+  className="container"
+>
+  <p>
+    The following tables reflect only those cases and deaths where
+     
+    race
+     is known and reported by 
+    Arizona
+    . If this state’s reporting percentages are low, interpret with caution.
+  </p>
+</div>
+`;
