@@ -5,6 +5,7 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@reach/disclosure'
+import marked from 'marked'
 import DetailText from '~components/common/detail-text'
 import explorerStyles from './explorer.module.scss'
 import definition from '../../../../../_api/v1/openapi.json'
@@ -50,7 +51,13 @@ const Fields = ({ schema }) => {
                 <span className="a11y-only">Field type: </span>
                 {fields[property].type}
               </div>
-              <p>{fields[property].description}</p>
+              {fields[property].description && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: marked(fields[property].description),
+                  }}
+                />
+              )}
 
               {fields[property].type === 'integer' &&
                 fields[property].nullable && (
