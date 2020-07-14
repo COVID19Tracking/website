@@ -11,9 +11,7 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
-    allContentfulEvent(
-      filter: { displayTimeline: { eq: true }, timeline: { eq: "antibody" } }
-    ) {
+    allContentfulEvent(filter: { displayTimeline: { eq: true } }) {
       nodes {
         title
         timeline

@@ -12,12 +12,13 @@ const prepareObject = nodes => {
     events.push({
       start_date: startDate.toObject(),
       end_date: endDate.toObject(),
+      group: node.timeline,
       text: {
         headline: node.title,
         text: node.description.childMarkdownRemark.html,
       },
       media: {
-        url: node.media.media,
+        url: node.media ? node.media.media : false,
         caption: node.mediaCaption,
         credit: node.mediaCredit,
       },
