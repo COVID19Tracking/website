@@ -23,7 +23,7 @@ export default ({ data }) => (
 export const query = graphql`
   {
     allContentfulEvent(
-      filter: { displayTimeline: { eq: true }, timeline: { eq: "outside" } }
+      filter: { displayTimeline: { eq: true }, timeline: { eq: "antibody" } }
     ) {
       nodes {
         title
@@ -42,7 +42,7 @@ export const query = graphql`
         dateEnd
       }
     }
-    contentfulSnippet(slug: { eq: "timeline-preamble-outside-events" }) {
+    contentfulSnippet(slug: { eq: "timeline-preamble-testing" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
