@@ -100,6 +100,8 @@ export const query = graphql`
       onVentilatorCurrently
       onVentilatorCumulative
       death
+      deathProbable
+      deathConfirmed
       totalTestResults
       dateModified
       dataQualityGrade
