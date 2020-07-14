@@ -4,11 +4,15 @@
   }
   .header {
     background: $color-plum-100;
-    @include padding(16);
+    @include padding(16, (left, right));
+    @include padding(8, (top, bottom));
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .link {
-    float: right;
-    display: block;
+    font-size: 11px; // ignore-style-rule
     a {
       color: $color-plum-600;
     }
@@ -17,6 +21,7 @@
     @include type-size(200);
     font-weight: bold;
     margin: 0;
+    line-height: 1.4;
   }
   .body {
     @include padding(16, top bottom);

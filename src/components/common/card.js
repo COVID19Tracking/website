@@ -30,8 +30,8 @@ const Card = ({ title, link, children }) => (
   <div className={cardStyles.card}>
     {(title || link) && (
       <div className={cardStyles.header}>
-        {link && <span className={cardStyles.link}>{link}</span>}
         {title && <h3 className={cardStyles.title}>{title}</h3>}
+        {link && <span className={cardStyles.link}>{link}</span>}
       </div>
     )}
     {children}
