@@ -21,7 +21,7 @@ export default ({ data, path }) => {
       authors={blogPost.authors}
       date={blogPost.publishDate}
       lede={blogPost.lede.lede}
-      slug={blogPost.slug}
+      id={blogPost.contentful_id}
     />
   )
 
@@ -59,6 +59,7 @@ export default ({ data, path }) => {
 export const query = graphql`
   query($id: String!, $blogImages: [String]) {
     contentfulBlogPost(id: { eq: $id }) {
+      contentful_id
       title
       authors {
         name
