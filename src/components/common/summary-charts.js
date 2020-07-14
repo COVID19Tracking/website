@@ -250,7 +250,11 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
     showTicks: 6,
     lastXTick: showTodaysChartTick,
 
-    handleAnnotationClick: () => setDisclosureOpen(true),
+    handleAnnotationClick: () => {
+      setDisclosureOpen(true)
+      // eslint-disable-next-line no-restricted-globals
+      location.replace('#chart-annotations')
+    },
   }
   return (
     <>

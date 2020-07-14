@@ -182,24 +182,50 @@ const BarChart = ({
         {annotations && (
           <g transform={`translate(0 ${marginTop})`}>
             {annotations.map(d => (
-              <foreignObject
-                x={xScaleTime(d.date) - 11}
+              <svg
                 key={d}
-                y={yScale(getValueForDate(d.date)) - 32}
-                width={20}
-                height={32}
+                width="20"
+                height="24"
+                x={xScaleTime(d.date) - 11}
+                y={yScale(getValueForDate(d.date)) - 26}
+                viewBox="0 0 20 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                onClick={handleAnnotationClick}
+                style={{ cursor: 'pointer' }}
+                className={styles.annotationBubbleSvg}
+                pointerEvents="bounding-box"
               >
-                <a
-                  href="#chart-annotations"
-                  id="chart-annotations"
-                  onClick={handleAnnotationClick}
-                  style={{ textDecoration: 'none' }}
+                <mask id="path-1-inside-1" fill="white">
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M3 0C1.34315 0 0 1.34314 0 3V16.9412C0 18.5981 1.34315 19.9412 3 19.9412H6.17188L10.2426 24L14.3134 19.9412H17C18.6569 19.9412 20 18.5981 20 16.9412V3C20 1.34315 18.6569 0 17 0H3Z"
+                  />
+                </mask>
+
+                <path
+                  d="M6.17188 19.9412L6.87794 19.2331L6.58523 18.9412H6.17188V19.9412ZM10.2426 24L9.53658 24.7081L10.2426 25.4121L10.9487 24.7081L10.2426 24ZM14.3134 19.9412V18.9412H13.9001L13.6073 19.2331L14.3134 19.9412ZM1 3C1 1.89543 1.89543 1 3 1V-1C0.790863 -1 -1 0.790856 -1 3H1ZM1 16.9412V3H-1V16.9412H1ZM3 18.9412C1.89543 18.9412 1 18.0458 1 16.9412H-1C-1 19.1503 0.790861 20.9412 3 20.9412V18.9412ZM6.17188 18.9412H3V20.9412H6.17188V18.9412ZM10.9487 23.2919L6.87794 19.2331L5.46581 20.6493L9.53658 24.7081L10.9487 23.2919ZM13.6073 19.2331L9.53658 23.2919L10.9487 24.7081L15.0195 20.6493L13.6073 19.2331ZM17 18.9412H14.3134V20.9412H17V18.9412ZM19 16.9412C19 18.0458 18.1046 18.9412 17 18.9412V20.9412C19.2091 20.9412 21 19.1503 21 16.9412H19ZM19 3V16.9412H21V3H19ZM17 1C18.1046 1 19 1.89543 19 3H21C21 0.790861 19.2091 -1 17 -1V1ZM3 1H17V-1H3V1Z"
+                  fill="black"
+                  mask="url(#path-1-inside-1)"
+                />
+                <rect
+                  x="0"
+                  y="0"
+                  height="32"
+                  width="20"
+                  mask="url(#path-1-inside-1)"
+                />
+                <text
+                  fill="black"
+                  x="9.5"
+                  y="15"
+                  textAnchor="middle"
+                  style={{ fontSize: 13, fontWeight: 700 }}
                 >
-                  <div className={styles.annotationBubble}>
-                    {d.annotationSymbol}
-                  </div>
-                </a>
-              </foreignObject>
+                  {d.annotationSymbol}
+                </text>
+              </svg>
             ))}
           </g>
         )}
