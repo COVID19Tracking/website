@@ -25,11 +25,13 @@
 
 .info {
   flex: 100%;
+  line-height: 1;
 }
 
 .link {
-  color: $color-plum-600;
+  color: $color-blueberry-400;
   @include type-size(100);
   display: inline-block;
   @include margin(8, right);
+  line-height: 1;
 }
