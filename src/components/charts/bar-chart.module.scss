@@ -32,9 +32,10 @@
     bottom: -1px;
   }
   &:hover {
-    background: $color-slate-100;
+    background: black;
+    color: white;
     &:after {
-      border-top-color: $color-slate-100;
+      border-top-color: black;
     }
   }
 }
