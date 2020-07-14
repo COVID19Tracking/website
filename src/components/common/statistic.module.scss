@@ -32,6 +32,18 @@
   color: $color-blueberry-400;
   @include type-size(100);
   display: inline-block;
-  @include margin(8, right);
+  @include margin(8, (right, bottom));
   line-height: 1;
+}
+
+.drill-down {
+  text-align: right;
+  .label {
+    font-size: 11px; // ignore-style-rule
+    @include padding(8, right);
+  }
+
+  .value {
+    @include type-size(100);
+  }
 }

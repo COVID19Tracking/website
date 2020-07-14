@@ -24,4 +24,11 @@ const StatisticGroup = ({ children }) => (
   <div className={statisticStyles.group}>{children}</div>
 )
 
-export { Statistic, StatisticGroup, StatisticLink }
+const DrillDown = ({ label, value }) => (
+  <div className={statisticStyles.drillDown}>
+    <span className={statisticStyles.label}>{label}</span>
+    <span className={statisticStyles.value}>{value}</span>
+  </div>
+)
+
+export { DrillDown, Statistic, StatisticGroup, StatisticLink }

@@ -88,6 +88,7 @@ export const query = graphql`
     }
     covidState(state: { eq: $state }) {
       positive
+      positiveIncrease
       negative
       lastUpdateEt
       pending

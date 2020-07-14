@@ -7,7 +7,11 @@ import {
   CardDisclsoureButton,
   CardDisclosurePanel,
 } from '~components/common/card'
-import { Statistic, StatisticLink } from '~components/common/statistic'
+import {
+  DrillDown,
+  Statistic,
+  StatisticLink,
+} from '~components/common/statistic'
 import { Row, Col } from '~components/common/grid'
 import summaryStyles from './summary.module.scss'
 
@@ -34,6 +38,11 @@ export default ({ stateSlug, data, raceData }) => (
           <CardBody>
             <Statistic title="Total cases" value={data.positive}>
               <StatisticLink to="#">See Sourcing</StatisticLink>
+              <DrillDown label="New Cases" value={data.positiveIncrease} />
+              <DrillDown
+                label="Increase in 7 days"
+                value={data.positiveIncrease}
+              />
             </Statistic>
           </CardBody>
         </Card>
