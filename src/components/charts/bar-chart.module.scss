@@ -1,5 +1,15 @@
+@import '~scss/colors.module.scss';
+
 .interactive-bar {
   &:hover {
     stroke: black;
+  }
+}
+.annotation-bubble-svg {
+  &:hover {
+    fill: black;
+    text {
+      fill: white;
+    }
   }
 }
