@@ -10,7 +10,7 @@ import {
 import {
   DrillDown,
   Statistic,
-  StatisticLink,
+  SourcingLink,
 } from '~components/common/statistic'
 import { Row, Col } from '~components/common/grid'
 import summaryStyles from './summary.module.scss'
@@ -40,12 +40,13 @@ export default ({ stateSlug, data, raceData }) => {
           >
             <CardBody>
               <Statistic title="Total cases" value={data.positive}>
-                <StatisticLink to="#">See Sourcing</StatisticLink>
+                <SourcingLink to="#" />
                 <DrillDown label="New Cases" value={data.positiveIncrease} />
                 <DrillDown
                   label="Increase in 7 days"
                   value={data.positiveIncrease}
                 />
+                {/* todo set the 7 day change value */}
               </Statistic>
             </CardBody>
           </Card>

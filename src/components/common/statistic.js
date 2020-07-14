@@ -20,6 +20,10 @@ const StatisticLink = ({ to, children }) => (
   </Link>
 )
 
+const SourcingLink = ({ to }) => (
+  <StatisticLink to={to}>See sourcing</StatisticLink>
+)
+
 const StatisticGroup = ({ children }) => (
   <div className={statisticStyles.group}>{children}</div>
 )
@@ -31,4 +35,4 @@ const DrillDown = ({ label, value }) => (
   </div>
 )
 
-export { DrillDown, Statistic, StatisticGroup, StatisticLink }
+export { DrillDown, Statistic, StatisticGroup, StatisticLink, SourcingLink }
