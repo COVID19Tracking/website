@@ -1,12 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import {
-  Card,
-  CardBody,
-  CardDisclosure,
-  CardDisclsoureButton,
-  CardDisclosurePanel,
-} from '~components/common/card'
+import { Card, CardBody } from '~components/common/card'
 import {
   DrillDown,
   Statistic,
@@ -67,7 +61,7 @@ export default ({ stateSlug, data, raceData }) => {
         </SummaryCol>
         <SummaryCol>
           <Card
-            title="Hospitalization"
+            title="Cumulative Hospitalization"
             link={
               <Link to={`/data/state/${stateSlug}/hospitalization`}>
                 Historical data
@@ -75,35 +69,18 @@ export default ({ stateSlug, data, raceData }) => {
             }
           >
             <CardBody>
-              <Statistic title="Currently" value={data.hospitalizedCurrently} />
               <Statistic
                 title="Cumulative"
                 value={data.hospitalizedCumulative}
               />
-              <CardDisclosure>
-                <CardDisclsoureButton
-                  closed="Show ICU data"
-                  expanded="ICU data"
-                />
-                <CardDisclosurePanel>
-                  <Statistic
-                    title="In ICU currently"
-                    value={data.inIcuCurrently}
-                  />
-                  <Statistic
-                    title="In ICU cumulative"
-                    value={data.inIcuCumulative}
-                  />
-                  <Statistic
-                    title="On ventilator currently"
-                    value={data.onVentilatorCurrently}
-                  />
-                  <Statistic
-                    title="On ventilator cumulative"
-                    value={data.onVentilatorCumulative}
-                  />
-                </CardDisclosurePanel>
-              </CardDisclosure>
+              <Statistic
+                title="In ICU cumulative"
+                value={data.inIcuCumulative}
+              />
+              <Statistic
+                title="On ventilator cumulative"
+                value={data.onVentilatorCumulative}
+              />
             </CardBody>
           </Card>
         </SummaryCol>
@@ -133,7 +110,7 @@ export default ({ stateSlug, data, raceData }) => {
             </CardBody>
           </Card>
         </SummaryCol>
-        <SummaryCol width={[4, 3, 4]}>
+        <SummaryCol>
           <Card
             title="Race &amp; Ethnicity"
             link={
@@ -186,6 +163,28 @@ export default ({ stateSlug, data, raceData }) => {
                   />
                 </>
               )}
+            </CardBody>
+          </Card>
+        </SummaryCol>
+        <SummaryCol>
+          <Card
+            title="Current Hospitalization"
+            link={
+              <Link to={`/data/state/${stateSlug}/hospitalization`}>
+                Historical data
+              </Link>
+            }
+          >
+            <CardBody>
+              <Statistic
+                title="Currently hospitalized"
+                value={data.hospitalizedCurrently}
+              />
+              <Statistic title="Currently in ICU" value={data.inIcuCurrently} />
+              <Statistic
+                title="Currently on ventilator"
+                value={data.onVentilatorCurrently}
+              />
             </CardBody>
           </Card>
         </SummaryCol>
