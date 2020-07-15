@@ -1,7 +1,8 @@
 import React from 'react'
 import {
   CasesCard,
-  TestsCard,
+  PCRTestsCard,
+  ViralTestsCard,
   CumulativeHospitalizationCard,
   CurrentHospitalizationCard,
   RaceEthnicityCard,
@@ -17,18 +18,24 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
 
   return (
     <div className={summaryStyles.container}>
-      {/* todo update 7 day value */}
       <CasesCard
         stateSlug={stateSlug}
         positive={data.positive}
         positiveIncrease={data.positiveIncrease}
         sevenDayIncrease={sevenDayPositiveIncrease}
       />
-      <TestsCard
-        stateSlug={data.stateSlug}
+      <PCRTestsCard
+        stateSlug={stateSlug}
         negative={data.negative}
+        positive={data.positive}
         pending={data.pending}
         posNeg={data.posNeg}
+      />
+      <ViralTestsCard
+        stateSlug={data.stateSlug}
+        totalTestsViral={data.totalTestsViral}
+        positiveTestsViral={data.positiveTestsViral}
+        negativeTestsViral={data.negativeTestsViral}
       />
       <CumulativeHospitalizationCard
         stateSlug={data.stateSlug}

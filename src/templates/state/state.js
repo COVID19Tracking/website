@@ -113,6 +113,11 @@ export const query = graphql`
       totalTestResults
       dateModified
       dataQualityGrade
+      posNeg
+      positiveCasesViral
+      positiveTestsViral
+      totalTestsViral
+      negativeTestsViral
     }
     allCovidStateDaily(
       filter: { state: { eq: $state } }
@@ -147,7 +152,6 @@ export const query = graphql`
         }
       }
     }
-
     allContentfulEvent(
       filter: {
         state: { elemMatch: { code: { eq: $state } } }

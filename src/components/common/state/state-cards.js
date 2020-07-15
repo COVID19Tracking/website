@@ -13,6 +13,11 @@ const CasesCard = ({
   positiveIncrease,
   sevenDayIncrease,
 }) => {
+  const sevenDayIncreasePercent = Math.round(sevenDayIncrease * 100 * 10) / 10
+  const drillDownValue = Number.isNaN(sevenDayIncreasePercent)
+    ? 'N/A'
+    : sevenDayIncreasePercent
+  const drillDownSuffix = Number.isNaN(sevenDayIncreasePercent) ? '' : '%'
   return (
     <Card
       title="Cases"
@@ -21,10 +26,11 @@ const CasesCard = ({
       <CardBody>
         <Statistic title="Total cases" value={positive}>
           <DefinitionLink to="#" />
-          <DrillDown label="New Cases" value={positiveIncrease} />
+          <DrillDown label="New cases" value={positiveIncrease} />
           <DrillDown
             label="Increase in 7 days"
-            value={`${Math.round(sevenDayIncrease * 100 * 10) / 10}%`}
+            value={drillDownValue}
+            suffix={drillDownSuffix}
           />
         </Statistic>
       </CardBody>
@@ -32,17 +38,51 @@ const CasesCard = ({
   )
 }
 
-const TestsCard = ({ stateSlug, negative, pending, posNeg }) => (
+const BaseTestsCard = ({
+  title,
+  stateSlug,
+  negative,
+  pending,
+  totalTests,
+  positive,
+}) => (
   <Card
-    title="Tests"
+    title={title}
     link={<Link to={`/data/state/${stateSlug}/tests`}>Historical data</Link>}
   >
     <CardBody>
+      <Statistic title="Total tests" value={totalTests} />
+      <Statistic title="Positive" value={positive} />
+      {pending && <Statistic title="Pending" value={pending} />}
       <Statistic title="Negative" value={negative} />
-      <Statistic title="Pending" value={pending} />
-      <Statistic title="Total" value={posNeg} />
     </CardBody>
   </Card>
+)
+
+const PCRTestsCard = ({ stateSlug, negative, pending, posNeg, positive }) => (
+  <BaseTestsCard
+    title="Tests (PCR)"
+    stateSlug={stateSlug}
+    totalTests={posNeg}
+    positive={positive}
+    pending={pending}
+    negative={negative}
+  />
+)
+
+const ViralTestsCard = ({
+  stateSlug,
+  positiveTestsViral,
+  totalTestsViral,
+  negativeTestsViral,
+}) => (
+  <BaseTestsCard
+    title="Tests (Serology)"
+    stateSlug={stateSlug}
+    totalTests={totalTestsViral}
+    positive={positiveTestsViral}
+    negative={negativeTestsViral}
+  />
 )
 
 const CumulativeHospitalizationCard = ({
@@ -60,10 +100,13 @@ const CumulativeHospitalizationCard = ({
     }
   >
     <CardBody>
-      <Statistic title="Cumulative" value={hospitalizedCumulative} />
-      <Statistic title="In ICU cumulative" value={inIcuCumulative} />
       <Statistic
-        title="On ventilator cumulative"
+        title="Cumulative hospitalized"
+        value={hospitalizedCumulative}
+      />
+      <Statistic title="Cumulative in ICU" value={inIcuCumulative} />
+      <Statistic
+        title="Cumulative on ventilator"
         value={onVentilatorCumulative}
       />
     </CardBody>
@@ -177,7 +220,8 @@ const CurrentHospitalizationCard = ({
 
 export {
   CasesCard,
-  TestsCard,
+  PCRTestsCard,
+  ViralTestsCard,
   CumulativeHospitalizationCard,
   OutcomesCard,
   RaceEthnicityCard,

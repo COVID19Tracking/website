@@ -37,6 +37,7 @@
 
 .drill-down {
   text-align: right;
+  @include margin(4, bottom);
   .label {
     font-size: 11px; // ignore-style-rule
     @include padding(8, right);
