@@ -13,6 +13,11 @@ const CasesCard = ({
   positiveIncrease,
   sevenDayIncrease,
 }) => {
+  const sevenDayIncreasePercent = Math.round(sevenDayIncrease * 100 * 10) / 10
+  const drillDownValue = Number.isNaN(sevenDayIncreasePercent)
+    ? 'N/A'
+    : sevenDayIncreasePercent
+  const drillDownSuffix = Number.isNaN(sevenDayIncreasePercent) ? '' : '%'
   return (
     <Card
       title="Cases"
@@ -24,7 +29,8 @@ const CasesCard = ({
           <DrillDown label="New Cases" value={positiveIncrease} />
           <DrillDown
             label="Increase in 7 days"
-            value={`${Math.round(sevenDayIncrease * 100 * 10) / 10}%`}
+            value={drillDownValue}
+            suffix={drillDownSuffix}
           />
         </Statistic>
       </CardBody>

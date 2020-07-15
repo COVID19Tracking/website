@@ -28,11 +28,12 @@ const StatisticGroup = ({ children }) => (
   <div className={statisticStyles.group}>{children}</div>
 )
 
-const DrillDown = ({ label, value }) => (
+const DrillDown = ({ label, value, suffix }) => (
   <div className={statisticStyles.drillDown}>
     <span className={statisticStyles.label}>{label} </span>
     <span className={statisticStyles.value}>
       <FormatNumber number={value} />
+      {suffix}
     </span>
   </div>
 )
