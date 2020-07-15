@@ -38,18 +38,51 @@ const CasesCard = ({
   )
 }
 
-const TestsCard = ({ stateSlug, negative, pending, posNeg, positive }) => (
+const BaseTestsCard = ({
+  title,
+  stateSlug,
+  negative,
+  pending,
+  totalTests,
+  positive,
+}) => (
   <Card
-    title="Tests"
+    title={title}
     link={<Link to={`/data/state/${stateSlug}/tests`}>Historical data</Link>}
   >
     <CardBody>
-      <Statistic title="Total tests" value={posNeg} />
+      <Statistic title="Total tests" value={totalTests} />
       <Statistic title="Positive" value={positive} />
-      <Statistic title="Pending" value={pending} />
+      {pending && <Statistic title="Pending" value={pending} />}
       <Statistic title="Negative" value={negative} />
     </CardBody>
   </Card>
+)
+
+const PCRTestsCard = ({ stateSlug, negative, pending, posNeg, positive }) => (
+  <BaseTestsCard
+    title="Tests (PCR)"
+    stateSlug={stateSlug}
+    totalTests={posNeg}
+    positive={positive}
+    pending={pending}
+    negative={negative}
+  />
+)
+
+const ViralTestsCard = ({
+  stateSlug,
+  positiveTestsViral,
+  totalTestsViral,
+  negativeTestsViral,
+}) => (
+  <BaseTestsCard
+    title="Tests (Serology)"
+    stateSlug={stateSlug}
+    totalTests={totalTestsViral}
+    positive={positiveTestsViral}
+    negative={negativeTestsViral}
+  />
 )
 
 const CumulativeHospitalizationCard = ({
@@ -184,7 +217,8 @@ const CurrentHospitalizationCard = ({
 
 export {
   CasesCard,
-  TestsCard,
+  PCRTestsCard,
+  ViralTestsCard,
   CumulativeHospitalizationCard,
   OutcomesCard,
   RaceEthnicityCard,

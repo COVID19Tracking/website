@@ -147,6 +147,11 @@ export const query = graphql`
         onVentilatorCurrently
         onVentilatorCumulative
         death
+        posNeg
+        positiveCasesViral
+        positiveTestsViral
+        totalTestsViral
+        negativeTestsViral
       }
     }
     allCovidStateDaily(filter: { date: { eq: $sevenDaysAgo } }) {
