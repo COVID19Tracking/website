@@ -32,6 +32,7 @@ export const query = graphql`
     ) {
       nodes {
         title
+        updateDateTime
         slug
         categories {
           name

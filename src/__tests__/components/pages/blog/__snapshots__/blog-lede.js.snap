@@ -34,9 +34,7 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
         </span>
         <span
           className="date"
-        >
-          Aug 1 2020
-        </span>
+        />
       </span>
     </div>
     <div
