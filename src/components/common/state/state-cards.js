@@ -38,15 +38,16 @@ const CasesCard = ({
   )
 }
 
-const TestsCard = ({ stateSlug, negative, pending, posNeg }) => (
+const TestsCard = ({ stateSlug, negative, pending, posNeg, positive }) => (
   <Card
     title="Tests"
     link={<Link to={`/data/state/${stateSlug}/tests`}>Historical data</Link>}
   >
     <CardBody>
-      <Statistic title="Negative" value={negative} />
+      <Statistic title="Total tests" value={posNeg} />
+      <Statistic title="Positive" value={positive} />
       <Statistic title="Pending" value={pending} />
-      <Statistic title="Total" value={posNeg} />
+      <Statistic title="Negative" value={negative} />
     </CardBody>
   </Card>
 )

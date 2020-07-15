@@ -27,6 +27,7 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
       <TestsCard
         stateSlug={data.stateSlug}
         negative={data.negative}
+        positive={data.positive}
         pending={data.pending}
         posNeg={data.posNeg}
       />
