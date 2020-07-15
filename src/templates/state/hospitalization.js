@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 
 export default ({ pageContext, path }) => {
@@ -15,3 +15,24 @@ export default ({ pageContext, path }) => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query($state: String!) {
+    allCovidStateDaily(
+      filter: { state: { eq: $state } }
+      sort: { fields: date, order: DESC }
+    ) {
+      nodes {
+        state
+        date
+        hospitalizedCumulative
+        hospitalizedCurrently
+        hospitalizedIncrease
+        inIcuCumulative
+        inIcuCurrently
+        onVentilatorCumulative
+        onVentilatorCurrently
+      }
+    }
+  }
+`
