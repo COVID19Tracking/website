@@ -12,22 +12,25 @@ const CasesCard = ({
   positive,
   positiveIncrease,
   sevenDayIncrease,
-}) => (
-  <Card
-    title="Cases"
-    link={<Link to={`/data/state/${stateSlug}/cases`}>Historical data</Link>}
-  >
-    <CardBody>
-      <Statistic title="Total cases" value={positive}>
-        <DefinitionLink to="#" />
-        <DrillDown label="New Cases" value={positiveIncrease} />
-        <DrillDown label="Increase in 7 days" value={sevenDayIncrease} />
-        {/* todo set the 7 day change value */}
-        {/* Hm, so this is a little harder than it sounds since you can't do transforms in Gatsby after all sources are loaded, so this would be difficult. I have a proposal out for putting this into the API eventually. Maybe check out what @Gabe O'Leary did in /src/components/common/summary-charts - that dailyAverage function could be moved to be an include. */}
-      </Statistic>
-    </CardBody>
-  </Card>
-)
+}) => {
+  return (
+    <Card
+      title="Cases"
+      link={<Link to={`/data/state/${stateSlug}/cases`}>Historical data</Link>}
+    >
+      <CardBody>
+        <Statistic title="Total cases" value={positive}>
+          <DefinitionLink to="#" />
+          <DrillDown label="New Cases" value={positiveIncrease} />
+          <DrillDown
+            label="Increase in 7 days"
+            value={`${Math.round(sevenDayIncrease * 100 * 10) / 10}%`}
+          />
+        </Statistic>
+      </CardBody>
+    </Card>
+  )
+}
 
 const TestsCard = ({ stateSlug, negative, pending, posNeg }) => (
   <Card

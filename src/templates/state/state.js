@@ -18,6 +18,7 @@ const StatePage = ({ pageContext, data, path }) => {
     allContentfulEvent,
     covidRaceDataCombined,
     covidRaceDataSeparate,
+    sevenDaysAgo,
   } = data
   return (
     <Layout title={state.name} returnLink="/data" path={path}>
@@ -34,6 +35,7 @@ const StatePage = ({ pageContext, data, path }) => {
       {state.notes && <StateNotes notes={state.notes} />}
       <SyncInfobox />
       <StateSummary
+        sevenDaysAgo={sevenDaysAgo}
         stateSlug={state.slug}
         data={covidState}
         raceData={{
@@ -55,7 +57,13 @@ const StatePage = ({ pageContext, data, path }) => {
 export default StatePage
 
 export const query = graphql`
-  query($state: String!) {
+  query($state: String!, $sevenDaysAgo: Int) {
+    sevenDaysAgo: covidStateDaily(
+      date: { eq: $sevenDaysAgo }
+      state: { eq: $state }
+    ) {
+      positive
+    }
     allCovidUsDaily {
       nodes {
         totalTestResults

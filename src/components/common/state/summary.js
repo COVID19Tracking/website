@@ -9,9 +9,11 @@ import {
 } from './state-cards'
 import summaryStyles from './summary.module.scss'
 
-export default ({ stateSlug, data, raceData }) => {
+export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
   const deathsLabel =
     data.deathProbable || data.deathConfirmed ? 'Total deaths' : 'Deaths'
+  const sevenDayPositiveIncrease =
+    (data.positive - sevenDaysAgo.positive) / sevenDaysAgo.positive
 
   return (
     <div className={summaryStyles.container}>
@@ -20,7 +22,7 @@ export default ({ stateSlug, data, raceData }) => {
         stateSlug={stateSlug}
         positive={data.positive}
         positiveIncrease={data.positiveIncrease}
-        sevenDayIncrease={data.positiveIncrease}
+        sevenDayIncrease={sevenDayPositiveIncrease}
       />
       <TestsCard
         stateSlug={data.stateSlug}

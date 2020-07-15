@@ -2,6 +2,7 @@ const path = require('path')
 const slugify = require('slugify')
 const { createObjectCsvStringifier } = require('csv-writer')
 const fs = require('fs-extra')
+const { DateTime } = require('luxon')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
@@ -148,6 +149,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allCovidStateInfo.nodes.forEach(node => {
     const slug = slugify(node.name, { strict: true, lower: true })
+    const sevenDaysAgo = parseInt(DateTime.local().minus({'days': 7}).toFormat('yyyyMMdd'))
 
     createPage({
       path: `/data/state/${slug}`,
@@ -155,6 +157,7 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         ...node,
         slug,
+        sevenDaysAgo,
       },
     })
     createPage({
