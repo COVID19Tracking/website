@@ -6,8 +6,24 @@ import Container from '~components/common/container'
 import MarkdownContent from '~components/common/markdown-content'
 import stateNotesStyle from './state-notes.module.scss'
 
-export default ({ notes }) => (
-  <Container narrow className={stateNotesStyle.container}>
-    <MarkdownContent html={smartypants(marked(notes))} />
-  </Container>
-)
+const getHighlightedText = text => {
+  const re = new RegExp(
+    `((?:January|Jan|February|Feb|March|Mar|April|Apr|May|May|June|Jun|July|Jul|August|Aug|September|Sep|Sept|October|Oct|November|Nov|December|Dec).? [0-9]{1,2}|[0-9]{1,2}/[0-9]{1,2})`,
+    'gi',
+  )
+  const parts = text.split(re)
+  const highlightedParts = parts.map(part =>
+    re.test(part) ? `**${part}**` : part,
+  )
+  return highlightedParts.join('')
+}
+
+export default ({ notes }) => {
+  const highlightedNotes = getHighlightedText(notes)
+  const notesAsHtml = smartypants(marked(highlightedNotes))
+  return (
+    <Container narrow className={stateNotesStyle.container}>
+      <MarkdownContent html={notesAsHtml} />
+    </Container>
+  )
+}
