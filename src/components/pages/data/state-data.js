@@ -1,14 +1,11 @@
 import React from 'react'
-import marked from 'marked'
-import smartypants from 'smartypants'
 import { Link } from 'gatsby'
 import slug from '~utilities/slug'
-import Container from '~components/common/container'
 import StateLinks from '~components/pages/state/state-links'
 import StateGrade from '~components/pages/state/state-grade'
+import StateNotes from '~components/pages/state/state-notes'
 import SummaryTable from '~components/common/summary-table'
 import stateDataStyles from './state-data.module.scss'
-import MarkdownContent from '~components/common/markdown-content'
 
 const State = ({ state }) => (
   <>
@@ -30,11 +27,7 @@ const State = ({ state }) => (
       historicalSlug={state.name}
       fathomGoal="2YKBL0ZP"
     />
-    {state.notes && (
-      <Container narrow>
-        <MarkdownContent html={smartypants(marked(state.notes))} />
-      </Container>
-    )}
+    {state.notes && <StateNotes notes={state.notes} />}
     <a
       className={`state-top-link ${stateDataStyles.topLink}`}
       href="#reach-skip-nav"
