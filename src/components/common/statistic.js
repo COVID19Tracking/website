@@ -30,8 +30,10 @@ const StatisticGroup = ({ children }) => (
 
 const DrillDown = ({ label, value }) => (
   <div className={statisticStyles.drillDown}>
-    <span className={statisticStyles.label}>{label}</span>
-    <span className={statisticStyles.value}>{value}</span>
+    <span className={statisticStyles.label}>{label} </span>
+    <span className={statisticStyles.value}>
+      <FormatNumber number={value} />
+    </span>
   </div>
 )
 
