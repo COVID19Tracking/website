@@ -26,7 +26,7 @@ const CasesCard = ({
       <CardBody>
         <Statistic title="Total cases" value={positive}>
           <DefinitionLink to="#" />
-          <DrillDown label="New Cases" value={positiveIncrease} />
+          <DrillDown label="New cases" value={positiveIncrease} />
           <DrillDown
             label="Increase in 7 days"
             value={drillDownValue}

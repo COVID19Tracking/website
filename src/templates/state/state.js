@@ -147,7 +147,6 @@ export const query = graphql`
         }
       }
     }
-
     allContentfulEvent(
       filter: {
         state: { elemMatch: { code: { eq: $state } } }
