@@ -100,10 +100,13 @@ const CumulativeHospitalizationCard = ({
     }
   >
     <CardBody>
-      <Statistic title="Cumulative" value={hospitalizedCumulative} />
-      <Statistic title="In ICU cumulative" value={inIcuCumulative} />
       <Statistic
-        title="On ventilator cumulative"
+        title="Cumulative hospitalized"
+        value={hospitalizedCumulative}
+      />
+      <Statistic title="Cumulative in ICU" value={inIcuCumulative} />
+      <Statistic
+        title="Cumulative on ventilator"
         value={onVentilatorCumulative}
       />
     </CardBody>
