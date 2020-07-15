@@ -1,3 +1,15 @@
-.row {
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
   @include margin(16, bottom);
+
+  @media (max-width: $viewport-lg) and (min-width: $viewport-md) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: $viewport-md) {
+    grid-template-columns: 1fr;
+  }
 }
