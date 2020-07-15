@@ -133,6 +133,9 @@ export const query = graphql`
         dataQualityGrade
         lastUpdateEt
         positive
+        positiveIncrease
+        deathProbable
+        deathConfirmed
         negative
         pending
         hospitalizedCurrently
