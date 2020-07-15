@@ -4,7 +4,7 @@ import { Card, CardBody } from '~components/common/card'
 import {
   DrillDown,
   Statistic,
-  SourcingLink,
+  DefinitionLink,
 } from '~components/common/statistic'
 import summaryStyles from './summary.module.scss'
 
@@ -23,7 +23,7 @@ export default ({ stateSlug, data, raceData }) => {
       >
         <CardBody>
           <Statistic title="Total cases" value={data.positive}>
-            <SourcingLink to="#" />
+            <DefinitionLink to="#" />
             <DrillDown label="New Cases" value={data.positiveIncrease} />
             <DrillDown
               label="Increase in 7 days"

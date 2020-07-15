@@ -20,8 +20,8 @@ const StatisticLink = ({ to, children }) => (
   </Link>
 )
 
-const SourcingLink = ({ to }) => (
-  <StatisticLink to={to}>See sourcing</StatisticLink>
+const DefinitionLink = ({ to }) => (
+  <StatisticLink to={to}>Definition</StatisticLink>
 )
 
 const StatisticGroup = ({ children }) => (
@@ -35,4 +35,4 @@ const DrillDown = ({ label, value }) => (
   </div>
 )
 
-export { DrillDown, Statistic, StatisticGroup, StatisticLink, SourcingLink }
+export { DrillDown, Statistic, StatisticGroup, StatisticLink, DefinitionLink }
