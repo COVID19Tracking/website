@@ -2,13 +2,18 @@ import React from 'react'
 import State from './state-data'
 import stateListStyles from './state-list.module.scss'
 
-export default ({ states, stateData }) => {
+export default ({ states, stateData, sevenDaysAgoList }) => {
   const stateList = []
   states.forEach(node => {
     const state = node
     stateData.forEach(data => {
       if (data.state === state.state) {
         state.stateData = data
+      }
+    })
+    sevenDaysAgoList.forEach(data => {
+      if (state.state === data.state) {
+        state.sevenDaysAgo = data
       }
     })
     stateList.push(state)

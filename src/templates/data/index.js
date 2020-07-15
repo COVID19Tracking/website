@@ -50,13 +50,14 @@ export default ({ data }) => {
       <StateList
         states={data.allCovidStateInfo.nodes}
         stateData={data.allCovidState.nodes}
+        sevenDaysAgoList={data.allCovidStateDaily.nodes}
       />
     </Layout>
   )
 }
 
 export const query = graphql`
-  query {
+  query($sevenDaysAgo: Int) {
     dataSummaryFootnote: contentfulSnippet(
       slug: { eq: "data-summary-footnote" }
     ) {
@@ -146,6 +147,12 @@ export const query = graphql`
         onVentilatorCurrently
         onVentilatorCumulative
         death
+      }
+    }
+    allCovidStateDaily(filter: { date: { eq: $sevenDaysAgo } }) {
+      nodes {
+        positive
+        state
       }
     }
     allContentfulEvent(

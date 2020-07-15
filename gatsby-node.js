@@ -147,9 +147,18 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  const sevenDaysAgo = parseInt(DateTime.local().minus({'days': 7}).toFormat('yyyyMMdd'))
+
+  createPage({
+      path: '/data',
+      component: path.resolve(`./src/templates/data/index.js`),
+      context: {
+        sevenDaysAgo,
+      },
+    })
+
   result.data.allCovidStateInfo.nodes.forEach(node => {
     const slug = slugify(node.name, { strict: true, lower: true })
-    const sevenDaysAgo = parseInt(DateTime.local().minus({'days': 7}).toFormat('yyyyMMdd'))
 
     createPage({
       path: `/data/state/${slug}`,

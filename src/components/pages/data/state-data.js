@@ -21,6 +21,7 @@ const State = ({ state }) => (
     <StateSummary
       stateSlug={slug(state.name)}
       data={state.stateData}
+      sevenDaysAgo={state.sevenDaysAgo}
       raceData={{
         combined: false,
         separate: false,
