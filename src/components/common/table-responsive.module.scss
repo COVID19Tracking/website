@@ -1,0 +1,30 @@
+$table-breakpoint: $viewport-lg;
+
+.table {
+  box-shadow: none;
+  @media (max-width: $table-breakpoint) {
+    thead {
+      @include a11y-only();
+    }
+    tbody,
+    tr {
+      display: block;
+    }
+    td {
+      display: flex;
+      flex-wrap: wrap;
+      > span {
+        width: 50%;
+      }
+    }
+  }
+}
+
+.label {
+  font-weight: bold;
+  display: inline-block;
+  text-align: left;
+  @media (min-width: $table-breakpoint) {
+    display: none;
+  }
+}
