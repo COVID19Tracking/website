@@ -32,28 +32,28 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
         posNeg={data.posNeg}
       />
       <ViralTestsCard
-        stateSlug={data.stateSlug}
+        stateSlug={stateSlug}
         totalTestsViral={data.totalTestsViral}
         positiveTestsViral={data.positiveTestsViral}
         negativeTestsViral={data.negativeTestsViral}
       />
       <CumulativeHospitalizationCard
-        stateSlug={data.stateSlug}
+        stateSlug={stateSlug}
         hospitalizedCumulative={data.hospitalizedCumulative}
         inIcuCumulative={data.inIcuCumulative}
         onVentilatorCumulative={data.onVentilatorCumulative}
       />
       <OutcomesCard
-        stateSlug={data.stateSlug}
+        stateSlug={stateSlug}
         deathsLabel={deathsLabel}
         death={data.death}
         deathConfirmed={data.deathConfirmed}
         deathProbable={data.deathProbable}
         recovered={data.recovered}
       />
-      <RaceEthnicityCard stateSlug={data.stateSlug} raceData={raceData} />
+      <RaceEthnicityCard stateSlug={stateSlug} raceData={raceData} />
       <CurrentHospitalizationCard
-        stateSlug={data.stateSlug}
+        stateSlug={stateSlug}
         hospitalizedCurrently={data.hospitalizedCurrently}
         inIcuCurrently={data.inIcuCurrently}
         onVentilatorCurrently={data.onVentilatorCurrently}
