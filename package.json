@@ -85,8 +85,6 @@
     "react-recaptcha": "^2.3.10",
     "react-scrollama": "^2.2.10",
     "react-typography": "^0.16.19",
-    "recharts": "^1.8.5",
-    "scrollama": "^2.2.1",
     "slugify": "^1.4.0",
     "smartypants": "^0.1.1"
   },
