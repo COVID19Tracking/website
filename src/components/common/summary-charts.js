@@ -7,7 +7,7 @@ import {
 } from '@reach/disclosure'
 import { DateTime } from 'luxon'
 import Container from '~components/common/container'
-import { RenderedBarChart } from '~components/charts/bar-chart'
+import BarChart from '~components/charts/bar-chart'
 import { parseDate } from '~utilities/visualization'
 import { Row, Col } from '~components/common/grid'
 import Toggle from '~components/common/toggle'
@@ -214,11 +214,6 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
 
   const showTodaysChartTick =
     DateTime.fromISO(data[data.length - 1].date).day > 10
-  const baseRenderOptions = {
-    relativePath: `${name}`,
-    width: 600,
-    height: 400,
-  }
 
   return (
     <>
@@ -253,14 +248,13 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               openDisclosure={() => setDisclosureOpen(true)}
             />
           </h5>
-          <RenderedBarChart
+          <BarChart
             data={getDataForField(data, testField)}
             lineData={dailyAverage(data, testField)}
             refLineData={dailyAverage(usData, testField)}
             fill={colors.colorPlum200}
             lineColor={colors.colorPlum700}
             lastXTick={showTodaysChartTick}
-            renderOptions={{ filename: 'new-tests', ...baseRenderOptions }}
             renderTooltipContents={makeRenderTooltipContents(`new tests`)}
             {...props}
           />
@@ -275,17 +269,13 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             />
           </h5>
           {hasData(positiveField) ? (
-            <RenderedBarChart
+            <BarChart
               data={getDataForField(data, positiveField)}
               lineData={dailyAverage(data, positiveField)}
               refLineData={dailyAverage(usData, positiveField)}
               fill={colors.colorStrawberry100}
               lineColor={colors.colorStrawberry200}
               lastXTick={showTodaysChartTick}
-              renderOptions={{
-                filename: 'new-cases',
-                ...baseRenderOptions,
-              }}
               renderTooltipContents={makeRenderTooltipContents('new cases')}
               {...props}
             />
@@ -304,17 +294,13 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
           </h5>
 
           {hasData(hospitalizedField) ? (
-            <RenderedBarChart
+            <BarChart
               data={getDataForField(data, hospitalizedField)}
               lineData={dailyAverage(data, hospitalizedField)}
               refLineData={dailyAverage(usData, hospitalizedField)}
               fill={colors.colorBlueberry200}
               lineColor={colors.colorBlueberry400}
               lastXTick={showTodaysChartTick}
-              renderOptions={{
-                filename: 'hospitalizations',
-                ...baseRenderOptions,
-              }}
               renderTooltipContents={makeRenderTooltipContents(
                 <>
                   current <br />
@@ -337,17 +323,13 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             />
           </h5>
           {hasData(deathField) ? (
-            <RenderedBarChart
+            <BarChart
               data={getDataForField(data, deathField)}
               lineData={dailyAverage(data, deathField)}
               refLineData={dailyAverage(usData, deathField)}
               fill={colors.colorSlate300}
               lineColor={colors.colorSlate700}
               lastXTick={showTodaysChartTick}
-              renderOptions={{
-                filename: 'new-deaths',
-                ...baseRenderOptions,
-              }}
               renderTooltipContents={makeRenderTooltipContents('new deaths')}
               {...props}
             />

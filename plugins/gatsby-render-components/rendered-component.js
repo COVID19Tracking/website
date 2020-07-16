@@ -23,8 +23,7 @@ const renderedComponent = Component => {
     }
 
     render() {
-      const { renderOptions, ...passThroughProps } = this.props
-      return <Component {...passThroughProps} />
+      return null
     }
   }
 }
