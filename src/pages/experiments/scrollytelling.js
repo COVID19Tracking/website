@@ -1,34 +1,39 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from 'recharts'
+
+import { extent, max } from 'd3-array'
+import { scaleLinear, scaleTime } from 'd3-scale'
+import { line, curveCardinal } from 'd3-shape'
+import { timeMonth, timeDay } from 'd3-time'
+
 import { Scrollama, Step } from '~utilities/react-scrollama'
+import { formatNumber, parseDate } from '~utilities/visualization'
 
 import Layout from '~components/layout'
 import Container from '~components/common/container'
 
-export default () => {
+import chartStyles from '~components/charts/charts.module.scss'
+import colors from '~scss/colors.module.scss'
+
+import styles from './scrollytelling.module.scss'
+
+export default ({ data }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(null)
-  const [dataKey, setDataKey] = useState(null)
+  const linesData = [
+    { field: 'positiveIncrease', color: colors.colorStrawberry200 },
+    { field: 'hospitalizedCurrently', color: colors.colorBlueberry400 },
+    { field: 'deathIncrease', color: colors.colorSlate700 },
+  ]
 
   // This callback fires when a Step hits the offset threshold. It receives the
   // data prop of the step, which in this demo stores the index of the step.
-  const onStepEnter = ({ data }) => {
-    console.log('on step enter')
-    setCurrentStepIndex(data)
-    if (data === 1) {
-      setDataKey('pv')
-    } else if (data === 2) {
-      setDataKey('uv')
-    }
-  }
+  const onStepEnter = props => setCurrentStepIndex(props.data)
+
+  const chartData = data.allCovidUsDaily.nodes.map(({ date, ...rest }) => ({
+    ...rest,
+    date: parseDate(date),
+  }))
   return (
     <Layout
       title="Scrollytelling"
@@ -38,25 +43,28 @@ export default () => {
       path="/data"
     >
       <Container narrow>
-        <h2>Scrollytelling</h2>
-        <div style={{ margin: '50vh 0', border: '2px dashed skyblue' }}>
+        <div style={{ border: '2px dashed skyblue' }}>
           <div
             style={{ position: 'sticky', top: 0, border: '1px solid orchid' }}
           >
-            {`I'm sticky. The current triggered step index is: ${currentStepIndex}`}
-            {dataKey && <Chart dataKey={dataKey} />}
+            <Chart
+              data={chartData.reverse()}
+              linesData={
+                currentStepIndex ? linesData.slice(0, currentStepIndex) : []
+              }
+            />
           </div>
           <Scrollama onStepEnter={onStepEnter} debug>
-            {[1, 2, 3, 4].map((_, stepIndex) => (
-              <Step data={stepIndex} key={_}>
+            {[1, 2, 3].map(_ => (
+              <Step data={_} key={_}>
                 <div
                   style={{
                     padding: '0 0 50vh',
                     border: '1px solid gray',
-                    opacity: currentStepIndex === stepIndex ? 1 : 0.2,
+                    opacity: currentStepIndex === _ ? 1 : 0.2,
                   }}
                 >
-                  {`I'm a Scrollama Step of index ${stepIndex}`}
+                  {`I'm a Scrollama Step of ${_}`}
                 </div>
               </Step>
             ))}
@@ -66,82 +74,70 @@ export default () => {
     </Layout>
   )
 }
-const data = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-]
 
-const Chart = ({ dataKey }) => (
-  <>
-    <LineChart
-      width={500}
-      height={300}
-      data={data}
-      margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5,
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
+const Chart = ({
+  data,
+  width = 500,
+  height = 400,
+  linesData = [{ field: 'positiveIncrease' }],
+}) => {
+  const dateDomain = extent(data, d => d.date)
 
-      <Line
-        type="monotone"
-        dataKey="pv"
-        stroke="#8884d8"
-        activeDot={{ r: 8 }}
-      />
-      {dataKey === 'uv' && (
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-      )}
-    </LineChart>
-  </>
-)
+  const marginLeft = 50
+  const marginBottom = 30
+
+  const xScaleTime = scaleTime()
+    .domain(dateDomain)
+    .range([marginLeft, width])
+  // this needs to be modified to accept multipls inputs
+  const yScale = scaleLinear()
+    .domain([0, max(data, d => d.positiveIncrease)])
+    .nice()
+    .range([height - marginBottom, 0])
+  const lines = linesData.map(l =>
+    line()
+      .defined(d => !Number.isNaN(d[l.field]) && d[l.field] !== null)
+      .curve(curveCardinal)
+      .x(d => xScaleTime(d.date))
+      .y(d => yScale(d[l.field])),
+  )
+
+  return (
+    <svg width={width} height={height}>
+      {/* y ticks */}
+      <g transform={`translate(${marginLeft} )`}>
+        {yScale.ticks(4).map((tick, i) => (
+          <g key={tick}>
+            {/* Do not remove nested svg. See https://github.com/COVID19Tracking/website/pull/645#discussion_r411676987 */}
+            <svg
+              y={yScale(tick) + 6}
+              x="-10"
+              className={chartStyles.yTickLabel}
+            >
+              <text className={chartStyles.label}>{formatNumber(tick)}</text>
+            </svg>
+            <line
+              className={chartStyles.gridLine}
+              x1={0}
+              x2={width}
+              y1={yScale(tick)}
+              y2={yScale(tick)}
+            />
+          </g>
+        ))}
+      </g>
+      {lines.map((l, i) => (
+        <path
+          d={l(data)}
+          stroke={linesData[i].color}
+          strokeWidth="3"
+          fill="none"
+          className={styles.path}
+        />
+      ))}
+    </svg>
+  )
+}
 
 export const query = graphql`
   query {
