@@ -36,14 +36,29 @@
 }
 
 .drill-down {
-  text-align: right;
-  @include margin(4, bottom);
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  color: $color-slate-700;
+  @include margin(8, bottom);
   .label {
-    font-size: 11px; // ignore-style-rule
-    @include padding(8, right);
+    @include type-size(100);
   }
 
   .value {
     @include type-size(100);
+  }
+}
+
+
+.calculated-label {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+
+  span {
+    @include padding(16, top);
+    @include type-size(100);
+    color: $color-slate-600;
   }
 }

@@ -3,7 +3,13 @@ import { Link } from 'gatsby'
 import { FormatNumber } from '~components/utils/format'
 import statisticStyles from './statistic.module.scss'
 
-const Statistic = ({ title, value, suffix, children }) => (
+const Statistic = ({
+  title,
+  value,
+  suffix,
+  children,
+  hasCalculatedDrillDowns,
+}) => (
   <div className={statisticStyles.statistic}>
     <div className={statisticStyles.title}>{title}</div>
     <div className={statisticStyles.value}>
@@ -11,6 +17,11 @@ const Statistic = ({ title, value, suffix, children }) => (
       {suffix}
     </div>
     <div className={statisticStyles.info}>{children}</div>
+    {hasCalculatedDrillDowns && (
+      <div className={statisticStyles.calculatedLabel}>
+        <span>* Calculated values</span>
+      </div>
+    )}
   </div>
 )
 
@@ -28,9 +39,11 @@ const StatisticGroup = ({ children }) => (
   <div className={statisticStyles.group}>{children}</div>
 )
 
-const DrillDown = ({ label, value, suffix }) => (
+const DrillDown = ({ label, value, suffix, calculated = false }) => (
   <div className={statisticStyles.drillDown}>
-    <span className={statisticStyles.label}>{label} </span>
+    <span className={statisticStyles.label}>
+      {label} {calculated && '*'}
+    </span>
     <span className={statisticStyles.value}>
       <FormatNumber number={value} />
       {suffix}

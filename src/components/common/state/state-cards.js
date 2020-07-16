@@ -24,13 +24,14 @@ const CasesCard = ({
       link={<Link to={`/data/state/${stateSlug}/cases`}>Historical data</Link>}
     >
       <CardBody>
-        <Statistic title="Total cases" value={positive}>
+        <Statistic title="Total cases" value={positive} hasCalculatedDrillDowns>
           <DefinitionLink to="#" />
-          <DrillDown label="New cases" value={positiveIncrease} />
+          <DrillDown label="New cases" value={positiveIncrease} calculated />
           <DrillDown
             label="Increase in 7 days"
             value={drillDownValue}
             suffix={drillDownSuffix}
+            calculated
           />
         </Statistic>
       </CardBody>
