@@ -268,7 +268,10 @@
       color: white;
       text-decoration: none;
       &:hover {
-        text-decoration: underline;
+        @include link-hover-dark-bg;
+      }
+      &:focus {
+        @include link-focus-dark-bg;
       }
     }
   }
