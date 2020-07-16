@@ -21,7 +21,7 @@ export default ({ pageContext, path, data }) => {
           {
             field: 'date',
             label: 'Date',
-            format: date => <FormatDate date={date} />,
+            format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
           },
           {
             field: 'hospitalizedCumulative',
