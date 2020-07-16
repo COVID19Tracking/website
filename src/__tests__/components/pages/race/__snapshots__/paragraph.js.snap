@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Race : Paragraph renders correctly 1`] = `
+<p
+  className="paragraph"
+>
+  <span>
+    this is a child
+  </span>
+</p>
+`;

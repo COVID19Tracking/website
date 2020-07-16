@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Race : Dashboard : States not Reporting renders correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="iconContainer"
+  >
+    <img
+      alt="Alert icon"
+      src="test-file-stub"
+    />
+  </div>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<h2>Hi! I'm html content</h2><p>Me too :)</p>",
+      }
+    }
+  />
+</div>
+`;

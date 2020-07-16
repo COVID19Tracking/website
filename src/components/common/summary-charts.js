@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 import React, { useState, useMemo } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import {
@@ -6,12 +7,15 @@ import {
   DisclosurePanel,
 } from '@reach/disclosure'
 import { DateTime } from 'luxon'
+import { groupBy } from 'lodash'
+
 import Container from '~components/common/container'
 import BarChart from '~components/charts/bar-chart'
-import { parseDate } from '~utilities/visualization'
+import { parseDate, formatDate } from '~utilities/visualization'
 import { Row, Col } from '~components/common/grid'
 import Toggle from '~components/common/toggle'
 import ContentfulContent from '~components/common/contentful-content'
+import ContentfulRawContent from '~components/common/contentful-raw-content'
 import { AlertInfobox } from '~components/common/infobox'
 
 import { ReactComponent as CtpLogo } from '~images/project-logo.svg'
@@ -27,16 +31,37 @@ const dailyAverage = (history, field, range = 7) => {
   history.forEach((row, rowIndex) => {
     const pastRows = []
     let pastIndex = rowIndex
-    while (pastIndex >= 0 && pastIndex > rowIndex - range) {
-      pastRows.push(history[pastIndex][field])
+    const dayHasData = row[field] !== null
+    while (dayHasData && pastIndex >= 0 && pastIndex > rowIndex - range) {
+      if (history[pastIndex][field] !== null) {
+        pastRows.push(history[pastIndex][field])
+      }
       pastIndex -= 1
     }
     average.push({
       date: parseDate(row.date),
-      value: pastRows.reduce((a, b) => a + b, 0) / pastRows.length,
+      value: dayHasData
+        ? pastRows.reduce((a, b) => a + b, 0) / pastRows.length
+        : null,
     })
   })
   return average
+}
+
+const generateAnnotationNumbers = annotations => {
+  const splitAnnotations = groupBy(annotations, a => a.dataElement)
+  let asciiCode = 'A'.charCodeAt(0)
+  const generateForField = field => {
+    if (splitAnnotations[field]) {
+      splitAnnotations[field] = splitAnnotations[field].map(a => ({
+        ...a,
+        date: parseDate(a.date),
+        annotationSymbol: String.fromCharCode(asciiCode++),
+      }))
+    }
+  }
+  ;['tests', 'cases', 'hospitalizations', 'death'].forEach(generateForField) // death is the only non-plural on contentful
+  return splitAnnotations
 }
 
 // must be of format:
@@ -68,14 +93,17 @@ const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
     return null
   }
   return (
-    <a
-      href="#chart-annotations"
-      id="chart-annotations"
-      className={styles.annotationIndicator}
-      onClick={() => openDisclosure()}
-    >
-      Notes
-    </a>
+    <span className={styles.annotationIndicator}>
+      (
+      <a
+        href="#chart-annotations"
+        id="chart-annotations"
+        onClick={() => openDisclosure()}
+      >
+        Notes
+      </a>
+      )
+    </span>
   )
 }
 
@@ -139,6 +167,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
     const obj = {}
     Object.keys(node.childPopulation).forEach(t => {
       obj[`perCap_${t}`] =
+        node.childPopulation[t].percent &&
         node.childPopulation[t].percent * stateChartPerCapMeasure
     })
     return { ...node, ...obj }
@@ -174,9 +203,10 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   )
 
   const hasData = field =>
-    data.filter(item => item[field.replace('perCap_', '')] !== null).length >=
+    name === 'Florida' ||
+    (data.filter(item => item[field.replace('perCap_', '')] !== null).length >=
       data.length * 0.3 &&
-    data.filter(item => item[field.replace('perCap_', '')] > 0).length > 0
+      data.filter(item => item[field.replace('perCap_', '')] > 0).length > 0)
 
   // Below enables the charts to switch between the per cap & not data
   // using the toggle state
@@ -190,7 +220,26 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   ])
   const deathField = useMemo(() => `${prepend}deathIncrease`, [prepend])
 
-  const props = {
+  const colProps = {
+    width: [4, 3, 3], // 1 chart per line on small, 2 on medium & 4 on large screens
+    paddingLeft: [0, 0, 0],
+    paddingRight: [0, 0, 0],
+  }
+
+  const splitAnnotations = generateAnnotationNumbers(annotations.nodes)
+  const flattenedAnnotations = Object.values(splitAnnotations)
+    .reduce((acc, val) => [...acc, ...val], []) // .flat() // doesn't work in node
+    .sort((a, b) => a.annotationNumber - b.annotationNumber)
+
+  const getAlertMessage = (field, current = false) =>
+    `${name} has not reported data on  ${
+      current ? 'current' : ''
+    }  COVID-19 ${field} for at least 30% of the past 90 days.`
+
+  const showTodaysChartTick =
+    DateTime.fromISO(data[data.length - 1].date).day >= 15
+
+  const chartProps = {
     height: 280, // these control the dimensions used to render the svg but not the final size
     width: 280, // that is determined by the containing element
     marginBottom: 40,
@@ -199,22 +248,14 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
     marginTop: 10,
     xTicks: 3,
     showTicks: 6,
+    lastXTick: showTodaysChartTick,
+
+    handleAnnotationClick: () => {
+      setDisclosureOpen(true)
+      // eslint-disable-next-line no-restricted-globals
+      location.replace('#chart-annotations')
+    },
   }
-
-  const colProps = {
-    width: [4, 3, 3], // 1 chart per line on small, 2 on medium & 4 on large screens
-    paddingLeft: [0, 0, 0],
-    paddingRight: [0, 0, 0],
-  }
-
-  const getAlertMessage = (field, current = false) =>
-    `${name} has not reported data on  ${
-      current ? 'current' : ''
-    }  COVID-19 ${field} for at least 30% of the past 90 days.`
-
-  const showTodaysChartTick =
-    DateTime.fromISO(data[data.length - 1].date).day > 10
-
   return (
     <>
       <h2>{name} overview</h2>
@@ -254,9 +295,9 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             refLineData={dailyAverage(usData, testField)}
             fill={colors.colorPlum200}
             lineColor={colors.colorPlum700}
-            lastXTick={showTodaysChartTick}
+            annotations={splitAnnotations.tests}
             renderTooltipContents={makeRenderTooltipContents(`new tests`)}
-            {...props}
+            {...chartProps}
           />
         </Col>
         <Col {...colProps}>
@@ -275,9 +316,9 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               refLineData={dailyAverage(usData, positiveField)}
               fill={colors.colorStrawberry100}
               lineColor={colors.colorStrawberry200}
-              lastXTick={showTodaysChartTick}
+              annotations={splitAnnotations.cases}
               renderTooltipContents={makeRenderTooltipContents('new cases')}
-              {...props}
+              {...chartProps}
             />
           ) : (
             <ChartAlert message={getAlertMessage('cases')} />
@@ -300,14 +341,14 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               refLineData={dailyAverage(usData, hospitalizedField)}
               fill={colors.colorBlueberry200}
               lineColor={colors.colorBlueberry400}
-              lastXTick={showTodaysChartTick}
+              annotations={splitAnnotations.hospitalizations}
               renderTooltipContents={makeRenderTooltipContents(
                 <>
                   current <br />
                   hospitalizations
                 </>,
               )}
-              {...props}
+              {...chartProps}
             />
           ) : (
             <ChartAlert message={getAlertMessage('hospitalizations', true)} />
@@ -329,9 +370,9 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               refLineData={dailyAverage(usData, deathField)}
               fill={colors.colorSlate300}
               lineColor={colors.colorSlate700}
-              lastXTick={showTodaysChartTick}
+              annotations={splitAnnotations.death}
               renderTooltipContents={makeRenderTooltipContents('new deaths')}
-              {...props}
+              {...chartProps}
             />
           ) : (
             <ChartAlert message={getAlertMessage('deaths')} />
@@ -358,22 +399,22 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             </DisclosureButton>
             <DisclosurePanel>
               <Container narrow>
-                {annotations && annotations.nodes && (
+                {flattenedAnnotations && (
                   <>
-                    {annotations.nodes.map(annotation => (
-                      <>
-                        <h3 className={styles.annotationTitle}>
-                          {annotation.title}
-                        </h3>
-                        <ContentfulContent
-                          content={
-                            annotation.childContentfulEventDescriptionTextNode
-                              .childMarkdownRemark.html
-                          }
-                          id={annotation.contentful_id}
-                        />
-                      </>
-                    ))}
+                    <ol className={styles.annotationList}>
+                      {flattenedAnnotations.map(annotation => (
+                        <li className={styles.annotationItem}>
+                          {formatDate(annotation.date)}
+                          {': '}
+                          <span>
+                            <ContentfulRawContent
+                              content={annotation.description.description}
+                              id={annotation.contentful_id}
+                            />
+                          </span>
+                        </li>
+                      ))}
+                    </ol>
                     <hr />
                   </>
                 )}

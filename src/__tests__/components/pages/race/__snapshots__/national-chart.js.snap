@@ -1,0 +1,327 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Race : National Chart renders correctly 1`] = `
+<div>
+  <div
+    className="charts"
+  >
+    <div
+      className="header"
+    >
+      <div
+        className="spacer"
+      />
+      <span>
+        Deaths per 
+        100,000
+         people by race or ethnicity
+      </span>
+    </div>
+    <div
+      className="raceRow emphasis"
+    >
+      <div>
+        <span
+          className="rowLabel"
+        >
+          Black or African American
+        </span>
+      </div>
+      <div
+        className="bar"
+        style={
+          Object {
+            "flexBasis": "75%",
+          }
+        }
+      />
+      <span
+        className="a11y-only"
+      >
+        Black or African American
+         people have experienced
+      </span>
+      <span
+        className="mortalityRateLabel"
+      >
+        65
+      </span>
+      <span
+        className="a11y-only"
+      >
+        deaths per 
+        100,000
+        .
+      </span>
+    </div>
+    <div
+      className="raceRow"
+    >
+      <div>
+        <span
+          className="rowLabel"
+        >
+          American Indian or Alaska Native
+        </span>
+      </div>
+      <div
+        className="bar"
+        style={
+          Object {
+            "flexBasis": "35.47140649149923%",
+          }
+        }
+      />
+      <span
+        className="a11y-only"
+      >
+        American Indian or Alaska Native
+         people have experienced
+      </span>
+      <span
+        className="mortalityRateLabel"
+      >
+        31
+      </span>
+      <span
+        className="a11y-only"
+      >
+        deaths per 
+        100,000
+        .
+      </span>
+    </div>
+    <div
+      className="raceRow"
+    >
+      <div>
+        <span
+          className="rowLabel"
+        >
+          Hispanic or Latino
+        </span>
+      </div>
+      <div
+        className="bar"
+        style={
+          Object {
+            "flexBasis": "34.42812982998454%",
+          }
+        }
+      />
+      <span
+        className="a11y-only"
+      >
+        Hispanic or Latino
+         people have experienced
+      </span>
+      <span
+        className="mortalityRateLabel"
+      >
+        30
+      </span>
+      <span
+        className="a11y-only"
+      >
+        deaths per 
+        100,000
+        .
+      </span>
+    </div>
+    <div
+      className="raceRow emphasis"
+    >
+      <div>
+        <span
+          className="rowLabel"
+        >
+          White
+        </span>
+      </div>
+      <div
+        className="bar"
+        style={
+          Object {
+            "flexBasis": "29.4435857805255%",
+          }
+        }
+      />
+      <span
+        className="a11y-only"
+      >
+        White
+         people have experienced
+      </span>
+      <span
+        className="mortalityRateLabel"
+      >
+        25
+      </span>
+      <span
+        className="a11y-only"
+      >
+        deaths per 
+        100,000
+        .
+      </span>
+    </div>
+    <div
+      className="raceRow"
+    >
+      <div>
+        <span
+          className="rowLabel"
+        >
+          Other
+        </span>
+      </div>
+      <div
+        className="bar"
+        style={
+          Object {
+            "flexBasis": "29.09582689335394%",
+          }
+        }
+      />
+      <span
+        className="a11y-only"
+      >
+        Other
+         people have experienced
+      </span>
+      <span
+        className="mortalityRateLabel"
+      >
+        25
+      </span>
+      <span
+        className="a11y-only"
+      >
+        deaths per 
+        100,000
+        .
+      </span>
+    </div>
+    <div
+      className="raceRow"
+    >
+      <div>
+        <span
+          className="rowLabel"
+        >
+          Native Hawaiian and Pacific Islander
+        </span>
+      </div>
+      <div
+        className="bar"
+        style={
+          Object {
+            "flexBasis": "24.227202472952087%",
+          }
+        }
+      />
+      <span
+        className="a11y-only"
+      >
+        Native Hawaiian and Pacific Islander
+         people have experienced
+      </span>
+      <span
+        className="mortalityRateLabel"
+      >
+        21
+      </span>
+      <span
+        className="a11y-only"
+      >
+        deaths per 
+        100,000
+        .
+      </span>
+    </div>
+    <div
+      className="raceRow"
+    >
+      <div>
+        <span
+          className="rowLabel"
+        >
+          Two or more races
+        </span>
+      </div>
+      <div
+        className="bar"
+        style={
+          Object {
+            "flexBasis": "2.8979907264296756%",
+          }
+        }
+      />
+      <span
+        className="a11y-only"
+      >
+        Two or more races
+         people have experienced
+      </span>
+      <span
+        className="mortalityRateLabel"
+      >
+        3
+      </span>
+      <span
+        className="a11y-only"
+      >
+        deaths per 
+        100,000
+        .
+      </span>
+    </div>
+  </div>
+  <div
+    className="disclosureWrapper"
+  >
+    <div
+      className="spacer"
+    />
+    <div
+      className="disclosureContainer"
+    >
+      <button
+        aria-controls="panel--1"
+        aria-expanded={false}
+        className="showNotes"
+        data-reach-disclosure-button=""
+        data-state="collapsed"
+        onClick={[Function]}
+      >
+        Notes 
+        <span
+          aria-hidden={true}
+        >
+          ↓
+        </span>
+      </button>
+      <div
+        className="notes"
+        data-reach-disclosure-panel=""
+        data-state="collapsed"
+        hidden={true}
+        id="panel--1"
+        tabIndex={-1}
+      >
+        These calculations are based on data from The Covid Racial Data Tracker and the U.S. Census Bureau. Race categories may overlap with Hispanic/Latinx ethnicity. Rates are not age-adjusted and some rates are underestimated due to lack of reporting of race and ethnicity categories for COVID-19 deaths.
+      </div>
+    </div>
+  </div>
+  <p
+    className="paragraph paragraph"
+  >
+    We’ve lost at least 
+    26,708
+     Black lives to COVID-19 to date. Black people account for
+     
+    23
+    % of COVID-19 deaths where race is known.
+  </p>
+</div>
+`;

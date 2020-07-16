@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import tableNotesStyle from './table-notes.module.scss'
 
 export default ({ state, stateName, type, groupedNotes }) => {
+  // state like AL, stateName like Alabama
   if (!groupedNotes.length) {
     return null
   }

@@ -55,7 +55,23 @@ exports[`Components : Pages : Blog : Byline renders correctly 2`] = `
     <span
       className="date"
     >
+      published on 
       Aug 1 2020
+    </span>
+    <span
+      className="date"
+    >
+      updated at 
+      2:22 pm
+       
+      <abbr
+        aria-label="Eastern Time"
+        title="Eastern Time"
+      >
+        ET
+      </abbr>
+       on 
+      July 13, 2020
     </span>
   </span>
 </div>

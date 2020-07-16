@@ -27,6 +27,7 @@ describe('Components : Pages : Blog : Lede', () => {
           ]}
           date="Aug 1 2020"
           lede="This is a test blog lede."
+          id="askld-loaks-lopde"
         />,
       )
       .toJSON()

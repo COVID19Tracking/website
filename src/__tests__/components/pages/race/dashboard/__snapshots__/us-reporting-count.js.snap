@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Race : Dashboard : US Overview renders correctly 1`] = `
+<div
+  className="css-class-name"
+>
+  <div
+    className="data"
+  >
+    <div
+      className="dataItem"
+    >
+      <h3
+        className="title"
+      >
+        Race/ethnicity data for cases:
+      </h3>
+      <p>
+        <span
+          className="percent"
+        >
+          49
+        </span>
+         
+        <br />
+        <span
+          className="percentCaption"
+        >
+          of 56 states & territories
+        </span>
+      </p>
+    </div>
+    <div
+      className="dataItem"
+    >
+      <h3
+        className="title"
+      >
+        Race/ethnicity for deaths:
+      </h3>
+      <p>
+        <span
+          className="percent"
+        >
+          48
+           
+        </span>
+        <br />
+        <span
+          className="percentCaption"
+        >
+          of 56 states & territories
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;

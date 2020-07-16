@@ -1,0 +1,10 @@
+.footnotes {
+  @include margin(32, top bottom);
+  @include type-size(100);
+  ol {
+    li {
+      list-style-type: decimal;
+      @include margin(8, bottom);
+    }
+  }
+}

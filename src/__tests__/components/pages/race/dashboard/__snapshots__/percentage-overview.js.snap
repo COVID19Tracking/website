@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Race : Dashboard : Percentage Overview renders correctly 1`] = `
+<div
+  className="race-class"
+>
+  <h3
+    className="title"
+  >
+    New Mexico
+     has reported 
+    race
+     data for:
+  </h3>
+  <div
+    className="data"
+  >
+    <div
+      className="dataItem"
+    >
+      <p>
+        <span
+          className="percent"
+        >
+          22
+          %
+        </span>
+         
+        <span
+          className="a11y-only"
+        >
+          of
+        </span>
+         
+        <span
+          className="percentCaption"
+        >
+          Cases
+        </span>
+      </p>
+    </div>
+    <div
+      className="dataItem"
+    >
+      <p>
+        <span
+          className="percent"
+        >
+          4
+          %
+        </span>
+         
+        <span
+          className="a11y-only"
+        >
+          of
+        </span>
+         
+        <span
+          className="percentCaption"
+        >
+          Deaths
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Race : Dashboard : Percentage Overview renders correctly 2`] = `null`;
+
+exports[`Components : Race : Dashboard : Percentage Overview renders correctly 3`] = `
+<div
+  className="race-class"
+>
+  <h3
+    className="title"
+  >
+    New Mexico
+     has reported 
+    race
+     data for:
+  </h3>
+  <div
+    className="data"
+  >
+    <div
+      className="dataItem"
+    >
+      <p>
+        <span
+          className="percent"
+        >
+          22
+          %
+        </span>
+         
+        <span
+          className="a11y-only"
+        >
+          of
+        </span>
+         
+        <span
+          className="percentCaption"
+        >
+          Cases
+        </span>
+      </p>
+    </div>
+    <div
+      className="dataItem"
+    >
+      <p>
+        <span
+          className="percent"
+        >
+          <img
+            alt="Alert icon"
+            src="test-file-stub"
+          />
+        </span>
+         
+        <span
+          className="a11y-only"
+        >
+          of
+        </span>
+         
+        <span
+          className="percentCaption"
+        >
+          Deaths
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;

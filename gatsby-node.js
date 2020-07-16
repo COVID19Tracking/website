@@ -52,6 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
       allContentfulBlogPost(sort: { fields: updatedAt }) {
         nodes {
           id
+          contentful_id
           slug
           childContentfulBlogPostBlogContentRichTextNode {
             json
@@ -166,11 +167,20 @@ exports.createPages = async ({ graphql, actions }) => {
         blogImages.push(image.data.target.sys.contentful_id)
       })
 
+    const longPath = `/blog/${node.slug}`
+    const shortPath = `/${node.contentful_id}`
+
+    createRedirect({
+      fromPath: shortPath,
+      toPath: longPath,
+    })
+
     createPage({
-      path: `/blog/${node.slug}`,
+      path: longPath,
       component: path.resolve(`./src/templates/blog-post.js`),
       context: { ...node, blogImages },
     })
+
   })
 
   result.data.allContentfulBlogCategory.nodes.forEach(node => {

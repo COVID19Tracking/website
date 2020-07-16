@@ -9,7 +9,7 @@ import stateStyle from './state.module.scss'
 
 export default ({ state }) => {
   const stateData = state
-  const notes = {
+  let notes = {
     otherDeath: stateData.otherDeathNotes,
     otherPos: stateData.otherPosNotes,
     whiteDeath: stateData.whiteDeathNotes,
@@ -27,7 +27,7 @@ export default ({ state }) => {
     blackDeath: stateData.blackDeathNotes,
     blackPos: stateData.blackPosNotes,
   }
-  anhpiNotes(stateData, notes)
+  notes = anhpiNotes(stateData, notes)
 
   const groupedNotes = [...new Set(Object.values(notes))]
     .reverse()

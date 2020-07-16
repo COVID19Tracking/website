@@ -2,9 +2,15 @@ import { format } from 'd3-format'
 import { timeFormat, timeParse } from 'd3-time-format'
 import colors from '~scss/colors.module.scss'
 
-export const formatDate = timeFormat('%b %e')
 export const formatNumber = format(',.0f')
 export const parseDate = timeParse('%Y%m%d')
+export const formatDate = date => {
+  const formatFn = timeFormat('%b %e')
+  if (date instanceof Date) {
+    return formatFn(date)
+  }
+  return formatFn(parseDate(date))
+}
 
 export const getStateName = abbr => {
   const names = {

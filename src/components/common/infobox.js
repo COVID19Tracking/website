@@ -57,6 +57,7 @@ const SyncInfobox = () => (
         <img src={syncIcon} alt="Sync icon" />
         <div>
           <InfoboxInner header="Last updated from our data:">
+            <FormatDate date={data.v1Json.buildTime} format="MMM d" /> at{' '}
             <FormatDate date={data.v1Json.buildTime} format="h:mm a" />{' '}
             <Timezone />
           </InfoboxInner>

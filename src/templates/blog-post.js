@@ -4,6 +4,7 @@ import Hero from '~components/pages/blog/blog-hero'
 import Layout from '~components/layout'
 import FeaturedImage from '~components/pages/blog/featured-image'
 import BlogPostContent from '~components/pages/blog/blog-content'
+import BlogPostFootnotes from '~components/pages/blog/blog-footnotes'
 import BlogPostExtras from '~components/pages/blog/blog-extras'
 
 export default ({ data, path }) => {
@@ -18,9 +19,10 @@ export default ({ data, path }) => {
       categories={blogPost.categories}
       headline={blogPost.title}
       authors={blogPost.authors}
-      date={blogPost.publishDate}
+      published={blogPost.publishDate}
+      updated={blogPost.updateDateTime}
       lede={blogPost.lede.lede}
-      slug={blogPost.slug}
+      id={blogPost.contentful_id}
     />
   )
 
@@ -42,6 +44,14 @@ export default ({ data, path }) => {
         content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
         images={blogImages}
       />
+      {blogPost.childContentfulBlogPostFootnotesTextNode && (
+        <BlogPostFootnotes
+          footnotes={
+            blogPost.childContentfulBlogPostFootnotesTextNode
+              .childMarkdownRemark.html
+          }
+        />
+      )}
       <BlogPostExtras blogPost={blogPost} />
     </Layout>
   )
@@ -50,7 +60,9 @@ export default ({ data, path }) => {
 export const query = graphql`
   query($id: String!, $blogImages: [String]) {
     contentfulBlogPost(id: { eq: $id }) {
+      contentful_id
       title
+      updateDateTime
       authors {
         name
         twitterLink
@@ -159,6 +171,12 @@ export const query = graphql`
       }
       publishDate(formatString: "MMMM D, YYYY")
       childContentfulBlogPostBodyTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+
+      childContentfulBlogPostFootnotesTextNode {
         childMarkdownRemark {
           html
         }

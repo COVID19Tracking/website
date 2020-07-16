@@ -76,7 +76,16 @@
 }
 
 .annotation-list {
-  padding-inline-start: 15px; // ignore-style-rule
+  padding-inline-start: 20px; // ignore-style-rule
+  list-style-type: upper-alpha;
+
+  .annotation-item {
+    font-weight: 700;
+    padding-inline-start: spacer(4);
+    span {
+      font-weight: initial;
+    }
+  }
 }
 
 .annotation-title {
@@ -87,7 +96,9 @@
   @include type-size(200);
   font-weight: normal;
   display: block;
-  float: right;
+  font-size: 0.8rem;
+  display: inline;
+  @include margin(4, left);
 }
 
 .chart-logo {
@@ -98,4 +109,9 @@
   * {
     fill: $color-slate-300;
   }
+}
+
+.annotation-date {
+  font-weight: 700;
+  color: $color-slate-600;
 }

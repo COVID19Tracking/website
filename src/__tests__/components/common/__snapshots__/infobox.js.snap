@@ -89,6 +89,9 @@ exports[`Components : Common: Infobox: Sync renders correctly 1`] = `
       <div
         className="content"
       >
+        Jun 2
+         at
+         
         6:16 am
          
         <abbr
