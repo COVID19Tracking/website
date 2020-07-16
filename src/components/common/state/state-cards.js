@@ -130,10 +130,14 @@ const OutcomesCard = ({
       <Statistic title="Recovered" value={recovered} />
       <Statistic title={deathsLabel} value={death} />
       {deathProbable && (
-        <Statistic title="Probable deaths" value={deathProbable} />
+        <Statistic title="Probable deaths" value={deathProbable} subelement>
+          <DefinitionLink to="#" />
+        </Statistic>
       )}
       {deathConfirmed && (
-        <Statistic title="Confirmed deaths" value={deathConfirmed} />
+        <Statistic title="Confirmed deaths" value={deathConfirmed} subelement>
+          <DefinitionLink to="#" />
+        </Statistic>
       )}
     </CardBody>
   </Card>

@@ -8,11 +8,24 @@
   font-weight: bold;
 }
 
-.statistic {
-  @include margin(8, bottom);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+.statistic-wrapper {
+  .statistic {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include margin(8, bottom);
+  }
+  &.subelement {
+    @include padding(8, left);
+    display: flex;
+
+    &::before {
+      @include padding(8, right);
+      content: '∟';
+      line-height: 0.9;
+    }
+  }
 }
 
 .group {
