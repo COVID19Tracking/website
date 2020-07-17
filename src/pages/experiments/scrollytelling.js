@@ -19,11 +19,11 @@ import colors from '~scss/colors.module.scss'
 
 import styles from './scrollytelling.module.scss'
 
-const Scrollama = loadable(() => import('~utilities/visualization'), {
+const Scrollama = loadable(() => import('~utilities/react-scrollama'), {
   resolveComponent: components => components.Scrollama,
 })
 
-const Step = loadable(() => import('~utilities/visualization'), {
+const Step = loadable(() => import('~utilities/react-scrollama'), {
   resolveComponent: components => components.Step,
 })
 
