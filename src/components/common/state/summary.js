@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   CasesCard,
   PCRTestsCard,
@@ -16,16 +16,29 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
   const sevenDayPositiveIncrease =
     (data.positive - sevenDaysAgo.positive) / sevenDaysAgo.positive
 
+  const [showDefinitions, setShowDefinitions] = useState(false)
+  // const [currentDefinition, setCurrentDefinition] = useState(null)
+
+  const definitionToggle = definition => {
+    setShowDefinitions(true) // show definitions panel
+    console.log(`jumping to: ${definition}`) // todo rm me
+    // this is the definition to jump to in the panel
+    // setCurrentDefinition(definition)
+  }
+
   return (
     <div className={summaryStyles.container}>
+      {showDefinitions && <DefinitionsPanel />}
       <CasesCard
         stateSlug={stateSlug}
+        onDefinitionsToggle={definitionToggle}
         positive={data.positive}
         positiveIncrease={data.positiveIncrease}
         sevenDayIncrease={sevenDayPositiveIncrease}
       />
       <PCRTestsCard
         stateSlug={stateSlug}
+        onDefinitionsToggle={definitionToggle}
         negative={data.negative}
         positive={data.positive}
         pending={data.pending}
@@ -33,27 +46,35 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
       />
       <ViralTestsCard
         stateSlug={stateSlug}
+        onDefinitionsToggle={definitionToggle}
         totalTestsViral={data.totalTestsViral}
         positiveTestsViral={data.positiveTestsViral}
         negativeTestsViral={data.negativeTestsViral}
       />
       <CumulativeHospitalizationCard
         stateSlug={stateSlug}
+        onDefinitionsToggle={definitionToggle}
         hospitalizedCumulative={data.hospitalizedCumulative}
         inIcuCumulative={data.inIcuCumulative}
         onVentilatorCumulative={data.onVentilatorCumulative}
       />
       <OutcomesCard
         stateSlug={stateSlug}
+        onDefinitionsToggle={definitionToggle}
         deathsLabel={deathsLabel}
         death={data.death}
         deathConfirmed={data.deathConfirmed}
         deathProbable={data.deathProbable}
         recovered={data.recovered}
       />
-      <RaceEthnicityCard stateSlug={stateSlug} raceData={raceData} />
+      <RaceEthnicityCard
+        stateSlug={stateSlug}
+        onDefinitionsToggle={definitionToggle}
+        raceData={raceData}
+      />
       <CurrentHospitalizationCard
         stateSlug={stateSlug}
+        onDefinitionsToggle={definitionToggle}
         hospitalizedCurrently={data.hospitalizedCurrently}
         inIcuCurrently={data.inIcuCurrently}
         onVentilatorCurrently={data.onVentilatorCurrently}
@@ -61,3 +82,9 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
     </div>
   )
 }
+
+const DefinitionsPanel = () => (
+  <div>
+    <h1>Definitions!</h1>
+  </div>
+)

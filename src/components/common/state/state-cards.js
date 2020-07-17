@@ -5,6 +5,7 @@ import { DrillDown, Statistic } from '~components/common/statistic'
 
 const CasesCard = ({
   stateSlug,
+  onDefinitionsToggle,
   positive,
   positiveIncrease,
   sevenDayIncrease,
@@ -24,6 +25,7 @@ const CasesCard = ({
           title="Total cases"
           value={positive}
           definitionLink="#"
+          onDefinitionsToggle={onDefinitionsToggle}
           hasCalculatedDrillDowns
         >
           <DrillDown label="New cases" value={positiveIncrease} calculated />
@@ -116,6 +118,7 @@ const CumulativeHospitalizationCard = ({
 
 const OutcomesCard = ({
   stateSlug,
+  onDefinitionsToggle,
   deathsLabel,
   death,
   deathConfirmed,
@@ -134,6 +137,7 @@ const OutcomesCard = ({
           title="Probable deaths"
           value={deathProbable}
           definitionLink="#"
+          onDefinitionsToggle={onDefinitionsToggle}
           subelement
         />
       )}
@@ -142,6 +146,7 @@ const OutcomesCard = ({
           title="Confirmed deaths"
           value={deathConfirmed}
           definitionLink="#"
+          onDefinitionsToggle={onDefinitionsToggle}
           subelement
         />
       )}

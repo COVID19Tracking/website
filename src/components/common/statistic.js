@@ -11,6 +11,7 @@ const Statistic = ({
   children,
   subelement,
   definitionLink,
+  onDefinitionsToggle,
   hasCalculatedDrillDowns,
 }) => (
   <div
@@ -27,7 +28,12 @@ const Statistic = ({
       </div>
       {(definitionLink || children) && (
         <div className={statisticStyles.info}>
-          {definitionLink && <DefinitionLink to={definitionLink} />}
+          {definitionLink && (
+            <DefinitionLink
+              to={definitionLink}
+              onDefinitionsToggle={onDefinitionsToggle}
+            />
+          )}
           {children && children}
         </div>
       )}
@@ -46,9 +52,21 @@ const StatisticLink = ({ to, children }) => (
   </Link>
 )
 
-const DefinitionLink = ({ to }) => (
-  <StatisticLink to={to}>Definition</StatisticLink>
-)
+const DefinitionLink = ({ to, onDefinitionsToggle }) => {
+  const id = to
+  const definitionsToggle = definitionId => {
+    onDefinitionsToggle(definitionId || 'definition-id') // todo replace in prod with just definitionId
+  }
+  return (
+    <button
+      className={statisticStyles.link}
+      onClick={() => definitionsToggle(id)}
+      type="button"
+    >
+      Definition
+    </button>
+  )
+}
 
 const StatisticGroup = ({ children }) => (
   <div className={statisticStyles.group}>{children}</div>
