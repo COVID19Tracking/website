@@ -7,6 +7,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 import { Form, Textarea, Select, Input } from '~components/common/form'
+import { Row, Col } from '~components/common/grid'
 import { AlertInfobox } from '~components/common/infobox'
 
 const reasons = [
@@ -27,13 +28,12 @@ export default ({ data }) => {
 
   return (
     <Layout
-      title="Contact"
-      path="/contact"
+      title="Contact Us"
       socialCard={{
         description:
           'The COVID Tracking Project runs on the effort and diligence of hundreds of volunteers, and we welcome your contribution.',
       }}
-      narrow
+      centered
     >
       <LongContent>
         <ContentfulContent
@@ -55,26 +55,33 @@ export default ({ data }) => {
         <Select
           isRequired
           label="What are you contacting us about?"
+          detailText="Please let us know why you are contacting us so we can route your message to the right team"
           id="contact-reason"
           name="reason"
           options={reasons}
           onChange={event => setReason(event.target.value)}
         />
-        <Input
-          isRequired
-          label="Your name"
-          type="text"
-          name="name"
-          id="contact-name"
-          onChange={event => setName(event.target.value)}
-        />
-        <Input
-          isRequired
-          type="email"
-          label="Your email address"
-          name="email"
-          id="contact-email"
-        />
+        <Row>
+          <Col width={[4, 6, 6]} paddingRight={[0, 0, 32]}>
+            <Input
+              isRequired
+              label="Your name"
+              type="text"
+              name="name"
+              id="contact-name"
+              onChange={event => setName(event.target.value)}
+            />
+          </Col>
+          <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]}>
+            <Input
+              isRequired
+              type="email"
+              label="Your email address"
+              name="email"
+              id="contact-email"
+            />
+          </Col>
+        </Row>
         <Textarea label="Message" name="body" id="contact-message" />
         <div>
           {typeof window !== 'undefined' && (
