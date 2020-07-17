@@ -86,7 +86,14 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
 }
 
 const DefinitionsPanel = () => (
-  <div className={summaryStyles.definitionsPanel}>
+  <div
+    className={summaryStyles.definitionsPanel}
+    role="dialog"
+    aria-labelledby="definitionsDialogLabel"
+  >
+    <span id="definitionsDialogLabel" className="a11y-only">
+      Data definitions
+    </span>
     <h2>Definitions</h2>
   </div>
 )
