@@ -1,7 +1,7 @@
 import React from 'react'
-import RelatedPosts from '~components/pages/blog/related-posts'
+import RelatedPosts from './related-posts'
 import SectionDivider from '~components/common/section-divider'
-import AuthorFooter from '~components/pages/blog/author-footer'
+import AuthorFooter from './author-footer'
 import blogExtrasStyles from './blog-extras.module.scss'
 
 export default ({ blogPost }) => (
