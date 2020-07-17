@@ -95,6 +95,7 @@ export const query = graphql`
         }
       }
       relatedBlogPosts {
+        updateDateTime
         slug
         publishDate(formatString: "MMMM D, YYYY")
         authors {
