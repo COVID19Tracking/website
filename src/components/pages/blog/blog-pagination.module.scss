@@ -37,7 +37,7 @@
   display: flex;
   @media (max-width: $viewport-ms) {
     justify-self: center;
-    margin-top: 0.5rem;
+    margin-top: spacer(8);
   }
 }
 
