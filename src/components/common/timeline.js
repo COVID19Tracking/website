@@ -28,7 +28,6 @@ const prepareObject = nodes => {
       media: media.url ? media : false,
     })
   })
-  console.log(events)
 
   return { events }
 }
