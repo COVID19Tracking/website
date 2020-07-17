@@ -13,3 +13,22 @@
     grid-template-columns: 1fr;
   }
 }
+
+.definitions-panel {
+  height: 100%;
+  right: 0%;
+  left: 80%;
+  position: fixed;
+  top: 0%;
+  z-index: 2; // above the search icon
+
+  background-color: $color-plum-800;
+  color: white;
+  @include padding(32);
+  @include padding(16, top);
+
+  h2 {
+    text-transform: uppercase;
+    @include type-size(300);
+  }
+}

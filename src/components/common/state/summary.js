@@ -27,64 +27,66 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
   }
 
   return (
-    <div className={summaryStyles.container}>
+    <>
       {showDefinitions && <DefinitionsPanel />}
-      <CasesCard
-        stateSlug={stateSlug}
-        onDefinitionsToggle={definitionToggle}
-        positive={data.positive}
-        positiveIncrease={data.positiveIncrease}
-        sevenDayIncrease={sevenDayPositiveIncrease}
-      />
-      <PCRTestsCard
-        stateSlug={stateSlug}
-        onDefinitionsToggle={definitionToggle}
-        negative={data.negative}
-        positive={data.positive}
-        pending={data.pending}
-        posNeg={data.posNeg}
-      />
-      <ViralTestsCard
-        stateSlug={stateSlug}
-        onDefinitionsToggle={definitionToggle}
-        totalTestsViral={data.totalTestsViral}
-        positiveTestsViral={data.positiveTestsViral}
-        negativeTestsViral={data.negativeTestsViral}
-      />
-      <CumulativeHospitalizationCard
-        stateSlug={stateSlug}
-        onDefinitionsToggle={definitionToggle}
-        hospitalizedCumulative={data.hospitalizedCumulative}
-        inIcuCumulative={data.inIcuCumulative}
-        onVentilatorCumulative={data.onVentilatorCumulative}
-      />
-      <OutcomesCard
-        stateSlug={stateSlug}
-        onDefinitionsToggle={definitionToggle}
-        deathsLabel={deathsLabel}
-        death={data.death}
-        deathConfirmed={data.deathConfirmed}
-        deathProbable={data.deathProbable}
-        recovered={data.recovered}
-      />
-      <RaceEthnicityCard
-        stateSlug={stateSlug}
-        onDefinitionsToggle={definitionToggle}
-        raceData={raceData}
-      />
-      <CurrentHospitalizationCard
-        stateSlug={stateSlug}
-        onDefinitionsToggle={definitionToggle}
-        hospitalizedCurrently={data.hospitalizedCurrently}
-        inIcuCurrently={data.inIcuCurrently}
-        onVentilatorCurrently={data.onVentilatorCurrently}
-      />
-    </div>
+      <div className={summaryStyles.container}>
+        <CasesCard
+          stateSlug={stateSlug}
+          onDefinitionsToggle={definitionToggle}
+          positive={data.positive}
+          positiveIncrease={data.positiveIncrease}
+          sevenDayIncrease={sevenDayPositiveIncrease}
+        />
+        <PCRTestsCard
+          stateSlug={stateSlug}
+          onDefinitionsToggle={definitionToggle}
+          negative={data.negative}
+          positive={data.positive}
+          pending={data.pending}
+          posNeg={data.posNeg}
+        />
+        <ViralTestsCard
+          stateSlug={stateSlug}
+          onDefinitionsToggle={definitionToggle}
+          totalTestsViral={data.totalTestsViral}
+          positiveTestsViral={data.positiveTestsViral}
+          negativeTestsViral={data.negativeTestsViral}
+        />
+        <CumulativeHospitalizationCard
+          stateSlug={stateSlug}
+          onDefinitionsToggle={definitionToggle}
+          hospitalizedCumulative={data.hospitalizedCumulative}
+          inIcuCumulative={data.inIcuCumulative}
+          onVentilatorCumulative={data.onVentilatorCumulative}
+        />
+        <OutcomesCard
+          stateSlug={stateSlug}
+          onDefinitionsToggle={definitionToggle}
+          deathsLabel={deathsLabel}
+          death={data.death}
+          deathConfirmed={data.deathConfirmed}
+          deathProbable={data.deathProbable}
+          recovered={data.recovered}
+        />
+        <RaceEthnicityCard
+          stateSlug={stateSlug}
+          onDefinitionsToggle={definitionToggle}
+          raceData={raceData}
+        />
+        <CurrentHospitalizationCard
+          stateSlug={stateSlug}
+          onDefinitionsToggle={definitionToggle}
+          hospitalizedCurrently={data.hospitalizedCurrently}
+          inIcuCurrently={data.inIcuCurrently}
+          onVentilatorCurrently={data.onVentilatorCurrently}
+        />
+      </div>
+    </>
   )
 }
 
 const DefinitionsPanel = () => (
-  <div>
-    <h1>Definitions!</h1>
+  <div className={summaryStyles.definitionsPanel}>
+    <h2>Definitions</h2>
   </div>
 )
