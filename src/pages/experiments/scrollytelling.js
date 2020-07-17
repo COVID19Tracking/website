@@ -7,7 +7,8 @@ import { scaleLinear, scaleTime } from 'd3-scale'
 import { line, curveCardinal } from 'd3-shape'
 import { timeMonth, timeDay } from 'd3-time'
 
-import { Scrollama, Step } from '~utilities/react-scrollama'
+import loadable from '@loadable/component'
+
 import { formatNumber, parseDate } from '~utilities/visualization'
 
 import Layout from '~components/layout'
@@ -17,6 +18,14 @@ import chartStyles from '~components/charts/charts.module.scss'
 import colors from '~scss/colors.module.scss'
 
 import styles from './scrollytelling.module.scss'
+
+const Scrollama = loadable(() => import('~utilities/visualization'), {
+  resolveComponent: components => components.Scrollama,
+})
+
+const Step = loadable(() => import('~utilities/visualization'), {
+  resolveComponent: components => components.Step,
+})
 
 export default ({ data }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(null)

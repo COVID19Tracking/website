@@ -22,6 +22,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^14.1.0",
+    "@loadable/component": "^5.13.1",
     "@reach/alert": "^0.9.1",
     "@reach/combobox": "^0.9.1",
     "@reach/disclosure": "^0.10.2",
