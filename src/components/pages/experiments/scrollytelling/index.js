@@ -140,31 +140,3 @@ const Chart = ({
     </svg>
   )
 }
-
-export const query = graphql`
-  query {
-    allCovidUsDaily {
-      nodes {
-        date
-        totalTestResultsIncrease
-        positiveIncrease
-        hospitalizedCurrently
-        deathIncrease
-        childPopulation {
-          deathIncrease {
-            percent
-          }
-          hospitalizedCurrently {
-            percent
-          }
-          positiveIncrease {
-            percent
-          }
-          totalTestResultsIncrease {
-            percent
-          }
-        }
-      }
-    }
-  }
-`
