@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import Helmet from 'react-helmet'
-import changeLogStyles from './change-log.module.scss'
 
 export default () => {
   useEffect(() => {
@@ -29,7 +28,7 @@ export default () => {
         }`}
         </style>
       </Helmet>
-      <p className={changeLogStyles.changeLog}>
+      <p>
         <strong>
           <a href="https://apichanges.covidtracking.com/">Latest API changes</a>
         </strong>
