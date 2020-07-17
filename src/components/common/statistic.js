@@ -10,6 +10,7 @@ const Statistic = ({
   suffix,
   children,
   subelement,
+  definitionLink,
   hasCalculatedDrillDowns,
 }) => (
   <div
@@ -24,7 +25,12 @@ const Statistic = ({
         <FormatNumber number={value} />
         {suffix}
       </div>
-      {children && <div className={statisticStyles.info}>{children}</div>}
+      {(definitionLink || children) && (
+        <div className={statisticStyles.info}>
+          {definitionLink && <DefinitionLink to={definitionLink} />}
+          {children && children}
+        </div>
+      )}
       {hasCalculatedDrillDowns && (
         <div className={statisticStyles.calculatedLabel}>
           <span>* Calculated values</span>

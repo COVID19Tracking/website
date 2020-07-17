@@ -1,11 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { Card, CardBody } from '~components/common/card'
-import {
-  DrillDown,
-  Statistic,
-  DefinitionLink,
-} from '~components/common/statistic'
+import { DrillDown, Statistic } from '~components/common/statistic'
 
 const CasesCard = ({
   stateSlug,
@@ -24,8 +20,12 @@ const CasesCard = ({
       link={<Link to={`/data/state/${stateSlug}/cases`}>Historical data</Link>}
     >
       <CardBody>
-        <Statistic title="Total cases" value={positive} hasCalculatedDrillDowns>
-          <DefinitionLink to="#" />
+        <Statistic
+          title="Total cases"
+          value={positive}
+          definitionLink="#"
+          hasCalculatedDrillDowns
+        >
           <DrillDown label="New cases" value={positiveIncrease} calculated />
           <DrillDown
             label="Increase in 7 days"
@@ -130,14 +130,20 @@ const OutcomesCard = ({
       <Statistic title="Recovered" value={recovered} />
       <Statistic title={deathsLabel} value={death} />
       {deathProbable && (
-        <Statistic title="Probable deaths" value={deathProbable} subelement>
-          <DefinitionLink to="#" />
-        </Statistic>
+        <Statistic
+          title="Probable deaths"
+          value={deathProbable}
+          definitionLink="#"
+          subelement
+        />
       )}
       {deathConfirmed && (
-        <Statistic title="Confirmed deaths" value={deathConfirmed} subelement>
-          <DefinitionLink to="#" />
-        </Statistic>
+        <Statistic
+          title="Confirmed deaths"
+          value={deathConfirmed}
+          definitionLink="#"
+          subelement
+        />
       )}
     </CardBody>
   </Card>
