@@ -57,7 +57,9 @@ exports[`Components : Pages : Blog : Related Posts : Category Posts renders corr
         </span>
         <span
           className="date"
-        />
+        >
+          June 26, 2020
+        </span>
       </span>
     </div>
   </div>
@@ -100,7 +102,9 @@ exports[`Components : Pages : Blog : Related Posts : Category Posts renders corr
         </span>
         <span
           className="date"
-        />
+        >
+          June 25, 2020
+        </span>
       </span>
     </div>
   </div>
@@ -164,7 +168,9 @@ exports[`Components : Pages : Blog : Related Posts : Explicit Related Posts rend
         </span>
         <span
           className="date"
-        />
+        >
+          June 26, 2020
+        </span>
       </span>
     </div>
   </div>
@@ -207,7 +213,9 @@ exports[`Components : Pages : Blog : Related Posts : Explicit Related Posts rend
         </span>
         <span
           className="date"
-        />
+        >
+          June 25, 2020
+        </span>
       </span>
     </div>
   </div>
@@ -271,7 +279,9 @@ exports[`Components : Pages : Blog : Related Posts : Recent Posts renders correc
         </span>
         <span
           className="date"
-        />
+        >
+          June 26, 2020
+        </span>
       </span>
     </div>
   </div>
@@ -314,7 +324,9 @@ exports[`Components : Pages : Blog : Related Posts : Recent Posts renders correc
         </span>
         <span
           className="date"
-        />
+        >
+          June 25, 2020
+        </span>
       </span>
     </div>
   </div>
