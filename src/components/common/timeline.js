@@ -8,21 +8,27 @@ const prepareObject = nodes => {
   nodes.forEach(node => {
     const startDate = DateTime.fromISO(node.date)
     const endDate = DateTime.fromISO(node.date)
-
+    const media = {
+      caption: node.mediaCaption,
+      credit: node.mediaCredit,
+    }
+    if (node.image) {
+      media.url = node.image.file.url
+    } else {
+      media.url = node.media ? node.media.media : false
+    }
     events.push({
       start_date: startDate.toObject(),
       end_date: endDate.toObject(),
+      group: node.timeline,
       text: {
         headline: node.title,
         text: node.description.childMarkdownRemark.html,
       },
-      media: {
-        url: node.media ? node.media.media : false,
-        caption: node.mediaCaption,
-        credit: node.mediaCredit,
-      },
+      media: media.url ? media : false,
     })
   })
+  console.log(events)
 
   return { events }
 }

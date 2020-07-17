@@ -8,13 +8,7 @@ import Container from '~components/common/container'
 export default ({ data }) => (
   <Layout title="Timeline">
     <Container centered>
-      <ContentfulContent
-        content={
-          data.contentfulSnippet.childContentfulSnippetContentTextNode
-            .childMarkdownRemark.html
-        }
-        id={data.contentfulSnippet.contentful_id}
-      />
+      <ContentfulContent content="[CONTENT GOES HERE]" id="" />
     </Container>
     <Timeline timeline={data.allContentfulEvent.nodes} />
   </Layout>
@@ -22,9 +16,7 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
-    allContentfulEvent(
-      filter: { displayTimeline: { eq: true }, timeline: { eq: "outside" } }
-    ) {
+    allContentfulEvent(filter: { displayTimeline: { eq: true } }) {
       nodes {
         title
         timeline
@@ -40,6 +32,11 @@ export const query = graphql`
         }
         date
         dateEnd
+        image {
+          file {
+            url
+          }
+        }
       }
     }
     contentfulSnippet(slug: { eq: "timeline-preamble-outside-events" }) {
