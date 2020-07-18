@@ -7,6 +7,10 @@ export default ({ authors }) => {
     author => author.childContentfulAuthorBiographyTextNode !== null,
   ) // only keep authors with biographies
 
+  if (footerAuthors.length === 0) {
+    return null
+  }
+
   return (
     <div className={AuthorFooterStyles.container}>
       {footerAuthors.map(author => (
