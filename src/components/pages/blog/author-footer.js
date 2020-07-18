@@ -3,17 +3,9 @@ import smartypants from 'smartypants'
 import AuthorFooterStyles from './author-footer.module.scss'
 
 export default ({ authors }) => {
-  const footerAuthors = authors.filter(
-    author => author.childContentfulAuthorBiographyTextNode !== null,
-  ) // only keep authors with biographies
-
-  if (footerAuthors.length === 0) {
-    return null
-  }
-
   return (
     <div className={AuthorFooterStyles.container}>
-      {footerAuthors.map(author => (
+      {authors.map(author => (
         <div
           className={AuthorFooterStyles.author}
           key={`author-${author.name}`}
