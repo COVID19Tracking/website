@@ -8,7 +8,7 @@ export default ({ blogPost }) => (
   <>
     <hr className={blogExtrasStyles.divider} />
     <div className={blogExtrasStyles.eightColWrapper}>
-      <AuthorFooter authors={blogPost.authors} />
+      {blogPost.authors.length > 0 && <AuthorFooter authors={blogPost.authors} />}
     </div>
     <SectionDivider className={blogExtrasStyles.fullWidth} />
     <div className={blogExtrasStyles.eightColWrapper}>
