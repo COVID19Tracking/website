@@ -49,7 +49,7 @@ export default ({
       <ul className={tableNotesStyle.list}>
         {disparityExists && (
           <li>
-            <DisparitySymbol /> Racial/ethnic disparity likely.
+            <DisparitySymbol /> Racial/ethnic disparity likely.{' '}
             <a href="#notes-disparity" className="js-disabled">
               See why <span aria-hidden>↓</span>
             </a>

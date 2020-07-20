@@ -21,6 +21,7 @@
   border: 1px solid $color-slate-100;
   display: inline-block;
   text-align: center;
+  @include margin(8, right);
 }
 
 .key {
@@ -39,6 +40,10 @@
 
 .disclosure-pane {
   display: none;
+  background: $color-infobox-alert-light;
+  @include padding(16);
+  @include margin(16, top bottom);
+
   &[data-expanded='true'] {
     display: block;
   }

@@ -1,15 +1,16 @@
-.caution,
-.disparity-symbol,
-.note {
-  margin-left: spacer(4);
+.note,
+.disparity-symbol {
+  @include margin(8, right);
 }
 
 .disparity-symbol {
   display: inline-block;
+  width: 20px;
 }
 
 .note {
   @include type-size(100);
+  @include margin(8, right);
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -23,7 +24,6 @@
   }
   &.unlinked {
     padding-top: 0;
-    margin-left: 0;
   }
 }
 
