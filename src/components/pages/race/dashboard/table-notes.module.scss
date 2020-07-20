@@ -10,6 +10,9 @@
   @include padding(0, left);
   @include margin(0, top);
   list-style-type: none;
+  li {
+    @include margin(8, bottom);
+  }
 }
 
 .empty-note {

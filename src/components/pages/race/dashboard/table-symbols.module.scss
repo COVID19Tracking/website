@@ -15,7 +15,7 @@
   width: 20px;
   height: 20px;
   border-radius: 10px;
-  background: #fae9a8;
+  background: $color-honey-200;
   text-align: center;
   font-weight: bold;
   padding-top: 2px; //ignore-style-rule
@@ -42,4 +42,7 @@
   pointer-events: none;
   position: absolute;
   white-space: nowrap;
+  img {
+    @include margin(8, right);
+  }
 }

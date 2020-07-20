@@ -3,6 +3,7 @@ import React from 'react'
 import classnames from 'classnames'
 import Tooltip from '@reach/tooltip'
 import disparityIcon from '~images/disparity-icon.svg'
+import tooltipDisparityIcon from '~images/tooltip-disparity-icon.svg'
 import tableSymbolsStyles from './table-symbols.module.scss'
 
 const Notes = ({ index, title, linkTo }) => {
@@ -33,7 +34,12 @@ const UnlinkedNote = ({ index }) => (
 const DisparitySymbol = () => (
   <span className={tableSymbolsStyles.disparitySymbol}>
     <Tooltip
-      label="Racial/ethnic disparity likely."
+      label={
+        <>
+          <img src={tooltipDisparityIcon} alt="" /> Racial/ethnic disparity
+          likely.
+        </>
+      }
       className={tableSymbolsStyles.tooltip}
     >
       <img src={disparityIcon} alt="Racial/ethnic disparity likely." />
