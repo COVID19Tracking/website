@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {
   CasesCard,
   PCRTestsCard,
@@ -8,8 +8,7 @@ import {
   RaceEthnicityCard,
   OutcomesCard,
 } from './state-cards'
-
-import closeIcon from '~images/icons/close-x.svg'
+import DefinitionsPanel from './definitions-panel'
 
 import summaryStyles from './summary.module.scss'
 
@@ -35,7 +34,9 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
 
   return (
     <>
-      {showDefinitions && <DefinitionsPanel hide={hideDefinitionsPanel} />}
+      {showDefinitions && (
+        <DefinitionsPanel hideFunction={hideDefinitionsPanel} />
+      )}
       <div className={summaryStyles.container}>
         <CasesCard
           stateSlug={stateSlug}
@@ -89,36 +90,5 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
         />
       </div>
     </>
-  )
-}
-
-const DefinitionsPanel = ({ hide }) => {
-  const closeButtonRef = useRef()
-
-  useEffect(() => {
-    closeButtonRef.current.focus()
-  }, [])
-
-  return (
-    <div
-      className={summaryStyles.definitionsPanel}
-      role="dialog"
-      aria-labelledby="definitionsDialogLabel"
-    >
-      <span id="definitionsDialogLabel" className="a11y-only">
-        Data definitions
-      </span>
-      <div className={summaryStyles.closePanelContainer}>
-        <button
-          type="button"
-          className={summaryStyles.closePanel}
-          onClick={hide}
-          ref={closeButtonRef}
-        >
-          <img src={closeIcon} alt="Close panel." />
-        </button>
-      </div>
-      <h2>Definitions</h2>
-    </div>
   )
 }
