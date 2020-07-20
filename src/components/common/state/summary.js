@@ -8,6 +8,9 @@ import {
   RaceEthnicityCard,
   OutcomesCard,
 } from './state-cards'
+
+import closeIcon from '~images/icons/close-x.svg'
+
 import summaryStyles from './summary.module.scss'
 
 export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
@@ -26,9 +29,13 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
     // setCurrentDefinition(definition)
   }
 
+  const hideDefinitionsPanel = () => {
+    setShowDefinitions(false)
+  }
+
   return (
     <>
-      {showDefinitions && <DefinitionsPanel />}
+      {showDefinitions && <DefinitionsPanel hide={hideDefinitionsPanel} />}
       <div className={summaryStyles.container}>
         <CasesCard
           stateSlug={stateSlug}
@@ -85,7 +92,7 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
   )
 }
 
-const DefinitionsPanel = () => (
+const DefinitionsPanel = ({ hide }) => (
   <div
     className={summaryStyles.definitionsPanel}
     role="dialog"
@@ -94,6 +101,11 @@ const DefinitionsPanel = () => (
     <span id="definitionsDialogLabel" className="a11y-only">
       Data definitions
     </span>
+    <div className={summaryStyles.closePanelContainer}>
+      <button type="button" className={summaryStyles.closePanel} onClick={hide}>
+        <img src={closeIcon} alt="Close panel." />
+      </button>
+    </div>
     <h2>Definitions</h2>
   </div>
 )
