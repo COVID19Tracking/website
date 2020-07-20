@@ -4,14 +4,7 @@ import classnames from 'classnames'
 import { FormatNumber } from '~components/utils/format'
 import statisticStyles from './statistic.module.scss'
 
-const Statistic = ({
-  title,
-  value,
-  suffix,
-  children,
-  subelement,
-  hasCalculatedDrillDowns,
-}) => (
+const Statistic = ({ title, value, suffix, children, subelement }) => (
   <div
     className={classnames(
       statisticStyles.statisticWrapper,
@@ -26,11 +19,6 @@ const Statistic = ({
       </div>
       {children && (
         <div className={statisticStyles.info}>{children && children}</div>
-      )}
-      {hasCalculatedDrillDowns && (
-        <div className={statisticStyles.calculatedLabel}>
-          <span>* Calculated values</span>
-        </div>
       )}
     </div>
   </div>
@@ -64,7 +52,7 @@ const StatisticGroup = ({ children }) => (
 const DrillDown = ({ label, value, suffix, calculated = false }) => (
   <div className={statisticStyles.drillDown}>
     <span className={statisticStyles.label}>
-      {label} {calculated && '*'}
+      {calculated && 'Calculated: '} {label}
     </span>
     <span className={statisticStyles.value}>
       <FormatNumber number={value} />

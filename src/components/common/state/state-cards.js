@@ -42,7 +42,7 @@ const CasesCard = ({
       link={<Link to={`/data/state/${stateSlug}/cases`}>Historical data</Link>}
     >
       <CardBody>
-        <Statistic title="Total cases" value={positive} hasCalculatedDrillDowns>
+        <Statistic title="Total cases" value={positive}>
           <DefinitionLink
             onDefinitionsToggle={definitionToggle}
             definition={definitions.positive}
