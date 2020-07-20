@@ -102,6 +102,7 @@
     "@storybook/addons": "^5.3.17",
     "@storybook/react": "^5.3.17",
     "@svgr/webpack": "^5.4.0",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^25.3.0",
     "babel-loader": "^8.1.0",
     "babel-preset-gatsby": "^0.3.3",
