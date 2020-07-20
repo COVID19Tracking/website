@@ -27,6 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           covid19Site
           covid19SiteSecondary
+          covid19SiteTertiary
           notes
           name
           state
