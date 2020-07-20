@@ -1,0 +1,47 @@
+
+.definitions-panel {
+  height: 100%;
+  right: 0%;
+  left: 80%;
+  position: fixed;
+  top: 0%;
+  z-index: 2; // above the search icon
+
+  background-color: $color-plum-800;
+  color: white;
+  @include padding(32);
+
+  h2 {
+    text-transform: uppercase;
+    @include type-size(300);
+  }
+}
+
+.close-panel-container {
+  height: 24px;
+  @include margin(16, bottom);
+
+  .close-panel {
+    padding: 0;
+    border: none;
+    background-color: $color-plum-500;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+
+    &:focus {
+      @include link-focus-dark-bg;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

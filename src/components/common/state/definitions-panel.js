@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 
 import closeIcon from '~images/icons/close-x.svg'
 
-import summaryStyles from './summary.module.scss'
+import summaryStyles from './definitions-panel.module.scss'
 
 export default ({ children, hideFunction }) => {
   /*
@@ -15,12 +15,6 @@ export default ({ children, hideFunction }) => {
   // OK - so then we should both use aria-describedby that points to basically
   // a direct child of the dialog that contains ALL descriptions
   // and then move focus to the highlighted definition
-
-  const closeButtonRef = useRef()
-
-  useEffect(() => {
-    closeButtonRef.current.focus()
-  }, [])
 
   return (
     <div
@@ -38,7 +32,6 @@ export default ({ children, hideFunction }) => {
           type="button"
           className={summaryStyles.closePanel}
           onClick={hideFunction}
-          ref={closeButtonRef}
         >
           <img src={closeIcon} alt="Close panel." />
         </button>
