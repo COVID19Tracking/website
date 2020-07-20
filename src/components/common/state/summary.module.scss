@@ -50,6 +50,10 @@
     justify-content: center;
     float: right;
 
+    &:focus {
+      @include link-focus-dark-bg;
+    }
+
     img {
       width: 20px;
       height: 20px;

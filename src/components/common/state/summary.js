@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import {
   CasesCard,
   PCRTestsCard,
@@ -92,20 +92,33 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
   )
 }
 
-const DefinitionsPanel = ({ hide }) => (
-  <div
-    className={summaryStyles.definitionsPanel}
-    role="dialog"
-    aria-labelledby="definitionsDialogLabel"
-  >
-    <span id="definitionsDialogLabel" className="a11y-only">
-      Data definitions
-    </span>
-    <div className={summaryStyles.closePanelContainer}>
-      <button type="button" className={summaryStyles.closePanel} onClick={hide}>
-        <img src={closeIcon} alt="Close panel." />
-      </button>
+const DefinitionsPanel = ({ hide }) => {
+  const closeButtonRef = useRef()
+
+  useEffect(() => {
+    closeButtonRef.current.focus()
+  }, [])
+
+  return (
+    <div
+      className={summaryStyles.definitionsPanel}
+      role="dialog"
+      aria-labelledby="definitionsDialogLabel"
+    >
+      <span id="definitionsDialogLabel" className="a11y-only">
+        Data definitions
+      </span>
+      <div className={summaryStyles.closePanelContainer}>
+        <button
+          type="button"
+          className={summaryStyles.closePanel}
+          onClick={hide}
+          ref={closeButtonRef}
+        >
+          <img src={closeIcon} alt="Close panel." />
+        </button>
+      </div>
+      <h2>Definitions</h2>
     </div>
-    <h2>Definitions</h2>
-  </div>
-)
+  )
+}
