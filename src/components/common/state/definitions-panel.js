@@ -2,7 +2,7 @@ import React from 'react'
 
 import closeIcon from '~images/icons/close-x.svg'
 
-import summaryStyles from './definitions-panel.module.scss'
+import definitionsPanelStyles from './definitions-panel.module.scss'
 
 export default ({ children, hideFunction }) => {
   /*
@@ -18,7 +18,7 @@ export default ({ children, hideFunction }) => {
 
   return (
     <div
-      className={summaryStyles.definitionsPanel}
+      className={definitionsPanelStyles.definitionsPanel}
       role="dialog"
       aria-modal="true"
       tabIndex={-1}
@@ -27,10 +27,10 @@ export default ({ children, hideFunction }) => {
       <span id="definitionsDialogLabel" className="a11y-only">
         Data definitions
       </span>
-      <div className={summaryStyles.closePanelContainer}>
+      <div className={definitionsPanelStyles.closePanelContainer}>
         <button
           type="button"
-          className={summaryStyles.closePanel}
+          className={definitionsPanelStyles.closePanel}
           onClick={hideFunction}
         >
           <img src={closeIcon} alt="Close panel." />

@@ -7,6 +7,7 @@ import {
 import DefinitionsPanel from '~components/common/state/definitions-panel'
 
 import cardStyles from './card.module.scss'
+import definitionsPanelStyles from '~components/common/state/definitions-panel.module.scss'
 
 const CardDisclosure = ({ children }) => (
   <div className={cardStyles.disclosure}>
@@ -26,10 +27,10 @@ const CardDisclosurePanel = ({ children }) => (
 )
 
 const CardDefinition = ({ key, definition }) => (
-  <div key={key} ref={definition.ref}>
-    <span>{definition.name}</span>:
+  <p key={key} ref={definition.ref}>
+    <span className={definitionsPanelStyles.title}>{definition.name}</span>:
     <span dangerouslySetInnerHTML={{ __html: definition.content }} />
-  </div>
+  </p>
 )
 
 // todo finish rendering

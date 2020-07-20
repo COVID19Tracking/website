@@ -11,9 +11,22 @@
   color: white;
   @include padding(32);
 
+  .title {
+    font-weight: bold;
+  }
+
   h2 {
     text-transform: uppercase;
     @include type-size(300);
+  }
+
+  a {
+    &:focus {
+      @include link-focus-dark-bg;
+    }
+    &:hover {
+      @include link-hover-dark-bg;
+    }
   }
 }
 
