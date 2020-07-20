@@ -4,10 +4,18 @@ import closeIcon from '~images/icons/close-x.svg'
 
 import summaryStyles from './summary.module.scss'
 
-export default ({ hideFunction }) => {
+export default ({ children, hideFunction }) => {
   /*
   hideFunction is the function that will hide the entire definitions panel
   */
+
+  // Should take up the whole screen below a certain breakpoint.
+  // On opening of dialog, focus the definition.
+  // Hitting escape should close the definition
+  // OK - so then we should both use aria-describedby that points to basically
+  // a direct child of the dialog that contains ALL descriptions
+  // and then move focus to the highlighted definition
+
   const closeButtonRef = useRef()
 
   useEffect(() => {
@@ -18,6 +26,8 @@ export default ({ hideFunction }) => {
     <div
       className={summaryStyles.definitionsPanel}
       role="dialog"
+      aria-modal="true"
+      tabIndex={-1}
       aria-labelledby="definitionsDialogLabel"
     >
       <span id="definitionsDialogLabel" className="a11y-only">
@@ -33,7 +43,7 @@ export default ({ hideFunction }) => {
           <img src={closeIcon} alt="Close panel." />
         </button>
       </div>
-      <h2>Definitions</h2>
+      {children}
     </div>
   )
 }
