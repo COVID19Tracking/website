@@ -1,11 +1,11 @@
-
 .definitions-panel {
   height: 100%;
   right: 0%;
-  left: 80%;
+  left: 70%;
   position: fixed;
   top: 0%;
   z-index: 2; // above the search icon
+  overflow-y: scroll;
 
   background-color: $color-plum-800;
   color: white;
@@ -25,6 +25,7 @@
     padding: 0;
     border: none;
     background-color: $color-plum-500;
+    cursor: pointer;
 
     width: 24px;
     height: 24px;
