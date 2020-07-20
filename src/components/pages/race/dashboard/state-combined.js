@@ -33,6 +33,11 @@ export default ({ state }) => {
     .reverse()
     .filter(value => value && value.trim().length && value)
 
+  const disparityExists =
+    Object.keys(stateData).filter(
+      field => field.search('DispFlag') > -1 && stateData[field],
+    ).length > 0
+
   return (
     <div>
       <div className={stateStyle.stateOverview}>
@@ -60,14 +65,12 @@ export default ({ state }) => {
         noDeaths={!stateData.anyDeathData}
         isCombined
       />
-      <p>
-        * Hispanic or Latino ethnicity, any race. All other race categories in
-        this table are defined as Not Hispanic or Latino.
-      </p>
       <TableNotes
         state={stateData.state}
         stateName={stateData.name}
         groupedNotes={groupedNotes}
+        disparityExists={disparityExists}
+        hispanicLatinxNote
       />
     </div>
   )

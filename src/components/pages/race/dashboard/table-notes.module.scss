@@ -9,9 +9,37 @@
 .list {
   @include padding(0, left);
   @include margin(0, top);
+  list-style-type: none;
+}
 
-  li {
-    list-style-position: inside;
-    list-style-type: decimal;
+.empty-note {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  @include type-size(100);
+  font-weight: bold;
+  border: 1px solid $color-slate-100;
+  display: inline-block;
+  text-align: center;
+}
+
+.key {
+  @include type-size(100);
+}
+
+.disclosure-button {
+  border: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  .text {
+    text-decoration: underline;
+  }
+}
+
+.disclosure-pane {
+  display: none;
+  &[data-expanded='true'] {
+    display: block;
   }
 }

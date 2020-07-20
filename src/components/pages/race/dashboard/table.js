@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Table, Th, Td } from '~components/common/table'
 import Percent from './percent'
-import { Notes, CautionSymbol, DisparitySymbol } from './table-symbols'
+import { Notes, DisparitySymbol } from './table-symbols'
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import stateTableStyle from './table.module.scss'
 
@@ -71,14 +71,16 @@ const StateTableDataCell = ({
   return (
     <Td>
       <>
-        <Percent number={cellData.value} />
-        <Notes
-          index={cellData.note.index + 1}
-          title={cellData.note.value}
-          linkTo={`notes-${stateAbbr.toLowerCase()}`}
+        <Percent
+          number={cellData.value}
+          highlight={cellData.disparity || cellData.note.value}
         />
         <div className={stateTableStyle.symbolSpacer}>
-          {cellData.caution && <CautionSymbol />}
+          <Notes
+            index={cellData.note.index + 1}
+            title={cellData.note.value}
+            linkTo={`notes-${stateAbbr.toLowerCase()}`}
+          />
           {cellData.disparity && <DisparitySymbol />}
         </div>
       </>

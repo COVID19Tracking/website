@@ -60,6 +60,11 @@ export default ({ state }) => {
     return <NoData stateName={stateData.name} />
   }
 
+  const disparityExists =
+    Object.keys(stateData).filter(
+      field => field.search('DispFlag') > -1 && stateData[field],
+    ).length > 0
+
   return (
     <div>
       <div className={stateStyle.stateOverview}>
@@ -93,6 +98,7 @@ export default ({ state }) => {
         stateName={stateData.name}
         type="race"
         groupedNotes={groupedRaceNotes}
+        disparityExists={disparityExists}
       />
       <>
         <div
@@ -132,6 +138,7 @@ export default ({ state }) => {
               stateName={stateData.name}
               type="ethnicity"
               groupedNotes={groupedEthnicityNotes}
+              disparityExists={disparityExists}
             />
           </>
         )}

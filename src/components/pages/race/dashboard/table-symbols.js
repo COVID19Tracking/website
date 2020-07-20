@@ -1,4 +1,8 @@
+/* eslint-disable react/button-has-type */
 import React from 'react'
+import classnames from 'classnames'
+import Tooltip from '@reach/tooltip'
+import disparityIcon from '~images/disparity-icon.svg'
 import tableSymbolsStyles from './table-symbols.module.scss'
 
 const Notes = ({ index, title, linkTo }) => {
@@ -6,36 +10,33 @@ const Notes = ({ index, title, linkTo }) => {
     return null
   }
   return (
-    <sup className={tableSymbolsStyles.note}>
+    <span className={tableSymbolsStyles.note}>
       <a href={`#${linkTo}`}>
         <span className="a11y-only">{title}</span>
         <span>{index}</span>
       </a>
-    </sup>
+    </span>
   )
 }
 
-const CautionSymbol = ({ inkey = false }) => (
+const UnlinkedNote = ({ index }) => (
   <span
-    className={`${tableSymbolsStyles.caution} ${
-      inkey ? tableSymbolsStyles.inKey : ''
-    }`}
+    aria-hidden
+    className={classnames(tableSymbolsStyles.note, tableSymbolsStyles.unlinked)}
   >
-    <span className="a11y-only">This data is not reliable</span>
+    <span>{index}</span>
   </span>
 )
 
-const DisparitySymbol = ({ inkey = false }) => (
-  <span
-    className={`${tableSymbolsStyles.disparitySymbol} ${
-      inkey ? tableSymbolsStyles.inKey : ''
-    }`}
-  >
-    <span className="a11y-only">
-      Figure is significantly higher than population proportion
-    </span>
-    <span className={tableSymbolsStyles.inner} />
+const DisparitySymbol = () => (
+  <span className={tableSymbolsStyles.disparitySymbol}>
+    <Tooltip
+      label="Racial/ethnic disparity likely."
+      className={tableSymbolsStyles.tooltip}
+    >
+      <img src={disparityIcon} alt="Racial/ethnic disparity likely." />
+    </Tooltip>
   </span>
 )
 
-export { Notes, CautionSymbol, DisparitySymbol }
+export { Notes, UnlinkedNote, DisparitySymbol }
