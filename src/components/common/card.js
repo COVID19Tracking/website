@@ -4,6 +4,8 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@reach/disclosure'
+import DefinitionsPanel from '~components/common/state/definitions-panel'
+
 import cardStyles from './card.module.scss'
 
 const CardDisclosure = ({ children }) => (
@@ -18,8 +20,13 @@ const CardDisclsoureButton = ({ closed, expanded }) => (
     <span className={cardStyles.expanded}>{expanded}</span>
   </DisclosureButton>
 )
+
 const CardDisclosurePanel = ({ children }) => (
   <DisclosurePanel>{children}</DisclosurePanel>
+)
+
+const CardDefinitionsPanel = ({ children }) => (
+  <DefinitionsPanel>{children}</DefinitionsPanel>
 )
 
 const CardBody = ({ children }) => (
@@ -44,4 +51,5 @@ export {
   CardDisclosure,
   CardDisclsoureButton,
   CardDisclosurePanel,
+  CardDefinitionsPanel,
 }
