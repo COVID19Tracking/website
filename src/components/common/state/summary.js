@@ -8,6 +8,8 @@ import {
   RaceEthnicityCard,
   OutcomesCard,
 } from './state-cards'
+import DefinitionsPanel from './definitions-panel'
+
 import summaryStyles from './summary.module.scss'
 
 export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
@@ -26,9 +28,15 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
     // setCurrentDefinition(definition)
   }
 
+  const hideDefinitionsPanel = () => {
+    setShowDefinitions(false)
+  }
+
   return (
     <>
-      {showDefinitions && <DefinitionsPanel />}
+      {showDefinitions && (
+        <DefinitionsPanel hideFunction={hideDefinitionsPanel} />
+      )}
       <div className={summaryStyles.container}>
         <CasesCard
           stateSlug={stateSlug}
@@ -84,16 +92,3 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
     </>
   )
 }
-
-const DefinitionsPanel = () => (
-  <div
-    className={summaryStyles.definitionsPanel}
-    role="dialog"
-    aria-labelledby="definitionsDialogLabel"
-  >
-    <span id="definitionsDialogLabel" className="a11y-only">
-      Data definitions
-    </span>
-    <h2>Definitions</h2>
-  </div>
-)
