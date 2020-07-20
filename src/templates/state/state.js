@@ -26,6 +26,7 @@ const StatePage = ({ pageContext, data, path }) => {
         twitter={state.twitter}
         covid19Site={state.covid19Site}
         covid19SiteSecondary={state.covid19SiteSecondary}
+        covid19SiteTertiary={state.covid19SiteTertiary}
         stateName={state.name}
         fathomGoal="DNRI0GQP"
       />
