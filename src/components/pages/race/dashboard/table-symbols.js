@@ -10,12 +10,14 @@ const Notes = ({ index, title, linkTo }) => {
     return null
   }
   return (
-    <span className={tableSymbolsStyles.note}>
-      <a href={`#${linkTo}`}>
-        <span className="a11y-only">{title}</span>
-        <span>{index}</span>
-      </a>
-    </span>
+    <Tooltip label={title} className={tableSymbolsStyles.tooltip}>
+      <span className={tableSymbolsStyles.note}>
+        <a href={`#${linkTo}`}>
+          <span className="a11y-only">{title}</span>
+          <span>{index}</span>
+        </a>
+      </span>
+    </Tooltip>
   )
 }
 
