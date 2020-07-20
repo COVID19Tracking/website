@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import loadable from '@loadable/component'
 
 const ScrollyTelling = loadable(() =>
