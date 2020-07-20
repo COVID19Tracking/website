@@ -25,8 +25,17 @@ const CardDisclosurePanel = ({ children }) => (
   <DisclosurePanel>{children}</DisclosurePanel>
 )
 
-const CardDefinitionsPanel = ({ children }) => (
-  <DefinitionsPanel>{children}</DefinitionsPanel>
+// todo finish rendering
+const CardDefinitionsPanel = ({ definitions, hideFunction }) => (
+  <DefinitionsPanel hideFunction={hideFunction}>
+    <h2>Definitions</h2>
+    {Object.keys(definitions).map(key => (
+      <div key={key}>
+        <span>{definitions[key].name}</span>:
+        <span dangerouslySetInnerHTML={{ __html: definitions[key].content }} />
+      </div>
+    ))}
+  </DefinitionsPanel>
 )
 
 const CardBody = ({ children }) => (

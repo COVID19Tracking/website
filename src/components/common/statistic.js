@@ -10,8 +10,6 @@ const Statistic = ({
   suffix,
   children,
   subelement,
-  definitionLink,
-  onDefinitionsToggle,
   hasCalculatedDrillDowns,
 }) => (
   <div
@@ -26,16 +24,8 @@ const Statistic = ({
         <FormatNumber number={value} />
         {suffix}
       </div>
-      {(definitionLink || children) && (
-        <div className={statisticStyles.info}>
-          {definitionLink && (
-            <DefinitionLink
-              to={definitionLink}
-              onDefinitionsToggle={onDefinitionsToggle}
-            />
-          )}
-          {children && children}
-        </div>
+      {children && (
+        <div className={statisticStyles.info}>{children && children}</div>
       )}
       {hasCalculatedDrillDowns && (
         <div className={statisticStyles.calculatedLabel}>
@@ -52,15 +42,14 @@ const StatisticLink = ({ to, children }) => (
   </Link>
 )
 
-const DefinitionLink = ({ to, onDefinitionsToggle }) => {
-  const id = to
-  const definitionsToggle = definitionId => {
-    onDefinitionsToggle(definitionId || 'definition-id') // todo replace in prod with just definitionId
+const DefinitionLink = ({ definition, onDefinitionsToggle }) => {
+  const definitionsToggle = definitionSlug => {
+    onDefinitionsToggle(definitionSlug)
   }
   return (
     <button
       className={statisticStyles.link}
-      onClick={() => definitionsToggle(id)}
+      onClick={() => definitionsToggle(definition.slug)}
       type="button"
     >
       Definition

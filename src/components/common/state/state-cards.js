@@ -1,33 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import { Card, CardBody } from '~components/common/card'
-import { DrillDown, Statistic } from '~components/common/statistic'
+import { Card, CardBody, CardDefinitionsPanel } from '~components/common/card'
+import {
+  DrillDown,
+  Statistic,
+  DefinitionLink,
+} from '~components/common/statistic'
 
 const CasesCard = ({
   stateSlug,
-  onDefinitionsToggle,
   positive,
   positiveIncrease,
   sevenDayIncrease,
+  definitions,
 }) => {
   const sevenDayIncreasePercent = Math.round(sevenDayIncrease * 100 * 10) / 10
   const drillDownValue = Number.isNaN(sevenDayIncreasePercent)
     ? 'N/A'
     : sevenDayIncreasePercent
   const drillDownSuffix = Number.isNaN(sevenDayIncreasePercent) ? '' : '%'
+
+  const [showDefinitions, setShowDefinitions] = useState(false)
+  // const [currentDefinition, setCurrentDefinition] = useState(null)
+
+  const definitionToggle = definition => {
+    setShowDefinitions(true) // show definitions panel
+    console.log(`jumping to: ${definition}`) // todo rm me
+    // this is the definition to jump to in the panel
+    // focus on the definition using its ref
+    // todo assign the definition's ref to the DefinitionLink
+    // setCurrentDefinition(definition)
+  }
+
+  const hideDefinitionsPanel = () => {
+    setShowDefinitions(false)
+  }
+
   return (
     <Card
       title="Cases"
       link={<Link to={`/data/state/${stateSlug}/cases`}>Historical data</Link>}
     >
       <CardBody>
-        <Statistic
-          title="Total cases"
-          value={positive}
-          definitionLink="#"
-          onDefinitionsToggle={onDefinitionsToggle}
-          hasCalculatedDrillDowns
-        >
+        <Statistic title="Total cases" value={positive} hasCalculatedDrillDowns>
+          <DefinitionLink
+            onDefinitionsToggle={definitionToggle}
+            definition={definitions.positive}
+          />
           <DrillDown label="New cases" value={positiveIncrease} calculated />
           <DrillDown
             label="Increase in 7 days"
@@ -37,6 +56,12 @@ const CasesCard = ({
           />
         </Statistic>
       </CardBody>
+      {showDefinitions && (
+        <CardDefinitionsPanel
+          hideFunction={hideDefinitionsPanel}
+          definitions={definitions}
+        />
+      )}
     </Card>
   )
 }
