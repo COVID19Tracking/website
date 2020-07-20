@@ -5,13 +5,14 @@ import Tooltip from '@reach/tooltip'
 import disparityIcon from '~images/disparity-icon.svg'
 import tooltipDisparityIcon from '~images/tooltip-disparity-icon.svg'
 import tableSymbolsStyles from './table-symbols.module.scss'
+import tooltipStyles from './tooltip.module.scss'
 
 const Notes = ({ index, title, linkTo }) => {
   if (!linkTo || !title) {
     return null
   }
   return (
-    <Tooltip label={title} className={tableSymbolsStyles.tooltip}>
+    <Tooltip label={title} className={tooltipStyles.tooltip}>
       <span className={tableSymbolsStyles.note}>
         <a href={`#${linkTo}`}>
           <span className="a11y-only">{title}</span>
@@ -40,7 +41,7 @@ const DisparitySymbol = () => (
           likely.
         </>
       }
-      className={tableSymbolsStyles.tooltip}
+      className={tooltipStyles.tooltip}
     >
       <img src={disparityIcon} alt="Racial/ethnic disparity likely." />
     </Tooltip>

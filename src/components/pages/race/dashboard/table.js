@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Tooltip from '@reach/tooltip'
 import { Table, Th, Td } from '~components/common/table'
 import Percent from './percent'
 import { Notes, DisparitySymbol } from './table-symbols'
+import tooltipDisparityIcon from '~images/tooltip-disparity-icon.svg'
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import stateTableStyle from './table.module.scss'
+import tooltipStyles from './tooltip.module.scss'
 
 const StateTable = Table
 
@@ -45,6 +48,33 @@ const StateTableHeader = ({ groupTitle, noDeaths, noPositives }) => (
   </thead>
 )
 
+const StateCellPercent = ({ number, disparity, note }) => {
+  const value = <Percent number={number} highlight={disparity || note} />
+  if (disparity) {
+    return (
+      <Tooltip
+        label={
+          <>
+            <img src={tooltipDisparityIcon} alt="" /> Racial/ethnic disparity
+            likely.
+          </>
+        }
+        className={tooltipStyles.tooltip}
+      >
+        <span>{value}</span>
+      </Tooltip>
+    )
+  }
+  if (note) {
+    return (
+      <Tooltip label={note} className={tooltipStyles.tooltip}>
+        <span>{value}</span>
+      </Tooltip>
+    )
+  }
+  return value
+}
+
 const StateTableDataCell = ({
   index,
   rowCount,
@@ -71,10 +101,12 @@ const StateTableDataCell = ({
   return (
     <Td>
       <>
-        <Percent
+        <StateCellPercent
           number={cellData.value}
-          highlight={cellData.disparity || cellData.note.value}
+          disparity={cellData.disparity}
+          note={cellData.note.value}
         />
+
         <div className={stateTableStyle.symbolSpacer}>
           <Notes
             index={cellData.note.index + 1}
