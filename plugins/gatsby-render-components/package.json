@@ -1,0 +1,15 @@
+{
+  "name": "gatsby-render-components",
+  "version": "1.0.0",
+  "description": "A Gatsby plugin for generating a png file from a wrapped component",
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "fs-extra": "^9.0.0",
+    "mkdirp": "^1.0.4",
+    "puppeteer": "^2.1.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "recursive-readdir": "^2.2.2"
+  }
+}
