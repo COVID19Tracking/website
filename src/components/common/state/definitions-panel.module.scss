@@ -9,7 +9,7 @@
 
   background-color: $color-plum-800;
   color: white;
-  @include padding(32);
+  @include padding(32, top bottom);
 
   .title {
     font-weight: bold;
@@ -17,6 +17,7 @@
 
   h2 {
     text-transform: uppercase;
+    @include padding(32, left right);
     @include type-size(300);
   }
 
@@ -28,6 +29,15 @@
       @include link-hover-dark-bg;
     }
   }
+}
+
+.definition {
+  @include padding(32, left right);
+}
+
+.highlight {
+  @include padding(32, top bottom);
+  background: $color-plum-700;
 }
 
 .close-panel-container {
