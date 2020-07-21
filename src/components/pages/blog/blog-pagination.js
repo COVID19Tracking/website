@@ -36,7 +36,7 @@ export default ({ currentPage, numPages }) => {
         </Link>
       </div>
       <div className={blogPaginationStyle.pageNavigation}>
-        <p>Page:</p>
+        <p>Jump to page:</p>
         <ul className={blogPaginationStyle.pages}>
           {Array.from({ length: numPages }, (_, i) => (
             <li

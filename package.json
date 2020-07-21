@@ -71,7 +71,7 @@
     "gatsby-transformer-sharp": "^2.5.0",
     "gatsby-transformer-yaml": "^2.3.1",
     "get-contrast": "^2.0.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "luxon": "^1.22.0",
     "marked": "^0.8.2",
     "mkdirp": "^1.0.4",

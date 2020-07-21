@@ -1,6 +1,6 @@
 .navigation-container {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto auto;
   align-items: center;
   margin-bottom: spacer(32);
   @media (max-width: $viewport-ms) {
@@ -21,6 +21,10 @@
     list-style: none;
     text-decoration: none;
   }
+
+  @media (max-width: $viewport-ms) {
+   justify-self: center;
+ }
 }
 
 .navigation-item {
@@ -28,30 +32,48 @@
 }
 
 .page-navigation {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: spacer(16);
   align-items: center;
   justify-self: end;
+  display: flex;
+  @media (max-width: $viewport-ms) {
+    justify-self: center;
+    margin-top: spacer(8);
+  }
 }
 
 .pages {
   display: flex;
+  @include padding(8, left);
+  list-style-type: none;
 }
 
 .page {
-  margin: auto spacer(8);
-}
+  margin: 0 spacer(4);
 
-.page-link {
-  text-decoration: none;
-}
+  &:last-child {
+    @include margin(0, right);
+  }
 
-.page-active {
-  color: white;
-  background-color: $color-blueberry-400;
-  pointer-events: none;
-  @include padding(4);
+  &:first-child {
+    @include margin(0, left);
+  }
+
+  .page-link {
+    padding: spacer(4) spacer(8);
+    border-radius: 4px;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      background-color: $color-blueberry-100;
+    }
+    &.page-active {
+      color: white;
+      background-color: $color-blueberry-400;
+      &:hover {
+        color: white;
+      }
+    }
+  }
 }
 
 .disabled-link {

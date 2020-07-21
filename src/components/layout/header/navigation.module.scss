@@ -74,13 +74,18 @@
 .sub-menu {
   display: block;
   position: absolute;
-  border-top: 20px solid $color-plum-700;
-  top: 20px;
   text-align: left;
+
   background-color: #ffffff;
-  min-width: 15em;
-  padding: spacer(4);
   color: $color-plum-700;
+
+  min-width: 15em;
+
+  top: 20px;
+  border-top: 20px solid $color-plum-700;
+  outline: solid 2px $color-plum-700;
+  padding: spacer(4);
+
   a.menu-link,
   a.menu-link[aria-current] {
     color: $color-plum-700;

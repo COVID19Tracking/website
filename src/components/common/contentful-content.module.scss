@@ -1,7 +1,14 @@
-.edit {
-  display: block;
+%edit-color {
   color: white;
   background: $color-plum-700;
+}
+.edit-raw {
+  @extend %edit-color;
+  padding: spacer(4) spacer(8);
+}
+.edit {
+  @extend %edit-color;
+  display: block;
   margin: spacer(32) 0;
   padding: spacer(8) 0;
   text-align: center;

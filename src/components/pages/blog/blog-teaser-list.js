@@ -17,7 +17,12 @@ export default ({ items }) => (
         <p className="lede">
           <CleanSpacing>{node.lede.lede}</CleanSpacing>
         </p>
-        <Byline authors={node.authors} date={node.publishDate} smallmargin />
+        <Byline
+          authors={node.authors}
+          published={node.publishDate}
+          updated={node.updateDateTime}
+          smallmargin
+        />
       </div>
     ))}
   </Container>

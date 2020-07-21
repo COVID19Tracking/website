@@ -6,7 +6,6 @@ import classnames from 'classnames'
 import { useSearch } from '~context/search-context'
 
 import DevelopmentWarning from './development-warning'
-import PartnershipBanner from './partnership-banner'
 import HeaderNavigation from './navigation'
 import Container from '~components/common/container'
 import withSearch from '~components/utils/with-search'
@@ -177,14 +176,6 @@ const Header = withSearch(
                 topNavigation={topNavigation}
                 subNavigation={subNavigation}
               />
-            </Expand>
-            <Expand
-              open={!showMobileMenu}
-              styles={expandStyles}
-              duration={500}
-              transitions={['height', 'opacity', 'background']}
-            >
-              {!showMobileMenu && <PartnershipBanner />}
             </Expand>
             <div className={headerStyle.wrapper}>
               <div className={headerStyle.siteTitleContainer}>
