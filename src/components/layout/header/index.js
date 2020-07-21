@@ -177,12 +177,6 @@ const Header = withSearch(
                 subNavigation={subNavigation}
               />
             </Expand>
-            <Expand
-              open={!showMobileMenu}
-              styles={expandStyles}
-              duration={500}
-              transitions={['height', 'opacity', 'background']}
-            ></Expand>
             <div className={headerStyle.wrapper}>
               <div className={headerStyle.siteTitleContainer}>
                 <div className={headerStyle.siteTitleInner}>
