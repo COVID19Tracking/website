@@ -4,9 +4,24 @@ import closeIcon from '~images/icons/close-x.svg'
 
 import definitionsPanelStyles from './definitions-panel.module.scss'
 
-export default ({ children, hideFunction }) => {
+const Definition = ({ key, definition }) => (
+  <p key={key} ref={definition.ref}>
+    <span className={definitionsPanelStyles.title}>{definition.name}</span>:
+    <span
+      dangerouslySetInnerHTML={{
+        __html:
+          definition.childContentfulDataDefinitionDefinitionTextNode
+            .childMarkdownRemark.html,
+      }}
+    />
+  </p>
+)
+
+const DefinitionPanelContext = React.createContext()
+
+const DefinitionPanel = ({ onHide, definitions }) => {
   /*
-  hideFunction is the function that will hide the entire definitions panel
+  onHide is the function that will hide the entire definitions panel
   */
 
   // Should take up the whole screen below a certain breakpoint.
@@ -31,12 +46,17 @@ export default ({ children, hideFunction }) => {
         <button
           type="button"
           className={definitionsPanelStyles.closePanel}
-          onClick={hideFunction}
+          onClick={onHide}
         >
           <img src={closeIcon} alt="Close panel." />
         </button>
       </div>
-      {children}
+      <h2>Definitions</h2>
+      {Object.keys(definitions).map(key => (
+        <Definition key={key} definition={definitions[key]} />
+      ))}
     </div>
   )
 }
+
+export { DefinitionPanel, DefinitionPanelContext }

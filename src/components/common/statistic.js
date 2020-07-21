@@ -30,14 +30,11 @@ const StatisticLink = ({ to, children }) => (
   </Link>
 )
 
-const DefinitionLink = ({ definition, onDefinitionsToggle }) => {
-  const definitionsToggle = definitionSlug => {
-    onDefinitionsToggle(definitionSlug)
-  }
+const DefinitionLink = ({ onDefinitionsToggle }) => {
   return (
     <button
       className={statisticStyles.link}
-      onClick={() => definitionsToggle(definition.slug)}
+      onClick={onDefinitionsToggle}
       type="button"
     >
       Definition

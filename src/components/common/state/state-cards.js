@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'gatsby'
-import { Card, CardBody, CardDefinitionsPanel } from '~components/common/card'
+import { Card, CardBody } from '~components/common/card'
+import { DefinitionPanelContext } from './definitions-panel'
 import {
   DrillDown,
   Statistic,
@@ -12,29 +13,13 @@ const CasesCard = ({
   positive,
   positiveIncrease,
   sevenDayIncrease,
-  definitions,
 }) => {
   const sevenDayIncreasePercent = Math.round(sevenDayIncrease * 100 * 10) / 10
   const drillDownValue = Number.isNaN(sevenDayIncreasePercent)
     ? 'N/A'
     : sevenDayIncreasePercent
   const drillDownSuffix = Number.isNaN(sevenDayIncreasePercent) ? '' : '%'
-
-  const [showDefinitions, setShowDefinitions] = useState(false)
-  // const [currentDefinition, setCurrentDefinition] = useState(null)
-
-  const definitionToggle = definition => {
-    setShowDefinitions(true) // show definitions panel
-    console.log(`jumping to: ${definition}`) // todo rm me
-    // this is the definition to jump to in the panel
-    // focus on the definition using its ref
-    // todo assign the definition's ref to the DefinitionLink
-    // setCurrentDefinition(definition)
-  }
-
-  const hideDefinitionsPanel = () => {
-    setShowDefinitions(false)
-  }
+  const definitionContext = useContext(DefinitionPanelContext)
 
   return (
     <Card
@@ -44,8 +29,12 @@ const CasesCard = ({
       <CardBody>
         <Statistic title="Total cases" value={positive}>
           <DefinitionLink
-            onDefinitionsToggle={definitionToggle}
-            definition={definitions.positive}
+            onDefinitionsToggle={() => {
+              definitionContext({
+                fields: ['positive', 'negative'],
+                highlight: 'positive',
+              })
+            }}
           />
           <DrillDown label="New cases" value={positiveIncrease} calculated />
           <DrillDown
@@ -56,12 +45,6 @@ const CasesCard = ({
           />
         </Statistic>
       </CardBody>
-      {showDefinitions && (
-        <CardDefinitionsPanel
-          hideFunction={hideDefinitionsPanel}
-          definitions={definitions}
-        />
-      )}
     </Card>
   )
 }
