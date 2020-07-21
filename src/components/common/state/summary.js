@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { DefinitionPanel, DefinitionPanelContext } from './definitions-panel'
+import CasesCard from './state-cards/cases-card'
 import {
-  CasesCard,
   PCRTestsCard,
   TestsCard,
   CumulativeHospitalizationCard,
