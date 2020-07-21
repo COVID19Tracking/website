@@ -7,7 +7,7 @@ import CumulativeHospitalizationCard from './state-cards/cumulative-hospitalizat
 import CurrentHospitalizationCard from './state-cards/current-hospitalization-card'
 import OutcomesCard from './state-cards/outcomes-card'
 import RaceEthnicityCard from './state-cards/race-ethnicity-card'
-import { PCRTestsCard, TestsCard } from './state-cards'
+import { PCRTestsCard, TestsCard } from './state-cards/tests-cards'
 
 import summaryStyles from './summary.module.scss'
 
