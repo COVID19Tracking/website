@@ -1,32 +1,69 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 import { Card, CardBody } from '~components/common/card'
-import { Statistic } from '~components/common/statistic'
+import { DefinitionPanelContext } from '~components/common/state/definitions-panel'
+import { Statistic, DefinitionLink } from '~components/common/statistic'
 
 export default ({
   stateSlug,
   hospitalizedCumulative,
   inIcuCumulative,
   onVentilatorCumulative,
-}) => (
-  <Card
-    title="Cumulative Hospitalization"
-    link={
-      <Link to={`/data/state/${stateSlug}/hospitalization`}>
-        Historical data
-      </Link>
-    }
-  >
-    <CardBody>
-      <Statistic
-        title="Cumulative hospitalized"
-        value={hospitalizedCumulative}
-      />
-      <Statistic title="Cumulative in ICU" value={inIcuCumulative} />
-      <Statistic
-        title="Cumulative on ventilator"
-        value={onVentilatorCumulative}
-      />
-    </CardBody>
-  </Card>
-)
+}) => {
+  const definitionContext = useContext(DefinitionPanelContext)
+  const fields = [
+    'hospitalizedCumulative',
+    'inIcuCumulative',
+    'onVentilatorCumulative',
+  ]
+
+  return (
+    <Card
+      title="Cumulative Hospitalization"
+      link={
+        <Link to={`/data/state/${stateSlug}/hospitalization`}>
+          Historical data
+        </Link>
+      }
+    >
+      <CardBody>
+        <Statistic
+          title="Cumulative hospitalized"
+          value={hospitalizedCumulative}
+        >
+          <DefinitionLink
+            onDefinitionsToggle={() => {
+              definitionContext({
+                fields,
+                highlight: 'hospitalizedCumulative',
+              })
+            }}
+          />
+        </Statistic>
+        <Statistic title="Cumulative in ICU" value={inIcuCumulative}>
+          <DefinitionLink
+            onDefinitionsToggle={() => {
+              definitionContext({
+                fields,
+                highlight: 'inIcuCumulative',
+              })
+            }}
+          />
+        </Statistic>
+        <Statistic
+          title="Cumulative on ventilator"
+          value={onVentilatorCumulative}
+        >
+          <DefinitionLink
+            onDefinitionsToggle={() => {
+              definitionContext({
+                fields,
+                highlight: 'onVentilatorCumulative',
+              })
+            }}
+          />
+        </Statistic>
+      </CardBody>
+    </Card>
+  )
+}
