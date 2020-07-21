@@ -3,7 +3,6 @@ import classnames from 'classnames'
 import HeaderSorter from './header-sorter'
 import TableNotes from './table-notes'
 import PercentageOverview from './percentage-overview'
-import TableTitle from './table-title'
 import anhpiNotes from './anhpi-notes'
 import NoData from './no-data'
 import { RaceTable, EthnicityTable } from './breakdown-tables'
@@ -80,10 +79,7 @@ export default ({ state }) => {
           <HeaderSorter stateName={state.name} stateReports="race" />
         </div>
       </div>
-      <TableTitle
-        titleText="Cases and deaths by race"
-        state={stateData.state}
-      />
+      <h3 className={stateStyle.tableTitle}>Cases and deaths by race</h3>
       <RaceTable
         data={stateData}
         type="Race"
@@ -121,10 +117,9 @@ export default ({ state }) => {
         </div>
         {(stateData.posEthData || stateData.deathEthData) && (
           <>
-            <TableTitle
-              titleText="Cases and deaths by ethnicity"
-              state={stateData.state}
-            />
+            <h3 className={stateStyle.tableTitle}>
+              Cases and deaths by ethnicity
+            </h3>
             <EthnicityTable
               data={stateData}
               type="Ethnicity"

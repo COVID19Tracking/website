@@ -32,7 +32,7 @@ const UnlinkedNote = ({ index }) => (
   </span>
 )
 
-const DisparitySymbol = () => (
+const DisparitySymbol = ({ linkTo }) => (
   <span className={tableSymbolsStyles.disparitySymbol}>
     <Tooltip
       label={
@@ -43,7 +43,9 @@ const DisparitySymbol = () => (
       }
       className={tooltipStyles.tooltip}
     >
-      <img src={disparityIcon} alt="Racial/ethnic disparity likely." />
+      <a href={`#${linkTo}`}>
+        <img src={disparityIcon} alt="Racial/ethnic disparity likely." />
+      </a>
     </Tooltip>
   </span>
 )

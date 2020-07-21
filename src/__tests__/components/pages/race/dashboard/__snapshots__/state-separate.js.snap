@@ -22,129 +22,11 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
       </div>
     </div>
   </div>
-  <div>
-    <h3>
-      Cases and deaths by race
-    </h3>
-    <div
-      className="container"
-    >
-      <p
-        className="key"
-      >
-        <span
-          className="disparitySymbol inKey"
-        >
-          <span
-            className="a11y-only"
-          >
-            Figure is significantly higher than population proportion
-          </span>
-          <span
-            className="inner"
-          />
-        </span>
-        Racial/ethnic disparity likely.
-         
-        <a
-          className="js-disabled"
-          href="#notes-disparity"
-        >
-          See why 
-          <span
-            aria-hidden={true}
-          >
-            ↓
-          </span>
-        </a>
-        <button
-          aria-controls="table-symbol-disparity-al"
-          aria-expanded={false}
-          className="disclosureButton js-enabled"
-          onClick={[Function]}
-        >
-          <span
-            className="text"
-          >
-            See why
-          </span>
-           
-          <span
-            aria-hidden={true}
-          >
-            ↓
-          </span>
-        </button>
-      </p>
-      <p
-        className="key"
-      >
-        <span
-          className="caution inKey"
-        >
-          <span
-            className="a11y-only"
-          >
-            This data is not reliable
-          </span>
-        </span>
-        Should not be compared with percentage of population.
-         
-        <a
-          className="js-disabled"
-          href="#notes-comparible"
-        >
-          See why 
-          <span
-            aria-hidden={true}
-          >
-            ↓
-          </span>
-        </a>
-        <button
-          aria-controls="table-symbol-notComparible-al"
-          aria-expanded={false}
-          className="disclosureButton js-enabled"
-          onClick={[Function]}
-        >
-          <span
-            className="text"
-          >
-            See why
-          </span>
-           
-          <span
-            aria-hidden={true}
-          >
-            ↓
-          </span>
-        </button>
-      </p>
-      <div />
-      <div
-        className="disclosurePane"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<h2>Content</h2><p>More disparity snippet content</p>",
-          }
-        }
-        data-expanded={false}
-        hidden={true}
-        id="table-symbol-disparity-al"
-      />
-      <div
-        className="disclosurePane"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<h2>Content</h2><p>More comparible snippet content</p>",
-          }
-        }
-        data-expanded={false}
-        hidden={true}
-        id="table-symbol-notComparible-al"
-      />
-    </div>
-  </div>
+  <h3
+    className="tableTitle"
+  >
+    Cases and deaths by race
+  </h3>
   <div>
     <table
       className="table"
@@ -218,7 +100,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
           <td
             className="borderLeft"
           >
-            &lt;1
+            0
             %
           </td>
           <td
@@ -243,27 +125,51 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
           <td
             className=""
           >
-            &lt;1
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Race notes: blackDeath
-                </span>
-                <span>
-                  9
-                </span>
-              </a>
-            </sup>
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
-            />
+            >
+              <span
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
+              >
+                <a
+                  href="#notes-al"
+                >
+                  <span
+                    className="a11y-only"
+                  >
+                    Race notes: blackDeath
+                  </span>
+                  <span>
+                    9
+                  </span>
+                </a>
+              </span>
+            </div>
           </td>
         </tr>
         <tr>
@@ -280,33 +186,57 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
           <td
             className="borderLeft"
           >
-            &lt;1
+            0
             %
           </td>
           <td
             className=""
           >
-            &lt;1
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Race notes: asianDeath
-                </span>
-                <span>
-                  13
-                </span>
-              </a>
-            </sup>
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
-            />
+            >
+              <span
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
+              >
+                <a
+                  href="#notes-al"
+                >
+                  <span
+                    className="a11y-only"
+                  >
+                    Race notes: asianDeath
+                  </span>
+                  <span>
+                    13
+                  </span>
+                </a>
+              </span>
+            </div>
           </td>
         </tr>
         <tr>
@@ -329,27 +259,51 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
           <td
             className=""
           >
-            &lt;1
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Race notes: nhpiDeath
-                </span>
-                <span>
-                  15
-                </span>
-              </a>
-            </sup>
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
-            />
+            >
+              <span
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
+              >
+                <a
+                  href="#notes-al"
+                >
+                  <span
+                    className="a11y-only"
+                  >
+                    Race notes: nhpiDeath
+                  </span>
+                  <span>
+                    15
+                  </span>
+                </a>
+              </span>
+            </div>
           </td>
         </tr>
         <tr>
@@ -366,33 +320,57 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
           <td
             className="borderLeft"
           >
-            &lt;1
+            0
             %
           </td>
           <td
             className=""
           >
-            &lt;1
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Race notes: aianDeath
-                </span>
-                <span>
-                  17
-                </span>
-              </a>
-            </sup>
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
-            />
+            >
+              <span
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
+              >
+                <a
+                  href="#notes-al"
+                >
+                  <span
+                    className="a11y-only"
+                  >
+                    Race notes: aianDeath
+                  </span>
+                  <span>
+                    17
+                  </span>
+                </a>
+              </span>
+            </div>
           </td>
         </tr>
         <tr>
@@ -415,35 +393,49 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
           <td
             className=""
           >
-            &lt;1
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Race notes: twoDeath
-                </span>
-                <span>
-                  19
-                </span>
-              </a>
-            </sup>
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    Race notes: twoDeath
+                  </span>
+                  <span>
+                    19
+                  </span>
+                </a>
               </span>
             </div>
           </td>
@@ -468,35 +460,49 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
           <td
             className=""
           >
-            &lt;1
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Race notes: whiteDeath
-                </span>
-                <span>
-                  21
-                </span>
-              </a>
-            </sup>
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    Race notes: whiteDeath
+                  </span>
+                  <span>
+                    21
+                  </span>
+                </a>
               </span>
             </div>
           </td>
@@ -521,35 +527,49 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
           <td
             className=""
           >
-            12
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Race notes: otherDeath
-                </span>
-                <span>
-                  23
-                </span>
-              </a>
-            </sup>
+                12
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    Race notes: otherDeath
+                  </span>
+                  <span>
+                    23
+                  </span>
+                </a>
               </span>
             </div>
           </td>
@@ -572,79 +592,286 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
       Alabama
     </span>
   </h4>
-  <ol
+  <ul
     className="list"
   >
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          1
+        </span>
+      </span>
+       
       Race notes: otherSpecialCase
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          2
+        </span>
+      </span>
+       
       Race notes: whiteSpecialCase
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          3
+        </span>
+      </span>
+       
       Race notes: twoSpecialCase
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          4
+        </span>
+      </span>
+       
       Race notes: nhpiSpecialCase
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          5
+        </span>
+      </span>
+       
       Race notes: aianSpecialCase
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          6
+        </span>
+      </span>
+       
       Race notes: asianSpecialCase
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          7
+        </span>
+      </span>
+       
       Race notes: blackSpecialCase
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          8
+        </span>
+      </span>
+       
       Race notes: blackPos
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          9
+        </span>
+      </span>
+       
       Race notes: blackDeath
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          10
+        </span>
+      </span>
+       
       Race notes: latinXPos
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          11
+        </span>
+      </span>
+       
       Race notes: latinXDeath
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          12
+        </span>
+      </span>
+       
       Race notes: asianPos
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          13
+        </span>
+      </span>
+       
       Race notes: asianDeath
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          14
+        </span>
+      </span>
+       
       Race notes: nhpiPos
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          15
+        </span>
+      </span>
+       
       Race notes: nhpiDeath
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          16
+        </span>
+      </span>
+       
       Race notes: aianPos
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          17
+        </span>
+      </span>
+       
       Race notes: aianDeath
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          18
+        </span>
+      </span>
+       
       Race notes: twoPos
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          19
+        </span>
+      </span>
+       
       Race notes: twoDeath
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          20
+        </span>
+      </span>
+       
       Race notes: whitePos
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          21
+        </span>
+      </span>
+       
       Race notes: whiteDeath
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          22
+        </span>
+      </span>
+       
       Race notes: otherPos
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          23
+        </span>
+      </span>
+       
       Race notes: otherDeath
     </li>
-  </ol>
+  </ul>
   <div
     className="stateOverview ethnicityOverview"
   >
@@ -665,129 +892,11 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
       </div>
     </div>
   </div>
-  <div>
-    <h3>
-      Cases and deaths by ethnicity
-    </h3>
-    <div
-      className="container"
-    >
-      <p
-        className="key"
-      >
-        <span
-          className="disparitySymbol inKey"
-        >
-          <span
-            className="a11y-only"
-          >
-            Figure is significantly higher than population proportion
-          </span>
-          <span
-            className="inner"
-          />
-        </span>
-        Racial/ethnic disparity likely.
-         
-        <a
-          className="js-disabled"
-          href="#notes-disparity"
-        >
-          See why 
-          <span
-            aria-hidden={true}
-          >
-            ↓
-          </span>
-        </a>
-        <button
-          aria-controls="table-symbol-disparity-al"
-          aria-expanded={false}
-          className="disclosureButton js-enabled"
-          onClick={[Function]}
-        >
-          <span
-            className="text"
-          >
-            See why
-          </span>
-           
-          <span
-            aria-hidden={true}
-          >
-            ↓
-          </span>
-        </button>
-      </p>
-      <p
-        className="key"
-      >
-        <span
-          className="caution inKey"
-        >
-          <span
-            className="a11y-only"
-          >
-            This data is not reliable
-          </span>
-        </span>
-        Should not be compared with percentage of population.
-         
-        <a
-          className="js-disabled"
-          href="#notes-comparible"
-        >
-          See why 
-          <span
-            aria-hidden={true}
-          >
-            ↓
-          </span>
-        </a>
-        <button
-          aria-controls="table-symbol-notComparible-al"
-          aria-expanded={false}
-          className="disclosureButton js-enabled"
-          onClick={[Function]}
-        >
-          <span
-            className="text"
-          >
-            See why
-          </span>
-           
-          <span
-            aria-hidden={true}
-          >
-            ↓
-          </span>
-        </button>
-      </p>
-      <div />
-      <div
-        className="disclosurePane"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<h2>Content</h2><p>More disparity snippet content</p>",
-          }
-        }
-        data-expanded={false}
-        hidden={true}
-        id="table-symbol-disparity-al"
-      />
-      <div
-        className="disclosurePane"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<h2>Content</h2><p>More comparible snippet content</p>",
-          }
-        }
-        data-expanded={false}
-        hidden={true}
-        id="table-symbol-notComparible-al"
-      />
-    </div>
-  </div>
+  <h3
+    className="tableTitle"
+  >
+    Cases and deaths by ethnicity
+  </h3>
   <div>
     <table
       className="table"
@@ -861,33 +970,57 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
           <td
             className="borderLeft"
           >
-            &lt;1
+            0
             %
           </td>
           <td
             className=""
           >
-            &lt;1
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Race notes: latinXPos
-                </span>
-                <span>
-                  4
-                </span>
-              </a>
-            </sup>
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
-            />
+            >
+              <span
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
+              >
+                <a
+                  href="#notes-al"
+                >
+                  <span
+                    className="a11y-only"
+                  >
+                    Race notes: latinXPos
+                  </span>
+                  <span>
+                    4
+                  </span>
+                </a>
+              </span>
+            </div>
           </td>
           <td
             className="missingData"
@@ -923,33 +1056,57 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
           <td
             className="borderLeft"
           >
-            &lt;1
+            0
             %
           </td>
           <td
             className=""
           >
-            &lt;1
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Race notes: nonhispanicPos
-                </span>
-                <span>
-                  6
-                </span>
-              </a>
-            </sup>
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
-            />
+            >
+              <span
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
+              >
+                <a
+                  href="#notes-al"
+                >
+                  <span
+                    className="a11y-only"
+                  >
+                    Race notes: nonhispanicPos
+                  </span>
+                  <span>
+                    6
+                  </span>
+                </a>
+              </span>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -970,28 +1127,82 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
       Alabama
     </span>
   </h4>
-  <ol
+  <ul
     className="list"
   >
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          1
+        </span>
+      </span>
+       
       Race notes: nonhispanicSpecialCase
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          2
+        </span>
+      </span>
+       
       Race notes: latinXSpecialCase
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          3
+        </span>
+      </span>
+       
       Race notes: latinXDeath
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          4
+        </span>
+      </span>
+       
       Race notes: latinXPos
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          5
+        </span>
+      </span>
+       
       Race notes: nonhispanicDeath
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          6
+        </span>
+      </span>
+       
       Race notes: nonhispanicPos
     </li>
-  </ol>
+  </ul>
 </div>
 `;
 

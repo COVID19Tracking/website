@@ -113,7 +113,9 @@ const StateTableDataCell = ({
             title={cellData.note.value}
             linkTo={`notes-${stateAbbr.toLowerCase()}`}
           />
-          {cellData.disparity && <DisparitySymbol />}
+          {cellData.disparity && (
+            <DisparitySymbol linkTo={`notes-${stateAbbr.toLowerCase()}`} />
+          )}
         </div>
       </>
     </Td>
