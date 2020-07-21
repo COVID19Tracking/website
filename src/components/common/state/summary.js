@@ -14,7 +14,7 @@ import summaryStyles from './summary.module.scss'
 export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
   const [cardDefinitions, setCardDefinitions] = useState(false)
   const [highlightedDefinition, setHighlightedDefinition] = useState(false)
-  const definitions = useStaticQuery(graphql`
+  const { allContentfulDataDefinition } = useStaticQuery(graphql`
     {
       allContentfulDataDefinition {
         nodes {
@@ -34,6 +34,15 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
   const sevenDayPositiveIncrease =
     (data.positive - sevenDaysAgo.positive) / sevenDaysAgo.positive
 
+  const apiDefinitions = allContentfulDataDefinition.nodes
+
+  const definitions =
+    cardDefinitions &&
+    cardDefinitions.map(def => ({
+      ...apiDefinitions.find(d => d.fieldName === def && d),
+      ...def,
+    }))
+
   return (
     <DefinitionPanelContext.Provider
       value={({ fields, highlight }) => {
@@ -43,9 +52,7 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
     >
       {cardDefinitions && (
         <DefinitionPanel
-          definitions={definitions.allContentfulDataDefinition.nodes.filter(
-            definition => cardDefinitions.indexOf(definition.fieldName) > -1,
-          )}
+          definitions={definitions}
           highlightedDefinition={highlightedDefinition}
           onHide={() => setCardDefinitions(false)}
         />
