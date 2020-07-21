@@ -19,7 +19,6 @@ export default () => {
           aianDeathCaution
           aianDeathDispFlag
           aianDeathNotes
-          aianDeathNotes
           aianDeaths
           aianPctDeath
           aianPctPop
@@ -28,14 +27,12 @@ export default () => {
           aianPosDispFlag
           aianPositives
           aianPosNotes
-          aianPosNotes
           anyDeathData
           anyPosData
           asianANHPIDeathNotes
           asianANHPIPosNotes
           asianDeathCaution
           asianDeathDispFlag
-          asianDeathNotes
           asianDeathNotes
           asianDeaths
           asianPctDeath
@@ -44,7 +41,6 @@ export default () => {
           asianPosCaution
           asianPosDispFlag
           asianPositives
-          asianPosNotes
           asianPosNotes
           blackANHPIDeathNotes
           blackANHPIPosNotes
@@ -79,7 +75,6 @@ export default () => {
           nhpiDeathCaution
           nhpiDeathDispFlag
           nhpiDeathNotes
-          nhpiDeathNotes
           nhpiDeaths
           nhpiPctDeath
           nhpiPctPop
@@ -88,12 +83,10 @@ export default () => {
           nhpiPosDispFlag
           nhpiPositives
           nhpiPosNotes
-          nhpiPosNotes
           otherANHPIDeathNotes
           otherANHPIPosNotes
           otherDeathCaution
           otherDeathDispFlag
-          otherDeathNotes
           otherDeathNotes
           otherDeaths
           otherPctDeath
@@ -103,15 +96,12 @@ export default () => {
           otherPosDispFlag
           otherPositives
           otherPosNotes
-          otherPosNotes
-          state
           state
           stateName
           twoANHPIDeathNotes
           twoANHPIPosNotes
           twoDeathCaution
           twoDeathDispFlag
-          twoDeathNotes
           twoDeathNotes
           twoDeaths
           twoPctDeath
@@ -120,7 +110,6 @@ export default () => {
           twoPosCaution
           twoPosDispFlag
           twoPositives
-          twoPosNotes
           twoPosNotes
           unknownRaceEthDeath
           unknownRaceEthPos
@@ -149,7 +138,6 @@ export default () => {
           aianDeathCaution
           aianDeathDispFlag
           aianDeathNotes
-          aianDeathNotes
           aianDeaths
           aianPctDeath
           aianPctPop
@@ -158,18 +146,13 @@ export default () => {
           aianPosDispFlag
           aianPositives
           aianPosNotes
-          aianPosNotes
-          aianSpecialCaseNotes
           aianSpecialCaseNotes
           anyDeathData
           anyPosData
           asianANHPIDeathNotes
-          asianANHPIDeathNotes
-          asianANHPIPosNotes
           asianANHPIPosNotes
           asianDeathCaution
           asianDeathDispFlag
-          asianDeathNotes
           asianDeathNotes
           asianDeaths
           asianPctDeath
@@ -179,8 +162,6 @@ export default () => {
           asianPosDispFlag
           asianPositives
           asianPosNotes
-          asianPosNotes
-          asianSpecialCaseNotes
           asianSpecialCaseNotes
           blackANHPIDeathNotes
           blackANHPIPosNotes
@@ -195,7 +176,6 @@ export default () => {
           blackPosDispFlag
           blackPositives
           blackPosNotes
-          blackSpecialCaseNotes
           blackSpecialCaseNotes
           deathEthData
           deathRaceData
@@ -219,12 +199,9 @@ export default () => {
           latinXPosNotes
           name: stateName
           nhpiANHPIDeathNotes
-          nhpiANHPIDeathNotes
-          nhpiANHPIPosNotes
           nhpiANHPIPosNotes
           nhpiDeathCaution
           nhpiDeathDispFlag
-          nhpiDeathNotes
           nhpiDeathNotes
           nhpiDeaths
           nhpiPctDeath
@@ -234,8 +211,6 @@ export default () => {
           nhpiPosDispFlag
           nhpiPositives
           nhpiPosNotes
-          nhpiPosNotes
-          nhpiSpecialCaseNotes
           nhpiSpecialCaseNotes
           nonhispanicANHPIDeathNotes
           nonhispanicANHPIPosNotes
@@ -254,9 +229,7 @@ export default () => {
           otherANHPIDeathNotes
           otherANHPIPosNotes
           otherDeathCaution
-          otherDeathCaution
           otherDeathDispFlag
-          otherDeathNotes
           otherDeathNotes
           otherDeaths
           otherPctDeath
@@ -266,8 +239,6 @@ export default () => {
           otherPosDispFlag
           otherPositives
           otherPosNotes
-          otherPosNotes
-          otherSpecialCaseNotes
           otherSpecialCaseNotes
           posEthData
           posRaceData
@@ -277,7 +248,6 @@ export default () => {
           twoDeathCaution
           twoDeathDispFlag
           twoDeathNotes
-          twoDeathNotes
           twoDeaths
           twoPctDeath
           twoPctPop
@@ -286,8 +256,6 @@ export default () => {
           twoPosDispFlag
           twoPositives
           twoPosNotes
-          twoPosNotes
-          twoSpecialCaseNotes
           twoSpecialCaseNotes
           unknownEthDeath
           unknownEthPos
@@ -306,7 +274,6 @@ export default () => {
           whitePosDispFlag
           whitePositives
           whitePosNotes
-          whiteSpecialCaseNotes
           whiteSpecialCaseNotes
         }
       }

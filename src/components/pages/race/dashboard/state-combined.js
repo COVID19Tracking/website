@@ -3,6 +3,7 @@ import HeaderSorter from './header-sorter'
 import TableNotes from './table-notes'
 import PercentageOverview from './percentage-overview'
 import anhpiNotes from './anhpi-notes'
+import cautionNotes from './caution-notes'
 import { RaceTable } from './breakdown-tables'
 import stateStyle from './state.module.scss'
 
@@ -27,7 +28,7 @@ export default ({ state }) => {
     blackPos: stateData.blackPosNotes,
   }
   notes = anhpiNotes(stateData, notes)
-
+  notes = cautionNotes(stateData, notes)
   const groupedNotes = [...new Set(Object.values(notes))]
     .reverse()
     .filter(value => value && value.trim().length && value)

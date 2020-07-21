@@ -4,6 +4,7 @@ import HeaderSorter from './header-sorter'
 import TableNotes from './table-notes'
 import PercentageOverview from './percentage-overview'
 import anhpiNotes from './anhpi-notes'
+import cautionNotes from './caution-notes'
 import NoData from './no-data'
 import { RaceTable, EthnicityTable } from './breakdown-tables'
 import stateStyle from './state.module.scss'
@@ -37,12 +38,13 @@ export default ({ state }) => {
   }
 
   raceNotes = anhpiNotes(stateData, raceNotes)
+  raceNotes = cautionNotes(stateData, raceNotes)
 
   const groupedRaceNotes = [...new Set(Object.values(raceNotes))]
     .filter(value => value && value)
     .reverse()
 
-  const ethnicityNotes = {
+  let ethnicityNotes = {
     nonhispanicPos: stateData.nonhispanicPosNotes,
     nonhispanicDeath: stateData.nonhispanicDeathNotes,
     latinXPos: stateData.latinXPosNotes,
@@ -50,6 +52,8 @@ export default ({ state }) => {
     latinXSpecialCase: stateData.latinXSpecialCaseNotes,
     nonhispanicSpecialCase: stateData.nonhispanicSpecialCaseNotes,
   }
+
+  ethnicityNotes = cautionNotes(stateData, ethnicityNotes)
 
   const groupedEthnicityNotes = [...new Set(Object.values(ethnicityNotes))]
     .filter(value => value && value)
