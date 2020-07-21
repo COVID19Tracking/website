@@ -11,32 +11,40 @@
   color: white;
   @include padding(32, top bottom);
 
-  .title {
-    font-weight: bold;
-  }
 
   h2 {
     text-transform: uppercase;
     @include padding(32, left right);
     @include type-size(300);
   }
-
-  a {
-    &:focus {
-      @include link-focus-dark-bg;
-    }
-    &:hover {
-      @include link-hover-dark-bg;
-    }
-  }
 }
 
 .definition {
   @include padding(32, left right);
+  @include padding(8, top bottom);
+
+  .title {
+    @include margin(0);
+    @include type-size(200);
+    display: inline;
+  }
+
+  .content {
+    p {
+      display: inline;
+    }
+    a {
+      &:focus {
+        @include link-focus-dark-bg;
+      }
+      &:hover {
+        @include link-hover-dark-bg;
+      }
+    }
+  }
 }
 
 .highlight {
-  @include padding(32, top bottom);
   background: $color-plum-700;
 }
 
