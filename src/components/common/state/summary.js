@@ -4,13 +4,10 @@ import { DefinitionPanel, DefinitionPanelContext } from './definitions-panel'
 
 import CasesCard from './state-cards/cases-card'
 import CumulativeHospitalizationCard from './state-cards/cumulative-hospitalization-card'
+import CurrentHospitalizationCard from './state-cards/current-hospitalization-card'
 import OutcomesCard from './state-cards/outcomes-card'
 import RaceEthnicityCard from './state-cards/race-ethnicity-card'
-import {
-  PCRTestsCard,
-  TestsCard,
-  CurrentHospitalizationCard,
-} from './state-cards'
+import { PCRTestsCard, TestsCard } from './state-cards'
 
 import summaryStyles from './summary.module.scss'
 
