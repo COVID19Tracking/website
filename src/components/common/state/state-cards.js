@@ -181,35 +181,85 @@ const OutcomesCard = ({
   deathConfirmed,
   deathProbable,
   recovered,
-}) => (
-  <Card
-    title="Outcomes"
-    link={<Link to={`/data/state/${stateSlug}/outcomes`}>Historical data</Link>}
-  >
-    <CardBody>
-      <Statistic title="Recovered" value={recovered} />
-      <Statistic title={deathsLabel} value={death} />
-      {deathProbable && (
-        <Statistic
-          title="Probable deaths"
-          value={deathProbable}
-          definitionLink="#"
-          onDefinitionsToggle={onDefinitionsToggle}
-          subelement
-        />
-      )}
-      {deathConfirmed && (
-        <Statistic
-          title="Confirmed deaths"
-          value={deathConfirmed}
-          definitionLink="#"
-          onDefinitionsToggle={onDefinitionsToggle}
-          subelement
-        />
-      )}
-    </CardBody>
-  </Card>
-)
+}) => {
+  const fields = ['recovered', 'death']
+  if (deathProbable) {
+    fields.push('deathProbable')
+  }
+  if (deathConfirmed) {
+    fields.push('deathConfirmed')
+  }
+
+  const definitionContext = useContext(DefinitionPanelContext)
+
+  return (
+    <Card
+      title="Outcomes"
+      link={
+        <Link to={`/data/state/${stateSlug}/outcomes`}>Historical data</Link>
+      }
+    >
+      <CardBody>
+        <Statistic title="Recovered" value={recovered}>
+          <DefinitionLink
+            onDefinitionsToggle={() => {
+              definitionContext({
+                fields,
+                highlight: 'recovered',
+              })
+            }}
+          />
+        </Statistic>
+        <Statistic title={deathsLabel} value={death}>
+          <DefinitionLink
+            onDefinitionsToggle={() => {
+              definitionContext({
+                fields,
+                highlight: 'death',
+              })
+            }}
+          />
+        </Statistic>
+        {deathProbable && (
+          <Statistic
+            title="Probable deaths"
+            value={deathProbable}
+            definitionLink="#"
+            onDefinitionsToggle={onDefinitionsToggle}
+            subelement
+          >
+            <DefinitionLink
+              onDefinitionsToggle={() => {
+                definitionContext({
+                  fields,
+                  highlight: 'deathProbable',
+                })
+              }}
+            />
+          </Statistic>
+        )}
+        {deathConfirmed && (
+          <Statistic
+            title="Confirmed deaths"
+            value={deathConfirmed}
+            definitionLink="#"
+            onDefinitionsToggle={onDefinitionsToggle}
+            subelement
+          >
+            <DefinitionLink
+              onDefinitionsToggle={() => {
+                definitionContext({
+                  fields,
+                  highlight: 'deathConfirmed',
+                })
+              }}
+            />
+          </Statistic>
+        )}
+      </CardBody>
+    </Card>
+  )
+}
 
 const RaceEthnicityCard = ({ stateSlug, raceData }) => (
   <Card
