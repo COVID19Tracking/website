@@ -100,34 +100,6 @@ const PCRTestsCard = ({
   />
 )
 
-const CumulativeHospitalizationCard = ({
-  stateSlug,
-  hospitalizedCumulative,
-  inIcuCumulative,
-  onVentilatorCumulative,
-}) => (
-  <Card
-    title="Cumulative Hospitalization"
-    link={
-      <Link to={`/data/state/${stateSlug}/hospitalization`}>
-        Historical data
-      </Link>
-    }
-  >
-    <CardBody>
-      <Statistic
-        title="Cumulative hospitalized"
-        value={hospitalizedCumulative}
-      />
-      <Statistic title="Cumulative in ICU" value={inIcuCumulative} />
-      <Statistic
-        title="Cumulative on ventilator"
-        value={onVentilatorCumulative}
-      />
-    </CardBody>
-  </Card>
-)
-
 const OutcomesCard = ({
   stateSlug,
   onDefinitionsToggle,
@@ -299,7 +271,6 @@ const CurrentHospitalizationCard = ({
 export {
   TestsCard,
   PCRTestsCard,
-  CumulativeHospitalizationCard,
   OutcomesCard,
   RaceEthnicityCard,
   CurrentHospitalizationCard,
