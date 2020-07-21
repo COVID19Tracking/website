@@ -50,49 +50,98 @@ const CasesCard = ({
 }
 
 const BaseTestsCard = ({
+  fields = [],
+  negative,
+  negativeTestsField,
+  pending,
+  positive,
+  positiveTestsField,
+  stateSlug,
   title,
+  totalTests,
+  totalTestsField = 'totalTestResults',
+}) => {
+  const definitionContext = useContext(DefinitionPanelContext)
+
+  return (
+    <Card
+      title={title}
+      link={<Link to={`/data/state/${stateSlug}/tests`}>Historical data</Link>}
+    >
+      <CardBody>
+        <Statistic title="Total tests" value={totalTests}>
+          <DefinitionLink
+            onDefinitionsToggle={() => {
+              definitionContext({
+                fields,
+                highlight: totalTestsField,
+              })
+            }}
+          />
+        </Statistic>
+        <Statistic title="Positive" value={positive}>
+          <DefinitionLink
+            onDefinitionsToggle={() => {
+              definitionContext({
+                fields,
+                highlight: positiveTestsField,
+              })
+            }}
+          />
+        </Statistic>
+        {pending && <Statistic title="Pending" value={pending} />}
+        <Statistic title="Negative" value={negative}>
+          <DefinitionLink
+            onDefinitionsToggle={() => {
+              definitionContext({
+                fields,
+                highlight: negativeTestsField,
+              })
+            }}
+          />
+        </Statistic>
+      </CardBody>
+    </Card>
+  )
+}
+
+const TestsCard = ({
   stateSlug,
   negative,
   pending,
-  totalTests,
+  totalTestResults,
   positive,
 }) => (
-  <Card
-    title={title}
-    link={<Link to={`/data/state/${stateSlug}/tests`}>Historical data</Link>}
-  >
-    <CardBody>
-      <Statistic title="Total tests" value={totalTests} />
-      <Statistic title="Positive" value={positive} />
-      {pending && <Statistic title="Pending" value={pending} />}
-      <Statistic title="Negative" value={negative} />
-    </CardBody>
-  </Card>
-)
-
-const PCRTestsCard = ({ stateSlug, negative, pending, posNeg, positive }) => (
   <BaseTestsCard
-    title="Tests (PCR)"
-    stateSlug={stateSlug}
-    totalTests={posNeg}
-    positive={positive}
-    pending={pending}
+    fields={['negative', 'positive', 'totalTestResults']}
     negative={negative}
+    negativeTestsField="negative"
+    pending={pending}
+    positive={positive}
+    positiveTestsField="positive"
+    stateSlug={stateSlug}
+    title="Tests"
+    totalTests={totalTestResults}
+    totalTestsField="totalTestResults"
   />
 )
 
-const ViralTestsCard = ({
+const PCRTestsCard = ({
   stateSlug,
-  positiveTestsViral,
   totalTestsViral,
+  positiveTestsViral,
   negativeTestsViral,
 }) => (
   <BaseTestsCard
-    title="Tests (Serology)"
-    stateSlug={stateSlug}
-    totalTests={totalTestsViral}
-    positive={positiveTestsViral}
+    fields={['negativeTestsViral', 'positiveTestsViral', 'totalTestsViral']}
     negative={negativeTestsViral}
+    negativeTestsField="negativeTestsViral"
+    positive={positiveTestsViral}
+    positiveTestsField="positiveTestsViral"
+    stateSlug={stateSlug}
+    title="Tests (PCR)"
+    totalTests={totalTestsViral}
+    totalTestsField="totalTestsViral"
   />
 )
 
@@ -244,8 +293,8 @@ const CurrentHospitalizationCard = ({
 
 export {
   CasesCard,
+  TestsCard,
   PCRTestsCard,
-  ViralTestsCard,
   CumulativeHospitalizationCard,
   OutcomesCard,
   RaceEthnicityCard,

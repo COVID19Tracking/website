@@ -4,7 +4,7 @@ import { DefinitionPanel, DefinitionPanelContext } from './definitions-panel'
 import {
   CasesCard,
   PCRTestsCard,
-  ViralTestsCard,
+  TestsCard,
   CumulativeHospitalizationCard,
   CurrentHospitalizationCard,
   RaceEthnicityCard,
@@ -59,14 +59,14 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
           positiveIncrease={data.positiveIncrease}
           sevenDayIncrease={sevenDayPositiveIncrease}
         />
-        <PCRTestsCard
+        <TestsCard
           stateSlug={stateSlug}
           negative={data.negative}
           positive={data.positive}
           pending={data.pending}
-          posNeg={data.posNeg}
+          totalTestResults={data.totalTestResults}
         />
-        <ViralTestsCard
+        <PCRTestsCard
           stateSlug={stateSlug}
           totalTestsViral={data.totalTestsViral}
           positiveTestsViral={data.positiveTestsViral}

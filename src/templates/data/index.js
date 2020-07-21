@@ -129,29 +129,30 @@ export const query = graphql`
     }
     allCovidState {
       nodes {
-        totalTestResults
-        state
         dataQualityGrade
-        lastUpdateEt
-        positive
-        positiveIncrease
-        deathProbable
-        deathConfirmed
-        negative
-        pending
-        hospitalizedCurrently
-        hospitalizedCumulative
-        inIcuCurrently
-        inIcuCumulative
-        recovered
-        onVentilatorCurrently
-        onVentilatorCumulative
         death
-        posNeg
-        positiveCasesViral
-        positiveTestsViral
-        totalTestsViral
+        deathConfirmed
+        deathProbable
+        hospitalizedCumulative
+        hospitalizedCurrently
+        inIcuCumulative
+        inIcuCurrently
+        lastUpdateEt
+        negative
         negativeTestsViral
+        onVentilatorCumulative
+        onVentilatorCurrently
+        pending
+        positive
+        positiveCasesViral
+        positiveIncrease
+        positiveTestsViral
+        posNeg
+        recovered
+        state
+        totalTestResults
+        totalTestResults
+        totalTestsViral
       }
     }
     allCovidStateDaily(filter: { date: { eq: $sevenDaysAgo } }) {
