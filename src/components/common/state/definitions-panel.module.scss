@@ -9,12 +9,22 @@
 
   background-color: $color-plum-800;
   color: white;
-  @include padding(32, top bottom);
+  @include padding(32, bottom);
 
+  .header {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: $color-plum-800;
+    @include padding(32, left right);
+    @include padding(32, top bottom);
+  }
 
   h2 {
     text-transform: uppercase;
-    @include padding(32, left right);
+    @include margin(0);
     @include type-size(300);
   }
 }
@@ -50,7 +60,6 @@
 
 .close-panel-container {
   height: 24px;
-  @include margin(16, bottom);
 
   .close-panel {
     padding: 0;

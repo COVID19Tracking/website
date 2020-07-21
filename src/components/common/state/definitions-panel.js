@@ -53,16 +53,18 @@ const DefinitionPanel = ({ onHide, definitions, highlightedDefinition }) => {
           }
         }}
       >
-        <div className={definitionsPanelStyles.closePanelContainer}>
-          <button
-            type="button"
-            className={definitionsPanelStyles.closePanel}
-            onClick={onHide}
-          >
-            <img src={closeIcon} alt="Close panel." />
-          </button>
+        <div className={definitionsPanelStyles.header}>
+          <h2 id="definitionsDialogLabel">Definitions</h2>
+          <div className={definitionsPanelStyles.closePanelContainer}>
+            <button
+              type="button"
+              className={definitionsPanelStyles.closePanel}
+              onClick={onHide}
+            >
+              <img src={closeIcon} alt="Close panel." />
+            </button>
+          </div>
         </div>
-        <h2 id="definitionsDialogLabel">Definitions</h2>
         {Object.keys(definitions).map(key => (
           <Definition
             key={key}
