@@ -255,7 +255,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     transition: display 150ms;
-    @include margin(24, top);
+    @include padding(24, top);
   }
 
   .return-link {
