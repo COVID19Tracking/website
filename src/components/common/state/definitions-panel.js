@@ -9,7 +9,7 @@ const Definition = ({ key, definition, highlighted }) => {
     if (highlighted) {
       definitionRef.current.focus()
     }
-  }, [])
+  })
 
   return (
     <div
