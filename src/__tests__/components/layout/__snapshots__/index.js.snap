@@ -225,35 +225,6 @@ Array [
         </div>
       </div>
       <div
-        className=""
-        style={
-          Object {
-            "background": "colorPlum800",
-            "height": "auto",
-            "opacity": 1,
-            "overflow": "unset",
-            "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
-          }
-        }
-      >
-        <div
-          className="banner"
-        >
-          <span
-            className="new"
-          >
-            New
-          </span>
-           
-          <a
-            href="/race"
-            onClick={[Function]}
-          >
-            We just launched the COVID Racial Data Tracker
-          </a>
-        </div>
-      </div>
-      <div
         className="wrapper"
       >
         <div
@@ -882,35 +853,6 @@ Array [
           <div
             className="mobilePointer"
           />
-        </div>
-      </div>
-      <div
-        className=""
-        style={
-          Object {
-            "background": "colorPlum800",
-            "height": "auto",
-            "opacity": 1,
-            "overflow": "unset",
-            "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
-          }
-        }
-      >
-        <div
-          className="banner"
-        >
-          <span
-            className="new"
-          >
-            New
-          </span>
-           
-          <a
-            href="/race"
-            onClick={[Function]}
-          >
-            We just launched the COVID Racial Data Tracker
-          </a>
         </div>
       </div>
       <div
