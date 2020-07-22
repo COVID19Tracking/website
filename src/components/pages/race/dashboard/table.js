@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Tooltip from '@reach/tooltip'
+import Tooltip from '~components/common/tooltip'
 import { Table, Th, Td } from '~components/common/table'
 import Percent from './percent'
 import { Notes, DisparitySymbol } from './table-symbols'
 import tooltipDisparityIcon from '~images/tooltip-disparity-icon.svg'
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import stateTableStyle from './table.module.scss'
-import tooltipStyles from './tooltip.module.scss'
 
 const StateTable = Table
 
@@ -59,7 +58,6 @@ const StateCellPercent = ({ number, disparity, note }) => {
             likely.
           </>
         }
-        className={tooltipStyles.tooltip}
       >
         <span>{value}</span>
       </Tooltip>
@@ -67,7 +65,7 @@ const StateCellPercent = ({ number, disparity, note }) => {
   }
   if (note) {
     return (
-      <Tooltip label={note} className={tooltipStyles.tooltip}>
+      <Tooltip label={note}>
         <span>{value}</span>
       </Tooltip>
     )
