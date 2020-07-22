@@ -14,7 +14,20 @@ import { PCRTestsCard, TestsCard } from './cards/tests-cards'
 
 import summaryStyles from './summary.module.scss'
 
-export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
+export default ({
+  stateSlug,
+  data,
+  raceData,
+  sevenDaysAgo,
+  national = false,
+}) => {
+  /*
+  stateSlug: the name of the state, as a slug. like "arizona"
+  data: API data from either usCovid or covidState
+  raceData: tbd, currently like {combined: bool, separate: bool}
+  sevenDaysAgo: API data from usCovidDaily or covidStateDaily from seven days ago
+  national: flag for the national summmary, true means this is national
+  */
   const [cardDefinitions, setCardDefinitions] = useState(false)
   const [highlightedDefinition, setHighlightedDefinition] = useState(false)
   const { allContentfulDataDefinition } = useStaticQuery(graphql`
@@ -74,18 +87,22 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
           pending={data.pending}
           totalTestResults={data.totalTestResults}
         />
-        <PCRTestsCard
-          stateSlug={stateSlug}
-          totalTestsViral={data.totalTestsViral}
-          positiveTestsViral={data.positiveTestsViral}
-          negativeTestsViral={data.negativeTestsViral}
-        />
-        <CumulativeHospitalizationCard
-          stateSlug={stateSlug}
-          hospitalizedCumulative={data.hospitalizedCumulative}
-          inIcuCumulative={data.inIcuCumulative}
-          onVentilatorCumulative={data.onVentilatorCumulative}
-        />
+        {!national && (
+          <PCRTestsCard
+            stateSlug={stateSlug}
+            totalTestsViral={data.totalTestsViral}
+            positiveTestsViral={data.positiveTestsViral}
+            negativeTestsViral={data.negativeTestsViral}
+          />
+        )}
+        {!national && (
+          <CumulativeHospitalizationCard
+            stateSlug={stateSlug}
+            hospitalizedCumulative={data.hospitalizedCumulative}
+            inIcuCumulative={data.inIcuCumulative}
+            onVentilatorCumulative={data.onVentilatorCumulative}
+          />
+        )}
         <OutcomesCard
           stateSlug={stateSlug}
           deathsLabel={deathsLabel}
@@ -94,7 +111,9 @@ export default ({ stateSlug, data, raceData, sevenDaysAgo }) => {
           deathProbable={data.deathProbable}
           recovered={data.recovered}
         />
-        <RaceEthnicityCard stateSlug={stateSlug} raceData={raceData} />
+        {!national && (
+          <RaceEthnicityCard stateSlug={stateSlug} raceData={raceData} />
+        )}
         <CurrentHospitalizationCard
           stateSlug={stateSlug}
           hospitalizedCurrently={data.hospitalizedCurrently}

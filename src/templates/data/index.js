@@ -1,16 +1,19 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+
 import DetailText from '~components/common/detail-text'
+import { SyncInfobox } from '~components/common/infobox'
 import Container from '~components/common/container'
+import Layout from '~components/layout'
+
 import ContentfulContent from '~components/common/contentful-content'
 import MarkdownContent from '~components/common/markdown-content'
-import Layout from '~components/layout'
+
 import StateList from '~components/pages/data/state-list'
 import StatesNoScriptNav from '~components/pages/data/state-nav-no-script'
 import StatesNav from '~components/common/state-nav'
-import SummaryTable from '~components/common/summary-table'
-import { SyncInfobox } from '~components/common/infobox'
 
+import Summary from '~components/common/summary'
 import SummaryCharts from '~components/common/summary-charts'
 
 export default ({ data }) => {
@@ -31,12 +34,20 @@ export default ({ data }) => {
         id={data.dataPreamble.contentful_id}
       />
       <SyncInfobox />
-      <SummaryTable data={data.covidUs} usData showFootnote />
+      <Summary
+        stateSlug="national"
+        data={data.covidUs}
+        sevenDaysAgo={data.usSevenDaysAgo}
+        raceData={{
+          combined: false,
+          separate: false,
+        }}
+        national
+      />
       <SummaryCharts
         history={data.allCovidUsDaily.nodes}
         annotations={data.allContentfulEvent}
       />
-
       <Container narrow>
         <DetailText>
           <MarkdownContent
@@ -82,6 +93,7 @@ export const query = graphql`
     }
     covidUs {
       positive
+      positiveIncrease
       negative
       pending
       hospitalizedCurrently
@@ -93,6 +105,9 @@ export const query = graphql`
       onVentilatorCumulative
       death
       totalTestResults
+    }
+    usSevenDaysAgo: covidUsDaily(date: { eq: $sevenDaysAgo }) {
+      positive
     }
     allCovidStateInfo(sort: { fields: name }) {
       nodes {
