@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { DefinitionPanel, DefinitionPanelContext } from './definitions-panel'
+import {
+  DefinitionPanel,
+  DefinitionPanelContext,
+} from './cards/definitions-panel'
 
-import CasesCard from './state-cards/cases-card'
-import CumulativeHospitalizationCard from './state-cards/cumulative-hospitalization-card'
-import CurrentHospitalizationCard from './state-cards/current-hospitalization-card'
-import OutcomesCard from './state-cards/outcomes-card'
-import RaceEthnicityCard from './state-cards/race-ethnicity-card'
-import { PCRTestsCard, TestsCard } from './state-cards/tests-cards'
+import CasesCard from './cards/cases-card'
+import CumulativeHospitalizationCard from './cards/cumulative-hospitalization-card'
+import CurrentHospitalizationCard from './cards/current-hospitalization-card'
+import OutcomesCard from './cards/outcomes-card'
+import RaceEthnicityCard from './cards/race-ethnicity-card'
+import { PCRTestsCard, TestsCard } from './cards/tests-cards'
 
 import summaryStyles from './summary.module.scss'
 

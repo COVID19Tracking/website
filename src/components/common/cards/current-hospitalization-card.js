@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 import { Card, CardBody } from '~components/common/card'
-import { DefinitionPanelContext } from '~components/common/state/definitions-panel'
+import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
 export default ({

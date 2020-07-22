@@ -6,10 +6,11 @@ import slug from '~utilities/slug'
 import Container from '~components/common/container'
 import StateLinks from '~components/pages/state/state-links'
 import StateGrade from '~components/pages/state/state-grade'
-import StateSummary from '~components/common/state/summary'
+import StateSummary from '~components/common/summary'
 import stateDataStyles from './state-data.module.scss'
 import MarkdownContent from '~components/common/markdown-content'
 
+// todo pass race and ethnicity data from API
 const State = ({ state }) => (
   <>
     <div className={`state-header ${stateDataStyles.header}`}>
