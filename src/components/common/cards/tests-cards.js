@@ -9,6 +9,7 @@ const BaseTestsCard = ({
   negative,
   negativeTestsField,
   pending,
+  pendingTestsField,
   positive,
   positiveTestsField,
   stateSlug,
@@ -45,7 +46,18 @@ const BaseTestsCard = ({
             }}
           />
         </Statistic>
-        {pending && <Statistic title="Pending" value={pending} />}
+        {pending && (
+          <Statistic title="Pending" value={pending}>
+            <DefinitionLink
+              onDefinitionsToggle={() => {
+                definitionContext({
+                  fields,
+                  highlight: pendingTestsField,
+                })
+              }}
+            />
+          </Statistic>
+        )}
         <Statistic title="Negative" value={negative}>
           <DefinitionLink
             onDefinitionsToggle={() => {
@@ -67,20 +79,28 @@ const TestsCard = ({
   pending,
   totalTestResults,
   positive,
-}) => (
-  <BaseTestsCard
-    fields={['negative', 'positive', 'totalTestResults']}
-    negative={negative}
-    negativeTestsField="negative"
-    pending={pending}
-    positive={positive}
-    positiveTestsField="positive"
-    stateSlug={stateSlug}
-    title="Tests"
-    totalTests={totalTestResults}
-    totalTestsField="totalTestResults"
-  />
-)
+}) => {
+  const fields = ['negative', 'positive', 'totalTestResults']
+  if (pending) {
+    fields.splice(2, 0, 'pending') // add pending after positive
+  }
+
+  return (
+    <BaseTestsCard
+      fields={fields}
+      negative={negative}
+      negativeTestsField="negative"
+      pending={pending}
+      pendingTestsField="pending"
+      positive={positive}
+      positiveTestsField="positive"
+      stateSlug={stateSlug}
+      title="Tests"
+      totalTests={totalTestResults}
+      totalTestsField="totalTestResults"
+    />
+  )
+}
 
 const PCRTestsCard = ({
   stateSlug,
