@@ -30,13 +30,15 @@
 }
 
 .definition {
-  @include padding(32, left right);
-  @include padding(8, top bottom);
+  @include margin(16, left right);
+  @include padding(16, left right);
+  @include margin(8, top);
+  @include margin(32, bottom);
 
   .title {
     @include margin(0);
+    @include margin(16, bottom);
     @include type-size(200);
-    display: inline;
   }
 
   .content {
@@ -55,7 +57,8 @@
 }
 
 .highlight {
-  background: $color-plum-700;
+  color: $color-honey-400;
+  border-left: 2px solid $color-honey-400;
 }
 
 .close-panel-container {

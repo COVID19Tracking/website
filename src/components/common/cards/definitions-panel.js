@@ -21,7 +21,7 @@ const Definition = ({ key, definition, highlighted }) => {
         highlighted && definitionsPanelStyles.highlight,
       )}
     >
-      <h3 className={definitionsPanelStyles.title}>{definition.name}</h3>:{' '}
+      <h3 className={definitionsPanelStyles.title}>{definition.name}:</h3>{' '}
       <span
         className={definitionsPanelStyles.content}
         dangerouslySetInnerHTML={{
