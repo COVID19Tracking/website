@@ -6,11 +6,15 @@
 .disparity-symbol {
   display: inline-block;
   width: 20px;
+  position: relative;
+  top: 4px;
 }
 
 .note {
   @include type-size(100);
   @include margin(8, right);
+  position: relative;
+  top: -2px;
   display: inline-block;
   width: 20px;
   height: 20px;

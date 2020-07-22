@@ -45,9 +45,11 @@
 .disclosure-pane {
   display: none;
   background: $color-infobox-alert-light;
-  @include padding(16);
+  @include padding(24);
   @include margin(16, top bottom);
-
+  p:first-child {
+    margin-top: 0;
+  }
   &[data-expanded='true'] {
     display: block;
   }
