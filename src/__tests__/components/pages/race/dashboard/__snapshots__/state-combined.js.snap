@@ -139,7 +139,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Sample Sample blackPos notes.
+                    This data should not be compared with percentage of the the population. Sample Sample blackPos notes.
                   </span>
                   <span>
                     1
@@ -151,11 +151,51 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
           <td
             className=""
           >
-            0
-            %
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
+            >
+              <span
+                className="highlight"
+              >
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
-            />
+            >
+              <span
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
+              >
+                <a
+                  href="#notes-al"
+                >
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. 
+                  </span>
+                  <span>
+                    12
+                  </span>
+                </a>
+              </span>
+            </div>
           </td>
         </tr>
         <tr>
@@ -215,7 +255,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Sample Sample latinXPos notes.
+                    This data should not be compared with percentage of the the population. Sample Sample latinXPos notes.
                   </span>
                   <span>
                     2
@@ -331,7 +371,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Sample Sample asianPos notes.
+                    This data should not be compared with percentage of the the population. Sample Sample asianPos notes.
                   </span>
                   <span>
                     4
@@ -343,11 +383,51 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
           <td
             className=""
           >
-            0
-            %
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
+            >
+              <span
+                className="highlight"
+              >
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
-            />
+            >
+              <span
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
+              >
+                <a
+                  href="#notes-al"
+                >
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. 
+                  </span>
+                  <span>
+                    12
+                  </span>
+                </a>
+              </span>
+            </div>
           </td>
         </tr>
         <tr>
@@ -407,7 +487,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Sample Sample nhpiPos notes.
+                    This data should not be compared with percentage of the the population. Sample Sample nhpiPos notes.
                   </span>
                   <span>
                     5
@@ -456,7 +536,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Sample Sample nhpiDeath notes.
+                    This data should not be compared with percentage of the the population. Sample Sample nhpiDeath notes.
                   </span>
                   <span>
                     6
@@ -523,7 +603,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Sample Sample aianPos notes.
+                    This data should not be compared with percentage of the the population. Sample Sample aianPos notes.
                   </span>
                   <span>
                     7
@@ -572,7 +652,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Sample Sample aianDeath notes.
+                    This data should not be compared with percentage of the the population. Sample Sample aianDeath notes.
                   </span>
                   <span>
                     8
@@ -639,7 +719,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Sample Sample twoPos notes.
+                    This data should not be compared with percentage of the the population. Sample Sample twoPos notes.
                   </span>
                   <span>
                     9
@@ -688,7 +768,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Sample Sample twoDeath notes.
+                    This data should not be compared with percentage of the the population. Sample Sample twoDeath notes.
                   </span>
                   <span>
                     10
@@ -755,7 +835,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Sample Sample whitePos notes.
+                    This data should not be compared with percentage of the the population. Sample Sample whitePos notes.
                   </span>
                   <span>
                     11
@@ -767,11 +847,51 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
           <td
             className=""
           >
-            0
-            %
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
+            >
+              <span
+                className="highlight"
+              >
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
-            />
+            >
+              <span
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
+              >
+                <a
+                  href="#notes-al"
+                >
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. 
+                  </span>
+                  <span>
+                    12
+                  </span>
+                </a>
+              </span>
+            </div>
           </td>
         </tr>
         <tr>
@@ -831,10 +951,10 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Sample Sample otherPos notes.
+                    This data should not be compared with percentage of the the population. Sample Sample otherPos notes.
                   </span>
                   <span>
-                    12
+                    13
                   </span>
                 </a>
               </span>
@@ -880,10 +1000,10 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Sample Sample otherDeath notes.
+                    This data should not be compared with percentage of the the population. Sample Sample otherDeath notes.
                   </span>
                   <span>
-                    13
+                    14
                   </span>
                 </a>
               </span>
@@ -927,7 +1047,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
         </span>
       </span>
        
-      Sample Sample blackPos notes.
+      This data should not be compared with percentage of the the population. Sample Sample blackPos notes.
     </li>
     <li>
       <span
@@ -939,7 +1059,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
         </span>
       </span>
        
-      Sample Sample latinXPos notes.
+      This data should not be compared with percentage of the the population. Sample Sample latinXPos notes.
     </li>
     <li>
       <span
@@ -963,7 +1083,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
         </span>
       </span>
        
-      Sample Sample asianPos notes.
+      This data should not be compared with percentage of the the population. Sample Sample asianPos notes.
     </li>
     <li>
       <span
@@ -975,7 +1095,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
         </span>
       </span>
        
-      Sample Sample nhpiPos notes.
+      This data should not be compared with percentage of the the population. Sample Sample nhpiPos notes.
     </li>
     <li>
       <span
@@ -987,7 +1107,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
         </span>
       </span>
        
-      Sample Sample nhpiDeath notes.
+      This data should not be compared with percentage of the the population. Sample Sample nhpiDeath notes.
     </li>
     <li>
       <span
@@ -999,7 +1119,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
         </span>
       </span>
        
-      Sample Sample aianPos notes.
+      This data should not be compared with percentage of the the population. Sample Sample aianPos notes.
     </li>
     <li>
       <span
@@ -1011,7 +1131,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
         </span>
       </span>
        
-      Sample Sample aianDeath notes.
+      This data should not be compared with percentage of the the population. Sample Sample aianDeath notes.
     </li>
     <li>
       <span
@@ -1023,7 +1143,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
         </span>
       </span>
        
-      Sample Sample twoPos notes.
+      This data should not be compared with percentage of the the population. Sample Sample twoPos notes.
     </li>
     <li>
       <span
@@ -1035,7 +1155,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
         </span>
       </span>
        
-      Sample Sample twoDeath notes.
+      This data should not be compared with percentage of the the population. Sample Sample twoDeath notes.
     </li>
     <li>
       <span
@@ -1047,7 +1167,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
         </span>
       </span>
        
-      Sample Sample whitePos notes.
+      This data should not be compared with percentage of the the population. Sample Sample whitePos notes.
     </li>
     <li>
       <span
@@ -1059,7 +1179,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
         </span>
       </span>
        
-      Sample Sample otherPos notes.
+      This data should not be compared with percentage of the the population. 
     </li>
     <li>
       <span
@@ -1071,7 +1191,19 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
         </span>
       </span>
        
-      Sample Sample otherDeath notes.
+      This data should not be compared with percentage of the the population. Sample Sample otherPos notes.
+    </li>
+    <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          14
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. Sample Sample otherDeath notes.
     </li>
   </ul>
 </div>

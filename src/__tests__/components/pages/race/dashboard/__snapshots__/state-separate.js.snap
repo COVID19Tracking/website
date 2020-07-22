@@ -430,7 +430,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Race notes: twoDeath
+                    This data should not be compared with percentage of the the population. Race notes: twoDeath
                   </span>
                   <span>
                     19
@@ -497,7 +497,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Race notes: whiteDeath
+                    This data should not be compared with percentage of the the population. Race notes: whiteDeath
                   </span>
                   <span>
                     21
@@ -564,7 +564,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
                   <span
                     className="a11y-only"
                   >
-                    Race notes: otherDeath
+                    This data should not be compared with percentage of the the population. Race notes: otherDeath
                   </span>
                   <span>
                     23
@@ -761,7 +761,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
         </span>
       </span>
        
-      Race notes: nhpiPos
+      This data should not be compared with percentage of the the population. Race notes: nhpiPos
     </li>
     <li>
       <span
@@ -809,7 +809,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
         </span>
       </span>
        
-      Race notes: twoPos
+      This data should not be compared with percentage of the the population. Race notes: twoPos
     </li>
     <li>
       <span
@@ -821,7 +821,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
         </span>
       </span>
        
-      Race notes: twoDeath
+      This data should not be compared with percentage of the the population. Race notes: twoDeath
     </li>
     <li>
       <span
@@ -833,7 +833,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
         </span>
       </span>
        
-      Race notes: whitePos
+      This data should not be compared with percentage of the the population. Race notes: whitePos
     </li>
     <li>
       <span
@@ -845,7 +845,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
         </span>
       </span>
        
-      Race notes: whiteDeath
+      This data should not be compared with percentage of the the population. Race notes: whiteDeath
     </li>
     <li>
       <span
@@ -857,7 +857,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
         </span>
       </span>
        
-      Race notes: otherPos
+      This data should not be compared with percentage of the the population. Race notes: otherPos
     </li>
     <li>
       <span
@@ -869,7 +869,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
         </span>
       </span>
        
-      Race notes: otherDeath
+      This data should not be compared with percentage of the the population. Race notes: otherDeath
     </li>
   </ul>
   <div
