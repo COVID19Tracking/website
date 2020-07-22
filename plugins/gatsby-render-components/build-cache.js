@@ -21,8 +21,12 @@ export default class BuildCache {
 
   async readAll(cacheDir) {
     const filePath = path.join(this.basePath, cacheDir)
-    const allFiles = await recursiveReadDir(filePath)
-    return Promise.all(allFiles.map(file => fs.readJson(file)))
+    try {
+      const allFiles = await recursiveReadDir(filePath)
+      return Promise.all(allFiles.map(file => fs.readJson(file)))
+    } catch (err) {
+      return Promise.all([])
+    }
   }
 
   async read(cacheDir, filename, defaultValue) {

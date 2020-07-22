@@ -187,7 +187,7 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-render-components',
       options: {
-        path: `${__dirname}/public/img`
+        path: `${__dirname}/public/images`,
       },
     },
     {
@@ -253,6 +253,7 @@ const gatsbyConfig = {
           '~scss': 'src/scss',
           '~templates': 'src/templates',
           '~utilities': 'src/utilities',
+          '~share-cards': 'src/share-cards',
         },
         extensions: ['js', 'scss', 'svg', 'png'],
       },

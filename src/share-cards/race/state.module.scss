@@ -1,0 +1,10 @@
+.container {
+  text-align: center;
+  color: $color-plum-700;
+  @include padding(24);
+  @include type-size(600);
+  font-weight: 300;
+  strong {
+    color: $color-honey-500;
+  }
+}

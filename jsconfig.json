@@ -11,7 +11,8 @@
       "~pages/*": ["src/pages/*"],
       "~scss/*": ["src/scss/*"],
       "~templates/*": ["src/templates/*"],
-      "~utilities/*": ["src/utilities/*"]
+      "~utilities/*": ["src/utilities/*"],
+      "~share-cards/*": ["src/share-cards/*"]
     }
   },
   "include": ["src/**/*"]

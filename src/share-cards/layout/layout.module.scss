@@ -1,0 +1,18 @@
+.logo {
+  position: absolute;
+  width: 150px;
+  right: 10px;
+  bottom: 10px;
+  opacity: 0.8;
+  z-index: 1000;
+  @media screen and (max-width: $viewport-lg) {
+    display: none;
+  }
+  * {
+    fill: $color-slate-800;
+  }
+}
+
+.layout {
+  position: relative;
+}
