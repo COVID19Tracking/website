@@ -109,7 +109,7 @@ const PCRTestsCard = ({
   negativeTestsViral,
 }) => (
   <BaseTestsCard
-    fields={['negativeTestsViral', 'positiveTestsViral', 'totalTestsViral']}
+    fields={['totalTestsViral', 'positiveTestsViral', 'negativeTestsViral']}
     negative={negativeTestsViral}
     negativeTestsField="negativeTestsViral"
     positive={positiveTestsViral}
