@@ -403,7 +403,10 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
                   <>
                     <ol className={styles.annotationList}>
                       {flattenedAnnotations.map(annotation => (
-                        <li className={styles.annotationItem}>
+                        <li
+                          className={styles.annotationItem}
+                          key={annotation.description.description}
+                        >
                           {formatDate(annotation.date)}
                           {': '}
                           <span>
