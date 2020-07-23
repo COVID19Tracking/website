@@ -81,10 +81,15 @@ module.exports = (graphql, reporter) => {
 
     Object.keys(stateData).forEach(state => {
       fs.outputFile(
-        `./public/data/download/${states[state].slug}/history.csv`,
+        `./public/data/download/${states[state].slug}-history.csv`,
         parse(stateData[state]),
       )
     })
+
+    fs.outputFile(
+      './public/data/download/all-states-history.csv',
+      parse(data.allCovidStateDaily.nodes),
+    )
 
     reporter.success(`Saved state CSV files`)
 
