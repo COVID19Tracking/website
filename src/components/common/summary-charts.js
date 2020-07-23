@@ -255,6 +255,11 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
       // eslint-disable-next-line no-restricted-globals
       location.replace('#chart-annotations')
     },
+    ...(usePerCap
+      ? {
+          perCapLabel: '/1M',
+        }
+      : {}),
   }
   return (
     <>
