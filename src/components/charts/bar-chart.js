@@ -319,7 +319,7 @@ BarChart.propTypes = {
   ),
   annotations: PropTypes.arrayOf(
     PropTypes.shape({
-      number: PropTypes.number.isRequired,
+      annotationSymbol: PropTypes.string.isRequired,
       date: PropTypes.instanceOf(Date).isRequired,
       value: PropTypes.number,
     }),
