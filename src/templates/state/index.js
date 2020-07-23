@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '~components/layout'
 import StateGrade from '~components/pages/state/state-grade'
@@ -31,8 +31,6 @@ const StatePage = ({ pageContext, data, path }) => {
         fathomGoal="DNRI0GQP"
       />
       <StateGrade letterGrade={covidState.dataQualityGrade} />
-      <Link to={`${path}/screenshots`}>Screenshots</Link>{' '}
-      <Link to={`${path}/history`}>full history</Link>
       {state.notes && <StateNotes notes={state.notes} />}
       <SyncInfobox />
       <StateSummary

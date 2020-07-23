@@ -1,9 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
-import Panel from '~components/pages/data/download/panel'
-import Fields from '~components/pages/data/download/fields'
-import DownloadLink from '~components/pages/data/download/download-link'
 import Layout from '~components/layout'
 import slug from '~utilities/slug'
 
