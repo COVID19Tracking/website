@@ -257,7 +257,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
     },
     ...(usePerCap
       ? {
-          perCapLabel: usePerCap && '/1M',
+          perCapLabel: '/1M',
         }
       : {}),
   }
