@@ -32,6 +32,11 @@ export default ({ pageContext, path, data }) => {
         tertiary,
       })
     })
+  const {
+    covid19Site,
+    covid19SiteSecondary,
+    covid19SiteTertiary,
+  } = data.covidStateInfo
   return (
     <Layout
       title={`${state.name}: Screenshots`}
@@ -39,6 +44,36 @@ export default ({ pageContext, path, data }) => {
       returnLink={`/data/state/${state.slug}`}
       path={path}
     >
+      <p>
+        Every day we take multiple screenshots to document state COVID websites.{' '}
+        {state.name} has the following sites:
+      </p>
+      <ol>
+        {covid19Site && (
+          <li>
+            <strong>Primary:</strong>{' '}
+            <a target="_blank" rel="noreferrer" href={covid19Site}>
+              {covid19Site}
+            </a>
+          </li>
+        )}
+        {covid19SiteSecondary && (
+          <li>
+            <strong>Secondary:</strong>{' '}
+            <a target="_blank" rel="noreferrer" href={covid19SiteSecondary}>
+              {covid19SiteSecondary}
+            </a>
+          </li>
+        )}
+        {covid19SiteTertiary && (
+          <li>
+            <strong>Tertiary:</strong>{' '}
+            <a target="_blank" rel="noreferrer" href={covid19SiteTertiary}>
+              {covid19SiteTertiary}
+            </a>
+          </li>
+        )}
+      </ol>
       <TableResponsive
         labels={[
           {
@@ -83,6 +118,11 @@ export const query = graphql`
           date
         }
       }
+    }
+    covidStateInfo(state: { eq: $state }) {
+      covid19Site
+      covid19SiteSecondary
+      covid19SiteTertiary
     }
   }
 `

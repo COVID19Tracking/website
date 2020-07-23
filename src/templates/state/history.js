@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import StateHistory from '~components/pages/state/state-history'
+import slug from '~utilities/slug'
 
 import Layout from '~components/layout'
 
@@ -9,6 +10,13 @@ const StatePage = ({ pageContext, data, path }) => {
   const { allCovidStateDaily, allCovidScreenshot } = data
   return (
     <Layout title={state.name} returnLink="/data" path={path}>
+      <p>
+        You can also{' '}
+        <a href={`/data/download/${slug(state.name)}-history.csv`}>
+          download all state data as a CSV file
+        </a>
+        .
+      </p>
       <StateHistory
         history={allCovidStateDaily.nodes}
         screenshots={allCovidScreenshot.nodes}
@@ -38,20 +46,6 @@ export const query = graphql`
         death
         deathIncrease
         date
-        childPopulation {
-          deathIncrease {
-            percent
-          }
-          hospitalizedCurrently {
-            percent
-          }
-          positiveIncrease {
-            percent
-          }
-          totalTestResultsIncrease {
-            percent
-          }
-        }
       }
     }
     allCovidScreenshot(

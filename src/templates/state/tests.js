@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
 import { FormatDate, FormatNumber } from '~components/utils/format'
+import StateDataDefinitions from '~components/pages/state/data-definitions'
 import Layout from '~components/layout'
 
 const formatNumber = number => <FormatNumber number={number} />
@@ -16,6 +17,9 @@ export default ({ pageContext, path, data }) => {
       path={path}
     >
       <p>Testing</p>
+      <StateDataDefinitions
+        definitions={data.allContentfulDataDefinition.nodes}
+      />
       <TableResponsive
         labels={[
           {
@@ -40,12 +44,12 @@ export default ({ pageContext, path, data }) => {
           },
           {
             field: 'negativeIncrease',
-            label: 'Negative (incrase)',
+            label: 'Negative (increase)',
             format: formatNumber,
           },
           {
             field: 'negativeIncrease',
-            label: 'Negative (incrase)',
+            label: 'Negative (increase)',
             format: formatNumber,
           },
           {
@@ -55,17 +59,17 @@ export default ({ pageContext, path, data }) => {
           },
           {
             field: 'positiveIncrease',
-            label: 'Positive (incrase)',
+            label: 'Positive (increase)',
             format: formatNumber,
           },
           {
             field: 'positiveCasesViral',
-            label: 'Viral case positive (incrase)',
+            label: 'Viral case positive (increase)',
             format: formatNumber,
           },
           {
             field: 'positiveTestsViral',
-            label: 'Viral test positive (incrase)',
+            label: 'Viral test positive (increase)',
             format: formatNumber,
           },
           {
@@ -103,6 +107,22 @@ export const query = graphql`
         totalTestResults
         totalTestResultsIncrease
         totalTestsViral
+      }
+    }
+
+    allContentfulDataDefinition(
+      filter: {
+        fieldName: { in: ["negative", "positive", "positiveCasesViral"] }
+      }
+    ) {
+      nodes {
+        fieldName
+        name
+        childContentfulDataDefinitionDefinitionTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
   }
