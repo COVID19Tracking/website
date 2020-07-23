@@ -132,7 +132,8 @@ exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correct
         <td
           className="borderLeft"
         >
-          0%
+          0
+          %
         </td>
       </tr>
     </tbody>

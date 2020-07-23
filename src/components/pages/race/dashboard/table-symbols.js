@@ -1,41 +1,57 @@
+/* eslint-disable react/button-has-type */
 import React from 'react'
+import classnames from 'classnames'
+import Tooltip from '~components/common/tooltip'
+import disparityIcon from '~images/disparity-icon.svg'
+import tooltipDisparityIcon from '~images/tooltip-disparity-icon.svg'
 import tableSymbolsStyles from './table-symbols.module.scss'
+
+const TooltipContent = ({ title, index }) => (
+  <ol start={index} className={tableSymbolsStyles.tooltipList}>
+    <li>{title}</li>
+  </ol>
+)
 
 const Notes = ({ index, title, linkTo }) => {
   if (!linkTo || !title) {
     return null
   }
   return (
-    <sup className={tableSymbolsStyles.note}>
-      <a href={`#${linkTo}`}>
-        <span className="a11y-only">{title}</span>
-        <span>{index}</span>
-      </a>
-    </sup>
+    <Tooltip label={<TooltipContent title={title} index={index} />}>
+      <span className={tableSymbolsStyles.note}>
+        <a href={`#${linkTo}`}>
+          <span className="a11y-only">{title}</span>
+          <span>{index}</span>
+        </a>
+      </span>
+    </Tooltip>
   )
 }
 
-const CautionSymbol = ({ inkey = false }) => (
+const UnlinkedNote = ({ index }) => (
   <span
-    className={`${tableSymbolsStyles.caution} ${
-      inkey ? tableSymbolsStyles.inKey : ''
-    }`}
+    aria-hidden
+    className={classnames(tableSymbolsStyles.note, tableSymbolsStyles.unlinked)}
   >
-    <span className="a11y-only">This data is not reliable</span>
+    <span>{index}</span>
   </span>
 )
 
-const DisparitySymbol = ({ inkey = false }) => (
-  <span
-    className={`${tableSymbolsStyles.disparitySymbol} ${
-      inkey ? tableSymbolsStyles.inKey : ''
-    }`}
-  >
-    <span className="a11y-only">
-      Figure is significantly higher than population proportion
-    </span>
-    <span className={tableSymbolsStyles.inner} />
+const DisparitySymbol = ({ linkTo }) => (
+  <span className={tableSymbolsStyles.disparitySymbol}>
+    <Tooltip
+      label={
+        <>
+          <img src={tooltipDisparityIcon} alt="" /> Racial/ethnic disparity
+          likely.
+        </>
+      }
+    >
+      <a href={`#${linkTo}`}>
+        <img src={disparityIcon} alt="Racial/ethnic disparity likely." />
+      </a>
+    </Tooltip>
   </span>
 )
 
-export { Notes, CautionSymbol, DisparitySymbol }
+export { Notes, UnlinkedNote, DisparitySymbol, TooltipContent }

@@ -33,6 +33,7 @@ const BarChart = ({
   yTicks,
   lastXTick,
   renderTooltipContents,
+  perCapLabel,
 }) => {
   const [tooltip, setTooltip] = useState(null)
   // Used for tooltip optimization
@@ -117,6 +118,8 @@ const BarChart = ({
                   >
                     <text className={chartStyles.label}>
                       {formatNumber(tick)}
+                      {tick > 0 &&
+                        perCapLabel /* this only displays if passed */}
                     </text>
                   </svg>
                   <line
@@ -292,6 +295,7 @@ BarChart.defaultProps = {
   yTicks: 4,
   showTicks: 4,
   renderTooltipContents: null,
+  perCapLabel: null,
 }
 
 BarChart.propTypes = {
@@ -337,5 +341,6 @@ BarChart.propTypes = {
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
   renderTooltipContents: PropTypes.func,
+  perCapLabel: PropTypes.string,
 }
 export default BarChart

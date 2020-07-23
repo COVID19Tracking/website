@@ -2,8 +2,8 @@ import React from 'react'
 import HeaderSorter from './header-sorter'
 import TableNotes from './table-notes'
 import PercentageOverview from './percentage-overview'
-import TableTitle from './table-title'
 import anhpiNotes from './anhpi-notes'
+import cautionNotes from './caution-notes'
 import { RaceTable } from './breakdown-tables'
 import stateStyle from './state.module.scss'
 
@@ -28,10 +28,15 @@ export default ({ state }) => {
     blackPos: stateData.blackPosNotes,
   }
   notes = anhpiNotes(stateData, notes)
-
+  notes = cautionNotes(stateData, notes)
   const groupedNotes = [...new Set(Object.values(notes))]
     .reverse()
     .filter(value => value && value.trim().length && value)
+
+  const disparityExists =
+    Object.keys(stateData).filter(
+      field => field.search('DispFlag') > -1 && stateData[field],
+    ).length > 0
 
   return (
     <div>
@@ -47,10 +52,9 @@ export default ({ state }) => {
           <HeaderSorter stateName={state.name} stateReports="race/ethnicity" />
         </div>
       </div>
-      <TableTitle
-        titleText="Cases and deaths by race/ethnicity"
-        state={stateData.state}
-      />
+      <h3 className={stateStyle.tableTitle}>
+        Cases and deaths by race/ethnicity
+      </h3>
       <RaceTable
         data={stateData}
         type="Race/ethnicity"
@@ -60,14 +64,12 @@ export default ({ state }) => {
         noDeaths={!stateData.anyDeathData}
         isCombined
       />
-      <p>
-        * Hispanic or Latino ethnicity, any race. All other race categories in
-        this table are defined as Not Hispanic or Latino.
-      </p>
       <TableNotes
         state={stateData.state}
         stateName={stateData.name}
         groupedNotes={groupedNotes}
+        disparityExists={disparityExists}
+        hispanicLatinxNote
       />
     </div>
   )
