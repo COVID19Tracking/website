@@ -448,7 +448,7 @@ const LegendComponent = ({ name }) => (
         y2="3"
         stroke="black"
         strokeWidth="2"
-        strokeDasharray={!name && '4'}
+        strokeDasharray={!name ? '4' : undefined}
       />
     </svg>
     {name || 'National'} 7-day average
