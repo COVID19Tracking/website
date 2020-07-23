@@ -42,7 +42,7 @@ const ContentPage = ({ data }) => (
       </thead>
       <tbody>
         {data.allCovidUsDaily.nodes.map(node => (
-          <tr>
+          <tr key={node.date}>
             <Td alignLeft>
               <FormatDate
                 date={node.date}
