@@ -4,8 +4,7 @@ import smartypants from 'smartypants'
 import { Link } from 'gatsby'
 import slug from '~utilities/slug'
 import Container from '~components/common/container'
-import StateLinks from '~components/pages/state/state-links'
-import StateGrade from '~components/pages/state/state-grade'
+import { StateGrade } from '~components/pages/state/state-grade'
 import StateSummary from '~components/common/summary'
 import stateDataStyles from './state-data.module.scss'
 import MarkdownContent from '~components/common/markdown-content'
@@ -28,14 +27,6 @@ const State = ({ state }) => (
         separate: false,
       }}
       lastUpdated={state.lastUpdateEt}
-    />
-    <StateLinks
-      twitter={state.twitter}
-      covid19Site={state.covid19Site}
-      covid19SiteSecondary={state.covid19SiteSecondary}
-      covid19SiteTertiary={state.covid19SiteTertiary}
-      stateName={state.name}
-      fathomGoal="2YKBL0ZP"
     />
     {state.notes && (
       <Container narrow>

@@ -1,6 +1,13 @@
 .state-grade img {
-  margin-top: -2px;
   display: inline;
   vertical-align: middle;
   margin-left: spacer(4);
+}
+
+.grade {
+  width: 28px;
+}
+
+.grade-large {
+  width: 200px;
 }

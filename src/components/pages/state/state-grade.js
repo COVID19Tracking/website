@@ -9,17 +9,17 @@ import gradeD from '~images/state-grades/grade-d.svg'
 import gradeF from '~images/state-grades/grade-f.svg'
 import gradeNA from '~images/state-grades/grade-na.svg'
 
-const StateGrade = ({ letterGrade = 'na' }) => {
-  const grades = {
-    'a+': gradeAPlus,
-    a: gradeA,
-    b: gradeB,
-    c: gradeC,
-    d: gradeD,
-    f: gradeF,
-    na: gradeNA,
-  }
+const grades = {
+  'a+': gradeAPlus,
+  a: gradeA,
+  b: gradeB,
+  c: gradeC,
+  d: gradeD,
+  f: gradeF,
+  na: gradeNA,
+}
 
+const StateGrade = ({ letterGrade = 'na' }) => {
   return (
     <p className={`state-grade ${stateGradeStyle.stateGrade}`}>
       <span>
@@ -32,11 +32,23 @@ const StateGrade = ({ letterGrade = 'na' }) => {
             ? grades[letterGrade.toLowerCase()]
             : grades.na
         }
+        className={stateGradeStyle.grade}
         alt={`Grade ${letterGrade}`}
-        width="28px"
       />
     </p>
   )
 }
 
-export default StateGrade
+const LargeStateGrade = ({ letterGrade = 'na' }) => (
+  <img
+    src={
+      letterGrade && typeof grades[letterGrade.toLowerCase()] !== 'undefined'
+        ? grades[letterGrade.toLowerCase()]
+        : grades.na
+    }
+    alt={`Grade ${letterGrade}`}
+    className={stateGradeStyle.gradeLarge}
+  />
+)
+
+export { StateGrade, LargeStateGrade }

@@ -1,22 +1,18 @@
-.list {
-  list-style-type: none;
-  margin: 0;
-  padding-left: 0;
-  span {
-    color: $color-slate-200;
-    @include type-size(100);
-    padding: 0 spacer(8);
-  }
-  li {
-    display: inline;
-    margin: 0;
-  }
-  @media (max-width: $viewport-sm) {
-    li {
-      display: block;
-    }
+.link {
+  display: block;
+  &.state-link {
+    @include padding(8, left);
+    display: flex;
+    text-decoration: none;
     span {
-      display: none;
+      text-decoration: underline;
+    }
+    &::before {
+      text-decoration: none;
+      @include padding(8, right);
+      content: '∟';
+      line-height: 0.9;
+      display: inline-block;
     }
   }
 }

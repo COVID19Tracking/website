@@ -1,0 +1,16 @@
+.button {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  @include padding(8);
+  @include margin(16, right);
+  background: $color-plum-100;
+  border-radius: 4px;
+  color: $color-plum-800;
+}
+
+.header {
+  @include type-size(200);
+  font-weight: normal;
+  margin-top: 0;
+}
