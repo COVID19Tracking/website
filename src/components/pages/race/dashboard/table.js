@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import Tooltip from '~components/common/tooltip'
 import { Table, Th, Td } from '~components/common/table'
 import Percent from './percent'
-import { Notes, DisparitySymbol } from './table-symbols'
+import { Notes, DisparitySymbol, TooltipContent } from './table-symbols'
 import tooltipDisparityIcon from '~images/tooltip-disparity-icon.svg'
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import stateTableStyle from './table.module.scss'
@@ -47,7 +47,7 @@ const StateTableHeader = ({ groupTitle, noDeaths, noPositives }) => (
   </thead>
 )
 
-const StateCellPercent = ({ number, disparity, note }) => {
+const StateCellPercent = ({ number, disparity, note, noteIndex }) => {
   const value = <Percent number={number} highlight={disparity || note} />
   if (disparity) {
     return (
@@ -65,7 +65,7 @@ const StateCellPercent = ({ number, disparity, note }) => {
   }
   if (note) {
     return (
-      <Tooltip label={note}>
+      <Tooltip label={<TooltipContent title={note} index={noteIndex} />}>
         <span>{value}</span>
       </Tooltip>
     )
@@ -103,6 +103,7 @@ const StateTableDataCell = ({
           number={cellData.value}
           disparity={cellData.disparity}
           note={cellData.note.value}
+          noteIndex={cellData.note.index + 1}
         />
 
         <div className={stateTableStyle.symbolSpacer}>

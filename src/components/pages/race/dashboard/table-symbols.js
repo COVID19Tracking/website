@@ -6,12 +6,18 @@ import disparityIcon from '~images/disparity-icon.svg'
 import tooltipDisparityIcon from '~images/tooltip-disparity-icon.svg'
 import tableSymbolsStyles from './table-symbols.module.scss'
 
+const TooltipContent = ({ title, index }) => (
+  <ol start={index} className={tableSymbolsStyles.tooltipList}>
+    <li>{title}</li>
+  </ol>
+)
+
 const Notes = ({ index, title, linkTo }) => {
   if (!linkTo || !title) {
     return null
   }
   return (
-    <Tooltip label={title}>
+    <Tooltip label={<TooltipContent title={title} index={index} />}>
       <span className={tableSymbolsStyles.note}>
         <a href={`#${linkTo}`}>
           <span className="a11y-only">{title}</span>
@@ -48,4 +54,4 @@ const DisparitySymbol = ({ linkTo }) => (
   </span>
 )
 
-export { Notes, UnlinkedNote, DisparitySymbol }
+export { Notes, UnlinkedNote, DisparitySymbol, TooltipContent }

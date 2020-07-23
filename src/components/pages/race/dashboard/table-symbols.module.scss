@@ -35,3 +35,8 @@
   margin-left: 0;
   margin-right: spacer(8);
 }
+
+.tooltip-list {
+  margin: 0;
+  @include padding(16, left);
+}
