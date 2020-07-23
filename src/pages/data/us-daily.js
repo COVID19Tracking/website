@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
 import { FormatDate, FormatNumber } from '~components/utils/format'
-import { SyncInfobox } from '~components/common/infobox'
 import { Th, Td, Table } from '~components/common/table'
 
 const ContentPage = ({ data }) => (
@@ -21,8 +20,6 @@ const ContentPage = ({ data }) => (
       }
       id={data.contentfulSnippet.contentful_id}
     />
-
-    <SyncInfobox />
 
     <Table>
       <caption>US Daily Cumulative Totals - 4 pm ET</caption>

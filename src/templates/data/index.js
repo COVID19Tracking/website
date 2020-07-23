@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import DetailText from '~components/common/detail-text'
-import { SyncInfobox } from '~components/common/infobox'
 import Container from '~components/common/container'
 import Layout from '~components/layout'
 
@@ -33,7 +32,6 @@ export default ({ data }) => {
         content={data.dataPreamble.content.childMarkdownRemark.html}
         id={data.dataPreamble.contentful_id}
       />
-      <SyncInfobox />
       <Summary
         stateSlug="national"
         data={data.covidUs}

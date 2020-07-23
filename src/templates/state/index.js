@@ -8,7 +8,6 @@ import StateLinks from '~components/pages/state/state-links'
 import StateNotes from '~components/pages/state/state-notes'
 import SummaryCharts from '~components/common/summary-charts'
 import StateSummary from '~components/common/summary'
-import { SyncInfobox } from '~components/common/infobox'
 
 const StatePage = ({ pageContext, data, path }) => {
   const state = pageContext
@@ -44,7 +43,6 @@ const StatePage = ({ pageContext, data, path }) => {
       </Row>
 
       {state.notes && <StateNotes notes={state.notes} />}
-      <SyncInfobox />
       <SummaryCharts
         name={state.name}
         history={allCovidStateDaily.nodes}
