@@ -12,6 +12,7 @@ export default ({ data, path }) => (
     returnLink="/blog"
     returnLinkTitle="All posts"
     path={path}
+    centerTitle
   >
     <Container className={blogStyles.container}>
       <BlogCategoriesList />
