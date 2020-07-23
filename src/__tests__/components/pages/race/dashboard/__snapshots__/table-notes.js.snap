@@ -17,15 +17,33 @@ Array [
       Nevada
     </span>
   </h4>,
-  <ol
+  <ul
     className="list"
   >
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          1
+        </span>
+      </span>
+       
       This is a note
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          2
+        </span>
+      </span>
+       
         This is another note with trailing space   
     </li>
-  </ol>,
+  </ul>,
 ]
 `;

@@ -1,4 +1,5 @@
 .header {
+  @include margin(16, bottom);
   @media (min-width: $viewport-md) {
     margin-top: toRem(-50);
     padding-top: toRem(50);
@@ -9,9 +10,47 @@
 .list {
   @include padding(0, left);
   @include margin(0, top);
-
+  list-style-type: none;
   li {
-    list-style-position: inside;
-    list-style-type: decimal;
+    @include margin(8, bottom);
+  }
+}
+
+.empty-note {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  @include type-size(100);
+  font-weight: bold;
+  border: 1px solid $color-slate-100;
+  display: inline-block;
+  text-align: center;
+  @include margin(8, right);
+}
+
+.key {
+  @include type-size(100);
+}
+
+.disclosure-button {
+  border: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  .text {
+    text-decoration: underline;
+  }
+}
+
+.disclosure-pane {
+  display: none;
+  background: $color-infobox-alert-light;
+  @include padding(24);
+  @include margin(16, top bottom);
+  p:first-child {
+    margin-top: 0;
+  }
+  &[data-expanded='true'] {
+    display: block;
   }
 }
