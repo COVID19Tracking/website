@@ -15,7 +15,7 @@
 
     .title {
       @include padding(24, bottom);
-      @include margin(0, bottom);
+      @include margin(0, (bottom, top));
       border-bottom: 1px solid $color-slate-200;
       line-height: 1;
       @include type-size(500);
