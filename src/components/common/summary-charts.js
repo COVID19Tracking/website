@@ -408,7 +408,10 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
                   <>
                     <ol className={styles.annotationList}>
                       {flattenedAnnotations.map(annotation => (
-                        <li className={styles.annotationItem}>
+                        <li
+                          className={styles.annotationItem}
+                          key={annotation.description.description}
+                        >
                           {formatDate(annotation.date)}
                           {': '}
                           <span>
@@ -453,7 +456,7 @@ const LegendComponent = ({ name }) => (
         y2="3"
         stroke="black"
         strokeWidth="2"
-        strokeDasharray={!name && '4'}
+        strokeDasharray={!name ? '4' : undefined}
       />
     </svg>
     {name || 'National'} 7-day average

@@ -16,7 +16,7 @@ export default ({ options, state, setState }) => {
       <span className={!state && styles.active} title={options[0]}>
         {options[0]}
       </span>
-      <span className={state && styles.active} title={options[1]}>
+      <span className={state ? styles.active : undefined} title={options[1]}>
         {options[1]}
       </span>
     </div>

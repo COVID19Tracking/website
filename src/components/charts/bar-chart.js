@@ -302,13 +302,17 @@ BarChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
-      value: PropTypes.number.isRequired,
+      /* value isn't required: state's may have started reporting a value
+      _after_ the start date. (i.e. hospitalization values that have only
+      been reported for the past 5 days) */
     }),
   ).isRequired,
   lineData: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
-      value: PropTypes.number.isRequired,
+      /* value isn't required: state's may have started reporting a value
+      _after_ the start date. (i.e. hospitalization values that have only
+      been reported for the past 5 days) */
     }),
   ),
   refLineData: PropTypes.arrayOf(
@@ -319,7 +323,7 @@ BarChart.propTypes = {
   ),
   annotations: PropTypes.arrayOf(
     PropTypes.shape({
-      number: PropTypes.number.isRequired,
+      annotationSymbol: PropTypes.string.isRequired,
       date: PropTypes.instanceOf(Date).isRequired,
       value: PropTypes.number,
     }),

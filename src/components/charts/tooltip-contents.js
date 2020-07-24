@@ -13,7 +13,7 @@ const TooltipContents = ({ date = null, items }) => (
       </span>
     )}
     {items.map(item => (
-      <div className={styles.item}>
+      <div className={styles.item} key={`${item.date}-${item.value}`}>
         <span>{formatNumber(item.value)}</span>{' '}
         <span className={classnames(styles.legendText, styles.total)}>
           {item.text}
@@ -27,7 +27,8 @@ TooltipContents.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      text: PropTypes.string.isRequired,
+      text: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+        .isRequired,
       value: PropTypes.number.isRequired,
     }),
   ).isRequired,
