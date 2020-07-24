@@ -1,0 +1,39 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  .states {
+    flex-grow: 1;
+
+    .title {
+      @include padding(24, bottom);
+      @include margin(0, (bottom, top));
+      border-bottom: 1px solid $color-slate-200;
+      line-height: 1;
+      @include type-size(500);
+    }
+  }
+
+  .states-wrapper {
+    @include margin(80, right);
+  }
+
+  .sidebar {
+    padding-top: 0.75rem; // ignore-style-rule
+  }
+
+  @media (max-width: $viewport-lg) {
+    flex-direction: column-reverse;
+
+    .states {
+      @include margin(16, top);
+
+      .title {
+        @include margin(16, top);
+      }
+    }
+    .states-wrapper {
+      @include margin(0, right);
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import State from './state-data'
-import StateNav from './state-nav'
+import StateNavWrapper from './state-nav-wrapper'
 import statesStyles from './states.module.scss'
 
 export default ({ states, stateData, sevenDaysAgoList }) => {
@@ -21,22 +21,16 @@ export default ({ states, stateData, sevenDaysAgoList }) => {
   })
 
   return (
-    <div className={statesStyles.headerContainer}>
-      <div className={statesStyles.states}>
-        <h2 className={statesStyles.title}>Data by State</h2>
-        <div className={statesStyles.statesWrapper}>
-          {stateList.map(state => (
-            <div
-              key={`state-list-${state.state}`}
-              id={`state-list-${state.state}`}
-              className={statesStyles.item}
-            >
-              <State state={state} stateData={state.stateData} />
-            </div>
-          ))}
+    <StateNavWrapper stateList={stateList}>
+      {stateList.map(state => (
+        <div
+          key={`state-list-${state.state}`}
+          id={`state-list-${state.state}`}
+          className={statesStyles.item}
+        >
+          <State state={state} stateData={state.stateData} />
         </div>
-      </div>
-      <StateNav stateList={stateList} className={statesStyles.sidebar} />
-    </div>
+      ))}
+    </StateNavWrapper>
   )
 }
