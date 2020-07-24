@@ -8,9 +8,9 @@ const TabletDisclosure = ({ children, className }) => (
   </div>
 )
 
-const TabletDisclosureHeader = ({ isOpen, setIsOpen, children }) => (
+const TabletDisclosureHeader = ({ isOpen, setIsOpen, children, className }) => (
   <button
-    className={TabletDisclosureStyles.header}
+    className={classnames(className, TabletDisclosureStyles.header)}
     onClick={() => setIsOpen(!isOpen)} // toggle
     type="button"
     aria-expanded={isOpen}
