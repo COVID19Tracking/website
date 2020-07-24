@@ -9,8 +9,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import MarkdownContent from '~components/common/markdown-content'
 
 import StateList from '~components/pages/data/state-list'
-import StatesNoScriptNav from '~components/pages/data/state-nav-no-script'
-import StatesNav from '~components/common/state-nav'
+import StateNav from '~components/pages/data/state-nav'
 
 import Summary from '~components/common/summary'
 import SummaryCharts from '~components/common/summary-charts'
@@ -53,9 +52,8 @@ export default ({ data }) => {
           />
         </DetailText>
       </Container>
-      <StatesNav title="Totals by state" stateList={stateNavList} />
 
-      <StatesNoScriptNav stateList={data.allCovidStateInfo.nodes} />
+      <StateNav stateList={data.allCovidStateInfo.nodes} />
       <StateList
         states={data.allCovidStateInfo.nodes}
         stateData={data.allCovidState.nodes}
