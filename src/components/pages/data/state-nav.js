@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
-import stateNavStyle from './state-nav.module.scss'
+import classnames from 'classnames'
 import {
   TabletDisclosure,
   TabletDisclosureHeader,
   TabletDisclosureContent,
 } from '~components/common/tablet-disclosure'
+import stateNavStyle from './state-nav.module.scss'
 
-export default ({ stateList }) => {
+export default ({ stateList, className }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <TabletDisclosure className={stateNavStyle.container}>
+    <TabletDisclosure
+      className={classnames(stateNavStyle.container, className)}
+    >
       <TabletDisclosureHeader
         isOpen={isOpen}
         setIsOpen={setIsOpen}

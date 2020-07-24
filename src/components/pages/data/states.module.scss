@@ -1,0 +1,32 @@
+.item {
+  @include margin(32, bottom);
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  .states {
+    flex-grow: 1;
+
+    .title {
+      @include padding(24, bottom);
+      @include margin(0, bottom);
+      border-bottom: 1px solid $color-slate-200;
+      line-height: 1;
+      @include type-size(500);
+    }
+  }
+
+  .states-wrapper {
+    @include margin(16, right);
+  }
+
+  .sidebar {
+    margin-top: calc(19px + 1.05rem); // ignore-style-rule
+  }
+}

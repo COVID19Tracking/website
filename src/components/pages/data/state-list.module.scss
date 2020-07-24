@@ -1,6 +1,0 @@
-.item {
-  @include margin(32, bottom);
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
