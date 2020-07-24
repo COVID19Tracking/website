@@ -1,0 +1,92 @@
+.container {
+  border-radius: 4px;
+  background-color: $color-plum-100;
+  padding-top: 0.75rem; // ignore-style-rule
+  @include padding(16, bottom);
+
+  h3,
+  a {
+    @include type-size(100);
+    color: $color-plum-700;
+    line-height: 1.6;
+  }
+
+  @media (min-width: $viewport-lg) {
+    @include margin(24, left);
+    min-width: 13rem;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include padding(16, (left, right));
+
+  background: transparent;
+  border: none;
+  width: 100%;
+
+  h3 {
+    margin: 0;
+    @media (max-width: $viewport-lg) {
+      font-size: 1rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+.caret {
+  background: none;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  padding: 0;
+
+  z-index: 1;
+  cursor: pointer;
+  top: 3px;
+
+  background-color: $color-plum-200;
+  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+
+  margin-bottom: spacer(4);
+
+  @media (min-width: $viewport-lg) {
+    display: none;
+  }
+
+  svg {
+    fill: $color-plum-700;
+
+    transform: rotate(-180deg);
+    transition: transform 0.2s ease-in;
+    transform-origin: center;
+
+    position: absolute;
+    top: 5px;
+    left: 3px;
+
+    transition: top 0.2s ease-in;
+  }
+
+  &[aria-expanded='true'] svg {
+    top: 4px;
+    transform: rotate(0deg);
+    transition: top 0.2s ease-out;
+    transform-origin: center;
+    transition: transform 0.2s ease-out;
+  }
+}
+
+.content {
+  display: none;
+  @media (min-width: $viewport-lg) {
+    display: block;
+  }
+  &.opened {
+    display: block;
+  }
+}
