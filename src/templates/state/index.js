@@ -80,6 +80,7 @@ export const query = graphql`
     allCovidStateInfo(sort: { fields: name }) {
       nodes {
         state
+        name
       }
     }
     allCovidUsDaily {
