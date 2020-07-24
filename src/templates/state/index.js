@@ -4,6 +4,7 @@ import Layout from '~components/layout'
 import DownloadData from '~components/pages/state/download-data'
 import { Row, Col } from '~components/common/grid'
 import { LargeStateGrade } from '~components/pages/state/state-grade'
+import StateNavWrapper from '~components/pages/data/state-nav-wrapper'
 import StateLinks from '~components/pages/state/state-links'
 import StateNotes from '~components/pages/state/state-notes'
 import SummaryCharts from '~components/common/summary-charts'
@@ -14,6 +15,7 @@ const StatePage = ({ pageContext, data, path }) => {
   const {
     covidState,
     allCovidStateDaily,
+    allCovidStateInfo,
     allCovidUsDaily,
     allContentfulEvent,
     covidRaceDataCombined,
@@ -49,16 +51,18 @@ const StatePage = ({ pageContext, data, path }) => {
         usHistory={allCovidUsDaily.nodes}
         annotations={allContentfulEvent}
       />
-      <StateSummary
-        sevenDaysAgo={sevenDaysAgo}
-        stateSlug={state.slug}
-        data={covidState}
-        raceData={{
-          combined: covidRaceDataCombined,
-          separate: covidRaceDataSeparate,
-        }}
-        lastUpdated={covidState.lastUpdateEt}
-      />
+      <StateNavWrapper stateList={allCovidStateInfo.nodes} single>
+        <StateSummary
+          sevenDaysAgo={sevenDaysAgo}
+          stateSlug={state.slug}
+          data={covidState}
+          raceData={{
+            combined: covidRaceDataCombined,
+            separate: covidRaceDataSeparate,
+          }}
+          lastUpdated={covidState.lastUpdateEt}
+        />
+      </StateNavWrapper>
     </Layout>
   )
 }
@@ -72,6 +76,11 @@ export const query = graphql`
       state: { eq: $state }
     ) {
       positive
+    }
+    allCovidStateInfo(sort: { fields: name }) {
+      nodes {
+        state
+      }
     }
     allCovidUsDaily {
       nodes {

@@ -19,7 +19,9 @@
   }
 
   .sidebar {
-    padding-top: 0.75rem; // ignore-style-rule
+    &.top-margin {
+      padding-top: 0.75rem; // ignore-style-rule
+    }
   }
 
   @media (max-width: $viewport-lg) {
