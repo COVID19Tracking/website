@@ -8,7 +8,13 @@ import Container from '~components/common/container'
 export default ({ data }) => (
   <Layout title="Timeline">
     <Container centered>
-      <ContentfulContent content="[CONTENT GOES HERE]" id="" />
+      <ContentfulContent
+        content={
+          data.contentfulSnippet.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
+        }
+        id={data.contentfulSnippet.contentful_id}
+      />
     </Container>
     <Timeline timeline={data.allContentfulEvent.nodes} />
   </Layout>
@@ -39,7 +45,7 @@ export const query = graphql`
         }
       }
     }
-    contentfulSnippet(slug: { eq: "timeline-preamble-outside-events" }) {
+    contentfulSnippet(slug: { eq: "timeline-preamble-testing" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
