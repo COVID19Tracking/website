@@ -9,7 +9,6 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-
   .states {
     flex-grow: 1;
 
@@ -28,5 +27,20 @@
 
   .sidebar {
     padding-top: 0.75rem; // ignore-style-rule
+  }
+
+  @media (max-width: $viewport-lg) {
+    flex-direction: column-reverse;
+
+    .states {
+      @include margin(16, top);
+
+      .title {
+        @include margin(16, top);
+      }
+    }
+    .states-wrapper {
+      @include margin(0, right);
+    }
   }
 }
