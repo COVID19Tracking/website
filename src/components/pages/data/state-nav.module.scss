@@ -1,8 +1,20 @@
 .header {
   margin-bottom: spacer(8);
+  @media (min-width: $viewport-lg) {
+    @include padding(16, bottom);
+    border-bottom: 1px solid $color-plum-300;
+    @include margin(16, bottom);
+  }
 }
 
 .container {
+  @media (min-width: $viewport-lg) {
+    width: 16.7%;
+    min-width: 13rem;
+  }
+}
+
+.content {
   li {
     padding: spacer(4) 0;
     display: inline-flex;

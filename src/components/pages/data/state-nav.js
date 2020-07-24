@@ -10,13 +10,17 @@ export default ({ stateList }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <TabletDisclosure>
-      <TabletDisclosureHeader isOpen={isOpen} setIsOpen={setIsOpen}>
-        <h3 className={stateNavStyle.header}>Jump to a state:</h3>
+    <TabletDisclosure className={stateNavStyle.container}>
+      <TabletDisclosureHeader
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        className={stateNavStyle.header}
+      >
+        <h3>Jump to a state</h3>
       </TabletDisclosureHeader>
       <TabletDisclosureContent
         isOpen={isOpen}
-        className={stateNavStyle.container}
+        className={stateNavStyle.content}
       >
         <ul>
           {stateList.map(state => (
