@@ -1,3 +1,10 @@
+.container {
+  @media (min-width: $viewport-lg) {
+    @include margin(24, left);
+    min-width: 13rem;
+  }
+}
+
 .category {
   @include padding(16, (left, right));
 }

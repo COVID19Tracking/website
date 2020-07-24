@@ -30,7 +30,7 @@ export default () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <TabletDisclosure>
+    <TabletDisclosure className={blogCategoriesListStyles.container}>
       <TabletDisclosureHeader isOpen={isOpen} setIsOpen={setIsOpen}>
         <h3>Posts by Category</h3>
       </TabletDisclosureHeader>
