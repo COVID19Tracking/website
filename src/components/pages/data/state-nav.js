@@ -13,6 +13,7 @@ export default ({ stateList, className }) => {
   return (
     <TabletDisclosure
       className={classnames(stateNavStyle.container, className)}
+      sticky
     >
       <TabletDisclosureHeader
         isOpen={isOpen}

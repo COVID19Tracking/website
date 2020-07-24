@@ -2,9 +2,16 @@ import React from 'react'
 import classnames from 'classnames'
 import TabletDisclosureStyles from './tablet-disclosure.module.scss'
 
-const TabletDisclosure = ({ children, className }) => (
+const TabletDisclosure = ({ children, className, sticky = false }) => (
   <div className={classnames(className)}>
-    <div className={TabletDisclosureStyles.container}>{children}</div>
+    <div
+      className={classnames(
+        TabletDisclosureStyles.container,
+        sticky && TabletDisclosureStyles.sticky,
+      )}
+    >
+      {children}
+    </div>
   </div>
 )
 

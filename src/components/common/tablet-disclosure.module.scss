@@ -4,6 +4,11 @@
   padding-top: 0.75rem; // ignore-style-rule
   @include padding(16, bottom);
 
+  &.sticky {
+    position: sticky;
+    top: 1rem;
+  }
+
   h3,
   a {
     @include type-size(100);
