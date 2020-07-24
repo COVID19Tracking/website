@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import classnames from 'classnames'
 import {
   DefinitionPanel,
   DefinitionPanelContext,
@@ -20,6 +21,7 @@ export default ({
   raceData,
   sevenDaysAgo,
   national = false,
+  fullWidth = false,
 }) => {
   /*
   stateSlug: the name of the state, as a slug. like "arizona"
@@ -27,6 +29,7 @@ export default ({
   raceData: tbd, currently like {combined: bool, separate: bool}
   sevenDaysAgo: seven day old API data from usCovidDaily or covidStateDaily
   national: flag for the national summmary, true means this is national
+  fullWidth: when true, shows 4 columns of cards; shows 3 when false
   */
   const [cardDefinitions, setCardDefinitions] = useState(false)
   const [highlightedDefinition, setHighlightedDefinition] = useState(false)
@@ -73,7 +76,12 @@ export default ({
           onHide={() => setCardDefinitions(false)}
         />
       )}
-      <div className={summaryStyles.container}>
+      <div
+        className={classnames(
+          summaryStyles.container,
+          (fullWidth || national) && summaryStyles.fullWidth,
+        )}
+      >
         <CasesCard
           stateSlug={stateSlug}
           positive={data.positive}
