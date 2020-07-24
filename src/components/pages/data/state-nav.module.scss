@@ -1,18 +1,21 @@
-.state-nav {
-  h3 {
-    margin-bottom: spacer(8);
-  }
+.header {
+  margin-bottom: spacer(8);
+}
 
+.container {
   li {
-    display: inline;
-    padding: spacer(4) spacer(16);
+    padding: spacer(4) 0;
+    display: inline-flex;
+    width: 50px;
+    justify-content: center;
   }
 
   ul {
     list-style: none;
+    @include padding(0, left);
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
   }
 }
