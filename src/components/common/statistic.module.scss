@@ -1,11 +1,13 @@
 .title {
   font-weight: bold;
+  @include type-size(100);
 }
 
 .value {
   text-align: right;
-  @include type-size(300);
+  @include type-size(200);
   font-weight: bold;
+  line-height: 1;
 }
 
 .statistic-wrapper {
@@ -42,7 +44,7 @@
 
 .link {
   color: $color-blueberry-400;
-  @include type-size(100);
+  @include type-size(50);
   display: inline-block;
   @include margin(8, (right, bottom));
   line-height: 1;
@@ -60,11 +62,11 @@
   color: $color-slate-700;
   @include margin(8, bottom);
   .label {
-    @include type-size(100);
+    @include type-size(50);
   }
 
   .value {
-    @include type-size(100);
+    @include type-size(50);
   }
 }
 
