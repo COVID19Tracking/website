@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
+import slugify from 'slugify'
 import classnames from 'classnames'
 import {
   TabletDisclosure,
@@ -38,20 +39,20 @@ export default ({ stateList, className, externalLinks = false }) => {
       >
         <ul>
           {stateList.map(state => {
-            if (!externalLinks) {
+            if (externalLinks) {
               return (
                 <li key={state.state}>
-                  <a href={`#state-${state.state.toLowerCase()}`}>
+                  <Link to={`/data/state/${slugify(state.name).toLowerCase()}`}>
                     {state.state}
-                  </a>
+                  </Link>
                 </li>
               )
             }
             return (
               <li key={state.state}>
-                <Link to={`/data/state/${state.name.toLowerCase()}`}>
+                <a href={`#state-${slugify(state.state).toLowerCase()}`}>
                   {state.state}
-                </Link>
+                </a>
               </li>
             )
           })}

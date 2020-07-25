@@ -20,7 +20,7 @@ export default ({ children, stateList, single = false }) => (
         stateNavWrapperStyle.sidebar,
         !single && stateNavWrapperStyle.topMargin,
       )}
-      externalLinks
+      externalLinks={single}
     />
   </div>
 )
