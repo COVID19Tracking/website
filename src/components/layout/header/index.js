@@ -229,6 +229,7 @@ const Header = withSearch(
                   <div className={headerStyle.title}>
                     {pathNavigation && !forceSubNavigation && (
                       <ReturnLinks
+                        topNavigation={topNavigation}
                         links={returnLinks}
                         pathNavigation={pathNavigation}
                       />
