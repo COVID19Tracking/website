@@ -4,7 +4,7 @@ import TableNotes from './table-notes'
 import PercentageOverview from './percentage-overview'
 import anhpiNotes from './anhpi-notes'
 import cautionNotes from './caution-notes'
-import { RaceTable } from './breakdown-tables'
+import RaceTable from './race-table'
 import stateStyle from './state.module.scss'
 
 export default ({ state }) => {
