@@ -20,7 +20,7 @@ import atlanticLogo from '~images/atlantic-logo.svg'
 
 import MobileMenu from './mobile-menu'
 import HeaderSubNavigation from './sub-navigation'
-import ReturnLink from './return-link'
+import ReturnLinks from './return-links'
 import HeaderSearch from './search'
 
 const expandStyles = {
@@ -34,8 +34,7 @@ const Header = withSearch(
     noMargin,
     forceSubNavigation,
     path,
-    returnLink,
-    returnLinkTitle,
+    returnLinks,
     hero,
     centerTitle,
   }) => {
@@ -65,13 +64,9 @@ const Header = withSearch(
       subNavigation[node.slug] = node.pages
     })
     const topNavigation = data.navigationYaml.items
-    if (returnLink && returnLinkTitle) {
+    if (returnLinks) {
       pathNavigation = {
         top: false,
-        parent: {
-          link: returnLink,
-          title: returnLinkTitle,
-        },
       }
     }
     topNavigation.forEach(item => {
@@ -84,18 +79,7 @@ const Header = withSearch(
         return
       }
       if (
-        returnLink &&
-        returnLink.replace(/^\/|\/$/g, '') === item.link.replace(/^\/|\/$/g, '')
-      ) {
-        pathNavigation = {
-          top: false,
-          parent: item,
-          subNavigation: false,
-        }
-        return
-      }
-      if (
-        !returnLink &&
+        !returnLinks &&
         typeof subNavigation[item.subNavigation] !== 'undefined'
       ) {
         subNavigation[item.subNavigation].forEach(sub => {
@@ -244,9 +228,9 @@ const Header = withSearch(
                 >
                   <div className={headerStyle.title}>
                     {pathNavigation && !forceSubNavigation && (
-                      <ReturnLink
-                        currentItem={pathNavigation}
-                        returnLinkTitle={returnLinkTitle}
+                      <ReturnLinks
+                        links={returnLinks}
+                        pathNavigation={pathNavigation}
                       />
                     )}
 

@@ -40,8 +40,10 @@ export default ({ pageContext, path, data }) => {
   return (
     <Layout
       title={`${state.name}: Screenshots`}
-      returnLinkTitle={state.name}
-      returnLink={`/data/state/${state.slug}`}
+      returnLinks={[
+        { link: '/data', title: 'Our Data' },
+        { link: `/data/state/${state.slug}`, title: state.name },
+      ]}
       path={path}
     >
       <p>

@@ -23,7 +23,11 @@ const StatePage = ({ pageContext, data, path }) => {
     sevenDaysAgo,
   } = data
   return (
-    <Layout title={state.name} returnLink="/data" path={path}>
+    <Layout
+      title={state.name}
+      returnLinks={[{ link: '/data', title: 'Our Data' }]}
+      path={path}
+    >
       <h2>Current data quality grade</h2>
       <Row>
         <Col width={[4, 3, 3]}>

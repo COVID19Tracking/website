@@ -7,7 +7,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import ChartList from '~components/pages/data/charts/chart-list'
 
 export default ({ data }) => (
-  <Layout title="Charts" returnLink="/data" returnLinkTitle="Our Data">
+  <Layout title="Charts" returnLinks={[{ link: '/data', title: 'Our Data' }]}>
     <ChartList />
 
     <Container centered>

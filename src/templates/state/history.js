@@ -9,7 +9,14 @@ const StatePage = ({ pageContext, data, path }) => {
   const state = pageContext
   const { allCovidStateDaily, allCovidScreenshot } = data
   return (
-    <Layout title={state.name} returnLink="/data" path={path}>
+    <Layout
+      title={state.name}
+      path={path}
+      returnLinks={[
+        { link: '/data', title: 'Our Data' },
+        { link: `/data/state/${state.slug}`, title: state.name },
+      ]}
+    >
       <p>
         You can also{' '}
         <a href={`/data/download/${slug(state.name)}-history.csv`}>
