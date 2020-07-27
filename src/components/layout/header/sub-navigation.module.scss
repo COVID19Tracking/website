@@ -5,7 +5,7 @@
 
   div {
     text-align: left;
-    margin: 0 -1rem;
+    margin: 0 -1rem; // ignore-style-rule
   }
 
   @media (max-width: $viewport-lg) and (min-width: $viewport-ms) {
@@ -45,7 +45,7 @@
       color: white;
       display: block;
       margin: 0 0.6rem 0 0; // ignore-style-rule
-      padding: 0.2rem 0 0.1rem;
+      padding: 0.2rem 0 0.1rem; // ignore-style-rule
       @include type-size(200);
       border-bottom: 3px solid transparent;
 
