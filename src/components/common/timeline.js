@@ -46,6 +46,10 @@ export default ({ timeline }) => {
       const currentTimeline = new window.TL.Timeline(
         timelineRef.current,
         prepareObject(timeline),
+        {
+          duration: -1,
+          easing: null,
+        },
       )
     }
     document.getElementsByTagName('head')[0].appendChild(scriptElement)
