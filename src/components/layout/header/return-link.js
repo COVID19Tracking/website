@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import headerStyle from './header.module.scss'
+import returnLinkStyle from './return-link.module.scss'
 
 export default ({ currentItem, returnLinkTitle }) => {
   if (!currentItem || currentItem.top) {
     return null
   }
   return (
-    <div className={headerStyle.returnLink}>
+    <div className={returnLinkStyle.returnLink}>
       <Link to={currentItem.parent.link}>
         <span aria-hidden>←</span>{' '}
         {returnLinkTitle ? (
