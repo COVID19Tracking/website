@@ -21,7 +21,7 @@ import atlanticLogo from '~images/atlantic-logo.svg'
 import MobileMenu from './mobile-menu'
 import HeaderSubNavigation from './sub-navigation'
 import ReturnLink from './return-link'
-import HeaderSearch from './search'
+import Tools from './tools'
 
 const expandStyles = {
   open: { background: colors.colorPlum800 },
@@ -207,17 +207,7 @@ const Header = withSearch(
                     />
                   </div>
                 )}
-                <div className={headerStyle.tools}>
-                  <div className={headerStyle.searchContainer}>
-                    <HeaderSearch />
-                  </div>
-                  <Link
-                    to="/contact/volunteer"
-                    className={headerStyle.getInvolved}
-                  >
-                    Get involved
-                  </Link>
-                </div>
+                <Tools />
               </div>
               <div className={headerStyle.atlanticBanner}>
                 <span>At</span> <img src={atlanticLogo} alt="The Atlantic" />
