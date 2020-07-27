@@ -13,6 +13,7 @@ import withSearch from '~components/utils/with-search'
 import colors from '~scss/colors.module.scss'
 import breakpoints from '~scss/breakpoints.module.scss'
 import headerStyle from './header.module.scss'
+import mobileMenuStyle from './mobile-menu.module.scss'
 
 import projectLogo from '~images/project-logo.svg'
 import atlanticLogo from '~images/atlantic-logo.svg'
@@ -191,7 +192,7 @@ const Header = withSearch(
                 {(showMobileMenu || !autocompleteHasFocus) && (
                   <div className={headerStyle.navContainer}>
                     <button
-                      className={headerStyle.mobileToggle}
+                      className={mobileMenuStyle.mobileToggle}
                       type="button"
                       aria-expanded={showMobileMenu}
                       onClick={() => {
