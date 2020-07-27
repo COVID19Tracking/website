@@ -1,5 +1,4 @@
 const path = require('path')
-const slugify = require('slugify')
 const { createObjectCsvStringifier } = require('csv-writer')
 const fs = require('fs-extra')
 
@@ -30,6 +29,9 @@ exports.createPages = async ({ graphql, actions }) => {
           name
           state
           twitter
+          childSlug {
+            slug
+          }
         }
       }
       allContentfulPage {
@@ -148,7 +150,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allCovidStateInfo.nodes.forEach(node => {
     createPage({
-      path: `/data/state/${slugify(node.name, { strict: true, lower: true })}`,
+      path: `/data/state/${node.childSlug.slug}`,
       component: path.resolve(`./src/templates/state.js`),
       context: node,
     })
@@ -180,7 +182,6 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/blog-post.js`),
       context: { ...node, blogImages },
     })
-
   })
 
   result.data.allContentfulBlogCategory.nodes.forEach(node => {

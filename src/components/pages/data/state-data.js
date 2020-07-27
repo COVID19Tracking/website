@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import slug from '~utilities/slug'
 import StateLinks from '~components/pages/state/state-links'
 import StateGrade from '~components/pages/state/state-grade'
 import StateNotes from '~components/pages/state/state-notes'
@@ -11,7 +10,7 @@ const State = ({ state }) => (
   <>
     <div className={`state-header ${stateDataStyles.header}`}>
       <h3 id={`state-${state.state.toLowerCase()}`}>
-        <Link to={`/data/state/${slug(state.name)}`}>{state.name}</Link>
+        <Link to={`/data/state/${state.childSlug.slug}`}>{state.name}</Link>
       </h3>
       <StateGrade letterGrade={state.stateData.dataQualityGrade} />
     </div>
