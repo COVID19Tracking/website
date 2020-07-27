@@ -253,7 +253,6 @@ const gatsbyConfig = {
           '~scss': 'src/scss',
           '~templates': 'src/templates',
           '~utilities': 'src/utilities',
-          '~share-cards': 'src/share-cards',
         },
         extensions: ['js', 'scss', 'svg', 'png'],
       },

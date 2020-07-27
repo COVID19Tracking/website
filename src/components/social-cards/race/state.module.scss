@@ -1,0 +1,98 @@
+.container {
+  position: relative;
+  @include padding(24);
+  width: 1200px;
+  height: 600px;
+  border: 3px solid $color-slate-800;
+  > * {
+    position: absolute;
+  }
+}
+
+.logo {
+  width: 200px;
+  right: 20px;
+  bottom: 20px;
+  opacity: 0.3;
+}
+
+.header {
+  @include type-size(500);
+  width: 800px;
+  left: 200px;
+}
+
+.percent {
+  width: 800px;
+  left: 200px;
+  bottom: 20px;
+  color: $color-slate-700;
+}
+
+.labels {
+  width: 180px;
+  left: 0;
+  top: 190px;
+  @include type-size(400);
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  li {
+    text-align: right;
+    margin-bottom: 15px;
+  }
+}
+
+.bar-label {
+  font-weight: bold;
+  height: 30px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.case-bars {
+  width: 300px;
+  top: 150px;
+  left: 200px;
+}
+
+.death-bars {
+  width: 300px;
+  top: 150px;
+  left: 600px;
+}
+
+.bar {
+  height: 35px;
+  width: 40px;
+  text-align: right;
+  padding-right: 10px;
+  margin-bottom: 14px;
+  &.barBlack {
+    background: $qualitative-color-palette-300;
+  }
+  &.barLatinx {
+    background: $qualitative-color-palette-400;
+  }
+  &.barAll {
+    background: $color-slate-400;
+  }
+  &.barAsian {
+    background: $color-plum-800;
+    color: white;
+  }
+  &.barAian {
+    background: $qualitative-color-palette-600;
+    color: white;
+  }
+  &.barWhite {
+    background: $qualitative-color-palette-200;
+    color: white;
+  }
+  &.barNhpi {
+    background: $qualitative-color-palette-500;
+    color: white;
+  }
+}

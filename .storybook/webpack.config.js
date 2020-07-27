@@ -56,7 +56,6 @@ module.exports = ({ config }) => {
     '~scss': path.resolve(__dirname, '../src/scss'),
     '~templates': path.resolve(__dirname, '../src/templates'),
     '~utilities': path.resolve(__dirname, '../src/utilities'),
-    '~share-cards': path.resolve(__dirname, '../src/share-cards'),
   }
 
   return config
