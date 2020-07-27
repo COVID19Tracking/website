@@ -47,7 +47,6 @@
   @include type-size(50);
   display: inline-block;
   @include margin(8, (right, bottom));
-  line-height: 1;
   cursor: pointer;
   border: none;
   background: inherit;
