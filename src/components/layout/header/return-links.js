@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import headerStyle from './header.module.scss'
+import classnames from 'classnames'
+import returnLinksStyle from './return-links.module.scss'
 
 export default ({ links, pathNavigation, topNavigation }) => {
   let returnLinks = []
@@ -33,9 +34,33 @@ export default ({ links, pathNavigation, topNavigation }) => {
     }
   })
 
+  const multipleReturnLinks = returnLinks.length > 1
+
   // todo remove duplicate link locations
+
+  if (multipleReturnLinks) {
+    return (
+      <div
+        className={classnames(
+          returnLinksStyle.returnLink,
+          returnLinksStyle.multi,
+        )}
+      >
+        {returnLinks.map(returnLink => (
+          <Link to={returnLink.link} key={returnLink.link}>
+            {returnLink.title}
+          </Link>
+        ))}
+      </div>
+    )
+  }
   return (
-    <div className={headerStyle.returnLink}>
+    <div
+      className={classnames(
+        returnLinksStyle.returnLink,
+        returnLinksStyle.single,
+      )}
+    >
       {returnLinks.map(returnLink => (
         <Link to={returnLink.link} key={returnLink.link}>
           <span aria-hidden>←</span> {returnLink.title}
