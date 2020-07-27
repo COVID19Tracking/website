@@ -13,7 +13,7 @@ const StatePage = ({ pageContext, data, path }) => {
       title={state.name}
       path={path}
       returnLinks={[
-        { link: '/data', title: 'Our Data' },
+        { link: '/data' },
         { link: `/data/state/${state.slug}`, title: state.name },
       ]}
     >

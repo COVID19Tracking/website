@@ -12,7 +12,7 @@ export default ({ pageContext, path, data }) => {
     <Layout
       title={`${state.name}: Cases`}
       returnLinks={[
-        { link: '/data', title: 'Our Data' },
+        { link: '/data' },
         { link: `/data/state/${state.slug}`, title: state.name },
       ]}
       path={path}
