@@ -3,8 +3,11 @@
   display: flex;
   align-items: flex-end;
 
+  overflow-x: scroll;
+
   @media (max-width: $viewport-md) {
-    margin: spacer(16);
+    @include margin(8, (top, bottom));
+    @include padding(8, (top, bottom));
   }
 
   a, span {
@@ -14,6 +17,7 @@
 
   a {
     text-decoration: none;
+    white-space: nowrap;
     &:hover {
       @include link-hover-dark-bg;
     }
