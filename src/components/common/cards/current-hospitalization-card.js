@@ -9,6 +9,7 @@ export default ({
   hospitalizedCurrently,
   inIcuCurrently,
   onVentilatorCurrently,
+  national,
 }) => {
   const definitionContext = useContext(DefinitionPanelContext)
   const fields = [
@@ -21,7 +22,13 @@ export default ({
     <Card
       title="Current Hospitalization"
       link={
-        <Link to={`/data/state/${stateSlug}/hospitalization`}>
+        <Link
+          to={
+            national
+              ? '/data/national/hospitalization'
+              : `/data/state/${stateSlug}/hospitalization`
+          }
+        >
           Historical data
         </Link>
       }

@@ -12,6 +12,7 @@ export default ({
   deathConfirmed,
   deathProbable,
   recovered,
+  national,
 }) => {
   const fields = ['recovered', 'death']
   if (deathProbable) {
@@ -27,7 +28,15 @@ export default ({
     <Card
       title="Outcomes"
       link={
-        <Link to={`/data/state/${stateSlug}/outcomes`}>Historical data</Link>
+        <Link
+          to={
+            national
+              ? '/data/national/outcomes'
+              : `/data/state/${stateSlug}/outcomes`
+          }
+        >
+          Historical data
+        </Link>
       }
     >
       <CardBody>

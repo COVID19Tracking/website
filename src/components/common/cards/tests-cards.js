@@ -16,6 +16,7 @@ const BaseTestsCard = ({
   title,
   totalTests,
   totalTestsField = 'totalTestResults',
+  national,
 }) => {
   const definitionContext = useContext(DefinitionPanelContext)
 
@@ -23,7 +24,15 @@ const BaseTestsCard = ({
   return (
     <Card
       title={title}
-      link={<Link to={`/data/state/${stateSlug}/tests`}>Historical data</Link>}
+      link={
+        <Link
+          to={
+            national ? '/data/national/tests' : `/data/state/${stateSlug}/tests`
+          }
+        >
+          Historical data
+        </Link>
+      }
     >
       <CardBody>
         <Statistic title="Total tests" value={totalTests}>
@@ -79,6 +88,7 @@ const TestsCard = ({
   pending,
   totalTestResults,
   positive,
+  national,
 }) => {
   const fields = ['negative', 'positive', 'totalTestResults']
   if (pending) {
@@ -98,6 +108,7 @@ const TestsCard = ({
       title="Tests"
       totalTests={totalTestResults}
       totalTestsField="totalTestResults"
+      national={national}
     />
   )
 }
@@ -107,6 +118,7 @@ const PCRTestsCard = ({
   totalTestsViral,
   positiveTestsViral,
   negativeTestsViral,
+  national,
 }) => (
   <BaseTestsCard
     fields={['totalTestsViral', 'positiveTestsViral', 'negativeTestsViral']}
@@ -118,6 +130,7 @@ const PCRTestsCard = ({
     title="Tests (PCR)"
     totalTests={totalTestsViral}
     totalTestsField="totalTestsViral"
+    national={national}
   />
 )
 

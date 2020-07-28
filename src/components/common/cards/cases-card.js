@@ -13,6 +13,7 @@ export default ({
   positive,
   positiveIncrease,
   sevenDayIncrease,
+  national,
 }) => {
   const sevenDayIncreasePercent = Math.round(sevenDayIncrease * 100 * 10) / 10
   const drillDownValue = Number.isNaN(sevenDayIncreasePercent)
@@ -24,7 +25,15 @@ export default ({
   return (
     <Card
       title="Cases"
-      link={<Link to={`/data/state/${stateSlug}/cases`}>Historical data</Link>}
+      link={
+        <Link
+          to={
+            national ? '/data/national/cases' : `/data/state/${stateSlug}/cases`
+          }
+        >
+          Historical data
+        </Link>
+      }
     >
       <CardBody>
         <Statistic title="Total cases" value={positive}>

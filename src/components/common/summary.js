@@ -87,6 +87,7 @@ export default ({
           positive={data.positive}
           positiveIncrease={data.positiveIncrease}
           sevenDayIncrease={sevenDayPositiveIncrease}
+          national={national}
         />
         <TestsCard
           stateSlug={stateSlug}
@@ -94,6 +95,7 @@ export default ({
           positive={data.positive}
           pending={data.pending}
           totalTestResults={data.totalTestResults}
+          national={national}
         />
         {!national && (
           <PCRTestsCard
@@ -118,6 +120,7 @@ export default ({
           deathConfirmed={data.deathConfirmed}
           deathProbable={data.deathProbable}
           recovered={data.recovered}
+          national={national}
         />
         {!national && (
           <RaceEthnicityCard stateSlug={stateSlug} raceData={raceData} />
@@ -127,6 +130,7 @@ export default ({
           hospitalizedCurrently={data.hospitalizedCurrently}
           inIcuCurrently={data.inIcuCurrently}
           onVentilatorCurrently={data.onVentilatorCurrently}
+          national={national}
         />
       </div>
     </DefinitionPanelContext.Provider>
