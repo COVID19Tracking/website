@@ -1,11 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Hero from '~components/pages/blog/blog-hero'
 import Layout from '~components/layout'
-import FeaturedImage from '~components/pages/blog/featured-image'
+
 import BlogPostContent from '~components/pages/blog/blog-content'
 import BlogPostFootnotes from '~components/pages/blog/blog-footnotes'
 import BlogPostExtras from '~components/pages/blog/blog-extras'
+import FeaturedImage from '~components/pages/blog/featured-image'
+import Hero from '~components/pages/blog/blog-hero'
 
 export default ({ data, path }) => {
   const blogPost = data.contentfulBlogPost
@@ -30,7 +31,6 @@ export default ({ data, path }) => {
       title={`Blog | ${blogPost.title}`}
       displayTitle="Blog"
       socialCard={socialCard}
-      returnLinks={[{ link: '/blog', title: 'All Posts' }]}
       path={path}
       hero={hero}
       centerTitle
