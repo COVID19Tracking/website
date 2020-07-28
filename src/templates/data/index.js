@@ -5,7 +5,7 @@ import DetailText from '~components/common/detail-text'
 import Container from '~components/common/container'
 import Layout from '~components/layout'
 import { Row, Col } from '~components/common/grid'
-
+import { FormatDate } from '~components/utils/format'
 import ContentfulContent from '~components/common/contentful-content'
 import MarkdownContent from '~components/common/markdown-content'
 
@@ -33,7 +33,13 @@ export default ({ data }) => {
         id={data.dataPreamble.contentful_id}
       />
       <Row>
-        <Col width={[4, 3, 8]}>Last updated: todo set this value</Col>
+        <Col width={[4, 3, 8]}>
+          Last updated:{' '}
+          <FormatDate
+            date={data.lastUpdate.nodes[0].date}
+            format="ccc LLL d yyyy"
+          />
+        </Col>
         <Col width={[4, 3, 4]}>
           <DownloadData state={{ name: 'all-states' }} />
         </Col>
@@ -71,6 +77,11 @@ export default ({ data }) => {
 
 export const query = graphql`
   query($sevenDaysAgo: Int) {
+    lastUpdate: allCovidUsDaily(sort: { fields: date, order: DESC }, limit: 1) {
+      nodes {
+        date
+      }
+    }
     dataSummaryFootnote: contentfulSnippet(
       slug: { eq: "data-summary-footnote" }
     ) {
