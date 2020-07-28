@@ -5,6 +5,7 @@ import { useSearch } from '~context/search-context'
 import HeaderSearch from './search'
 import HeaderNavigation from './navigation'
 import headerStyle from './header.module.scss'
+import mobileMenuStyle from './mobile-menu.module.scss'
 
 export default ({ expanded, topNavigation, subNavigation }) => {
   const [searchState] = useSearch()
@@ -44,14 +45,14 @@ export default ({ expanded, topNavigation, subNavigation }) => {
   return (
     <div
       ref={menuRef}
-      className={classNames(headerStyle.mobileMenu, {
-        [headerStyle.mobileMenuExpanded]: expanded,
+      className={classNames(mobileMenuStyle.mobileMenu, {
+        [mobileMenuStyle.mobileMenuExpanded]: expanded,
       })}
       style={{
         minHeight: `${menuHeight.current}px`,
       }}
     >
-      <div className={headerStyle.mobileSearchContainer}>
+      <div className={mobileMenuStyle.mobileSearchContainer}>
         <HeaderSearch popoverRef={resultPopoverRef} mobile visible={expanded} />
       </div>
 
@@ -63,7 +64,7 @@ export default ({ expanded, topNavigation, subNavigation }) => {
       <Link to="/contact/volunteer" className={headerStyle.getInvolved}>
         Get Involved
       </Link>
-      <div className={headerStyle.mobilePointer} />
+      <div className={mobileMenuStyle.mobilePointer} />
     </div>
   )
 }

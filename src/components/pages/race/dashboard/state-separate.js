@@ -6,7 +6,8 @@ import PercentageOverview from './percentage-overview'
 import anhpiNotes from './anhpi-notes'
 import cautionNotes from './caution-notes'
 import NoData from './no-data'
-import { RaceTable, EthnicityTable } from './breakdown-tables'
+import RaceTable from './race-table'
+import EthnicityTable from './ethnicity-table'
 import stateStyle from './state.module.scss'
 
 export default ({ state }) => {
