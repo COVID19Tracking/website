@@ -30,7 +30,7 @@ export default ({ data, path }) => {
       title={`Blog | ${blogPost.title}`}
       displayTitle="Blog"
       socialCard={socialCard}
-      returnLinks={[{ link: '/blog', title: 'All posts' }]}
+      returnLinks={[{ link: '/blog', title: 'All Posts' }]}
       path={path}
       hero={hero}
       centerTitle
