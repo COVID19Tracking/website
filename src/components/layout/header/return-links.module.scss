@@ -7,10 +7,13 @@
     margin: spacer(16);
   }
 
+  a, span {
+    line-height: 1;
+    color: $color-plum-300;
+  }
+
   a {
     text-decoration: none;
-    color: $color-plum-300;
-    line-height: 1;
     &:hover {
       @include link-hover-dark-bg;
     }
@@ -22,7 +25,7 @@
     }
   }
 
-  a, img {
+  a, img, span {
     @include margin(4, (left, right));
   }
 

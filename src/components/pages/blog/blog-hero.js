@@ -14,8 +14,15 @@ export default ({ categories, headline, authors, date, lede, id }) => (
       {categories && (
         <>
           <img src={rightCaret} alt="" height="12px" />
-          {categories.map(category => (
-            <Link to={`/blog/category/${category.slug}`}>{category.name}</Link>
+          {categories.map((category, index) => (
+            <>
+              <Link to={`/blog/category/${category.slug}`}>
+                {category.name}
+              </Link>
+              {index !== categories.length - 1 && (
+                <span aria-hidden>&bull;</span>
+              )}
+            </>
           ))}
         </>
       )}
