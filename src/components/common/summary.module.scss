@@ -3,10 +3,11 @@
   grid-template-columns: repeat(3, 1fr);
   &.full-width {
     grid-template-columns: repeat(4, 1fr);
+    @include margin(32, top);
   }
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
-  @include margin(16, bottom);
+  @include margin(32, bottom);
 
   @media (max-width: $viewport-lg) and (min-width: $viewport-md) {
     grid-template-columns: 1fr 1fr;

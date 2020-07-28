@@ -3,6 +3,8 @@ $table-breakpoint: $viewport-lg;
 .table {
   box-shadow: none;
   @media (max-width: $table-breakpoint) {
+    border-top: 1px solid $color-slate-300;
+    @include margin(32, top);
     thead {
       @include a11y-only();
     }

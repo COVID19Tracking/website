@@ -26,7 +26,7 @@ export default ({ definitions }) => {
           )}
         </button>
       </Col>
-      <Col width={[4, 6, 9]}>
+      <Col width={[4, 6, 9]} paddingLeft={[0, 0, 8]}>
         {definitions.map((definition, key) => (
           <div key={`definition-${definition.name}`}>
             <button
