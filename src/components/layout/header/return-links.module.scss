@@ -1,0 +1,29 @@
+.return-link-container {
+  margin-bottom: spacer(8);
+  display: flex;
+  align-items: flex-end;
+
+  @media (max-width: $viewport-md) {
+    margin: spacer(16);
+  }
+
+  a {
+    text-decoration: none;
+    color: $color-plum-300;
+    line-height: 1;
+    &:hover {
+      @include link-hover-dark-bg;
+    }
+    &:focus {
+      @include link-focus-dark-bg;
+    }
+    &:first-child {
+      @include margin(0, left);
+    }
+  }
+
+  a, img {
+    @include margin(4, (left, right));
+  }
+
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import classnames from 'classnames'
 import returnLinksStyle from './return-links.module.scss'
+import rightCaret from '~images/icons/right-caret.svg'
 
 export default ({ links, pathNavigation, topNavigation }) => {
   let returnLinks = []
@@ -34,37 +34,19 @@ export default ({ links, pathNavigation, topNavigation }) => {
     }
   })
 
-  const multipleReturnLinks = returnLinks.length > 1
-
   // todo remove duplicate link locations
 
-  if (multipleReturnLinks) {
-    return (
-      <div
-        className={classnames(
-          returnLinksStyle.returnLink,
-          returnLinksStyle.multi,
-        )}
-      >
-        {returnLinks.map(returnLink => (
-          <Link to={returnLink.link} key={returnLink.link}>
-            {returnLink.title}
-          </Link>
-        ))}
-      </div>
-    )
-  }
+  const lastReturnLinkIndex = returnLinks.length - 1
+
   return (
-    <div
-      className={classnames(
-        returnLinksStyle.returnLink,
-        returnLinksStyle.single,
-      )}
-    >
-      {returnLinks.map(returnLink => (
-        <Link to={returnLink.link} key={returnLink.link}>
-          <span aria-hidden>←</span> {returnLink.title}
-        </Link>
+    <div className={returnLinksStyle.returnLinkContainer}>
+      {returnLinks.map((returnLink, index) => (
+        <React.Fragment key={returnLink.link}>
+          <Link to={returnLink.link}>{returnLink.title}</Link>
+          {index !== lastReturnLinkIndex && (
+            <img src={rightCaret} alt="" height="12px" />
+          )}
+        </React.Fragment>
       ))}
     </div>
   )
