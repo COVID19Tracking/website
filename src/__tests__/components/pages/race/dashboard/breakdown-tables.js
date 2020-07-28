@@ -1,9 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import {
-  RaceTable,
-  EthnicityTable,
-} from '~components/pages/race/dashboard/breakdown-tables'
+import RaceTable from '~components/pages/race/dashboard/race-table'
+import EthnicityTable from '~components/pages/race/dashboard/ethnicity-table'
 
 const notes = {
   otherDeath: 'otherDeathNotes',

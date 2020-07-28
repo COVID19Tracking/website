@@ -13,6 +13,7 @@ import withSearch from '~components/utils/with-search'
 import colors from '~scss/colors.module.scss'
 import breakpoints from '~scss/breakpoints.module.scss'
 import headerStyle from './header.module.scss'
+import mobileMenuStyle from './mobile-menu.module.scss'
 
 import projectLogo from '~images/project-logo.svg'
 import atlanticLogo from '~images/atlantic-logo.svg'
@@ -20,7 +21,7 @@ import atlanticLogo from '~images/atlantic-logo.svg'
 import MobileMenu from './mobile-menu'
 import HeaderSubNavigation from './sub-navigation'
 import ReturnLink from './return-link'
-import HeaderSearch from './search'
+import Tools from './tools'
 
 const expandStyles = {
   open: { background: colors.colorPlum800 },
@@ -191,7 +192,7 @@ const Header = withSearch(
                 {(showMobileMenu || !autocompleteHasFocus) && (
                   <div className={headerStyle.navContainer}>
                     <button
-                      className={headerStyle.mobileToggle}
+                      className={mobileMenuStyle.mobileToggle}
                       type="button"
                       aria-expanded={showMobileMenu}
                       onClick={() => {
@@ -206,17 +207,7 @@ const Header = withSearch(
                     />
                   </div>
                 )}
-                <div className={headerStyle.tools}>
-                  <div className={headerStyle.searchContainer}>
-                    <HeaderSearch />
-                  </div>
-                  <Link
-                    to="/contact/volunteer"
-                    className={headerStyle.getInvolved}
-                  >
-                    Get involved
-                  </Link>
-                </div>
+                <Tools />
               </div>
               <div className={headerStyle.atlanticBanner}>
                 <span>At</span> <img src={atlanticLogo} alt="The Atlantic" />

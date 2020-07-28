@@ -1,7 +1,7 @@
 import React from 'react'
-import { StateTable, StateTableHeader, StateTableBody } from './table'
+import BaseTable from './base-table'
 
-const RaceTable = ({
+export default ({
   data,
   type,
   notes,
@@ -203,86 +203,3 @@ const RaceTable = ({
     />
   )
 }
-
-const EthnicityTable = ({
-  data,
-  type,
-  notes,
-  groupedNotes,
-  noPositives,
-  noDeaths,
-}) => {
-  const rows = [
-    {
-      group: 'Hispanic or Latino',
-      population: data.latinXPctPop,
-      positive: {
-        disparity: data.latinXPosDispFlag,
-        value: data.latinXPctPos,
-        note: {
-          value: notes.latinXPos,
-          index: groupedNotes.indexOf(notes.latinXPos),
-        },
-      },
-      death: {
-        disparity: data.latinXDeathDispFlag,
-        value: data.latinXPctDeath,
-        note: {
-          value: notes.latinXDeath,
-          index: groupedNotes.indexOf(notes.latinXDeath),
-        },
-      },
-    },
-    {
-      group: 'Not Hispanic or Latino',
-      population: data.nonhispanicPctPop,
-      positive: {
-        disparity: data.nonhispanicPosDispFlag,
-        value: data.nonhispanicPctPos,
-        note: {
-          value: notes.nonhispanicPos,
-          index: groupedNotes.indexOf(notes.nonhispanicPos),
-        },
-      },
-      death: {
-        disparity: data.nonhispanicDeathDispFlag,
-        value: data.nonhispanicPctDeath,
-        note: {
-          value: notes.nonhispanicDeath,
-          index: groupedNotes.indexOf(notes.nonhispanicDeath),
-        },
-      },
-    },
-  ]
-  return (
-    <BaseTable
-      rows={rows}
-      data={data}
-      type={type}
-      noPositives={noPositives}
-      noDeaths={noDeaths}
-    />
-  )
-}
-
-const BaseTable = ({ data, type, noPositives, noDeaths, rows }) => {
-  return (
-    <StateTable>
-      <StateTableHeader
-        groupTitle={type}
-        noPositives={noPositives}
-        noDeaths={noDeaths}
-      />
-      <StateTableBody
-        noPositives={noPositives}
-        noDeaths={noDeaths}
-        state={data.name}
-        stateAbbr={data.state}
-        type={type}
-        rows={rows}
-      />
-    </StateTable>
-  )
-}
-
-export { RaceTable, EthnicityTable }
