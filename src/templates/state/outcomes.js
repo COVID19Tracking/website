@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
+import Definitions from '~components/pages/data/definitions'
 import { FormatDate, FormatNumber } from '~components/utils/format'
-import StateDataDefinitions from '~components/pages/state/data-definitions'
 import Layout from '~components/layout'
 
 const formatNumber = number => <FormatNumber number={number} />
@@ -16,10 +16,7 @@ export default ({ pageContext, path, data }) => {
       returnLink={`/data/state/${state.slug}`}
       path={path}
     >
-      <p>Outcomes</p>
-      <StateDataDefinitions
-        definitions={data.allContentfulDataDefinition.nodes}
-      />
+      <Definitions definitions={data.allContentfulDataDefinition.nodes} />
       <TableResponsive
         labels={[
           {
@@ -76,11 +73,16 @@ export const query = graphql`
       }
     }
     allContentfulDataDefinition(
-      filter: { fieldName: { in: ["recovered", "death"] } }
+      sort: { fields: name }
+      filter: {
+        fieldName: {
+          in: ["recovered", "death", "deathProbable", "deathConfirmed"]
+        }
+      }
     ) {
       nodes {
-        fieldName
         name
+        fieldName
         childContentfulDataDefinitionDefinitionTextNode {
           childMarkdownRemark {
             html

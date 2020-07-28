@@ -1,16 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
+import Definitions from '~components/pages/data/definitions'
 import { FormatDate, FormatNumber } from '~components/utils/format'
-import { DefinitionPanel } from '~components/common/cards/definitions-panel'
-import { DefinitionLink } from '~components/common/statistic'
 import Layout from '~components/layout'
 
 const formatNumber = number => <FormatNumber number={number} />
 
 export default ({ pageContext, path, data }) => {
   const state = pageContext
-  const [highlightedDefinition, setHighlightedDefinition] = useState(false)
 
   return (
     <Layout
@@ -19,14 +17,7 @@ export default ({ pageContext, path, data }) => {
       returnLink={`/data/state/${state.slug}`}
       path={path}
     >
-      <p>Testing</p>
-      {highlightedDefinition && (
-        <DefinitionPanel
-          definitions={data.allContentfulDataDefinition.nodes}
-          highlightedDefinition={highlightedDefinition}
-          onHide={() => setHighlightedDefinition(false)}
-        />
-      )}
+      <Definitions definitions={data.allContentfulDataDefinition.nodes} />
       <TableResponsive
         labels={[
           {
@@ -46,18 +37,7 @@ export default ({ pageContext, path, data }) => {
           },
           {
             field: 'negative',
-            label: (
-              <>
-                Negative (cumulative){' '}
-                <DefinitionLink
-                  onDefinitionsToggle={() => {
-                    setHighlightedDefinition('negative')
-                  }}
-                >
-                  Definition
-                </DefinitionLink>{' '}
-              </>
-            ),
+            label: 'Negative (cumulative)',
             format: formatNumber,
           },
           {
@@ -72,18 +52,7 @@ export default ({ pageContext, path, data }) => {
           },
           {
             field: 'positive',
-            label: (
-              <>
-                Positive (cumulative){' '}
-                <DefinitionLink
-                  onDefinitionsToggle={() => {
-                    setHighlightedDefinition('positive')
-                  }}
-                >
-                  Definition
-                </DefinitionLink>{' '}
-              </>
-            ),
+            label: 'Positive (cumulative)',
             format: formatNumber,
           },
           {
@@ -93,18 +62,7 @@ export default ({ pageContext, path, data }) => {
           },
           {
             field: 'positiveCasesViral',
-            label: (
-              <>
-                Viral case positive (increase){' '}
-                <DefinitionLink
-                  onDefinitionsToggle={() => {
-                    setHighlightedDefinition('positiveCasesViral')
-                  }}
-                >
-                  Definition
-                </DefinitionLink>{' '}
-              </>
-            ),
+            label: 'Viral case positive (increase)',
             format: formatNumber,
           },
           {

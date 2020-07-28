@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
+import Definitions from '~components/pages/data/definitions'
 import { FormatDate, FormatNumber } from '~components/utils/format'
 import Layout from '~components/layout'
 
@@ -15,7 +16,7 @@ export default ({ pageContext, path, data }) => {
       returnLink={`/data/state/${state.slug}`}
       path={path}
     >
-      <p>Cases</p>
+      <Definitions definitions={data.allContentfulDataDefinition.nodes} />
       <TableResponsive
         labels={[
           {
@@ -51,6 +52,17 @@ export const query = graphql`
         date
         positive
         positiveIncrease
+      }
+    }
+    allContentfulDataDefinition(filter: { fieldName: { in: ["positive"] } }) {
+      nodes {
+        name
+        fieldName
+        childContentfulDataDefinitionDefinitionTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
   }

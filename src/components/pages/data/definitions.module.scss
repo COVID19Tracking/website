@@ -1,0 +1,43 @@
+.header {
+  color: $color-slate-600;
+  @include type-size(300);
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.expand-all {
+  @include remove-button-style();
+  color: $color-slate-600;
+  text-decoration: underline;
+}
+
+.definition-button {
+  @include remove-button-style();
+  @include margin(16, top);
+  display: block;
+  font-weight: bold;
+  .arrow-down,
+  .arrow-up {
+    @include margin(8, left);
+  }
+  .arrow-up {
+    display: none;
+  }
+  .arrow-down {
+    display: inline-block;
+  }
+  &[aria-expanded='true'] {
+    .arrow-up {
+      display: inline-block;
+    }
+    .arrow-down {
+      display: none;
+    }
+  }
+}
+
+.pane {
+  &[hidden] {
+    display: none;
+  }
+}
