@@ -35,6 +35,7 @@ const Header = withSearch(
     forceSubNavigation,
     path,
     returnLinks,
+    returnLinksContent,
     hero,
     centerTitle,
   }) => {
@@ -228,11 +229,17 @@ const Header = withSearch(
                 >
                   <div className={headerStyle.title}>
                     {pathNavigation && !forceSubNavigation && (
-                      <ReturnLinks
-                        topNavigation={topNavigation}
-                        links={returnLinks}
-                        pathNavigation={pathNavigation}
-                      />
+                      <>
+                        {returnLinksContent ? (
+                          <ReturnLinks>{returnLinksContent}</ReturnLinks>
+                        ) : (
+                          <ReturnLinks
+                            topNavigation={topNavigation}
+                            links={returnLinks}
+                            pathNavigation={pathNavigation}
+                          />
+                        )}
+                      </>
                     )}
 
                     <h1

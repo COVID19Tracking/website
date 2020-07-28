@@ -3,7 +3,22 @@ import { Link } from 'gatsby'
 import returnLinksStyle from './return-links.module.scss'
 import rightCaret from '~images/icons/right-caret.svg'
 
-export default ({ links, pathNavigation, topNavigation }) => {
+export default ({ links, pathNavigation, topNavigation, children }) => {
+  /*
+    links: a list of return links like {link: '/data', title: 'Data'}
+      title is optional.
+    pathNavigation: may contain a parent param, like a `links` item
+      top: bool, if true, then don't show any return links
+    topNavigation: the topNavigation data from YAML
+    children: optional, used for custom returnLink situations (like the blog)
+  */
+  if (children) {
+    return (
+      <div className={returnLinksStyle.returnLinkContainer}>{children}</div>
+    )
+  }
+
+  // assemble the returnLinks list
   let returnLinks = []
   if (pathNavigation.parent) {
     returnLinks.push(pathNavigation.parent)
@@ -18,7 +33,9 @@ export default ({ links, pathNavigation, topNavigation }) => {
   const topNavLinks = topNavigation.map(navItem =>
     navItem.link.replace(/^\/|\/$/g, ''),
   )
+
   returnLinks.forEach((link, index) => {
+    // use the topNavigation title if none is provided
     const customTitle = link.title
     const matchingTopNavLink = topNavLinks.indexOf(
       link.link.replace(/^\/|\/$/g, ''),

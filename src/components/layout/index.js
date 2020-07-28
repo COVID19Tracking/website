@@ -15,6 +15,7 @@ const Layout = ({
   titleLink,
   path,
   returnLinks,
+  returnLinksContent,
   description,
   children,
   noMargin,
@@ -46,6 +47,7 @@ const Layout = ({
         noMargin={noMargin}
         hasHero={hasHero}
         returnLinks={returnLinks}
+        returnLinksContent={returnLinksContent}
         hero={hero}
         centerTitle={centerTitle}
       />
