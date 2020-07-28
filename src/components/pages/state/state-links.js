@@ -24,7 +24,6 @@ export default ({
               stateLinksStyle.stateLink,
             )}
           >
-            <span className="a11y-only">{stateName}&apos;s </span>
             <span>Best Current Data Source</span>
           </a>
         )}
@@ -36,7 +35,6 @@ export default ({
               stateLinksStyle.stateLink,
             )}
           >
-            <span className="a11y-only">{stateName}&apos;s </span>
             <span>Secondary Data Source</span>
           </a>
         )}
@@ -48,10 +46,18 @@ export default ({
               stateLinksStyle.stateLink,
             )}
           >
-            <span className="a11y-only">{stateName}&apos;s </span>
             <span>Tertiary Data Source</span>
           </a>
         )}
+        <Link
+          className={classnames(
+            stateLinksStyle.link,
+            stateLinksStyle.stateLink,
+          )}
+          to={`/data/state/${slug(stateName)}/screenshots`}
+        >
+          <span>View screenshots</span>
+        </Link>
       </Col>
       <Col width={[2, 3, 6]}>
         {twitter && (

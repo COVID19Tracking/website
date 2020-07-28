@@ -45,8 +45,9 @@ export default ({ pageContext, path, data }) => {
       path={path}
     >
       <p>
-        Every day we take multiple screenshots to document state COVID websites.{' '}
-        {state.name} has the following sites:
+        Every day we take screenshots of state websites that provide COVID data.{' '}
+        {state.name} data compiled by The COVID Tracking Project comes chiefly
+        from the following sites:
       </p>
       <ol>
         {covid19Site && (

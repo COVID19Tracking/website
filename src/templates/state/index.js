@@ -36,7 +36,6 @@ const StatePage = ({ pageContext, data, path }) => {
             covid19SiteSecondary={state.covid19SiteSecondary}
             covid19SiteTertiary={state.covid19SiteTertiary}
             stateName={state.name}
-            fathomGoal="DNRI0GQP"
           />
         </Col>
         <Col width={[4, 3, 4]}>
