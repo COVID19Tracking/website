@@ -8,6 +8,9 @@ export default {
       'https://alpublichealth.maps.arcgis.com/apps/opsdashboard/index.html#/6d2771faa9da4a2786a509d82c8cf0f7',
     covid19SiteSecondary: null,
     twitter: '@alpublichealth',
+    childSlug: {
+      slug: 'alabama',
+    },
     stateData: {
       totalTestResults: 37890,
       state: 'AL',
