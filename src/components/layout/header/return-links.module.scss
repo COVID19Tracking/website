@@ -11,7 +11,7 @@
   }
 
   a, span {
-    line-height: 1;
+    line-height: 1.5;
   }
 
   span {
@@ -35,6 +35,10 @@
 
   a, img, span {
     @include margin(4, (left, right));
+  }
+
+  img {
+    @include margin(4, (bottom));
   }
 
 }
