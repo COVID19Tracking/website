@@ -10,7 +10,10 @@ const ChartPage = ({ data, path }) => {
     <Layout
       title={chart.title}
       path={path}
-      returnLinks={[{ link: '/data/charts', title: 'All Charts' }]}
+      returnLinks={[
+        { link: '/data' },
+        { link: '/data/charts', title: 'All Charts' },
+      ]}
     >
       <div
         className="a11y-only"
