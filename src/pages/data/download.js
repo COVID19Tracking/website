@@ -8,8 +8,7 @@ export default ({ data }) => (
   <Layout
     title="Data Download"
     path="/data/download"
-    returnLink="/data"
-    returnLinkTitle="Our data"
+    returnLinks={[{ link: '/data' }]}
   >
     <ContentfulContent
       content={

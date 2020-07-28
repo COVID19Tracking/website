@@ -19,8 +19,7 @@ export default ({ data }) => {
   return (
     <Layout
       title="Racial Data Dashboard"
-      returnLink="/race"
-      returnLinkTitle="Racial Data Tracker"
+      returnLinks={[{ link: '/race', title: 'Racial Data Tracker' }]}
       path="/race/dashboard"
       socialCard={data.contentfulSocialCard}
     >

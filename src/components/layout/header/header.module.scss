@@ -258,21 +258,6 @@
     @include margin(24, top);
   }
 
-  .return-link {
-    margin-bottom: spacer(8);
-    @media (max-width: $viewport-md) {
-      margin: spacer(16);
-    }
-
-    a {
-      color: white;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
   .title-subnav-container {
     margin-top: spacer(64);
     @media (max-width: $viewport-md) {
