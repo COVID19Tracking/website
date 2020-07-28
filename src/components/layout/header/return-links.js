@@ -51,7 +51,9 @@ export default ({ links, pathNavigation, topNavigation, children }) => {
     }
   })
 
-  // todo remove duplicate link locations
+  returnLinks = returnLinks.filter((returnLink, pos, arr) => {
+    return arr.map(link => link.link).indexOf(returnLink.link) === pos
+  })
 
   const lastReturnLinkIndex = returnLinks.length - 1
 
