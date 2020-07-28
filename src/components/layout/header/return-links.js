@@ -20,6 +20,10 @@ export default ({ links, pathNavigation, topNavigation, children }) => {
 
   // assemble the returnLinks list
   let returnLinks = []
+
+  // remove links that don't have a destination
+  returnLinks = returnLinks.filter(returnLink => returnLink.link !== null)
+
   if (pathNavigation.parent) {
     returnLinks.push(pathNavigation.parent)
   }
