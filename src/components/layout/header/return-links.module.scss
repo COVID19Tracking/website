@@ -12,10 +12,14 @@
 
   a, span {
     line-height: 1;
-    color: $color-plum-300;
+  }
+
+  span {
+    color: $color-plum-500;
   }
 
   a {
+    color: $color-plum-300;
     text-decoration: none;
     white-space: nowrap;
     &:hover {
