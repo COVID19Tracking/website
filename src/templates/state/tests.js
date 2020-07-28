@@ -24,62 +24,52 @@ export default ({ pageContext, path, data }) => {
         labels={[
           {
             field: 'date',
-            label: 'Date',
+
             format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
           },
           {
-            field: 'negativeIncrease',
-            label: 'Negative increase',
-            format: formatNumber,
-          },
-          {
             field: 'negativeTestsViral',
-            label: 'Viral test: Negative',
+
             format: formatNumber,
           },
           {
             field: 'negative',
-            label: 'Negative (cumulative)',
+
             format: formatNumber,
           },
           {
             field: 'negativeIncrease',
-            label: 'Negative (increase)',
-            format: formatNumber,
-          },
-          {
-            field: 'negativeIncrease',
-            label: 'Negative (increase)',
+
             format: formatNumber,
           },
           {
             field: 'positive',
-            label: 'Positive (cumulative)',
+
             format: formatNumber,
           },
           {
             field: 'positiveIncrease',
-            label: 'Positive (increase)',
+
             format: formatNumber,
           },
           {
             field: 'positiveCasesViral',
-            label: 'Viral case positive (increase)',
+
             format: formatNumber,
           },
           {
             field: 'positiveTestsViral',
-            label: 'Viral test positive (increase)',
+
             format: formatNumber,
           },
           {
             field: 'totalTestResults',
-            label: 'Total tests',
+
             format: formatNumber,
           },
           {
             field: 'totalTestsViral',
-            label: 'Total viral tests',
+
             format: formatNumber,
           },
         ]}

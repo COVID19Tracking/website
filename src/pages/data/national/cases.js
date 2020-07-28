@@ -19,18 +19,18 @@ export default ({ data }) => {
         labels={[
           {
             field: 'date',
-            label: 'Date',
+
             format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
           },
           {
             field: 'positive',
-            label: 'Cases (cumulative)',
+
             format: formatNumber,
           },
 
           {
             field: 'positiveIncrease',
-            label: 'Cases (currently)',
+
             format: formatNumber,
           },
         ]}

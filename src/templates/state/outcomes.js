@@ -23,32 +23,32 @@ export default ({ pageContext, path, data }) => {
         labels={[
           {
             field: 'date',
-            label: 'Date',
+
             format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
           },
           {
             field: 'recovered',
-            label: 'Recovered',
+
             format: formatNumber,
           },
           {
             field: 'deathProbable',
-            label: 'Death (probable)',
+
             format: formatNumber,
           },
           {
             field: 'deathConfirmed',
-            label: 'Death (confirmed)',
+
             format: formatNumber,
           },
           {
             field: 'death',
-            label: 'Death (cumulative)',
+
             format: formatNumber,
           },
           {
             field: 'deathIncrease',
-            label: 'Death (increase)',
+
             format: formatNumber,
           },
         ]}

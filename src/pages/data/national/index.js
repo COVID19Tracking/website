@@ -3,7 +3,9 @@ import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
 import { FormatDate, FormatNumber } from '~components/utils/format'
-import { Th, Td, Table } from '~components/common/table'
+import TableResponsive from '~components/common/table-responsive'
+
+const formatNumber = number => <FormatNumber number={number} />
 
 const ContentPage = ({ data }) => (
   <Layout
@@ -21,61 +23,24 @@ const ContentPage = ({ data }) => (
       id={data.contentfulSnippet.contentful_id}
     />
 
-    <Table>
-      <caption>US Daily Cumulative Totals - 4 pm ET</caption>
-      <thead>
-        <tr>
-          <Th alignLeft>Date</Th>
-          <Th>States Tracked</Th>
-          <Th>New Tests</Th>
-          <Th>Positive</Th>
-          <Th>Negative</Th>
-          <Th>Pos + Neg</Th>
-          <Th>Pending</Th>
-          <Th>Current hospitalization</Th>
-          <Th>Deaths</Th>
-          <Th>Total Tests</Th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.allCovidUsDaily.nodes.map(node => (
-          <tr>
-            <Td alignLeft>
-              <FormatDate
-                date={node.date}
-                format="ccc LLL d yyyy"
-                timezone={false}
-              />
-            </Td>
-            <Td>{node.states}</Td>
-            <Td>
-              <FormatNumber number={node.totalTestResultsIncrease} />
-            </Td>
-            <Td>
-              <FormatNumber number={node.positive} />
-            </Td>
-            <Td>
-              <FormatNumber number={node.negative} />
-            </Td>
-            <Td>
-              <FormatNumber number={node.positive + node.negative} />
-            </Td>
-            <Td>
-              <FormatNumber number={node.pending} />
-            </Td>
-            <Td>
-              <FormatNumber number={node.hospitalizedCurrently} />
-            </Td>
-            <Td>
-              <FormatNumber number={node.death} />
-            </Td>
-            <Td>
-              <FormatNumber number={node.totalTestResults} />
-            </Td>
-          </tr>
-        ))}
-      </tbody>
-    </Table>
+    <TableResponsive
+      labels={[
+        {
+          field: 'date',
+          format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
+        },
+        { field: 'states', label: 'States tracked', format: formatNumber },
+        { field: 'totalTestResultsIncrease' },
+        { field: 'positive' },
+        { field: 'negative' },
+        { field: 'hospitalized' },
+        { field: 'hospitalizedCurrently' },
+        { field: 'death' },
+        { field: 'recovered' },
+        { field: 'totalTestResults' },
+      ]}
+      data={data.allCovidUsDaily.nodes}
+    />
   </Layout>
 )
 
@@ -103,6 +68,7 @@ export const query = graphql`
         hospitalized
         death
         date
+        recovered
       }
     }
   }
