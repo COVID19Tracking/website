@@ -11,6 +11,7 @@ const ContentPage = ({ data }) => (
   <Layout
     title="US Historical Data"
     path="/data/us-daily"
+    returnLinks={[{ link: '/data' }]}
     socialCard={{
       description: 'Cumulative record of our daily totals.',
     }}

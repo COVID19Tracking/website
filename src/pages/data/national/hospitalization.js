@@ -13,6 +13,10 @@ export default ({ data }) => {
       returnLinkTitle="Our Data"
       returnLink="/data"
       path="/data/national/hospitalization"
+      returnLinks={[
+        { link: '/data' },
+        { link: `/data/national`, title: 'Totals for the US' },
+      ]}
     >
       <p>Hospitalization</p>
       <TableResponsive
