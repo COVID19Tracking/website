@@ -1,0 +1,44 @@
+.return-link-container {
+  margin-bottom: spacer(8);
+  display: flex;
+  align-items: flex-end;
+
+  overflow-x: scroll;
+
+  @media (max-width: $viewport-md) {
+    @include margin(8, (top, bottom));
+    @include padding(8, (top, bottom));
+  }
+
+  a, span {
+    line-height: 1.5;
+  }
+
+  span {
+    color: $color-plum-500;
+  }
+
+  a {
+    color: $color-plum-300;
+    text-decoration: none;
+    white-space: nowrap;
+    &:hover {
+      @include link-hover-dark-bg;
+    }
+    &:focus {
+      @include link-focus-dark-bg;
+    }
+    &:first-child {
+      @include margin(0, left);
+    }
+  }
+
+  a, img, span {
+    @include margin(4, (left, right));
+  }
+
+  img {
+    @include margin(4, (bottom));
+  }
+
+}

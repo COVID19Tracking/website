@@ -4,11 +4,15 @@ exports[`Components : Common: Card renders correctly 1`] = `
 <div
   className="card"
 >
-  <h3
-    className="title"
+  <div
+    className="header"
   >
-    A sample card
-  </h3>
+    <h3
+      className="title"
+    >
+      A sample card
+    </h3>
+  </div>
   <div
     className="body"
   >
@@ -21,46 +25,46 @@ exports[`Components : Common: Card renders correctly 2`] = `
 <div
   className="card"
 >
-  <h3
-    className="title"
+  <div
+    className="header"
   >
-    A sample card
-  </h3>
+    <h3
+      className="title"
+    >
+      A sample card
+    </h3>
+  </div>
   <div
     className="body"
   >
     This is a card body.
   </div>
-  <button
-    aria-controls="panel--1"
-    aria-expanded={false}
-    className="disclosureButton"
-    data-reach-disclosure-button=""
-    data-state="collapsed"
-    onClick={[Function]}
-  >
-    More information
-    <span
-      aria-hidden={true}
-      className="arrowDown"
-    >
-      ↓
-    </span>
-    <span
-      aria-hidden={true}
-      className="arrowUp"
-    >
-      ↑
-    </span>
-  </button>
   <div
-    data-reach-disclosure-panel=""
-    data-state="collapsed"
-    hidden={true}
-    id="panel--1"
-    tabIndex={-1}
+    className="disclosure"
   >
-    Additional information that is usually hidden.
+    <button
+      aria-controls="panel--1"
+      aria-expanded={false}
+      data-reach-disclosure-button=""
+      data-state="collapsed"
+      onClick={[Function]}
+    >
+      <span
+        className="closed"
+      />
+      <span
+        className="expanded"
+      />
+    </button>
+    <div
+      data-reach-disclosure-panel=""
+      data-state="collapsed"
+      hidden={true}
+      id="panel--1"
+      tabIndex={-1}
+    >
+      Additional information that is usually hidden.
+    </div>
   </div>
 </div>
 `;
