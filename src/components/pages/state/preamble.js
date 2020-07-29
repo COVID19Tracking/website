@@ -1,5 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@reach/disclosure'
+import classnames from 'classnames'
 
 import { Row, Col } from '~components/common/grid'
 import DownloadData from '~components/pages/state/download-data'
@@ -21,19 +27,23 @@ export default ({ state, covidState }) => {
       }
     `,
   )
+  const [stateLinksAreOpen, setStateLinksAreOpen] = useState(false)
+  const [downloadDataIsOpen, setDownloadDataIsOpen] = useState(false)
   // todo make state grade wrap as a circle with the grade description
   return (
     <div className={preambleStyle.wrapper}>
       <Row>
         <Col width={[4, 3, 6]}>
-          <h4 className={preambleStyle.header}>Where this data comes from</h4>
-          <StateLinks
-            twitter={state.twitter}
-            covid19Site={state.covid19Site}
-            covid19SiteSecondary={state.covid19SiteSecondary}
-            covid19SiteTertiary={state.covid19SiteTertiary}
-            stateName={state.name}
-          />
+          <div className={preambleStyle.largeDisclosure}>
+            <h4 className={preambleStyle.header}>Where this data comes from</h4>
+            <StateLinks
+              twitter={state.twitter}
+              covid19Site={state.covid19Site}
+              covid19SiteSecondary={state.covid19SiteSecondary}
+              covid19SiteTertiary={state.covid19SiteTertiary}
+              stateName={state.name}
+            />
+          </div>
         </Col>
         <Col width={[4, 3, 6]}>
           <h4 className={preambleStyle.header}>Current data quality grade</h4>
@@ -57,7 +67,64 @@ export default ({ state, covidState }) => {
           </div>
         </Col>
         <Col width={[4, 6, 6]}>
-          <DownloadData state={state} />
+          <div className={preambleStyle.largeDisclosure}>
+            <DownloadData state={state} />
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col width={[0, 0, 6]}>
+          <div className={preambleStyle.mobileDisclosure}>
+            <Disclosure
+              open={downloadDataIsOpen}
+              onChange={() => setDownloadDataIsOpen(!downloadDataIsOpen)}
+            >
+              <DisclosureButton className={preambleStyle.button}>
+                <h4
+                  className={classnames(
+                    preambleStyle.header,
+                    preambleStyle.hiddenHeader,
+                  )}
+                >
+                  Get the data{' '}
+                  <span className={preambleStyle.toggle}>
+                    {downloadDataIsOpen ? <>&#8593;</> : <>&#8595;</>}
+                  </span>
+                </h4>
+              </DisclosureButton>
+              <DisclosurePanel>
+                <DownloadData state={state} />
+              </DisclosurePanel>
+            </Disclosure>
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col width={[0, 0, 6]}>
+          <div className={preambleStyle.mobileDisclosure}>
+            <Disclosure
+              open={stateLinksAreOpen}
+              onChange={() => setStateLinksAreOpen(!stateLinksAreOpen)}
+            >
+              <DisclosureButton className={preambleStyle.button}>
+                <h4 className={preambleStyle.header}>
+                  Where this data comes from{' '}
+                  <span className={preambleStyle.toggle}>
+                    {stateLinksAreOpen ? <>&#8593;</> : <>&#8595;</>}
+                  </span>
+                </h4>
+              </DisclosureButton>
+              <DisclosurePanel>
+                <StateLinks
+                  twitter={state.twitter}
+                  covid19Site={state.covid19Site}
+                  covid19SiteSecondary={state.covid19SiteSecondary}
+                  covid19SiteTertiary={state.covid19SiteTertiary}
+                  stateName={state.name}
+                />
+              </DisclosurePanel>
+            </Disclosure>
+          </div>
         </Col>
       </Row>
     </div>
