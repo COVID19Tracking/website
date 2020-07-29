@@ -8,15 +8,17 @@
   display: flex;
   align-items: flex-start;
   .grade-description {
-    @include margin(32, right);
+    @include margin(24, right);
+    display: inline;
     p {
       @include margin(0, top);
     }
   }
   img {
     width: 96px;
-    flex-shrink: 0;
     flex-grow: 0;
+    flex-shrink: 0;
+    float: right;
   }
 }
 

@@ -21,6 +21,7 @@ export default ({ state, covidState }) => {
       }
     `,
   )
+  // todo make state grade wrap as a circle with the grade description
   return (
     <div className={preambleStyle.wrapper}>
       <Row>
