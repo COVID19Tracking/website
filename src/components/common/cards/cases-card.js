@@ -40,7 +40,7 @@ export default ({
           <DefinitionLink
             onDefinitionsToggle={() => {
               definitionContext({
-                fields: ['positive', 'negative'],
+                fields: ['positive'],
                 highlight: 'positive',
               })
             }}
