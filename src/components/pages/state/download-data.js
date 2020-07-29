@@ -4,7 +4,7 @@ import slug from '~utilities/slug'
 import downloadDataStyles from './download-data.module.scss'
 
 export default ({ state }) => (
-  <>
+  <div className={downloadDataStyles.container}>
     <h3 className={downloadDataStyles.header}>Get the data as:</h3>
     <p>
       <a
@@ -23,5 +23,5 @@ export default ({ state }) => (
         Spreadsheet
       </a>
     </p>
-  </>
+  </div>
 )
