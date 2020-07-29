@@ -46,7 +46,16 @@ export default ({ state, covidState }) => {
             <LargeStateGrade letterGrade={covidState.dataQualityGrade} />
           </div>
         </Col>
-        <Col width={[4, 6, 12]}>
+      </Row>
+      <Row>
+        <Col width={[4, 6, 6]}>
+          <div className={preambleStyle.lastUpdatedContainer}>
+            <p className={preambleStyle.lastUpdated}>
+              State’s last reported update time: {covidState.lastUpdateEt} ET
+            </p>
+          </div>
+        </Col>
+        <Col width={[4, 6, 6]}>
           <DownloadData state={state} />
         </Col>
       </Row>

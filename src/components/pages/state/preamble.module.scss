@@ -14,7 +14,19 @@
     }
   }
   img {
-    width: 300px;
+    width: 96px;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+}
+
+.last-updated-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  .last-updated {
+    color: $color-slate-500;
   }
 }
 
