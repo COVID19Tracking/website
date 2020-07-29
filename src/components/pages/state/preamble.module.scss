@@ -6,10 +6,20 @@
 
 .grade-wrapper {
   display: flex;
+  align-items: flex-start;
   .grade-description {
     @include margin(32, right);
+    p {
+      @include margin(0, top);
+    }
   }
   img {
     width: 300px;
   }
+}
+
+.wrapper {
+  border: 1px solid $color-slate-200;
+  border-radius: 4px;
+  @include padding(16);
 }

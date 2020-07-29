@@ -22,30 +22,34 @@ export default ({ state, covidState }) => {
     `,
   )
   return (
-    <Row>
-      <Col width={[4, 3, 6]}>
-        <h4 className={preambleStyle.header}>Where this data comes from</h4>
-        <StateLinks
-          twitter={state.twitter}
-          covid19Site={state.covid19Site}
-          covid19SiteSecondary={state.covid19SiteSecondary}
-          covid19SiteTertiary={state.covid19SiteTertiary}
-          stateName={state.name}
-        />
-      </Col>
-      <Col width={[4, 3, 6]}>
-        <h4 className={preambleStyle.header}>Current data quality grade</h4>
-        <div className={preambleStyle.gradeWrapper}>
-          <div
-            className={preambleStyle.gradeDescription}
-            dangerouslySetInnerHTML={{
-              __html: contentfulSnippet.content.childMarkdownRemark.html,
-            }}
+    <div className={preambleStyle.wrapper}>
+      <Row>
+        <Col width={[4, 3, 6]}>
+          <h4 className={preambleStyle.header}>Where this data comes from</h4>
+          <StateLinks
+            twitter={state.twitter}
+            covid19Site={state.covid19Site}
+            covid19SiteSecondary={state.covid19SiteSecondary}
+            covid19SiteTertiary={state.covid19SiteTertiary}
+            stateName={state.name}
           />
-          <LargeStateGrade letterGrade={covidState.dataQualityGrade} />
-        </div>
-        <DownloadData state={state} />
-      </Col>
-    </Row>
+        </Col>
+        <Col width={[4, 3, 6]}>
+          <h4 className={preambleStyle.header}>Current data quality grade</h4>
+          <div className={preambleStyle.gradeWrapper}>
+            <div
+              className={preambleStyle.gradeDescription}
+              dangerouslySetInnerHTML={{
+                __html: contentfulSnippet.content.childMarkdownRemark.html,
+              }}
+            />
+            <LargeStateGrade letterGrade={covidState.dataQualityGrade} />
+          </div>
+        </Col>
+        <Col width={[4, 6, 12]}>
+          <DownloadData state={state} />
+        </Col>
+      </Row>
+    </div>
   )
 }
