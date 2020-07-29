@@ -96,7 +96,7 @@ const Preamble = ({ state, covidState }) => {
                 </h4>
               </DisclosureButton>
               <DisclosurePanel>
-                <DownloadData state={state} />
+                <DownloadData state={state} hideLabel />
               </DisclosurePanel>
             </Disclosure>
           </div>

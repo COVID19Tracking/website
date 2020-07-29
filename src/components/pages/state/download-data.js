@@ -3,9 +3,11 @@ import { Link } from 'gatsby'
 import slug from '~utilities/slug'
 import downloadDataStyles from './download-data.module.scss'
 
-export default ({ state }) => (
+export default ({ state, hideLabel = false }) => (
   <div className={downloadDataStyles.container}>
-    <h3 className={downloadDataStyles.header}>Get the data as:</h3>
+    {!hideLabel && (
+      <h3 className={downloadDataStyles.header}>Get the data as:</h3>
+    )}
     <p>
       <a
         href={`/data/download/${slug(state.name)}-history.csv`}
