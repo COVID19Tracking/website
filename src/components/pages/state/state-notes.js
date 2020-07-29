@@ -23,6 +23,7 @@ export default ({ notes, isNarrow = true }) => {
   const notesAsHtml = smartypants(marked(highlightedNotes))
   return (
     <Container narrow={isNarrow} className={stateNotesStyle.container}>
+      <span className={stateNotesStyle.label}>Notes: </span>
       <MarkdownContent html={notesAsHtml} />
     </Container>
   )
