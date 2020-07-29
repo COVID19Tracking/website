@@ -4,6 +4,13 @@
   align-items: flex-end;
 
   overflow-x: scroll;
+  scrollbar-width: none; // hide scrollbar
+  -ms-overflow-style: none; // hide scrollbar
+
+  &::-webkit-scrollbar {
+    display: none; // hide scrollbar
+  }
+
 
   @media (max-width: $viewport-md) {
     @include margin(8, (top, bottom));
@@ -40,5 +47,4 @@
   img {
     @include margin(4, (bottom));
   }
-
 }
