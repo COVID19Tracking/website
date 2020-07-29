@@ -8,7 +8,7 @@
   overflow-y: scroll;
 
   background-color: $color-plum-800;
-  color: white;
+  color: $color-plum-300;
   @include padding(32, bottom);
 
   .header {
@@ -57,8 +57,8 @@
 }
 
 .highlight {
-  color: $color-honey-400;
-  border-left: 2px solid $color-honey-400;
+  color: $color-plum-100;
+  border-left: 2px solid $color-plum-100;
 }
 
 .close-panel-container {
