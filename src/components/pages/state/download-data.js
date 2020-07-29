@@ -1,9 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import slug from '~utilities/slug'
+import { Row, Col } from '~components/common/grid'
+
+import LastUpdated from '~components/common/last-updated'
+import preambleStyle from './preamble.module.scss'
 import downloadDataStyles from './download-data.module.scss'
 
-export default ({ state, hideLabel = false }) => (
+const DownloadData = ({ state, hideLabel = false }) => (
   <div className={downloadDataStyles.container}>
     {!hideLabel && (
       <h3 className={downloadDataStyles.header}>Get the data as:</h3>
@@ -27,3 +31,31 @@ export default ({ state, hideLabel = false }) => (
     </p>
   </div>
 )
+
+const DownloadDataRow = ({
+  state,
+  lastUpdateEt,
+  unformatted = false,
+  national = false,
+}) => (
+  <Row>
+    <Col width={[4, 6, 6]}>
+      <div className={downloadDataStyles.lastUpdatedContainer}>
+        <LastUpdated
+          lastUpdateEt={lastUpdateEt}
+          unformatted={unformatted}
+          national={national}
+        />
+      </div>
+    </Col>
+    <Col width={[4, 6, 6]}>
+      <div className={preambleStyle.largeDisclosure}>
+        <DownloadData state={state} />
+      </div>
+    </Col>
+  </Row>
+)
+
+export default DownloadData
+
+export { DownloadData, DownloadDataRow }

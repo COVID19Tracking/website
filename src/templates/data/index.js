@@ -4,14 +4,12 @@ import { graphql } from 'gatsby'
 import DetailText from '~components/common/detail-text'
 import Container from '~components/common/container'
 import Layout from '~components/layout'
-import { Row, Col } from '~components/common/grid'
-import { FormatDate } from '~components/utils/format'
 import ContentfulContent from '~components/common/contentful-content'
 import MarkdownContent from '~components/common/markdown-content'
 
 import States from '~components/pages/data/states'
 
-import DownloadData from '~components/pages/state/download-data'
+import { DownloadDataRow } from '~components/pages/state/download-data'
 import Summary from '~components/common/summary'
 import SummaryCharts from '~components/common/summary-charts'
 
@@ -32,18 +30,12 @@ export default ({ data }) => {
         content={data.dataPreamble.content.childMarkdownRemark.html}
         id={data.dataPreamble.contentful_id}
       />
-      <Row>
-        <Col width={[4, 3, 8]}>
-          Last updated:{' '}
-          <FormatDate
-            date={data.lastUpdate.nodes[0].date}
-            format="ccc LLL d yyyy"
-          />
-        </Col>
-        <Col width={[4, 3, 4]}>
-          <DownloadData state={{ name: 'all-states' }} />
-        </Col>
-      </Row>
+      <DownloadDataRow
+        state={{ name: 'all-states' }}
+        lastUpdateEt={data.lastUpdate.nodes[0].date}
+        unformatted
+        national
+      />
       <Summary
         stateSlug="national"
         data={data.covidUs}

@@ -5,7 +5,7 @@ import slug from '~utilities/slug'
 import { StateGrade } from '~components/pages/state/state-grade'
 import StateSummary from '~components/common/summary'
 import StateNotes from '~components/pages/state/state-notes'
-import { LastUpdated } from '~components/pages/state/preamble'
+import LastUpdated from '~components/common/last-updated'
 import {
   StateLinksDisclosure,
   StateLinksDisclosureButton,
@@ -34,7 +34,7 @@ const State = ({ state }) => {
           combined: false,
           separate: false,
         }}
-        lastUpdated={state.lastUpdateEt}
+        lastUpdate={state.lastUpdateEt}
       />
 
       <StateLinksDisclosure

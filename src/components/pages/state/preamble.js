@@ -8,7 +8,10 @@ import {
 import classnames from 'classnames'
 
 import { Row, Col } from '~components/common/grid'
-import DownloadData from '~components/pages/state/download-data'
+import {
+  DownloadData,
+  DownloadDataRow,
+} from '~components/pages/state/download-data'
 import { LargeStateGrade } from '~components/pages/state/state-grade'
 import {
   StateLinks,
@@ -18,7 +21,7 @@ import {
 } from '~components/pages/state/state-links'
 import preambleStyle from './preamble.module.scss'
 
-const Preamble = ({ state, covidState }) => {
+export default ({ state, covidState }) => {
   const { contentfulSnippet } = useStaticQuery(
     graphql`
       query {
@@ -63,18 +66,7 @@ const Preamble = ({ state, covidState }) => {
           </div>
         </Col>
       </Row>
-      <Row>
-        <Col width={[4, 6, 6]}>
-          <div className={preambleStyle.lastUpdatedContainer}>
-            <LastUpdated lastUpdatedEt={covidState.lastUpdateEt} />
-          </div>
-        </Col>
-        <Col width={[4, 6, 6]}>
-          <div className={preambleStyle.largeDisclosure}>
-            <DownloadData state={state} />
-          </div>
-        </Col>
-      </Row>
+      <DownloadDataRow state={state} lastUpdateEt={covidState.lastUpdateEt} />
       <Row>
         <Col width={[0, 0, 6]}>
           <div className={preambleStyle.mobileDisclosure}>
@@ -117,12 +109,3 @@ const Preamble = ({ state, covidState }) => {
     </div>
   )
 }
-
-const LastUpdated = ({ lastUpdatedEt }) => (
-  <p className={preambleStyle.lastUpdated}>
-    State’s last reported update time: {lastUpdatedEt} ET
-  </p>
-)
-
-export default Preamble
-export { Preamble, LastUpdated }
