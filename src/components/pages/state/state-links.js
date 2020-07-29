@@ -1,6 +1,5 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
-import classnames from 'classnames'
 import { Link } from 'gatsby'
 import slug from '~utilities/slug'
 import { Row, Col } from '~components/common/grid'
@@ -17,47 +16,20 @@ export default ({
     <Row>
       <Col width={[2, 3, 6]}>
         {covid19Site && (
-          <a
-            href={covid19Site}
-            className={classnames(
-              stateLinksStyle.link,
-              stateLinksStyle.stateLink,
-            )}
-          >
+          <a href={covid19Site} className={stateLinksStyle.link}>
             <span>Best Current Data Source</span>
           </a>
         )}
         {covid19SiteSecondary && (
-          <a
-            href={covid19SiteSecondary}
-            className={classnames(
-              stateLinksStyle.link,
-              stateLinksStyle.stateLink,
-            )}
-          >
+          <a href={covid19SiteSecondary} className={stateLinksStyle.link}>
             <span>Secondary Data Source</span>
           </a>
         )}
         {covid19SiteTertiary && (
-          <a
-            href={covid19SiteTertiary}
-            className={classnames(
-              stateLinksStyle.link,
-              stateLinksStyle.stateLink,
-            )}
-          >
+          <a href={covid19SiteTertiary} className={stateLinksStyle.link}>
             <span>Tertiary Data Source</span>
           </a>
         )}
-        <Link
-          className={classnames(
-            stateLinksStyle.link,
-            stateLinksStyle.stateLink,
-          )}
-          to={`/data/state/${slug(stateName)}/screenshots`}
-        >
-          <span>View screenshots</span>
-        </Link>
       </Col>
       <Col width={[2, 3, 6]}>
         {twitter && (
@@ -74,6 +46,12 @@ export default ({
           className={stateLinksStyle.link}
         >
           Full history
+        </Link>
+        <Link
+          className={stateLinksStyle.link}
+          to={`/data/state/${slug(stateName)}/screenshots`}
+        >
+          <span>View screenshots</span>
         </Link>
       </Col>
     </Row>

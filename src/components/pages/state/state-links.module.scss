@@ -1,18 +1,5 @@
 .link {
   display: block;
-  &.state-link {
-    @include padding(8, left);
-    display: flex;
-    text-decoration: none;
-    span {
-      text-decoration: underline;
-    }
-    &::before {
-      text-decoration: none;
-      @include padding(8, right);
-      content: '∟';
-      line-height: 0.9;
-      display: inline-block;
-    }
-  }
+  line-height: 1.2;
+  @include margin(16, bottom);
 }
