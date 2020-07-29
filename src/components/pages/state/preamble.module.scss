@@ -25,14 +25,8 @@
   }
 }
 
-.last-updated-container {
-  display: flex;
-  align-items: center;
-  height: 100%;
-
-  .last-updated {
-    color: $color-slate-500;
-  }
+.last-updated {
+  color: $color-slate-500;
 }
 
 .wrapper {

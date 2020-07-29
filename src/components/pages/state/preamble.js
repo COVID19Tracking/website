@@ -10,10 +10,15 @@ import classnames from 'classnames'
 import { Row, Col } from '~components/common/grid'
 import DownloadData from '~components/pages/state/download-data'
 import { LargeStateGrade } from '~components/pages/state/state-grade'
-import StateLinks from '~components/pages/state/state-links'
+import {
+  StateLinks,
+  StateLinksDisclosure,
+  StateLinksDisclosureButton,
+  StateLinksDisclosurePanel,
+} from '~components/pages/state/state-links'
 import preambleStyle from './preamble.module.scss'
 
-export default ({ state, covidState }) => {
+const Preamble = ({ state, covidState }) => {
   const { contentfulSnippet } = useStaticQuery(
     graphql`
       query {
@@ -61,9 +66,7 @@ export default ({ state, covidState }) => {
       <Row>
         <Col width={[4, 6, 6]}>
           <div className={preambleStyle.lastUpdatedContainer}>
-            <p className={preambleStyle.lastUpdated}>
-              State’s last reported update time: {covidState.lastUpdateEt} ET
-            </p>
+            <LastUpdated lastUpdatedEt={covidState.lastUpdateEt} />
           </div>
         </Col>
         <Col width={[4, 6, 6]}>
@@ -101,32 +104,25 @@ export default ({ state, covidState }) => {
       </Row>
       <Row>
         <Col width={[0, 0, 6]}>
-          <div className={preambleStyle.mobileDisclosure}>
-            <Disclosure
-              open={stateLinksAreOpen}
-              onChange={() => setStateLinksAreOpen(!stateLinksAreOpen)}
-            >
-              <DisclosureButton className={preambleStyle.button}>
-                <h4 className={preambleStyle.header}>
-                  Where this data comes from{' '}
-                  <span className={preambleStyle.toggle}>
-                    {stateLinksAreOpen ? <>&#8593;</> : <>&#8595;</>}
-                  </span>
-                </h4>
-              </DisclosureButton>
-              <DisclosurePanel>
-                <StateLinks
-                  twitter={state.twitter}
-                  covid19Site={state.covid19Site}
-                  covid19SiteSecondary={state.covid19SiteSecondary}
-                  covid19SiteTertiary={state.covid19SiteTertiary}
-                  stateName={state.name}
-                />
-              </DisclosurePanel>
-            </Disclosure>
-          </div>
+          <StateLinksDisclosure
+            stateLinksAreOpen={stateLinksAreOpen}
+            setStateLinksAreOpen={setStateLinksAreOpen}
+            mobileOnly
+          >
+            <StateLinksDisclosureButton stateLinksAreOpen={stateLinksAreOpen} />
+            <StateLinksDisclosurePanel state={state} />
+          </StateLinksDisclosure>
         </Col>
       </Row>
     </div>
   )
 }
+
+const LastUpdated = ({ lastUpdatedEt }) => (
+  <p className={preambleStyle.lastUpdated}>
+    State’s last reported update time: {lastUpdatedEt} ET
+  </p>
+)
+
+export default Preamble
+export { Preamble, LastUpdated }

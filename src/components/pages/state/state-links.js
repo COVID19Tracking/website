@@ -1,10 +1,16 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
 import { Link } from 'gatsby'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@reach/disclosure'
 import slug from '~utilities/slug'
 import stateLinksStyle from './state-links.module.scss'
+import preambleStyle from './preamble.module.scss'
 
-export default ({
+const StateLinks = ({
   twitter,
   covid19Site,
   covid19SiteSecondary,
@@ -51,4 +57,52 @@ export default ({
       </Link>
     </div>
   )
+}
+
+const StateLinksDisclosureButton = ({ stateLinksAreOpen }) => (
+  <DisclosureButton className={preambleStyle.button}>
+    <h4 className={preambleStyle.header}>
+      Where this data comes from{' '}
+      <span className={preambleStyle.toggle}>
+        {stateLinksAreOpen ? <>&#8593;</> : <>&#8595;</>}
+      </span>
+    </h4>
+  </DisclosureButton>
+)
+
+const StateLinksDisclosurePanel = ({ state }) => (
+  <DisclosurePanel>
+    <StateLinks
+      twitter={state.twitter}
+      covid19Site={state.covid19Site}
+      covid19SiteSecondary={state.covid19SiteSecondary}
+      covid19SiteTertiary={state.covid19SiteTertiary}
+      stateName={state.name}
+    />
+  </DisclosurePanel>
+)
+
+const StateLinksDisclosure = ({
+  stateLinksAreOpen,
+  setStateLinksAreOpen,
+  mobileOnly = false,
+  children,
+}) => (
+  <div className={mobileOnly && preambleStyle.mobileDisclosure}>
+    <Disclosure
+      open={stateLinksAreOpen}
+      onChange={() => setStateLinksAreOpen(!stateLinksAreOpen)}
+    >
+      {children}
+    </Disclosure>
+  </div>
+)
+
+export default StateLinks
+
+export {
+  StateLinks,
+  StateLinksDisclosure,
+  StateLinksDisclosureButton,
+  StateLinksDisclosurePanel,
 }

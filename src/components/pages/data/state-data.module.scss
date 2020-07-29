@@ -33,3 +33,16 @@
   margin-top: spacer(32);
   display: inline-block;
 }
+
+.state-links-header {
+  display: flex;
+  align-items: flex-end;
+  button {
+    @include margin(16, right);
+  }
+
+  @media (max-width: $viewport-md) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+}
