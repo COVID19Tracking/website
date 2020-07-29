@@ -338,7 +338,7 @@ Array [
     </li>
   </ul>,
   <div
-    className="container container"
+    className="container container container"
   >
     <div
       className="narrow"

@@ -341,7 +341,7 @@ exports[`Components : Pages : Data : State data renders correctly 1`] = `
     </li>
   </ul>
   <div
-    className="container container"
+    className="container container container"
   >
     <div
       className="narrow"

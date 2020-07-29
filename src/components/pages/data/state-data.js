@@ -1,13 +1,10 @@
 import React from 'react'
-import marked from 'marked'
-import smartypants from 'smartypants'
 import { Link } from 'gatsby'
 import slug from '~utilities/slug'
-import Container from '~components/common/container'
 import { StateGrade } from '~components/pages/state/state-grade'
 import StateSummary from '~components/common/summary'
+import StateNotes from '~components/pages/state/state-notes'
 import stateDataStyles from './state-data.module.scss'
-import MarkdownContent from '~components/common/markdown-content'
 
 // todo pass race and ethnicity data from API
 const State = ({ state }) => (
@@ -28,11 +25,7 @@ const State = ({ state }) => (
       }}
       lastUpdated={state.lastUpdateEt}
     />
-    {state.notes && (
-      <Container narrow>
-        <MarkdownContent html={smartypants(marked(state.notes))} />
-      </Container>
-    )}
+    {state.notes && <StateNotes notes={state.notes} />}
     <a
       className={`state-top-link ${stateDataStyles.topLink}`}
       href="#reach-skip-nav"

@@ -7,7 +7,15 @@ import ReturnLinks from '~components/layout/header/return-links'
 import rightCaret from '~images/icons/right-caret.svg'
 import blogHeroStyles from './blog-hero.module.scss'
 
-export default ({ categories, headline, authors, date, lede, id }) => (
+export default ({
+  categories,
+  headline,
+  authors,
+  published,
+  updated,
+  lede,
+  id,
+}) => (
   <div className={blogHeroStyles.container} narrow centered>
     <ReturnLinks>
       <Link to="/blog">Blog</Link>
@@ -30,7 +38,8 @@ export default ({ categories, headline, authors, date, lede, id }) => (
     <Lede
       headline={headline}
       authors={authors}
-      date={date}
+      published={published}
+      updated={updated}
       lede={lede}
       id={id}
       darkBackground

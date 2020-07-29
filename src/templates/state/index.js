@@ -158,6 +158,9 @@ export const query = graphql`
     ) {
       nodes {
         title
+        description {
+          description
+        }
         date(formatString: "YYYYMMDD")
         dataElement
         contentful_id

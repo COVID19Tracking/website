@@ -20,7 +20,8 @@ export default ({ data, path }) => {
       categories={blogPost.categories}
       headline={blogPost.title}
       authors={blogPost.authors}
-      date={blogPost.publishDate}
+      published={blogPost.publishDate}
+      updated={blogPost.updateDateTime}
       lede={blogPost.lede.lede}
       id={blogPost.contentful_id}
     />
@@ -60,6 +61,7 @@ export const query = graphql`
     contentfulBlogPost(id: { eq: $id }) {
       contentful_id
       title
+      updateDateTime
       authors {
         name
         twitterLink

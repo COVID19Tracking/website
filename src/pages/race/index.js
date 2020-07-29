@@ -58,8 +58,8 @@ export default () => {
         <LandingPageSection noBorder noMargin>
           <LandingPageContainer>
             <LargeHeader center narrow>
-              Nationwide, Black people are dying at a rate&nbsp;
-              <FormatNumber number={blackwhiteRateRatio} /> times higher than
+              Nationwide, Black people are dying at{' '}
+              <FormatNumber number={blackwhiteRateRatio} /> times the rate of
               white people.
             </LargeHeader>
             <NationalChart />
