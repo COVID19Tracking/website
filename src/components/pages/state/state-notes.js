@@ -18,11 +18,11 @@ const getBoldedText = text => {
   return highlightedParts.join('')
 }
 
-export default ({ notes }) => {
+export default ({ notes, isNarrow = true }) => {
   const highlightedNotes = getBoldedText(notes)
   const notesAsHtml = smartypants(marked(highlightedNotes))
   return (
-    <Container narrow className={stateNotesStyle.container}>
+    <Container narrow={isNarrow} className={stateNotesStyle.container}>
       <MarkdownContent html={notesAsHtml} />
     </Container>
   )

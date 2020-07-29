@@ -25,7 +25,7 @@ const State = ({ state }) => (
       }}
       lastUpdated={state.lastUpdateEt}
     />
-    {state.notes && <StateNotes notes={state.notes} />}
+    {state.notes && <StateNotes isNarrow={false} notes={state.notes} />}
     <a
       className={`state-top-link ${stateDataStyles.topLink}`}
       href="#reach-skip-nav"
