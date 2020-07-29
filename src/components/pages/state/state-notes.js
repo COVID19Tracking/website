@@ -20,11 +20,13 @@ const getBoldedText = text => {
 
 export default ({ notes, isNarrow = true }) => {
   const highlightedNotes = getBoldedText(notes)
-  const notesAsHtml = smartypants(marked(highlightedNotes))
+  const notesArray = highlightedNotes.split('\n')
   return (
     <Container narrow={isNarrow} className={stateNotesStyle.container}>
       <span className={stateNotesStyle.label}>Notes: </span>
-      <MarkdownContent html={notesAsHtml} />
+      {notesArray.map(note => (
+        <MarkdownContent key={note} html={smartypants(marked(note))} />
+      ))}
     </Container>
   )
 }
