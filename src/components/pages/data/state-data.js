@@ -36,7 +36,6 @@ const State = ({ state }) => {
         }}
         lastUpdated={state.lastUpdateEt}
       />
-      {state.notes && <StateNotes isNarrow={false} notes={state.notes} />}
 
       <StateLinksDisclosure
         stateLinksAreOpen={stateLinksOpen}
@@ -49,6 +48,7 @@ const State = ({ state }) => {
         <StateLinksDisclosurePanel state={state} />
       </StateLinksDisclosure>
 
+      {state.notes && <StateNotes isNarrow={false} notes={state.notes} />}
       <a
         className={`state-top-link ${stateDataStyles.topLink}`}
         href="#reach-skip-nav"
