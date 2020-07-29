@@ -1,14 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
-import DownloadData from '~components/pages/state/download-data'
-import { Row, Col } from '~components/common/grid'
-import { LargeStateGrade } from '~components/pages/state/state-grade'
 import StateNavWrapper from '~components/pages/data/state-nav-wrapper'
-import StateLinks from '~components/pages/state/state-links'
-import StateNotes from '~components/pages/state/state-notes'
+import StatePreamble from '~components/pages/state/preamble'
 import SummaryCharts from '~components/common/summary-charts'
 import StateSummary from '~components/common/summary'
+import StateNotes from '~components/pages/state/state-notes'
 
 const StatePage = ({ pageContext, data, path }) => {
   const state = pageContext
@@ -24,25 +21,7 @@ const StatePage = ({ pageContext, data, path }) => {
   } = data
   return (
     <Layout title={state.name} returnLinks={[{ link: '/data' }]} path={path}>
-      <h2>Current data quality grade</h2>
-      <Row>
-        <Col width={[4, 3, 3]}>
-          <LargeStateGrade letterGrade={covidState.dataQualityGrade} />
-        </Col>
-        <Col width={[4, 3, 5]}>
-          <StateLinks
-            twitter={state.twitter}
-            covid19Site={state.covid19Site}
-            covid19SiteSecondary={state.covid19SiteSecondary}
-            covid19SiteTertiary={state.covid19SiteTertiary}
-            stateName={state.name}
-          />
-        </Col>
-        <Col width={[4, 3, 4]}>
-          <DownloadData state={state} />
-        </Col>
-      </Row>
-
+      <StatePreamble state={state} covidState={covidState} />
       {state.notes && <StateNotes notes={state.notes} />}
       <SummaryCharts
         name={state.name}

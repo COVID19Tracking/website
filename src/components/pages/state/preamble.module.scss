@@ -1,0 +1,15 @@
+.header {
+  @include margin(16, bottom);
+  @include type-size(300);
+  line-height: 1.3;
+}
+
+.grade-wrapper {
+  display: flex;
+  .grade-description {
+    @include margin(32, right);
+  }
+  img {
+    width: 300px;
+  }
+}
