@@ -3,3 +3,11 @@
   line-height: 1.2;
   @include margin(16, bottom);
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  @media (min-width: $viewport-lg) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
