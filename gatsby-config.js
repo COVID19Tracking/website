@@ -272,6 +272,13 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-transformer-covid-slug',
+      options: {
+        type: 'CovidStateInfo',
+        field: 'name',
+      },
+    },
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `

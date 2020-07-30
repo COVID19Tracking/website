@@ -6,7 +6,6 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@reach/disclosure'
-import slug from '~utilities/slug'
 import stateLinksStyle from './state-links.module.scss'
 import preambleStyle from './preamble.module.scss'
 
@@ -16,6 +15,7 @@ const StateLinks = ({
   covid19SiteSecondary,
   covid19SiteTertiary,
   stateName,
+  stateSlug,
 }) => {
   return (
     <div className={stateLinksStyle.container}>
@@ -44,14 +44,14 @@ const StateLinks = ({
         </a>
       )}
       <Link
-        to={`/data/state/${slug(stateName)}/history`}
+        to={`/data/state/${stateSlug}/history`}
         className={stateLinksStyle.link}
       >
         Full history
       </Link>
       <Link
         className={stateLinksStyle.link}
-        to={`/data/state/${slug(stateName)}/screenshots`}
+        to={`/data/state/${stateSlug}/screenshots`}
       >
         <span>View screenshots</span>
       </Link>

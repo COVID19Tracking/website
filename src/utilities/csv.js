@@ -10,6 +10,9 @@ module.exports = (graphql, reporter) => {
           nodes {
             name
             state
+            childSlug {
+              slug
+            }
           }
         }
         allCounties(filter: { demographics: { total: { gt: 0 } } }) {
@@ -65,10 +68,7 @@ module.exports = (graphql, reporter) => {
     const states = {}
 
     data.allCovidStateInfo.nodes.forEach(state => {
-      states[state.state] = {
-        ...state,
-        slug: slugify(state.name, { strict: true, lower: true }),
-      }
+      states[state.state] = state
     })
 
     const stateData = {}
@@ -81,7 +81,7 @@ module.exports = (graphql, reporter) => {
 
     Object.keys(stateData).forEach(state => {
       fs.outputFile(
-        `./public/data/download/${states[state].slug}-history.csv`,
+        `./public/data/download/${states[state].childSlug.slug}-history.csv`,
         parse(stateData[state]),
       )
     })

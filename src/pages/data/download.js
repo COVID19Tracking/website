@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
-import slug from '~utilities/slug'
 
 export default ({ data }) => (
   <Layout
@@ -29,7 +28,7 @@ export default ({ data }) => (
     <ul>
       {data.allCovidStateInfo.nodes.map(state => (
         <li>
-          <a href={`/data/download/${slug(state.name)}-history.csv`}>
+          <a href={`/data/download/${state.childSlug.slug}-history.csv`}>
             {state.name}
           </a>
         </li>
@@ -53,6 +52,9 @@ export const query = graphql`
         id
         name
         state
+        childSlug {
+          slug
+        }
       }
     }
   }

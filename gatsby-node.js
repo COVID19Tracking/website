@@ -1,5 +1,4 @@
 const path = require('path')
-const slugify = require('slugify')
 const { DateTime } = require('luxon')
 const csv = require('./src/utilities/csv')
 const createSchemaCustomization = require('./src/utilities/schema')
@@ -32,6 +31,9 @@ exports.createPages = async ({ graphql, actions }) => {
           name
           state
           twitter
+          childSlug {
+            slug
+          }
         }
       }
       allContentfulPage {
@@ -148,7 +150,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   result.data.allCovidStateInfo.nodes.forEach(node => {
-    const slug = slugify(node.name, { strict: true, lower: true })
+    const { slug } = node.childSlug
 
     createPage({
       path: `/data/state/${slug}`,
@@ -162,58 +164,37 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/data/state/${slug}/cases`,
       component: path.resolve(`./src/templates/state/cases.js`),
-      context: {
-        ...node,
-        slug,
-      },
+      context: node,
     })
     createPage({
       path: `/data/state/${slug}/tests`,
       component: path.resolve(`./src/templates/state/tests.js`),
-      context: {
-        ...node,
-        slug,
-      },
+      context: node,
     })
     createPage({
       path: `/data/state/${slug}/hospitalization`,
       component: path.resolve(`./src/templates/state/hospitalization.js`),
-      context: {
-        ...node,
-        slug,
-      },
+      context: node,
     })
     createPage({
       path: `/data/state/${slug}/outcomes`,
       component: path.resolve(`./src/templates/state/outcomes.js`),
-      context: {
-        ...node,
-        slug,
-      },
+      context: node,
     })
     createPage({
       path: `/data/state/${slug}/race-ethnicity`,
       component: path.resolve(`./src/templates/state/race-ethnicity.js`),
-      context: {
-        ...node,
-        slug,
-      },
+      context: node,
     })
     createPage({
       path: `/data/state/${slug}/history`,
       component: path.resolve(`./src/templates/state/history.js`),
-      context: {
-        ...node,
-        slug,
-      },
+      context: node,
     })
     createPage({
       path: `/data/state/${slug}/screenshots`,
       component: path.resolve(`./src/templates/state/screenshots.js`),
-      context: {
-        ...node,
-        slug,
-      },
+      context: node,
     })
   })
 

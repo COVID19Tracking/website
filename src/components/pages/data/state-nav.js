@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import slugify from 'slugify'
 import classnames from 'classnames'
 import {
   TabletDisclosure,
@@ -20,7 +19,6 @@ export default ({ stateList, className, externalLinks = false }) => {
     false: not external, use anchor links
   */
   const [isOpen, setIsOpen] = useState(false)
-
   return (
     <TabletDisclosure
       className={classnames(stateNavStyle.container, className)}
@@ -42,7 +40,7 @@ export default ({ stateList, className, externalLinks = false }) => {
             if (externalLinks) {
               return (
                 <li key={state.state}>
-                  <Link to={`/data/state/${slugify(state.name).toLowerCase()}`}>
+                  <Link to={`/data/state/${state.childSlug.slug}`}>
                     {state.state}
                   </Link>
                 </li>
@@ -50,7 +48,7 @@ export default ({ stateList, className, externalLinks = false }) => {
             }
             return (
               <li key={state.state}>
-                <a href={`#state-${slugify(state.state).toLowerCase()}`}>
+                <a href={`#state-${state.state.toLowerCase()}`}>
                   {state.state}
                 </a>
               </li>

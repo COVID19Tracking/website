@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import slug from '~utilities/slug'
-
 import { StateGrade } from '~components/pages/state/state-grade'
 import StateSummary from '~components/common/summary'
 import StateNotes from '~components/pages/state/state-notes'
@@ -17,17 +15,17 @@ import stateDataStyles from './state-data.module.scss'
 // todo pass race and ethnicity data from API
 const State = ({ state }) => {
   const [stateLinksOpen, setStateLinksOpen] = useState(false)
-
+  const { slug } = state.childSlug
   return (
     <>
       <div className={`state-header ${stateDataStyles.header}`}>
         <h3 id={`state-${state.state.toLowerCase()}`}>
-          <Link to={`/data/state/${slug(state.name)}`}>{state.name}</Link>
+          <Link to={`/data/state/${slug}`}>{state.name}</Link>
         </h3>
         <StateGrade letterGrade={state.stateData.dataQualityGrade} />
       </div>
       <StateSummary
-        stateSlug={slug(state.name)}
+        stateSlug={slug}
         data={state.stateData}
         sevenDaysAgo={state.sevenDaysAgo}
         raceData={{

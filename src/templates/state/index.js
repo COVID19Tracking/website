@@ -59,6 +59,9 @@ export const query = graphql`
       nodes {
         state
         name
+        childSlug {
+          slug
+        }
       }
     }
     allCovidUsDaily {

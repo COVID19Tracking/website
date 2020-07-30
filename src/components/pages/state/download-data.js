@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import slug from '~utilities/slug'
 import { Row, Col } from '~components/common/grid'
 
 import LastUpdated from '~components/common/last-updated'
@@ -14,7 +13,7 @@ const DownloadData = ({ state, hideLabel = false }) => (
     )}
     <p>
       <a
-        href={`/data/download/${slug(state.name)}-history.csv`}
+        href={`/data/download/${state.childSlug.slug}-history.csv`}
         className={downloadDataStyles.button}
       >
         CSV

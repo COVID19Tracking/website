@@ -1,25 +1,25 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import StateHistory from '~components/pages/state/state-history'
-import slug from '~utilities/slug'
 
 import Layout from '~components/layout'
 
 const StatePage = ({ pageContext, data, path }) => {
   const state = pageContext
   const { allCovidStateDaily, allCovidScreenshot } = data
+  const { slug } = state.childSlug
   return (
     <Layout
       title={state.name}
       path={path}
       returnLinks={[
         { link: '/data' },
-        { link: `/data/state/${state.slug}`, title: state.name },
+        { link: `/data/state/${slug}`, title: state.name },
       ]}
     >
       <p>
         You can also{' '}
-        <a href={`/data/download/${slug(state.name)}-history.csv`}>
+        <a href={`/data/download/${slug}-history.csv`}>
           download all state data as a CSV file
         </a>
         .

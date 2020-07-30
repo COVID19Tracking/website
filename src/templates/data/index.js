@@ -122,6 +122,9 @@ export const query = graphql`
         covid19Site
         covid19SiteSecondary
         twitter
+        childSlug {
+          slug
+        }
       }
     }
     allCovidUsDaily {
