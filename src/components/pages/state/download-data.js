@@ -6,14 +6,14 @@ import LastUpdated from '~components/common/last-updated'
 import preambleStyle from './preamble.module.scss'
 import downloadDataStyles from './download-data.module.scss'
 
-const DownloadData = ({ state, hideLabel = false }) => (
+const DownloadData = ({ slug, hideLabel = false }) => (
   <div className={downloadDataStyles.container}>
     {!hideLabel && (
       <h3 className={downloadDataStyles.header}>Get the data as:</h3>
     )}
     <p>
       <a
-        href={`/data/download/${state.childSlug.slug}-history.csv`}
+        href={`/data/download/${slug}-history.csv`}
         className={downloadDataStyles.button}
       >
         CSV
@@ -32,7 +32,7 @@ const DownloadData = ({ state, hideLabel = false }) => (
 )
 
 const DownloadDataRow = ({
-  state,
+  slug,
   lastUpdateEt,
   unformatted = false,
   national = false,
@@ -49,7 +49,7 @@ const DownloadDataRow = ({
     </Col>
     <Col width={[4, 6, 6]}>
       <div className={preambleStyle.largeDisclosure}>
-        <DownloadData state={state} />
+        <DownloadData slug={slug} />
       </div>
     </Col>
   </Row>

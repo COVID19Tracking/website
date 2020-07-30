@@ -31,7 +31,7 @@ export default ({ data }) => {
         id={data.dataPreamble.contentful_id}
       />
       <DownloadDataRow
-        state={{ name: 'all-states' }}
+        slug="all-states"
         lastUpdateEt={data.lastUpdate.nodes[0].date}
         unformatted
         national

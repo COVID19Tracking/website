@@ -1,6 +1,5 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import slugify from 'slugify'
 import smartypants from 'smartypants'
 import StateSeparate from './state-separate'
 import StateCombined from './state-combined'
@@ -354,7 +353,7 @@ export default () => {
         .map(state => (
           <div className={statesStyle.state}>
             <h2
-              id={`state-${slugify(state.state).toLowerCase()}`}
+              id={`state-${state.state.toLowerCase()}`}
               className={statesStyle.header}
             >
               {state.name}

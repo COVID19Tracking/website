@@ -67,7 +67,10 @@ export default ({ state, covidState }) => {
           </div>
         </Col>
       </Row>
-      <DownloadDataRow state={state} lastUpdateEt={covidState.lastUpdateEt} />
+      <DownloadDataRow
+        slug={state.childSlug.slug}
+        lastUpdateEt={covidState.lastUpdateEt}
+      />
       <Row>
         <Col width={[0, 0, 6]}>
           <div className={preambleStyle.mobileDisclosure}>
