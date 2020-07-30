@@ -9,12 +9,13 @@ const formatNumber = number => <FormatNumber number={number} />
 
 export default ({ pageContext, path, data }) => {
   const state = pageContext
+  const { slug } = state.childSlug
   return (
     <Layout
       title={`${state.name}: Cases`}
       returnLinks={[
         { link: '/data' },
-        { link: `/data/state/${state.slug}`, title: state.name },
+        { link: `/data/state/${slug}`, title: state.name },
       ]}
       path={path}
     >

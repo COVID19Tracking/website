@@ -6,13 +6,14 @@ import RaceStateCombined from '~components/pages/race/dashboard/state-combined'
 
 export default ({ pageContext, path, data }) => {
   const state = pageContext
+  const { slug } = state.childSlug
   const { covidRaceDataCombined, covidRaceDataSeparate } = data
   return (
     <Layout
       title={`${state.name}: Racial data tracker`}
       returnLinks={[
         { link: '/data' },
-        { link: `/data/state/${state.slug}`, title: state.name },
+        { link: `/data/state/${slug}`, title: state.name },
       ]}
       path={path}
     >

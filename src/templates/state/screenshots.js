@@ -8,6 +8,7 @@ import { FormatDate } from '~components/utils/format'
 export default ({ pageContext, path, data }) => {
   const state = pageContext
   const allScreenshots = []
+  const { slug } = state.childSlug
   data.allCovidScreenshot.group
     .sort((a, b) => (a.nodes[0].date > b.nodes[0].date ? -1 : 1))
     .forEach(screenshots => {
@@ -42,7 +43,7 @@ export default ({ pageContext, path, data }) => {
       title={`${state.name}: Screenshots`}
       returnLinks={[
         { link: '/data' },
-        { link: `/data/state/${state.slug}`, title: state.name },
+        { link: `/data/state/${slug}`, title: state.name },
       ]}
       path={path}
     >
