@@ -33,6 +33,7 @@ const BarChart = ({
   yTicks,
   lastXTick,
   renderTooltipContents,
+  perCapLabel,
 }) => {
   const [tooltip, setTooltip] = useState(null)
   // Used for tooltip optimization
@@ -117,6 +118,8 @@ const BarChart = ({
                   >
                     <text className={chartStyles.label}>
                       {formatNumber(tick)}
+                      {tick > 0 &&
+                        perCapLabel /* this only displays if passed */}
                     </text>
                   </svg>
                   <line
@@ -292,19 +295,24 @@ BarChart.defaultProps = {
   yTicks: 4,
   showTicks: 4,
   renderTooltipContents: null,
+  perCapLabel: null,
 }
 
 BarChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
-      value: PropTypes.number.isRequired,
+      /* value isn't required: state's may have started reporting a value
+      _after_ the start date. (i.e. hospitalization values that have only
+      been reported for the past 5 days) */
     }),
   ).isRequired,
   lineData: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
-      value: PropTypes.number.isRequired,
+      /* value isn't required: state's may have started reporting a value
+      _after_ the start date. (i.e. hospitalization values that have only
+      been reported for the past 5 days) */
     }),
   ),
   refLineData: PropTypes.arrayOf(
@@ -315,7 +323,7 @@ BarChart.propTypes = {
   ),
   annotations: PropTypes.arrayOf(
     PropTypes.shape({
-      number: PropTypes.number.isRequired,
+      annotationSymbol: PropTypes.string.isRequired,
       date: PropTypes.instanceOf(Date).isRequired,
       value: PropTypes.number,
     }),
@@ -333,5 +341,6 @@ BarChart.propTypes = {
   yMax: PropTypes.number,
   yTicks: PropTypes.number,
   renderTooltipContents: PropTypes.func,
+  perCapLabel: PropTypes.string,
 }
 export default BarChart

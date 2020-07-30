@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import headerStyle from './header.module.scss'
+import subNavigationStyle from './sub-navigation.module.scss'
 
 export default ({ navigation }) => (
-  <div className={`site-header-tabs ${headerStyle.headerTabs}`}>
+  <div className={`site-header-tabs ${subNavigationStyle.headerTabs}`}>
     <div>
       <ul>
         {navigation.slice(navigation.length * -1 + 1).map(item => (

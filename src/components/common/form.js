@@ -1,5 +1,5 @@
 import React from 'react'
-// import classnames from 'classnames'
+import classnames from 'classnames'
 import formStyles from './form.module.scss'
 import DetailText from '~components/common/detail-text'
 
@@ -28,7 +28,7 @@ const FieldDetailText = ({ detailText }) => {
     return null
   }
   return (
-    <div className={formStyles.detailContainer}>
+    <div>
       <DetailText>{detailText}</DetailText>
     </div>
   )
@@ -58,6 +58,41 @@ const Textarea = ({
   </>
 )
 
+const InputDefinedLength = ({
+  label,
+  type,
+  id,
+  name,
+  isRequired,
+  detailText,
+  onChange,
+  maxLength,
+  className,
+}) => (
+  <div className={formStyles.inputDefinedLength}>
+    <div>
+      <FormLabel htmlFor={id} isRequired={isRequired}>
+        {label}
+      </FormLabel>
+      <input
+        name={name}
+        id={id}
+        type={type}
+        aria-required={isRequired}
+        onChange={onChange}
+        maxLength={maxLength}
+        className={classnames(
+          className,
+          detailText ? formStyles.inputDescription : null,
+        )}
+      />
+    </div>
+    <div className={formStyles.descriptionContainer}>
+      <FieldDetailText detailText={detailText} />
+    </div>
+  </div>
+)
+
 const Input = ({
   label,
   type,
@@ -80,9 +115,14 @@ const Input = ({
       aria-required={isRequired}
       onChange={onChange}
       maxLength={maxLength}
-      className={className}
+      className={classnames(
+        className,
+        detailText ? formStyles.inputDescription : null,
+      )}
     />
-    <FieldDetailText detailText={detailText} />
+    <div className={formStyles.descriptionContainer}>
+      <FieldDetailText detailText={detailText} />
+    </div>
   </>
 )
 
@@ -105,7 +145,10 @@ const Select = ({
       name={name}
       onChange={onChange}
       value={value}
-      className={formStyles.select}
+      className={classnames(
+        formStyles.select,
+        detailText ? formStyles.inputDescription : null,
+      )}
     >
       {options.map(item => (
         <option key={`${id}-${item}`} value={item}>
@@ -113,7 +156,9 @@ const Select = ({
         </option>
       ))}
     </select>
-    <FieldDetailText detailText={detailText} />
+    <div className={formStyles.descriptionContainer}>
+      <FieldDetailText detailText={detailText} />
+    </div>
   </>
 )
 
@@ -123,7 +168,12 @@ const List = ({ type, name, options, label, isRequired, detailText }) => (
       <FormLabel isRequired={isRequired}>
         <legend>{label}</legend>
       </FormLabel>
-      <div className={formStyles.fieldsetOptions}>
+      <div
+        className={classnames(
+          formStyles.fieldsetOptions,
+          detailText ? formStyles.inputDescription : null,
+        )}
+      >
         {options &&
           options.map(item => (
             <label
@@ -141,9 +191,11 @@ const List = ({ type, name, options, label, isRequired, detailText }) => (
             </label>
           ))}
       </div>
-      <FieldDetailText detailText={detailText} />
+      <div className={formStyles.descriptionContainer}>
+        <FieldDetailText detailText={detailText} />
+      </div>
     </fieldset>
   </>
 )
 
-export { Form, FormLabel, Textarea, Select, Input, List }
+export { Form, FormLabel, Textarea, Select, Input, List, InputDefinedLength }

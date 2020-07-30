@@ -29,6 +29,7 @@ export default ({ blogPost }) => {
           nodes {
             slug
             publishDate(formatString: "MMMM D, YYYY")
+            updateDateTime
             authors {
               name
               twitterLink
@@ -75,7 +76,11 @@ export default ({ blogPost }) => {
             <Link to={`/blog/${post.slug}`}>{post.title}</Link>
           </h3>
           <p className={RelatedPostsStyles.lede}>{post.lede.lede}</p>
-          <Byline authors={post.authors} date={post.publishDate} />
+          <Byline
+            authors={post.authors}
+            published={post.publishDate}
+            updated={post.updateDateTime}
+          />
         </div>
       ))}
     </div>

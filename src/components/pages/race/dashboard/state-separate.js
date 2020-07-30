@@ -3,10 +3,11 @@ import classnames from 'classnames'
 import HeaderSorter from './header-sorter'
 import TableNotes from './table-notes'
 import PercentageOverview from './percentage-overview'
-import TableTitle from './table-title'
 import anhpiNotes from './anhpi-notes'
+import cautionNotes from './caution-notes'
 import NoData from './no-data'
-import { RaceTable, EthnicityTable } from './breakdown-tables'
+import RaceTable from './race-table'
+import EthnicityTable from './ethnicity-table'
 import stateStyle from './state.module.scss'
 
 export default ({ state }) => {
@@ -38,12 +39,13 @@ export default ({ state }) => {
   }
 
   raceNotes = anhpiNotes(stateData, raceNotes)
+  raceNotes = cautionNotes(stateData, raceNotes)
 
   const groupedRaceNotes = [...new Set(Object.values(raceNotes))]
     .filter(value => value && value)
     .reverse()
 
-  const ethnicityNotes = {
+  let ethnicityNotes = {
     nonhispanicPos: stateData.nonhispanicPosNotes,
     nonhispanicDeath: stateData.nonhispanicDeathNotes,
     latinXPos: stateData.latinXPosNotes,
@@ -52,6 +54,8 @@ export default ({ state }) => {
     nonhispanicSpecialCase: stateData.nonhispanicSpecialCaseNotes,
   }
 
+  ethnicityNotes = cautionNotes(stateData, ethnicityNotes)
+
   const groupedEthnicityNotes = [...new Set(Object.values(ethnicityNotes))]
     .filter(value => value && value)
     .reverse()
@@ -59,6 +63,11 @@ export default ({ state }) => {
   if (!stateData.anyPosData && !stateData.anyDeathData) {
     return <NoData stateName={stateData.name} />
   }
+
+  const disparityExists =
+    Object.keys(stateData).filter(
+      field => field.search('DispFlag') > -1 && stateData[field],
+    ).length > 0
 
   return (
     <div>
@@ -75,10 +84,7 @@ export default ({ state }) => {
           <HeaderSorter stateName={state.name} stateReports="race" />
         </div>
       </div>
-      <TableTitle
-        titleText="Cases and deaths by race"
-        state={stateData.state}
-      />
+      <h3 className={stateStyle.tableTitle}>Cases and deaths by race</h3>
       <RaceTable
         data={stateData}
         type="Race"
@@ -93,6 +99,7 @@ export default ({ state }) => {
         stateName={stateData.name}
         type="race"
         groupedNotes={groupedRaceNotes}
+        disparityExists={disparityExists}
       />
       <>
         <div
@@ -115,10 +122,9 @@ export default ({ state }) => {
         </div>
         {(stateData.posEthData || stateData.deathEthData) && (
           <>
-            <TableTitle
-              titleText="Cases and deaths by ethnicity"
-              state={stateData.state}
-            />
+            <h3 className={stateStyle.tableTitle}>
+              Cases and deaths by ethnicity
+            </h3>
             <EthnicityTable
               data={stateData}
               type="Ethnicity"
@@ -132,6 +138,7 @@ export default ({ state }) => {
               stateName={stateData.name}
               type="ethnicity"
               groupedNotes={groupedEthnicityNotes}
+              disparityExists={disparityExists}
             />
           </>
         )}

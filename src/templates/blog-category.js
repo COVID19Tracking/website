@@ -11,6 +11,7 @@ export default ({ data, path }) => (
     title={`Blog: ${data.contentfulBlogCategory.name}`}
     returnLinks={[{ link: '/blog', title: 'All Posts' }]}
     path={path}
+    centerTitle
   >
     <Container className={blogStyles.container}>
       <BlogCategoriesList />

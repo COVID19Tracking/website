@@ -6,7 +6,6 @@ import classnames from 'classnames'
 import { useSearch } from '~context/search-context'
 
 import DevelopmentWarning from './development-warning'
-import PartnershipBanner from './partnership-banner'
 import HeaderNavigation from './navigation'
 import Container from '~components/common/container'
 import withSearch from '~components/utils/with-search'
@@ -14,6 +13,7 @@ import withSearch from '~components/utils/with-search'
 import colors from '~scss/colors.module.scss'
 import breakpoints from '~scss/breakpoints.module.scss'
 import headerStyle from './header.module.scss'
+import mobileMenuStyle from './mobile-menu.module.scss'
 
 import projectLogo from '~images/project-logo.svg'
 import atlanticLogo from '~images/atlantic-logo.svg'
@@ -21,7 +21,7 @@ import atlanticLogo from '~images/atlantic-logo.svg'
 import MobileMenu from './mobile-menu'
 import HeaderSubNavigation from './sub-navigation'
 import ReturnLinks from './return-links'
-import HeaderSearch from './search'
+import Tools from './tools'
 
 const expandStyles = {
   open: { background: colors.colorPlum800 },
@@ -163,14 +163,6 @@ const Header = withSearch(
                 subNavigation={subNavigation}
               />
             </Expand>
-            <Expand
-              open={!showMobileMenu}
-              styles={expandStyles}
-              duration={500}
-              transitions={['height', 'opacity', 'background']}
-            >
-              {!showMobileMenu && <PartnershipBanner />}
-            </Expand>
             <div className={headerStyle.wrapper}>
               <div className={headerStyle.siteTitleContainer}>
                 <div className={headerStyle.siteTitleInner}>
@@ -185,7 +177,7 @@ const Header = withSearch(
                 {(showMobileMenu || !autocompleteHasFocus) && (
                   <div className={headerStyle.navContainer}>
                     <button
-                      className={headerStyle.mobileToggle}
+                      className={mobileMenuStyle.mobileToggle}
                       type="button"
                       aria-expanded={showMobileMenu}
                       onClick={() => {
@@ -200,17 +192,7 @@ const Header = withSearch(
                     />
                   </div>
                 )}
-                <div className={headerStyle.tools}>
-                  <div className={headerStyle.searchContainer}>
-                    <HeaderSearch />
-                  </div>
-                  <Link
-                    to="/contact/volunteer"
-                    className={headerStyle.getInvolved}
-                  >
-                    Get involved
-                  </Link>
-                </div>
+                <Tools />
               </div>
               <div className={headerStyle.atlanticBanner}>
                 <span>At</span> <img src={atlanticLogo} alt="The Atlantic" />

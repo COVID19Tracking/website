@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Tooltip from '~components/common/tooltip'
 import { Table, Th, Td } from '~components/common/table'
 import Percent from './percent'
-import { Notes, CautionSymbol, DisparitySymbol } from './table-symbols'
+import { Notes, DisparitySymbol, TooltipContent } from './table-symbols'
+import tooltipDisparityIcon from '~images/tooltip-disparity-icon.svg'
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import stateTableStyle from './table.module.scss'
 
@@ -45,6 +47,32 @@ const StateTableHeader = ({ groupTitle, noDeaths, noPositives }) => (
   </thead>
 )
 
+const StateCellPercent = ({ number, disparity, note, noteIndex }) => {
+  const value = <Percent number={number} highlight={disparity || note} />
+  if (disparity) {
+    return (
+      <Tooltip
+        label={
+          <>
+            <img src={tooltipDisparityIcon} alt="" /> Racial/ethnic disparity
+            likely.
+          </>
+        }
+      >
+        <span>{value}</span>
+      </Tooltip>
+    )
+  }
+  if (note) {
+    return (
+      <Tooltip label={<TooltipContent title={note} index={noteIndex} />}>
+        <span>{value}</span>
+      </Tooltip>
+    )
+  }
+  return value
+}
+
 const StateTableDataCell = ({
   index,
   rowCount,
@@ -71,15 +99,22 @@ const StateTableDataCell = ({
   return (
     <Td>
       <>
-        <Percent number={cellData.value} />
-        <Notes
-          index={cellData.note.index + 1}
-          title={cellData.note.value}
-          linkTo={`notes-${stateAbbr.toLowerCase()}`}
+        <StateCellPercent
+          number={cellData.value}
+          disparity={cellData.disparity}
+          note={cellData.note.value}
+          noteIndex={cellData.note.index + 1}
         />
+
         <div className={stateTableStyle.symbolSpacer}>
-          {cellData.caution && <CautionSymbol />}
-          {cellData.disparity && <DisparitySymbol />}
+          <Notes
+            index={cellData.note.index + 1}
+            title={cellData.note.value}
+            linkTo={`notes-${stateAbbr.toLowerCase()}`}
+          />
+          {cellData.disparity && (
+            <DisparitySymbol linkTo={`notes-${stateAbbr.toLowerCase()}`} />
+          )}
         </div>
       </>
     </Td>

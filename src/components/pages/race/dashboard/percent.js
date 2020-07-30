@@ -1,11 +1,21 @@
 import React from 'react'
+import percentStyles from './percent.module.scss'
 
-export default ({ number }) => {
+export default ({ number, highlight }) => {
   if (number !== null) {
-    if (Math.round(number * 100) === 0) {
-      return '0%'
+    let percentage = '0'
+    if (Math.round(number * 100) > 0) {
+      percentage = number * 100 > 1 ? Math.round(number * 100) : '<1'
     }
-    return <>{number * 100 > 1 ? Math.round(number * 100) : '<1'}%</>
+    return (
+      <>
+        {highlight ? (
+          <span className={percentStyles.highlight}>{percentage}%</span>
+        ) : (
+          <>{percentage}%</>
+        )}
+      </>
+    )
   }
   return <>–</>
 }

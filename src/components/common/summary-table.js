@@ -8,40 +8,38 @@ import Timezone from './timezone'
 const renderColumnHeaders = columnData =>
   columnData.map(group => {
     if (group.isHidden) return null
-    return group.columns.map((column, i) => (
-      <>
-        {column.isHidden ? null : (
-          <Th
-            key={`${group.header}-${column.header}-th`}
-            header={group.header}
-            isFirst={i === 0}
-            alignLeft
-            columnWidth={group.columns.length}
-            wide={column.wide ? column.wide : false}
-          >
-            {column.header}
-          </Th>
-        )}
-      </>
-    ))
+    return group.columns.map((column, i) => {
+      if (column.isHidden) return <></>
+      return (
+        <Th
+          key={`${group.header}-${column.header}-th`}
+          header={group.header}
+          isFirst={i === 0}
+          alignLeft
+          columnWidth={group.columns.length}
+          wide={column.wide ? column.wide : false}
+        >
+          {column.header}
+        </Th>
+      )
+    })
   })
 
 const renderColumns = columnData =>
   columnData.map(group => {
     if (group.isHidden) return null
-    return group.columns.map((column, i) => (
-      <>
-        {column.isHidden ? null : (
-          <Td
-            key={`${group.header}-${column.header}-td`}
-            isFirst={i === 0}
-            alignLeft
-          >
-            <FormatNumber number={column.data} />
-          </Td>
-        )}
-      </>
-    ))
+    return group.columns.map((column, i) => {
+      if (column.isHidden) return <></>
+      return (
+        <Td
+          key={`${group.header}-${column.header}-td`}
+          isFirst={i === 0}
+          alignLeft
+        >
+          <FormatNumber number={column.data} />
+        </Td>
+      )
+    })
   })
 
 export default ({

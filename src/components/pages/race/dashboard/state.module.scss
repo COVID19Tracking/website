@@ -18,3 +18,8 @@
 .ethnicity-overview {
   margin-top: spacer(64);
 }
+
+.table-title {
+  @include margin(32, top);
+  @include margin(16, bottom);
+}

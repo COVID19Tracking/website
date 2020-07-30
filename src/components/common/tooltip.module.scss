@@ -1,0 +1,14 @@
+.tooltip {
+  color: white;
+  background: $color-slate-800;
+  max-width: 300px;
+  @include padding(8);
+  @include type-size(100);
+  border-radius: spacer(4);
+  z-index: 1;
+  pointer-events: none;
+  position: absolute;
+  img {
+    @include margin(8, right);
+  }
+}
