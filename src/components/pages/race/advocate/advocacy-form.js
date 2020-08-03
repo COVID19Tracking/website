@@ -7,8 +7,11 @@ import {
   Placeholder,
 } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
+
 import Deactivated from './form-deactivated'
 import StateScript from './state-script'
+import StateContact from './state-contact'
+
 import advocacyFormStyles from './advocacy-form.module.scss'
 
 export default ({ states, stateScripts }) => {
@@ -47,7 +50,10 @@ export default ({ states, stateScripts }) => {
             governor.
           </p>
           {state !== noStateString ? (
-            <StateScript currentState={state} stateScripts={stateScripts} />
+            <>
+              <StateScript currentState={state} stateScripts={stateScripts} />
+              <StateContact currentState={state} />
+            </>
           ) : (
             <Deactivated>
               <p>
