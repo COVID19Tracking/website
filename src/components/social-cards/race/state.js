@@ -282,7 +282,7 @@ export default () => {
           }
           renderOptions={{
             width: 1200,
-            height: 600,
+            height: 800,
             relativePath: 'race-dashboard',
             filename: `${slug(state.stateName)}`,
           }}

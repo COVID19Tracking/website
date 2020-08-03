@@ -2,15 +2,16 @@
   position: relative;
   @include padding(24);
   width: 1200px;
-  height: 600px;
+  height: 800px;
   border: 3px solid $color-slate-800;
   > * {
     position: absolute;
   }
+  font-family: 'Arial, sans-serif';
 }
 
 .logo {
-  width: 200px;
+  width: 150px;
   right: 20px;
   bottom: 20px;
   opacity: 0.3;
@@ -19,19 +20,19 @@
 .header {
   @include type-size(500);
   width: 800px;
-  left: 200px;
+  left: 250px;
   margin: 0;
 }
 
 .percent {
   width: 800px;
-  left: 200px;
+  left: 250px;
   bottom: 20px;
   color: $color-slate-700;
 }
 
 .labels {
-  width: 180px;
+  width: 230px;
   left: 0;
   top: 190px;
   @include type-size(400);
@@ -56,13 +57,13 @@
 .case-bars {
   width: 300px;
   top: 150px;
-  left: 200px;
+  left: 250px;
 }
 
 .death-bars {
   width: 300px;
   top: 150px;
-  left: 600px;
+  left: 650px;
 }
 
 .bar {
