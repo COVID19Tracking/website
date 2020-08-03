@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import slugify from 'slugify'
 import smartypants from 'smartypants'
 import StateSeparate from './state-separate'
@@ -353,6 +353,12 @@ export default () => {
         .sort((a, b) => (a.name > b.name ? 1 : -1))
         .map(state => (
           <div className={statesStyle.state}>
+            <Link
+              className={statesStyle.shareLink}
+              to={`/race/social-cards#${state.state}`}
+            >
+              Share this <span aria-hidden>→</span>
+            </Link>
             <h2
               id={`state-${slugify(state.state).toLowerCase()}`}
               className={statesStyle.header}

@@ -1,0 +1,8 @@
+.preview {
+  @include margin(32, top bottom);
+}
+.copy {
+  font-family: monospace;
+  background: $color-slate-200;
+  @include padding(16);
+}

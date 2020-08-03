@@ -1,26 +1,14 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import classnames from 'classnames'
-// import { renderedComponent } from '~plugins/gatsby-render-components'
+import { renderedComponent } from '~plugins/gatsby-render-components'
 import slug from '~utilities/slug'
 import Percent from '~components/pages/race/dashboard/percent'
 import { stringifyList } from '~utilities/list-formatter'
 import logo from '~images/project-logo-black.svg'
 import socialCardStyle from './state.module.scss'
 
-/* 
-const State = renderedComponent(({ state }) => (
-  <div className={socialCardStyle.container}>
-    In {state.stateName}, confirmed COVID-19 cases among Black people are{' '}
-    <strong>
-      {Math.round((state.blackPctPos / state.whitePctPos) * 10) / 10} times
-    </strong>{' '}
-    the rate of white people.
-  </div>
-))
-*/
-
-const State = ({ state, population }) => {
+const State = renderedComponent(({ state, population }) => {
   const getField = (field, type) => {
     if (field === 'all') {
       return null
@@ -102,12 +90,19 @@ const State = ({ state, population }) => {
   const largestDeaths = Math.max(...groups.map(group => group.deaths))
 
   groups.forEach(group => {
-    if (group.all) {
+    if (group.all || (!group.cases && !group.deaths)) {
       return
     }
     if (group.cases > all.cases && group.deaths > all.deaths) {
       affectedGroups.push(group.label)
     }
+  })
+
+  groups.sort((a, b) => {
+    if (a.cases >= b.cases) {
+      return -1
+    }
+    return 1
   })
 
   const getWidth = (number, max) =>
@@ -177,7 +172,7 @@ const State = ({ state, population }) => {
       <img src={logo} alt="" className={socialCardStyle.logo} />
     </div>
   )
-}
+})
 
 export default () => {
   const data = useStaticQuery(graphql`
