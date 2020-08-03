@@ -21,7 +21,10 @@ export default ({ data }) => {
           }}
         />
         <h2>Instructions</h2>
-        <AdvocacyForm states={states} />
+        <AdvocacyForm
+          states={states}
+          stateScripts={data.allContentfulCrdtAdvocacyState.nodes}
+        />
       </Container>
     </Layout>
   )

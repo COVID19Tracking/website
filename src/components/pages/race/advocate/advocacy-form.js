@@ -8,9 +8,10 @@ import {
 } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
 import Deactivated from './form-deactivated'
+import StateScript from './state-script'
 import advocacyFormStyles from './advocacy-form.module.scss'
 
-export default ({ states }) => {
+export default ({ states, stateScripts }) => {
   const noStateString = '-- Select a state --'
 
   const [state, setState] = useState(noStateString)
@@ -45,12 +46,16 @@ export default ({ states }) => {
             Use the contact information below to send a message to your
             governor.
           </p>
-          <Deactivated>
-            <p>
-              Please select a state or territory from the list above to get
-              contact information.
-            </p>
-          </Deactivated>
+          {state !== noStateString ? (
+            <StateScript currentState={state} stateScripts={stateScripts} />
+          ) : (
+            <Deactivated>
+              <p>
+                Please select a state or territory from the list above to get
+                contact information.
+              </p>
+            </Deactivated>
+          )}
         </li>
 
         <li>

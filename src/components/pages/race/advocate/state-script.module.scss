@@ -1,0 +1,13 @@
+.container {
+  background-color: $color-infobox-sync-light;
+  @include padding(16);
+  border-radius: 4px;
+
+  h5 {
+    @include margin(0, (top, bottom));
+  }
+
+  div:last-child {
+    @include margin(0, bottom);
+  }
+}
