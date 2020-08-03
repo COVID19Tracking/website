@@ -1,0 +1,19 @@
+.sticky-image {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  height: 40vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: -10;
+}
+
+.step-inner {
+  height: 50vh;
+  padding: 100px 20px;
+  .text {
+    width: fit-content;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}
