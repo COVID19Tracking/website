@@ -6,6 +6,8 @@ import AdvocacyForm from '~components/pages/race/advocate/advocacy-form'
 
 export default ({ data }) => {
   const states = data.allCovidStateInfo.nodes.map(state => state.name)
+  states.unshift('-- Select a state --')
+
   return (
     <Layout
       title="Help Us Get Better Race and Ethnicity Data"

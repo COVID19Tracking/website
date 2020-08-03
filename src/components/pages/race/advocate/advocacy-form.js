@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Form,
   Input,
@@ -11,7 +11,10 @@ import Deactivated from './form-deactivated'
 import advocacyFormStyles from './advocacy-form.module.scss'
 
 export default ({ states }) => {
-  states.unshift('-- Select a state --')
+  const noStateString = '-- Select a state --'
+
+  const [state, setState] = useState(noStateString)
+
   return (
     <ol className={advocacyFormStyles.container}>
       <li>
@@ -27,6 +30,7 @@ export default ({ states }) => {
             id="state"
             options={states}
             isRequired
+            onChange={e => setState(e.target.value)}
           />
         </Form>
       </li>
@@ -89,9 +93,13 @@ export default ({ states }) => {
             </Col>
             <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]}>
               <Placeholder label="State" isRequired>
-                <Deactivated isPlaceholder>
-                  <p>No state selected</p>
-                </Deactivated>
+                {state !== noStateString ? (
+                  <p className={advocacyFormStyles.currentState}>{state}</p>
+                ) : (
+                  <Deactivated isPlaceholder>
+                    <p>No state selected</p>
+                  </Deactivated>
+                )}
               </Placeholder>
             </Col>
           </Row>
