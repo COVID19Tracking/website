@@ -12,6 +12,11 @@ export default () => {
     >
       <input type="hidden" name="form-name" value="crdt-advocacy" />
 
+      <p>
+        1. Find your governor’s contact information by selecting your state or
+        territory below.
+      </p>
+
       <Select
         label="Which state do you want to get better race and ethnicity data for?"
         name="state"
@@ -26,6 +31,14 @@ export default () => {
         ]}
         isRequired
       />
+
+      <p>
+        2. Use the contact information below to send a message to your governor.
+      </p>
+      <p>
+        3. When you’re done, use the form below to tell us how it went and what
+        response you received.
+      </p>
 
       <Input
         label="First name"
