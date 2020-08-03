@@ -1,0 +1,9 @@
+.container {
+  li {
+    @include margin(32, bottom);
+
+    p.section-label {
+      @include margin(16, bottom);
+    }
+  }
+}
