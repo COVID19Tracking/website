@@ -4,6 +4,7 @@
   width: 1200px;
   height: 800px;
   border: 3px solid $color-slate-800;
+  background: white;
   > * {
     position: absolute;
   }
@@ -25,7 +26,7 @@
 }
 
 .percent {
-  width: 800px;
+  width: 700px;
   left: 250px;
   bottom: 20px;
   color: $color-slate-700;
@@ -34,7 +35,7 @@
 .labels {
   width: 230px;
   left: 0;
-  top: 190px;
+  top: 230px;
   @include type-size(400);
   ul {
     margin: 0;
@@ -56,13 +57,13 @@
 
 .case-bars {
   width: 300px;
-  top: 150px;
+  top: 200px;
   left: 250px;
 }
 
 .death-bars {
   width: 300px;
-  top: 150px;
+  top: 200px;
   left: 650px;
 }
 
