@@ -43,6 +43,8 @@ export default () => {
     }
   }, [])
 
+  states.sort((a, b) => (a.stateName > b.stateName ? 1 : -1))
+
   return (
     <Form>
       <Select
