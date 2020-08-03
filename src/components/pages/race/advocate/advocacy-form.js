@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, Input, Select, Textarea } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
+import Deactivated from './form-deactivated'
 
 export default () => {
   return (
@@ -36,6 +37,14 @@ export default () => {
       <p>
         2. Use the contact information below to send a message to your governor.
       </p>
+
+      <Deactivated>
+        <p>
+          Please select a state or territory from the list above to get contact
+          information.
+        </p>
+      </Deactivated>
+
       <p>
         3. When you’re done, use the form below to tell us how it went and what
         response you received.

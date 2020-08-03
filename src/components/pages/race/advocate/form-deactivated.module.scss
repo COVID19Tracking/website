@@ -1,0 +1,10 @@
+.container {
+  color: $color-slate-700;
+  background-color: $color-slate-100;
+  @include padding(8);
+  font-style: italic;
+
+  p {
+    @include margin(0);
+  }
+}
