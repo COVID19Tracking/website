@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Input, Select, Textarea } from '~components/common/form'
+import { Row, Col } from '~components/common/grid'
 
 export default () => {
   return (
@@ -40,29 +41,41 @@ export default () => {
         response you received.
       </p>
 
-      <Input
-        label="First name"
-        type="text"
-        name="first-name"
-        id="first-name"
-        isRequired
-      />
+      <Row>
+        <Col width={[4, 6, 6]}>
+          <Input
+            label="First name"
+            type="text"
+            name="first-name"
+            id="first-name"
+            isRequired
+          />
+        </Col>
+        <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]}>
+          <Input
+            label="Last name"
+            type="text"
+            name="last-name"
+            id="last-name"
+            isRequired
+          />
+        </Col>
+      </Row>
 
-      <Input
-        label="Last name"
-        type="text"
-        name="last-name"
-        id="last-name"
-        isRequired
-      />
-
-      <Input
-        label="Email address"
-        type="email"
-        name="email"
-        id="email"
-        isRequired
-      />
+      <Row>
+        <Col width={[4, 6, 6]}>
+          <Input
+            label="Email address"
+            type="email"
+            name="email"
+            id="email"
+            isRequired
+          />
+        </Col>
+        <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]}>
+          <Input label="State (pulls from above)" type="text" />
+        </Col>
+      </Row>
 
       <Select
         label="Contact method used"
