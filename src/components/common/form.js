@@ -198,4 +198,20 @@ const List = ({ type, name, options, label, isRequired, detailText }) => (
   </>
 )
 
-export { Form, FormLabel, Textarea, Select, Input, List, InputDefinedLength }
+const Placeholder = ({ label, isRequired, children }) => (
+  <>
+    <FormLabel isRequired={isRequired}>{label}</FormLabel>
+    {children}
+  </>
+)
+
+export {
+  Form,
+  FormLabel,
+  Textarea,
+  Select,
+  Input,
+  List,
+  InputDefinedLength,
+  Placeholder,
+}
