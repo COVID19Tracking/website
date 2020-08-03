@@ -281,8 +281,8 @@ export default () => {
             ).childPopulation.population
           }
           renderOptions={{
-            width: 500,
-            height: 400,
+            width: 1200,
+            height: 600,
             relativePath: 'race-dashboard',
             filename: `${slug(state.stateName)}`,
           }}
