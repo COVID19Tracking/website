@@ -10,5 +10,8 @@
 
 .current-state {
   font-weight: bold;
-  @include type-size(300);
+  color: $color-slate-700;
+  background-color: $color-slate-200;
+  border-radius: 4px;
+  padding: 1rem;
 }
