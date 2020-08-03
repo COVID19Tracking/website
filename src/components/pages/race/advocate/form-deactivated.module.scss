@@ -3,8 +3,18 @@
   background-color: $color-slate-100;
   @include padding(8);
   font-style: italic;
+  border-radius: 4px;
 
   p {
     @include margin(0);
   }
+
+  &.placeholder {
+    @include margin(4, top);
+    @include padding(16, (top, bottom));
+  }
+}
+
+div.container {
+  @include margin(32, (top, bottom));
 }
