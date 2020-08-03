@@ -16,14 +16,20 @@ export default ({ states }) => {
   const [state, setState] = useState(noStateString)
 
   return (
-    <ol className={advocacyFormStyles.container}>
-      <li>
-        <p className={advocacyFormStyles.sectionLabel}>
-          {' '}
-          Find your governor’s contact information by selecting your state or
-          territory below.
-        </p>
-        <Form>
+    <Form
+      method="POST"
+      name="crdt-advocacy"
+      action="/todo/set-this-value"
+      netlify-honeypot="covid-bot-field"
+      data-netlify="true"
+    >
+      <ol className={advocacyFormStyles.container}>
+        <li>
+          <p className={advocacyFormStyles.sectionLabel}>
+            {' '}
+            Find your governor’s contact information by selecting your state or
+            territory below.
+          </p>
           <Select
             label="Which state do you want to get better race and ethnicity data for?"
             name="state"
@@ -32,33 +38,27 @@ export default ({ states }) => {
             isRequired
             onChange={e => setState(e.target.value)}
           />
-        </Form>
-      </li>
+        </li>
 
-      <li>
-        <p className={advocacyFormStyles.sectionLabel}>
-          Use the contact information below to send a message to your governor.
-        </p>
-        <Deactivated>
-          <p>
-            Please select a state or territory from the list above to get
-            contact information.
+        <li>
+          <p className={advocacyFormStyles.sectionLabel}>
+            Use the contact information below to send a message to your
+            governor.
           </p>
-        </Deactivated>
-      </li>
+          <Deactivated>
+            <p>
+              Please select a state or territory from the list above to get
+              contact information.
+            </p>
+          </Deactivated>
+        </li>
 
-      <li>
-        <p className={advocacyFormStyles.sectionLabel}>
-          When you’re done, use the form below to tell us how it went and what
-          response you received.
-        </p>
-        <Form
-          method="POST"
-          name="crdt-advocacy"
-          action="/todo/set-this-value"
-          netlify-honeypot="covid-bot-field"
-          data-netlify="true"
-        >
+        <li>
+          <p className={advocacyFormStyles.sectionLabel}>
+            When you’re done, use the form below to tell us how it went and what
+            response you received.
+          </p>
+
           <input type="hidden" name="form-name" value="crdt-advocacy" />
           <Row>
             <Col width={[4, 6, 6]}>
@@ -133,8 +133,8 @@ export default ({ states }) => {
           </div>
 
           <button type="submit">Submit</button>
-        </Form>
-      </li>
-    </ol>
+        </li>
+      </ol>
+    </Form>
   )
 }
