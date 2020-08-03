@@ -10,7 +10,8 @@ import { Row, Col } from '~components/common/grid'
 import Deactivated from './form-deactivated'
 import advocacyFormStyles from './advocacy-form.module.scss'
 
-export default () => {
+export default ({ states }) => {
+  states.unshift('-- Select a state --')
   return (
     <ol className={advocacyFormStyles.container}>
       <li>
@@ -24,14 +25,7 @@ export default () => {
             label="Which state do you want to get better race and ethnicity data for?"
             name="state"
             id="state"
-            options={[
-              '-- Select a state --',
-              'todo',
-              'pull',
-              'from API',
-              'in the ',
-              'future',
-            ]}
+            options={states}
             isRequired
           />
         </Form>
