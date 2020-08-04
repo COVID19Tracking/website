@@ -22,8 +22,8 @@ export default ({ states, stateScripts, governors }) => {
   return (
     <Form
       method="POST"
-      name="crdt-advocacy"
-      action="/todo/set-this-value"
+      name="crdt-get-better-data"
+      action="/race/get-better-data/success"
       netlify-honeypot="covid-bot-field"
       data-netlify="true"
     >
