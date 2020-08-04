@@ -14,10 +14,12 @@ export default ({ currentState, governors }) => {
   return (
     <div className={stateContactStyle.container}>
       <ul className={stateContactStyle.contactMethods}>
-        <li>
-          <span className={stateContactStyle.label}>Phone:</span>{' '}
-          <a href={`tel:${phoneNumber}`}>{currentGovernor.phone}</a>
-        </li>
+        {currentGovernor.phone && (
+          <li>
+            <span className={stateContactStyle.label}>Phone:</span>{' '}
+            <a href={`tel:${phoneNumber}`}>{currentGovernor.phone}</a>
+          </li>
+        )}
         {currentGovernor.contact_page && (
           <li>
             <span className={stateContactStyle.label}>Website:</span>{' '}
@@ -32,21 +34,27 @@ export default ({ currentState, governors }) => {
         )}
         <li>
           <span className={stateContactStyle.label}>Social media:</span>{' '}
-          <a
-            href={currentGovernor.facebook_url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Facebook
-          </a>
-          ,{' '}
-          <a
-            href={currentGovernor.twitter_url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Twitter
-          </a>
+          {currentGovernor.facebook_url && (
+            <>
+              <a
+                href={currentGovernor.facebook_url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Facebook
+              </a>
+              ,{' '}
+            </>
+          )}
+          {currentGovernor.twitter_url && (
+            <a
+              href={currentGovernor.twitter_url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Twitter
+            </a>
+          )}
         </li>
       </ul>
       <DetailText className={stateContactStyle.detail}>
