@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
-import Container from '~components/common/container'
 import AdvocacyForm from '~components/pages/race/get-better-data/advocacy-form'
 
 export default ({ data }) => {
@@ -13,20 +12,20 @@ export default ({ data }) => {
       title="Help Us Get Better Race and Ethnicity Data"
       returnLink="/race"
       path="/race/get-better-data"
+      narrow
+      centered
     >
-      <Container narrow centered>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: data.contentfulSnippet.content.childMarkdownRemark.html,
-          }}
-        />
-        <h2>Instructions</h2>
-        <AdvocacyForm
-          states={states}
-          stateScripts={data.allContentfulCrdtAdvocacyState.nodes}
-          governors={data.allCivilServiceGovernor.nodes}
-        />
-      </Container>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: data.contentfulSnippet.content.childMarkdownRemark.html,
+        }}
+      />
+      <h2>Instructions</h2>
+      <AdvocacyForm
+        states={states}
+        stateScripts={data.allContentfulCrdtAdvocacyState.nodes}
+        governors={data.allCivilServiceGovernor.nodes}
+      />
     </Layout>
   )
 }
