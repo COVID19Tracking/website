@@ -160,6 +160,13 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './src/data/territories.json',
+        type: 'territoryInfo',
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
