@@ -70,7 +70,7 @@ export default ({ states, stateScripts, governors }) => {
             response you received.
           </p>
 
-          <input type="hidden" name="form-name" value="crdt-advocacy" />
+          <input type="hidden" name="form-name" value="crdt-get-better-data" />
           <Row>
             <Col width={[4, 6, 6]}>
               <Input
