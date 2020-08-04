@@ -15,24 +15,19 @@ export default ({ currentState, governors }) => {
     <div className={stateContactStyle.container}>
       <ul className={stateContactStyle.contactMethods}>
         <li>
+          <span className={stateContactStyle.label}>Phone:</span>{' '}
+          <a href={`tel:${phoneNumber}`}>{currentGovernor.phone}</a>
+        </li>
+        <li>
           <span className={stateContactStyle.label}>Website:</span>{' '}
           <a href={currentGovernor.contact_page}>
             {currentGovernor.contact_page}
           </a>
         </li>
         <li>
-          <span className={stateContactStyle.label}>Facebook:</span>{' '}
-          <a href={currentGovernor.facebook_url}>Facebook</a>
-        </li>
-        <li>
-          <span className={stateContactStyle.label}>Twitter:</span>{' '}
-          <a href={currentGovernor.twitter_url}>
-            @{currentGovernor.twitter_handle}
-          </a>
-        </li>
-        <li>
-          <span className={stateContactStyle.label}>Phone:</span>{' '}
-          <a href={`tel:${phoneNumber}`}>{currentGovernor.phone}</a>
+          <span className={stateContactStyle.label}>Social media:</span>{' '}
+          <a href={currentGovernor.facebook_url}>Facebook</a>,{' '}
+          <a href={currentGovernor.twitter_url}>Twitter</a>
         </li>
       </ul>
       <DetailText className={stateContactStyle.detail}>
