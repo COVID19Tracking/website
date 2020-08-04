@@ -121,9 +121,10 @@ export default ({ states, stateScripts, governors }) => {
             id="contact-method"
             options={[
               '-- Select a contact method --',
-              'Email',
               'Phone',
-              "Form on state's website",
+              'Website form',
+              'Facebook',
+              'Twitter',
               'Other',
             ]}
           />
