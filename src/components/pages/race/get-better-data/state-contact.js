@@ -18,12 +18,14 @@ export default ({ currentState, governors }) => {
           <span className={stateContactStyle.label}>Phone:</span>{' '}
           <a href={`tel:${phoneNumber}`}>{currentGovernor.phone}</a>
         </li>
-        <li>
-          <span className={stateContactStyle.label}>Website:</span>{' '}
-          <a href={currentGovernor.contact_page}>
-            {currentGovernor.contact_page}
-          </a>
-        </li>
+        {currentGovernor.contact_page && (
+          <li>
+            <span className={stateContactStyle.label}>Website:</span>{' '}
+            <a href={currentGovernor.contact_page}>
+              {currentGovernor.contact_page}
+            </a>
+          </li>
+        )}
         <li>
           <span className={stateContactStyle.label}>Social media:</span>{' '}
           <a href={currentGovernor.facebook_url}>Facebook</a>,{' '}
