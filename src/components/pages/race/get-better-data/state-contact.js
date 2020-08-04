@@ -21,15 +21,32 @@ export default ({ currentState, governors }) => {
         {currentGovernor.contact_page && (
           <li>
             <span className={stateContactStyle.label}>Website:</span>{' '}
-            <a href={currentGovernor.contact_page}>
+            <a
+              href={currentGovernor.contact_page}
+              target="_blank"
+              rel="noreferrer"
+            >
               {currentGovernor.contact_page}
             </a>
           </li>
         )}
         <li>
           <span className={stateContactStyle.label}>Social media:</span>{' '}
-          <a href={currentGovernor.facebook_url}>Facebook</a>,{' '}
-          <a href={currentGovernor.twitter_url}>Twitter</a>
+          <a
+            href={currentGovernor.facebook_url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Facebook
+          </a>
+          ,{' '}
+          <a
+            href={currentGovernor.twitter_url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Twitter
+          </a>
         </li>
       </ul>
       <DetailText className={stateContactStyle.detail}>
