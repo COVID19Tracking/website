@@ -14,7 +14,7 @@ import StateContact from './state-contact'
 
 import advocacyFormStyles from './advocacy-form.module.scss'
 
-export default ({ states, stateScripts }) => {
+export default ({ states, stateScripts, governors }) => {
   const noStateString = '-- Select a state --'
 
   const [state, setState] = useState(noStateString)
@@ -52,7 +52,7 @@ export default ({ states, stateScripts }) => {
           {state !== noStateString ? (
             <>
               <StateScript currentState={state} stateScripts={stateScripts} />
-              <StateContact currentState={state} />
+              <StateContact currentState={state} governors={governors} />
             </>
           ) : (
             <Deactivated>

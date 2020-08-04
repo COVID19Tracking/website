@@ -24,6 +24,7 @@ export default ({ data }) => {
         <AdvocacyForm
           states={states}
           stateScripts={data.allContentfulCrdtAdvocacyState.nodes}
+          governors={data.allCivilServiceGovernor.nodes}
         />
       </Container>
     </Layout>
@@ -40,6 +41,16 @@ export const query = graphql`
             html
           }
         }
+      }
+    }
+    allCivilServiceGovernor {
+      nodes {
+        contact_page
+        facebook_url
+        phone
+        state_name
+        twitter_handle
+        twitter_url
       }
     }
     contentfulSnippet(slug: { eq: "crdt-advocacy-page-preamble" }) {
