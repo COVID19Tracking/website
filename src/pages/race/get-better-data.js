@@ -48,7 +48,6 @@ export const query = graphql`
         facebook_url
         phone
         state_name
-        twitter_handle
         twitter_url
       }
     }
