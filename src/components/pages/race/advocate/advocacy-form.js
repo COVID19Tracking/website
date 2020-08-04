@@ -51,8 +51,8 @@ export default ({ states, stateScripts, governors }) => {
           </p>
           {state !== noStateString ? (
             <>
-              <StateScript currentState={state} stateScripts={stateScripts} />
               <StateContact currentState={state} governors={governors} />
+              <StateScript currentState={state} stateScripts={stateScripts} />
             </>
           ) : (
             <Deactivated>

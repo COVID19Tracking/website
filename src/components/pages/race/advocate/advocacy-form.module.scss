@@ -1,5 +1,5 @@
 .container {
-  li {
+  & > li {
     @include margin(32, bottom);
 
     p.section-label {

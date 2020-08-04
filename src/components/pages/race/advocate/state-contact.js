@@ -13,21 +13,29 @@ export default ({ currentState, governors }) => {
   const phoneNumber = currentGovernor.phone.replace(/-/g, '')
   return (
     <div className={stateContactStyle.container}>
-      <ul>
-        <li>Website: {currentGovernor.contact_page}</li>
+      <ul className={stateContactStyle.contactMethods}>
         <li>
-          <a href="{currentGovernor.facebook_url}">Facebook</a>
-        </li>
-        <li>
-          <a href="{currentGovernor.twitter_url}">
-            Twitter ({currentGovernor.twitter_handle})
+          <span className={stateContactStyle.label}>Website:</span>{' '}
+          <a href={currentGovernor.contact_page}>
+            {currentGovernor.contact_page}
           </a>
         </li>
         <li>
-          <a href={`tel:${phoneNumber}`}>Phone ({currentGovernor.phone})</a>
+          <span className={stateContactStyle.label}>Facebook:</span>{' '}
+          <a href={currentGovernor.facebook_url}>Facebook</a>
+        </li>
+        <li>
+          <span className={stateContactStyle.label}>Twitter:</span>{' '}
+          <a href={currentGovernor.twitter_url}>
+            @{currentGovernor.twitter_handle}
+          </a>
+        </li>
+        <li>
+          <span className={stateContactStyle.label}>Phone:</span>{' '}
+          <a href={`tel:${phoneNumber}`}>{currentGovernor.phone}</a>
         </li>
       </ul>
-      <DetailText>
+      <DetailText className={stateContactStyle.detail}>
         Source:{' '}
         <a href="https://civilserviceusa.github.io/us-governors/">
           Civil Services
