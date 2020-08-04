@@ -7,6 +7,11 @@ export default ({ data }) => {
   const states = data.allCovidStateInfo.nodes.map(state => state.name)
   states.unshift('-- Select a state --')
 
+  // combine the Civil Service data with custom territory data
+  const governors = data.allCivilServiceGovernor.nodes
+    .filter(node => node.id !== 'dummy') // from gatsby-source-apiserver (see its readme)
+    .concat(data.allTerritoryInfo.nodes)
+
   return (
     <Layout
       title="Help Us Get Better Race and Ethnicity Data"
@@ -24,7 +29,7 @@ export default ({ data }) => {
       <AdvocacyForm
         states={states}
         stateScripts={data.allContentfulCrdtAdvocacyState.nodes}
-        governors={data.allCivilServiceGovernor.nodes}
+        governors={governors}
       />
     </Layout>
   )
@@ -43,6 +48,15 @@ export const query = graphql`
       }
     }
     allCivilServiceGovernor {
+      nodes {
+        contact_page
+        facebook_url
+        phone
+        state_name
+        twitter_url
+      }
+    }
+    allTerritoryInfo {
       nodes {
         contact_page
         facebook_url
