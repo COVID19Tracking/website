@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import Container from '~components/common/container'
-import AdvocacyForm from '~components/pages/race/advocate/advocacy-form'
+import AdvocacyForm from '~components/pages/race/get-better-data/advocacy-form'
 
 export default ({ data }) => {
   const states = data.allCovidStateInfo.nodes.map(state => state.name)
@@ -12,7 +12,7 @@ export default ({ data }) => {
     <Layout
       title="Help Us Get Better Race and Ethnicity Data"
       returnLink="/race"
-      path="/race/advocate"
+      path="/race/get-better-data"
     >
       <Container narrow centered>
         <div
