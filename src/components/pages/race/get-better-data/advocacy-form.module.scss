@@ -16,5 +16,5 @@
   color: $color-slate-700;
   background-color: $color-slate-200;
   border-radius: 4px;
-  padding: 1rem;
+  @include padding(16);
 }
