@@ -7,10 +7,8 @@ import {
 } from './cards/definitions-panel'
 
 import CasesCard from './cards/cases-card'
-import CumulativeHospitalizationCard from './cards/cumulative-hospitalization-card'
-import CurrentHospitalizationCard from './cards/current-hospitalization-card'
+import HospitalizationCard from './cards/hospitalization-card'
 import OutcomesCard from './cards/outcomes-card'
-import RaceEthnicityCard from './cards/race-ethnicity-card'
 import { PCRTestsCard, TestsCard } from './cards/tests-cards'
 
 import summaryStyles from './summary.module.scss'
@@ -18,7 +16,6 @@ import summaryStyles from './summary.module.scss'
 export default ({
   stateSlug,
   data,
-  raceData,
   sevenDaysAgo,
   national = false,
   fullWidth = false,
@@ -105,14 +102,16 @@ export default ({
             negativeTestsViral={data.negativeTestsViral}
           />
         )}
-        {!national && (
-          <CumulativeHospitalizationCard
-            stateSlug={stateSlug}
-            hospitalizedCumulative={data.hospitalizedCumulative}
-            inIcuCumulative={data.inIcuCumulative}
-            onVentilatorCumulative={data.onVentilatorCumulative}
-          />
-        )}
+        <HospitalizationCard
+          stateSlug={stateSlug}
+          hospitalizedCumulative={data.hospitalizedCumulative}
+          inIcuCumulative={data.inIcuCumulative}
+          onVentilatorCumulative={data.onVentilatorCumulative}
+          hospitalizedCurrently={data.hospitalizedCurrently}
+          inIcuCurrently={data.inIcuCurrently}
+          onVentilatorCurrently={data.onVentilatorCurrently}
+          national={national}
+        />
         <OutcomesCard
           stateSlug={stateSlug}
           deathsLabel={deathsLabel}
@@ -120,16 +119,6 @@ export default ({
           deathConfirmed={data.deathConfirmed}
           deathProbable={data.deathProbable}
           recovered={data.recovered}
-          national={national}
-        />
-        {!national && (
-          <RaceEthnicityCard stateSlug={stateSlug} raceData={raceData} />
-        )}
-        <CurrentHospitalizationCard
-          stateSlug={stateSlug}
-          hospitalizedCurrently={data.hospitalizedCurrently}
-          inIcuCurrently={data.inIcuCurrently}
-          onVentilatorCurrently={data.onVentilatorCurrently}
           national={national}
         />
       </div>

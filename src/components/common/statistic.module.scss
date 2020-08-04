@@ -21,6 +21,7 @@
   &.subelement {
     @include padding(8, left);
     display: flex;
+    margin-top: spacer(8) * -1;
 
     &::before {
       @include padding(8, right);
