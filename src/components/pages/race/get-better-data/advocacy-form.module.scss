@@ -6,6 +6,9 @@
       @include margin(16, bottom);
     }
   }
+  @media (max-width: $viewport-sm) {
+    @include padding(16, left);
+  }
 }
 
 .current-state {

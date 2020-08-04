@@ -1,5 +1,9 @@
 .detail {
   text-align: right;
+  @media (max-width: $viewport-sm) {
+    text-align: left;
+    @include margin(16, top);
+  }
 }
 
 .contact-methods {
