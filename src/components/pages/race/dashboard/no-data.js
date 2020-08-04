@@ -53,7 +53,10 @@ export default ({ stateName }) => (
       <div className={noDataStyles.content}>
         <p>
           {stateName} does not share data about race or ethnicity.{' '}
-          <Link to="/get-involved">Help us advocate for better data</Link>.
+          <Link to="/race/get-better-data">
+            Help us advocate for better data
+          </Link>
+          .
         </p>
       </div>
     </div>
