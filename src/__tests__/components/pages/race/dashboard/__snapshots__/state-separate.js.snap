@@ -116,7 +116,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
               .
                
               <a
-                href="/get-involved"
+                href="/race/get-better-data"
               >
                 Help us get better data.
               </a>
@@ -1035,7 +1035,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
               .
                
               <a
-                href="/get-involved"
+                href="/race/get-better-data"
               >
                 Help us get better data.
               </a>
@@ -1275,7 +1275,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
          does not share data about race or ethnicity.
          
         <a
-          href="/get-involved"
+          href="/race/get-better-data"
         >
           Help us advocate for better data
         </a>
