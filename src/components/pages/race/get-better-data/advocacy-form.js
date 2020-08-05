@@ -137,6 +137,15 @@ export default ({ states, stateScripts, governors }) => {
             rows="5"
           />
 
+          <div className={advocacyFormStyles.checkboxContainer}>
+            <Input
+              type="checkbox"
+              label="Sign me up for email updates and other opportunities to take action"
+              name="newsletter-opt-in"
+              id="newsletter-opt-in"
+            />
+          </div>
+
           <div style={{ display: 'none' }}>
             <label htmlFor="covid-bot-field">
               If you are a human, don&#8217;t fill out this field:

@@ -18,3 +18,20 @@
   border-radius: 4px;
   @include padding(16);
 }
+
+.checkbox-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  input {
+    @include margin(16, bottom);
+  }
+
+  label {
+    @include margin(4, left);
+    span {
+      display: none;
+    }
+  }
+}
