@@ -7,17 +7,25 @@ const StateScript = ({ currentState, stateScripts }) => {
     return null
   }
   const data = stateScripts.find(script => script.state === currentState)
-  if (data === undefined) {
-    return null
-  }
   return (
     <div className={stateScriptStyles.container}>
-      <h5>Suggested script for {data.state}</h5>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: data.message.childMarkdownRemark.html,
-        }}
-      />
+      <h5>Suggested script for {currentState}</h5>
+      {data === undefined ? (
+        <p>
+          I’m calling on {currentState} to release the latest race and ethnicity
+          data for COVID-19. Nationwide, COVID-19 is disproportionately
+          affecting Black, Indigenous, Latinx, and other people of color. It’s
+          important for our state to report accurate and up-to-date information
+          about what’s happening so that our health officials, business leaders,
+          and the general public know how to respond to the pandemic.
+        </p>
+      ) : (
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data.message.childMarkdownRemark.html,
+          }}
+        />
+      )}
     </div>
   )
 }
