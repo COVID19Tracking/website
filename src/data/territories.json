@@ -1,0 +1,44 @@
+[
+  {
+    "state_name": "American Samoa",
+    "contact_page": "https://www.americansamoa.gov/office-of-the-governor",
+    "facebook_url": "https://www.facebook.com/samoagovt/",
+    "phone": "684-633-4116",
+    "twitter_url": "https://twitter.com/samoagovt"
+  },
+  {
+    "state_name": "District Of Columbia",
+    "contact_page": "https://dcforms.dc.gov/webform/executive-office-mayor-ask-mayor",
+    "facebook_url": "https://www.facebook.com/MayorMurielBowser/",
+    "phone": "202-727-2643",
+    "twitter_url": "https://twitter.com/MayorBowser"
+  },
+  {
+    "state_name": "Guam",
+    "contact_page": "https://governor.guam.gov/contact-us/",
+    "facebook_url": "https://www.facebook.com/govlouguam/",
+    "phone": "671-472-8931",
+    "twitter_url": "https://twitter.com/louleonguerrero"
+  },
+  {
+    "state_name": "Northern Mariana Islands",
+    "contact_page": "https://governor.gov.mp/contact/",
+    "facebook_url": "https://www.facebook.com/GovernorCNMI/",
+    "phone": "670-237-2200",
+    "twitter_url": "https://twitter.com/GovernorCNMI"
+  },
+  {
+    "state_name": "Puerto Rico",
+    "contact_page": null,
+    "facebook_url": "https://www.facebook.com/fortalezaproficial/",
+    "phone": "787-721-7000",
+    "twitter_url": "https://twitter.com/fortalezapr"
+  },
+  {
+    "state_name": "US Virgin Islands",
+    "contact_page": "https://www.vi.gov/contact/",
+    "facebook_url": "https://www.facebook.com/GovernmentHouseUSVI/",
+    "phone": "340-774-0001",
+    "twitter_url": "https://twitter.com/govbryan"
+  }
+]

@@ -1,0 +1,37 @@
+.container {
+  & > li {
+    @include margin(32, bottom);
+
+    p.section-label {
+      @include margin(16, bottom);
+    }
+  }
+  @media (max-width: $viewport-sm) {
+    @include padding(16, left);
+  }
+}
+
+.current-state {
+  font-weight: bold;
+  color: $color-slate-700;
+  background-color: $color-slate-200;
+  border-radius: 4px;
+  @include padding(16);
+}
+
+.checkbox-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  input {
+    @include margin(16, bottom);
+  }
+
+  label {
+    @include margin(4, left);
+    span {
+      display: none;
+    }
+  }
+}

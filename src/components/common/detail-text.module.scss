@@ -4,6 +4,9 @@
   cite {
     font-style: italic;
   }
+  a {
+    color: $color-slate-600;
+  }
 }
 
 table + .detail-text {

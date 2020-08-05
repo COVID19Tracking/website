@@ -1,0 +1,23 @@
+.detail {
+  text-align: right;
+  @media (max-width: $viewport-sm) {
+    text-align: left;
+    @include margin(16, top);
+  }
+}
+
+.contact-methods {
+  list-style-type: none;
+  @include padding(0, left);
+  li {
+    @include margin(8, bottom);
+  }
+}
+
+.label {
+  font-weight: bold;
+}
+
+.container {
+  @include margin(16, bottom);
+}

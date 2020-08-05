@@ -146,6 +146,27 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-apiserver',
+      options: {
+        typePrefix: 'civilService',
+
+        url: `https://raw.githubusercontent.com/CivilServiceUSA/us-governors/master/us-governors/data/us-governors.json`,
+        method: 'get',
+
+        name: `Governor`,
+
+        allowCache: true,
+        maxCacheDurationSeconds: 60 * 60 * 24,
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './src/data/territories.json',
+        type: 'territoryInfo',
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
