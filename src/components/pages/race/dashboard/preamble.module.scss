@@ -1,0 +1,8 @@
+.header {
+  @media (max-width: $viewport-md) {
+    @include type-size(600);
+  }
+  @media (max-width: $viewport-sm) {
+    line-height: 1.25;
+  }
+}
