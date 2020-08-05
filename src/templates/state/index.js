@@ -13,12 +13,14 @@ const StatePage = ({ pageContext, data, path }) => {
     covidState,
     allCovidStateDaily,
     allCovidStateInfo,
+    covidStateInfo,
     allCovidUsDaily,
     allContentfulEvent,
     covidRaceDataCombined,
     covidRaceDataSeparate,
     sevenDaysAgo,
   } = data
+  const crdtData = covidRaceDataCombined || covidRaceDataSeparate
   return (
     <Layout title={state.name} returnLinks={[{ link: '/data' }]} path={path}>
       <StatePreamble state={state} covidState={covidState} />
@@ -34,10 +36,8 @@ const StatePage = ({ pageContext, data, path }) => {
           sevenDaysAgo={sevenDaysAgo}
           stateSlug={state.slug}
           data={covidState}
-          raceData={{
-            combined: covidRaceDataCombined,
-            separate: covidRaceDataSeparate,
-          }}
+          crdtData={crdtData}
+          population={covidStateInfo.childPopulation.population}
           lastUpdated={covidState.lastUpdateEt}
         />
       </StateNavWrapper>
@@ -62,6 +62,12 @@ export const query = graphql`
         childSlug {
           slug
         }
+      }
+    }
+    covidStateInfo(state: { eq: $state }) {
+      state
+      childPopulation {
+        population
       }
     }
     allCovidUsDaily {
@@ -175,14 +181,68 @@ export const query = graphql`
       }
     }
     covidRaceDataCombined(state: { eq: $state }) {
-      knownRaceEthDeath
-      knownRaceEthPos
+      blackPctPop
+      blackPctPos
+      blackPctDeath
+      blackPositives
+      blackDeaths
+      whitePctPos
+      whitePctPop
+      whitePctDeath
+      whitePositives
+      whiteDeaths
+      nhpiPctPos
+      nhpiPctDeath
+      nhpiPctPop
+      nhpiPositives
+      nhpiDeaths
+      latinXPctPos
+      latinXPctDeath
+      latinXPctPop
+      latinXPositives
+      latinXDeaths
+      asianPctPos
+      asianPctDeath
+      asianPctPop
+      asianPositives
+      asianDeaths
+      aianPctPos
+      aianPctDeath
+      aianPctPop
+      aianPositives
+      aianDeaths
     }
     covidRaceDataSeparate(state: { eq: $state }) {
-      knownEthDeath
-      knownEthPos
-      knownRaceDeath
-      knownRacePos
+      blackPctPop
+      blackPctPos
+      blackPctDeath
+      blackPositives
+      blackDeaths
+      whitePctPos
+      whitePctPop
+      whitePctDeath
+      whitePositives
+      whiteDeaths
+      nhpiPctPos
+      nhpiPctDeath
+      nhpiPctPop
+      nhpiPositives
+      nhpiDeaths
+      latinXPctPos
+      latinXPctDeath
+      latinXPctPop
+      latinXPositives
+      latinXDeaths
+      asianPctPos
+      asianPctDeath
+      asianPctPop
+      asianPositives
+      asianDeaths
+      aianPctPos
+      aianPctDeath
+      aianPctPop
+      aianPositives
+      aianDeaths
     }
   }
 `

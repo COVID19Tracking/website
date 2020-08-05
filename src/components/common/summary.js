@@ -10,6 +10,7 @@ import CasesCard from './cards/cases-card'
 import HospitalizationCard from './cards/hospitalization-card'
 import OutcomesCard from './cards/outcomes-card'
 import { PCRTestsCard, TestsCard } from './cards/tests-cards'
+import CRDTCard from './cards/crdt-card'
 
 import summaryStyles from './summary.module.scss'
 
@@ -17,6 +18,8 @@ export default ({
   stateSlug,
   data,
   sevenDaysAgo,
+  crdtData,
+  population,
   national = false,
   fullWidth = false,
 }) => {
@@ -121,6 +124,13 @@ export default ({
           recovered={data.recovered}
           national={national}
         />
+        {!national && (
+          <CRDTCard
+            stateSlug={stateSlug}
+            crdtData={crdtData}
+            population={population}
+          />
+        )}
       </div>
     </DefinitionPanelContext.Provider>
   )
