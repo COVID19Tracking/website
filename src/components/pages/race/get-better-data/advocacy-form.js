@@ -103,17 +103,24 @@ export default ({ states, stateScripts, governors }) => {
               />
             </Col>
             <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]}>
-              <Placeholder label="State" isRequired>
-                {state !== noStateString ? (
-                  <p className={advocacyFormStyles.currentState}>{state}</p>
-                ) : (
-                  <Deactivated isPlaceholder>
-                    <p>No state selected</p>
-                  </Deactivated>
-                )}
-              </Placeholder>
+              <Input
+                label="ZIP Code"
+                type="text"
+                name="zip-code"
+                id="zip-code"
+              />
             </Col>
           </Row>
+
+          <Placeholder label="State" isRequired>
+            {state !== noStateString ? (
+              <p className={advocacyFormStyles.currentState}>{state}</p>
+            ) : (
+              <Deactivated isPlaceholder>
+                <p>No state selected</p>
+              </Deactivated>
+            )}
+          </Placeholder>
 
           <Select
             label="Contact method used"
