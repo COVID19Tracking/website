@@ -13,11 +13,14 @@ const StateScript = ({ currentState, stateScripts }) => {
       {data === undefined ? (
         <p>
           I’m calling on {currentState} to release the latest race and ethnicity
-          data for COVID-19. Nationwide, COVID-19 is disproportionately
-          affecting Black, Indigenous, Latinx, and other people of color. It’s
-          important for our state to report accurate and up-to-date information
-          about what’s happening so that our health officials, business leaders,
-          and the general public know how to respond to the pandemic.
+          data for COVID-19.
+          <br />
+          <br />
+          Nationwide, COVID-19 is disproportionately affecting Black,
+          Indigenous, Latinx, and other people of color. It’s important for our
+          state to report accurate and up-to-date information about what’s
+          happening so that our health officials, business leaders, and the
+          general public know how to respond to the pandemic.
         </p>
       ) : (
         <div
