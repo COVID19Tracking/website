@@ -1,7 +1,7 @@
 .return-link {
   margin-bottom: spacer(8);
   @media (max-width: $viewport-md) {
-    margin: spacer(16);
+    @include margin(16, (top, bottom));
   }
 
   a {
