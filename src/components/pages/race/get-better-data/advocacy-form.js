@@ -94,13 +94,15 @@ export default ({ states, stateScripts, governors }) => {
 
           <Row>
             <Col width={[4, 6, 6]}>
-              <Input
-                label="Email address"
-                type="email"
-                name="email"
-                id="email"
-                isRequired
-              />
+              <Placeholder label="State" isRequired>
+                {state !== noStateString ? (
+                  <p className={advocacyFormStyles.currentState}>{state}</p>
+                ) : (
+                  <Deactivated isPlaceholder>
+                    <p>No state selected</p>
+                  </Deactivated>
+                )}
+              </Placeholder>
             </Col>
             <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]}>
               <Input
@@ -112,15 +114,13 @@ export default ({ states, stateScripts, governors }) => {
             </Col>
           </Row>
 
-          <Placeholder label="State" isRequired>
-            {state !== noStateString ? (
-              <p className={advocacyFormStyles.currentState}>{state}</p>
-            ) : (
-              <Deactivated isPlaceholder>
-                <p>No state selected</p>
-              </Deactivated>
-            )}
-          </Placeholder>
+          <Input
+            label="Email address"
+            type="email"
+            name="email"
+            id="email"
+            isRequired
+          />
 
           <Select
             label="Contact method used"
