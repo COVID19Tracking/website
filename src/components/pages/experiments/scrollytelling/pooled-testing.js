@@ -8,6 +8,7 @@ import styles from './pooled-testing.module.scss'
 import { Scrollama, Step } from '~utilities/react-scrollama'
 
 const copy = [
+  'In this example, we’ll test 25 people.',
   'In the pooled testing method, people are divided into groups.',
   'Instead of being tested individually, their samples are combined and tested all at once.',
   'Each group gets a result. If a group tests negative, everyone in that group is negative.',
@@ -31,7 +32,6 @@ export default ({ images }) => {
       }}
       path="/data"
     >
-      <h2>In this example, we’ll test 25 people.</h2>
       <div>
         <div className={styles.stickyImage}>
           {currentStepIndex !== null && (
@@ -43,7 +43,7 @@ export default ({ images }) => {
             {images.map((data, index) => (
               <Step data={index} key={JSON.stringify(data)}>
                 <div className={styles.stepInner}>
-                  <h4 className={styles.text}>{copy[index]}</h4>
+                  <span className={styles.text}>{copy[index]}</span>
                 </div>
               </Step>
             ))}

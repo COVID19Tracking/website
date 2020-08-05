@@ -1,8 +1,10 @@
+.header {
+  text-align: center;
+}
 .sticky-image {
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  top: 0;
-  height: 40vh;
+  top: calc(33%);
   width: 100%;
   display: flex;
   align-items: center;
@@ -10,9 +12,15 @@
 }
 
 .step-inner {
-  height: 50vh;
+  height: 80vh;
   padding: 100px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   .text {
+    font-size: 1.45rem;
+    max-width: 500px;
+    text-align: center;
     width: fit-content;
     background-color: rgba(255, 255, 255, 0.8);
   }

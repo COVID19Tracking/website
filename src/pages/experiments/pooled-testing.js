@@ -1,8 +1,10 @@
 import React from 'react'
 import loadable from '@loadable/component'
 
-// TODO: Maybe use gatsby to import this data in a more scalable way (not individual filesnames)
+// TODO: Maybe use gatsby to import this data in a more scalable way
+// instead of individual filesnames
 
+import pooled0 from '~images/experiments/pooled_testing_00.jpg'
 import pooled1 from '~images/experiments/pooled_testing_01.jpg'
 import pooled2 from '~images/experiments/pooled_testing_02.jpg'
 import pooled3 from '~images/experiments/pooled_testing_03.jpg'
@@ -16,6 +18,6 @@ const ScrollyTelling = loadable(() =>
 
 export default () => (
   <ScrollyTelling
-    images={[pooled1, pooled2, pooled3, pooled4, pooled5, pooled6]}
+    images={[pooled0, pooled1, pooled2, pooled3, pooled4, pooled5, pooled6]}
   />
 )
