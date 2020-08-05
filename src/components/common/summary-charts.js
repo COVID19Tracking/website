@@ -201,8 +201,9 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
 
     [usHistory, usePerCap, sliceStart, sliceEnd],
   )
-  // TODO: These two state exemptions should be removed after they reach 30 days of
-  // hospitalization data. That or we should rethink this requirement. -goleary
+  // TODO: These two state exemptions should be removed after they
+  // reach 30 days of hospitalization data. That or we should
+  // rethink this requirement. -goleary
   const hasData = field =>
     name === 'Hawaii' ||
     name === 'Florida' ||

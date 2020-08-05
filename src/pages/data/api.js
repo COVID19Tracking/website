@@ -19,6 +19,13 @@ export default ({ data }) => {
           id={data.contentfulSnippet.contentful_id}
         />
       </LongContent>
+      <h2>API domain name</h2>
+      <p>
+        All API requests should be made to:{' '}
+        <strong>
+          <code>https://api.covidtracking.com</code>
+        </strong>
+      </p>
       <ApiExplorer />
     </Layout>
   )
