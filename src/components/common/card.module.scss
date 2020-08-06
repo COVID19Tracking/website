@@ -31,6 +31,12 @@
   }
 }
 
+.note {
+  @include type-size(100);
+  color: $color-slate-700;
+  margin: 0;
+}
+
 .disclosure {
   @include margin(8, top);
   @include padding(8, top);

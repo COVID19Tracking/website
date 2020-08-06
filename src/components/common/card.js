@@ -28,6 +28,8 @@ const CardBody = ({ children }) => (
   <div className={cardStyles.body}>{children}</div>
 )
 
+const CardNote = ({ children }) => <p className={cardStyles.note}>{children}</p>
+
 const Card = ({ title, link, children }) => (
   <div className={cardStyles.card}>
     {(title || link) && (
@@ -43,6 +45,7 @@ const Card = ({ title, link, children }) => (
 export {
   Card,
   CardBody,
+  CardNote,
   CardDisclosure,
   CardDisclsoureButton,
   CardDisclosurePanel,
