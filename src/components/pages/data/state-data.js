@@ -32,7 +32,7 @@ const State = ({ state }) => {
           combined: false,
           separate: false,
         }}
-        lastUpdate={state.lastUpdateEt}
+        lastUpdate={state.dateModified}
       />
 
       <StateLinksDisclosure
@@ -41,7 +41,7 @@ const State = ({ state }) => {
       >
         <div className={stateDataStyles.stateLinksHeader}>
           <StateLinksDisclosureButton stateLinksAreOpen={stateLinksOpen} />
-          <LastUpdated lastUpdatedEt={state.stateData.lastUpdateEt} />
+          <LastUpdated date={state.stateData.dateModified} />
         </div>
         <StateLinksDisclosurePanel state={state} />
       </StateLinksDisclosure>

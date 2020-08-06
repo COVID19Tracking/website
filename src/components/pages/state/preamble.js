@@ -69,7 +69,7 @@ export default ({ state, covidState }) => {
       </Row>
       <DownloadDataRow
         slug={state.childSlug.slug}
-        lastUpdateEt={covidState.lastUpdateEt}
+        lastUpdateEt={covidState.dateModified}
       />
       <Row>
         <Col width={[0, 0, 6]}>

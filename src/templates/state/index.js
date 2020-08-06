@@ -105,6 +105,7 @@ export const query = graphql`
       positiveIncrease
       negative
       lastUpdateEt
+      dateModified
       pending
       hospitalizedCurrently
       hospitalizedCumulative

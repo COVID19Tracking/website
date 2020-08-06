@@ -41,7 +41,7 @@ const DownloadDataRow = ({
     <Col width={[4, 6, 6]}>
       <div className={downloadDataStyles.lastUpdatedContainer}>
         <LastUpdated
-          lastUpdateEt={lastUpdateEt}
+          date={lastUpdateEt}
           unformatted={unformatted}
           national={national}
         />
