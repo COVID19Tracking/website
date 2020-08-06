@@ -39,7 +39,7 @@ export default ({ images }) => {
           )}
         </div>
         <div>
-          <Scrollama onStepEnter={onStepEnter} offset={0.25}>
+          <Scrollama onStepEnter={onStepEnter} offset={0.55}>
             {images.map((data, index) => (
               <Step data={index} key={JSON.stringify(data)}>
                 <div className={styles.stepInner}>
