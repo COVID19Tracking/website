@@ -12,7 +12,7 @@ import explorerStyles from './explorer.module.scss'
 import definition from '../../../../../_api/v1/openapi.json'
 
 const PreviewUrl = ({ path, format, parameters }) => {
-  let examplePath = path.replace('{format}', format)
+  let examplePath = path.replace('{format}', format).replace('/api/', '/')
   parameters.forEach(parameter => {
     if (parameter.name !== 'format') {
       examplePath = examplePath.replace(
@@ -24,12 +24,14 @@ const PreviewUrl = ({ path, format, parameters }) => {
   return (
     <>
       <p className={explorerStyles.pathDescription}>
-        <code>{path.replace('{format}', format)}</code>
+        <code>{path.replace('{format}', format).replace('/api/', '/')}</code>
       </p>
       <p className={explorerStyles.pathDescription}>
         <strong>Example:</strong>{' '}
         <code>
-          <a href={examplePath}>{examplePath}</a>
+          <a
+            href={`https://api.covidtracking.com${examplePath}`}
+          >{`https://api.covidtracking.com${examplePath}`}</a>
         </code>
       </p>
     </>
