@@ -18,6 +18,7 @@ const BaseTestsCard = ({
   totalTestsField = 'totalTestResults',
   national,
   note = false,
+  testPath,
 }) => {
   const definitionContext = useContext(DefinitionPanelContext)
 
@@ -28,7 +29,9 @@ const BaseTestsCard = ({
       link={
         <Link
           to={
-            national ? '/data/national/tests' : `/data/state/${stateSlug}/tests`
+            national
+              ? `/data/national/${testPath}`
+              : `/data/state/${stateSlug}/${testPath}`
           }
         >
           Historical data
@@ -111,6 +114,7 @@ const TestsCard = ({
       totalTests={totalTestResults}
       totalTestsField="totalTestResults"
       national={national}
+      testPath="tests"
     />
   )
 }
@@ -134,6 +138,7 @@ const PCRTestsCard = ({
     totalTestsField="totalTestsViral"
     national={national}
     note="This might be larger than the total number of tests, due to difference in units."
+    testPath="tests-pcr"
   />
 )
 

@@ -172,6 +172,11 @@ exports.createPages = async ({ graphql, actions }) => {
       context: node,
     })
     createPage({
+      path: `/data/state/${slug}/tests-pcr`,
+      component: path.resolve(`./src/templates/state/tests-pcr.js`),
+      context: node,
+    })
+    createPage({
       path: `/data/state/${slug}/hospitalization`,
       component: path.resolve(`./src/templates/state/hospitalization.js`),
       context: node,
