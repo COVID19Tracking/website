@@ -124,13 +124,6 @@ export default ({
           recovered={data.recovered}
           national={national}
         />
-        {!national && (
-          <CRDTCard
-            stateSlug={stateSlug}
-            crdtData={crdtData}
-            population={population}
-          />
-        )}
       </div>
     </DefinitionPanelContext.Provider>
   )
