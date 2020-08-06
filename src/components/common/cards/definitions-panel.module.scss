@@ -35,6 +35,10 @@
   @include margin(8, top);
   @include margin(32, bottom);
 
+  &:focus {
+    outline: 0;
+  }
+
   .title {
     @include margin(0);
     @include margin(16, bottom);
