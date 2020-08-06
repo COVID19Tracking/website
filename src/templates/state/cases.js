@@ -38,6 +38,11 @@ export default ({ pageContext, path, data }) => {
 
             format: formatNumber,
           },
+          {
+            field: 'positiveCasesViral',
+
+            format: formatNumber,
+          },
         ]}
         data={data.allCovidStateDaily.nodes}
       />
@@ -55,9 +60,16 @@ export const query = graphql`
         date
         positive
         positiveIncrease
+        positiveCasesViral
       }
     }
-    allContentfulDataDefinition(filter: { fieldName: { in: ["positive"] } }) {
+    allContentfulDataDefinition(
+      filter: {
+        fieldName: {
+          in: ["positive", "positiveCasesViral", "positiveIncrease"]
+        }
+      }
+    ) {
       nodes {
         name
         fieldName
