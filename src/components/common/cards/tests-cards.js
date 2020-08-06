@@ -46,16 +46,18 @@ const BaseTestsCard = ({
             }}
           />
         </Statistic>
-        <Statistic title="Positive" value={positive}>
-          <DefinitionLink
-            onDefinitionsToggle={() => {
-              definitionContext({
-                fields,
-                highlight: positiveTestsField,
-              })
-            }}
-          />
-        </Statistic>
+        {positive !== false && (
+          <Statistic title="Positive" value={positive}>
+            <DefinitionLink
+              onDefinitionsToggle={() => {
+                definitionContext({
+                  fields,
+                  highlight: positiveTestsField,
+                })
+              }}
+            />
+          </Statistic>
+        )}
         {pending && (
           <Statistic title="Pending" value={pending}>
             <DefinitionLink
@@ -89,10 +91,9 @@ const TestsCard = ({
   negative,
   pending,
   totalTestResults,
-  positive,
   national,
 }) => {
-  const fields = ['negative', 'positive', 'totalTestResults']
+  const fields = ['negative', 'totalTestResults']
   if (pending) {
     fields.splice(2, 0, 'pending') // add pending after positive
   }
@@ -102,10 +103,9 @@ const TestsCard = ({
       fields={fields}
       negative={negative}
       negativeTestsField="negative"
+      positive={false}
       pending={pending}
       pendingTestsField="pending"
-      positive={positive}
-      positiveTestsField="positive"
       stateSlug={stateSlug}
       title="Tests"
       totalTests={totalTestResults}
