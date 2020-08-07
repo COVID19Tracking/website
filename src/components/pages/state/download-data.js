@@ -15,15 +15,21 @@ const DownloadData = ({ slug, hideLabel = false }) => (
       <a
         href={`/data/download/${slug}-history.csv`}
         className={downloadDataStyles.button}
+        aria-label={`Download ${slug} data as CSV`}
       >
         CSV
       </a>
-      <Link to="/data/api" className={downloadDataStyles.button}>
+      <Link
+        to="/data/api"
+        className={downloadDataStyles.button}
+        aria-label={`access ${slug} data with our API`}
+      >
         API
       </Link>
       <a
         href="https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml"
         className={downloadDataStyles.button}
+        aria-label={`Get ${slug} data as a spreadsheet`}
       >
         Spreadsheet
       </a>
