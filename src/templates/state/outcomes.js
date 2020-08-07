@@ -33,22 +33,22 @@ export default ({ pageContext, path, data }) => {
             format: formatNumber,
           },
           {
-            field: 'deathProbable',
-
-            format: formatNumber,
-          },
-          {
-            field: 'deathConfirmed',
-
-            format: formatNumber,
-          },
-          {
             field: 'death',
 
             format: formatNumber,
           },
           {
             field: 'deathIncrease',
+
+            format: formatNumber,
+          },
+          {
+            field: 'deathProbable',
+
+            format: formatNumber,
+          },
+          {
+            field: 'deathConfirmed',
 
             format: formatNumber,
           },
