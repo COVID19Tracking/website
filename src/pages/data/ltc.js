@@ -1,4 +1,9 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import Container from '~components/common/container'
+import LongContent from '~components/common/long-content'
+import Paragraph from '~components/common/landing-page/paragraph'
+import ContentfulContent from '~components/common/contentful-content'
 import TableauChart from '~components/charts/tableau'
 import Total from '~components/common/landing-page/total'
 import { Col, Row } from '~components/common/grid'
@@ -6,29 +11,77 @@ import { FormatNumber } from '~components/utils/format'
 import DownloadLinks from '~components/pages/data/ltc/download-links'
 import Layout from '~components/layout'
 
-export default () => (
+export default ({ data }) => (
   <Layout title="Long-term Care" path="/data/ltc">
-    <h2>Current outbreak</h2>
+    <Paragraph narrow>
+      <div
+        dangerouslySetInnerHTML={{
+          __html:
+            data.lede.childContentfulSnippetContentTextNode.childMarkdownRemark
+              .html,
+        }}
+      />
+    </Paragraph>
+    <h2>Cumulative</h2>
     <Row>
       <Col width={[4, 6, 4]}>
-        <Total label="Cases" number={<FormatNumber number={0} />} />
+        <Total label="Total cases" number={<FormatNumber number={345983} />} />
       </Col>
       <Col width={[4, 6, 4]}>
-        <Total label="Deaths" number={<FormatNumber number={0} />} />
+        <Total label="Total deaths" number={<FormatNumber number={64867} />} />
       </Col>
       <Col width={[4, 6, 4]}>
-        <Total label="Facilities" number={<FormatNumber number={0} />} />
+        <Total
+          label="Total Number of Facilities Affected"
+          number={<FormatNumber number={12824} />}
+        />
+      </Col>
+    </Row>
+
+    <h2>Outbreak</h2>
+    <Row>
+      <Col width={[4, 6, 4]}>
+        <Total label="Total cases" number={<FormatNumber number={101086} />} />
+      </Col>
+      <Col width={[4, 6, 4]}>
+        <Total label="Total deaths" number={<FormatNumber number={10213} />} />
+      </Col>
+      <Col width={[4, 6, 4]}>
+        <Total
+          label="Total Number of Facilities Affected"
+          number={<FormatNumber number={5954} />}
+        />
       </Col>
     </Row>
     <DownloadLinks />
-
-    <p>Some content</p>
+    <Container centered>
+      <LongContent>
+        <ContentfulContent
+          id={data.content1.contentful_id}
+          content={
+            data.content1.childContentfulSnippetContentTextNode
+              .childMarkdownRemark.html
+          }
+        />
+      </LongContent>
+    </Container>
     <TableauChart
       id="ltc-1"
       height={700}
       viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/FigMap?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"
       viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCaremobile/FigMap?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"
     />
+    <Container centered>
+      <LongContent>
+        <ContentfulContent
+          id={data.content2.contentful_id}
+          content={
+            data.content2.childContentfulSnippetContentTextNode
+              .childMarkdownRemark.html
+          }
+        />
+      </LongContent>
+    </Container>
     <TableauChart
       id="ltc-2"
       height={1600}
@@ -37,3 +90,32 @@ export default () => (
     />
   </Layout>
 )
+
+export const query = graphql`
+  query {
+    lede: contentfulSnippet(slug: { eq: "ltc-lede" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    content1: contentfulSnippet(slug: { eq: "ltc-1" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    content2: contentfulSnippet(slug: { eq: "ltc-2" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+  }
+`
