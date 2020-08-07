@@ -44,6 +44,7 @@ export default ({
                 highlight: 'positive',
               })
             }}
+            label="Total cases"
           />
           <DrillDown label="New cases" value={positiveIncrease} calculated />
           <DrillDown

@@ -24,23 +24,19 @@ export default ({ pageContext, path, data }) => {
         labels={[
           {
             field: 'date',
-
             format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
           },
           {
             field: 'positive',
-
             format: formatNumber,
           },
 
           {
             field: 'positiveIncrease',
-
             format: formatNumber,
           },
           {
             field: 'positiveCasesViral',
-
             format: formatNumber,
           },
         ]}

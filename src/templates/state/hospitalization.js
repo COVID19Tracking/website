@@ -25,42 +25,34 @@ export default ({ pageContext, path, data }) => {
         labels={[
           {
             field: 'date',
-
             format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
           },
           {
             field: 'hospitalizedCumulative',
-
             format: formatNumber,
           },
           {
             field: 'hospitalizedCurrently',
-
             format: formatNumber,
           },
           {
             field: 'hospitalizedIncrease',
-
             format: formatNumber,
           },
           {
             field: 'inIcuCumulative',
-
             format: formatNumber,
           },
           {
             field: 'inIcuCurrently',
-
             format: formatNumber,
           },
           {
             field: 'onVentilatorCumulative',
-
             format: formatNumber,
           },
           {
             field: 'onVentilatorCurrently',
-
             format: formatNumber,
           },
         ]}

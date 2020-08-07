@@ -42,6 +42,7 @@ export default ({
       <CardBody>
         <Statistic title="Recovered" value={recovered}>
           <DefinitionLink
+            label="Recovered"
             onDefinitionsToggle={() => {
               definitionContext({
                 fields,
@@ -52,6 +53,7 @@ export default ({
         </Statistic>
         <Statistic title={deathsLabel} value={death}>
           <DefinitionLink
+            label={deathsLabel}
             onDefinitionsToggle={() => {
               definitionContext({
                 fields,
@@ -69,6 +71,7 @@ export default ({
             subelement
           >
             <DefinitionLink
+              label="Probable deaths"
               onDefinitionsToggle={() => {
                 definitionContext({
                   fields,
@@ -87,6 +90,7 @@ export default ({
             subelement
           >
             <DefinitionLink
+              label="Confirmed deaths"
               onDefinitionsToggle={() => {
                 definitionContext({
                   fields,

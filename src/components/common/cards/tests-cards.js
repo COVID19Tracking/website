@@ -41,6 +41,7 @@ const BaseTestsCard = ({
       <CardBody>
         <Statistic title="Total tests" value={totalTests}>
           <DefinitionLink
+            label="Total tests"
             onDefinitionsToggle={() => {
               definitionContext({
                 fields,
@@ -52,6 +53,7 @@ const BaseTestsCard = ({
         {positive !== false && (
           <Statistic title="Positive" value={positive}>
             <DefinitionLink
+              label="Positive tests"
               onDefinitionsToggle={() => {
                 definitionContext({
                   fields,
@@ -64,6 +66,7 @@ const BaseTestsCard = ({
         {pending && (
           <Statistic title="Pending" value={pending}>
             <DefinitionLink
+              label="Pending tests"
               onDefinitionsToggle={() => {
                 definitionContext({
                   fields,
@@ -75,6 +78,7 @@ const BaseTestsCard = ({
         )}
         <Statistic title="Negative" value={negative}>
           <DefinitionLink
+            label="Negative tests"
             onDefinitionsToggle={() => {
               definitionContext({
                 fields,

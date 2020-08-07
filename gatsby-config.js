@@ -146,17 +146,10 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-source-apiserver',
+      resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        typePrefix: 'civilService',
-
-        url: `https://raw.githubusercontent.com/CivilServiceUSA/us-governors/master/us-governors/data/us-governors.json`,
-        method: 'get',
-
-        name: `Governor`,
-
-        allowCache: true,
-        maxCacheDurationSeconds: 60 * 60 * 24,
+        file: './src/data/governors.json',
+        type: 'civilServiceGovernor',
       },
     },
     {

@@ -47,6 +47,7 @@ export default ({
               value={hospitalizedCurrently}
             >
               <DefinitionLink
+                label="Currently Hospitalized"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
@@ -57,6 +58,7 @@ export default ({
             </Statistic>
             <Statistic title="Currently in ICU" value={inIcuCurrently}>
               <DefinitionLink
+                label="Currently in ICU"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
@@ -70,6 +72,7 @@ export default ({
               value={onVentilatorCurrently}
             >
               <DefinitionLink
+                label="Currently on ventilator"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
@@ -86,6 +89,7 @@ export default ({
               value={hospitalizedCumulative}
             >
               <DefinitionLink
+                label="Total hospitalized"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
@@ -100,6 +104,7 @@ export default ({
               subelement
             >
               <DefinitionLink
+                label="Currently hospitalized"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
@@ -110,6 +115,7 @@ export default ({
             </Statistic>
             <Statistic title="Total in ICU" value={inIcuCumulative}>
               <DefinitionLink
+                label="Total in ICU"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
@@ -124,6 +130,7 @@ export default ({
               subelement
             >
               <DefinitionLink
+                label="Currently in ICU"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
@@ -137,6 +144,7 @@ export default ({
               value={onVentilatorCumulative}
             >
               <DefinitionLink
+                label="Total on ventilator"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
@@ -151,6 +159,7 @@ export default ({
               subelement
             >
               <DefinitionLink
+                label="Currently on ventilator"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
