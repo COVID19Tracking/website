@@ -12,7 +12,7 @@ import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
 
 export default ({ data }) => (
-  <Layout title="Long-term Care" path="/data/ltc">
+  <Layout title="The Long-Term Care COVID Tracker" path="/data/longtermcare">
     <Paragraph narrow>
       <a href="https://www.cdc.gov/nchs/fastats/nursing-home-care.htm">
         Less than one percent
