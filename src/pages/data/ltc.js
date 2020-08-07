@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Container from '~components/common/container'
 import LongContent from '~components/common/long-content'
-import Paragraph from '~components/common/landing-page/paragraph'
 import ContentfulContent from '~components/common/contentful-content'
 import TableauChart from '~components/charts/tableau'
 import Total from '~components/common/landing-page/total'
@@ -10,17 +9,17 @@ import { Col, Row } from '~components/common/grid'
 import { FormatNumber } from '~components/utils/format'
 import DownloadLinks from '~components/pages/data/ltc/download-links'
 import Layout from '~components/layout'
+import Paragraph from '~components/common/landing-page/paragraph'
 
 export default ({ data }) => (
   <Layout title="Long-term Care" path="/data/ltc">
-    <Paragraph narrow>
-      <div
-        dangerouslySetInnerHTML={{
-          __html:
-            data.lede.childContentfulSnippetContentTextNode.childMarkdownRemark
-              .html,
-        }}
-      />
+    <Paragraph>
+      <a href="https://www.cdc.gov/nchs/fastats/nursing-home-care.htm">
+        Less than one percent
+      </a>{' '}
+      of America’s population lives in long-term care facilities, but as of
+      August 6, 2020, this tiny fraction of the country accounts for 43% of US
+      COVID-19 deaths.
     </Paragraph>
     <h2>Cumulative</h2>
     <Row>
