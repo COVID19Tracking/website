@@ -16,9 +16,9 @@ describe('Components : Pages : State : State grade', () => {
     const naTree = renderer.create(<StateGrade />).toJSON()
     expect(naTree).toMatchSnapshot()
 
-    const largeTreee = renderer
+    const largeTree = renderer
       .create(<LargeStateGrade letterGrade="a" />)
       .toJSON()
-    expect(largeTreee).toMatchSnapshot()
+    expect(largeTree).toMatchSnapshot()
   })
 })

@@ -2,122 +2,98 @@
 
 exports[`Components : Pages : State : State links renders correctly 1`] = `
 <div
-  className="row"
+  className="container"
 >
-  <div
-    className="col colSmall2 colMedium3 colLarge6"
+  <a
+    className="link"
+    href="https://example.com"
   >
-    <a
-      className="link stateLink"
-      href="https://example.com"
-    >
-      <span
-        className="a11y-only"
-      >
-        California
-        's 
-      </span>
-      <span>
-        Best Current Data Source
-      </span>
-    </a>
-    <a
-      className="link stateLink"
-      href="https://example.com2"
-    >
-      <span
-        className="a11y-only"
-      >
-        California
-        's 
-      </span>
-      <span>
-        Secondary Data Source
-      </span>
-    </a>
-  </div>
-  <div
-    className="col colSmall2 colMedium3 colLarge6"
+    <span>
+      Best Current Data Source
+    </span>
+  </a>
+  <a
+    className="link"
+    href="https://example.com2"
   >
-    <a
-      className="link"
-      href="https://twitter.com/california-covid"
+    <span>
+      Secondary Data Source
+    </span>
+  </a>
+  <a
+    className="link"
+    href="https://twitter.com/california-covid"
+  >
+    <span
+      className="a11y-only"
     >
-      <span
-        className="a11y-only"
-      >
-        California
-        's 
-      </span>
-      Official Twitter
-    </a>
-    <a
-      className="link"
-      href="/data/state/california/history"
-    >
-      Full history
-    </a>
-  </div>
+      California
+      's 
+    </span>
+    Official Twitter
+  </a>
+  <a
+    className="link"
+    href="/data/state/undefined/history"
+  >
+    Full history
+  </a>
+  <a
+    className="link"
+    href="/data/state/undefined/screenshots"
+  >
+    <span>
+      View screenshots
+    </span>
+  </a>
 </div>
 `;
 
 exports[`Components : Pages : State : State links renders correctly 2`] = `
 <div
-  className="row"
+  className="container"
 >
-  <div
-    className="col colSmall2 colMedium3 colLarge6"
+  <a
+    className="link"
+    href="https://example.com"
   >
-    <a
-      className="link stateLink"
-      href="https://example.com"
-    >
-      <span
-        className="a11y-only"
-      >
-        California
-        's 
-      </span>
-      <span>
-        Best Current Data Source
-      </span>
-    </a>
-    <a
-      className="link stateLink"
-      href="https://example.com2"
-    >
-      <span
-        className="a11y-only"
-      >
-        California
-        's 
-      </span>
-      <span>
-        Secondary Data Source
-      </span>
-    </a>
-  </div>
-  <div
-    className="col colSmall2 colMedium3 colLarge6"
+    <span>
+      Best Current Data Source
+    </span>
+  </a>
+  <a
+    className="link"
+    href="https://example.com2"
   >
-    <a
-      className="link"
-      href="https://twitter.com/california-covid"
+    <span>
+      Secondary Data Source
+    </span>
+  </a>
+  <a
+    className="link"
+    href="https://twitter.com/california-covid"
+  >
+    <span
+      className="a11y-only"
     >
-      <span
-        className="a11y-only"
-      >
-        California
-        's 
-      </span>
-      Official Twitter
-    </a>
-    <a
-      className="link"
-      href="/data/state/california/history"
-    >
-      Full history
-    </a>
-  </div>
+      California
+      's 
+    </span>
+    Official Twitter
+  </a>
+  <a
+    className="link"
+    href="/data/state/undefined/history"
+  >
+    Full history
+  </a>
+  <a
+    className="link"
+    href="/data/state/undefined/screenshots"
+  >
+    <span>
+      View screenshots
+    </span>
+  </a>
 </div>
 `;

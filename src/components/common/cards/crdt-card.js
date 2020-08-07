@@ -50,7 +50,6 @@ export default ({ stateSlug, crdtData, population }) => {
       deaths: getField('nhpi', 'Deaths'),
     },
   ]
-  console.log(groups)
 
   return (
     <Card
