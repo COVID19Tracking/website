@@ -7,7 +7,7 @@ import lastUpdatedStyle from './last-updated.module.scss'
 export default ({ date, unformatted, national }) => (
   <p className={lastUpdatedStyle.lastUpdated}>
     {national ? <>L</> : <>State’s l</>}ast reported update time:{' '}
-    {unformatted ? date : <FormatDate date={date} format="M/d/yy h:mm" />}{' '}
+    {unformatted ? date : <FormatDate date={date} format="M/d/yy h:mm a" />}{' '}
     <Timezone />
   </p>
 )
