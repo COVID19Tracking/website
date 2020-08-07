@@ -3,7 +3,7 @@ import TableauChart from '~components/charts/tableau'
 import Total from '~components/common/landing-page/total'
 import { Col, Row } from '~components/common/grid'
 import { FormatNumber } from '~components/utils/format'
-import Links from '~components/pages/data/ltc/links'
+import DownloadLinks from '~components/pages/data/ltc/download-links'
 import Layout from '~components/layout'
 
 export default () => (
@@ -20,7 +20,7 @@ export default () => (
         <Total label="Facilities" number={<FormatNumber number={0} />} />
       </Col>
     </Row>
-    <Links />
+    <DownloadLinks />
 
     <p>Some content</p>
     <TableauChart

@@ -1,6 +1,6 @@
 import React from 'react'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
-import linksStyle from './links.module.scss'
+import linksStyle from './download-links.module.scss'
 
 export default () => (
   <div className={linksStyle.links}>
