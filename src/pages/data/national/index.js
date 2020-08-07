@@ -30,7 +30,11 @@ const ContentPage = ({ data }) => (
           field: 'date',
           format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
         },
-        { field: 'states', label: 'States tracked', format: formatNumber },
+        {
+          field: 'states',
+          label: 'State (or territory)',
+          format: formatNumber,
+        },
         { field: 'totalTestResultsIncrease' },
         { field: 'positive' },
         { field: 'negative' },

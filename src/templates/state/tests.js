@@ -29,11 +29,6 @@ export default ({ pageContext, path, data }) => {
             format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
           },
           {
-            field: 'negativeTestsViral',
-
-            format: formatNumber,
-          },
-          {
             field: 'negative',
 
             format: formatNumber,
