@@ -13,20 +13,13 @@ import { PCRTestsCard, TestsCard } from './cards/tests-cards'
 
 import summaryStyles from './summary.module.scss'
 
-export default ({
-  stateSlug,
-  data,
-  sevenDaysAgo,
-  national = false,
-  fullWidth = false,
-}) => {
+export default ({ stateSlug, data, sevenDaysAgo, national = false }) => {
   /*
   stateSlug: the name of the state, as a slug. like "arizona"
   data: API data from either usCovid or covidState
   raceData: tbd, currently like {combined: bool, separate: bool}
   sevenDaysAgo: seven day old API data from usCovidDaily or covidStateDaily
   national: flag for the national summmary, true means this is national
-  fullWidth: when true, shows 4 columns of cards; shows 3 when false
   */
   const [cardDefinitions, setCardDefinitions] = useState(false)
   const [highlightedDefinition, setHighlightedDefinition] = useState(false)
@@ -76,7 +69,7 @@ export default ({
       <div
         className={classnames(
           summaryStyles.container,
-          (fullWidth || national) && summaryStyles.fullWidth,
+          national && summaryStyles.fullWidth,
         )}
       >
         <CasesCard
