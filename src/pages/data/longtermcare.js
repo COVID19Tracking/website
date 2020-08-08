@@ -67,6 +67,7 @@ export default ({ data }) => (
     <TableauChart
       id="ltc-1"
       height={700}
+      mobileHeight={480}
       viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/FigMap?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"
       viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCaremobile/FigMap?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"
     />
@@ -83,7 +84,7 @@ export default ({ data }) => (
     </Container>
     <TableauChart
       id="ltc-2"
-      height={1600}
+      height={1300}
       viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
       viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCaremobile/SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
     />

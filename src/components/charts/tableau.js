@@ -3,7 +3,13 @@ import React, { useRef, useEffect } from 'react'
 import classnames from 'classnames'
 import tableauStyle from './tableau.module.scss'
 
-export default ({ id, viewUrl, height, viewUrlMobile = false }) => {
+export default ({
+  id,
+  viewUrl,
+  height,
+  mobileHeight = false,
+  viewUrlMobile = false,
+}) => {
   const chartRef = useRef(false)
   const mobileChartRef = useRef(false)
 
@@ -19,7 +25,7 @@ export default ({ id, viewUrl, height, viewUrlMobile = false }) => {
       if (viewUrlMobile && mobileChartRef) {
         new window.tableau.Viz(mobileChartRef.current, viewUrlMobile, {
           width: '100%',
-          height: `${height}px`,
+          height: `${mobileHeight || height}px`,
         })
       }
     }
