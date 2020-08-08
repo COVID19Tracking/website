@@ -66,11 +66,11 @@ const BarChart = ({
     .range([height - totalYMargin, 0])
 
   const msInOneMonth = 2628000000
-  const montlyTickInterval = Math.ceil(
+  const monthlyTickInterval = Math.ceil(
     Math.abs((dateDomain[1] - dateDomain[0]) / (msInOneMonth * 6)),
   )
 
-  const xTickAmount = timeMonth.every(montlyTickInterval)
+  const xTickAmount = timeMonth.every(monthlyTickInterval)
 
   const lastTime = xScaleTime.ticks(timeDay.every(1)).pop()
 
