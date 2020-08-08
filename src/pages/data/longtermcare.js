@@ -67,7 +67,7 @@ export default ({ data }) => (
     <TableauChart
       id="ltc-1"
       height={700}
-      mobileHeight={480}
+      mobileHeight={600}
       viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/FigMap?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"
       viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCaremobile/FigMap?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"
     />
