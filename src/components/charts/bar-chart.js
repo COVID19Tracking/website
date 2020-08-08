@@ -65,7 +65,12 @@ const BarChart = ({
     .nice()
     .range([height - totalYMargin, 0])
 
-  const xTickAmount = timeMonth.every(1)
+  const msInOneMonth = 2628000000
+  const montlyTickInterval = Math.ceil(
+    Math.abs((dateDomain[1] - dateDomain[0]) / (msInOneMonth * 6)),
+  )
+
+  const xTickAmount = timeMonth.every(montlyTickInterval)
 
   const lastTime = xScaleTime.ticks(timeDay.every(1)).pop()
 
