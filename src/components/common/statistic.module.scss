@@ -85,3 +85,8 @@
     color: $color-slate-600;
   }
 }
+
+.not-reported {
+  color: $color-slate-600;
+  @include type-size(100);
+}

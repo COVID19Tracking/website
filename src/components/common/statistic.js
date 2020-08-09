@@ -19,7 +19,7 @@ const Statistic = ({ title, value, suffix, children, subelement }) => (
           value === null && statisticStyles.nullValue,
         )}
       >
-        <FormatNumber number={value} nullValue="Not reported" />
+        <NumberOrNotReported value={value} />
         {suffix}
       </div>
       {children && (
@@ -28,6 +28,17 @@ const Statistic = ({ title, value, suffix, children, subelement }) => (
     </div>
   </div>
 )
+
+const NumberOrNotReported = ({ value }) => {
+  /*
+  This allows for conditional styles,
+  which FormatNumber does not support on its own.
+  */
+  if (value) {
+    return <FormatNumber number={value} />
+  }
+  return <span className={statisticStyles.notReported}>Not Reported</span>
+}
 
 const StatisticLink = ({ to, children }) => (
   <Link to={to} className={statisticStyles.link}>
@@ -58,7 +69,7 @@ const DrillDown = ({ label, value, suffix, calculated = false }) => (
       {label} {calculated && '(calculated)'}
     </span>
     <span className={statisticStyles.value}>
-      <FormatNumber number={value} nullValue="not reported" />
+      <NumberOrNotReported value={value} />
       {suffix}
     </span>
   </div>
