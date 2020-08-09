@@ -84,12 +84,9 @@ export default ({
           </>
         ) : (
           <>
-            <Statistic
-              title="Total hospitalized"
-              value={hospitalizedCumulative}
-            >
+            <Statistic title="Ever hospitalized" value={hospitalizedCumulative}>
               <DefinitionLink
-                label="Total hospitalized"
+                label="Ever hospitalized"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
@@ -99,12 +96,12 @@ export default ({
               />
             </Statistic>
             <Statistic
-              title="Currently hospitalized"
+              title="Now hospitalized"
               value={hospitalizedCurrently}
               subelement
             >
               <DefinitionLink
-                label="Currently hospitalized"
+                label="Now hospitalized"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
@@ -113,9 +110,9 @@ export default ({
                 }}
               />
             </Statistic>
-            <Statistic title="Total in ICU" value={inIcuCumulative}>
+            <Statistic title="Ever in ICU" value={inIcuCumulative}>
               <DefinitionLink
-                label="Total in ICU"
+                label="Ever in ICU"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
@@ -124,13 +121,9 @@ export default ({
                 }}
               />
             </Statistic>
-            <Statistic
-              title="Currently in ICU"
-              value={inIcuCurrently}
-              subelement
-            >
+            <Statistic title="Now in ICU" value={inIcuCurrently} subelement>
               <DefinitionLink
-                label="Currently in ICU"
+                label="Now in ICU"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
@@ -140,11 +133,11 @@ export default ({
               />
             </Statistic>
             <Statistic
-              title="Total on ventilator"
+              title="Ever on ventilator"
               value={onVentilatorCumulative}
             >
               <DefinitionLink
-                label="Total on ventilator"
+                label="Ever on ventilator"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
@@ -154,12 +147,12 @@ export default ({
               />
             </Statistic>
             <Statistic
-              title="Currently on ventilator"
+              title="Now on ventilator"
               value={onVentilatorCurrently}
               subelement
             >
               <DefinitionLink
-                label="Currently on ventilator"
+                label="Now on ventilator"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,
