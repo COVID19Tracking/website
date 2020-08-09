@@ -133,9 +133,11 @@ export const query = graphql`
       onVentilatorCumulative
       death
       totalTestResults
+      totalTestResultsIncrease
     }
     usSevenDaysAgo: covidUsDaily(date: { eq: $sevenDaysAgo }) {
       positive
+      totalTestResults
     }
     allCovidStateInfo(sort: { fields: name }) {
       nodes {
