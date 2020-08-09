@@ -13,8 +13,13 @@ const Statistic = ({ title, value, suffix, children, subelement }) => (
   >
     <div className={statisticStyles.statistic}>
       <div className={statisticStyles.title}>{title}</div>
-      <div className={statisticStyles.value}>
-        <FormatNumber number={value} />
+      <div
+        className={classnames(
+          statisticStyles.value,
+          value === null && statisticStyles.nullValue,
+        )}
+      >
+        <FormatNumber number={value} nullValue="not reported" />
         {suffix}
       </div>
       {children && (
@@ -50,10 +55,10 @@ const StatisticGroup = ({ children }) => (
 const DrillDown = ({ label, value, suffix, calculated = false }) => (
   <div className={statisticStyles.drillDown}>
     <span className={statisticStyles.label}>
-      {calculated && 'Calculated: '} {label}
+      {label} {calculated && '(calculated)'}
     </span>
     <span className={statisticStyles.value}>
-      <FormatNumber number={value} />
+      <FormatNumber number={value} nullValue="not reported" />
       {suffix}
     </span>
   </div>

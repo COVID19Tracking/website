@@ -8,6 +8,10 @@
   @include type-size(200);
   font-weight: bold;
   line-height: 1;
+  &.null-value {
+    @include type-size(100);
+    line-height: normal;
+  }
 }
 
 .statistic-wrapper {

@@ -43,11 +43,11 @@ export default ({
         {national ? (
           <>
             <Statistic
-              title="Currently Hospitalized"
+              title="Currently hospitalized"
               value={hospitalizedCurrently}
             >
               <DefinitionLink
-                label="Currently Hospitalized"
+                label="Currently hospitalized"
                 onDefinitionsToggle={() => {
                   definitionContext({
                     fields,

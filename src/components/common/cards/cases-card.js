@@ -46,11 +46,15 @@ export default ({
             }}
             label="Total cases"
           />
-          <DrillDown label="New cases" value={positiveIncrease} calculated />
           <DrillDown
-            label="Increase in 7 days"
+            label="New cases today"
+            value={positiveIncrease}
+            calculated
+          />
+          <DrillDown
+            label="Change over 7 days"
             value={drillDownValue}
-            suffix={drillDownSuffix}
+            suffix={drillDownSuffix + (drillDownValue > 0 ? '+' : '-')}
             calculated
           />
         </Statistic>

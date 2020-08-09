@@ -50,6 +50,13 @@ export default ({ data }) => {
         }}
         national
       />
+      <Container narrow>
+        <DetailText>
+          <MarkdownContent
+            html={data.nationalSummaryFootnote.content.childMarkdownRemark.html}
+          />
+        </DetailText>
+      </Container>
       <SummaryCharts
         history={data.allCovidUsDaily.nodes}
         annotations={data.allContentfulEvent}
@@ -76,6 +83,18 @@ export const query = graphql`
     lastUpdate: allCovidUsDaily(sort: { fields: date, order: DESC }, limit: 1) {
       nodes {
         date
+      }
+    }
+    nationalSummaryFootnote: contentfulSnippet(
+      slug: { eq: "national-summary-footnote" }
+    ) {
+      id
+      contentful_id
+      name
+      content {
+        childMarkdownRemark {
+          html
+        }
       }
     }
     dataSummaryFootnote: contentfulSnippet(
