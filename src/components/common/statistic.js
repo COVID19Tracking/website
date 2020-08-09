@@ -19,7 +19,7 @@ const Statistic = ({ title, value, suffix, children, subelement }) => (
           value === null && statisticStyles.nullValue,
         )}
       >
-        <FormatNumber number={value} nullValue="not reported" />
+        <FormatNumber number={value} nullValue="Not reported" />
         {suffix}
       </div>
       {children && (
