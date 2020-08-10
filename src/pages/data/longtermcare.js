@@ -7,6 +7,7 @@ import TableauChart from '~components/charts/tableau'
 import Total from '~components/common/landing-page/total'
 import { Col, Row } from '~components/common/grid'
 import { FormatNumber } from '~components/utils/format'
+import DetailText from '~components/common/detail-text'
 import DownloadLinks from '~components/pages/data/ltc/download-links'
 import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
@@ -37,7 +38,7 @@ export default ({ data }) => (
       </Col>
     </Row>
 
-    <h2>Outbreak</h2>
+    <h2>Active Outbreaks</h2>
     <Row>
       <Col width={[4, 6, 4]}>
         <Total label="Total cases" number={<FormatNumber number={101086} />} />
@@ -52,6 +53,14 @@ export default ({ data }) => (
         />
       </Col>
     </Row>
+    <DetailText>
+      Cumulative COVID-19 totals represents total cases, deaths and facilities
+      as reported by states and territories. Active Outbreak COVID-19 totals
+      represent current cases and deaths at facilities. States vary in their
+      reported cumulative data start date and each state defines an active
+      outbreak differently. Not all states and territories report long-term care
+      data.
+    </DetailText>
     <DownloadLinks />
     <Container centered>
       <LongContent>
