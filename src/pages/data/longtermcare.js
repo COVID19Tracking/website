@@ -27,7 +27,7 @@ export default ({ data }) => (
         <Total label="Total cases" number={<FormatNumber number={345983} />} />
       </Col>
       <Col width={[4, 6, 4]}>
-        <Total label="Total deaths" number={<FormatNumber number={64867} />} />
+        <Total label="Total deaths" number={<FormatNumber number={65315} />} />
       </Col>
       <Col width={[4, 6, 4]}>
         <Total
