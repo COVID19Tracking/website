@@ -9,7 +9,8 @@ import {
 import CasesCard from './cards/cases-card'
 import HospitalizationCard from './cards/hospitalization-card'
 import OutcomesCard from './cards/outcomes-card'
-import { PCRTestsCard, TestsCard } from './cards/tests-cards'
+import TestsAntibodyCard from './cards/tests-antibody'
+import TestsViralCard from './cards/tests-viral'
 import NationalTestsCard from './cards/tests-national'
 
 import summaryStyles from './summary.module.scss'
@@ -92,20 +93,8 @@ export default ({ stateSlug, data, sevenDaysAgo, national = false }) => {
         )}
         {!national && (
           <>
-            <TestsCard
-              stateSlug={stateSlug}
-              negative={data.negative}
-              positive={data.positive}
-              pending={data.pending}
-              totalTestResults={data.totalTestResults}
-              national={national}
-            />
-            <PCRTestsCard
-              stateSlug={stateSlug}
-              totalTestsViral={data.totalTestsViral}
-              positiveTestsViral={data.positiveTestsViral}
-              negativeTestsViral={data.negativeTestsViral}
-            />
+            <TestsAntibodyCard stateSlug={stateSlug} />
+            <TestsViralCard stateSlug={stateSlug} />
           </>
         )}
         <HospitalizationCard
