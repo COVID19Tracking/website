@@ -14,6 +14,7 @@ const reasons = [
   '-- Select a reason --',
   'I have questions about the state data grades',
   'I have feedback on the COVID Racial Data Tracker',
+  'I have a question about the Long-Term Care data',
   'I want to report an issue with the website or web accessibility',
   'I want to report an issue with your data',
   'Something else!',
