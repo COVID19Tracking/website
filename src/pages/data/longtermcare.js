@@ -22,7 +22,7 @@ export default ({ data }) => (
         }}
       />
     </Paragraph>
-    <h2>Cumulative</h2>
+    <h3 className="no-margin-bottom">Cumulative</h3>
     <Row>
       <Col width={[4, 6, 4]}>
         <Total label="Total cases" number={<FormatNumber number={345983} />} />
@@ -38,7 +38,7 @@ export default ({ data }) => (
       </Col>
     </Row>
 
-    <h2>Active Outbreaks</h2>
+    <h3 className="no-margin-bottom">Active Outbreaks</h3>
     <Row>
       <Col width={[4, 6, 4]}>
         <Total label="Total cases" number={<FormatNumber number={101086} />} />
