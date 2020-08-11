@@ -109,7 +109,7 @@ exports[`Components : Pages : Homepage : Blog list renders correctly 1`] = `
         </li>
       </ul>
       <a
-        className="cta centered "
+        className="cta centered"
         href="/blog"
       >
         See more from our blog

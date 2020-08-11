@@ -102,7 +102,7 @@ exports[`Components : Pages : Homepage : Large Project renders correctly 1`] = `
       We’re tracking racial and ethnic data from every state that reports it—and pushing those that don’t to start. Together with the BU Center for Antiracist Research, we’re analyzing this data to uncover the true impact of the outbreak on vulnerable communities.
     </p>
     <a
-      className="cta centered "
+      className="cta centered"
       href="/race"
     >
       See the racial data tracker
