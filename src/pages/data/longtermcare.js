@@ -53,14 +53,16 @@ export default ({ data }) => (
         />
       </Col>
     </Row>
-    <DetailText>
-      Cumulative COVID-19 totals represents total cases, deaths and facilities
-      as reported by states and territories. Active Outbreak COVID-19 totals
-      represent current cases and deaths at facilities. States vary in their
-      reported cumulative data start date and each state defines an active
-      outbreak differently. Not all states and territories report long-term care
-      data.
-    </DetailText>
+    <p>
+      <DetailText>
+        Cumulative COVID-19 totals represents total cases, deaths and facilities
+        as reported by states and territories. Active Outbreak COVID-19 totals
+        represent current cases and deaths at facilities. States vary in their
+        reported cumulative data start date and each state defines an active
+        outbreak differently. Not all states and territories report long-term
+        care data.
+      </DetailText>
+    </p>
     <DownloadLinks />
     <Container centered>
       <LongContent>
@@ -97,6 +99,17 @@ export default ({ data }) => (
       viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
       viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCaremobile/SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
     />
+    <Container centered>
+      <LongContent>
+        <ContentfulContent
+          id={data.contentThanks.contentful_id}
+          content={
+            data.contentThanks.childContentfulSnippetContentTextNode
+              .childMarkdownRemark.html
+          }
+        />
+      </LongContent>
+    </Container>
   </Layout>
 )
 
@@ -119,6 +132,14 @@ export const query = graphql`
       }
     }
     content2: contentfulSnippet(slug: { eq: "ltc-2" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    contentThanks: contentfulSnippet(slug: { eq: "ltc-thanks" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
