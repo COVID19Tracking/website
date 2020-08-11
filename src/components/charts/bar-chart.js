@@ -68,7 +68,6 @@ const BarChart = ({
     .nice()
     .range([height - totalYMargin, 0])
 
-
   const msInOneMonth = 2628000000
   const monthlyTickInterval = Math.ceil(
     Math.abs((dateDomain[1] - dateDomain[0]) / (msInOneMonth * 6)),
