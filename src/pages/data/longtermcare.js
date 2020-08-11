@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import marked from 'marked'
 import Container from '~components/common/container'
 import LongContent from '~components/common/long-content'
 import ContentfulContent from '~components/common/contentful-content'
@@ -15,12 +16,11 @@ import Paragraph from '~components/common/landing-page/paragraph'
 export default ({ data }) => (
   <Layout title="The Long-Term Care COVID Tracker" path="/data/longtermcare">
     <Paragraph narrow>
-      <a href="https://www.cdc.gov/nchs/fastats/nursing-home-care.htm">
-        Less than one percent
-      </a>{' '}
-      of America’s population lives in long-term care facilities, but as of
-      August 6, 2020, this tiny fraction of the country accounts for 43% of US
-      COVID-19 deaths.
+      <div
+        dangerouslySetInnerHTML={{
+          __html: marked.inlineLexer(data.lede.content.content, []),
+        }}
+      />
     </Paragraph>
     <h2>Cumulative</h2>
     <Row>
@@ -54,14 +54,13 @@ export default ({ data }) => (
       </Col>
     </Row>
     <DetailText>
-      <p>
-        Cumulative COVID-19 totals represents total cases, deaths and facilities
-        as reported by states and territories. Active Outbreak COVID-19 totals
-        represent current cases and deaths at facilities. States vary in their
-        reported cumulative data start date and each state defines an active
-        outbreak differently. Not all states and territories report long-term
-        care data.
-      </p>
+      <ContentfulContent
+        id={data.noteTopLine.contentful_id}
+        content={
+          data.noteTopLine.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
+        }
+      />
     </DetailText>
     <DownloadLinks />
     <Container centered>
@@ -92,6 +91,15 @@ export default ({ data }) => (
           }
         />
       </LongContent>
+      <DetailText>
+        <ContentfulContent
+          id={data.noteTable.contentful_id}
+          content={
+            data.noteTable.childContentfulSnippetContentTextNode
+              .childMarkdownRemark.html
+          }
+        />
+      </DetailText>
     </Container>
     <TableauChart
       id="ltc-2"
@@ -116,11 +124,8 @@ export default ({ data }) => (
 export const query = graphql`
   query {
     lede: contentfulSnippet(slug: { eq: "ltc-lede" }) {
-      contentful_id
-      childContentfulSnippetContentTextNode {
-        childMarkdownRemark {
-          html
-        }
+      content {
+        content
       }
     }
     content1: contentfulSnippet(slug: { eq: "ltc-1" }) {
@@ -140,6 +145,22 @@ export const query = graphql`
       }
     }
     contentThanks: contentfulSnippet(slug: { eq: "ltc-thanks" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    noteTopLine: contentfulSnippet(slug: { eq: "ltc-top-notes" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    noteTable: contentfulSnippet(slug: { eq: "ltc-table-notes" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
