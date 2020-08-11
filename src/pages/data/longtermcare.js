@@ -53,7 +53,7 @@ export default ({ data }) => (
         />
       </Col>
     </Row>
-    <DetailText>
+    <DetailText small>
       <ContentfulContent
         id={data.noteTopLine.contentful_id}
         content={
@@ -91,7 +91,7 @@ export default ({ data }) => (
           }
         />
       </LongContent>
-      <DetailText>
+      <DetailText small>
         <ContentfulContent
           id={data.noteTable.contentful_id}
           content={
