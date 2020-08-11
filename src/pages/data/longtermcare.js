@@ -53,16 +53,16 @@ export default ({ data }) => (
         />
       </Col>
     </Row>
-    <p>
-      <DetailText>
+    <DetailText>
+      <p>
         Cumulative COVID-19 totals represents total cases, deaths and facilities
         as reported by states and territories. Active Outbreak COVID-19 totals
         represent current cases and deaths at facilities. States vary in their
         reported cumulative data start date and each state defines an active
         outbreak differently. Not all states and territories report long-term
         care data.
-      </DetailText>
-    </p>
+      </p>
+    </DetailText>
     <DownloadLinks />
     <Container centered>
       <LongContent>
