@@ -16,7 +16,7 @@ import Paragraph from '~components/common/landing-page/paragraph'
 export default ({ data }) => (
   <Layout title="The Long-Term Care COVID Tracker" path="/data/longtermcare">
     <Paragraph narrow>
-      <div
+      <span
         dangerouslySetInnerHTML={{
           __html: marked.inlineLexer(data.lede.content.content, []),
         }}
