@@ -99,16 +99,16 @@ export default ({
         )}
         {!national && (
           <>
-            <TestsAntibodyCard
-              stateSlug={stateSlug}
-              totalTestsAntibody={data.totalTestsAntibody}
-            />
             <TestsViralCard
               stateSlug={stateSlug}
               totalTestEncountersViral={data.totalTestEncountersViral}
               totalTestsViral={data.totalTestsViral}
               totalTestsPeopleViral={data.totalTestsPeopleViral}
               unknownUnits={metadata && metadata.testUnitsUnknown}
+            />
+            <TestsAntibodyCard
+              stateSlug={stateSlug}
+              totalTestsAntibody={data.totalTestsAntibody}
             />
           </>
         )}
