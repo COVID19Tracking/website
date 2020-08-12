@@ -69,7 +69,7 @@ export default ({ data }) => {
             />
           </Col>
         </Row>
-        <Textarea label="Message" name="body" id="contact-message" />
+        <Textarea label="Message" name="body" id="contact-message" isRequired />
         <div>
           {typeof window !== 'undefined' && (
             <ReCaptcha

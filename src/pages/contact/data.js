@@ -40,13 +40,14 @@ export default ({ data }) => {
           type="date"
           label="Date when issue began"
           id="contact-date"
-          required
+          isRequired
         />
         <List
           type="checkbox"
           id="contact-data"
           name="data-fields"
           label="Which fields are you contacting us about?"
+          isRequired
           options={[
             'Cases',
             'Tests',
@@ -83,6 +84,7 @@ export default ({ data }) => {
           label="Please describe the issue"
           name="body"
           id="contact-message"
+          isRequired
         />
         <div>
           {typeof window !== 'undefined' && (
