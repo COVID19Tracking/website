@@ -32,24 +32,8 @@ export default ({ data }) => (
       </Col>
       <Col width={[4, 6, 4]}>
         <Total
-          label="Total Number of Facilities Affected"
+          label="Total number of facilities affected"
           number={<FormatNumber number={12824} />}
-        />
-      </Col>
-    </Row>
-
-    <h3 className="no-margin-bottom">Active Outbreaks</h3>
-    <Row>
-      <Col width={[4, 6, 4]}>
-        <Total label="Total cases" number={<FormatNumber number={101086} />} />
-      </Col>
-      <Col width={[4, 6, 4]}>
-        <Total label="Total deaths" number={<FormatNumber number={10213} />} />
-      </Col>
-      <Col width={[4, 6, 4]}>
-        <Total
-          label="Total Number of Facilities Affected"
-          number={<FormatNumber number={5954} />}
         />
       </Col>
     </Row>
