@@ -1,19 +1,47 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import stateScriptStyles from './state-script.module.scss'
+import stateInfotyles from './state-script.module.scss'
 
-const StateScript = ({ currentState, stateScripts }) => {
-  if (currentState === '-- Select a state --') {
+const template = require('mustache')
+
+const StateScript = ({ currentStateName, stateInfo }) => {
+  if (currentStateName === '-- Select a state --') {
     return null
   }
-  const data = stateScripts.find(script => script.state === currentState)
+
+  // find the current state
+  const currentState = stateInfo.find(state => state.name === currentStateName)
+
+  const numberToPercentage = number => {
+    return number * 100 > 1 ? Math.round(number * 100) : '<1'
+  }
+
+  let script
+  if (currentState.message) {
+    // if there is a custom script for this state
+    const scriptValues = {
+      knownEthDeath: numberToPercentage(currentState.knownEthDeath), // separate
+      knownEthPos: numberToPercentage(currentState.knownEthPos), // separate
+      knownRaceDeath: numberToPercentage(currentState.knownRaceDeath), // separate
+      knownRacePos: numberToPercentage(currentState.knownRacePos), // separate
+      knownRaceEthDeath: numberToPercentage(currentState.knownRaceEthDeath), // combined
+      knownRaceEthPos: numberToPercentage(currentState.knownRaceEthPos), // combined
+    }
+
+    // render Mustache template
+    script = template.render(
+      currentState.message.childMarkdownRemark.html,
+      scriptValues,
+    )
+  }
+
   return (
-    <div className={stateScriptStyles.container}>
-      <h5>Suggested script for {currentState}</h5>
-      {data === undefined ? (
+    <div className={stateInfotyles.container}>
+      <h5>Suggested script for {currentStateName}</h5>
+      {script === undefined ? (
         <p>
-          I’m calling on {currentState} to release the latest race and ethnicity
-          data for COVID-19.
+          I’m calling on {currentStateName} to release the latest race and
+          ethnicity data for COVID-19.
           <br />
           <br />
           Nationwide, COVID-19 is disproportionately affecting Black,
@@ -25,7 +53,7 @@ const StateScript = ({ currentState, stateScripts }) => {
       ) : (
         <div
           dangerouslySetInnerHTML={{
-            __html: data.message.childMarkdownRemark.html,
+            __html: script,
           }}
         />
       )}
@@ -34,19 +62,29 @@ const StateScript = ({ currentState, stateScripts }) => {
 }
 
 StateScript.defaultProps = {
-  currentState: '-- Select a state --',
+  currentStateName: '-- Select a state --',
 }
 
 StateScript.propTypes = {
-  currentState: PropTypes.string,
-  stateScripts: PropTypes.arrayOf(
+  currentStateName: PropTypes.string,
+  stateInfo: PropTypes.arrayOf(
     PropTypes.shape({
-      state: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
       message: PropTypes.shape({
         childMarkdownRemark: PropTypes.shape({
           html: PropTypes.string,
         }),
-      }).isRequired,
+      }),
+      /*
+        graphQL serves the following values as strings,
+        yet they contain numerical values
+      */
+      knownEthDeath: PropTypes.string,
+      knownEthPos: PropTypes.string,
+      knownRaceDeath: PropTypes.string,
+      knownRacePos: PropTypes.string,
+      knownRaceEthDeath: PropTypes.string,
+      knownRaceEthPos: PropTypes.string,
     }),
   ).isRequired,
 }
