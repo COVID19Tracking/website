@@ -75,12 +75,16 @@ StateScript.propTypes = {
           html: PropTypes.string,
         }),
       }),
-      knownEthDeath: PropTypes.number,
-      knownEthPos: PropTypes.number,
-      knownRaceDeath: PropTypes.number,
-      knownRacePos: PropTypes.number,
-      knownRaceEthDeath: PropTypes.number,
-      knownRaceEthPos: PropTypes.number,
+      /*
+        graphQL serves the following values as strings,
+        yet they contain numerical values
+      */
+      knownEthDeath: PropTypes.string,
+      knownEthPos: PropTypes.string,
+      knownRaceDeath: PropTypes.string,
+      knownRacePos: PropTypes.string,
+      knownRaceEthDeath: PropTypes.string,
+      knownRaceEthPos: PropTypes.string,
     }),
   ).isRequired,
 }
