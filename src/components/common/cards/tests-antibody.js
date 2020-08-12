@@ -4,7 +4,7 @@ import { Card, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
-export default ({ stateSlug }) => {
+export default ({ stateSlug, totalTestsAntibody }) => {
   const definitionContext = useContext(DefinitionPanelContext)
 
   return (
@@ -17,12 +17,12 @@ export default ({ stateSlug }) => {
       }
     >
       <CardBody>
-        <Statistic title="Total" value={0}>
+        <Statistic title="Total tests" value={totalTestsAntibody}>
           <DefinitionLink
             onDefinitionsToggle={() => {
               definitionContext({
-                fields: ['positive'],
-                highlight: 'positive',
+                fields: ['totalTestsAntibody'],
+                highlight: 'totalTestsAntibody',
               })
             }}
             label="Total "

@@ -201,7 +201,10 @@ export const query = graphql`
         state
         totalTestResults
         totalTestResults
+        totalTestsPeopleViral
         totalTestsViral
+        totalTestEncountersViral
+        totalTestsAntibody
       }
     }
     allCovidStateDaily(filter: { date: { eq: $sevenDaysAgo } }) {

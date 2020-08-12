@@ -4,9 +4,18 @@ import { Card, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
-export default ({ stateSlug }) => {
+export default ({
+  stateSlug,
+  totalTestEncountersViral,
+  totalTestsViral,
+  totalTestsPeopleViral,
+}) => {
   const definitionContext = useContext(DefinitionPanelContext)
-
+  const fields = [
+    'totalTestEncountersViral',
+    'totalTestsViral',
+    'totalTestsPeopleViral',
+  ]
   return (
     <Card
       title="Viral (PCR) tests"
@@ -17,15 +26,64 @@ export default ({ stateSlug }) => {
       }
     >
       <CardBody>
-        <Statistic title="Total" value={0}>
+        <Statistic
+          title={
+            <>
+              Total tests
+              <br />
+              (in test encounters)
+            </>
+          }
+          value={totalTestEncountersViral}
+        >
           <DefinitionLink
             onDefinitionsToggle={() => {
               definitionContext({
-                fields: ['positive'],
-                highlight: 'positive',
+                fields,
+                highlight: 'totalTestEncountersViral',
               })
             }}
-            label="Total "
+            label="Total tests (in test encounters)"
+          />
+        </Statistic>
+        <Statistic
+          title={
+            <>
+              Total tests
+              <br />
+              (in specimens)
+            </>
+          }
+          value={totalTestsViral}
+        >
+          <DefinitionLink
+            onDefinitionsToggle={() => {
+              definitionContext({
+                fields,
+                highlight: 'totalTestsViral',
+              })
+            }}
+            label="Total tests (in specimens)"
+          />
+        </Statistic>
+        <Statistic
+          title={
+            <>
+              Total tests
+              <br />
+              (in people)
+            </>
+          }
+          value={totalTestsPeopleViral}
+        >
+          <DefinitionLink
+            onDefinitionsToggle={() => {
+              definitionContext({
+                fields,
+                highlight: 'totalTestsPeopleViral',
+              })
+            }}
+            label="Total tests (in people)"
           />
         </Statistic>
       </CardBody>

@@ -123,8 +123,11 @@ export const query = graphql`
       posNeg
       positiveCasesViral
       positiveTestsViral
-      totalTestsViral
       negativeTestsViral
+      totalTestsPeopleViral
+      totalTestsViral
+      totalTestEncountersViral
+      totalTestsAntibody
     }
     allCovidStateDaily(
       filter: { state: { eq: $state } }

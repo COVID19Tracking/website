@@ -93,8 +93,16 @@ export default ({ stateSlug, data, sevenDaysAgo, national = false }) => {
         )}
         {!national && (
           <>
-            <TestsAntibodyCard stateSlug={stateSlug} />
-            <TestsViralCard stateSlug={stateSlug} />
+            <TestsAntibodyCard
+              stateSlug={stateSlug}
+              totalTestsAntibody={data.totalTestsAntibody}
+            />
+            <TestsViralCard
+              stateSlug={stateSlug}
+              totalTestEncountersViral={data.totalTestEncountersViral}
+              totalTestsViral={data.totalTestsViral}
+              totalTestsPeopleViral={data.totalTestsPeopleViral}
+            />
           </>
         )}
         <HospitalizationCard
