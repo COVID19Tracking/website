@@ -27,7 +27,12 @@ export default ({ data }) => {
     ...separateRaceData.find(raceDatum => raceDatum.stateName === state.name),
   }))
 
-  // todo rm stateName, state fields
+  // remove duplicate state name fields from combining data
+  stateInfo.forEach(state => {
+    /* eslint-disable no-param-reassign */
+    delete state.stateName
+    delete state.state
+  })
 
   return (
     <Layout
