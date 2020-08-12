@@ -225,6 +225,10 @@ const gatsbyConfig = {
         stateType: 'CovidStateDaily',
         usType: 'CovidUsDaily',
         stateInfoType: 'CovidStateInfo',
+        sources: {
+          us: `${__dirname}/_api/v1/internal/bigquery/census_population_us.json`,
+          states: `${__dirname}/_api/v1/internal/bigquery/census_population_state.json`,
+        },
         fields: [
           'hospitalizedCumulative',
           'hospitalizedCurrently',
