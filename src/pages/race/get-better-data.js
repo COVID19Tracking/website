@@ -14,6 +14,21 @@ export default ({ data }) => {
     .filter(node => node.id !== 'dummy') // from gatsby-source-apiserver (see its readme)
     .concat(data.allTerritoryInfo.nodes)
 
+  const stateScripts = data.allContentfulCrdtAdvocacyState.nodes
+  const stateNames = data.allCovidStateInfo.nodes
+  const combinedRaceData = data.allCovidRaceDataCombined.nodes
+  const separateRaceData = data.allCovidRaceDataSeparate.nodes
+
+  // join state info, race data, and state scripts
+  const stateInfo = stateNames.map(state => ({
+    ...state,
+    ...stateScripts.find(stateScript => stateScript.state === state.name),
+    ...combinedRaceData.find(raceDatum => raceDatum.stateName === state.name),
+    ...separateRaceData.find(raceDatum => raceDatum.stateName === state.name),
+  }))
+
+  // todo rm stateName, state fields
+
   return (
     <Layout
       title="Help Us Get Better Race and Ethnicity Data"
@@ -30,7 +45,7 @@ export default ({ data }) => {
       <h2>Instructions</h2>
       <AdvocacyForm
         states={states}
-        stateScripts={data.allContentfulCrdtAdvocacyState.nodes}
+        stateInfo={stateInfo}
         governors={governors}
       />
     </Layout>
@@ -77,6 +92,22 @@ export const query = graphql`
     allCovidStateInfo {
       nodes {
         name
+      }
+    }
+    allCovidRaceDataCombined {
+      nodes {
+        knownRaceEthDeath
+        knownRaceEthPos
+        stateName
+      }
+    }
+    allCovidRaceDataSeparate {
+      nodes {
+        knownEthDeath
+        knownRaceDeath
+        knownRacePos
+        knownEthPos
+        stateName
       }
     }
   }
