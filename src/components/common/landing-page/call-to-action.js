@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import classnames from 'classnames'
 import ctaLinkStyle from './call-to-action.module.scss'
 
 const Arrow = () => (
@@ -12,9 +13,11 @@ const Arrow = () => (
 const CtaLink = ({ to, children, centered = false, bold = false }) => (
   <Link
     to={to}
-    className={`${ctaLinkStyle.cta} ${centered ? ctaLinkStyle.centered : ''} ${
-      bold ? ctaLinkStyle.bold : ''
-    }`}
+    className={classnames(
+      ctaLinkStyle.cta,
+      centered && ctaLinkStyle.centered,
+      bold && ctaLinkStyle.bold,
+    )}
   >
     {children}
     <Arrow />
@@ -24,9 +27,11 @@ const CtaLink = ({ to, children, centered = false, bold = false }) => (
 const CtaAnchorLink = ({ href, children, centered = false, bold = false }) => (
   <a
     href={href}
-    className={`${ctaLinkStyle.cta} ${centered ? ctaLinkStyle.centered : ''} ${
-      bold ? ctaLinkStyle.bold : ''
-    }`}
+    className={classnames(
+      ctaLinkStyle.cta,
+      centered && ctaLinkStyle.centered,
+      bold && ctaLinkStyle.bold,
+    )}
   >
     {children}
     <Arrow />

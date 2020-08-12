@@ -146,6 +146,13 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_api/v1/internal/bigquery/long_term_care_website.json',
+        type: 'CovidLTCWebsite',
+      },
+    },
+    {
       resolve: 'gatsby-source-apiserver',
       options: {
         typePrefix: 'civilService',
