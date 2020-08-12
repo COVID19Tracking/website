@@ -19,6 +19,7 @@ const StatePage = ({ pageContext, data, path }) => {
     covidRaceDataCombined,
     covidRaceDataSeparate,
     sevenDaysAgo,
+    contentfulStateOrTerritory,
   } = data
   const crdtData = covidRaceDataCombined || covidRaceDataSeparate
   return (
@@ -38,6 +39,7 @@ const StatePage = ({ pageContext, data, path }) => {
           data={covidState}
           crdtData={crdtData}
           population={covidStateInfo.childPopulation.population}
+          metadata={contentfulStateOrTerritory}
           lastUpdated={covidState.lastUpdateEt}
         />
       </StateNavWrapper>
@@ -161,6 +163,9 @@ export const query = graphql`
           }
         }
       }
+    }
+    contentfulStateOrTerritory(code: { eq: $state }) {
+      testUnitsUnknown
     }
     allContentfulEvent(
       filter: {

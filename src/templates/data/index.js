@@ -73,6 +73,7 @@ export default ({ data }) => {
         states={data.allCovidStateInfo.nodes}
         stateData={data.allCovidState.nodes}
         sevenDaysAgoList={data.allCovidStateDaily.nodes}
+        stateMetadata={data.allContentfulStateOrTerritory.nodes}
       />
     </Layout>
   )
@@ -211,6 +212,12 @@ export const query = graphql`
       nodes {
         positive
         state
+      }
+    }
+    allContentfulStateOrTerritory {
+      nodes {
+        testUnitsUnknown
+        code
       }
     }
     allContentfulEvent(

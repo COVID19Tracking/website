@@ -9,6 +9,7 @@ export default ({
   totalTestEncountersViral,
   totalTestsViral,
   totalTestsPeopleViral,
+  unknownUnits = false,
 }) => {
   const definitionContext = useContext(DefinitionPanelContext)
   const fields = [
@@ -26,66 +27,91 @@ export default ({
       }
     >
       <CardBody>
-        <Statistic
-          title={
-            <>
-              Total tests
-              <br />
-              (in test encounters)
-            </>
-          }
-          value={totalTestEncountersViral}
-        >
-          <DefinitionLink
-            onDefinitionsToggle={() => {
-              definitionContext({
-                fields,
-                highlight: 'totalTestEncountersViral',
-              })
-            }}
-            label="Total tests (in test encounters)"
-          />
-        </Statistic>
-        <Statistic
-          title={
-            <>
-              Total tests
-              <br />
-              (in specimens)
-            </>
-          }
-          value={totalTestsViral}
-        >
-          <DefinitionLink
-            onDefinitionsToggle={() => {
-              definitionContext({
-                fields,
-                highlight: 'totalTestsViral',
-              })
-            }}
-            label="Total tests (in specimens)"
-          />
-        </Statistic>
-        <Statistic
-          title={
-            <>
-              Total tests
-              <br />
-              (in people)
-            </>
-          }
-          value={totalTestsPeopleViral}
-        >
-          <DefinitionLink
-            onDefinitionsToggle={() => {
-              definitionContext({
-                fields,
-                highlight: 'totalTestsPeopleViral',
-              })
-            }}
-            label="Total tests (in people)"
-          />
-        </Statistic>
+        {unknownUnits ? (
+          <Statistic
+            title={
+              <>
+                Total tests
+                <br />
+                (in unclear units)
+              </>
+            }
+            value={totalTestsViral}
+          >
+            <DefinitionLink
+              onDefinitionsToggle={() => {
+                definitionContext({
+                  fields,
+                  highlight: 'totalTestsViral',
+                })
+              }}
+              label="Total tests (in unclear units)"
+            />
+          </Statistic>
+        ) : (
+          <>
+            <Statistic
+              title={
+                <>
+                  Total tests
+                  <br />
+                  (in test encounters)
+                </>
+              }
+              value={totalTestEncountersViral}
+            >
+              <DefinitionLink
+                onDefinitionsToggle={() => {
+                  definitionContext({
+                    fields,
+                    highlight: 'totalTestEncountersViral',
+                  })
+                }}
+                label="Total tests (in test encounters)"
+              />
+            </Statistic>
+            <Statistic
+              title={
+                <>
+                  Total tests
+                  <br />
+                  (in specimens)
+                </>
+              }
+              value={totalTestsViral}
+            >
+              <DefinitionLink
+                onDefinitionsToggle={() => {
+                  definitionContext({
+                    fields,
+                    highlight: 'totalTestsViral',
+                  })
+                }}
+                label="Total tests (in specimens)"
+              />
+            </Statistic>
+            <Statistic
+              title={
+                <>
+                  Total tests
+                  <br />
+                  (in people)
+                </>
+              }
+              value={totalTestsPeopleViral}
+            >
+              <DefinitionLink
+                onDefinitionsToggle={() => {
+                  definitionContext({
+                    fields,
+                    highlight: 'totalTestsPeopleViral',
+                  })
+                }}
+                label="Total tests (in people)"
+              />
+            </Statistic>
+          </>
+        )}
       </CardBody>
     </Card>
   )

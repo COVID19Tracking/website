@@ -15,7 +15,13 @@ import NationalTestsCard from './cards/tests-national'
 
 import summaryStyles from './summary.module.scss'
 
-export default ({ stateSlug, data, sevenDaysAgo, national = false }) => {
+export default ({
+  stateSlug,
+  data,
+  sevenDaysAgo,
+  metadata,
+  national = false,
+}) => {
   /*
   stateSlug: the name of the state, as a slug. like "arizona"
   data: API data from either usCovid or covidState
@@ -102,6 +108,7 @@ export default ({ stateSlug, data, sevenDaysAgo, national = false }) => {
               totalTestEncountersViral={data.totalTestEncountersViral}
               totalTestsViral={data.totalTestsViral}
               totalTestsPeopleViral={data.totalTestsPeopleViral}
+              unknownUnits={metadata && metadata.testUnitsUnknown}
             />
           </>
         )}

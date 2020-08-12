@@ -13,7 +13,7 @@ import {
 import stateDataStyles from './state-data.module.scss'
 
 // todo pass race and ethnicity data from API
-const State = ({ state }) => {
+const State = ({ state, metadata }) => {
   const [stateLinksOpen, setStateLinksOpen] = useState(false)
   const { slug } = state.childSlug
   return (
@@ -32,6 +32,7 @@ const State = ({ state }) => {
           combined: false,
           separate: false,
         }}
+        metadata={metadata}
         lastUpdate={state.dateModified}
       />
 
