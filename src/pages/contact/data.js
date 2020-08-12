@@ -4,9 +4,24 @@ import ReCaptcha from 'react-recaptcha'
 import Layout from '~components/layout'
 import { Form, Textarea, Input, Select, List } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
+import { AlertInfobox } from '~components/common/infobox'
 
 export default ({ data }) => {
   const [name, setName] = useState(false)
+  const [required, setRequired] = useState({
+    state: false,
+    date: false,
+    name: false,
+    email: false,
+    body: false,
+  })
+  const [isComplete, setIsComplete] = useState(false)
+
+  const addRequiredField = (fieldName, event) => {
+    required[fieldName] = event.target.value || false
+    setRequired(required)
+    setIsComplete(!Object.values(required).filter(item => !item))
+  }
 
   return (
     <Layout
@@ -35,18 +50,24 @@ export default ({ data }) => {
             'All states (US Data)',
             ...data.allCovidStateInfo.nodes.map(node => node.name),
           ]}
+          onChange={event => {
+            addRequiredField('state', event)
+          }}
         />
         <Input
           type="date"
           label="Date when issue began"
           id="contact-date"
           isRequired
+          onChange={event => {
+            addRequiredField('date', event)
+          }}
         />
         <List
           type="checkbox"
           id="contact-data"
           name="data-fields"
-          label="Which fields are you contacting us about?"
+          label="Which data points are you contacting us about?"
           isRequired
           options={[
             'Cases',
@@ -54,6 +75,7 @@ export default ({ data }) => {
             'Hospitalization',
             'Recovery',
             'Death',
+            'Other',
           ].map(item => ({
             value: item,
             label: item,
@@ -67,7 +89,10 @@ export default ({ data }) => {
               type="text"
               name="name"
               id="contact-name"
-              onChange={event => setName(event.target.value)}
+              onChange={event => {
+                addRequiredField('name', event)
+                setName(event.target.value)
+              }}
             />
           </Col>
           <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]}>
@@ -77,6 +102,9 @@ export default ({ data }) => {
               label="Your email address"
               name="email"
               id="contact-email"
+              onChange={event => {
+                addRequiredField('email', event)
+              }}
             />
           </Col>
         </Row>
@@ -85,6 +113,9 @@ export default ({ data }) => {
           name="body"
           id="contact-message"
           isRequired
+          onChange={event => {
+            addRequiredField('body', event)
+          }}
         />
         <div>
           {typeof window !== 'undefined' && (
@@ -117,7 +148,18 @@ export default ({ data }) => {
           name="autoreply-sender-name"
           value="The COVID Tracking Project"
         />
-        <button type="submit">Contact us</button>
+        {!isComplete && (
+          <div>
+            <AlertInfobox>All fields are required.</AlertInfobox>
+          </div>
+        )}
+        <button
+          type="submit"
+          disabled={!isComplete}
+          aria-disabled={!isComplete}
+        >
+          Contact us
+        </button>
       </Form>
     </Layout>
   )
