@@ -25,15 +25,27 @@ export default ({ data }) => (
     <h3 className="no-margin-bottom">Cumulative</h3>
     <Row>
       <Col width={[4, 6, 4]}>
-        <Total label="Total cases" number={<FormatNumber number={345983} />} />
+        <Total
+          label="Total cases"
+          number={
+            <FormatNumber number={data.covidLtcWebsite.casesCumulative} />
+          }
+        />
       </Col>
       <Col width={[4, 6, 4]}>
-        <Total label="Total deaths" number={<FormatNumber number={65315} />} />
+        <Total
+          label="Total deaths"
+          number={
+            <FormatNumber number={data.covidLtcWebsite.deathsCumulative} />
+          }
+        />
       </Col>
       <Col width={[4, 6, 4]}>
         <Total
           label="Total number of facilities affected"
-          number={<FormatNumber number={12824} />}
+          number={
+            <FormatNumber number={data.covidLtcWebsite.facilitiesCumulative} />
+          }
         />
       </Col>
     </Row>
@@ -107,6 +119,11 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
+    covidLtcWebsite {
+      facilitiesCumulative
+      deathsCumulative
+      casesCumulative
+    }
     lede: contentfulSnippet(slug: { eq: "ltc-lede" }) {
       content {
         content
