@@ -60,12 +60,24 @@ const BarChart = ({
     .domain(dateDomain)
     .range([marginLeft, width - marginRight])
 
+  const yMaxEffective =
+    yMax || max([...data, ...(refLineData || [])], d => d.value)
+
   const yScale = scaleLinear()
-    .domain([0, yMax || max([...data, ...(refLineData || [])], d => d.value)])
+    .domain([0, yMaxEffective])
     .nice()
     .range([height - totalYMargin, 0])
 
-  const xTickAmount = timeMonth.every(1)
+  const msInOneMonth = 2628000000
+  const monthlyTickInterval = Math.ceil(
+    Math.abs((dateDomain[1] - dateDomain[0]) / (msInOneMonth * 6)),
+  )
+
+  const xTickAmount = timeMonth.every(monthlyTickInterval)
+
+  const yTicksThreshold = 4
+  const yTicksEffective =
+    yTicks || yMaxEffective < yTicksThreshold ? yMaxEffective : yTicksThreshold
 
   const lastTime = xScaleTime.ticks(timeDay.every(1)).pop()
 
@@ -106,7 +118,7 @@ const BarChart = ({
       >
         {/* y ticks */}
         <g transform={`translate(${marginLeft} ${marginTop})`}>
-          {yScale.ticks(yTicks).map(
+          {yScale.ticks(yTicksEffective).map(
             (tick, i) =>
               i < showTicks && (
                 <g key={tick}>
@@ -292,7 +304,7 @@ BarChart.defaultProps = {
   width: 300,
   height: 300,
   yMax: null,
-  yTicks: 4,
+  yTicks: null,
   showTicks: 4,
   renderTooltipContents: null,
   perCapLabel: null,
