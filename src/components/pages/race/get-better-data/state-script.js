@@ -68,14 +68,19 @@ StateScript.defaultProps = {
 StateScript.propTypes = {
   currentStateName: PropTypes.string,
   stateInfo: PropTypes.arrayOf(
-    // todo update this
     PropTypes.shape({
-      state: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
       message: PropTypes.shape({
         childMarkdownRemark: PropTypes.shape({
           html: PropTypes.string,
         }),
-      }).isRequired,
+      }),
+      knownEthDeath: PropTypes.number,
+      knownEthPos: PropTypes.number,
+      knownRaceDeath: PropTypes.number,
+      knownRacePos: PropTypes.number,
+      knownRaceEthDeath: PropTypes.number,
+      knownRaceEthPos: PropTypes.number,
     }),
   ).isRequired,
 }
