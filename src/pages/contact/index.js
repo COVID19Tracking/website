@@ -1,7 +1,8 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
 import LongContent from '~components/common/long-content'
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 import Layout from '~components/layout'
 
 export default ({ data }) => (
@@ -23,10 +24,14 @@ export default ({ data }) => (
       />
     </LongContent>
     <p>
-      <Link to="/contact/data">I want to report an issue with your data</Link>
+      <CtaLink to="/contact/data" bold>
+        I want to report an issue with your data
+      </CtaLink>
     </p>
     <p>
-      <Link to="/contact/other">I have a question about something else</Link>
+      <CtaLink to="/contact/other" bold>
+        I have a question about something else
+      </CtaLink>
     </p>
   </Layout>
 )
