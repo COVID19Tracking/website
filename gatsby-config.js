@@ -207,8 +207,7 @@ const gatsbyConfig = {
       resolve: 'gatsby-source-covid-tracking-counties',
       options: {
         type: 'Counties',
-        nytimesUrl:
-          'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv',
+        counties: `${__dirname}/_api/v1/internal/bigquery/nyt_counties.json`,
         demographics: `${__dirname}/src/data/race/counties/demographics.json`,
       },
     },
@@ -226,6 +225,10 @@ const gatsbyConfig = {
         stateType: 'CovidStateDaily',
         usType: 'CovidUsDaily',
         stateInfoType: 'CovidStateInfo',
+        sources: {
+          us: `${__dirname}/_api/v1/internal/bigquery/census_population_us.json`,
+          states: `${__dirname}/_api/v1/internal/bigquery/census_population_state.json`,
+        },
         fields: [
           'hospitalizedCumulative',
           'hospitalizedCurrently',
