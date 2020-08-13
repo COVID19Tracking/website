@@ -68,7 +68,9 @@
   .label {
     @include type-size(50);
   }
-
+  .calculated {
+    font-weight: normal;
+  }
   .value {
     @include type-size(50);
   }
