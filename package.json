@@ -147,6 +147,6 @@
     "test:api-header-test": "jest --config='{}' ./src/__tests__/api/index.js",
     "setup": "run-s setup:api-repo setup:env-vars",
     "setup:env-vars": "curl -L https://covidtracking.com/__developer/env-vars > .env",
-    "setup:api-repo": "rm -rf _api || true && git clone --depth 1 --branch kevee/api-test-preview https://github.com/COVID19Tracking/covid-public-api.git _api && rm -rf _api/.git"
+    "setup:api-repo": "rm -rf _api || true && git clone --depth 1 https://github.com/COVID19Tracking/covid-public-api.git _api && rm -rf _api/.git"
   }
 }
