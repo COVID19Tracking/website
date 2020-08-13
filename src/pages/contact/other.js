@@ -20,6 +20,8 @@ const reasons = [
 
 export default ({ data }) => {
   const [name, setName] = useState('')
+  const [email, setEmail] = useState(false)
+  const [message, setMessage] = useState(false)
   const [reason, setReason] = useState(defaultReason)
 
   return (
@@ -66,10 +68,17 @@ export default ({ data }) => {
               label="Your email address"
               name="email"
               id="contact-email"
+              onChange={event => setEmail(event.target.value)}
             />
           </Col>
         </Row>
-        <Textarea label="Message" name="body" id="contact-message" isRequired />
+        <Textarea
+          label="Message"
+          name="body"
+          id="contact-message"
+          isRequired
+          onChange={event => setMessage(event.target.value)}
+        />
         <div>
           {typeof window !== 'undefined' && (
             <ReCaptcha
@@ -88,6 +97,9 @@ export default ({ data }) => {
             <a href="#contact-reason">why you are contacting us</a> so we can
             route your message to the right team.
           </AlertInfobox>
+        )}
+        {reason !== defaultReason && !(email && message && name) && (
+          <AlertInfobox>All fields are required</AlertInfobox>
         )}
 
         <input
@@ -111,8 +123,10 @@ export default ({ data }) => {
         />
         <button
           type="submit"
-          disabled={reason === defaultReason}
-          aria-disabled={reason === defaultReason}
+          disabled={reason === defaultReason || !(email && message && name)}
+          aria-disabled={
+            reason === defaultReason || !(email && message && name)
+          }
         >
           Contact us
         </button>

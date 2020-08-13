@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import ReCaptcha from 'react-recaptcha'
@@ -8,20 +9,11 @@ import { AlertInfobox } from '~components/common/infobox'
 
 export default ({ data }) => {
   const [name, setName] = useState(false)
-  const [required, setRequired] = useState({
-    state: false,
-    date: false,
-    name: false,
-    email: false,
-    body: false,
-  })
-  const [isComplete, setIsComplete] = useState(false)
+  const [message, setMessage] = useState(false)
+  const [date, setDate] = useState(false)
+  const [email, setEmail] = useState(false)
 
-  const addRequiredField = (fieldName, event) => {
-    required[fieldName] = event.target.value || false
-    setRequired(required)
-    setIsComplete(!Object.values(required).filter(item => !item))
-  }
+  const isComplete = () => name && message && date && email
 
   return (
     <Layout
@@ -50,18 +42,13 @@ export default ({ data }) => {
             'All states (US Data)',
             ...data.allCovidStateInfo.nodes.map(node => node.name),
           ]}
-          onChange={event => {
-            addRequiredField('state', event)
-          }}
         />
         <Input
           type="date"
           label="Date when issue began"
           id="contact-date"
           isRequired
-          onChange={event => {
-            addRequiredField('date', event)
-          }}
+          onChange={event => setDate(event.target.value)}
         />
         <List
           type="checkbox"
@@ -90,7 +77,6 @@ export default ({ data }) => {
               name="name"
               id="contact-name"
               onChange={event => {
-                addRequiredField('name', event)
                 setName(event.target.value)
               }}
             />
@@ -102,9 +88,7 @@ export default ({ data }) => {
               label="Your email address"
               name="email"
               id="contact-email"
-              onChange={event => {
-                addRequiredField('email', event)
-              }}
+              onChange={event => setEmail(event.target.value)}
             />
           </Col>
         </Row>
@@ -113,9 +97,7 @@ export default ({ data }) => {
           name="body"
           id="contact-message"
           isRequired
-          onChange={event => {
-            addRequiredField('body', event)
-          }}
+          onChange={event => setMessage(event.target.value)}
         />
         <div>
           {typeof window !== 'undefined' && (
@@ -148,15 +130,15 @@ export default ({ data }) => {
           name="autoreply-sender-name"
           value="The COVID Tracking Project"
         />
-        {!isComplete && (
+        {!isComplete() && (
           <div>
-            <AlertInfobox>All fields are required.</AlertInfobox>
+            <AlertInfobox>You must complete all fields</AlertInfobox>
           </div>
         )}
         <button
           type="submit"
-          disabled={!isComplete}
-          aria-disabled={!isComplete}
+          disabled={!isComplete()}
+          aria-disabled={!isComplete()}
         >
           Contact us
         </button>
