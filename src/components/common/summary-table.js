@@ -131,7 +131,8 @@ export default ({
       header: 'Total Test Results',
       columns: [
         {
-          header: 'Positive + Negative',
+          header:
+            data.state === 'CO' ? 'Test encounters' : 'Positive + Negative',
           data: data.totalTestResults,
           wide: true,
         },
