@@ -82,6 +82,7 @@ export const query = graphql`
       }
     }
     covidState(state: { eq: $state }) {
+      state
       positive
       negative
       lastUpdateEt
