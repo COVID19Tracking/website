@@ -66,9 +66,9 @@ const StatisticGroup = ({ children }) => (
 const DrillDown = ({ label, value, suffix, calculated = false }) => (
   <div className={statisticStyles.drillDown}>
     <span className={statisticStyles.label}>
-      {label}{' '}
+      {label}
       {calculated && (
-        <span className={statisticStyles.calculated}>(calculated)</span>
+        <span className={statisticStyles.calculated}> (Calculated)</span>
       )}
     </span>
     <span className={statisticStyles.value}>

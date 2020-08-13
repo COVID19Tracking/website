@@ -66,13 +66,14 @@
   color: $color-slate-700;
   @include margin(8, bottom);
   .label {
-    @include type-size(50);
+    font-size: 12px; // ignore-style-rule
   }
   .calculated {
+    font-size: 11px; // ignore-style-rule
     font-weight: normal;
   }
   .value {
-    @include type-size(50);
+    font-size: 13px; // ignore-style-rule
   }
 }
 
