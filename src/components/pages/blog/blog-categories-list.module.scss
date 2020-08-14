@@ -23,9 +23,15 @@
 .header,
 .category {
   @include padding(16, (left, right));
+  @include padding(8, top);
 
   a {
     line-height: 0.8;
+
+    .category-text {
+      line-height: 1.4;
+      @include margin(0);
+    }
   }
 }
 
