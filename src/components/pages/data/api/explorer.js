@@ -55,11 +55,16 @@ const Fields = ({ schema, contentfulDefinitions }) => {
                 {fields[property].type}
               </div>
               {contentfulDefinitions[property] ? (
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: contentfulDefinitions[property],
-                  }}
-                />
+                <>
+                  <p>
+                    <strong>{contentfulDefinitions[property].name}</strong>
+                  </p>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: contentfulDefinitions[property].content,
+                    }}
+                  />
+                </>
               ) : (
                 <>
                   {fields[property].description && (
@@ -165,6 +170,7 @@ export default () => {
       allContentfulDataDefinition {
         nodes {
           fieldName
+          name
           childContentfulDataDefinitionDefinitionTextNode {
             childMarkdownRemark {
               html
@@ -176,8 +182,12 @@ export default () => {
   `)
   const contentfulDefinitions = {}
   data.allContentfulDataDefinition.nodes.forEach(node => {
-    contentfulDefinitions[node.fieldName] =
-      node.childContentfulDataDefinitionDefinitionTextNode.childMarkdownRemark.html
+    contentfulDefinitions[node.fieldName] = {
+      name: node.name,
+      content:
+        node.childContentfulDataDefinitionDefinitionTextNode.childMarkdownRemark
+          .html,
+    }
   })
   const { hiddenApiTags } = data.site.siteMetadata
   const tags = []

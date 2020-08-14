@@ -205,7 +205,6 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   // rethink this requirement. -goleary
   const hasData = field =>
     name === 'Hawaii' ||
-    name === 'Florida' ||
     (data.filter(item => item[field.replace('perCap_', '')] !== null).length >=
       data.length * 0.3 &&
       data.filter(item => item[field.replace('perCap_', '')] > 0).length > 0)

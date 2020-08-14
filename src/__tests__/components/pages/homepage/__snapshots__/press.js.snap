@@ -97,7 +97,7 @@ exports[`Components : Pages : Homepage : Press renders correctly 1`] = `
       </div>
     </div>
     <a
-      className="cta centered "
+      className="cta centered"
       href="/about/press"
     >
       See what else our data powers
