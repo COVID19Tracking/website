@@ -144,7 +144,6 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         ...node,
         slug,
-        sevenDaysAgo,
       },
     })
     createPage({
