@@ -15,7 +15,6 @@ import { parseDate, formatDate } from '~utilities/visualization'
 import { Row, Col } from '~components/common/grid'
 import Toggle from '~components/common/toggle'
 import ContentfulContent from '~components/common/contentful-content'
-import ContentfulRawContent from '~components/common/contentful-raw-content'
 import { AlertInfobox } from '~components/common/infobox'
 
 import { ReactComponent as CtpLogo } from '~images/project-logo.svg'
@@ -417,9 +416,10 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
                           {formatDate(annotation.date)}
                           {': '}
                           <span>
-                            <ContentfulRawContent
+                            <ContentfulContent
                               content={annotation.description.description}
                               id={annotation.contentful_id}
+                              inline
                             />
                           </span>
                         </li>

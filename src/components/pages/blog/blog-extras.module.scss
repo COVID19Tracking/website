@@ -4,12 +4,19 @@
   margin: 0 auto;
 }
 
-.full-width {
-  margin-left: calc(50% - 49vw); // ignore-style-rule
-  margin-right: calc(50% - 49vw); // ignore-style-rule
-  width: 98vw;
-}
-
-hr.divider {
+.divider {
+  height: 1px;
+  background-color: $color-slate-200;
+  border: none;
   width: 67%;
+  @include margin(64, (top, bottom));
+
+  @media (max-width: $viewport-md) {
+    margin: 3rem 0; // ignore-style-rule
+  }
+  &.full-width {
+    margin-left: calc(50% - 49vw); // ignore-style-rule
+    margin-right: calc(50% - 49vw); // ignore-style-rule
+    width: 98vw;
+  }
 }

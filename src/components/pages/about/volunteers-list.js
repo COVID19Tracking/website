@@ -1,5 +1,5 @@
 import React from 'react'
-import Container from './container'
+import Container from '~components/common/container'
 import volunteersListStyles from './volunteers-list.module.scss'
 
 function fixWebsitePrefix(website) {
