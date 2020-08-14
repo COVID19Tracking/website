@@ -3,7 +3,7 @@ require(`@babel/register`)({
   plugins: ['@babel/plugin-transform-runtime'],
 })
 require('dotenv').config()
-
+const { DateTime } = require('luxon')
 const algoliaQueries = require('./src/utilities/algolia').queries
 const sassImports = require('./src/utilities/sass-imports.js')
 const formatStringList = require('./src/components/utils/format')
@@ -153,7 +153,7 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-source-apiserver',
+      resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './src/data/governors.json',
         type: 'civilServiceGovernor',
@@ -256,6 +256,19 @@ const gatsbyConfig = {
         theme_color: '#ffffff',
         display: 'minimal-ui',
         icon: 'src/images/icon.svg',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-global-context`,
+      options: {
+        context: {
+          sevenDaysAgo: parseInt(
+            DateTime.local()
+              .minus({ days: 7 })
+              .toFormat('yyyyMMdd'),
+            10,
+          ),
+        },
       },
     },
     {
