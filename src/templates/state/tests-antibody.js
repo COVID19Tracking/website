@@ -13,7 +13,7 @@ export default ({ pageContext, path, data }) => {
 
   return (
     <Layout
-      title={`${state.name}: PCR Tests`}
+      title={`${state.name}: Antibody tests`}
       returnLinks={[
         { link: '/data', title: 'Our Data' },
         { link: `/data/state/${slug}`, title: state.name },
@@ -28,19 +28,27 @@ export default ({ pageContext, path, data }) => {
             format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
           },
           {
-            field: 'negativeTestsViral',
+            field: 'totalTestsPeopleAntibody',
             format: formatNumber,
           },
           {
-            field: 'positiveCasesViral',
+            field: 'totalTestsAntibody',
             format: formatNumber,
           },
           {
-            field: 'positiveTestsViral',
+            field: 'negativeTestsPeopleAntibody',
             format: formatNumber,
           },
           {
-            field: 'totalTestsViral',
+            field: 'negativeTestsAntibody',
+            format: formatNumber,
+          },
+          {
+            field: 'positiveTestsPeopleAntibody',
+            format: formatNumber,
+          },
+          {
+            field: 'positiveTestsAntibody',
             format: formatNumber,
           },
         ]}
@@ -69,10 +77,12 @@ export const query = graphql`
       filter: {
         fieldName: {
           in: [
-            "positiveCasesViral"
-            "negativeTestsViral"
-            "positiveTestsViral"
-            "totalTestsViral"
+            "totalTestsPeopleAntibody"
+            "totalTestsAntibody"
+            "negativeTestsPeopleAntibody"
+            "negativeTestsAntibody"
+            "positiveTestsPeopleAntibody"
+            "positiveTestsAntibody"
           ]
         }
       }

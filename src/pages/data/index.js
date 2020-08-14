@@ -11,8 +11,8 @@ import { formatDateToString } from '~components/utils/format'
 import States from '~components/pages/data/states'
 
 import { DownloadDataRow } from '~components/pages/state/download-data'
-import Summary from '~components/common/summary'
-import SummaryCharts from '~components/common/summary-charts'
+import Summary from '~components/pages/data/summary'
+import SummaryCharts from '~components/pages/data/summary-charts'
 
 export default ({ data }) => {
   const stateNavList = []

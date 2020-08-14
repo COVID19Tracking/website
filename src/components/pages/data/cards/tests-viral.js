@@ -21,9 +21,7 @@ export default ({
     <Card
       title="Viral (PCR) tests"
       link={
-        <Link to={`/data/state/${stateSlug}/tests-antibody`}>
-          Historical data
-        </Link>
+        <Link to={`/data/state/${stateSlug}/tests-viral`}>Historical data</Link>
       }
     >
       <CardBody>

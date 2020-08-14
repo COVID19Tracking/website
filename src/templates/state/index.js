@@ -3,8 +3,8 @@ import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import StateNavWrapper from '~components/pages/data/state-nav-wrapper'
 import StatePreamble from '~components/pages/state/preamble'
-import SummaryCharts from '~components/common/summary-charts'
-import StateSummary from '~components/common/summary'
+import SummaryCharts from '~components/pages/data/summary-charts'
+import StateSummary from '~components/pages/data/summary'
 import StateNotes from '~components/pages/state/state-notes'
 
 const StatePage = ({ pageContext, data, path }) => {

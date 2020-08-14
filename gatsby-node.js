@@ -152,13 +152,13 @@ exports.createPages = async ({ graphql, actions }) => {
       context: node,
     })
     createPage({
-      path: `/data/state/${slug}/tests`,
-      component: path.resolve(`./src/templates/state/tests.js`),
+      path: `/data/state/${slug}/tests-antibody`,
+      component: path.resolve(`./src/templates/state/tests-antibody.js`),
       context: node,
     })
     createPage({
-      path: `/data/state/${slug}/tests-pcr`,
-      component: path.resolve(`./src/templates/state/tests-pcr.js`),
+      path: `/data/state/${slug}/tests-viral`,
+      component: path.resolve(`./src/templates/state/tests-viral.js`),
       context: node,
     })
     createPage({
