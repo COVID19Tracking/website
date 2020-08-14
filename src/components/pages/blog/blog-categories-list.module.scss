@@ -8,6 +8,9 @@
   a {
     @include type-size(100);
     color: $color-plum-700;
+  }
+
+  h3 {
     line-height: 1.6;
   }
 
@@ -20,6 +23,14 @@
 .header,
 .category {
   @include padding(16, (left, right));
+
+  a {
+    line-height: 0.8;
+  }
+}
+
+.category {
+  @include padding(8, top);
 }
 
 .header {
