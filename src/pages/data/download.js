@@ -20,10 +20,8 @@ export default ({ data }) => (
     <h2>State Data</h2>
     <p>
       Download{' '}
-      <a href="/data/download/all-states-history.csv">
-        all data for all states
-      </a>
-      , or download all data per state:
+      <a href="/data/download/all-states-history.csv">data for all states</a>,
+      or just one state:
     </p>
     <ul>
       {data.allCovidStateInfo.nodes.map(state => (
