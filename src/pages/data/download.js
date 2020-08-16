@@ -31,7 +31,7 @@ export default ({ data }) => (
       desc="Download all available data for all states"
       path="/api/v1/states/daily.csv"
     />
-    <Panel label="Download all available data for a single state">
+    <Panel label="Open listing of individual states' data to download">
       {data.allCovidStateInfo.nodes.map(({ id, state, name }) => (
         <DownloadLink
           key={id}
