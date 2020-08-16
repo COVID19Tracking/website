@@ -81,6 +81,12 @@ const ChartAlert = ({ message }) => (
   </div>
 )
 
+const CalculatedIndicator = () => (
+  <a href="#calculated-footnote" className={styles.calculated}>
+    (Calculated)
+  </a>
+)
+
 const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
   if (
     !annotations ||
@@ -115,7 +121,19 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
           stateChartPerCapMeasure
         }
       }
-      contentfulSnippet(slug: { eq: "data-chart-disclaimer" }) {
+      disclaimerSnippet: contentfulSnippet(
+        slug: { eq: "data-chart-disclaimer" }
+      ) {
+        contentful_id
+        childContentfulSnippetContentTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+      calculatedSnippet: contentfulSnippet(
+        slug: { eq: "charts-calculated-footnote" }
+      ) {
         contentful_id
         childContentfulSnippetContentTextNode {
           childMarkdownRemark {
@@ -130,7 +148,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
     stateChartPerCapMeasure,
   } = siteData.site.siteMetadata
 
-  const { contentfulSnippet } = siteData
+  const { disclaimerSnippet, calculatedSnippet } = siteData
 
   const [usePerCap, setUsePerCap] = useState(false)
   const [useFullRange, setUseFullRange] = useState(false)
@@ -293,6 +311,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               dataElement="tests"
               openDisclosure={() => setDisclosureOpen(true)}
             />
+            <CalculatedIndicator />
           </h5>
           <BarChart
             data={getDataForField(data, testField)}
@@ -313,6 +332,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               dataElement="cases"
               openDisclosure={() => setDisclosureOpen(true)}
             />
+            <CalculatedIndicator />
           </h5>
           {hasData(positiveField) ? (
             <BarChart
@@ -367,6 +387,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               dataElement="death"
               openDisclosure={() => setDisclosureOpen(true)}
             />
+            <CalculatedIndicator />
           </h5>
           {hasData(deathField) ? (
             <BarChart
@@ -430,10 +451,18 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
 
                 <ContentfulContent
                   content={
-                    contentfulSnippet.childContentfulSnippetContentTextNode
+                    calculatedSnippet.childContentfulSnippetContentTextNode
                       .childMarkdownRemark.html
                   }
-                  id={contentfulSnippet.contentful_id}
+                  id={calculatedSnippet.contentful_id}
+                />
+
+                <ContentfulContent
+                  content={
+                    disclaimerSnippet.childContentfulSnippetContentTextNode
+                      .childMarkdownRemark.html
+                  }
+                  id={disclaimerSnippet.contentful_id}
                 />
               </Container>
             </DisclosurePanel>

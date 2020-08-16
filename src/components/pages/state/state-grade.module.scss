@@ -1,7 +1,13 @@
-.state-grade img {
-  display: inline;
-  vertical-align: middle;
-  margin-left: spacer(4);
+.state-grade {
+  @include margin(16, bottom);
+  @media (min-width: $viewport-lg) {
+    margin-bottom: 0;
+  }
+  img {
+    display: inline;
+    vertical-align: middle;
+    margin-left: spacer(4);
+  }
 }
 
 .grade {
