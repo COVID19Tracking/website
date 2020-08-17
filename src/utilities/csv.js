@@ -32,35 +32,48 @@ module.exports = (graphql, reporter) => {
           }
           allCovidStateDaily(sort: { fields: date, order: DESC }) {
             nodes {
-              state
               date
+              state
+              dataQualityGrade
+              death
+              deathConfirmed
+              deathIncrease
+              deathProbable
+              hospitalized
               hospitalizedCumulative
               hospitalizedCurrently
               hospitalizedIncrease
               inIcuCumulative
               inIcuCurrently
-              onVentilatorCumulative
-              onVentilatorCurrently
               negative
               negativeIncrease
-              negativeRegularScore
+              negativeTestsAntibody
+              negativeTestsPeopleAntibody
               negativeTestsViral
+              onVentilatorCumulative
+              onVentilatorCurrently
               positive
               positiveCasesViral
               positiveIncrease
               positiveScore
+              positiveTestsAntibody
+              positiveTestsAntigen
+              positiveTestsPeopleAntibody
+              positiveTestsPeopleAntigen
               positiveTestsViral
               recovered
+              totalTestEncountersViral
+              totalTestEncountersViralIncrease
               totalTestResults
               totalTestResultsIncrease
+              totalTestsAntibody
+              totalTestsAntigen
+              totalTestsPeopleAntibody
+              totalTestsPeopleAntigen
+              totalTestsPeopleViral
+              totalTestsPeopleViralIncrease
               totalTestsViral
-              dataQualityGrade
-              hospitalized
-              deathProbable
-              deathIncrease
-              deathConfirmed
-              death
-              dateModified
+              totalTestsViralIncrease
             }
           }
         }

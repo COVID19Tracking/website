@@ -58,12 +58,6 @@ export const query = graphql`
     ) {
       nodes {
         date
-        negative
-        negativeIncrease
-        positive
-        positiveIncrease
-        totalTestResults
-        totalTestResultsIncrease
         positiveTestsViral
         totalTestsPeopleViral
         totalTestsViral
