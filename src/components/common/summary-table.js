@@ -132,7 +132,9 @@ export default ({
       columns: [
         {
           header:
-            data.state === 'CO' ? 'Test encounters' : 'Positive + Negative',
+            ['CO', 'RI'].indexOf(data.state) > -1
+              ? 'Test encounters'
+              : 'Positive + Negative',
           data: data.totalTestResults,
           wide: true,
         },
