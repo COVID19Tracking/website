@@ -51,6 +51,8 @@
       &:focus {
         @include link-focus-dark-bg;
       }
+    }
+    a.author-inner {
       &:hover {
         @include link-hover-dark-bg;
       }
