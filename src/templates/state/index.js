@@ -138,6 +138,9 @@ export const query = graphql`
     ) {
       nodes {
         totalTestResults
+        totalTestEncountersViralIncrease
+        totalTestsViralIncrease
+        totalTestsPeopleViralIncrease
         totalTestResultsIncrease
         positive
         positiveIncrease
@@ -157,6 +160,15 @@ export const query = graphql`
             percent
           }
           positiveIncrease {
+            percent
+          }
+          totalTestEncountersViralIncrease {
+            percent
+          }
+          totalTestsViralIncrease {
+            percent
+          }
+          totalTestsPeopleViralIncrease {
             percent
           }
           totalTestResultsIncrease {

@@ -121,3 +121,13 @@
   @include type-size(100);
   font-weight: normal;
 }
+
+.test-field-indicator {
+  @include type-size(100);
+  margin: 0;
+  display: inline-block;
+}
+
+.test-heading {
+  @include margin(8, bottom);
+}

@@ -16,13 +16,19 @@ import { Row, Col } from '~components/common/grid'
 import Toggle from '~components/common/toggle'
 import ContentfulContent from '~components/common/contentful-content'
 import { AlertInfobox } from '~components/common/infobox'
-
+import { FieldName } from '~components/utils/field-name'
 import { ReactComponent as CtpLogo } from '~images/project-logo.svg'
 import colors from '~scss/colors.module.scss'
 
 import styles from './summary-charts.module.scss'
 
 import TooltipContents from '~components/charts/tooltip-contents'
+
+const TestFieldIndicator = ({ field }) => (
+  <span className={styles.testFieldIndicator}>
+    <FieldName field={field.replace('Increase', '')} />
+  </span>
+)
 
 const dailyAverage = (history, field, range = 7) => {
   if (!history || !field) return null
@@ -110,6 +116,22 @@ const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
       )
     </span>
   )
+}
+
+const getTestIncreaseField = history => {
+  const preferredFields = [
+    'totalTestEncountersViralIncrease',
+    'totalTestsViralIncrease',
+    'totalTestsPeopleViralIncrease',
+    'totalTestResultsIncrease',
+  ].reverse()
+  let preferredIndex = 0
+  preferredFields.forEach((field, index) => {
+    if (history[history.length - 1][field] > 0) {
+      preferredIndex = index
+    }
+  })
+  return preferredFields[preferredIndex]
 }
 
 export default ({ name = 'National', history, usHistory, annotations }) => {
@@ -229,10 +251,10 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
 
   // Below enables the charts to switch between the per cap & not data
   // using the toggle state
+
   const prepend = useMemo(() => (usePerCap ? 'perCap_' : ''), [usePerCap])
-  const testField = useMemo(() => `${prepend}totalTestResultsIncrease`, [
-    prepend,
-  ])
+  const testIncreaseField = getTestIncreaseField(history)
+  const testField = useMemo(() => `${prepend}${testIncreaseField}`, [prepend])
   const positiveField = useMemo(() => `${prepend}positiveIncrease`, [prepend])
   const hospitalizedField = useMemo(() => `${prepend}hospitalizedCurrently`, [
     prepend,
@@ -304,7 +326,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
       </div>
       <Row>
         <Col {...colProps}>
-          <h5>
+          <h5 className={styles.testHeading}>
             New tests{' '}
             <AnnotationIndicator
               annotations={annotations}
@@ -312,6 +334,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               openDisclosure={() => setDisclosureOpen(true)}
             />
             <CalculatedIndicator />
+            <TestFieldIndicator field={testIncreaseField} />
           </h5>
           <BarChart
             data={getDataForField(data, testField)}

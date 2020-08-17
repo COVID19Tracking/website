@@ -107,6 +107,11 @@ const gatsbyConfig = {
       options: {
         file: './_api/v1/states/daily.json',
         type: 'CovidStateDaily',
+        increaseFields: [
+          'totalTestEncountersViral',
+          'totalTestsViral',
+          'totalTestsPeopleViral',
+        ],
       },
     },
     {
@@ -243,6 +248,9 @@ const gatsbyConfig = {
           'negativeTestsViral',
           'positive',
           'negative',
+          'totalTestEncountersViralIncrease',
+          'totalTestsViralIncrease',
+          'totalTestsPeopleViralIncrease',
         ],
       },
     },
