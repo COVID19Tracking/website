@@ -9,8 +9,6 @@
 /api/states state=:state                      https://api.covidtracking.com/v1/states/:state/current.json
 /api/us date=:date                            https://api.covidtracking.com/v1/us/:date.json
 /api/us/daily date=:date                      https://api.covidtracking.com/v1/us/:date.json
-/api/v1/us.json                               https://api.covidtracking.com/v1/us/current.json
-/api/v1/states.json                           https://api.covidtracking.com/v1/states/current.json
 /api/states/info                              https://api.covidtracking.com/v1/states/info.json
 /api/states/daily                             https://api.covidtracking.com/v1/states/daily.json
 /api/states.json                              https://api.covidtracking.com/v1/states/current.json
