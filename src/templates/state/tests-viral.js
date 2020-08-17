@@ -64,6 +64,10 @@ export const query = graphql`
         positiveIncrease
         totalTestResults
         totalTestResultsIncrease
+        positiveTestsViral
+        totalTestsPeopleViral
+        totalTestsViral
+        totalTestEncountersViral
       }
     }
 

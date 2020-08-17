@@ -66,10 +66,12 @@ export const query = graphql`
     ) {
       nodes {
         date
-        negativeTestsViral
-        positiveCasesViral
-        positiveTestsViral
-        totalTestsViral
+        totalTestsPeopleAntibody
+        totalTestsAntibody
+        negativeTestsPeopleAntibody
+        negativeTestsAntibody
+        positiveTestsPeopleAntibody
+        positiveTestsAntibody
       }
     }
 
