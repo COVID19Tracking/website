@@ -19,9 +19,11 @@ export default ({
   const drillDownValue = Number.isNaN(sevenDayIncreasePercent)
     ? 'N/A'
     : sevenDayIncreasePercent
-  const drillDownSuffix = Number.isNaN(sevenDayIncreasePercent) ? '' : '%'
+  let drillDownSuffix = Number.isNaN(sevenDayIncreasePercent) ? '' : '%'
   const definitionContext = useContext(DefinitionPanelContext)
-
+  if (drillDownValue !== 'N/A') {
+    drillDownSuffix += drillDownValue > 0 ? '+' : '-'
+  }
   return (
     <Card
       title="Cases"
@@ -54,7 +56,7 @@ export default ({
           <DrillDown
             label="Change over 7 days"
             value={drillDownValue}
-            suffix={drillDownSuffix + (drillDownValue > 0 ? '+' : '-')}
+            suffix={drillDownSuffix}
             calculated
           />
         </Statistic>

@@ -34,7 +34,7 @@ const NumberOrNotReported = ({ value }) => {
   This allows for conditional styles,
   which FormatNumber does not support on its own.
   */
-  if (value) {
+  if (value || value === 0) {
     return <FormatNumber number={value} />
   }
   return <span className={statisticStyles.notReported}>Not Reported</span>
