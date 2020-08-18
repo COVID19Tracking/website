@@ -16,7 +16,7 @@ export default ({ currentPage, numPages }) => {
   const nextPage = `/blog/page/${(currentPage + 1).toString()}`
 
   const disabledPrev = isFirst ? blogPaginationStyle.disabledLink : ''
-  const disableNext = isLast ? blogPaginationStyle.disabledLink : '' // todo add d to name
+  const disabledNext = isLast ? blogPaginationStyle.disabledLink : ''
 
   return (
     <div className={blogPaginationStyle.navigationContainer}>
@@ -41,11 +41,11 @@ export default ({ currentPage, numPages }) => {
           </Link>
         )}
         Page {currentPage} of {numPages}
-        {disableNext ? (
+        {disabledNext ? (
           <Link
             to={nextPage}
             rel="next"
-            className={`${disableNext} ${blogPaginationStyle.navigationItem}`}
+            className={`${disabledNext} ${blogPaginationStyle.navigationItem}`}
             aria-current={isLast ? 'false' : 'step'}
           >
             <img src={doubleCaretInactive} alt="This is the last page." />
