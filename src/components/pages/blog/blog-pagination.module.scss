@@ -19,7 +19,7 @@
 
 .navigation-item {
   text-decoration: none;
-  margin: 0 1rem;
+  @include margin(16, (left, right));
 
   &:last-child {
     margin-right: 0;
