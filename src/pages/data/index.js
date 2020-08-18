@@ -6,6 +6,7 @@ import Container from '~components/common/container'
 import Layout from '~components/layout'
 import ContentfulContent from '~components/common/contentful-content'
 import MarkdownContent from '~components/common/markdown-content'
+import { formatDateToString } from '~components/utils/format'
 
 import States from '~components/pages/data/states'
 
@@ -32,7 +33,10 @@ export default ({ data }) => {
       />
       <DownloadDataRow
         slug="all-states"
-        lastUpdateEt={data.lastUpdate.nodes[0].date}
+        lastUpdateEt={formatDateToString(
+          data.lastUpdate.nodes[0].date,
+          'LLL d yyyy',
+        )}
         national
       />
       <Summary

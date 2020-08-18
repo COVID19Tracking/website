@@ -11,6 +11,12 @@ export default ({ date, national }) => (
     ) : (
       <>State’s dataset was last updated at</>
     )}{' '}
-    <FormatDate date={date} format="M/d/yy h:mm a" /> <Timezone />
+    {national ? (
+      date
+    ) : (
+      <>
+        <FormatDate date={date} format="M/d/yy h:mm a" /> <Timezone />
+      </>
+    )}
   </p>
 )
