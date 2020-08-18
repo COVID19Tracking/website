@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import classnames from 'classnames'
-import blogPaginationStyle from './blog-pagination.module.scss'
+import Container from '~components/common/container'
+
 import doubleCaret from '~images/icons/double-caret.svg'
 import doubleCaretInactive from '~images/icons/double-caret-inactive.svg'
+
+import blogPaginationStyle from './blog-pagination.module.scss'
 
 export default ({ currentPage, numPages }) => {
   const isFirst = currentPage === 1
@@ -14,18 +17,18 @@ export default ({ currentPage, numPages }) => {
       : `/blog/page/${(currentPage - 1).toString()}`
   const nextPage = `/blog/page/${(currentPage + 1).toString()}`
 
-  const disabledPrev = isFirst ? blogPaginationStyle.disabledLink : ''
-  const disabledNext = isLast ? blogPaginationStyle.disabledLink : ''
+  const inactivePrev = isFirst ? blogPaginationStyle.inactiveLink : ''
+  const inactiveNext = isLast ? blogPaginationStyle.inactiveLink : ''
 
   return (
-    <div className={blogPaginationStyle.navigationContainer}>
+    <Container className={blogPaginationStyle.navigationContainer}>
       <div className={blogPaginationStyle.navigation}>
-        {disabledPrev ? (
+        {inactivePrev ? (
           <Link
             to={prevPage}
             rel="prev"
             className={classnames(
-              disabledPrev,
+              inactivePrev,
               blogPaginationStyle.navigationItem,
             )}
             aria-current={isFirst ? 'false' : 'step'}
@@ -43,12 +46,12 @@ export default ({ currentPage, numPages }) => {
           </Link>
         )}
         Page {currentPage} of {numPages}
-        {disabledNext ? (
+        {inactiveNext ? (
           <Link
             to={nextPage}
             rel="next"
             className={classnames(
-              disabledNext,
+              inactiveNext,
               blogPaginationStyle.navigationItem,
             )}
             aria-current={isLast ? 'false' : 'step'}
@@ -66,6 +69,6 @@ export default ({ currentPage, numPages }) => {
           </Link>
         )}
       </div>
-    </div>
+    </Container>
   )
 }
