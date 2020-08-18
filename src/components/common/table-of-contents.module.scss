@@ -1,0 +1,8 @@
+.table-of-contents {
+  list-style-type: none;
+  @include margin(32, bottom);
+  padding-left: 0;
+  li {
+    @include margin(16, bottom);
+  }
+}
