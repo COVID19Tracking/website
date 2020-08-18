@@ -20,6 +20,10 @@
 .navigation-item {
   text-decoration: none;
   margin: 0 1rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .inactive-link {
