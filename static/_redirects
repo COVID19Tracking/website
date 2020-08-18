@@ -9,8 +9,6 @@
 /api/states state=:state                      https://api.covidtracking.com/v1/states/:state/current.json
 /api/us date=:date                            https://api.covidtracking.com/v1/us/:date.json
 /api/us/daily date=:date                      https://api.covidtracking.com/v1/us/:date.json
-/api/v1/us.json                               https://api.covidtracking.com/v1/us/current.json
-/api/v1/states.json                           https://api.covidtracking.com/v1/states/current.json
 /api/states/info                              https://api.covidtracking.com/v1/states/info.json
 /api/states/daily                             https://api.covidtracking.com/v1/states/daily.json
 /api/states.json                              https://api.covidtracking.com/v1/states/current.json
@@ -18,7 +16,6 @@
 /api/us                                       https://api.covidtracking.com/v1/us/current.json
 /api/us.csv                                   https://api.covidtracking.com/v1/us/current.csv
 /api/us/daily                                 https://api.covidtracking.com/v1/us/daily.json
-/api/v1/*                                     https://api.covidtracking.com/v1/:splat
 
 /screenshots/*                                https://covid-tracking-project-data.s3.us-east-1.amazonaws.com/state_screenshots/:splat 200
 /best-practices                               https://docs.google.com/document/d/1OyN6_1UeDePwPwKi6UKZB8GwNC7-kSf1-BO2af8kqVA/edit
