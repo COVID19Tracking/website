@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import classnames from 'classnames'
 import blogPaginationStyle from './blog-pagination.module.scss'
 import doubleCaret from '~images/icons/double-caret.svg'
 import doubleCaretInactive from '~images/icons/double-caret-inactive.svg'
-
-// todo use classnames
 
 export default ({ currentPage, numPages }) => {
   const isFirst = currentPage === 1
@@ -25,7 +24,10 @@ export default ({ currentPage, numPages }) => {
           <Link
             to={prevPage}
             rel="prev"
-            className={`${disabledPrev} ${blogPaginationStyle.navigationItem}`}
+            className={classnames(
+              disabledPrev,
+              blogPaginationStyle.navigationItem,
+            )}
             aria-current={isFirst ? 'false' : 'step'}
           >
             <img src={doubleCaretInactive} alt="This is the first page." />
@@ -45,7 +47,10 @@ export default ({ currentPage, numPages }) => {
           <Link
             to={nextPage}
             rel="next"
-            className={`${disabledNext} ${blogPaginationStyle.navigationItem}`}
+            className={classnames(
+              disabledNext,
+              blogPaginationStyle.navigationItem,
+            )}
             aria-current={isLast ? 'false' : 'step'}
           >
             <img src={doubleCaretInactive} alt="This is the last page." />
