@@ -6,7 +6,6 @@ import Container from '~components/common/container'
 import Layout from '~components/layout'
 import ContentfulContent from '~components/common/contentful-content'
 import MarkdownContent from '~components/common/markdown-content'
-import { formatDateToString } from '~components/utils/format'
 
 import States from '~components/pages/data/states'
 
