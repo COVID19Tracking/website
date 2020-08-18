@@ -160,6 +160,20 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
+        file: './_api/v1/internal/bigquery/long_term_care_states.json',
+        type: 'CovidLTCStates',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_api/v1/internal/bigquery/long_term_care_notes.json',
+        type: 'CovidLTCSNotes',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
         file: './src/data/governors.json',
         type: 'civilServiceGovernor',
       },
