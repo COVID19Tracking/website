@@ -33,11 +33,7 @@ export default ({ data }) => {
       />
       <DownloadDataRow
         slug="all-states"
-        lastUpdateEt={formatDateToString(
-          data.lastUpdate.nodes[0].date,
-          'ccc LLL d yyyy',
-        )}
-        unformatted
+        lastUpdateEt={data.lastUpdate.nodes[0].date}
         national
       />
       <Summary

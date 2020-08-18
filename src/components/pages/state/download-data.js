@@ -37,20 +37,11 @@ const DownloadData = ({ slug, hideLabel = false }) => (
   </div>
 )
 
-const DownloadDataRow = ({
-  slug,
-  lastUpdateEt,
-  unformatted = false,
-  national = false,
-}) => (
+const DownloadDataRow = ({ slug, lastUpdateEt, national = false }) => (
   <Row>
     <Col width={[4, 6, 6]}>
       <div className={downloadDataStyles.lastUpdatedContainer}>
-        <LastUpdated
-          date={lastUpdateEt}
-          unformatted={unformatted}
-          national={national}
-        />
+        <LastUpdated date={lastUpdateEt} national={national} />
       </div>
     </Col>
     <Col width={[4, 6, 6]}>

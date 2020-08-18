@@ -4,14 +4,13 @@ import Timezone from './timezone'
 import lastUpdatedStyle from './last-updated.module.scss'
 
 // date format matches stats.lastUpdateEt
-export default ({ date, unformatted, national }) => (
+export default ({ date, national }) => (
   <p className={lastUpdatedStyle.lastUpdated}>
     {national ? (
       <>Our dataset was last updated at</>
     ) : (
       <>State’s dataset was last updated at</>
     )}{' '}
-    {unformatted ? date : <FormatDate date={date} format="M/d/yy h:mm a" />}{' '}
-    <Timezone />
+    <FormatDate date={date} format="M/d/yy h:mm a" /> <Timezone />
   </p>
 )
