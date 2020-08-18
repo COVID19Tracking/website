@@ -30,6 +30,7 @@ export default ({ currentPage, numPages }) => {
             className={classnames(
               inactivePrev,
               blogPaginationStyle.navigationItem,
+              blogPaginationStyle.previousCaret,
             )}
             aria-current={isFirst ? 'false' : 'step'}
           >
@@ -39,7 +40,10 @@ export default ({ currentPage, numPages }) => {
           <Link
             to={prevPage}
             rel="prev"
-            className={blogPaginationStyle.navigationItem}
+            className={classnames(
+              blogPaginationStyle.navigationItem,
+              blogPaginationStyle.previousCaret,
+            )}
             aria-current={isFirst ? 'false' : 'step'}
           >
             <img src={doubleCaret} alt="Jump to the previous page." />

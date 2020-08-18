@@ -19,9 +19,14 @@
 
 .navigation-item {
   text-decoration: none;
+  margin: 0 1rem;
 }
 
 .inactive-link {
   pointer-events: none;
   color: $color-slate-300;
+}
+
+.previous-caret img {
+  transform: rotate(-180deg);
 }
