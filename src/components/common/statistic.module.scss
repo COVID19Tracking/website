@@ -66,7 +66,7 @@
   color: $color-slate-600;
   @include margin(8, bottom);
   .label {
-    font-size: 12px; // ignore-style-rule
+    @include type-size(100);
   }
   .calculated {
     @include padding(4, top);
