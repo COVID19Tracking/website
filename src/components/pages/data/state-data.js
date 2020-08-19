@@ -25,13 +25,17 @@ const State = ({ state }) => (
       covid19SiteSecondary={state.covid19SiteSecondary}
       stateName={state.name}
       historicalSlug={state.name}
-      fathomGoal="2YKBL0ZP"
     />
     {state.notes && <StateNotes notes={state.notes} />}
     <a
       className={`state-top-link ${stateDataStyles.topLink}`}
       href="#reach-skip-nav"
       title="top"
+      onClick={() => {
+        if (typeof window.fathom !== 'undefined') {
+          window.fathom.trackGoal('NM0I2PQP', 0)
+        }
+      }}
     >
       Back to top.
     </a>

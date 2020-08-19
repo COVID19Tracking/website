@@ -9,19 +9,12 @@ export default ({
   covid19SiteSecondary,
   stateName,
   historicalSlug,
-  fathomGoal,
 }) => {
-  const trackClick = () => {
-    if (!fathomGoal || typeof window.fathom === 'undefined') {
-      return
-    }
-    window.fathom.trackGoal(fathomGoal, 0)
-  }
   return (
     <ul className={stateLinksStyle.list}>
       {twitter && (
         <li>
-          <a href={`https://twitter.com/${twitter}`} onClick={trackClick}>
+          <a href={`https://twitter.com/${twitter}`}>
             <span className="a11y-only">{stateName}&apos;s </span>
             Official Twitter
           </a>
@@ -30,7 +23,7 @@ export default ({
       )}
       {covid19Site && (
         <li>
-          <a href={covid19Site} onClick={trackClick}>
+          <a href={covid19Site}>
             <span className="a11y-only">{stateName}&apos;s </span>
             Best Current Data Source
           </a>
@@ -43,7 +36,7 @@ export default ({
       )}
       {covid19SiteSecondary && (
         <li>
-          <a href={covid19SiteSecondary} onClick={trackClick}>
+          <a href={covid19SiteSecondary}>
             Secondary Data Source
             <span className="a11y-only"> for {stateName}</span>
           </a>
