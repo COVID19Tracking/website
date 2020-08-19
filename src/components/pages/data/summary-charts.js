@@ -89,7 +89,7 @@ const ChartAlert = ({ message }) => (
 
 const CalculatedIndicator = ({ openDisclosure }) => (
   <a
-    href="#calculated-footnote"
+    href="#summary-charts"
     className={styles.calculated}
     onClick={openDisclosure}
   >
@@ -110,11 +110,7 @@ const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
   return (
     <span className={styles.annotationIndicator}>
       (
-      <a
-        href="#chart-annotations"
-        id="chart-annotations"
-        onClick={() => openDisclosure()}
-      >
+      <a href="#summary-charts" onClick={() => openDisclosure()}>
         Notes
       </a>
       )
@@ -323,7 +319,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             setState={setUseFullRange}
           />
         </div>
-        <div className={styles.legendContainer}>
+        <div className={styles.legendContainer} id="summary-charts">
           {usData && usePerCap && <LegendComponent />}
           <LegendComponent name={name || 'National'} />
         </div>
