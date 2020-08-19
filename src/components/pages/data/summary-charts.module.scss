@@ -125,7 +125,7 @@
 .test-field-indicator {
   @include type-size(100);
   margin: 0;
-  display: inline-block;
+  display: block;
 }
 
 .test-heading {

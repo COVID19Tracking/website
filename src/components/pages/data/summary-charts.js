@@ -87,8 +87,12 @@ const ChartAlert = ({ message }) => (
   </div>
 )
 
-const CalculatedIndicator = () => (
-  <a href="#calculated-footnote" className={styles.calculated}>
+const CalculatedIndicator = ({ openDisclosure }) => (
+  <a
+    href="#calculated-footnote"
+    className={styles.calculated}
+    onClick={openDisclosure}
+  >
     (Calculated)
   </a>
 )
@@ -333,7 +337,9 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               dataElement="tests"
               openDisclosure={() => setDisclosureOpen(true)}
             />
-            <CalculatedIndicator />
+            <CalculatedIndicator
+              openDisclosure={() => setDisclosureOpen(true)}
+            />
             <TestFieldIndicator field={testIncreaseField} />
           </h5>
           <BarChart
