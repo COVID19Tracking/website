@@ -68,7 +68,10 @@ const DrillDown = ({ label, value, suffix, calculated = false }) => (
     <span className={statisticStyles.label}>
       {label}
       {calculated && (
-        <span className={statisticStyles.calculated}> (Calculated)</span>
+        <div className={statisticStyles.calculated} aria-hidden>
+          {' '}
+          (Calculated)
+        </div>
       )}
     </span>
     <span className={statisticStyles.value}>

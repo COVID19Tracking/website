@@ -63,17 +63,18 @@
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-  color: $color-slate-700;
+  color: $color-slate-600;
   @include margin(8, bottom);
   .label {
     font-size: 12px; // ignore-style-rule
   }
   .calculated {
+    @include padding(4, top);
     font-size: 11px; // ignore-style-rule
     font-weight: normal;
   }
   .value {
-    font-size: 13px; // ignore-style-rule
+    font-size: 14px; // ignore-style-rule
   }
 }
 
