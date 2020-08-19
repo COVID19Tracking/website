@@ -53,6 +53,7 @@
     "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-plugin-feed": "^2.5.5",
     "gatsby-plugin-manifest": "^2.2.48",
+    "gatsby-plugin-minify-classnames": "^0.2.0",
     "gatsby-plugin-netlify": "^2.2.1",
     "gatsby-plugin-nprogress": "^2.3.0",
     "gatsby-plugin-offline": "^3.0.41",
