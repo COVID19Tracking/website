@@ -27,7 +27,7 @@
 
 .top-link {
   color: $color-slate-600;
-  margin-top: spacer(32);
+  @include margin(32, bottom);
   display: inline-block;
 }
 

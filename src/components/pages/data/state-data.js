@@ -52,6 +52,11 @@ const State = ({ state, metadata }) => {
         className={`state-top-link ${stateDataStyles.topLink}`}
         href="#reach-skip-nav"
         title="top"
+        onClick={() => {
+          if (typeof window.fathom !== 'undefined') {
+            window.fathom.trackGoal('NM0I2PQP', 0)
+          }
+        }}
       >
         Back to top.
       </a>
