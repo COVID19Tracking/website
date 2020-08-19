@@ -8,8 +8,12 @@
   ul {
     list-style-type: none;
     padding-left: 0;
+    margin-bottom: 0;
     li {
       @include margin(16, bottom);
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }
