@@ -16,8 +16,8 @@ export default ({ labels, data }) => (
     <tbody>
       {data.map(row => (
         <tr>
-          {labels.map(({ field, label, format }) => (
-            <td>
+          {labels.map(({ field, label, format, noWrap }) => (
+            <td className={classnames(noWrap && tableResponsiveStyles.noWrap)}>
               <span className={tableResponsiveStyles.label}>
                 {label || <FieldName field={field} />}
               </span>

@@ -84,6 +84,7 @@ export default ({ pageContext, path, data }) => {
             field: 'date',
             label: 'Date',
             format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
+            noWrap: true,
           },
           {
             field: 'primary',

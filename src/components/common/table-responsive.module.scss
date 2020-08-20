@@ -22,6 +22,10 @@ $table-breakpoint: $viewport-lg;
   }
 }
 
+.no-wrap {
+  white-space: nowrap;
+}
+
 .label {
   font-weight: bold;
   display: inline-block;
