@@ -4,13 +4,11 @@
   right: 0%;
   bottom: 0%;
   z-index: 2; // above the search icon
-
   position: fixed;
   overflow-y: scroll;
-
   background-color: $color-plum-800;
   color: $color-plum-300;
-  @include padding(32, bottom);
+  border-bottom: spacer(32) solid $color-plum-800;
 
   @media (min-width: $viewport-lg) {
     height: 100%;
