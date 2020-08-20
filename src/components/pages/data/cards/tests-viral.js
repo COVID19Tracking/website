@@ -19,7 +19,7 @@ export default ({
   ]
   return (
     <Card
-      title="Viral (PCR) tests"
+      title="Viral PCR Tests"
       link={
         <Link to={`/data/state/${stateSlug}/tests-viral`}>Historical data</Link>
       }
