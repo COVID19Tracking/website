@@ -127,7 +127,7 @@ const getTestIncreaseField = history => {
   ].reverse()
   let preferredIndex = 0
   preferredFields.forEach((field, index) => {
-    if (history[history.length - 1][field] > 0) {
+    if (history[0][field] > 0) {
       preferredIndex = index
     }
   })
