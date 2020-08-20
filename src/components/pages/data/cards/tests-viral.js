@@ -43,7 +43,7 @@ export default ({
                   highlight: 'totalTestsViral',
                 })
               }}
-              label="Total tests (in unclear units)"
+              label="Total tests (unclear units)"
             />
           </Statistic>
         ) : (
@@ -65,7 +65,7 @@ export default ({
                     highlight: 'totalTestEncountersViral',
                   })
                 }}
-                label="Total tests (in test encounters)"
+                label="Total tests (test encounters)"
               />
             </Statistic>
             <Statistic
@@ -85,7 +85,7 @@ export default ({
                     highlight: 'totalTestsViral',
                   })
                 }}
-                label="Total tests (in specimens)"
+                label="Total tests (specimens)"
               />
             </Statistic>
             <Statistic
@@ -105,7 +105,7 @@ export default ({
                     highlight: 'totalTestsPeopleViral',
                   })
                 }}
-                label="Total tests (in people)"
+                label="Total tests (people)"
               />
             </Statistic>
           </>

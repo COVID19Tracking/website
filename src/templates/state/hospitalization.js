@@ -86,8 +86,8 @@ export const query = graphql`
       filter: {
         fieldName: {
           in: [
-            "hospitalizedCurrently"
             "hospitalizedCumulative"
+            "hospitalizedCurrently"
             "inIcuCurrently"
             "inIcuCumulative"
             "onVentilatorCumulative"
