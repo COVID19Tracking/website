@@ -1,32 +1,25 @@
 
-/api/states/info.csv                          /api/v1/states/info.csv
-/api/states/daily.csv                         /api/v1/states/daily.csv
-/api/states.csv                               /api/v1/states/current.csv
-/api/us.csv                                   /api/v1/us/current.csv
-/api/us/daily.csv                             /api/v1/us/daily.csv
-/api/states/daily state=:state date=:date     https://covid19tracking.github.io/covid-public-api/v1/states/:state/:date.json 200
-/api/statesdaily state=:state date=:date      https://covid19tracking.github.io/covid-public-api/v1/states/:state/:date.json 200
-/api/states state=:state                      https://covid19tracking.github.io/covid-public-api/v1/states/:state/current.json 200
-/api/us date=:date                            https://covid19tracking.github.io/covid-public-api/v1/us/:date.json 200
-/api/us/daily date=:date                      https://covid19tracking.github.io/covid-public-api/v1/us/:date.json 200
-/api/v1/us.json                               https://covid19tracking.github.io/covid-public-api/v1/us/current.json 200
-/api/v1/states.json                           https://covid19tracking.github.io/covid-public-api/v1/states/current.json 200
-/api/states/info                              https://covid19tracking.github.io/covid-public-api/v1/states/info.json 200
-/api/states/daily                             https://covid19tracking.github.io/covid-public-api/v1/states/daily.json 200
-/api/states.json                              https://covid19tracking.github.io/covid-public-api/v1/states/current.json 200
-/api/states                                   https://covid19tracking.github.io/covid-public-api/v1/states/current.json 200
-/api/us                                       https://covid19tracking.github.io/covid-public-api/v1/us/current.json 200
-/api/us.csv                                   https://covid19tracking.github.io/covid-public-api/v1/us/current.csv
-/api/us/daily                                 https://covid19tracking.github.io/covid-public-api/v1/us/daily.json 200
-/api/v1/*                                     https://covid19tracking.github.io/covid-public-api/v1/:splat 200
+/api/states/info.csv                          https://api.covidtracking.com/v1/states/info.csv
+/api/states/daily.csv                         https://api.covidtracking.com/v1/states/daily.csv
+/api/states.csv                               https://api.covidtracking.com/v1/states/current.csv
+/api/us.csv                                   https://api.covidtracking.com/v1/us/current.csv
+/api/us/daily.csv                             https://api.covidtracking.com/v1/us/daily.csv
+/api/states/daily state=:state date=:date     https://api.covidtracking.com/v1/states/:state/:date.json
+/api/statesdaily state=:state date=:date      https://api.covidtracking.com/v1/states/:state/:date.json
+/api/states state=:state                      https://api.covidtracking.com/v1/states/:state/current.json
+/api/us date=:date                            https://api.covidtracking.com/v1/us/:date.json
+/api/us/daily date=:date                      https://api.covidtracking.com/v1/us/:date.json
+/api/states/info                              https://api.covidtracking.com/v1/states/info.json
+/api/states/daily                             https://api.covidtracking.com/v1/states/daily.json
+/api/states.json                              https://api.covidtracking.com/v1/states/current.json
+/api/states                                   https://api.covidtracking.com/v1/states/current.json
+/api/us                                       https://api.covidtracking.com/v1/us/current.json
+/api/us.csv                                   https://api.covidtracking.com/v1/us/current.csv
+/api/us/daily                                 https://api.covidtracking.com/v1/us/daily.json
 
-/graphql                                      /api/graphql
-/graphql/                                     /api/graphql
-/notes/                                       /data/
 /screenshots/*                                https://covid-tracking-project-data.s3.us-east-1.amazonaws.com/state_screenshots/:splat 200
 /best-practices                               https://docs.google.com/document/d/1OyN6_1UeDePwPwKi6UKZB8GwNC7-kSf1-BO2af8kqVA/edit
 /sheets                                       https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml
-/states/                                      /data/
 /data/state/                                  /data/
 /data/us-daily                                /data/national
 /github                                       https://github.com/COVID19Tracking/website

@@ -111,10 +111,6 @@ export default () => {
           open={isCasesOpen}
           onChange={() => {
             setIsCasesOpen(!isCasesOpen)
-            if (typeof window.fathom === 'undefined') {
-              return
-            }
-            window.fathom.trackGoal('O8WBUGRP', 0)
           }}
         >
           <Feature
@@ -167,10 +163,6 @@ export default () => {
           open={isDeathsOpen}
           onChange={() => {
             setIsDeathsOpen(!isDeathsOpen)
-            if (typeof window.fathom === 'undefined') {
-              return
-            }
-            window.fathom.trackGoal('O8WBUGRP', 0)
           }}
         >
           <Feature
