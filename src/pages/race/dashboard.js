@@ -35,10 +35,6 @@ export default ({ data }) => {
         <UsOverview
           statesCasesCount={data.covidRaceDataHomepage.statesReportingCases}
           statesDeathsCount={data.covidRaceDataHomepage.statesReportingDeaths}
-          statesNotReporting={
-            data.noDataSnippet.childContentfulSnippetContentTextNode
-              .childMarkdownRemark.html
-          }
         />
       </LongContent>
       <StateNav
@@ -66,13 +62,6 @@ export const query = graphql`
       image {
         resize(width: 1200) {
           src
-        }
-      }
-    }
-    noDataSnippet: contentfulSnippet(slug: { eq: "race-dashboard-no-data" }) {
-      childContentfulSnippetContentTextNode {
-        childMarkdownRemark {
-          html
         }
       }
     }
