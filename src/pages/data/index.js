@@ -41,10 +41,6 @@ export default ({ data }) => {
         stateSlug="national"
         data={data.covidUs}
         sevenDaysAgo={data.usSevenDaysAgo}
-        raceData={{
-          combined: false,
-          separate: false,
-        }}
         national
       />
       <Container narrow>

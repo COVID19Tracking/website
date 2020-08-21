@@ -25,7 +25,6 @@ export default ({
   /*
   stateSlug: the name of the state, as a slug. like "arizona"
   data: API data from either usCovid or covidState
-  raceData: tbd, currently like {combined: bool, separate: bool}
   sevenDaysAgo: seven day old API data from usCovidDaily or covidStateDaily
   national: flag for the national summmary, true means this is national
   */

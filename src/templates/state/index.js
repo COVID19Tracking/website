@@ -16,12 +16,9 @@ const StatePage = ({ pageContext, data, path }) => {
     covidStateInfo,
     allCovidUsDaily,
     allContentfulEvent,
-    covidRaceDataCombined,
-    covidRaceDataSeparate,
     sevenDaysAgo,
     contentfulStateOrTerritory,
   } = data
-  const crdtData = covidRaceDataCombined || covidRaceDataSeparate
   return (
     <Layout title={state.name} returnLinks={[{ link: '/data' }]} path={path}>
       <StatePreamble state={state} covidState={covidState} />
@@ -37,7 +34,6 @@ const StatePage = ({ pageContext, data, path }) => {
           sevenDaysAgo={sevenDaysAgo}
           stateSlug={state.slug}
           data={covidState}
-          crdtData={crdtData}
           population={covidStateInfo.childPopulation.population}
           metadata={contentfulStateOrTerritory}
           lastUpdated={covidState.lastUpdateEt}
@@ -201,70 +197,6 @@ export const query = graphql`
           }
         }
       }
-    }
-    covidRaceDataCombined(state: { eq: $state }) {
-      blackPctPop
-      blackPctPos
-      blackPctDeath
-      blackPositives
-      blackDeaths
-      whitePctPos
-      whitePctPop
-      whitePctDeath
-      whitePositives
-      whiteDeaths
-      nhpiPctPos
-      nhpiPctDeath
-      nhpiPctPop
-      nhpiPositives
-      nhpiDeaths
-      latinXPctPos
-      latinXPctDeath
-      latinXPctPop
-      latinXPositives
-      latinXDeaths
-      asianPctPos
-      asianPctDeath
-      asianPctPop
-      asianPositives
-      asianDeaths
-      aianPctPos
-      aianPctDeath
-      aianPctPop
-      aianPositives
-      aianDeaths
-    }
-    covidRaceDataSeparate(state: { eq: $state }) {
-      blackPctPop
-      blackPctPos
-      blackPctDeath
-      blackPositives
-      blackDeaths
-      whitePctPos
-      whitePctPop
-      whitePctDeath
-      whitePositives
-      whiteDeaths
-      nhpiPctPos
-      nhpiPctDeath
-      nhpiPctPop
-      nhpiPositives
-      nhpiDeaths
-      latinXPctPos
-      latinXPctDeath
-      latinXPctPop
-      latinXPositives
-      latinXDeaths
-      asianPctPos
-      asianPctDeath
-      asianPctPop
-      asianPositives
-      asianDeaths
-      aianPctPos
-      aianPctDeath
-      aianPctPop
-      aianPositives
-      aianDeaths
     }
   }
 `
