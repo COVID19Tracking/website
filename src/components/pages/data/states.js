@@ -3,7 +3,13 @@ import State from './state-data'
 import StateNavWrapper from './state-nav-wrapper'
 import statesStyles from './states.module.scss'
 
-export default ({ states, stateData, sevenDaysAgoList, stateMetadata }) => {
+export default ({
+  states,
+  stateData,
+  sevenDaysAgoList,
+  stateMetadata,
+  longTermCare,
+}) => {
   const stateList = []
   states.forEach(node => {
     const state = node
@@ -17,6 +23,10 @@ export default ({ states, stateData, sevenDaysAgoList, stateMetadata }) => {
         state.sevenDaysAgo = data
       }
     })
+    const stateLongTermCare = longTermCare.find(
+      group => group.nodes[0].State_Abbr === state.state,
+    )
+    state.longTermCare = stateLongTermCare ? stateLongTermCare.nodes[0] : false
     stateList.push(state)
   })
 

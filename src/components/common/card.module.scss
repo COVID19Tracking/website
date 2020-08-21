@@ -11,6 +11,11 @@
     justify-content: space-between;
     align-items: center;
   }
+  .heading {
+    margin-top: 0;
+    @include margin(16, bottom);
+    @include type-size(200);
+  }
   .link {
     @include type-size(50);
     a {

@@ -21,7 +21,7 @@ export default ({
   data,
   sevenDaysAgo,
   metadata,
-  longTermCareData,
+  longTermCare,
   national = false,
 }) => {
   /*
@@ -133,7 +133,9 @@ export default ({
           recovered={data.recovered}
           national={national}
         />
-        {!national && <LongTermCareCard data={longTermCareData} />}
+        {!national && (
+          <LongTermCareCard data={longTermCare} stateSlug={stateSlug} />
+        )}
       </div>
     </DefinitionPanelContext.Provider>
   )

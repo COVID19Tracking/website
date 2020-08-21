@@ -154,21 +154,21 @@ const gatsbyConfig = {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_api/v1/internal/bigquery/long_term_care_website.json',
-        type: 'CovidLTCWebsite',
+        type: 'CovidLtcWebsite',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_api/v1/internal/bigquery/long_term_care_states.json',
-        type: 'CovidLTCStates',
+        type: 'CovidLtcStates',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_api/v1/internal/bigquery/long_term_care_notes.json',
-        type: 'CovidLTCSNotes',
+        type: 'CovidLtcNotes',
       },
     },
     {

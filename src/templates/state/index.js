@@ -20,6 +20,7 @@ const StatePage = ({ pageContext, data, path }) => {
     covidRaceDataSeparate,
     sevenDaysAgo,
     contentfulStateOrTerritory,
+    allCovidLtcStates,
   } = data
   const crdtData = covidRaceDataCombined || covidRaceDataSeparate
   return (
@@ -41,6 +42,7 @@ const StatePage = ({ pageContext, data, path }) => {
           population={covidStateInfo.childPopulation.population}
           metadata={contentfulStateOrTerritory}
           lastUpdated={covidState.lastUpdateEt}
+          longTermCare={allCovidLtcStates ? allCovidLtcStates.nodes[0] : false}
         />
       </StateNavWrapper>
     </Layout>
@@ -265,6 +267,19 @@ export const query = graphql`
       aianPctPop
       aianPositives
       aianDeaths
+    }
+    allCovidLtcStates(
+      sort: { fields: Date, order: DESC }
+      limit: 1
+      filter: { State_Abbr: { eq: $state } }
+    ) {
+      nodes {
+        Date
+        outbrkFacil_other
+        outbrkFacil_nh
+        outbrkFacil_ltc
+        outbrkFacil_alf
+      }
     }
   }
 `

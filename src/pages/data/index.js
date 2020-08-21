@@ -74,6 +74,7 @@ export default ({ data }) => {
         stateData={data.allCovidState.nodes}
         sevenDaysAgoList={data.allCovidStateDaily.nodes}
         stateMetadata={data.allContentfulStateOrTerritory.nodes}
+        longTermCare={data.allCovidLtcStates.group}
       />
     </Layout>
   )
@@ -236,6 +237,18 @@ export const query = graphql`
           childMarkdownRemark {
             html
           }
+        }
+      }
+    }
+    allCovidLtcStates(sort: { fields: Date, order: DESC }) {
+      group(field: State_Abbr, limit: 1) {
+        nodes {
+          Date
+          State_Abbr
+          outbrkFacil_alf
+          outbrkFacil_other
+          outbrkFacil_ltc
+          outbrkFacil_nh
         }
       }
     }
