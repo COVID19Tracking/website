@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import marked from 'marked'
+import LongTermCareState from '~components/pages/state/long-term-care'
 import Layout from '~components/layout'
 
 export default ({ pageContext, path, data }) => {
@@ -18,6 +19,7 @@ export default ({ pageContext, path, data }) => {
       <div
         dangerouslySetInnerHTML={{ __html: marked(data.covidLtcNotes.notes) }}
       />
+      <LongTermCareState data={data.allCovidLtcStates.nodes} />
     </Layout>
   )
 }
@@ -26,7 +28,6 @@ export const query = graphql`
   query($state: String!) {
     allCovidLtcStates(
       sort: { fields: Date, order: DESC }
-      limit: 1
       filter: { State_Abbr: { eq: $state } }
     ) {
       nodes {
