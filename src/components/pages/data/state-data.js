@@ -12,7 +12,6 @@ import {
 
 import stateDataStyles from './state-data.module.scss'
 
-// todo pass race and ethnicity data from API
 const State = ({ state, metadata }) => {
   const [stateLinksOpen, setStateLinksOpen] = useState(false)
   const { slug } = state.childSlug

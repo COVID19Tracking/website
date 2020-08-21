@@ -78,6 +78,7 @@ const StateLinksDisclosurePanel = ({ state }) => (
       covid19SiteSecondary={state.covid19SiteSecondary}
       covid19SiteTertiary={state.covid19SiteTertiary}
       stateName={state.name}
+      stateSlug={state.childSlug.slug}
     />
   </DisclosurePanel>
 )
