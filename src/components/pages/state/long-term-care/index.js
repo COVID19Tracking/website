@@ -46,6 +46,11 @@ const LongTermCareState = ({ data }) => {
                 ),
               },
               {
+                label: 'Outbreaks',
+                field: `outbrkFacil_${category}`,
+                format: formatNumber,
+              },
+              {
                 label: 'Staff cases',
                 field: `PosStaff_${category}`,
                 format: formatNumber,
