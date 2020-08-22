@@ -1,33 +1,9 @@
 .header-tabs {
   display: block;
-  align-self: flex-end;
-  margin-left: auto;
 
-  div {
-    text-align: left;
-    margin: 0 -1rem; // ignore-style-rule
-  }
-
-  @media (max-width: $viewport-lg) and (min-width: $viewport-ms) {
-    margin-left: 0;
-  }
-
-  @media (min-width: $viewport-ms) {
-    display: inline-block;
-  }
-
-  @media (max-width: $viewport-ms) {
-    div {
-      -ms-overflow-style: none;
-      min-height: 2em; /* Fix for Safari overflow clip */
-      overflow-x: scroll;
-      width: 92vw; /* extend to the far right edge */
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
-  }
+  text-align: left;
+  margin: 0 1rem; // ignore-style-rule
+  @include margin(24, bottom);
 
   ul {
     list-style-type: none;
@@ -35,27 +11,16 @@
     padding-left: 0;
     text-align: left;
 
-    @media (min-width: $viewport-lg) {
-      padding-bottom: spacer(16);
-    }
-
     a {
       text-decoration: none;
       font-weight: bold;
+      @include type-size(200);
       color: white;
+
       display: block;
       margin: 0 0.6rem 0 0; // ignore-style-rule
-      padding: 0.2rem 0 0.1rem; // ignore-style-rule
-      @include type-size(200);
+      padding: 0.4rem 0 0.2rem; // ignore-style-rule
       border-bottom: 3px solid transparent;
-
-      @media (max-width: $viewport-md) {
-        font-size: 0.8rem;
-        @include type-size(100);
-        padding: spacer(8) 0;
-        margin-left: spacer(16);
-        margin-right: spacer(16);
-      }
 
       &:focus {
         @include link-focus-dark-bg;
@@ -64,15 +29,6 @@
       &:hover,
       &[aria-current] {
         @include link-hover-dark-bg;
-      }
-      @media (min-width: $viewport-ms) {
-        margin: 0 spacer(16);
-      }
-    }
-    li {
-      display: inline-block;
-      @media (min-width: $viewport-ms) {
-        margin: 0;
       }
     }
   }
