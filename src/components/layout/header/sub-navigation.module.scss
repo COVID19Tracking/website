@@ -6,7 +6,21 @@
   @include margin(24, bottom);
   @include margin(16, left);
 
+  @media (min-width: $viewport-sm) {
+    @include margin(0, left);
+  }
+
   ul {
+    display: grid;
+
+    @media (min-width: $viewport-sm) and (max-width: $viewport-ms) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: $viewport-ms) and (max-width: $viewport-lg) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
     list-style-type: none;
     margin: 0;
     padding-left: 0;
