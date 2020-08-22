@@ -32,8 +32,8 @@
       li {
         display: inline-block;
         a {
-          @include margin(0, (left, right));
-          @include margin(1, (top, bottom));
+          @include margin(16, (left, right));
+          @include margin(0, (top, bottom));
         }
         &:first-child {
           a {
