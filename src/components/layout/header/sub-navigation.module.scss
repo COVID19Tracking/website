@@ -26,6 +26,23 @@
     padding-left: 0;
     text-align: left;
 
+    @media (min-width: $viewport-lg) {
+      display: block;
+
+      li {
+        display: inline-block;
+        a {
+          @include margin(0, (left, right));
+          @include margin(1, (top, bottom));
+        }
+        &:first-child {
+          a {
+            @include margin(0, left);
+          }
+        }
+      }
+    }
+
     a {
       text-decoration: none;
       font-weight: bold;
