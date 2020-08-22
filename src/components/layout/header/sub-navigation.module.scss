@@ -2,8 +2,9 @@
   display: block;
 
   text-align: left;
-  margin: 0 1rem; // ignore-style-rule
+  @include margin(0, (top, right));
   @include margin(24, bottom);
+  @include margin(16, left);
 
   ul {
     list-style-type: none;
