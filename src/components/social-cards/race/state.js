@@ -113,10 +113,16 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
   const getWidth = (number, max) =>
     `${number / max > 0.1 ? (number / max) * 100 : 10}%`
 
+  // prepend 'The' to DC's name
+  const stateName =
+    state.stateName === 'District of Columbia'
+      ? 'The District of Columbia'
+      : state.stateName
+
   return (
     <div className={socialCardStyle.container}>
       <p className={socialCardStyle.header}>
-        In <strong>{state.stateName}</strong>,{' '}
+        In <strong>{stateName}</strong>,{' '}
         {affectedGroups && affectedGroups.length ? (
           <>
             infection and death rates among{' '}
@@ -161,13 +167,13 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
       </div>
       {state.knownRaceEthPos ? (
         <p className={socialCardStyle.percent}>
-          {state.stateName} has reported race and ethnicity data for{' '}
+          {stateName} has reported race and ethnicity data for{' '}
           <Percent number={state.knownRaceEthPos} /> of cases and{' '}
           <Percent number={state.knownRaceEthDeath} /> of deaths.
         </p>
       ) : (
         <p className={socialCardStyle.percent}>
-          {state.stateName} has reported race data for{' '}
+          {stateName} has reported race data for{' '}
           <Percent number={state.knownRacePos} /> of cases and{' '}
           <Percent number={state.knownRaceDeath} /> of deaths, and ethnicity
           data for <Percent number={state.knownEthPos} /> of cases and{' '}
