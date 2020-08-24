@@ -6,6 +6,8 @@ import { renderedComponent } from '~plugins/gatsby-render-components'
 
 import slug from '~utilities/slug'
 import { stringifyList } from '~utilities/list-formatter'
+
+import { FormatNumber } from '~components/utils/format'
 import Percent from '~components/pages/race/dashboard/percent'
 
 import logo from '~images/project-logo-black.svg'
@@ -142,7 +144,7 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
             className={classnames(socialCardStyle.bar, style)}
             style={{ width: getWidth(cases, largestCases) }}
           >
-            {cases}
+            <FormatNumber number={cases} />
           </div>
         ))}
       </div>
