@@ -1,8 +1,8 @@
 .container {
   position: relative;
   @include padding(24);
-  width: 1200px;
-  height: 800px;
+  width: 1300px;
+  height: 630px;
   border: 3px solid $color-slate-800;
   background: white;
   > * {
@@ -18,12 +18,12 @@
   width: 900px;
   left: 150px;
   grid-template-rows: auto;
-  grid-template-columns: [race-labels-start] 2fr [race-labels-end case-bars-start] 3fr [case-bars-end death-bars-start] 3fr [death-bars-end];
-  column-gap: 10px;
+  grid-template-columns: [race-labels-start] 110px [race-labels-end case-bars-start] 1fr [case-bars-end death-bars-start] 1fr [death-bars-end];
+  column-gap: 15px;
 
   .header {
     @include type-size(500);
-    grid-area: 1 / race-labels-start / 2 / death-bars-end;
+    grid-area: 1 / race-labels-end / 2 / death-bars-end;
     margin: 0;
     margin-bottom: 20px;
   }
@@ -40,6 +40,7 @@
 
   .deaths-header {
     grid-area: 2 / death-bars-start / 3 / death-bars-end;
+    margin-left: 45px;
   }
 
   .cases-header, .deaths-header {
@@ -98,5 +99,8 @@
   &.barNhpi {
     background: $qualitative-color-palette-500;
     color: white;
+  }
+  &.death-bar {
+    margin-left: 45px;
   }
 }

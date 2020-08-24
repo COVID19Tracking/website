@@ -122,6 +122,7 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
   return (
     <div className={socialCardStyle.container}>
       <div className={socialCardStyle.grid}>
+        <span />
         <p className={socialCardStyle.header}>
           In <strong>{stateName}</strong>,{' '}
           {affectedGroups && affectedGroups.length ? (
@@ -164,7 +165,11 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
               <FormatNumber number={cases} />
             </div>
             <div
-              className={classnames(socialCardStyle.bar, style)}
+              className={classnames(
+                socialCardStyle.bar,
+                socialCardStyle.deathBar,
+                style,
+              )}
               style={{ width: getWidth(deaths, largestDeaths) }}
             >
               {deaths}
@@ -300,8 +305,8 @@ export default () => {
             ).childPopulation.population
           }
           renderOptions={{
-            width: 1200,
-            height: 800,
+            width: 1300,
+            height: 630,
             relativePath: 'race-dashboard',
             filename: `${slug(state.stateName)}`,
           }}
