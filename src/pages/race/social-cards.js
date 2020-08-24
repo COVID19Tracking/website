@@ -17,6 +17,8 @@ export default ({ data }) => {
       }
     }
   `)
+  // todo use two return links once #1317 is merged
+  // return to racial data dashboard and racial data tracker
   return (
     <Layout
       title="Social cards"
