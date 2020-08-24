@@ -19,7 +19,7 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
       return null
     }
     if (!state[field + type]) {
-      return 0
+      return undefined
     }
     return Math.round(
       (parseInt(state[field + type], 10) /
@@ -43,7 +43,7 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
     }
   })
 
-  const groups = [
+  let groups = [
     {
       label: 'Black',
       style: socialCardStyle.barBlack,
@@ -89,6 +89,8 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
     },
   ]
 
+  groups = groups.filter(group => group.cases !== undefined && group.deaths !== undefined)
+
   const affectedGroups = []
   const all = groups.find(group => group.all)
   const largestCases = Math.max(...groups.map(group => group.cases))
@@ -110,9 +112,9 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
     return 1
   })
 
+  // gets the width of the bar for the bar charts
   const getWidth = (number, max) =>
     `${number / max > 0.1 ? (number / max) * 100 : 10}%`
-
   // prepend 'The' to DC's name
   const stateName =
     state.stateName === 'District of Columbia'
@@ -172,27 +174,30 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
               )}
               style={{ width: getWidth(deaths, largestDeaths) }}
             >
-              {deaths}
+              <FormatNumber number={deaths} />
             </div>
           </>
         ))}
       </div>
 
-      {state.knownRaceEthPos ? (
-        <p className={socialCardStyle.percent}>
-          {stateName} has reported race and ethnicity data for{' '}
-          <Percent number={state.knownRaceEthPos} /> of cases and{' '}
-          <Percent number={state.knownRaceEthDeath} /> of deaths.
-        </p>
-      ) : (
-        <p className={socialCardStyle.percent}>
-          {stateName} has reported race data for{' '}
-          <Percent number={state.knownRacePos} /> of cases and{' '}
-          <Percent number={state.knownRaceDeath} /> of deaths, and ethnicity
-          data for <Percent number={state.knownEthPos} /> of cases and{' '}
-          <Percent number={state.knownEthDeath} /> of deaths.
-        </p>
-      )}
+      <p className={socialCardStyle.percent}>
+        {state.knownRaceEthPos ? (
+          <>
+            {stateName} has reported race and ethnicity data for{' '}
+            <Percent number={state.knownRaceEthPos} /> of cases and{' '}
+            <Percent number={state.knownRaceEthDeath} /> of deaths.
+          </>
+        ) : (
+          <>
+            {stateName} has reported race data for{' '}
+            <Percent number={state.knownRacePos} /> of cases and{' '}
+            <Percent number={state.knownRaceDeath} /> of deaths, and ethnicity
+            data for <Percent number={state.knownEthPos} /> of cases and{' '}
+            <Percent number={state.knownEthDeath} /> of deaths.
+          </>
+        )}
+        TODO TODO copy about removing missing rate/ethnicity data TODO TODO
+      </p>
       <img src={logo} alt="" className={socialCardStyle.logo} />
     </div>
   )
