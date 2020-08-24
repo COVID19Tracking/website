@@ -167,7 +167,7 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
         </p>
       ) : (
         <p className={socialCardStyle.percent}>
-          {state.stateName} has reported race for{' '}
+          {state.stateName} has reported race data for{' '}
           <Percent number={state.knownRacePos} /> of cases and{' '}
           <Percent number={state.knownRaceDeath} /> of deaths, and ethnicity
           data for <Percent number={state.knownEthPos} /> of cases and{' '}
