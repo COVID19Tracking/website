@@ -1,9 +1,12 @@
 import React from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import slugify from 'slugify'
 import smartypants from 'smartypants'
+
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 import StateSeparate from './state-separate'
 import StateCombined from './state-combined'
+
 import statesStyle from './states.module.scss'
 
 export default () => {
@@ -353,12 +356,12 @@ export default () => {
         .sort((a, b) => (a.name > b.name ? 1 : -1))
         .map(state => (
           <div className={statesStyle.state}>
-            <Link
+            <CtaLink
               className={statesStyle.shareLink}
               to={`/race/social-cards#${state.state}`}
             >
-              Share this <span aria-hidden>→</span>
-            </Link>
+              Share this
+            </CtaLink>
             <h2
               id={`state-${slugify(state.state).toLowerCase()}`}
               className={statesStyle.header}

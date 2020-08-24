@@ -16,4 +16,5 @@
   float: right;
   @include type-size(300);
   display: block;
+  color: inherit;
 }
