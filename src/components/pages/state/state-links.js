@@ -21,17 +21,17 @@ const StateLinks = ({
     <div className={stateLinksStyle.container}>
       {covid19Site && (
         <a href={covid19Site} className={stateLinksStyle.link}>
-          <span>Best Current Data Source</span>
+          <span>Best current data source</span>
         </a>
       )}
       {covid19SiteSecondary && (
         <a href={covid19SiteSecondary} className={stateLinksStyle.link}>
-          <span>Secondary Data Source</span>
+          <span>Secondary data source</span>
         </a>
       )}
       {covid19SiteTertiary && (
         <a href={covid19SiteTertiary} className={stateLinksStyle.link}>
-          <span>Tertiary Data Source</span>
+          <span>Tertiary data source</span>
         </a>
       )}
       {twitter && (

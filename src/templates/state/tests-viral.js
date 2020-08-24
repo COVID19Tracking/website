@@ -13,7 +13,7 @@ export default ({ pageContext, path, data }) => {
 
   return (
     <Layout
-      title={`${state.name}: Viral (PCR) Tests`}
+      title={`${state.name}: Viral (PCR) tests`}
       returnLinks={[
         { link: '/data', title: 'Our Data' },
         { link: `/data/state/${slug}`, title: state.name },
