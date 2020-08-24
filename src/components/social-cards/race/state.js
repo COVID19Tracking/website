@@ -147,7 +147,7 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
             socialCardStyle.barHeader,
           )}
         >
-          Cases per 10,000 people
+          Cases per 100,000 people
         </span>
         <span
           className={classnames(
@@ -155,7 +155,7 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
             socialCardStyle.barHeader,
           )}
         >
-          Deaths per 10,000 people
+          Deaths per 100,000 people
         </span>
         {groups.map(({ label, style, cases, deaths }) => (
           <>
