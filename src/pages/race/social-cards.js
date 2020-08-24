@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+
+import Layout from '~components/layout'
+import SocialSharing from '~components/common/social-sharing'
 import RaceSocialCards from '~components/social-cards/race/state'
 import SocialCardsSelect from '~components/pages/race/social-cards/select'
-import Layout from '~components/layout'
 
 export default ({ data }) => {
   const { contentfulSnippet } = useStaticQuery(graphql`
@@ -32,6 +34,20 @@ export default ({ data }) => {
           __html: contentfulSnippet.content.childMarkdownRemark.html,
         }}
       />
+      Click to share on social media
+      <SocialSharing
+        shares={['facebook', 'twitter', 'link']}
+        url="google.com"
+        text="woohoo sharing"
+      />
+      {/*
+      todo update the url and text
+
+      the url can be configured as a page like /race/dashboard/california
+      (that has the custom social card), which could then redirect to
+      /race/dashboard#state-ca.
+
+      */}
       <RaceSocialCards />
       <SocialCardsSelect />
     </Layout>
