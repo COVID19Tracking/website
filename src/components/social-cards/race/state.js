@@ -120,8 +120,8 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
         {affectedGroups && affectedGroups.length ? (
           <>
             infection and death rates among{' '}
-            {stringifyList({ arr: affectedGroups })} are higher than the overall
-            population.
+            {stringifyList({ arr: affectedGroups })} people are higher than the
+            overall population.
           </>
         ) : (
           <>
