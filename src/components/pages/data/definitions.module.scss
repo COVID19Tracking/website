@@ -5,6 +5,13 @@
   text-transform: uppercase;
 }
 
+.definitions {
+  @include margin(32, bottom);
+  @media (min-width: $viewport-lg) {
+    @include margin(64, bottom);
+  }
+}
+
 .expand-all {
   @include remove-button-style();
   color: $color-slate-600;
