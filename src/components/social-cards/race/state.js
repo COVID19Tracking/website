@@ -11,7 +11,7 @@ import Percent from '~components/pages/race/dashboard/percent'
 import logo from '~images/project-logo-black.svg'
 import socialCardStyle from './state.module.scss'
 
-const State = renderedComponent(({ state, population }) => {
+const StateRaceSocialCard = renderedComponent(({ state, population }) => {
   const getField = (field, type) => {
     if (field === 'all') {
       return null
@@ -276,7 +276,7 @@ export default () => {
   return (
     <>
       {states.map(state => (
-        <State
+        <StateRaceSocialCard
           state={state}
           population={
             data.allCovidStateInfo.nodes.find(
