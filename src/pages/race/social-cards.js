@@ -21,7 +21,7 @@ export default ({ data }) => {
   // return to racial data dashboard and racial data tracker
   return (
     <Layout
-      title="Social cards"
+      title="Social Cards"
       returnLink="/race"
       returnLinkTitle="Racial Data Tracker"
       path="/race/social-cards"
