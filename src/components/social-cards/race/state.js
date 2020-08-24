@@ -89,7 +89,9 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
     },
   ]
 
-  groups = groups.filter(group => group.cases !== undefined && group.deaths !== undefined)
+  groups = groups.filter(
+    group => group.cases !== undefined && group.deaths !== undefined,
+  )
 
   const affectedGroups = []
   const all = groups.find(group => group.all)
