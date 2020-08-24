@@ -1,10 +1,13 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import classnames from 'classnames'
+
 import { renderedComponent } from '~plugins/gatsby-render-components'
+
 import slug from '~utilities/slug'
-import Percent from '~components/pages/race/dashboard/percent'
 import { stringifyList } from '~utilities/list-formatter'
+import Percent from '~components/pages/race/dashboard/percent'
+
 import logo from '~images/project-logo-black.svg'
 import socialCardStyle from './state.module.scss'
 
