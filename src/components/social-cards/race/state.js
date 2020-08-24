@@ -136,35 +136,44 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
           </>
         )}
       </p>
-      <div className={socialCardStyle.labels}>
-        <ul>
-          {groups.map(({ label }) => (
-            <li key={label}>{label}</li>
-          ))}
-        </ul>
-      </div>
-      <div className={socialCardStyle.caseBars}>
-        <p className={socialCardStyle.barLabel}>Cases per 10,000 people</p>
-        {groups.map(({ style, cases }) => (
-          <div
-            className={classnames(socialCardStyle.bar, style)}
-            style={{ width: getWidth(cases, largestCases) }}
-          >
-            <FormatNumber number={cases} />
-          </div>
+      <div className={socialCardStyle.grid}>
+        <span /> {/* spacer for css grid */}
+        <span
+          className={classnames(
+            socialCardStyle.casesHeader,
+            socialCardStyle.barLabel,
+          )}
+        >
+          Cases per 10,000 people
+        </span>
+        <span
+          className={classnames(
+            socialCardStyle.deathsHeader,
+            socialCardStyle.barLabel,
+          )}
+        >
+          Deaths per 10,000 people
+        </span>
+
+        {groups.map(({ label, style, cases, deaths }) => (
+          <>
+            <span>{label}</span>
+            <div
+              className={classnames(socialCardStyle.bar, style)}
+              style={{ width: getWidth(cases, largestCases) }}
+            >
+              <FormatNumber number={cases} />
+            </div>
+            <div
+              className={classnames(socialCardStyle.bar, style)}
+              style={{ width: getWidth(deaths, largestDeaths) }}
+            >
+              {deaths}
+            </div>
+          </>
         ))}
       </div>
-      <div className={socialCardStyle.deathBars}>
-        <p className={socialCardStyle.barLabel}>Deaths per 10,000 people</p>
-        {groups.map(({ style, deaths }) => (
-          <div
-            className={classnames(socialCardStyle.bar, style)}
-            style={{ width: getWidth(deaths, largestDeaths) }}
-          >
-            {deaths}
-          </div>
-        ))}
-      </div>
+
       {state.knownRaceEthPos ? (
         <p className={socialCardStyle.percent}>
           {stateName} has reported race and ethnicity data for{' '}

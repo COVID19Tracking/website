@@ -8,7 +8,30 @@
   > * {
     position: absolute;
   }
-  font-family: 'Arial, sans-serif';
+  font-family: 'Arial, sans-serif';  // todo update this to font stack
+}
+
+.grid {
+  display: grid;
+  width: 1000px;
+  left: 150px;
+  grid-template-rows: auto;
+  grid-template-columns: [race-labels-start] 2fr [race-labels-end case-bars-start] 3fr [case-bars-end death-bars-start] 3fr [death-bars-end];
+  column-gap: 10px;
+
+  .cases-header {
+    grid-area: 1 / case-bars-start / 2 / case-bars-end;
+  }
+
+  .deaths-header {
+    grid-area: 1 / death-bars-start / 2 / death-bars-end;
+  }
+
+  .cases-header, .deaths-header {
+    justify-self: center;
+    align-self: end;
+  }
+
 }
 
 .logo {
@@ -53,18 +76,6 @@
   height: 30px;
   margin-top: 0;
   margin-bottom: 10px;
-}
-
-.case-bars {
-  width: 300px;
-  top: 200px;
-  left: 250px;
-}
-
-.death-bars {
-  width: 300px;
-  top: 200px;
-  left: 650px;
 }
 
 .bar {
