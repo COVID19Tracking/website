@@ -8,28 +8,48 @@
   > * {
     position: absolute;
   }
-  font-family: 'Arial, sans-serif';  // todo update this to font stack
+  font: normal 100%/1.5 'system-ui', '-apple-system', 'BlinkMacSystemFont',
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 }
 
 .grid {
   display: grid;
-  width: 1000px;
+  width: 900px;
   left: 150px;
   grid-template-rows: auto;
   grid-template-columns: [race-labels-start] 2fr [race-labels-end case-bars-start] 3fr [case-bars-end death-bars-start] 3fr [death-bars-end];
   column-gap: 10px;
 
+  .header {
+    @include type-size(500);
+    grid-area: 1 / race-labels-start / 2 / death-bars-end;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .bar-header {
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
   .cases-header {
-    grid-area: 1 / case-bars-start / 2 / case-bars-end;
+    grid-area: 2 / case-bars-start / 3 / case-bars-end;
   }
 
   .deaths-header {
-    grid-area: 1 / death-bars-start / 2 / death-bars-end;
+    grid-area: 2 / death-bars-start / 3 / death-bars-end;
   }
 
   .cases-header, .deaths-header {
-    justify-self: center;
+    justify-self: start;
     align-self: end;
+  }
+
+  .bar-label {
+    justify-self: end;
+    align-self: center;
   }
 
 }
@@ -41,41 +61,11 @@
   opacity: 0.3;
 }
 
-.header {
-  @include type-size(500);
-  width: 800px;
-  left: 250px;
-  margin: 0;
-}
-
 .percent {
   width: 700px;
   left: 250px;
   bottom: 20px;
   color: $color-slate-700;
-}
-
-.labels {
-  width: 230px;
-  left: 0;
-  top: 230px;
-  @include type-size(400);
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-  li {
-    text-align: right;
-    margin-bottom: 15px;
-  }
-}
-
-.bar-label {
-  font-weight: bold;
-  height: 30px;
-  margin-top: 0;
-  margin-bottom: 10px;
 }
 
 .bar {

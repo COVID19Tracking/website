@@ -121,27 +121,27 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
 
   return (
     <div className={socialCardStyle.container}>
-      <p className={socialCardStyle.header}>
-        In <strong>{stateName}</strong>,{' '}
-        {affectedGroups && affectedGroups.length ? (
-          <>
-            infection and death rates among{' '}
-            {stringifyList({ arr: affectedGroups })} people are higher than the
-            overall population.
-          </>
-        ) : (
-          <>
-            there are no groups with higher infection and death rates than the
-            overall population.
-          </>
-        )}
-      </p>
       <div className={socialCardStyle.grid}>
+        <p className={socialCardStyle.header}>
+          In <strong>{stateName}</strong>,{' '}
+          {affectedGroups && affectedGroups.length ? (
+            <>
+              infection and death rates among{' '}
+              {stringifyList({ arr: affectedGroups })} people are higher than
+              the overall population.
+            </>
+          ) : (
+            <>
+              there are no groups with higher infection and death rates than the
+              overall population.
+            </>
+          )}
+        </p>
         <span /> {/* spacer for css grid */}
         <span
           className={classnames(
             socialCardStyle.casesHeader,
-            socialCardStyle.barLabel,
+            socialCardStyle.barHeader,
           )}
         >
           Cases per 10,000 people
@@ -149,15 +149,14 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
         <span
           className={classnames(
             socialCardStyle.deathsHeader,
-            socialCardStyle.barLabel,
+            socialCardStyle.barHeader,
           )}
         >
           Deaths per 10,000 people
         </span>
-
         {groups.map(({ label, style, cases, deaths }) => (
           <>
-            <span>{label}</span>
+            <span className={socialCardStyle.barLabel}>{label}</span>
             <div
               className={classnames(socialCardStyle.bar, style)}
               style={{ width: getWidth(cases, largestCases) }}
