@@ -51,6 +51,7 @@
   .bar-label {
     justify-self: end;
     align-self: center;
+    margin-bottom: 10px;
   }
 
 }
@@ -71,10 +72,15 @@
 
 .bar {
   height: 35px;
-  width: 40px;
+  width: 15px;
   text-align: right;
   padding-right: 10px;
   margin-bottom: 14px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
   &.barBlack {
     background: $qualitative-color-palette-300;
   }
