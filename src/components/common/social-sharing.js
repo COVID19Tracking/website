@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import copy from 'copy-to-clipboard'
+import classnames from 'classnames'
 
 import facebookIcon from '~images/social-shares/facebook.svg'
 import twitterIcon from '~images/social-shares/twitter.svg'
@@ -7,7 +8,7 @@ import linkIcon from '~images/social-shares/link.svg'
 
 import socialSharingStyles from './social-sharing.module.scss'
 
-export default ({ shares, url, text }) => {
+export default ({ shares, url, text, outlineOnly }) => {
   const [isCopied, setIsCopied] = useState(false)
 
   const types = {
@@ -62,7 +63,10 @@ export default ({ shares, url, text }) => {
         <a
           href={types[share].url}
           onClick={types[share].onClick}
-          className={socialSharingStyles.socialButton}
+          className={classnames(
+            socialSharingStyles.socialButton,
+            outlineOnly && socialSharingStyles.outlineOnly,
+          )}
         >
           <img src={types[share].icon} alt={types[share].alt} />
         </a>

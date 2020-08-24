@@ -39,6 +39,7 @@ export default ({ data }) => {
         shares={['facebook', 'twitter', 'link']}
         url="google.com"
         text="woohoo sharing"
+        outlineOnly
       />
       {/*
       todo update the url and text

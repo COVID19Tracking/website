@@ -27,6 +27,11 @@
   &:focus {
     @include link-focus-dark-bg;
   }
+
+  &.outline-only {
+    background-color: transparent;
+    border: 3px solid $color-plum-700;
+  }
 }
 
 .link-copied {
