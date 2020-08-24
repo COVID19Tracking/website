@@ -19,8 +19,8 @@ export default () => {
   `)
 
   // put the categories with the most posts first
-  const categories = allContentfulBlogCategory.nodes.sort(
-    (a, b) => b.blog_post.length - a.blog_post.length,
+  const categories = allContentfulBlogCategory.nodes.sort((a, b) =>
+    b.blog_post && a.blog_post ? b.blog_post.length - a.blog_post.length : 0,
   )
 
   const [isOpen, setisOpen] = useState(false) // todo set default here
@@ -67,7 +67,8 @@ export default () => {
             >
               <Link to={`/blog/category/${category.slug}`}>
                 <p className={blogCategoriesListStyles.categoryText}>
-                  {category.name} ({category.blog_post.length})
+                  {category.name} (
+                  {category.blog_post && category.blog_post.length})
                 </p>
               </Link>
             </li>
