@@ -9,7 +9,7 @@ exports[`Components : Pages : State : State links renders correctly 1`] = `
     href="https://example.com"
   >
     <span>
-      Best Current Data Source
+      Best current data source
     </span>
   </a>
   <a
@@ -17,7 +17,7 @@ exports[`Components : Pages : State : State links renders correctly 1`] = `
     href="https://example.com2"
   >
     <span>
-      Secondary Data Source
+      Secondary data source
     </span>
   </a>
   <a
@@ -58,7 +58,7 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
     href="https://example.com"
   >
     <span>
-      Best Current Data Source
+      Best current data source
     </span>
   </a>
   <a
@@ -66,7 +66,7 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
     href="https://example.com2"
   >
     <span>
-      Secondary Data Source
+      Secondary data source
     </span>
   </a>
   <a

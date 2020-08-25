@@ -2,7 +2,7 @@
 
 exports[`Components : Pages : Data : Definitions renders correctly 1`] = `
 <div
-  className="row"
+  className="row definitions"
 >
   <div
     className="col colSmall4 colMedium6 colLarge3"
