@@ -234,10 +234,9 @@ export default ({
   // reach 30 days of hospitalization data. That or we should
   // rethink this requirement. -goleary
   const hasData = field =>
-    name === 'Hawaii' ||
-    (data.filter(item => item[field.replace('perCap_', '')] !== null).length >=
+    data.filter(item => item[field.replace('perCap_', '')] !== null).length >=
       data.length * 0.3 &&
-      data.filter(item => item[field.replace('perCap_', '')] > 0).length > 0)
+    data.filter(item => item[field.replace('perCap_', '')] > 0).length > 0
 
   // Below enables the charts to switch between the per cap & not data
   // using the toggle state
