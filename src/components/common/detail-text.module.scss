@@ -9,3 +9,7 @@
 table + .detail-text {
   @include margin(24, bottom);
 }
+
+.centered {
+  text-align: center;
+}
