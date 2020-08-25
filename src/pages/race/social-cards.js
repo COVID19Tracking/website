@@ -3,7 +3,6 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Layout from '~components/layout'
-import SocialSharing from '~components/common/social-sharing'
 import RaceSocialCards from '~components/social-cards/race/state'
 import SocialCardsSelect from '~components/pages/race/social-cards/select'
 
@@ -34,23 +33,14 @@ export default ({ data }) => {
           __html: contentfulSnippet.content.childMarkdownRemark.html,
         }}
       />
-      Click to share on social media
-      <SocialSharing
-        shares={['facebook', 'twitter', 'link']}
-        url="google.com"
-        text="woohoo sharing"
-        outlineOnly
-      />
-      {/*
-      todo update the url and text
-
-      the url can be configured as a page like /race/dashboard/california
-      (that has the custom social card), which could then redirect to
-      /race/dashboard#state-ca.
-
-      */}
-      <RaceSocialCards />
+      <h3>Create and share a social card</h3>
+      <p>
+        Select a state or territory to see the latset information about COVID-19
+        cases and deaths by race and ethnicity. These charts are updated twice a
+        week.
+      </p>
       <SocialCardsSelect />
+      <RaceSocialCards />
     </Layout>
   )
 }
