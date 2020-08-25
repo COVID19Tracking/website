@@ -23,6 +23,7 @@ export default () => {
       <SEO
         title="The COVID Tracking Project"
         socialCard={data.contentfulSocialCard}
+        redirect
       />
       <Header siteTitle="The COVID Tracking Project" noMargin />
       <h1>Test</h1>

@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { Location } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
 
-function SEO({ lang, meta, title, socialCard }) {
+function SEO({ lang, meta, title, socialCard, redirect }) {
   const { site, contentfulSocialCard } = useStaticQuery(
     graphql`
       query {
@@ -105,7 +105,11 @@ function SEO({ lang, meta, title, socialCard }) {
               content: description || site.siteMetadata.description,
             },
           ].concat(meta)}
-        />
+        >
+          {redirect && (
+            <meta httpEquiv="refresh" content="0; url=https://example.com/" />
+          )}
+        </Helmet>
       )}
     </Location>
   )
