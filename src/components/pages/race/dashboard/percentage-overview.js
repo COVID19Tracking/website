@@ -15,6 +15,8 @@ const PercentContent = ({ percent }) => {
   )
 }
 
+const capitalizeString = s => s.charAt(0).toUpperCase() + s.slice(1)
+
 export default ({
   stateName,
   dataType,
@@ -28,21 +30,25 @@ export default ({
   return (
     <div className={className || ''}>
       <h3 className={percentageOverview.title}>
-        {stateName} has reported {dataType} data for:
+        {capitalizeString(dataType)} completeness for {stateName}:
       </h3>
       <div className={percentageOverview.data}>
         <div className={percentageOverview.dataItem}>
           <p>
-            <PercentContent percent={Math.round(casePercent * 100)} />{' '}
+            <PercentContent percent={Math.round((1 - casePercent) * 100)} />{' '}
             <span className="a11y-only">of</span>{' '}
-            <span className={percentageOverview.percentCaption}>Cases</span>
+            <span className={percentageOverview.percentCaption}>
+              Cases have no {dataType} data
+            </span>
           </p>
         </div>
         <div className={percentageOverview.dataItem}>
           <p>
-            <PercentContent percent={Math.round(deathPercent * 100)} />{' '}
+            <PercentContent percent={Math.round((1 - deathPercent) * 100)} />{' '}
             <span className="a11y-only">of</span>{' '}
-            <span className={percentageOverview.percentCaption}>Deaths</span>
+            <span className={percentageOverview.percentCaption}>
+              Deaths have no {dataType} data
+            </span>
           </p>
         </div>
       </div>
