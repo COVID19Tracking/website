@@ -19,6 +19,11 @@ const gatsbyConfig = {
     production:
       typeof process.env.BRANCH !== 'undefined' &&
       process.env.BRANCH === 'master',
+    buildTime: DateTime.local()
+      .setZone('America/New_York')
+      .toISO(),
+    buildId: process.env.BUILD_ID || false,
+    buildHook: process.env.INCOMING_HOOK_TITLE || false,
     contentfulSpace: process.env.CONTENTFUL_SPACE,
     hiddenApiTags: ['Racial data tracker', 'Internal Endpoints'],
     stateChartDateRange: 90,
