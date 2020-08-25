@@ -26,7 +26,7 @@ import TooltipContents from '~components/charts/tooltip-contents'
 
 const TestFieldIndicator = ({ field }) => (
   <span className={styles.testFieldIndicator}>
-    <FieldName field={field.replace('Increase', '')} />
+    <FieldName field={field} />
   </span>
 )
 
@@ -134,7 +134,13 @@ const getTestIncreaseField = history => {
   return preferredFields[preferredIndex]
 }
 
-export default ({ name = 'National', history, usHistory, annotations }) => {
+export default ({
+  name = 'National',
+  history,
+  usHistory,
+  annotations,
+  testSource = 'totalTestResults',
+}) => {
   const siteData = useStaticQuery(graphql`
     {
       site {
@@ -253,7 +259,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   // using the toggle state
 
   const prepend = useMemo(() => (usePerCap ? 'perCap_' : ''), [usePerCap])
-  const testIncreaseField = getTestIncreaseField(history)
+  const testIncreaseField = `${testSource}Increase`
   const testField = useMemo(() => `${prepend}${testIncreaseField}`, [prepend])
   const positiveField = useMemo(() => `${prepend}positiveIncrease`, [prepend])
   const hospitalizedField = useMemo(() => `${prepend}hospitalizedCurrently`, [
@@ -336,7 +342,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             <CalculatedIndicator
               openDisclosure={() => setDisclosureOpen(true)}
             />
-            <TestFieldIndicator field={testIncreaseField} />
+            <TestFieldIndicator field={testSource} />
           </h5>
           <BarChart
             data={getDataForField(data, testField)}

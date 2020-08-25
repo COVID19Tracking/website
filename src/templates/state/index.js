@@ -28,6 +28,7 @@ const StatePage = ({ pageContext, data, path }) => {
         history={allCovidStateDaily.nodes}
         usHistory={allCovidUsDaily.nodes}
         annotations={allContentfulEvent}
+        testSource={covidState.totalTestResultsSource}
       />
       <StateNavWrapper stateList={allCovidStateInfo.nodes} single>
         <StateSummary
@@ -127,6 +128,7 @@ export const query = graphql`
       totalTestsViral
       totalTestEncountersViral
       totalTestsAntibody
+      totalTestResultsSource
     }
     allCovidStateDaily(
       filter: { state: { eq: $state } }
