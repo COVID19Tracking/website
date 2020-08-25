@@ -7,6 +7,9 @@ import SocialSharing from '~components/common/social-sharing'
 
 import shareStyles from './share.module.scss'
 
+const getStateShareImageUrl = state =>
+  `https://covidtracking.com/images/race-dashboard/${slug(state)}.png`
+
 export default ({ state }) => (
   <>
     <p>
@@ -16,18 +19,10 @@ export default ({ state }) => (
     <DetailText centered>Click to share on social media</DetailText>
     <SocialSharing
       shares={['facebook', 'twitter', 'link']}
-      url="google.com"
+      url={getStateShareImageUrl(state)}
       text="woohoo sharing"
       outlineOnly
     />
-    {/*
-      todo update the url and text
-
-      the url can be configured as a page like /race/dashboard/california
-      (that has the custom social card), which could then redirect to
-      /race/dashboard#state-ca.
-
-    */}
     <DetailText centered>
       Or, download the social media graphic below
     </DetailText>
@@ -37,9 +32,7 @@ export default ({ state }) => (
       className={shareStyles.preview}
     />
     <h4 className={shareStyles.copyHeader}>Copy-and-paste URL</h4>
-    <div className={shareStyles.copy}>
-      https://covidtracking.com/images/race-dashboard/{slug(state)}.png
-    </div>
+    <div className={shareStyles.copy}>{getStateShareImageUrl(state)}</div>
     <DetailText centered className={shareStyles.licenseInfo}>
       You are free to use these images in accordance with our{' '}
       <Link to="/about-data/license">data license</Link>. Race and ethnicity
