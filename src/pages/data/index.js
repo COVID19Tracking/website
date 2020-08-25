@@ -32,9 +32,9 @@ export default ({ data }) => {
       />
       <DownloadDataRow
         slug="all-states"
-        lastUpdateEt={DateTime.fromISO(data.lastUpdate.nodes[0].date)
-          .setZone('America/New_York')
-          .toFormat('LLL d yyyy')}
+        lastUpdateEt={DateTime.fromISO(data.lastUpdate.nodes[0].date).toFormat(
+          'LLL d yyyy',
+        )}
         national
       />
       <Summary
