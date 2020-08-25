@@ -16,14 +16,16 @@ export default ({ state }) => (
       Did you know? Did you know? Did you know? Did you know? Did you know? Did
       you know?
     </p>
-    <DetailText centered>Click to share on social media</DetailText>
+    <DetailText centered className={shareStyles.clickToShare}>
+      Click to share on social media
+    </DetailText>
     <SocialSharing
       shares={['facebook', 'twitter', 'link']}
       url={getStateShareImageUrl(state)}
       text="woohoo sharing"
       outlineOnly
     />
-    <DetailText centered>
+    <DetailText centered className={shareStyles.downloadGraphic}>
       Or, download the social media graphic below
     </DetailText>
     <img

@@ -18,3 +18,11 @@
     color: inherit;
   }
 }
+
+.download-graphic {
+  @include margin(32, top);
+}
+
+.click-to-share {
+  @include margin(16, (top, bottom));
+}
