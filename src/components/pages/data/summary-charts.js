@@ -26,7 +26,7 @@ import TooltipContents from '~components/charts/tooltip-contents'
 
 const TestFieldIndicator = ({ field }) => (
   <span className={styles.testFieldIndicator}>
-    <FieldName field={field} />
+    <FieldName field={field === 'posNeg' ? 'totalTestResults' : field} />
   </span>
 )
 
@@ -116,22 +116,6 @@ const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
       )
     </span>
   )
-}
-
-const getTestIncreaseField = history => {
-  const preferredFields = [
-    'totalTestEncountersViralIncrease',
-    'totalTestsViralIncrease',
-    'totalTestsPeopleViralIncrease',
-    'totalTestResultsIncrease',
-  ].reverse()
-  let preferredIndex = 0
-  preferredFields.forEach((field, index) => {
-    if (history[0][field] > 0) {
-      preferredIndex = index
-    }
-  })
-  return preferredFields[preferredIndex]
 }
 
 export default ({
@@ -259,7 +243,9 @@ export default ({
   // using the toggle state
 
   const prepend = useMemo(() => (usePerCap ? 'perCap_' : ''), [usePerCap])
-  const testIncreaseField = `${testSource}Increase`
+  const testIncreaseField = `${
+    testSource === 'posNeg' ? 'totalTestResults' : testSource
+  }Increase`
   const testField = useMemo(() => `${prepend}${testIncreaseField}`, [prepend])
   const positiveField = useMemo(() => `${prepend}positiveIncrease`, [prepend])
   const hospitalizedField = useMemo(() => `${prepend}hospitalizedCurrently`, [
