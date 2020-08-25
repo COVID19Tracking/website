@@ -4,6 +4,7 @@
     padding-top: 50px;
     display: inline-block;
   }
+  @include margin(16, bottom);
 }
 
 .state {
@@ -12,9 +13,8 @@
   padding-top: 3rem;
 }
 
-.share-link {
-  float: right;
-  @include type-size(300);
-  display: block;
-  color: inherit;
+.social-card-cta {
+  @include margin(0, top);
+  @include margin(32, bottom);
+  max-width: 50%;
 }

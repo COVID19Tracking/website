@@ -356,18 +356,19 @@ export default () => {
         .sort((a, b) => (a.name > b.name ? 1 : -1))
         .map(state => (
           <div className={statesStyle.state}>
-            <CtaLink
-              className={statesStyle.shareLink}
-              to={`/race/social-cards#${state.state}`}
-            >
-              Share this
-            </CtaLink>
             <h2
               id={`state-${slugify(state.state).toLowerCase()}`}
               className={statesStyle.header}
             >
               {state.name}
             </h2>
+            <p className={statesStyle.socialCardCta}>
+              A summary of key race and ethnicity data for {state.name} can also
+              be viewed as a graphic.{' '}
+              <CtaLink to={`/race/social-cards#${state.state}`}>
+                View as graphic
+              </CtaLink>
+            </p>
             <div>
               {state.stateSeparate ? (
                 <StateSeparate state={state} />
