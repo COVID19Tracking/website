@@ -325,6 +325,13 @@ export default () => {
             >
               {state.name}
             </h2>
+            <p className={statesStyle.socialCardCta}>
+              A summary of key race and ethnicity data for {state.name} can also
+              be viewed as a graphic.{' '}
+              <CtaLink to={`/race/social-cards#${state.state}`}>
+                View as graphic
+              </CtaLink>
+            </p>
             <div>
               {state.stateSeparate ? (
                 <StateSeparate state={state} />
