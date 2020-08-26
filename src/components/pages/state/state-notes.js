@@ -6,23 +6,11 @@ import Container from '~components/common/container'
 import MarkdownContent from '~components/common/markdown-content'
 import stateNotesStyle from './state-notes.module.scss'
 
-const getBoldedText = text => {
-  const re = new RegExp(
-    `((?:January|Jan|February|Feb|March|Mar|April|Apr|May|May|June|Jun|July|Jul|August|Aug|September|Sep|Sept|October|Oct|November|Nov|December|Dec).? [0-9]{1,2}|[0-9]{1,2}/[0-9]{1,2})((,).? 2020)?`,
-    'gi',
+const getBoldedText = text =>
+  text.replace(
+    /(January|Jan|February|Feb|March|Mar|April|Apr|May|May|June|Jun|July|Jul|August|Aug|September|Sep|Sept|October|Oct|November|Nov|December|Dec) ([0-9]{1,2}|[0-9]{1,2}\/[0-9]{1,2})(,? [0-9]{4})?/gi,
+    '**$1 $2$3**',
   )
-  const parts = text.split(re)
-  const highlightedParts = parts.map(part => {
-    if (part === ' 2020') {
-      return ' **2020**'
-    }
-    if (part === ', 2020') {
-      return ', **2020**'
-    }
-    return re.test(part) ? `**${part}**` : part
-  })
-  return highlightedParts.join('').replace(/,,/g, ',')
-}
 
 export default ({ notes, isNarrow = true }) => {
   const highlightedNotes = getBoldedText(notes)
