@@ -87,6 +87,40 @@ export default ({ data }) => (
           }
         />
       </LongContent>
+    </Container>
+    <Container centered>
+      <LongContent>
+        <h2>Deaths in Long-Term Care Facilities by Region</h2>
+        <DetailText small>
+          <ContentfulContent
+            id={data.timechartNotes.contentful_id}
+            content={
+              data.timechartNotes.childContentfulSnippetContentTextNode
+                .childMarkdownRemark.html
+            }
+          />
+        </DetailText>
+      </LongContent>
+    </Container>
+    <TableauChart
+      id="ltc-1"
+      height={550}
+      mobileHeight={450}
+      viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
+      viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
+    />
+    <Container centered>
+      <LongContent>
+        <ContentfulContent
+          id={data.contentDefinitions.contentful_id}
+          content={
+            data.contentDefinitions.childContentfulSnippetContentTextNode
+              .childMarkdownRemark.html
+          }
+        />
+      </LongContent>
+    </Container>
+    <Container centered>
       <DetailText small>
         <ContentfulContent
           id={data.noteTable.contentful_id}
@@ -153,7 +187,23 @@ export const query = graphql`
         }
       }
     }
+    contentDefinitions: contentfulSnippet(slug: { eq: "ltc-definitions" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
     noteTopLine: contentfulSnippet(slug: { eq: "ltc-top-notes" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    timechartNotes: contentfulSnippet(slug: { eq: "ltc-timechart-notes" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
