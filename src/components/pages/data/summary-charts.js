@@ -133,16 +133,6 @@ export default ({
           stateChartPerCapMeasure
         }
       }
-      disclaimerSnippet: contentfulSnippet(
-        slug: { eq: "data-chart-disclaimer" }
-      ) {
-        contentful_id
-        childContentfulSnippetContentTextNode {
-          childMarkdownRemark {
-            html
-          }
-        }
-      }
       calculatedSnippet: contentfulSnippet(
         slug: { eq: "charts-calculated-footnote" }
       ) {
@@ -160,7 +150,7 @@ export default ({
     stateChartPerCapMeasure,
   } = siteData.site.siteMetadata
 
-  const { disclaimerSnippet, calculatedSnippet } = siteData
+  const { calculatedSnippet } = siteData
 
   const [usePerCap, setUsePerCap] = useState(false)
   const [useFullRange, setUseFullRange] = useState(false)
@@ -471,14 +461,6 @@ export default ({
                       .childMarkdownRemark.html
                   }
                   id={calculatedSnippet.contentful_id}
-                />
-
-                <ContentfulContent
-                  content={
-                    disclaimerSnippet.childContentfulSnippetContentTextNode
-                      .childMarkdownRemark.html
-                  }
-                  id={disclaimerSnippet.contentful_id}
                 />
               </Container>
             </DisclosurePanel>
