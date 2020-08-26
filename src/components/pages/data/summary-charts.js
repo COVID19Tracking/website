@@ -286,6 +286,7 @@ export default ({
   return (
     <>
       <div className={styles.infoLine}>
+        <h2 className="a11y-only">Summary charts</h2>
         <div className={styles.toggleContainer}>
           {usHistory && (
             <Toggle
@@ -305,9 +306,9 @@ export default ({
           <LegendComponent name={name || 'National'} />
         </div>
       </div>
-      <Row>
+      <Row className={styles.summaryCharts}>
         <Col {...colProps}>
-          <h5 className={styles.testHeading}>
+          <h3 className={styles.testHeading}>
             New tests{' '}
             <AnnotationIndicator
               annotations={annotations}
@@ -318,7 +319,7 @@ export default ({
               openDisclosure={() => setDisclosureOpen(true)}
             />
             <TestFieldIndicator field={testSource} />
-          </h5>
+          </h3>
           <BarChart
             data={getDataForField(data, testField)}
             lineData={dailyAverage(data, testField)}
@@ -331,7 +332,7 @@ export default ({
           />
         </Col>
         <Col {...colProps}>
-          <h5>
+          <h3>
             New cases{' '}
             <AnnotationIndicator
               annotations={annotations}
@@ -339,7 +340,7 @@ export default ({
               openDisclosure={() => setDisclosureOpen(true)}
             />
             <CalculatedIndicator />
-          </h5>
+          </h3>
           {hasData(positiveField) ? (
             <BarChart
               data={getDataForField(data, positiveField)}
@@ -356,14 +357,14 @@ export default ({
           )}
         </Col>
         <Col {...colProps}>
-          <h5>
+          <h3>
             Current hospitalizations{' '}
             <AnnotationIndicator
               annotations={annotations}
               dataElement="hospitalizations"
               openDisclosure={() => setDisclosureOpen(true)}
             />
-          </h5>
+          </h3>
 
           {hasData(hospitalizedField) ? (
             <BarChart
@@ -386,7 +387,7 @@ export default ({
           )}
         </Col>
         <Col {...colProps}>
-          <h5>
+          <h3>
             New deaths{' '}
             <AnnotationIndicator
               annotations={annotations}
@@ -394,7 +395,7 @@ export default ({
               openDisclosure={() => setDisclosureOpen(true)}
             />
             <CalculatedIndicator />
-          </h5>
+          </h3>
           {hasData(deathField) ? (
             <BarChart
               data={getDataForField(data, deathField)}
