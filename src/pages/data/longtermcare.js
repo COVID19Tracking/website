@@ -91,7 +91,7 @@ export default ({ data }) => (
     <Container centered>
       <LongContent>
         <ContentfulContent
-          id={data.content2.contentful_id}
+          id={data.timechartNotes.contentful_id}
           content={
             data.timechartNotes.childContentfulSnippetContentTextNode
               .childMarkdownRemark.html
@@ -106,6 +106,17 @@ export default ({ data }) => (
       viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
       viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
     />
+    <Container centered>
+      <LongContent>
+        <ContentfulContent
+          id={data.contentDefinitions.contentful_id}
+          content={
+            data.contentDefinitions.childContentfulSnippetContentTextNode
+              .childMarkdownRemark.html
+          }
+        />
+      </LongContent>
+    </Container>
     <Container>
       <DetailText small>
         <ContentfulContent
@@ -166,6 +177,14 @@ export const query = graphql`
       }
     }
     contentThanks: contentfulSnippet(slug: { eq: "ltc-thanks" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    contentDefinitions: contentfulSnippet(slug: { eq: "ltc-definitions" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
