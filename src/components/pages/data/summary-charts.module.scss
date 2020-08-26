@@ -1,0 +1,133 @@
+@import '~scss/breakpoints.module.scss';
+@import '~scss/colors.module.scss';
+
+.info-line {
+  display: flex;
+  @media screen and (max-width: $viewport-md) {
+    flex-direction: column;
+  }
+  .toggle-container {
+    flex-grow: 1;
+    display: flex;
+    > * {
+      margin-right: spacer(8);
+    }
+    @media screen and (max-width: $viewport-lg) {
+      flex-direction: column;
+      > * {
+        margin-right: 0;
+        margin-bottom: spacer(8);
+      }
+    }
+    @media screen and (max-width: $viewport-md) {
+      flex-grow: initial;
+    }
+  }
+  .legend-container {
+    display: flex;
+    > * {
+      margin-left: spacer(8);
+    }
+    @media screen and (max-width: $viewport-lg) {
+      flex-direction: column-reverse;
+      flex-grow: initial;
+      > * {
+        margin-left: 0;
+        margin-bottom: spacer(8);
+      }
+    }
+  }
+  .legend-component {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.alert-infobox-container {
+  height: 286px;
+  width: 272px;
+}
+
+.disclosure {
+  background: none;
+  text-decoration: underline;
+  color: $color-slate-600;
+  border: 0;
+  @include type-size(200);
+  padding: 0;
+  cursor: pointer;
+  span {
+    @include margin(8, left);
+  }
+  .arrow-down {
+    display: inline-block;
+  }
+  .arrow-up {
+    display: none;
+  }
+  &[aria-expanded='true'] {
+    .arrow-down {
+      display: none;
+    }
+    .arrow-up {
+      display: inline-block;
+    }
+  }
+}
+
+.annotation-list {
+  padding-inline-start: 20px; // ignore-style-rule
+  list-style-type: upper-alpha;
+
+  .annotation-item {
+    font-weight: 700;
+    padding-inline-start: spacer(4);
+    span {
+      font-weight: initial;
+    }
+  }
+}
+
+.annotation-title {
+  @include type-size(300);
+}
+
+.annotation-indicator {
+  @include type-size(200);
+  font-weight: normal;
+  display: block;
+  font-size: 0.8rem;
+  display: inline;
+  @include margin(4, left);
+}
+
+.chart-logo {
+  margin: 0 spacer(16);
+  @media screen and (max-width: $viewport-lg) {
+    display: none;
+  }
+  * {
+    fill: $color-slate-300;
+  }
+}
+
+.annotation-date {
+  font-weight: 700;
+  color: $color-slate-600;
+}
+
+.calculated {
+  display: inline-block;
+  @include type-size(100);
+  font-weight: normal;
+}
+
+.test-field-indicator {
+  @include type-size(100);
+  margin: 0;
+  display: block;
+}
+
+.test-heading {
+  @include margin(8, bottom);
+}

@@ -21,6 +21,7 @@
 /best-practices                               https://docs.google.com/document/d/1OyN6_1UeDePwPwKi6UKZB8GwNC7-kSf1-BO2af8kqVA/edit
 /sheets                                       https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml
 /data/state/                                  /data/
+/data/us-daily                                /data/national
 /github                                       https://github.com/COVID19Tracking/website
 /about-tracker                                /about-data
 /how-you-can-help/                            /about/help
@@ -32,5 +33,6 @@
 /about/in-the-press                           /about-project/in-the-press
 /help                                         /get-involved
 /about-project/help                           /get-involved
+/data-definitions                             /about-data/data-definitions
 /longtermcare                                 /data/longtermcare
 /documents/CDC%20Data%20Report%20%20-%20The%20COVID%20Tracking%20Project.pdf /documents/CDC_Report_CTP.pdf

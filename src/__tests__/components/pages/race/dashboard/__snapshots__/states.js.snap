@@ -319,7 +319,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
   >
     <h2
       className="header"
-      id="state-washington-dc"
+      id="state-washington, dc"
     >
       DC
     </h2>
