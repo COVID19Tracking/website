@@ -40,10 +40,11 @@ export default ({ state, covidState }) => {
   // todo make state grade wrap as a circle with the grade description
   return (
     <div className={preambleStyle.wrapper}>
+      <h2 className="a11y-only">State overview</h2>
       <Row>
         <Col width={[4, 3, 6]}>
           <div className={preambleStyle.largeDisclosure}>
-            <h4 className={preambleStyle.header}>Where this data comes from</h4>
+            <h3 className={preambleStyle.header}>Where this data comes from</h3>
             <StateLinks
               twitter={state.twitter}
               covid19Site={state.covid19Site}
@@ -55,7 +56,7 @@ export default ({ state, covidState }) => {
           </div>
         </Col>
         <Col width={[4, 3, 6]}>
-          <h4 className={preambleStyle.header}>Current data quality grade</h4>
+          <h3 className={preambleStyle.header}>Current data quality grade</h3>
           <div className={preambleStyle.gradeWrapper}>
             <div
               className={preambleStyle.gradeDescription}
@@ -79,7 +80,7 @@ export default ({ state, covidState }) => {
               onChange={() => setDownloadDataIsOpen(!downloadDataIsOpen)}
             >
               <DisclosureButton className={preambleStyle.button}>
-                <h4
+                <h3
                   className={classnames(
                     preambleStyle.header,
                     preambleStyle.hiddenHeader,
@@ -89,7 +90,7 @@ export default ({ state, covidState }) => {
                   <span className={preambleStyle.toggle}>
                     {downloadDataIsOpen ? <>&#8593;</> : <>&#8595;</>}
                   </span>
-                </h4>
+                </h3>
               </DisclosureButton>
               <DisclosurePanel>
                 <DownloadData state={state} hideLabel />
