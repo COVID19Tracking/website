@@ -2,7 +2,7 @@ import React from 'react'
 import percentStyles from './percent.module.scss'
 
 export default ({ number, highlight }) => {
-  if (number === null) {
+  if (number === null || number === '') {
     return <>-</>
   }
   let percentage = '0'

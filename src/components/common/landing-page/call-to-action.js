@@ -24,7 +24,13 @@ const CtaLink = ({ to, children, centered = false, bold = false }) => (
   </Link>
 )
 
-const CtaAnchorLink = ({ href, children, centered = false, bold = false }) => (
+const CtaAnchorLink = ({
+  href,
+  children,
+  onClick,
+  centered = false,
+  bold = false,
+}) => (
   <a
     href={href}
     className={classnames(
@@ -32,6 +38,7 @@ const CtaAnchorLink = ({ href, children, centered = false, bold = false }) => (
       centered && ctaLinkStyle.centered,
       bold && ctaLinkStyle.bold,
     )}
+    onClick={onClick}
   >
     {children}
     <Arrow />

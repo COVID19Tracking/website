@@ -3,7 +3,6 @@ import renderer from 'react-test-renderer'
 import { useStaticQuery, StaticQuery } from 'gatsby'
 import {
   Infobox,
-  SyncInfobox,
   AlertInfobox,
   QuestionInfobox,
 } from '~components/common/infobox'
@@ -56,19 +55,6 @@ describe('Components : Common: Infobox: Question infobox', () => {
         <QuestionInfobox header="Test header">
           <p>Test content</p>
         </QuestionInfobox>,
-      )
-      .toJSON()
-    expect(tree).toMatchSnapshot()
-  })
-})
-
-describe('Components : Common: Infobox: Sync', () => {
-  it('renders correctly', () => {
-    const tree = renderer
-      .create(
-        <SyncInfobox header="Test header">
-          <p>Test content</p>
-        </SyncInfobox>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
