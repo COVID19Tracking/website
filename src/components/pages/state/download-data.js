@@ -9,7 +9,7 @@ import downloadDataStyles from './download-data.module.scss'
 const DownloadData = ({ slug, hideLabel = false }) => (
   <div className={downloadDataStyles.container}>
     {!hideLabel && (
-      <h3 className={downloadDataStyles.header}>Get the data as:</h3>
+      <h2 className={downloadDataStyles.header}>Get the data as:</h2>
     )}
     <p>
       <a
