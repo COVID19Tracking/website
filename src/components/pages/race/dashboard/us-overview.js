@@ -1,7 +1,6 @@
 import React from 'react'
 import UsReportingCount from './us-reporting-count'
 import UsOverviewStyles from './us-overview.module.scss'
-import { SyncInfobox } from '~components/common/infobox'
 
 export default ({ statesCasesCount, statesDeathsCount }) => (
   <div className={UsOverviewStyles.container}>
@@ -13,6 +12,5 @@ export default ({ statesCasesCount, statesDeathsCount }) => (
         className={UsOverviewStyles.reportingCount}
       />
     </div>
-    <SyncInfobox />
   </div>
 )

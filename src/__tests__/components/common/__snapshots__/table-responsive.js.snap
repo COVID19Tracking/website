@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Responsive table renders correctly 1`] = `
+<table
+  className="table table"
+>
+  <thead>
+    <tr>
+      <th
+        scope="col"
+      >
+        Date
+      </th>
+      <th
+        scope="col"
+      >
+        Data
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        className="noWrap"
+      >
+        <span
+          className="label"
+        >
+          Date
+        </span>
+        <span
+          className="value"
+        >
+          formatted: 2020-08-03
+        </span>
+      </td>
+      <td
+        className=""
+      >
+        <span
+          className="label"
+        >
+          Data
+        </span>
+        <span
+          className="value"
+        >
+          A
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="noWrap"
+      >
+        <span
+          className="label"
+        >
+          Date
+        </span>
+        <span
+          className="value"
+        >
+          formatted: 2020-08-04
+        </span>
+      </td>
+      <td
+        className=""
+      >
+        <span
+          className="label"
+        >
+          Data
+        </span>
+        <span
+          className="value"
+        >
+          B
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

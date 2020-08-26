@@ -3,7 +3,7 @@ require(`@babel/register`)({
   plugins: ['@babel/plugin-transform-runtime'],
 })
 require('dotenv').config()
-
+const { DateTime } = require('luxon')
 const algoliaQueries = require('./src/utilities/algolia').queries
 const sassImports = require('./src/utilities/sass-imports.js')
 const formatStringList = require('./src/components/utils/format')
@@ -19,6 +19,11 @@ const gatsbyConfig = {
     production:
       typeof process.env.BRANCH !== 'undefined' &&
       process.env.BRANCH === 'master',
+    buildTime: DateTime.local()
+      .setZone('America/New_York')
+      .toISO(),
+    buildId: process.env.BUILD_ID || false,
+    buildHook: process.env.INCOMING_HOOK_TITLE || false,
     contentfulSpace: process.env.CONTENTFUL_SPACE,
     hiddenApiTags: ['Racial data tracker', 'Internal Endpoints'],
     stateChartDateRange: 90,
@@ -107,6 +112,11 @@ const gatsbyConfig = {
       options: {
         file: './_api/v1/states/daily.json',
         type: 'CovidStateDaily',
+        increaseFields: [
+          'totalTestEncountersViral',
+          'totalTestsViral',
+          'totalTestsPeopleViral',
+        ],
       },
     },
     {
@@ -153,17 +163,10 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-source-apiserver',
+      resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        typePrefix: 'civilService',
-
-        url: `https://raw.githubusercontent.com/CivilServiceUSA/us-governors/master/us-governors/data/us-governors.json`,
-        method: 'get',
-
-        name: `Governor`,
-
-        allowCache: true,
-        maxCacheDurationSeconds: 60 * 60 * 24,
+        file: './src/data/governors.json',
+        type: 'civilServiceGovernor',
       },
     },
     {
@@ -253,6 +256,9 @@ const gatsbyConfig = {
           'negativeTestsViral',
           'positive',
           'negative',
+          'totalTestEncountersViralIncrease',
+          'totalTestsViralIncrease',
+          'totalTestsPeopleViralIncrease',
         ],
       },
     },
@@ -266,6 +272,19 @@ const gatsbyConfig = {
         theme_color: '#ffffff',
         display: 'minimal-ui',
         icon: 'src/images/icon.svg',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-global-context`,
+      options: {
+        context: {
+          sevenDaysAgo: parseInt(
+            DateTime.local()
+              .minus({ days: 7 })
+              .toFormat('yyyyMMdd'),
+            10,
+          ),
+        },
       },
     },
     {
@@ -303,6 +322,13 @@ const gatsbyConfig = {
             'Referrer-Policy: strict-origin-when-cross-origin',
           ],
         },
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-covid-slug',
+      options: {
+        type: 'CovidStateInfo',
+        field: 'name',
       },
     },
     {

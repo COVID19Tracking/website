@@ -11,8 +11,12 @@ const ContentPage = ({ data, path }) => {
     <Layout
       title={contentfulPage.title}
       path={path}
-      returnLink={contentfulPage.returnLinkUrl}
-      returnLinkTitle={contentfulPage.returnLinkTitle}
+      returnLinks={[
+        {
+          link: contentfulPage.returnLinkUrl,
+          title: contentfulPage.returnLinkTitle,
+        },
+      ]}
       socialCard={contentfulPage.socialCard}
       centered
     >

@@ -184,7 +184,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     transition: display 150ms;
-    @include padding(24, top);
+    @include margin(24, top);
   }
 
   .title-subnav-container {

@@ -1,0 +1,36 @@
+$table-breakpoint: $viewport-lg;
+
+.table {
+  box-shadow: none;
+  @media (max-width: $table-breakpoint) {
+    border-top: 1px solid $color-slate-300;
+    @include margin(32, top);
+    thead {
+      @include a11y-only();
+    }
+    tbody,
+    tr {
+      display: block;
+    }
+    td {
+      display: flex;
+      flex-wrap: wrap;
+      > span {
+        width: 50%;
+      }
+    }
+  }
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.label {
+  font-weight: bold;
+  display: inline-block;
+  text-align: left;
+  @media (min-width: $table-breakpoint) {
+    display: none;
+  }
+}

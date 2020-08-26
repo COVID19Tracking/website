@@ -1,11 +1,7 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import { FormatDate } from '~components/utils/format'
 import infoBoxStyle from './infobox.module.scss'
-import syncIcon from '~images/infobox-icons/sync.svg'
 import alertIcon from '~images/infobox-icons/alert.svg'
 import questionIcon from '~images/infobox-icons/question.svg'
-import Timezone from './timezone'
 
 const InfoboxInner = ({ header, children }) => (
   <div>
@@ -41,30 +37,4 @@ const QuestionInfobox = ({ header, children }) => (
   </div>
 )
 
-const SyncInfobox = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        v1Json {
-          buildTime
-        }
-      }
-    `}
-    render={data => (
-      <div
-        className={`infobox sync ${infoBoxStyle.infobox} ${infoBoxStyle.sync}`}
-      >
-        <img src={syncIcon} alt="Sync icon" />
-        <div>
-          <InfoboxInner header="Last updated from our data:">
-            <FormatDate date={data.v1Json.buildTime} format="MMM d" /> at{' '}
-            <FormatDate date={data.v1Json.buildTime} format="h:mm a" />{' '}
-            <Timezone />
-          </InfoboxInner>
-        </div>
-      </div>
-    )}
-  />
-)
-
-export { Infobox, SyncInfobox, AlertInfobox, QuestionInfobox }
+export { Infobox, AlertInfobox, QuestionInfobox }

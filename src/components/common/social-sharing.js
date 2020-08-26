@@ -47,6 +47,7 @@ export default ({ shares, url, text }) => {
           href={types[share].url}
           onClick={types[share].onClick}
           className={socialSharingStyles.socialButton}
+          key={share}
         >
           <img src={types[share].icon} alt={types[share].alt} />
         </a>

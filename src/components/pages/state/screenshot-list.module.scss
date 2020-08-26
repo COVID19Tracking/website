@@ -1,0 +1,12 @@
+.screenshots {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li {
+    @include margin(16, bottom);
+    @media (min-width: $viewport-lg) {
+      display: inline-block;
+      @include margin(16, left);
+    }
+  }
+}

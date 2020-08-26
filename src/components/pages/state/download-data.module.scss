@@ -1,0 +1,36 @@
+.button {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  @include padding(8);
+  @include margin(16, right);
+  background: $color-plum-100;
+  border-radius: 4px;
+  color: $color-plum-800;
+  @media (max-width: $viewport-md) {
+    @include margin(16, top);
+  }
+}
+
+.header {
+  @include margin(16, right);
+  @include margin(0, (top, bottom));
+  @include type-size(200);
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  @media (min-width: $viewport-lg) {
+    justify-content: right;
+  }
+}
+
+.last-updated-container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
