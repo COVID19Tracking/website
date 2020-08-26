@@ -4,6 +4,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
 import { FormatDate, FormatNumber } from '~components/utils/format'
 import TableResponsive from '~components/common/table-responsive'
+import { DownloadData } from '~components/pages/state/download-data'
 
 const formatNumber = number => <FormatNumber number={number} />
 
@@ -23,6 +24,7 @@ const ContentPage = ({ data }) => (
       }
       id={data.contentfulSnippet.contentful_id}
     />
+    <DownloadData slug="national" />
 
     <TableResponsive
       labels={[
