@@ -87,6 +87,26 @@ export default ({ data }) => (
           }
         />
       </LongContent>
+    </Container>
+    <Container centered>
+      <LongContent>
+        <ContentfulContent
+          id={data.content2.contentful_id}
+          content={
+            data.timechartNotes.childContentfulSnippetContentTextNode
+              .childMarkdownRemark.html
+          }
+        />
+      </LongContent>
+    </Container>
+    <TableauChart
+      id="ltc-1"
+      height={550}
+      mobileHeight={450}
+      viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
+      viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
+    />
+    <Container>
       <DetailText small>
         <ContentfulContent
           id={data.noteTable.contentful_id}
@@ -154,6 +174,14 @@ export const query = graphql`
       }
     }
     noteTopLine: contentfulSnippet(slug: { eq: "ltc-top-notes" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    timechartNotes: contentfulSnippet(slug: { eq: "ltc-timechart-notes" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
