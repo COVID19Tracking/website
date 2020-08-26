@@ -13,7 +13,6 @@ const getBoldedText = text => {
   )
   const parts = text.split(re)
   const highlightedParts = parts.map(part => {
-    console.log(part)
     if (part === ' 2020') {
       return ' **2020**'
     }
