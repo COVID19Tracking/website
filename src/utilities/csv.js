@@ -76,6 +76,28 @@ module.exports = (graphql, reporter) => {
               totalTestsViralIncrease
             }
           }
+          allCovidUsDaily(sort: { fields: date, order: DESC }) {
+            nodes {
+              date
+              death
+              inIcuCumulative
+              inIcuCurrently
+              hospitalizedIncrease
+              hospitalizedCurrently
+              hospitalizedCumulative
+              negative
+              negativeIncrease
+              onVentilatorCumulative
+              onVentilatorCurrently
+              posNeg
+              positive
+              positiveIncrease
+              recovered
+              states
+              totalTestResults
+              totalTestResultsIncrease
+            }
+          }
         }
       `)
         .then(result => {
@@ -103,6 +125,11 @@ module.exports = (graphql, reporter) => {
           fs.outputFileSync(
             './public/data/download/all-states-history.csv',
             parse(data.allCovidStateDaily.nodes),
+          )
+
+          fs.outputFileSync(
+            './public/data/download/national-history.csv',
+            parse(data.allCovidUsDaily.nodes),
           )
 
           reporter.success(`Saved state CSV files`)
