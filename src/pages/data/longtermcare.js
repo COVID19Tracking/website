@@ -120,7 +120,7 @@ export default ({ data }) => (
         />
       </LongContent>
     </Container>
-    <Container>
+    <Container centered>
       <DetailText small>
         <ContentfulContent
           id={data.noteTable.contentful_id}
