@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 
-import StateNav from '~components/common/state-nav'
+import StateNav from '~components/pages/race/dashboard/state-nav'
 import LongContent from '~components/common/long-content'
 
 import States from '~components/pages/race/dashboard/states'

@@ -1,7 +1,14 @@
 import React from 'react'
 import pressListStyle from './press-list.module.scss'
-import { PublicationTitle, PublicationSource } from './publication'
 import DetailText from './detail-text'
+
+const PublicationTitle = ({ children }) => (
+  <cite className={pressListStyle.title}>{children}</cite>
+)
+
+const PublicationSource = ({ children }) => (
+  <span className={pressListStyle.source}>{children}</span>
+)
 
 export default ({ items }) => {
   return (

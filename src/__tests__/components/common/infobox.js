@@ -1,11 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery, StaticQuery } from 'gatsby'
-import {
-  Infobox,
-  AlertInfobox,
-  QuestionInfobox,
-} from '~components/common/infobox'
+import { Infobox, AlertInfobox } from '~components/common/infobox'
 
 beforeEach(() => {
   StaticQuery.mockImplementationOnce(({ render }) =>
@@ -42,19 +38,6 @@ describe('Components : Common: Infobox: Alert infobox', () => {
         <AlertInfobox header="Test header">
           <p>Test content</p>
         </AlertInfobox>,
-      )
-      .toJSON()
-    expect(tree).toMatchSnapshot()
-  })
-})
-
-describe('Components : Common: Infobox: Question infobox', () => {
-  it('renders correctly', () => {
-    const tree = renderer
-      .create(
-        <QuestionInfobox header="Test header">
-          <p>Test content</p>
-        </QuestionInfobox>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

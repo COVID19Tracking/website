@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 import classnames from 'classnames'
 import smartypants from 'smartypants'
 import contentfulContentStyles from './contentful-content.module.scss'
-import markdwonContentStyles from './markdown-content.module.scss'
 
 export default ({ content, className, id, inline = false }) => {
   const data = useStaticQuery(graphql`
@@ -43,7 +42,7 @@ export default ({ content, className, id, inline = false }) => {
         </a>
       )}
       <div
-        className={classnames(className, markdwonContentStyles.content)}
+        className={classnames(className, contentfulContentStyles.content)}
         dangerouslySetInnerHTML={{ __html: smartypants(content, 1) }}
       />
     </>

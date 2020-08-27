@@ -1,5 +1,4 @@
 import React from 'react'
-import { OrderedList, UnstyledList } from '~components/common/lists'
 import { FormatDate, FormatNumber } from '~components/utils/format'
 import typeSize from './type-size.module.scss'
 
@@ -117,26 +116,6 @@ inlineStyles.story = {
   parameters: {
     info: {
       text: 'An example of `strong`, `em`, `strike`, and `code` elements.',
-    },
-  },
-}
-
-export const orderedList = () => (
-  <OrderedList>
-    <ExampleList />
-  </OrderedList>
-)
-
-export const unstyledList = () => (
-  <UnstyledList>
-    <ExampleList />
-  </UnstyledList>
-)
-
-unstyledList.story = {
-  parameters: {
-    info: {
-      text: 'An unordered list styled to remove any margin or bullets.',
     },
   },
 }

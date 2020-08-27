@@ -1,7 +1,6 @@
 import React from 'react'
 import infoBoxStyle from './infobox.module.scss'
 import alertIcon from '~images/infobox-icons/alert.svg'
-import questionIcon from '~images/infobox-icons/question.svg'
 
 const InfoboxInner = ({ header, children }) => (
   <div>
@@ -28,13 +27,4 @@ const AlertInfobox = ({ header, children, fullSize = false }) => (
   </div>
 )
 
-const QuestionInfobox = ({ header, children }) => (
-  <div
-    className={`infobox question ${infoBoxStyle.infobox} ${infoBoxStyle.question}`}
-  >
-    <img src={questionIcon} alt="Question icon" />
-    <InfoboxInner header={header}>{children}</InfoboxInner>
-  </div>
-)
-
-export { Infobox, AlertInfobox, QuestionInfobox }
+export { Infobox, AlertInfobox }
