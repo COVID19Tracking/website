@@ -75,13 +75,6 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_api/v1/internal/press.json',
-        type: 'CovidPress',
-      },
-    },
-    {
-      resolve: 'gatsby-source-covid-tracking-api',
-      options: {
         file: './_api/v1/us/current.json',
         type: 'CovidUs',
       },
