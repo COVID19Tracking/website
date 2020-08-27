@@ -1,29 +1,39 @@
 import React from 'react'
-import { Row, Col } from '~components/common/grid'
-import PressLogos from './press-logos'
-import InThePress from './in-the-press'
-import { CtaLink } from '~components/common/landing-page/call-to-action'
+import { useStaticQuery, graphql } from 'gatsby'
 import pressStyles from './press.module.scss'
 
-export default () => (
-  <section className={pressStyles.section}>
-    <h3 className={pressStyles.header}>Who&#8217;s using our data</h3>
-    <div className={pressStyles.press}>
-      <Row>
-        <Col
-          width={[4, 6, 6]}
-          paddingRight={[8, 8, 64]}
-          paddingBottom={[32, 32, 0]}
-        >
-          <InThePress />
-        </Col>
-        <Col width={[4, 6, 6]} paddingLeft={[0, 0, 0]}>
-          <PressLogos onlyFeatured />
-        </Col>
-      </Row>
-      <CtaLink to="/about/press" centered>
-        See what else our data powers
-      </CtaLink>
-    </div>
-  </section>
-)
+export default () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allHomepagePressYaml {
+        nodes {
+          name
+          logo
+          width
+          featured
+        }
+      }
+    }
+  `)
+
+  return (
+    <section className={pressStyles.section}>
+      <h3 className={pressStyles.header}>Who&#8217;s using our data</h3>
+      <div className={pressStyles.logos}>
+        <p className="a11y-only">
+          News organizations including The New York Times, The Washington Post,
+          CNN, Vox, ProPublica, and The Wall Street Journal use our data in
+          their reporting.
+        </p>
+        {data.allHomepagePressYaml.nodes.map(node => (
+          <img
+            key={`homepage-press-${node.name}`}
+            alt={`${node.name} logo`}
+            src={`/images/press-logos/${node.logo}`}
+            aria-hidden
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
