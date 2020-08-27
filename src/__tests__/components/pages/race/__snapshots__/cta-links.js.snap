@@ -18,8 +18,9 @@ exports[`Components : Race : CTA Links renders correctly 1`] = `
     </span>
   </a>
   <a
-    className="cta centered "
+    className="cta centered"
     href="https://docs.google.com/spreadsheets/d/e/2PACX-1vR_xmYt4ACPDZCDJcY12kCiMiH0ODyx3E1ZvgOHB8ae1tRcjXbs_yWBOA4j4uoCEADVfC1PS2jYO68B/pub?gid=43720681&single=true&output=csv"
+    onClick={[Function]}
   >
     Get the complete dataset (CSV)
     <span
@@ -31,7 +32,7 @@ exports[`Components : Race : CTA Links renders correctly 1`] = `
     </span>
   </a>
   <a
-    className="cta centered "
+    className="cta centered"
     href="/race/about"
   >
     Learn more about the tracker

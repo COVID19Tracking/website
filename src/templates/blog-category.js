@@ -9,9 +9,9 @@ import blogStyles from '~components/pages/blog/blog.module.scss'
 export default ({ data, path }) => (
   <Layout
     title={`Blog: ${data.contentfulBlogCategory.name}`}
-    returnLink="/blog"
-    returnLinkTitle="All posts"
+    returnLinks={[{ link: '/blog', title: 'All Posts' }]}
     path={path}
+    centerTitle
   >
     <Container className={blogStyles.container}>
       <BlogCategoriesList />

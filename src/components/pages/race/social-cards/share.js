@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import slug from '~utilities/slug'
 
 import DetailText from '~components/common/detail-text'
 import SocialSharing from '~components/common/social-sharing'
@@ -8,10 +7,10 @@ import SocialSharing from '~components/common/social-sharing'
 import shareStyles from './share.module.scss'
 
 const getStateShareImageUrl = state =>
-  `https://covidtracking.com/images/race-dashboard/${slug(state)}.png`
+  `https://covidtracking.com/images/race-dashboard/${state.childSlug.slug}.png`
 
 export default ({ state }) => {
-  if (state === '-- Select a state --') {
+  if (state.name === '-- Select a state --') {
     return null
   }
   return (
@@ -32,8 +31,8 @@ export default ({ state }) => {
         outlineOnly
       />
       <img
-        src={`/images/race-dashboard/${slug(state)}.png`}
-        alt={`Social card for ${state}`}
+        src={`/images/race-dashboard/${state.childSlug.slug}.png`}
+        alt={`Social card for ${state.name}`}
         className={shareStyles.preview}
       />
       <DetailText centered className={shareStyles.licenseInfo}>

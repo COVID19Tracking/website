@@ -16,23 +16,11 @@ export default ({ shares, url, text, className, outlineOnly }) => {
       icon: facebookIcon,
       alt: 'Share on Facebook',
       url: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-      onClick: () => {
-        if (typeof window.fathom === 'undefined') {
-          return
-        }
-        window.fathom.trackGoal('YKSOXMEH', 0)
-      },
     },
     twitter: {
       icon: twitterIcon,
       alt: 'Share on Twitter',
       url: `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
-      onClick: () => {
-        if (typeof window.fathom === 'undefined') {
-          return
-        }
-        window.fathom.trackGoal('IHAJXRX2', 0)
-      },
     },
     link: {
       icon: linkIcon,
@@ -45,10 +33,6 @@ export default ({ shares, url, text, className, outlineOnly }) => {
         setTimeout(() => {
           setIsCopied(false) // revert state in 4s
         }, 4000)
-        if (typeof window.fathom === 'undefined') {
-          return
-        }
-        window.fathom.trackGoal('0CCM0GL4', 0)
       },
     },
   }
@@ -67,6 +51,7 @@ export default ({ shares, url, text, className, outlineOnly }) => {
             socialSharingStyles.socialButton,
             outlineOnly && socialSharingStyles.outlineOnly,
           )}
+          key={share}
         >
           <img src={types[share].icon} alt={types[share].alt} />
         </a>

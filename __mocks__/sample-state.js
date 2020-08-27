@@ -26,6 +26,9 @@ export default {
       onVentilatorCurrently: null,
       onVentilatorCumulative: 148,
       death: 151,
+      childSlug: {
+        slug: 'alabama',
+      },
     },
   },
   stateData: {

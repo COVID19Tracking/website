@@ -70,38 +70,3 @@ exports[`Components : Common: Infobox: Question infobox renders correctly 1`] = 
   </div>
 </div>
 `;
-
-exports[`Components : Common: Infobox: Sync renders correctly 1`] = `
-<div
-  className="infobox sync infobox sync"
->
-  <img
-    alt="Sync icon"
-    src="test-file-stub"
-  />
-  <div>
-    <div>
-      <p
-        className="header"
-      >
-        Last updated from our data:
-      </p>
-      <div
-        className="content"
-      >
-        Jun 2
-         at
-         
-        6:16 am
-         
-        <abbr
-          aria-label="Eastern Time"
-          title="Eastern Time"
-        >
-          ET
-        </abbr>
-      </div>
-    </div>
-  </div>
-</div>
-`;

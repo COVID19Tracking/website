@@ -4,7 +4,6 @@ import classnames from 'classnames'
 
 import { renderedComponent } from '~plugins/gatsby-render-components'
 
-import slug from '~utilities/slug'
 import { stringifyList } from '~utilities/list-formatter'
 
 import { FormatNumber } from '~components/utils/format'
@@ -286,9 +285,13 @@ export default () => {
           aianDeaths
         }
       }
-      allCovidStateInfo {
+      allCovidStateInfo(filter: { state: { ne: "US" } }) {
         nodes {
           state
+          name
+          childSlug {
+            slug
+          }
           childPopulation {
             population
           }
@@ -296,10 +299,7 @@ export default () => {
       }
     }
   `)
-  const states = [
-    ...data.allCovidRaceDataCombined.nodes,
-    ...data.allCovidRaceDataSeparate.nodes,
-  ]
+  const states = data.allCovidStateInfo.nodes
 
   return (
     <>
@@ -315,7 +315,7 @@ export default () => {
             width: 1300,
             height: 630,
             relativePath: 'race-dashboard',
-            filename: `${slug(state.stateName)}`,
+            filename: `${state.childSlug.slug}`,
           }}
         />
       ))}

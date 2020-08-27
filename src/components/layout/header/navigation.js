@@ -3,23 +3,23 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Menu, MenuList, MenuButton, MenuLink } from '@reach/menu-button'
 import internalLink from '~components/utils/internal-link'
-import headerNavigationStyles from './navigation.module.scss'
+import navigationStyles from './navigation.module.scss'
 
 export default ({ topNavigation, subNavigation, isMobile }) => (
   <nav className="js-disabled-block" role="navigation">
     <ul
       role="menubar"
       aria-label="Main"
-      className={isMobile ? headerNavigationStyles.mobile : ''}
+      className={isMobile ? navigationStyles.mobile : ''}
     >
       {topNavigation.map(item => (
-        <li key={item.link} className={headerNavigationStyles.menuItem}>
+        <li key={item.link} className={navigationStyles.menuItem}>
           <Menu>
-            <div className={headerNavigationStyles.navLabel}>
+            <div className={navigationStyles.navLabel}>
               <Link to={internalLink(item.link)}>{item.title}</Link>
               {item.subNavigation &&
                 typeof subNavigation[item.subNavigation] !== 'undefined' && (
-                  <MenuButton className={headerNavigationStyles.caret}>
+                  <MenuButton className={navigationStyles.caret}>
                     <svg
                       width="12"
                       height="7"
@@ -40,7 +40,7 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
               typeof subNavigation[item.subNavigation] !== 'undefined' && (
                 <MenuList
                   role={undefined}
-                  className={headerNavigationStyles.subMenu}
+                  className={navigationStyles.subMenu}
                   onKeyDown={event => {
                     if (event.key === 'Tab') {
                       const keyEvent = new KeyboardEvent('keydown', {
@@ -55,7 +55,7 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
                   {subNavigation[item.subNavigation].map(subItem => (
                     <MenuLink
                       key={subItem.link}
-                      className={headerNavigationStyles.menuLink}
+                      className={navigationStyles.menuLink}
                       to={internalLink(subItem.link)}
                       as={Link}
                     >

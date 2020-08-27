@@ -1,0 +1,67 @@
+.header-tabs {
+  display: block;
+
+  text-align: left;
+  @include margin(0, (top, right));
+  @include margin(24, bottom);
+  @include margin(16, left);
+
+  @media (min-width: $viewport-sm) {
+    @include margin(0, left);
+  }
+
+  ul {
+    display: grid;
+
+    @media (min-width: $viewport-sm) and (max-width: $viewport-ms) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: $viewport-ms) and (max-width: $viewport-lg) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+    text-align: left;
+
+    @media (min-width: $viewport-lg) {
+      display: block;
+
+      li {
+        display: inline-block;
+        a {
+          @include margin(16, (left, right));
+          @include margin(0, (top, bottom));
+        }
+        &:first-child {
+          a {
+            @include margin(0, left);
+          }
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      @include type-size(200);
+      color: white;
+
+      display: block;
+      margin: 0 0.6rem 0 0; // ignore-style-rule
+      padding: 0.4rem 0 0.2rem; // ignore-style-rule
+      border-bottom: 3px solid transparent;
+
+      &:focus {
+        @include link-focus-dark-bg;
+      }
+
+      &:hover,
+      &[aria-current] {
+        @include link-hover-dark-bg;
+      }
+    }
+  }
+}

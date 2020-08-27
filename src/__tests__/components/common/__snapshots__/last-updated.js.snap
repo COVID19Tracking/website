@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Last updated renders correctly 1`] = `
+Array [
+  <p
+    className="lastUpdated"
+  >
+    Our dataset was last updated at
+     
+    Aug 18 2020
+  </p>,
+  <p
+    className="lastUpdated"
+  >
+    State’s dataset was last updated at
+     
+    8/18/20 12:00 am
+     
+    <abbr
+      aria-label="Eastern Time"
+      title="Eastern Time"
+    >
+      ET
+    </abbr>
+  </p>,
+]
+`;

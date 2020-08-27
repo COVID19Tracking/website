@@ -1,12 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import smartypants from 'smartypants'
 import Layout from '~components/layout'
-import Container from '~components/common/container'
+
 import StateNav from '~components/common/state-nav'
-import States from '~components/pages/race/dashboard/states'
 import LongContent from '~components/common/long-content'
+
+import States from '~components/pages/race/dashboard/states'
 import UsOverview from '~components/pages/race/dashboard/us-overview'
+import Preamble from '~components/pages/race/dashboard/preamble'
 
 export default ({ data }) => {
   const stateList = []
@@ -19,33 +20,20 @@ export default ({ data }) => {
   return (
     <Layout
       title="Racial Data Dashboard"
-      returnLink="/race"
-      returnLinkTitle="Racial Data Tracker"
+      returnLinks={[{ link: '/race', title: 'Racial Data Tracker' }]}
       path="/race/dashboard"
       socialCard={data.contentfulSocialCard}
     >
       <LongContent>
-        <Container narrow>
-          <h1>
-            Here&#8217;s the latest race and ethnicity data from every state and
-            territory that reports it.
-          </h1>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: smartypants(
-                data.raceHeroSnippet.childContentfulSnippetContentTextNode
-                  .childMarkdownRemark.html,
-              ),
-            }}
-          />
-        </Container>
+        <Preamble
+          raceHeroSnippetHtml={
+            data.raceHeroSnippet.childContentfulSnippetContentTextNode
+              .childMarkdownRemark.html
+          }
+        />
         <UsOverview
           statesCasesCount={data.covidRaceDataHomepage.statesReportingCases}
           statesDeathsCount={data.covidRaceDataHomepage.statesReportingDeaths}
-          statesNotReporting={
-            data.noDataSnippet.childContentfulSnippetContentTextNode
-              .childMarkdownRemark.html
-          }
         />
       </LongContent>
       <StateNav
@@ -73,13 +61,6 @@ export const query = graphql`
       image {
         resize(width: 1200) {
           src
-        }
-      }
-    }
-    noDataSnippet: contentfulSnippet(slug: { eq: "race-dashboard-no-data" }) {
-      childContentfulSnippetContentTextNode {
-        childMarkdownRemark {
-          html
         }
       }
     }

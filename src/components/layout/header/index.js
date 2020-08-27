@@ -13,14 +13,15 @@ import withSearch from '~components/utils/with-search'
 import colors from '~scss/colors.module.scss'
 import breakpoints from '~scss/breakpoints.module.scss'
 import headerStyle from './header.module.scss'
+import mobileMenuStyle from './mobile-menu.module.scss'
 
 import projectLogo from '~images/project-logo.svg'
 import atlanticLogo from '~images/atlantic-logo.svg'
 
 import MobileMenu from './mobile-menu'
 import HeaderSubNavigation from './sub-navigation'
-import ReturnLink from './return-link'
-import HeaderSearch from './search'
+import ReturnLinks from './return-links'
+import Tools from './tools'
 
 const expandStyles = {
   open: { background: colors.colorPlum800 },
@@ -33,8 +34,8 @@ const Header = withSearch(
     noMargin,
     forceSubNavigation,
     path,
-    returnLink,
-    returnLinkTitle,
+    returnLinks,
+    returnLinksContent,
     hero,
     centerTitle,
   }) => {
@@ -64,13 +65,9 @@ const Header = withSearch(
       subNavigation[node.slug] = node.pages
     })
     const topNavigation = data.navigationYaml.items
-    if (returnLink && returnLinkTitle) {
+    if (returnLinks) {
       pathNavigation = {
         top: false,
-        parent: {
-          link: returnLink,
-          title: returnLinkTitle,
-        },
       }
     }
     topNavigation.forEach(item => {
@@ -83,18 +80,7 @@ const Header = withSearch(
         return
       }
       if (
-        returnLink &&
-        returnLink.replace(/^\/|\/$/g, '') === item.link.replace(/^\/|\/$/g, '')
-      ) {
-        pathNavigation = {
-          top: false,
-          parent: item,
-          subNavigation: false,
-        }
-        return
-      }
-      if (
-        !returnLink &&
+        !returnLinks &&
         typeof subNavigation[item.subNavigation] !== 'undefined'
       ) {
         subNavigation[item.subNavigation].forEach(sub => {
@@ -191,7 +177,7 @@ const Header = withSearch(
                 {(showMobileMenu || !autocompleteHasFocus) && (
                   <div className={headerStyle.navContainer}>
                     <button
-                      className={headerStyle.mobileToggle}
+                      className={mobileMenuStyle.mobileToggle}
                       type="button"
                       aria-expanded={showMobileMenu}
                       onClick={() => {
@@ -206,17 +192,7 @@ const Header = withSearch(
                     />
                   </div>
                 )}
-                <div className={headerStyle.tools}>
-                  <div className={headerStyle.searchContainer}>
-                    <HeaderSearch />
-                  </div>
-                  <Link
-                    to="/contact/volunteer"
-                    className={headerStyle.getInvolved}
-                  >
-                    Get involved
-                  </Link>
-                </div>
+                <Tools />
               </div>
               <div className={headerStyle.atlanticBanner}>
                 <span>At</span> <img src={atlanticLogo} alt="The Atlantic" />
@@ -235,10 +211,17 @@ const Header = withSearch(
                 >
                   <div className={headerStyle.title}>
                     {pathNavigation && !forceSubNavigation && (
-                      <ReturnLink
-                        currentItem={pathNavigation}
-                        returnLinkTitle={returnLinkTitle}
-                      />
+                      <>
+                        {returnLinksContent ? (
+                          <ReturnLinks>{returnLinksContent}</ReturnLinks>
+                        ) : (
+                          <ReturnLinks
+                            topNavigation={topNavigation}
+                            links={returnLinks}
+                            pathNavigation={pathNavigation}
+                          />
+                        )}
+                      </>
                     )}
 
                     <h1

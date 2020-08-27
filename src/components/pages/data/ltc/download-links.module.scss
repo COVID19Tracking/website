@@ -1,0 +1,12 @@
+.links {
+  margin-top: spacer(32);
+  @media (min-width: $viewport-lg) {
+    margin-top: spacer(64);
+  }
+  a {
+    margin: spacer(16) 0;
+    @media (min-width: $viewport-lg) {
+      margin: spacer(32) 0;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react'
+import classnames from 'classnames'
 import RelatedPosts from './related-posts'
-import SectionDivider from '~components/common/section-divider'
 import AuthorFooter from './author-footer'
 import blogExtrasStyles from './blog-extras.module.scss'
 
@@ -19,7 +19,12 @@ export default ({ blogPost }) => {
           </div>
         </>
       )}
-      <SectionDivider className={blogExtrasStyles.fullWidth} />
+      <hr
+        className={classnames(
+          blogExtrasStyles.divider,
+          blogExtrasStyles.fullWidth,
+        )}
+      />
       <div className={blogExtrasStyles.eightColWrapper}>
         <RelatedPosts blogPost={blogPost} />
       </div>

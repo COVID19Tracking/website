@@ -1,0 +1,100 @@
+.definitions-panel {
+  height: 80%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 2; // above the search icon
+  position: fixed;
+  overflow-y: scroll;
+  background-color: $color-plum-800;
+  color: $color-plum-300;
+  border-bottom: spacer(32) solid $color-plum-800;
+
+  @media (min-width: $viewport-lg) {
+    height: 100%;
+    right: 0%;
+    left: 70%;
+    top: 0%;
+  }
+  .header {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: $color-plum-800;
+    @include padding(32, left right);
+    @include padding(32, top bottom);
+  }
+
+  h2 {
+    text-transform: uppercase;
+    @include margin(0);
+    @include type-size(300);
+  }
+}
+
+.definition {
+  @include margin(16, left right);
+  @include padding(16, left right);
+  @include margin(8, top);
+  @include margin(32, bottom);
+
+  &:focus {
+    outline: 0;
+  }
+
+  .title {
+    @include margin(0);
+    @include margin(16, bottom);
+    @include type-size(200);
+  }
+
+  .content {
+    p {
+      display: inline;
+    }
+    a {
+      &:focus {
+        @include link-focus-dark-bg;
+      }
+      &:hover {
+        @include link-hover-dark-bg;
+      }
+    }
+  }
+}
+
+.highlight {
+  color: $color-plum-100;
+  border-left: 2px solid $color-plum-100;
+}
+
+.close-panel-container {
+  height: 24px;
+
+  .close-panel {
+    padding: 0;
+    border: none;
+    background-color: $color-plum-500;
+    cursor: pointer;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+
+    &:focus {
+      @include link-focus-dark-bg;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

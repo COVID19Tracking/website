@@ -17,6 +17,9 @@
   &:first-child {
     padding-right: 3rem;
   }
+  p {
+    margin-bottom: 0;
+  }
 }
 .data {
   display: flex;

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState, Fragment } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import {
@@ -11,7 +12,7 @@ import explorerStyles from './explorer.module.scss'
 import definition from '../../../../../_api/v1/openapi.json'
 
 const PreviewUrl = ({ path, format, parameters }) => {
-  let examplePath = path.replace('{format}', format)
+  let examplePath = path.replace('{format}', format).replace('/api/', '/')
   parameters.forEach(parameter => {
     if (parameter.name !== 'format') {
       examplePath = examplePath.replace(
@@ -23,19 +24,21 @@ const PreviewUrl = ({ path, format, parameters }) => {
   return (
     <>
       <p className={explorerStyles.pathDescription}>
-        <code>{path.replace('{format}', format)}</code>
+        <code>{path.replace('{format}', format).replace('/api/', '/')}</code>
       </p>
       <p className={explorerStyles.pathDescription}>
         <strong>Example:</strong>{' '}
         <code>
-          <a href={examplePath}>{examplePath}</a>
+          <a
+            href={`https://api.covidtracking.com${examplePath}`}
+          >{`https://api.covidtracking.com${examplePath}`}</a>
         </code>
       </p>
     </>
   )
 }
 
-const Fields = ({ schema }) => {
+const Fields = ({ schema, contentfulDefinitions }) => {
   const fields =
     definition.components.schemas[schema.split('/').pop()].properties
 
@@ -51,12 +54,27 @@ const Fields = ({ schema }) => {
                 <span className="a11y-only">Field type: </span>
                 {fields[property].type}
               </div>
-              {fields[property].description && (
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: marked(fields[property].description),
-                  }}
-                />
+              {contentfulDefinitions[property] ? (
+                <>
+                  <p>
+                    <strong>{contentfulDefinitions[property].name}</strong>
+                  </p>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: contentfulDefinitions[property].content,
+                    }}
+                  />
+                </>
+              ) : (
+                <>
+                  {fields[property].description && (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: marked(fields[property].description),
+                      }}
+                    />
+                  )}
+                </>
               )}
 
               {fields[property].type === 'integer' &&
@@ -72,7 +90,7 @@ const Fields = ({ schema }) => {
   )
 }
 
-const Path = ({ path }) => {
+const Path = ({ path, contentfulDefinitions }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -121,19 +139,20 @@ const Path = ({ path }) => {
               'application/json'
             ].schema.items.$ref
           }
+          contentfulDefinitions={contentfulDefinitions}
         />
       </DisclosurePanel>
     </Disclosure>
   )
 }
 
-const Tag = ({ tag }) => (
+const Tag = ({ tag, contentfulDefinitions }) => (
   <>
     <h2>{tag}</h2>
     {Object.keys(definition.paths).map(path => (
       <>
         {definition.paths[path].get.tags.indexOf(tag) > -1 && (
-          <Path path={path} />
+          <Path path={path} contentfulDefinitions={contentfulDefinitions} />
         )}
       </>
     ))}
@@ -148,9 +167,28 @@ export default () => {
           hiddenApiTags
         }
       }
+      allContentfulDataDefinition {
+        nodes {
+          fieldName
+          name
+          childContentfulDataDefinitionDefinitionTextNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
     }
   `)
-
+  const contentfulDefinitions = {}
+  data.allContentfulDataDefinition.nodes.forEach(node => {
+    contentfulDefinitions[node.fieldName] = {
+      name: node.name,
+      content:
+        node.childContentfulDataDefinitionDefinitionTextNode.childMarkdownRemark
+          .html,
+    }
+  })
   const { hiddenApiTags } = data.site.siteMetadata
   const tags = []
   Object.keys(definition.paths).forEach(path => {
@@ -165,7 +203,11 @@ export default () => {
   return (
     <>
       {tags.map(tag => (
-        <Tag key={tag} tag={tag} />
+        <Tag
+          key={tag}
+          tag={tag}
+          contentfulDefinitions={contentfulDefinitions}
+        />
       ))}
     </>
   )

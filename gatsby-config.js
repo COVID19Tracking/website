@@ -3,7 +3,7 @@ require(`@babel/register`)({
   plugins: ['@babel/plugin-transform-runtime'],
 })
 require('dotenv').config()
-
+const { DateTime } = require('luxon')
 const algoliaQueries = require('./src/utilities/algolia').queries
 const sassImports = require('./src/utilities/sass-imports.js')
 const formatStringList = require('./src/components/utils/format')
@@ -19,6 +19,11 @@ const gatsbyConfig = {
     production:
       typeof process.env.BRANCH !== 'undefined' &&
       process.env.BRANCH === 'master',
+    buildTime: DateTime.local()
+      .setZone('America/New_York')
+      .toISO(),
+    buildId: process.env.BUILD_ID || false,
+    buildHook: process.env.INCOMING_HOOK_TITLE || false,
     contentfulSpace: process.env.CONTENTFUL_SPACE,
     hiddenApiTags: ['Racial data tracker', 'Internal Endpoints'],
     stateChartDateRange: 90,
@@ -107,6 +112,11 @@ const gatsbyConfig = {
       options: {
         file: './_api/v1/states/daily.json',
         type: 'CovidStateDaily',
+        increaseFields: [
+          'totalTestEncountersViral',
+          'totalTestsViral',
+          'totalTestsPeopleViral',
+        ],
       },
     },
     {
@@ -146,6 +156,27 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_api/v1/internal/bigquery/long_term_care_website.json',
+        type: 'CovidLTCWebsite',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './src/data/governors.json',
+        type: 'civilServiceGovernor',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './src/data/territories.json',
+        type: 'territoryInfo',
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
@@ -179,8 +210,7 @@ const gatsbyConfig = {
       resolve: 'gatsby-source-covid-tracking-counties',
       options: {
         type: 'Counties',
-        nytimesUrl:
-          'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv',
+        counties: `${__dirname}/_api/v1/internal/bigquery/nyt_counties.json`,
         demographics: `${__dirname}/src/data/race/counties/demographics.json`,
       },
     },
@@ -195,6 +225,9 @@ const gatsbyConfig = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE,
         accessToken: process.env.CONTENTFUL_TOKEN,
+        host: process.env.CONTENTFUL_PREVIEW
+          ? 'preview.contentful.com'
+          : 'cdn.contentful.com',
       },
     },
 
@@ -204,6 +237,10 @@ const gatsbyConfig = {
         stateType: 'CovidStateDaily',
         usType: 'CovidUsDaily',
         stateInfoType: 'CovidStateInfo',
+        sources: {
+          us: `${__dirname}/_api/v1/internal/bigquery/census_population_us.json`,
+          states: `${__dirname}/_api/v1/internal/bigquery/census_population_state.json`,
+        },
         fields: [
           'hospitalizedCumulative',
           'hospitalizedCurrently',
@@ -225,6 +262,9 @@ const gatsbyConfig = {
           'negativeTestsViral',
           'positive',
           'negative',
+          'totalTestEncountersViralIncrease',
+          'totalTestsViralIncrease',
+          'totalTestsPeopleViralIncrease',
         ],
       },
     },
@@ -238,6 +278,19 @@ const gatsbyConfig = {
         theme_color: '#ffffff',
         display: 'minimal-ui',
         icon: 'src/images/icon.svg',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-global-context`,
+      options: {
+        context: {
+          sevenDaysAgo: parseInt(
+            DateTime.local()
+              .minus({ days: 7 })
+              .toFormat('yyyyMMdd'),
+            10,
+          ),
+        },
       },
     },
     {
@@ -276,6 +329,13 @@ const gatsbyConfig = {
             'Referrer-Policy: strict-origin-when-cross-origin',
           ],
         },
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-covid-slug',
+      options: {
+        type: 'CovidStateInfo',
+        field: 'name',
       },
     },
     {

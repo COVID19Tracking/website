@@ -1,21 +1,19 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import headerStyle from './header.module.scss'
+import subNavigationStyle from './sub-navigation.module.scss'
 
 export default ({ navigation }) => (
-  <div className={`site-header-tabs ${headerStyle.headerTabs}`}>
-    <div>
-      <ul>
-        {navigation.slice(navigation.length * -1 + 1).map(item => (
-          <li key={`header-tab-${item.link}${item.href}`}>
-            {item.href ? (
-              <a href={item.href}>{item.title}</a>
-            ) : (
-              <Link to={item.link}>{item.title}</Link>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
+  <div className={`site-header-tabs ${subNavigationStyle.headerTabs}`}>
+    <ul>
+      {navigation.slice(navigation.length * -1 + 1).map(item => (
+        <li key={`header-tab-${item.link}${item.href}`}>
+          {item.href ? (
+            <a href={item.href}>{item.title}</a>
+          ) : (
+            <Link to={item.link}>{item.title}</Link>
+          )}
+        </li>
+      ))}
+    </ul>
   </div>
 )

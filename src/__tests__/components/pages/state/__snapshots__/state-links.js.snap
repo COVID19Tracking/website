@@ -1,113 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components : Pages : State : State links renders correctly 1`] = `
-<ul
-  className="list"
+<div
+  className="container"
 >
-  <li>
-    <a
-      href="https://twitter.com/california-covid"
-      onClick={[Function]}
-    >
-      <span
-        className="a11y-only"
-      >
-        California
-        's 
-      </span>
-      Official Twitter
-    </a>
+  <a
+    className="link"
+    href="https://example.com"
+  >
     <span>
-      •
+      Best current data source
     </span>
-  </li>
-  <li>
-    <a
-      href="https://example.com"
-      onClick={[Function]}
-    >
-      <span
-        className="a11y-only"
-      >
-        California
-        's 
-      </span>
-      Best Current Data Source
-    </a>
+  </a>
+  <a
+    className="link"
+    href="https://example.com2"
+  >
     <span>
-      •
+      Secondary data source
     </span>
-  </li>
-  <li>
-    <a
-      href="https://example.com2"
-      onClick={[Function]}
+  </a>
+  <a
+    className="link"
+    href="https://twitter.com/california-covid"
+  >
+    <span
+      className="a11y-only"
     >
-      Secondary Data Source
-      <span
-        className="a11y-only"
-      >
-         for 
-        California
-      </span>
-    </a>
-    
-  </li>
-</ul>
+      California
+      's 
+    </span>
+    Official Twitter
+  </a>
+  <a
+    className="link"
+    href="/data/state/undefined/history"
+  >
+    Full history
+  </a>
+  <a
+    className="link"
+    href="/data/state/undefined/screenshots"
+  >
+    <span>
+      View screenshots
+    </span>
+  </a>
+</div>
 `;
 
 exports[`Components : Pages : State : State links renders correctly 2`] = `
-<ul
-  className="list"
+<div
+  className="container"
 >
-  <li>
-    <a
-      href="https://twitter.com/california-covid"
-      onClick={[Function]}
-    >
-      <span
-        className="a11y-only"
-      >
-        California
-        's 
-      </span>
-      Official Twitter
-    </a>
+  <a
+    className="link"
+    href="https://example.com"
+  >
     <span>
-      •
+      Best current data source
     </span>
-  </li>
-  <li>
-    <a
-      href="https://example.com"
-      onClick={[Function]}
-    >
-      <span
-        className="a11y-only"
-      >
-        California
-        's 
-      </span>
-      Best Current Data Source
-    </a>
+  </a>
+  <a
+    className="link"
+    href="https://example.com2"
+  >
     <span>
-      •
+      Secondary data source
     </span>
-  </li>
-  <li>
-    <a
-      href="https://example.com2"
-      onClick={[Function]}
+  </a>
+  <a
+    className="link"
+    href="https://twitter.com/california-covid"
+  >
+    <span
+      className="a11y-only"
     >
-      Secondary Data Source
-      <span
-        className="a11y-only"
-      >
-         for 
-        California
-      </span>
-    </a>
-    
-  </li>
-</ul>
+      California
+      's 
+    </span>
+    Official Twitter
+  </a>
+  <a
+    className="link"
+    href="/data/state/undefined/history"
+  >
+    Full history
+  </a>
+  <a
+    className="link"
+    href="/data/state/undefined/screenshots"
+  >
+    <span>
+      View screenshots
+    </span>
+  </a>
+</div>
 `;

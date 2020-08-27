@@ -22,94 +22,138 @@ exports[`Components : Pages : Race : Dashboard : Table Content renders correctly
     <td
       className=""
     >
-      46
-      %
-      <sup
-        className="note"
+      <span
+        data-reach-tooltip-trigger=""
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseMove={[Function]}
       >
-        <a
-          href="#notes-ca"
+        <span
+          className="highlight"
         >
-          <span
-            className="a11y-only"
-          >
-            Example note.
-          </span>
-          <span>
-            1
-          </span>
-        </a>
-      </sup>
+          46
+          %
+        </span>
+      </span>
       <div
         className="symbolSpacer"
       >
         <span
-          className="caution "
+          className="note"
+          data-reach-tooltip-trigger=""
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseMove={[Function]}
         >
-          <span
-            className="a11y-only"
+          <a
+            href="#notes-ca"
           >
-            This data is not reliable
-          </span>
+            <span
+              className="a11y-only"
+            >
+              Example note.
+            </span>
+            <span>
+              1
+            </span>
+          </a>
         </span>
         <span
-          className="disparitySymbol "
+          className="disparitySymbol"
         >
-          <span
-            className="a11y-only"
+          <a
+            data-reach-tooltip-trigger=""
+            href="#notes-ca"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseMove={[Function]}
           >
-            Figure is significantly higher than population proportion
-          </span>
-          <span
-            className="inner"
-          />
+            <img
+              alt="Racial/ethnic disparity likely."
+              src="test-file-stub"
+            />
+          </a>
         </span>
       </div>
     </td>
     <td
       className=""
     >
-      38
-      %
-      <sup
-        className="note"
+      <span
+        data-reach-tooltip-trigger=""
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseMove={[Function]}
       >
-        <a
-          href="#notes-ca"
+        <span
+          className="highlight"
         >
-          <span
-            className="a11y-only"
-          >
-            This is a note!
-          </span>
-          <span>
-            2
-          </span>
-        </a>
-      </sup>
+          38
+          %
+        </span>
+      </span>
       <div
         className="symbolSpacer"
       >
         <span
-          className="caution "
+          className="note"
+          data-reach-tooltip-trigger=""
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseMove={[Function]}
         >
-          <span
-            className="a11y-only"
+          <a
+            href="#notes-ca"
           >
-            This data is not reliable
-          </span>
+            <span
+              className="a11y-only"
+            >
+              This is a note!
+            </span>
+            <span>
+              2
+            </span>
+          </a>
         </span>
         <span
-          className="disparitySymbol "
+          className="disparitySymbol"
         >
-          <span
-            className="a11y-only"
+          <a
+            data-reach-tooltip-trigger=""
+            href="#notes-ca"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseMove={[Function]}
           >
-            Figure is significantly higher than population proportion
-          </span>
-          <span
-            className="inner"
-          />
+            <img
+              alt="Racial/ethnic disparity likely."
+              src="test-file-stub"
+            />
+          </a>
         </span>
       </div>
     </td>

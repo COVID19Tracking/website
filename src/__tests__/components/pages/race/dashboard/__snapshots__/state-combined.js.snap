@@ -22,129 +22,11 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
       </div>
     </div>
   </div>
-  <div>
-    <h3>
-      Cases and deaths by race/ethnicity
-    </h3>
-    <div
-      className="container"
-    >
-      <p
-        className="key"
-      >
-        <span
-          className="disparitySymbol inKey"
-        >
-          <span
-            className="a11y-only"
-          >
-            Figure is significantly higher than population proportion
-          </span>
-          <span
-            className="inner"
-          />
-        </span>
-        Racial/ethnic disparity likely.
-         
-        <a
-          className="js-disabled"
-          href="#notes-disparity"
-        >
-          See why 
-          <span
-            aria-hidden={true}
-          >
-            ↓
-          </span>
-        </a>
-        <button
-          aria-controls="table-symbol-disparity-al"
-          aria-expanded={false}
-          className="disclosureButton js-enabled"
-          onClick={[Function]}
-        >
-          <span
-            className="text"
-          >
-            See why
-          </span>
-           
-          <span
-            aria-hidden={true}
-          >
-            ↓
-          </span>
-        </button>
-      </p>
-      <p
-        className="key"
-      >
-        <span
-          className="caution inKey"
-        >
-          <span
-            className="a11y-only"
-          >
-            This data is not reliable
-          </span>
-        </span>
-        Should not be compared with percentage of population.
-         
-        <a
-          className="js-disabled"
-          href="#notes-comparible"
-        >
-          See why 
-          <span
-            aria-hidden={true}
-          >
-            ↓
-          </span>
-        </a>
-        <button
-          aria-controls="table-symbol-notComparible-al"
-          aria-expanded={false}
-          className="disclosureButton js-enabled"
-          onClick={[Function]}
-        >
-          <span
-            className="text"
-          >
-            See why
-          </span>
-           
-          <span
-            aria-hidden={true}
-          >
-            ↓
-          </span>
-        </button>
-      </p>
-      <div />
-      <div
-        className="disclosurePane"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<h2>Content</h2><p>More disparity snippet content</p>",
-          }
-        }
-        data-expanded={false}
-        hidden={true}
-        id="table-symbol-disparity-al"
-      />
-      <div
-        className="disclosurePane"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<h2>Content</h2><p>More comparible snippet content</p>",
-          }
-        }
-        data-expanded={false}
-        hidden={true}
-        id="table-symbol-notComparible-al"
-      />
-    </div>
-  </div>
+  <h3
+    className="tableTitle"
+  >
+    Cases and deaths by race/ethnicity
+  </h3>
   <div>
     <table
       className="table"
@@ -220,54 +102,98 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
           <td
             className=""
           >
-            3
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Sample Sample blackPos notes.
-                </span>
-                <span>
-                  1
-                </span>
-              </a>
-            </sup>
+                3
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. Sample Sample blackPos notes.
+                  </span>
+                  <span>
+                    1
+                  </span>
+                </a>
               </span>
             </div>
           </td>
           <td
             className=""
           >
-            &lt;1
-            %
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
+            >
+              <span
+                className="highlight"
+              >
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. 
+                  </span>
+                  <span>
+                    12
+                  </span>
+                </a>
               </span>
             </div>
           </td>
@@ -292,70 +218,98 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
           <td
             className=""
           >
-            12
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Sample Sample latinXPos notes.
-                </span>
-                <span>
-                  2
-                </span>
-              </a>
-            </sup>
+                12
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. Sample Sample latinXPos notes.
+                  </span>
+                  <span>
+                    2
+                  </span>
+                </a>
               </span>
             </div>
           </td>
           <td
             className=""
           >
-            &lt;1
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Sample Sample latinXDeath notes.
-                </span>
-                <span>
-                  3
-                </span>
-              </a>
-            </sup>
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    Sample Sample latinXDeath notes.
+                  </span>
+                  <span>
+                    3
+                  </span>
+                </a>
               </span>
             </div>
           </td>
@@ -380,54 +334,98 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
           <td
             className=""
           >
-            52
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Sample Sample asianPos notes.
-                </span>
-                <span>
-                  4
-                </span>
-              </a>
-            </sup>
+                52
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. Sample Sample asianPos notes.
+                  </span>
+                  <span>
+                    4
+                  </span>
+                </a>
               </span>
             </div>
           </td>
           <td
             className=""
           >
-            &lt;1
-            %
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
+            >
+              <span
+                className="highlight"
+              >
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. 
+                  </span>
+                  <span>
+                    12
+                  </span>
+                </a>
               </span>
             </div>
           </td>
@@ -452,70 +450,98 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
           <td
             className=""
           >
-            26
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Sample Sample nhpiPos notes.
-                </span>
-                <span>
-                  5
-                </span>
-              </a>
-            </sup>
+                26
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. Sample Sample nhpiPos notes.
+                  </span>
+                  <span>
+                    5
+                  </span>
+                </a>
               </span>
             </div>
           </td>
           <td
             className=""
           >
-            &lt;1
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Sample Sample nhpiDeath notes.
-                </span>
-                <span>
-                  6
-                </span>
-              </a>
-            </sup>
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. Sample Sample nhpiDeath notes.
+                  </span>
+                  <span>
+                    6
+                  </span>
+                </a>
               </span>
             </div>
           </td>
@@ -540,70 +566,98 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
           <td
             className=""
           >
-            60
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Sample Sample aianPos notes.
-                </span>
-                <span>
-                  7
-                </span>
-              </a>
-            </sup>
+                60
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. Sample Sample aianPos notes.
+                  </span>
+                  <span>
+                    7
+                  </span>
+                </a>
               </span>
             </div>
           </td>
           <td
             className=""
           >
-            &lt;1
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Sample Sample aianDeath notes.
-                </span>
-                <span>
-                  8
-                </span>
-              </a>
-            </sup>
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. Sample Sample aianDeath notes.
+                  </span>
+                  <span>
+                    8
+                  </span>
+                </a>
               </span>
             </div>
           </td>
@@ -628,70 +682,98 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
           <td
             className=""
           >
-            38
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Sample Sample twoPos notes.
-                </span>
-                <span>
-                  9
-                </span>
-              </a>
-            </sup>
+                38
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. Sample Sample twoPos notes.
+                  </span>
+                  <span>
+                    9
+                  </span>
+                </a>
               </span>
             </div>
           </td>
           <td
             className=""
           >
-            &lt;1
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Sample Sample twoDeath notes.
-                </span>
-                <span>
-                  10
-                </span>
-              </a>
-            </sup>
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. Sample Sample twoDeath notes.
+                  </span>
+                  <span>
+                    10
+                  </span>
+                </a>
               </span>
             </div>
           </td>
@@ -716,54 +798,98 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
           <td
             className=""
           >
-            79
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Sample Sample whitePos notes.
-                </span>
-                <span>
-                  11
-                </span>
-              </a>
-            </sup>
+                79
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. Sample Sample whitePos notes.
+                  </span>
+                  <span>
+                    11
+                  </span>
+                </a>
               </span>
             </div>
           </td>
           <td
             className=""
           >
-            &lt;1
-            %
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
+            >
+              <span
+                className="highlight"
+              >
+                0
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. 
+                  </span>
+                  <span>
+                    12
+                  </span>
+                </a>
               </span>
             </div>
           </td>
@@ -788,70 +914,98 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
           <td
             className=""
           >
-            86
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Sample Sample otherPos notes.
-                </span>
-                <span>
-                  12
-                </span>
-              </a>
-            </sup>
+                86
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. Sample Sample otherPos notes.
+                  </span>
+                  <span>
+                    13
+                  </span>
+                </a>
               </span>
             </div>
           </td>
           <td
             className=""
           >
-            12
-            %
-            <sup
-              className="note"
+            <span
+              data-reach-tooltip-trigger=""
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
             >
-              <a
-                href="#notes-al"
+              <span
+                className="highlight"
               >
-                <span
-                  className="a11y-only"
-                >
-                  Sample Sample otherDeath notes.
-                </span>
-                <span>
-                  13
-                </span>
-              </a>
-            </sup>
+                12
+                %
+              </span>
+            </span>
             <div
               className="symbolSpacer"
             >
               <span
-                className="caution "
+                className="note"
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
               >
-                <span
-                  className="a11y-only"
+                <a
+                  href="#notes-al"
                 >
-                  This data is not reliable
-                </span>
+                  <span
+                    className="a11y-only"
+                  >
+                    This data should not be compared with percentage of the the population. Sample Sample otherDeath notes.
+                  </span>
+                  <span>
+                    14
+                  </span>
+                </a>
               </span>
             </div>
           </td>
@@ -859,9 +1013,6 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
       </tbody>
     </table>
   </div>
-  <p>
-    * Hispanic or Latino ethnicity, any race. All other race categories in this table are defined as Not Hispanic or Latino.
-  </p>
   <h4
     className="header"
     id="notes-al"
@@ -875,48 +1026,185 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
       Alabama
     </span>
   </h4>
-  <ol
+  <ul
     className="list"
   >
     <li>
-      Sample Sample blackPos notes.
+      <span
+        className="emptyNote"
+      >
+        *
+      </span>
+       Hispanic or Latino ethnicity, any race. All other race categories in this table are defined as Not Hispanic or Latino.
     </li>
     <li>
-      Sample Sample latinXPos notes.
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          1
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. Sample Sample blackPos notes.
     </li>
     <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          2
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. Sample Sample latinXPos notes.
+    </li>
+    <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          3
+        </span>
+      </span>
+       
       Sample Sample latinXDeath notes.
     </li>
     <li>
-      Sample Sample asianPos notes.
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          4
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. Sample Sample asianPos notes.
     </li>
     <li>
-      Sample Sample nhpiPos notes.
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          5
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. Sample Sample nhpiPos notes.
     </li>
     <li>
-      Sample Sample nhpiDeath notes.
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          6
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. Sample Sample nhpiDeath notes.
     </li>
     <li>
-      Sample Sample aianPos notes.
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          7
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. Sample Sample aianPos notes.
     </li>
     <li>
-      Sample Sample aianDeath notes.
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          8
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. Sample Sample aianDeath notes.
     </li>
     <li>
-      Sample Sample twoPos notes.
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          9
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. Sample Sample twoPos notes.
     </li>
     <li>
-      Sample Sample twoDeath notes.
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          10
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. Sample Sample twoDeath notes.
     </li>
     <li>
-      Sample Sample whitePos notes.
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          11
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. Sample Sample whitePos notes.
     </li>
     <li>
-      Sample Sample otherPos notes.
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          12
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. 
     </li>
     <li>
-      Sample Sample otherDeath notes.
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          13
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. Sample Sample otherPos notes.
     </li>
-  </ol>
+    <li>
+      <span
+        aria-hidden={true}
+        className="note unlinked"
+      >
+        <span>
+          14
+        </span>
+      </span>
+       
+      This data should not be compared with percentage of the the population. Sample Sample otherDeath notes.
+    </li>
+  </ul>
 </div>
 `;

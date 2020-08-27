@@ -4,30 +4,32 @@ import { Form, Select } from '~components/common/form'
 import ShareCard from './share'
 
 export default () => {
-  const data = useStaticQuery(
+  const { allCovidStateInfo } = useStaticQuery(
     graphql`
       {
-        allCovidRaceDataCombined(filter: { state: { ne: "US" } }) {
+        allCovidStateInfo(filter: { state: { ne: "US" } }) {
           nodes {
-            stateName
+            name
             state
-          }
-        }
-        allCovidRaceDataSeparate(filter: { state: { ne: "US" } }) {
-          nodes {
-            stateName
-            state
+            childSlug {
+              slug
+            }
           }
         }
       }
     `,
   )
 
-  const states = [
-    ...data.allCovidRaceDataCombined.nodes,
-    ...data.allCovidRaceDataSeparate.nodes,
-  ]
-  const [state, setState] = useState(states[0].stateName)
+  const states = allCovidStateInfo.nodes
+
+  const defaultState = {
+    name: '-- Select a state --',
+    childSlug: {
+      slug: '',
+    },
+  }
+
+  const [state, setState] = useState(defaultState)
 
   useEffect(() => {
     if (
@@ -38,27 +40,26 @@ export default () => {
       const stateFilter = window.location.hash.replace('#', '')
       const foundState = states.find(node => node.state === stateFilter)
       if (foundState) {
-        setState(foundState.stateName)
+        setState(foundState.name)
       }
     }
   }, [])
 
-  states.sort((a, b) => (a.stateName > b.stateName ? 1 : -1))
+  states.sort((a, b) => (a.name > b.name ? 1 : -1))
 
-  const defaultState = '-- Select a state --'
-  const stateNames = states.map(node => node.stateName)
+  const names = states.map(node => node.name)
 
-  stateNames.unshift(defaultState) // prepent the default state to the list
+  names.unshift(defaultState.name) // prepent the default state to the list
 
   return (
     <Form>
       <Select
         label="State or territory"
         id="social-card-state"
-        options={stateNames}
+        options={names}
         isRequired
         onChange={event => {
-          setState(event.target.value)
+          setState(states.find(node => node.name === event.target.value))
         }}
       />
       <ShareCard state={state} />
