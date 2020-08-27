@@ -8,7 +8,7 @@ import linkIcon from '~images/social-shares/link.svg'
 
 import socialSharingStyles from './social-sharing.module.scss'
 
-export default ({ shares, url, text, outlineOnly }) => {
+export default ({ shares, url, text, className, outlineOnly }) => {
   const [isCopied, setIsCopied] = useState(false)
 
   const types = {
@@ -53,7 +53,7 @@ export default ({ shares, url, text, outlineOnly }) => {
     },
   }
   return (
-    <div className={socialSharingStyles.wrapper}>
+    <div className={classnames(socialSharingStyles.wrapper, className)}>
       {isCopied && (
         <span className={socialSharingStyles.linkCopied} aria-live="polite">
           Link copied!

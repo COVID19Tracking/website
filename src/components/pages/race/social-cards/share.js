@@ -26,6 +26,7 @@ export default ({ state }) => {
       </DetailText>
       <SocialSharing
         shares={['facebook', 'twitter', 'link']}
+        className={shareStyles.socialSharing}
         url={getStateShareImageUrl(state)}
         text="woohoo sharing"
         outlineOnly
