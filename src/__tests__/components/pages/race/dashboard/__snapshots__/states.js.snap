@@ -11,6 +11,27 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       AZ
     </h2>
+    <p
+      className="socialCardCta"
+    >
+      A summary of key race and ethnicity data for 
+      AZ
+       can also be viewed as a graphic.
+       
+      <a
+        className="cta"
+        href="/race/social-cards#Arizona"
+      >
+        View as graphic
+        <span
+          aria-hidden={true}
+          className="arrow"
+        >
+           
+          →
+        </span>
+      </a>
+    </p>
     <div>
       <div>
         <div
@@ -323,6 +344,27 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       DC
     </h2>
+    <p
+      className="socialCardCta"
+    >
+      A summary of key race and ethnicity data for 
+      DC
+       can also be viewed as a graphic.
+       
+      <a
+        className="cta"
+        href="/race/social-cards#Washington, DC"
+      >
+        View as graphic
+        <span
+          aria-hidden={true}
+          className="arrow"
+        >
+           
+          →
+        </span>
+      </a>
+    </p>
     <div>
       <div>
         <div
@@ -635,6 +677,27 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       GA
     </h2>
+    <p
+      className="socialCardCta"
+    >
+      A summary of key race and ethnicity data for 
+      GA
+       can also be viewed as a graphic.
+       
+      <a
+        className="cta"
+        href="/race/social-cards#Georgia"
+      >
+        View as graphic
+        <span
+          aria-hidden={true}
+          className="arrow"
+        >
+           
+          →
+        </span>
+      </a>
+    </p>
     <div>
       <div
         className="container"
@@ -725,6 +788,27 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       WA
     </h2>
+    <p
+      className="socialCardCta"
+    >
+      A summary of key race and ethnicity data for 
+      WA
+       can also be viewed as a graphic.
+       
+      <a
+        className="cta"
+        href="/race/social-cards#Washington"
+      >
+        View as graphic
+        <span
+          aria-hidden={true}
+          className="arrow"
+        >
+           
+          →
+        </span>
+      </a>
+    </p>
     <div>
       <div
         className="container"
