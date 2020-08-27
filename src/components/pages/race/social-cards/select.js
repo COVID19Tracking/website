@@ -45,12 +45,17 @@ export default () => {
 
   states.sort((a, b) => (a.stateName > b.stateName ? 1 : -1))
 
+  const defaultState = '-- Select a state --'
+  const stateNames = states.map(node => node.stateName)
+
+  stateNames.unshift(defaultState) // prepent the default state to the list
+
   return (
     <Form>
       <Select
         label="State or territory"
         id="social-card-state"
-        options={states.map(node => node.stateName)}
+        options={stateNames}
         isRequired
         onChange={event => {
           setState(event.target.value)
