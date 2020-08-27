@@ -18,13 +18,13 @@ export default ({ data }) => {
       }
     }
   `)
-  // todo use two return links once #1317 is merged
-  // return to racial data dashboard and racial data tracker
   return (
     <Layout
       title="Social Cards"
-      returnLink="/race"
-      returnLinkTitle="Racial Data Tracker"
+      returnLinks={[
+        { link: '/race' },
+        { link: `/race/dashboard`, title: 'Racial Data Dashboard' },
+      ]}
       path="/race/social-cards"
       centered
     >
