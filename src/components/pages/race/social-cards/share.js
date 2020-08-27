@@ -33,8 +33,6 @@ export default ({ state }) => (
       alt={`Social card for ${state}`}
       className={shareStyles.preview}
     />
-    <h4 className={shareStyles.copyHeader}>Copy-and-paste URL</h4>
-    <div className={shareStyles.copy}>{getStateShareImageUrl(state)}</div>
     <DetailText centered className={shareStyles.licenseInfo}>
       You are free to use these images in accordance with our{' '}
       <Link to="/about-data/license">data license</Link>. Race and ethnicity

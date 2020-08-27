@@ -2,16 +2,6 @@
   @include margin(32, top bottom);
 }
 
-.copy {
-  font-family: monospace;
-  background: $color-slate-200;
-  @include padding(16);
-}
-
-.copy-header {
-  @include margin(16, bottom);
-}
-
 .license-info {
   @include margin(16, top);
   a {
