@@ -54,7 +54,7 @@ export default ({ data }) => {
           type="checkbox"
           id="contact-data"
           name="data-fields"
-          label="Which data points are you contacting us about?"
+          label="Which metric are you writing us about?"
           isRequired
           options={[
             'Cases',

@@ -15,6 +15,7 @@ const reasons = [
   'Website content or accessibility',
   'Licensing',
   'API or CSV files',
+  'Charts',
   'Something else',
 ]
 
