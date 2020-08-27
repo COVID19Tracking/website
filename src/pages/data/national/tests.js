@@ -1,10 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
-import { FormatDate, FormatNumber } from '~components/utils/format'
+import { FormatDate } from '~components/utils/format'
+import Definitions from '~components/pages/data/definitions'
 import Layout from '~components/layout'
-
-const formatNumber = number => <FormatNumber number={number} />
 
 export default ({ data }) => (
   <Layout
@@ -17,7 +16,7 @@ export default ({ data }) => (
       { link: `/data/national`, title: 'Totals for the US' },
     ]}
   >
-    <p>Testing</p>
+    <Definitions definitions={data.allContentfulDataDefinition.nodes} />
     <TableResponsive
       labels={[
         {
@@ -27,28 +26,23 @@ export default ({ data }) => (
         },
         {
           field: 'negative',
-
-          format: formatNumber,
+          isNumeric: true,
         },
         {
           field: 'negativeIncrease',
-
-          format: formatNumber,
+          isNumeric: true,
         },
         {
           field: 'positive',
-
-          format: formatNumber,
+          isNumeric: true,
         },
         {
           field: 'positiveIncrease',
-
-          format: formatNumber,
+          isNumeric: true,
         },
         {
           field: 'totalTestResults',
-
-          format: formatNumber,
+          isNumeric: true,
         },
       ]}
       data={data.allCovidUsDaily.nodes}
@@ -67,6 +61,21 @@ export const query = graphql`
         positiveIncrease
         totalTestResults
         totalTestResultsIncrease
+      }
+    }
+    allContentfulDataDefinition(
+      filter: {
+        fieldName: { in: ["positive", "negative", "totalTestResults"] }
+      }
+    ) {
+      nodes {
+        fieldName
+        name
+        childContentfulDataDefinitionDefinitionTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
   }

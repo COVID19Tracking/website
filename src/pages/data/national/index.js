@@ -4,6 +4,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
 import { FormatDate, FormatNumber } from '~components/utils/format'
 import TableResponsive from '~components/common/table-responsive'
+import Definitions from '~components/pages/data/definitions'
 import { DownloadData } from '~components/pages/state/download-data'
 
 const formatNumber = number => <FormatNumber number={number} />
@@ -26,25 +27,27 @@ const ContentPage = ({ data }) => (
     />
     <DownloadData slug="national" />
 
+    <Definitions definitions={data.allContentfulDataDefinition.nodes} />
     <TableResponsive
       labels={[
         {
           field: 'date',
           format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
+          noWrap: true,
         },
         {
           field: 'states',
           label: 'State (or territory)',
           format: formatNumber,
         },
-        { field: 'totalTestResultsIncrease' },
-        { field: 'positive' },
-        { field: 'negative' },
-        { field: 'hospitalized' },
-        { field: 'hospitalizedCurrently' },
-        { field: 'death' },
-        { field: 'recovered' },
-        { field: 'totalTestResults' },
+        { field: 'totalTestResultsIncrease', format: formatNumber },
+        { field: 'positive', format: formatNumber },
+        { field: 'negative', format: formatNumber },
+        { field: 'hospitalizedCumulative', format: formatNumber },
+        { field: 'hospitalizedCurrently', format: formatNumber },
+        { field: 'death', format: formatNumber },
+        { field: 'recovered', format: formatNumber },
+        { field: 'totalTestResults', format: formatNumber },
       ]}
       data={data.allCovidUsDaily.nodes}
     />
@@ -72,10 +75,36 @@ export const query = graphql`
         positive
         pending
         negative
-        hospitalized
+        hospitalizedCumulative
         death
         date
         recovered
+      }
+    }
+    allContentfulDataDefinition(
+      sort: { fields: name }
+      filter: {
+        fieldName: {
+          in: [
+            "states"
+            "totalTestResultsIncrease"
+            "positive"
+            "negative"
+            "totalTestResults"
+            "hospitalizedCurrently"
+            "recovered"
+          ]
+        }
+      }
+    ) {
+      nodes {
+        name
+        fieldName
+        childContentfulDataDefinitionDefinitionTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
   }

@@ -1,10 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
-import { FormatDate, FormatNumber } from '~components/utils/format'
+import { FormatDate } from '~components/utils/format'
+import Definitions from '~components/pages/data/definitions'
 import Layout from '~components/layout'
-
-const formatNumber = number => <FormatNumber number={number} />
 
 export default ({ data }) => {
   return (
@@ -18,7 +17,7 @@ export default ({ data }) => {
         { link: `/data/national`, title: 'Totals for the US' },
       ]}
     >
-      <p>Hospitalization</p>
+      <Definitions definitions={data.allContentfulDataDefinition.nodes} />
       <TableResponsive
         labels={[
           {
@@ -28,38 +27,31 @@ export default ({ data }) => {
           },
           {
             field: 'hospitalizedCumulative',
-
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'hospitalizedCurrently',
-
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'hospitalizedIncrease',
-
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'inIcuCumulative',
-
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'inIcuCurrently',
-
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'onVentilatorCumulative',
-
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'onVentilatorCurrently',
-
-            format: formatNumber,
+            isNumeric: true,
           },
         ]}
         data={data.allCovidUsDaily.nodes}
@@ -80,6 +72,31 @@ export const query = graphql`
         inIcuCurrently
         onVentilatorCumulative
         onVentilatorCurrently
+      }
+    }
+    allContentfulDataDefinition(
+      sort: { fields: name }
+      filter: {
+        fieldName: {
+          in: [
+            "hospitalizedCumulative"
+            "hospitalizedCurrently"
+            "inIcuCurrently"
+            "inIcuCumulative"
+            "onVentilatorCumulative"
+            "onVentilatorCurrently"
+          ]
+        }
+      }
+    ) {
+      nodes {
+        name
+        fieldName
+        childContentfulDataDefinitionDefinitionTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
   }
