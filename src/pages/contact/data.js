@@ -47,6 +47,7 @@ export default ({ data }) => {
           type="date"
           label="Date when issue began"
           id="contact-date"
+          name="contact-date"
           isRequired
           onChange={event => setDate(event.target.value)}
         />
