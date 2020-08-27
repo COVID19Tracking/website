@@ -1,10 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
-import { FormatDate, FormatNumber } from '~components/utils/format'
+import { FormatDate } from '~components/utils/format'
 import Layout from '~components/layout'
-
-const formatNumber = number => <FormatNumber number={number} />
 
 export default ({ data }) => {
   return (
@@ -28,18 +26,15 @@ export default ({ data }) => {
           },
           {
             field: 'recovered',
-
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'death',
-
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'deathIncrease',
-
-            format: formatNumber,
+            isNumeric: true,
           },
         ]}
         data={data.allCovidUsDaily.nodes}
