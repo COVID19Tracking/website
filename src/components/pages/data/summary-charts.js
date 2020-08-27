@@ -26,8 +26,8 @@ import TooltipContents from '~components/charts/tooltip-contents'
 
 const TestFieldIndicator = ({ field, units }) => (
   <span className={styles.testFieldIndicator}>
-    <FieldName field={field === 'posNeg' ? 'totalTestResults' : field} /> —{' '}
-    {units}
+    <FieldName field={field} />
+    {field === 'totalTestResults' && <>({units})</>}
   </span>
 )
 
