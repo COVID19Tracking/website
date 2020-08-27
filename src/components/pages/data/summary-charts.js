@@ -323,7 +323,6 @@ export default ({
           <BarChart
             data={getDataForField(data, testField)}
             lineData={dailyAverage(data, testField)}
-            refLineData={dailyAverage(usData, testField)}
             fill={colors.colorPlum200}
             lineColor={colors.colorPlum700}
             annotations={splitAnnotations.tests}
