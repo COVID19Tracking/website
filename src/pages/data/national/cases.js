@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
 import { FormatDate } from '~components/utils/format'
-import { FormatDate } from '~components/utils/format'
 import Definitions from '~components/pages/data/definitions'
 import Layout from '~components/layout'
 
