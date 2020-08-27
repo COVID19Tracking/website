@@ -4,8 +4,14 @@ import { Th, Td, Table } from '~components/common/table'
 import { FormatNumber, FormatDate } from '~components/utils/format'
 import Timezone from '~components/common/timezone'
 import stateHistoryStyle from './state-history.module.scss'
+import { FieldName } from '~components/utils/field-name'
 
-export default ({ history, screenshots }) => (
+export default ({
+  history,
+  screenshots,
+  testColumn = 'totalTestResults',
+  testUnits = 'People',
+}) => (
   <Table>
     <thead>
       <tr>
@@ -19,7 +25,12 @@ export default ({ history, screenshots }) => (
         <Th>Pending</Th>
         <Th>Hospitalized</Th>
         <Th>Deaths</Th>
-        <Th>Total</Th>
+        <Th>
+          <FieldName
+            field={testColumn === 'posNeg' ? 'totalTestResults' : testColumn}
+          />
+          {testUnits !== 'posNeg' && <> ({testUnits})</>}
+        </Th>
       </tr>
     </thead>
     <tbody className={`state-history-table ${stateHistoryStyle.history}`}>

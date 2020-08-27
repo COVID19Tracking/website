@@ -6,7 +6,7 @@ import Layout from '~components/layout'
 
 const StatePage = ({ pageContext, data, path }) => {
   const state = pageContext
-  const { allCovidStateDaily, allCovidScreenshot } = data
+  const { allCovidStateDaily, allCovidScreenshot, covidStateInfo } = data
   const { slug } = state.childSlug
   return (
     <Layout
@@ -27,6 +27,8 @@ const StatePage = ({ pageContext, data, path }) => {
       <StateHistory
         history={allCovidStateDaily.nodes}
         screenshots={allCovidScreenshot.nodes}
+        testColumn={covidStateInfo.totalTestResultsColumns}
+        testUnits={covidStateInfo.totalTestResultsUnits}
       />
     </Layout>
   )
@@ -54,6 +56,10 @@ export const query = graphql`
         deathIncrease
         date
       }
+    }
+    covidStateInfo(state: { eq: $state }) {
+      totalTestResultsColumns
+      totalTestResultsUnits
     }
     allCovidScreenshot(
       filter: {
