@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
 import { FormatDate, FormatNumber } from '~components/utils/format'
+import Definitions from '~components/pages/data/definitions'
 import Layout from '~components/layout'
 
 const formatNumber = number => <FormatNumber number={number} />
@@ -18,7 +19,7 @@ export default ({ data }) => {
         { link: `/data/national`, title: 'Totals for the US' },
       ]}
     >
-      <p>Outcomes</p>
+      <Definitions definitions={data.allContentfulDataDefinition.nodes} />
       <TableResponsive
         labels={[
           {
@@ -56,6 +57,20 @@ export const query = graphql`
         death
         deathIncrease
         recovered
+      }
+    }
+    allContentfulDataDefinition(
+      sort: { fields: name }
+      filter: { fieldName: { in: ["recovered", "death"] } }
+    ) {
+      nodes {
+        name
+        fieldName
+        childContentfulDataDefinitionDefinitionTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
   }
