@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { FieldName } from '~components/utils/field-name'
+import { FormatNumber } from '~components/utils/format'
 import tableStyles from './table.module.scss'
 import tableResponsiveStyles from './table-responsive.module.scss'
 
@@ -16,13 +17,17 @@ export default ({ labels, data }) => (
     <tbody>
       {data.map(row => (
         <tr>
-          {labels.map(({ field, label, format, noWrap }) => (
+          {labels.map(({ field, label, format, isNumeric, noWrap }) => (
             <td className={classnames(noWrap && tableResponsiveStyles.noWrap)}>
               <span className={tableResponsiveStyles.label}>
                 {label || <FieldName field={field} />}
               </span>
               <span className={tableResponsiveStyles.value}>
-                {format ? format(row[field]) : row[field]}
+                {isNumeric ? (
+                  <FormatNumber number={row[field]} />
+                ) : (
+                  <>{format ? format(row[field]) : row[field]}</>
+                )}
               </span>
             </td>
           ))}
