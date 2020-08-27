@@ -80,6 +80,7 @@ module.exports = (graphql, reporter) => {
             nodes {
               date
               death
+              deathIncrease
               inIcuCumulative
               inIcuCurrently
               hospitalizedIncrease
