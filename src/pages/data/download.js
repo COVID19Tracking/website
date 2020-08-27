@@ -17,6 +17,15 @@ export default ({ data }) => (
       id={data.contentfulSnippet.contentful_id}
     />
 
+    <h2>National data</h2>
+    <p>
+      Download{' '}
+      <a href="/data/download/national-history.csv">
+        summary data for the United States
+      </a>
+      .
+    </p>
+
     <h2>State Data</h2>
     <p>
       Download{' '}
