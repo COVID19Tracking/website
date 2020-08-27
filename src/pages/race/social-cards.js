@@ -35,7 +35,7 @@ export default ({ data }) => {
       />
       <h3>Create and share a social card</h3>
       <p>
-        Select a state or territory to see the latset information about COVID-19
+        Select a state or territory to see the latest information about COVID-19
         cases and deaths by race and ethnicity. These charts are updated twice a
         week.
       </p>
