@@ -21,7 +21,8 @@ export default ({ state }) => {
         Did you know?
       </p>
       <DetailText centered className={shareStyles.clickToShare}>
-        Click to share on social media
+        <a href={getStateShareImageUrl(state)}>Download the image</a> or share
+        directly on social media
       </DetailText>
       <SocialSharing
         shares={['facebook', 'twitter', 'link']}
@@ -29,9 +30,6 @@ export default ({ state }) => {
         text="woohoo sharing"
         outlineOnly
       />
-      <DetailText centered className={shareStyles.downloadGraphic}>
-        Or, download the social media graphic below
-      </DetailText>
       <img
         src={`/images/race-dashboard/${slug(state)}.png`}
         alt={`Social card for ${state}`}
