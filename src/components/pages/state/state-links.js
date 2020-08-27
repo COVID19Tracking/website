@@ -1,63 +1,109 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react'
 import { Link } from 'gatsby'
-import slug from '~utilities/slug'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@reach/disclosure'
 import stateLinksStyle from './state-links.module.scss'
+import preambleStyle from './preamble.module.scss'
 
-export default ({
+const StateLinks = ({
   twitter,
   covid19Site,
   covid19SiteSecondary,
+  covid19SiteTertiary,
   stateName,
-  historicalSlug,
-  fathomGoal,
+  stateSlug,
 }) => {
-  const trackClick = () => {
-    if (!fathomGoal || typeof window.fathom === 'undefined') {
-      return
-    }
-    window.fathom.trackGoal(fathomGoal, 0)
-  }
   return (
-    <ul className={stateLinksStyle.list}>
-      {twitter && (
-        <li>
-          <a href={`https://twitter.com/${twitter}`} onClick={trackClick}>
-            <span className="a11y-only">{stateName}&apos;s </span>
-            Official Twitter
-          </a>
-          {covid19Site || covid19SiteSecondary ? <span>{'\u2022'}</span> : ''}
-        </li>
-      )}
+    <div className={stateLinksStyle.container}>
       {covid19Site && (
-        <li>
-          <a href={covid19Site} onClick={trackClick}>
-            <span className="a11y-only">{stateName}&apos;s </span>
-            Best Current Data Source
-          </a>
-          {covid19SiteSecondary || historicalSlug ? (
-            <span>{'\u2022'}</span>
-          ) : (
-            ''
-          )}
-        </li>
+        <a href={covid19Site} className={stateLinksStyle.link}>
+          <span>Best current data source</span>
+        </a>
       )}
       {covid19SiteSecondary && (
-        <li>
-          <a href={covid19SiteSecondary} onClick={trackClick}>
-            Secondary Data Source
-            <span className="a11y-only"> for {stateName}</span>
-          </a>
-          {historicalSlug ? <span>{'\u2022'}</span> : ''}
-        </li>
+        <a href={covid19SiteSecondary} className={stateLinksStyle.link}>
+          <span>Secondary data source</span>
+        </a>
       )}
-      {historicalSlug && (
-        <li>
-          <Link to={`/data/state/${slug(historicalSlug)}#historical`}>
-            Historical Data
-            <span className="a11y-only">for {stateName}</span>
-          </Link>
-        </li>
+      {covid19SiteTertiary && (
+        <a href={covid19SiteTertiary} className={stateLinksStyle.link}>
+          <span>Tertiary data source</span>
+        </a>
       )}
-    </ul>
+      {twitter && (
+        <a
+          href={`https://twitter.com/${twitter}`}
+          className={stateLinksStyle.link}
+        >
+          <span className="a11y-only">{stateName}&apos;s </span>
+          Official Twitter
+        </a>
+      )}
+      <Link
+        to={`/data/state/${stateSlug}/history`}
+        className={stateLinksStyle.link}
+      >
+        Full history
+      </Link>
+      <Link
+        className={stateLinksStyle.link}
+        to={`/data/state/${stateSlug}/screenshots`}
+      >
+        <span>View screenshots</span>
+      </Link>
+    </div>
   )
+}
+
+const StateLinksDisclosureButton = ({ stateLinksAreOpen }) => (
+  <DisclosureButton className={preambleStyle.button}>
+    <h4 className={preambleStyle.header}>
+      Where this data comes from{' '}
+      <span className={preambleStyle.toggle}>
+        {stateLinksAreOpen ? <>&#8593;</> : <>&#8595;</>}
+      </span>
+    </h4>
+  </DisclosureButton>
+)
+
+const StateLinksDisclosurePanel = ({ state }) => (
+  <DisclosurePanel>
+    <StateLinks
+      twitter={state.twitter}
+      covid19Site={state.covid19Site}
+      covid19SiteSecondary={state.covid19SiteSecondary}
+      covid19SiteTertiary={state.covid19SiteTertiary}
+      stateName={state.name}
+      stateSlug={state.childSlug.slug}
+    />
+  </DisclosurePanel>
+)
+
+const StateLinksDisclosure = ({
+  stateLinksAreOpen,
+  setStateLinksAreOpen,
+  mobileOnly = false,
+  children,
+}) => (
+  <div className={mobileOnly && preambleStyle.mobileDisclosure}>
+    <Disclosure
+      open={stateLinksAreOpen}
+      onChange={() => setStateLinksAreOpen(!stateLinksAreOpen)}
+    >
+      {children}
+    </Disclosure>
+  </div>
+)
+
+export default StateLinks
+
+export {
+  StateLinks,
+  StateLinksDisclosure,
+  StateLinksDisclosureButton,
+  StateLinksDisclosurePanel,
 }

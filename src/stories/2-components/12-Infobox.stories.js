@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   Infobox,
-  SyncInfobox,
   QuestionInfobox,
   AlertInfobox,
 } from '~components/common/infobox'
@@ -19,17 +18,6 @@ infobox.story = {
     info: {
       text:
         'This is a blank infobox. See below for specifically styled infoboxes. Content is an optional parameter.',
-    },
-  },
-}
-
-export const syncinfobox = () => <SyncInfobox />
-
-syncinfobox.story = {
-  parameters: {
-    info: {
-      text:
-        'This is specific to the us-daily table (it uses a static GraphQL query to pull that last updated time).',
     },
   },
 }

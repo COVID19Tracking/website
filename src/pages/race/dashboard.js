@@ -20,8 +20,7 @@ export default ({ data }) => {
   return (
     <Layout
       title="Racial Data Dashboard"
-      returnLink="/race"
-      returnLinkTitle="Racial Data Tracker"
+      returnLinks={[{ link: '/race', title: 'Racial Data Tracker' }]}
       path="/race/dashboard"
       socialCard={data.contentfulSocialCard}
     >
@@ -35,10 +34,6 @@ export default ({ data }) => {
         <UsOverview
           statesCasesCount={data.covidRaceDataHomepage.statesReportingCases}
           statesDeathsCount={data.covidRaceDataHomepage.statesReportingDeaths}
-          statesNotReporting={
-            data.noDataSnippet.childContentfulSnippetContentTextNode
-              .childMarkdownRemark.html
-          }
         />
       </LongContent>
       <StateNav
@@ -66,13 +61,6 @@ export const query = graphql`
       image {
         resize(width: 1200) {
           src
-        }
-      }
-    }
-    noDataSnippet: contentfulSnippet(slug: { eq: "race-dashboard-no-data" }) {
-      childContentfulSnippetContentTextNode {
-        childMarkdownRemark {
-          html
         }
       }
     }
