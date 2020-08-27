@@ -1,9 +1,10 @@
-.infobox {
+.alert {
   display: inline-flex;
   padding: spacer(8);
   padding-right: spacer(32);
   margin: spacer(16) 0;
-
+  background-color: $color-infobox-alert-light;
+  color: $color-infobox-alert-dark;
   border-radius: 4px;
   @include type-size(100);
 
@@ -23,17 +24,6 @@
 
   .content {
     margin-top: spacer(4);
-  }
-
-  &.sync {
-    margin-left: 0;
-    background-color: $color-infobox-sync-light;
-    color: $color-infobox-sync-dark;
-  }
-
-  &.alert {
-    background-color: $color-infobox-alert-light;
-    color: $color-infobox-alert-dark;
   }
 
   &.full-size {

@@ -1,25 +1,16 @@
 import React from 'react'
-import { Infobox, AlertInfobox } from '~components/common/infobox'
+import Alert from '~components/common/alert'
 
 export default {
-  title: 'Infobox',
+  title: 'Alert',
 }
 
-export const infobox = () => (
-  <Infobox header="This is an infobox header">Infobox content here</Infobox>
-)
+export const alert = () => <Alert header="This is an alert">Be careful!</Alert>
 
-infobox.story = {
+alert.story = {
   parameters: {
     info: {
-      text:
-        'This is a blank infobox. See below for specifically styled infoboxes. Content is an optional parameter.',
+      text: 'An alert item to notify users of an error.',
     },
   },
 }
-
-export const alertinfobox = () => (
-  <AlertInfobox header="Oh no! This is an alert">
-    Something is broken...
-  </AlertInfobox>
-)

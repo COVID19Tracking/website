@@ -8,7 +8,7 @@ import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 import { Form, Textarea, Select, Input } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
-import { AlertInfobox } from '~components/common/infobox'
+import Alert from '~components/common/alert'
 
 const reasons = [
   '-- Select a reason --',
@@ -96,11 +96,11 @@ export default ({ data }) => {
         </div>
 
         {reason === defaultReason && (
-          <AlertInfobox>
+          <Alert>
             Please let us know{' '}
             <a href="#contact-reason">why you are contacting us</a> so we can
             route your message to the right team.
-          </AlertInfobox>
+          </Alert>
         )}
 
         <input

@@ -13,7 +13,6 @@ exports[`Components : Pages : State : State notes renders correctly 1`] = `
       Notes: 
     </span>
     <div
-      className="content"
       dangerouslySetInnerHTML={
         Object {
           "__html": "<p>This is the first paragraph for <strong>June 13</strong>.</p>
@@ -22,7 +21,6 @@ exports[`Components : Pages : State : State notes renders correctly 1`] = `
       }
     />
     <div
-      className="content"
       dangerouslySetInnerHTML={
         Object {
           "__html": "",
@@ -30,7 +28,6 @@ exports[`Components : Pages : State : State notes renders correctly 1`] = `
       }
     />
     <div
-      className="content"
       dangerouslySetInnerHTML={
         Object {
           "__html": "<p>This second line tests years, as in <strong>July 14, 2020</strong>.</p>
@@ -39,7 +36,6 @@ exports[`Components : Pages : State : State notes renders correctly 1`] = `
       }
     />
     <div
-      className="content"
       dangerouslySetInnerHTML={
         Object {
           "__html": "",
@@ -47,7 +43,6 @@ exports[`Components : Pages : State : State notes renders correctly 1`] = `
       }
     />
     <div
-      className="content"
       dangerouslySetInnerHTML={
         Object {
           "__html": "<p>You can also format with <strong>August 18 2020</strong>, I guess that is fine too.</p>
