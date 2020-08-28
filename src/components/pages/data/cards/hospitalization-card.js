@@ -4,7 +4,7 @@ import { Card, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
-export default ({
+const HospitalizationCard = ({
   stateSlug,
   hospitalizedCumulative,
   inIcuCumulative,
@@ -167,3 +167,5 @@ export default ({
     </Card>
   )
 }
+
+export default HospitalizationCard

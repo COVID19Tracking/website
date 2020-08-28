@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import pressStyles from './press.module.scss'
 
-export default () => {
+const HomepagePress = () => {
   const data = useStaticQuery(graphql`
     query {
       allHomepagePressYaml {
@@ -37,3 +37,5 @@ export default () => {
     </section>
   )
 }
+
+export default HomepagePress

@@ -4,7 +4,13 @@ import Img from 'gatsby-image'
 import ImageCredit from '~components/common/image-credit'
 import imageContentBlockStyles from './image-content-block.module.scss'
 
-export default ({ caption, image, className, keepSize = false, imageUrl }) => (
+const ImageContentBlock = ({
+  caption,
+  image,
+  className,
+  keepSize = false,
+  imageUrl,
+}) => (
   <div
     className={classnames(
       className,
@@ -20,3 +26,5 @@ export default ({ caption, image, className, keepSize = false, imageUrl }) => (
     {caption && <ImageCredit>{caption['en-US']}</ImageCredit>}
   </div>
 )
+
+export default ImageContentBlock

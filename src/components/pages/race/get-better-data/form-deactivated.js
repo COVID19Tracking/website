@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import formDeactivatedStyle from './form-deactivated.module.scss'
 
-export default ({ children, isPlaceholder }) => (
+const FormDeactivated = ({ children, isPlaceholder }) => (
   <div
     className={classnames(
       formDeactivatedStyle.container,
@@ -12,3 +12,5 @@ export default ({ children, isPlaceholder }) => (
     {children}
   </div>
 )
+
+export default FormDeactivated

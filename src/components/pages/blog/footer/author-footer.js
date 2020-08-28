@@ -2,7 +2,7 @@ import React from 'react'
 import smartypants from 'smartypants'
 import AuthorFooterStyles from './author-footer.module.scss'
 
-export default ({ authors }) => {
+const AuthorFooter = ({ authors }) => {
   return (
     <div className={AuthorFooterStyles.container}>
       {authors.map(author => (
@@ -36,3 +36,5 @@ export default ({ authors }) => {
     </div>
   )
 }
+
+export default AuthorFooter

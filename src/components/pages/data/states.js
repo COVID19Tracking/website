@@ -3,7 +3,7 @@ import State from './state-data'
 import StateNavWrapper from './state-nav-wrapper'
 import statesStyles from './states.module.scss'
 
-export default ({ states, stateData, sevenDaysAgoList, stateMetadata }) => {
+const States = ({ states, stateData, sevenDaysAgoList, stateMetadata }) => {
   const stateList = []
   states.forEach(node => {
     const state = node
@@ -38,3 +38,5 @@ export default ({ states, stateData, sevenDaysAgoList, stateMetadata }) => {
     </StateNavWrapper>
   )
 }
+
+export default States

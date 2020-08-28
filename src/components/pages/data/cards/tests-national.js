@@ -8,7 +8,7 @@ import {
   DrillDown,
 } from '~components/common/statistic'
 
-export default ({
+const TestNationalCard = ({
   totalTestResults,
   totalTestResultsIncrease,
   totalTestResulstPercentIncrease,
@@ -50,3 +50,5 @@ export default ({
     </Card>
   )
 }
+
+export default TestNationalCard

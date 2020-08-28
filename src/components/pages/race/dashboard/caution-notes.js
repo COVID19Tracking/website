@@ -1,4 +1,4 @@
-export default (data, notes) => {
+const CautionNotes = (data, notes) => {
   const cautionNotes = notes
   Object.keys(cautionNotes).forEach(field => {
     if (
@@ -14,3 +14,5 @@ export default (data, notes) => {
   })
   return cautionNotes
 }
+
+export default CautionNotes

@@ -4,9 +4,9 @@ import StateHistory from '~components/pages/state/state-history'
 
 import Layout from '~components/layout'
 
-const StatePage = ({ pageContext, data, path }) => {
+const StateHistoryTemplate = ({ pageContext, data, path }) => {
   const state = pageContext
-  const { allCovidStateDaily, allCovidScreenshot } = data
+  const { allCovidStateDaily } = data
   const { slug } = state.childSlug
   return (
     <Layout
@@ -24,15 +24,12 @@ const StatePage = ({ pageContext, data, path }) => {
         </a>
         .
       </p>
-      <StateHistory
-        history={allCovidStateDaily.nodes}
-        screenshots={allCovidScreenshot.nodes}
-      />
+      <StateHistory history={allCovidStateDaily.nodes} />
     </Layout>
   )
 }
 
-export default StatePage
+export default StateHistoryTemplate
 
 export const query = graphql`
   query($state: String!) {
@@ -53,22 +50,6 @@ export const query = graphql`
         death
         deathIncrease
         date
-      }
-    }
-    allCovidScreenshot(
-      filter: {
-        state: { eq: $state }
-        secondary: { eq: false }
-        tertiary: { eq: false }
-      }
-      sort: { fields: dateChecked }
-    ) {
-      nodes {
-        size
-        url
-        state
-        date
-        dateChecked
       }
     }
   }

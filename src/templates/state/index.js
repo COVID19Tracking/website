@@ -7,7 +7,7 @@ import SummaryCharts from '~components/pages/data/summary-charts'
 import StateSummary from '~components/pages/data/summary'
 import StateNotes from '~components/pages/state/state-notes'
 
-const StatePage = ({ pageContext, data, path }) => {
+const StateTemplate = ({ pageContext, data, path }) => {
   const state = pageContext
   const {
     covidState,
@@ -44,7 +44,7 @@ const StatePage = ({ pageContext, data, path }) => {
   )
 }
 
-export default StatePage
+export default StateTemplate
 
 export const query = graphql`
   query($state: String!, $sevenDaysAgo: Int) {

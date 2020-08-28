@@ -6,7 +6,7 @@ import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 import VolunteersList from '~components/pages/about/volunteers-list'
 
-export default ({ data }) => (
+const AboutPage = ({ data }) => (
   <Layout title="About Us" path="/about">
     <LongContent>
       <Container centered>
@@ -31,6 +31,8 @@ export default ({ data }) => (
     </LongContent>
   </Layout>
 )
+
+export default AboutPage
 
 export const query = graphql`
   query {

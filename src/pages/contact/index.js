@@ -5,7 +5,7 @@ import LongContent from '~components/common/long-content'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
 import Layout from '~components/layout'
 
-export default ({ data }) => (
+const ContactPage = ({ data }) => (
   <Layout
     title="Contact Us"
     socialCard={{
@@ -35,6 +35,8 @@ export default ({ data }) => (
     </p>
   </Layout>
 )
+
+export default ContactPage
 
 export const query = graphql`
   query {

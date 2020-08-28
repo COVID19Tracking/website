@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import { Byline } from './byline'
+import { Byline } from '../byline'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
 import RelatedPostsStyles from './related-posts.module.scss'
 
-export default ({ blogPost }) => {
+const RelatedPosts = ({ blogPost }) => {
   const { relatedBlogPosts, categories } = blogPost
   let footerPosts
   let relatedTitle
@@ -86,3 +86,5 @@ export default ({ blogPost }) => {
     </div>
   )
 }
+
+export default RelatedPosts

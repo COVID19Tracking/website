@@ -46,7 +46,7 @@ const DisclaimerNY = ({ data }) => (
   </>
 )
 
-export default () => {
+const CountyOverviewCharts = () => {
   const [isCasesOpen, setIsCasesOpen] = useState(false)
   const [isDeathsOpen, setIsDeathsOpen] = useState(false)
   const data = useStaticQuery(graphql`
@@ -217,3 +217,5 @@ export default () => {
     </>
   )
 }
+
+export default CountyOverviewCharts

@@ -21,7 +21,7 @@ import {
 } from '~components/pages/state/state-links'
 import preambleStyle from './preamble.module.scss'
 
-export default ({ state, covidState }) => {
+const StatePreamble = ({ state, covidState }) => {
   const { contentfulSnippet } = useStaticQuery(
     graphql`
       query {
@@ -114,3 +114,5 @@ export default ({ state, covidState }) => {
     </div>
   )
 }
+
+export default StatePreamble

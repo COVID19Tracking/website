@@ -7,7 +7,7 @@ import BlogTeaserList from '~components/pages/blog/blog-teaser-list'
 import BlogPagination from '~components/pages/blog/blog-pagination'
 import blogStyles from '~components/pages/blog/blog.module.scss'
 
-export default ({ data, pageContext }) => {
+const BlogPageTemplate = ({ data, pageContext }) => {
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
   const title = isFirst ? 'Blog' : `Blog – Page ${currentPage}`
@@ -22,6 +22,8 @@ export default ({ data, pageContext }) => {
     </Layout>
   )
 }
+
+export default BlogPageTemplate
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {

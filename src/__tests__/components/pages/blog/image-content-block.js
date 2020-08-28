@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import ImageContentBlock from '~components/pages/blog/image-content-block'
+import ImageContentBlock from '~components/pages/blog/content-blocks/image-content-block'
 
 describe('Components : Pages : Blog : Image Content Block', () => {
   it('renders correctly', () => {

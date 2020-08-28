@@ -1,4 +1,4 @@
-export default (data, stateNotes) => {
+const AnhpiNotes = (data, stateNotes) => {
   const notes = stateNotes
   if (data.asianPosCaution) {
     // if a state's Asian positives include NH/PI
@@ -31,3 +31,5 @@ export default (data, stateNotes) => {
   }
   return notes
 }
+
+export default AnhpiNotes

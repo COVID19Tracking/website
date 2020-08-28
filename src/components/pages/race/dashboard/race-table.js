@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseTable from './base-table'
 
-export default ({
+const RaceTable = ({
   data,
   type,
   notes,
@@ -203,3 +203,5 @@ export default ({
     />
   )
 }
+
+export default RaceTable

@@ -1,7 +1,7 @@
 import React from 'react'
 import tocStyle from './table-of-contents.module.scss'
 
-export default ({ headings }) => (
+const TableOfContents = ({ headings }) => (
   <div className={tocStyle.tableOfContents}>
     <h2>Table of contents</h2>
     <ul>
@@ -13,3 +13,5 @@ export default ({ headings }) => (
     </ul>
   </div>
 )
+
+export default TableOfContents

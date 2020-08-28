@@ -11,16 +11,16 @@ import {
 import '@reach/combobox/styles.css'
 import stateNavStyles from './state-nav.module.scss'
 
-export const getStateId = (stateList, selectedItem) =>
+const getStateId = (stateList, selectedItem) =>
   stateList.find(node => {
     return node.name === selectedItem
   })
 
-export const setWindowLocation = str => {
+const setWindowLocation = str => {
   window.location.hash = str
 }
 
-export const selectFirstItemOnKeyDown = (
+const selectFirstItemOnKeyDown = (
   event,
   results,
   setWindowLocationFn = setWindowLocation,
@@ -33,7 +33,7 @@ export const selectFirstItemOnKeyDown = (
   }
 }
 
-export default ({ title, stateList }) => {
+const StateNav = ({ title, stateList }) => {
   const [searchTerm, setSearchTerm] = useState('')
 
   const searchStates = term => {
@@ -139,3 +139,7 @@ export default ({ title, stateList }) => {
     </div>
   )
 }
+
+export default StateNav
+
+export { getStateId, setWindowLocation, selectFirstItemOnKeyDown }

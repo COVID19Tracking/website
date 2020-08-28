@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '~components/layout'
 
-export default () => (
+const ContactSuccessPage = () => (
   <Layout title="Thank you" centered>
     <h2>Thank you for contacting us!</h2>
     <p>
@@ -10,3 +10,5 @@ export default () => (
     </p>
   </Layout>
 )
+
+export default ContactSuccessPage

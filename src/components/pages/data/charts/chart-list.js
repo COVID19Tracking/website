@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import { Row, Col } from '~components/common/grid'
 import chartListStyles from './chart-list.module.scss'
 
-export default () => {
+const ChartList = () => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulChartCategory(sort: { fields: [order], order: ASC }) {
@@ -41,3 +41,5 @@ export default () => {
     </Row>
   )
 }
+
+export default ChartList

@@ -4,13 +4,13 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { set } from 'd3-collection'
 import { sum } from 'd3-array'
 
-import Map from '~pages/about-data/visualization-guide/charts/_Map'
+import Map from './charts/map'
 
 import { formatDate, formatNumber, parseDate } from '~utilities/visualization'
 
-import '~pages/about-data/visualization-guide/map-container.scss'
-import dashboardStyles from '~pages/about-data/visualization-guide/dashboard.module.scss'
-import TotalAndPositiveLegend from '~pages/about-data/visualization-guide/_TotalAndPositiveLegend'
+import './map-container.scss'
+import dashboardStyles from './dashboard.module.scss'
+import TotalAndPositiveLegend from './total-positive-legend'
 
 const MapContainer = () => {
   const rawStateData = useStaticQuery(graphql`

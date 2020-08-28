@@ -6,7 +6,7 @@ import { format } from 'd3-format'
 
 import chartStyles from './charts.module.scss'
 
-export default function HorizontalBarChart({
+const HorizontalBarChart = ({
   data,
   fill,
   height,
@@ -17,7 +17,7 @@ export default function HorizontalBarChart({
   xTicks,
   width,
   xMax = null,
-}) {
+}) => {
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
   const yScale = scaleBand()
@@ -86,3 +86,5 @@ export default function HorizontalBarChart({
     </svg>
   )
 }
+
+export default HorizontalBarChart

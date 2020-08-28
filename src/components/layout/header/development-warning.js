@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import developmentWarningStyle from './development-warning.module.scss'
 
-export default () => (
+const DevelopmentWarning = () => (
   <StaticQuery
     query={graphql`
       query {
@@ -28,3 +28,5 @@ export default () => (
     )}
   />
 )
+
+export default DevelopmentWarning

@@ -11,7 +11,7 @@ const getBoldedText = text =>
     '**$1 $2$3**',
   )
 
-export default ({ notes, isNarrow = true }) => {
+const StateNotes = ({ notes, isNarrow = true }) => {
   const highlightedNotes = getBoldedText(notes)
   const notesArray = highlightedNotes.split('\n')
   return (
@@ -26,3 +26,5 @@ export default ({ notes, isNarrow = true }) => {
     </Container>
   )
 }
+
+export default StateNotes

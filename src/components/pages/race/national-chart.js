@@ -11,7 +11,7 @@ import { FormatNumber } from '~components/utils/format'
 
 import nationalChartStyle from './national-chart.module.scss'
 
-export default () => {
+const NationalChart = () => {
   const { covidRaceDataHomepage } = useStaticQuery(graphql`
     {
       covidRaceDataHomepage {
@@ -137,3 +137,5 @@ export default () => {
     </div>
   )
 }
+
+export default NationalChart

@@ -1,6 +1,8 @@
 import React from 'react'
 import longContentStyles from './long-content.module.scss'
 
-export default ({ children }) => (
+const LongContent = ({ children }) => (
   <div className={longContentStyles.content}>{children}</div>
 )
+
+export default LongContent

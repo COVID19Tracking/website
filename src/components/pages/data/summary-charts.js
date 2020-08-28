@@ -118,7 +118,7 @@ const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
   )
 }
 
-export default ({
+const SummaryCharts = ({
   name = 'National',
   history,
   usHistory,
@@ -490,3 +490,5 @@ const LegendComponent = ({ name }) => (
     {name || 'National'} 7-day average
   </div>
 )
+
+export default SummaryCharts

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Components : Race : Citation renders correctly 1`] = `
-<cite>
-  <p>
-    component children
-  </p>
-</cite>
-`;

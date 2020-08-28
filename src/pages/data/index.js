@@ -12,7 +12,7 @@ import { DownloadDataRow } from '~components/pages/state/download-data'
 import Summary from '~components/pages/data/summary'
 import SummaryCharts from '~components/pages/data/summary-charts'
 
-export default ({ data }) => {
+const DataPage = ({ data }) => {
   const stateNavList = []
   data.allCovidStateInfo.nodes.forEach(node => {
     stateNavList.push(node)
@@ -66,6 +66,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default DataPage
 
 export const query = graphql`
   query($sevenDaysAgo: Int) {

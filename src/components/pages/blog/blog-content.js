@@ -4,12 +4,12 @@ import marked from 'marked'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import LongContent from '~components/common/long-content'
 import CleanSpacing from '~components/utils/clean-spacing'
-import TableContentBlock from './table-content-block'
-import ImageContentBlock from './image-content-block'
+import TableContentBlock from './content-blocks/table-content-block'
+import ImageContentBlock from './content-blocks/image-content-block'
 import TableauChart from '~components/charts/tableau'
 import blogContentStyles from './blog-content.module.scss'
 
-export default ({ content, images }) => {
+const BlogContent = ({ content, images }) => {
   const options = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => (
@@ -86,3 +86,5 @@ export default ({ content, images }) => {
     </LongContent>
   )
 }
+
+export default BlogContent

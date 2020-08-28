@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import smartypants from 'smartypants'
 import contentfulContentStyles from './contentful-content.module.scss'
 
-export default ({ content, className, id, inline = false }) => {
+const ContentfulContent = ({ content, className, id, inline = false }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -48,3 +48,5 @@ export default ({ content, className, id, inline = false }) => {
     </>
   )
 }
+
+export default ContentfulContent

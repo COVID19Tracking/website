@@ -4,7 +4,7 @@ import Timezone from './timezone'
 import lastUpdatedStyle from './last-updated.module.scss'
 
 // date format matches stats.lastUpdateEt
-export default ({ date, national }) => (
+const LastUpdated = ({ date, national }) => (
   <p className={lastUpdatedStyle.lastUpdated}>
     {national ? (
       <>Our dataset was last updated at</>
@@ -20,3 +20,5 @@ export default ({ date, national }) => (
     )}
   </p>
 )
+
+export default LastUpdated

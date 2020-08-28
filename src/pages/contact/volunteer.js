@@ -5,7 +5,7 @@ import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 import VolunteerForm from '~components/pages/contact/volunteer-form'
 
-export default ({ data }) => (
+const ContactVolunteerPage = ({ data }) => (
   <Layout
     title="Contact Us &mdash; Volunteering"
     path="/contact/volunteer"
@@ -23,6 +23,8 @@ export default ({ data }) => (
     </LongContent>
   </Layout>
 )
+
+export default ContactVolunteerPage
 
 export const query = graphql`
   query {

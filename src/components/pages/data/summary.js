@@ -15,7 +15,7 @@ import NationalTestsCard from './cards/tests-national'
 
 import summaryStyles from './summary.module.scss'
 
-export default ({
+const StateSummary = ({
   stateSlug,
   data,
   sevenDaysAgo,
@@ -134,3 +134,5 @@ export default ({
     </DefinitionPanelContext.Provider>
   )
 }
+
+export default StateSummary

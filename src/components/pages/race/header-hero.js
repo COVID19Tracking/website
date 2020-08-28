@@ -7,7 +7,7 @@ import HeroHeader from '~components/common/landing-page/hero/header'
 import HeroText from '~components/common/landing-page/hero/text'
 import headerHeroStyle from './header-hero.module.scss'
 
-export default () => {
+const CrdtHero = () => {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { regex: "/crdt-landing-header.png/" }) {
@@ -54,3 +54,5 @@ export default () => {
     </div>
   )
 }
+
+export default CrdtHero

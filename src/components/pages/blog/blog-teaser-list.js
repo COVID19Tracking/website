@@ -6,7 +6,7 @@ import Container from '~components/common/container'
 import CleanSpacing from '~components/utils/clean-spacing'
 import blogTeaserListStyle from './blog-teaser-list.module.scss'
 
-export default ({ items }) => (
+const BlogTeaserList = ({ items }) => (
   <Container narrow className={blogTeaserListStyle.container}>
     {items.map(node => (
       <div key={`blog-${node.slug}`} className={blogTeaserListStyle.teaser}>
@@ -27,3 +27,5 @@ export default ({ items }) => (
     ))}
   </Container>
 )
+
+export default BlogTeaserList

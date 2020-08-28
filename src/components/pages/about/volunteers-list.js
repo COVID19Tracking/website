@@ -9,7 +9,8 @@ function fixWebsitePrefix(website) {
   }
   return website
 }
-export default ({ items }) => (
+
+const VolunteersList = ({ items }) => (
   <>
     <ul className={volunteersListStyles.list}>
       {items.map(({ node }) => (
@@ -30,3 +31,5 @@ export default ({ items }) => (
     </Container>
   </>
 )
+
+export default VolunteersList

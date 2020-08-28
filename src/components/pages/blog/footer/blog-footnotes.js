@@ -2,7 +2,7 @@ import React from 'react'
 import Container from '~components/common/container'
 import blogFootnotesStyle from './blog-footnotes.module.scss'
 
-export default ({ footnotes }) => (
+const Footnotes = ({ footnotes }) => (
   <Container centered>
     <div
       id="footnotes"
@@ -11,3 +11,5 @@ export default ({ footnotes }) => (
     />
   </Container>
 )
+
+export default Footnotes

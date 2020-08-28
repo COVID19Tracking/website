@@ -8,7 +8,7 @@ import {
   DefinitionLink,
 } from '~components/common/statistic'
 
-export default ({
+const CasesCard = ({
   stateSlug,
   positive,
   positiveIncrease,
@@ -64,3 +64,5 @@ export default ({
     </Card>
   )
 }
+
+export default CasesCard

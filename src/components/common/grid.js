@@ -2,11 +2,11 @@ import React from 'react'
 import classnames from 'classnames'
 import gridStyles from './grid.module.scss'
 
-export const Row = ({ children, className }) => (
+const Row = ({ children, className }) => (
   <div className={classnames(gridStyles.row, className)}>{children}</div>
 )
 
-export const Col = props => {
+const Col = props => {
   const { children, width } = props
   const classes = [gridStyles.col]
   const sides = ['Top', 'Right', 'Bottom', 'Left']
@@ -29,3 +29,5 @@ export const Col = props => {
 
   return <div className={classnames(classes)}>{children}</div>
 }
+
+export { Row, Col }

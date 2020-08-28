@@ -5,7 +5,7 @@ import { FormatNumber } from '~components/utils/format'
 import tableStyles from './table.module.scss'
 import tableResponsiveStyles from './table-responsive.module.scss'
 
-export default ({ labels, data }) => (
+const TableResponsive = ({ labels, data }) => (
   <table className={classnames(tableStyles.table, tableResponsiveStyles.table)}>
     <thead>
       <tr>
@@ -36,3 +36,5 @@ export default ({ labels, data }) => (
     </tbody>
   </table>
 )
+
+export default TableResponsive

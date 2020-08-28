@@ -16,7 +16,7 @@ import {
   getSanitizedSlug,
 } from '~context/search-context'
 
-export default withSearch(({ navigate, search }) => {
+const SearchPage = withSearch(({ navigate, search }) => {
   const [searchState, searchDispatch] = useSearch()
   const { query, results } = searchState
 
@@ -149,3 +149,5 @@ export default withSearch(({ navigate, search }) => {
     </Layout>
   )
 })
+
+export default SearchPage

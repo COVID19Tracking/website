@@ -7,7 +7,7 @@ import { CtaLink } from '~components/common/landing-page/call-to-action'
 import Paragraph from '~components/common/landing-page/paragraph'
 import blogListStyles from './blog-list.module.scss'
 
-export default () => {
+const HomepageBlogList = () => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulBlogPost(
@@ -77,3 +77,5 @@ export default () => {
     </div>
   )
 }
+
+export default HomepageBlogList

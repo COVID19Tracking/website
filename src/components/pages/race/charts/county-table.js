@@ -12,7 +12,7 @@ const sortDescription = {
   name: 'County name',
 }
 
-export default ({ tableSource, defaultSort, getRank }) => {
+const CountyTable = ({ tableSource, defaultSort, getRank }) => {
   const [sort, setSort] = useState({ field: defaultSort, desc: true })
 
   const tableData = tableSource.sort((a, b) => {
@@ -169,3 +169,5 @@ export default ({ tableSource, defaultSort, getRank }) => {
     </>
   )
 }
+
+export default CountyTable

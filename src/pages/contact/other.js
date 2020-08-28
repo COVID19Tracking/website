@@ -19,7 +19,7 @@ const reasons = [
   'Something else',
 ]
 
-export default ({ data }) => {
+const ContactOtherPage = ({ data }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState(false)
   const [message, setMessage] = useState(false)
@@ -135,6 +135,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default ContactOtherPage
 
 export const query = graphql`
   query {

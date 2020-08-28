@@ -6,7 +6,7 @@ import classnames from 'classnames'
 import { UnlinkedNote, DisparitySymbol } from './table-symbols'
 import tableNotesStyle from './table-notes.module.scss'
 
-export default ({
+const TableNotes = ({
   state,
   stateName,
   type,
@@ -102,3 +102,5 @@ export default ({
     </>
   )
 }
+
+export default TableNotes

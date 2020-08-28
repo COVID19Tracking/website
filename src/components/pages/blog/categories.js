@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import classnames from 'classnames'
 import categoryStyles from './categories.module.scss'
 
-export default ({ categories, lightBackground }) => {
+const BlogCategories = ({ categories, lightBackground }) => {
   if (!categories) {
     return null
   }
@@ -23,3 +23,5 @@ export default ({ categories, lightBackground }) => {
     </div>
   )
 }
+
+export default BlogCategories

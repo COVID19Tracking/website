@@ -10,7 +10,7 @@ import RaceTable from './race-table'
 import EthnicityTable from './ethnicity-table'
 import stateStyle from './state.module.scss'
 
-export default ({ state }) => {
+const StateSeparate = ({ state }) => {
   const stateData = state
   let raceNotes = {
     otherDeath: stateData.otherDeathNotes,
@@ -146,3 +146,5 @@ export default ({ state }) => {
     </div>
   )
 }
+
+export default StateSeparate

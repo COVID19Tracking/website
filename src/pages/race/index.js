@@ -16,10 +16,9 @@ import CtaLinks from '~components/pages/race/cta-links'
 import Charts from '~components/pages/race/charts'
 import Totals from '~components/pages/race/totals'
 import Press from '~components/pages/race/press'
-import Publication from '~components/pages/race/citation'
 import { FormatNumber } from '~components/utils/format'
 
-export default () => {
+const RacePage = () => {
   const data = useStaticQuery(graphql`
     query {
       covidRaceDataHomepage {
@@ -89,10 +88,10 @@ export default () => {
               Race and ethnicity data for COVID cases isn&apos;t widely
               available at the county level, so we&apos;re using two numbers we
               do have: the latest infection and death rates for each county,
-              from a <Publication>New York Times</Publication> dataset, paired
-              with the largest racial or ethnic group in that county, based on
-              the Census Bureau&apos;s 2018 ACS 5-Year estimates. The results
-              are staggering.
+              from a <cite>New York Times</cite> dataset, paired with the
+              largest racial or ethnic group in that county, based on the Census
+              Bureau&apos;s 2018 ACS 5-Year estimates. The results are
+              staggering.
             </RacialDataParagraph>
           </LandingPageContainer>
           <Charts />
@@ -114,3 +113,5 @@ export default () => {
     </>
   )
 }
+
+export default RacePage

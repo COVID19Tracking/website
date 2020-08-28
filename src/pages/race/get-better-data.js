@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import AdvocacyForm from '~components/pages/race/get-better-data/advocacy-form'
 
-export default ({ data }) => {
+const RaceGetBetterDataPage = ({ data }) => {
   const states = data.allCovidStateInfo.nodes
     .map(state => state.name) // just get the names
     .sort((a, b) => a.localeCompare(b)) // sort alphabetically
@@ -56,6 +56,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default RaceGetBetterDataPage
 
 export const query = graphql`
   {

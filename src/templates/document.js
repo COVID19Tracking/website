@@ -4,7 +4,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import LongContent from '~components/common/long-content'
 import Layout from '../components/layout'
 
-const StatePage = ({ data, path }) => {
+const DocumentTemplate = ({ data, path }) => {
   const doc = data.contentfulDocument
   return (
     <Layout title={doc.name} path={path} centered>
@@ -21,7 +21,7 @@ const StatePage = ({ data, path }) => {
   )
 }
 
-export default StatePage
+export default DocumentTemplate
 
 export const query = graphql`
   query($slug: String!) {

@@ -2,7 +2,7 @@ import React from 'react'
 import BlogImage from './blog-image'
 import featuredImageStyles from './featured-image.module.scss'
 
-export default ({ image }) => (
+const FeaturedImage = ({ image }) => (
   <div className={featuredImageStyles.container}>
     <BlogImage
       imageSource={image.resize.src}
@@ -12,3 +12,5 @@ export default ({ image }) => (
     />
   </div>
 )
+
+export default FeaturedImage

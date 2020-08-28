@@ -12,7 +12,7 @@ import { formatNumber, formatDate, parseDate } from '~utilities/visualization'
 
 import './map.scss'
 
-import ChoroLegend from './_ChoroLegend'
+import ChoroLegend from './choro-legend'
 
 import breakpoints from '~scss/breakpoints.module.scss'
 import importedColors from '~scss/colors.module.scss'

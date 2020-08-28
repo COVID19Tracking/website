@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import containerStyles from './container.module.scss'
 
-export default ({ children, narrow, centered, className }) => {
+const Container = ({ children, narrow, centered, className }) => {
   return (
     <div
       className={classnames('container', containerStyles.container, className)}
@@ -18,3 +18,5 @@ export default ({ children, narrow, centered, className }) => {
     </div>
   )
 }
+
+export default Container

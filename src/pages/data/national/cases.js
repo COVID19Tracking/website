@@ -5,7 +5,7 @@ import { FormatDate } from '~components/utils/format'
 import Definitions from '~components/pages/data/definitions'
 import Layout from '~components/layout'
 
-export default ({ data }) => {
+const NationalDataCasesPage = ({ data }) => {
   return (
     <Layout
       title="National data: Cases"
@@ -40,6 +40,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default NationalDataCasesPage
 
 export const query = graphql`
   {

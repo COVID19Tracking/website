@@ -13,7 +13,7 @@ import DownloadLinks from '~components/pages/data/ltc/download-links'
 import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
 
-export default ({ data }) => (
+const LongTermCarePage = ({ data }) => (
   <Layout title="The Long-Term Care COVID Tracker" path="/data/longtermcare">
     <Paragraph>
       <span
@@ -150,6 +150,8 @@ export default ({ data }) => (
     </Container>
   </Layout>
 )
+
+export default LongTermCarePage
 
 export const query = graphql`
   query {

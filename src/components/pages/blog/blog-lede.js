@@ -5,7 +5,7 @@ import blogLedeStyles from './blog-lede.module.scss'
 import CleanSpacing from '~components/utils/clean-spacing'
 import SocialSharing from '~components/common/social-sharing'
 
-export default ({
+const BlogLede = ({
   headline,
   authors,
   published,
@@ -47,3 +47,5 @@ export default ({
     </div>
   )
 }
+
+export default BlogLede

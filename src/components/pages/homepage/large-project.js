@@ -6,7 +6,7 @@ import { CtaLink } from '~components/common/landing-page/call-to-action'
 import ImageCredit from '~components/common/image-credit'
 import largeProjectStyles from './large-project.module.scss'
 
-export default () => {
+const HomepageLargeProject = () => {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { regex: "/project-large.png/" }) {
@@ -53,3 +53,5 @@ export default () => {
     </div>
   )
 }
+
+export default HomepageLargeProject

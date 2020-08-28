@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
 
-export default ({ data }) => (
+const DataDownloadPage = ({ data }) => (
   <Layout
     title="Data Download"
     path="/data/download"
@@ -43,6 +43,8 @@ export default ({ data }) => (
     </ul>
   </Layout>
 )
+
+export default DataDownloadPage
 
 export const query = graphql`
   query {

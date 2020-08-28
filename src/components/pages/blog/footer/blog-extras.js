@@ -4,7 +4,7 @@ import RelatedPosts from './related-posts'
 import AuthorFooter from './author-footer'
 import blogExtrasStyles from './blog-extras.module.scss'
 
-export default ({ blogPost }) => {
+const BlogExtras = ({ blogPost }) => {
   const footerAuthors = blogPost.authors.filter(
     author => author.childContentfulAuthorBiographyTextNode !== null,
   ) // only keep authors with biographies
@@ -31,3 +31,5 @@ export default ({ blogPost }) => {
     </>
   )
 }
+
+export default BlogExtras

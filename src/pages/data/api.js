@@ -6,7 +6,7 @@ import ApiExplorer from '~components/pages/data/api/explorer'
 import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 
-export default ({ data }) => {
+const DataApiPage = ({ data }) => {
   return (
     <Layout title="Data API" path="/data/api">
       <LongContent>
@@ -30,6 +30,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default DataApiPage
 
 export const query = graphql`
   query {

@@ -5,7 +5,7 @@ import {
 } from '~components/common/landing-page/call-to-action'
 import ctaLinksStyle from './cta-links.module.scss'
 
-export default () => (
+const CtaLinks = () => (
   <div className={ctaLinksStyle.links}>
     <CtaLink bold centered to="/race/dashboard">
       See the dashboard
@@ -26,3 +26,5 @@ export default () => (
     </CtaLink>
   </div>
 )
+
+export default CtaLinks

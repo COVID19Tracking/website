@@ -3,8 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import HorizontalBarChart from '~components/charts/horizontal-bar-chart'
 import { getStateName, deathsBarColor } from '~utilities/visualization'
 
-import '~pages/about-data/visualization-guide/state-cumulative-deaths-container.scss'
-import dashboardStyles from '~pages/about-data/visualization-guide/dashboard.module.scss'
+import './state-cumulative-deaths-container.scss'
+import dashboardStyles from './dashboard.module.scss'
 
 export default function StateCumulativeDeathsContainer() {
   const query = useStaticQuery(graphql`

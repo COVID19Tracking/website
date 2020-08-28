@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Helmet from 'react-helmet'
 
-export default () => {
+const ChangeLog = () => {
   useEffect(() => {
     if (typeof window === 'undefined') {
       return
@@ -37,3 +37,5 @@ export default () => {
     </>
   )
 }
+
+export default ChangeLog

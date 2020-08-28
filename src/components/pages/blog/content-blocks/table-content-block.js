@@ -36,7 +36,7 @@ const parseMarkdownTable = table => {
   }
 }
 
-export default ({ table }) => {
+const TableContentBlock = ({ table }) => {
   const { headers, rows } = parseMarkdownTable(table)
   return (
     <table className={tableStyle.table}>
@@ -68,3 +68,5 @@ export default ({ table }) => {
     </table>
   )
 }
+
+export default TableContentBlock

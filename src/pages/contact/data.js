@@ -7,7 +7,7 @@ import { Form, Textarea, Input, Select, List } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
 import Alert from '~components/common/alert'
 
-export default ({ data }) => {
+const ContactPage = ({ data }) => {
   const [name, setName] = useState(false)
   const [message, setMessage] = useState(false)
   const [date, setDate] = useState(false)
@@ -147,6 +147,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default ContactPage
 
 export const query = graphql`
   query {

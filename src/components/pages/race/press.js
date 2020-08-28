@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import PressList from '~components/common/press-list'
 
-export default () => {
+const CrdtPress = () => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulRaceProjectNewsArticle(sort: { fields: date, order: DESC }) {
@@ -19,3 +19,5 @@ export default () => {
 
   return <PressList items={data.allContentfulRaceProjectNewsArticle.nodes} />
 }
+
+export default CrdtPress

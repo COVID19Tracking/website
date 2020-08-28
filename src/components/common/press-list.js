@@ -10,7 +10,7 @@ const PublicationSource = ({ children }) => (
   <span className={pressListStyle.source}>{children}</span>
 )
 
-export default ({ items }) => {
+const PressList = ({ items }) => {
   return (
     <ul className={`press-list ${pressListStyle.pressList}`}>
       {items.map(node => (
@@ -30,3 +30,5 @@ export default ({ items }) => {
     </ul>
   )
 }
+
+export default PressList

@@ -14,7 +14,7 @@ import StateContact from './state-contact'
 
 import advocacyFormStyles from './advocacy-form.module.scss'
 
-export default ({ states, stateInfo, governors }) => {
+const AdvocacyForm = ({ states, stateInfo, governors }) => {
   const noStateString = '-- Select a state --'
 
   const [state, setState] = useState(noStateString)
@@ -166,3 +166,5 @@ export default ({ states, stateInfo, governors }) => {
     </Form>
   )
 }
+
+export default AdvocacyForm

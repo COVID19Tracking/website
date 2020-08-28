@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 
 import { formatNumber, formatDate } from '~utilities/visualization'
-import styles from '~pages/about-data/visualization-guide/total-and-positive-legend.module.scss'
+import styles from './total-and-positive-legend.module.scss'
 
 const PER_CAPITA_TEXT = 'per capita*'
 
