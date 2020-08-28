@@ -13,22 +13,9 @@ import logo from '~images/project-logo-black.svg'
 import socialCardStyle from './state.module.scss'
 
 const StateRaceSocialCard = renderedComponent(({ state, population }) => {
-  const getField = (field, type) => {
-    if (field === 'all') {
-      return null
-    }
-    if (!state[field + type]) {
-      return undefined
-    }
-    return Math.round(
-      (parseInt(state[field + type], 10) /
-        (parseFloat(state[`${field}PctPop`]) * population)) *
-        100000,
-    )
-  }
-
   let totalCases = 0
   let totalDeaths = 0
+
   Object.keys(state).forEach(field => {
     if (field.search('Positives') > -1) {
       if (state[field]) {
@@ -46,14 +33,14 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
     {
       label: 'Black',
       style: socialCardStyle.barBlack,
-      cases: getField('black', 'Positives'),
-      deaths: getField('black', 'Deaths'),
+      cases: state.blackPosPercap * 100, // perCap is *per 1,000*, mulitply by 100 to get *per 100,000*
+      deaths: state.blackDeathPercap * 100,
     },
     {
       label: 'Hispanic/Latino',
       style: socialCardStyle.barLatinx,
-      cases: getField('latinX', 'Positives'),
-      deaths: getField('latinX', 'Deaths'),
+      cases: state.latinXPosPercap * 100,
+      deaths: state.latinXDeathPercap * 100,
     },
     {
       label: 'All',
@@ -65,35 +52,37 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
     {
       label: 'Asian',
       style: socialCardStyle.barAsian,
-      cases: getField('asian', 'Positives'),
-      deaths: getField('asian', 'Deaths'),
+      cases: state.asianPosPercap * 100,
+      deaths: state.asianDeathPercap * 100,
     },
     {
       label: 'AIAN',
       style: socialCardStyle.barAian,
-      cases: getField('aian', 'Positives'),
-      deaths: getField('aian', 'Deaths'),
+      cases: state.aianPosPercap * 100,
+      deaths: state.aianDeathPercap * 100,
     },
     {
       label: 'White',
       style: socialCardStyle.barWhite,
-      cases: getField('white', 'Positives'),
-      deaths: getField('white', 'Deaths'),
+      cases: state.whitePosPercap * 100,
+      deaths: state.whiteDeathPercap * 100,
     },
     {
       label: 'NHPI',
       style: socialCardStyle.barNhpi,
-      cases: getField('nhpi', 'Positives'),
-      deaths: getField('nhpi', 'Deaths'),
+      cases: state.nhpiPosPercap * 100,
+      deaths: state.nhpiDeathPercap * 100,
     },
   ]
 
   groups = groups.filter(
+    // remove groups without case or death data
     group => group.cases !== undefined && group.deaths !== undefined,
   )
 
   const affectedGroups = []
   const all = groups.find(group => group.all)
+
   const largestCases = Math.max(...groups.map(group => group.cases))
   const largestDeaths = Math.max(...groups.map(group => group.deaths))
 
@@ -107,6 +96,7 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
   })
 
   groups.sort((a, b) => {
+    // sort bars by # of cases
     if (a.cases >= b.cases) {
       return -1
     }
@@ -118,9 +108,9 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
     `${number / max > 0.1 ? (number / max) * 100 : 10}%`
   // prepend 'The' to DC's name
   const stateName =
-    state.name === 'District of Columbia'
+    state.stateName === 'District of Columbia'
       ? 'The District of Columbia'
-      : state.name
+      : state.stateName
 
   return (
     <div className={socialCardStyle.container}>
@@ -213,36 +203,42 @@ export default () => {
           stateName
           knownRaceEthPos
           knownRaceEthDeath
-          blackPctPop
           blackPctPos
           blackPctDeath
           blackPositives
           blackDeaths
           whitePctPos
-          whitePctPop
           whitePctDeath
           whitePositives
           whiteDeaths
           nhpiPctPos
           nhpiPctDeath
-          nhpiPctPop
           nhpiPositives
           nhpiDeaths
           latinXPctPos
           latinXPctDeath
-          latinXPctPop
           latinXPositives
           latinXDeaths
           asianPctPos
           asianPctDeath
-          asianPctPop
           asianPositives
           asianDeaths
           aianPctPos
           aianPctDeath
-          aianPctPop
           aianPositives
           aianDeaths
+          blackPosPercap
+          blackDeathPercap
+          latinXPosPercap
+          latinXDeathPercap
+          asianPosPercap
+          asianDeathPercap
+          aianPosPercap
+          aianDeathPercap
+          whitePosPercap
+          whiteDeathPercap
+          nhpiPosPercap
+          nhpiDeathPercap
         }
       }
       allCovidRaceDataSeparate(filter: { state: { ne: "US" } }) {
@@ -253,36 +249,42 @@ export default () => {
           knownRaceDeath
           knownEthPos
           knownEthDeath
-          blackPctPop
           blackPctPos
           blackPctDeath
           blackPositives
           blackDeaths
           whitePctPos
-          whitePctPop
           whitePctDeath
           whitePositives
           whiteDeaths
           nhpiPctPos
           nhpiPctDeath
-          nhpiPctPop
           nhpiPositives
           nhpiDeaths
           latinXPctPos
           latinXPctDeath
-          latinXPctPop
           latinXPositives
           latinXDeaths
           asianPctPos
           asianPctDeath
-          asianPctPop
           asianPositives
           asianDeaths
           aianPctPos
           aianPctDeath
-          aianPctPop
           aianPositives
           aianDeaths
+          blackPosPercap
+          blackDeathPercap
+          latinXPosPercap
+          latinXDeathPercap
+          asianPosPercap
+          asianDeathPercap
+          aianPosPercap
+          aianDeathPercap
+          whitePosPercap
+          whiteDeathPercap
+          nhpiPosPercap
+          nhpiDeathPercap
         }
       }
       allCovidStateInfo(filter: { state: { ne: "US" } }) {
@@ -305,7 +307,14 @@ export default () => {
     <>
       {states.map(state => (
         <StateRaceSocialCard
-          state={state}
+          state={
+            data.allCovidRaceDataSeparate.nodes.find(
+              node => node.state === state.state,
+            ) ||
+            data.allCovidRaceDataCombined.nodes.find(
+              node => node.state === state.state,
+            )
+          }
           population={
             data.allCovidStateInfo.nodes.find(
               node => node.state === state.state,
