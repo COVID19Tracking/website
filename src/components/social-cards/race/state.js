@@ -118,9 +118,9 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
     `${number / max > 0.1 ? (number / max) * 100 : 10}%`
   // prepend 'The' to DC's name
   const stateName =
-    state.stateName === 'District of Columbia'
+    state.name === 'District of Columbia'
       ? 'The District of Columbia'
-      : state.stateName
+      : state.name
 
   return (
     <div className={socialCardStyle.container}>
