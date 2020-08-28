@@ -7,7 +7,7 @@ import linkIcon from '~images/social-shares/link.svg'
 
 import socialSharingStyles from './social-sharing.module.scss'
 
-export default ({ shares, url, text }) => {
+export default ({ shares, url, text, twitterText }) => {
   const [isCopied, setIsCopied] = useState(false)
 
   const types = {
@@ -19,7 +19,8 @@ export default ({ shares, url, text }) => {
     twitter: {
       icon: twitterIcon,
       alt: 'Share on Twitter',
-      url: `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
+      url: `https://twitter.com/intent/tweet?url=${url}&text=${twitterText ||
+        text}`,
     },
     link: {
       icon: linkIcon,
