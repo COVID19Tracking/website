@@ -27,11 +27,7 @@ const MapContainer = () => {
     }
   `).allCovidStateDaily.nodes
 
-  const dates = useMemo(() =>
-    set(rawStateData.map(s => s.date))
-      .values()
-      .reverse(),
-  )
+  const dates = useMemo(() => set(rawStateData.map(s => s.date)).values())
   const [sliderIndex, setSliderIndex] = useState(dates.length - 1)
 
   const [sliderInterval, setSliderInterval] = useState(null)
