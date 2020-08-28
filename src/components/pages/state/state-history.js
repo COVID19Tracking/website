@@ -29,7 +29,7 @@ export default ({
           <FieldName
             field={testColumn === 'posNeg' ? 'totalTestResults' : testColumn}
           />
-          {testUnits === 'posNeg' && <> ({testUnits})</>}
+          {testColumn === 'posNeg' && <> ({testUnits})</>}
         </Th>
       </tr>
     </thead>
