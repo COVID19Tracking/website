@@ -5,7 +5,7 @@ import ReCaptcha from 'react-recaptcha'
 import Layout from '~components/layout'
 import { Form, Textarea, Input, Select, List } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
-import { AlertInfobox } from '~components/common/infobox'
+import Alert from '~components/common/alert'
 
 export default ({ data }) => {
   const [name, setName] = useState(false)
@@ -133,7 +133,7 @@ export default ({ data }) => {
         />
         {!isComplete() && (
           <div>
-            <AlertInfobox>You must complete all fields</AlertInfobox>
+            <Alert>You must complete all fields</Alert>
           </div>
         )}
         <button
