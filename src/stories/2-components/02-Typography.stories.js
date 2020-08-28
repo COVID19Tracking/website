@@ -10,18 +10,6 @@ patchy and inconsistent, so we’re being transparent about what we find and
 how we handle it—the spreadsheet includes our live comments about changing
 data and how we’re working with incomplete information.`
 
-const ExampleList = () => (
-  <>
-    <li>More information</li>
-    <li>
-      <a href="/">A link to more information</a>
-    </li>
-    <li>
-      <strong>Highlight</strong> - A list item that starts with a bold word
-    </li>
-  </>
-)
-
 export default {
   title: 'Typography',
 }
