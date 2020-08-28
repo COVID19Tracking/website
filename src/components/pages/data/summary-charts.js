@@ -24,10 +24,16 @@ import styles from './summary-charts.module.scss'
 
 import TooltipContents from '~components/charts/tooltip-contents'
 
-const TestFieldIndicator = ({ field, units }) => (
+const TestFieldIndicator = ({ field, units, national }) => (
   <span className={styles.testFieldIndicator}>
-    <FieldName field={field} />
-    {field === 'totalTestResults' && <> ({units})</>}
+    {national ? (
+      <>Total test results ( mixed units)</>
+    ) : (
+      <>
+        <FieldName field={field} />
+        {field === 'totalTestResults' && <> ({units})</>}
+      </>
+    )}
   </span>
 )
 
@@ -124,6 +130,7 @@ export default ({
   history,
   usHistory,
   annotations,
+  national = false,
   testSource = 'totalTestResults',
   testUnits = 'People',
 }) => {
@@ -320,7 +327,11 @@ export default ({
             <CalculatedIndicator
               openDisclosure={() => setDisclosureOpen(true)}
             />
-            <TestFieldIndicator field={testSource} units={testUnits} />
+            <TestFieldIndicator
+              field={testSource}
+              units={testUnits}
+              national={national}
+            />
           </h3>
           <BarChart
             data={getDataForField(data, testField)}
