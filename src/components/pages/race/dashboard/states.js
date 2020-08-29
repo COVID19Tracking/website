@@ -331,7 +331,7 @@ export default () => {
             <p className={statesStyle.socialCardCta}>
               A summary of key race and ethnicity data for {state.name} can also
               be viewed as a graphic.{' '}
-              <CtaLink to={`/race/social-cards#${state.state}`}>
+              <CtaLink to={`/race/social-media-graphics#${state.state}`}>
                 View as graphic
               </CtaLink>
             </p>

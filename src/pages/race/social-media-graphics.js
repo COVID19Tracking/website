@@ -3,8 +3,8 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Layout from '~components/layout'
-import RaceSocialCards from '~components/social-cards/race/state'
-import SocialCardsSelect from '~components/pages/race/social-cards/select'
+import RaceSocialCards from '~components/social-media-graphics/race/state'
+import SocialCardsSelect from '~components/pages/race/social-media-graphics/select'
 
 export default ({ data }) => {
   const { contentfulSnippet } = useStaticQuery(graphql`
@@ -25,7 +25,7 @@ export default ({ data }) => {
         { link: '/race' },
         { link: `/race/dashboard`, title: 'Racial Data Dashboard' },
       ]}
-      path="/race/social-cards"
+      path="/race/social-media-graphics"
       centered
     >
       <div
