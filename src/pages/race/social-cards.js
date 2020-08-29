@@ -33,7 +33,7 @@ export default ({ data }) => {
           __html: contentfulSnippet.content.childMarkdownRemark.html,
         }}
       />
-      <h3>Create and share a social card</h3>
+      <h3>Share the facts about COVID-19 and Race</h3>
       <p>
         Select a state or territory to see the latest information about COVID-19
         cases and deaths by race and ethnicity. These charts are updated twice a
