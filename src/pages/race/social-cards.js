@@ -20,7 +20,7 @@ export default ({ data }) => {
   `)
   return (
     <Layout
-      title="Social Cards"
+      title="Social Media Graphics"
       returnLinks={[
         { link: '/race' },
         { link: `/race/dashboard`, title: 'Racial Data Dashboard' },
