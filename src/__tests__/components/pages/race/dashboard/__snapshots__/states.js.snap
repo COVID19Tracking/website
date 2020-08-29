@@ -20,7 +20,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
        
       <a
         className="cta"
-        href="/race/social-cards#Arizona"
+        href="/race/social-media-graphics#Arizona"
       >
         View as graphic
         <span
@@ -353,7 +353,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
        
       <a
         className="cta"
-        href="/race/social-cards#Washington, DC"
+        href="/race/social-media-graphics#Washington, DC"
       >
         View as graphic
         <span
@@ -686,7 +686,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
        
       <a
         className="cta"
-        href="/race/social-cards#Georgia"
+        href="/race/social-media-graphics#Georgia"
       >
         View as graphic
         <span
@@ -797,7 +797,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
        
       <a
         className="cta"
-        href="/race/social-cards#Washington"
+        href="/race/social-media-graphics#Washington"
       >
         View as graphic
         <span
