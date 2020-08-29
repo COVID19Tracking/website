@@ -11,6 +11,7 @@ export default ({
   published,
   updated,
   lede,
+  twitterText,
   id,
   darkBackground,
 }) => {
@@ -42,6 +43,7 @@ export default ({
           shares={['facebook', 'twitter', 'link']}
           url={`${site.siteMetadata.siteUrl}/${id}`}
           text={lede}
+          twitterText={twitterText}
         />
       </div>
     </div>
