@@ -40,7 +40,7 @@ export default () => {
       const stateFilter = window.location.hash.replace('#', '')
       const foundState = states.find(node => node.state === stateFilter)
       if (foundState) {
-        setState(foundState.name)
+        setState(foundState)
       }
     }
   }, [])
@@ -49,7 +49,7 @@ export default () => {
 
   const names = states.map(node => node.name)
 
-  names.unshift(defaultState.name) // prepent the default state to the list
+  names.unshift(defaultState.name) // prepend the default state to the list
 
   return (
     <Form>
@@ -57,6 +57,7 @@ export default () => {
         label="State or territory"
         id="social-card-state"
         options={names}
+        value={state.name}
         isRequired
         onChange={event => {
           setState(states.find(node => node.name === event.target.value))
