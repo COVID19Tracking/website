@@ -23,6 +23,7 @@ export default ({ data }) => {
       returnLinks={[{ link: '/race', title: 'Racial Data Tracker' }]}
       path="/race/dashboard"
       socialCard={data.contentfulSocialCard}
+      banner="Copy About Swapping % Reported With % Unreported"
     >
       <LongContent>
         <Preamble
