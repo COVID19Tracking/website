@@ -14,10 +14,9 @@ $table-breakpoint: $viewport-lg;
     }
     td {
       display: flex;
-      flex-wrap: wrap;
-      > span {
-        width: 50%;
-      }
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      flex-shrink: 1;
     }
   }
 }
@@ -27,6 +26,7 @@ $table-breakpoint: $viewport-lg;
 }
 
 .label {
+  white-space: pre-line;
   font-weight: bold;
   display: inline-block;
   text-align: left;
