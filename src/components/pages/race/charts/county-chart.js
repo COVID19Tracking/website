@@ -14,7 +14,7 @@ const groupClasses = {
   'Native Hawaiian and Other Pacific Islander alone': 'nhpiAlone',
 }
 
-const CountyCharts = ({ data, field, label, increments }) => {
+const CountyChart = ({ data, field, label, increments }) => {
   const height = 400
   const width = 400
   const labelOffset = 150
@@ -126,4 +126,4 @@ const CountyCharts = ({ data, field, label, increments }) => {
   )
 }
 
-export default CountyCharts
+export default CountyChart

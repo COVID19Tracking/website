@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import Paragraph from '~components/common/landing-page/paragraph'
 import largeDatasetStyles from './large-dataset.module.scss'
 
-const HomepageLargeDatasets = () => {
+const HomepageLargeDataset = () => {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { regex: "/john-hopkins-chart.png/" }) {
@@ -54,4 +54,4 @@ const HomepageLargeDatasets = () => {
   )
 }
 
-export default HomepageLargeDatasets
+export default HomepageLargeDataset

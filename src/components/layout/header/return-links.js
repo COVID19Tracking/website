@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import returnLinksStyle from './return-links.module.scss'
 import rightCaret from '~images/icons/right-caret.svg'
 
-const ReturnLink = ({ links, pathNavigation, topNavigation, children }) => {
+const ReturnLinks = ({ links, pathNavigation, topNavigation, children }) => {
   /*
     links: a list of return links like {link: '/data', title: 'Data'}
       title is optional.
@@ -75,4 +75,4 @@ const ReturnLink = ({ links, pathNavigation, topNavigation, children }) => {
   )
 }
 
-export default ReturnLink
+export default ReturnLinks
