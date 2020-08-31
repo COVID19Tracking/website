@@ -36,20 +36,22 @@ const DataStateTotalTestsPage = ({ data }) => {
         }
         id={data.contentfulSnippet.contentful_id}
       />
-      <h2>All states</h2>
       <TableResponsive
         labels={[
           {
             field: 'state',
             label: 'State',
+            alignLeft: true,
           },
           {
             field: 'field',
             label: 'Total tests field',
+            alignLeft: true,
           },
           {
             field: 'units',
             label: 'Units',
+            alignLeft: true,
           },
         ]}
         data={states}
