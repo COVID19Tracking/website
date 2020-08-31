@@ -25,8 +25,8 @@ const DataStateTotalTestsPage = ({ data }) => {
 
   return (
     <Layout
-      title="Total test fields"
-      path="/data/state-total-tests"
+      title="How We Report Total Tests"
+      path="/data/total-tests"
       returnLinks={[{ link: '/data' }]}
     >
       <ContentfulContent
