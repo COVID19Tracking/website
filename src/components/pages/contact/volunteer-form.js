@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, Input, Select, List, Textarea } from '~components/common/form'
+import { AlertInfobox } from '~components/common/infobox'
 
 export default () => {
+  const [name, setName] = useState(false)
+  const [email, setEmail] = useState(false)
+  const [url, setUrl] = useState(false)
+  const [skill, setSkill] = useState(false)
+  const [timezone, setTimezone] = useState(false)
+
+  const isComplete = () => name && email && url && skill && timezone
+
   return (
     <Form
       method="POST"
@@ -11,13 +20,21 @@ export default () => {
       data-netlify="true"
     >
       <input type="hidden" name="form-name" value="volunteer" />
-      <Input label="Name" type="text" name="name" id="name" isRequired />
+      <Input
+        label="Name"
+        type="text"
+        name="name"
+        id="name"
+        isRequired
+        onChange={event => setName(event.target.value)}
+      />
 
       <Input
         label="Email"
         type="email"
         name="email"
         id="email"
+        onChange={event => setEmail(event.target.value)}
         isRequired
         detailText="If possible, this should be a Gmail or Google-linked address,
               since we rely heavily on Google Docs and Sheets. We will show your
@@ -30,6 +47,8 @@ export default () => {
         type="text"
         name="url"
         id="url"
+        isRequired
+        onChange={event => setUrl(event.target.value)}
         detailText="Personal website, LinkedIn, or other website that will tell us
               about you."
       />
@@ -63,6 +82,9 @@ export default () => {
           'Other',
         ]}
         isRequired
+        onChange={event => {
+          setTimezone(event.target.value !== '-- Select time zone --')
+        }}
       />
 
       <List
@@ -84,6 +106,7 @@ export default () => {
         name="skills"
         id="skills"
         isRequired
+        onChange={event => setSkill(event.target.value)}
         detailText="Examples: Python, SQL, Tableau, data viz, editing, social media,
               public health, research, journalism, etc."
       />
@@ -129,6 +152,14 @@ export default () => {
         name="referred"
       />
 
+      {!isComplete() && (
+        <div>
+          <AlertInfobox>
+            Please complete all fields marked as required.
+          </AlertInfobox>
+        </div>
+      )}
+
       <div style={{ display: 'none' }}>
         <label htmlFor="covid-bot-field">
           If you are a human, don&#8217;t fill out this field:
@@ -136,7 +167,13 @@ export default () => {
         </label>
       </div>
 
-      <button type="submit">Apply to volunteer</button>
+      <button
+        disabled={!isComplete()}
+        aria-disabled={!isComplete()}
+        type="submit"
+      >
+        Apply to volunteer
+      </button>
     </Form>
   )
 }
