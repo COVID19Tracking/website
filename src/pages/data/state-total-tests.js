@@ -8,19 +8,15 @@ import Layout from '~components/layout'
 const DataStateTotalTestsPage = ({ data }) => {
   const states = []
   data.allCovidStateInfo.nodes.forEach(state => {
+    const column =
+      state.totalTestResultsColumns === 'posNeg'
+        ? 'totalTestResults'
+        : state.totalTestResultsColumns
     states.push({
       state: <Link to={`/${state.childSlug.slug}`}>{state.name}</Link>,
       field: (
-        <Link
-          to={`/about-data/data-definitions#definition-${state.totalTestResultsColumns}`}
-        >
-          <FieldName
-            field={
-              state.totalTestResultsColumns === 'posNeg'
-                ? 'totalTestResults'
-                : state.totalTestResultsColumns
-            }
-          />
+        <Link to={`/about-data/data-definitions#definition-${column}`}>
+          <FieldName field={column} />
         </Link>
       ),
       units: state.totalTestResultsUnits,
@@ -29,8 +25,8 @@ const DataStateTotalTestsPage = ({ data }) => {
 
   return (
     <Layout
-      title="Data Download"
-      path="/data/download"
+      title="Total test fields"
+      path="/data/state-total-tests"
       returnLinks={[{ link: '/data' }]}
     >
       <ContentfulContent
