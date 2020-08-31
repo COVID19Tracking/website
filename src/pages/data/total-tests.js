@@ -62,7 +62,7 @@ export default DataStateTotalTestsPage
 
 export const query = graphql`
   query {
-    contentfulSnippet(slug: { eq: "total-test-results-preamble" }) {
+    contentfulSnippet(slug: { eq: "total-tests" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
