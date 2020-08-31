@@ -24,6 +24,7 @@ const BlogPostTemplate = ({ data, path }) => {
       updated={blogPost.updateDateTime}
       lede={blogPost.lede.lede}
       id={blogPost.contentful_id}
+      twitterText={blogPost.twitterText || false}
     />
   )
 
@@ -64,6 +65,7 @@ export const query = graphql`
       contentful_id
       title
       updateDateTime
+      twitterText
       authors {
         name
         twitterLink
