@@ -7,10 +7,10 @@ exports[`Components : Race : Dashboard : Percentage Overview renders correctly 1
   <h3
     className="title"
   >
+    Race
+     completeness for 
     New Mexico
-     has reported 
-    race
-     data for:
+    :
   </h3>
   <div
     className="data"
@@ -22,7 +22,7 @@ exports[`Components : Race : Dashboard : Percentage Overview renders correctly 1
         <span
           className="percent"
         >
-          22
+          78
           %
         </span>
          
@@ -35,7 +35,9 @@ exports[`Components : Race : Dashboard : Percentage Overview renders correctly 1
         <span
           className="percentCaption"
         >
-          Cases
+          Cases have no 
+          race
+           data
         </span>
       </p>
     </div>
@@ -46,7 +48,7 @@ exports[`Components : Race : Dashboard : Percentage Overview renders correctly 1
         <span
           className="percent"
         >
-          4
+          96
           %
         </span>
          
@@ -59,7 +61,9 @@ exports[`Components : Race : Dashboard : Percentage Overview renders correctly 1
         <span
           className="percentCaption"
         >
-          Deaths
+          Deaths have no 
+          race
+           data
         </span>
       </p>
     </div>
@@ -76,10 +80,10 @@ exports[`Components : Race : Dashboard : Percentage Overview renders correctly 3
   <h3
     className="title"
   >
+    Race
+     completeness for 
     New Mexico
-     has reported 
-    race
-     data for:
+    :
   </h3>
   <div
     className="data"
@@ -91,7 +95,7 @@ exports[`Components : Race : Dashboard : Percentage Overview renders correctly 3
         <span
           className="percent"
         >
-          22
+          78
           %
         </span>
          
@@ -104,7 +108,9 @@ exports[`Components : Race : Dashboard : Percentage Overview renders correctly 3
         <span
           className="percentCaption"
         >
-          Cases
+          Cases have no 
+          race
+           data
         </span>
       </p>
     </div>
@@ -130,7 +136,9 @@ exports[`Components : Race : Dashboard : Percentage Overview renders correctly 3
         <span
           className="percentCaption"
         >
-          Deaths
+          Deaths have no 
+          race
+           data
         </span>
       </p>
     </div>

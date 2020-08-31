@@ -12,12 +12,9 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
         className="container"
       >
         <p>
-          The following tables reflect only those cases and deaths where
-           
+          States that have 10% or more missing 
           race
-           is known and reported by 
-          Alabama
-          . If this state’s reporting percentages are low, interpret with caution.
+           data should be interpreted with caution.
         </p>
       </div>
     </div>
@@ -882,12 +879,9 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
         className="container"
       >
         <p>
-          The following tables reflect only those cases and deaths where
-           
+          States that have 10% or more missing 
           ethnicity
-           is known and reported by 
-          Alabama
-          . If this state’s reporting percentages are low, interpret with caution.
+           data should be interpreted with caution.
         </p>
       </div>
     </div>
