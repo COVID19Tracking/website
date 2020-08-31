@@ -19,7 +19,7 @@ import projectLogo from '~images/project-logo.svg'
 import atlanticLogo from '~images/atlantic-logo.svg'
 
 import MobileMenu from './mobile-menu'
-import PartnershipBanner from './partnership-banner'
+import Banner from './banner'
 import HeaderSubNavigation from './sub-navigation'
 import ReturnLinks from './return-links'
 import Tools from './tools'
@@ -165,7 +165,7 @@ const Header = withSearch(
                 subNavigation={subNavigation}
               />
             </Expand>
-            {banner && <PartnershipBanner content={banner} />}
+            {banner && <Banner content={banner} />}
             <div className={headerStyle.wrapper}>
               <div className={headerStyle.siteTitleContainer}>
                 <div className={headerStyle.siteTitleInner}>
