@@ -2,7 +2,6 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import smartypants from 'smartypants'
 
-import { CtaLink } from '~components/common/landing-page/call-to-action'
 import StateSeparate from './state-separate'
 import StateCombined from './state-combined'
 import statesStyle from './states.module.scss'
@@ -327,13 +326,6 @@ export default () => {
             >
               {state.name}
             </h2>
-            <p className={statesStyle.socialCardCta}>
-              A summary of key race and ethnicity data for {state.name} can also
-              be viewed as a graphic.{' '}
-              <CtaLink to={`/race/social-cards#${state.state}`}>
-                View as graphic
-              </CtaLink>
-            </p>
             <div>
               {state.stateSeparate ? (
                 <StateSeparate state={state} />

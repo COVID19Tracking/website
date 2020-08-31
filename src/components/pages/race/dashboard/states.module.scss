@@ -12,9 +12,3 @@
   padding-bottom: spacer(32);
   padding-top: 3rem;
 }
-
-.social-card-cta {
-  @include margin(0, top);
-  @include margin(32, bottom);
-  max-width: 50%;
-}
