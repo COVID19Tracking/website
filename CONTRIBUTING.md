@@ -18,10 +18,8 @@ This repo includes an [EditorConfig file](https://editorconfig.org/), which can 
 
 When exporting components from a file, make sure to not export an anonymous function, but instead store the component in a variable and export that variable by default. This helps ensure that component names are consistent, and helps with debugging tools:
 
-```
-const MyComponent = () => (
-  <p>This is my component!</p>
-)
+```javascript
+const MyComponent = () => <p>This is my component!</p>
 
 export default MyComponent
 ```
