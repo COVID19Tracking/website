@@ -91,15 +91,6 @@ export default ({ data }) => (
     <Container centered>
       <LongContent>
         <h2>Deaths in Long-Term Care Facilities by Region</h2>
-        <DetailText small>
-          <ContentfulContent
-            id={data.timechartNotes.contentful_id}
-            content={
-              data.timechartNotes.childContentfulSnippetContentTextNode
-                .childMarkdownRemark.html
-            }
-          />
-        </DetailText>
       </LongContent>
     </Container>
     <TableauChart
@@ -111,6 +102,15 @@ export default ({ data }) => (
     />
     <Container centered>
       <LongContent>
+        <DetailText small>
+          <ContentfulContent
+            id={data.timechartNotes.contentful_id}
+            content={
+              data.timechartNotes.childContentfulSnippetContentTextNode
+                .childMarkdownRemark.html
+            }
+          />
+        </DetailText>
         <ContentfulContent
           id={data.contentDefinitions.contentful_id}
           content={
