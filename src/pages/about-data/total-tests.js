@@ -13,7 +13,9 @@ const DataStateTotalTestsPage = ({ data }) => {
         ? 'totalTestResults'
         : state.totalTestResultsColumns
     states.push({
-      state: <Link to={`/${state.childSlug.slug}`}>{state.name}</Link>,
+      state: (
+        <Link to={`/data/state/${state.childSlug.slug}`}>{state.name}</Link>
+      ),
       field: (
         <Link to={`/about-data/data-definitions#definition-${column}`}>
           <FieldName field={column} />
@@ -26,8 +28,8 @@ const DataStateTotalTestsPage = ({ data }) => {
   return (
     <Layout
       title="How We Report Total Tests"
-      path="/data/total-tests"
-      returnLinks={[{ link: '/data' }]}
+      path="/about-data/total-tests"
+      returnLinks={[{ link: '/about-data' }]}
     >
       <ContentfulContent
         content={

@@ -27,7 +27,7 @@ import TooltipContents from '~components/charts/tooltip-contents'
 const TestFieldIndicator = ({ field, units, national }) => (
   <span className={styles.testFieldIndicator}>
     {national ? (
-      <>Total test results ( mixed units)</>
+      <>Total test results (mixed units)</>
     ) : (
       <>
         <FieldName field={field} />
