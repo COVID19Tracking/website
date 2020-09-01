@@ -384,6 +384,7 @@ const gatsbyConfig = {
       },
     },
     'gatsby-plugin-minify-classnames',
+    'gatsby-plugin-preact',
   ],
 }
 
