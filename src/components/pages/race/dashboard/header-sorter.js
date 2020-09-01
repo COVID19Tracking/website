@@ -1,7 +1,7 @@
 import React from 'react'
 import headerSorterStyles from './header-sorter.module.scss'
 
-export default ({ stateName, stateReports }) => (
+const HeaderSorter = ({ stateName, stateReports }) => (
   // stateReports like: 'race' or 'ethnicity' or 'race/ethnicity'
   <div className={headerSorterStyles.container}>
     <p>
@@ -11,3 +11,5 @@ export default ({ stateName, stateReports }) => (
     </p>
   </div>
 )
+
+export default HeaderSorter

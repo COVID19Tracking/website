@@ -6,14 +6,13 @@ import DetailText from '~components/common/detail-text'
 import Container from '~components/common/container'
 import Layout from '~components/layout'
 import ContentfulContent from '~components/common/contentful-content'
-import MarkdownContent from '~components/common/markdown-content'
 import States from '~components/pages/data/states'
 
 import { DownloadDataRow } from '~components/pages/state/download-data'
 import Summary from '~components/pages/data/summary'
 import SummaryCharts from '~components/pages/data/summary-charts'
 
-export default ({ data }) => {
+const DataPage = ({ data }) => {
   const stateNavList = []
   data.allCovidStateInfo.nodes.forEach(node => {
     stateNavList.push(node)
@@ -45,8 +44,11 @@ export default ({ data }) => {
       />
       <Container narrow>
         <DetailText>
-          <MarkdownContent
-            html={data.nationalSummaryFootnote.content.childMarkdownRemark.html}
+          <div
+            dangerouslySetInnerHTML={{
+              __html:
+                data.nationalSummaryFootnote.content.childMarkdownRemark.html,
+            }}
           />
         </DetailText>
       </Container>
@@ -64,6 +66,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default DataPage
 
 export const query = graphql`
   query($sevenDaysAgo: Int) {

@@ -159,7 +159,7 @@ const Tag = ({ tag, contentfulDefinitions }) => (
   </>
 )
 
-export default () => {
+const ApiExplorer = () => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -212,3 +212,5 @@ export default () => {
     </>
   )
 }
+
+export default ApiExplorer

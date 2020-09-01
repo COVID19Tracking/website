@@ -5,9 +5,9 @@ import ReCaptcha from 'react-recaptcha'
 import Layout from '~components/layout'
 import { Form, Textarea, Input, Select, List } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
-import { AlertInfobox } from '~components/common/infobox'
+import Alert from '~components/common/alert'
 
-export default ({ data }) => {
+const ContactPage = ({ data }) => {
   const [name, setName] = useState(false)
   const [message, setMessage] = useState(false)
   const [date, setDate] = useState(false)
@@ -133,7 +133,7 @@ export default ({ data }) => {
         />
         {!isComplete() && (
           <div>
-            <AlertInfobox>You must complete all fields</AlertInfobox>
+            <Alert>You must complete all fields</Alert>
           </div>
         )}
         <button
@@ -147,6 +147,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default ContactPage
 
 export const query = graphql`
   query {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Input, Select, List, Textarea } from '~components/common/form'
 
-export default () => {
+const VolunteerForm = () => {
   return (
     <Form
       method="POST"
@@ -140,3 +140,5 @@ export default () => {
     </Form>
   )
 }
+
+export default VolunteerForm

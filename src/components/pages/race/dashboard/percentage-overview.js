@@ -15,7 +15,7 @@ const PercentContent = ({ percent }) => {
   )
 }
 
-export default ({
+const PercentageOverview = ({
   stateName,
   dataType,
   casePercent,
@@ -49,3 +49,5 @@ export default ({
     </div>
   )
 }
+
+export default PercentageOverview

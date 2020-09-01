@@ -7,7 +7,7 @@ import {
 } from '~components/common/tablet-disclosure'
 import blogCategoriesListStyles from './blog-categories-list.module.scss'
 
-export default () => {
+const BlogCategoriesList = () => {
   const { allContentfulBlogCategory } = useStaticQuery(graphql`
     query {
       allContentfulBlogCategory {
@@ -58,3 +58,5 @@ export default () => {
     </TabletDisclosure>
   )
 }
+
+export default BlogCategoriesList

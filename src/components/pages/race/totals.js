@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Total from '~components/common/landing-page/total'
 import totalsStyle from './totals.module.scss'
 
-export default () => {
+const CrdtTotals = () => {
   const data = useStaticQuery(graphql`
     query {
       covidRaceDataHomepage {
@@ -32,3 +32,5 @@ export default () => {
     </div>
   )
 }
+
+export default CrdtTotals

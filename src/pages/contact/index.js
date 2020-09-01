@@ -4,7 +4,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 
-export default ({ data }) => (
+const ContactPage = ({ data }) => (
   <Layout
     title="Contact Us"
     socialCard={{
@@ -24,6 +24,8 @@ export default ({ data }) => (
     </LongContent>
   </Layout>
 )
+
+export default ContactPage
 
 export const query = graphql`
   query {

@@ -7,7 +7,7 @@ import cautionNotes from './caution-notes'
 import RaceTable from './race-table'
 import stateStyle from './state.module.scss'
 
-export default ({ state }) => {
+const StateCombined = ({ state }) => {
   const stateData = state
   let notes = {
     otherDeath: stateData.otherDeathNotes,
@@ -74,3 +74,5 @@ export default ({ state }) => {
     </div>
   )
 }
+
+export default StateCombined
