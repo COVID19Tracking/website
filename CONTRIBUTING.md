@@ -14,6 +14,18 @@ We use the [Airbnb style guide](https://github.com/airbnb/javascript), except wi
 
 This repo includes an [EditorConfig file](https://editorconfig.org/), which can help keep our style consistent in your development environment.
 
+### Named exports
+
+When exporting components from a file, make sure to not export an anonymous function, but instead store the component in a variable and export that variable by default. This helps ensure that component names are consistent, and helps with debugging tools:
+
+```
+const MyComponent = () => (
+  <p>This is my component!</p>
+)
+
+export default MyComponent
+```
+
 ### Style and SCSS Modules
 
 We use Gatsby's [CSS modules](https://www.gatsbyjs.org/docs/css-modules/), but with Sass files. Every Sass file should be in the same directory as its related component. There are also common colors and breakpoints defined in `/src/sass`.
