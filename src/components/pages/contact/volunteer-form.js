@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import isUrl from 'is-url'
 import { Form, Input, Select, List, Textarea } from '~components/common/form'
 import { AlertInfobox } from '~components/common/infobox'
 
@@ -8,8 +9,11 @@ export default () => {
   const [url, setUrl] = useState(false)
   const [skill, setSkill] = useState(false)
   const [timezone, setTimezone] = useState(false)
+  const [projects, setProjects] = useState(false)
+  const [urlValid, setUrlValid] = useState(false)
 
-  const isComplete = () => name && email && url && skill && timezone
+  const isComplete = () =>
+    name && email && url && skill && timezone && projects && urlValid
 
   return (
     <Form
@@ -48,10 +52,19 @@ export default () => {
         name="url"
         id="url"
         isRequired
-        onChange={event => setUrl(event.target.value)}
+        onChange={event => {
+          setUrl(event.target.value)
+          setUrlValid(isUrl(event.target.value))
+        }}
         detailText="Personal website, LinkedIn, or other website that will tell us
               about you."
       />
+
+      {!urlValid && url && (
+        <div>
+          <AlertInfobox>The link you provided is not a valid URL.</AlertInfobox>
+        </div>
+      )}
 
       <Select
         label="About how many hours are you available to volunteer each week?"
@@ -143,6 +156,8 @@ export default () => {
         name="why"
         id="why"
         rows="5"
+        isRequired
+        onChange={event => setProjects(event.target.value)}
       />
 
       <Input
