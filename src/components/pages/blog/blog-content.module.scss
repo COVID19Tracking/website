@@ -4,10 +4,10 @@
   margin: 0 auto;
 
   & > *:not(.image) {
-    // non-image items become 8 cols wide
+    // non-image items become 6 cols wide
     @media (min-width: $viewport-lg) {
-      flex-basis: 80%;
-      max-width: 80%;
+      flex-basis: 60%;
+      max-width: 60%;
       margin-left: auto;
       margin-right: auto;
     }
