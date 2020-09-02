@@ -13,7 +13,7 @@ const Navigation = ({ topNavigation, subNavigation, isMobile }) => (
       className={isMobile ? navigationStyles.mobile : ''}
     >
       {topNavigation.map(item => (
-        <li key={item.link} className={navigationStyles.menuItem}>
+        <li key={item.link} role="none" className={navigationStyles.menuItem}>
           <Menu>
             <div className={navigationStyles.navLabel}>
               <Link to={internalLink(item.link)}>{item.title}</Link>
