@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import { Form, Textarea, Select, Input } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
