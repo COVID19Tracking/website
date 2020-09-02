@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import ReCaptcha from 'react-recaptcha'
 import Layout from '~components/layout'
 import { Form, Textarea, Select, Input } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
 import Alert from '~components/common/alert'
+import Recaptcha from '~components/common/recaptcha'
 
 const defaultReason = '-- Select a reason --'
 
@@ -19,7 +19,7 @@ const reasons = [
   'Something else',
 ]
 
-const ContactOtherPage = ({ data }) => {
+const ContactOtherPage = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState(false)
   const [message, setMessage] = useState(false)
@@ -81,15 +81,7 @@ const ContactOtherPage = ({ data }) => {
           onChange={event => setMessage(event.target.value)}
         />
         <div>
-          {typeof window !== 'undefined' && (
-            <ReCaptcha
-              sitekey={data.site.siteMetadata.recaptchaKey}
-              render="explicit"
-              elementID={`contact-form-captcha-${Math.round(
-                Math.random() * 1000,
-              )}`}
-            />
-          )}
+          <Recaptcha />
         </div>
 
         {reason === defaultReason && (
@@ -137,13 +129,3 @@ const ContactOtherPage = ({ data }) => {
 }
 
 export default ContactOtherPage
-
-export const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        recaptchaKey
-      }
-    }
-  }
-`
