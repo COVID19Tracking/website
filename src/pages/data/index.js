@@ -55,6 +55,7 @@ const DataPage = ({ data }) => {
       <SummaryCharts
         history={data.allCovidUsDaily.nodes}
         annotations={data.allContentfulEvent}
+        national
       />
 
       <States
