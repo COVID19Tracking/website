@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
 import { FieldName } from '~components/utils/field-name'
 import TableResponsive from '~components/common/table-responsive'
+import Container from '~components/common/container'
 import Layout from '~components/layout'
 
 const DataStateTotalTestsPage = ({ data }) => {
@@ -31,13 +32,15 @@ const DataStateTotalTestsPage = ({ data }) => {
       path="/about-data/total-tests"
       returnLinks={[{ link: '/about-data' }]}
     >
-      <ContentfulContent
-        content={
-          data.contentOpening.childContentfulSnippetContentTextNode
-            .childMarkdownRemark.html
-        }
-        id={data.contentOpening.contentful_id}
-      />
+      <Container centered>
+        <ContentfulContent
+          content={
+            data.contentOpening.childContentfulSnippetContentTextNode
+              .childMarkdownRemark.html
+          }
+          id={data.contentOpening.contentful_id}
+        />
+      </Container>
       <TableResponsive
         labels={[
           {
@@ -58,13 +61,15 @@ const DataStateTotalTestsPage = ({ data }) => {
         ]}
         data={states}
       />
-      <ContentfulContent
-        content={
-          data.contentClosure.childContentfulSnippetContentTextNode
-            .childMarkdownRemark.html
-        }
-        id={data.contentClosure.contentful_id}
-      />
+      <Container centered>
+        <ContentfulContent
+          content={
+            data.contentClosure.childContentfulSnippetContentTextNode
+              .childMarkdownRemark.html
+          }
+          id={data.contentClosure.contentful_id}
+        />
+      </Container>
     </Layout>
   )
 }
