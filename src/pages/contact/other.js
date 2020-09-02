@@ -4,7 +4,6 @@ import Layout from '~components/layout'
 import { Form, Textarea, Select, Input } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
 import Alert from '~components/common/alert'
-import Recaptcha from '~components/common/recaptcha'
 
 const defaultReason = '-- Select a reason --'
 
@@ -80,9 +79,6 @@ const ContactOtherPage = () => {
           isRequired
           onChange={event => setMessage(event.target.value)}
         />
-        <div>
-          <Recaptcha />
-        </div>
 
         {reason === defaultReason && (
           <Alert>

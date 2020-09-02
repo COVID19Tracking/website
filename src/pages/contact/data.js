@@ -5,7 +5,6 @@ import Layout from '~components/layout'
 import { Form, Textarea, Input, Select, List } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
 import Alert from '~components/common/alert'
-import Recaptcha from '~components/common/recaptcha'
 
 const ContactPage = ({ data }) => {
   const [name, setName] = useState(false)
@@ -100,9 +99,6 @@ const ContactPage = ({ data }) => {
           isRequired
           onChange={event => setMessage(event.target.value)}
         />
-        <div>
-          <Recaptcha />
-        </div>
 
         <input
           type="text"
