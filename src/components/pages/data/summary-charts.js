@@ -24,9 +24,16 @@ import styles from './summary-charts.module.scss'
 
 import TooltipContents from '~components/charts/tooltip-contents'
 
-const TestFieldIndicator = ({ field }) => (
+const TestFieldIndicator = ({ field, units, national }) => (
   <span className={styles.testFieldIndicator}>
-    <FieldName field={field === 'posNeg' ? 'totalTestResults' : field} />
+    {national ? (
+      <>Total test results (mixed units)</>
+    ) : (
+      <>
+        <FieldName field={field} />
+        {field === 'totalTestResults' && <> ({units})</>}
+      </>
+    )}
   </span>
 )
 
@@ -123,7 +130,9 @@ const SummaryCharts = ({
   history,
   usHistory,
   annotations,
+  national = false,
   testSource = 'totalTestResults',
+  testUnits = 'People',
 }) => {
   const siteData = useStaticQuery(graphql`
     {
@@ -318,7 +327,11 @@ const SummaryCharts = ({
             <CalculatedIndicator
               openDisclosure={() => setDisclosureOpen(true)}
             />
-            <TestFieldIndicator field={testSource} />
+            <TestFieldIndicator
+              field={testSource}
+              units={testUnits}
+              national={national}
+            />
           </h3>
           <BarChart
             data={getDataForField(data, testField)}

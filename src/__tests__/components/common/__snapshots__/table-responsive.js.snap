@@ -7,11 +7,13 @@ exports[`Components : Common: Responsive table renders correctly 1`] = `
   <thead>
     <tr>
       <th
+        className=""
         scope="col"
       >
         Date
       </th>
       <th
+        className=""
         scope="col"
       >
         Data

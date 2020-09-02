@@ -2,8 +2,13 @@ import React from 'react'
 import { Th, Td, Table } from '~components/common/table'
 import { FormatNumber, FormatDate } from '~components/utils/format'
 import stateHistoryStyle from './state-history.module.scss'
+import { FieldName } from '~components/utils/field-name'
 
-const StateHistory = ({ history }) => (
+const StateHistory = ({
+  history,
+  testColumn = 'totalTestResults',
+  testUnits = 'People',
+}) => (
   <Table>
     <thead>
       <tr>
@@ -14,7 +19,12 @@ const StateHistory = ({ history }) => (
         <Th>Pending</Th>
         <Th>Hospitalized</Th>
         <Th>Deaths</Th>
-        <Th>Total</Th>
+        <Th>
+          <FieldName
+            field={testColumn === 'posNeg' ? 'totalTestResults' : testColumn}
+          />
+          {testColumn === 'posNeg' && <> ({testUnits})</>}
+        </Th>
       </tr>
     </thead>
     <tbody className={`state-history-table ${stateHistoryStyle.history}`}>
