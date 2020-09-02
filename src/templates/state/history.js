@@ -27,8 +27,8 @@ const StateHistoryTemplate = ({ pageContext, data, path }) => {
       <StateHistory
         history={allCovidStateDaily.nodes}
         screenshots={allCovidScreenshot.nodes}
-        testColumn={covidStateInfo.totalTestResultsColumns}
-        testUnits={covidStateInfo.totalTestResultsUnits}
+        testColumn={covidStateInfo.covidTrackingProjectPreferredTotalTestField}
+        testUnits={covidStateInfo.covidTrackingProjectPreferredTotalTestUnits}
       />
     </Layout>
   )
@@ -58,8 +58,8 @@ export const query = graphql`
       }
     }
     covidStateInfo(state: { eq: $state }) {
-      totalTestResultsColumns
-      totalTestResultsUnits
+      covidTrackingProjectPreferredTotalTestField
+      covidTrackingProjectPreferredTotalTestUnits
     }
     allCovidScreenshot(
       filter: {

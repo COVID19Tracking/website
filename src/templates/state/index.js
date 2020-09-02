@@ -29,11 +29,12 @@ const StateTemplate = ({ pageContext, data, path }) => {
         usHistory={allCovidUsDaily.nodes}
         annotations={allContentfulEvent}
         testSource={
-          covidStateInfo.totalTestResultsColumns === 'posNeg'
+          covidStateInfo.covidTrackingProjectPreferredTotalTestField ===
+          'posNeg'
             ? 'totalTestResults'
-            : covidStateInfo.totalTestResultsColumns
+            : covidStateInfo.covidTrackingProjectPreferredTotalTestField
         }
-        testUnits={covidStateInfo.totalTestResultsUnits}
+        testUnits={covidStateInfo.covidTrackingProjectPreferredTotalTestUnits}
       />
       <StateNavWrapper stateList={allCovidStateInfo.nodes} single>
         <StateSummary
@@ -70,8 +71,8 @@ export const query = graphql`
     }
     covidStateInfo(state: { eq: $state }) {
       state
-      totalTestResultsColumns
-      totalTestResultsUnits
+      covidTrackingProjectPreferredTotalTestField
+      covidTrackingProjectPreferredTotalTestUnits
       childPopulation {
         population
       }

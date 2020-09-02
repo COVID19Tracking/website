@@ -9,9 +9,9 @@ const DataStateTotalTestsPage = ({ data }) => {
   const states = []
   data.allCovidStateInfo.nodes.forEach(state => {
     const column =
-      state.totalTestResultsColumns === 'posNeg'
+      state.covidTrackingProjectPreferredTotalTestField === 'posNeg'
         ? 'totalTestResults'
-        : state.totalTestResultsColumns
+        : state.covidTrackingProjectPreferredTotalTestField
     states.push({
       state: (
         <Link to={`/data/state/${state.childSlug.slug}`}>{state.name}</Link>
@@ -21,7 +21,7 @@ const DataStateTotalTestsPage = ({ data }) => {
           <FieldName field={column} />
         </Link>
       ),
-      units: state.totalTestResultsUnits,
+      units: state.covidTrackingProjectPreferredTotalTestUnits,
     })
   })
 
@@ -96,8 +96,8 @@ export const query = graphql`
         }
         state
         name
-        totalTestResultsColumns
-        totalTestResultsUnits
+        covidTrackingProjectPreferredTotalTestField
+        covidTrackingProjectPreferredTotalTestUnits
       }
     }
   }
