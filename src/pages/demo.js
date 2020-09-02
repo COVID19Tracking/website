@@ -1,5 +1,5 @@
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import React, { useEffect } from 'react'
+import { useStaticQuery, graphql, navigate } from 'gatsby'
 import Header from '~components/layout/header'
 import SEO from '~components/utils/seo'
 
@@ -18,12 +18,16 @@ export default () => {
       }
     }
   `)
+  useEffect(() => {
+    setTimeout(() => {
+      navigate('/blog/page/6/')
+    }, 4000)
+  }, [])
   return (
     <>
       <SEO
         title="The COVID Tracking Project"
         socialCard={data.contentfulSocialCard}
-        redirect
       />
       <Header siteTitle="The COVID Tracking Project" noMargin />
       <h1>Test</h1>
