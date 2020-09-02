@@ -1,12 +1,10 @@
 import React from 'react'
-import Screenshots from './screenshots'
 import { Th, Td, Table } from '~components/common/table'
 import { FormatNumber, FormatDate } from '~components/utils/format'
-import Timezone from '~components/common/timezone'
 import stateHistoryStyle from './state-history.module.scss'
 import { FieldName } from '~components/utils/field-name'
 
-export default ({
+const StateHistory = ({
   history,
   screenshots,
   testColumn = 'totalTestResults',
@@ -16,9 +14,6 @@ export default ({
     <thead>
       <tr>
         <Th alignLeft>Date</Th>
-        <Th alignLeft>
-          Screenshots (<Timezone />)
-        </Th>
         <Th>New Tests</Th>
         <Th>Cases</Th>
         <Th>Negative</Th>
@@ -42,9 +37,6 @@ export default ({
               format="ccc LLL d yyyy"
               timezone={false}
             />
-          </Td>
-          <Td alignLeft>
-            <Screenshots date={node.date} screenshots={screenshots} />
           </Td>
           <Td>
             <FormatNumber number={node.totalTestResultsIncrease} />
@@ -72,3 +64,5 @@ export default ({
     </tbody>
   </Table>
 )
+
+export default StateHistory

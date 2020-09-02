@@ -4,7 +4,7 @@ import StateHistory from '~components/pages/state/state-history'
 
 import Layout from '~components/layout'
 
-const StatePage = ({ pageContext, data, path }) => {
+const StateHistoryTemplate = ({ pageContext, data, path }) => {
   const state = pageContext
   const { allCovidStateDaily, allCovidScreenshot, covidStateInfo } = data
   const { slug } = state.childSlug
@@ -34,7 +34,7 @@ const StatePage = ({ pageContext, data, path }) => {
   )
 }
 
-export default StatePage
+export default StateHistoryTemplate
 
 export const query = graphql`
   query($state: String!) {

@@ -18,23 +18,6 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           </span>
         </th>
         <th
-          className="alignLeft"
-          scope="col"
-        >
-          <span
-            role="text"
-          >
-            Screenshots (
-            <abbr
-              aria-label="Eastern Time"
-              title="Eastern Time"
-            >
-              ET
-            </abbr>
-            )
-          </span>
-        </th>
-        <th
           className=""
           scope="col"
         >
@@ -116,30 +99,6 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           Fri Apr 17 2020
         </td>
         <td
-          className="alignLeft"
-        >
-          <ul>
-            <li>
-              <a
-                href="https://covidtracking.com/screenshot/1.png"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                2:15 am
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://covidtracking.com/screenshot/2.png"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                6:15 am
-              </a>
-            </li>
-          </ul>
-        </td>
-        <td
           className=""
         >
           1,457
@@ -180,21 +139,6 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
           className="alignLeft"
         >
           Thu Apr 16 2020
-        </td>
-        <td
-          className="alignLeft"
-        >
-          <ul>
-            <li>
-              <a
-                href="https://covidtracking.com/screenshot/3.png"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                5:15 am
-              </a>
-            </li>
-          </ul>
         </td>
         <td
           className=""
@@ -238,9 +182,6 @@ exports[`Components : Pages : State : State history renders correctly 1`] = `
         >
           Wed Apr 15 2020
         </td>
-        <td
-          className="alignLeft"
-        />
         <td
           className=""
         >

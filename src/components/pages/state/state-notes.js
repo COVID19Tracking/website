@@ -3,7 +3,6 @@ import marked from 'marked'
 import smartypants from 'smartypants'
 
 import Container from '~components/common/container'
-import MarkdownContent from '~components/common/markdown-content'
 import stateNotesStyle from './state-notes.module.scss'
 
 const getBoldedText = text =>
@@ -12,15 +11,20 @@ const getBoldedText = text =>
     '**$1 $2$3**',
   )
 
-export default ({ notes, isNarrow = true }) => {
+const StateNotes = ({ notes, isNarrow = true }) => {
   const highlightedNotes = getBoldedText(notes)
   const notesArray = highlightedNotes.split('\n')
   return (
     <Container narrow={isNarrow} className={stateNotesStyle.container}>
       <span className={stateNotesStyle.label}>Notes: </span>
       {notesArray.map(note => (
-        <MarkdownContent key={note} html={smartypants(marked(note))} />
+        <div
+          key={note}
+          dangerouslySetInnerHTML={{ __html: smartypants(marked(note)) }}
+        />
       ))}
     </Container>
   )
 }
+
+export default StateNotes

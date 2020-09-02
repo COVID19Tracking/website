@@ -15,7 +15,7 @@ import { parseDate, formatDate } from '~utilities/visualization'
 import { Row, Col } from '~components/common/grid'
 import Toggle from '~components/common/toggle'
 import ContentfulContent from '~components/common/contentful-content'
-import { AlertInfobox } from '~components/common/infobox'
+import Alert from '~components/common/alert'
 import { FieldName } from '~components/utils/field-name'
 import { ReactComponent as CtpLogo } from '~images/project-logo.svg'
 import colors from '~scss/colors.module.scss'
@@ -89,8 +89,8 @@ const getDataForField = (data, field) => {
 }
 
 const ChartAlert = ({ message }) => (
-  <div className={styles.alertInfoboxContainer}>
-    <AlertInfobox header={message} fullSize />
+  <div className={styles.AlertContainer}>
+    <Alert header={message} fullSize />
   </div>
 )
 
@@ -125,7 +125,7 @@ const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
   )
 }
 
-export default ({
+const SummaryCharts = ({
   name = 'National',
   history,
   usHistory,
@@ -503,3 +503,5 @@ const LegendComponent = ({ name }) => (
     {name || 'National'} 7-day average
   </div>
 )
+
+export default SummaryCharts

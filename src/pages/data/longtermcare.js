@@ -13,7 +13,7 @@ import DownloadLinks from '~components/pages/data/ltc/download-links'
 import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
 
-export default ({ data }) => (
+const LongTermCarePage = ({ data }) => (
   <Layout title="The Long-Term Care COVID Tracker" path="/data/longtermcare">
     <Paragraph>
       <span
@@ -91,6 +91,17 @@ export default ({ data }) => (
     <Container centered>
       <LongContent>
         <h2>Deaths in Long-Term Care Facilities by Region</h2>
+      </LongContent>
+    </Container>
+    <TableauChart
+      id="ltc-1"
+      height={525}
+      mobileHeight={450}
+      viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
+      viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
+    />
+    <Container centered>
+      <LongContent>
         <DetailText small>
           <ContentfulContent
             id={data.timechartNotes.contentful_id}
@@ -100,17 +111,6 @@ export default ({ data }) => (
             }
           />
         </DetailText>
-      </LongContent>
-    </Container>
-    <TableauChart
-      id="ltc-1"
-      height={550}
-      mobileHeight={450}
-      viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
-      viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
-    />
-    <Container centered>
-      <LongContent>
         <ContentfulContent
           id={data.contentDefinitions.contentful_id}
           content={
@@ -150,6 +150,8 @@ export default ({ data }) => (
     </Container>
   </Layout>
 )
+
+export default LongTermCarePage
 
 export const query = graphql`
   query {

@@ -5,7 +5,7 @@ import { Menu, MenuList, MenuButton, MenuLink } from '@reach/menu-button'
 import internalLink from '~components/utils/internal-link'
 import navigationStyles from './navigation.module.scss'
 
-export default ({ topNavigation, subNavigation, isMobile }) => (
+const Navigation = ({ topNavigation, subNavigation, isMobile }) => (
   <nav className="js-disabled-block" role="navigation">
     <ul
       role="menubar"
@@ -70,3 +70,5 @@ export default ({ topNavigation, subNavigation, isMobile }) => (
     </ul>
   </nav>
 )
+
+export default Navigation

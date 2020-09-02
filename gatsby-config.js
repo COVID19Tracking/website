@@ -383,6 +383,7 @@ const gatsbyConfig = {
         ],
       },
     },
+    'gatsby-plugin-minify-classnames',
   ],
 }
 

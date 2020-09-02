@@ -7,7 +7,7 @@ import { CtaLink } from '~components/common/landing-page/call-to-action'
 import Total from '~components/common/landing-page/total'
 import latestTotalsStyles from './latest-totals.module.scss'
 
-export default () => {
+const HomepageLatestTotals = () => {
   const data = useStaticQuery(graphql`
     {
       covidUs {
@@ -56,3 +56,5 @@ export default () => {
     </div>
   )
 }
+
+export default HomepageLatestTotals

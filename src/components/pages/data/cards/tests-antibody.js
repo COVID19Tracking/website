@@ -4,7 +4,7 @@ import { Card, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
-export default ({ stateSlug, totalTestsAntibody }) => {
+const TestAntibodyCard = ({ stateSlug, totalTestsAntibody }) => {
   const definitionContext = useContext(DefinitionPanelContext)
 
   return (
@@ -32,3 +32,5 @@ export default ({ stateSlug, totalTestsAntibody }) => {
     </Card>
   )
 }
+
+export default TestAntibodyCard
