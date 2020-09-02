@@ -33,10 +33,10 @@ const DataStateTotalTestsPage = ({ data }) => {
     >
       <ContentfulContent
         content={
-          data.contentfulSnippet.childContentfulSnippetContentTextNode
+          data.contentOpening.childContentfulSnippetContentTextNode
             .childMarkdownRemark.html
         }
-        id={data.contentfulSnippet.contentful_id}
+        id={data.contentOpening.contentful_id}
       />
       <TableResponsive
         labels={[
@@ -58,6 +58,13 @@ const DataStateTotalTestsPage = ({ data }) => {
         ]}
         data={states}
       />
+      <ContentfulContent
+        content={
+          data.contentClosure.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
+        }
+        id={data.contentClosure.contentful_id}
+      />
     </Layout>
   )
 }
@@ -66,7 +73,15 @@ export default DataStateTotalTestsPage
 
 export const query = graphql`
   query {
-    contentfulSnippet(slug: { eq: "total-tests" }) {
+    contentOpening: contentfulSnippet(slug: { eq: "total-tests" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    contentClosure: contentfulSnippet(slug: { eq: "total-tests-closure" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
