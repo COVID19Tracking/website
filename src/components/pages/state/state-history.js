@@ -6,7 +6,6 @@ import { FieldName } from '~components/utils/field-name'
 
 const StateHistory = ({
   history,
-  screenshots,
   testColumn = 'totalTestResults',
   testUnits = 'People',
 }) => (
