@@ -12,6 +12,7 @@ import DetailText from '~components/common/detail-text'
 import DownloadLinks from '~components/pages/data/ltc/download-links'
 import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
+import BlogTeaserList from '~components/pages/blog/blog-teaser-list'
 
 const LongTermCarePage = ({ data }) => (
   <Layout title="The Long-Term Care COVID Tracker" path="/data/longtermcare">
@@ -78,6 +79,8 @@ const LongTermCarePage = ({ data }) => (
       viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCaremobile/FigMap?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"
     />
     <Container centered>
+      <BlogTeaserList items={[data.contentfulBlogPost]} />
+
       <LongContent>
         <ContentfulContent
           id={data.content2.contentful_id}
@@ -219,6 +222,34 @@ export const query = graphql`
         childMarkdownRemark {
           html
         }
+      }
+    }
+    contentfulBlogPost(slug: { eq: "long-term-care" }) {
+      title
+      updateDateTime
+      slug
+      categories {
+        name
+        slug
+      }
+      authors {
+        name
+        twitterLink
+        link
+        headshot {
+          file {
+            fileName
+          }
+          resize(width: 100) {
+            width
+            height
+            src
+          }
+        }
+      }
+      publishDate(formatString: "MMMM D, YYYY")
+      lede {
+        lede
       }
     }
   }
