@@ -15,10 +15,9 @@ const HomepageLargeProject = () => {
           fluid(
             maxWidth: 900
             webpQuality: 70
-            toFormat: WEBP
             traceSVG: { color: "#E2D2CE" }
           ) {
-            ...GatsbyImageSharpFluid_tracedSVG
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }

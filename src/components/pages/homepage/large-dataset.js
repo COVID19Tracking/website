@@ -13,10 +13,9 @@ const HomepageLargeDataset = () => {
           fluid(
             maxWidth: 900
             webpQuality: 70
-            toFormat: WEBP
             traceSVG: { color: "#FCC98E" }
           ) {
-            ...GatsbyImageSharpFluid_tracedSVG
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
