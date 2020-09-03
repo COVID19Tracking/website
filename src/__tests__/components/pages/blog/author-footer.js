@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import AuthorFooter from '~components/pages/blog/author-footer'
+import AuthorFooter from '~components/pages/blog/footer/author-footer'
 
 describe('Components : Pages : Blog : Author Footer', () => {
   it('renders correctly', () => {

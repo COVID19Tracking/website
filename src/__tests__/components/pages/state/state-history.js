@@ -10,6 +10,9 @@ beforeEach(() => {
     v1Json: {
       buildTime: '2020-06-02T10:16:47.239Z',
     },
+    allContentfulDataDefinition: {
+      nodes: [{ name: 'Date', fieldName: 'date' }],
+    },
   }))
 })
 

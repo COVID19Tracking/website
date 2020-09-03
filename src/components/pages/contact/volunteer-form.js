@@ -3,7 +3,7 @@ import isUrl from 'is-url'
 import { Form, Input, Select, List, Textarea } from '~components/common/form'
 import { AlertInfobox } from '~components/common/infobox'
 
-export default () => {
+const VolunteerForm = () => {
   const [name, setName] = useState(false)
   const [email, setEmail] = useState(false)
   const [url, setUrl] = useState(false)
@@ -192,3 +192,5 @@ export default () => {
     </Form>
   )
 }
+
+export default VolunteerForm

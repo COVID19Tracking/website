@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Alert renders correctly 1`] = `
+Array [
+  <div
+    className="alert alert"
+  >
+    <img
+      alt="Alert icon"
+      src="test-file-stub"
+    />
+    <div>
+      <p
+        className="header"
+      >
+        Test header
+      </p>
+      <div
+        className="content"
+      >
+        <p>
+          Test content
+        </p>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="alert alert fullSize"
+  >
+    <img
+      alt="Alert icon"
+      src="test-file-stub"
+    />
+    <div>
+      <p
+        className="header"
+      >
+        Test header
+      </p>
+      <div
+        className="content"
+      >
+        <p>
+          Test content
+        </p>
+      </div>
+    </div>
+  </div>,
+]
+`;

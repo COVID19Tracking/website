@@ -8,7 +8,7 @@ import {
 } from '~components/common/tablet-disclosure'
 import stateNavStyle from './state-nav.module.scss'
 
-export default ({ stateList, className, externalLinks = false }) => {
+const StateNav = ({ stateList, className, externalLinks = false }) => {
   /*
   Displays a navigation to jump between states.
 
@@ -48,9 +48,9 @@ export default ({ stateList, className, externalLinks = false }) => {
             }
             return (
               <li key={state.state}>
-                <a href={`#state-${state.state.toLowerCase()}`}>
+                <Link to={`#state-${state.state.toLowerCase()}`}>
                   {state.state}
-                </a>
+                </Link>
               </li>
             )
           })}
@@ -59,3 +59,5 @@ export default ({ stateList, className, externalLinks = false }) => {
     </TabletDisclosure>
   )
 }
+
+export default StateNav

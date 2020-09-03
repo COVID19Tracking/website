@@ -7,7 +7,7 @@ import SummaryCharts from '~components/pages/data/summary-charts'
 import StateSummary from '~components/pages/data/summary'
 import StateNotes from '~components/pages/state/state-notes'
 
-const StatePage = ({ pageContext, data, path }) => {
+const StateTemplate = ({ pageContext, data, path }) => {
   const state = pageContext
   const {
     covidState,
@@ -28,7 +28,13 @@ const StatePage = ({ pageContext, data, path }) => {
         history={allCovidStateDaily.nodes}
         usHistory={allCovidUsDaily.nodes}
         annotations={allContentfulEvent}
-        testSource={covidState.totalTestResultsSource}
+        testSource={
+          covidStateInfo.covidTrackingProjectPreferredTotalTestField ===
+          'posNeg'
+            ? 'totalTestResults'
+            : covidStateInfo.covidTrackingProjectPreferredTotalTestField
+        }
+        testUnits={covidStateInfo.covidTrackingProjectPreferredTotalTestUnits}
       />
       <StateNavWrapper stateList={allCovidStateInfo.nodes} single>
         <StateSummary
@@ -44,7 +50,7 @@ const StatePage = ({ pageContext, data, path }) => {
   )
 }
 
-export default StatePage
+export default StateTemplate
 
 export const query = graphql`
   query($state: String!, $sevenDaysAgo: Int) {
@@ -65,6 +71,8 @@ export const query = graphql`
     }
     covidStateInfo(state: { eq: $state }) {
       state
+      covidTrackingProjectPreferredTotalTestField
+      covidTrackingProjectPreferredTotalTestUnits
       childPopulation {
         population
       }
@@ -136,6 +144,7 @@ export const query = graphql`
     ) {
       nodes {
         totalTestResults
+        totalTestEncountersViral
         totalTestEncountersViralIncrease
         totalTestsViralIncrease
         totalTestsPeopleViralIncrease

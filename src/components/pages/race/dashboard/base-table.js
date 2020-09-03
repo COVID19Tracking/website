@@ -1,7 +1,7 @@
 import React from 'react'
 import { StateTable, StateTableHeader, StateTableBody } from './table'
 
-export default ({ data, type, noPositives, noDeaths, rows }) => {
+const BaseTable = ({ data, type, noPositives, noDeaths, rows }) => {
   return (
     <StateTable>
       <StateTableHeader
@@ -20,3 +20,5 @@ export default ({ data, type, noPositives, noDeaths, rows }) => {
     </StateTable>
   )
 }
+
+export default BaseTable

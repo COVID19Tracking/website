@@ -9,7 +9,7 @@ import { DownloadData } from '~components/pages/state/download-data'
 
 const formatNumber = number => <FormatNumber number={number} />
 
-const ContentPage = ({ data }) => (
+const NationalDataPage = ({ data }) => (
   <Layout
     title="US Historical Data"
     path="/data/us-daily"
@@ -54,7 +54,7 @@ const ContentPage = ({ data }) => (
   </Layout>
 )
 
-export default ContentPage
+export default NationalDataPage
 
 export const query = graphql`
   query {

@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default () => {
+const Timezone = () => {
   return (
     <abbr title="Eastern Time" aria-label="Eastern Time">
       ET
     </abbr>
   )
 }
+
+export default Timezone

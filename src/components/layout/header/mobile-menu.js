@@ -7,7 +7,7 @@ import HeaderNavigation from './navigation'
 import headerStyle from './header.module.scss'
 import mobileMenuStyle from './mobile-menu.module.scss'
 
-export default ({ expanded, topNavigation, subNavigation }) => {
+const MobileMenu = ({ expanded, topNavigation, subNavigation }) => {
   const [searchState] = useSearch()
   const { query, isFetching } = searchState
   const [menuHeight, setMenuHeight] = useState({ initial: 0, current: 0 })
@@ -68,3 +68,5 @@ export default ({ expanded, topNavigation, subNavigation }) => {
     </div>
   )
 }
+
+export default MobileMenu
