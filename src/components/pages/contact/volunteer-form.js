@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import isUrl from 'is-url'
 import { Form, Input, Select, List, Textarea } from '~components/common/form'
+import Alert from '~components/common/alert'
 
 const VolunteerForm = () => {
+  const [name, setName] = useState(false)
+  const [email, setEmail] = useState(false)
+  const [url, setUrl] = useState(false)
+  const [skill, setSkill] = useState(false)
+  const [timezone, setTimezone] = useState(false)
+  const [projects, setProjects] = useState(false)
+  const [urlValid, setUrlValid] = useState(false)
+
+  const isComplete = () =>
+    name && email && url && skill && timezone && projects && urlValid
+
   return (
     <Form
       method="POST"
@@ -11,13 +24,21 @@ const VolunteerForm = () => {
       data-netlify="true"
     >
       <input type="hidden" name="form-name" value="volunteer" />
-      <Input label="Name" type="text" name="name" id="name" isRequired />
+      <Input
+        label="Name"
+        type="text"
+        name="name"
+        id="name"
+        isRequired
+        onChange={event => setName(event.target.value)}
+      />
 
       <Input
         label="Email"
         type="email"
         name="email"
         id="email"
+        onChange={event => setEmail(event.target.value)}
         isRequired
         detailText="If possible, this should be a Gmail or Google-linked address,
               since we rely heavily on Google Docs and Sheets. We will show your
@@ -30,9 +51,20 @@ const VolunteerForm = () => {
         type="text"
         name="url"
         id="url"
+        isRequired
+        onChange={event => {
+          setUrl(event.target.value)
+          setUrlValid(isUrl(event.target.value))
+        }}
         detailText="Personal website, LinkedIn, or other website that will tell us
               about you."
       />
+
+      {!urlValid && url && (
+        <div>
+          <Alert>The link you provided is not a valid URL.</Alert>
+        </div>
+      )}
 
       <Select
         label="About how many hours are you available to volunteer each week?"
@@ -63,6 +95,9 @@ const VolunteerForm = () => {
           'Other',
         ]}
         isRequired
+        onChange={event => {
+          setTimezone(event.target.value !== '-- Select time zone --')
+        }}
       />
 
       <List
@@ -84,6 +119,7 @@ const VolunteerForm = () => {
         name="skills"
         id="skills"
         isRequired
+        onChange={event => setSkill(event.target.value)}
         detailText="Examples: Python, SQL, Tableau, data viz, editing, social media,
               public health, research, journalism, etc."
       />
@@ -120,6 +156,8 @@ const VolunteerForm = () => {
         name="why"
         id="why"
         rows="5"
+        isRequired
+        onChange={event => setProjects(event.target.value)}
       />
 
       <Input
@@ -129,6 +167,12 @@ const VolunteerForm = () => {
         name="referred"
       />
 
+      {!isComplete() && (
+        <div>
+          <Alert>Please complete all fields marked as required.</Alert>
+        </div>
+      )}
+
       <div style={{ display: 'none' }}>
         <label htmlFor="covid-bot-field">
           If you are a human, don&#8217;t fill out this field:
@@ -136,7 +180,13 @@ const VolunteerForm = () => {
         </label>
       </div>
 
-      <button type="submit">Apply to volunteer</button>
+      <button
+        disabled={!isComplete()}
+        aria-disabled={!isComplete()}
+        type="submit"
+      >
+        Apply to volunteer
+      </button>
     </Form>
   )
 }
