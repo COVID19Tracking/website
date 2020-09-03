@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react'
 import classnames from 'classnames'
 import tableauStyle from './tableau.module.scss'
 
-export default ({
+const TableauCharts = ({
   id,
   viewUrl,
   height,
@@ -52,3 +52,5 @@ export default ({
     </>
   )
 }
+
+export default TableauCharts

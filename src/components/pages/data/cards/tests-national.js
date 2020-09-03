@@ -8,7 +8,7 @@ import {
   DrillDown,
 } from '~components/common/statistic'
 
-export default ({
+const TestNationalCard = ({
   totalTestResults,
   totalTestResultsIncrease,
   totalTestResulstPercentIncrease,
@@ -20,7 +20,11 @@ export default ({
   return (
     <Card
       title="Tests"
-      link={<Link to="/data/national/tests">Historical data</Link>}
+      link={
+        <Link to="/data/national/tests">
+          Historical data <span className="a11y-only"> for national tests</span>
+        </Link>
+      }
     >
       <CardBody>
         <Statistic title="Total tests" value={totalTestResults}>
@@ -50,3 +54,5 @@ export default ({
     </Card>
   )
 }
+
+export default TestNationalCard

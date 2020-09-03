@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import noDataStyles from './no-data.module.scss'
 import alertBang from '~images/race-dashboard/alert-bang-white.svg'
 
-export default ({ stateName }) => (
+const NoData = ({ stateName }) => (
   <div className={noDataStyles.container}>
     <table className={noDataStyles.table} aria-hidden role="presentation">
       <tbody>
@@ -62,3 +62,5 @@ export default ({ stateName }) => (
     </div>
   </div>
 )
+
+export default NoData

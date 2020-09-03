@@ -4,7 +4,7 @@ import { Card, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
-export default ({
+const TestsViralCard = ({
   stateSlug,
   totalTestEncountersViral,
   totalTestsViral,
@@ -21,7 +21,10 @@ export default ({
     <Card
       title="Viral (PCR) tests"
       link={
-        <Link to={`/data/state/${stateSlug}/tests-viral`}>Historical data</Link>
+        <Link to={`/data/state/${stateSlug}/tests-viral`}>
+          Historical data{' '}
+          <span className="a11y-only"> for viral (PCR) tests</span>
+        </Link>
       }
     >
       <CardBody>
@@ -114,3 +117,5 @@ export default ({
     </Card>
   )
 }
+
+export default TestsViralCard

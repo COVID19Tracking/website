@@ -97,75 +97,82 @@ export default forwardRef(
     const { bestHits, otherHits } = partitionHitsByRelevance(results)
 
     return (
-      <Combobox>
-        <ComboboxInput
-          id={id}
-          ref={searchInputRef}
-          tabIndex={autocompleteHasFocus ? '0' : '-1'}
-          className={classNames(styles.searchInput, {
-            [styles.searchInputFocused]: autocompleteHasFocus,
-          })}
-          autoComplete="off"
-          onChange={event => {
-            setQuery(event.currentTarget.value)
-          }}
-          onKeyDown={event => {
-            if (event.key === 'Enter') {
-              goToResultOrSearch(event.target.value)
-            }
-            if (event.key === 'Escape') {
-              hideAutocomplete()
-            }
-          }}
-          onClick={!autocompleteHasFocus && onClick}
-        />
-        <label htmlFor={id} className={styles.searchLabel}>
+      <>
+        <label htmlFor={id} className="a11y-only">
           Search
         </label>
-        {totalHits && showResults ? (
-          <ComboboxPopover
-            ref={popoverRef}
-            portal={false}
-            id="search-results-popover"
-            className={styles.popover}
-          >
-            {totalHits > 0 ? (
-              <ComboboxList aria-label="Results">
-                {bestHits.length > 0 && (
-                  <li tabIndex="-1" className={styles.popoverSeparator}>
-                    Best results
-                  </li>
-                )}
-                {bestHits.slice(0, 5).map(item => (
-                  <ComboboxOption
-                    key={`${item.slug}`}
-                    value={`${item.type === 'state' ? item.name : item.title}`}
-                    onMouseDown={() => onItemClick(item)}
-                  />
-                ))}
-                {otherHits.length > 0 && (
-                  <li tabIndex="-1" className={styles.popoverSeparator}>
-                    Other results
-                  </li>
-                )}
-                {otherHits.slice(0, 5).map(item => (
-                  <ComboboxOption
-                    key={`${item.slug}`}
-                    value={`${item.type === 'state' ? item.name : item.title}`}
-                    onMouseDown={() => onItemClick(item)}
-                  />
-                ))}
-              </ComboboxList>
-            ) : (
-              <span style={{ display: 'block', marginTop: 5 }}>
-                No results found
-              </span>
-            )}
-          </ComboboxPopover>
-        ) : (
-          false
-        )}
-      </Combobox>
+        <Combobox>
+          <ComboboxInput
+            id={id}
+            ref={searchInputRef}
+            tabIndex={autocompleteHasFocus ? '0' : '-1'}
+            className={classNames(styles.searchInput, {
+              [styles.searchInputFocused]: autocompleteHasFocus,
+            })}
+            autoComplete="off"
+            onChange={event => {
+              setQuery(event.currentTarget.value)
+            }}
+            onKeyDown={event => {
+              if (event.key === 'Enter') {
+                goToResultOrSearch(event.target.value)
+              }
+              if (event.key === 'Escape') {
+                hideAutocomplete()
+              }
+            }}
+            onClick={!autocompleteHasFocus && onClick}
+          />
+          <span className={styles.searchLabel}>Search</span>
+          {totalHits && showResults ? (
+            <ComboboxPopover
+              ref={popoverRef}
+              portal={false}
+              id="search-results-popover"
+              className={styles.popover}
+            >
+              {totalHits > 0 ? (
+                <ComboboxList aria-label="Results">
+                  {bestHits.length > 0 && (
+                    <li tabIndex="-1" className={styles.popoverSeparator}>
+                      Best results
+                    </li>
+                  )}
+                  {bestHits.slice(0, 5).map(item => (
+                    <ComboboxOption
+                      key={`${item.slug}`}
+                      value={`${
+                        item.type === 'state' ? item.name : item.title
+                      }`}
+                      onMouseDown={() => onItemClick(item)}
+                    />
+                  ))}
+                  {otherHits.length > 0 && (
+                    <li tabIndex="-1" className={styles.popoverSeparator}>
+                      Other results
+                    </li>
+                  )}
+                  {otherHits.slice(0, 5).map(item => (
+                    <ComboboxOption
+                      key={`${item.slug}`}
+                      value={`${
+                        item.type === 'state' ? item.name : item.title
+                      }`}
+                      onMouseDown={() => onItemClick(item)}
+                    />
+                  ))}
+                </ComboboxList>
+              ) : (
+                <span style={{ display: 'block', marginTop: 5 }}>
+                  No results found
+                </span>
+              )}
+            </ComboboxPopover>
+          ) : (
+            false
+          )}
+        </Combobox>
+      </>
     )
   },
 )

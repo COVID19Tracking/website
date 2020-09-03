@@ -5,7 +5,7 @@ import TableOfContents from '~components/common/table-of-contents'
 import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 
-const ContentPage = ({ data, path }) => {
+const ContentPageTemplate = ({ data, path }) => {
   const { contentfulPage } = data
   return (
     <Layout
@@ -36,7 +36,7 @@ const ContentPage = ({ data, path }) => {
   )
 }
 
-export default ContentPage
+export default ContentPageTemplate
 
 export const query = graphql`
   query($id: String!) {

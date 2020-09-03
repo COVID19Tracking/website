@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import subNavigationStyle from './sub-navigation.module.scss'
 
-export default ({ navigation }) => (
+const SubNavigation = ({ navigation }) => (
   <div className={`site-header-tabs ${subNavigationStyle.headerTabs}`}>
     <ul>
       {navigation.slice(navigation.length * -1 + 1).map(item => (
@@ -17,3 +17,5 @@ export default ({ navigation }) => (
     </ul>
   </div>
 )
+
+export default SubNavigation

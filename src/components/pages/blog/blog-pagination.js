@@ -8,7 +8,7 @@ import doubleCaretInactive from '~images/icons/double-caret-inactive.svg'
 
 import blogPaginationStyle from './blog-pagination.module.scss'
 
-export default ({ currentPage, numPages }) => {
+const BlogPagination = ({ currentPage, numPages }) => {
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
   const prevPage =
@@ -76,3 +76,5 @@ export default ({ currentPage, numPages }) => {
     </Container>
   )
 }
+
+export default BlogPagination

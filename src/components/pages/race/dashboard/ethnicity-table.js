@@ -1,7 +1,14 @@
 import React from 'react'
 import BaseTable from './base-table'
 
-export default ({ data, type, notes, groupedNotes, noPositives, noDeaths }) => {
+const EthnicityTable = ({
+  data,
+  type,
+  notes,
+  groupedNotes,
+  noPositives,
+  noDeaths,
+}) => {
   const rows = [
     {
       group: 'Hispanic or Latino',
@@ -54,3 +61,5 @@ export default ({ data, type, notes, groupedNotes, noPositives, noDeaths }) => {
     />
   )
 }
+
+export default EthnicityTable

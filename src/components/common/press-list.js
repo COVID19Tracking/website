@@ -1,9 +1,16 @@
 import React from 'react'
 import pressListStyle from './press-list.module.scss'
-import { PublicationTitle, PublicationSource } from './publication'
 import DetailText from './detail-text'
 
-export default ({ items }) => {
+const PublicationTitle = ({ children }) => (
+  <cite className={pressListStyle.title}>{children}</cite>
+)
+
+const PublicationSource = ({ children }) => (
+  <span className={pressListStyle.source}>{children}</span>
+)
+
+const PressList = ({ items }) => {
   return (
     <ul className={`press-list ${pressListStyle.pressList}`}>
       {items.map(node => (
@@ -23,3 +30,5 @@ export default ({ items }) => {
     </ul>
   )
 }
+
+export default PressList

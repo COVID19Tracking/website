@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './toggle.module.scss'
 
-export default ({ options, state, setState }) => {
+const Toggle = ({ options, state, setState }) => {
   const toggleState = () => setState(!state)
   return (
     <div
@@ -22,3 +22,5 @@ export default ({ options, state, setState }) => {
     </div>
   )
 }
+
+export default Toggle

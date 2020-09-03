@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery } from 'gatsby'
-import RelatedPosts from '~components/pages/blog/related-posts'
+import RelatedPosts from '~components/pages/blog/footer/related-posts'
 
 describe('Components : Pages : Blog : Related Posts : Recent Posts', () => {
   it('renders correctly', () => {

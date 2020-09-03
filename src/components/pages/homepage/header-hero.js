@@ -2,7 +2,7 @@ import React from 'react'
 import Container from '~components/common/landing-page/container'
 import heroStyle from './header-hero.module.scss'
 
-export default () => {
+const HomepageHeaderHero = () => {
   return (
     <div className={`hero ${heroStyle.hero}`}>
       <Container>
@@ -19,3 +19,5 @@ export default () => {
     </div>
   )
 }
+
+export default HomepageHeaderHero
