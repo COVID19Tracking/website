@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import isUrl from 'is-url'
 import { Form, Input, Select, List, Textarea } from '~components/common/form'
-import { AlertInfobox } from '~components/common/infobox'
+import Alert from '~components/common/alert'
 
 const VolunteerForm = () => {
   const [name, setName] = useState(false)
@@ -62,7 +62,7 @@ const VolunteerForm = () => {
 
       {!urlValid && url && (
         <div>
-          <AlertInfobox>The link you provided is not a valid URL.</AlertInfobox>
+          <Alert>The link you provided is not a valid URL.</Alert>
         </div>
       )}
 
@@ -169,9 +169,7 @@ const VolunteerForm = () => {
 
       {!isComplete() && (
         <div>
-          <AlertInfobox>
-            Please complete all fields marked as required.
-          </AlertInfobox>
+          <Alert>Please complete all fields marked as required.</Alert>
         </div>
       )}
 
