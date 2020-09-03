@@ -10,7 +10,12 @@ const HomepageLargeDataset = () => {
       file(relativePath: { regex: "/john-hopkins-chart.png/" }) {
         relativePath
         childImageSharp {
-          fluid(maxWidth: 1200, traceSVG: { color: "#FCC98E" }) {
+          fluid(
+            maxWidth: 900
+            webpQuality: 70
+            toFormat: WEBP
+            traceSVG: { color: "#FCC98E" }
+          ) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
