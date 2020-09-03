@@ -47,7 +47,7 @@
     "eslint-config-airbnb": "^18.1.0",
     "eslint-loader": "^3.0.3",
     "fs-extra": "^9.0.0",
-    "gatsby": "^2.23.22",
+    "gatsby": "^2.24.53",
     "gatsby-image": "^2.2.44",
     "gatsby-plugin-algolia": "^0.7.0",
     "gatsby-plugin-eslint": "^2.0.8",
