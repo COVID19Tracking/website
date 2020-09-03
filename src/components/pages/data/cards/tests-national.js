@@ -20,7 +20,11 @@ const TestNationalCard = ({
   return (
     <Card
       title="Tests"
-      link={<Link to="/data/national/tests">Historical data</Link>}
+      link={
+        <Link to="/data/national/tests">
+          Historical data <span className="a11y-only"> for national tests</span>
+        </Link>
+      }
     >
       <CardBody>
         <Statistic title="Total tests" value={totalTestResults}>

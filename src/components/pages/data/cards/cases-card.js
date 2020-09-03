@@ -33,7 +33,7 @@ const CasesCard = ({
             national ? '/data/national/cases' : `/data/state/${stateSlug}/cases`
           }
         >
-          Historical data
+          Historical data <span className="a11y-only"> for cases</span>
         </Link>
       }
     >

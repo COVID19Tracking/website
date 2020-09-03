@@ -12,8 +12,12 @@ const HomepageLargeProject = () => {
       file(relativePath: { regex: "/project-large.png/" }) {
         relativePath
         childImageSharp {
-          fluid(maxWidth: 1200, traceSVG: { color: "#E2D2CE" }) {
-            ...GatsbyImageSharpFluid_tracedSVG
+          fluid(
+            maxWidth: 900
+            webpQuality: 70
+            traceSVG: { color: "#E2D2CE" }
+          ) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }

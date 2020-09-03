@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import ReCaptcha from 'react-recaptcha'
 import Layout from '~components/layout'
 import { Form, Textarea, Input, Select, List } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
@@ -100,17 +99,6 @@ const ContactPage = ({ data }) => {
           isRequired
           onChange={event => setMessage(event.target.value)}
         />
-        <div>
-          {typeof window !== 'undefined' && (
-            <ReCaptcha
-              sitekey={data.site.siteMetadata.recaptchaKey}
-              render="explicit"
-              elementID={`contact-form-captcha-${Math.round(
-                Math.random() * 1000,
-              )}`}
-            />
-          )}
-        </div>
 
         <input
           type="text"
@@ -152,11 +140,6 @@ export default ContactPage
 
 export const query = graphql`
   query {
-    site {
-      siteMetadata {
-        recaptchaKey
-      }
-    }
     allCovidStateInfo(sort: { fields: name }) {
       nodes {
         name
