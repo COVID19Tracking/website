@@ -6,7 +6,12 @@ import lastUpdatedStyle from './last-updated.module.scss'
 
 // date format matches stats.lastUpdateEt
 const LastUpdated = ({ date, national }) => (
-  <p className={classnames(lastUpdatedStyle.lastUpdated, national && lastUpdatedStyle.national}>
+  <p
+    className={classnames(
+      lastUpdatedStyle.lastUpdated,
+      national && lastUpdatedStyle.national,
+    )}
+  >
     {national ? <>Data for</> : <>State’s dataset was last updated at</>}{' '}
     {national ? (
       date
