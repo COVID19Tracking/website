@@ -11,6 +11,7 @@ executors:
       - image: circleci/node:10.19.0
         environment:
           TZ: 'America/New_York'
+          NODE_OPTIONS: '--max_old_space_size=4096'
     working_directory: *workspace_root
 
 jobs:
