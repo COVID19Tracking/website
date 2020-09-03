@@ -3,9 +3,9 @@
 exports[`Components : Common: Last updated renders correctly 1`] = `
 Array [
   <p
-    className="lastUpdated"
+    className="lastUpdated national"
   >
-    Our dataset was last updated at
+    Data for
      
     Aug 18 2020
   </p>,
@@ -14,7 +14,7 @@ Array [
   >
     State’s dataset was last updated at
      
-    8/18/20 12:00 am
+    Aug 18, 2020 12:00 am
      
     <abbr
       aria-label="Eastern Time"

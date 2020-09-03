@@ -17,7 +17,7 @@ const LastUpdated = ({ date, national }) => (
       date
     ) : (
       <>
-        <FormatDate date={date} format="LLL d yyyy h:mm a" /> <Timezone />
+        <FormatDate date={date} format="LLL d, yyyy h:mm a" /> <Timezone />
       </>
     )}
   </p>
