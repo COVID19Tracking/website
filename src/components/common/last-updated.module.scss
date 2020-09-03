@@ -1,4 +1,6 @@
 .last-updated {
   color: $color-slate-700;
-  font-weight: bold;
+  &.national {
+    font-weight: bold;
+  }
 }

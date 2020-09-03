@@ -34,7 +34,7 @@ const DataPage = ({ data }) => {
       <DownloadDataRow
         slug="all-states"
         lastUpdateEt={DateTime.fromISO(data.lastUpdate.nodes[0].date).toFormat(
-          'LLL d yyyy',
+          'LLLL d yyyy',
         )}
         national
       />
