@@ -35,7 +35,7 @@ const OutcomesCard = ({
               : `/data/state/${stateSlug}/outcomes`
           }
         >
-          Historical data
+          Historical data <span className="a11y-only"> for outcomes</span>
         </Link>
       }
     >

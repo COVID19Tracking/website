@@ -12,7 +12,7 @@ const TestAntibodyCard = ({ stateSlug, totalTestsAntibody }) => {
       title="Antibody tests"
       link={
         <Link to={`/data/state/${stateSlug}/tests-antibody`}>
-          Historical data
+          Historical data <span className="a11y-only"> for antibody tests</span>
         </Link>
       }
     >

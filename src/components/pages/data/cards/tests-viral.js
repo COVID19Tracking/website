@@ -21,7 +21,10 @@ const TestsViralCard = ({
     <Card
       title="Viral (PCR) tests"
       link={
-        <Link to={`/data/state/${stateSlug}/tests-viral`}>Historical data</Link>
+        <Link to={`/data/state/${stateSlug}/tests-viral`}>
+          Historical data{' '}
+          <span className="a11y-only"> for viral (PCR) tests</span>
+        </Link>
       }
     >
       <CardBody>

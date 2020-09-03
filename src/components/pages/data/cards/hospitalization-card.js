@@ -35,7 +35,8 @@ const HospitalizationCard = ({
               : `/data/state/${stateSlug}/hospitalization`
           }
         >
-          Historical data
+          Historical data{' '}
+          <span className="a11y-only"> for hospitalization</span>
         </Link>
       }
     >
