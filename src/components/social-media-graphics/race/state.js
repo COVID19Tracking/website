@@ -9,7 +9,8 @@ import { stringifyList } from '~utilities/list-formatter'
 import { FormatNumber } from '~components/utils/format'
 import Percent from '~components/pages/race/dashboard/percent'
 
-import logo from '~images/project-logo-black.svg'
+import Logo from '~images/ctp-icon-small.png'
+import CarLogo from '~images/car-logo-small.png'
 import socialCardStyle from './state.module.scss'
 
 const StateRaceSocialCard = renderedComponent(({ state, population }) => {
@@ -112,12 +113,26 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
       ? 'The District of Columbia'
       : state.stateName
 
+  const today = new Date()
+
+  const raceDict = {
+    Black: 'Black/African American',
+    'Hispanic/Latino': 'Hispanic/Latino',
+    All: 'All',
+    Asian: 'Asian',
+    AIAN: 'American Indian or Alaska Native',
+    White: 'White',
+    NHPI: 'Native Hawaiian and Pacific Islander',
+  }
+
   return (
     <div className={socialCardStyle.container}>
       <div className={socialCardStyle.grid}>
         <span />
         <p className={socialCardStyle.header}>
-          In <strong>{stateName}</strong>,{' '}
+          In <strong>{stateName}</strong>, as of{' '}
+          {today.toLocaleString('default', { month: 'long' })} {today.getDate()}
+          ,{' '}
           {affectedGroups && affectedGroups.length ? (
             <>
               infection and death rates among{' '}
@@ -150,7 +165,7 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
         </span>
         {groups.map(({ label, style, cases, deaths }) => (
           <>
-            <span className={socialCardStyle.barLabel}>{label}</span>
+            <span className={socialCardStyle.barLabel}>{raceDict[label]}</span>
             <div
               className={classnames(socialCardStyle.bar, style)}
               style={{ width: getWidth(cases, largestCases) }}
@@ -169,27 +184,28 @@ const StateRaceSocialCard = renderedComponent(({ state, population }) => {
             </div>
           </>
         ))}
+        <p className={socialCardStyle.percent}>
+          {state.knownRaceEthPos ? (
+            <>
+              <strong>Notes: </strong> {stateName} has reported race and
+              ethnicity data for <Percent number={state.knownRaceEthPos} /> of
+              cases and <Percent number={state.knownRaceEthDeath} /> of deaths.
+            </>
+          ) : (
+            <>
+              <strong>Notes: </strong> {stateName} has reported race data for{' '}
+              <Percent number={state.knownRacePos} /> of cases and{' '}
+              <Percent number={state.knownRaceDeath} /> of deaths, and ethnicity
+              data for <Percent number={state.knownEthPos} /> of cases and{' '}
+              <Percent number={state.knownEthDeath} /> of deaths.
+            </>
+          )}{' '}
+          Graphic only includes demographic groups reported by the state.
+        </p>
       </div>
 
-      <p className={socialCardStyle.percent}>
-        {state.knownRaceEthPos ? (
-          <>
-            {stateName} has reported race and ethnicity data for{' '}
-            <Percent number={state.knownRaceEthPos} /> of cases and{' '}
-            <Percent number={state.knownRaceEthDeath} /> of deaths.
-          </>
-        ) : (
-          <>
-            {stateName} has reported race data for{' '}
-            <Percent number={state.knownRacePos} /> of cases and{' '}
-            <Percent number={state.knownRaceDeath} /> of deaths, and ethnicity
-            data for <Percent number={state.knownEthPos} /> of cases and{' '}
-            <Percent number={state.knownEthDeath} /> of deaths.
-          </>
-        )}
-        TODO TODO copy about removing missing rate/ethnicity data TODO TODO
-      </p>
-      <img src={logo} alt="" className={socialCardStyle.logo} />
+      <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
+      <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
     </div>
   )
 })
@@ -321,8 +337,8 @@ export default () => {
             ).childPopulation.population
           }
           renderOptions={{
-            width: 1300,
-            height: 630,
+            width: 900,
+            height: 472.5,
             relativePath: 'race-dashboard',
             filename: `${state.childSlug.slug}`,
           }}
