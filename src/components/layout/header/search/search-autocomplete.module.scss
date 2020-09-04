@@ -59,7 +59,7 @@
     color: $placeholder;
   }
 
-  + label {
+  .search-label {
     display: inline;
     @media (max-width: $viewport-lg) {
       color: $color-plum-500;
