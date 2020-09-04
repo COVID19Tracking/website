@@ -4,14 +4,16 @@ import TableauChart from '~components/charts/tableau'
 import ChartList from '~components/pages/data/charts/chart-list'
 import Layout from '../components/layout'
 
-const ChartPage = ({ data, path }) => {
+const ChartPageTemplate = ({ data, path }) => {
   const chart = data.contentfulChart
   return (
     <Layout
       title={chart.title}
       path={path}
-      returnLink="/data/charts"
-      returnLinkTitle="All charts"
+      returnLinks={[
+        { link: '/data' },
+        { link: '/data/charts', title: 'All Charts' },
+      ]}
     >
       <div
         className="a11y-only"
@@ -34,7 +36,7 @@ const ChartPage = ({ data, path }) => {
   )
 }
 
-export default ChartPage
+export default ChartPageTemplate
 
 export const query = graphql`
   query($id: String!) {

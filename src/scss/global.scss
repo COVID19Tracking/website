@@ -142,3 +142,7 @@ h4 {
 h5 {
   @include type-size(300);
 }
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}

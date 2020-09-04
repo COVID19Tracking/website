@@ -8,6 +8,9 @@
   a {
     @include type-size(100);
     color: $color-plum-700;
+  }
+
+  h3 {
     line-height: 1.6;
   }
 
@@ -17,27 +20,22 @@
   }
 }
 
-.header,
 .category {
   @include padding(16, (left, right));
-}
+  @include padding(8, top);
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  a {
+    line-height: 0.8;
 
-  background: transparent;
-  border: none;
-  width: 100%;
-
-  h3 {
-    margin: 0;
-    @media (max-width: $viewport-lg) {
-      font-size: 1rem;
-      line-height: 2rem;
+    .category-text {
+      line-height: 1.4;
+      @include margin(0);
     }
   }
+}
+
+.category {
+  @include padding(8, top);
 }
 
 .category-list {
@@ -46,8 +44,6 @@
   @include padding(0, left);
   @include margin(0, bottom);
   @include margin(8, top);
-
-  display: none;
 
   li {
     @media (max-width: $viewport-lg) {
@@ -65,50 +61,5 @@
 
   @media (min-width: $viewport-lg) {
     display: block;
-  }
-}
-
-.caret {
-  background: none;
-  border: none;
-  box-shadow: none;
-  position: relative;
-  padding: 0;
-
-  z-index: 1;
-  cursor: pointer;
-  top: 3px;
-
-  background-color: $color-plum-200;
-  border-radius: 50%;
-  height: 14px;
-  width: 14px;
-
-  margin-bottom: spacer(4);
-
-  @media (min-width: $viewport-lg) {
-    display: none;
-  }
-
-  svg {
-    fill: $color-plum-700;
-
-    transform: rotate(-180deg);
-    transition: transform 0.2s ease-in;
-    transform-origin: center;
-
-    position: absolute;
-    top: 5px;
-    left: 3px;
-
-    transition: top 0.2s ease-in;
-  }
-
-  &[aria-expanded='true'] svg {
-    top: 4px;
-    transform: rotate(0deg);
-    transition: top 0.2s ease-out;
-    transform-origin: center;
-    transition: transform 0.2s ease-out;
   }
 }

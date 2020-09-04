@@ -1,0 +1,71 @@
+.card {
+  @media (min-width: $viewport-md) {
+    border: 2px solid $color-slate-200;
+  }
+  .header {
+    background: $color-plum-100;
+    @include padding(16, (left, right));
+    @include padding(8, (top, bottom));
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .link {
+    @include type-size(50);
+    a {
+      color: $color-plum-600;
+    }
+  }
+  .title {
+    @include type-size(200);
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.4;
+  }
+  .body {
+    @include padding(16, top bottom);
+    @media (min-width: $viewport-md) {
+      @include padding(16);
+    }
+  }
+}
+
+.note {
+  @include type-size(100);
+  color: $color-slate-700;
+  margin: 0;
+}
+
+.disclosure {
+  @include margin(8, top);
+  @include padding(8, top);
+  border-top: 1px solid $color-slate-200;
+  button[aria-controls] {
+    background: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-align: left;
+    border: 0;
+    display: block;
+    padding: 0;
+    margin: 0;
+    @include type-size(100);
+    cursor: pointer;
+    .closed {
+      display: inline-block;
+    }
+    .expanded {
+      display: none;
+    }
+    &[aria-expanded='true'] {
+      .closed {
+        display: none;
+      }
+      .expanded {
+        display: inline-block;
+      }
+    }
+  }
+}

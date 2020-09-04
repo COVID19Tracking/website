@@ -1,45 +1,162 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components : Pages : Data : Navigation with JS enabled renders correctly 1`] = `
+exports[`Components : Pages : Data : State navigation renders correctly 1`] = `
 <div
-  className="state-nav-header stateNav"
+  className="headerContainer"
 >
   <div
-    className="stateNavInner"
+    className="states"
   >
     <h2
-      id="states-top"
-    />
-    <div
-      className="js-enabled state-nav-combobox stateNavCombobox"
+      className="title"
     >
-      <label
-        htmlFor="jump-to-state"
+      Data by State
+    </h2>
+    <div
+      className="statesWrapper"
+    >
+      <p>
+        Child paragraph
+      </p>
+    </div>
+  </div>
+  <div
+    className="container sidebar topMargin"
+  >
+    <div
+      className="container sticky"
+    >
+      <button
+        aria-expanded={false}
+        className="header header"
+        onClick={[Function]}
+        type="button"
       >
-        Type a state’s name to jump to it:
-      </label>
-      <div>
-        <label
-          className="a11y-only"
-          htmlFor="jump-to-state"
+        <h3>
+          Jump to a state
+        </h3>
+        <div
+          aria-expanded={false}
+          className="caret"
         >
-          Jump to state or territory
-        </label>
-        <form>
-          <input
-            type="text"
-          />
-        </form>
-        <div>
-          <ul>
-            <li />
-            <li />
-          </ul>
+          <svg
+            aria-hidden={true}
+            fill="none"
+            height="6"
+            viewBox="0 0 8 6"
+            width="8"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.146447 4.81307C-0.0488155 5.00833 -0.0488155 5.32492 0.146447 5.52018C0.341709 5.71544 0.658291 5.71544 0.853553 5.52018L0.146447 4.81307ZM4 1.66663L4.35355 1.31307L4 0.959519L3.64645 1.31307L4 1.66663ZM7.14645 5.52018C7.34171 5.71544 7.65829 5.71544 7.85355 5.52018C8.04882 5.32492 8.04882 5.00833 7.85355 4.81307L7.14645 5.52018ZM0.853553 5.52018L4.35355 2.02018L3.64645 1.31307L0.146447 4.81307L0.853553 5.52018ZM3.64645 2.02018L7.14645 5.52018L7.85355 4.81307L4.35355 1.31307L3.64645 2.02018Z"
+            />
+          </svg>
+          <span
+            className="a11y-only"
+          >
+            hide/show categories
+          </span>
         </div>
+      </button>
+      <div
+        className="content content"
+      >
+        <ul>
+          <li>
+            <a
+              href="#state-ca"
+            >
+              CA
+            </a>
+          </li>
+          <li>
+            <a
+              href="#state-nm"
+            >
+              NM
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Components : Pages : Data : Navigation with JS enabled search for states 1`] = `"{\\"state\\":\\"AK\\",\\"name\\":\\"Alaska\\"}"`;
+exports[`Components : Pages : Data : State navigation renders correctly 2`] = `
+<div
+  className="headerContainer"
+>
+  <div
+    className="states"
+  >
+    <div
+      className="statesWrapper"
+    >
+      <p>
+        Child paragraph
+      </p>
+    </div>
+  </div>
+  <div
+    className="container sidebar"
+  >
+    <div
+      className="container sticky"
+    >
+      <button
+        aria-expanded={false}
+        className="header header"
+        onClick={[Function]}
+        type="button"
+      >
+        <h3>
+          Jump to a state
+        </h3>
+        <div
+          aria-expanded={false}
+          className="caret"
+        >
+          <svg
+            aria-hidden={true}
+            fill="none"
+            height="6"
+            viewBox="0 0 8 6"
+            width="8"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.146447 4.81307C-0.0488155 5.00833 -0.0488155 5.32492 0.146447 5.52018C0.341709 5.71544 0.658291 5.71544 0.853553 5.52018L0.146447 4.81307ZM4 1.66663L4.35355 1.31307L4 0.959519L3.64645 1.31307L4 1.66663ZM7.14645 5.52018C7.34171 5.71544 7.65829 5.71544 7.85355 5.52018C8.04882 5.32492 8.04882 5.00833 7.85355 4.81307L7.14645 5.52018ZM0.853553 5.52018L4.35355 2.02018L3.64645 1.31307L0.146447 4.81307L0.853553 5.52018ZM3.64645 2.02018L7.14645 5.52018L7.85355 4.81307L4.35355 1.31307L3.64645 2.02018Z"
+            />
+          </svg>
+          <span
+            className="a11y-only"
+          >
+            hide/show categories
+          </span>
+        </div>
+      </button>
+      <div
+        className="content content"
+      >
+        <ul>
+          <li>
+            <a
+              href="/data/state/california"
+            >
+              CA
+            </a>
+          </li>
+          <li>
+            <a
+              href="/data/state/new-mexico"
+            >
+              NM
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;

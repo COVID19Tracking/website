@@ -33,6 +33,12 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             className="search"
             onBlur={[Function]}
           >
+            <label
+              className="a11y-only"
+              htmlFor="header-search-autocomplete-mobile"
+            >
+              Search
+            </label>
             <div
               data-reach-combobox=""
             >
@@ -54,12 +60,11 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 tabIndex="-1"
                 value=""
               />
-              <label
+              <span
                 className="searchLabel"
-                htmlFor="header-search-autocomplete-mobile"
               >
                 Search
-              </label>
+              </span>
             </div>
             <button
               aria-label="Submit search"
@@ -86,6 +91,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
           >
             <li
               className="menuItem"
+              role="none"
             >
               <div
                 className="navLabel"
@@ -192,6 +198,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             </li>
             <li
               className="menuItem"
+              role="none"
             >
               <div
                 className="navLabel"
@@ -258,6 +265,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             >
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -364,6 +372,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
               </li>
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -388,6 +397,12 @@ exports[`Components : Layout : Header renders correctly 1`] = `
               className="search"
               onBlur={[Function]}
             >
+              <label
+                className="a11y-only"
+                htmlFor="header-search-autocomplete"
+              >
+                Search
+              </label>
               <div
                 data-reach-combobox=""
               >
@@ -409,12 +424,11 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                   tabIndex="-1"
                   value=""
                 />
-                <label
+                <span
                   className="searchLabel"
-                  htmlFor="header-search-autocomplete"
                 >
                   Search
-                </label>
+                </span>
               </div>
               <button
                 aria-label="Submit search"
@@ -510,6 +524,12 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             className="search"
             onBlur={[Function]}
           >
+            <label
+              className="a11y-only"
+              htmlFor="header-search-autocomplete-mobile"
+            >
+              Search
+            </label>
             <div
               data-reach-combobox=""
             >
@@ -531,12 +551,11 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                 tabIndex="-1"
                 value=""
               />
-              <label
+              <span
                 className="searchLabel"
-                htmlFor="header-search-autocomplete-mobile"
               >
                 Search
-              </label>
+              </span>
             </div>
             <button
               aria-label="Submit search"
@@ -563,6 +582,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
           >
             <li
               className="menuItem"
+              role="none"
             >
               <div
                 className="navLabel"
@@ -669,6 +689,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             </li>
             <li
               className="menuItem"
+              role="none"
             >
               <div
                 className="navLabel"
@@ -735,6 +756,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             >
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -841,6 +863,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
               </li>
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -865,6 +888,12 @@ exports[`Components : Layout : Header renders correctly 2`] = `
               className="search"
               onBlur={[Function]}
             >
+              <label
+                className="a11y-only"
+                htmlFor="header-search-autocomplete"
+              >
+                Search
+              </label>
               <div
                 data-reach-combobox=""
               >
@@ -886,12 +915,11 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                   tabIndex="-1"
                   value=""
                 />
-                <label
+                <span
                   className="searchLabel"
-                  htmlFor="header-search-autocomplete"
                 >
                   Search
-                </label>
+                </span>
               </div>
               <button
                 aria-label="Submit search"
@@ -987,6 +1015,12 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             className="search"
             onBlur={[Function]}
           >
+            <label
+              className="a11y-only"
+              htmlFor="header-search-autocomplete-mobile"
+            >
+              Search
+            </label>
             <div
               data-reach-combobox=""
             >
@@ -1008,12 +1042,11 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 tabIndex="-1"
                 value=""
               />
-              <label
+              <span
                 className="searchLabel"
-                htmlFor="header-search-autocomplete-mobile"
               >
                 Search
-              </label>
+              </span>
             </div>
             <button
               aria-label="Submit search"
@@ -1040,6 +1073,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
           >
             <li
               className="menuItem"
+              role="none"
             >
               <div
                 className="navLabel"
@@ -1146,6 +1180,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             </li>
             <li
               className="menuItem"
+              role="none"
             >
               <div
                 className="navLabel"
@@ -1212,6 +1247,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             >
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -1318,6 +1354,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
               </li>
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -1342,6 +1379,12 @@ exports[`Components : Layout : Header renders correctly 3`] = `
               className="search"
               onBlur={[Function]}
             >
+              <label
+                className="a11y-only"
+                htmlFor="header-search-autocomplete"
+              >
+                Search
+              </label>
               <div
                 data-reach-combobox=""
               >
@@ -1363,12 +1406,11 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                   tabIndex="-1"
                   value=""
                 />
-                <label
+                <span
                   className="searchLabel"
-                  htmlFor="header-search-autocomplete"
                 >
                   Search
-                </label>
+                </span>
               </div>
               <button
                 aria-label="Submit search"
@@ -1468,6 +1510,12 @@ exports[`Components : Layout : Header renders correctly 4`] = `
             className="search"
             onBlur={[Function]}
           >
+            <label
+              className="a11y-only"
+              htmlFor="header-search-autocomplete-mobile"
+            >
+              Search
+            </label>
             <div
               data-reach-combobox=""
             >
@@ -1489,12 +1537,11 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                 tabIndex="-1"
                 value=""
               />
-              <label
+              <span
                 className="searchLabel"
-                htmlFor="header-search-autocomplete-mobile"
               >
                 Search
-              </label>
+              </span>
             </div>
             <button
               aria-label="Submit search"
@@ -1521,6 +1568,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
           >
             <li
               className="menuItem"
+              role="none"
             >
               <div
                 className="navLabel"
@@ -1627,6 +1675,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
             </li>
             <li
               className="menuItem"
+              role="none"
             >
               <div
                 className="navLabel"
@@ -1693,6 +1742,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
             >
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -1799,6 +1849,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
               </li>
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -1823,6 +1874,12 @@ exports[`Components : Layout : Header renders correctly 4`] = `
               className="search"
               onBlur={[Function]}
             >
+              <label
+                className="a11y-only"
+                htmlFor="header-search-autocomplete"
+              >
+                Search
+              </label>
               <div
                 data-reach-combobox=""
               >
@@ -1844,12 +1901,11 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                   tabIndex="-1"
                   value=""
                 />
-                <label
+                <span
                   className="searchLabel"
-                  htmlFor="header-search-autocomplete"
                 >
                   Search
-                </label>
+                </span>
               </div>
               <button
                 aria-label="Submit search"
@@ -1945,6 +2001,12 @@ exports[`Components : Layout : Header renders correctly 5`] = `
             className="search"
             onBlur={[Function]}
           >
+            <label
+              className="a11y-only"
+              htmlFor="header-search-autocomplete-mobile"
+            >
+              Search
+            </label>
             <div
               data-reach-combobox=""
             >
@@ -1966,12 +2028,11 @@ exports[`Components : Layout : Header renders correctly 5`] = `
                 tabIndex="-1"
                 value=""
               />
-              <label
+              <span
                 className="searchLabel"
-                htmlFor="header-search-autocomplete-mobile"
               >
                 Search
-              </label>
+              </span>
             </div>
             <button
               aria-label="Submit search"
@@ -1998,6 +2059,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
           >
             <li
               className="menuItem"
+              role="none"
             >
               <div
                 className="navLabel"
@@ -2104,6 +2166,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
             </li>
             <li
               className="menuItem"
+              role="none"
             >
               <div
                 className="navLabel"
@@ -2170,6 +2233,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
             >
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -2276,6 +2340,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
               </li>
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -2300,6 +2365,12 @@ exports[`Components : Layout : Header renders correctly 5`] = `
               className="search"
               onBlur={[Function]}
             >
+              <label
+                className="a11y-only"
+                htmlFor="header-search-autocomplete"
+              >
+                Search
+              </label>
               <div
                 data-reach-combobox=""
               >
@@ -2321,12 +2392,11 @@ exports[`Components : Layout : Header renders correctly 5`] = `
                   tabIndex="-1"
                   value=""
                 />
-                <label
+                <span
                   className="searchLabel"
-                  htmlFor="header-search-autocomplete"
                 >
                   Search
-                </label>
+                </span>
               </div>
               <button
                 aria-label="Submit search"

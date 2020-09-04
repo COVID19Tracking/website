@@ -1,3 +1,15 @@
 .container {
   margin-left: 0;
+  @include margin(16, top bottom);
+
+  div {
+    display: inline;
+    p {
+      display: block;
+    }
+  }
+}
+
+.label {
+  font-weight: bold;
 }

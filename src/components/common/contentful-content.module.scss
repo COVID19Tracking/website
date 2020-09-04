@@ -2,7 +2,7 @@
   color: white;
   background: $color-plum-700;
 }
-.edit-raw {
+.edit-inline {
   @extend %edit-color;
   padding: spacer(4) spacer(8);
 }
@@ -12,4 +12,28 @@
   margin: spacer(32) 0;
   padding: spacer(8) 0;
   text-align: center;
+}
+
+.content {
+  h2 {
+    line-height: 1.25;
+
+    @include type-size(500);
+    @media (min-width: $viewport-md) {
+      @include type-size(600);
+    }
+  }
+
+  h2:first-child {
+    margin-top: 0;
+  }
+
+  h3 {
+    @include type-size(400);
+    margin: spacer(32) 0 spacer(4);
+  }
+
+  li {
+    @include margin(16, bottom);
+  }
 }

@@ -7,7 +7,7 @@ import linkIcon from '~images/social-shares/link.svg'
 
 import socialSharingStyles from './social-sharing.module.scss'
 
-export default ({ shares, url, text }) => {
+const SocialSharing = ({ shares, url, text, twitterText }) => {
   const [isCopied, setIsCopied] = useState(false)
 
   const types = {
@@ -15,23 +15,12 @@ export default ({ shares, url, text }) => {
       icon: facebookIcon,
       alt: 'Share on Facebook',
       url: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-      onClick: () => {
-        if (typeof window.fathom === 'undefined') {
-          return
-        }
-        window.fathom.trackGoal('YKSOXMEH', 0)
-      },
     },
     twitter: {
       icon: twitterIcon,
       alt: 'Share on Twitter',
-      url: `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
-      onClick: () => {
-        if (typeof window.fathom === 'undefined') {
-          return
-        }
-        window.fathom.trackGoal('IHAJXRX2', 0)
-      },
+      url: `https://twitter.com/intent/tweet?url=${url}&text=${twitterText ||
+        text}`,
     },
     link: {
       icon: linkIcon,
@@ -44,10 +33,6 @@ export default ({ shares, url, text }) => {
         setTimeout(() => {
           setIsCopied(false) // revert state in 4s
         }, 4000)
-        if (typeof window.fathom === 'undefined') {
-          return
-        }
-        window.fathom.trackGoal('0CCM0GL4', 0)
       },
     },
   }
@@ -63,6 +48,7 @@ export default ({ shares, url, text }) => {
           href={types[share].url}
           onClick={types[share].onClick}
           className={socialSharingStyles.socialButton}
+          key={share}
         >
           <img src={types[share].icon} alt={types[share].alt} />
         </a>
@@ -70,3 +56,5 @@ export default ({ shares, url, text }) => {
     </div>
   )
 }
+
+export default SocialSharing

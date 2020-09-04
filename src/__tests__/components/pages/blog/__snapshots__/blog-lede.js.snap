@@ -43,7 +43,6 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
       <a
         className="socialButton"
         href="https://www.facebook.com/sharer/sharer.php?u=https://covidtracking.com/askld-loaks-lopde"
-        onClick={[Function]}
       >
         <img
           alt="Share on Facebook"
@@ -53,7 +52,6 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
       <a
         className="socialButton"
         href="https://twitter.com/intent/tweet?url=https://covidtracking.com/askld-loaks-lopde&text=This is a test blog lede."
-        onClick={[Function]}
       >
         <img
           alt="Share on Twitter"

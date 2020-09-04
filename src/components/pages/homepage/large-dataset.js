@@ -4,14 +4,18 @@ import Img from 'gatsby-image'
 import Paragraph from '~components/common/landing-page/paragraph'
 import largeDatasetStyles from './large-dataset.module.scss'
 
-export default () => {
+const HomepageLargeDataset = () => {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { regex: "/john-hopkins-chart.png/" }) {
         relativePath
         childImageSharp {
-          fluid(maxWidth: 1200, traceSVG: { color: "#FCC98E" }) {
-            ...GatsbyImageSharpFluid_tracedSVG
+          fluid(
+            maxWidth: 900
+            webpQuality: 70
+            traceSVG: { color: "#FCC98E" }
+          ) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
@@ -53,3 +57,5 @@ export default () => {
     </div>
   )
 }
+
+export default HomepageLargeDataset

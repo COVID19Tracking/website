@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Data : Definitions renders correctly 1`] = `
+<div
+  className="row definitions"
+>
+  <div
+    className="col colSmall4 colMedium6 colLarge3"
+  >
+    <h3
+      className="header"
+    >
+      Definitions
+    </h3>
+    <button
+      className="expandAll"
+      onClick={[Function]}
+      type="button"
+    >
+      Expand all
+    </button>
+  </div>
+  <div
+    className="col colSmall4 colMedium6 colLarge9 paddingLeftSmall0 paddingLeftMedium0 paddingLeftLarge8"
+  >
+    <div>
+      <button
+        aria-controls="definition-pane--0"
+        aria-expanded={false}
+        className="definitionButton"
+        onClick={[Function]}
+        type="button"
+      >
+        Test definition A
+         
+        <span
+          aria-hidden={true}
+          className="arrowDown"
+        >
+          ↓
+        </span>
+         
+        <span
+          aria-hidden={true}
+          className="arrowUp"
+        >
+          ↑
+        </span>
+      </button>
+      <div
+        className="pane"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "Test <strong>definition</strong> content A.",
+          }
+        }
+        hidden={true}
+        id="definition-pane--0"
+      />
+    </div>
+    <div>
+      <button
+        aria-controls="definition-pane--1"
+        aria-expanded={false}
+        className="definitionButton"
+        onClick={[Function]}
+        type="button"
+      >
+        Test definition B
+         
+        <span
+          aria-hidden={true}
+          className="arrowDown"
+        >
+          ↓
+        </span>
+         
+        <span
+          aria-hidden={true}
+          className="arrowUp"
+        >
+          ↑
+        </span>
+      </button>
+      <div
+        className="pane"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "Test <strong>definition</strong> content B.",
+          }
+        }
+        hidden={true}
+        id="definition-pane--1"
+      />
+    </div>
+  </div>
+</div>
+`;

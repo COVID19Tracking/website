@@ -1,0 +1,26 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  &.full-width {
+    grid-template-columns: repeat(4, 1fr);
+    @include margin(32, top);
+    @media (max-width: $viewport-lg) and (min-width: $viewport-md) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: $viewport-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  @include margin(32, bottom);
+
+  @media (max-width: $viewport-lg) and (min-width: $viewport-md) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: $viewport-md) {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,9 +1,6 @@
 .header {
   display: flex;
   flex-direction: column;
-  p {
-    margin-bottom: 0;
-  }
 
   h3 {
     margin-bottom: spacer(16);
@@ -30,6 +27,19 @@
 
 .top-link {
   color: $color-slate-600;
-  margin-top: spacer(32);
+  @include margin(32, bottom);
   display: inline-block;
+}
+
+.state-links-header {
+  display: flex;
+  align-items: flex-end;
+  button {
+    @include margin(16, right);
+  }
+
+  @media (max-width: $viewport-md) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
 }

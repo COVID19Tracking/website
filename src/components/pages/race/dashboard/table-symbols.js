@@ -2,8 +2,8 @@
 import React from 'react'
 import classnames from 'classnames'
 import Tooltip from '~components/common/tooltip'
-import disparityIcon from '~images/disparity-icon.svg'
-import tooltipDisparityIcon from '~images/tooltip-disparity-icon.svg'
+import disparityIcon from '~images/race-dashboard/disparity-icon.svg'
+import tooltipDisparityIcon from '~images/race-dashboard/tooltip-disparity-icon.svg'
 import tableSymbolsStyles from './table-symbols.module.scss'
 
 const TooltipContent = ({ title, index }) => (

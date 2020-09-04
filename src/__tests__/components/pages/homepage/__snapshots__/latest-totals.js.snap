@@ -16,7 +16,7 @@ exports[`Components : Pages : Homepage : Latest Totals renders correctly 1`] = `
       className="ctaLink"
     >
       <a
-        className="cta  "
+        className="cta"
         href="/data"
       >
         See all data

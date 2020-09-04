@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Statistic renders correctly 1`] = `
+<div
+  className="statisticWrapper"
+>
+  <div
+    className="statistic"
+  >
+    <div
+      className="title"
+    >
+      Test statistic
+    </div>
+    <div
+      className="value"
+    >
+      400
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Common: Statistic renders correctly 2`] = `
+<div
+  className="statisticWrapper"
+>
+  <div
+    className="statistic"
+  >
+    <div
+      className="title"
+    >
+      Test statistic
+    </div>
+    <div
+      className="value"
+    >
+      400
+       folks
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Common: Statistic renders correctly 3`] = `
+<div
+  className="group"
+>
+  <div
+    className="statisticWrapper"
+  >
+    <div
+      className="statistic"
+    >
+      <div
+        className="title"
+      >
+        Test statistic
+      </div>
+      <div
+        className="value"
+      >
+        400
+         folks
+      </div>
+    </div>
+  </div>
+  <div
+    className="statisticWrapper"
+  >
+    <div
+      className="statistic"
+    >
+      <div
+        className="title"
+      >
+        Test statistic
+      </div>
+      <div
+        className="value"
+      >
+        400
+         two
+      </div>
+    </div>
+  </div>
+</div>
+`;

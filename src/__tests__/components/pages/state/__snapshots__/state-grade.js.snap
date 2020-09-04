@@ -15,8 +15,8 @@ exports[`Components : Pages : State : State grade renders correctly 1`] = `
   </span>
   <img
     alt="Grade a"
+    className="grade"
     src="test-file-stub"
-    width="28px"
   />
 </p>
 `;
@@ -36,8 +36,8 @@ exports[`Components : Pages : State : State grade renders correctly 2`] = `
   </span>
   <img
     alt="Grade A+"
+    className="grade"
     src="test-file-stub"
-    width="28px"
   />
 </p>
 `;
@@ -57,8 +57,16 @@ exports[`Components : Pages : State : State grade renders correctly 3`] = `
   </span>
   <img
     alt="Grade na"
+    className="grade"
     src="test-file-stub"
-    width="28px"
   />
 </p>
+`;
+
+exports[`Components : Pages : State : State grade renders correctly 4`] = `
+<img
+  alt="Grade a"
+  className="gradeLarge"
+  src="test-file-stub"
+/>
 `;

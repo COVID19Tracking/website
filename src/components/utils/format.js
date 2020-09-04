@@ -31,8 +31,8 @@ const FormatDate = ({
   )
 }
 
-const FormatNumber = ({ number }) => (
-  <>{number || number === 0 ? number.toLocaleString() : 'N/A'}</>
+const FormatNumber = ({ number, nullValue = false }) => (
+  <>{number || number === 0 ? number.toLocaleString() : nullValue || 'N/A'}</>
 )
 
 const getListSpacer = (index, length, useAmpersand = true) => {

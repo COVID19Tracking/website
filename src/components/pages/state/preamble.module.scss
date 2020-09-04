@@ -1,0 +1,54 @@
+.header {
+  @include margin(16, bottom);
+  @include type-size(300);
+  line-height: 1.3;
+}
+
+.grade-wrapper {
+  display: flex;
+  align-items: flex-start;
+  .grade-description {
+    @include margin(24, right);
+    display: inline;
+    p {
+      @include margin(0, top);
+    }
+  }
+  img {
+    width: 96px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    float: right;
+    @media (max-width: $viewport-md) {
+      width: 60px;
+    }
+  }
+}
+
+.wrapper {
+  border: 1px solid $color-slate-200;
+  border-radius: 4px;
+  @include padding(16);
+  h4 {
+    @include type-size(300);
+  }
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.mobile-disclosure {
+  @media (min-width: $viewport-md) {
+    display: none;
+  }
+}
+
+.large-disclosure {
+  @media (max-width: $viewport-md) {
+    display: none;
+  }
+}

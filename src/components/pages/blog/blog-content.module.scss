@@ -4,13 +4,22 @@
   margin: 0 auto;
 
   & > *:not(.image) {
-    // non-image items become 8 cols wide
-    @media (min-width: $viewport-lg) {
+    @media (min-width: $viewport-md) and (max-width: $viewport-lg) {
+      // non-image items become 8 cols on tablet
       flex-basis: 80%;
       max-width: 80%;
       margin-left: auto;
       margin-right: auto;
+
     }
+    @media (min-width: $viewport-lg) {
+      // non-image items become 6 cols wide on desktop
+      flex-basis: 60%;
+      max-width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    line-height: 1.6;
   }
 
   ul,

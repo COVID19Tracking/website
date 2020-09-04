@@ -7,7 +7,7 @@ Array [
 ]
 `;
 
-exports[`Components : Race : Dashboard : Percent renders correctly 2`] = `"–"`;
+exports[`Components : Race : Dashboard : Percent renders correctly 2`] = `"-"`;
 
 exports[`Components : Race : Dashboard : Percent renders correctly 3`] = `
 Array [
@@ -18,7 +18,7 @@ Array [
 
 exports[`Components : Race : Dashboard : Percent renders correctly 4`] = `
 Array [
-  "0",
+  "<1",
   "%",
 ]
 `;

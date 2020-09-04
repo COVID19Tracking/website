@@ -69,3 +69,10 @@ $spacers: (
   position: absolute;
   width: 1px;
 }
+
+@mixin remove-button-style {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}

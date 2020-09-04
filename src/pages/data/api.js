@@ -6,7 +6,7 @@ import ApiExplorer from '~components/pages/data/api/explorer'
 import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 
-export default ({ data }) => {
+const DataApiPage = ({ data }) => {
   return (
     <Layout title="Data API" path="/data/api">
       <LongContent>
@@ -19,10 +19,19 @@ export default ({ data }) => {
           id={data.contentfulSnippet.contentful_id}
         />
       </LongContent>
+      <h2>API domain name</h2>
+      <p>
+        All API requests should be made to:{' '}
+        <strong>
+          <code>https://api.covidtracking.com</code>
+        </strong>
+      </p>
       <ApiExplorer />
     </Layout>
   )
 }
+
+export default DataApiPage
 
 export const query = graphql`
   query {

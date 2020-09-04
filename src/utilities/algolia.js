@@ -1,4 +1,3 @@
-import slugify from 'slugify'
 import marked from 'marked'
 
 /**
@@ -29,6 +28,9 @@ const stateQuery = `{
         name
         state
         notes
+        childSlug {
+          slug
+        }
       }
     }
   }
@@ -90,10 +92,7 @@ function transformStates(data) {
     ...node,
     updatedAt: stateModifiedDates[node.state],
     notes: node.notes ? marked(node.notes) : '',
-    slug: `/data/state/${slugify(node.name, {
-      strict: true,
-      lower: true,
-    })}`,
+    slug: `/data/state/${node.childSlug.slug}`,
   }))
 }
 

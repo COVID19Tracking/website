@@ -1,5 +1,4 @@
 import React from 'react'
-import { OrderedList, UnstyledList } from '~components/common/lists'
 import { FormatDate, FormatNumber } from '~components/utils/format'
 import typeSize from './type-size.module.scss'
 
@@ -10,18 +9,6 @@ collect it from each state and provide it to the public. The information is
 patchy and inconsistent, so we’re being transparent about what we find and
 how we handle it—the spreadsheet includes our live comments about changing
 data and how we’re working with incomplete information.`
-
-const ExampleList = () => (
-  <>
-    <li>More information</li>
-    <li>
-      <a href="/">A link to more information</a>
-    </li>
-    <li>
-      <strong>Highlight</strong> - A list item that starts with a bold word
-    </li>
-  </>
-)
 
 export default {
   title: 'Typography',
@@ -117,26 +104,6 @@ inlineStyles.story = {
   parameters: {
     info: {
       text: 'An example of `strong`, `em`, `strike`, and `code` elements.',
-    },
-  },
-}
-
-export const orderedList = () => (
-  <OrderedList>
-    <ExampleList />
-  </OrderedList>
-)
-
-export const unstyledList = () => (
-  <UnstyledList>
-    <ExampleList />
-  </UnstyledList>
-)
-
-unstyledList.story = {
-  parameters: {
-    info: {
-      text: 'An unordered list styled to remove any margin or bullets.',
     },
   },
 }

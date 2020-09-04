@@ -6,8 +6,8 @@ import LongContent from '~components/common/long-content'
 import ContentfulContent from '~components/common/contentful-content'
 import ChartList from '~components/pages/data/charts/chart-list'
 
-export default ({ data }) => (
-  <Layout title="Charts" returnLink="/data" returnLinkTitle="Our Data">
+const ChartsPage = ({ data }) => (
+  <Layout title="Charts" returnLinks={[{ link: '/data' }]}>
     <ChartList />
 
     <Container centered>
@@ -23,6 +23,8 @@ export default ({ data }) => (
     </Container>
   </Layout>
 )
+
+export default ChartsPage
 
 export const query = graphql`
   query {

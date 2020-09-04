@@ -11,7 +11,7 @@ exports[`Components : Pages : Blog : Related Posts : Category Posts renders corr
     className="ctaWrapper"
   >
     <a
-      className="cta  "
+      className="cta"
       href="blog"
     >
       See all blog posts
@@ -122,7 +122,7 @@ exports[`Components : Pages : Blog : Related Posts : Explicit Related Posts rend
     className="ctaWrapper"
   >
     <a
-      className="cta  "
+      className="cta"
       href="blog"
     >
       See all blog posts
@@ -233,7 +233,7 @@ exports[`Components : Pages : Blog : Related Posts : Recent Posts renders correc
     className="ctaWrapper"
   >
     <a
-      className="cta  "
+      className="cta"
       href="blog"
     >
       See all blog posts

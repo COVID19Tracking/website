@@ -6,11 +6,10 @@ import BlogTeaserList from '~components/pages/blog/blog-teaser-list'
 import BlogCategoriesList from '~components/pages/blog/blog-categories-list'
 import blogStyles from '~components/pages/blog/blog.module.scss'
 
-export default ({ data, path }) => (
+const BlogCategoryTemplate = ({ data, path }) => (
   <Layout
     title={`Blog: ${data.contentfulBlogCategory.name}`}
-    returnLink="/blog"
-    returnLinkTitle="All posts"
+    returnLinks={[{ link: '/blog', title: 'All Posts' }]}
     path={path}
     centerTitle
   >
@@ -20,6 +19,8 @@ export default ({ data, path }) => (
     </Container>
   </Layout>
 )
+
+export default BlogCategoryTemplate
 
 export const query = graphql`
   query($id: String!) {

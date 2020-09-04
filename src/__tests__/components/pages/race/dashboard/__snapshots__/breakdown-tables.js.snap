@@ -93,7 +93,7 @@ exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correct
             .
              
             <a
-              href="/get-involved"
+              href="/race/get-better-data"
             >
               Help us get better data.
             </a>
@@ -111,7 +111,7 @@ exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correct
             .
              
             <a
-              href="/get-involved"
+              href="/race/get-better-data"
             >
               Help us get better data.
             </a>
@@ -132,7 +132,7 @@ exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correct
         <td
           className="borderLeft"
         >
-          0
+          &lt;1
           %
         </td>
       </tr>
@@ -234,7 +234,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
             .
              
             <a
-              href="/get-involved"
+              href="/race/get-better-data"
             >
               Help us get better data.
             </a>
@@ -252,7 +252,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
             .
              
             <a
-              href="/get-involved"
+              href="/race/get-better-data"
             >
               Help us get better data.
             </a>
@@ -465,7 +465,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
             .
              
             <a
-              href="/get-involved"
+              href="/race/get-better-data"
             >
               Help us get better data.
             </a>
@@ -483,7 +483,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
             .
              
             <a
-              href="/get-involved"
+              href="/race/get-better-data"
             >
               Help us get better data.
             </a>

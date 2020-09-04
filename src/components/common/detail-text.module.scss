@@ -4,6 +4,12 @@
   cite {
     font-style: italic;
   }
+  a {
+    color: $color-slate-600;
+  }
+  &.small {
+    @include type-size(100);
+  }
 }
 
 table + .detail-text {
