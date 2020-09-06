@@ -13,202 +13,290 @@ import Logo from '~images/ctp-icon-small.png'
 import CarLogo from '~images/car-logo-small.png'
 import socialCardStyle from './state.module.scss'
 
-const StateRaceSocialCard = renderedComponent(({ state, population }) => {
-  let totalCases = 0
-  let totalDeaths = 0
+const StateRaceSocialCard = renderedComponent(
+  ({ state, population, combinedStates }) => {
+    let totalCases = 0
+    let totalDeaths = 0
 
-  Object.keys(state).forEach(field => {
-    if (field.search('Positives') > -1) {
-      if (state[field]) {
-        totalCases += parseInt(state[field], 10)
+    Object.keys(state).forEach(field => {
+      if (field.search('Positives') > -1) {
+        if (state[field]) {
+          totalCases += parseInt(state[field], 10)
+        }
       }
-    }
-    if (field.search('Deaths') > -1) {
-      if (state[field]) {
-        totalDeaths += parseInt(state[field], 10)
+      if (field.search('Deaths') > -1) {
+        if (state[field]) {
+          totalDeaths += parseInt(state[field], 10)
+        }
       }
+    })
+
+    let groups = [
+      {
+        label: 'Black',
+        style: socialCardStyle.barBlack,
+        cases: state.blackPosPercap * 100, // perCap is *per 1,000*, mulitply by 100 to get *per 100,000*
+        deaths: state.blackDeathPercap * 100,
+      },
+      {
+        label: 'Hispanic/Latino',
+        style: socialCardStyle.barLatinx,
+        cases: state.latinXPosPercap * 100,
+        deaths: state.latinXDeathPercap * 100,
+      },
+      {
+        label: 'All',
+        all: true,
+        style: socialCardStyle.barAll,
+        cases: Math.round((totalCases / population) * 100000),
+        deaths: Math.round((totalDeaths / population) * 100000),
+      },
+      {
+        label: 'Asian',
+        style: socialCardStyle.barAsian,
+        cases: state.asianPosPercap * 100,
+        deaths: state.asianDeathPercap * 100,
+      },
+      {
+        label: 'AIAN',
+        style: socialCardStyle.barAian,
+        cases: state.aianPosPercap * 100,
+        deaths: state.aianDeathPercap * 100,
+      },
+      {
+        label: 'White',
+        style: socialCardStyle.barWhite,
+        cases: state.whitePosPercap * 100,
+        deaths: state.whiteDeathPercap * 100,
+      },
+      {
+        label: 'NHPI',
+        style: socialCardStyle.barNhpi,
+        cases: state.nhpiPosPercap * 100,
+        deaths: state.nhpiDeathPercap * 100,
+      },
+    ]
+
+    groups = groups.filter(
+      // remove groups without case or death data
+      group => group.cases !== undefined && group.deaths !== undefined,
+    )
+
+    let affectedGroups = []
+    const all = groups.find(group => group.all)
+
+    const largestCases = Math.max(...groups.map(group => group.cases))
+    const largestDeaths = Math.max(...groups.map(group => group.deaths))
+
+    groups.forEach(group => {
+      if (group.all || (!group.cases && !group.deaths)) {
+        return
+      }
+      if (group.cases > all.cases && group.deaths > all.deaths) {
+        affectedGroups.push(group.label)
+      }
+    })
+
+    groups.sort((a, b) => {
+      // sort bars by # of cases
+      if (a.cases >= b.cases) {
+        return -1
+      }
+      return 1
+    })
+
+    // gets the width of the bar for the bar charts
+    const getWidth = (number, max) =>
+      `${number / max > 0.1 ? (number / max) * 100 : 10}%`
+    // prepend 'The' to DC's name
+    const stateName =
+      state.stateName === 'District of Columbia'
+        ? 'The District of Columbia'
+        : state.stateName
+
+    const today = new Date()
+
+    const raceDict = {
+      Black: 'Black/African American',
+      'Hispanic/Latino': 'Hispanic/Latino',
+      All: 'All',
+      Asian: 'Asian',
+      AIAN: 'American Indian or Alaska Native',
+      White: 'White',
+      NHPI: 'Native Hawaiian and Pacific Islander',
     }
-  })
 
-  let groups = [
-    {
-      label: 'Black',
-      style: socialCardStyle.barBlack,
-      cases: state.blackPosPercap * 100, // perCap is *per 1,000*, mulitply by 100 to get *per 100,000*
-      deaths: state.blackDeathPercap * 100,
-    },
-    {
-      label: 'Hispanic/Latino',
-      style: socialCardStyle.barLatinx,
-      cases: state.latinXPosPercap * 100,
-      deaths: state.latinXDeathPercap * 100,
-    },
-    {
-      label: 'All',
-      all: true,
-      style: socialCardStyle.barAll,
-      cases: Math.round((totalCases / population) * 100000),
-      deaths: Math.round((totalDeaths / population) * 100000),
-    },
-    {
-      label: 'Asian',
-      style: socialCardStyle.barAsian,
-      cases: state.asianPosPercap * 100,
-      deaths: state.asianDeathPercap * 100,
-    },
-    {
-      label: 'AIAN',
-      style: socialCardStyle.barAian,
-      cases: state.aianPosPercap * 100,
-      deaths: state.aianDeathPercap * 100,
-    },
-    {
-      label: 'White',
-      style: socialCardStyle.barWhite,
-      cases: state.whitePosPercap * 100,
-      deaths: state.whiteDeathPercap * 100,
-    },
-    {
-      label: 'NHPI',
-      style: socialCardStyle.barNhpi,
-      cases: state.nhpiPosPercap * 100,
-      deaths: state.nhpiDeathPercap * 100,
-    },
-  ]
+    let noDeaths
+    let noCases
 
-  groups = groups.filter(
-    // remove groups without case or death data
-    group => group.cases !== undefined && group.deaths !== undefined,
-  )
+    const isCombinedState = combinedStates.indexOf(state.state) >= 0
 
-  const affectedGroups = []
-  const all = groups.find(group => group.all)
-
-  const largestCases = Math.max(...groups.map(group => group.cases))
-  const largestDeaths = Math.max(...groups.map(group => group.deaths))
-
-  groups.forEach(group => {
-    if (group.all || (!group.cases && !group.deaths)) {
-      return
+    if (isCombinedState) {
+      // if this state combines race and ethnicity data
+      noDeaths = parseFloat(state.knownRaceEthDeath) === 0
+      noCases = parseFloat(state.knownRaceEthPos) === 0
+    } else {
+      noDeaths = parseFloat(state.knownRaceDeath) === 0
+      noCases = parseFloat(state.knownRacePos) === 0
     }
-    if (group.cases > all.cases && group.deaths > all.deaths) {
-      affectedGroups.push(group.label)
+
+    const oneChart = (noCases || noCases) && !(noCases && noDeaths)
+
+    const noCharts = noCases && noDeaths // todo handle this case
+
+    const casesOnly = oneChart && noDeaths
+
+    const deathsOnly = oneChart && noCases
+
+    let typeOfRates = 'infection and death rates'
+
+    if (deathsOnly) {
+      // if deaths are the only reported data
+      typeOfRates = 'death rates'
+      groups.sort((a, b) => {
+        // sort bars by # of deaths
+        if (a.deaths >= b.deaths) {
+          return -1
+        }
+        return 1
+      })
+
+      affectedGroups = []
+      groups.forEach(group => {
+        if (group.all || !group.deaths) {
+          return
+        }
+        if (group.deaths > all.deaths) {
+          affectedGroups.push(group.label)
+        }
+      })
     }
-  })
 
-  groups.sort((a, b) => {
-    // sort bars by # of cases
-    if (a.cases >= b.cases) {
-      return -1
+    if (casesOnly) { // todo fix this flag
+      typeOfRates = 'case rates'
+
+      affectedGroups = []
+      groups.forEach(group => {
+        if (group.all || !group.cases) {
+          return
+        }
+        if (group.cases > all.cases) {
+          affectedGroups.push(group.label)
+        }
+      })
     }
-    return 1
-  })
 
-  // gets the width of the bar for the bar charts
-  const getWidth = (number, max) =>
-    `${number / max > 0.1 ? (number / max) * 100 : 10}%`
-  // prepend 'The' to DC's name
-  const stateName =
-    state.stateName === 'District of Columbia'
-      ? 'The District of Columbia'
-      : state.stateName
+    if (noCharts) {
+      return (
+        <div className={socialCardStyle.container}>
+          As of {today.toLocaleString('default', { month: 'long' })}{' '}
+          {today.getDate()}, <strong>{stateName}</strong> did not report race
+          and ethnicity data to allow for this comparison.
+        </div>
+      )
+    }
 
-  const today = new Date()
-
-  const raceDict = {
-    Black: 'Black/African American',
-    'Hispanic/Latino': 'Hispanic/Latino',
-    All: 'All',
-    Asian: 'Asian',
-    AIAN: 'American Indian or Alaska Native',
-    White: 'White',
-    NHPI: 'Native Hawaiian and Pacific Islander',
-  }
-
-  return (
-    <div className={socialCardStyle.container}>
-      <div className={socialCardStyle.grid}>
-        <span />
-        <p className={socialCardStyle.header}>
-          In <strong>{stateName}</strong>, as of{' '}
-          {today.toLocaleString('default', { month: 'long' })} {today.getDate()}
-          ,{' '}
-          {affectedGroups && affectedGroups.length ? (
-            <>
-              infection and death rates among{' '}
-              {stringifyList({ arr: affectedGroups })} people are higher than
-              the overall population.
-            </>
-          ) : (
-            <>
-              there are no groups with higher infection and death rates than the
-              overall population.
-            </>
-          )}
-        </p>
-        <span /> {/* spacer for css grid */}
-        <span
+    return (
+      <div className={socialCardStyle.container}>
+        <div
           className={classnames(
-            socialCardStyle.casesHeader,
-            socialCardStyle.barHeader,
+            socialCardStyle.grid,
+            casesOnly && socialCardStyle.casesOnly,
+            deathsOnly && socialCardStyle.deathsOnly,
           )}
         >
-          Cases per 100,000 people
-        </span>
-        <span
-          className={classnames(
-            socialCardStyle.deathsHeader,
-            socialCardStyle.barHeader,
-          )}
-        >
-          Deaths per 100,000 people
-        </span>
-        {groups.map(({ label, style, cases, deaths }) => (
-          <>
-            <span className={socialCardStyle.barLabel}>{raceDict[label]}</span>
-            <div
-              className={classnames(socialCardStyle.bar, style)}
-              style={{ width: getWidth(cases, largestCases) }}
-            >
-              <FormatNumber number={cases} />
-            </div>
-            <div
+          <span />
+          <p className={socialCardStyle.header}>
+            In <strong>{stateName}</strong>, as of{' '}
+            {today.toLocaleString('default', { month: 'long' })}{' '}
+            {today.getDate()},{' '}
+            {affectedGroups && affectedGroups.length ? (
+              <>
+                {typeOfRates} among {stringifyList({ arr: affectedGroups })}{' '}
+                people are higher than the overall population.
+              </>
+            ) : (
+              <>
+                there are no groups with higher {typeOfRates} than the overall
+                population.
+              </>
+            )}
+          </p>
+          <span /> {/* spacer for css grid */}
+          {!deathsOnly && (
+            <span
               className={classnames(
-                socialCardStyle.bar,
-                socialCardStyle.deathBar,
-                style,
+                socialCardStyle.casesHeader,
+                socialCardStyle.barHeader,
               )}
-              style={{ width: getWidth(deaths, largestDeaths) }}
             >
-              <FormatNumber number={deaths} />
-            </div>
-          </>
-        ))}
-        <p className={socialCardStyle.percent}>
-          {state.knownRaceEthPos ? (
+              Cases per 100,000 people
+            </span>
+          )}
+          {!casesOnly && (
+            <span
+              className={classnames(
+                socialCardStyle.deathsHeader,
+                socialCardStyle.barHeader,
+              )}
+            >
+              Deaths per 100,000 people
+            </span>
+          )}
+          {groups.map(({ label, style, cases, deaths }) => (
             <>
-              <strong>Notes: </strong> {stateName} has reported race and
-              ethnicity data for <Percent number={state.knownRaceEthPos} /> of
-              cases and <Percent number={state.knownRaceEthDeath} /> of deaths.
+              <span className={socialCardStyle.barLabel}>
+                {raceDict[label]}
+              </span>
+              {!deathsOnly && (
+                <div
+                  className={classnames(socialCardStyle.bar, style)}
+                  style={{ width: getWidth(cases, largestCases) }}
+                >
+                  <FormatNumber number={cases} />
+                </div>
+              )}
+              {!casesOnly && (
+                <div
+                  className={classnames(
+                    socialCardStyle.bar,
+                    socialCardStyle.deathBar,
+                    style,
+                  )}
+                  style={{ width: getWidth(deaths, largestDeaths) }}
+                >
+                  <FormatNumber number={deaths} />
+                </div>
+              )}
             </>
-          ) : (
-            <>
-              <strong>Notes: </strong> {stateName} has reported race data for{' '}
-              <Percent number={state.knownRacePos} /> of cases and{' '}
-              <Percent number={state.knownRaceDeath} /> of deaths, and ethnicity
-              data for <Percent number={state.knownEthPos} /> of cases and{' '}
-              <Percent number={state.knownEthDeath} /> of deaths.
-            </>
-          )}{' '}
-          Graphic only includes demographic groups reported by the state.
-        </p>
-      </div>
+          ))}
+          <p className={socialCardStyle.percent}>
+            {state.knownRaceEthPos ? (
+              <>
+                <strong>Notes: </strong> {stateName} has reported race and
+                ethnicity data for <Percent number={state.knownRaceEthPos} /> of
+                cases and <Percent number={state.knownRaceEthDeath} /> of
+                deaths.
+              </>
+            ) : (
+              <>
+                <strong>Notes: </strong> {stateName} has reported race data for{' '}
+                <Percent number={state.knownRacePos} /> of cases and{' '}
+                <Percent number={state.knownRaceDeath} /> of deaths, and
+                ethnicity data for <Percent number={state.knownEthPos} /> of
+                cases and <Percent number={state.knownEthDeath} /> of deaths.
+              </>
+            )}{' '}
+            Graphic only includes demographic groups reported by the state.
+          </p>
+        </div>
 
-      <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
-      <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
-    </div>
-  )
-})
+        <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
+        <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
+      </div>
+    )
+  },
+)
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -319,6 +407,10 @@ export default () => {
   `)
   const states = data.allCovidStateInfo.nodes
 
+  const combinedStates = data.allCovidRaceDataCombined.nodes.map(
+    node => node.state,
+  )
+
   return (
     <>
       {states.map(state => (
@@ -336,6 +428,7 @@ export default () => {
               node => node.state === state.state,
             ).childPopulation.population
           }
+          combinedStates={combinedStates}
           renderOptions={{
             width: 900,
             height: 472.5,
