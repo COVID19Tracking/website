@@ -22,7 +22,6 @@
   column-gap: 10px;
 
   &.cases-only {
-    background-color: red;
     grid-template-columns: [race-labels-start] 150px [race-labels-end case-bars-start] 1fr [death-bars-end case-bars-end death-bars-start];
     .header {
       .cases-header {
@@ -88,7 +87,6 @@
     font-size: 13px; // ignore-style-rule
     line-height: 1.2;
   }
-
 }
 
 .ctp-logo {

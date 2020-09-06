@@ -140,9 +140,9 @@ const StateRaceSocialCard = renderedComponent(
       noCases = parseFloat(state.knownRacePos) === 0
     }
 
-    const oneChart = (noCases || noCases) && !(noCases && noDeaths)
+    const oneChart = (noCases || noDeaths) && !(noCases && noDeaths)
 
-    const noCharts = noCases && noDeaths // todo handle this case
+    const noCharts = noCases && noDeaths
 
     const casesOnly = oneChart && noDeaths
 
@@ -172,7 +172,7 @@ const StateRaceSocialCard = renderedComponent(
       })
     }
 
-    if (casesOnly) { // todo fix this flag
+    if (casesOnly) {
       typeOfRates = 'case rates'
 
       affectedGroups = []
