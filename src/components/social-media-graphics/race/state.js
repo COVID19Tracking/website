@@ -11,6 +11,8 @@ import Percent from '~components/pages/race/dashboard/percent'
 
 import Logo from '~images/ctp-icon-small.png'
 import CarLogo from '~images/car-logo-small.png'
+import alertIcon from '~images/race-dashboard/alert-bang-orange.svg'
+
 import socialCardStyle from './state.module.scss'
 
 const StateRaceSocialCard = renderedComponent(
@@ -188,10 +190,22 @@ const StateRaceSocialCard = renderedComponent(
 
     if (noCharts) {
       return (
-        <div className={socialCardStyle.container}>
-          As of {today.toLocaleString('default', { month: 'long' })}{' '}
-          {today.getDate()}, <strong>{stateName}</strong> did not report race
-          and ethnicity data to allow for this comparison.
+        <div>
+          <div className={socialCardStyle.noDataContainer}>
+            <img src={alertIcon} alt="Alert icon" width="60px" />
+            <p>
+              As of {today.toLocaleString('default', { month: 'long' })}{' '}
+              {today.getDate()}, <strong>{stateName}</strong> did not report
+              race and ethnicity data to allow for this comparison.
+            </p>
+            <p className={socialCardStyle.getBetterData}>
+              Help us get better data:
+              <br />
+              <strong>www.covidtracking.com/race/get-better-data</strong>
+            </p>
+          </div>
+          <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
+          <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
         </div>
       )
     }
