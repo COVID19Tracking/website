@@ -181,6 +181,11 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/state/screenshots.js`),
       context: node,
     })
+    createPage({
+      path: `/race/social-media-graphics/${slug}`,
+      component: path.resolve(`./src/templates/race/social-media-graphics/landing.js`),
+      context: node,
+    })
   })
 
   result.data.allContentfulBlogPost.nodes.forEach(node => {
