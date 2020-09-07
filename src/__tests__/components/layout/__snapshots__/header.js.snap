@@ -444,12 +444,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
               </button>
             </div>
           </div>
-          <a
-            className="getInvolved"
-            href="/contact/volunteer"
-          >
-            Get involved
-          </a>
         </div>
       </div>
       <div
@@ -935,12 +929,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
               </button>
             </div>
           </div>
-          <a
-            className="getInvolved"
-            href="/contact/volunteer"
-          >
-            Get involved
-          </a>
         </div>
       </div>
       <div
@@ -1426,12 +1414,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
               </button>
             </div>
           </div>
-          <a
-            className="getInvolved"
-            href="/contact/volunteer"
-          >
-            Get involved
-          </a>
         </div>
       </div>
       <div
@@ -1921,12 +1903,6 @@ exports[`Components : Layout : Header renders correctly 4`] = `
               </button>
             </div>
           </div>
-          <a
-            className="getInvolved"
-            href="/contact/volunteer"
-          >
-            Get involved
-          </a>
         </div>
       </div>
       <div
@@ -2412,12 +2388,6 @@ exports[`Components : Layout : Header renders correctly 5`] = `
               </button>
             </div>
           </div>
-          <a
-            className="getInvolved"
-            href="/contact/volunteer"
-          >
-            Get involved
-          </a>
         </div>
       </div>
       <div
