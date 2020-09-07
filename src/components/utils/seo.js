@@ -31,15 +31,21 @@ function SEO({ lang, meta, title, socialCard }) {
   const defaultSocialCard = contentfulSocialCard
   let description
   let imageSrc
-  if (!socialCard) {
-    description = defaultSocialCard.description.description
-    imageSrc = defaultSocialCard.image.resize.src
-  } else if (socialCard.description && !socialCard.image) {
-    imageSrc = defaultSocialCard.image.resize.src
-    description = socialCard.description.description
+
+  if (typeof socialCard === "string") {
+    // if socialCard param is the url to the social card image
+    imageSrc = socialCard
   } else {
-    imageSrc = socialCard.image.resize.src
-    description = socialCard.description.description
+    if (!socialCard) {
+      description = defaultSocialCard.description.description
+      imageSrc = defaultSocialCard.image.resize.src
+    } else if (socialCard.description && !socialCard.image) {
+      imageSrc = defaultSocialCard.image.resize.src
+      description = socialCard.description.description
+    } else {
+      imageSrc = socialCard.image.resize.src
+      description = socialCard.description.description
+    }
   }
 
   const urlSchema = 'https:'

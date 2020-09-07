@@ -20,6 +20,7 @@ export default ({ pageContext, path, data }) => {
         { link: `/race/dashboard`, title: 'Racial Data Dashboard' },
       ]}
       path={path}
+      socialCard={`//covidtracking.com/images/race-dashboard/${state.childSlug.slug}.png`}
     >
       {stateData && (
         <SocialCardLede
