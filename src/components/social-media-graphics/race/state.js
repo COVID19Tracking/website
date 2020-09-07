@@ -19,6 +19,10 @@ const getGroups = (state, population) => {
   let totalCases = 0
   let totalDeaths = 0
 
+  if (state === undefined) {
+    return {}
+  }
+
   Object.keys(state).forEach(field => {
     if (field.search('Positives') > -1) {
       if (state[field]) {
