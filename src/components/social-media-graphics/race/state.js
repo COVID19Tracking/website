@@ -119,7 +119,7 @@ const SocialCardLede = ({ typeOfRates, state, stateName, population }) => {
   const { affectedGroups } = getGroups(state, population)
   return (
     <>
-      In <strong>{stateName || state.name}</strong>, as of{' '}
+      In <strong>{state.stateName || stateName}</strong>, as of{' '}
       {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
       {affectedGroups && affectedGroups.length ? (
         <>
