@@ -452,12 +452,6 @@ Array [
                 </button>
               </div>
             </div>
-            <a
-              className="getInvolved"
-              href="/contact/volunteer"
-            >
-              Get involved
-            </a>
           </div>
         </div>
         <div
@@ -1097,12 +1091,6 @@ Array [
                 </button>
               </div>
             </div>
-            <a
-              className="getInvolved"
-              href="/contact/volunteer"
-            >
-              Get involved
-            </a>
           </div>
         </div>
         <div

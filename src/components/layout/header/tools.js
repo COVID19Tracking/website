@@ -9,9 +9,6 @@ const Tools = () => (
     <div className={headerStyle.searchContainer}>
       <HeaderSearch />
     </div>
-    <Link to="/contact/volunteer" className={headerStyle.getInvolved}>
-      Get involved
-    </Link>
   </div>
 )
 
