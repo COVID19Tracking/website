@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Form, Select } from '~components/common/form'
 import ShareCard from './share'
 
-export default () => {
+export default ({ separateStates, combinedStates, stateInfo }) => {
   const { allCovidStateInfo } = useStaticQuery(
     graphql`
       {
@@ -63,7 +63,19 @@ export default () => {
           setState(states.find(node => node.name === event.target.value))
         }}
       />
-      <ShareCard state={state} />
+      {state.name !== '-- Select a state --' && (
+        <ShareCard
+          state={state}
+          stateRaceData={
+            separateStates.find(node => node.stateName === state.name) ||
+            combinedStates.find(node => node.stateName === state.name)
+          }
+          population={
+            stateInfo.find(node => node.name === state.name).childPopulation
+              .population
+          }
+        />
+      )}
     </Form>
   )
 }

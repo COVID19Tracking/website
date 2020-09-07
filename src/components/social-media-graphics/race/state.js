@@ -482,4 +482,4 @@ const CreateStateRaceSocialCards = () => {
 
 export default CreateStateRaceSocialCards
 
-export { SocialCardLede }
+export { SocialCardLede, getGroups }
