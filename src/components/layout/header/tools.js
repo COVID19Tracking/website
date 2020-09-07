@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import headerStyle from './header.module.scss'
 import HeaderSearch from './search'
