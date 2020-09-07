@@ -1,10 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { Link } from 'gatsby'
 import classNames from 'classnames'
 import { useSearch } from '~context/search-context'
 import HeaderSearch from './search'
 import HeaderNavigation from './navigation'
-import headerStyle from './header.module.scss'
 import mobileMenuStyle from './mobile-menu.module.scss'
 
 const MobileMenu = ({ expanded, topNavigation, subNavigation }) => {
@@ -61,9 +59,6 @@ const MobileMenu = ({ expanded, topNavigation, subNavigation }) => {
         subNavigation={subNavigation}
         isMobile
       />
-      <Link to="/contact/volunteer" className={headerStyle.getInvolved}>
-        Get Involved
-      </Link>
       <div className={mobileMenuStyle.mobilePointer} />
     </div>
   )
