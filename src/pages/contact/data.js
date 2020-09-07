@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import ReCaptcha from 'react-recaptcha'
 import Layout from '~components/layout'
 import { Form, Textarea, Input, Select, List } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
-import { AlertInfobox } from '~components/common/infobox'
+import Alert from '~components/common/alert'
 
-export default ({ data }) => {
+const ContactPage = ({ data }) => {
   const [name, setName] = useState(false)
   const [message, setMessage] = useState(false)
   const [date, setDate] = useState(false)
@@ -100,17 +99,6 @@ export default ({ data }) => {
           isRequired
           onChange={event => setMessage(event.target.value)}
         />
-        <div>
-          {typeof window !== 'undefined' && (
-            <ReCaptcha
-              sitekey={data.site.siteMetadata.recaptchaKey}
-              render="explicit"
-              elementID={`contact-form-captcha-${Math.round(
-                Math.random() * 1000,
-              )}`}
-            />
-          )}
-        </div>
 
         <input
           type="text"
@@ -133,7 +121,7 @@ export default ({ data }) => {
         />
         {!isComplete() && (
           <div>
-            <AlertInfobox>You must complete all fields</AlertInfobox>
+            <Alert>You must complete all fields</Alert>
           </div>
         )}
         <button
@@ -148,13 +136,10 @@ export default ({ data }) => {
   )
 }
 
+export default ContactPage
+
 export const query = graphql`
   query {
-    site {
-      siteMetadata {
-        recaptchaKey
-      }
-    }
     allCovidStateInfo(sort: { fields: name }) {
       nodes {
         name

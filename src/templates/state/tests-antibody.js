@@ -5,7 +5,7 @@ import Definitions from '~components/pages/data/definitions'
 import { FormatDate } from '~components/utils/format'
 import Layout from '~components/layout'
 
-export default ({ pageContext, path, data }) => {
+const StateTestAntibodiesTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
 
@@ -56,6 +56,8 @@ export default ({ pageContext, path, data }) => {
     </Layout>
   )
 }
+
+export default StateTestAntibodiesTemplate
 
 export const query = graphql`
   query($state: String!) {

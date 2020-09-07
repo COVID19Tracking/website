@@ -5,7 +5,7 @@ import Layout from '~components/layout'
 import LongContent from '~components/common/long-content'
 import ContentfulContent from '~components/common/contentful-content'
 
-export default ({ data }) => {
+const DataDefintionsPage = ({ data }) => {
   const categories = [
     'Cases',
     'PCR tests',
@@ -63,6 +63,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default DataDefintionsPage
 
 export const query = graphql`
   query {

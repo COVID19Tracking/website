@@ -13,7 +13,6 @@ const gatsbyConfig = {
   siteMetadata: {
     title: 'The COVID Tracking Project',
     siteUrl: 'https://covidtracking.com/',
-    recaptchaKey: '6LcZIPQUAAAAAB-y_TpTUDQ0HvCk0c7a8kXgZVGD',
     description:
       'The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.',
     production:
@@ -390,6 +389,7 @@ const gatsbyConfig = {
         ],
       },
     },
+    'gatsby-plugin-minify-classnames',
   ],
 }
 

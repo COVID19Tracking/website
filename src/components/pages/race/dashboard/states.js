@@ -8,7 +8,7 @@ import StateCombined from './state-combined'
 
 import statesStyle from './states.module.scss'
 
-export default () => {
+const CrdtDashboardStates = () => {
   const data = useStaticQuery(graphql`
     query {
       allCovidRaceDataCombined(
@@ -367,3 +367,5 @@ export default () => {
     </section>
   )
 }
+
+export default CrdtDashboardStates

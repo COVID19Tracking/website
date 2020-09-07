@@ -2,14 +2,14 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 
-import StateNav from '~components/common/state-nav'
+import StateNav from '~components/pages/race/dashboard/state-nav'
 import LongContent from '~components/common/long-content'
 
 import States from '~components/pages/race/dashboard/states'
 import UsOverview from '~components/pages/race/dashboard/us-overview'
 import Preamble from '~components/pages/race/dashboard/preamble'
 
-export default ({ data }) => {
+const RaceDashboardPage = ({ data }) => {
   const stateList = []
   data.allCovidRaceDataSeparate.nodes.forEach(state => {
     stateList.push(state)
@@ -44,6 +44,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default RaceDashboardPage
 
 export const query = graphql`
   query {

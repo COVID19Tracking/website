@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import imageCreditStyle from './image-credit.module.scss'
 
-export default ({ children, white }) => (
+const ImageCredit = ({ children, white }) => (
   <div
     className={classnames(
       imageCreditStyle.credit,
@@ -12,3 +12,5 @@ export default ({ children, white }) => (
     {children}
   </div>
 )
+
+export default ImageCredit

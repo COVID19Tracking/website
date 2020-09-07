@@ -23,6 +23,7 @@
   @include margin(16, top);
   display: block;
   font-weight: bold;
+  text-align: left;
   .arrow-down,
   .arrow-up {
     @include margin(8, left);

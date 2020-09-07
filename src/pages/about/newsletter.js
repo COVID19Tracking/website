@@ -7,7 +7,7 @@ import LongContent from '~components/common/long-content'
 import ContentfulContent from '~components/common/contentful-content'
 import GetInvolvedForm from '~components/pages/get-involved/form'
 
-export default ({ data }) => (
+const NewsletterPage = ({ data }) => (
   <Layout title="Sign up for our newsletter" path="/about/newsletter" centered>
     <LongContent>
       <ContentfulContent
@@ -21,6 +21,8 @@ export default ({ data }) => (
     </LongContent>
   </Layout>
 )
+
+export default NewsletterPage
 
 export const query = graphql`
   query {

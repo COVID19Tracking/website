@@ -41,6 +41,12 @@ Array [
               className="search"
               onBlur={[Function]}
             >
+              <label
+                className="a11y-only"
+                htmlFor="header-search-autocomplete-mobile"
+              >
+                Search
+              </label>
               <div
                 data-reach-combobox=""
               >
@@ -62,12 +68,11 @@ Array [
                   tabIndex="-1"
                   value=""
                 />
-                <label
+                <span
                   className="searchLabel"
-                  htmlFor="header-search-autocomplete-mobile"
                 >
                   Search
-                </label>
+                </span>
               </div>
               <button
                 aria-label="Submit search"
@@ -94,6 +99,7 @@ Array [
             >
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -200,6 +206,7 @@ Array [
               </li>
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -213,12 +220,6 @@ Array [
               </li>
             </ul>
           </nav>
-          <a
-            className="getInvolved"
-            href="/contact/volunteer"
-          >
-            Get Involved
-          </a>
           <div
             className="mobilePointer"
           />
@@ -266,6 +267,7 @@ Array [
               >
                 <li
                   className="menuItem"
+                  role="none"
                 >
                   <div
                     className="navLabel"
@@ -372,6 +374,7 @@ Array [
                 </li>
                 <li
                   className="menuItem"
+                  role="none"
                 >
                   <div
                     className="navLabel"
@@ -396,6 +399,12 @@ Array [
                 className="search"
                 onBlur={[Function]}
               >
+                <label
+                  className="a11y-only"
+                  htmlFor="header-search-autocomplete"
+                >
+                  Search
+                </label>
                 <div
                   data-reach-combobox=""
                 >
@@ -417,12 +426,11 @@ Array [
                     tabIndex="-1"
                     value=""
                   />
-                  <label
+                  <span
                     className="searchLabel"
-                    htmlFor="header-search-autocomplete"
                   >
                     Search
-                  </label>
+                  </span>
                 </div>
                 <button
                   aria-label="Submit search"
@@ -438,12 +446,6 @@ Array [
                 </button>
               </div>
             </div>
-            <a
-              className="getInvolved"
-              href="/contact/volunteer"
-            >
-              Get involved
-            </a>
           </div>
         </div>
         <div
@@ -672,6 +674,12 @@ Array [
               className="search"
               onBlur={[Function]}
             >
+              <label
+                className="a11y-only"
+                htmlFor="header-search-autocomplete-mobile"
+              >
+                Search
+              </label>
               <div
                 data-reach-combobox=""
               >
@@ -693,12 +701,11 @@ Array [
                   tabIndex="-1"
                   value=""
                 />
-                <label
+                <span
                   className="searchLabel"
-                  htmlFor="header-search-autocomplete-mobile"
                 >
                   Search
-                </label>
+                </span>
               </div>
               <button
                 aria-label="Submit search"
@@ -725,6 +732,7 @@ Array [
             >
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -831,6 +839,7 @@ Array [
               </li>
               <li
                 className="menuItem"
+                role="none"
               >
                 <div
                   className="navLabel"
@@ -844,12 +853,6 @@ Array [
               </li>
             </ul>
           </nav>
-          <a
-            className="getInvolved"
-            href="/contact/volunteer"
-          >
-            Get Involved
-          </a>
           <div
             className="mobilePointer"
           />
@@ -897,6 +900,7 @@ Array [
               >
                 <li
                   className="menuItem"
+                  role="none"
                 >
                   <div
                     className="navLabel"
@@ -1003,6 +1007,7 @@ Array [
                 </li>
                 <li
                   className="menuItem"
+                  role="none"
                 >
                   <div
                     className="navLabel"
@@ -1027,6 +1032,12 @@ Array [
                 className="search"
                 onBlur={[Function]}
               >
+                <label
+                  className="a11y-only"
+                  htmlFor="header-search-autocomplete"
+                >
+                  Search
+                </label>
                 <div
                   data-reach-combobox=""
                 >
@@ -1048,12 +1059,11 @@ Array [
                     tabIndex="-1"
                     value=""
                   />
-                  <label
+                  <span
                     className="searchLabel"
-                    htmlFor="header-search-autocomplete"
                   >
                     Search
-                  </label>
+                  </span>
                 </div>
                 <button
                   aria-label="Submit search"
@@ -1069,12 +1079,6 @@ Array [
                 </button>
               </div>
             </div>
-            <a
-              className="getInvolved"
-              href="/contact/volunteer"
-            >
-              Get involved
-            </a>
           </div>
         </div>
         <div

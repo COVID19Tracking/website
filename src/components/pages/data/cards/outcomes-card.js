@@ -4,7 +4,7 @@ import { Card, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
-export default ({
+const OutcomesCard = ({
   stateSlug,
   onDefinitionsToggle,
   deathsLabel,
@@ -35,7 +35,7 @@ export default ({
               : `/data/state/${stateSlug}/outcomes`
           }
         >
-          Historical data
+          Historical data <span className="a11y-only"> for outcomes</span>
         </Link>
       }
     >
@@ -104,3 +104,5 @@ export default ({
     </Card>
   )
 }
+
+export default OutcomesCard

@@ -8,7 +8,14 @@ import linkIcon from '~images/social-shares/link.svg'
 
 import socialSharingStyles from './social-sharing.module.scss'
 
-export default ({ shares, url, text, twitterText, className, outlineOnly }) => {
+const SocialSharing = ({
+  shares,
+  url,
+  text,
+  twitterText,
+  className,
+  outlineOnly,
+}) => {
   const [isCopied, setIsCopied] = useState(false)
 
   const types = {
@@ -60,3 +67,5 @@ export default ({ shares, url, text, twitterText, className, outlineOnly }) => {
     </div>
   )
 }
+
+export default SocialSharing

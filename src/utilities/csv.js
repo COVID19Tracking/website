@@ -52,6 +52,7 @@ module.exports = (graphql, reporter) => {
               negativeTestsViral
               onVentilatorCumulative
               onVentilatorCurrently
+              pending
               positive
               positiveCasesViral
               positiveIncrease

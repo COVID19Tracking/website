@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Feature from '~components/common/landing-page/feature'
 
-export default () => {
+const HomepageDatasets = () => {
   const data = useStaticQuery(graphql`
     query {
       whiteHouse: file(relativePath: { regex: "/white-house.png/" }) {
@@ -62,3 +62,5 @@ export default () => {
     </div>
   )
 }
+
+export default HomepageDatasets

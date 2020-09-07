@@ -1,8 +1,8 @@
 import React from 'react'
-import screenshotListStyles from './screenshot-list.module.scss'
 import { FormatDate } from '~components/utils/format'
+import screenshotListStyles from './screenshot-list.module.scss'
 
-export default ({ screenshots }) => (
+const ScreenshotList = ({ screenshots }) => (
   <ul className={screenshotListStyles.screenshots}>
     {screenshots
       .sort((a, b) => (a.dateChecked > b.dateChecked ? 1 : -1))
@@ -17,3 +17,5 @@ export default ({ screenshots }) => (
       ))}
   </ul>
 )
+
+export default ScreenshotList
