@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '~components/layout'
 import { SocialCardLede } from '~components/social-media-graphics/race/state'
@@ -8,10 +8,16 @@ import shareStyles from '~components/social-media-graphics/race/state.module.scs
 export default ({ pageContext, path, data }) => {
   const state = pageContext
 
-  // todo add redirect
   const stateData = data.covidRaceDataSeparate || data.covidRaceDataCombined
 
   // todo make typeOfRates dynamic
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigate(`/race/dashboard/state-${stateData.state}`)
+    }, 4000) // todo choose duration
+  }, [])
+
   return (
     <Layout
       title={`${state.name}: Infection and death rates`}

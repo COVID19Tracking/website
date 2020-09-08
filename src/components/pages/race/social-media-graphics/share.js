@@ -11,6 +11,9 @@ import shareStyles from './share.module.scss'
 const getStateShareImageUrl = state =>
   `https://covidtracking.com/images/race-dashboard/${state.childSlug.slug}.png`
 
+const getStateSquareImageUrl = state =>
+  `https://covidtracking.com/images/race-dashboard/${state.childSlug.slug}-square.png`
+
 const getLandingPageUrl = state =>
   `https://covidtracking.com/race/social-media-graphics/${state.childSlug.slug}`
 
@@ -41,7 +44,7 @@ export default ({ state, stateRaceData, population }) => {
       <p>{socialCardShareText}</p>
       <DetailText centered className={shareStyles.clickToShare}>
         Share this directly on social media or{' '}
-        <a href={getStateShareImageUrl(state)}>
+        <a href={getStateSquareImageUrl(state)}>
           download a square image for Instagram
         </a>
         .

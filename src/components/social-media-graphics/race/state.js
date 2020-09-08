@@ -141,10 +141,11 @@ const SocialCardLede = ({ typeOfRates, state, stateName, population }) => {
 }
 
 const StateRaceSocialCard = renderedComponent(
-  ({ state, population, combinedStates }) => {
+  ({ state, population, combinedStates, square = false }) => {
     // gets the width of the bar for the bar charts
     const getWidth = (number, max) =>
       `${number / max > 0.1 ? (number / max) * 100 : 10}%`
+
     // prepend 'The' to DC's name
     const stateName =
       state.stateName === 'District of Columbia'
@@ -229,8 +230,8 @@ const StateRaceSocialCard = renderedComponent(
     if (noCharts) {
       return (
         <div>
-          <div className={socialCardStyle.noDataContainer}>
-            <img src={alertIcon} alt="Alert icon" width="60px" />
+          <div className={classnames(socialCardStyle.noDataContainer, square && socialCardStyle.square)}>
+            <img className={socialCardStyle.alert} src={alertIcon} alt="Alert icon" />
             <p>
               As of {today.toLocaleString('default', { month: 'long' })}{' '}
               {today.getDate()}, <strong>{stateName}</strong> did not report
@@ -241,15 +242,25 @@ const StateRaceSocialCard = renderedComponent(
               <br />
               <strong>www.covidtracking.com/race/get-better-data</strong>
             </p>
+            {square && (
+              <div className={socialCardStyle.logosContainer}>
+                <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
+                <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
+              </div>
+            )}
           </div>
-          <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
-          <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
+          {!square && (
+            <>
+              <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
+              <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
+            </>
+          )}
         </div>
       )
     }
 
     return (
-      <div className={socialCardStyle.container}>
+      <div className={classnames(socialCardStyle.container, square && socialCardStyle.square)}>
         <div
           className={classnames(
             socialCardStyle.grid,
@@ -257,7 +268,11 @@ const StateRaceSocialCard = renderedComponent(
             deathsOnly && socialCardStyle.deathsOnly,
           )}
         >
-          <span />
+          {!square && <span />}
+          {/*
+            adds a spacer element to the grid, since the non-square
+            header spans two columns, not all three
+          */}
           <p className={socialCardStyle.header}>
             <SocialCardLede
               typeOfRates={typeOfRates}
@@ -313,7 +328,7 @@ const StateRaceSocialCard = renderedComponent(
               )}
             </>
           ))}
-          <p className={socialCardStyle.percent}>
+          <p className={socialCardStyle.notes}>
             {state.knownRaceEthPos ? (
               <>
                 <strong>Notes: </strong> {stateName} has reported race and
@@ -457,6 +472,7 @@ const CreateStateRaceSocialCards = () => {
   return (
     <>
       {states.map(state => (
+        <>
         <StateRaceSocialCard
           state={
             data.allCovidRaceDataSeparate.nodes.find(
@@ -479,6 +495,30 @@ const CreateStateRaceSocialCards = () => {
             filename: `${state.childSlug.slug}`,
           }}
         />
+        <StateRaceSocialCard
+          state={
+            data.allCovidRaceDataSeparate.nodes.find(
+              node => node.state === state.state,
+            ) ||
+            data.allCovidRaceDataCombined.nodes.find(
+              node => node.state === state.state,
+            )
+          }
+          population={
+            data.allCovidStateInfo.nodes.find(
+              node => node.state === state.state,
+            ).childPopulation.population
+          }
+          combinedStates={combinedStates}
+          renderOptions={{
+            width: 700,
+            height: 700,
+            relativePath: 'race-dashboard',
+            filename: `${state.childSlug.slug}-square`,
+          }}
+          square
+        />
+        </>
       ))}
     </>
   )

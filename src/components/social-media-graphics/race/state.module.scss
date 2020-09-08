@@ -1,4 +1,8 @@
 .container, .no-data-container {
+  &.square {
+    width: 700px;
+    height: 700px;
+  }
   width: 900px;
   height: 472.5px;
   border: 3px solid $color-slate-800;
@@ -13,6 +17,43 @@
   @include padding(24);
   > * {
     position: absolute;
+  }
+}
+
+.square {
+  .grid {
+    outline: 2px dashed red;
+    width: 630px;
+    left: 35px;
+    top: 80px;
+
+    // reduce race labels area to 130px instead of 150 px
+    grid-template-columns: [race-labels-start] 130px [race-labels-end case-bars-start] 228px [case-bars-end death-bars-start] 228px [death-bars-end];
+
+    &.cases-only {
+      grid-template-columns: [race-labels-start] 130px [race-labels-end case-bars-start] 1fr [death-bars-end case-bars-end death-bars-start];
+    }
+
+    &.deaths-only {
+      grid-template-columns: [race-labels-start] 130px [race-labels-end case-bars-start] 1fr [death-bars-end case-bars-end death-bars-start];
+    }
+
+    .header {
+      grid-area: 1 / race-labels-start / 2 / death-bars-end;
+      margin: 0 80px 16px;
+    }
+
+    .deaths-header {
+      margin-left: 24px;
+    }
+
+    .notes {
+      line-height: 1.5;
+    }
+
+    .bar {
+      line-height: 1.25;
+    }
   }
 }
 
@@ -83,7 +124,7 @@
     text-align: right;
   }
 
-  .percent {
+  .notes {
     grid-column-start: case-bars-start;
     grid-column-end: death-bars-end;
     color: $color-slate-700;
@@ -148,6 +189,14 @@
   }
 }
 
+.square {
+  .bar {
+    height: 35px;
+  }
+  .bar.death-bar {
+    margin-left: 24px;
+  }
+}
 
 .no-data-container {
   display: flex;
@@ -156,7 +205,38 @@
   @include type-size(300);
   padding: 116px 180px; // ignore-style-rule
 
-  img {
+  &.square {
+    padding: 150px 90px; // ignore-style-rule
+
+    .alert {
+      width: 90px;
+      margin-bottom: 8px;
+    }
+
+    .logos-container {
+      display: flex;
+      flex-direction: row;
+      margin: 50px auto 0;
+
+      .ctp-logo {
+        position: static;
+        width: 26px;
+        margin-right: 6px;
+      }
+
+      .car-logo {
+        position: static;
+        width: 43px;
+      }
+    }
+
+    p {
+      margin: 1rem 0;
+    }
+  }
+
+  .alert {
+    width: 60px;
     margin: 0 auto;
   }
 
