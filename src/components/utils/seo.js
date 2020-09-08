@@ -32,7 +32,7 @@ function SEO({ lang, meta, title, socialCard }) {
   let description
   let imageSrc
 
-  if (typeof socialCard === "string") {
+  if (typeof socialCard === 'string') {
     // if socialCard param is the url to the social card image
     imageSrc = socialCard
   } else {
