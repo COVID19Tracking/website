@@ -30,32 +30,34 @@ const BlogCategoriesList = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <TabletDisclosure className={blogCategoriesListStyles.container}>
-      <TabletDisclosureHeader isOpen={isOpen} setIsOpen={setIsOpen}>
-        <h3>Posts by Category</h3>
-      </TabletDisclosureHeader>
-      <TabletDisclosureContent isOpen={isOpen}>
-        <ul
-          role="navigation"
-          aria-label="Categories"
-          className={blogCategoriesListStyles.categoryList}
-        >
-          {categories.map(category => (
-            <li
-              className={blogCategoriesListStyles.category}
-              key={category.slug}
-            >
-              <Link to={`/blog/category/${category.slug}`}>
-                <p className={blogCategoriesListStyles.categoryText}>
-                  {category.name} (
-                  {category.blog_post && category.blog_post.length})
-                </p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </TabletDisclosureContent>
-    </TabletDisclosure>
+    <div className={blogCategoriesListStyles.wrapper}>
+      <TabletDisclosure className={blogCategoriesListStyles.container}>
+        <TabletDisclosureHeader isOpen={isOpen} setIsOpen={setIsOpen}>
+          <h3>Posts by Category</h3>
+        </TabletDisclosureHeader>
+        <TabletDisclosureContent isOpen={isOpen}>
+          <ul
+            role="navigation"
+            aria-label="Categories"
+            className={blogCategoriesListStyles.categoryList}
+          >
+            {categories.map(category => (
+              <li
+                className={blogCategoriesListStyles.category}
+                key={category.slug}
+              >
+                <Link to={`/blog/category/${category.slug}`}>
+                  <p className={blogCategoriesListStyles.categoryText}>
+                    {category.name} (
+                    {category.blog_post && category.blog_post.length})
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </TabletDisclosureContent>
+      </TabletDisclosure>
+    </div>
   )
 }
 
