@@ -2,7 +2,7 @@
   "name": "covid-tracking-project",
   "version": "0.0.1",
   "engines": {
-    "node": ">=10.13"
+    "node": ">=12.18"
   },
   "description": "Collects information from 50 US states, the District of Columbia, and 5 other US territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2.",
   "author": "The COVID Tracking Project",
