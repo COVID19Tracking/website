@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql, Link, navigate } from 'gatsby'
 import Layout from '~components/layout'
 import { SocialCardLede } from '~components/social-media-graphics/race/state'
 
