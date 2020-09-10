@@ -9,7 +9,9 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
   const totalTestResultsTitle =
-    'Total test results - legacy (positive + negative)'
+    ['CO', 'RI'].indexOf(state.state) > -1
+      ? 'Total test results - legacy (Total PCR tests in test encounters)'
+      : 'Total test results - legacy (positive + negative)'
 
   return (
     <Layout
