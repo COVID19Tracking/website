@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { graphql, Link, navigate } from 'gatsby'
+import React from 'react'
+import { graphql, Link } from 'gatsby'
 import Layout from '~components/layout'
 import { SocialCardLede } from '~components/social-media-graphics/race/state'
 
@@ -11,16 +11,6 @@ export default ({ pageContext, path, data }) => {
   const stateData = data.covidRaceDataSeparate || data.covidRaceDataCombined
 
   // todo make typeOfRates dynamic
-
-  useEffect(() => {
-    setTimeout(() => {
-      navigate(
-        `/race/dashboard/${stateData &&
-          `#state-${stateData.state.toLowerCase()}`}`,
-      )
-      // navigate(`/race/dashboard/#state-${stateData.state.toLowerCase()}`)
-    }, 4000)
-  }, [])
 
   return (
     <Layout
