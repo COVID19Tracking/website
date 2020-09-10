@@ -8,9 +8,6 @@ import { stringifyList } from '~utilities/list-formatter'
 
 import shareStyles from './share.module.scss'
 
-const getStateShareImageUrl = state =>
-  `https://covidtracking.com/images/race-dashboard/${state.childSlug.slug}.png`
-
 const getStateSquareImageUrl = state =>
   `https://covidtracking.com/images/race-dashboard/${state.childSlug.slug}-square.png`
 
