@@ -1,6 +1,7 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '~components/layout'
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 import { SocialCardLede } from '~components/social-media-graphics/race/state'
 
 import landingStyles from './landing.module.scss'
@@ -32,14 +33,21 @@ export default ({ pageContext, path, data }) => {
           />
         </p>
       )}
-      <p>
-        <Link
-          to={`/race/dashboard/${stateData &&
-            `#state-${stateData.state.toLowerCase()}`}`}
-        >
-          Check out the Racial Data Dashboard
-        </Link>
-      </p>
+      <ul>
+        <li>
+          <CtaLink
+            to={`/race/dashboard/${stateData &&
+              `#state-${stateData.state.toLowerCase()}`}`}
+          >
+            Check out the Racial Data Dashboard
+          </CtaLink>
+        </li>
+        <li>
+          <CtaLink to="/race/social-media-graphics">
+            View another state share card
+          </CtaLink>
+        </li>
+      </ul>
       <img
         src={`/images/race-dashboard/${state.childSlug.slug}.png`}
         alt={`Social card for ${state.name}`}
