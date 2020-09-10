@@ -76,7 +76,10 @@ export const query = graphql`
         }
       }
     }
-    allContentfulDataDefinition(sort: { fields: name }) {
+    allContentfulDataDefinition(
+      sort: { fields: name }
+      filter: { apiOnly: { ne: true } }
+    ) {
       nodes {
         name
         fieldName
