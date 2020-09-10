@@ -34,12 +34,6 @@ exports[`Components : Pages : State : State links renders correctly 1`] = `
   </a>
   <a
     className="link"
-    href="/data/state/undefined/history"
-  >
-    Full history
-  </a>
-  <a
-    className="link"
     href="/data/state/undefined/screenshots"
   >
     <span>
@@ -80,12 +74,6 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
       's 
     </span>
     Official Twitter
-  </a>
-  <a
-    className="link"
-    href="/data/state/undefined/history"
-  >
-    Full history
   </a>
   <a
     className="link"
