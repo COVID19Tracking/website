@@ -14,7 +14,11 @@ export default ({ pageContext, path, data }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigate(`/race/dashboard/#state-${stateData.state.toLowerCase()}`)
+      navigate(
+        `/race/dashboard/${stateData &&
+          `#state-${stateData.state.toLowerCase()}`}`,
+      )
+      // navigate(`/race/dashboard/#state-${stateData.state.toLowerCase()}`)
     }, 4000)
   }, [])
 
@@ -37,7 +41,10 @@ export default ({ pageContext, path, data }) => {
         />
       )}
       <p>
-        <Link to={`/race/dashboard/#state-${stateData.state.toLowerCase()}`}>
+        <Link
+          to={`/race/dashboard/${stateData &&
+            `#state-${stateData.state.toLowerCase()}`}`}
+        >
           Check out the Racial Data Dashboard
         </Link>
       </p>
