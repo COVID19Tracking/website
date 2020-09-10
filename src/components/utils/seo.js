@@ -47,7 +47,7 @@ function SEO({ lang, meta, title, socialCard }) {
   const imageSrc = getImageSrc(socialCard, defaultSocialCard)
   let description
 
-  if (!socialCard || typeof socialCard == 'string') {
+  if (!socialCard || typeof socialCard === 'string') {
     description = defaultSocialCard.description.description
   } else if (socialCard.description && !socialCard.image) {
     description = socialCard.description.description
