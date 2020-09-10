@@ -37,7 +37,7 @@ export default ({ pageContext, path, data }) => {
         />
       )}
       <p>
-        <Link to={`/race/dashboard/#${state}`}>
+        <Link to={`/race/dashboard/#state-${stateData.state.toLowerCase()}`}>
           Check out the Racial Data Dashboard
         </Link>
       </p>
