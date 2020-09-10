@@ -22,13 +22,16 @@ const SocialSharing = ({
     facebook: {
       icon: facebookIcon,
       alt: 'Share on Facebook',
-      url: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+      url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        url,
+      )}`,
     },
     twitter: {
       icon: twitterIcon,
       alt: 'Share on Twitter',
-      url: `https://twitter.com/intent/tweet?url=${url}&text=${twitterText ||
-        text}`,
+      url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+        url,
+      )}&text=${encodeURIComponent(twitterText || text)}`,
     },
     link: {
       icon: linkIcon,
