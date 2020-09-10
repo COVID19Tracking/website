@@ -230,8 +230,17 @@ const StateRaceSocialCard = renderedComponent(
     if (noCharts) {
       return (
         <div>
-          <div className={classnames(socialCardStyle.noDataContainer, square && socialCardStyle.square)}>
-            <img className={socialCardStyle.alert} src={alertIcon} alt="Alert icon" />
+          <div
+            className={classnames(
+              socialCardStyle.noDataContainer,
+              square && socialCardStyle.square,
+            )}
+          >
+            <img
+              className={socialCardStyle.alert}
+              src={alertIcon}
+              alt="Alert icon"
+            />
             <p>
               As of {today.toLocaleString('default', { month: 'long' })}{' '}
               {today.getDate()}, <strong>{stateName}</strong> did not report
@@ -260,7 +269,12 @@ const StateRaceSocialCard = renderedComponent(
     }
 
     return (
-      <div className={classnames(socialCardStyle.container, square && socialCardStyle.square)}>
+      <div
+        className={classnames(
+          socialCardStyle.container,
+          square && socialCardStyle.square,
+        )}
+      >
         <div
           className={classnames(
             socialCardStyle.grid,
@@ -473,51 +487,51 @@ const CreateStateRaceSocialCards = () => {
     <>
       {states.map(state => (
         <>
-        <StateRaceSocialCard
-          state={
-            data.allCovidRaceDataSeparate.nodes.find(
-              node => node.state === state.state,
-            ) ||
-            data.allCovidRaceDataCombined.nodes.find(
-              node => node.state === state.state,
-            )
-          }
-          population={
-            data.allCovidStateInfo.nodes.find(
-              node => node.state === state.state,
-            ).childPopulation.population
-          }
-          combinedStates={combinedStates}
-          renderOptions={{
-            width: 900,
-            height: 472.5,
-            relativePath: 'race-dashboard',
-            filename: `${state.childSlug.slug}`,
-          }}
-        />
-        <StateRaceSocialCard
-          state={
-            data.allCovidRaceDataSeparate.nodes.find(
-              node => node.state === state.state,
-            ) ||
-            data.allCovidRaceDataCombined.nodes.find(
-              node => node.state === state.state,
-            )
-          }
-          population={
-            data.allCovidStateInfo.nodes.find(
-              node => node.state === state.state,
-            ).childPopulation.population
-          }
-          combinedStates={combinedStates}
-          renderOptions={{
-            width: 700,
-            height: 700,
-            relativePath: 'race-dashboard',
-            filename: `${state.childSlug.slug}-square`,
-          }}
-          square
-        />
+          <StateRaceSocialCard
+            state={
+              data.allCovidRaceDataSeparate.nodes.find(
+                node => node.state === state.state,
+              ) ||
+              data.allCovidRaceDataCombined.nodes.find(
+                node => node.state === state.state,
+              )
+            }
+            population={
+              data.allCovidStateInfo.nodes.find(
+                node => node.state === state.state,
+              ).childPopulation.population
+            }
+            combinedStates={combinedStates}
+            renderOptions={{
+              width: 900,
+              height: 472.5,
+              relativePath: 'race-dashboard',
+              filename: `${state.childSlug.slug}`,
+            }}
+          />
+          <StateRaceSocialCard
+            state={
+              data.allCovidRaceDataSeparate.nodes.find(
+                node => node.state === state.state,
+              ) ||
+              data.allCovidRaceDataCombined.nodes.find(
+                node => node.state === state.state,
+              )
+            }
+            population={
+              data.allCovidStateInfo.nodes.find(
+                node => node.state === state.state,
+              ).childPopulation.population
+            }
+            combinedStates={combinedStates}
+            renderOptions={{
+              width: 700,
+              height: 700,
+              relativePath: 'race-dashboard',
+              filename: `${state.childSlug.slug}-square`,
+            }}
+            square
+          />
         </>
       ))}
     </>
