@@ -14,7 +14,7 @@ export default ({ pageContext, path, data }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigate(`/race/dashboard/state-${stateData.state}`)
+      navigate(`/race/dashboard#state-${stateData.state}`)
     }, 4000) // todo choose duration
   }, [])
 
