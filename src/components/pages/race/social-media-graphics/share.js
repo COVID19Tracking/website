@@ -27,7 +27,7 @@ export default ({ state, stateRaceData, population }) => {
     state.name
   }, #COVID19 ${typeOfRates} among ${stringifyList({
     arr: affectedGroups,
-  })} people are higher than the overall population. Get the facts: https://www.covidtracking.com/race/social-media-graphics#${
+  })} people are higher than the overall population. Get the facts: https://www.covidtracking.com/race/social-media-graphics/${
     state.childSlug.slug
   }`
 
