@@ -47,7 +47,7 @@ const ReturnLinks = ({ links, pathNavigation, topNavigation, children }) => {
 
     if (matchingTopNavLink !== -1) {
       // pulls the title info for nav elements
-      returnLinks[index] = topNavigation[matchingTopNavLink]
+      returnLinks[index] = { ...topNavigation[matchingTopNavLink] }
       if (link.title) {
         // use the specific title, if it exists
         returnLinks[index].title = customTitle
