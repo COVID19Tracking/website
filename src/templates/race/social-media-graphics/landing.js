@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby'
 import Layout from '~components/layout'
 import { SocialCardLede } from '~components/social-media-graphics/race/state'
 
-import shareStyles from '~components/social-media-graphics/race/state.module.scss'
+import landingStyles from './landing.module.scss'
 
 export default ({ pageContext, path, data }) => {
   const state = pageContext
@@ -23,12 +23,14 @@ export default ({ pageContext, path, data }) => {
       socialCard={`//covidtracking.com/images/race-dashboard/${state.childSlug.slug}.png`}
     >
       {stateData && (
-        <SocialCardLede
-          typeOfRates="Infection and death rates"
-          state={stateData}
-          population={data.covidStateInfo.childPopulation.population}
-          stateName={stateData.stateName}
-        />
+        <p>
+          <SocialCardLede
+            typeOfRates="Infection and death rates"
+            state={stateData}
+            population={data.covidStateInfo.childPopulation.population}
+            stateName={stateData.stateName}
+          />
+        </p>
       )}
       <p>
         <Link
@@ -41,7 +43,7 @@ export default ({ pageContext, path, data }) => {
       <img
         src={`/images/race-dashboard/${state.childSlug.slug}.png`}
         alt={`Social card for ${state.name}`}
-        className={shareStyles.preview}
+        className={landingStyles.preview}
       />
     </Layout>
   )
