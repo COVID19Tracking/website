@@ -42,6 +42,11 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
             field: 'totalTestEncountersViral',
             isNumeric: true,
           },
+          {
+            label: 'Legacy values (positive + negative)',
+            field: 'totalTestResults',
+            isNumeric: true,
+          },
         ]}
         data={data.allCovidStateDaily.nodes}
       />
@@ -63,6 +68,7 @@ export const query = graphql`
         totalTestsPeopleViral
         totalTestsViral
         totalTestEncountersViral
+        totalTestResults
       }
     }
 

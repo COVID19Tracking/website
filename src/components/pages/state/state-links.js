@@ -44,12 +44,6 @@ const StateLinks = ({
         </a>
       )}
       <Link
-        to={`/data/state/${stateSlug}/history`}
-        className={stateLinksStyle.link}
-      >
-        Full history
-      </Link>
-      <Link
         className={stateLinksStyle.link}
         to={`/data/state/${stateSlug}/screenshots`}
       >
