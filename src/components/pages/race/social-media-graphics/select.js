@@ -4,24 +4,6 @@ import { Form, Select } from '~components/common/form'
 import ShareCard from './share'
 
 export default ({ separateStates, combinedStates, stateInfo }) => {
-  const { allCovidStateInfo } = useStaticQuery(
-    graphql`
-      {
-        allCovidStateInfo(filter: { state: { ne: "US" } }) {
-          nodes {
-            name
-            state
-            childSlug {
-              slug
-            }
-          }
-        }
-      }
-    `,
-  )
-
-  const states = allCovidStateInfo.nodes
-
   const defaultState = {
     name: '-- Select a state --',
     childSlug: {
@@ -38,16 +20,16 @@ export default ({ separateStates, combinedStates, stateInfo }) => {
       window.location.hash
     ) {
       const stateFilter = window.location.hash.replace('#', '')
-      const foundState = states.find(node => node.state === stateFilter)
+      const foundState = stateInfo.find(node => node.state === stateFilter)
       if (foundState) {
         setState(foundState)
       }
     }
   }, [])
 
-  states.sort((a, b) => (a.name > b.name ? 1 : -1))
+  stateInfo.sort((a, b) => (a.name > b.name ? 1 : -1))
 
-  const names = states.map(node => node.name)
+  const names = stateInfo.map(node => node.name)
 
   names.unshift(defaultState.name) // prepend the default state to the list
 
@@ -60,7 +42,7 @@ export default ({ separateStates, combinedStates, stateInfo }) => {
         value={state.name}
         isRequired
         onChange={event => {
-          const selectedState = states.find(
+          const selectedState = stateInfo.find(
             node => node.name === event.target.value,
           )
           setState(selectedState)
