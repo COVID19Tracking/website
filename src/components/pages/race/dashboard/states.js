@@ -316,6 +316,13 @@ const CrdtDashboardStates = () => {
     })
   })
 
+  /*
+  These are hardcoded territories that should not have social cards generated.
+  They will not have the CTA for viewing the race data graphically, and will
+  also not appear on the dropdown for the CRDT share images page.
+  */
+  const territoriesWithoutGraphics = ['AS', 'GU', 'MP', 'VI']
+
   return (
     <section>
       {states
@@ -328,13 +335,15 @@ const CrdtDashboardStates = () => {
             >
               {state.name}
             </h2>
-            <p className={statesStyle.socialCardCta}>
-              A summary of key race and ethnicity data for {state.name} can also
-              be viewed as a graphic.{' '}
-              <CtaLink to={`/race/social-media-graphics#${state.state}`}>
-                View as graphic
-              </CtaLink>
-            </p>
+            {!territoriesWithoutGraphics.includes(state.state) && (
+              <p className={statesStyle.socialCardCta}>
+                A summary of key race and ethnicity data for {state.name} can
+                also be viewed as a graphic.{' '}
+                <CtaLink to={`/race/social-media-graphics#${state.state}`}>
+                  View as graphic
+                </CtaLink>
+              </p>
+            )}
             <div>
               {state.stateSeparate ? (
                 <StateSeparate state={state} />
