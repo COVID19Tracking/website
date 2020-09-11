@@ -4,8 +4,6 @@ import classnames from 'classnames'
 
 import { renderedComponent } from '~plugins/gatsby-render-components'
 
-import { stringifyList } from '~utilities/list-formatter'
-
 import { FormatNumber } from '~components/utils/format'
 import Percent from '~components/pages/race/dashboard/percent'
 
@@ -16,25 +14,9 @@ import alertIcon from '~images/race-dashboard/alert-bang-orange.svg'
 import socialCardStyle from './state.module.scss'
 
 const getGroups = (state, population) => {
-  let totalCases = 0
-  let totalDeaths = 0
-
   if (state === undefined) {
     return {}
   }
-
-  Object.keys(state).forEach(field => {
-    if (field.search('Positives') > -1) {
-      if (state[field]) {
-        totalCases += parseInt(state[field], 10)
-      }
-    }
-    if (field.search('Deaths') > -1) {
-      if (state[field]) {
-        totalDeaths += parseInt(state[field], 10)
-      }
-    }
-  })
 
   let groups = [
     {
@@ -48,13 +30,6 @@ const getGroups = (state, population) => {
       style: socialCardStyle.barLatinx,
       cases: state.latinXPosPercap * 100,
       deaths: state.latinXDeathPercap * 100,
-    },
-    {
-      label: 'All',
-      all: true,
-      style: socialCardStyle.barAll,
-      cases: Math.round((totalCases / population) * 100000),
-      deaths: Math.round((totalDeaths / population) * 100000),
     },
     {
       label: 'Asian',
@@ -84,23 +59,21 @@ const getGroups = (state, population) => {
 
   groups = groups.filter(
     // remove groups without case or death data
-    group => group.cases !== undefined && group.deaths !== undefined,
+    group => group.cases !== '' && group.deaths !== '',
   )
 
-  const affectedGroups = []
-  const all = groups.find(group => group.all)
+  const maxCasesPerCap = Math.max(...groups.map(group => group.cases))
+  const maxDeathsPerCap = Math.max(...groups.map(group => group.deaths))
 
-  const largestCases = Math.max(...groups.map(group => group.cases))
-  const largestDeaths = Math.max(...groups.map(group => group.deaths))
-
-  groups.forEach(group => {
-    if (group.all || (!group.cases && !group.deaths)) {
-      return
+  groups.sort((a, b) => {
+    // sort bars by # of deaths
+    if (a.deaths >= b.deaths) {
+      return -1
     }
-    if (group.cases > all.cases && group.deaths > all.deaths) {
-      affectedGroups.push(group.label)
-    }
+    return 1
   })
+
+  const worstDeathsGroup = groups[0].label;
 
   groups.sort((a, b) => {
     // sort bars by # of cases
@@ -109,33 +82,37 @@ const getGroups = (state, population) => {
     }
     return 1
   })
+
+  const worstCasesGroup = groups[0].label;
+
   return {
-    affectedGroups,
     groups,
-    largestCases,
-    largestDeaths,
-    all,
+    maxCasesPerCap,
+    maxDeathsPerCap,
+    worstCasesGroup,
+    worstDeathsGroup,
   }
+}
+
+const raceDict = {
+  Black: 'Black/African American',
+  'Hispanic/Latino': 'Hispanic/Latino',
+  All: 'All',
+  Asian: 'Asian',
+  AIAN: 'American Indian or Alaska Native',
+  White: 'White',
+  NHPI: 'Native Hawaiian and Pacific Islander',
 }
 
 const SocialCardLede = ({ typeOfRates, state, stateName, population }) => {
   const today = new Date()
-  const { affectedGroups } = getGroups(state, population)
+  const { maxCasesPerCap, maxDeathsPerCap, worstCasesGroup, worstDeathsGroup } = getGroups(state, population)
   return (
     <>
       In <strong>{state.stateName || stateName}</strong>, as of{' '}
       {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
-      {affectedGroups && affectedGroups.length ? (
-        <>
-          {typeOfRates} among {stringifyList({ arr: affectedGroups })} people
-          are higher than the overall population.
-        </>
-      ) : (
-        <>
-          there are no groups with higher {typeOfRates} than the overall
-          population.
-        </>
-      )}
+      Worst cases: {raceDict[worstCasesGroup]},{' '}
+      Worst deaths: {raceDict[worstDeathsGroup]}
     </>
   )
 }
@@ -152,15 +129,6 @@ const StateRaceSocialCard = renderedComponent(
         ? 'The District of Columbia'
         : state.stateName
 
-    const raceDict = {
-      Black: 'Black/African American',
-      'Hispanic/Latino': 'Hispanic/Latino',
-      All: 'All',
-      Asian: 'Asian',
-      AIAN: 'American Indian or Alaska Native',
-      White: 'White',
-      NHPI: 'Native Hawaiian and Pacific Islander',
-    }
 
     const groupValues = getGroups(state, population)
     let { affectedGroups } = groupValues
@@ -200,30 +168,10 @@ const StateRaceSocialCard = renderedComponent(
         }
         return 1
       })
-
-      affectedGroups = []
-      groups.forEach(group => {
-        if (group.all || !group.deaths) {
-          return
-        }
-        if (group.deaths > groupValues.all.deaths) {
-          affectedGroups.push(group.label)
-        }
-      })
     }
 
     if (casesOnly) {
       typeOfRates = 'case rates'
-
-      affectedGroups = []
-      groups.forEach(group => {
-        if (group.all || !group.cases) {
-          return
-        }
-        if (group.cases > groupValues.all.cases) {
-          affectedGroups.push(group.label)
-        }
-      })
     }
 
     const today = new Date()
@@ -323,7 +271,7 @@ const StateRaceSocialCard = renderedComponent(
               {!deathsOnly && (
                 <div
                   className={classnames(socialCardStyle.bar, style)}
-                  style={{ width: getWidth(cases, groupValues.largestCases) }}
+                  style={{ width: getWidth(cases, groupValues.maxCasesPerCap) }}
                 >
                   <FormatNumber number={cases} />
                 </div>
@@ -335,7 +283,7 @@ const StateRaceSocialCard = renderedComponent(
                     socialCardStyle.deathBar,
                     style,
                   )}
-                  style={{ width: getWidth(deaths, groupValues.largestDeaths) }}
+                  style={{ width: getWidth(deaths, groupValues.maxDeathsPerCap) }}
                 >
                   <FormatNumber number={deaths} />
                 </div>

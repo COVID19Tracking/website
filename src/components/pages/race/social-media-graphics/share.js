@@ -25,9 +25,7 @@ export default ({ state, stateRaceData, population }) => {
 
   const socialCardShareText = `In ${
     state.name
-  }, #COVID19 ${typeOfRates} among ${stringifyList({
-    arr: affectedGroups,
-  })} people are higher than the overall population. Get the facts: https://www.covidtracking.com/race/social-media-graphics/${
+  }, #COVID19 ${typeOfRates} among <> people are higher than the overall population. Get the facts: https://www.covidtracking.com/race/social-media-graphics/${
     state.childSlug.slug
   }`
 
