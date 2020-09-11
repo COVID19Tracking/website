@@ -13,6 +13,12 @@ const HomepagePress = () => {
           featured
         }
       }
+      allFile(filter: { dir: { regex: "/press-logos/" } }) {
+        nodes {
+          name
+          publicURL
+        }
+      }
     }
   `)
 
@@ -25,11 +31,11 @@ const HomepagePress = () => {
           CNN, Vox, ProPublica, and The Wall Street Journal use our data in
           their reporting.
         </p>
-        {data.allHomepagePressYaml.nodes.map(node => (
+        {data.allHomepagePressYaml.nodes.map(({ name, logo }) => (
           <img
-            key={`homepage-press-${node.name}`}
-            alt={`${node.name} logo`}
-            src={`/images/press-logos/${node.logo}`}
+            key={`homepage-press-${logo}`}
+            alt={`${name} logo`}
+            src={data.allFile.nodes.find(file => file.name === logo).publicURL}
             aria-hidden
           />
         ))}
