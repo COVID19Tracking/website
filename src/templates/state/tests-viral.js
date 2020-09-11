@@ -8,10 +8,15 @@ import Layout from '~components/layout'
 const StateTestViralTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
-  const totalTestResultsTitle =
-    ['CO', 'RI'].indexOf(state.state) > -1
-      ? 'Total test results - legacy (Total PCR tests in test encounters)'
-      : 'Total test results - legacy (positive + negative)'
+  const totalTestResultsTitle = (() => {
+    if (['CO', 'RI', 'ND'].indexOf(state.state) > -1) {
+      return 'Total test results - legacy (Total PCR tests in test encounters)'
+    }
+    if (['MA'].indexOf(state.state) > -1) {
+      return 'Total test results - legacy (Total PCR tests)'
+    }
+    return 'Total test results - legacy (positive + negative)'
+  })()
 
   return (
     <Layout
