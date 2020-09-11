@@ -22,9 +22,7 @@ const Statistic = ({ title, value, suffix, children, subelement }) => (
         <NumberOrNotReported value={value} />
         {suffix}
       </div>
-      {children && (
-        <div className={statisticStyles.info}>{children && children}</div>
-      )}
+      {children && <div className={statisticStyles.info}>{children}</div>}
     </div>
   </div>
 )

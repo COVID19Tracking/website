@@ -42,7 +42,7 @@ const TabletDisclosureHeader = ({ isOpen, setIsOpen, children, className }) => (
 const TabletDisclosureContent = ({ isOpen, className, children }) => (
   <div
     className={classnames(
-      className && className,
+      className,
       isOpen && TabletDisclosureStyles.opened,
       TabletDisclosureStyles.content,
     )}
