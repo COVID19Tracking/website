@@ -42,7 +42,7 @@ const StateSeparate = ({ state }) => {
   raceNotes = cautionNotes(stateData, raceNotes)
 
   const groupedRaceNotes = [...new Set(Object.values(raceNotes))]
-    .filter(value => value && value)
+    .filter(value => value)
     .reverse()
 
   let ethnicityNotes = {
@@ -57,7 +57,7 @@ const StateSeparate = ({ state }) => {
   ethnicityNotes = cautionNotes(stateData, ethnicityNotes)
 
   const groupedEthnicityNotes = [...new Set(Object.values(ethnicityNotes))]
-    .filter(value => value && value)
+    .filter(value => value)
     .reverse()
 
   if (!stateData.anyPosData && !stateData.anyDeathData) {

@@ -94,7 +94,7 @@ const LongTermCarePage = ({ data }) => (
       </LongContent>
     </Container>
     <TableauChart
-      id="ltc-1"
+      id="ltc-2"
       height={525}
       mobileHeight={450}
       viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
@@ -132,7 +132,7 @@ const LongTermCarePage = ({ data }) => (
       </DetailText>
     </Container>
     <TableauChart
-      id="ltc-2"
+      id="ltc-3"
       height={1300}
       viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
       viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCaremobile/SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
