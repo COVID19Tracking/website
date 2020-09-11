@@ -8,19 +8,20 @@
   justify-content: center;
   flex-grow: 1;
 
-  border-radius: 4px;
-  background: $color-plum-300;
   height: 32px;
-  transition: background-color 0.2s;
+  border-radius: 4px;
+  margin-left: spacer(16);
+
+  &:first-child {
+    margin-left: 0;
+  }
 
   @media (min-width: $viewport-md) {
     width: 32px;
   }
 
-  margin-left: spacer(16);
-  &:first-child {
-    margin-left: 0;
-  }
+  background: $color-plum-300;
+  transition: background-color 0.2s;
 
   &:hover {
     background-color: $color-plum-200;
