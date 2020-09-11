@@ -20,11 +20,9 @@ const Recaptcha = () => {
       typeof window !== 'undefined' &&
       typeof window.grecaptcha !== 'undefined'
     ) {
-      try {
-        window.grecaptcha.render(captchaRef.current, {
-          siteKey: data.site.siteMetadata.recaptchaKey,
-        })
-      } catch {}
+      window.grecaptcha.render(captchaRef.current, {
+        siteKey: data.site.siteMetadata.recaptchaKey,
+      })
     }
   }, [])
 
