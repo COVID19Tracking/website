@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import ReCaptcha from 'react-recaptcha'
 
 const Recaptcha = () => {
   const data = useStaticQuery(graphql`
@@ -13,27 +13,15 @@ const Recaptcha = () => {
     }
   `)
 
-  const captchaRef = useRef(false)
-
-  useEffect(() => {
-    if (typeof window !== 'undefined')
-      window.recaptchaOnload = () => {
-        window.grecaptcha.render(captchaRef.current, {
-          siteKey: data.site.siteMetadata.recaptchaKey,
-        })
-      }
-  }, [])
-
   return (
     <>
-      <Helmet>
-        <script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=recaptchaOnload" />
-      </Helmet>
-      <div
-        className="g-recaptcha"
-        ref={captchaRef}
-        data-sitekey={data.site.siteMetadata.recaptchaKey}
-      />
+      {typeof window !== 'undefined' && (
+        <ReCaptcha
+          sitekey={data.site.siteMetadata.recaptchaKey}
+          render="explicit"
+          elementID={`captcha-${Math.round(Math.random() * 1000)}`}
+        />
+      )}
     </>
   )
 }
