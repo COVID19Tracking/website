@@ -109,7 +109,7 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
       <a
         href="/license"
       >
-        (CC BY-NC 4.0)
+        (CC BY 4.0)
       </a>
     </span>
     <a
