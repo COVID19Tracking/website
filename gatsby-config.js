@@ -60,6 +60,13 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'pressImages',
+        path: `${__dirname}/src/images/press-logos`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: 'raceProjectImages',
         path: `${__dirname}/src/images/race-project`,
       },
