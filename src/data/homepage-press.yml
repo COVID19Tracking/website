@@ -1,66 +1,66 @@
 - name: The Atlantic
-  logo: the-atlantic.svg
+  logo: the-atlantic
   width: 80
 - name: The New York Times
-  logo: nyt.svg
+  logo: nyt
   width: 180
   featured: true
 - name: The Washington Post
-  logo: wapo.svg
+  logo: wapo
   width: 180
   featured: true
 - name: CNN
-  logo: cnn.svg
+  logo: cnn
   width: 80
   featured: true
 - name: Vox
-  logo: vox.svg
+  logo: vox
   width: 50
   featured: true
 - name: Propublica
-  logo: pro-publica.svg
+  logo: pro-publica
   width: 100
   featured: true
 - name: The Wall Street Journal
-  logo: the-wall-street-journal.svg
+  logo: the-wall-street-journal
   width: 200
   featured: true
 - name: Politico
-  logo: politico.svg
+  logo: politico
   width: 100
 - name: The New Yorker
-  logo: the-new-yorker.svg
+  logo: the-new-yorker
   width: 160
 - name: National Public Radio
-  logo: national-public-radio.svg
+  logo: national-public-radio
   width: 85
 - name: Ars Technica logo
-  logo: ars-technica.svg
+  logo: ars-technica
 - name: Columbia Journalism Review
-  logo: columbia-journalism-review.svg
+  logo: columbia-journalism-review
   width: 90
 - name: Los Angeles Times
-  logo: la-times.svg
+  logo: la-times
   width: 180
 - name: San Francisco Chronicle
-  logo: sf-chronicle.svg
+  logo: sf-chronicle
   width: 180
 - name: Business Insider
-  logo: business-insider.svg
+  logo: business-insider
 - name: Five thirty eight
-  logo: five-thirty-eight.svg
+  logo: five-thirty-eight
   width: 150
 - name: Gizmodo logo
-  logo: gizmodo.svg
+  logo: gizmodo
 - name: CBS News
-  logo: cbs-news.svg
+  logo: cbs-news
   width: 60
 - name: Talking Points Memo
-  logo: tpm.svg
+  logo: tpm
   width: 80
 - name: Minnesota Public Radio News
-  logo: mprnews.svg
+  logo: mprnews
   width: 110
 - name: The Boston Globe
-  logo: the-boston-globe.svg
+  logo: the-boston-globe
   width: 125
