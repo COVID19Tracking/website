@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import { Form, Textarea, Input, Select, List } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
+import Recaptcha from '~components/common/recaptcha'
 import Alert from '~components/common/alert'
 
 const ContactPage = ({ data }) => {
@@ -124,6 +125,9 @@ const ContactPage = ({ data }) => {
             <Alert>You must complete all fields</Alert>
           </div>
         )}
+        <div>
+          <Recaptcha />
+        </div>
         <button
           type="submit"
           disabled={!isComplete()}
