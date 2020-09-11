@@ -32,8 +32,6 @@
     "algoliasearch": "^4.1.0",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.3.1",
-    "csv-parse": "^4.9.1",
-    "csv-writer": "^1.6.0",
     "d3-array": "^2.4.0",
     "d3-collection": "^1.0.7",
     "d3-format": "^1.4.4",

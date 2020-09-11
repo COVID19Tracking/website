@@ -1,6 +1,5 @@
 const fs = require('fs')
 const crypto = require('crypto')
-const parse = require('csv-parse/lib/sync')
 
 exports.sourceNodes = ({ actions, createNodeId, reporter }, configOptions) => {
   return new Promise((resolve, reject) => {
