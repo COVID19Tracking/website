@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import { Form, Select } from '~components/common/form'
 import ShareCard from './share'
 
