@@ -106,7 +106,7 @@ const raceDict = {
 
 const SocialCardLede = ({ typeOfRates, state, stateName, population }) => {
   const today = new Date()
-  const { maxCasesPerCap, maxDeathsPerCap, worstCasesGroup, worstDeathsGroup } = getGroups(state, population)
+  const { worstCasesGroup, worstDeathsGroup } = getGroups(state, population)
   return (
     <>
       In <strong>{state.stateName || stateName}</strong>, as of{' '}
@@ -131,7 +131,6 @@ const StateRaceSocialCard = renderedComponent(
 
 
     const groupValues = getGroups(state, population)
-    let { affectedGroups } = groupValues
     const { groups } = groupValues
 
     let noDeaths

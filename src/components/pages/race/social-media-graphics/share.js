@@ -4,8 +4,6 @@ import DetailText from '~components/common/detail-text'
 import SocialSharing from '~components/common/social-sharing'
 import { getGroups } from '~components/social-media-graphics/race/state'
 
-import { stringifyList } from '~utilities/list-formatter'
-
 import shareStyles from './share.module.scss'
 
 const getStateSquareImageUrl = state =>
@@ -21,13 +19,7 @@ export default ({ state, stateRaceData, population }) => {
 
   const typeOfRates = 'todo todo' // todo set this
 
-  const { affectedGroups } = getGroups(stateRaceData, population)
-
-  const socialCardShareText = `In ${
-    state.name
-  }, #COVID19 ${typeOfRates} among <> people are higher than the overall population. Get the facts: https://www.covidtracking.com/race/social-media-graphics/${
-    state.childSlug.slug
-  }`
+  const socialCardShareText = `In ${state.name}, #COVID19 ${typeOfRates} among <> people are higher than the overall population. Get the facts: https://www.covidtracking.com/race/social-media-graphics/${state.childSlug.slug}`
 
   return (
     <>

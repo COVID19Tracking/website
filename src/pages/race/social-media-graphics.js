@@ -126,7 +126,6 @@ export default () => {
       }
     }
   `)
-  const states = data.allCovidStateInfo.nodes
 
   return (
     <Layout
