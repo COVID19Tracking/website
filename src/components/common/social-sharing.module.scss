@@ -11,6 +11,8 @@
   border-radius: 4px;
   background: $color-plum-300;
   height: 32px;
+  transition: background-color 0.2s;
+
   @media (min-width: $viewport-md) {
     width: 32px;
   }
@@ -21,11 +23,11 @@
   }
 
   &:hover {
-    @include link-hover-dark-bg;
+    background-color: $color-plum-200;
   }
 
   &:focus {
-    @include link-focus-dark-bg;
+    outline: $color-plum-300 dotted 2px;
   }
 }
 
