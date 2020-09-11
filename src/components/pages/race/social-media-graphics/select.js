@@ -41,6 +41,10 @@ export default ({ separateStates, combinedStates, stateInfo }) => {
         value={state.name}
         isRequired
         onChange={event => {
+          if (event.target.value === '-- Select a state --') {
+            setState(defaultState)
+            return
+          }
           const selectedState = stateInfo.find(
             node => node.name === event.target.value,
           )
