@@ -12,14 +12,16 @@ const getStateSquareImageUrl = state =>
 const getLandingPageUrl = state =>
   `https://covidtracking.com/race/social-media-graphics/${state.childSlug.slug}`
 
-export default ({ state, stateRaceData, population }) => {
+export default ({ state, stateRaceData }) => {
   if (state.name === '-- Select a state --') {
     return null
   }
 
   const typeOfRates = 'todo todo' // todo set this
 
-  const socialCardShareText = `In ${state.name}, #COVID19 ${typeOfRates} among <> people are higher than the overall population. Get the facts: https://www.covidtracking.com/race/social-media-graphics/${state.childSlug.slug}`
+  const groups = getGroups(stateRaceData)
+
+  const socialCardShareText = `${typeOfRates} are reported. In ${state.name}, #COVID19 cases are worst for ${groups.worstCasesGroup} and deaths are worst for ${groups.worstDeathsGroup} Get the facts: https://www.covidtracking.com/race/social-media-graphics/${state.childSlug.slug}`
 
   return (
     <>
