@@ -22,50 +22,72 @@ const getGroups = state => {
     {
       label: 'Black',
       style: socialCardStyle.barBlack,
-      cases: state.blackPosPercap === '' ? undefined : state.blackPosPercap * 100, // perCap is *per 1,000*, mulitply by 100 to get *per 100,000*
-      deaths: state.blackDeathPercap === '' ? undefined : state.blackDeathPercap * 100,
+      cases:
+        state.blackPosPercap === '' ? undefined : state.blackPosPercap * 100, // perCap is *per 1,000*, mulitply by 100 to get *per 100,000*
+      deaths:
+        state.blackDeathPercap === ''
+          ? undefined
+          : state.blackDeathPercap * 100,
     },
     {
       label: 'Hispanic/Latino',
       style: socialCardStyle.barLatinx,
-      cases: state.latinXPosPercap === '' ? undefined : state.latinXPosPercap * 100,
-      deaths: state.latinXDeathPercap === '' ? undefined : state.latinXDeathPercap * 100,
+      cases:
+        state.latinXPosPercap === '' ? undefined : state.latinXPosPercap * 100,
+      deaths:
+        state.latinXDeathPercap === ''
+          ? undefined
+          : state.latinXDeathPercap * 100,
     },
     {
       label: 'Asian',
       style: socialCardStyle.barAsian,
-      cases: state.asianPosPercap === '' ? undefined : state.asianPosPercap * 100,
-      deaths: state.asianDeathPercap === '' ? undefined : state.asianDeathPercap * 100,
+      cases:
+        state.asianPosPercap === '' ? undefined : state.asianPosPercap * 100,
+      deaths:
+        state.asianDeathPercap === ''
+          ? undefined
+          : state.asianDeathPercap * 100,
     },
     {
       label: 'AIAN',
       style: socialCardStyle.barAian,
       cases: state.aianPosPercap === '' ? undefined : state.aianPosPercap * 100,
-      deaths: state.aianDeathPercap === '' ? undefined : state.aianDeathPercap * 100,
+      deaths:
+        state.aianDeathPercap === '' ? undefined : state.aianDeathPercap * 100,
     },
     {
       label: 'White',
       style: socialCardStyle.barWhite,
-      cases: state.whitePosPercap === '' ? undefined : state.whitePosPercap * 100,
-      deaths: state.whiteDeathPercap === '' ? undefined : state.whiteDeathPercap * 100,
+      cases:
+        state.whitePosPercap === '' ? undefined : state.whitePosPercap * 100,
+      deaths:
+        state.whiteDeathPercap === ''
+          ? undefined
+          : state.whiteDeathPercap * 100,
     },
     {
       label: 'API',
       style: socialCardStyle.barAPi,
       cases: state.apiPosPercap === '' ? undefined : state.apiPosPercap * 100,
-      deaths: state.apiDeathPercap === '' ? undefined : state.apiDeathPercap * 100,
+      deaths:
+        state.apiDeathPercap === '' ? undefined : state.apiDeathPercap * 100,
     },
     {
       label: 'NHPI',
       style: socialCardStyle.barNhpi,
       cases: state.nhpiPosPercap === '' ? undefined : state.nhpiPosPercap * 100,
-      deaths: state.nhpiDeathPercap === '' ? undefined : state.nhpiDeathPercap * 100,
+      deaths:
+        state.nhpiDeathPercap === '' ? undefined : state.nhpiDeathPercap * 100,
     },
   ]
 
   const aPi = groups.find(group => group.label === 'API')
 
-  if ((aPi.cases === "" && aPi.deaths === "") || (aPi.cases === undefined && aPi.deaths === undefined)) {
+  if (
+    (aPi.cases === '' && aPi.deaths === '') ||
+    (aPi.cases === undefined && aPi.deaths === undefined)
+  ) {
     groups = groups.filter(
       // remove API bar
       group => group.label !== 'API',
@@ -73,7 +95,7 @@ const getGroups = state => {
   } else {
     groups = groups.filter(
       // remove asian and NHPI bars
-      group => (group.label !== 'NHPI') && (group.label !== 'Asian')
+      group => group.label !== 'NHPI' && group.label !== 'Asian',
     )
   }
 
@@ -121,6 +143,36 @@ const getGroups = state => {
     worstDeathsGroup,
     worstDeathsValue,
   }
+}
+
+const getTypeOfRates = (state, combinedStates) => {
+  let noDeaths
+  let noCases
+
+  if (combinedStates.indexOf(state.state) >= 0) {
+    // if this state combines race and ethnicity data
+    noDeaths = parseFloat(state.knownRaceEthDeath) === 0
+    noCases = parseFloat(state.knownRaceEthPos) === 0
+  } else {
+    noDeaths = parseFloat(state.knownRaceDeath) === 0
+    noCases = parseFloat(state.knownRacePos) === 0
+  }
+
+  const oneChart = (noCases || noDeaths) && !(noCases && noDeaths)
+
+  const casesOnly = oneChart && noDeaths
+
+  const deathsOnly = oneChart && noCases
+
+  if (deathsOnly) {
+    return 'death rates'
+  }
+
+  if (casesOnly) {
+    return 'case rates'
+  }
+
+  return 'infection and death rates'
 }
 
 const raceDict = {
@@ -184,11 +236,7 @@ const StateRaceSocialCard = renderedComponent(
 
     const deathsOnly = oneChart && noCases
 
-    let typeOfRates = 'infection and death rates'
-
     if (deathsOnly) {
-      // if deaths are the only reported data
-      typeOfRates = 'death rates'
       groups.sort((a, b) => {
         // sort bars by # of deaths
         if (a.deaths >= b.deaths) {
@@ -198,11 +246,10 @@ const StateRaceSocialCard = renderedComponent(
       })
     }
 
-    if (casesOnly) {
-      typeOfRates = 'case rates'
-    }
-
     const today = new Date()
+
+    const typeOfRates = getTypeOfRates(state, combinedStates)
+
     if (noCharts) {
       return (
         <div>
@@ -299,7 +346,9 @@ const StateRaceSocialCard = renderedComponent(
               {!deathsOnly && (
                 <div
                   className={classnames(socialCardStyle.bar, style)}
-                  style={{ width: getWidth(cases, groupValues.worstCasesValue) }}
+                  style={{
+                    width: getWidth(cases, groupValues.worstCasesValue),
+                  }}
                 >
                   <FormatNumber number={cases} />
                 </div>
@@ -522,4 +571,4 @@ const CreateStateRaceSocialCards = () => {
 
 export default CreateStateRaceSocialCards
 
-export { SocialCardLede, getGroups }
+export { SocialCardLede, getGroups, getTypeOfRates }
