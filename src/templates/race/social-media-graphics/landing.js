@@ -2,7 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
-import { SocialCardLede } from '~components/social-media-graphics/race/state'
+import {
+  SocialCardLede,
+  getTypeOfRates,
+} from '~components/social-media-graphics/race/state'
 
 import landingStyles from './landing.module.scss'
 
@@ -11,7 +14,15 @@ export default ({ pageContext, path, data }) => {
 
   const stateData = data.covidRaceDataSeparate || data.covidRaceDataCombined
 
-  // todo make typeOfRates dynamic
+  if (stateData === null) {
+    return <></>
+  }
+
+  const combinedStates = data.allCovidRaceDataCombined.nodes.map(
+    node => node.state,
+  )
+
+  const typeOfRates = getTypeOfRates(stateData, combinedStates)
 
   return (
     <Layout
@@ -26,7 +37,7 @@ export default ({ pageContext, path, data }) => {
       {stateData && (
         <p>
           <SocialCardLede
-            typeOfRates="Infection and death rates"
+            typeOfRates={typeOfRates}
             state={stateData}
             population={data.covidStateInfo.childPopulation.population}
             stateName={stateData.stateName}
@@ -62,6 +73,11 @@ export const query = graphql`
     covidStateInfo(state: { eq: $state }) {
       childPopulation {
         population
+      }
+    }
+    allCovidRaceDataCombined {
+      nodes {
+        state
       }
     }
     covidRaceDataCombined(state: { eq: $state }) {
