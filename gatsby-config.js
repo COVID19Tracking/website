@@ -287,12 +287,9 @@ const gatsbyConfig = {
       resolve: `gatsby-plugin-global-context`,
       options: {
         context: {
-          sevenDaysAgo: parseInt(
-            DateTime.local()
-              .minus({ days: 7 })
-              .toFormat('yyyyMMdd'),
-            10,
-          ),
+          sevenDaysAgo: DateTime.local()
+            .minus({ days: 7 })
+            .toISODate(),
         },
       },
     },

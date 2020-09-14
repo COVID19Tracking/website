@@ -53,7 +53,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
 export default StateTemplate
 
 export const query = graphql`
-  query($state: String!, $sevenDaysAgo: Int) {
+  query($state: String!, $sevenDaysAgo: Date) {
     sevenDaysAgo: covidStateDaily(
       date: { eq: $sevenDaysAgo }
       state: { eq: $state }
@@ -90,7 +90,7 @@ export const query = graphql`
         hospitalizedCurrently
         death
         deathIncrease
-        date
+        date(formatString: "YYYYMMDD")
         childPopulation {
           deathIncrease {
             percent
@@ -158,7 +158,7 @@ export const query = graphql`
         hospitalizedIncrease
         death
         deathIncrease
-        date
+        date(formatString: "YYYYMMDD")
         childPopulation {
           deathIncrease {
             percent

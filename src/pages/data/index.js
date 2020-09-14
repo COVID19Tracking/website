@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { DateTime } from 'luxon'
 
 import DetailText from '~components/common/detail-text'
 import Container from '~components/common/container'
@@ -33,9 +32,7 @@ const DataPage = ({ data }) => {
       />
       <DownloadDataRow
         slug="all-states"
-        lastUpdateEt={DateTime.fromISO(data.lastUpdate.nodes[0].date).toFormat(
-          'LLLL d, yyyy',
-        )}
+        lastUpdateEt={data.lastUpdate.nodes[0].date}
         national
       />
       <Summary
@@ -73,10 +70,10 @@ const DataPage = ({ data }) => {
 export default DataPage
 
 export const query = graphql`
-  query($sevenDaysAgo: Int) {
+  query($sevenDaysAgo: Date) {
     lastUpdate: allCovidUsDaily(sort: { fields: date, order: DESC }, limit: 1) {
       nodes {
-        date
+        date(formatString: "MMMM D, YYYY")
       }
     }
     nationalSummaryFootnote: contentfulSnippet(
@@ -136,7 +133,7 @@ export const query = graphql`
     }
     allCovidUsDaily {
       nodes {
-        date
+        date(formatString: "YYYYMMDD")
         totalTestResultsIncrease
         positiveIncrease
         hospitalizedCurrently

@@ -1,4 +1,4 @@
-/* eslint-disable no-plusplus */
+/* eslint-disable no-plusplus,no-param-reassign */
 import React, { useState, useMemo } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import {
@@ -154,6 +154,10 @@ const SummaryCharts = ({
       }
     }
   `)
+  history.forEach((row, index) => {
+    history[index].date = parseInt(row.date, 10)
+  })
+
   const {
     stateChartDateRange,
     stateChartPerCapMeasure,
