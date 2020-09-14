@@ -46,6 +46,9 @@ export default ({ pageContext, path, data }) => {
       )}
       <ul>
         <li>
+          <CtaLink to="race">Visit the racial data homepage</CtaLink>
+        </li>
+        <li>
           <CtaLink
             to={`/race/dashboard/${stateData &&
               `#state-${stateData.state.toLowerCase()}`}`}
