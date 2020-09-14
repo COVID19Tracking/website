@@ -26,7 +26,7 @@ const SearchResult = ({
           {publishDate && author && (
             <span dangerouslySetInnerHTML={{ __html: ' &middot; ' }} />
           )}
-          {author && author}
+          {author}
         </div>
       </DetailText>
     )}

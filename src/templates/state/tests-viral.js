@@ -8,6 +8,15 @@ import Layout from '~components/layout'
 const StateTestViralTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
+  const totalTestResultsTitle = (() => {
+    if (['CO', 'RI', 'ND'].indexOf(state.state) > -1) {
+      return 'Total test results - legacy (Total PCR tests in test encounters)'
+    }
+    if (['MA'].indexOf(state.state) > -1) {
+      return 'Total test results - legacy (Total PCR tests)'
+    }
+    return 'Total test results - legacy (positive + negative)'
+  })()
 
   return (
     <Layout
@@ -18,7 +27,15 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
       ]}
       path={path}
     >
-      <Definitions definitions={data.allContentfulDataDefinition.nodes} />
+      <Definitions
+        definitions={data.allContentfulDataDefinition.nodes.map(node => {
+          const result = { ...node }
+          if (result.fieldName === 'totalTestResults') {
+            result.name = totalTestResultsTitle
+          }
+          return result
+        })}
+      />
       <TableResponsive
         labels={[
           {
@@ -42,6 +59,11 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
             field: 'totalTestEncountersViral',
             isNumeric: true,
           },
+          {
+            label: totalTestResultsTitle,
+            field: 'totalTestResults',
+            isNumeric: true,
+          },
         ]}
         data={data.allCovidStateDaily.nodes}
       />
@@ -63,6 +85,7 @@ export const query = graphql`
         totalTestsPeopleViral
         totalTestsViral
         totalTestEncountersViral
+        totalTestResults
       }
     }
 
@@ -74,6 +97,7 @@ export const query = graphql`
             "totalTestsPeopleViral"
             "totalTestsViral"
             "totalTestEncountersViral"
+            "totalTestResults"
           ]
         }
       }

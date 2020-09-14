@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Layout from '~components/layout'
 import { Form, Textarea, Select, Input } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
+import Recaptcha from '~components/common/recaptcha'
 import Alert from '~components/common/alert'
 
 const defaultReason = '-- Select a reason --'
@@ -78,7 +79,6 @@ const ContactOtherPage = () => {
           isRequired
           onChange={event => setMessage(event.target.value)}
         />
-
         {reason === defaultReason && (
           <Alert>
             Please let us know{' '}
@@ -89,7 +89,6 @@ const ContactOtherPage = () => {
         {reason !== defaultReason && !(email && message && name) && (
           <Alert>All fields are required</Alert>
         )}
-
         <input
           type="text"
           aria-hidden
@@ -108,7 +107,10 @@ const ContactOtherPage = () => {
           type="hidden"
           name="autoreply-sender-name"
           value="The COVID Tracking Project"
-        />
+        />{' '}
+        <div>
+          <Recaptcha />
+        </div>
         <button
           type="submit"
           disabled={reason === defaultReason || !(email && message && name)}
