@@ -26,7 +26,7 @@ export default ({ pageContext, path, data }) => {
 
   return (
     <Layout
-      title={`${state.name}: Infection and death rates`}
+      title={`${state.name}: ${typeOfRates}`}
       returnLinks={[
         { link: '/race' },
         { link: `/race/dashboard`, title: 'Racial Data Dashboard' },
