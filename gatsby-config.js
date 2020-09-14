@@ -48,7 +48,16 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-plugin-polyfill-io',
       options: {
-        features: ['core-js', 'Intl'],
+        features: [
+          'default',
+          'String.prototype.repeat',
+          'Array.prototype.find',
+          'Array.prototype.findIndex',
+          'Math.trunc',
+          'Math.sign',
+          'core-js',
+          'Intl',
+        ],
       },
     },
     {
