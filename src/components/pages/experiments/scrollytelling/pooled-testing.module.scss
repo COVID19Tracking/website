@@ -4,22 +4,24 @@
 .sticky-image {
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  top: calc(33%);
-  width: 100%;
+  top: calc(10%);
+  left: calc(26.3%);
+  width: 60%;
   display: flex;
   align-items: center;
+  justify-content: center;
   z-index: -10;
 }
 
 .step-inner {
-  height: 80vh;
-  padding: 100px 20px;
+  height: 100vh;
+  padding: 0px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   .text {
     font-size: 1.45rem;
-    max-width: 500px;
+    max-width: 600px;
     text-align: center;
     width: fit-content;
     background-color: rgba(255, 255, 255, 0.8);
