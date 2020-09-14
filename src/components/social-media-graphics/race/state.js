@@ -20,7 +20,7 @@ const getGroups = state => {
 
   let groups = [
     {
-      label: 'Black',
+      label: 'Black/African American',
       style: socialCardStyle.barBlack,
       cases:
         state.blackPosPercap === '' ? undefined : state.blackPosPercap * 100, // perCap is *per 1,000*, mulitply by 100 to get *per 100,000*
@@ -50,7 +50,7 @@ const getGroups = state => {
           : state.asianDeathPercap * 100,
     },
     {
-      label: 'AIAN',
+      label: 'American Indian or Alaska Native',
       style: socialCardStyle.barAian,
       cases: state.aianPosPercap === '' ? undefined : state.aianPosPercap * 100,
       deaths:
@@ -67,14 +67,14 @@ const getGroups = state => {
           : state.whiteDeathPercap * 100,
     },
     {
-      label: 'API',
+      label: 'Asian and Pacific Islander',
       style: socialCardStyle.barAPi,
       cases: state.apiPosPercap === '' ? undefined : state.apiPosPercap * 100,
       deaths:
         state.apiDeathPercap === '' ? undefined : state.apiDeathPercap * 100,
     },
     {
-      label: 'NHPI',
+      label: 'Native Hawaiian and Pacific Islander',
       style: socialCardStyle.barNhpi,
       cases: state.nhpiPosPercap === '' ? undefined : state.nhpiPosPercap * 100,
       deaths:
@@ -82,7 +82,7 @@ const getGroups = state => {
     },
   ]
 
-  const aPi = groups.find(group => group.label === 'API')
+  const aPi = groups.find(group => group.label === 'Asian and Pacific Islander')
 
   if (
     (aPi.cases === '' && aPi.deaths === '') ||
@@ -90,12 +90,14 @@ const getGroups = state => {
   ) {
     groups = groups.filter(
       // remove API bar
-      group => group.label !== 'API',
+      group => group.label !== 'Asian and Pacific Islander',
     )
   } else {
     groups = groups.filter(
       // remove asian and NHPI bars
-      group => group.label !== 'NHPI' && group.label !== 'Asian',
+      group =>
+        group.label !== 'Native Hawaiian and Pacific Islander' &&
+        group.label !== 'Asian',
     )
   }
 
@@ -175,17 +177,6 @@ const getTypeOfRates = (state, combinedStates) => {
   return 'infection and death rates'
 }
 
-const raceDict = {
-  API: 'Asian and Pacific Islander',
-  Black: 'Black/African American',
-  'Hispanic/Latino': 'Hispanic/Latino',
-  All: 'All',
-  Asian: 'Asian',
-  AIAN: 'American Indian or Alaska Native',
-  White: 'White',
-  NHPI: 'Native Hawaiian and Pacific Islander',
-}
-
 const SocialCardLede = ({ typeOfRates, state, stateName }) => {
   const today = new Date()
   const { worstCasesGroup, worstDeathsGroup } = getGroups(state)
@@ -193,8 +184,8 @@ const SocialCardLede = ({ typeOfRates, state, stateName }) => {
     <>
       In <strong>{state.stateName || stateName}</strong>, as of{' '}
       {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
-      Worst cases: {raceDict[worstCasesGroup]}, Worst deaths:{' '}
-      {raceDict[worstDeathsGroup]} Rates: {typeOfRates}
+      Worst cases: {worstCasesGroup}, Worst deaths: {worstDeathsGroup} Rates:{' '}
+      {typeOfRates}
     </>
   )
 }
@@ -343,9 +334,7 @@ const StateRaceSocialCard = renderedComponent(
           )}
           {groups.map(({ label, style, cases, deaths }) => (
             <>
-              <span className={socialCardStyle.barLabel}>
-                {raceDict[label]}
-              </span>
+              <span className={socialCardStyle.barLabel}>{label}</span>
               {!deathsOnly && (
                 <div
                   className={classnames(socialCardStyle.bar, style)}
