@@ -93,7 +93,11 @@ const StatePreamble = ({ state, covidState }) => {
                 </h3>
               </DisclosureButton>
               <DisclosurePanel>
-                <DownloadData state={state} hideLabel />
+                <DownloadData
+                  state={state}
+                  slug={state.childSlug.slug}
+                  hideLabel
+                />
               </DisclosurePanel>
             </Disclosure>
           </div>
