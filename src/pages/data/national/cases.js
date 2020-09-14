@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
-import { FormatDate } from '~components/utils/format'
 import Definitions from '~components/pages/data/definitions'
 import Layout from '~components/layout'
 
@@ -22,8 +21,6 @@ const NationalDataCasesPage = ({ data }) => {
         labels={[
           {
             field: 'date',
-
-            format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
           },
           {
             field: 'positive',
@@ -47,7 +44,7 @@ export const query = graphql`
   {
     allCovidUsDaily(sort: { fields: date, order: DESC }) {
       nodes {
-        date
+        date(formatString: "MMM D, YYYY")
         positive
         positiveIncrease
       }
