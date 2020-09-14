@@ -1,8 +1,10 @@
 import React from 'react'
-
 import DetailText from '~components/common/detail-text'
 import SocialSharing from '~components/common/social-sharing'
-import { getGroups } from '~components/social-media-graphics/race/state'
+import {
+  getGroups,
+  getTypeOfRates,
+} from '~components/social-media-graphics/race/state'
 
 import shareStyles from './share.module.scss'
 
@@ -12,12 +14,12 @@ const getStateSquareImageUrl = state =>
 const getLandingPageUrl = state =>
   `https://covidtracking.com/race/social-media-graphics/${state.childSlug.slug}`
 
-export default ({ state, stateRaceData }) => {
+export default ({ state, stateRaceData, combinedStates }) => {
   if (state.name === '-- Select a state --') {
     return null
   }
 
-  const typeOfRates = 'todo todo' // todo set this
+  const typeOfRates = getTypeOfRates(stateRaceData, combinedStates)
 
   const groups = getGroups(stateRaceData)
 
@@ -27,7 +29,7 @@ export default ({ state, stateRaceData }) => {
     <>
       <img
         src={`/images/race-dashboard/${state.childSlug.slug}.png`}
-        alt={`Social card for ${state.name}`}
+        alt={socialCardShareText}
         className={shareStyles.preview}
       />
       <p>{socialCardShareText}</p>

@@ -59,6 +59,7 @@ export default ({ separateStates, combinedStates, stateInfo }) => {
             separateStates.find(node => node.stateName === state.name) ||
             combinedStates.find(node => node.stateName === state.name)
           }
+          combinedStates={combinedStates.map(node => node.state)}
           population={
             stateInfo.find(node => node.name === state.name).childPopulation
               .population
