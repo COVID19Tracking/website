@@ -3,11 +3,14 @@ require(`@babel/register`)({
   plugins: ['@babel/plugin-transform-runtime'],
 })
 require('dotenv').config()
+const setTZ = require('set-tz')
 const { DateTime } = require('luxon')
 const algoliaQueries = require('./src/utilities/algolia').queries
 const sassImports = require('./src/utilities/sass-imports.js')
 const formatStringList = require('./src/components/utils/format')
   .formatStringList
+
+setTZ('America/New_York')
 
 const gatsbyConfig = {
   siteMetadata: {
