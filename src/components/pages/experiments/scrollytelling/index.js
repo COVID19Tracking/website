@@ -91,7 +91,7 @@ const Chart = ({
   const xScaleTime = scaleTime()
     .domain(dateDomain)
     .range([marginLeft, width])
-  // this needs to be modified to accept multipls inputs
+  // this needs to be modified to accept multiple inputs
   const yScale = scaleLinear()
     .domain([0, max(data, d => d.positiveIncrease)])
     .nice()

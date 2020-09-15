@@ -5,8 +5,6 @@
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: calc(10%);
-  left: calc(26.3%);
-  width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,5 +23,18 @@
     text-align: center;
     width: fit-content;
     background-color: rgba(255, 255, 255, 0.8);
+
+    span {
+      border: 2px dashed $color-plum-500;
+    }
+  }
+}
+
+.scrollyContainer {
+  width: 60%;
+  margin: spacer(32) auto;
+
+  @media (max-width: $viewport-md) {
+    width: 100%;
   }
 }
