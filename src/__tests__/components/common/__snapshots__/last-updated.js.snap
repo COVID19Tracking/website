@@ -8,13 +8,20 @@ Array [
     Data for
      
     Aug 18 2020
+     
+    <abbr
+      aria-label="Eastern Time"
+      title="Eastern Time"
+    >
+      ET
+    </abbr>
   </p>,
   <p
     className="lastUpdated"
   >
     State’s dataset was last updated at
      
-    Aug 18, 2020 12:00 am
+    20200818
      
     <abbr
       aria-label="Eastern Time"
