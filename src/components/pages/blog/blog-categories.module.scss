@@ -1,13 +1,21 @@
 .categories-container {
   display: flex;
 
+  @media (max-width: $viewport-sm) {
+    flex-direction: column;
+  }
+
   .category {
     font-weight: 600;
     @include type-size(100);
     line-height: 1rem;
 
     color: $color-plum-100;
-    margin-bottom: 0;
+    @include margin(0, bottom);
+
+    @media (max-width: $viewport-sm) {
+      @include margin(0, top);
+    }
 
     a {
       text-decoration: none;
@@ -24,6 +32,11 @@
       white-space: pre;
       color: $color-plum-100;
       font-weight: normal;
+
+      @media (max-width: $viewport-sm) {
+        content: '';
+      }
+
     }
 
     &:last-child::after {
