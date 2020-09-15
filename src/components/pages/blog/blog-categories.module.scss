@@ -1,11 +1,14 @@
 .categories-container {
   display: flex;
+
   .category {
     font-weight: 600;
     @include type-size(100);
     line-height: 1rem;
+
     color: $color-plum-100;
     margin-bottom: 0;
+
     a {
       text-decoration: none;
       &:hover {
@@ -15,15 +18,18 @@
         @include link-focus-dark-bg;
       }
     }
+
     &::after {
       content: '  |  ';
       white-space: pre;
       color: $color-plum-100;
       font-weight: normal;
     }
+
     &:last-child::after {
       content: none;
     }
+
     &.light-bg {
       color: $color-plum-700;
       a {
@@ -35,10 +41,10 @@
           @include link-focus;
         }
       }
+
       &::after {
         color: $color-plum-700;
       }
     }
   }
 }
-
