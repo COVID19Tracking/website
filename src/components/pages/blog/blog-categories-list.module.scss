@@ -5,8 +5,6 @@
 .container {
   border-radius: 4px;
   background-color: $color-plum-100;
-  padding-top: 0.75rem; // ignore-style-rule
-  @include padding(16, bottom);
 
   h3,
   a {
