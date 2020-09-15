@@ -113,7 +113,7 @@ export const query = graphql`
       positiveIncrease
       negative
       lastUpdateEt
-      dateModified
+      dateModified(formatString: "MMM D, YYYY h:mm a")
       pending
       hospitalizedCurrently
       hospitalizedCumulative
@@ -126,7 +126,6 @@ export const query = graphql`
       deathProbable
       deathConfirmed
       totalTestResults
-      dateModified
       dataQualityGrade
       posNeg
       positiveCasesViral
