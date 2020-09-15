@@ -8,7 +8,7 @@ describe('Components : Common: Last updated', () => {
       .create(
         <>
           <LastUpdated national date="Aug 18 2020" />
-          <LastUpdated date="20200818" />
+          <LastUpdated date="Aug 18 2020" />
         </>,
       )
       .toJSON()
