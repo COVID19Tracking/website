@@ -165,7 +165,7 @@ export const query = graphql`
         inIcuCumulative
         inIcuCurrently
         lastUpdateEt
-        dateModified
+        dateModified(formatString: "MMM D, YYYY h:mm a")
         negative
         negativeTestsViral
         onVentilatorCumulative
