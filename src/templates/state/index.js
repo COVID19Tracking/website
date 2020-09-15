@@ -18,7 +18,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
     allContentfulEvent,
     sevenDaysAgo,
     contentfulStateOrTerritory,
-    allCovidLtcStates,
+    covidLtcStates,
   } = data
   return (
     <Layout title={state.name} returnLinks={[{ link: '/data' }]} path={path}>
@@ -45,7 +45,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
           population={covidStateInfo.childPopulation.population}
           metadata={contentfulStateOrTerritory}
           lastUpdated={covidState.lastUpdateEt}
-          longTermCare={allCovidLtcStates ? allCovidLtcStates.nodes[0] : false}
+          longTermCare={covidLtcStates}
         />
       </StateNavWrapper>
     </Layout>
@@ -209,6 +209,14 @@ export const query = graphql`
           }
         }
       }
+    }
+    covidLtcStates(State_Abbr: { eq: $state }) {
+      Date
+      State_Abbr
+      outbrkFacil_alf
+      outbrkFacil_other
+      outbrkFacil_ltc
+      outbrkFacil_nh
     }
   }
 `
