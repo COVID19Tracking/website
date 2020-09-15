@@ -3,11 +3,14 @@ require(`@babel/register`)({
   plugins: ['@babel/plugin-transform-runtime'],
 })
 require('dotenv').config()
+const setTZ = require('set-tz')
 const { DateTime } = require('luxon')
 const algoliaQueries = require('./src/utilities/algolia').queries
 const sassImports = require('./src/utilities/sass-imports.js')
 const formatStringList = require('./src/components/utils/format')
   .formatStringList
+
+setTZ('America/New_York')
 
 const gatsbyConfig = {
   siteMetadata: {
@@ -48,7 +51,16 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-plugin-polyfill-io',
       options: {
-        features: ['core-js', 'Intl'],
+        features: [
+          'default',
+          'String.prototype.repeat',
+          'Array.prototype.find',
+          'Array.prototype.findIndex',
+          'Math.trunc',
+          'Math.sign',
+          'core-js',
+          'Intl',
+        ],
       },
     },
     {
@@ -278,12 +290,9 @@ const gatsbyConfig = {
       resolve: `gatsby-plugin-global-context`,
       options: {
         context: {
-          sevenDaysAgo: parseInt(
-            DateTime.local()
-              .minus({ days: 7 })
-              .toFormat('yyyyMMdd'),
-            10,
-          ),
+          sevenDaysAgo: DateTime.local()
+            .minus({ days: 7 })
+            .toISODate(),
         },
       },
     },
