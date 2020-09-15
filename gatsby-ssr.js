@@ -4,6 +4,7 @@ exports.onRenderBody = ({ setPostBodyComponents, setBodyAttributes }) => {
   setBodyAttributes({
     className: 'no-js',
   })
+
   setPostBodyComponents([
     <script
       type="text/javascript"

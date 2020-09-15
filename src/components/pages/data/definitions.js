@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { Row, Col } from '~components/common/grid'
 import definitionStyles from './definitions.module.scss'
 
-export default ({ definitions }) => {
+const Definitions = ({ definitions }) => {
   const [expanded, setExpanded] = useState([])
   return (
-    <Row>
+    <Row className={definitionStyles.definitions}>
       <Col width={[4, 6, 3]}>
         <h3 className={definitionStyles.header}>Definitions</h3>
         <button
@@ -69,3 +69,5 @@ export default ({ definitions }) => {
     </Row>
   )
 }
+
+export default Definitions

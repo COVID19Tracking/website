@@ -3,7 +3,7 @@ import { Row, Col } from '~components/common/grid'
 import { Form, Input, InputDefinedLength } from '~components/common/form'
 import formStyle from './form.module.scss'
 
-export default () => (
+const GetInvolvedForm = () => (
   <Form
     action="https://covidtracking.us4.list-manage.com/subscribe/post?u=0921fdd380ed1e2245d87c3b6&amp;id=14a2b6d1bd"
     method="post"
@@ -72,3 +72,5 @@ export default () => (
     <button type="submit">Subscribe</button>
   </Form>
 )
+
+export default GetInvolvedForm

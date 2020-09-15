@@ -16,7 +16,7 @@ import LongTermCareCard from './cards/long-term-care'
 
 import summaryStyles from './summary.module.scss'
 
-export default ({
+const StateSummary = ({
   stateSlug,
   data,
   sevenDaysAgo,
@@ -27,7 +27,6 @@ export default ({
   /*
   stateSlug: the name of the state, as a slug. like "arizona"
   data: API data from either usCovid or covidState
-  raceData: tbd, currently like {combined: bool, separate: bool}
   sevenDaysAgo: seven day old API data from usCovidDaily or covidStateDaily
   national: flag for the national summmary, true means this is national
   */
@@ -140,3 +139,5 @@ export default ({
     </DefinitionPanelContext.Provider>
   )
 }
+
+export default StateSummary

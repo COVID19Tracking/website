@@ -4,7 +4,7 @@ import { Card, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
-export default ({
+const TestsViralCard = ({
   stateSlug,
   totalTestEncountersViral,
   totalTestsViral,
@@ -21,7 +21,10 @@ export default ({
     <Card
       title="Viral (PCR) tests"
       link={
-        <Link to={`/data/state/${stateSlug}/tests-viral`}>Historical data</Link>
+        <Link to={`/data/state/${stateSlug}/tests-viral`}>
+          Historical data{' '}
+          <span className="a11y-only"> for viral (PCR) tests</span>
+        </Link>
       }
     >
       <CardBody>
@@ -43,7 +46,7 @@ export default ({
                   highlight: 'totalTestsViral',
                 })
               }}
-              label="Total tests (in unclear units)"
+              label="Total tests (unclear units)"
             />
           </Statistic>
         ) : (
@@ -65,7 +68,7 @@ export default ({
                     highlight: 'totalTestEncountersViral',
                   })
                 }}
-                label="Total tests (in test encounters)"
+                label="Total tests (test encounters)"
               />
             </Statistic>
             <Statistic
@@ -85,7 +88,7 @@ export default ({
                     highlight: 'totalTestsViral',
                   })
                 }}
-                label="Total tests (in specimens)"
+                label="Total tests (specimens)"
               />
             </Statistic>
             <Statistic
@@ -105,7 +108,7 @@ export default ({
                     highlight: 'totalTestsPeopleViral',
                   })
                 }}
-                label="Total tests (in people)"
+                label="Total tests (people)"
               />
             </Statistic>
           </>
@@ -114,3 +117,5 @@ export default ({
     </Card>
   )
 }
+
+export default TestsViralCard

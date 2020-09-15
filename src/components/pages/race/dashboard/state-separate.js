@@ -10,7 +10,7 @@ import RaceTable from './race-table'
 import EthnicityTable from './ethnicity-table'
 import stateStyle from './state.module.scss'
 
-export default ({ state }) => {
+const StateSeparate = ({ state }) => {
   const stateData = state
   let raceNotes = {
     otherDeath: stateData.otherDeathNotes,
@@ -42,7 +42,7 @@ export default ({ state }) => {
   raceNotes = cautionNotes(stateData, raceNotes)
 
   const groupedRaceNotes = [...new Set(Object.values(raceNotes))]
-    .filter(value => value && value)
+    .filter(value => value)
     .reverse()
 
   let ethnicityNotes = {
@@ -57,7 +57,7 @@ export default ({ state }) => {
   ethnicityNotes = cautionNotes(stateData, ethnicityNotes)
 
   const groupedEthnicityNotes = [...new Set(Object.values(ethnicityNotes))]
-    .filter(value => value && value)
+    .filter(value => value)
     .reverse()
 
   if (!stateData.anyPosData && !stateData.anyDeathData) {
@@ -146,3 +146,5 @@ export default ({ state }) => {
     </div>
   )
 }
+
+export default StateSeparate

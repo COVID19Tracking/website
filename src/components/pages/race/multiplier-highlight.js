@@ -41,7 +41,7 @@ function range(multiplier) {
   return 'much'
 }
 
-export default ({ multiplier }) => (
+const MultiplierHighlight = ({ multiplier }) => (
   <div className={multiplierHighlightStyle.highlight}>
     <p>
       This means Black people are dying at a rate{' '}
@@ -52,3 +52,5 @@ export default ({ multiplier }) => (
     </p>
   </div>
 )
+
+export default MultiplierHighlight

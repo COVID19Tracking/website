@@ -1,10 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
+import TableOfContents from '~components/common/table-of-contents'
 import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 
-const ContentPage = ({ data, path }) => {
+const ContentPageTemplate = ({ data, path }) => {
   const { contentfulPage } = data
   return (
     <Layout
@@ -19,6 +20,12 @@ const ContentPage = ({ data, path }) => {
       socialCard={contentfulPage.socialCard}
       centered
     >
+      {contentfulPage.enableToc &&
+        contentfulPage.body.childMarkdownRemark.headings && (
+          <TableOfContents
+            headings={contentfulPage.body.childMarkdownRemark.headings}
+          />
+        )}
       <LongContent>
         <ContentfulContent
           id={contentfulPage.contentful_id}
@@ -29,7 +36,7 @@ const ContentPage = ({ data, path }) => {
   )
 }
 
-export default ContentPage
+export default ContentPageTemplate
 
 export const query = graphql`
   query($id: String!) {
@@ -39,9 +46,14 @@ export const query = graphql`
       contentful_id
       returnLinkTitle
       returnLinkUrl
+      enableToc
       body {
         childMarkdownRemark {
           html
+          headings(depth: h2) {
+            id
+            value
+          }
         }
       }
       socialCard {

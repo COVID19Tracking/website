@@ -1,7 +1,11 @@
 import React from 'react'
 import percentageOverviewStyles from './percentage-overview.module.scss'
 
-export default ({ statesCasesCount, statesDeathsCount, className }) => (
+const UsReportingCount = ({
+  statesCasesCount,
+  statesDeathsCount,
+  className,
+}) => (
   <div className={className}>
     <div className={percentageOverviewStyles.data}>
       <div className={percentageOverviewStyles.dataItem}>
@@ -35,3 +39,5 @@ export default ({ statesCasesCount, statesDeathsCount, className }) => (
     </div>
   </div>
 )
+
+export default UsReportingCount

@@ -4,6 +4,7 @@
   input[type='text'],
   input[type='email'],
   input[type='search'],
+  input[type='date'],
   select,
   textarea {
     width: 100%;
@@ -17,22 +18,21 @@
     display: block;
   }
 
-  .input-description { 
+  .input-description {
     margin-bottom: spacer(16) !important;
   }
 
-  .description-container { 
+  .description-container {
     margin-bottom: spacer(16);
   }
 
-
-  .input-defined-length { 
-      display: grid;
-      @media (max-width: $viewport-ms ) {
+  .input-defined-length {
+    display: grid;
+    @media (max-width: $viewport-ms) {
       grid-template-columns: auto 1fr;
       grid-gap: spacer(16);
-      align-items: end;  
-      }
+      align-items: end;
+    }
   }
 
   textarea {
@@ -136,4 +136,3 @@
     @include margin(4, right);
   }
 }
-

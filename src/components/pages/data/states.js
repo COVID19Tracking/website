@@ -3,7 +3,7 @@ import State from './state-data'
 import StateNavWrapper from './state-nav-wrapper'
 import statesStyles from './states.module.scss'
 
-export default ({
+const States = ({
   states,
   stateData,
   sevenDaysAgoList,
@@ -48,3 +48,5 @@ export default ({
     </StateNavWrapper>
   )
 }
+
+export default States

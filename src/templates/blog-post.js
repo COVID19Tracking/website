@@ -3,12 +3,12 @@ import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 
 import BlogPostContent from '~components/pages/blog/blog-content'
-import BlogPostFootnotes from '~components/pages/blog/blog-footnotes'
-import BlogPostExtras from '~components/pages/blog/blog-extras'
+import BlogPostFootnotes from '~components/pages/blog/footer/blog-footnotes'
+import BlogPostExtras from '~components/pages/blog/footer/blog-extras'
 import FeaturedImage from '~components/pages/blog/featured-image'
 import Hero from '~components/pages/blog/blog-hero'
 
-export default ({ data, path }) => {
+const BlogPostTemplate = ({ data, path }) => {
   const blogPost = data.contentfulBlogPost
   const blogImages = {}
   data.allContentfulContentBlockImage.nodes.forEach(image => {
@@ -24,6 +24,7 @@ export default ({ data, path }) => {
       updated={blogPost.updateDateTime}
       lede={blogPost.lede.lede}
       id={blogPost.contentful_id}
+      twitterText={blogPost.twitterText || false}
     />
   )
 
@@ -56,12 +57,15 @@ export default ({ data, path }) => {
   )
 }
 
+export default BlogPostTemplate
+
 export const query = graphql`
   query($id: String!, $blogImages: [String]) {
     contentfulBlogPost(id: { eq: $id }) {
       contentful_id
       title
       updateDateTime
+      twitterText
       authors {
         name
         twitterLink

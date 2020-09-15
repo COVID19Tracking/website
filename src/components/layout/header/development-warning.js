@@ -1,9 +1,8 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Alert from '~components/utils/alert'
 import developmentWarningStyle from './development-warning.module.scss'
 
-export default () => (
+const DevelopmentWarning = () => (
   <StaticQuery
     query={graphql`
       query {
@@ -20,14 +19,14 @@ export default () => (
           <div
             className={`development-warning ${developmentWarningStyle.developmentWarning}`}
           >
-            <Alert>
-              This is a test version of The COVID Tracking Project website. Data
-              may be inaccurate.{' '}
-              <a href="http://covidtracking.com/">Visit the live site</a>
-            </Alert>
+            This is a test version of The COVID Tracking Project website. Data
+            may be inaccurate.{' '}
+            <a href="http://covidtracking.com/">Visit the live site</a>
           </div>
         )}
       </>
     )}
   />
 )
+
+export default DevelopmentWarning

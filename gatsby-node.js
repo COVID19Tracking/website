@@ -1,5 +1,4 @@
 const path = require('path')
-const { DateTime } = require('luxon')
 const csv = require('./src/utilities/csv')
 const createSchemaCustomization = require('./src/utilities/schema')
 
@@ -169,16 +168,6 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/data/state/${slug}/outcomes`,
       component: path.resolve(`./src/templates/state/outcomes.js`),
-      context: node,
-    })
-    createPage({
-      path: `/data/state/${slug}/race-ethnicity`,
-      component: path.resolve(`./src/templates/state/race-ethnicity.js`),
-      context: node,
-    })
-    createPage({
-      path: `/data/state/${slug}/history`,
-      component: path.resolve(`./src/templates/state/history.js`),
       context: node,
     })
     createPage({

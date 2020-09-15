@@ -7,7 +7,7 @@ import SummaryCharts from '~components/pages/data/summary-charts'
 import StateSummary from '~components/pages/data/summary'
 import StateNotes from '~components/pages/state/state-notes'
 
-const StatePage = ({ pageContext, data, path }) => {
+const StateTemplate = ({ pageContext, data, path }) => {
   const state = pageContext
   const {
     covidState,
@@ -16,13 +16,10 @@ const StatePage = ({ pageContext, data, path }) => {
     covidStateInfo,
     allCovidUsDaily,
     allContentfulEvent,
-    covidRaceDataCombined,
-    covidRaceDataSeparate,
     sevenDaysAgo,
     contentfulStateOrTerritory,
     allCovidLtcStates,
   } = data
-  const crdtData = covidRaceDataCombined || covidRaceDataSeparate
   return (
     <Layout title={state.name} returnLinks={[{ link: '/data' }]} path={path}>
       <StatePreamble state={state} covidState={covidState} />
@@ -32,13 +29,19 @@ const StatePage = ({ pageContext, data, path }) => {
         history={allCovidStateDaily.nodes}
         usHistory={allCovidUsDaily.nodes}
         annotations={allContentfulEvent}
+        testSource={
+          covidStateInfo.covidTrackingProjectPreferredTotalTestField ===
+          'posNeg'
+            ? 'totalTestResults'
+            : covidStateInfo.covidTrackingProjectPreferredTotalTestField
+        }
+        testUnits={covidStateInfo.covidTrackingProjectPreferredTotalTestUnits}
       />
       <StateNavWrapper stateList={allCovidStateInfo.nodes} single>
         <StateSummary
           sevenDaysAgo={sevenDaysAgo}
           stateSlug={state.slug}
           data={covidState}
-          crdtData={crdtData}
           population={covidStateInfo.childPopulation.population}
           metadata={contentfulStateOrTerritory}
           lastUpdated={covidState.lastUpdateEt}
@@ -49,10 +52,10 @@ const StatePage = ({ pageContext, data, path }) => {
   )
 }
 
-export default StatePage
+export default StateTemplate
 
 export const query = graphql`
-  query($state: String!, $sevenDaysAgo: Int) {
+  query($state: String!, $sevenDaysAgo: Date) {
     sevenDaysAgo: covidStateDaily(
       date: { eq: $sevenDaysAgo }
       state: { eq: $state }
@@ -70,6 +73,8 @@ export const query = graphql`
     }
     covidStateInfo(state: { eq: $state }) {
       state
+      covidTrackingProjectPreferredTotalTestField
+      covidTrackingProjectPreferredTotalTestUnits
       childPopulation {
         population
       }
@@ -87,7 +92,7 @@ export const query = graphql`
         hospitalizedCurrently
         death
         deathIncrease
-        date
+        date(formatString: "YYYYMMDD")
         childPopulation {
           deathIncrease {
             percent
@@ -110,7 +115,7 @@ export const query = graphql`
       positiveIncrease
       negative
       lastUpdateEt
-      dateModified
+      dateModified(formatString: "MMM D, YYYY h:mm a")
       pending
       hospitalizedCurrently
       hospitalizedCumulative
@@ -123,7 +128,6 @@ export const query = graphql`
       deathProbable
       deathConfirmed
       totalTestResults
-      dateModified
       dataQualityGrade
       posNeg
       positiveCasesViral
@@ -133,6 +137,7 @@ export const query = graphql`
       totalTestsViral
       totalTestEncountersViral
       totalTestsAntibody
+      totalTestResultsSource
     }
     allCovidStateDaily(
       filter: { state: { eq: $state } }
@@ -140,6 +145,7 @@ export const query = graphql`
     ) {
       nodes {
         totalTestResults
+        totalTestEncountersViral
         totalTestEncountersViralIncrease
         totalTestsViralIncrease
         totalTestsPeopleViralIncrease
@@ -153,7 +159,7 @@ export const query = graphql`
         hospitalizedIncrease
         death
         deathIncrease
-        date
+        date(formatString: "YYYYMMDD")
         childPopulation {
           deathIncrease {
             percent
@@ -202,83 +208,6 @@ export const query = graphql`
             html
           }
         }
-      }
-    }
-    covidRaceDataCombined(state: { eq: $state }) {
-      blackPctPop
-      blackPctPos
-      blackPctDeath
-      blackPositives
-      blackDeaths
-      whitePctPos
-      whitePctPop
-      whitePctDeath
-      whitePositives
-      whiteDeaths
-      nhpiPctPos
-      nhpiPctDeath
-      nhpiPctPop
-      nhpiPositives
-      nhpiDeaths
-      latinXPctPos
-      latinXPctDeath
-      latinXPctPop
-      latinXPositives
-      latinXDeaths
-      asianPctPos
-      asianPctDeath
-      asianPctPop
-      asianPositives
-      asianDeaths
-      aianPctPos
-      aianPctDeath
-      aianPctPop
-      aianPositives
-      aianDeaths
-    }
-    covidRaceDataSeparate(state: { eq: $state }) {
-      blackPctPop
-      blackPctPos
-      blackPctDeath
-      blackPositives
-      blackDeaths
-      whitePctPos
-      whitePctPop
-      whitePctDeath
-      whitePositives
-      whiteDeaths
-      nhpiPctPos
-      nhpiPctDeath
-      nhpiPctPop
-      nhpiPositives
-      nhpiDeaths
-      latinXPctPos
-      latinXPctDeath
-      latinXPctPop
-      latinXPositives
-      latinXDeaths
-      asianPctPos
-      asianPctDeath
-      asianPctPop
-      asianPositives
-      asianDeaths
-      aianPctPos
-      aianPctDeath
-      aianPctPop
-      aianPositives
-      aianDeaths
-    }
-    allCovidLtcStates(
-      sort: { fields: Date, order: DESC }
-      limit: 1
-      filter: { State_Abbr: { eq: $state } }
-    ) {
-      nodes {
-        Date
-        outbrkFacil_other
-        outbrkFacil_nh
-        outbrkFacil_ltc
-        outbrkFacil_alf
       }
     }
   }

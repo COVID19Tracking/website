@@ -43,6 +43,16 @@
   }
 }
 
+.summary-charts {
+  h3 {
+    @include type-size(300);
+    @include margin(32, top bottom);
+    &.test-heading {
+      @include margin(16, bottom);
+    }
+  }
+}
+
 .alert-infobox-container {
   height: 286px;
   width: 272px;
@@ -125,9 +135,5 @@
 .test-field-indicator {
   @include type-size(100);
   margin: 0;
-  display: inline-block;
-}
-
-.test-heading {
-  @include margin(8, bottom);
+  display: block;
 }

@@ -5,12 +5,13 @@ import blogLedeStyles from './blog-lede.module.scss'
 import CleanSpacing from '~components/utils/clean-spacing'
 import SocialSharing from '~components/common/social-sharing'
 
-export default ({
+const BlogLede = ({
   headline,
   authors,
   published,
   updated,
   lede,
+  twitterText,
   id,
   darkBackground,
 }) => {
@@ -42,8 +43,11 @@ export default ({
           shares={['facebook', 'twitter', 'link']}
           url={`${site.siteMetadata.siteUrl}/${id}`}
           text={lede}
+          twitterText={twitterText}
         />
       </div>
     </div>
   )
 }
+
+export default BlogLede

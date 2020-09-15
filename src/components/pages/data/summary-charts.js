@@ -1,4 +1,4 @@
-/* eslint-disable no-plusplus */
+/* eslint-disable no-plusplus,no-param-reassign */
 import React, { useState, useMemo } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import {
@@ -15,7 +15,7 @@ import { parseDate, formatDate } from '~utilities/visualization'
 import { Row, Col } from '~components/common/grid'
 import Toggle from '~components/common/toggle'
 import ContentfulContent from '~components/common/contentful-content'
-import { AlertInfobox } from '~components/common/infobox'
+import Alert from '~components/common/alert'
 import { FieldName } from '~components/utils/field-name'
 import { ReactComponent as CtpLogo } from '~images/project-logo.svg'
 import colors from '~scss/colors.module.scss'
@@ -24,9 +24,16 @@ import styles from './summary-charts.module.scss'
 
 import TooltipContents from '~components/charts/tooltip-contents'
 
-const TestFieldIndicator = ({ field }) => (
+const TestFieldIndicator = ({ field, units, national }) => (
   <span className={styles.testFieldIndicator}>
-    <FieldName field={field.replace('Increase', '')} />
+    {national ? (
+      <>Total test results (mixed units)</>
+    ) : (
+      <>
+        <FieldName field={field} />
+        {field === 'totalTestResults' && <> ({units})</>}
+      </>
+    )}
   </span>
 )
 
@@ -82,13 +89,17 @@ const getDataForField = (data, field) => {
 }
 
 const ChartAlert = ({ message }) => (
-  <div className={styles.alertInfoboxContainer}>
-    <AlertInfobox header={message} fullSize />
+  <div className={styles.AlertContainer}>
+    <Alert header={message} fullSize />
   </div>
 )
 
-const CalculatedIndicator = () => (
-  <a href="#calculated-footnote" className={styles.calculated}>
+const CalculatedIndicator = ({ openDisclosure }) => (
+  <a
+    href="#summary-charts"
+    className={styles.calculated}
+    onClick={openDisclosure}
+  >
     (Calculated)
   </a>
 )
@@ -106,11 +117,7 @@ const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
   return (
     <span className={styles.annotationIndicator}>
       (
-      <a
-        href="#chart-annotations"
-        id="chart-annotations"
-        onClick={() => openDisclosure()}
-      >
+      <a href="#summary-charts" onClick={() => openDisclosure()}>
         Notes
       </a>
       )
@@ -118,39 +125,21 @@ const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
   )
 }
 
-const getTestIncreaseField = history => {
-  const preferredFields = [
-    'totalTestEncountersViralIncrease',
-    'totalTestsViralIncrease',
-    'totalTestsPeopleViralIncrease',
-    'totalTestResultsIncrease',
-  ].reverse()
-  let preferredIndex = 0
-  preferredFields.forEach((field, index) => {
-    if (history[history.length - 1][field] > 0) {
-      preferredIndex = index
-    }
-  })
-  return preferredFields[preferredIndex]
-}
-
-export default ({ name = 'National', history, usHistory, annotations }) => {
+const SummaryCharts = ({
+  name = 'National',
+  history,
+  usHistory,
+  annotations,
+  national = false,
+  testSource = 'totalTestResults',
+  testUnits = 'People',
+}) => {
   const siteData = useStaticQuery(graphql`
     {
       site {
         siteMetadata {
           stateChartDateRange
           stateChartPerCapMeasure
-        }
-      }
-      disclaimerSnippet: contentfulSnippet(
-        slug: { eq: "data-chart-disclaimer" }
-      ) {
-        contentful_id
-        childContentfulSnippetContentTextNode {
-          childMarkdownRemark {
-            html
-          }
         }
       }
       calculatedSnippet: contentfulSnippet(
@@ -165,12 +154,16 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
       }
     }
   `)
+  history.forEach((row, index) => {
+    history[index].date = parseInt(row.date, 10)
+  })
+
   const {
     stateChartDateRange,
     stateChartPerCapMeasure,
   } = siteData.site.siteMetadata
 
-  const { disclaimerSnippet, calculatedSnippet } = siteData
+  const { calculatedSnippet } = siteData
 
   const [usePerCap, setUsePerCap] = useState(false)
   const [useFullRange, setUseFullRange] = useState(false)
@@ -244,16 +237,17 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   // reach 30 days of hospitalization data. That or we should
   // rethink this requirement. -goleary
   const hasData = field =>
-    name === 'Hawaii' ||
-    (data.filter(item => item[field.replace('perCap_', '')] !== null).length >=
+    data.filter(item => item[field.replace('perCap_', '')] !== null).length >=
       data.length * 0.3 &&
-      data.filter(item => item[field.replace('perCap_', '')] > 0).length > 0)
+    data.filter(item => item[field.replace('perCap_', '')] > 0).length > 0
 
   // Below enables the charts to switch between the per cap & not data
   // using the toggle state
 
   const prepend = useMemo(() => (usePerCap ? 'perCap_' : ''), [usePerCap])
-  const testIncreaseField = getTestIncreaseField(history)
+  const testIncreaseField = `${
+    testSource === 'posNeg' ? 'totalTestResults' : testSource
+  }Increase`
   const testField = useMemo(() => `${prepend}${testIncreaseField}`, [prepend])
   const positiveField = useMemo(() => `${prepend}positiveIncrease`, [prepend])
   const hospitalizedField = useMemo(() => `${prepend}hospitalizedCurrently`, [
@@ -305,6 +299,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
   return (
     <>
       <div className={styles.infoLine}>
+        <h2 className="a11y-only">Summary charts</h2>
         <div className={styles.toggleContainer}>
           {usHistory && (
             <Toggle
@@ -319,27 +314,32 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
             setState={setUseFullRange}
           />
         </div>
-        <div className={styles.legendContainer}>
+        <div className={styles.legendContainer} id="summary-charts">
           {usData && usePerCap && <LegendComponent />}
           <LegendComponent name={name || 'National'} />
         </div>
       </div>
-      <Row>
+      <Row className={styles.summaryCharts}>
         <Col {...colProps}>
-          <h5 className={styles.testHeading}>
+          <h3 className={styles.testHeading}>
             New tests{' '}
             <AnnotationIndicator
               annotations={annotations}
               dataElement="tests"
               openDisclosure={() => setDisclosureOpen(true)}
             />
-            <CalculatedIndicator />
-            <TestFieldIndicator field={testIncreaseField} />
-          </h5>
+            <CalculatedIndicator
+              openDisclosure={() => setDisclosureOpen(true)}
+            />
+            <TestFieldIndicator
+              field={testSource}
+              units={testUnits}
+              national={national}
+            />
+          </h3>
           <BarChart
             data={getDataForField(data, testField)}
             lineData={dailyAverage(data, testField)}
-            refLineData={dailyAverage(usData, testField)}
             fill={colors.colorPlum200}
             lineColor={colors.colorPlum700}
             annotations={splitAnnotations.tests}
@@ -348,7 +348,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
           />
         </Col>
         <Col {...colProps}>
-          <h5>
+          <h3>
             New cases{' '}
             <AnnotationIndicator
               annotations={annotations}
@@ -356,7 +356,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               openDisclosure={() => setDisclosureOpen(true)}
             />
             <CalculatedIndicator />
-          </h5>
+          </h3>
           {hasData(positiveField) ? (
             <BarChart
               data={getDataForField(data, positiveField)}
@@ -373,14 +373,14 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
           )}
         </Col>
         <Col {...colProps}>
-          <h5>
+          <h3>
             Current hospitalizations{' '}
             <AnnotationIndicator
               annotations={annotations}
               dataElement="hospitalizations"
               openDisclosure={() => setDisclosureOpen(true)}
             />
-          </h5>
+          </h3>
 
           {hasData(hospitalizedField) ? (
             <BarChart
@@ -403,7 +403,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
           )}
         </Col>
         <Col {...colProps}>
-          <h5>
+          <h3>
             New deaths{' '}
             <AnnotationIndicator
               annotations={annotations}
@@ -411,7 +411,7 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
               openDisclosure={() => setDisclosureOpen(true)}
             />
             <CalculatedIndicator />
-          </h5>
+          </h3>
           {hasData(deathField) ? (
             <BarChart
               data={getDataForField(data, deathField)}
@@ -479,14 +479,6 @@ export default ({ name = 'National', history, usHistory, annotations }) => {
                   }
                   id={calculatedSnippet.contentful_id}
                 />
-
-                <ContentfulContent
-                  content={
-                    disclaimerSnippet.childContentfulSnippetContentTextNode
-                      .childMarkdownRemark.html
-                  }
-                  id={disclaimerSnippet.contentful_id}
-                />
               </Container>
             </DisclosurePanel>
           </Disclosure>
@@ -515,3 +507,5 @@ const LegendComponent = ({ name }) => (
     {name || 'National'} 7-day average
   </div>
 )
+
+export default SummaryCharts

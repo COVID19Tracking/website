@@ -174,22 +174,21 @@ const List = ({ type, name, options, label, isRequired, detailText }) => (
           detailText ? formStyles.inputDescription : null,
         )}
       >
-        {options &&
-          options.map(item => (
-            <label
-              key={`${name}-${item.value}`}
-              htmlFor={item.value}
-              className={formStyles.checkboxLabel}
-            >
-              <input
-                type={type}
-                name={name || item.label}
-                value={item.label}
-                id={item.value}
-              />
-              {item.label}
-            </label>
-          ))}
+        {options.map(item => (
+          <label
+            key={`${name}-${item.value}`}
+            htmlFor={item.value}
+            className={formStyles.checkboxLabel}
+          >
+            <input
+              type={type}
+              name={name || item.label}
+              value={item.label}
+              id={item.value}
+            />
+            {item.label}
+          </label>
+        ))}
       </div>
       <div className={formStyles.descriptionContainer}>
         <FieldDetailText detailText={detailText} />

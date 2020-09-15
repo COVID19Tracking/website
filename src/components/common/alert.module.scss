@@ -1,0 +1,38 @@
+.alert {
+  display: inline-flex;
+  padding: spacer(8);
+  padding-right: spacer(32);
+  margin: spacer(16) 0;
+  background-color: $color-infobox-alert-light;
+  color: $color-infobox-alert-dark;
+  border-radius: 4px;
+  @include type-size(100);
+
+  img {
+    width: toRem(16);
+    margin: spacer(4) spacer(16) spacer(8) spacer(8);
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .header {
+    font-weight: bold;
+    line-height: 1em;
+  }
+
+  .content {
+    margin-top: spacer(4);
+  }
+
+  &.full-size {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: spacer(8);
+    text-align: center;
+  }
+}

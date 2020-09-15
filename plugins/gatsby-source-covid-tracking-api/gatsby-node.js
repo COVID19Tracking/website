@@ -1,6 +1,7 @@
 const fs = require('fs')
 const crypto = require('crypto')
 const slugify = require('slugify')
+const { DateTime } = require('luxon')
 
 exports.sourceNodes = async (
   { actions, createNodeId, reporter },
@@ -26,6 +27,9 @@ Make sure to run "npm run setup" to clone the most recent version of the COVID A
   }
   const priorItems = {}
   items.forEach((item, index) => {
+    if (typeof item.date !== 'undefined') {
+      item.date = DateTime.fromISO(item.date).toISODate()
+    }
     if (increaseFields && increaseFields.length) {
       increaseFields.forEach(field => {
         if (typeof priorItems[item.state] === 'undefined') {

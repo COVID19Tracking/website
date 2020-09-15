@@ -7,13 +7,14 @@ import ReturnLinks from '~components/layout/header/return-links'
 import rightCaret from '~images/icons/right-caret.svg'
 import blogHeroStyles from './blog-hero.module.scss'
 
-export default ({
+const BlogHero = ({
   categories,
   headline,
   authors,
   published,
   updated,
   lede,
+  twitterText,
   id,
 }) => (
   <div className={blogHeroStyles.container} narrow centered>
@@ -41,8 +42,11 @@ export default ({
       published={published}
       updated={updated}
       lede={lede}
+      twitterText={twitterText}
       id={id}
       darkBackground
     />
   </div>
 )
+
+export default BlogHero

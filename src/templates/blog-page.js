@@ -7,7 +7,7 @@ import BlogTeaserList from '~components/pages/blog/blog-teaser-list'
 import BlogPagination from '~components/pages/blog/blog-pagination'
 import blogStyles from '~components/pages/blog/blog.module.scss'
 
-export default ({ data, pageContext }) => {
+const BlogPageTemplate = ({ data, pageContext }) => {
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
   const title = isFirst ? 'Blog' : `Blog – Page ${currentPage}`
@@ -23,6 +23,8 @@ export default ({ data, pageContext }) => {
   )
 }
 
+export default BlogPageTemplate
+
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
     allContentfulBlogPost(
@@ -37,35 +39,6 @@ export const query = graphql`
         categories {
           name
           slug
-          blog_post {
-            slug
-            publishDate(formatString: "MMMM D, YYYY")
-            authors {
-              name
-              twitterLink
-              twitterHandle
-              link
-              childContentfulAuthorBiographyTextNode {
-                childMarkdownRemark {
-                  html
-                }
-              }
-              headshot {
-                file {
-                  fileName
-                }
-                resize(width: 200) {
-                  width
-                  height
-                  src
-                }
-              }
-            }
-            title
-            lede {
-              lede
-            }
-          }
         }
         authors {
           name

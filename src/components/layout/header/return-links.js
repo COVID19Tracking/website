@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import returnLinksStyle from './return-links.module.scss'
 import rightCaret from '~images/icons/right-caret.svg'
 
-export default ({ links, pathNavigation, topNavigation, children }) => {
+const ReturnLinks = ({ links, pathNavigation, topNavigation, children }) => {
   /*
     links: a list of return links like {link: '/data', title: 'Data'}
       title is optional.
@@ -47,7 +47,7 @@ export default ({ links, pathNavigation, topNavigation, children }) => {
 
     if (matchingTopNavLink !== -1) {
       // pulls the title info for nav elements
-      returnLinks[index] = topNavigation[matchingTopNavLink]
+      returnLinks[index] = { ...topNavigation[matchingTopNavLink] }
       if (link.title) {
         // use the specific title, if it exists
         returnLinks[index].title = customTitle
@@ -74,3 +74,5 @@ export default ({ links, pathNavigation, topNavigation, children }) => {
     </div>
   )
 }
+
+export default ReturnLinks

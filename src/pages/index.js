@@ -13,7 +13,7 @@ import LargeProject from '~components/pages/homepage/large-project'
 import LatestTotals from '~components/pages/homepage/latest-totals'
 import Press from '~components/pages/homepage/press'
 
-export default () => (
+const Homepage = () => (
   <>
     <SEO title="The COVID Tracking Project" />
     <SkipNavigation />
@@ -39,3 +39,5 @@ export default () => (
     <Footer />
   </>
 )
+
+export default Homepage

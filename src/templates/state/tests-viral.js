@@ -2,46 +2,65 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
 import Definitions from '~components/pages/data/definitions'
-import { FormatDate, FormatNumber } from '~components/utils/format'
 import Layout from '~components/layout'
 
-const formatNumber = number => <FormatNumber number={number} />
-
-export default ({ pageContext, path, data }) => {
+const StateTestViralTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
+  const totalTestResultsTitle = (() => {
+    if (['CO', 'RI', 'ND'].indexOf(state.state) > -1) {
+      return 'Total test results - legacy (Total PCR tests in test encounters)'
+    }
+    if (['MA'].indexOf(state.state) > -1) {
+      return 'Total test results - legacy (Total PCR tests)'
+    }
+    return 'Total test results - legacy (positive + negative)'
+  })()
 
   return (
     <Layout
-      title={`${state.name}: Viral (PCR) Tests`}
+      title={`${state.name}: Viral (PCR) tests`}
       returnLinks={[
         { link: '/data', title: 'Our Data' },
         { link: `/data/state/${slug}`, title: state.name },
       ]}
       path={path}
     >
-      <Definitions definitions={data.allContentfulDataDefinition.nodes} />
+      <Definitions
+        definitions={data.allContentfulDataDefinition.nodes.map(node => {
+          const result = { ...node }
+          if (result.fieldName === 'totalTestResults') {
+            result.name = totalTestResultsTitle
+          }
+          return result
+        })}
+      />
       <TableResponsive
         labels={[
           {
             field: 'date',
-            format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
+            noWrap: true,
           },
           {
             field: 'positiveTestsViral',
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'totalTestsPeopleViral',
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'totalTestsViral',
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'totalTestEncountersViral',
-            format: formatNumber,
+            isNumeric: true,
+          },
+          {
+            label: totalTestResultsTitle,
+            field: 'totalTestResults',
+            isNumeric: true,
           },
         ]}
         data={data.allCovidStateDaily.nodes}
@@ -50,6 +69,8 @@ export default ({ pageContext, path, data }) => {
   )
 }
 
+export default StateTestViralTemplate
+
 export const query = graphql`
   query($state: String!) {
     allCovidStateDaily(
@@ -57,11 +78,12 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
     ) {
       nodes {
-        date
+        date(formatString: "MMM D, YYYY")
         positiveTestsViral
         totalTestsPeopleViral
         totalTestsViral
         totalTestEncountersViral
+        totalTestResults
       }
     }
 
@@ -73,6 +95,7 @@ export const query = graphql`
             "totalTestsPeopleViral"
             "totalTestsViral"
             "totalTestEncountersViral"
+            "totalTestResults"
           ]
         }
       }

@@ -1,13 +1,8 @@
 import React from 'react'
 import UsReportingCount from './us-reporting-count'
-import StatesNotReporting from './states-not-reporting'
 import UsOverviewStyles from './us-overview.module.scss'
 
-export default ({
-  statesCasesCount,
-  statesDeathsCount,
-  statesNotReporting,
-}) => (
+const UsOverview = ({ statesCasesCount, statesDeathsCount }) => (
   <div className={UsOverviewStyles.container}>
     <h2>How many states report race and ethnicity data?</h2>
     <div className={UsOverviewStyles.row}>
@@ -16,9 +11,8 @@ export default ({
         statesDeathsCount={statesDeathsCount}
         className={UsOverviewStyles.reportingCount}
       />
-      <div>
-        <StatesNotReporting content={statesNotReporting} />
-      </div>
     </div>
   </div>
 )
+
+export default UsOverview

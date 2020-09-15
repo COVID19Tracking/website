@@ -13,7 +13,7 @@ const legendStyles = {
     countyChartLegendStyle.nhpiAlone,
 }
 
-export default ({ data }) => {
+const CountyChartLegend = ({ data }) => {
   const legends = []
   if (!data) {
     return null
@@ -39,3 +39,5 @@ export default ({ data }) => {
     </div>
   )
 }
+
+export default CountyChartLegend

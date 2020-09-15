@@ -4,7 +4,7 @@ import TableauChart from '~components/charts/tableau'
 import ChartList from '~components/pages/data/charts/chart-list'
 import Layout from '../components/layout'
 
-const ChartPage = ({ data, path }) => {
+const ChartPageTemplate = ({ data, path }) => {
   const chart = data.contentfulChart
   return (
     <Layout
@@ -36,7 +36,7 @@ const ChartPage = ({ data, path }) => {
   )
 }
 
-export default ChartPage
+export default ChartPageTemplate
 
 export const query = graphql`
   query($id: String!) {

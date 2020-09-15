@@ -4,16 +4,14 @@ exports[`Components : Layout : Header : Sub Navigation renders correctly 1`] = `
 <div
   className="site-header-tabs headerTabs"
 >
-  <div>
-    <ul>
-      <li>
-        <a
-          href="https://nyan.cat"
-        >
-          Another subnav item
-        </a>
-      </li>
-    </ul>
-  </div>
+  <ul>
+    <li>
+      <a
+        href="https://nyan.cat"
+      >
+        Another subnav item
+      </a>
+    </li>
+  </ul>
 </div>
 `;

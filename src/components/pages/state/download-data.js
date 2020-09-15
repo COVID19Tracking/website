@@ -9,7 +9,7 @@ import downloadDataStyles from './download-data.module.scss'
 const DownloadData = ({ slug, hideLabel = false }) => (
   <div className={downloadDataStyles.container}>
     {!hideLabel && (
-      <h3 className={downloadDataStyles.header}>Get the data as:</h3>
+      <h2 className={downloadDataStyles.header}>Get the data as:</h2>
     )}
     <p>
       <a
@@ -37,20 +37,11 @@ const DownloadData = ({ slug, hideLabel = false }) => (
   </div>
 )
 
-const DownloadDataRow = ({
-  slug,
-  lastUpdateEt,
-  unformatted = false,
-  national = false,
-}) => (
+const DownloadDataRow = ({ slug, lastUpdateEt, national = false }) => (
   <Row>
     <Col width={[4, 6, 6]}>
       <div className={downloadDataStyles.lastUpdatedContainer}>
-        <LastUpdated
-          date={lastUpdateEt}
-          unformatted={unformatted}
-          national={national}
-        />
+        <LastUpdated date={lastUpdateEt} national={national} />
       </div>
     </Col>
     <Col width={[4, 6, 6]}>

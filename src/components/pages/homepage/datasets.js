@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Feature from '~components/common/landing-page/feature'
 
-export default () => {
+const HomepageDatasets = () => {
   const data = useStaticQuery(graphql`
     query {
       whiteHouse: file(relativePath: { regex: "/white-house.png/" }) {
@@ -22,10 +22,41 @@ export default () => {
           }
         }
       }
+      jhuTracker: file(relativePath: { regex: "/jhu-tracker.png/" }) {
+        relativePath
+        childImageSharp {
+          fluid(maxWidth: 1200, traceSVG: { color: "#020202" }) {
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
+        }
+      }
     }
   `)
   return (
     <div>
+      <Feature
+        title="Johns Hopkins"
+        element={
+          <Img
+            fluid={data.jhuTracker.childImageSharp.fluid}
+            alt="Screenshot of a COVID Exit Strategy chart that uses COVID Tracking Project data in its state-by-state comparison of interventions, testing, and outcomes."
+          />
+        }
+        flip
+      >
+        Johns Hopkins relies on our testing data for its{' '}
+        <a
+          href="https://coronavirus.jhu.edu/testing"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+        >
+          COVID-19 Testing Insights Initiative
+        </a>
+        , which brings data and expert analysis together in one place. The
+        initiative is designed to help policymakers and the public understand
+        the trajectory of the pandemic, and make decisions about the path
+        forward.
+      </Feature>
       <Feature
         title="The White House"
         element={
@@ -62,3 +93,5 @@ export default () => {
     </div>
   )
 }
+
+export default HomepageDatasets

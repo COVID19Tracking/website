@@ -5,7 +5,7 @@ import ScreenshotList from '~components/pages/state/screenshot-list'
 import TableResponsive from '~components/common/table-responsive'
 import { FormatDate } from '~components/utils/format'
 
-export default ({ pageContext, path, data }) => {
+const StateScreenshotTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const allScreenshots = []
   const { slug } = state.childSlug
@@ -84,6 +84,7 @@ export default ({ pageContext, path, data }) => {
             field: 'date',
             label: 'Date',
             format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
+            noWrap: true,
           },
           {
             field: 'primary',
@@ -106,6 +107,8 @@ export default ({ pageContext, path, data }) => {
     </Layout>
   )
 }
+
+export default StateScreenshotTemplate
 
 export const query = graphql`
   query($state: String!) {

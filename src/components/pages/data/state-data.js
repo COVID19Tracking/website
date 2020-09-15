@@ -12,7 +12,6 @@ import {
 
 import stateDataStyles from './state-data.module.scss'
 
-// todo pass race and ethnicity data from API
 const State = ({ state, metadata }) => {
   const [stateLinksOpen, setStateLinksOpen] = useState(false)
   const { slug } = state.childSlug
@@ -53,6 +52,11 @@ const State = ({ state, metadata }) => {
         className={`state-top-link ${stateDataStyles.topLink}`}
         href="#reach-skip-nav"
         title="top"
+        onClick={() => {
+          if (typeof window.fathom !== 'undefined') {
+            window.fathom.trackGoal('NM0I2PQP', 0)
+          }
+        }}
       >
         Back to top.
       </a>

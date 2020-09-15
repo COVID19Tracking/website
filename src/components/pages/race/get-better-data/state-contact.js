@@ -2,7 +2,7 @@ import React from 'react'
 import DetailText from '~components/common/detail-text'
 import stateContactStyle from './state-contact.module.scss'
 
-export default ({ currentState, governors }) => {
+const StateContact = ({ currentState, governors }) => {
   const currentGovernor = governors.find(
     governor => governor.state_name === currentState,
   )
@@ -66,3 +66,5 @@ export default ({ currentState, governors }) => {
     </div>
   )
 }
+
+export default StateContact

@@ -2,12 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
 import Definitions from '~components/pages/data/definitions'
-import { FormatDate, FormatNumber } from '~components/utils/format'
 import Layout from '~components/layout'
 
-const formatNumber = number => <FormatNumber number={number} />
-
-export default ({ pageContext, path, data }) => {
+const StateTestAntibodiesTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
 
@@ -25,31 +22,31 @@ export default ({ pageContext, path, data }) => {
         labels={[
           {
             field: 'date',
-            format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
+            noWrap: true,
           },
           {
             field: 'totalTestsPeopleAntibody',
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'totalTestsAntibody',
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'negativeTestsPeopleAntibody',
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'negativeTestsAntibody',
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'positiveTestsPeopleAntibody',
-            format: formatNumber,
+            isNumeric: true,
           },
           {
             field: 'positiveTestsAntibody',
-            format: formatNumber,
+            isNumeric: true,
           },
         ]}
         data={data.allCovidStateDaily.nodes}
@@ -58,6 +55,8 @@ export default ({ pageContext, path, data }) => {
   )
 }
 
+export default StateTestAntibodiesTemplate
+
 export const query = graphql`
   query($state: String!) {
     allCovidStateDaily(
@@ -65,7 +64,7 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
     ) {
       nodes {
-        date
+        date(formatString: "MMM D, YYYY")
         totalTestsPeopleAntibody
         totalTestsAntibody
         negativeTestsPeopleAntibody

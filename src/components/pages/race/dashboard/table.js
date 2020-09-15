@@ -4,7 +4,7 @@ import Tooltip from '~components/common/tooltip'
 import { Table, Th, Td } from '~components/common/table'
 import Percent from './percent'
 import { Notes, DisparitySymbol, TooltipContent } from './table-symbols'
-import tooltipDisparityIcon from '~images/tooltip-disparity-icon.svg'
+import tooltipDisparityIcon from '~images/race-dashboard/tooltip-disparity-icon.svg'
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import stateTableStyle from './table.module.scss'
 

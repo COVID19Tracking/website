@@ -21,17 +21,17 @@ const StateLinks = ({
     <div className={stateLinksStyle.container}>
       {covid19Site && (
         <a href={covid19Site} className={stateLinksStyle.link}>
-          <span>Best Current Data Source</span>
+          <span>Best current data source</span>
         </a>
       )}
       {covid19SiteSecondary && (
         <a href={covid19SiteSecondary} className={stateLinksStyle.link}>
-          <span>Secondary Data Source</span>
+          <span>Secondary data source</span>
         </a>
       )}
       {covid19SiteTertiary && (
         <a href={covid19SiteTertiary} className={stateLinksStyle.link}>
-          <span>Tertiary Data Source</span>
+          <span>Tertiary data source</span>
         </a>
       )}
       {twitter && (
@@ -43,12 +43,6 @@ const StateLinks = ({
           Official Twitter
         </a>
       )}
-      <Link
-        to={`/data/state/${stateSlug}/history`}
-        className={stateLinksStyle.link}
-      >
-        Full history
-      </Link>
       <Link
         className={stateLinksStyle.link}
         to={`/data/state/${stateSlug}/screenshots`}
@@ -78,6 +72,7 @@ const StateLinksDisclosurePanel = ({ state }) => (
       covid19SiteSecondary={state.covid19SiteSecondary}
       covid19SiteTertiary={state.covid19SiteTertiary}
       stateName={state.name}
+      stateSlug={state.childSlug.slug}
     />
   </DisclosurePanel>
 )

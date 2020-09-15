@@ -3,11 +3,14 @@ require(`@babel/register`)({
   plugins: ['@babel/plugin-transform-runtime'],
 })
 require('dotenv').config()
+const setTZ = require('set-tz')
 const { DateTime } = require('luxon')
 const algoliaQueries = require('./src/utilities/algolia').queries
 const sassImports = require('./src/utilities/sass-imports.js')
 const formatStringList = require('./src/components/utils/format')
   .formatStringList
+
+setTZ('America/New_York')
 
 const gatsbyConfig = {
   siteMetadata: {
@@ -19,6 +22,11 @@ const gatsbyConfig = {
     production:
       typeof process.env.BRANCH !== 'undefined' &&
       process.env.BRANCH === 'master',
+    buildTime: DateTime.local()
+      .setZone('America/New_York')
+      .toISO(),
+    buildId: process.env.BUILD_ID || false,
+    buildHook: process.env.INCOMING_HOOK_TITLE || false,
     contentfulSpace: process.env.CONTENTFUL_SPACE,
     hiddenApiTags: ['Racial data tracker', 'Internal Endpoints'],
     stateChartDateRange: 90,
@@ -43,7 +51,16 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-plugin-polyfill-io',
       options: {
-        features: ['core-js', 'Intl'],
+        features: [
+          'default',
+          'String.prototype.repeat',
+          'Array.prototype.find',
+          'Array.prototype.findIndex',
+          'Math.trunc',
+          'Math.sign',
+          'core-js',
+          'Intl',
+        ],
       },
     },
     {
@@ -51,6 +68,13 @@ const gatsbyConfig = {
       options: {
         name: 'homepageImages',
         path: `${__dirname}/src/images/homepage`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pressImages',
+        path: `${__dirname}/src/images/press-logos`,
       },
     },
     {
@@ -65,13 +89,6 @@ const gatsbyConfig = {
       options: {
         name: 'visualizationGuideImages',
         path: `${__dirname}/src/images/visualization-guide`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-covid-tracking-api',
-      options: {
-        file: './_api/v1/internal/press.json',
-        type: 'CovidPress',
       },
     },
     {
@@ -228,6 +245,9 @@ const gatsbyConfig = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE,
         accessToken: process.env.CONTENTFUL_TOKEN,
+        host: process.env.CONTENTFUL_PREVIEW
+          ? 'preview.contentful.com'
+          : 'cdn.contentful.com',
       },
     },
 
@@ -284,12 +304,9 @@ const gatsbyConfig = {
       resolve: `gatsby-plugin-global-context`,
       options: {
         context: {
-          sevenDaysAgo: parseInt(
-            DateTime.local()
-              .minus({ days: 7 })
-              .toFormat('yyyyMMdd'),
-            10,
-          ),
+          sevenDaysAgo: DateTime.local()
+            .minus({ days: 7 })
+            .toISODate(),
         },
       },
     },
@@ -396,6 +413,7 @@ const gatsbyConfig = {
         ],
       },
     },
+    'gatsby-plugin-minify-classnames',
   ],
 }
 

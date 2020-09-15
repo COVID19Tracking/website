@@ -38,7 +38,7 @@ const checkFiles = () => {
               if (!parsedLine) {
                 return
               }
-              const { name, values } = parsedLine
+              const { name } = parsedLine
               if (
                 (name.search('margin') > -1 || name.search('padding') > -1) &&
                 (change.content.search('px') > -1 ||

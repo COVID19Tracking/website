@@ -8,7 +8,7 @@ import {
   DefinitionLink,
 } from '~components/common/statistic'
 
-export default ({
+const CasesCard = ({
   stateSlug,
   positive,
   positiveIncrease,
@@ -19,9 +19,11 @@ export default ({
   const drillDownValue = Number.isNaN(sevenDayIncreasePercent)
     ? 'N/A'
     : sevenDayIncreasePercent
-  const drillDownSuffix = Number.isNaN(sevenDayIncreasePercent) ? '' : '%'
+  let drillDownSuffix = Number.isNaN(sevenDayIncreasePercent) ? '' : '%'
   const definitionContext = useContext(DefinitionPanelContext)
-
+  if (drillDownValue !== 'N/A') {
+    drillDownSuffix += drillDownValue > 0 ? '+' : '-'
+  }
   return (
     <Card
       title="Cases"
@@ -31,7 +33,7 @@ export default ({
             national ? '/data/national/cases' : `/data/state/${stateSlug}/cases`
           }
         >
-          Historical data
+          Historical data <span className="a11y-only"> for cases</span>
         </Link>
       }
     >
@@ -54,7 +56,7 @@ export default ({
           <DrillDown
             label="Change over 7 days"
             value={drillDownValue}
-            suffix={drillDownSuffix + (drillDownValue > 0 ? '+' : '-')}
+            suffix={drillDownSuffix}
             calculated
           />
         </Statistic>
@@ -62,3 +64,5 @@ export default ({
     </Card>
   )
 }
+
+export default CasesCard

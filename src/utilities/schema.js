@@ -5,7 +5,10 @@ module.exports = ({ actions }) => {
       dateChecked: String
     }
     type allCovidStateDaily implements Node {
-      date: String
+      date: Date
+    }
+    type allCovidUsDaily implements Node {
+      date: Date
     }
     type CovidRaceDataSeparate implements Node {
       blackANHPIPosNotes: String

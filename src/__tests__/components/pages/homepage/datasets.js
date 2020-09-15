@@ -29,6 +29,18 @@ beforeEach(() => {
         },
       },
     },
+    jhuTracker: {
+      childImageSharp: {
+        fluid: {
+          aspectRatio: 1.3,
+          sizes: '(max-width: 1200px) 100vw, 1200px',
+          src:
+            '/static/d7b5369bedd2904efd15de13fa55daef/f3583/project-large.png',
+          srcSet: '/srcset',
+          tracedSVG: '[SVG]',
+        },
+      },
+    },
   }))
 })
 

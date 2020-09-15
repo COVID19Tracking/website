@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
 
-export default ({ data }) => (
+const DataDownloadPage = ({ data }) => (
   <Layout
     title="Data Download"
     path="/data/download"
@@ -16,6 +16,15 @@ export default ({ data }) => (
       }
       id={data.contentfulSnippet.contentful_id}
     />
+
+    <h2>National data</h2>
+    <p>
+      Download{' '}
+      <a href="/data/download/national-history.csv">
+        summary data for the United States
+      </a>
+      .
+    </p>
 
     <h2>State Data</h2>
     <p>
@@ -34,6 +43,8 @@ export default ({ data }) => (
     </ul>
   </Layout>
 )
+
+export default DataDownloadPage
 
 export const query = graphql`
   query {
