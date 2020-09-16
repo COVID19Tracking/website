@@ -25,7 +25,7 @@ export default function UsAreaChartContainer() {
         nodes {
           totalTestResults
           positive
-          date
+          date(formatString: "YYYYMMDD")
         }
       }
     }
