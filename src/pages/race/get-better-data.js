@@ -27,8 +27,6 @@ const RaceGetBetterDataPage = ({ data }) => {
     ...separateRaceData.find(raceDatum => raceDatum.name === state.name),
   }))
 
-  console.log(stateInfo)
-
   return (
     <Layout
       title="Help Us Get Better Race and Ethnicity Data"
