@@ -17,7 +17,7 @@ const MapContainer = () => {
     {
       allCovidStateDaily {
         nodes {
-          date
+          date(formatString: "YYYYMMDD")
           positive
           totalTestResults
           death
