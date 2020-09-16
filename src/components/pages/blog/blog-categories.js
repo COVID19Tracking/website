@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import classnames from 'classnames'
-import categoryStyles from './categories.module.scss'
+import categoryStyles from './blog-categories.module.scss'
 
 const BlogCategories = ({ categories, lightBackground }) => {
   if (!categories) {
