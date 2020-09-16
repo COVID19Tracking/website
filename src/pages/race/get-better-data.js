@@ -10,9 +10,9 @@ const RaceGetBetterDataPage = ({ data }) => {
   states.unshift('-- Select a state --')
 
   // combine the Civil Service data with custom territory data
-  const governors = data.allCivilServiceGovernor.nodes
-    .filter(node => node.id !== 'dummy') // from gatsby-source-apiserver (see its readme)
-    .concat(data.allTerritoryInfo.nodes)
+  const governors = data.allCivilServiceGovernor.nodes.concat(
+    data.allTerritoryInfo.nodes,
+  )
 
   const stateScripts = data.allContentfulCrdtAdvocacyState.nodes
   const stateNames = data.allCovidStateInfo.nodes
@@ -27,12 +27,7 @@ const RaceGetBetterDataPage = ({ data }) => {
     ...separateRaceData.find(raceDatum => raceDatum.name === state.name),
   }))
 
-  // remove duplicate state name fields from combining data
-  stateInfo.forEach(state => {
-    /* eslint-disable no-param-reassign */
-    delete state.name
-    delete state.state
-  })
+  console.log(stateInfo)
 
   return (
     <Layout
