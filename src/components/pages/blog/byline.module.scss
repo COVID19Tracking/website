@@ -6,12 +6,21 @@
   line-height: 1.2;
 
   .headshot-container {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    grid-row-gap: spacer(8);
+
+
     margin-right: spacer(16);
-    display: inline-flex;
-    align-items: flex-start;
 
     @media (max-width: $viewport-sm) {
       display: none;
+    }
+
+    &.three-plus-headshots {
+      img {
+        margin-right: spacer(24);
+      }
     }
 
     img {
@@ -19,6 +28,10 @@
       height: 40px;
       border-radius: 50%;
       margin-right: spacer(8);
+
+      &:last-child {
+        margin-right: spacer(8);
+      }
     }
   }
   .byline-text {
