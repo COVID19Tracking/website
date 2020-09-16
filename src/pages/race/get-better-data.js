@@ -23,14 +23,14 @@ const RaceGetBetterDataPage = ({ data }) => {
   const stateInfo = stateNames.map(state => ({
     ...state,
     ...stateScripts.find(stateScript => stateScript.state === state.name),
-    ...combinedRaceData.find(raceDatum => raceDatum.stateName === state.name),
-    ...separateRaceData.find(raceDatum => raceDatum.stateName === state.name),
+    ...combinedRaceData.find(raceDatum => raceDatum.name === state.name),
+    ...separateRaceData.find(raceDatum => raceDatum.name === state.name),
   }))
 
   // remove duplicate state name fields from combining data
   stateInfo.forEach(state => {
     /* eslint-disable no-param-reassign */
-    delete state.stateName
+    delete state.name
     delete state.state
   })
 
@@ -105,7 +105,7 @@ export const query = graphql`
       nodes {
         knownRaceEthDeath
         knownRaceEthPos
-        stateName
+        name
       }
     }
     allCovidRaceDataSeparate {
@@ -114,7 +114,7 @@ export const query = graphql`
         knownRaceDeath
         knownRacePos
         knownEthPos
-        stateName
+        name
       }
     }
   }
