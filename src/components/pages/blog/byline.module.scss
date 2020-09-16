@@ -10,7 +10,6 @@
     grid-template-columns: auto auto auto;
     grid-row-gap: spacer(8);
 
-
     margin-right: spacer(16);
 
     @media (max-width: $viewport-sm) {
@@ -18,6 +17,7 @@
     }
 
     &.three-plus-headshots {
+      margin-right: spacer(8);
       img {
         margin-right: spacer(24);
       }
