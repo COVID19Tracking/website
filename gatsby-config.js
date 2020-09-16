@@ -177,14 +177,14 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/advocacy/governors.json',
+        file: './_data/advocacy_governors.json',
         type: 'civilServiceGovernor',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/advocacy/territories.json',
+        file: './_data/advocacy_territories.json',
         type: 'territoryInfo',
       },
     },
