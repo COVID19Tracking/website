@@ -10,7 +10,7 @@ export default function UsAreaChartContainer() {
     {
       allCovidUsDaily {
         nodes {
-          date
+          date(formatString: "YYYYMMDD")
           deathIncrease
         }
       }
