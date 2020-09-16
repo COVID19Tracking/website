@@ -13,143 +13,119 @@ import DownloadLinks from '~components/pages/data/ltc/download-links'
 import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
 
-const LongTermCarePage = ({ data }) => (
-  <Layout title="The Long-Term Care COVID Tracker" path="/data/longtermcare">
-    <Paragraph>
-      <span
-        dangerouslySetInnerHTML={{
-          __html: marked.inlineLexer(data.lede.content.content, []),
-        }}
-      />
-    </Paragraph>
-    <h3 className="no-margin-bottom">Cumulative</h3>
-    <Row>
-      <Col width={[4, 6, 4]}>
-        <Total
-          label="Total cases"
-          number={
-            <FormatNumber number={data.covidLtcWebsite.casesCumulative} />
-          }
-        />
-      </Col>
-      <Col width={[4, 6, 4]}>
-        <Total
-          label="Total deaths"
-          number={
-            <FormatNumber number={data.covidLtcWebsite.deathsCumulative} />
-          }
-        />
-      </Col>
-      <Col width={[4, 6, 4]}>
-        <Total
-          label="Total number of facilities affected"
-          number={
-            <FormatNumber number={data.covidLtcWebsite.facilitiesCumulative} />
-          }
-        />
-      </Col>
-    </Row>
-    <DetailText small>
+const LongTermCarePage = ({ data }) => {
+  const Snippet = ({ slug }) => {
+    const item = data.contentfulSnippetCollection.snippets.find(
+      snippet => snippet.slug === slug,
+    )
+    return (
       <ContentfulContent
-        id={data.noteTopLine.contentful_id}
+        id={item.contentful_id}
         content={
-          data.noteTopLine.childContentfulSnippetContentTextNode
-            .childMarkdownRemark.html
+          item.childContentfulSnippetContentTextNode.childMarkdownRemark.html
         }
       />
-    </DetailText>
-    <DownloadLinks />
-    <Container centered>
-      <LongContent>
-        <ContentfulContent
-          id={data.content1.contentful_id}
-          content={
-            data.content1.childContentfulSnippetContentTextNode
-              .childMarkdownRemark.html
-          }
+    )
+  }
+
+  return (
+    <Layout title="The Long-Term Care COVID Tracker" path="/data/longtermcare">
+      <Paragraph>
+        <span
+          dangerouslySetInnerHTML={{
+            __html: marked.inlineLexer(data.lede.content.content, []),
+          }}
         />
-      </LongContent>
-    </Container>
-    <TableauChart
-      id="ltc-1"
-      height={520}
-      mobileHeight={450}
-      viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/FigMap?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"
-      viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCaremobile/FigMap?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"
-    />
-    <Container centered>
-      <LongContent>
-        <ContentfulContent
-          id={data.content2.contentful_id}
-          content={
-            data.content2.childContentfulSnippetContentTextNode
-              .childMarkdownRemark.html
-          }
-        />
-      </LongContent>
-    </Container>
-    <Container centered>
-      <LongContent>
-        <h2>Deaths in Long-Term Care Facilities by Region</h2>
-      </LongContent>
-    </Container>
-    <TableauChart
-      id="ltc-2"
-      height={525}
-      mobileHeight={450}
-      viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
-      viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
-    />
-    <Container centered>
-      <LongContent>
-        <DetailText small>
-          <ContentfulContent
-            id={data.timechartNotes.contentful_id}
-            content={
-              data.timechartNotes.childContentfulSnippetContentTextNode
-                .childMarkdownRemark.html
+      </Paragraph>
+      <h3 className="no-margin-bottom">Cumulative</h3>
+      <Row>
+        <Col width={[4, 6, 4]}>
+          <Total
+            label="Total cases"
+            number={
+              <FormatNumber number={data.covidLtcWebsite.casesCumulative} />
             }
           />
-        </DetailText>
-        <ContentfulContent
-          id={data.contentDefinitions.contentful_id}
-          content={
-            data.contentDefinitions.childContentfulSnippetContentTextNode
-              .childMarkdownRemark.html
-          }
-        />
-      </LongContent>
-    </Container>
-    <Container centered>
+        </Col>
+        <Col width={[4, 6, 4]}>
+          <Total
+            label="Total deaths"
+            number={
+              <FormatNumber number={data.covidLtcWebsite.deathsCumulative} />
+            }
+          />
+        </Col>
+        <Col width={[4, 6, 4]}>
+          <Total
+            label="Total number of facilities affected"
+            number={
+              <FormatNumber
+                number={data.covidLtcWebsite.facilitiesCumulative}
+              />
+            }
+          />
+        </Col>
+      </Row>
       <DetailText small>
-        <ContentfulContent
-          id={data.noteTable.contentful_id}
-          content={
-            data.noteTable.childContentfulSnippetContentTextNode
-              .childMarkdownRemark.html
-          }
-        />
+        <Snippet slug="ltc-top-notes" />
       </DetailText>
-    </Container>
-    <TableauChart
-      id="ltc-3"
-      height={1300}
-      viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
-      viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCaremobile/SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
-    />
-    <Container centered>
-      <LongContent>
-        <ContentfulContent
-          id={data.contentThanks.contentful_id}
-          content={
-            data.contentThanks.childContentfulSnippetContentTextNode
-              .childMarkdownRemark.html
-          }
-        />
-      </LongContent>
-    </Container>
-  </Layout>
-)
+      <DownloadLinks />
+      <Container centered>
+        <LongContent>
+          <Snippet slug="ltc-1" />
+        </LongContent>
+      </Container>
+      <TableauChart
+        id="ltc-1"
+        height={520}
+        mobileHeight={450}
+        viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/FigMap?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"
+        viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCaremobile/FigMap?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"
+      />
+      <Container centered>
+        <LongContent>
+          <Snippet slug="ltc-2" />
+        </LongContent>
+      </Container>
+      <Container centered>
+        <LongContent>
+          <h2>Deaths in Long-Term Care Facilities by Region</h2>
+        </LongContent>
+      </Container>
+      <TableauChart
+        id="ltc-2"
+        height={525}
+        mobileHeight={450}
+        viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
+        viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
+      />
+      <Container centered>
+        <LongContent>
+          <DetailText small>
+            <Snippet slug="ltc-timechart-notes" />
+          </DetailText>
+          <Snippet slug="ltc-definitions" />
+        </LongContent>
+      </Container>
+      <Container centered>
+        <DetailText small>
+          <Snippet slug="ltc-table-notes" />
+        </DetailText>
+      </Container>
+      <TableauChart
+        id="ltc-3"
+        height={1300}
+        viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
+        viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCaremobile/SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
+      />
+      <Container centered>
+        <LongContent>
+          <Snippet slug="ltc-thanks" />
+        </LongContent>
+      </Container>
+    </Layout>
+  )
+}
 
 export default LongTermCarePage
 
@@ -160,65 +136,20 @@ export const query = graphql`
       deathsCumulative
       casesCumulative
     }
+    contentfulSnippetCollection(slug: { eq: "long-term-care-landing-page" }) {
+      snippets {
+        contentful_id
+        slug
+        childContentfulSnippetContentTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+    }
     lede: contentfulSnippet(slug: { eq: "ltc-lede" }) {
       content {
         content
-      }
-    }
-    content1: contentfulSnippet(slug: { eq: "ltc-1" }) {
-      contentful_id
-      childContentfulSnippetContentTextNode {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
-    content2: contentfulSnippet(slug: { eq: "ltc-2" }) {
-      contentful_id
-      childContentfulSnippetContentTextNode {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
-    contentThanks: contentfulSnippet(slug: { eq: "ltc-thanks" }) {
-      contentful_id
-      childContentfulSnippetContentTextNode {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
-    contentDefinitions: contentfulSnippet(slug: { eq: "ltc-definitions" }) {
-      contentful_id
-      childContentfulSnippetContentTextNode {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
-    noteTopLine: contentfulSnippet(slug: { eq: "ltc-top-notes" }) {
-      contentful_id
-      childContentfulSnippetContentTextNode {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
-    timechartNotes: contentfulSnippet(slug: { eq: "ltc-timechart-notes" }) {
-      contentful_id
-      childContentfulSnippetContentTextNode {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
-    noteTable: contentfulSnippet(slug: { eq: "ltc-table-notes" }) {
-      contentful_id
-      childContentfulSnippetContentTextNode {
-        childMarkdownRemark {
-          html
-        }
       }
     }
   }
