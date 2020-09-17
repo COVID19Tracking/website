@@ -49,7 +49,7 @@ exports[`Components : Pages : Homepage : Latest Totals renders correctly 1`] = `
           <div
             className="number"
           >
-            N/A
+            5,795,728
           </div>
           <div
             className="label"
