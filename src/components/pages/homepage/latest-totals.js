@@ -11,7 +11,7 @@ const HomepageLatestTotals = () => {
   const data = useStaticQuery(graphql`
     {
       covidUs {
-        posNeg
+        totalTestResults
         positive
         death
       }
