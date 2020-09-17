@@ -55,6 +55,7 @@ const Byline = ({
   const authorsWithHeadshots = authors.filter(author => author.headshot)
   const hasHeadshots = authorsWithHeadshots.length > 0
   const bylineClass = getBylineClass(smallmargin, hasHeadshots)
+  const numHeadshots = authorsWithHeadshots.length
   return (
     <div
       className={classnames(
@@ -63,7 +64,12 @@ const Byline = ({
       )}
     >
       {hasHeadshots && (
-        <div className={bylineStyles.headshotContainer}>
+        <div
+          className={classnames(
+            bylineStyles.headshotContainer,
+            numHeadshots > 3 && bylineStyles.threePlusHeadshots,
+          )}
+        >
           {authorsWithHeadshots.map(author => (
             <img
               key={author.headshot.resize.src}

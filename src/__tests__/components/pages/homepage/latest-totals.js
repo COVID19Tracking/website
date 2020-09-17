@@ -6,7 +6,7 @@ import LatestTotals from '~components/pages/homepage/latest-totals'
 beforeEach(() => {
   useStaticQuery.mockImplementation(() => ({
     covidUs: {
-      posNeg: 5795728,
+      totalTestResults: 5795728,
       positive: 1005592,
       death: 52525,
     },
