@@ -36,7 +36,7 @@ const HomepageLatestTotals = () => {
           <Col width={[4, 6, 4]}>
             <Total
               label="Total test results"
-              number={<FormatNumber number={totals.posNeg} />}
+              number={<FormatNumber number={totals.totalTestResults} />}
             />
           </Col>
           <Col width={[4, 6, 4]}>
