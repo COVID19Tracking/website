@@ -103,12 +103,12 @@ const getGroups = state => {
 
   groups = groups.filter(
     // remove groups without case or death data
-    group => group.cases !== '' && group.deaths !== '',
+    group => !(group.cases === '' && group.deaths === ''),
   )
 
   groups = groups.filter(
     // remove groups without case or death data
-    group => group.cases !== undefined && group.deaths !== undefined,
+    group => !(group.cases === undefined && group.deaths === undefined),
   )
 
   const maxCasesPerCap = Math.max(...groups.map(group => group.cases))
@@ -135,6 +135,19 @@ const getGroups = state => {
 
   const worstCasesValue = groups[0].cases
   const worstCasesGroup = groups[0].label
+
+  groups.forEach(group => {
+    if (group.deaths === undefined && group.cases) {
+      group.justCases = true
+    } else {
+      group.justCases = false
+    }
+    if (group.cases === undefined && group.deaths) {
+      group.justDeaths = true
+    } else {
+      group.justDeaths = false
+    }
+  })
 
   return {
     groups,
@@ -332,35 +345,62 @@ const StateRaceSocialCard = renderedComponent(
               Deaths per 100,000 people
             </span>
           )}
-          {groups.map(({ label, style, cases, deaths }) => (
-            <>
-              <span className={socialCardStyle.barLabel}>{label}</span>
-              {!deathsOnly && (
-                <div
-                  className={classnames(socialCardStyle.bar, style)}
-                  style={{
-                    width: getWidth(cases, groupValues.worstCasesValue),
-                  }}
-                >
-                  <FormatNumber number={cases} />
-                </div>
-              )}
-              {!casesOnly && (
-                <div
-                  className={classnames(
-                    socialCardStyle.bar,
-                    socialCardStyle.deathBar,
-                    style,
-                  )}
-                  style={{
-                    width: getWidth(deaths, groupValues.worstDeathsValue),
-                  }}
-                >
-                  <FormatNumber number={deaths} />
-                </div>
-              )}
-            </>
-          ))}
+          {/* justCases/justDeaths applies to each row, onlyCases/onlyDeaths
+          applies to the whole state. i.e. if onlyCases is true, there will be
+          only one chart for the state. If justCases is true, a single value
+          will not be shown */}
+          {groups.map(
+            ({ label, style, cases, deaths, justCases, justDeaths }) => (
+              <>
+                <span className={socialCardStyle.barLabel}>{label}</span>
+                {!deathsOnly && (
+                  <>
+                    {justDeaths ? (
+                      <span className={socialCardStyle.insufficientData}>
+                        Insufficient data available
+                      </span>
+                    ) : (
+                      <div
+                        className={classnames(socialCardStyle.bar, style)}
+                        style={{
+                          width: getWidth(cases, groupValues.worstCasesValue),
+                        }}
+                      >
+                        <FormatNumber number={cases} />
+                      </div>
+                    )}
+                  </>
+                )}
+                {!casesOnly && (
+                  <>
+                    {justCases ? (
+                      <span
+                        className={classnames(
+                          socialCardStyle.insufficientData,
+                          socialCardStyle.insufficientDataDeaths,
+                        )}
+                      >
+                        Insufficient data available
+                      </span>
+                    ) : (
+                      <div
+                        className={classnames(
+                          socialCardStyle.bar,
+                          socialCardStyle.deathBar,
+                          style,
+                        )}
+                        style={{
+                          width: getWidth(deaths, groupValues.worstDeathsValue),
+                        }}
+                      >
+                        <FormatNumber number={deaths} />
+                      </div>
+                    )}
+                  </>
+                )}
+              </>
+            ),
+          )}
           <p className={socialCardStyle.notes}>
             {state.knownRaceEthPos ? (
               <>

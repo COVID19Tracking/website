@@ -199,6 +199,9 @@
   .bar.death-bar {
     margin-left: 24px;
   }
+  .insufficient-data-deaths {
+    margin-left: 24px;
+  }
 }
 
 .no-data-container {
@@ -251,5 +254,13 @@
   .get-better-data {
     background-color: $color-plum-100;
     padding: 1rem 1.5rem; // ignore-style-rule
+  }
+}
+
+.insufficient-data {
+  font-size: 13px;
+  color: $color-slate-600;
+  &.insufficient-data-deaths {
+    margin-left: 45px;
   }
 }
