@@ -7,18 +7,12 @@ import Layout from '~components/layout'
 const StateTestViralTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
-  const { covidStateInfo } = data
+  const { totalTestResultsField } = data.covidStateInfo
   const totalTestResultsTitle = (() => {
-    if (
-      covidStateInfo.covidTrackingProjectPreferredTotalTestField ===
-      'totalTestEncountersViral'
-    ) {
+    if (totalTestResultsField === 'totalTestEncountersViral') {
       return 'Total test results - legacy (Total PCR tests in test encounters)'
     }
-    if (
-      covidStateInfo.covidTrackingProjectPreferredTotalTestField ===
-      'totalTestsViral'
-    ) {
+    if (totalTestResultsField === 'totalTestsViral') {
       return 'Total test results - legacy (Total PCR tests)'
     }
     return 'Total test results - legacy (positive + negative)'
@@ -118,8 +112,7 @@ export const query = graphql`
       }
     }
     covidStateInfo(state: { eq: $state }) {
-      covidTrackingProjectPreferredTotalTestField
-      covidTrackingProjectPreferredTotalTestUnits
+      totalTestResultsField
     }
   }
 `
