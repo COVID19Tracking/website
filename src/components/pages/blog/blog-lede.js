@@ -14,6 +14,7 @@ const BlogLede = ({
   twitterText,
   id,
   darkBackground,
+  hideByline,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -32,20 +33,22 @@ const BlogLede = ({
       <p className={blogLedeStyles.ledeContent}>
         <CleanSpacing>{lede}</CleanSpacing>
       </p>
-      <div className={blogLedeStyles.bylineRow}>
-        <Byline
-          authors={authors}
-          published={published}
-          updated={updated}
-          darkBackground={darkBackground}
-        />
-        <SocialSharing
-          shares={['facebook', 'twitter', 'link']}
-          url={`${site.siteMetadata.siteUrl}/${id}`}
-          text={lede}
-          twitterText={twitterText}
-        />
-      </div>
+      {!hideByline && (
+        <div className={blogLedeStyles.bylineRow}>
+          <Byline
+            authors={authors}
+            published={published}
+            updated={updated}
+            darkBackground={darkBackground}
+          />
+          <SocialSharing
+            shares={['facebook', 'twitter', 'link']}
+            url={`${site.siteMetadata.siteUrl}/${id}`}
+            text={lede}
+            twitterText={twitterText}
+          />
+        </div>
+      )}
     </div>
   )
 }

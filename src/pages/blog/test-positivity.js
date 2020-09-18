@@ -1,11 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import marked from 'marked'
 import Container from '~components/common/container'
 import Layout from '~components/layout'
 import LongContent from '~components/common/long-content'
 import ContentfulContent from '~components/common/contentful-content'
-import Paragraph from '~components/common/landing-page/paragraph'
+import Hero from '~components/pages/blog/blog-hero'
 
 import pooled0 from '~images/experiments/pooled_testing_00.jpg'
 import pooled1 from '~images/experiments/pooled_testing_01.jpg'
@@ -66,24 +65,31 @@ const TestPositivityBlogPost = ({ data }) => {
   }
 
   const socialCard = blogPost.socialCard || { description: blogPost.lede.lede }
-
+  const title =
+    'Test Positivity is a Valuable Metric, When Calculated Correctly'
   return (
     <Layout
-      title="Test Positivity is a Valuable Metric, When Calculated Correctly"
+      title={title}
       displayTitle="Blog"
       socialCard={socialCard}
       path="/blog/test-positivity"
       centerTitle
+      hero={
+        <Hero
+          headline={title}
+          lede={data.lede.content.content}
+          id={0}
+          twitterText={data.lede.content.content || false}
+          categories={[
+            {
+              name: 'Testing data',
+              slug: 'testing-data',
+            },
+          ]}
+          hideByline
+        />
+      }
     >
-      <Container centered>
-        <Paragraph>
-          <span
-            dangerouslySetInnerHTML={{
-              __html: marked.inlineLexer(data.lede.content.content, []),
-            }}
-          />
-        </Paragraph>
-      </Container>
       <Container centered>
         <LongContent>
           <Snippet slug="tpp-intro" />
