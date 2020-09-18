@@ -42,7 +42,7 @@ const secondScrollytellingCopy = [
   'Even though the sample of people tested in both states shows the same test positivity during the same period of time, the overall prevalence of the virus — something we don’t see in the test results — can be very different.',
 ]
 
-export default () => {
+const TestPositivityBlogPost = () => {
   const blogPost = {
     socialCard: {
       title: 'Test Positivity',
@@ -199,3 +199,5 @@ export default () => {
     </Layout>
   )
 }
+
+export default TestPositivityBlogPost
