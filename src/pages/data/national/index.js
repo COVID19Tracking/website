@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
-import { FormatDate, FormatNumber } from '~components/utils/format'
+import { FormatNumber } from '~components/utils/format'
 import TableResponsive from '~components/common/table-responsive'
 import Definitions from '~components/pages/data/definitions'
 import { DownloadData } from '~components/pages/state/download-data'
@@ -32,7 +32,6 @@ const NationalDataPage = ({ data }) => (
       labels={[
         {
           field: 'date',
-          format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
           noWrap: true,
         },
         {
@@ -77,7 +76,7 @@ export const query = graphql`
         negative
         hospitalizedCumulative
         death
-        date
+        date(formatString: "MMM D, YYYY")
         recovered
       }
     }

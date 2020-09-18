@@ -145,7 +145,7 @@ export default function CumulativeTestsByStateContainer() {
       allCovidStateDaily {
         edges {
           node {
-            date
+            date(formatString: "YYYYMMDD")
             state
             positive
             negative

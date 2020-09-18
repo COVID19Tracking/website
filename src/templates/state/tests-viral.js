@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
 import Definitions from '~components/pages/data/definitions'
-import { FormatDate } from '~components/utils/format'
 import Layout from '~components/layout'
 
 const StateTestViralTemplate = ({ pageContext, path, data }) => {
@@ -40,7 +39,6 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
         labels={[
           {
             field: 'date',
-            format: date => <FormatDate date={date} format="ccc LLL d yyyy" />,
             noWrap: true,
           },
           {
@@ -80,7 +78,7 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
     ) {
       nodes {
-        date
+        date(formatString: "MMM D, YYYY")
         positiveTestsViral
         totalTestsPeopleViral
         totalTestsViral

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { Byline } from './byline'
-import Categories from '~components/pages/blog/categories'
+import Categories from '~components/pages/blog/blog-categories'
 import Container from '~components/common/container'
 import CleanSpacing from '~components/utils/clean-spacing'
 import blogTeaserListStyle from './blog-teaser-list.module.scss'
