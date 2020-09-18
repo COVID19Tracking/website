@@ -79,7 +79,7 @@ jobs:
       - run:
           name: lint
           command: 'npm run test:lint'
-  storybook-test:
+  storybook:
     executor: main-executor
     steps:
       - checkout
