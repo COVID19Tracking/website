@@ -7,11 +7,18 @@ import Layout from '~components/layout'
 const StateTestViralTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
+  const { covidStateInfo } = data
   const totalTestResultsTitle = (() => {
-    if (['CO', 'RI', 'ND'].indexOf(state.state) > -1) {
+    if (
+      covidStateInfo.covidTrackingProjectPreferredTotalTestField ===
+      'totalTestEncountersViral'
+    ) {
       return 'Total test results - legacy (Total PCR tests in test encounters)'
     }
-    if (['MA'].indexOf(state.state) > -1) {
+    if (
+      covidStateInfo.covidTrackingProjectPreferredTotalTestField ===
+      'totalTestsViral'
+    ) {
       return 'Total test results - legacy (Total PCR tests)'
     }
     return 'Total test results - legacy (positive + negative)'
@@ -109,6 +116,10 @@ export const query = graphql`
           }
         }
       }
+    }
+    covidStateInfo(state: { eq: $state }) {
+      covidTrackingProjectPreferredTotalTestField
+      covidTrackingProjectPreferredTotalTestUnits
     }
   }
 `
