@@ -75,18 +75,24 @@ export default () => {
       </Container>
       <Container centered>
         <LongContent>
-          In an ideal world, we would know exactly how many active COVID-19
-          infections there are in the United States at a given time — a
-          proportion known as disease prevalence.
-        </LongContent>
-        <LongContent>
-          Absent the exact determination of disease prevalence, we can deduce a
-          different population ratio by looking at the number of “confirmed
-          cases,” which correspond to the number of viral diagnostic tests that
-          come back positive. This calculation is called test positivity or
-          percent positive rate. While the testing strategy allows for a grasp
-          of the viral prevalence, It poses a big challenge: you can only see
-          what you find in test results.
+          <p>
+            In an ideal world, we would know exactly how many active COVID-19
+            infections there are in the United States at a given time — a
+            proportion known as disease prevalence.
+          </p>
+          <p>
+            Although it’s hard to measure COVID-19 viral prevalence, we can
+            collect “confirmed cases,” which correspond to the number of viral
+            diagnostic tests that come back positive. By dividing this number by
+            the total number of reported tests and multiplying the result by
+            100%, we get a test positivity rate, also known as percent positive
+            rate.
+          </p>
+          <p>
+            While the testing strategy allows for a grasp of the viral
+            prevalence, it poses a big challenge: you can only see what you find
+            in test results.
+          </p>
         </LongContent>
       </Container>
 

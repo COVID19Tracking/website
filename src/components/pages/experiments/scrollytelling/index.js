@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import styles from './pooled-testing.module.scss'
+import styles from './scrollytelling.module.scss'
 
 // these next two can only be loaded clientside
 import { Scrollama, Step } from '~utilities/react-scrollama'
