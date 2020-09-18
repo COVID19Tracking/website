@@ -12,7 +12,7 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
     totalTestResultsField === 'posNeg'
       ? '(positive + negative)'
       : totalTestResultsField
-  })`
+  }`
 
   return (
     <Layout
