@@ -192,6 +192,17 @@
   }
 }
 
+.insufficient-data {
+  font-size: 13px;
+  line-height: 1;
+  padding-top: 6px;
+  color: $color-slate-600;
+
+  &.insufficient-data-deaths {
+    margin-left: 45px;
+  }
+}
+
 .square {
   .bar {
     height: 35px;
@@ -199,8 +210,9 @@
   .bar.death-bar {
     margin-left: 24px;
   }
-  .insufficient-data-deaths {
+  .insufficient-data.insufficient-data-deaths {
     margin-left: 24px;
+    padding-top: 11px;
   }
 }
 
@@ -254,13 +266,5 @@
   .get-better-data {
     background-color: $color-plum-100;
     padding: 1rem 1.5rem; // ignore-style-rule
-  }
-}
-
-.insufficient-data {
-  font-size: 13px;
-  color: $color-slate-600;
-  &.insufficient-data-deaths {
-    margin-left: 45px;
   }
 }
