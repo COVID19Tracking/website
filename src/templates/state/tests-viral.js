@@ -8,15 +8,11 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
   const { totalTestResultsField } = data.covidStateInfo
-  const totalTestResultsTitle = (() => {
-    if (totalTestResultsField === 'totalTestEncountersViral') {
-      return 'Total test results - legacy (Total PCR tests in test encounters)'
-    }
-    if (totalTestResultsField === 'totalTestsViral') {
-      return 'Total test results - legacy (Total PCR tests)'
-    }
-    return 'Total test results - legacy (positive + negative)'
-  })()
+  const totalTestResultsTitle = `Legacy total test results — ${
+    totalTestResultsField === 'posNeg'
+      ? '(positive + negative)'
+      : totalTestResultsField
+  })`
 
   return (
     <Layout
