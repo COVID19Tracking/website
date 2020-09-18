@@ -25,6 +25,17 @@ const numberToWord = [
   'Seven',
   'Eight',
   'Nine',
+  'Ten',
+  'Eleven',
+  'Twelve',
+  'Thirteen',
+  'Fourteen',
+  'Fifteen',
+  'Sixteen',
+  'Seventeen',
+  'Eighteen',
+  'Nineteen',
+  'Twenty',
 ]
 
 const numberWords = number =>
