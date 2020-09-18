@@ -4,15 +4,22 @@ import TableResponsive from '~components/common/table-responsive'
 import Definitions from '~components/pages/data/definitions'
 import Layout from '~components/layout'
 
+const fieldNameMappings = {
+  'Total Tests (PCR)': 'Total PCR tests in specimens',
+  'Total Test Encounters (PCR)': 'Total PCR tests in test encounters',
+  'Total PCR Tests (People)': 'Total PCR tests in people',
+  posNeg: 'positive + negative',
+}
+
 const StateTestViralTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
   const { totalTestResultsField } = data.covidStateInfo
-  const totalTestResultsTitle = `Legacy total test results — ${
-    totalTestResultsField === 'posNeg'
-      ? '(positive + negative)'
-      : totalTestResultsField
-  }`
+  const totalTestResultsTitle = `Total test results - legacy (${
+    typeof fieldNameMappings[totalTestResultsField] !== 'undefined'
+      ? fieldNameMappings[totalTestResultsField]
+      : 'positive + negative'
+  })`
 
   return (
     <Layout
