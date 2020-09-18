@@ -11,6 +11,7 @@ import pooled3 from '~images/experiments/pooled_testing_03.jpg'
 import pooled4 from '~images/experiments/pooled_testing_04.jpg'
 import pooled5 from '~images/experiments/pooled_testing_05.jpg'
 import pooled6 from '~images/experiments/pooled_testing_06.jpg'
+import pooled7 from '~images/experiments/pooled_testing_07.jpg'
 
 const ScrollyTelling = loadable(() =>
   import('~components/pages/experiments/scrollytelling/pooled-testing'),
@@ -18,6 +19,6 @@ const ScrollyTelling = loadable(() =>
 
 export default () => (
   <ScrollyTelling
-    images={[pooled0, pooled1, pooled2, pooled3, pooled4, pooled5, pooled6]}
+    images={[pooled0, pooled1, pooled2, pooled3, pooled4, pooled5, pooled6, pooled7]}
   />
 )
