@@ -22,6 +22,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^14.1.0",
+    "@loadable/component": "^5.13.1",
     "@reach/alert": "^0.9.1",
     "@reach/combobox": "^0.9.1",
     "@reach/disclosure": "^0.10.2",
@@ -30,6 +31,7 @@
     "@reach/skip-nav": "^0.9.0",
     "@reach/tooltip": "^0.10.5",
     "algoliasearch": "^4.1.0",
+    "babel-eslint": "^10.1.0",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.3.1",
     "d3-array": "^2.4.0",

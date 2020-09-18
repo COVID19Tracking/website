@@ -1,0 +1,40 @@
+.header {
+  text-align: center;
+}
+.sticky-image {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: calc(10%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -10;
+}
+
+.step-inner {
+  height: 100vh;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .text {
+    font-size: 1.45rem;
+    max-width: 600px;
+    text-align: center;
+    width: fit-content;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    span {
+      border: 3px dashed $color-plum-500;
+    }
+  }
+}
+
+.scrollyContainer {
+  width: 60%;
+  margin: spacer(32) auto;
+
+  @media (max-width: $viewport-md) {
+    width: 100%;
+  }
+}
