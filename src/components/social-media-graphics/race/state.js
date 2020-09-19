@@ -180,14 +180,14 @@ const getTypeOfRates = (state, combinedStates) => {
   const deathsOnly = oneChart && noCases
 
   if (deathsOnly) {
-    return 'death rates'
+    return 'mortality rates'
   }
 
   if (casesOnly) {
-    return 'case rates'
+    return 'infection rates'
   }
 
-  return 'infection and death rates'
+  return 'infection and mortality rates'
 }
 
 const SocialCardLede = ({ typeOfRates, state, stateName }) => {
