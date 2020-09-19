@@ -380,7 +380,7 @@ const StateRaceSocialCard = renderedComponent(
                   <>
                     {justDeaths ? (
                       <span className={socialCardStyle.insufficientData}>
-                        Insufficient data available
+                        No data reported
                       </span>
                     ) : (
                       <div
@@ -403,7 +403,7 @@ const StateRaceSocialCard = renderedComponent(
                           socialCardStyle.insufficientDataDeaths,
                         )}
                       >
-                        Insufficient data available
+                        No data reported
                       </span>
                     ) : (
                       <div
