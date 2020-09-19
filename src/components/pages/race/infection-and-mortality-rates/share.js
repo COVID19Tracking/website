@@ -12,7 +12,7 @@ const getStateSquareImageUrl = state =>
   `/images/race-dashboard/${state.childSlug.slug}-square.png`
 
 const getLandingPageUrl = state =>
-  `https://covidtracking.com/race/social-media-graphics/${state.childSlug.slug}`
+  `https://covidtracking.com/race/infection-and-mortality-rates/${state.childSlug.slug}`
 
 export default ({ state, stateRaceData, combinedStates }) => {
   if (state.name === '-- Select a state --') {
@@ -23,7 +23,7 @@ export default ({ state, stateRaceData, combinedStates }) => {
 
   const groups = getGroups(stateRaceData)
 
-  const socialCardShareText = `${typeOfRates} are reported. In ${state.name}, #COVID19 cases are worst for ${groups.worstCasesGroup} and deaths are worst for ${groups.worstDeathsGroup} Get the facts: https://www.covidtracking.com/race/social-media-graphics/${state.childSlug.slug}`
+  const socialCardShareText = `${typeOfRates} are reported. In ${state.name}, #COVID19 cases are worst for ${groups.worstCasesGroup} and deaths are worst for ${groups.worstDeathsGroup} Get the facts: https://www.covidtracking.com/race/infection-and-mortality-rates/${state.childSlug.slug}`
 
   return (
     <>

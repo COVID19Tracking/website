@@ -57,7 +57,7 @@ export default ({ pageContext, path, data }) => {
           </CtaLink>
         </li>
         <li>
-          <CtaLink to="/race/social-media-graphics">
+          <CtaLink to="/race/infection-and-mortality-rates">
             View another state share card
           </CtaLink>
         </li>

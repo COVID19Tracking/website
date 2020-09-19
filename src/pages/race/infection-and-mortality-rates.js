@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import Layout from '~components/layout'
 import RaceSocialCards from '~components/social-media-graphics/race/state'
-import SocialCardsSelect from '~components/pages/race/social-media-graphics/select'
+import SocialCardsSelect from '~components/pages/race/infection-and-mortality-rates/select'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -134,7 +134,7 @@ export default () => {
         { link: '/race' },
         { link: `/race/dashboard`, title: 'Racial Data Dashboard' },
       ]}
-      path="/race/social-media-graphics"
+      path="/race/infection-and-mortality-rates"
       centered
     >
       <div
