@@ -177,6 +177,10 @@ const getGroups = state => {
 const getTypeOfRates = (state, combinedStates) => {
   const stateStatus = getStateStatus(state, combinedStates)
 
+  if (stateStatus.noCharts) {
+    return 'no rates'
+  }
+
   if (stateStatus.deathsOnly) {
     return 'mortality rates'
   }
