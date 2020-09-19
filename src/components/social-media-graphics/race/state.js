@@ -188,15 +188,25 @@ const getTypeOfRates = (state, combinedStates) => {
   return 'infection and mortality rates'
 }
 
-const SocialCardLede = ({ typeOfRates, state, stateName }) => {
+const SocialCardHeader = ({ typeOfRates, state, stateName }) => {
   const today = new Date()
   const { worstCasesGroup, worstDeathsGroup } = getGroups(state)
+  if (worstDeathsGroup === worstCasesGroup) {
+    return (
+      <>
+        In <strong>{state.stateName || stateName}</strong>, as of{' '}
+        {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
+        {worstCasesGroup} had the highest risk of contracting COVID-19 and were
+        also most likely to have died.
+      </>
+    )
+  }
   return (
     <>
       In <strong>{state.stateName || stateName}</strong>, as of{' '}
       {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
-      Worst cases: {worstCasesGroup}, Worst deaths: {worstDeathsGroup} Rates:{' '}
-      {typeOfRates}
+      {worstCasesGroup} had the highest risk of contracting COVID-19.{' '}
+      {worstDeathsGroup} were most likely to have died.
     </>
   )
 }
@@ -327,7 +337,7 @@ const StateRaceSocialCard = renderedComponent(
             header spans two columns, not all three
           */}
           <p className={socialCardStyle.header}>
-            <SocialCardLede
+            <SocialCardHeader
               typeOfRates={typeOfRates}
               state={state}
               population={population}
@@ -612,4 +622,4 @@ const CreateStateRaceSocialCards = () => {
 
 export default CreateStateRaceSocialCards
 
-export { SocialCardLede, getGroups, getTypeOfRates }
+export { SocialCardHeader, getGroups, getTypeOfRates }

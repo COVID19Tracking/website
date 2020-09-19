@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
 import {
-  SocialCardLede,
+  SocialCardHeader,
   getTypeOfRates,
 } from '~components/social-media-graphics/race/state'
 
@@ -36,7 +36,7 @@ export default ({ pageContext, path, data }) => {
     >
       {stateData && (
         <p>
-          <SocialCardLede
+          <SocialCardHeader
             typeOfRates={typeOfRates}
             state={stateData}
             population={data.covidStateInfo.childPopulation.population}
