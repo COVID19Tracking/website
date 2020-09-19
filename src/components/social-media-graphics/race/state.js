@@ -420,25 +420,7 @@ const StateRaceSocialCard = renderedComponent(
               </>
             ),
           )}
-          <p className={socialCardStyle.notes}>
-            {state.knownRaceEthPos ? (
-              <>
-                <strong>Notes: </strong> {stateName} has reported race and
-                ethnicity data for <Percent number={state.knownRaceEthPos} /> of
-                cases and <Percent number={state.knownRaceEthDeath} /> of
-                deaths.
-              </>
-            ) : (
-              <>
-                <strong>Notes: </strong> {stateName} has reported race data for{' '}
-                <Percent number={state.knownRacePos} /> of cases and{' '}
-                <Percent number={state.knownRaceDeath} /> of deaths, and
-                ethnicity data for <Percent number={state.knownEthPos} /> of
-                cases and <Percent number={state.knownEthDeath} /> of deaths.
-              </>
-            )}{' '}
-            Graphic only includes demographic groups reported by the state.
-          </p>
+          <SocialCardFootnotes state={state} stateName={stateName} />
         </div>
 
         <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
@@ -447,6 +429,59 @@ const StateRaceSocialCard = renderedComponent(
     )
   },
 )
+
+const SocialCardFootnotes = ({ state, stateName }) => {
+  if (stateName === 'Utah') { // special case
+    return (
+      <p className={socialCardStyle.notes}>
+        Utah has reported race and ethnicity data for{' '}
+        <Percent number={state.knownRaceEthPos} /> of cases and{' '}
+        <Percent number={state.knownRaceEthDeath} /> of deaths. Graphic only
+        includes demographic groups reported by the state. Race categories are
+        non-mutually-exclusive and are defined as not Hispanic or Latino.
+      </p>
+    )
+  }
+  if (stateName === 'Wyoming') { // special case
+    return (
+      <p className={socialCardStyle.notes}>
+        Wyoming has reported race data for{' '}
+        <Percent number={state.knownRacePos} /> of cases and{' '}
+        <Percent number={state.knownRaceDeath} /> of deaths, and ethnicity data
+        for <Percent number={state.knownEthPos} /> of cases and{' '}
+        <Percent number={state.knownEthDeath} /> of deaths. Graphic only
+        includes demographic groups reported by the state. Race categories are
+        non-mutually-exclusive and include both Hispanic/Latino and
+        non-Hispanic/Latino ethnicity.
+      </p>
+    )
+  }
+  return (
+    <p className={socialCardStyle.notes}>
+      {state.knownRaceEthPos ? (
+        <>
+          {stateName} has reported race and ethnicity data for{' '}
+          <Percent number={state.knownRaceEthPos} /> of cases and{' '}
+          <Percent number={state.knownRaceEthDeath} /> of deaths. Graphic only
+          includes demographic groups reported by the state. Race categories are
+          mutually exclusive and include both Hispanic/Latino and
+          non-Hispanic/Latino ethnicity.
+        </>
+      ) : (
+        <>
+          {stateName} has reported race data for{' '}
+          <Percent number={state.knownRacePos} /> of cases and{' '}
+          <Percent number={state.knownRaceDeath} /> of deaths, and ethnicity
+          data for <Percent number={state.knownEthPos} /> of cases and{' '}
+          <Percent number={state.knownEthDeath} /> of deaths. Graphic only
+          includes demographic groups reported by the state. Race categories are
+          non-mutually-exclusive and include both Hispanic/Latino and
+          non-Hispanic/Latino ethnicity.
+        </>
+      )}{' '}
+    </p>
+  )
+}
 
 const CreateStateRaceSocialCards = () => {
   const data = useStaticQuery(graphql`
