@@ -26,7 +26,7 @@ export default ({ pageContext, path, data }) => {
 
   return (
     <Layout
-      title={`${state.name}: ${typeOfRates}`}
+      title={`${state.name}: ${typeOfRates}.toUpperCase() by race and ethnicity`}
       returnLinks={[
         { link: '/race' },
         { link: `/race/dashboard`, title: 'Racial Data Dashboard' },

@@ -176,8 +176,8 @@ exports.createPages = async ({ graphql, actions }) => {
       context: node,
     })
     createPage({
-      path: `/race/social-media-graphics/${slug}`,
-      component: path.resolve(`./src/templates/race/social-media-graphics/landing.js`),
+      path: `/race/infection-and-mortality-rates/${slug}`,
+      component: path.resolve(`./src/templates/race/infection-and-mortality-rates/landing.js`),
       context: node,
     })
   })
