@@ -50,7 +50,7 @@ const getGroups = state => {
           : state.asianDeathPercap * 100,
     },
     {
-      label: 'American Indian or Alaska Native',
+      label: 'American Indian/Alaska Native',
       style: socialCardStyle.barAian,
       cases: state.aianPosPercap === '' ? undefined : state.aianPosPercap * 100,
       deaths:
@@ -67,14 +67,14 @@ const getGroups = state => {
           : state.whiteDeathPercap * 100,
     },
     {
-      label: 'Asian and Pacific Islander',
+      label: 'Asian/Pacific Islander',
       style: socialCardStyle.barAPi,
       cases: state.apiPosPercap === '' ? undefined : state.apiPosPercap * 100,
       deaths:
         state.apiDeathPercap === '' ? undefined : state.apiDeathPercap * 100,
     },
     {
-      label: 'Native Hawaiian and Pacific Islander',
+      label: 'Native Hawaiian/Pacific Islander',
       style: socialCardStyle.barNhpi,
       cases: state.nhpiPosPercap === '' ? undefined : state.nhpiPosPercap * 100,
       deaths:
@@ -82,7 +82,7 @@ const getGroups = state => {
     },
   ]
 
-  const aPi = groups.find(group => group.label === 'Asian and Pacific Islander')
+  const aPi = groups.find(group => group.label === 'Asian/Pacific Islander')
 
   if (
     (aPi.cases === '' && aPi.deaths === '') ||
@@ -90,13 +90,13 @@ const getGroups = state => {
   ) {
     groups = groups.filter(
       // remove API bar
-      group => group.label !== 'Asian and Pacific Islander',
+      group => group.label !== 'Asian/Pacific Islander',
     )
   } else {
     groups = groups.filter(
       // remove asian and NHPI bars
       group =>
-        group.label !== 'Native Hawaiian and Pacific Islander' &&
+        group.label !== 'Native Hawaiian/Pacific Islander' &&
         group.label !== 'Asian',
     )
   }
@@ -122,8 +122,23 @@ const getGroups = state => {
     return 1
   })
 
+
+  /*
+    Copy to be used whenever {{GROUP}} is written
+    e.g., "In Hawaii, as of September 16, Asians/Pacific Islanders have the highest COVID-19 infection rates..."
+  */
+  const copyLabels = {
+    'Black/African American': 'Black/African American people',
+    'Hispanic/Latino': 'Hispanic/Latino people',
+    'Asian': 'Asian people',
+    'White': 'White people',
+    'Asian/Pacific Islander': 'Asians/Pacific Islanders',
+    'Native Hawaiian/Pacific Islander': 'Native Hawaiians/Pacific Islanders',
+    'American Indian/Alaska Native': 'American Indians/Alaska Natives',
+  }
+
   const worstDeathsValue = groups[0].deaths
-  const worstDeathsGroup = groups[0].label
+  const worstDeathsGroup = copyLabels[groups[0].label]
 
   groups.sort((a, b) => {
     // sort bars by # of cases
@@ -134,7 +149,7 @@ const getGroups = state => {
   })
 
   const worstCasesValue = groups[0].cases
-  const worstCasesGroup = groups[0].label
+  const worstCasesGroup = copyLabels[groups[0].label]
 
   groups.forEach(group => {
     if (group.deaths === undefined && group.cases) {
