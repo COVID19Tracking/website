@@ -153,8 +153,8 @@ export default () => {
       <p>
         <DetailText>
           The data shown in these charts are reported by the state or territory
-          and do not include those with race classified as "Other" or "Two or
-          more races." Hispanic or Latino ethnicity may include any race.
+          and do not include those with race classified as “Other” or “Two or
+          more races.” Hispanic or Latino ethnicity may include any race.
         </DetailText>
       </p>
       <SocialCardsSelect

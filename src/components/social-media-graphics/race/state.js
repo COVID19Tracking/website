@@ -13,6 +13,37 @@ import alertIcon from '~images/race-dashboard/alert-bang-orange.svg'
 
 import socialCardStyle from './state.module.scss'
 
+const getStateStatus = (state, combinedStates) => {
+  let noDeaths
+  let noCases
+
+  const isCombinedState = combinedStates.indexOf(state.state) >= 0
+
+  if (isCombinedState) {
+    // if this state combines race and ethnicity data
+    noDeaths = parseFloat(state.knownRaceEthDeath) === 0
+    noCases = parseFloat(state.knownRaceEthPos) === 0
+  } else {
+    noDeaths = parseFloat(state.knownRaceDeath) === 0
+    noCases = parseFloat(state.knownRacePos) === 0
+  }
+
+  const oneChart = (noCases || noDeaths) && !(noCases && noDeaths)
+
+  const noCharts = noCases && noDeaths
+
+  const casesOnly = oneChart && noDeaths
+
+  const deathsOnly = oneChart && noCases
+
+  return {
+    oneChart,
+    noCharts,
+    casesOnly,
+    deathsOnly,
+  }
+}
+
 const getGroups = state => {
   if (state === undefined) {
     return {}
@@ -124,7 +155,8 @@ const getGroups = state => {
 
   /*
     Copy to be used whenever {{GROUP}} is written
-    e.g., "In Hawaii, as of September 16, Asians/Pacific Islanders have the highest COVID-19 infection rates..."
+    e.g., "In Hawaii, as of September 16, Asians/Pacific Islanders
+    have the highest COVID-19 infection rates..."
   */
   const copyLabels = {
     'Black/African American': 'Black/African American people',
@@ -151,6 +183,7 @@ const getGroups = state => {
   const worstCasesGroup = copyLabels[groups[0].label]
 
   groups.forEach(group => {
+    /* eslint-disable no-param-reassign */
     if (group.deaths === undefined && group.cases) {
       group.justCases = true
     } else {
@@ -192,7 +225,7 @@ const getTypeOfRates = (state, combinedStates) => {
   return 'infection and mortality rates'
 }
 
-const SocialCardHeader = ({ typeOfRates, state, stateName }) => {
+const SocialCardHeader = ({ state, stateName }) => {
   const today = new Date()
   const { worstCasesGroup, worstDeathsGroup } = getGroups(state)
   if (worstDeathsGroup === worstCasesGroup) {
@@ -257,39 +290,8 @@ const NoDataSocialCard = ({ stateName, square }) => {
   )
 }
 
-const getStateStatus = (state, combinedStates) => {
-  let noDeaths
-  let noCases
-
-  const isCombinedState = combinedStates.indexOf(state.state) >= 0
-
-  if (isCombinedState) {
-    // if this state combines race and ethnicity data
-    noDeaths = parseFloat(state.knownRaceEthDeath) === 0
-    noCases = parseFloat(state.knownRaceEthPos) === 0
-  } else {
-    noDeaths = parseFloat(state.knownRaceDeath) === 0
-    noCases = parseFloat(state.knownRacePos) === 0
-  }
-
-  const oneChart = (noCases || noDeaths) && !(noCases && noDeaths)
-
-  const noCharts = noCases && noDeaths
-
-  const casesOnly = oneChart && noDeaths
-
-  const deathsOnly = oneChart && noCases
-
-  return {
-    oneChart,
-    noCharts,
-    casesOnly,
-    deathsOnly,
-  }
-}
-
 const StateRaceSocialCard = renderedComponent(
-  ({ state, population, combinedStates, square = false }) => {
+  ({ state, combinedStates, square = false }) => {
     // gets the width of the bar for the bar charts
     const getWidth = (number, max) =>
       `${number / max > 0.1 ? (number / max) * 100 : 10}%`
@@ -315,8 +317,6 @@ const StateRaceSocialCard = renderedComponent(
       })
     }
 
-    const typeOfRates = getTypeOfRates(state, combinedStates)
-
     if (stateStatus.noCharts) {
       return <NoDataSocialCard stateName={stateName} />
     }
@@ -341,11 +341,7 @@ const StateRaceSocialCard = renderedComponent(
             header spans two columns, not all three
           */}
           <p className={socialCardStyle.header}>
-            <SocialCardHeader
-              typeOfRates={typeOfRates}
-              state={state}
-              population={population}
-            />
+            <SocialCardHeader state={state} />
           </p>
           <span /> {/* spacer for css grid */}
           {!stateStatus.deathsOnly && (
@@ -435,7 +431,8 @@ const StateRaceSocialCard = renderedComponent(
 )
 
 const SocialCardFootnotes = ({ state, stateName }) => {
-  if (stateName === 'Utah') { // special case
+  if (stateName === 'Utah') {
+    // special case
     return (
       <p className={socialCardStyle.notes}>
         Utah has reported race and ethnicity data for{' '}
@@ -446,7 +443,8 @@ const SocialCardFootnotes = ({ state, stateName }) => {
       </p>
     )
   }
-  if (stateName === 'Wyoming') { // special case
+  if (stateName === 'Wyoming') {
+    // special case
     return (
       <p className={socialCardStyle.notes}>
         Wyoming has reported race data for{' '}
@@ -616,11 +614,6 @@ const CreateStateRaceSocialCards = () => {
               data.allCovidRaceDataCombined.nodes.find(
                 node => node.state === state.state,
               )
-            }
-            population={
-              data.allCovidStateInfo.nodes.find(
-                node => node.state === state.state,
-              ).childPopulation.population
             }
             combinedStates={combinedStates}
             renderOptions={{

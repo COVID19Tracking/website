@@ -26,7 +26,9 @@ export default ({ pageContext, path, data }) => {
 
   return (
     <Layout
-      title={`${state.name}: ${typeOfRates.replace(/^\w/, c => c.toUpperCase())} by race and ethnicity`}
+      title={`${state.name}: ${typeOfRates.replace(/^\w/, c =>
+        c.toUpperCase(),
+      )} by race and ethnicity`}
       returnLinks={[
         { link: '/race' },
         { link: `/race/dashboard`, title: 'Racial Data Dashboard' },
@@ -36,15 +38,11 @@ export default ({ pageContext, path, data }) => {
     >
       {stateData && (
         <p>
-          <SocialCardHeader
-            typeOfRates={typeOfRates}
-            state={stateData}
-            population={data.covidStateInfo.childPopulation.population}
-            stateName={stateData.stateName}
-          />
+          <SocialCardHeader state={stateData} stateName={stateData.stateName} />
         </p>
       )}
-      You can learn more about COVID-19 and its impact on different racial and ethnic groups by visiting these pages:
+      You can learn more about COVID-19 and its impact on different racial and
+      ethnic groups by visiting these pages:
       <ul>
         <li>
           <CtaLink to="race">The COVID Racial Data Tracker</CtaLink>
