@@ -122,7 +122,6 @@ const getGroups = state => {
     return 1
   })
 
-
   /*
     Copy to be used whenever {{GROUP}} is written
     e.g., "In Hawaii, as of September 16, Asians/Pacific Islanders have the highest COVID-19 infection rates..."
@@ -130,8 +129,8 @@ const getGroups = state => {
   const copyLabels = {
     'Black/African American': 'Black/African American people',
     'Hispanic/Latino': 'Hispanic/Latino people',
-    'Asian': 'Asian people',
-    'White': 'White people',
+    Asian: 'Asian people',
+    White: 'White people',
     'Asian/Pacific Islander': 'Asians/Pacific Islanders',
     'Native Hawaiian/Pacific Islander': 'Native Hawaiians/Pacific Islanders',
     'American Indian/Alaska Native': 'American Indians/Alaska Natives',
@@ -176,29 +175,13 @@ const getGroups = state => {
 }
 
 const getTypeOfRates = (state, combinedStates) => {
-  let noDeaths
-  let noCases
+  const stateStatus = getStateStatus(state, combinedStates)
 
-  if (combinedStates.indexOf(state.state) >= 0) {
-    // if this state combines race and ethnicity data
-    noDeaths = parseFloat(state.knownRaceEthDeath) === 0
-    noCases = parseFloat(state.knownRaceEthPos) === 0
-  } else {
-    noDeaths = parseFloat(state.knownRaceDeath) === 0
-    noCases = parseFloat(state.knownRacePos) === 0
-  }
-
-  const oneChart = (noCases || noDeaths) && !(noCases && noDeaths)
-
-  const casesOnly = oneChart && noDeaths
-
-  const deathsOnly = oneChart && noCases
-
-  if (deathsOnly) {
+  if (stateStatus.deathsOnly) {
     return 'mortality rates'
   }
 
-  if (casesOnly) {
+  if (stateStatus.casesOnly) {
     return 'infection rates'
   }
 
@@ -260,6 +243,37 @@ const NoDataSocialCard = ({ stateName, square }) => {
   )
 }
 
+const getStateStatus = (state, combinedStates) => {
+  let noDeaths
+  let noCases
+
+  const isCombinedState = combinedStates.indexOf(state.state) >= 0
+
+  if (isCombinedState) {
+    // if this state combines race and ethnicity data
+    noDeaths = parseFloat(state.knownRaceEthDeath) === 0
+    noCases = parseFloat(state.knownRaceEthPos) === 0
+  } else {
+    noDeaths = parseFloat(state.knownRaceDeath) === 0
+    noCases = parseFloat(state.knownRacePos) === 0
+  }
+
+  const oneChart = (noCases || noDeaths) && !(noCases && noDeaths)
+
+  const noCharts = noCases && noDeaths
+
+  const casesOnly = oneChart && noDeaths
+
+  const deathsOnly = oneChart && noCases
+
+  return {
+    oneChart,
+    noCharts,
+    casesOnly,
+    deathsOnly,
+  }
+}
+
 const StateRaceSocialCard = renderedComponent(
   ({ state, population, combinedStates, square = false }) => {
     // gets the width of the bar for the bar charts
@@ -275,29 +289,9 @@ const StateRaceSocialCard = renderedComponent(
     const groupValues = getGroups(state)
     const { groups } = groupValues
 
-    let noDeaths
-    let noCases
+    const stateStatus = getStateStatus(state, combinedStates)
 
-    const isCombinedState = combinedStates.indexOf(state.state) >= 0
-
-    if (isCombinedState) {
-      // if this state combines race and ethnicity data
-      noDeaths = parseFloat(state.knownRaceEthDeath) === 0
-      noCases = parseFloat(state.knownRaceEthPos) === 0
-    } else {
-      noDeaths = parseFloat(state.knownRaceDeath) === 0
-      noCases = parseFloat(state.knownRacePos) === 0
-    }
-
-    const oneChart = (noCases || noDeaths) && !(noCases && noDeaths)
-
-    const noCharts = noCases && noDeaths
-
-    const casesOnly = oneChart && noDeaths
-
-    const deathsOnly = oneChart && noCases
-
-    if (deathsOnly) {
+    if (stateStatus.deathsOnly) {
       groups.sort((a, b) => {
         // sort bars by # of deaths
         if (a.deaths >= b.deaths) {
@@ -309,7 +303,7 @@ const StateRaceSocialCard = renderedComponent(
 
     const typeOfRates = getTypeOfRates(state, combinedStates)
 
-    if (noCharts) {
+    if (stateStatus.noCharts) {
       return <NoDataSocialCard stateName={stateName} />
     }
 
@@ -323,8 +317,8 @@ const StateRaceSocialCard = renderedComponent(
         <div
           className={classnames(
             socialCardStyle.grid,
-            casesOnly && socialCardStyle.casesOnly,
-            deathsOnly && socialCardStyle.deathsOnly,
+            stateStatus.casesOnly && socialCardStyle.casesOnly,
+            stateStatus.deathsOnly && socialCardStyle.deathsOnly,
           )}
         >
           {!square && <span />}
@@ -340,7 +334,7 @@ const StateRaceSocialCard = renderedComponent(
             />
           </p>
           <span /> {/* spacer for css grid */}
-          {!deathsOnly && (
+          {!stateStatus.deathsOnly && (
             <span
               className={classnames(
                 socialCardStyle.casesHeader,
@@ -350,7 +344,7 @@ const StateRaceSocialCard = renderedComponent(
               Cases per 100,000 people
             </span>
           )}
-          {!casesOnly && (
+          {!stateStatus.casesOnly && (
             <span
               className={classnames(
                 socialCardStyle.deathsHeader,
@@ -368,7 +362,7 @@ const StateRaceSocialCard = renderedComponent(
             ({ label, style, cases, deaths, justCases, justDeaths }) => (
               <>
                 <span className={socialCardStyle.barLabel}>{label}</span>
-                {!deathsOnly && (
+                {!stateStatus.deathsOnly && (
                   <>
                     {justDeaths ? (
                       <span className={socialCardStyle.insufficientData}>
@@ -386,7 +380,7 @@ const StateRaceSocialCard = renderedComponent(
                     )}
                   </>
                 )}
-                {!casesOnly && (
+                {!stateStatus.casesOnly && (
                   <>
                     {justCases ? (
                       <span
