@@ -2,6 +2,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
+import DetailText from '~components/common/detail-text'
 import Layout from '~components/layout'
 import RaceSocialCards from '~components/social-media-graphics/race/state'
 import SocialCardsSelect from '~components/pages/race/infection-and-mortality-rates/select'
@@ -129,7 +130,7 @@ export default () => {
 
   return (
     <Layout
-      title="Social Media Graphics"
+      title="Infection and Mortality Rates by Race and Ethnicity"
       returnLinks={[
         { link: '/race' },
         { link: `/race/dashboard`, title: 'Racial Data Dashboard' },
@@ -142,11 +143,19 @@ export default () => {
           __html: data.contentfulSnippet.content.childMarkdownRemark.html,
         }}
       />
-      <h3>Share the facts about COVID-19 and Race</h3>
+      <h3>See the per capita rates by state</h3>
       <p>
         Select a state or territory to see the latest information about COVID-19
-        cases and deaths by race and ethnicity. These charts are updated twice a
-        week and use standard Census categories for race and ethnicity.
+        cases and deaths per 100k people for each race and ethnicity. These
+        charts are updated twice per week and use standard Census categories for
+        race and ethnicity.
+      </p>
+      <p>
+        <DetailText>
+          The data shown in these charts are reported by the state or territory
+          and do not include those with race classified as "Other" or "Two or
+          more races." Hispanic or Latino ethnicity may include any race.
+        </DetailText>
       </p>
       <SocialCardsSelect
         separateStates={data.allCovidRaceDataSeparate.nodes}
