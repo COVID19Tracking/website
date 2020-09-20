@@ -225,24 +225,36 @@ const getTypeOfRates = (state, combinedStates) => {
   return 'infection and mortality rates'
 }
 
+const SocialCardLocale = ({ name }) => {
+  if (name === 'United States') {
+    return <strong>Nationwide</strong>
+  }
+
+  if (name === 'District of Columbia') {
+    return (
+      <>
+        In the <strong>District of Columbia</strong>
+      </>
+    )
+  }
+
+  return (
+    <>
+      In <strong>{name}</strong>
+    </>
+  )
+}
+
 const SocialCardHeader = ({ state, stateName }) => {
   const today = new Date()
   const { worstCasesGroup, worstDeathsGroup } = getGroups(state)
 
   let name = state.stateName || stateName
 
-  if (name === 'District of Columbia') {
-    name = 'The District of Columbia'
-  }
-
-  if (name === 'United States') {
-    name = 'The United States'
-  }
-
   if (worstDeathsGroup === worstCasesGroup) {
     return (
       <>
-        In <strong>{name}</strong>, as of{' '}
+        <SocialCardLocale name={name} />, as of{' '}
         {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
         {worstCasesGroup} had the highest risk of contracting COVID-19 and were
         also most likely to have died.
@@ -251,7 +263,7 @@ const SocialCardHeader = ({ state, stateName }) => {
   }
   return (
     <>
-      In <strong>{name}</strong>, as of{' '}
+      <SocialCardLocale name={name} />, as of{' '}
       {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
       {worstCasesGroup} had the highest risk of contracting COVID-19.{' '}
       {worstDeathsGroup} were most likely to have died.
@@ -463,6 +475,19 @@ const SocialCardFootnotes = ({ state, stateName }) => {
       </p>
     )
   }
+  if (stateName === 'United States') {
+    // special case
+    return (
+      <p className={socialCardStyle.notes}>
+        Nationwide, the United States has reported race and ethnicity data for{' '}
+        <Percent number={state.knownRaceEthPos} /> of cases and{' '}
+        <Percent number={state.knownRaceEthDeath} /> of deaths. Graphic includes
+        demographic data reported across all states, using standard Census
+        categories where possible. Race categories include both Hispanic/Latino
+        and non-Hispanic/Latino ethnicity.
+      </p>
+    )
+  }
   return (
     <p className={socialCardStyle.notes}>
       {state.knownRaceEthPos ? (
@@ -603,7 +628,7 @@ const CreateStateRaceSocialCards = () => {
 
   states.unshift({
     state: 'US',
-    name: 'The United States',
+    name: 'United States',
     childSlug: {
       slug: 'united-states',
     },
