@@ -4,9 +4,10 @@ import ShareCard from './share'
 
 export default ({ separateStates, combinedStates, stateInfo }) => {
   const defaultState = {
-    name: '-- Select a state --',
+    state: 'US',
+    name: 'United States',
     childSlug: {
-      slug: '',
+      slug: 'united-states',
     },
   }
 
@@ -27,10 +28,12 @@ export default ({ separateStates, combinedStates, stateInfo }) => {
   }, [])
 
   stateInfo.sort((a, b) => (a.name > b.name ? 1 : -1))
+  stateInfo.unshift(defaultState)
 
   const names = stateInfo.map(node => node.name)
 
-  names.unshift(defaultState.name) // prepend the default state to the list
+  const allStates = separateStates.concat(combinedStates)
+  allStates.unshift(defaultState)
 
   return (
     <Form>
@@ -41,10 +44,6 @@ export default ({ separateStates, combinedStates, stateInfo }) => {
         value={state.name}
         isRequired
         onChange={event => {
-          if (event.target.value === '-- Select a state --') {
-            setState(defaultState)
-            return
-          }
           const selectedState = stateInfo.find(
             node => node.name === event.target.value,
           )
@@ -55,15 +54,8 @@ export default ({ separateStates, combinedStates, stateInfo }) => {
       {state.name !== '-- Select a state --' && (
         <ShareCard
           state={state}
-          stateRaceData={
-            separateStates.find(node => node.stateName === state.name) ||
-            combinedStates.find(node => node.stateName === state.name)
-          }
+          stateRaceData={allStates.find(node => node.stateName === state.name)}
           combinedStates={combinedStates.map(node => node.state)}
-          population={
-            stateInfo.find(node => node.name === state.name).childPopulation
-              .population
-          }
         />
       )}
     </Form>

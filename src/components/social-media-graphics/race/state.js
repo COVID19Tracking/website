@@ -228,10 +228,21 @@ const getTypeOfRates = (state, combinedStates) => {
 const SocialCardHeader = ({ state, stateName }) => {
   const today = new Date()
   const { worstCasesGroup, worstDeathsGroup } = getGroups(state)
+
+  let name = state.stateName || stateName
+
+  if (name === 'District of Columbia') {
+    name = 'The District of Columbia'
+  }
+
+  if (name === 'United States') {
+    name = 'The United States'
+  }
+
   if (worstDeathsGroup === worstCasesGroup) {
     return (
       <>
-        In <strong>{state.stateName || stateName}</strong>, as of{' '}
+        In <strong>{name}</strong>, as of{' '}
         {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
         {worstCasesGroup} had the highest risk of contracting COVID-19 and were
         also most likely to have died.
@@ -240,7 +251,7 @@ const SocialCardHeader = ({ state, stateName }) => {
   }
   return (
     <>
-      In <strong>{state.stateName || stateName}</strong>, as of{' '}
+      In <strong>{name}</strong>, as of{' '}
       {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
       {worstCasesGroup} had the highest risk of contracting COVID-19.{' '}
       {worstDeathsGroup} were most likely to have died.
@@ -296,12 +307,6 @@ const StateRaceSocialCard = renderedComponent(
     const getWidth = (number, max) =>
       `${number / max > 0.1 ? (number / max) * 100 : 10}%`
 
-    // prepend 'The' to DC's name
-    const stateName =
-      state.stateName === 'District of Columbia'
-        ? 'The District of Columbia'
-        : state.stateName
-
     const groupValues = getGroups(state)
     const { groups } = groupValues
 
@@ -318,7 +323,7 @@ const StateRaceSocialCard = renderedComponent(
     }
 
     if (stateStatus.noCharts) {
-      return <NoDataSocialCard stateName={stateName} />
+      return <NoDataSocialCard stateName={state.stateName} />
     }
 
     return (
@@ -420,7 +425,7 @@ const StateRaceSocialCard = renderedComponent(
               </>
             ),
           )}
-          <SocialCardFootnotes state={state} stateName={stateName} />
+          <SocialCardFootnotes state={state} stateName={state.stateName} />
         </div>
 
         <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
@@ -488,7 +493,7 @@ const SocialCardFootnotes = ({ state, stateName }) => {
 const CreateStateRaceSocialCards = () => {
   const data = useStaticQuery(graphql`
     {
-      allCovidRaceDataCombined(filter: { state: { ne: "US" } }) {
+      allCovidRaceDataCombined {
         nodes {
           state
           stateName
@@ -534,7 +539,7 @@ const CreateStateRaceSocialCards = () => {
           apiDeathPercap
         }
       }
-      allCovidRaceDataSeparate(filter: { state: { ne: "US" } }) {
+      allCovidRaceDataSeparate {
         nodes {
           state
           stateName
@@ -582,21 +587,27 @@ const CreateStateRaceSocialCards = () => {
           apiDeathPercap
         }
       }
-      allCovidStateInfo(filter: { state: { ne: "US" } }) {
+      allCovidStateInfo {
         nodes {
           state
           name
           childSlug {
             slug
           }
-          childPopulation {
-            population
-          }
         }
       }
     }
   `)
+
   const states = data.allCovidStateInfo.nodes
+
+  states.unshift({
+    state: 'US',
+    name: 'The United States',
+    childSlug: {
+      slug: 'united-states',
+    },
+  })
 
   const combinedStates = data.allCovidRaceDataCombined.nodes.map(
     node => node.state,
@@ -631,11 +642,6 @@ const CreateStateRaceSocialCards = () => {
               data.allCovidRaceDataCombined.nodes.find(
                 node => node.state === state.state,
               )
-            }
-            population={
-              data.allCovidStateInfo.nodes.find(
-                node => node.state === state.state,
-              ).childPopulation.population
             }
             combinedStates={combinedStates}
             renderOptions={{

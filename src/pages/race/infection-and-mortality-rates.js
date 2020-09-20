@@ -18,7 +18,7 @@ export default () => {
         }
       }
       allCovidRaceDataCombined(
-        filter: { state: { nin: ["AS", "GU", "MP", "VI", "US"] } }
+        filter: { state: { nin: ["AS", "GU", "MP", "VI"] } }
       ) {
         nodes {
           state
@@ -64,7 +64,7 @@ export default () => {
         }
       }
       allCovidRaceDataSeparate(
-        filter: { state: { nin: ["AS", "GU", "MP", "VI", "US"] } }
+        filter: { state: { nin: ["AS", "GU", "MP", "VI"] } }
       ) {
         nodes {
           state
@@ -111,9 +111,7 @@ export default () => {
           nhpiDeathPercap
         }
       }
-      allCovidStateInfo(
-        filter: { state: { nin: ["AS", "GU", "MP", "VI", "US"] } }
-      ) {
+      allCovidStateInfo(filter: { state: { nin: ["AS", "GU", "MP", "VI"] } }) {
         nodes {
           state
           name
