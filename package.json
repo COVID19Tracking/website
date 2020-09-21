@@ -88,6 +88,7 @@
     "react-expand-animated": "^1.0.2",
     "react-helmet": "^5.2.1",
     "react-recaptcha": "^2.3.10",
+    "react-scrollama": "git+https://github.com/maerzhase/react-scrollama.git",
     "react-typography": "^0.16.19",
     "slugify": "^1.4.0",
     "smartypants": "^0.1.1"

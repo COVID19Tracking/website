@@ -16,7 +16,7 @@ import pooled5 from '~images/experiments/pooled_testing_05.jpg'
 import pooled6 from '~images/experiments/pooled_testing_06.jpg'
 import pooled7 from '~images/experiments/pooled_testing_07.jpg'
 
-import ScrollyTelling from '~components/pages/experiments/scrollytelling'
+import ScrollyTelling from '~components/pages/blog-features/scrollytelling'
 
 const firstScrollytellingImages = [
   pooled0,

@@ -237,7 +237,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
       module: {
         rules: [
           {
-            test: /swagger-ui/,
+            test: /react-scrollama/,
             use: loaders.null(),
           },
         ],
