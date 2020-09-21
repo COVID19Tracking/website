@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react'
 import PropTypes from 'prop-types'
 import stateInfotyles from './state-script.module.scss'
@@ -79,12 +80,12 @@ StateScript.propTypes = {
         graphQL serves the following values as strings,
         yet they contain numerical values
       */
-      knownEthDeath: PropTypes.string,
-      knownEthPos: PropTypes.string,
-      knownRaceDeath: PropTypes.string,
-      knownRacePos: PropTypes.string,
-      knownRaceEthDeath: PropTypes.string,
-      knownRaceEthPos: PropTypes.string,
+      knownEthDeath: PropTypes.any,
+      knownEthPos: PropTypes.any,
+      knownRaceDeath: PropTypes.any,
+      knownRacePos: PropTypes.any,
+      knownRaceEthDeath: PropTypes.any,
+      knownRaceEthPos: PropTypes.any,
     }),
   ).isRequired,
 }

@@ -68,13 +68,13 @@ export const query = graphql`
     }
     allCovidRaceDataSeparate {
       nodes {
-        name: stateName
+        name
         state
       }
     }
     allCovidRaceDataCombined {
       nodes {
-        name: stateName
+        name
         state
       }
     }

@@ -1,12 +1,12 @@
 .chart {
   @include margin(32, top bottom);
   &.mobile {
-    @media (min-width: $viewport-md) {
+    @media (min-width: $viewport-lg) {
       display: none;
     }
   }
   &.has-mobile-view {
-    @media (max-width: $viewport-md) {
+    @media (max-width: $viewport-lg) {
       display: none;
     }
   }
