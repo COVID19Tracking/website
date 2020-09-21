@@ -88,7 +88,7 @@
     "react-expand-animated": "^1.0.2",
     "react-helmet": "^5.2.1",
     "react-recaptcha": "^2.3.10",
-    "react-scrollama": "git+https://github.com/maerzhase/react-scrollama.git",
+    "react-scrollama": "https://github.com/maerzhase/react-scrollama/archive/v2.2.10.tar.gz",
     "react-typography": "^0.16.19",
     "slugify": "^1.4.0",
     "smartypants": "^0.1.1"
@@ -132,6 +132,7 @@
     "build-preview": "run-s setup build:gatsby build:test",
     "build:gatsby": "gatsby build",
     "build:test": "jest --verbose --config=\"{}\" -- src/__tests__/build/index.js",
+    "postinstall": "cd node_modules/react-scrollama && npm i && npm run build",
     "clean": "run-p clean:*",
     "clean:gatsby": "gatsby clean",
     "develop": "gatsby develop",
