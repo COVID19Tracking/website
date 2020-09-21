@@ -175,6 +175,21 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/state/screenshots.js`),
       context: node,
     })
+  })
+
+  const covidStateInfo = result.data.allCovidStateInfo.nodes
+
+  // we want to include the U.S. as a "state" here
+  covidStateInfo.unshift({
+    state: 'US',
+    name: 'United States',
+    childSlug: {
+      slug: 'united-states',
+    },
+  })
+
+  covidStateInfo.forEach(node => {
+    const { slug } = node.childSlug
     createPage({
       path: `/race/infection-and-mortality-rates/${slug}`,
       component: path.resolve(`./src/templates/race/infection-and-mortality-rates/landing.js`),
