@@ -4,6 +4,7 @@ import Container from '~components/common/container'
 import Layout from '~components/layout'
 import LongContent from '~components/common/long-content'
 import ContentfulContent from '~components/common/contentful-content'
+import BlogPostExtras from '~components/pages/blog/footer/blog-extras'
 import Hero from '~components/pages/blog/blog-hero'
 
 import pooled0 from '~images/experiments/pooled_testing_00.jpg'
@@ -42,14 +43,21 @@ const secondScrollytellingCopy = [
 ]
 
 const TestPositivityBlogPost = ({ data }) => {
-  const blogPost = {
-    socialCard: {
-      title: 'Test Positivity',
-      description: `Test positivity is extremely useful, but it has also become
-      one of the most commonly misunderstood metrics for monitoring the COVID-19
-      pandemic.`,
-    },
-  }
+  const blogPost = data.contentfulBlogPost
+
+  const socialCard = blogPost.socialCard || { description: blogPost.lede.lede }
+  const hero = (
+    <Hero
+      categories={blogPost.categories}
+      headline={blogPost.title}
+      authors={blogPost.authors}
+      published={blogPost.publishDate}
+      updated={blogPost.updateDateTime}
+      lede={blogPost.lede.lede}
+      id={blogPost.contentful_id}
+      twitterText={blogPost.twitterText || false}
+    />
+  )
   const Snippet = ({ slug }) => {
     const item = data.contentfulSnippetCollection.snippets.find(
       snippet => snippet.slug === slug,
@@ -64,7 +72,6 @@ const TestPositivityBlogPost = ({ data }) => {
     )
   }
 
-  const socialCard = blogPost.socialCard || { description: blogPost.lede.lede }
   const title =
     'Test Positivity is a Valuable Metric, When Calculated Correctly'
   return (
@@ -74,21 +81,7 @@ const TestPositivityBlogPost = ({ data }) => {
       socialCard={socialCard}
       path="/blog/test-positivity"
       centerTitle
-      hero={
-        <Hero
-          headline={title}
-          lede={data.lede.content.content}
-          id={0}
-          twitterText={data.lede.content.content || false}
-          categories={[
-            {
-              name: 'Testing data',
-              slug: 'testing-data',
-            },
-          ]}
-          hideByline
-        />
-      }
+      hero={hero}
     >
       <Container centered>
         <LongContent>
@@ -121,6 +114,7 @@ const TestPositivityBlogPost = ({ data }) => {
           <Snippet slug="tpp-conclusion" />
         </LongContent>
       </Container>
+      <BlogPostExtras blogPost={blogPost} />
     </Layout>
   )
 }
@@ -129,11 +123,6 @@ export default TestPositivityBlogPost
 
 export const query = graphql`
   {
-    lede: contentfulSnippet(slug: { eq: "tpp-lede" }) {
-      content {
-        content
-      }
-    }
     contentfulSnippetCollection(slug: { eq: "test-positivity-post" }) {
       snippets {
         contentful_id
@@ -142,6 +131,133 @@ export const query = graphql`
           childMarkdownRemark {
             html
           }
+        }
+      }
+    }
+    contentfulBlogPost(
+      overrideBlogPath: { eq: "/blog/test-positivity" }
+      overrideBlogPage: { eq: true }
+    ) {
+      contentful_id
+      title
+      updateDateTime
+      twitterText
+      authors {
+        name
+        twitterLink
+        twitterHandle
+        link
+        childContentfulAuthorBiographyTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+        headshot {
+          file {
+            fileName
+          }
+          resize(width: 200) {
+            width
+            height
+            src
+          }
+        }
+      }
+      socialCard {
+        description {
+          description
+        }
+        image {
+          resize(width: 1200) {
+            src
+          }
+        }
+      }
+      relatedBlogPosts {
+        updateDateTime
+        slug
+        publishDate(formatString: "MMMM D, YYYY")
+        authors {
+          name
+          twitterLink
+          twitterHandle
+          link
+          childContentfulAuthorBiographyTextNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+          headshot {
+            file {
+              fileName
+            }
+            resize(width: 200) {
+              width
+              height
+              src
+            }
+          }
+        }
+        title
+        lede {
+          lede
+        }
+      }
+      categories {
+        name
+        slug
+        blog_post {
+          slug
+          publishDate(formatString: "MMMM D, YYYY")
+          authors {
+            name
+            twitterLink
+            twitterHandle
+            link
+            childContentfulAuthorBiographyTextNode {
+              childMarkdownRemark {
+                html
+              }
+            }
+            headshot {
+              file {
+                fileName
+              }
+              resize(width: 200) {
+                width
+                height
+                src
+              }
+            }
+          }
+          title
+          lede {
+            lede
+          }
+        }
+      }
+      childContentfulBlogPostBlogContentRichTextNode {
+        json
+      }
+      featuredImage {
+        resize(width: 900) {
+          src
+        }
+        title
+      }
+      slug
+      lede {
+        lede
+      }
+      publishDate(formatString: "MMMM D, YYYY")
+      childContentfulBlogPostBodyTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+      childContentfulBlogPostFootnotesTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }
