@@ -149,7 +149,7 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_api/v1/internal/race-homepage.json',
+        file: './_data/crdt_homepage.json',
         type: 'CovidRaceDataHomepage',
       },
     },
