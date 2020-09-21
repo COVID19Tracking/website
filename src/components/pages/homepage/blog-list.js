@@ -17,6 +17,8 @@ const HomepageBlogList = () => {
         nodes {
           title
           slug
+          overrideBlogPage
+          overrideBlogPath
           authors {
             name
             twitterLink
@@ -56,7 +58,15 @@ const HomepageBlogList = () => {
                 className={blogListStyles.blogItem}
               >
                 <h2>
-                  <Link to={`/blog/${node.slug}`}>{node.title}</Link>
+                  <Link
+                    to={
+                      node.overrideBlogPage
+                        ? node.overrideBlogPath
+                        : `/blog/${node.slug}`
+                    }
+                  >
+                    {node.title}
+                  </Link>
                 </h2>
                 <p className={blogListStyles.lede}>
                   <CleanSpacing>{node.lede.lede}</CleanSpacing>

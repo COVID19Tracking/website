@@ -36,6 +36,8 @@ export const query = graphql`
         title
         updateDateTime
         slug
+        overrideBlogPage
+        overrideBlogPath
         categories {
           name
           slug
