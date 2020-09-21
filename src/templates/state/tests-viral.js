@@ -4,18 +4,22 @@ import TableResponsive from '~components/common/table-responsive'
 import Definitions from '~components/pages/data/definitions'
 import Layout from '~components/layout'
 
+const fieldNameMappings = {
+  'Total Tests (PCR)': 'Total PCR tests in specimens',
+  'Total Test Encounters (PCR)': 'Total PCR tests in test encounters',
+  'Total PCR Tests (People)': 'Total PCR tests in people',
+  posNeg: 'positive + negative',
+}
+
 const StateTestViralTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
-  const totalTestResultsTitle = (() => {
-    if (['CO', 'RI', 'ND'].indexOf(state.state) > -1) {
-      return 'Total test results - legacy (Total PCR tests in test encounters)'
-    }
-    if (['MA'].indexOf(state.state) > -1) {
-      return 'Total test results - legacy (Total PCR tests)'
-    }
-    return 'Total test results - legacy (positive + negative)'
-  })()
+  const { totalTestResultsField } = data.covidStateInfo
+  const totalTestResultsTitle = `Total test results - legacy (${
+    typeof fieldNameMappings[totalTestResultsField] !== 'undefined'
+      ? fieldNameMappings[totalTestResultsField]
+      : 'positive + negative'
+  })`
 
   return (
     <Layout
@@ -109,6 +113,9 @@ export const query = graphql`
           }
         }
       }
+    }
+    covidStateInfo(state: { eq: $state }) {
+      totalTestResultsField
     }
   }
 `
