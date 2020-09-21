@@ -132,7 +132,7 @@
     "build-preview": "run-s setup build:gatsby build:test",
     "build:gatsby": "gatsby build",
     "build:test": "jest --verbose --config=\"{}\" -- src/__tests__/build/index.js",
-    "postinstall": "cd node_modules/react-scrollama && npm i && npm run build",
+    "build:scrollama": "cd node_modules/react-scrollama && npm i && npm run build",
     "clean": "run-p clean:*",
     "clean:gatsby": "gatsby clean",
     "develop": "gatsby develop",
