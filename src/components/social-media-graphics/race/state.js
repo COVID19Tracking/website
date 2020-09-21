@@ -81,7 +81,7 @@ const getGroups = state => {
           : state.asianDeathPercap * 100,
     },
     {
-      label: 'American Indian/Alaska Native',
+      label: 'American Indian/ Alaska Native',
       style: socialCardStyle.barAian,
       cases: state.aianPosPercap === '' ? undefined : state.aianPosPercap * 100,
       deaths:
@@ -105,8 +105,8 @@ const getGroups = state => {
         state.apiDeathPercap === '' ? undefined : state.apiDeathPercap * 100,
     },
     {
-      label: 'Native Hawaiian/Pacific Islander',
-      style: socialCardStyle.barNhpi,
+      label: 'Native Hawaiian/ Pacific Islander',
+      style:  socialCardStyle.barNhpi,
       cases: state.nhpiPosPercap === '' ? undefined : state.nhpiPosPercap * 100,
       deaths:
         state.nhpiDeathPercap === '' ? undefined : state.nhpiDeathPercap * 100,
@@ -127,8 +127,8 @@ const getGroups = state => {
     groups = groups.filter(
       // remove asian and NHPI bars
       group =>
-        group.label !== 'Native Hawaiian/Pacific Islander' &&
-        group.label !== 'Asian',
+        group.label !== 'Native Hawaiian/ Pacific Islander' &&
+        group.label !==  'Asian',
     )
   }
 
@@ -164,8 +164,8 @@ const getGroups = state => {
     Asian: 'Asian people',
     White: 'White people',
     'Asian/Pacific Islander': 'Asians/Pacific Islanders',
-    'Native Hawaiian/Pacific Islander': 'Native Hawaiians/Pacific Islanders',
-    'American Indian/Alaska Native': 'American Indians/Alaska Natives',
+    'Native Hawaiian/ Pacific Islander': 'Native Hawaiians/Pacific Islanders',
+    'American Indian/ Alaska Native': 'American Indians/Alaska Natives',
   }
 
   const worstDeathsValue = groups[0].deaths
