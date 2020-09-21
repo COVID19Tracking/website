@@ -84,7 +84,7 @@ jobs:
       - run:
           name: lint
           command: 'npm run test:lint'
-  storybook-test:
+  storybook:
     executor: main-executor
     steps:
       - checkout
@@ -110,7 +110,6 @@ workflows:
       - gatsby-test:
           requires:
             - api
-      - storybook-test:
+      - storybook:
           requires:
             - api
-            - gatsby-build
