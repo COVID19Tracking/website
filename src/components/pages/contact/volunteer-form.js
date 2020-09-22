@@ -119,14 +119,13 @@ const VolunteerForm = () => {
         options={[
           {
             value: 'over18',
-            label: "Yes, I am 18 or over",
+            label: 'Yes, I am 18 or over',
           },
 
           {
             value: 'under18',
-            label: "No, I am under 18",
+            label: 'No, I am under 18',
           },
-
         ]}
         id="age"
         name="age"
@@ -149,13 +148,13 @@ const VolunteerForm = () => {
         options={[
           {
             value: 'data',
-            label:
-              "I'd like to help collect data or build data tools.",
+            label: "I'd like to help collect data or build data tools.",
           },
 
           {
             value: 'dataviz',
-            label: "I'd like to help create data visualizations or illustrations.",
+            label:
+              "I'd like to help create data visualizations or illustrations.",
           },
 
           {
@@ -166,15 +165,14 @@ const VolunteerForm = () => {
           {
             value: 'journalism',
             label:
-              "I am a journalism student or professional who can help monitor local news or do outreach to state officials.",
+              'I am a journalism student or professional who can help monitor local news or do outreach to state officials.',
           },
 
           {
             value: 'scicomm',
-            label: "I am a health science student or professional who can help review your data and content.",
+            label:
+              'I am a health science student or professional who can help review your data and content.',
           },
-
-
         ]}
         id="workstream"
         name="workstream"
