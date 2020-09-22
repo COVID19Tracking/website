@@ -106,7 +106,7 @@ const getGroups = state => {
     },
     {
       label: 'Native Hawaiian/ Pacific Islander',
-      style:  socialCardStyle.barNhpi,
+      style: socialCardStyle.barNhpi,
       cases: state.nhpiPosPercap === '' ? undefined : state.nhpiPosPercap * 100,
       deaths:
         state.nhpiDeathPercap === '' ? undefined : state.nhpiDeathPercap * 100,
@@ -128,7 +128,7 @@ const getGroups = state => {
       // remove asian and NHPI bars
       group =>
         group.label !== 'Native Hawaiian/ Pacific Islander' &&
-        group.label !==  'Asian',
+        group.label !== 'Asian',
     )
   }
 
@@ -452,7 +452,7 @@ const SocialCardFootnotes = ({ state, stateName }) => {
     // special case
     return (
       <p className={socialCardStyle.notes}>
-        Utah has reported race and ethnicity data for{' '}
+        <strong>Notes:</strong> Utah has reported race and ethnicity data for{' '}
         <Percent number={state.knownRaceEthPos} /> of cases and{' '}
         <Percent number={state.knownRaceEthDeath} /> of deaths. Graphic only
         includes demographic groups reported by the state. Race categories are
@@ -464,7 +464,7 @@ const SocialCardFootnotes = ({ state, stateName }) => {
     // special case
     return (
       <p className={socialCardStyle.notes}>
-        Wyoming has reported race data for{' '}
+        <strong>Notes:</strong> Wyoming has reported race data for{' '}
         <Percent number={state.knownRacePos} /> of cases and{' '}
         <Percent number={state.knownRaceDeath} /> of deaths, and ethnicity data
         for <Percent number={state.knownEthPos} /> of cases and{' '}
@@ -479,12 +479,12 @@ const SocialCardFootnotes = ({ state, stateName }) => {
     // special case
     return (
       <p className={socialCardStyle.notes}>
-        Nationwide, the United States has reported race and ethnicity data for{' '}
-        <Percent number={state.knownRaceEthPos} /> of cases and{' '}
-        <Percent number={state.knownRaceEthDeath} /> of deaths. Graphic includes
-        demographic data reported across all states, using standard Census
-        categories where possible. Race categories include both Hispanic/Latino
-        and non-Hispanic/Latino ethnicity.
+        <strong>Notes:</strong> Nationwide, the United States has reported race
+        and ethnicity data for <Percent number={state.knownRaceEthPos} /> of
+        cases and <Percent number={state.knownRaceEthDeath} /> of deaths.
+        Graphic includes demographic data reported across all states, using
+        standard Census categories where possible. Race categories include both
+        Hispanic/Latino and non-Hispanic/Latino ethnicity.
       </p>
     )
   }
@@ -492,8 +492,8 @@ const SocialCardFootnotes = ({ state, stateName }) => {
     <p className={socialCardStyle.notes}>
       {state.knownRaceEthPos ? (
         <>
-          {stateName} has reported race and ethnicity data for{' '}
-          <Percent number={state.knownRaceEthPos} /> of cases and{' '}
+          <strong>Notes:</strong> {stateName} has reported race and ethnicity
+          data for <Percent number={state.knownRaceEthPos} /> of cases and{' '}
           <Percent number={state.knownRaceEthDeath} /> of deaths. Graphic only
           includes demographic groups reported by the state. Race categories are
           mutually exclusive and include both Hispanic/Latino and
@@ -501,7 +501,7 @@ const SocialCardFootnotes = ({ state, stateName }) => {
         </>
       ) : (
         <>
-          {stateName} has reported race data for{' '}
+          <strong>Notes:</strong> {stateName} has reported race data for{' '}
           <Percent number={state.knownRacePos} /> of cases and{' '}
           <Percent number={state.knownRaceDeath} /> of deaths, and ethnicity
           data for <Percent number={state.knownEthPos} /> of cases and{' '}
