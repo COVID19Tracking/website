@@ -35,6 +35,7 @@ export default ({ pageContext, path, data }) => {
       ]}
       path={path}
       socialCard={`//covidtracking.com/images/race-dashboard/${state.childSlug.slug}.png`}
+      centered
     >
       {stateData && (
         <p>
