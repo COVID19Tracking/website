@@ -22,7 +22,7 @@ export default () => {
       ) {
         nodes {
           state
-          stateName
+          name
           knownRaceEthPos
           knownRaceEthDeath
           blackPctPos
@@ -68,7 +68,7 @@ export default () => {
       ) {
         nodes {
           state
-          stateName
+          name
           knownRacePos
           knownRaceDeath
           knownEthPos

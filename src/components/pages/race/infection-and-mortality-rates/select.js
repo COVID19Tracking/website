@@ -54,7 +54,7 @@ export default ({ separateStates, combinedStates, stateInfo }) => {
       {state.name !== '-- Select a state --' && (
         <ShareCard
           state={state}
-          stateRaceData={allStates.find(node => node.stateName === state.name)}
+          stateRaceData={allStates.find(node => node.name === state.name)}
           combinedStates={combinedStates.map(node => node.state)}
         />
       )}

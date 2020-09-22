@@ -249,7 +249,7 @@ const SocialCardHeader = ({ state, stateName }) => {
   const today = new Date()
   const { worstCasesGroup, worstDeathsGroup } = getGroups(state)
 
-  let name = state.stateName || stateName
+  const name = state.name || stateName
 
   if (worstDeathsGroup === worstCasesGroup) {
     return (
@@ -335,7 +335,7 @@ const StateRaceSocialCard = renderedComponent(
     }
 
     if (stateStatus.noCharts) {
-      return <NoDataSocialCard stateName={state.stateName} />
+      return <NoDataSocialCard stateName={state.name} />
     }
 
     return (
@@ -437,7 +437,7 @@ const StateRaceSocialCard = renderedComponent(
               </>
             ),
           )}
-          <SocialCardFootnotes state={state} stateName={state.stateName} />
+          <SocialCardFootnotes state={state} stateName={state.name} />
         </div>
 
         <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
@@ -521,7 +521,7 @@ const CreateStateRaceSocialCards = () => {
       allCovidRaceDataCombined {
         nodes {
           state
-          stateName
+          name
           knownRaceEthPos
           knownRaceEthDeath
           blackPctPos
@@ -567,7 +567,7 @@ const CreateStateRaceSocialCards = () => {
       allCovidRaceDataSeparate {
         nodes {
           state
-          stateName
+          name
           knownRacePos
           knownRaceDeath
           knownEthPos
