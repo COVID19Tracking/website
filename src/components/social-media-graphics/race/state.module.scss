@@ -117,9 +117,9 @@
   .bar-label {
     justify-self: end;
     align-self: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-size: 13px; // ignore-style-rule
-    line-height: 1;
+    line-height: 1.15;
     text-align: right;
   }
 
@@ -177,7 +177,6 @@
   }
   &.barWhite {
     background: $qualitative-color-palette-200;
-    color: white;
   }
   &.barNhpi {
     background: $qualitative-color-palette-500;
