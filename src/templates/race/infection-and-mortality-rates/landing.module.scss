@@ -2,3 +2,16 @@
   margin: 0 auto;
   display: inherit;
 }
+
+.ctas {
+  li {
+    margin-bottom: spacer(16);
+    a {
+      color: $text;
+    }
+  }
+}
+
+.ctas-header {
+  margin-top: spacer(16);
+}

@@ -38,14 +38,21 @@ export default ({ pageContext, path, data }) => {
     >
       {stateData && (
         <p>
-          <SocialCardHeader state={stateData} stateName={stateData.stateName} />
+          <SocialCardHeader state={stateData} stateName={stateData.name} />
         </p>
       )}
-      You can learn more about COVID-19 and its impact on different racial and
-      ethnic groups by visiting these pages:
-      <ul>
+      <img
+        src={`/images/race-dashboard/${state.childSlug.slug}.png`}
+        alt={`Social card for ${state.name}`}
+        className={landingStyles.preview}
+      />
+      <p className={landingStyles.ctasHeader}>
+        You can learn more about COVID-19 and its impact on different racial and
+        ethnic groups by visiting these pages:
+      </p>
+      <ul className={landingStyles.ctas}>
         <li>
-          <CtaLink to="race">The COVID Racial Data Tracker</CtaLink>
+          <CtaLink to="/race">The COVID Racial Data Tracker</CtaLink>
         </li>
         <li>
           <CtaLink
@@ -61,11 +68,6 @@ export default ({ pageContext, path, data }) => {
           </CtaLink>
         </li>
       </ul>
-      <img
-        src={`/images/race-dashboard/${state.childSlug.slug}.png`}
-        alt={`Social card for ${state.name}`}
-        className={landingStyles.preview}
-      />
     </Layout>
   )
 }
@@ -84,7 +86,7 @@ export const query = graphql`
     }
     covidRaceDataCombined(state: { eq: $state }) {
       state
-      stateName
+      name
       knownRaceEthPos
       knownRaceEthDeath
       blackPctPos
@@ -126,7 +128,7 @@ export const query = graphql`
     }
     covidRaceDataSeparate(state: { eq: $state }) {
       state
-      stateName
+      name
       knownRacePos
       knownRaceDeath
       knownEthPos
