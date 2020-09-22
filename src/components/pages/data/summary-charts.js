@@ -50,11 +50,11 @@ const dailyAverage = (history, field, range = 7) => {
       }
       pastIndex -= 1
     }
+    const calculatedAverage =
+      pastRows.reduce((a, b) => a + b, 0) / pastRows.length
     average.push({
       date: parseDate(row.date),
-      value: dayHasData
-        ? pastRows.reduce((a, b) => a + b, 0) / pastRows.length
-        : null,
+      value: dayHasData && calculatedAverage > 0 ? calculatedAverage : null,
     })
   })
   return average
