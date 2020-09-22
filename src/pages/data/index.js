@@ -53,7 +53,7 @@ const DataPage = ({ data }) => {
       </Container>
       <SummaryCharts
         history={data.allCovidUsDaily.nodes}
-        annotations={data.allContentfulEvent}
+        annotations={data.allContentfulChartAnnotation}
         national
       />
 
@@ -198,7 +198,7 @@ export const query = graphql`
         code
       }
     }
-    allContentfulEvent(
+    allContentfulChartAnnotation(
       filter: { displayNationalChart: { eq: true } }
       sort: { fields: date, order: DESC }
     ) {
@@ -210,7 +210,7 @@ export const query = graphql`
         date(formatString: "YYYYMMDD")
         dataElement
         contentful_id
-        childContentfulEventDescriptionTextNode {
+        childContentfulChartAnnotationDescriptionTextNode {
           childMarkdownRemark {
             html
           }
