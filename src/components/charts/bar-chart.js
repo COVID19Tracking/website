@@ -248,7 +248,13 @@ const BarChart = ({
                   width="20"
                   height="24"
                   x={xScaleTime(d.date) - 11}
-                  y={yScale(getValueForDate(d.date)) - 26}
+                  y={
+                    yScale(
+                      getValueForDate(d.date) > 10
+                        ? getValueForDate(d.date)
+                        : 10,
+                    ) - 26
+                  }
                   viewBox="0 0 20 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
