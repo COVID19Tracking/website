@@ -57,7 +57,7 @@ const VolunteerForm = () => {
           setUrlValid(isUrl(event.target.value))
         }}
         detailText="Personal website, LinkedIn, or other website that will tell us
-              about you."
+              about you. If you are a journalist or science writer, please link to a writing sample here or in the final question."
       />
 
       {!urlValid && url && (
@@ -77,7 +77,6 @@ const VolunteerForm = () => {
           '10-20',
           '20-30',
           '30-40',
-          '40+',
         ]}
         isRequired
       />
@@ -113,6 +112,25 @@ const VolunteerForm = () => {
         name="availability"
       />
 
+      <List
+        label="Are you 18 or over?"
+        isRequired
+        type="radio"
+        options={[
+          {
+            value: 'over18',
+            label: 'Yes, I am 18 or over',
+          },
+
+          {
+            value: 'under18',
+            label: 'No, I am under 18',
+          },
+        ]}
+        id="age"
+        name="age"
+      />
+
       <Input
         label="Specializations / Skills"
         type="text"
@@ -120,8 +138,7 @@ const VolunteerForm = () => {
         id="skills"
         isRequired
         onChange={event => setSkill(event.target.value)}
-        detailText="Examples: Python, SQL, Tableau, data viz, editing, social media,
-              public health, research, journalism, etc."
+        detailText="Examples: Python, React, Gatsby, Tableau, data visualization, editing, social media, public health, research, journalism, science writing, etc."
       />
 
       <List
@@ -131,19 +148,30 @@ const VolunteerForm = () => {
         options={[
           {
             value: 'data',
+            label: "I'd like to help collect data or build data tools.",
+          },
+
+          {
+            value: 'dataviz',
             label:
-              "I'd like to help build data tools, collect data, or analyze data.",
+              "I'd like to help create data visualizations or illustrations.",
           },
 
           {
             value: 'website',
-            label: "I'd like to help design or build your website.",
+            label: "I'd like to help design or develop your website.",
           },
 
           {
-            value: 'writing',
+            value: 'journalism',
             label:
-              "I'd like to help write content, monitor news sources, or do original journalism.",
+              'I am a journalism student or professional who can help monitor local news or do outreach to state officials.',
+          },
+
+          {
+            value: 'scicomm',
+            label:
+              'I am a health science student or professional who can help review your data and content.',
           },
         ]}
         id="workstream"
@@ -151,11 +179,11 @@ const VolunteerForm = () => {
       />
 
       <Textarea
-        label="What kinds of projects or tasks would you most like to help with?"
+        label="Please write 1-3 paragraphs telling us in detail about the skills and experience you can contribute to The COVID Tracking Project."
         inputtype="text"
         name="why"
         id="why"
-        rows="5"
+        rows="10"
         isRequired
         onChange={event => setProjects(event.target.value)}
       />

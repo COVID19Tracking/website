@@ -13,7 +13,7 @@ const CrdtDashboardStates = () => {
     query {
       allCovidRaceDataCombined(
         filter: { state: { ne: "US" } }
-        sort: { fields: stateName }
+        sort: { fields: name }
       ) {
         nodes {
           aianANHPIDeathNotes
@@ -71,7 +71,7 @@ const CrdtDashboardStates = () => {
           latinXPosDispFlag
           latinXPositives
           latinXPosNotes
-          name: stateName
+          name
           nhpiANHPIDeathNotes
           nhpiANHPIPosNotes
           nhpiDeathCaution
@@ -99,7 +99,6 @@ const CrdtDashboardStates = () => {
           otherPositives
           otherPosNotes
           state
-          stateName
           twoANHPIDeathNotes
           twoANHPIPosNotes
           twoDeathCaution
@@ -132,7 +131,7 @@ const CrdtDashboardStates = () => {
       }
       allCovidRaceDataSeparate(
         filter: { state: { ne: "US" } }
-        sort: { fields: stateName }
+        sort: { fields: name }
       ) {
         nodes {
           aianANHPIDeathNotes
@@ -199,7 +198,7 @@ const CrdtDashboardStates = () => {
           latinXPosDispFlag
           latinXPositives
           latinXPosNotes
-          name: stateName
+          name
           nhpiANHPIDeathNotes
           nhpiANHPIPosNotes
           nhpiDeathCaution
