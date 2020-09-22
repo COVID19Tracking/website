@@ -128,8 +128,8 @@
     "set-tz": "^0.2.0"
   },
   "scripts": {
-    "build": "run-s build:scrollama setup:api-repo setup:data-repo build:gatsby build:test",
-    "build-preview": "run-s build:scrollama setup build:gatsby build:test",
+    "build": "run-s setup:api-repo setup:data-repo build:gatsby build:test",
+    "build-preview": "run-s setup build:gatsby build:test",
     "build:gatsby": "gatsby build",
     "build:test": "jest --verbose --config=\"{}\" -- src/__tests__/build/index.js",
     "build:scrollama": "cd node_modules/react-scrollama && npm i && npm run build",
@@ -148,6 +148,7 @@
     "test:coverage": "jest --coverage --maxWorkers 1",
     "test:lint": "eslint ./src",
     "test:dev": "run-s test:lint test",
+    "postinstall": "run-s build:scrollama",
     "setup": "run-s setup:api-repo setup:env-vars setup:data-repo",
     "setup:env-vars": "curl -L https://covidtracking.com/__developer/env-vars > .env",
     "setup:api-repo": "rm -rf _api || true && git clone --depth 1 https://github.com/COVID19Tracking/covid-public-api.git _api && rm -rf _api/.git",
