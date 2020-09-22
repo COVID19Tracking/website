@@ -337,7 +337,8 @@ const CrdtDashboardStates = () => {
             {!territoriesWithoutGraphics.includes(state.state) && (
               <p className={statesStyle.socialCardCta}>
                 Compare {state.name}’s infection and mortality rates by race and
-                ethnicity.{' '}
+                ethnicity.
+                <br />
                 <CtaLink
                   to={`/race/infection-and-mortality-rates#${state.state}`}
                 >
