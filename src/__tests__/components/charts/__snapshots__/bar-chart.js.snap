@@ -85,9 +85,6 @@ exports[`Components : Charts: Area chart renders correctly 1`] = `
     />
   </mask>
   <g
-    transform="translate(0 30)"
-  />
-  <g
     mask="url(#dataMask)"
     transform="translate(0 30)"
   >
@@ -144,6 +141,9 @@ exports[`Components : Charts: Area chart renders correctly 1`] = `
       y={125.78461538461538}
     />
   </g>
+  <g
+    transform="translate(0 30)"
+  />
 </svg>
 `;
 
@@ -248,9 +248,6 @@ exports[`Components : Charts: Area chart renders correctly 2`] = `
     />
   </mask>
   <g
-    transform="translate(0 30)"
-  />
-  <g
     mask="url(#dataMask)"
     transform="translate(0 30)"
   >
@@ -307,5 +304,8 @@ exports[`Components : Charts: Area chart renders correctly 2`] = `
       y={125.78461538461538}
     />
   </g>
+  <g
+    transform="translate(0 30)"
+  />
 </svg>
 `;
