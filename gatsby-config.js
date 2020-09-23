@@ -177,6 +177,13 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
+        file: './src/data/ltc_facilities.json',
+        type: 'CovidLtcFacilities',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
         file: './_data/advocacy_governors.json',
         type: 'civilServiceGovernor',
       },
