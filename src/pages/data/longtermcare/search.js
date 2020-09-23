@@ -56,7 +56,12 @@ const LongTermCareSearchPage = () => {
               field: 'name',
               label: 'Name',
             },
+            {
+              field: 'type',
+              label: 'Type',
+            },
             { field: 'resident_positive', label: 'Resident positives' },
+            { field: 'resident_deaths', label: 'Resident death' },
             { field: 'resident_deaths', label: 'Resident death' },
           ]}
           data={results.hits}
