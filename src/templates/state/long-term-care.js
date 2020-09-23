@@ -19,19 +19,31 @@ export default ({ pageContext, path, data }) => {
       ]}
       path={path}
     >
-      <LongTermCareOverview
-        facilities={data.allCovidLtcFacilities.nodes.length}
-        overview={data.allCovidLtcStates.nodes[0]}
-      />
-      <LongTermCareAlertNote />
-      <h2 id="summary">Summary</h2>
-      <LongTermCareSummaryTable data={data.allCovidLtcStates.nodes[0]} />
-      <h2 id="notes">State notes</h2>
-      <div
-        dangerouslySetInnerHTML={{ __html: marked(data.covidLtcNotes.notes) }}
-      />
-      <h2 id="facilities">Facilities</h2>
-      <LongTermCareFacilities facilities={data.allCovidLtcFacilities.nodes} />
+      {data.allCovidLtcStates.nodes.length ? (
+        <>
+          <LongTermCareOverview
+            facilities={data.allCovidLtcFacilities.nodes.length}
+            overview={data.allCovidLtcStates.nodes[0]}
+          />
+          <LongTermCareAlertNote>An alert note.</LongTermCareAlertNote>
+          <h2 id="summary">Summary</h2>
+          <LongTermCareSummaryTable data={data.allCovidLtcStates.nodes[0]} />
+          <h2 id="notes">State notes</h2>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: marked(data.covidLtcNotes.notes),
+            }}
+          />
+          <h2 id="facilities">Facilities</h2>
+          <LongTermCareFacilities
+            facilities={data.allCovidLtcFacilities.nodes}
+          />
+        </>
+      ) : (
+        <LongTermCareAlertNote>
+          {state.name} does not report long-term care data.
+        </LongTermCareAlertNote>
+      )}
     </Layout>
   )
 }
@@ -80,7 +92,11 @@ export const query = graphql`
     }
     allCovidLtcFacilities(
       sort: { fields: name }
-      filter: { state: { eq: "CA" } }
+      filter: {
+        state: { eq: "CA" }
+        resident_positive: { gt: 0 }
+        resident_deaths: { gt: 0 }
+      }
     ) {
       nodes {
         name
