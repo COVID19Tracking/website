@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Scrollama, Step } from 'react-scrollama'
+import { Scrollama, Step } from '~utilities/scrollama'
 import styles from './scrollytelling.module.scss'
 export default ({ copy, images }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0)
@@ -8,18 +8,7 @@ export default ({ copy, images }) => {
   // data prop of the step, which in this demo stores the index of the step.
   const onStepEnter = props => setCurrentStepIndex(props.data)
   if (typeof window === 'undefined') {
-    return (
-      <div>
-        {images.map((data, index) => (
-          <>
-            <div
-              className={styles.text}
-              dangerouslySetInnerHTML={{ __html: copy[index] }}
-            />
-          </>
-        ))}
-      </div>
-    )
+    return null
   }
   return (
     <div className={styles.scrollyContainer}>
