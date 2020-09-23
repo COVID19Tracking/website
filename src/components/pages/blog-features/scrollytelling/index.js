@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Scrollama, Step } from '~utilities/scrollama'
 import styles from './scrollytelling.module.scss'
+
 export default ({ copy, images }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0)
 

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Fragment, Component } from 'react'
 
 function _classCallCheck(instance, Constructor) {
