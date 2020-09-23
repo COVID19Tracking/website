@@ -10,9 +10,9 @@ const RaceGetBetterDataPage = ({ data }) => {
   states.unshift('-- Select a state --')
 
   // combine the Civil Service data with custom territory data
-  const governors = data.allCivilServiceGovernor.nodes
-    .filter(node => node.id !== 'dummy') // from gatsby-source-apiserver (see its readme)
-    .concat(data.allTerritoryInfo.nodes)
+  const governors = data.allCivilServiceGovernor.nodes.concat(
+    data.allTerritoryInfo.nodes,
+  )
 
   const stateScripts = data.allContentfulCrdtAdvocacyState.nodes
   const stateNames = data.allCovidStateInfo.nodes
@@ -23,16 +23,9 @@ const RaceGetBetterDataPage = ({ data }) => {
   const stateInfo = stateNames.map(state => ({
     ...state,
     ...stateScripts.find(stateScript => stateScript.state === state.name),
-    ...combinedRaceData.find(raceDatum => raceDatum.stateName === state.name),
-    ...separateRaceData.find(raceDatum => raceDatum.stateName === state.name),
+    ...combinedRaceData.find(raceDatum => raceDatum.name === state.name),
+    ...separateRaceData.find(raceDatum => raceDatum.name === state.name),
   }))
-
-  // remove duplicate state name fields from combining data
-  stateInfo.forEach(state => {
-    /* eslint-disable no-param-reassign */
-    delete state.stateName
-    delete state.state
-  })
 
   return (
     <Layout
@@ -105,7 +98,7 @@ export const query = graphql`
       nodes {
         knownRaceEthDeath
         knownRaceEthPos
-        stateName
+        name
       }
     }
     allCovidRaceDataSeparate {
@@ -114,7 +107,7 @@ export const query = graphql`
         knownRaceDeath
         knownRacePos
         knownEthPos
-        stateName
+        name
       }
     }
   }

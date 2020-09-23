@@ -134,14 +134,14 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_api/v1/states/screenshots.json',
+        file: './_data/screenshots.json',
         type: 'CovidScreenshot',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_api/v1/internal/volunteers.json',
+        file: './_data/volunteers.json',
         type: 'CovidVolunteers',
         sortField: 'name',
       },
@@ -149,56 +149,63 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_api/v1/internal/race-homepage.json',
+        file: './_data/crdt_homepage.json',
         type: 'CovidRaceDataHomepage',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_api/v1/race/states-combined.json',
+        file: './_data/crdt_states_combined.json',
         type: 'CovidRaceDataCombined',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_api/v1/race/states-separate.json',
+        file: './_data/crdt_states_separate.json',
         type: 'CovidRaceDataSeparate',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_api/v1/internal/bigquery/long_term_care_website.json',
+        file: './_data/long_term_care_website.json',
         type: 'CovidLtcWebsite',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_api/v1/internal/bigquery/long_term_care_states.json',
+        file: './_data/long_term_care_states.json',
         type: 'CovidLtcStates',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_api/v1/internal/bigquery/long_term_care_notes.json',
+        file: './_data/long_term_care_notes.json',
         type: 'CovidLtcNotes',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './src/data/governors.json',
+        file: './src/data/ltc_facilities.json',
+        type: 'CovidLtcFacilities',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/advocacy_governors.json',
         type: 'civilServiceGovernor',
       },
     },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './src/data/territories.json',
+        file: './_data/advocacy_territories.json',
         type: 'territoryInfo',
       },
     },
@@ -236,8 +243,8 @@ const gatsbyConfig = {
       resolve: 'gatsby-source-covid-tracking-counties',
       options: {
         type: 'Counties',
-        counties: `${__dirname}/_api/v1/internal/bigquery/nyt_counties.json`,
-        demographics: `${__dirname}/src/data/race/counties/demographics.json`,
+        counties: `${__dirname}/_data/nyt_counties.json`,
+        demographics: `${__dirname}/_data/census_demographics_counties.json`,
       },
     },
     {
@@ -258,8 +265,8 @@ const gatsbyConfig = {
         usType: 'CovidUsDaily',
         stateInfoType: 'CovidStateInfo',
         sources: {
-          us: `${__dirname}/_api/v1/internal/bigquery/census_population_us.json`,
-          states: `${__dirname}/_api/v1/internal/bigquery/census_population_state.json`,
+          us: `${__dirname}/_data/census_population_us.json`,
+          states: `${__dirname}/_data/census_population_state.json`,
         },
         fields: [
           'hospitalizedCumulative',

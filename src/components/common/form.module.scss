@@ -121,7 +121,7 @@
 
     .radio-label,
     .checkbox-label {
-      display: flex;
+      display: block;
       align-items: baseline;
       @include margin(8, top bottom);
     }
@@ -133,6 +133,6 @@
 
   input[type='radio'],
   input[type='checkbox'] {
-    @include margin(4, right);
+    @include margin(8, right);
   }
 }

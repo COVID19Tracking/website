@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Blog : Categories renders correctly 1`] = `
+<div
+  className="categoriesContainer"
+>
+  <p
+    className="category"
+  >
+    <a
+      href="/blog/category/category-one"
+    >
+      category one
+    </a>
+  </p>
+</div>
+`;
+
+exports[`Components : Pages : Blog : Categories renders correctly 2`] = `
+<div
+  className="categoriesContainer"
+/>
+`;

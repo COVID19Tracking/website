@@ -26,10 +26,14 @@ jobs:
       - run:
           name: fetch-api-repo
           command: 'npm run setup:api-repo'
+      - run:
+          name: fetch-data-repo
+          command: 'npm run setup:data-repo'
       - persist_to_workspace:
           root: *workspace_root
           paths:
             - _api
+            - _data
   gatsby-build:
     executor: main-executor
     steps:
@@ -51,6 +55,7 @@ jobs:
       - persist_to_workspace:
           root: *workspace_root
           paths:
+            - _api
             - _data
             - public
   gatsby-test:
@@ -79,7 +84,7 @@ jobs:
       - run:
           name: lint
           command: 'npm run test:lint'
-  storybook-test:
+  storybook:
     executor: main-executor
     steps:
       - checkout
@@ -105,7 +110,6 @@ workflows:
       - gatsby-test:
           requires:
             - api
-      - storybook-test:
+      - storybook:
           requires:
             - api
-            - gatsby-build

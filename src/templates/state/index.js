@@ -15,7 +15,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
     allCovidStateInfo,
     covidStateInfo,
     allCovidUsDaily,
-    allContentfulEvent,
+    allContentfulChartAnnotation,
     sevenDaysAgo,
     contentfulStateOrTerritory,
     covidLtcStates,
@@ -28,7 +28,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
         name={state.name}
         history={allCovidStateDaily.nodes}
         usHistory={allCovidUsDaily.nodes}
-        annotations={allContentfulEvent}
+        annotations={allContentfulChartAnnotation}
         testSource={
           covidStateInfo.covidTrackingProjectPreferredTotalTestField ===
           'posNeg'
@@ -188,11 +188,8 @@ export const query = graphql`
     contentfulStateOrTerritory(code: { eq: $state }) {
       testUnitsUnknown
     }
-    allContentfulEvent(
-      filter: {
-        state: { elemMatch: { code: { eq: $state } } }
-        displayStateChart: { eq: true }
-      }
+    allContentfulChartAnnotation(
+      filter: { state: { code: { eq: $state } } }
       sort: { fields: date, order: DESC }
     ) {
       nodes {
@@ -203,7 +200,7 @@ export const query = graphql`
         date(formatString: "YYYYMMDD")
         dataElement
         contentful_id
-        childContentfulEventDescriptionTextNode {
+        childContentfulChartAnnotationDescriptionTextNode {
           childMarkdownRemark {
             html
           }
