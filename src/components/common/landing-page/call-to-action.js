@@ -29,6 +29,7 @@ const CtaAnchorLink = ({
   children,
   onClick,
   centered = false,
+  block = false,
   bold = false,
 }) => (
   <a
@@ -37,6 +38,7 @@ const CtaAnchorLink = ({
       ctaLinkStyle.cta,
       centered && ctaLinkStyle.centered,
       bold && ctaLinkStyle.bold,
+      block && ctaLinkStyle.block,
     )}
     onClick={onClick}
   >

@@ -10,12 +10,13 @@ const InfoboxInner = ({ header, children }) => (
   </div>
 )
 
-const Alert = ({ header, children, fullSize = false }) => (
+const Alert = ({ header, children, block = false, fullSize = false }) => (
   <div
     className={classnames(
       'alert',
       alertStyle.alert,
       fullSize && alertStyle.fullSize,
+      block && alertStyle.block,
     )}
   >
     <img src={alertIcon} alt="Alert icon" />

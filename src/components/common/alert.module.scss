@@ -26,6 +26,10 @@
     margin-top: spacer(4);
   }
 
+  &.block {
+    display: flex;
+  }
+
   &.full-size {
     height: 100%;
     display: flex;

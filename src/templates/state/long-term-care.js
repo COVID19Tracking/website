@@ -1,7 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import marked from 'marked'
-import LongTermCareState from '~components/pages/state/long-term-care'
+import LongTermCareSummaryTable from '~components/pages/state/long-term-care/summary-table'
+import LongTermCareFacilities from '~components/pages/state/long-term-care/facilities'
+import LongTermCareOverview from '~components/pages/state/long-term-care/overview'
+import LongTermCareAlertNote from '~components/pages/state/long-term-care/alert-note'
 import Layout from '~components/layout'
 
 export default ({ pageContext, path, data }) => {
@@ -16,10 +19,19 @@ export default ({ pageContext, path, data }) => {
       ]}
       path={path}
     >
+      <LongTermCareOverview
+        facilities={data.allCovidLtcFacilities.nodes.length}
+        overview={data.allCovidLtcStates.nodes[0]}
+      />
+      <LongTermCareAlertNote />
+      <h2 id="summary">Summary</h2>
+      <LongTermCareSummaryTable data={data.allCovidLtcStates.nodes[0]} />
+      <h2 id="notes">State notes</h2>
       <div
         dangerouslySetInnerHTML={{ __html: marked(data.covidLtcNotes.notes) }}
       />
-      <LongTermCareState data={data.allCovidLtcStates.nodes} />
+      <h2 id="facilities">Facilities</h2>
+      <LongTermCareFacilities facilities={data.allCovidLtcFacilities.nodes} />
     </Layout>
   )
 }
@@ -29,6 +41,7 @@ export const query = graphql`
     allCovidLtcStates(
       sort: { fields: Date, order: DESC }
       filter: { State_Abbr: { eq: $state } }
+      limit: 1
     ) {
       nodes {
         Date
@@ -64,6 +77,18 @@ export const query = graphql`
     }
     covidLtcNotes(state: { eq: $state }) {
       notes
+    }
+    allCovidLtcFacilities(
+      sort: { fields: name }
+      filter: { state: { eq: "CA" } }
+    ) {
+      nodes {
+        name
+        type
+        county
+        resident_positive
+        resident_deaths
+      }
     }
   }
 `

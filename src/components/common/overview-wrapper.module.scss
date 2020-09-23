@@ -1,0 +1,8 @@
+.wrapper {
+  border: 1px solid $color-slate-200;
+  border-radius: 4px;
+  @include padding(16);
+  h4 {
+    @include type-size(300);
+  }
+}
