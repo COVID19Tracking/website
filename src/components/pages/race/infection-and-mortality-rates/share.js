@@ -73,12 +73,14 @@ export default ({ state, stateRaceData, combinedStates }) => {
 
   return (
     <>
-      <img
-        src={`/images/race-dashboard/${state.childSlug.slug}.png`}
-        alt={socialCardShareText}
-        className={shareStyles.preview}
-      />
-      <p>{socialCardShareText}</p>
+      <div className={shareStyles.shareWrapper}>
+        <img
+          src={`/images/race-dashboard/${state.childSlug.slug}.png`}
+          alt={socialCardShareText}
+          className={shareStyles.preview}
+        />
+        <p className={shareStyles.shareText}>{socialCardShareText}</p>
+      </div>
       <DetailText centered className={shareStyles.clickToShare}>
         Share this directly on social media or{' '}
         <a href={getStateSquareImageUrl(state)}>
