@@ -44,10 +44,13 @@ const StateRaceSocialCard = renderedComponent(
     return (
       <div
         className={classnames(
-          socialCardStyle.container,
+          socialCardStyle.wrapper,
           square && socialCardStyle.square,
         )}
       >
+        <p className={socialCardStyle.header}>
+          <SocialCardHeader state={state} />
+        </p>
         <div
           className={classnames(
             socialCardStyle.grid,
@@ -55,15 +58,10 @@ const StateRaceSocialCard = renderedComponent(
             stateStatus.deathsOnly && socialCardStyle.deathsOnly,
           )}
         >
-          {!square && <span />}
-          {/*
-            adds a spacer element to the grid, since the non-square
-            header spans two columns, not all three
-          */}
-          <p className={socialCardStyle.header}>
-            <SocialCardHeader state={state} />
-          </p>
-          <span /> {/* spacer for css grid */}
+          <span />
+          <span />
+          <span />
+          <span />
           {!stateStatus.deathsOnly && (
             <span
               className={classnames(
@@ -181,6 +179,7 @@ const StateRaceSocialCard = renderedComponent(
             ),
           )}
         </div>
+
         <SocialCardFootnotes state={state} stateName={state.name} />
 
         <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
@@ -191,5 +190,3 @@ const StateRaceSocialCard = renderedComponent(
 )
 
 export default StateRaceSocialCard
-
-export { SocialCardHeader }
