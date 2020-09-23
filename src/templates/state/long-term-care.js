@@ -127,7 +127,7 @@ export const query = graphql`
     allCovidLtcFacilities(
       sort: { fields: name }
       filter: {
-        state: { eq: "CA" }
+        state: { eq: $state }
         resident_positive: { gt: 0 }
         resident_deaths: { gt: 0 }
       }
