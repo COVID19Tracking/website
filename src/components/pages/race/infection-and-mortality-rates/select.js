@@ -51,13 +51,11 @@ export default ({ separateStates, combinedStates, stateInfo }) => {
           window.location.hash = `#${selectedState.state}`
         }}
       />
-      {state.name !== '-- Select a state --' && (
-        <ShareCard
-          state={state}
-          stateRaceData={allStates.find(node => node.name === state.name)}
-          combinedStates={combinedStates.map(node => node.state)}
-        />
-      )}
+      <ShareCard
+        state={state}
+        stateRaceData={allStates.find(node => node.name === state.name)}
+        combinedStates={combinedStates.map(node => node.state)}
+      />
     </Form>
   )
 }
