@@ -31,9 +31,11 @@ const FormatDate = ({
   )
 }
 
-const FormatNumber = ({ number, nullValue = false }) => (
-  <>{number || number === 0 ? number.toLocaleString() : nullValue || 'N/A'}</>
-)
+const FormatNumber = ({ number, nullValue = false }) => {
+  const nullDisplay = nullValue || 'N/A'
+  const roundedNumber = Math.round(parseFloat(number) * 10) / 10 // one decimal place
+  return <>{roundedNumber.toLocaleString() || nullDisplay}</>
+}
 
 const getListSpacer = (index, length, useAmpersand = true) => {
   const andSign = useAmpersand ? '&' : 'and'
