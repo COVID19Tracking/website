@@ -5,313 +5,16 @@ import classnames from 'classnames'
 import { renderedComponent } from '~plugins/gatsby-render-components'
 
 import { FormatNumber } from '~components/utils/format'
-import Percent from '~components/pages/race/dashboard/percent'
 
 import Logo from '~images/ctp-icon-small.png'
 import CarLogo from '~images/car-logo-small.png'
-import alertIcon from '~images/race-dashboard/alert-bang-orange.svg'
+
+import SocialCardFootnotes from './footnotes'
+import SocialCardHeader from './header'
+import NoDataSocialCard from './no-data'
+import { getStateStatus, getGroups } from './utils'
 
 import socialCardStyle from './state.module.scss'
-
-const getStateStatus = (state, combinedStates) => {
-  let noDeaths
-  let noCases
-
-  const isCombinedState = combinedStates.indexOf(state.state) >= 0
-
-  if (isCombinedState) {
-    // if this state combines race and ethnicity data
-    noDeaths = parseFloat(state.knownRaceEthDeath) === 0
-    noCases = parseFloat(state.knownRaceEthPos) === 0
-  } else {
-    noDeaths = parseFloat(state.knownRaceDeath) === 0
-    noCases = parseFloat(state.knownRacePos) === 0
-  }
-
-  const oneChart = (noCases || noDeaths) && !(noCases && noDeaths)
-
-  const noCharts = noCases && noDeaths
-
-  const casesOnly = oneChart && noDeaths
-
-  const deathsOnly = oneChart && noCases
-
-  return {
-    oneChart,
-    noCharts,
-    casesOnly,
-    deathsOnly,
-  }
-}
-
-const getGroups = state => {
-  if (state === undefined) {
-    return {}
-  }
-
-  let groups = [
-    {
-      label: 'Black/African American',
-      style: socialCardStyle.barBlack,
-      cases:
-        state.blackPosPercap === '' ? undefined : state.blackPosPercap * 100, // perCap is *per 1,000*, mulitply by 100 to get *per 100,000*
-      deaths:
-        state.blackDeathPercap === ''
-          ? undefined
-          : state.blackDeathPercap * 100,
-    },
-    {
-      label: 'Hispanic/Latino',
-      style: socialCardStyle.barLatinx,
-      cases:
-        state.latinXPosPercap === '' ? undefined : state.latinXPosPercap * 100,
-      deaths:
-        state.latinXDeathPercap === ''
-          ? undefined
-          : state.latinXDeathPercap * 100,
-    },
-    {
-      label: 'Asian',
-      style: socialCardStyle.barAsian,
-      cases:
-        state.asianPosPercap === '' ? undefined : state.asianPosPercap * 100,
-      deaths:
-        state.asianDeathPercap === ''
-          ? undefined
-          : state.asianDeathPercap * 100,
-    },
-    {
-      label: 'American Indian/ Alaska Native',
-      style: socialCardStyle.barAian,
-      cases: state.aianPosPercap === '' ? undefined : state.aianPosPercap * 100,
-      deaths:
-        state.aianDeathPercap === '' ? undefined : state.aianDeathPercap * 100,
-    },
-    {
-      label: 'White',
-      style: socialCardStyle.barWhite,
-      cases:
-        state.whitePosPercap === '' ? undefined : state.whitePosPercap * 100,
-      deaths:
-        state.whiteDeathPercap === ''
-          ? undefined
-          : state.whiteDeathPercap * 100,
-    },
-    {
-      label: 'Asian/Pacific Islander',
-      style: socialCardStyle.barAPi,
-      cases: state.apiPosPercap === '' ? undefined : state.apiPosPercap * 100,
-      deaths:
-        state.apiDeathPercap === '' ? undefined : state.apiDeathPercap * 100,
-    },
-    {
-      label: 'Native Hawaiian/ Pacific Islander',
-      style: socialCardStyle.barNhpi,
-      cases: state.nhpiPosPercap === '' ? undefined : state.nhpiPosPercap * 100,
-      deaths:
-        state.nhpiDeathPercap === '' ? undefined : state.nhpiDeathPercap * 100,
-    },
-  ]
-
-  const aPi = groups.find(group => group.label === 'Asian/Pacific Islander')
-
-  if (
-    (aPi.cases === '' && aPi.deaths === '') ||
-    (aPi.cases === undefined && aPi.deaths === undefined)
-  ) {
-    groups = groups.filter(
-      // remove API bar
-      group => group.label !== 'Asian/Pacific Islander',
-    )
-  } else {
-    groups = groups.filter(
-      // remove asian and NHPI bars
-      group =>
-        group.label !== 'Native Hawaiian/ Pacific Islander' &&
-        group.label !== 'Asian',
-    )
-  }
-
-  groups = groups.filter(
-    // remove groups without case or death data
-    group => !(group.cases === '' && group.deaths === ''),
-  )
-
-  groups = groups.filter(
-    // remove groups without case or death data
-    group => !(group.cases === undefined && group.deaths === undefined),
-  )
-
-  const maxCasesPerCap = Math.max(...groups.map(group => group.cases))
-  const maxDeathsPerCap = Math.max(...groups.map(group => group.deaths))
-
-  groups.sort((a, b) => {
-    // sort bars by # of deaths
-    if (a.deaths >= b.deaths) {
-      return -1
-    }
-    return 1
-  })
-
-  /*
-    Copy to be used whenever {{GROUP}} is written
-    e.g., "In Hawaii, as of September 16, Asians/Pacific Islanders
-    have the highest COVID-19 infection rates..."
-  */
-  const copyLabels = {
-    'Black/African American': 'Black/African American people',
-    'Hispanic/Latino': 'Hispanic/Latino people',
-    Asian: 'Asian people',
-    White: 'White people',
-    'Asian/Pacific Islander': 'Asians/Pacific Islanders',
-    'Native Hawaiian/ Pacific Islander': 'Native Hawaiians/Pacific Islanders',
-    'American Indian/ Alaska Native': 'American Indians/Alaska Natives',
-  }
-
-  const worstDeathsValue = groups[0].deaths
-  const worstDeathsGroup = copyLabels[groups[0].label]
-
-  groups.sort((a, b) => {
-    // sort bars by # of cases
-    if (a.cases >= b.cases) {
-      return -1
-    }
-    return 1
-  })
-
-  const worstCasesValue = groups[0].cases
-  const worstCasesGroup = copyLabels[groups[0].label]
-
-  groups.forEach(group => {
-    /* eslint-disable no-param-reassign */
-    if (group.deaths === undefined && group.cases) {
-      group.justCases = true
-    } else {
-      group.justCases = false
-    }
-    if (group.cases === undefined && group.deaths) {
-      group.justDeaths = true
-    } else {
-      group.justDeaths = false
-    }
-  })
-
-  return {
-    groups,
-    maxCasesPerCap,
-    maxDeathsPerCap,
-    worstCasesGroup,
-    worstCasesValue,
-    worstDeathsGroup,
-    worstDeathsValue,
-  }
-}
-
-const getTypeOfRates = (state, combinedStates) => {
-  const stateStatus = getStateStatus(state, combinedStates)
-
-  if (stateStatus.noCharts) {
-    return 'no rates'
-  }
-
-  if (stateStatus.deathsOnly) {
-    return 'mortality rates'
-  }
-
-  if (stateStatus.casesOnly) {
-    return 'infection rates'
-  }
-
-  return 'infection and mortality rates'
-}
-
-const SocialCardLocale = ({ name }) => {
-  if (name === 'United States') {
-    return <strong>Nationwide</strong>
-  }
-
-  if (name === 'District of Columbia') {
-    return (
-      <>
-        In the <strong>District of Columbia</strong>
-      </>
-    )
-  }
-
-  return (
-    <>
-      In <strong>{name}</strong>
-    </>
-  )
-}
-
-const SocialCardHeader = ({ state, stateName }) => {
-  const today = new Date()
-  const { worstCasesGroup, worstDeathsGroup } = getGroups(state)
-
-  const name = state.name || stateName
-
-  if (worstDeathsGroup === worstCasesGroup) {
-    return (
-      <>
-        <SocialCardLocale name={name} />, as of{' '}
-        {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
-        {worstCasesGroup} had the highest risk of contracting COVID-19 and were
-        also most likely to have died.
-      </>
-    )
-  }
-  return (
-    <>
-      <SocialCardLocale name={name} />, as of{' '}
-      {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
-      {worstCasesGroup} had the highest risk of contracting COVID-19.{' '}
-      {worstDeathsGroup} were most likely to have died.
-    </>
-  )
-}
-
-const NoDataSocialCard = ({ stateName, square }) => {
-  const today = new Date()
-  return (
-    <div>
-      <div
-        className={classnames(
-          socialCardStyle.noDataContainer,
-          square && socialCardStyle.square,
-        )}
-      >
-        <img
-          className={socialCardStyle.alert}
-          src={alertIcon}
-          alt="Alert icon"
-        />
-        <p>
-          As of {today.toLocaleString('default', { month: 'long' })}{' '}
-          {today.getDate()}, <strong>{stateName}</strong> did not report race
-          and ethnicity data to allow for this comparison.
-        </p>
-        <p className={socialCardStyle.getBetterData}>
-          Help us get better data:
-          <br />
-          <strong>www.covidtracking.com/race/get-better-data</strong>
-        </p>
-        {square && (
-          <div className={socialCardStyle.logosContainer}>
-            <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
-            <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
-          </div>
-        )}
-      </div>
-      {!square && (
-        <>
-          <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
-          <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
-        </>
-      )}
-    </div>
-  )
-}
 
 const StateRaceSocialCard = renderedComponent(
   ({ state, combinedStates, square = false }) => {
@@ -410,12 +113,20 @@ const StateRaceSocialCard = renderedComponent(
                           {getWidthPercentage(
                             cases,
                             groupValues.worstCasesValue,
-                          ) > 50 && <span><FormatNumber number={cases} /></span>}
+                          ) > 50 && (
+                            <span>
+                              <FormatNumber number={cases} />
+                            </span>
+                          )}
                         </div>
                         {getWidthPercentage(
                           cases,
                           groupValues.worstCasesValue,
-                        ) < 50 && <span><FormatNumber number={cases} /></span>}
+                        ) < 50 && (
+                          <span>
+                            <FormatNumber number={cases} />
+                          </span>
+                        )}
                       </div>
                     )}
                   </>
@@ -449,12 +160,20 @@ const StateRaceSocialCard = renderedComponent(
                           {getWidthPercentage(
                             deaths,
                             groupValues.worstDeathsValue,
-                          ) > 50 && <span><FormatNumber number={deaths} /></span>}
+                          ) > 50 && (
+                            <span>
+                              <FormatNumber number={deaths} />
+                            </span>
+                          )}
                         </div>
                         {getWidthPercentage(
                           deaths,
                           groupValues.worstDeathsValue,
-                        ) < 50 && <span><FormatNumber number={deaths} /></span>}
+                        ) < 50 && (
+                          <span>
+                            <FormatNumber number={deaths} />
+                          </span>
+                        )}
                       </div>
                     )}
                   </>
@@ -471,74 +190,6 @@ const StateRaceSocialCard = renderedComponent(
     )
   },
 )
-
-const SocialCardFootnotes = ({ state, stateName }) => {
-  if (stateName === 'Utah') {
-    // special case
-    return (
-      <p className={socialCardStyle.notes}>
-        <strong>Notes:</strong> Utah has reported race and ethnicity data for{' '}
-        <Percent number={state.knownRaceEthPos} /> of cases and{' '}
-        <Percent number={state.knownRaceEthDeath} /> of deaths. Graphic only
-        includes demographic groups reported by the state. Race categories are
-        non-mutually-exclusive and are defined as not Hispanic or Latino.
-      </p>
-    )
-  }
-  if (stateName === 'Wyoming') {
-    // special case
-    return (
-      <p className={socialCardStyle.notes}>
-        <strong>Notes:</strong> Wyoming has reported race data for{' '}
-        <Percent number={state.knownRacePos} /> of cases and{' '}
-        <Percent number={state.knownRaceDeath} /> of deaths, and ethnicity data
-        for <Percent number={state.knownEthPos} /> of cases and{' '}
-        <Percent number={state.knownEthDeath} /> of deaths. Graphic only
-        includes demographic groups reported by the state. Race categories are
-        non-mutually-exclusive and include both Hispanic/Latino and
-        non-Hispanic/Latino ethnicity.
-      </p>
-    )
-  }
-  if (stateName === 'United States') {
-    // special case
-    return (
-      <p className={socialCardStyle.notes}>
-        <strong>Notes:</strong> Nationwide, the United States has reported race
-        and ethnicity data for <Percent number={state.knownRaceEthPos} /> of
-        cases and <Percent number={state.knownRaceEthDeath} /> of deaths.
-        Graphic includes demographic data reported across all states, using
-        standard Census categories where possible. Race categories include both
-        Hispanic/Latino and non-Hispanic/Latino ethnicity.
-      </p>
-    )
-  }
-  return (
-    <p className={socialCardStyle.notes}>
-      {state.knownRaceEthPos ? (
-        <>
-          <strong>Notes:</strong> {stateName} has reported race and ethnicity
-          data for <Percent number={state.knownRaceEthPos} /> of cases and{' '}
-          <Percent number={state.knownRaceEthDeath} /> of deaths. Graphic only
-          includes demographic groups reported by the state. Race categories are
-          mutually exclusive and include both Hispanic/Latino and
-          non-Hispanic/Latino ethnicity.
-        </>
-      ) : (
-        <>
-          <strong>Notes:</strong> {stateName} has reported race data for{' '}
-          <Percent number={state.knownRacePos} /> of cases and{' '}
-          <Percent number={state.knownRaceDeath} /> of deaths, and ethnicity
-          data for <Percent number={state.knownEthPos} /> of cases and{' '}
-          <Percent number={state.knownEthDeath} /> of deaths. Graphic only
-          includes demographic groups reported by the state. Race categories are
-          non-mutually-exclusive and include both Hispanic/Latino and
-          non-Hispanic/Latino ethnicity.
-        </>
-      )}{' '}
-    </p>
-  )
-}
 
 const CreateStateRaceSocialCards = () => {
   const data = useStaticQuery(graphql`
@@ -710,4 +361,4 @@ const CreateStateRaceSocialCards = () => {
 
 export default CreateStateRaceSocialCards
 
-export { SocialCardHeader, getGroups, getTypeOfRates }
+export { SocialCardHeader }

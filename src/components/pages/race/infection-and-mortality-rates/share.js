@@ -4,7 +4,7 @@ import SocialSharing from '~components/common/social-sharing'
 import {
   getGroups,
   getTypeOfRates,
-} from '~components/social-media-graphics/race/state'
+} from '~components/social-media-graphics/race/utils'
 
 import shareStyles from './share.module.scss'
 

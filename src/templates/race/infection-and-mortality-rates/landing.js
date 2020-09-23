@@ -2,10 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
-import {
-  SocialCardHeader,
-  getTypeOfRates,
-} from '~components/social-media-graphics/race/state'
+import { getTypeOfRates } from '~components/social-media-graphics/race/utils'
+import SocialCardHeader from '~components/social-media-graphics/race/header'
 
 import landingStyles from './landing.module.scss'
 
@@ -31,7 +29,10 @@ export default ({ pageContext, path, data }) => {
       )} by race and ethnicity`}
       returnLinks={[
         { link: '/race' },
-        { link: '/race/infection-and-mortality-rates', title: 'Infection and Mortality Rates' },
+        {
+          link: '/race/infection-and-mortality-rates',
+          title: 'Infection and Mortality Rates',
+        },
       ]}
       path={path}
       socialCard={`//covidtracking.com/images/race-dashboard/${state.childSlug.slug}.png`}
