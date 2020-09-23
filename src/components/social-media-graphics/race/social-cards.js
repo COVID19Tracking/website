@@ -1,25 +1,12 @@
-/* eslint-disable no-unused-vars */
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import DetailText from '~components/common/detail-text'
-import Layout from '~components/layout'
-import RaceSocialCards from '~components/social-media-graphics/race/social-cards'
-import SocialCardsSelect from '~components/pages/race/infection-and-mortality-rates/select'
+import StateRaceSocialCard from './social-card'
 
-export default () => {
+const CreateStateRaceSocialCards = () => {
   const data = useStaticQuery(graphql`
     {
-      contentfulSnippet(slug: { eq: "crdt-social-cards-preamble" }) {
-        content {
-          childMarkdownRemark {
-            html
-          }
-        }
-      }
-      allCovidRaceDataCombined(
-        filter: { state: { nin: ["AS", "GU", "MP", "VI"] } }
-      ) {
+      allCovidRaceDataCombined {
         nodes {
           state
           name
@@ -61,11 +48,11 @@ export default () => {
           whiteDeathPercap
           nhpiPosPercap
           nhpiDeathPercap
+          apiPosPercap
+          apiDeathPercap
         }
       }
-      allCovidRaceDataSeparate(
-        filter: { state: { nin: ["AS", "GU", "MP", "VI"] } }
-      ) {
+      allCovidRaceDataSeparate {
         nodes {
           state
           name
@@ -109,58 +96,79 @@ export default () => {
           whiteDeathPercap
           nhpiPosPercap
           nhpiDeathPercap
+          apiPosPercap
+          apiDeathPercap
         }
       }
-      allCovidStateInfo(filter: { state: { nin: ["AS", "GU", "MP", "VI"] } }) {
+      allCovidStateInfo {
         nodes {
           state
           name
           childSlug {
             slug
           }
-          childPopulation {
-            population
-          }
         }
       }
     }
   `)
 
+  const states = data.allCovidStateInfo.nodes
+
+  states.unshift({
+    state: 'US',
+    name: 'United States',
+    childSlug: {
+      slug: 'united-states',
+    },
+  })
+
+  const combinedStates = data.allCovidRaceDataCombined.nodes.map(
+    node => node.state,
+  )
+
   return (
-    <Layout
-      title="Infection and Mortality Rates by Race and Ethnicity"
-      returnLinks={[
-        { link: '/race' },
-        { link: `/race/dashboard`, title: 'Racial Data Dashboard' },
-      ]}
-      path="/race/infection-and-mortality-rates"
-      centered
-    >
-      <div
-        dangerouslySetInnerHTML={{
-          __html: data.contentfulSnippet.content.childMarkdownRemark.html,
-        }}
-      />
-      <h3>See the per capita rates by state</h3>
-      <p>
-        Select a state or territory to see the latest information about COVID-19
-        cases and deaths per 100k people for each race and ethnicity. These
-        charts are updated twice per week and use standard Census categories for
-        race and ethnicity.
-      </p>
-      <p>
-        <DetailText>
-          The data shown in these charts are reported by the state or territory
-          and do not include those with race classified as “Other” or “Two or
-          more races.” Hispanic or Latino ethnicity may include any race.
-        </DetailText>
-      </p>
-      <SocialCardsSelect
-        separateStates={data.allCovidRaceDataSeparate.nodes}
-        combinedStates={data.allCovidRaceDataCombined.nodes}
-        stateInfo={data.allCovidStateInfo.nodes}
-      />
-      <RaceSocialCards />
-    </Layout>
+    <>
+      {states.map(state => (
+        <>
+          <StateRaceSocialCard
+            state={
+              data.allCovidRaceDataSeparate.nodes.find(
+                node => node.state === state.state,
+              ) ||
+              data.allCovidRaceDataCombined.nodes.find(
+                node => node.state === state.state,
+              )
+            }
+            combinedStates={combinedStates}
+            renderOptions={{
+              width: 900,
+              height: 472.5,
+              relativePath: 'race-dashboard',
+              filename: `${state.childSlug.slug}`,
+            }}
+          />
+          <StateRaceSocialCard
+            state={
+              data.allCovidRaceDataSeparate.nodes.find(
+                node => node.state === state.state,
+              ) ||
+              data.allCovidRaceDataCombined.nodes.find(
+                node => node.state === state.state,
+              )
+            }
+            combinedStates={combinedStates}
+            renderOptions={{
+              width: 700,
+              height: 700,
+              relativePath: 'race-dashboard',
+              filename: `${state.childSlug.slug}-square`,
+            }}
+            square
+          />
+        </>
+      ))}
+    </>
   )
 }
+
+export default CreateStateRaceSocialCards

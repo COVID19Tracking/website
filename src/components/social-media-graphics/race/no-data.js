@@ -6,7 +6,7 @@ import Logo from '~images/ctp-icon-small.png'
 import CarLogo from '~images/car-logo-small.png'
 import alertIcon from '~images/race-dashboard/alert-bang-orange.svg'
 
-import socialCardStyle from './state.module.scss'
+import socialCardStyle from './social-card.module.scss'
 
 const NoDataSocialCard = ({ stateName, square }) => {
   const today = new Date()

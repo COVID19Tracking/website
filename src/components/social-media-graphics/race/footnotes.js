@@ -2,7 +2,7 @@ import React from 'react'
 
 import Percent from '~components/pages/race/dashboard/percent'
 
-import socialCardStyle from './state.module.scss'
+import socialCardStyle from './social-card.module.scss'
 
 const SocialCardFootnotes = ({ state, stateName }) => {
   if (stateName === 'Utah') {

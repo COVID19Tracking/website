@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
+
 import { getTypeOfRates } from '~components/social-media-graphics/race/utils'
 import SocialCardHeader from '~components/social-media-graphics/race/header'
 
