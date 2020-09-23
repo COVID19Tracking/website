@@ -47,9 +47,6 @@ jobs:
           name: setup
           command: 'npm run setup:env-vars'
       - run:
-          name: scrollama
-          command: 'npm run build:scrollama'
-      - run:
           name: build
           command: 'npm run build:gatsby'
       - run:
@@ -84,9 +81,6 @@ jobs:
       - run:
           name: install
           command: 'npm install'
-      - run:
-          name: scrollama
-          command: 'npm run build:scrollama'
       - run:
           name: lint
           command: 'npm run test:lint'
