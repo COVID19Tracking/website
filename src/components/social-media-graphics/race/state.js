@@ -462,8 +462,8 @@ const StateRaceSocialCard = renderedComponent(
               </>
             ),
           )}
-          <SocialCardFootnotes state={state} stateName={state.name} />
         </div>
+        <SocialCardFootnotes state={state} stateName={state.name} />
 
         <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
         <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />

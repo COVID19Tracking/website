@@ -122,13 +122,17 @@
     text-align: right;
   }
 
-  .notes {
-    grid-column-start: case-bars-start;
-    grid-column-end: death-bars-end;
-    color: $color-slate-700;
-    font-size: 13px; // ignore-style-rule
-    line-height: 1.2;
-  }
+}
+
+.notes {
+  position: fixed;
+  width: 675px;
+  left: 50px;
+  bottom: 10px;
+
+  color: $color-slate-700;
+  font-size: 13px; // ignore-style-rule
+  line-height: 1.2;
 }
 
 .ctp-logo {
