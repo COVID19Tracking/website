@@ -207,13 +207,9 @@ export const query = graphql`
         }
       }
     }
-    covidLtcStates(State_Abbr: { eq: $state }) {
-      Date
-      State_Abbr
-      outbrkFacil_alf
-      outbrkFacil_other
-      outbrkFacil_ltc
-      outbrkFacil_nh
+    covidLtcStates(state_abbr: { eq: $state }) {
+      date
+      state_abbr
     }
   }
 `

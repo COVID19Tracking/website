@@ -29,8 +29,8 @@ const getAllowedCategories = data => {
   return allowedCategories
 }
 
-const LongTermCareSummaryTable = ({ data }) => {
-  const categories = getAllowedCategories(data)
+const LongTermCareSummaryTable = ({ cumulative, outbreak }) => {
+  const categories = getAllowedCategories(cumulative)
   return (
     <table className={classnames(summaryTableStyle.table, tableStyle.table)}>
       <thead>
@@ -64,22 +64,24 @@ const LongTermCareSummaryTable = ({ data }) => {
                 </span>
               </th>
               <td>
-                <FormatNumber number={data[`PosRes_${category}`]} />
+                <FormatNumber number={cumulative[`posres_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={data[`DeathRes_${category}`]} />
+                <FormatNumber number={cumulative[`deathres_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={data[`PosStaff_${category}`]} />
+                <FormatNumber number={cumulative[`posstaff_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={data[`DeathStaff_${category}`]} />
+                <FormatNumber number={cumulative[`deathstaff_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={data[`PosResStaff_${category}`]} />
+                <FormatNumber number={cumulative[`posresstaff_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={data[`DeathResStaff_${category}`]} />
+                <FormatNumber
+                  number={cumulative[`deathresrtaff_${category}`]}
+                />
               </td>
             </tr>
             <tr>
@@ -90,84 +92,29 @@ const LongTermCareSummaryTable = ({ data }) => {
                 </span>
               </th>
               <td>
-                <FormatNumber number={data[`PosRes_${category}`]} />
+                <FormatNumber number={outbreak[`posres_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={data[`DeathRes_${category}`]} />
+                <FormatNumber number={outbreak[`deathres_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={data[`PosStaff_${category}`]} />
+                <FormatNumber number={outbreak[`posstaff_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={data[`DeathStaff_${category}`]} />
+                <FormatNumber number={outbreak[`deathstaff_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={data[`PosResStaff_${category}`]} />
+                <FormatNumber number={outbreak[`posresstaff_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={data[`DeathResStaff_${category}`]} />
+                <FormatNumber number={outbreak[`deathresrtaff_${category}`]} />
               </td>
             </tr>
           </>
         ))}
       </tbody>
     </table>
-  ) /* 
-  return (
-    <>
-      {categories.map(category => (
-        <>
-          <h2>{categoryLabels[category]}</h2>
-          <TableResponsive
-            labels={[
-              {
-                field: 'Date',
-                format: date => (
-                  <FormatDate date={date} format="ccc LLL d yyyy" />
-                ),
-              },
-              {
-                label: 'Outbreaks',
-                field: `outbrkFacil_${category}`,
-                format: formatNumber,
-              },
-              {
-                label: 'Staff cases',
-                field: `PosStaff_${category}`,
-                format: formatNumber,
-              },
-              {
-                label: 'Resident cases',
-                field: `PosRes_${category}`,
-                format: formatNumber,
-              },
-              {
-                label: 'Staff & Resident cases',
-                field: `PosResStaff_${category}`,
-                format: formatNumber,
-              },
-              {
-                label: 'Staff deaths',
-                field: `DeathStaff_${category}`,
-                format: formatNumber,
-              },
-              {
-                label: 'Resident deaths',
-                field: `DeathRes_${category}`,
-                format: formatNumber,
-              },
-              {
-                label: 'Staff & Resident deaths',
-                field: `DeathResStaff_${category}`,
-                format: formatNumber,
-              },
-            ]}
-            data={data}
-          />
-        </>
-      ))}
-    </>
-  ) */
+  )
 }
 
 export default LongTermCareSummaryTable

@@ -19,15 +19,18 @@ export default ({ pageContext, path, data }) => {
       ]}
       path={path}
     >
-      {data.allCovidLtcStates.nodes.length ? (
+      {data.cumulative.nodes.length ? (
         <>
           <LongTermCareOverview
             facilities={data.allCovidLtcFacilities.nodes.length}
-            overview={data.allCovidLtcStates.nodes[0]}
+            overview={data.cumulative.nodes[0]}
           />
           <LongTermCareAlertNote>An alert note.</LongTermCareAlertNote>
           <h2 id="summary">Summary</h2>
-          <LongTermCareSummaryTable data={data.allCovidLtcStates.nodes[0]} />
+          <LongTermCareSummaryTable
+            cumulative={data.cumulative.nodes[0]}
+            outbreak={data.outbreak.nodes[0]}
+          />
           <h2 id="notes">State notes</h2>
           <div
             dangerouslySetInnerHTML={{
@@ -50,41 +53,72 @@ export default ({ pageContext, path, data }) => {
 
 export const query = graphql`
   query($state: String!) {
-    allCovidLtcStates(
-      sort: { fields: Date, order: DESC }
-      filter: { State_Abbr: { eq: $state } }
+    cumulative: allCovidLtcStates(
+      sort: { fields: date, order: DESC }
+      filter: { state_abbr: { eq: $state }, data_type: { eq: "Aggregate" } }
       limit: 1
     ) {
       nodes {
-        Date
-        outbrkFacil_other
-        outbrkFacil_nh
-        outbrkFacil_ltc
-        outbrkFacil_alf
-        PosStaff_other
-        PosStaff_nh
-        PosStaff_ltc
-        PosStaff_alf
-        PosRes_other
-        PosRes_nh
-        PosRes_ltc
-        PosRes_alf
-        PosResStaff_other
-        PosResStaff_nh
-        PosResStaff_ltc
-        PosResStaff_alf
-        DeathStaff_other
-        DeathStaff_nh
-        DeathStaff_ltc
-        DeathStaff_alf
-        DeathRes_other
-        DeathRes_nh
-        DeathRes_ltc
-        DeathRes_alf
-        DeathResStaff_other
-        DeathResStaff_nh
-        DeathResStaff_ltc
-        DeathResStaff_alf
+        date
+        posstaff_other
+        posstaff_nh
+        posstaff_ltc
+        posstaff_alf
+        posres_other
+        posres_nh
+        posres_ltc
+        posres_alf
+        posresstaff_other
+        posresstaff_nh
+        posresstaff_ltc
+        posresstaff_alf
+        deathstaff_other
+        deathstaff_nh
+        deathstaff_ltc
+        deathstaff_alf
+        deathres_other
+        deathres_nh
+        deathres_ltc
+        deathres_alf
+        deathresstaff_other
+        deathresstaff_nh
+        deathresstaff_ltc
+        deathresstaff_alf
+        data_type
+      }
+    }
+    outbreak: allCovidLtcStates(
+      sort: { fields: date, order: DESC }
+      filter: { state_abbr: { eq: $state }, data_type: { eq: "Outbreak" } }
+      limit: 1
+    ) {
+      nodes {
+        date
+        posstaff_other
+        posstaff_nh
+        posstaff_ltc
+        posstaff_alf
+        posres_other
+        posres_nh
+        posres_ltc
+        posres_alf
+        posresstaff_other
+        posresstaff_nh
+        posresstaff_ltc
+        posresstaff_alf
+        deathstaff_other
+        deathstaff_nh
+        deathstaff_ltc
+        deathstaff_alf
+        deathres_other
+        deathres_nh
+        deathres_ltc
+        deathres_alf
+        deathresstaff_other
+        deathresstaff_nh
+        deathresstaff_ltc
+        deathresstaff_alf
+        data_type
       }
     }
     covidLtcNotes(state: { eq: $state }) {

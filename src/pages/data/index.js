@@ -218,15 +218,11 @@ export const query = graphql`
         }
       }
     }
-    allCovidLtcStates(sort: { fields: Date, order: DESC }) {
-      group(field: State_Abbr, limit: 1) {
+    allCovidLtcStates(sort: { fields: date, order: DESC }) {
+      group(field: state_abbr, limit: 1) {
         nodes {
-          Date
-          State_Abbr
-          outbrkFacil_alf
-          outbrkFacil_other
-          outbrkFacil_ltc
-          outbrkFacil_nh
+          date
+          state_abbr
         }
       }
     }
