@@ -145,6 +145,18 @@
   bottom: 30px;
 }
 
+.bar-container {
+  display: flex;
+  font-size: 13px; // ignore-style-rule
+  line-height: 1;
+  align-items: flex-start;
+
+  &>span {
+    margin-left: 5px;
+    margin-top: 6px;
+  }
+}
+
 .bar {
   height: 25px;
   width: 15px;
@@ -204,6 +216,12 @@
 .square {
   .bar {
     height: 35px;
+  }
+  .bar-container {
+    span {
+      margin-left: 5px;
+      margin-top: 11px;
+    }
   }
   .bar.death-bar {
     margin-left: 24px;

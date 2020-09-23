@@ -316,8 +316,9 @@ const NoDataSocialCard = ({ stateName, square }) => {
 const StateRaceSocialCard = renderedComponent(
   ({ state, combinedStates, square = false }) => {
     // gets the width of the bar for the bar charts
-    const getWidth = (number, max) =>
-      `${number / max > 0.1 ? (number / max) * 100 : 10}%`
+
+    const getWidthPercentage = (number, max) =>
+      number / max > 0.1 ? (number / max) * 100 : 2
 
     const groupValues = getGroups(state)
     const { groups } = groupValues
@@ -396,13 +397,25 @@ const StateRaceSocialCard = renderedComponent(
                         No data reported
                       </span>
                     ) : (
-                      <div
-                        className={classnames(socialCardStyle.bar, style)}
-                        style={{
-                          width: getWidth(cases, groupValues.worstCasesValue),
-                        }}
-                      >
-                        <FormatNumber number={cases} />
+                      <div className={socialCardStyle.barContainer}>
+                        <div
+                          className={classnames(socialCardStyle.bar, style)}
+                          style={{
+                            width: `${getWidthPercentage(
+                              cases,
+                              groupValues.worstCasesValue,
+                            )}%`,
+                          }}
+                        >
+                          {getWidthPercentage(
+                            cases,
+                            groupValues.worstCasesValue,
+                          ) > 50 && <span><FormatNumber number={cases} /></span>}
+                        </div>
+                        {getWidthPercentage(
+                          cases,
+                          groupValues.worstCasesValue,
+                        ) < 50 && <span><FormatNumber number={cases} /></span>}
                       </div>
                     )}
                   </>
@@ -419,17 +432,29 @@ const StateRaceSocialCard = renderedComponent(
                         No data reported
                       </span>
                     ) : (
-                      <div
-                        className={classnames(
-                          socialCardStyle.bar,
-                          socialCardStyle.deathBar,
-                          style,
-                        )}
-                        style={{
-                          width: getWidth(deaths, groupValues.worstDeathsValue),
-                        }}
-                      >
-                        <FormatNumber number={deaths} />
+                      <div className={socialCardStyle.barContainer}>
+                        <div
+                          className={classnames(
+                            socialCardStyle.bar,
+                            socialCardStyle.deathBar,
+                            style,
+                          )}
+                          style={{
+                            width: `${getWidthPercentage(
+                              deaths,
+                              groupValues.worstDeathsValue,
+                            )}%`,
+                          }}
+                        >
+                          {getWidthPercentage(
+                            deaths,
+                            groupValues.worstDeathsValue,
+                          ) > 50 && <span><FormatNumber number={deaths} /></span>}
+                        </div>
+                        {getWidthPercentage(
+                          deaths,
+                          groupValues.worstDeathsValue,
+                        ) < 50 && <span><FormatNumber number={deaths} /></span>}
                       </div>
                     )}
                   </>
