@@ -316,7 +316,8 @@ exports[`Components : Race : National Chart renders correctly 1`] = `
   <p
     className="paragraph paragraph"
   >
-    We’ve lost at least 
+    We’ve lost at least
+     
     26,708
      Black lives to COVID-19 to date. Black people account for
      
