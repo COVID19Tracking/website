@@ -1,36 +1,46 @@
 import React from 'react'
+import { Row, Col } from '~components/common/grid'
+import BarChart from '~components/charts/bar-chart'
 
-import {
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-  ComposedChart,
-  Bar,
-  ResponsiveContainer,
-} from 'recharts'
+const LongTermCareBarChart = ({ data }) => {
+  const deathData = data.map(item => ({
+    date: item.date,
+    value:
+      item.deathres_other +
+      item.deathres_nh +
+      item.deathres_ltc +
+      item.deathres_alf,
+  }))
 
-const LongTermCareBarChart = ({ data }) => (
-  <ResponsiveContainer width="100%" height={500}>
-    <ComposedChart
-      data={data.map(item => ({
-        ...item,
-        resident_deaths:
-          item.deathres_other +
-          item.deathres_nh +
-          item.deathres_ltc +
-          item.deathres_alf,
-      }))}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="date" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="resident_deaths" label="Resident deaths" fill="#000000" />
-    </ComposedChart>
-  </ResponsiveContainer>
-)
+  const caseData = data.map(item => ({
+    date: item.date,
+    value:
+      item.posres_other + item.posres_nh + item.posres_ltc + item.posres_alf,
+  }))
+
+  return (
+    <Row>
+      <Col width={[4, 6, 6]}>
+        <BarChart
+          data={deathData}
+          height={280}
+          width={300}
+          marginBottom={20}
+          marginTop={10}
+          fill="#aaa"
+        />
+      </Col>
+      <Col width={[4, 6, 6]}>
+        <BarChart
+          data={caseData}
+          height={280}
+          width={300}
+          marginBottom={20}
+          marginTop={10}
+        />
+      </Col>
+    </Row>
+  )
+}
 
 export default LongTermCareBarChart
