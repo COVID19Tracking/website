@@ -12,7 +12,15 @@ const BlogTeaserList = ({ items }) => (
       <div key={`blog-${node.slug}`} className={blogTeaserListStyle.teaser}>
         <Categories categories={node.categories} lightBackground />
         <h2 className={blogTeaserListStyle.title}>
-          <Link to={`/blog/${node.slug}`}>{node.title}</Link>
+          <Link
+            to={
+              node.overrideBlogPage
+                ? node.overrideBlogPath
+                : `/blog/${node.slug}`
+            }
+          >
+            {node.title}
+          </Link>
         </h2>
         <p className="lede">
           <CleanSpacing>{node.lede.lede}</CleanSpacing>
