@@ -10,10 +10,10 @@ const LongTermCareOverview = ({ facilities, overview }) => {
   let totalCases = 0
   Object.keys(overview).forEach(key => {
     if (key.search(/posres|posstaff/) > -1) {
-      totalCases += parseInt(overview[key], 10)
+      totalCases += overview[key]
     }
     if (key.search(/deathres|deathstaff/) > -1) {
-      totalDeath += parseInt(overview[key], 10)
+      totalDeath += overview[key]
     }
   })
   return (

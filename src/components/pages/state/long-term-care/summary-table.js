@@ -29,8 +29,8 @@ const getAllowedCategories = data => {
   return allowedCategories
 }
 
-const LongTermCareSummaryTable = ({ cumulative, outbreak }) => {
-  const categories = getAllowedCategories(cumulative)
+const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
+  const categories = getAllowedCategories(aggregate)
   return (
     <table className={classnames(summaryTableStyle.table, tableStyle.table)}>
       <thead>
@@ -64,24 +64,22 @@ const LongTermCareSummaryTable = ({ cumulative, outbreak }) => {
                 </span>
               </th>
               <td>
-                <FormatNumber number={cumulative[`posres_${category}`]} />
+                <FormatNumber number={aggregate[`posres_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={cumulative[`deathres_${category}`]} />
+                <FormatNumber number={aggregate[`deathres_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={cumulative[`posstaff_${category}`]} />
+                <FormatNumber number={aggregate[`posstaff_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={cumulative[`deathstaff_${category}`]} />
+                <FormatNumber number={aggregate[`deathstaff_${category}`]} />
               </td>
               <td>
-                <FormatNumber number={cumulative[`posresstaff_${category}`]} />
+                <FormatNumber number={aggregate[`posresstaff_${category}`]} />
               </td>
               <td>
-                <FormatNumber
-                  number={cumulative[`deathresrtaff_${category}`]}
-                />
+                <FormatNumber number={aggregate[`deathresrtaff_${category}`]} />
               </td>
             </tr>
             <tr>

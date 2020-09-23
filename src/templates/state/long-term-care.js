@@ -4,6 +4,7 @@ import marked from 'marked'
 import LongTermCareSummaryTable from '~components/pages/state/long-term-care/summary-table'
 import LongTermCareFacilities from '~components/pages/state/long-term-care/facilities'
 import LongTermCareOverview from '~components/pages/state/long-term-care/overview'
+import LongTermCareBarChart from '~components/pages/state/long-term-care/chart'
 import LongTermCareAlertNote from '~components/pages/state/long-term-care/alert-note'
 import Layout from '~components/layout'
 
@@ -19,16 +20,17 @@ export default ({ pageContext, path, data }) => {
       ]}
       path={path}
     >
-      {data.cumulative.nodes.length ? (
+      {data.aggregate.nodes.length ? (
         <>
           <LongTermCareOverview
             facilities={data.allCovidLtcFacilities.nodes.length}
-            overview={data.cumulative.nodes[0]}
+            overview={data.aggregate.nodes[0]}
           />
+          <LongTermCareBarChart data={data.cumulative.nodes} />
           <LongTermCareAlertNote>An alert note.</LongTermCareAlertNote>
           <h2 id="summary">Summary</h2>
           <LongTermCareSummaryTable
-            cumulative={data.cumulative.nodes[0]}
+            aggregate={data.aggregate.nodes[0]}
             outbreak={data.outbreak.nodes[0]}
           />
           <h2 id="notes">State notes</h2>
@@ -53,7 +55,7 @@ export default ({ pageContext, path, data }) => {
 
 export const query = graphql`
   query($state: String!) {
-    cumulative: allCovidLtcStates(
+    aggregate: allCovidLtcStates(
       sort: { fields: date, order: DESC }
       filter: { state_abbr: { eq: $state }, data_type: { eq: "Aggregate" } }
       limit: 1
@@ -91,6 +93,40 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
       filter: { state_abbr: { eq: $state }, data_type: { eq: "Outbreak" } }
       limit: 1
+    ) {
+      nodes {
+        date
+        posstaff_other
+        posstaff_nh
+        posstaff_ltc
+        posstaff_alf
+        posres_other
+        posres_nh
+        posres_ltc
+        posres_alf
+        posresstaff_other
+        posresstaff_nh
+        posresstaff_ltc
+        posresstaff_alf
+        deathstaff_other
+        deathstaff_nh
+        deathstaff_ltc
+        deathstaff_alf
+        deathres_other
+        deathres_nh
+        deathres_ltc
+        deathres_alf
+        deathresstaff_other
+        deathresstaff_nh
+        deathresstaff_ltc
+        deathresstaff_alf
+        data_type
+      }
+    }
+
+    cumulative: allCovidLtcStates(
+      sort: { fields: date }
+      filter: { state_abbr: { eq: $state }, data_type: { eq: "Cumulative" } }
     ) {
       nodes {
         date
