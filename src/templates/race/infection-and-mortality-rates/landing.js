@@ -31,7 +31,7 @@ export default ({ pageContext, path, data }) => {
       )} by race and ethnicity`}
       returnLinks={[
         { link: '/race' },
-        { link: `/race/dashboard`, title: 'Racial Data Dashboard' },
+        { link: '/race/infection-and-mortality-rates', title: 'Infection and Mortality Rates' },
       ]}
       path={path}
       socialCard={`//covidtracking.com/images/race-dashboard/${state.childSlug.slug}.png`}
