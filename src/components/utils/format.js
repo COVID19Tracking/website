@@ -31,11 +31,17 @@ const FormatDate = ({
   )
 }
 
-const FormatNumber = ({ number, nullValue = false, precision = 1 }) => {
+const FormatNumber = ({ number, nullValue = false, precision = 0 }) => {
   const nullDisplay = nullValue || 'N/A'
-  const precisionDenominator = 10 ** precision
-  const roundedNumber =
-    Math.round(parseFloat(number) * precisionDenominator) / precisionDenominator
+  let roundedNumber
+  if (precision === 0) {
+    roundedNumber = number
+  } else {
+    const precisionDenominator = 10 ** precision
+    roundedNumber =
+      Math.round(parseFloat(number) * precisionDenominator) /
+      precisionDenominator
+  }
   return <>{roundedNumber.toLocaleString() || nullDisplay}</>
 }
 
