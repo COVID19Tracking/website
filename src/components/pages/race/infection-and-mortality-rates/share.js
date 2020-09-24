@@ -79,7 +79,6 @@ export default ({ state, stateRaceData, combinedStates }) => {
           alt={socialCardShareText}
           className={shareStyles.preview}
         />
-        <p className={shareStyles.shareText}>{socialCardShareText}</p>
       </div>
       <DetailText centered className={shareStyles.clickToShare}>
         Share this directly on social media or{' '}

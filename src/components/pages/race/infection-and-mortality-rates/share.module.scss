@@ -1,6 +1,5 @@
 .preview {
   @include margin(16, top);
-  border-bottom: 2px solid $color-slate-200;
 }
 
 .license-info {
@@ -26,9 +25,4 @@
 .share-wrapper {
   border: 2px solid $color-slate-200;
   @include margin(32, bottom);
-}
-
-.share-text {
-  text-align: center;
-  @include margin(32, right left);
 }
