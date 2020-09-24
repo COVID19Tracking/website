@@ -62,6 +62,9 @@ const StateRaceSocialCard = renderedComponent(
           <span />
           <span />
           <span />
+          {stateStatus.oneChart && (
+            <span />
+          )}
           {!stateStatus.deathsOnly && (
             <span
               className={classnames(
