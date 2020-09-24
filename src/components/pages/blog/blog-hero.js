@@ -16,6 +16,7 @@ const BlogHero = ({
   lede,
   twitterText,
   id,
+  hideByline,
 }) => (
   <div className={blogHeroStyles.container} narrow centered>
     <ReturnLinks>
@@ -45,6 +46,7 @@ const BlogHero = ({
       twitterText={twitterText}
       id={id}
       darkBackground
+      hideByline={hideByline}
     />
   </div>
 )
