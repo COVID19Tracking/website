@@ -74,27 +74,6 @@ const pagesQuery = `{
   }
 }`
 
-const ltcFacilitiesQuery = `{
-  allCovidLtcFacilities {
-    edges { 
-      node  {
-        county
-        date
-        name
-        resident_probable_deaths
-        resident_probable
-        state
-        type
-        cms_id
-        resident_deaths
-        resident_positive
-        staff_deaths
-        staff_positive
-      }
-    }
-  }
-}`
-
 /**
  * Transform the State data, merging updatedAt & building slug.
  *
@@ -242,14 +221,5 @@ export const queries = [
     indexName: prefixSearchIndex('page'),
     transformer: ({ data }) => chunkPages(data),
     settings: pageSettings,
-  },
-  {
-    query: ltcFacilitiesQuery,
-    indexName: prefixSearchIndex('ltcFacilities'),
-    transformer: ({ data }) =>
-      data.allCovidLtcFacilities.edges.map(({ node }) => node),
-    settings: {
-      searchableAttributes: ['name', 'city', 'county', 'state'],
-    },
   },
 ]
