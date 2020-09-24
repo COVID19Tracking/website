@@ -1,5 +1,6 @@
 import React from 'react'
 import { Row, Col } from '~components/common/grid'
+import colors from '~scss/colors.module.scss'
 import BarChart from '~components/charts/bar-chart'
 
 const LongTermCareBarChart = ({ data }) => {
@@ -21,23 +22,29 @@ const LongTermCareBarChart = ({ data }) => {
   return (
     <Row>
       <Col width={[4, 6, 6]}>
+        <h3>Total deaths</h3>
         <BarChart
           data={deathData}
           height={280}
           width={300}
           marginBottom={20}
+          marginLeft={40}
+          marginRight={40}
           marginTop={10}
-          fill="#aaa"
+          fill={colors.colorPlum500}
         />
       </Col>
       <Col width={[4, 6, 6]}>
+        <h3>Total cases</h3>
         <BarChart
           data={caseData}
           height={280}
           width={300}
           marginBottom={20}
+          marginLeft={40}
+          marginRight={40}
           marginTop={10}
-          fill="#aaa"
+          fill={colors.colorHoney500}
         />
       </Col>
     </Row>

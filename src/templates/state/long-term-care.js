@@ -23,7 +23,7 @@ export default ({ pageContext, path, data }) => {
       {data.aggregate.nodes.length ? (
         <>
           <LongTermCareOverview
-            facilities={data.allCovidLtcFacilities.nodes.length}
+            facilities={data.allCovidLtcFacilities.group.length}
             overview={data.aggregate.nodes[0]}
           />
           <LongTermCareBarChart data={data.cumulative.nodes} />
@@ -41,7 +41,7 @@ export default ({ pageContext, path, data }) => {
           />
           <h2 id="facilities">Facilities</h2>
           <LongTermCareFacilities
-            facilities={data.allCovidLtcFacilities.nodes}
+            facilities={data.allCovidLtcFacilities.group}
           />
         </>
       ) : (
@@ -161,19 +161,22 @@ export const query = graphql`
       notes
     }
     allCovidLtcFacilities(
-      sort: { fields: name }
+      sort: { fields: date, order: DESC }
       filter: {
         state: { eq: $state }
         resident_positive: { gt: 0 }
         resident_deaths: { gt: 0 }
       }
     ) {
-      nodes {
-        name
-        type
-        county
-        resident_positive
-        resident_deaths
+      group(field: name, limit: 1) {
+        nodes {
+          name
+          date
+          type
+          county
+          resident_positive
+          resident_deaths
+        }
       }
     }
   }
