@@ -53,8 +53,7 @@ const SocialCardFootnotes = ({ state, stateName }) => {
           data for <Percent number={state.knownRaceEthPos} /> of cases and{' '}
           <Percent number={state.knownRaceEthDeath} /> of deaths. Graphic only
           includes demographic groups reported by the state. Race categories are
-          mutually exclusive and include both Hispanic/Latino and
-          non-Hispanic/Latino ethnicity.
+          mutually exclusive and defined as not Hispanic or Latino.
         </>
       ) : (
         <>
