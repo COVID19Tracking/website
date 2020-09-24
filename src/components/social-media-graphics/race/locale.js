@@ -2,7 +2,11 @@ import React from 'react'
 
 const SocialCardLocale = ({ name }) => {
   if (name === 'United States') {
-    return <strong>Nationwide</strong>
+    return (
+      <>
+        In the <strong>United States</strong>
+      </>
+    )
   }
 
   if (name === 'District of Columbia') {
