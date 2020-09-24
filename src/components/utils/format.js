@@ -42,7 +42,7 @@ const FormatNumber = ({ number, nullValue = false, precision = 0 }) => {
       Math.round(parseFloat(number) * precisionDenominator) /
       precisionDenominator
   }
-  return <>{roundedNumber.toLocaleString() || nullDisplay}</>
+  return <>{roundedNumber ? roundedNumber.toLocaleString() : nullDisplay}</>
 }
 
 const getListSpacer = (index, length, useAmpersand = true) => {
