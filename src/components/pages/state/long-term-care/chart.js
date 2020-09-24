@@ -37,6 +37,7 @@ const LongTermCareBarChart = ({ data }) => {
           width={300}
           marginBottom={20}
           marginTop={10}
+          fill="#aaa"
         />
       </Col>
     </Row>
