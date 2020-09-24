@@ -27,13 +27,23 @@ export default ({ separateStates, combinedStates, stateInfo }) => {
     }
   }, [])
 
-  stateInfo.sort((a, b) => (a.name > b.name ? 1 : -1))
-  stateInfo.unshift(defaultState)
+  const getNames = states => {
+    states.sort((a, b) => (a.name > b.name ? 1 : -1))
+    states.unshift(defaultState)
+    return states.map(node => node.name)
+  }
 
-  const names = stateInfo.map(node => node.name)
+  const [names] = useState(getNames(stateInfo))
 
-  const allStates = separateStates.concat(combinedStates)
-  allStates.unshift(defaultState)
+  const getAllStates = (separate, combined, stateDefault) => {
+    const allStates = separate.concat(combined)
+    allStates.unshift(stateDefault)
+    return allStates
+  }
+
+  const [allStates] = useState(
+    getAllStates(separateStates, combinedStates, defaultState),
+  )
 
   return (
     <Form>
