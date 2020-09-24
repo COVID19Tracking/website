@@ -325,7 +325,11 @@ var Scrollama = /*#__PURE__*/ (function(_Component) {
 
     _defineProperty(_assertThisInitialized(_this), 'stepElIds', [])
 
-    _defineProperty(_assertThisInitialized(_this), 'viewH', window.innerHeight)
+    _defineProperty(
+      _assertThisInitialized(_this),
+      'viewH',
+      typeof window !== 'undefined' ? window.innerHeight : 400,
+    )
 
     _defineProperty(_assertThisInitialized(_this), 'pageH', 0)
 
@@ -343,6 +347,9 @@ var Scrollama = /*#__PURE__*/ (function(_Component) {
       _assertThisInitialized(_this),
       'updateDirection',
       function() {
+        if (typeof window === 'undefined') {
+          return
+        }
         if (window.pageYOffset > _this.previousYOffset) {
           _this.direction = 'down'
         } else if (window.pageYOffset < _this.previousYOffset) {
@@ -376,7 +383,7 @@ var Scrollama = /*#__PURE__*/ (function(_Component) {
     })
 
     _defineProperty(_assertThisInitialized(_this), 'handleResize', function() {
-      _this.viewH = window.innerHeight
+      _this.viewH = typeof window !== 'undefined' ? window.innerHeight : 300
       _this.pageH = getPageHeight()
 
       _this.setState({
@@ -710,14 +717,18 @@ var Scrollama = /*#__PURE__*/ (function(_Component) {
       value: function domDidLoad() {
         this.handleResize()
         this.handleEnable(true)
-        window.addEventListener('resize', this.handleResize)
+        if (typeof window !== 'undefined') {
+          window.addEventListener('resize', this.handleResize)
+        }
       },
     },
     {
       key: 'componentWillUnmount',
       value: function componentWillUnmount() {
-        window.removeEventListener('load', this.domDidLoad.bind(this))
-        window.removeEventListener('resize', this.handleResize)
+        if (typeof window !== 'undefined') {
+          window.removeEventListener('load', this.domDidLoad.bind(this))
+          window.removeEventListener('resize', this.handleResize)
+        }
         this.handleEnable(false)
       },
       /* Get step can take a step id or grab an id off a target element */
