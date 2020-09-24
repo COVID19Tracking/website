@@ -8,9 +8,7 @@ export default ({ copy, images }) => {
   // This callback fires when a Step hits the offset threshold. It receives the
   // data prop of the step, which in this demo stores the index of the step.
   const onStepEnter = props => setCurrentStepIndex(props.data)
-  if (typeof window === 'undefined') {
-    return null
-  }
+
   return (
     <div className={styles.scrollyContainer}>
       <div className={styles.stickyImage}>
