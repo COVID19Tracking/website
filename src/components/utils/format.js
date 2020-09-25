@@ -31,9 +31,19 @@ const FormatDate = ({
   )
 }
 
-const FormatNumber = ({ number, nullValue = false }) => (
-  <>{number || number === 0 ? number.toLocaleString() : nullValue || 'N/A'}</>
-)
+const FormatNumber = ({ number, nullValue = false, precision = 0 }) => {
+  const nullDisplay = nullValue || 'N/A'
+  let roundedNumber
+  if (precision === 0) {
+    roundedNumber = number
+  } else {
+    const precisionDenominator = 10 ** precision
+    roundedNumber =
+      Math.round(parseFloat(number) * precisionDenominator) /
+      precisionDenominator
+  }
+  return <>{roundedNumber ? roundedNumber.toLocaleString() : nullDisplay}</>
+}
 
 const getListSpacer = (index, length, useAmpersand = true) => {
   const andSign = useAmpersand ? '&' : 'and'

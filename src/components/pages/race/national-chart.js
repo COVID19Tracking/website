@@ -129,8 +129,9 @@ const NationalChart = () => {
         </div>
       </div>
       <RacialDataParagraph className={nationalChartStyle.paragraph}>
-        We’ve lost at least {covidRaceDataHomepage.blackLivesLost} Black lives
-        to COVID-19 to date. Black people account for{' '}
+        We’ve lost at least{' '}
+        <FormatNumber number={covidRaceDataHomepage.blackLivesLost} /> Black
+        lives to COVID-19 to date. Black people account for{' '}
         {parseFloat(covidRaceDataHomepage.blackPercentOfDeath).toFixed(2) * 100}
         % of COVID-19 deaths where race is known.
       </RacialDataParagraph>

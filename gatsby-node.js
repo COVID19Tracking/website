@@ -57,6 +57,8 @@ exports.createPages = async ({ graphql, actions }) => {
           id
           contentful_id
           slug
+          overrideBlogPage
+          overrideBlogPath
           childContentfulBlogPostBlogContentRichTextNode {
             json
           }
@@ -213,16 +215,18 @@ exports.createPages = async ({ graphql, actions }) => {
     const longPath = `/blog/${node.slug}`
     const shortPath = `/${node.contentful_id}`
 
-    createRedirect({
-      fromPath: shortPath,
-      toPath: longPath,
-    })
-
-    createPage({
-      path: longPath,
-      component: path.resolve(`./src/templates/blog-post.js`),
-      context: { ...node, blogImages },
-    })
+    if (node.overrideBlogPage) {
+      createRedirect({
+        fromPath: shortPath,
+        toPath: node.overrideBlogPath,
+      })
+    } else {
+      createPage({
+        path: longPath,
+        component: path.resolve(`./src/templates/blog-post.js`),
+        context: { ...node, blogImages },
+      })
+    }
   })
 
   result.data.allContentfulBlogCategory.nodes.forEach(node => {
@@ -253,7 +257,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
       module: {
         rules: [
           {
-            test: /swagger-ui/,
+            test: /react-scrollama/,
             use: loaders.null(),
           },
         ],
