@@ -8,6 +8,19 @@ import linkIcon from '~images/social-shares/link.svg'
 
 import socialSharingStyles from './social-sharing.module.scss'
 
+const getTwitterLink = (text, url, twitterText, textIncludesUrl) => {
+  console.log(textIncludesUrl)
+  const textToShare = twitterText || text
+  if (textIncludesUrl) {
+    return `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+      textToShare,
+    )}`
+  }
+  return `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+    url,
+  )}&text=${encodeURIComponent(textToShare)}`
+}
+
 const SocialSharing = ({
   shares,
   url,
@@ -15,6 +28,7 @@ const SocialSharing = ({
   twitterText,
   className,
   outlineOnly,
+  textIncludesUrl = false,
 }) => {
   const [isCopied, setIsCopied] = useState(false)
 
@@ -25,13 +39,12 @@ const SocialSharing = ({
       url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
         url,
       )}`,
+      // todo include text in the fb url
     },
     twitter: {
       icon: twitterIcon,
       alt: 'Share on Twitter',
-      url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-        url,
-      )}&text=${encodeURIComponent(twitterText || text)}`,
+      url: getTwitterLink(text, url, twitterText, textIncludesUrl),
     },
     link: {
       icon: linkIcon,

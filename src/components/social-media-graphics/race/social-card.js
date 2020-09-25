@@ -19,8 +19,7 @@ const StateRaceSocialCard = renderedComponent(
   ({ state, combinedStates, square = false }) => {
     // gets the width of the bar for the bar charts
 
-    const getWidthPercentage = (number, max) =>
-      number / max > 0.1 ? (number / max) * 100 : 2
+    const getWidthPercentage = (number, max) => (number / max) * 100
 
     const groupValues = getGroups(state)
     const { groups } = groupValues
@@ -62,9 +61,7 @@ const StateRaceSocialCard = renderedComponent(
           <span />
           <span />
           <span />
-          {stateStatus.oneChart && (
-            <span />
-          )}
+          {stateStatus.oneChart && <span />}
           {!stateStatus.deathsOnly && (
             <span
               className={classnames(

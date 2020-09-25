@@ -93,6 +93,7 @@ export default ({ state, stateRaceData, combinedStates }) => {
         url={getLandingPageUrl(state)}
         text={socialCardShareText}
         outlineOnly
+        textIncludesUrl
       />
     </>
   )
