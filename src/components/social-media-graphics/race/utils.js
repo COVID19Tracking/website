@@ -181,7 +181,15 @@ const getGroups = state => {
     } else {
       group.justDeaths = false
     }
+    if (group.cases) {
+      group.cases = Math.round(group.cases)
+    }
+    if (group.deaths) {
+      group.deaths = Math.round(group.deaths)
+    }
   })
+
+  console.log(groups)
 
   return {
     groups,
