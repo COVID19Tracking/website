@@ -1,7 +1,6 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from '~components/layout'
-import { CtaLink } from '~components/common/landing-page/call-to-action'
 
 import { getTypeOfRates } from '~components/social-media-graphics/race/utils'
 import SocialCardHeader from '~components/social-media-graphics/race/header'
@@ -55,20 +54,20 @@ export default ({ pageContext, path, data }) => {
       </p>
       <ul className={landingStyles.ctas}>
         <li>
-          <CtaLink to="/race">The COVID Racial Data Tracker</CtaLink>
+          <Link to="/race">The COVID Racial Data Tracker</Link>
         </li>
         <li>
-          <CtaLink
+          <Link
             to={`/race/dashboard/${stateData &&
               `#state-${stateData.state.toLowerCase()}`}`}
           >
             Racial Data Dashboard
-          </CtaLink>
+          </Link>
         </li>
         <li>
-          <CtaLink to="/race/infection-and-mortality-rates">
+          <Link to="/race/infection-and-mortality-rates">
             Infection and Mortality Rates by Race and Ethnicity
-          </CtaLink>
+          </Link>
         </li>
       </ul>
     </Layout>

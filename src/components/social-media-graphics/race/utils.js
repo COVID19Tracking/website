@@ -189,8 +189,6 @@ const getGroups = state => {
     }
   })
 
-  console.log(groups)
-
   return {
     groups,
     maxCasesPerCap,
