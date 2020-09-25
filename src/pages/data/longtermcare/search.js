@@ -9,7 +9,7 @@ const client = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
   process.env.GATSBY_ALGOLIA_SEARCH_KEY,
 )
-const index = client.initIndex('ltc_test_ltcFacilities')
+const index = client.initIndex('live_ltc_facilities')
 
 const LongTermCareSearchPage = () => {
   const [query, setQuery] = useState(false)
@@ -53,11 +53,11 @@ const LongTermCareSearchPage = () => {
               label: 'City',
             },
             {
-              field: 'name',
+              field: 'facility_name',
               label: 'Name',
             },
             {
-              field: 'type',
+              field: 'facility_name',
               label: 'Type',
             },
             { field: 'resident_positive', label: 'Resident positives' },
