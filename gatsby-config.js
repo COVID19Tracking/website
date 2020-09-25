@@ -191,7 +191,7 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './src/data/ltc_facilities.json',
+        file: './_data/long_term_care_facilities.json',
         type: 'CovidLtcFacilities',
       },
     },

@@ -18,11 +18,11 @@ const LongTermCareFacilities = ({ facilities }) => {
         },
         {
           label: 'Name',
-          field: 'name',
+          field: 'facility_name',
         },
         {
-          field: 'type',
           label: 'Type',
+          field: 'facility_type',
         },
         { field: 'resident_positive', label: 'Resident positives' },
         { field: 'resident_deaths', label: 'Resident death' },

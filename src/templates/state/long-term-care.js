@@ -170,9 +170,9 @@ export const query = graphql`
     ) {
       group(field: name, limit: 1) {
         nodes {
-          name
+          facility_name
           date
-          type
+          facility_type
           county
           resident_positive
           resident_deaths
