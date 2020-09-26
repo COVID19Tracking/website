@@ -4,6 +4,7 @@ import SocialSharing from '~components/common/social-sharing'
 import {
   getGroups,
   getTypeOfRates,
+  getStateStatus,
 } from '~components/social-media-graphics/race/utils'
 
 import shareStyles from './share.module.scss'
@@ -11,14 +12,16 @@ import shareStyles from './share.module.scss'
 const getStateSquareImageUrl = state =>
   `/images/race-dashboard/${state.childSlug.slug}-square.png`
 
-const getLandingPageUrl = state =>
-  `https://covidtracking.com/race/infection-and-mortality-rates/${state.childSlug.slug}`
+const getLandingPageUrl = (state, noCharts) =>
+  noCharts
+    ? 'https://covidtracking.com/race/get-better-data'
+    : `https://covidtracking.com/race/infection-and-mortality-rates/${state.childSlug.slug}`
 
 const getSocialCardShareText = (typeOfRates, state, groups) => {
   const today = new Date()
 
   if (typeOfRates === 'no rates') {
-    return `In ${state.name}, ${typeOfRates} information is still not reported for COVID-19 cases and deaths. Help us get better data by contacting health officials at https://covidtracking.com/race/get-better-data #RacialDataTracker`
+    return `In ${state.name}, race and ethnicity information is still not reported for COVID-19 cases and deaths. Help us get better data by contacting health officials at https://covidtracking.com/race/get-better-data #RacialDataTracker`
   }
   if (typeOfRates === 'mortality rates') {
     return `In ${state.name}, as of ${today.toLocaleString('default', {
@@ -69,6 +72,8 @@ export default ({ state, stateRaceData, combinedStates }) => {
 
   const groups = getGroups(stateRaceData)
 
+  const { noCharts } = getStateStatus(stateRaceData, combinedStates)
+
   const socialCardShareText = getSocialCardShareText(typeOfRates, state, groups)
 
   return (
@@ -90,7 +95,7 @@ export default ({ state, stateRaceData, combinedStates }) => {
       <SocialSharing
         shares={['facebook', 'twitter', 'link']}
         className={shareStyles.socialSharing}
-        url={getLandingPageUrl(state)}
+        url={getLandingPageUrl(state, noCharts)}
         text={socialCardShareText}
         outlineOnly
         textIncludesUrl

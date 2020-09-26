@@ -2,7 +2,10 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '~components/layout'
 
-import { getTypeOfRates } from '~components/social-media-graphics/race/utils'
+import {
+  getTypeOfRates,
+  getStateStatus,
+} from '~components/social-media-graphics/race/utils'
 import SocialCardHeader from '~components/social-media-graphics/race/header'
 
 import landingStyles from './landing.module.scss'
@@ -22,6 +25,8 @@ export default ({ pageContext, path, data }) => {
 
   const typeOfRates = getTypeOfRates(stateData, combinedStates)
 
+  const { noCharts } = getStateStatus(stateData, combinedStates)
+
   return (
     <Layout
       title={`${state.name}: ${typeOfRates.replace(/^\w/, c =>
@@ -40,7 +45,11 @@ export default ({ pageContext, path, data }) => {
     >
       {stateData && (
         <p>
-          <SocialCardHeader state={stateData} stateName={stateData.name} />
+          <SocialCardHeader
+            state={stateData}
+            stateName={stateData.name}
+            noCharts={noCharts}
+          />
         </p>
       )}
       <img
