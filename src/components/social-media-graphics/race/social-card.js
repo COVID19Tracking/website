@@ -105,7 +105,14 @@ const StateRaceSocialCard = renderedComponent(
                     ) : (
                       <div className={socialCardStyle.barContainer}>
                         <div
-                          className={classnames(socialCardStyle.bar, style)}
+                          className={classnames(
+                            socialCardStyle.bar,
+                            style,
+                            getWidthPercentage(
+                              cases,
+                              groupValues.worstCasesValue,
+                            ) !== 0 && socialCardStyle.hasInnerLabel,
+                          )}
                           style={{
                             width: `${getWidthPercentage(
                               cases,
@@ -152,6 +159,10 @@ const StateRaceSocialCard = renderedComponent(
                             socialCardStyle.bar,
                             socialCardStyle.deathBar,
                             style,
+                            getWidthPercentage(
+                              cases,
+                              groupValues.worstCasesValue,
+                            ) !== 0 && socialCardStyle.hasInnerLabel,
                           )}
                           style={{
                             width: `${getWidthPercentage(
