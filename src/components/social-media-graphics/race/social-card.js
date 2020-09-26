@@ -54,7 +54,7 @@ const StateRaceSocialCard = renderedComponent(
         )}
       >
         <p className={socialCardStyle.header}>
-          <SocialCardHeader state={state} />
+          <SocialCardHeader state={state} combinedStates={combinedStates} />
         </p>
         <div
           className={classnames(

@@ -49,6 +49,7 @@ export default ({ pageContext, path, data }) => {
             state={stateData}
             stateName={stateData.name}
             noCharts={noCharts}
+            combinedStates={combinedStates}
           />
         </p>
       )}

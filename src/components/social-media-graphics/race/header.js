@@ -1,9 +1,10 @@
 import React from 'react'
 
 import SocialCardLocale from './locale'
-import { getGroups } from './utils'
+import { getGroups, getStateStatus } from './utils'
 
-const SocialCardHeader = ({ state, stateName, noCharts }) => {
+const SocialCardHeader = ({ state, stateName, noCharts, combinedStates }) => {
+  const { casesOnly, deathsOnly } = getStateStatus(state, combinedStates)
   const today = new Date()
   const { worstCasesGroup, worstDeathsGroup } = getGroups(state)
 
@@ -20,6 +21,24 @@ const SocialCardHeader = ({ state, stateName, noCharts }) => {
     )
   }
 
+  if (casesOnly) {
+    return (
+      <>
+        <SocialCardLocale name={name} />, as of{' '}
+        {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
+        {worstCasesGroup} had the highest risk of contracting COVID-19.
+      </>
+    )
+  }
+  if (deathsOnly) {
+    return (
+      <>
+        <SocialCardLocale name={name} />, as of{' '}
+        {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
+        {worstDeathsGroup} were most likely to have died from COVID-19.
+      </>
+    )
+  }
   if (worstDeathsGroup === worstCasesGroup) {
     return (
       <>
