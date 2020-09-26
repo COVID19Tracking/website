@@ -10,6 +10,10 @@ import SocialCardsSelect from '~components/pages/race/infection-and-mortality-ra
 export default () => {
   const data = useStaticQuery(graphql`
     {
+      covidRaceDataHomepage {
+        statesReportingCases
+        statesReportingDeaths
+      }
       contentfulSnippet(slug: { eq: "crdt-social-cards-preamble" }) {
         content {
           childMarkdownRemark {

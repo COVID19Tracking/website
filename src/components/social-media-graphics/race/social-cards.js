@@ -6,6 +6,10 @@ import StateRaceSocialCard from './social-card'
 const CreateStateRaceSocialCards = () => {
   const data = useStaticQuery(graphql`
     {
+      covidRaceDataHomepage {
+        statesReportingCases
+        statesReportingDeaths
+      }
       allCovidRaceDataCombined {
         nodes {
           state
@@ -139,6 +143,12 @@ const CreateStateRaceSocialCards = () => {
                 node => node.state === state.state,
               )
             }
+            statesReportingCases={
+              data.covidRaceDataHomepage.statesReportingCases
+            }
+            statesReportingDeaths={
+              data.covidRaceDataHomepage.statesReportingDeaths
+            }
             combinedStates={combinedStates}
             renderOptions={{
               width: 900,
@@ -155,6 +165,12 @@ const CreateStateRaceSocialCards = () => {
               data.allCovidRaceDataCombined.nodes.find(
                 node => node.state === state.state,
               )
+            }
+            statesReportingCases={
+              data.covidRaceDataHomepage.statesReportingCases
+            }
+            statesReportingDeaths={
+              data.covidRaceDataHomepage.statesReportingDeaths
             }
             combinedStates={combinedStates}
             renderOptions={{

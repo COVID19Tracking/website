@@ -1,10 +1,17 @@
 import React from 'react'
+import classnames from 'classnames'
 
 import Percent from '~components/pages/race/dashboard/percent'
+import { FormatNumber } from '~components/utils/format'
 
 import socialCardStyle from './social-card.module.scss'
 
-const SocialCardFootnotes = ({ state, stateName }) => {
+const SocialCardFootnotes = ({
+  state,
+  stateName,
+  statesReportingDeaths,
+  statesReportingCases,
+}) => {
   if (stateName === 'Utah') {
     // special case
     return (
@@ -35,13 +42,19 @@ const SocialCardFootnotes = ({ state, stateName }) => {
   if (stateName === 'United States') {
     // special case
     return (
-      <p className={socialCardStyle.notes}>
-        <strong>Notes:</strong> Nationwide, the United States has reported race
-        and ethnicity data for <Percent number={state.knownRaceEthPos} /> of
-        cases and <Percent number={state.knownRaceEthDeath} /> of deaths.
-        Graphic includes demographic data reported across all states, using
-        standard Census categories where possible. Race categories include both
-        Hispanic/Latino and non-Hispanic/Latino ethnicity.
+      <p
+        className={classnames(socialCardStyle.notes, socialCardStyle.national)}
+      >
+        <strong>Notes:</strong> Nationwide,{' '}
+        <FormatNumber number={statesReportingCases} /> of 56 states and
+        territories report race/ethnicity information for cases and{' '}
+        <FormatNumber number={statesReportingDeaths} /> of 56 report
+        race/ethnicity for deaths. Graphic includes demographic data from all
+        states and territories that report, using standard Census categories
+        where possible, and scaled to the total U.S. population for each Census
+        category. Race categories may overlap with Hispanic/Latino ethnicity.
+        Some rates are underestimated due to lack of reporting of race and
+        ethnicity categories for COVID-19 cases and deaths.
       </p>
     )
   }

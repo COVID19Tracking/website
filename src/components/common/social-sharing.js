@@ -9,7 +9,6 @@ import linkIcon from '~images/social-shares/link.svg'
 import socialSharingStyles from './social-sharing.module.scss'
 
 const getTwitterLink = (text, url, twitterText, textIncludesUrl) => {
-  console.log(textIncludesUrl)
   const textToShare = twitterText || text
   if (textIncludesUrl) {
     return `https://twitter.com/intent/tweet?text=${encodeURIComponent(

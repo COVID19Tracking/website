@@ -16,7 +16,13 @@ import { getStateStatus, getGroups } from './utils'
 import socialCardStyle from './social-card.module.scss'
 
 const StateRaceSocialCard = renderedComponent(
-  ({ state, combinedStates, square = false }) => {
+  ({
+    state,
+    combinedStates,
+    square = false,
+    statesReportingCases,
+    statesReportingDeaths,
+  }) => {
     // gets the width of the bar for the bar charts
 
     const getWidthPercentage = (number, max) => (number / max) * 100
@@ -180,7 +186,12 @@ const StateRaceSocialCard = renderedComponent(
           )}
         </div>
 
-        <SocialCardFootnotes state={state} stateName={state.name} />
+        <SocialCardFootnotes
+          state={state}
+          stateName={state.name}
+          statesReportingCases={statesReportingCases}
+          statesReportingDeaths={statesReportingDeaths}
+        />
 
         <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
         <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
