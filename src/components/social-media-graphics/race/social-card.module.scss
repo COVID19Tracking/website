@@ -1,9 +1,9 @@
 body {
   background-color: white;
-  font: normal 100%/1.5 'Helvetica', 'Arial', 'sans-serif';
 }
 
 .wrapper {
+  font: normal 100%/1.5 'Helvetica', 'Arial', 'sans-serif';
   @include padding(24);
   display: flex;
   justify-content: center;
