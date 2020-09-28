@@ -162,13 +162,9 @@ export const query = graphql`
     }
     allCovidLtcFacilities(
       sort: { fields: date, order: DESC }
-      filter: {
-        state: { eq: $state }
-        resident_positive: { gt: 0 }
-        resident_deaths: { gt: 0 }
-      }
+      filter: { state: { eq: $state } }
     ) {
-      group(field: name, limit: 1) {
+      group(field: facility_name, limit: 1) {
         nodes {
           facility_name
           date
