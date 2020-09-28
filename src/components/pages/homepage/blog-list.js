@@ -73,7 +73,7 @@ const HomepageBlogList = () => {
                 </p>
                 <Byline
                   authors={node.authors}
-                  date={node.publishDate}
+                  published={node.publishDate}
                   smallmargin
                 />
               </li>
