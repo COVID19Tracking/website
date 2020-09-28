@@ -55,6 +55,9 @@ body {
     margin-right: 60px;
     margin-left: 60px;
   }
+  .grid {
+    margin-left: 0;
+  }
 }
 
 .grid {
@@ -79,8 +82,8 @@ body {
       grid-area: 2 / case-bars-start / 3 / case-bars-end;
       margin-left: 0px;
     }
-    .bar.death-bar {
-      margin-left: 0px;
+    .death-bar-spacer {
+      width: 0px;
     }
   }
 
@@ -211,9 +214,10 @@ body {
     background: $color-plum-800;
     color: white;
   }
-  &.death-bar {
-    margin-left: 45px;
-  }
+}
+
+.death-bar-spacer {
+  width: 45px;
 }
 
 .insufficient-data {
@@ -236,9 +240,10 @@ body {
       margin-left: 5px;
       margin-top: 11px;
     }
+    outline: 2px solid red;
   }
-  .bar.death-bar {
-    margin-left: 24px;
+  .death-bar-spacer {
+    width: 24px;
   }
   .insufficient-data.insufficient-data-deaths {
     margin-left: 24px;

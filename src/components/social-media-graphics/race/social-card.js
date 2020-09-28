@@ -25,6 +25,10 @@ const StateRaceSocialCard = renderedComponent(
   }) => {
     // gets the width of the bar for the bar charts
 
+    const getWidthInPixels = (number, max, maxPixels) => {
+      return (number / max) * maxPixels
+    }
+
     const getWidthPercentage = (number, max) => (number / max) * 100
 
     const groupValues = getGroups(state)
@@ -114,10 +118,11 @@ const StateRaceSocialCard = renderedComponent(
                             ) !== 0 && socialCardStyle.hasInnerLabel,
                           )}
                           style={{
-                            width: `${getWidthPercentage(
+                            width: `${getWidthInPixels(
                               cases,
                               groupValues.worstCasesValue,
-                            )}%`,
+                              square ? 238 : 240,
+                            )}px`,
                           }}
                         >
                           {getWidthPercentage(
@@ -154,21 +159,22 @@ const StateRaceSocialCard = renderedComponent(
                       </span>
                     ) : (
                       <div className={socialCardStyle.barContainer}>
+                        <div className={socialCardStyle.deathBarSpacer} />
                         <div
                           className={classnames(
                             socialCardStyle.bar,
-                            socialCardStyle.deathBar,
                             style,
                             getWidthPercentage(
-                              cases,
-                              groupValues.worstCasesValue,
+                              deaths,
+                              groupValues.worstDeathsValue,
                             ) !== 0 && socialCardStyle.hasInnerLabel,
                           )}
                           style={{
-                            width: `${getWidthPercentage(
+                            width: `${getWidthInPixels(
                               deaths,
                               groupValues.worstDeathsValue,
-                            )}%`,
+                              square ? 238 : 240,
+                            )}px`,
                           }}
                         >
                           {getWidthPercentage(

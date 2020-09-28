@@ -155,7 +155,7 @@ const getGroups = state => {
     'American Indian/ Alaska Native': 'American Indians/Alaska Natives',
   }
 
-  const worstDeathsValue = groups[0].deaths
+  const worstDeathsValue = Math.round(groups[0].deaths)
   const worstDeathsGroup = copyLabels[groups[0].label]
 
   groups.sort((a, b) => {
@@ -166,7 +166,7 @@ const getGroups = state => {
     return 1
   })
 
-  const worstCasesValue = groups[0].cases
+  const worstCasesValue = Math.round(groups[0].cases)
   const worstCasesGroup = copyLabels[groups[0].label]
 
   groups.forEach(group => {
