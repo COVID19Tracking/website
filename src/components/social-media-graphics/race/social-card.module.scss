@@ -42,9 +42,8 @@ body {
   font-size: 18px; // ignore-style-rule
   text-align: center;
   line-height: 150%;
-  grid-area: 1 / race-labels-end / 2 / death-bars-end;
 
-  margin-bottom: 48px;
+  margin-bottom: 24px;
   margin-right: 125px;
   margin-left: 125px;
 }
@@ -127,7 +126,7 @@ body {
   position: fixed;
   width: 700px;
   left: 50px;
-  bottom: 10px;
+  bottom: 30px;
 
   color: $color-slate-700;
   font-size: 13px; // ignore-style-rule
@@ -149,14 +148,14 @@ body {
   position: absolute;
   width: 26px;
   right: 86px;
-  bottom: 30px;
+  bottom: 40px;
 }
 
 .car-logo {
   position: absolute;
   width: 43px;
   right: 38px;
-  bottom: 30px;
+  bottom: 40px;
 }
 
 .bar-container {
@@ -240,7 +239,6 @@ body {
       margin-left: 5px;
       margin-top: 11px;
     }
-    outline: 2px solid red;
   }
   .death-bar-spacer {
     width: 24px;
