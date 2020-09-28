@@ -203,15 +203,18 @@ const StateRaceSocialCard = renderedComponent(
           )}
         </div>
 
-        <SocialCardFootnotes
-          state={state}
-          stateName={state.name}
-          statesReportingCases={statesReportingCases}
-          statesReportingDeaths={statesReportingDeaths}
-        />
-
-        <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
-        <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
+        <div className={socialCardStyle.footer}>
+          <SocialCardFootnotes
+            state={state}
+            stateName={state.name}
+            statesReportingCases={statesReportingCases}
+            statesReportingDeaths={statesReportingDeaths}
+          />
+          <div className={socialCardStyle.logosContainer}>
+            <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
+            <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
+          </div>
+        </div>
       </div>
     )
   },

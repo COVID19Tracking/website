@@ -122,9 +122,17 @@ body {
 
 }
 
-.notes {
+.footer {
   position: fixed;
-  width: 700px;
+  width: 800px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  .notes {
+    width: 700px;
+  }
+
   left: 50px;
   bottom: 30px;
 
@@ -138,24 +146,23 @@ body {
 }
 
 .square {
-  .notes {
+  .footer {
     left: 38px;
     width: 525px;
   }
 }
 
+.logos-container {
+  margin-bottom: 13px;
+}
+
 .ctp-logo {
-  position: absolute;
   width: 26px;
-  right: 86px;
-  bottom: 40px;
+  margin-right: 5px;
 }
 
 .car-logo {
-  position: absolute;
   width: 43px;
-  right: 38px;
-  bottom: 40px;
 }
 
 .bar-container {
