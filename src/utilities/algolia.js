@@ -41,6 +41,7 @@ const blogPostQuery = `{
     edges {
       node {
         contentful_id
+        objectID: contentful_id
         title
         authors {
           name
@@ -63,6 +64,7 @@ const pagesQuery = `{
     edges {
       node {
         contentful_id
+        objectID: contentful_id
         title
         slug
         updatedAt(formatString: "MMMM D, YYYY")
