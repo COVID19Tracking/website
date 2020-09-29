@@ -50,6 +50,8 @@ const StateRaceSocialCard = renderedComponent(
       return <NoDataSocialCard stateName={state.name} />
     }
 
+    const nullValue = 'No data reported'
+
     return (
       <div
         className={classnames(
@@ -102,9 +104,9 @@ const StateRaceSocialCard = renderedComponent(
                 <span className={socialCardStyle.barLabel}>{label}</span>
                 {!stateStatus.deathsOnly && (
                   <>
-                    {justDeaths ? (
+                    {(cases === null) ? (
                       <span className={socialCardStyle.insufficientData}>
-                        No data reported
+                        {nullValue}
                       </span>
                     ) : (
                       <div className={socialCardStyle.barContainer}>
@@ -148,14 +150,14 @@ const StateRaceSocialCard = renderedComponent(
                 )}
                 {!stateStatus.casesOnly && (
                   <>
-                    {justCases ? (
+                    {(deaths === null) ? (
                       <span
                         className={classnames(
                           socialCardStyle.insufficientData,
                           socialCardStyle.insufficientDataDeaths,
                         )}
                       >
-                        No data reported
+                        {nullValue}
                       </span>
                     ) : (
                       <div className={socialCardStyle.barContainer}>

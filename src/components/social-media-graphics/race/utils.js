@@ -163,16 +163,6 @@ const getGroups = state => {
 
   groups.forEach(group => {
     /* eslint-disable no-param-reassign */
-    if (group.deaths === undefined && group.cases) {
-      group.justCases = true
-    } else {
-      group.justCases = false
-    }
-    if (group.cases === undefined && group.deaths) {
-      group.justDeaths = true
-    } else {
-      group.justDeaths = false
-    }
     if (group.cases) {
       group.cases = Math.round(group.cases)
     }
