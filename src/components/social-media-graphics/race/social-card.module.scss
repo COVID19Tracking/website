@@ -32,8 +32,10 @@ body {
     }
 
     .bar {
-      margin-top: 4px;
-      line-height: 1.25;
+      * {
+        margin-top: 6px;
+        line-height: 1.25;
+      }
     }
   }
 }
@@ -248,7 +250,7 @@ body {
   .bar-container {
     span {
       margin-left: 5px;
-      margin-top: 11px;
+      margin-top: 13px;
     }
   }
   .death-bar-spacer {
