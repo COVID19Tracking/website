@@ -43,8 +43,9 @@
     "d3-time": "^1.1.0",
     "d3-time-format": "^2.2.3",
     "dotenv": "^8.2.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-loader": "^3.0.3",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-loader": "^3.0.2",
     "fs-extra": "^9.0.0",
     "gatsby": "^2.24.66",
     "gatsby-image": "^2.2.44",
@@ -86,10 +87,15 @@
     "react-dom": "^16.12.0",
     "react-expand-animated": "^1.0.2",
     "react-helmet": "^5.2.1",
+    "react-is": "^16.8.0",
     "react-recaptcha": "^2.3.10",
     "react-typography": "^0.16.19",
+    "regenerator-runtime": "^0.13.7",
     "slugify": "^1.4.0",
-    "smartypants": "^0.1.1"
+    "smartypants": "^0.1.1",
+    "typescript": "^4.0.3",
+    "vue": "3.0.0",
+    "webpack": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -112,7 +118,11 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint-config-prettier": "^6.10.1",
     "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-svgr": "^2.0.2",
     "gh-pages": "^2.2.0",
@@ -124,6 +134,9 @@
     "prettier": "1.19.1",
     "react-test-renderer": "^16.13.1",
     "set-tz": "^0.2.0"
+  },
+  "resolutions": {
+    "vue": "2.6.10"
   },
   "scripts": {
     "build": "run-s setup:api-repo setup:data-repo build:gatsby build:test",
