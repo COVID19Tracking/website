@@ -148,7 +148,11 @@ body {
 .square {
   .footer {
     left: 38px;
-    width: 525px;
+    width: 625px;
+
+    .notes {
+      width: 500px;
+    }
   }
 }
 
