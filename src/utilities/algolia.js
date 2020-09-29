@@ -178,6 +178,7 @@ function chunkBlogPosts(data) {
       updatedAt: node.updatedAt,
       section: node.section,
       contentful_id: node.contentful_id,
+      objectId: node.contentful_id,
     }
     const firstChunk = { ...baseChunk, section: 'section0' }
     const bodyChunks = marked(node.body.body)
