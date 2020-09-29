@@ -31,6 +31,13 @@ const getStateStatus = (state, combinedStates) => {
   }
 }
 
+const getGroupValue = value => {
+  if (value === null) {
+    return null
+  }
+  return value * 100 // perCap is *per 1,000*, mulitply by 100 to get *per 100,000*
+}
+
 const getGroups = state => {
   if (state === undefined) {
     return {}
@@ -40,63 +47,44 @@ const getGroups = state => {
     {
       label: 'Black/African American',
       style: socialCardStyle.barBlack,
-      cases:
-        state.blackPosPercap !== null ? state.blackPosPercap * 100 : null, // perCap is *per 1,000*, mulitply by 100 to get *per 100,000*
-      deaths:
-        state.blackDeathPercap === ''
-          ? undefined
-          : state.blackDeathPercap * 100,
+      cases: getGroupValue(state.blackPosPercap),
+      deaths: getGroupValue(state.blackDeathPercap),
     },
     {
       label: 'Hispanic/Latino',
       style: socialCardStyle.barLatinx,
-      cases:
-        state.latinXPosPercap !== null ? state.latinXPosPercap * 100 : null,
-      deaths:
-        state.latinXDeathPercap === ''
-          ? undefined
-          : state.latinXDeathPercap * 100,
+      cases: getGroupValue(state.latinXPosPercap),
+      deaths: getGroupValue(state.latinXDeathPercap),
     },
     {
       label: 'Asian',
       style: socialCardStyle.barAsian,
-      cases:
-        state.asianPosPercap !== null ? state.asianPosPercap * 100 : null,
-      deaths:
-        state.asianDeathPercap === ''
-          ? undefined
-          : state.asianDeathPercap * 100,
+      cases: getGroupValue(state.asianPosPercap),
+      deaths: getGroupValue(state.asianDeathPercap),
     },
     {
       label: 'American Indian/ Alaska Native',
       style: socialCardStyle.barAian,
-      cases: state.aianPosPercap !== null ? state.aianPosPercap * 100 : null,
-      deaths:
-        state.aianDeathPercap !== null ? state.aianDeathPercap * 100 : null,
+      cases: getGroupValue(state.aianPosPercap),
+      deaths: getGroupValue(state.aianDeathPercap),
     },
     {
       label: 'White',
       style: socialCardStyle.barWhite,
-      cases:
-        state.whitePosPercap !== null ? state.whitePosPercap * 100 : null,
-      deaths:
-        state.whiteDeathPercap === ''
-          ? undefined
-          : state.whiteDeathPercap * 100,
+      cases: getGroupValue(state.whitePosPercap),
+      deaths: getGroupValue(state.whiteDeathPercap),
     },
     {
       label: 'Asian/Pacific Islander',
       style: socialCardStyle.barAPi,
-      cases: state.apiPosPercap !== null ? state.apiPosPercap * 100 : null,
-      deaths:
-        state.apiDeathPercap !== null ? state.apiDeathPercap * 100 : null,
+      cases: getGroupValue(state.apiPosPercap),
+      deaths: getGroupValue(state.apiDeathPercap),
     },
     {
       label: 'Native Hawaiian/ Pacific Islander',
       style: socialCardStyle.barNhpi,
-      cases: state.nhpiPosPercap !== null ? state.nhpiPosPercap * 100 : null,
-      deaths:
-        state.nhpiDeathPercap !== null ? state.nhpiDeathPercap * 100 : null,
+      cases: getGroupValue(state.nhpiPosPercap),
+      deaths: getGroupValue(state.nhpiDeathPercap),
     },
   ]
 
