@@ -41,7 +41,7 @@ const getGroups = state => {
       label: 'Black/African American',
       style: socialCardStyle.barBlack,
       cases:
-        state.blackPosPercap === '' ? undefined : state.blackPosPercap * 100, // perCap is *per 1,000*, mulitply by 100 to get *per 100,000*
+        state.blackPosPercap !== null ? state.blackPosPercap * 100 : null, // perCap is *per 1,000*, mulitply by 100 to get *per 100,000*
       deaths:
         state.blackDeathPercap === ''
           ? undefined
@@ -51,7 +51,7 @@ const getGroups = state => {
       label: 'Hispanic/Latino',
       style: socialCardStyle.barLatinx,
       cases:
-        state.latinXPosPercap === '' ? undefined : state.latinXPosPercap * 100,
+        state.latinXPosPercap !== null ? state.latinXPosPercap * 100 : null,
       deaths:
         state.latinXDeathPercap === ''
           ? undefined
@@ -61,7 +61,7 @@ const getGroups = state => {
       label: 'Asian',
       style: socialCardStyle.barAsian,
       cases:
-        state.asianPosPercap === '' ? undefined : state.asianPosPercap * 100,
+        state.asianPosPercap !== null ? state.asianPosPercap * 100 : null,
       deaths:
         state.asianDeathPercap === ''
           ? undefined
@@ -70,15 +70,15 @@ const getGroups = state => {
     {
       label: 'American Indian/ Alaska Native',
       style: socialCardStyle.barAian,
-      cases: state.aianPosPercap === '' ? undefined : state.aianPosPercap * 100,
+      cases: state.aianPosPercap !== null ? state.aianPosPercap * 100 : null,
       deaths:
-        state.aianDeathPercap === '' ? undefined : state.aianDeathPercap * 100,
+        state.aianDeathPercap !== null ? state.aianDeathPercap * 100 : null,
     },
     {
       label: 'White',
       style: socialCardStyle.barWhite,
       cases:
-        state.whitePosPercap === '' ? undefined : state.whitePosPercap * 100,
+        state.whitePosPercap !== null ? state.whitePosPercap * 100 : null,
       deaths:
         state.whiteDeathPercap === ''
           ? undefined
@@ -87,25 +87,22 @@ const getGroups = state => {
     {
       label: 'Asian/Pacific Islander',
       style: socialCardStyle.barAPi,
-      cases: state.apiPosPercap === '' ? undefined : state.apiPosPercap * 100,
+      cases: state.apiPosPercap !== null ? state.apiPosPercap * 100 : null,
       deaths:
-        state.apiDeathPercap === '' ? undefined : state.apiDeathPercap * 100,
+        state.apiDeathPercap !== null ? state.apiDeathPercap * 100 : null,
     },
     {
       label: 'Native Hawaiian/ Pacific Islander',
       style: socialCardStyle.barNhpi,
-      cases: state.nhpiPosPercap === '' ? undefined : state.nhpiPosPercap * 100,
+      cases: state.nhpiPosPercap !== null ? state.nhpiPosPercap * 100 : null,
       deaths:
-        state.nhpiDeathPercap === '' ? undefined : state.nhpiDeathPercap * 100,
+        state.nhpiDeathPercap !== null ? state.nhpiDeathPercap * 100 : null,
     },
   ]
 
   const aPi = groups.find(group => group.label === 'Asian/Pacific Islander')
 
-  if (
-    (aPi.cases === '' && aPi.deaths === '') ||
-    (aPi.cases === undefined && aPi.deaths === undefined)
-  ) {
+  if (aPi.cases === null && aPi.deaths === null) {
     groups = groups.filter(
       // remove API bar
       group => group.label !== 'Asian/Pacific Islander',
@@ -121,12 +118,7 @@ const getGroups = state => {
 
   groups = groups.filter(
     // remove groups without case or death data
-    group => !(group.cases === '' && group.deaths === ''),
-  )
-
-  groups = groups.filter(
-    // remove groups without case or death data
-    group => !(group.cases === undefined && group.deaths === undefined),
+    group => !(group.cases === null && group.deaths === null),
   )
 
   const maxCasesPerCap = Math.max(...groups.map(group => group.cases))
