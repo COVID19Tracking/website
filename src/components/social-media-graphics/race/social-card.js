@@ -11,7 +11,7 @@ import CarLogo from '~images/car-logo-small.png'
 import SocialCardFootnotes from './footnotes'
 import SocialCardHeader from './header'
 import NoDataSocialCard from './no-data'
-import { getStateStatus, getGroups } from './utils'
+import { getStateStatus, getGroups, getBarWidth } from './utils'
 
 import socialCardStyle from './social-card.module.scss'
 
@@ -24,10 +24,6 @@ const StateRaceSocialCard = renderedComponent(
     statesReportingDeaths,
   }) => {
     // gets the width of the bar for the bar charts
-
-    const getWidthInPixels = (number, max, maxPixels) => {
-      return (number / max) * maxPixels
-    }
 
     const getWidthPercentage = (number, max) => (number / max) * 100
 
@@ -120,10 +116,11 @@ const StateRaceSocialCard = renderedComponent(
                             ) !== 0 && socialCardStyle.hasInnerLabel,
                           )}
                           style={{
-                            width: `${getWidthInPixels(
+                            width: `${getBarWidth(
                               cases,
                               groupValues.worstCasesValue,
-                              square ? 238 : 240,
+                              square,
+                              stateStatus.oneChart,
                             )}px`,
                           }}
                         >
@@ -172,10 +169,11 @@ const StateRaceSocialCard = renderedComponent(
                             ) !== 0 && socialCardStyle.hasInnerLabel,
                           )}
                           style={{
-                            width: `${getWidthInPixels(
+                            width: `${getBarWidth(
                               deaths,
                               groupValues.worstDeathsValue,
-                              square ? 238 : 240,
+                              square,
+                              stateStatus.oneChart,
                             )}px`,
                           }}
                         >
