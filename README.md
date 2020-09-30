@@ -4,15 +4,15 @@ The COVID Tracking Project collects information from 50 U.S. states, the Distric
 
 This repository is for the project's **website**: https://covidtracking.com/.
 
-## Documentation
+## Documentation of Project
 
 Additional documentation can be found [at our documentation and Storybook website](https://covid19tracking.github.io/website-docs).
 
-## Development
+## Development 
 
 The website is built on [GatsbyJS](https://www.gatsbyjs.org/). If you are not familiar with Gatsby, we suggest checking out their [excellent documentation](hhttps://www.gatsbyjs.org/docs).
 
-### Install
+### Installation Guide 
 
 First, you'll need the Gatsby command line interface installed globally:
 
