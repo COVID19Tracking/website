@@ -4,6 +4,7 @@ const crypto = require('crypto')
 exports.sourceNodes = ({ actions, createNodeId, reporter }, configOptions) => {
   return new Promise((resolve, reject) => {
     const { createNode } = actions
+    console.log('COUNTIES')
     const countyResults = {}
     const demographics = require(configOptions.demographics)
     const counties = JSON.parse(fs.readFileSync(configOptions.counties))

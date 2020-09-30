@@ -199,7 +199,6 @@ const stateSettings = {
  * (see https://www.algolia.com/doc/guides/building-search-ui/going-further/backend-search/how-to/highlighting-snippeting/)
  */
 const pageSettings = {
-  attributeForDistinct: 'contentful_id',
   attributesToSnippet: ['body:50'],
 }
 const blogPostSettings = {
