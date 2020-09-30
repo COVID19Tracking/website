@@ -1,6 +1,6 @@
 # COVID Tracking Project
 
-The COVID Tracking Project collects information from 50 U.S. states, the District of Columbia, and 5 other U.S. territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2.
+The COVID Tracking Project collects information from 50 U.S. states, the District of Columbia, and 5 other U.S. territories to provide the most comprehensive testing data we can collect about the novel corona virus, SARS-CoV-2.
 
 This repository is for the project's **website**: https://covidtracking.com/.
 
@@ -10,7 +10,7 @@ Additional documentation can be found [at our documentation and Storybook websit
 
 ## Development
 
-The website is built on [GatsbyJS](https://www.gatsbyjs.org/). If you are not familiar with Gatsby, we suggest checking out their [excellent documentation](hhttps://www.gatsbyjs.org/docs).
+This website is built on [GatsbyJS](https://www.gatsbyjs.org/). If you are not familiar with Gatsby, we suggest checking out their [excellent documentation](hhttps://www.gatsbyjs.org/docs).
 
 ### Install
 
@@ -26,7 +26,7 @@ Then, install all dependencies by running:
 npm install
 ```
 
-The website is built from two separate data sources: our own API for COVID data, and Contentful for content. To download the most recent COVID data and setup a `.env` file with a copy of read-only API keys to Contentful, run:
+The website is built from two separate data sources: our own API for COVID data, and Contentful for content. For downloading the most recent COVID-19 data and setup a `.env` file with a copy of read-only API keys to Contentful, run:
 
 ```shell
 npm run setup
@@ -34,15 +34,15 @@ npm run setup
 
 You can also run `npm run setup:api-data` if you just want to download data and not touch the `.env` file.
 
-To run the website locally, use:
+To run the website locally, run:
 
 ```shell
 gatsby develop
 ```
 
-The site is now running at `http://localhost:8000`. Any changes you make to code is live-updated. There is a GraphQL preview tool available at `http://localhost:8000/___graphql` to see what data is exposed to the website.
+The site is now running at `http://localhost:8000`. Any changes you make to code will be live-updated. There is a GraphQL preview tool available at `http://localhost:8000/___graphql` to see what data is exposed to the website.
 
-Note that any changes you make while running Gatsby will automatically checked with [ESLint](https://eslint.org/), so check your console as you save files.
+Note that any changes you make while running Gatsby will be automatically checked with [ESLint](https://eslint.org/), so check your console as you save the files.
 
 ### Organization
 
@@ -58,9 +58,9 @@ Components live in `src/components` and are organized as follows:
 
 [![Coverage Status](https://coveralls.io/repos/github/COVID19Tracking/website/badge.svg?branch=master)](https://coveralls.io/github/COVID19Tracking/website?branch=master)
 
-We use Jest for automated testing, and all test files for Gatsby are located in `./src/__tests__`. Test files are structured following their related components. To run tests, use `npm run test`.
+We use Jest for automated testing, and all test files for Gatsby are located in `./src/__tests__`. Test files are structured following their related components. To run tests, run `npm run test`.
 
-When you make a change to an interface, you will need to [update the Jest snapshot](https://jestjs.io/docs/en/snapshot-testing) for tests to complete successfully:
+Everytime you make a change to an interface, you will need to [update the Jest snapshot](https://jestjs.io/docs/en/snapshot-testing) for tests to complete successfully:
 
 ```shell
 npm run test:update
