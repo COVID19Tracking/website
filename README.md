@@ -1,6 +1,6 @@
-# COVID Tracking Project
+# COVID Tracking Project :--- 
 
-The COVID Tracking Project collects information from 50 U.S. states, the District of Columbia, and 5 other U.S. territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2.
+The COVID Tracking Project collects information from 50 U.S. states, the District of Columbia, and 5 other U.S. territories to provide the most comprehensive testing data we can collect for the novel coronavirus or SARS-CoV-2.
 
 This repository is for the project's **website**: https://covidtracking.com/.
 
@@ -10,7 +10,7 @@ Additional documentation can be found [at our documentation and Storybook websit
 
 ## Development
 
-The website is built on [GatsbyJS](https://www.gatsbyjs.org/). If you are not familiar with Gatsby, we suggest checking out their [excellent documentation](hhttps://www.gatsbyjs.org/docs).
+The website is built on [GatsbyJS](https://www.gatsbyjs.org/). If you are not familiar with Gatsby or you hve never tried it before , we suggest checking out their [excellent documentation](hhttps://www.gatsbyjs.org/docs).
 
 ### Install
 
