@@ -15,9 +15,9 @@ import Press from '~components/pages/homepage/press'
 
 const Homepage = () => (
   <>
-    <SEO title="The COVID Tracking Project" />
+    <SEO title="The COVID-19 Tracking Project" />
     <SkipNavigation />
-    <Header siteTitle="The COVID Tracking Project" noMargin />
+    <Header siteTitle="The COVID-19 Tracking Project" noMargin />
     <SkipNavContent />
     <HeaderHero />
     <h1 className="a11y-only">The COVID Tracking Project</h1>
