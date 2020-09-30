@@ -15,6 +15,7 @@ const stateQuery = `{
     edges {
       node {
         state
+        objectID: state
         dateModified(formatString: "MMMM D, YYYY")
       }
     }
