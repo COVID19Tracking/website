@@ -53,18 +53,18 @@ export default () => {
           aianPctDeath
           aianPositives
           aianDeaths
-          blackPosPercap
-          blackDeathPercap
-          latinXPosPercap
-          latinXDeathPercap
-          asianPosPercap
-          asianDeathPercap
-          aianPosPercap
-          aianDeathPercap
-          whitePosPercap
-          whiteDeathPercap
-          nhpiPosPercap
-          nhpiDeathPercap
+          blackPosPerCap
+          blackDeathPerCap
+          latinXPosPerCap
+          latinXDeathPerCap
+          asianPosPerCap
+          asianDeathPerCap
+          aianPosPerCap
+          aianDeathPerCap
+          whitePosPerCap
+          whiteDeathPerCap
+          nhpiPosPerCap
+          nhpiDeathPerCap
         }
       }
       allCovidRaceDataSeparate(
@@ -101,18 +101,18 @@ export default () => {
           aianPctDeath
           aianPositives
           aianDeaths
-          blackPosPercap
-          blackDeathPercap
-          latinXPosPercap
-          latinXDeathPercap
-          asianPosPercap
-          asianDeathPercap
-          aianPosPercap
-          aianDeathPercap
-          whitePosPercap
-          whiteDeathPercap
-          nhpiPosPercap
-          nhpiDeathPercap
+          blackPosPerCap
+          blackDeathPerCap
+          latinXPosPerCap
+          latinXDeathPerCap
+          asianPosPerCap
+          asianDeathPerCap
+          aianPosPerCap
+          aianDeathPerCap
+          whitePosPerCap
+          whiteDeathPerCap
+          nhpiPosPerCap
+          nhpiDeathPerCap
         }
       }
       allCovidStateInfo(filter: { state: { nin: ["AS", "GU", "MP", "VI"] } }) {

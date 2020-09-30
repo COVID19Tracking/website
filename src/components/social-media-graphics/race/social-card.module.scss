@@ -124,9 +124,17 @@ body {
 
 }
 
+.asterisk-footnote,
 .footer {
   position: fixed;
   width: 800px;
+
+  color: $color-slate-700;
+  font-size: 13px; // ignore-style-rule
+  line-height: 1.2;
+}
+
+.footer {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -138,13 +146,14 @@ body {
   left: 50px;
   bottom: 30px;
 
-  color: $color-slate-700;
-  font-size: 13px; // ignore-style-rule
-  line-height: 1.2;
-
   &.national {
     bottom: 0px;
   }
+}
+
+.asterisk-footnote {
+  left: 50px;
+  bottom: 10px;
 }
 
 .square {

@@ -14,6 +14,13 @@ const CreateStateRaceSocialCards = () => {
         nodes {
           state
           name
+          blackSmallN
+          latinXSmallN
+          asianSmallN
+          aianSmallN
+          whiteSmallN
+          apiSmallN
+          nhpiSmallN
           knownRaceEthPos
           knownRaceEthDeath
           blackPctPos
@@ -40,20 +47,20 @@ const CreateStateRaceSocialCards = () => {
           aianPctDeath
           aianPositives
           aianDeaths
-          blackPosPercap
-          blackDeathPercap
-          latinXPosPercap
-          latinXDeathPercap
-          asianPosPercap
-          asianDeathPercap
-          aianPosPercap
-          aianDeathPercap
-          whitePosPercap
-          whiteDeathPercap
-          nhpiPosPercap
-          nhpiDeathPercap
-          apiPosPercap
-          apiDeathPercap
+          blackPosPerCap
+          blackDeathPerCap
+          latinXPosPerCap
+          latinXDeathPerCap
+          asianPosPerCap
+          asianDeathPerCap
+          aianPosPerCap
+          aianDeathPerCap
+          whitePosPerCap
+          whiteDeathPerCap
+          nhpiPosPerCap
+          nhpiDeathPerCap
+          apiPosPerCap
+          apiDeathPerCap
         }
       }
       allCovidRaceDataSeparate {
@@ -63,6 +70,13 @@ const CreateStateRaceSocialCards = () => {
           knownRacePos
           knownRaceDeath
           knownEthPos
+          blackSmallN
+          latinXSmallN
+          asianSmallN
+          aianSmallN
+          whiteSmallN
+          apiSmallN
+          nhpiSmallN
           knownEthDeath
           blackPctPos
           blackPctDeath
@@ -88,20 +102,20 @@ const CreateStateRaceSocialCards = () => {
           aianPctDeath
           aianPositives
           aianDeaths
-          blackPosPercap
-          blackDeathPercap
-          latinXPosPercap
-          latinXDeathPercap
-          asianPosPercap
-          asianDeathPercap
-          aianPosPercap
-          aianDeathPercap
-          whitePosPercap
-          whiteDeathPercap
-          nhpiPosPercap
-          nhpiDeathPercap
-          apiPosPercap
-          apiDeathPercap
+          blackPosPerCap
+          blackDeathPerCap
+          latinXPosPerCap
+          latinXDeathPerCap
+          asianPosPerCap
+          asianDeathPerCap
+          aianPosPerCap
+          aianDeathPerCap
+          whitePosPerCap
+          whiteDeathPerCap
+          nhpiPosPerCap
+          nhpiDeathPerCap
+          apiPosPerCap
+          apiDeathPerCap
         }
       }
       allCovidStateInfo {

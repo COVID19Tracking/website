@@ -30,6 +30,15 @@ const StateRaceSocialCard = renderedComponent(
     const groupValues = getGroups(state)
     const { groups } = groupValues
 
+    let showAsteriskFootnote = false
+
+    // if any of the smallNDeaths values is true
+    groups.forEach(group => {
+      if (group.smallNDeaths) {
+        showAsteriskFootnote = true // set showAsteriskFootnote to true
+      }
+    })
+
     const stateStatus = getStateStatus(state, combinedStates)
 
     if (stateStatus.deathsOnly) {
@@ -90,117 +99,103 @@ const StateRaceSocialCard = renderedComponent(
               Deaths per 100,000 people
             </span>
           )}
-          {/* justCases/justDeaths applies to each row, onlyCases/onlyDeaths
-          applies to the whole state. i.e. if onlyCases is true, there will be
-          only one chart for the state. If justCases is true, a single value
-          will not be shown */}
-          {groups.map(
-            ({ label, style, cases, deaths, justCases, justDeaths }) => (
-              <>
-                <span className={socialCardStyle.barLabel}>{label}</span>
-                {!stateStatus.deathsOnly && (
-                  <>
-                    {(cases === null) ? (
-                      <span className={socialCardStyle.insufficientData}>
-                        {nullValue}
-                      </span>
-                    ) : (
-                      <div className={socialCardStyle.barContainer}>
-                        <div
-                          className={classnames(
-                            socialCardStyle.bar,
-                            style,
-                            getWidthPercentage(
-                              cases,
-                              groupValues.worstCasesValue,
-                            ) !== 0 && socialCardStyle.hasInnerLabel,
-                          )}
-                          style={{
-                            width: `${getBarWidth(
-                              cases,
-                              groupValues.worstCasesValue,
-                              square,
-                              stateStatus.oneChart,
-                            )}px`,
-                          }}
-                        >
-                          {getWidthPercentage(
+          {groups.map(({ label, style, cases, deaths, smallNDeaths }) => (
+            <>
+              <span className={socialCardStyle.barLabel}>{label}</span>
+              {!stateStatus.deathsOnly && (
+                <>
+                  {cases === null ? (
+                    <span className={socialCardStyle.insufficientData}>
+                      {nullValue}
+                    </span>
+                  ) : (
+                    <div className={socialCardStyle.barContainer}>
+                      <div
+                        className={classnames(
+                          socialCardStyle.bar,
+                          style,
+                          getWidthPercentage(
                             cases,
                             groupValues.worstCasesValue,
-                          ) > 50 && (
-                            <span>
-                              <FormatNumber number={cases} />
-                            </span>
-                          )}
-                        </div>
+                          ) !== 0 && socialCardStyle.hasInnerLabel,
+                        )}
+                        style={{
+                          width: `${getBarWidth(
+                            cases,
+                            groupValues.worstCasesValue,
+                            square,
+                            stateStatus.oneChart,
+                          )}px`,
+                        }}
+                      >
                         {getWidthPercentage(
                           cases,
                           groupValues.worstCasesValue,
-                        ) < 50 && (
-                          <span>
-                            <FormatNumber number={cases} />
-                          </span>
-                        )}
+                        ) > 50 && <BarContent value={cases} />}
                       </div>
-                    )}
-                  </>
-                )}
-                {!stateStatus.casesOnly && (
-                  <>
-                    {(deaths === null) ? (
-                      <span
+                      {getWidthPercentage(cases, groupValues.worstCasesValue) <
+                        50 && <BarContent value={cases} />}
+                    </div>
+                  )}
+                </>
+              )}
+              {!stateStatus.casesOnly && (
+                <>
+                  {deaths === null ? (
+                    <span
+                      className={classnames(
+                        socialCardStyle.insufficientData,
+                        socialCardStyle.insufficientDataDeaths,
+                      )}
+                    >
+                      {nullValue}
+                    </span>
+                  ) : (
+                    <div className={socialCardStyle.barContainer}>
+                      <div className={socialCardStyle.deathBarSpacer} />
+                      <div
                         className={classnames(
-                          socialCardStyle.insufficientData,
-                          socialCardStyle.insufficientDataDeaths,
-                        )}
-                      >
-                        {nullValue}
-                      </span>
-                    ) : (
-                      <div className={socialCardStyle.barContainer}>
-                        <div className={socialCardStyle.deathBarSpacer} />
-                        <div
-                          className={classnames(
-                            socialCardStyle.bar,
-                            style,
-                            getWidthPercentage(
-                              deaths,
-                              groupValues.worstDeathsValue,
-                            ) !== 0 && socialCardStyle.hasInnerLabel,
-                          )}
-                          style={{
-                            width: `${getBarWidth(
-                              deaths,
-                              groupValues.worstDeathsValue,
-                              square,
-                              stateStatus.oneChart,
-                            )}px`,
-                          }}
-                        >
-                          {getWidthPercentage(
+                          socialCardStyle.bar,
+                          style,
+                          getWidthPercentage(
                             deaths,
                             groupValues.worstDeathsValue,
-                          ) > 50 && (
-                            <span>
-                              <FormatNumber number={deaths} />
-                            </span>
-                          )}
-                        </div>
+                          ) !== 0 && socialCardStyle.hasInnerLabel,
+                        )}
+                        style={{
+                          width: `${getBarWidth(
+                            deaths,
+                            groupValues.worstDeathsValue,
+                            square,
+                            stateStatus.oneChart,
+                          )}px`,
+                        }}
+                      >
                         {getWidthPercentage(
                           deaths,
                           groupValues.worstDeathsValue,
-                        ) < 50 && (
-                          <span>
-                            <FormatNumber number={deaths} />
-                          </span>
+                        ) > 50 && (
+                          <BarContent
+                            value={deaths}
+                            smallNDeaths={smallNDeaths}
+                          />
                         )}
                       </div>
-                    )}
-                  </>
-                )}
-              </>
-            ),
-          )}
+                      {getWidthPercentage(
+                        deaths,
+                        groupValues.worstDeathsValue,
+                      ) < 50 && (
+                        <BarContent
+                          value={deaths}
+                          smallNDeaths={smallNDeaths}
+                        />
+                      )}
+                    </div>
+                  )}
+                </>
+              )}
+            </>
+          ))}
         </div>
 
         <div className={socialCardStyle.footer}>
@@ -215,9 +210,22 @@ const StateRaceSocialCard = renderedComponent(
             <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
           </div>
         </div>
+        {showAsteriskFootnote && (
+          <div className={socialCardStyle.asteriskFootnote}>
+            * Based on less than 10 deaths among members of this race/ethnicity.
+            Interpret with caution.
+          </div>
+        )}
       </div>
     )
   },
+)
+
+const BarContent = ({ value, smallNDeaths = false }) => (
+  <span>
+    <FormatNumber number={value} />
+    {smallNDeaths && '*'}
+  </span>
 )
 
 export default StateRaceSocialCard

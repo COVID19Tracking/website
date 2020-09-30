@@ -125,18 +125,18 @@ export const query = graphql`
       aianPctDeath
       aianPositives
       aianDeaths
-      blackPosPercap
-      blackDeathPercap
-      latinXPosPercap
-      latinXDeathPercap
-      asianPosPercap
-      asianDeathPercap
-      aianPosPercap
-      aianDeathPercap
-      whitePosPercap
-      whiteDeathPercap
-      nhpiPosPercap
-      nhpiDeathPercap
+      blackPosPerCap
+      blackDeathPerCap
+      latinXPosPerCap
+      latinXDeathPerCap
+      asianPosPerCap
+      asianDeathPerCap
+      aianPosPerCap
+      aianDeathPerCap
+      whitePosPerCap
+      whiteDeathPerCap
+      nhpiPosPerCap
+      nhpiDeathPerCap
     }
     covidRaceDataSeparate(state: { eq: $state }) {
       state
@@ -169,18 +169,18 @@ export const query = graphql`
       aianPctDeath
       aianPositives
       aianDeaths
-      blackPosPercap
-      blackDeathPercap
-      latinXPosPercap
-      latinXDeathPercap
-      asianPosPercap
-      asianDeathPercap
-      aianPosPercap
-      aianDeathPercap
-      whitePosPercap
-      whiteDeathPercap
-      nhpiPosPercap
-      nhpiDeathPercap
+      blackPosPerCap
+      blackDeathPerCap
+      latinXPosPerCap
+      latinXDeathPerCap
+      asianPosPerCap
+      asianDeathPerCap
+      aianPosPerCap
+      aianDeathPerCap
+      whitePosPerCap
+      whiteDeathPerCap
+      nhpiPosPerCap
+      nhpiDeathPerCap
     }
   }
 `
