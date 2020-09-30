@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install
-        run: yarn i
+        run: yarn install
       - name: Danger JS Action
         uses: danger/danger-js@9.1.8
         env:
