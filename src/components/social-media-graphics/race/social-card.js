@@ -204,18 +204,13 @@ const StateRaceSocialCard = renderedComponent(
             stateName={state.name}
             statesReportingCases={statesReportingCases}
             statesReportingDeaths={statesReportingDeaths}
+            showAsteriskFootnote={showAsteriskFootnote}
           />
           <div className={socialCardStyle.logosContainer}>
             <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
             <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
           </div>
         </div>
-        {showAsteriskFootnote && (
-          <div className={socialCardStyle.asteriskFootnote}>
-            * Based on less than 10 deaths among members of this race/ethnicity.
-            Interpret with caution.
-          </div>
-        )}
       </div>
     )
   },
