@@ -32,13 +32,6 @@ const StateRaceSocialCard = renderedComponent(
 
     let showAsteriskFootnote = false
 
-    // if any of the smallNDeaths values is true
-    groups.forEach(group => {
-      if (group.smallNDeaths) {
-        showAsteriskFootnote = true // set showAsteriskFootnote to true
-      }
-    })
-
     const stateStatus = getStateStatus(state, combinedStates)
 
     if (stateStatus.deathsOnly) {
@@ -56,6 +49,13 @@ const StateRaceSocialCard = renderedComponent(
     }
 
     const nullValue = 'No data reported'
+
+    // if any of the smallNDeaths values is true
+    groups.forEach(group => {
+      if (group.smallNDeaths) {
+        showAsteriskFootnote = true // set showAsteriskFootnote to true
+      }
+    })
 
     return (
       <div

@@ -97,12 +97,12 @@ const getGroups = state => {
 
   const aPi = groups.find(group => group.label === 'Asian/Pacific Islander')
 
-  if (aPi.cases === null && aPi.deaths === null) {
+  if (aPi.cases == null && aPi.deaths == null) { // if the aPi values do not exist...
     groups = groups.filter(
-      // remove API bar
+      // remove the aPi bar
       group => group.label !== 'Asian/Pacific Islander',
     )
-  } else {
+  } else { // if the aPi values exist
     groups = groups.filter(
       // remove asian and NHPI bars
       group =>

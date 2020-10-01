@@ -179,7 +179,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  const covidStateInfo = result.data.allCovidStateInfo.nodes
+  let covidStateInfo = result.data.allCovidStateInfo.nodes
 
   // we want to include the U.S. as a "state" here
   covidStateInfo.unshift({
@@ -189,6 +189,10 @@ exports.createPages = async ({ graphql, actions }) => {
       slug: 'united-states',
     },
   })
+
+  covidStateInfo = covidStateInfo.filter(node => node.state !== 'PR')
+  covidStateInfo = covidStateInfo.filter(node => node.state !== 'VI')
+  covidStateInfo = covidStateInfo.filter(node => node.state !== 'GU')
 
   covidStateInfo.forEach(node => {
     const { slug } = node.childSlug

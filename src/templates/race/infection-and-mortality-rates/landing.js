@@ -97,50 +97,61 @@ export const query = graphql`
       }
     }
     covidRaceDataCombined(state: { eq: $state }) {
-      state
-      name
-      knownRaceEthPos
-      knownRaceEthDeath
-      blackPctPos
-      blackPctDeath
-      blackPositives
-      blackDeaths
-      whitePctPos
-      whitePctDeath
-      whitePositives
-      whiteDeaths
-      nhpiPctPos
-      nhpiPctDeath
-      nhpiPositives
-      nhpiDeaths
-      latinXPctPos
-      latinXPctDeath
-      latinXPositives
-      latinXDeaths
-      asianPctPos
-      asianPctDeath
-      asianPositives
-      asianDeaths
-      aianPctPos
-      aianPctDeath
-      aianPositives
-      aianDeaths
-      blackPosPerCap
-      blackDeathPerCap
-      latinXPosPerCap
-      latinXDeathPerCap
-      asianPosPerCap
-      asianDeathPerCap
-      aianPosPerCap
       aianDeathPerCap
-      whitePosPerCap
-      whiteDeathPerCap
-      nhpiPosPerCap
+      aianDeaths
+      aianPctDeath
+      aianPctPos
+      aianPositives
+      aianPosPerCap
+      aianSmallN
+      apiDeathPerCap
+      apiPosPerCap
+      apiSmallN
+      asianDeathPerCap
+      asianDeaths
+      asianPctDeath
+      asianPctPos
+      asianPositives
+      asianPosPerCap
+      asianSmallN
+      blackDeathPerCap
+      blackDeaths
+      blackPctDeath
+      blackPctPos
+      blackPositives
+      blackPosPerCap
+      blackSmallN
+      deathRateSmallN
+      knownRaceEthDeath
+      knownRaceEthPos
+      latinXDeathPerCap
+      latinXDeaths
+      latinXPctDeath
+      latinXPctPos
+      latinXPositives
+      latinXPosPerCap
+      latinXSmallN
+      name
       nhpiDeathPerCap
+      nhpiDeaths
+      nhpiPctDeath
+      nhpiPctPos
+      nhpiPositives
+      nhpiPosPerCap
+      nhpiSmallN
+      state
+      whiteDeathPerCap
+      whiteDeaths
+      whitePctDeath
+      whitePctPos
+      whitePositives
+      whitePosPerCap
+      whiteSmallN
     }
     covidRaceDataSeparate(state: { eq: $state }) {
       state
       name
+      deathRateSmallN
       knownRacePos
       knownRaceDeath
       knownEthPos
@@ -181,6 +192,57 @@ export const query = graphql`
       whiteDeathPerCap
       nhpiPosPerCap
       nhpiDeathPerCap
+      state
+      name
+      knownRacePos
+      knownRaceDeath
+      knownEthPos
+      blackSmallN
+      latinXSmallN
+      asianSmallN
+      aianSmallN
+      whiteSmallN
+      apiSmallN
+      nhpiSmallN
+      knownEthDeath
+      blackPctPos
+      blackPctDeath
+      blackPositives
+      blackDeaths
+      whitePctPos
+      whitePctDeath
+      whitePositives
+      whiteDeaths
+      nhpiPctPos
+      nhpiPctDeath
+      nhpiPositives
+      nhpiDeaths
+      latinXPctPos
+      latinXPctDeath
+      latinXPositives
+      latinXDeaths
+      asianPctPos
+      asianPctDeath
+      asianPositives
+      asianDeaths
+      aianPctPos
+      aianPctDeath
+      aianPositives
+      aianDeaths
+      blackPosPerCap
+      blackDeathPerCap
+      latinXPosPerCap
+      latinXDeathPerCap
+      asianPosPerCap
+      asianDeathPerCap
+      aianPosPerCap
+      aianDeathPerCap
+      whitePosPerCap
+      whiteDeathPerCap
+      nhpiPosPerCap
+      nhpiDeathPerCap
+      apiPosPerCap
+      apiDeathPerCap
     }
   }
 `
