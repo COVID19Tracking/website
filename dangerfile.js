@@ -141,3 +141,4 @@ checkFiles().then(errors => {
     })
   }
 })
+return 0
