@@ -157,10 +157,17 @@ body {
 }
 
 .square {
-  .footer {
+  .footer,
+  .asterisk-footnote {
     left: 38px;
     width: 625px;
+  }
 
+  .asterisk-footnote {
+    bottom: 15px;
+  }
+
+  .footer {
     .notes {
       width: 500px;
     }
