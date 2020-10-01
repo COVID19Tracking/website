@@ -5,12 +5,17 @@ require(`@babel/register`)({
 require('dotenv').config()
 const setTZ = require('set-tz')
 const { DateTime } = require('luxon')
+const fs = require('fs')
 const algoliaQueries = require('./src/utilities/algolia').queries
 const sassImports = require('./src/utilities/sass-imports.js')
 const formatStringList = require('./src/components/utils/format')
   .formatStringList
 
 setTZ('America/New_York')
+
+const usDates = JSON.parse(fs.readFileSync('./_api/v1/us/daily.json'))
+const latestDate = usDates.sort((a, b) => (a.date > b.date ? -1 : 1)).shift()
+  .date
 
 const gatsbyConfig = {
   siteMetadata: {
@@ -311,7 +316,7 @@ const gatsbyConfig = {
       resolve: `gatsby-plugin-global-context`,
       options: {
         context: {
-          sevenDaysAgo: DateTime.local()
+          sevenDaysAgo: DateTime.fromISO(latestDate)
             .minus({ days: 7 })
             .toISODate(),
         },

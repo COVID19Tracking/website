@@ -13,7 +13,7 @@ beforeEach(() => {
       latinXMortalityRate: '29.7',
       blackMortalityRate: '64.7',
       aianMortalityRate: '30.6',
-      blackLivesLost: '26,708',
+      blackLivesLost: '26708',
       blackPercentOfDeath: '0.2329585598',
     },
   }))

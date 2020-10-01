@@ -68,7 +68,7 @@ const RelatedPosts = ({ blogPost }) => {
     <div className={RelatedPostsStyles.container}>
       <h2>{relatedTitle}</h2>
       <div className={RelatedPostsStyles.ctaWrapper}>
-        <CtaLink to="blog">See all blog posts</CtaLink>
+        <CtaLink to="/blog">See all blog posts</CtaLink>
       </div>
       {footerPosts.map(post => (
         <div key={post.slug} className={RelatedPostsStyles.post}>
