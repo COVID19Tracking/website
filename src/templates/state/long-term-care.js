@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import marked from 'marked'
 import LongTermCareSummaryTable from '~components/pages/state/long-term-care/summary-table'
+import LongTermCareFacilities from '~components/pages/state/long-term-care/facilities'
 import LongTermCareBarChart from '~components/pages/state/long-term-care/chart'
 import LongTermCareOverview from '~components/pages/state/long-term-care/overview'
 
@@ -38,6 +39,10 @@ export default ({ pageContext, path, data }) => {
             dangerouslySetInnerHTML={{
               __html: marked(data.covidLtcNotes.notes),
             }}
+          />
+          <h2 id="facilities">Facilities</h2>
+          <LongTermCareFacilities
+            facilities={data.allCovidLtcFacilities.group}
           />
         </>
       ) : (
