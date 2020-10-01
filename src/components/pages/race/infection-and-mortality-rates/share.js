@@ -82,7 +82,6 @@ export default ({ state, stateRaceData, combinedStates }) => {
         <img
           src={`/images/race-dashboard/${state.childSlug.slug}.png`}
           alt={socialCardShareText}
-          className={shareStyles.preview}
         />
       </div>
       <DetailText centered className={shareStyles.clickToShare}>
