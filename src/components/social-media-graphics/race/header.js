@@ -39,6 +39,15 @@ const SocialCardHeader = ({ state, stateName, noCharts, combinedStates }) => {
       </>
     )
   }
+  if (state.deathRateSmallN) {
+    return (
+      <>
+        <SocialCardLocale name={name} />, as of{' '}
+        {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
+        {worstCasesGroup} had the highest risk of contracting COVID-19.
+      </>
+    )
+  }
   if (worstDeathsGroup === worstCasesGroup) {
     return (
       <>
