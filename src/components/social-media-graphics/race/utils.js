@@ -56,7 +56,7 @@ const getGroups = state => {
       style: socialCardStyle.barLatinx,
       cases: getGroupValue(state.latinXPosPerCap),
       deaths: getGroupValue(state.latinXDeathPerCap),
-      smallNDeaths: state.latinxSmallN,
+      smallNDeaths: state.latinXSmallN,
     },
     {
       label: 'Asian',
