@@ -33,19 +33,11 @@ const NoDataSocialCard = ({ stateName, square }) => {
           <br />
           <strong>www.covidtracking.com/race/get-better-data</strong>
         </p>
-        {square && (
-          <div className={socialCardStyle.logosContainer}>
-            <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
-            <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
-          </div>
-        )}
-      </div>
-      {!square && (
-        <>
+        <div className={socialCardStyle.logosContainer}>
           <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
           <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
-        </>
-      )}
+        </div>
+      </div>
     </div>
   )
 }

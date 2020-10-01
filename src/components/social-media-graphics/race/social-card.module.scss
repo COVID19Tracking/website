@@ -141,14 +141,14 @@ body {
 
   .notes {
     width: 700px;
+    &.national {
+      bottom: 0px;
+    }
   }
 
   left: 50px;
   bottom: 30px;
 
-  &.national {
-    bottom: 0px;
-  }
 }
 
 .asterisk-footnote {
@@ -285,33 +285,38 @@ body {
   @include type-size(300);
   padding: 116px 180px; // ignore-style-rule
 
+  .logos-container {
+    display: flex;
+    margin-top: 16px;
+    justify-content: center;
+
+    .ctp-logo {
+      width: 26px;
+      margin-right: 6px;
+    }
+
+    .car-logo {
+      width: 43px;
+    }
+  }
+
   &.square {
-    padding: 150px 90px; // ignore-style-rule
+    outline: 2px solid red;
+    border: 2px solid blue;
+    // padding: 60px 170px; // ignore-style-rule
+    padding: 170px 60px; // ignore-style-rule
 
     .alert {
       width: 90px;
       margin-bottom: 8px;
     }
 
-    .logos-container {
-      display: flex;
-      flex-direction: row;
-      margin: 50px auto 0;
-
-      .ctp-logo {
-        position: static;
-        width: 26px;
-        margin-right: 6px;
-      }
-
-      .car-logo {
-        position: static;
-        width: 43px;
-      }
-    }
-
     p {
       margin: 1rem 0;
+    }
+
+    .get-better-data {
+      min-width: 500px;
     }
   }
 

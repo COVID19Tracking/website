@@ -45,7 +45,7 @@ const StateRaceSocialCard = renderedComponent(
     }
 
     if (stateStatus.noCharts) {
-      return <NoDataSocialCard stateName={state.name} />
+      return <NoDataSocialCard stateName={state.name} square={square} />
     }
 
     const nullValue = 'No data reported'
