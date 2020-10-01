@@ -95,28 +95,31 @@ const getGroups = state => {
     },
   ]
 
-  let allNulls = true; // assume all values are null
+  let allNulls = true // assume all values are null
   groups.forEach(group => {
     if (group.cases !== null) {
-      allNulls = false;
+      allNulls = false
     }
     if (group.deaths !== null) {
-      allNulls = false;
+      allNulls = false
     }
   })
 
-  if (allNulls) { // if the state reports no race data
+  if (allNulls) {
+    // if the state reports no race data
     return {}
   }
 
   const aPi = groups.find(group => group.label === 'Asian/Pacific Islander')
 
-  if (aPi.cases == null && aPi.deaths == null) { // if the aPi values do not exist...
+  if (aPi.cases == null && aPi.deaths == null) {
+    // if the aPi values do not exist...
     groups = groups.filter(
       // remove the aPi bar
       group => group.label !== 'Asian/Pacific Islander',
     )
-  } else { // if the aPi values exist
+  } else {
+    // if the aPi values exist
     groups = groups.filter(
       // remove asian and NHPI bars
       group =>

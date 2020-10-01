@@ -105,12 +105,7 @@ const SocialCardFootnotes = ({
         <Notes state={state} stateName={stateName} />
       )}
     </div>
-    {showAsteriskFootnote && (
-      <div className={socialCardStyle.asteriskFootnote}>
-        * Based on less than 10 deaths among members of this race/ethnicity.
-        Interpret with caution.
-      </div>
-    )}
+    {showAsteriskFootnote && <AsteriskFootnote />}
   </div>
 )
 
