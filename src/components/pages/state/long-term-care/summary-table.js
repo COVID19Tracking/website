@@ -1,6 +1,5 @@
 import React from 'react'
 import classnames from 'classnames'
-// import { FormatNumber } from '~components/utils/format'
 import tableStyle from '~components/common/table.module.scss'
 import summaryTableStyle from './summary-table.module.scss'
 import { FormatNumber } from '~components/utils/format'
@@ -28,6 +27,25 @@ const getAllowedCategories = data => {
   })
   return allowedCategories
 }
+
+const fields = [
+  'posres_',
+  'deathres_',
+  'posstaff_',
+  'deathstaff_',
+  'posresstaff_',
+  'deathresstaff_',
+]
+
+const CategoryRows = ({ data, category }) => (
+  <>
+    {fields.map(field => (
+      <td>
+        <FormatNumber number={data[`${field}${category}`]} />
+      </td>
+    ))}
+  </>
+)
 
 const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
   const categories = getAllowedCategories(aggregate)
@@ -63,24 +81,7 @@ const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
                   Cumulative
                 </span>
               </th>
-              <td>
-                <FormatNumber number={aggregate[`posres_${category}`]} />
-              </td>
-              <td>
-                <FormatNumber number={aggregate[`deathres_${category}`]} />
-              </td>
-              <td>
-                <FormatNumber number={aggregate[`posstaff_${category}`]} />
-              </td>
-              <td>
-                <FormatNumber number={aggregate[`deathstaff_${category}`]} />
-              </td>
-              <td>
-                <FormatNumber number={aggregate[`posresstaff_${category}`]} />
-              </td>
-              <td>
-                <FormatNumber number={aggregate[`deathresrtaff_${category}`]} />
-              </td>
+              <CategoryRows data={aggregate} category={category} />
             </tr>
             <tr>
               <th scope="row">
@@ -89,24 +90,7 @@ const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
                   Outbreak
                 </span>
               </th>
-              <td>
-                <FormatNumber number={outbreak[`posres_${category}`]} />
-              </td>
-              <td>
-                <FormatNumber number={outbreak[`deathres_${category}`]} />
-              </td>
-              <td>
-                <FormatNumber number={outbreak[`posstaff_${category}`]} />
-              </td>
-              <td>
-                <FormatNumber number={outbreak[`deathstaff_${category}`]} />
-              </td>
-              <td>
-                <FormatNumber number={outbreak[`posresstaff_${category}`]} />
-              </td>
-              <td>
-                <FormatNumber number={outbreak[`deathresrtaff_${category}`]} />
-              </td>
+              <CategoryRows data={outbreak} category={category} />
             </tr>
           </>
         ))}

@@ -1,5 +1,12 @@
 import React from 'react'
-import { LineChart, XAxis, YAxis, Line, CartesianGrid } from 'recharts'
+import {
+  ResponsiveContainer,
+  LineChart,
+  XAxis,
+  YAxis,
+  Line,
+  CartesianGrid,
+} from 'recharts'
 import colors from '~scss/colors.module.scss'
 
 const LongTermCareBarChart = ({ data }) => {
@@ -15,17 +22,33 @@ const LongTermCareBarChart = ({ data }) => {
   }))
 
   return (
-    <LineChart width={500} height={300} data={chartData}>
-      <XAxis dataKey="date" />
-      <YAxis />
-      <CartesianGrid
-        vertical={false}
-        stroke={colors.slate700}
-        strokeDasharray="5 5"
-      />
-      <Line type="monotone" dataKey="deaths" stroke={colors.colorPlum500} />
-      <Line type="monotone" dataKey="cases" stroke={colors.colorHoney500} />
-    </LineChart>
+    <ResponsiveContainer width="100%" height={300}>
+      <LineChart width={500} height={300} data={chartData} anim>
+        <XAxis dataKey="date" />
+        <YAxis />
+        <CartesianGrid
+          vertical={false}
+          stroke={colors.slate700}
+          strokeDasharray="5 5"
+        />
+        <Line
+          type="monotone"
+          dot={false}
+          animationDuration={0}
+          dataKey="deaths"
+          stroke={colors.colorPlum500}
+          strokeWidth={2}
+        />
+        <Line
+          type="monotone"
+          dot={false}
+          animationDuration={0}
+          dataKey="cases"
+          stroke={colors.colorHoney500}
+          strokeWidth={2}
+        />
+      </LineChart>
+    </ResponsiveContainer>
   )
 }
 
