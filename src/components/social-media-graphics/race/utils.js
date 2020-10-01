@@ -95,6 +95,20 @@ const getGroups = state => {
     },
   ]
 
+  let allNulls = true; // assume all values are null
+  groups.forEach(group => {
+    if (group.cases !== null) {
+      allNulls = false;
+    }
+    if (group.deaths !== null) {
+      allNulls = false;
+    }
+  })
+
+  if (allNulls) { // if the state reports no race data
+    return {}
+  }
+
   const aPi = groups.find(group => group.label === 'Asian/Pacific Islander')
 
   if (aPi.cases == null && aPi.deaths == null) { // if the aPi values do not exist...

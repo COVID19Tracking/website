@@ -190,7 +190,6 @@ exports.createPages = async ({ graphql, actions }) => {
     },
   })
 
-  covidStateInfo = covidStateInfo.filter(node => node.state !== 'PR')
   covidStateInfo = covidStateInfo.filter(node => node.state !== 'VI')
   covidStateInfo = covidStateInfo.filter(node => node.state !== 'GU')
 
