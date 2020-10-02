@@ -85,3 +85,7 @@ The storybook is now available at `http://localhost:6006`.
 ## How to contribute
 
 No matter how you choose to help, we would love to have you as part of the project. Check our [Contributing Guide](https://github.com/COVID19Tracking/website/blob/master/CONTRIBUTING.md) for information on how to file issues and make pull requests.
+
+## COVID-19 Funds in Response to the Pandemic
+
+Many countries have established off-budget COVID-19 funds to help mobilize resources and accelerate emergency spending. The note reviews these funds and shows how they can be made efficient, transparent, and accountable
