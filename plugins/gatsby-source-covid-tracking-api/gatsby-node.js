@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const crypto = require('crypto')
 const slugify = require('slugify')
 const { DateTime } = require('luxon')
@@ -21,7 +21,7 @@ Make sure to run "npm run setup" to clone the most recent version of the COVID A
     return
   }
 
-  const items = JSON.parse(fs.readFileSync(file))
+  const items = await fs.readJson(file)
   if (increaseFields && increaseFields.length) {
     items.sort((a, b) => (a.date > b.date ? 1 : -1))
   }
