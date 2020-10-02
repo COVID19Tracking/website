@@ -7,23 +7,12 @@ import StateCumulativeTestsContainer from './state-cumulative-tests'
 import StateCumulativeDeathsContainer from './state-cumulative-deaths'
 import UsDailyDeathsContainer from './us-daily-deaths'
 import UsPositiveAndTotalTestsContainer from './us-total-positive-deaths'
+import cdcComparisonChart from '~images/visualization-guide/cdc-comparison-chart.png'
 
 import './dashboard.scss'
 import dashboardStyles from './dashboard.module.scss'
 
 const VisualizationGuide = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { regex: "/cdc-comparison-chart.png/" }) {
-        relativePath
-        childImageSharp {
-          fluid(maxWidth: 1200, traceSVG: { color: "#A7DEF6" }) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-    }
-  `)
   return (
     <LongContent>
       <div className={dashboardStyles.moduleFeatured}>
@@ -42,7 +31,7 @@ const VisualizationGuide = () => {
           numbers for COVID-19 case, death, and testing in the US with full
           daily updates.
         </p>
-        <CdcComparisonChart image={data.file.childImageSharp} />
+        <CdcComparisonChart image={cdcComparisonChart} />
       </div>
 
       <div className={dashboardStyles.moduleFeatured}>
