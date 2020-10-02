@@ -1,5 +1,4 @@
 import React from 'react'
-import Img from 'gatsby-image'
 
 import cdcStyles from './cdc-comparison.module.scss'
 import dashboardStyles from './dashboard.module.scss'
@@ -46,8 +45,8 @@ export default ({ image }) => (
         />
       ))}
     </div>
-    <Img
-      fluid={image.fluid}
+    <img
+      src={image}
       alt="A comparison of reported tests from the CDC and individual states."
     />
     <p className={cdcStyles.chartLabel}>
