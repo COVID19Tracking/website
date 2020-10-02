@@ -301,6 +301,12 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-transformer-covid-ltc-totals',
+      options: {
+        type: 'CovidStateInfo',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'The COVID Tracking Project',

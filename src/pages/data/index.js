@@ -130,6 +130,35 @@ export const query = graphql`
         childSlug {
           slug
         }
+        childLtc {
+          facilities
+          current {
+            deathres_other
+            deathres_ltc
+            deathres_alf
+            deathres_nh
+            deathresstaff_alf
+            deathresstaff_ltc
+            deathresstaff_nh
+            deathresstaff_other
+            deathstaff_alf
+            deathstaff_ltc
+            deathstaff_nh
+            deathstaff_other
+            posres_alf
+            posres_ltc
+            posres_nh
+            posres_other
+            posresstaff_alf
+            posresstaff_ltc
+            posstaff_other
+            posstaff_nh
+            posstaff_ltc
+            posstaff_alf
+            posresstaff_other
+            posresstaff_nh
+          }
+        }
       }
     }
     allCovidUsDaily {
