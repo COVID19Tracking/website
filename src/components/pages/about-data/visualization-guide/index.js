@@ -1,5 +1,4 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import LongContent from '~components/common/long-content'
 import MapContainer from './map-container'
 import CdcComparisonChart from './cdc-comparison'
