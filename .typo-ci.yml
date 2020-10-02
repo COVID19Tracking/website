@@ -7,7 +7,7 @@ excluded_files:
   - '.typo-ci.yml'
 
 excluded_words:
-  - covid
+  - covid 19
   - lede
   - nhpi
   - aian
