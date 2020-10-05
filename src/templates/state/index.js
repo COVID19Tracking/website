@@ -128,6 +128,7 @@ export const query = graphql`
       totalTestResults
       dataQualityGrade
       posNeg
+      probableCases
       positiveCasesViral
       positiveTestsViral
       negativeTestsViral

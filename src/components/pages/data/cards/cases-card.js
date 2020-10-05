@@ -13,6 +13,8 @@ const CasesCard = ({
   positive,
   positiveIncrease,
   sevenDayIncrease,
+  probableCases,
+  confirmedCases,
   national,
 }) => {
   const sevenDayIncreasePercent = Math.round(sevenDayIncrease * 100 * 10) / 10
@@ -60,6 +62,12 @@ const CasesCard = ({
             calculated
           />
         </Statistic>
+        {confirmedCases && (
+          <Statistic title="Confirmed cases" value={confirmedCases} />
+        )}
+        {probableCases && (
+          <Statistic title="Probable cases" value={probableCases} />
+        )}
       </CardBody>
     </Card>
   )
