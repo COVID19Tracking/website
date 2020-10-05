@@ -132,7 +132,7 @@ export default () => {
 
   return (
     <Layout
-      title="Infection and Mortality Rates by Race and Ethnicity"
+      title="Infection and Mortality by Race and Ethnicity"
       returnLinks={[
         { link: '/race' },
         { link: `/race/dashboard`, title: 'Racial Data Dashboard' },
@@ -145,7 +145,7 @@ export default () => {
           __html: data.contentfulSnippet.content.childMarkdownRemark.html,
         }}
       />
-      <h3>See the per capita rates by state</h3>
+      <h3>See the per capita data by state</h3>
       <p>
         Select a state or territory to see the latest information about COVID-19
         cases and deaths per 100k people for each race and ethnicity. These

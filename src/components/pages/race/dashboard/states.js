@@ -336,13 +336,13 @@ const CrdtDashboardStates = () => {
             </h2>
             {!territoriesWithoutGraphics.includes(state.state) && (
               <p className={statesStyle.socialCardCta}>
-                Compare {state.name}’s infection and mortality rates by race and
+                Compare {state.name}’s infection and mortality data by race and
                 ethnicity.
                 <br />
                 <CtaLink
                   to={`/race/infection-and-mortality-rates#${state.state}`}
                 >
-                  View rates per capita as a graphic
+                  View data per capita as a graphic
                 </CtaLink>
               </p>
             )}

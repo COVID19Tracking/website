@@ -24,16 +24,16 @@ const SocialCardHeader = ({ state, stateName, noCharts, combinedStates }) => {
   if (casesOnly) {
     return (
       <>
-        <SocialCardLocale name={name} />, as of{' '}
+        <SocialCardLocale name={name} />, through{' '}
         {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
-        {worstCasesGroup} had the highest risk of contracting COVID-19.
+        {worstCasesGroup} were most likely to have contracted COVID-19.
       </>
     )
   }
   if (deathsOnly) {
     return (
       <>
-        <SocialCardLocale name={name} />, as of{' '}
+        <SocialCardLocale name={name} />, through{' '}
         {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
         {worstDeathsGroup} were most likely to have died from COVID-19.
       </>
@@ -42,27 +42,27 @@ const SocialCardHeader = ({ state, stateName, noCharts, combinedStates }) => {
   if (state.deathRateSmallN) {
     return (
       <>
-        <SocialCardLocale name={name} />, as of{' '}
+        <SocialCardLocale name={name} />, through{' '}
         {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
-        {worstCasesGroup} had the highest risk of contracting COVID-19.
+        {worstCasesGroup} were most likely to have contracted COVID-19.
       </>
     )
   }
   if (worstDeathsGroup === worstCasesGroup) {
     return (
       <>
-        <SocialCardLocale name={name} />, as of{' '}
+        <SocialCardLocale name={name} />, through{' '}
         {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
-        {worstCasesGroup} had the highest risk of contracting COVID-19 and were
+        {worstCasesGroup} were most likely to have contracted COVID-19 and were
         also most likely to have died.
       </>
     )
   }
   return (
     <>
-      <SocialCardLocale name={name} />, as of{' '}
+      <SocialCardLocale name={name} />, through{' '}
       {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
-      {worstCasesGroup} had the highest risk of contracting COVID-19.{' '}
+      {worstCasesGroup} were most likely to have contracted COVID-19.{' '}
       {worstDeathsGroup} were most likely to have died.
     </>
   )
