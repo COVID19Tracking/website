@@ -66,14 +66,18 @@ exports[`Components : Pages : Data : State navigation renders correctly 1`] = `
             <a
               href="#state-ca"
             >
-              CA
+              <abbr>
+                CA
+              </abbr>
             </a>
           </li>
           <li>
             <a
               href="#state-nm"
             >
-              NM
+              <abbr>
+                NM
+              </abbr>
             </a>
           </li>
         </ul>
@@ -144,14 +148,18 @@ exports[`Components : Pages : Data : State navigation renders correctly 2`] = `
             <a
               href="/data/state/california"
             >
-              CA
+              <abbr>
+                CA
+              </abbr>
             </a>
           </li>
           <li>
             <a
               href="/data/state/new-mexico"
             >
-              NM
+              <abbr>
+                NM
+              </abbr>
             </a>
           </li>
         </ul>
