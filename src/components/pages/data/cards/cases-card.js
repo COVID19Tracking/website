@@ -44,30 +44,50 @@ const CasesCard = ({
           <DefinitionLink
             onDefinitionsToggle={() => {
               definitionContext({
-                fields: ['positive'],
+                fields: ['positive', 'positiveCasesViral'],
                 highlight: 'positive',
               })
             }}
             label="Total cases"
           />
-          <DrillDown
-            label="New cases today"
-            value={positiveIncrease}
-            calculated
-          />
-          <DrillDown
-            label="Change over 7 days"
-            value={drillDownValue}
-            suffix={drillDownSuffix}
-            calculated
-          />
         </Statistic>
         {confirmedCases && (
-          <Statistic title="Confirmed cases" value={confirmedCases} />
+          <Statistic title="Confirmed cases" value={confirmedCases}>
+            <DefinitionLink
+              onDefinitionsToggle={() => {
+                definitionContext({
+                  fields: ['positive', 'positiveCasesViral'],
+                  highlight: 'positiveCasesViral',
+                })
+              }}
+              label="Confirmed cases"
+            />
+          </Statistic>
         )}
         {probableCases && (
-          <Statistic title="Probable cases" value={probableCases} />
+          <Statistic title="Probable cases" value={probableCases}>
+            <DefinitionLink
+              onDefinitionsToggle={() => {
+                definitionContext({
+                  fields: ['positive', 'positiveCasesViral', 'probableCases'],
+                  highlight: 'probableCases',
+                })
+              }}
+              label="Probable Cases"
+            />
+          </Statistic>
         )}
+        <DrillDown
+          label="New cases today"
+          value={positiveIncrease}
+          calculated
+        />
+        <DrillDown
+          label="Change over 7 days"
+          value={drillDownValue}
+          suffix={drillDownSuffix}
+          calculated
+        />
       </CardBody>
     </Card>
   )
