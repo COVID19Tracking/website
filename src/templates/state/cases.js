@@ -35,6 +35,11 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
           {
             field: 'positiveCasesViral',
             isNumeric: true,
+            label: 'Confirmed cases',
+          },
+          {
+            field: 'probableCases',
+            isNumeric: true,
           },
         ]}
         data={data.allCovidStateDaily.nodes}
@@ -56,12 +61,18 @@ export const query = graphql`
         positive
         positiveIncrease
         positiveCasesViral
+        probableCases
       }
     }
     allContentfulDataDefinition(
       filter: {
         fieldName: {
-          in: ["positive", "positiveCasesViral", "positiveIncrease"]
+          in: [
+            "positive"
+            "positiveCasesViral"
+            "positiveIncrease"
+            "probableCases"
+          ]
         }
       }
     ) {
