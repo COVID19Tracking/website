@@ -40,7 +40,10 @@ const StateNav = ({ stateList, className, externalLinks = false }) => {
             if (externalLinks) {
               return (
                 <li key={state.state}>
-                  <Link to={`/data/state/${state.childSlug.slug}`}>
+                  <Link
+                    to={`/data/state/${state.childSlug.slug}`}
+                    aria-label={state.name}
+                  >
                     {state.state}
                   </Link>
                 </li>
@@ -48,7 +51,10 @@ const StateNav = ({ stateList, className, externalLinks = false }) => {
             }
             return (
               <li key={state.state}>
-                <Link to={`#state-${state.state.toLowerCase()}`}>
+                <Link
+                  to={`#state-${state.state.toLowerCase()}`}
+                  aria-label={state.name}
+                >
                   {state.state}
                 </Link>
               </li>
