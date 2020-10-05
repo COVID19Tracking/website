@@ -133,7 +133,7 @@ const StateRaceSocialCard = renderedComponent(
                           groupValues.worstCasesValue,
                         ) > 50 && <BarContent value={cases} />}
                       </div>
-                      {getWidthPercentage(cases, groupValues.worstCasesValue) <
+                      {getWidthPercentage(cases, groupValues.worstCasesValue) <=
                         50 && <BarContent value={cases} />}
                     </div>
                   )}
