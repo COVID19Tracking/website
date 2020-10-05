@@ -17,25 +17,38 @@ const getLandingPageUrl = (state, noCharts) =>
     ? 'https://covidtracking.com/race/get-better-data'
     : `https://covidtracking.com/race/infection-and-mortality-rates/${state.childSlug.slug}`
 
-const getSocialCardShareText = (typeOfRates, state, groups) => {
-  const today = new Date()
+const getStateName = name => {
+  if (name === 'District of Columbia') {
+    return 'the District of Columbia'
+  }
+  if (name === 'United States') {
+    return 'the United States'
+  }
+  return name
+}
 
+const getTweetableDate = () => {
+  const today = new Date()
+  return `${today.toLocaleString('default', {
+    month: 'long',
+  })} ${today.getDate()}`
+}
+
+const getSocialCardShareText = (typeOfRates, state, groups) => {
   if (typeOfRates === 'no rates') {
-    return `In ${state.name}, race and ethnicity information is still not reported for COVID-19 cases and deaths. Help us get better data by contacting health officials at https://covidtracking.com/race/get-better-data #RacialDataTracker`
+    return `In ${getStateName(
+      state.name,
+    )}, race and ethnicity information is still not reported for COVID-19 cases and deaths. Help us get better data by contacting health officials at https://covidtracking.com/race/get-better-data #RacialDataTracker`
   }
   if (typeOfRates === 'mortality rates') {
-    return `In ${state.name}, through ${today.toLocaleString('default', {
-      month: 'long',
-    })} ${today.getDate()}, ${
+    return `In ${getStateName(state.name)}, through ${getTweetableDate()}, ${
       groups.worstDeathsGroup
     } were most likely to have died from #COVID19. https://www.covidtracking.com/race/infection-and-mortality-rates/${
       state.childSlug.slug
     } #RacialDataTracker`
   }
   if (typeOfRates === 'infection rates') {
-    return `In ${state.name}, through ${today.toLocaleString('default', {
-      month: 'long',
-    })} ${today.getDate()}, ${
+    return `In ${getStateName(state.name)}, through ${getTweetableDate()}, ${
       groups.worstCasesGroup
     } were most likely to have contracted #COVID19. Get the latest analysis: https://www.covidtracking.com/race/infection-and-mortality-rates/${
       state.childSlug.slug
@@ -43,18 +56,14 @@ const getSocialCardShareText = (typeOfRates, state, groups) => {
   }
   if (typeOfRates === 'infection and mortality rates') {
     if (groups.worstDeathsGroup === groups.worstCasesGroup) {
-      return `In ${state.name}, through ${today.toLocaleString('default', {
-        month: 'long',
-      })} ${today.getDate()}, ${
+      return `In ${getStateName(state.name)}, through ${getTweetableDate()}, ${
         groups.worstCasesGroup
       } were most likely to have contracted #COVID19 and were most likely to have died. Get the latest analysis: https://www.covidtracking.com/race/infection-and-mortality-rates/${
         state.childSlug.slug
       } #RacialDataTracker`
     }
   }
-  return `In ${state.name}, through ${today.toLocaleString('default', {
-    month: 'long',
-  })} ${today.getDate()}, ${
+  return `In ${getStateName(state.name)}, through ${getTweetableDate()}, ${
     groups.worstCasesGroup
   } were most likely to have contracted #COVID19. ${
     groups.worstDeathsGroup
