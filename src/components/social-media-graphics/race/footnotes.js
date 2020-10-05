@@ -59,7 +59,7 @@ const Notes = ({ state, stateName }) => {
           data for <Percent number={state.knownEthPos} /> of cases and{' '}
           <Percent number={state.knownEthDeath} /> of deaths. Graphic only
           includes demographic groups reported by the state. Race categories are
-          non-mutually-exclusive and include both Hispanic/Latino and
+          mutually exclusive and include both Hispanic/Latino and
           non-Hispanic/Latino ethnicity.
         </>
       )}
@@ -75,7 +75,7 @@ const NationalNotes = ({ statesReportingDeaths, statesReportingCases }) => (
     <FormatNumber number={statesReportingDeaths} /> of 56 report race/ethnicity
     for deaths. Graphic includes demographic data from all states and
     territories that report, using standard Census categories where possible,
-    and scaled to the total U.S. population for each Census category. Race
+    and scaled to the total US population for each Census category. Race
     categories may overlap with Hispanic/Latino ethnicity. Some rates are
     underestimated due to lack of reporting of race and ethnicity categories for
     COVID-19 cases and deaths.
