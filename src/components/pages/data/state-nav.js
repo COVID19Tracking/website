@@ -41,7 +41,7 @@ const StateNav = ({ stateList, className, externalLinks = false }) => {
               return (
                 <li key={state.state}>
                   <Link to={`/data/state/${state.childSlug.slug}`}>
-                    {state.state}
+                    <abbr title={state.name}>{state.state}</abbr>
                   </Link>
                 </li>
               )
@@ -49,7 +49,7 @@ const StateNav = ({ stateList, className, externalLinks = false }) => {
             return (
               <li key={state.state}>
                 <Link to={`#state-${state.state.toLowerCase()}`}>
-                  {state.state}
+                  <abbr title={state.name}>{state.state}</abbr>
                 </Link>
               </li>
             )
