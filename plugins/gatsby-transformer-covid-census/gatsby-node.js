@@ -7,7 +7,7 @@ const onCreateNode = async (
 ) => {
   const { createNode, createParentChildLink } = actions
   const { fields, usType, stateType, stateInfoType, sources } = configOptions
-  const usPopulation = await fs.readJson(sources.us)
+  const usPopulation = await fs.readJson(sources.us).pop()
   const statePopulation = await fs.readJson(sources.states)
 
   const createPopulationNumbers = population => {
