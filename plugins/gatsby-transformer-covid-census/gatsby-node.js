@@ -7,7 +7,7 @@ const onCreateNode = async (
 ) => {
   const { createNode, createParentChildLink } = actions
   const { fields, usType, stateType, stateInfoType, sources } = configOptions
-  const usPopulation = await fs.readJson(sources.us).pop()
+  const usPopulation = await fs.readJson(sources.us)
   const statePopulation = await fs.readJson(sources.states)
 
   const createPopulationNumbers = population => {
@@ -43,7 +43,7 @@ const onCreateNode = async (
   }
 
   if (node.internal.type === usType) {
-    createPopulationNumbers(usPopulation.population)
+    createPopulationNumbers(usPopulation[0].population)
     return
   }
 
