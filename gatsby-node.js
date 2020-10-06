@@ -197,7 +197,9 @@ exports.createPages = async ({ graphql, actions }) => {
     const { slug } = node.childSlug
     createPage({
       path: `/race/infection-and-mortality-rates/${slug}`,
-      component: path.resolve(`./src/templates/race/infection-and-mortality-rates/landing.js`),
+      component: path.resolve(
+        `./src/templates/race/infection-and-mortality-rates/landing.js`,
+      ),
       context: node,
     })
   })

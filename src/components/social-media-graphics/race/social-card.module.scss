@@ -107,7 +107,8 @@ body {
     margin-left: 45px; // ignore-style-rule
   }
 
-  .cases-header, .deaths-header {
+  .cases-header,
+  .deaths-header {
     justify-self: start;
     align-self: end;
     font-size: 13px; // ignore-style-rule
@@ -125,7 +126,6 @@ body {
     font-size: 13px; // ignore-style-rule
     line-height: 1.15;
   }
-
 }
 
 .footer {
@@ -176,7 +176,7 @@ body {
   line-height: 1;
   align-items: flex-start;
 
-  &>span {
+  & > span {
     margin-left: 5px; // ignore-style-rule
     margin-top: 6px; // ignore-style-rule
   }
