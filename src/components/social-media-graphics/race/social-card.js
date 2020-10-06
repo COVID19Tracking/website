@@ -184,7 +184,7 @@ const StateRaceSocialCard = renderedComponent(
                       {getWidthPercentage(
                         deaths,
                         groupValues.worstDeathsValue,
-                      ) < 50 && (
+                      ) <= 50 && (
                         <BarContent
                           value={deaths}
                           smallNDeaths={smallNDeaths}
