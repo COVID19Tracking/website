@@ -52,7 +52,7 @@ const CasesCard = ({
           />
         </Statistic>
         {confirmedCases && (
-          <Statistic title="Confirmed cases" value={confirmedCases}>
+          <Statistic title="Confirmed cases" value={confirmedCases} subelement>
             <DefinitionLink
               onDefinitionsToggle={() => {
                 definitionContext({
@@ -65,7 +65,7 @@ const CasesCard = ({
           </Statistic>
         )}
         {probableCases && (
-          <Statistic title="Probable cases" value={probableCases}>
+          <Statistic title="Probable cases" value={probableCases} subelement>
             <DefinitionLink
               onDefinitionsToggle={() => {
                 definitionContext({
