@@ -16,13 +16,13 @@ jobs:
       
       - name: Install
         run: |
-          npm install
-          npm run setup:env-vars
+          yarn install
+          yarn run setup:env-vars
       
       - name: Build site
         run: |
-          npm run build-preview
-          npm run storybook:build 
+          yarn run build-preview
+          yarn run storybook:build 
       
       - name: Deploy storybook
         run: |

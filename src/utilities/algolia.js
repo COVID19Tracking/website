@@ -15,6 +15,7 @@ const stateQuery = `{
     edges {
       node {
         state
+        objectID: state
         dateModified(formatString: "MMMM D, YYYY")
       }
     }
@@ -41,6 +42,7 @@ const blogPostQuery = `{
     edges {
       node {
         contentful_id
+        objectID: contentful_id
         title
         authors {
           name
@@ -63,6 +65,7 @@ const pagesQuery = `{
     edges {
       node {
         contentful_id
+        objectID: contentful_id
         title
         slug
         updatedAt(formatString: "MMMM D, YYYY")
@@ -176,6 +179,7 @@ function chunkBlogPosts(data) {
       updatedAt: node.updatedAt,
       section: node.section,
       contentful_id: node.contentful_id,
+      objectID: node.contentful_id,
     }
     const firstChunk = { ...baseChunk, section: 'section0' }
     const bodyChunks = marked(node.body.body)
@@ -196,7 +200,6 @@ const stateSettings = {
  * (see https://www.algolia.com/doc/guides/building-search-ui/going-further/backend-search/how-to/highlighting-snippeting/)
  */
 const pageSettings = {
-  attributeForDistinct: 'contentful_id',
   attributesToSnippet: ['body:50'],
 }
 const blogPostSettings = {
