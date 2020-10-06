@@ -43,7 +43,7 @@ const Notes = ({ state, stateName }) => {
   }
   return (
     <>
-      {state.knownRaceEthPos ? (
+      {state.knownRaceEthPos || state.knownRaceEthDeath ? (
         <>
           <strong>Notes:</strong> {stateName} has reported race and ethnicity
           data for <Percent number={state.knownRaceEthPos} /> of cases and{' '}
