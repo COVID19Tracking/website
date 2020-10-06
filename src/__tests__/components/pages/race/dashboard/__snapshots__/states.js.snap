@@ -14,15 +14,15 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     <p
       className="socialCardCta"
     >
-      A summary of key race and ethnicity data for 
+      Compare 
       AZ
-       can also be viewed as a graphic.
-       
+      ’s infection and mortality data by race and ethnicity.
+      <br />
       <a
         className="cta"
-        href="/race/social-media-graphics#Arizona"
+        href="/race/infection-and-mortality-rates#Arizona"
       >
-        View as graphic
+        View data per capita as a graphic
         <span
           aria-hidden={true}
           className="arrow"
@@ -347,15 +347,15 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     <p
       className="socialCardCta"
     >
-      A summary of key race and ethnicity data for 
+      Compare 
       DC
-       can also be viewed as a graphic.
-       
+      ’s infection and mortality data by race and ethnicity.
+      <br />
       <a
         className="cta"
-        href="/race/social-media-graphics#Washington, DC"
+        href="/race/infection-and-mortality-rates#Washington, DC"
       >
-        View as graphic
+        View data per capita as a graphic
         <span
           aria-hidden={true}
           className="arrow"
@@ -680,15 +680,15 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     <p
       className="socialCardCta"
     >
-      A summary of key race and ethnicity data for 
+      Compare 
       GA
-       can also be viewed as a graphic.
-       
+      ’s infection and mortality data by race and ethnicity.
+      <br />
       <a
         className="cta"
-        href="/race/social-media-graphics#Georgia"
+        href="/race/infection-and-mortality-rates#Georgia"
       >
-        View as graphic
+        View data per capita as a graphic
         <span
           aria-hidden={true}
           className="arrow"
@@ -791,15 +791,15 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     <p
       className="socialCardCta"
     >
-      A summary of key race and ethnicity data for 
+      Compare 
       WA
-       can also be viewed as a graphic.
-       
+      ’s infection and mortality data by race and ethnicity.
+      <br />
       <a
         className="cta"
-        href="/race/social-media-graphics#Washington"
+        href="/race/infection-and-mortality-rates#Washington"
       >
-        View as graphic
+        View data per capita as a graphic
         <span
           aria-hidden={true}
           className="arrow"
