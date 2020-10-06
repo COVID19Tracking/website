@@ -33,12 +33,12 @@ body {
     }
 
     .deaths-header {
-      margin-left: 24px;
+      @include margin(24, left);
     }
 
     .bar {
       * {
-        margin-top: 6px;
+        margin-top: 6px; // ignore-style-rule
         line-height: 1.25;
       }
     }
@@ -50,24 +50,24 @@ body {
   text-align: center;
   line-height: 150%;
 
-  margin-right: 110px;
-  margin-left: 110px;
+  margin-right: 110px; // ignore-style-rule
+  margin-left: 110px; // ignore-style-rule
 }
 
 .square {
   .header {
-    margin-right: 45px;
-    margin-left: 45px;
+    margin-right: 45px; // ignore-style-rule
+    margin-left: 45px; // ignore-style-rule
   }
   .grid {
-    margin-left: 0;
+    @include margin(0, left);
   }
 }
 
 .grid {
   display: grid;
   align-self: flex-start;
-  margin-left: 16px;
+  @include margin(16, left);
   width: 675px;
 
   grid-template-rows: auto;
@@ -85,7 +85,7 @@ body {
     grid-template-columns: [race-labels-start] 150px [race-labels-end case-bars-start] 1fr [death-bars-end case-bars-end death-bars-start];
     .deaths-header {
       grid-area: 2 / case-bars-start / 3 / case-bars-end;
-      margin-left: 0px;
+      @include margin(0, left);
     }
     .death-bar-spacer {
       width: 0px;
@@ -94,8 +94,8 @@ body {
 
   .bar-header {
     font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 5px;
+    @include margin(0, top);
+    margin-bottom: 5px; // ignore-style-rule
   }
 
   .cases-header {
@@ -104,7 +104,7 @@ body {
 
   .deaths-header {
     grid-area: 2 / death-bars-start / 3 / death-bars-end;
-    margin-left: 45px;
+    margin-left: 45px; // ignore-style-rule
   }
 
   .cases-header, .deaths-header {
@@ -121,7 +121,7 @@ body {
 
   .bar,
   .bar-label {
-    margin-bottom: 8px;
+    @include margin(8, bottom);
     font-size: 13px; // ignore-style-rule
     line-height: 1.15;
   }
@@ -137,11 +137,11 @@ body {
 .footer {
   display: flex;
   align-items: flex-end;
-  margin-left: 16px; // matches grid
+  @include margin(16, left); // matches grid
   justify-content: space-between;
 
   .notes {
-    margin-top: 13px;
+    margin-top: 13px; // ignore-style-rule
     width: 730px;
     &.national {
       bottom: 0px;
@@ -150,7 +150,7 @@ body {
 }
 
 .asterisk-footnote {
-  margin-top: 8px;
+  @include margin(8, top);
 }
 
 .square {
@@ -163,7 +163,7 @@ body {
 
 .ctp-logo {
   width: 26px;
-  margin-right: 5px;
+  margin-right: 5px; // ignore-style-rule
 }
 
 .car-logo {
@@ -177,8 +177,8 @@ body {
   align-items: flex-start;
 
   &>span {
-    margin-left: 5px;
-    margin-top: 6px;
+    margin-left: 5px; // ignore-style-rule
+    margin-top: 6px; // ignore-style-rule
   }
 }
 
@@ -187,14 +187,14 @@ body {
   width: 0px;
   font-size: 13px; // ignore-style-rule
   text-align: right;
-  margin-bottom: 10px;
+  margin-bottom: 10px; // ignore-style-rule
 
   display: flex;
   justify-content: flex-end;
   align-items: center;
 
   &.has-inner-label {
-    padding-right: 10px;
+    padding-right: 10px; // ignore-style-rule
   }
 
   &.barBlack {
@@ -234,11 +234,11 @@ body {
 .insufficient-data {
   font-size: 13px;
   line-height: 1;
-  padding-top: 6px;
+  padding-top: 6px; // ignore-style-rule
   color: $color-slate-600;
 
   &.insufficient-data-deaths {
-    margin-left: 45px;
+    margin-left: 45px; // ignore-style-rule
   }
 }
 
@@ -248,16 +248,16 @@ body {
   }
   .bar-container {
     span {
-      margin-left: 5px;
-      margin-top: 13px;
+      margin-left: 5px; // ignore-style-rule
+      margin-top: 13px; // ignore-style-rule
     }
   }
   .death-bar-spacer {
     width: 24px;
   }
   .insufficient-data.insufficient-data-deaths {
-    margin-left: 24px;
-    padding-top: 11px;
+    margin-left: 24px; // ignore-style-rule
+    padding-top: 11px; // ignore-style-rule
   }
 }
 
@@ -270,12 +270,12 @@ body {
 
   .logos-container {
     display: flex;
-    margin-top: 16px;
+    @include margin(16, top);
     justify-content: center;
 
     .ctp-logo {
       width: 26px;
-      margin-right: 6px;
+      margin-right: 6px; // ignore-style-rule
     }
 
     .car-logo {
@@ -288,11 +288,12 @@ body {
 
     .alert {
       width: 90px;
-      margin-bottom: 8px;
+      @include margin(8, bottom);
     }
 
     p {
-      margin: 1rem 0;
+      @include margin(16, (top, bottom));
+      @include margin(0, (left, right));
     }
 
     .get-better-data {
@@ -302,12 +303,12 @@ body {
 
   .alert {
     width: 60px;
-    margin: 0 auto;
+    margin: 0 auto; // ignore-style-rule
   }
 
   p {
     text-align: center;
-    margin: 0.5rem; // ignore-style-rule
+    @include margin(8);
   }
 
   .get-better-data {
