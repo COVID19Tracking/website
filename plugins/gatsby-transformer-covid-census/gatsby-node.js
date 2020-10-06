@@ -43,7 +43,7 @@ const onCreateNode = async (
   }
 
   if (node.internal.type === usType) {
-    createPopulationNumbers(usPopulation.population)
+    createPopulationNumbers(usPopulation[0].population)
     return
   }
 
