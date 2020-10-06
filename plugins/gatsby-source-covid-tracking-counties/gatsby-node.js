@@ -1,13 +1,12 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const crypto = require('crypto')
 
 exports.sourceNodes = ({ actions, createNodeId, reporter }, configOptions) => {
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     const { createNode } = actions
-    console.log('COUNTIES')
     const countyResults = {}
     const demographics = require(configOptions.demographics)
-    const counties = JSON.parse(fs.readFileSync(configOptions.counties))
+    const counties = await fs.readJson(configOptions.counties)
     counties.forEach(county => {
       const fipsKey =
         !county.fips && county.county === 'New York City' ? 'nyc' : county.fips

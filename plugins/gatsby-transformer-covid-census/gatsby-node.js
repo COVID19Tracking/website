@@ -1,5 +1,5 @@
 const crypto = require('crypto')
-const fs = require('fs')
+const fs = require('fs-extra')
 
 const onCreateNode = async (
   { node, actions, createNodeId, createContentDigest },
@@ -7,8 +7,8 @@ const onCreateNode = async (
 ) => {
   const { createNode, createParentChildLink } = actions
   const { fields, usType, stateType, stateInfoType, sources } = configOptions
-  const usPopulation = JSON.parse(fs.readFileSync(sources.us)).pop()
-  const statePopulation = JSON.parse(fs.readFileSync(sources.states))
+  const usPopulation = await fs.readJson(sources.us)
+  const statePopulation = await fs.readJson(sources.states)
 
   const createPopulationNumbers = population => {
     const digest = crypto
@@ -43,7 +43,7 @@ const onCreateNode = async (
   }
 
   if (node.internal.type === usType) {
-    createPopulationNumbers(usPopulation.population)
+    createPopulationNumbers(usPopulation[0].population)
     return
   }
 
