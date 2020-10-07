@@ -53,8 +53,7 @@ const VolunteerForm = () => {
           setUrl(event.target.value)
           setUrlValid(isUrl(event.target.value))
         }}
-        detailText="Personal website, LinkedIn, or other website that will tell us
-              about you. If you are a journalist or science writer, please link to a writing sample here or in the final question."
+        detailText="Personal website, LinkedIn page, social media handle, or other website that will tell us about you. If you are a journalist or science writer, please link to a writing sample here or in the final question."
       />
 
       {!urlValid && url && (
@@ -146,7 +145,8 @@ const VolunteerForm = () => {
         options={[
           {
             value: 'data',
-            label: "I'd like to help collect data, ensure data quality, or build data tools.",
+            label:
+              "I'd like to help collect data, ensure data quality, or build data tools.",
           },
 
           {
