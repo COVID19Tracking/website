@@ -1,6 +1,15 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import MockDate from 'mockdate'
 import Header from '~components/social-media-graphics/race/header'
+
+beforeAll(() => {
+  MockDate.set('2020-10-05')
+})
+
+afterAll(() => {
+  MockDate.reset()
+})
 
 const state = {
   state: 'NJ',
