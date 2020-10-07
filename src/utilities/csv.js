@@ -30,7 +30,9 @@ module.exports = (graphql, reporter) => {
               }
             }
           }
-          allCovidStateDaily(sort: { fields: date, order: DESC }) {
+          allCovidStateDaily(
+            sort: { fields: [date, state], order: [DESC, ASC] }
+          ) {
             nodes {
               date
               state
