@@ -56,12 +56,12 @@ const DataStateTotalTestsPage = ({ data }) => {
           },
           {
             field: 'field',
-            label: 'New Tests chart field',
+            label: '"New Tests" chart field',
             alignLeft: true,
           },
           {
             field: 'units',
-            label: 'New Tests chart units',
+            label: '"New Tests" chart units',
             alignLeft: true,
           },
         ]}
