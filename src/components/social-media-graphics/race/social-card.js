@@ -23,6 +23,12 @@ const StateRaceSocialCard = renderedComponent(
     statesReportingCases,
     statesReportingDeaths,
   }) => {
+    if (state === undefined) {
+      return <></>
+    }
+    if (state.name === 'Guam') {
+      return <></>
+    }
     // gets the width of the bar for the bar charts
     const getWidthPercentage = (number, max) => (number / max) * 100
 
