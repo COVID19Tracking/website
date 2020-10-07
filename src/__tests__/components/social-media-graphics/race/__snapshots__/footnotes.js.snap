@@ -92,10 +92,9 @@ exports[`Components : Social Media Graphics : Race : Footnotes : Utah renders co
   <div
     className="asteriskFootnote"
   >
-    * Based on less than 10 deaths among members of this race/ethnicity. Interpret with caution.
+    * Based on fewer than 10 deaths among members of this race/ethnicity. Interpret with caution.
     <br />
-    †
-     
+    † 
     Here is an additional footnote
   </div>
 </div>
