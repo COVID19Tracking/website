@@ -1,0 +1,19 @@
+.preview {
+  margin: 0 auto;
+  display: inherit;
+  border: 2px solid $color-slate-200;
+  @include margin(32, (top, bottom));
+}
+
+.ctas {
+  li {
+    margin-bottom: spacer(16);
+    a {
+      color: $text;
+    }
+  }
+}
+
+.ctas-header {
+  margin-top: spacer(16);
+}
