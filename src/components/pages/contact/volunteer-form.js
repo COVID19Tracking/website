@@ -40,10 +40,7 @@ const VolunteerForm = () => {
         id="email"
         onChange={event => setEmail(event.target.value)}
         isRequired
-        detailText="If possible, this should be a Gmail or Google-linked address,
-              since we rely heavily on Google Docs and Sheets. We will show your
-              email internally to other volunteers but will not share it
-              elsewhere."
+        detailText="We will show your email internally to other volunteers but will not share it elsewhere."
       />
 
       <Input
@@ -56,8 +53,7 @@ const VolunteerForm = () => {
           setUrl(event.target.value)
           setUrlValid(isUrl(event.target.value))
         }}
-        detailText="Personal website, LinkedIn, or other website that will tell us
-              about you. If you are a journalist or science writer, please link to a writing sample here or in the final question."
+        detailText="Personal website, LinkedIn page, social media handle, or other website that will tell us about you. If you are a journalist or science writer, please link to a writing sample here or in the final question."
       />
 
       {!urlValid && url && (
@@ -129,6 +125,7 @@ const VolunteerForm = () => {
         ]}
         id="age"
         name="age"
+        detailText="We welcome high school and college students, but we interview all volunteer applicants who are under 18 years old."
       />
 
       <Input
@@ -138,7 +135,7 @@ const VolunteerForm = () => {
         id="skills"
         isRequired
         onChange={event => setSkill(event.target.value)}
-        detailText="Examples: Python, React, Gatsby, Tableau, data visualization, editing, social media, public health, research, journalism, science writing, etc."
+        detailText="Examples: Python, React, Gatsby, JavaScript, Tableau, data visualization, editing, social media, public health, research, journalism, science writing, etc."
       />
 
       <List
@@ -148,7 +145,8 @@ const VolunteerForm = () => {
         options={[
           {
             value: 'data',
-            label: "I'd like to help collect data or build data tools.",
+            label:
+              "I'd like to help collect data, ensure data quality, or build data tools.",
           },
 
           {
@@ -179,7 +177,7 @@ const VolunteerForm = () => {
       />
 
       <Textarea
-        label="Please write 1-3 paragraphs telling us in detail about the skills and experience you can contribute to The COVID Tracking Project."
+        label="Please tell us about the skills and experience you would bring to The COVID Tracking Project in 1-3 paragraphs."
         inputtype="text"
         name="why"
         id="why"
