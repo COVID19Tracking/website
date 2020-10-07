@@ -64,7 +64,6 @@ describe('Components : Social Media Graphics : Race : Footnotes : Generic separa
   })
 })
 
-
 describe('Components : Social Media Graphics : Race : Footnotes : Generic combined', () => {
   it('renders correctly', () => {
     const tree = renderer

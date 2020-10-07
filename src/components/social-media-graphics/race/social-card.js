@@ -66,7 +66,8 @@ const StateRaceSocialCard = renderedComponent(
           groups[index].showCross = true
         }
       })
-      asteriskFootnote = 'Montana includes Native Hawaiians and Other Pacific Islanders in this category.'
+      asteriskFootnote =
+        'Montana includes Native Hawaiians and Other Pacific Islanders in this category.'
     }
 
     // special case to add an asterisk for New Mexico API
@@ -76,7 +77,8 @@ const StateRaceSocialCard = renderedComponent(
           groups[index].showCross = true
         }
       })
-      asteriskFootnote = 'New Mexico defines this category as Asian alone for case data, and Asian/Pacific Islander for death data.'
+      asteriskFootnote =
+        'New Mexico defines this category as Asian alone for case data, and Asian/Pacific Islander for death data.'
     }
 
     return (
@@ -121,106 +123,110 @@ const StateRaceSocialCard = renderedComponent(
               Deaths per 100,000 people
             </span>
           )}
-          {groups.map(({ label, style, cases, deaths, showAsterisk, showCross }) => (
-            <>
-              <span className={socialCardStyle.barLabel}>
-                {label}
-                {showCross && '†'}
-              </span>
-              {!stateStatus.deathsOnly && (
-                <>
-                  {cases === null ? (
-                    <span className={socialCardStyle.insufficientData}>
-                      {nullValue}
-                    </span>
-                  ) : (
-                    <div className={socialCardStyle.barContainer}>
-                      <div
-                        className={classnames(
-                          socialCardStyle.bar,
-                          style,
-                          getWidthPercentage(
+          {groups.map(
+            ({ label, style, cases, deaths, showAsterisk, showCross }) => (
+              <>
+                <span className={socialCardStyle.barLabel}>
+                  {label}
+                  {showCross && '†'}
+                </span>
+                {!stateStatus.deathsOnly && (
+                  <>
+                    {cases === null ? (
+                      <span className={socialCardStyle.insufficientData}>
+                        {nullValue}
+                      </span>
+                    ) : (
+                      <div className={socialCardStyle.barContainer}>
+                        <div
+                          className={classnames(
+                            socialCardStyle.bar,
+                            style,
+                            getWidthPercentage(
+                              cases,
+                              groupValues.worstCasesValue,
+                            ) !== 0 && socialCardStyle.hasInnerLabel,
+                          )}
+                          style={{
+                            width: `${getBarWidth(
+                              cases,
+                              groupValues.worstCasesValue,
+                              square,
+                              stateStatus.oneChart,
+                            )}px`,
+                          }}
+                        >
+                          {getWidthPercentage(
                             cases,
                             groupValues.worstCasesValue,
-                          ) !== 0 && socialCardStyle.hasInnerLabel,
-                        )}
-                        style={{
-                          width: `${getBarWidth(
-                            cases,
-                            groupValues.worstCasesValue,
-                            square,
-                            stateStatus.oneChart,
-                          )}px`,
-                        }}
-                      >
+                          ) > 50 && <BarContent value={cases} />}
+                        </div>
                         {getWidthPercentage(
                           cases,
                           groupValues.worstCasesValue,
-                        ) > 50 && <BarContent value={cases} />}
+                        ) <= 50 && <BarContent value={cases} />}
                       </div>
-                      {getWidthPercentage(cases, groupValues.worstCasesValue) <=
-                        50 && <BarContent value={cases} />}
-                    </div>
-                  )}
-                </>
-              )}
-              {!stateStatus.casesOnly && (
-                <>
-                  {deaths === null ? (
-                    <span
-                      className={classnames(
-                        socialCardStyle.insufficientData,
-                        socialCardStyle.insufficientDataDeaths,
-                      )}
-                    >
-                      {nullValue}
-                    </span>
-                  ) : (
-                    <div className={socialCardStyle.barContainer}>
-                      <div className={socialCardStyle.deathBarSpacer} />
-                      <div
+                    )}
+                  </>
+                )}
+                {!stateStatus.casesOnly && (
+                  <>
+                    {deaths === null ? (
+                      <span
                         className={classnames(
-                          socialCardStyle.bar,
-                          style,
-                          getWidthPercentage(
-                            deaths,
-                            groupValues.worstDeathsValue,
-                          ) !== 0 && socialCardStyle.hasInnerLabel,
+                          socialCardStyle.insufficientData,
+                          socialCardStyle.insufficientDataDeaths,
                         )}
-                        style={{
-                          width: `${getBarWidth(
+                      >
+                        {nullValue}
+                      </span>
+                    ) : (
+                      <div className={socialCardStyle.barContainer}>
+                        <div className={socialCardStyle.deathBarSpacer} />
+                        <div
+                          className={classnames(
+                            socialCardStyle.bar,
+                            style,
+                            getWidthPercentage(
+                              deaths,
+                              groupValues.worstDeathsValue,
+                            ) !== 0 && socialCardStyle.hasInnerLabel,
+                          )}
+                          style={{
+                            width: `${getBarWidth(
+                              deaths,
+                              groupValues.worstDeathsValue,
+                              square,
+                              stateStatus.oneChart,
+                            )}px`,
+                          }}
+                        >
+                          {getWidthPercentage(
                             deaths,
                             groupValues.worstDeathsValue,
-                            square,
-                            stateStatus.oneChart,
-                          )}px`,
-                        }}
-                      >
+                          ) > 50 && (
+                            <BarContent
+                              value={deaths}
+                              showAsterisk={showAsterisk}
+                            />
+                          )}
+                        </div>
                         {getWidthPercentage(
                           deaths,
                           groupValues.worstDeathsValue,
-                        ) > 50 && (
+                        ) <= 50 && (
                           <BarContent
                             value={deaths}
                             showAsterisk={showAsterisk}
                           />
                         )}
                       </div>
-                      {getWidthPercentage(
-                        deaths,
-                        groupValues.worstDeathsValue,
-                      ) <= 50 && (
-                        <BarContent
-                          value={deaths}
-                          showAsterisk={showAsterisk}
-                        />
-                      )}
-                    </div>
-                  )}
-                </>
-              )}
-            </>
-          ))}
+                    )}
+                  </>
+                )}
+              </>
+            ),
+          )}
         </div>
 
         <div className={socialCardStyle.footer}>
