@@ -97,7 +97,7 @@ describe('Components : Social Media Graphics : Race : Header : Deaths Only', () 
       .create(
         <Header
           state={deathsOnlyState}
-          stateName={'New Jersey'}
+          stateName="New Jersey"
           combinedStates={combinedStates}
         />,
       )
@@ -112,7 +112,7 @@ describe('Components : Social Media Graphics : Race : Header : Cases Only', () =
       .create(
         <Header
           state={casesOnlyState}
-          stateName={'New Jersey'}
+          stateName="New Jersey"
           combinedStates={combinedStates}
         />,
       )

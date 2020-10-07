@@ -60,9 +60,9 @@ const StateRaceSocialCard = renderedComponent(
     })
 
     // special case to add an asterisk for Montana AIAN
-    if (state.name == 'Montana') {
+    if (state.name === 'Montana') {
       groups.forEach((group, index) => {
-        if (group.label == 'American Indian/Alaska Native') {
+        if (group.label === 'American Indian/Alaska Native') {
           groups[index].showCross = true
         }
       })
@@ -71,9 +71,9 @@ const StateRaceSocialCard = renderedComponent(
     }
 
     // special case to add an asterisk for New Mexico API
-    if (state.name == 'New Mexico') {
+    if (state.name === 'New Mexico') {
       groups.forEach((group, index) => {
-        if (group.label == 'Asian/Pacific Islander') {
+        if (group.label === 'Asian/Pacific Islander') {
           groups[index].showCross = true
         }
       })

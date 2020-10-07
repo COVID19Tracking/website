@@ -20,9 +20,9 @@ describe('Components : Social Media Graphics : Race : Footnotes : Utah', () => {
       .create(
         <Footnotes
           state={combined}
-          stateName={'Utah'}
-          showSmallNFootnote={true}
-          asteriskFootnote={'Here is an additional footnote'}
+          stateName="Utah"
+          asteriskFootnote="Here is an additional footnote"
+          showSmallNFootnote
         />,
       )
       .toJSON()
@@ -33,7 +33,7 @@ describe('Components : Social Media Graphics : Race : Footnotes : Utah', () => {
 describe('Components : Social Media Graphics : Race : Footnotes : Wyoming', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Footnotes state={separate} stateName={'Wyoming'} />)
+      .create(<Footnotes state={separate} stateName="Wyoming" />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -45,7 +45,7 @@ describe('Components : Social Media Graphics : Race : Footnotes : National', () 
       .create(
         <Footnotes
           state={separate}
-          stateName={'United States'}
+          stateName="United States"
           statesReportingDeaths={34}
           statesReportingCases={49}
         />,
@@ -58,7 +58,7 @@ describe('Components : Social Media Graphics : Race : Footnotes : National', () 
 describe('Components : Social Media Graphics : Race : Footnotes : Generic separate', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Footnotes state={separate} stateName={'Alabama'} />)
+      .create(<Footnotes state={separate} stateName="Alabama" />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -67,7 +67,7 @@ describe('Components : Social Media Graphics : Race : Footnotes : Generic separa
 describe('Components : Social Media Graphics : Race : Footnotes : Generic combined', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Footnotes state={combined} stateName={'Alabama'} />)
+      .create(<Footnotes state={combined} stateName="Alabama" />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
