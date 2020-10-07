@@ -4,7 +4,6 @@ import Header from '~components/social-media-graphics/race/header'
 
 const state = {
   state: 'NJ',
-  name: 'New Jersey',
 }
 
 const deathsOnlyState = {
@@ -37,7 +36,7 @@ const deathRateSmallNState = {
 const sameWorstCasesAndMortalitiesState = {
   state: 'CT',
   name: 'Connecticut',
-  knownRaceEthPos: 0.70,
+  knownRaceEthPos: 0.7,
   knownRaceEthDeath: 0.99,
   blackPosPerCap: 21.19,
   blackDeathPerCap: 1.89,
@@ -45,20 +44,48 @@ const sameWorstCasesAndMortalitiesState = {
   latinXDeathPerCap: 0.71,
   asianPosPerCap: null,
   asianDeathPerCap: null,
-  aianPosPerCap: 10.90,
+  aianPosPerCap: 10.9,
   aianDeathPerCap: 0.37,
   whitePosPerCap: 8.35,
   whiteDeathPerCap: 1.36,
   nhpiPosPerCap: null,
   nhpiDeathPerCap: null,
   apiPosPerCap: 5.37,
-  apiDeathPerCap: 0.30,
+  apiDeathPerCap: 0.3,
+}
+
+const diffWorstCasesAndMortalitiesState = {
+  state: 'CT',
+  name: 'Connecticut',
+  knownRaceEthPos: 0.7,
+  knownRaceEthDeath: 0.99,
+  blackPosPerCap: 21.19,
+  blackDeathPerCap: 0.32,
+  latinXPosPerCap: 20.27,
+  latinXDeathPerCap: 0.71,
+  asianPosPerCap: null,
+  asianDeathPerCap: null,
+  aianPosPerCap: 10.9,
+  aianDeathPerCap: 0.37,
+  whitePosPerCap: 8.35,
+  whiteDeathPerCap: 1.36,
+  nhpiPosPerCap: null,
+  nhpiDeathPerCap: null,
+  apiPosPerCap: 5.37,
+  apiDeathPerCap: 0.3,
 }
 
 describe('Components : Social Media Graphics : Race : Header : No Charts', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Header noCharts state={state} combinedStates={combinedStates} />)
+      .create(
+        <Header
+          noCharts
+          state={state}
+          stateName="New Jersey"
+          combinedStates={combinedStates}
+        />,
+      )
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -109,7 +136,24 @@ describe('Components : Social Media Graphics : Race : Header : Same Worst Cases 
   it('renders correctly', () => {
     const tree = renderer
       .create(
-        <Header state={sameWorstCasesAndMortalitiesState} combinedStates={combinedStates} />,
+        <Header
+          state={sameWorstCasesAndMortalitiesState}
+          combinedStates={combinedStates}
+        />,
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})
+
+describe('Components : Social Media Graphics : Race : Header : Different Worst Cases and Mortalities', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(
+        <Header
+          state={diffWorstCasesAndMortalitiesState}
+          combinedStates={combinedStates}
+        />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

@@ -54,6 +54,27 @@ Array [
 ]
 `;
 
+exports[`Components : Social Media Graphics : Race : Header : Different Worst Cases and Mortalities renders correctly 1`] = `
+Array [
+  "In ",
+  <strong>
+    Connecticut
+  </strong>,
+  ", through",
+  " ",
+  "October",
+  " ",
+  "6",
+  ",",
+  " ",
+  "Black/African American people",
+  " were most likely to have contracted COVID-19.",
+  " ",
+  "White people",
+  " were most likely to have died.",
+]
+`;
+
 exports[`Components : Social Media Graphics : Race : Header : No Charts renders correctly 1`] = `
 Array [
   "In ",
