@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import DetailText from '~components/common/detail-text'
 import Layout from '~components/layout'
 import RaceSocialCards from '~components/social-media-graphics/race/social-cards'
-import SocialCardsSelect from '~components/pages/race/infection-and-mortality-rates/select'
+import SocialCardsSelect from '~components/pages/race/infection-and-mortality-data/select'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -137,7 +137,7 @@ export default () => {
         { link: '/race' },
         { link: `/race/dashboard`, title: 'Racial Data Dashboard' },
       ]}
-      path="/race/infection-and-mortality-rates"
+      path="/race/infection-and-mortality-data"
       centered
     >
       <div

@@ -340,7 +340,7 @@ const CrdtDashboardStates = () => {
                 ethnicity.
                 <br />
                 <CtaLink
-                  to={`/race/infection-and-mortality-rates#${state.state}`}
+                  to={`/race/infection-and-mortality-data#${state.state}`}
                 >
                   View data per capita as a graphic
                 </CtaLink>

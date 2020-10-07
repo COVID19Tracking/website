@@ -15,7 +15,7 @@ const getStateSquareImageUrl = state =>
 const getLandingPageUrl = (state, noCharts) =>
   noCharts
     ? 'https://covidtracking.com/race/get-better-data'
-    : `https://covidtracking.com/race/infection-and-mortality-rates/${state.childSlug.slug}`
+    : `https://covidtracking.com/race/infection-and-mortality-data/${state.childSlug.slug}`
 
 const getStateName = name => {
   if (name === 'District of Columbia') {
@@ -43,14 +43,14 @@ const getSocialCardShareText = (typeOfRates, state, groups) => {
   if (typeOfRates === 'mortality rates') {
     return `In ${getStateName(state.name)}, through ${getTweetableDate()}, ${
       groups.worstDeathsGroup
-    } were most likely to have died from #COVID19. https://www.covidtracking.com/race/infection-and-mortality-rates/${
+    } were most likely to have died from #COVID19. https://www.covidtracking.com/race/infection-and-mortality-data/${
       state.childSlug.slug
     } #RacialDataTracker`
   }
   if (typeOfRates === 'infection rates') {
     return `In ${getStateName(state.name)}, through ${getTweetableDate()}, ${
       groups.worstCasesGroup
-    } were most likely to have contracted #COVID19. Get the latest analysis: https://www.covidtracking.com/race/infection-and-mortality-rates/${
+    } were most likely to have contracted #COVID19. Get the latest analysis: https://www.covidtracking.com/race/infection-and-mortality-data/${
       state.childSlug.slug
     } #RacialDataTracker`
   }
@@ -58,7 +58,7 @@ const getSocialCardShareText = (typeOfRates, state, groups) => {
     if (groups.worstDeathsGroup === groups.worstCasesGroup) {
       return `In ${getStateName(state.name)}, through ${getTweetableDate()}, ${
         groups.worstCasesGroup
-      } were most likely to have contracted #COVID19 and were most likely to have died. Get the latest analysis: https://www.covidtracking.com/race/infection-and-mortality-rates/${
+      } were most likely to have contracted #COVID19 and were most likely to have died. Get the latest analysis: https://www.covidtracking.com/race/infection-and-mortality-data/${
         state.childSlug.slug
       } #RacialDataTracker`
     }
@@ -67,7 +67,7 @@ const getSocialCardShareText = (typeOfRates, state, groups) => {
     groups.worstCasesGroup
   } were most likely to have contracted #COVID19. ${
     groups.worstDeathsGroup
-  } were most likely to have died. Get the latest analysis: https://www.covidtracking.com/race/infection-and-mortality-rates/${
+  } were most likely to have died. Get the latest analysis: https://www.covidtracking.com/race/infection-and-mortality-data/${
     state.childSlug.slug
   } #RacialDataTracker`
 }

@@ -20,7 +20,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
       <br />
       <a
         className="cta"
-        href="/race/infection-and-mortality-rates#Arizona"
+        href="/race/infection-and-mortality-data#Arizona"
       >
         View data per capita as a graphic
         <span
@@ -353,7 +353,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
       <br />
       <a
         className="cta"
-        href="/race/infection-and-mortality-rates#Washington, DC"
+        href="/race/infection-and-mortality-data#Washington, DC"
       >
         View data per capita as a graphic
         <span
@@ -686,7 +686,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
       <br />
       <a
         className="cta"
-        href="/race/infection-and-mortality-rates#Georgia"
+        href="/race/infection-and-mortality-data#Georgia"
       >
         View data per capita as a graphic
         <span
@@ -797,7 +797,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
       <br />
       <a
         className="cta"
-        href="/race/infection-and-mortality-rates#Washington"
+        href="/race/infection-and-mortality-data#Washington"
       >
         View data per capita as a graphic
         <span
