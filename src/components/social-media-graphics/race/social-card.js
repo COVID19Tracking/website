@@ -73,7 +73,7 @@ const StateRaceSocialCard = renderedComponent(
     // special case to add an asterisk for New Mexico API
     if (state.name == 'New Mexico') {
       groups.forEach((group, index) => {
-        if (group.label == 'American Indian/Alaska Native') {
+        if (group.label == 'Asian/Pacific Islander') {
           groups[index].showCross = true
         }
       })
