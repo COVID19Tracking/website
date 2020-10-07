@@ -10,7 +10,7 @@ const AsteriskFootnote = ({ showSmallNFootnote, asteriskFootnote }) => (
   <div className={socialCardStyle.asteriskFootnote}>
     {showSmallNFootnote && (
       <>
-        * Based on less than 10 deaths among members of this race/ethnicity.
+        * Based on fewer than 10 deaths among members of this race/ethnicity.
         Interpret with caution.
       </>
     )}
