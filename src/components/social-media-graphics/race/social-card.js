@@ -24,16 +24,19 @@ const StateRaceSocialCard = renderedComponent(
     statesReportingDeaths,
   }) => {
     // gets the width of the bar for the bar charts
-
     const getWidthPercentage = (number, max) => (number / max) * 100
 
     const groupValues = getGroups(state)
     const { groups } = groupValues
-
-    let showAsteriskFootnote = false
-
     const stateStatus = getStateStatus(state, combinedStates)
 
+    // handle empty state
+    if (stateStatus.noCharts) {
+      return <NoDataSocialCard stateName={state.name} square={square} />
+    }
+
+    // sort groups by deaths if only deaths are reported
+    // (this is sorted by cases in utils.js by default)
     if (stateStatus.deathsOnly) {
       groups.sort((a, b) => {
         // sort bars by # of deaths
@@ -44,18 +47,37 @@ const StateRaceSocialCard = renderedComponent(
       })
     }
 
-    if (stateStatus.noCharts) {
-      return <NoDataSocialCard stateName={state.name} square={square} />
-    }
+    const nullValue = 'No data reported' // the value to show for the empty state
 
-    const nullValue = 'No data reported'
+    let showSmallNFootnote = false
+    let asteriskFootnote = null
 
-    // if any of the smallNDeaths values is true
+    // if any of the showAsterisk values is true
     groups.forEach(group => {
-      if (group.smallNDeaths) {
-        showAsteriskFootnote = true // set showAsteriskFootnote to true
+      if (group.showAsterisk) {
+        showSmallNFootnote = true // set showSmallNFootnote to true
       }
     })
+
+    // special case to add an asterisk for Montana AIAN
+    if (state.name == 'Montana') {
+      groups.forEach((group, index) => {
+        if (group.label == 'American Indian/Alaska Native') {
+          groups[index].showAsterisk = true
+        }
+      })
+      asteriskFootnote = 'Montana includes Native Hawaiians and Other Pacific Islanders in this category.'
+    }
+
+    // special case to add an asterisk for New Mexico API
+    if (state.name == 'New Mexico') {
+      groups.forEach((group, index) => {
+        if (group.label == 'American Indian/Alaska Native') {
+          groups[index].showAsterisk = true
+        }
+      })
+      asteriskFootnote = 'New Mexico defines this category as Asian alone for case data, and Asian/Pacific Islander for death data.'
+    }
 
     return (
       <div
@@ -99,7 +121,7 @@ const StateRaceSocialCard = renderedComponent(
               Deaths per 100,000 people
             </span>
           )}
-          {groups.map(({ label, style, cases, deaths, smallNDeaths }) => (
+          {groups.map(({ label, style, cases, deaths, showAsterisk }) => (
             <>
               <span className={socialCardStyle.barLabel}>{label}</span>
               {!stateStatus.deathsOnly && (
@@ -177,7 +199,7 @@ const StateRaceSocialCard = renderedComponent(
                         ) > 50 && (
                           <BarContent
                             value={deaths}
-                            smallNDeaths={smallNDeaths}
+                            showAsterisk={showAsterisk}
                           />
                         )}
                       </div>
@@ -187,7 +209,7 @@ const StateRaceSocialCard = renderedComponent(
                       ) <= 50 && (
                         <BarContent
                           value={deaths}
-                          smallNDeaths={smallNDeaths}
+                          showAsterisk={showAsterisk}
                         />
                       )}
                     </div>
@@ -204,7 +226,8 @@ const StateRaceSocialCard = renderedComponent(
             stateName={state.name}
             statesReportingCases={statesReportingCases}
             statesReportingDeaths={statesReportingDeaths}
-            showAsteriskFootnote={showAsteriskFootnote}
+            showSmallNFootnote={showSmallNFootnote}
+            asteriskFootnote={asteriskFootnote}
           />
           <div className={socialCardStyle.logosContainer}>
             <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
@@ -216,10 +239,10 @@ const StateRaceSocialCard = renderedComponent(
   },
 )
 
-const BarContent = ({ value, smallNDeaths = false }) => (
+const BarContent = ({ value, showAsterisk = false }) => (
   <span>
     <FormatNumber number={value} />
-    {smallNDeaths && '*'}
+    {showAsterisk && '*'}
   </span>
 )
 

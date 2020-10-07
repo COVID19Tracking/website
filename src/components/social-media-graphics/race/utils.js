@@ -49,49 +49,49 @@ const getGroups = state => {
       style: socialCardStyle.barBlack,
       cases: getGroupValue(state.blackPosPerCap),
       deaths: getGroupValue(state.blackDeathPerCap),
-      smallNDeaths: state.blackSmallN,
+      showAsterisk: state.blackSmallN, // show asterisk if SmallN is true
     },
     {
       label: 'Hispanic/Latino',
       style: socialCardStyle.barLatinx,
       cases: getGroupValue(state.latinXPosPerCap),
       deaths: getGroupValue(state.latinXDeathPerCap),
-      smallNDeaths: state.latinXSmallN,
+      showAsterisk: state.latinXSmallN,
     },
     {
       label: 'Asian',
       style: socialCardStyle.barAsian,
       cases: getGroupValue(state.asianPosPerCap),
       deaths: getGroupValue(state.asianDeathPerCap),
-      smallNDeaths: state.asianSmallN,
+      showAsterisk: state.asianSmallN,
     },
     {
-      label: 'American Indian/ Alaska Native',
+      label: 'American Indian/Alaska Native',
       style: socialCardStyle.barAian,
       cases: getGroupValue(state.aianPosPerCap),
       deaths: getGroupValue(state.aianDeathPerCap),
-      smallNDeaths: state.aianSmallN,
+      showAsterisk: state.aianSmallN,
     },
     {
       label: 'White',
       style: socialCardStyle.barWhite,
       cases: getGroupValue(state.whitePosPerCap),
       deaths: getGroupValue(state.whiteDeathPerCap),
-      smallNDeaths: state.whiteSmallN,
+      showAsterisk: state.whiteSmallN,
     },
     {
       label: 'Asian/Pacific Islander',
       style: socialCardStyle.barAPi,
       cases: getGroupValue(state.apiPosPerCap),
       deaths: getGroupValue(state.apiDeathPerCap),
-      smallNDeaths: state.apiSmallN,
+      showAsterisk: state.apiSmallN,
     },
     {
       label: 'Native Hawaiian/ Pacific Islander',
       style: socialCardStyle.barNhpi,
       cases: getGroupValue(state.nhpiPosPerCap),
       deaths: getGroupValue(state.nhpiDeathPerCap),
-      smallNDeaths: state.nhpiSmallN,
+      showAsterisk: state.nhpiSmallN,
     },
   ]
 
@@ -156,7 +156,7 @@ const getGroups = state => {
     White: 'White people',
     'Asian/Pacific Islander': 'Asians/Pacific Islanders',
     'Native Hawaiian/ Pacific Islander': 'Native Hawaiians/Pacific Islanders',
-    'American Indian/ Alaska Native': 'American Indians/Alaska Natives',
+    'American Indian/Alaska Native': 'American Indians/Alaska Natives',
   }
 
   const worstDeathsValue = Math.round(groups[0].deaths)

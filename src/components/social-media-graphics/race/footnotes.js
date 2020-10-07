@@ -6,10 +6,16 @@ import { FormatNumber } from '~components/utils/format'
 
 import socialCardStyle from './social-card.module.scss'
 
-const AsteriskFootnote = () => (
+const AsteriskFootnote = ({ showSmallNFootnote, asteriskFootnote }) => (
   <div className={socialCardStyle.asteriskFootnote}>
-    * Based on less than 10 deaths among members of this race/ethnicity.
-    Interpret with caution.
+    *{' '}
+    {showSmallNFootnote && (
+      <>
+        Based on less than 10 deaths among members of this race/ethnicity.
+        Interpret with caution.
+      </>
+    )}
+    {asteriskFootnote && <>{' '}{asteriskFootnote}</>}
   </div>
 )
 
@@ -87,7 +93,8 @@ const SocialCardFootnotes = ({
   stateName,
   statesReportingDeaths,
   statesReportingCases,
-  showAsteriskFootnote,
+  showSmallNFootnote,
+  asteriskFootnote,
 }) => (
   <div
     className={classnames(
@@ -105,7 +112,12 @@ const SocialCardFootnotes = ({
         <Notes state={state} stateName={stateName} />
       )}
     </div>
-    {showAsteriskFootnote && <AsteriskFootnote />}
+    {(showSmallNFootnote || asteriskFootnote) && (
+      <AsteriskFootnote
+        showSmallNFootnote={showSmallNFootnote}
+        asteriskFootnote={asteriskFootnote}
+      />
+    )}
   </div>
 )
 
