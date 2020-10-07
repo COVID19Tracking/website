@@ -50,6 +50,7 @@ const getGroups = state => {
       cases: getGroupValue(state.blackPosPerCap),
       deaths: getGroupValue(state.blackDeathPerCap),
       showAsterisk: state.blackSmallN, // show asterisk if SmallN is true
+      showCross: false,
     },
     {
       label: 'Hispanic/Latino',
@@ -57,6 +58,7 @@ const getGroups = state => {
       cases: getGroupValue(state.latinXPosPerCap),
       deaths: getGroupValue(state.latinXDeathPerCap),
       showAsterisk: state.latinXSmallN,
+      showCross: false,
     },
     {
       label: 'Asian',
@@ -64,6 +66,7 @@ const getGroups = state => {
       cases: getGroupValue(state.asianPosPerCap),
       deaths: getGroupValue(state.asianDeathPerCap),
       showAsterisk: state.asianSmallN,
+      showCross: false,
     },
     {
       label: 'American Indian/Alaska Native',
@@ -71,6 +74,7 @@ const getGroups = state => {
       cases: getGroupValue(state.aianPosPerCap),
       deaths: getGroupValue(state.aianDeathPerCap),
       showAsterisk: state.aianSmallN,
+      showCross: false,
     },
     {
       label: 'White',
@@ -78,6 +82,7 @@ const getGroups = state => {
       cases: getGroupValue(state.whitePosPerCap),
       deaths: getGroupValue(state.whiteDeathPerCap),
       showAsterisk: state.whiteSmallN,
+      showCross: false,
     },
     {
       label: 'Asian/Pacific Islander',
@@ -85,6 +90,7 @@ const getGroups = state => {
       cases: getGroupValue(state.apiPosPerCap),
       deaths: getGroupValue(state.apiDeathPerCap),
       showAsterisk: state.apiSmallN,
+      showCross: false,
     },
     {
       label: 'Native Hawaiian/ Pacific Islander',
@@ -92,6 +98,7 @@ const getGroups = state => {
       cases: getGroupValue(state.nhpiPosPerCap),
       deaths: getGroupValue(state.nhpiDeathPerCap),
       showAsterisk: state.nhpiSmallN,
+      showCross: false,
     },
   ]
 

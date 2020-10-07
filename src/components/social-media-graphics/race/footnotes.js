@@ -8,14 +8,15 @@ import socialCardStyle from './social-card.module.scss'
 
 const AsteriskFootnote = ({ showSmallNFootnote, asteriskFootnote }) => (
   <div className={socialCardStyle.asteriskFootnote}>
-    *{' '}
     {showSmallNFootnote && (
       <>
+        *{' '}
         Based on less than 10 deaths among members of this race/ethnicity.
         Interpret with caution.
       </>
     )}
-    {asteriskFootnote && <>{' '}{asteriskFootnote}</>}
+    {(showSmallNFootnote && asteriskFootnote) && <br/>}
+    {asteriskFootnote && <>{'† '}{asteriskFootnote}</>}
   </div>
 )
 

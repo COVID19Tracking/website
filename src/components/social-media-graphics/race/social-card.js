@@ -63,7 +63,7 @@ const StateRaceSocialCard = renderedComponent(
     if (state.name == 'Montana') {
       groups.forEach((group, index) => {
         if (group.label == 'American Indian/Alaska Native') {
-          groups[index].showAsterisk = true
+          groups[index].showCross = true
         }
       })
       asteriskFootnote = 'Montana includes Native Hawaiians and Other Pacific Islanders in this category.'
@@ -73,7 +73,7 @@ const StateRaceSocialCard = renderedComponent(
     if (state.name == 'New Mexico') {
       groups.forEach((group, index) => {
         if (group.label == 'American Indian/Alaska Native') {
-          groups[index].showAsterisk = true
+          groups[index].showCross = true
         }
       })
       asteriskFootnote = 'New Mexico defines this category as Asian alone for case data, and Asian/Pacific Islander for death data.'
@@ -121,9 +121,12 @@ const StateRaceSocialCard = renderedComponent(
               Deaths per 100,000 people
             </span>
           )}
-          {groups.map(({ label, style, cases, deaths, showAsterisk }) => (
+          {groups.map(({ label, style, cases, deaths, showAsterisk, showCross }) => (
             <>
-              <span className={socialCardStyle.barLabel}>{label}</span>
+              <span className={socialCardStyle.barLabel}>
+                {label}
+                {showCross && '†'}
+              </span>
               {!stateStatus.deathsOnly && (
                 <>
                   {cases === null ? (
