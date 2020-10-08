@@ -17,7 +17,10 @@ const DataStateTotalTestsPage = ({ data }) => {
       state: (
         <Link to={`/data/state/${state.childSlug.slug}`}>{state.name}</Link>
       ),
-      totalTestResultsField: state.totalTestResultsField,
+      totalTestResultsField:
+        state.totalTestResultsField === 'posNeg'
+          ? 'Positive + negative PCR tests'
+          : state.totalTestResultsField,
       field: (
         <Link to={`/about-data/data-definitions#definition-${column}`}>
           <FieldName field={column} />
