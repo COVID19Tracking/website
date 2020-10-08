@@ -36,7 +36,7 @@ export default ({ pageContext, path, data }) => {
         { link: '/race' },
         {
           link: '/race/infection-and-mortality-data',
-          title: 'Infection and Mortality Rates',
+          title: 'Infection and Mortality Data',
         },
       ]}
       path={path}
@@ -76,7 +76,7 @@ export default ({ pageContext, path, data }) => {
         </li>
         <li>
           <Link to="/race/infection-and-mortality-data">
-            Infection and Mortality Rates by Race and Ethnicity
+            Infection and Mortality Data by Race and Ethnicity
           </Link>
         </li>
       </ul>
