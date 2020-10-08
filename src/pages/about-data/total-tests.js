@@ -19,7 +19,7 @@ const DataStateTotalTestsPage = ({ data }) => {
       ),
       totalTestResultsField:
         state.totalTestResultsField === 'posNeg'
-          ? 'Positive + negative PCR tests'
+          ? 'Positive + Negative'
           : state.totalTestResultsField,
       field: (
         <Link to={`/about-data/data-definitions#definition-${column}`}>
