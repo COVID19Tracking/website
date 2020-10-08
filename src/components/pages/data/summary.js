@@ -83,6 +83,8 @@ const StateSummary = ({
           stateSlug={stateSlug}
           positive={data.positive}
           positiveIncrease={data.positiveIncrease}
+          probableCases={data.probableCases}
+          confirmedCases={data.positiveCasesViral}
           sevenDayIncrease={sevenDayPositiveIncrease}
           national={national}
         />
