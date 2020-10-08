@@ -56,12 +56,12 @@ const combinedStates = ['NJ']
 
 test('Components : Social Media Graphics : Race : Utils : getTypeOfRates', () => {
   expect(getTypeOfRates(deathsOnlyState, combinedStates)).toBe(
-    'mortality rates',
+    'mortality data',
   )
-  expect(getTypeOfRates(casesOnlyState, combinedStates)).toBe('infection rates')
-  expect(getTypeOfRates(noChartsState, combinedStates)).toBe('no rates')
+  expect(getTypeOfRates(casesOnlyState, combinedStates)).toBe('infection data')
+  expect(getTypeOfRates(noChartsState, combinedStates)).toBe('no data')
   expect(getTypeOfRates(standardState, combinedStates)).toBe(
-    'infection and mortality rates',
+    'infection and mortality data',
   )
 })
 

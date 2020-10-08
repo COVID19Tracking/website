@@ -35,26 +35,26 @@ const getTweetableDate = () => {
 }
 
 const getSocialCardShareText = (typeOfRates, state, groups) => {
-  if (typeOfRates === 'no rates') {
+  if (typeOfRates === 'no data') {
     return `In ${getStateName(
       state.name,
     )}, race and ethnicity information is still not reported for COVID-19 cases and deaths. Help us get better data by contacting health officials at https://covidtracking.com/race/get-better-data #RacialDataTracker`
   }
-  if (typeOfRates === 'mortality rates') {
+  if (typeOfRates === 'mortality data') {
     return `In ${getStateName(state.name)}, through ${getTweetableDate()}, ${
       groups.worstDeathsGroup
     } were most likely to have died from #COVID19. https://www.covidtracking.com/race/infection-and-mortality-data/${
       state.childSlug.slug
     } #RacialDataTracker`
   }
-  if (typeOfRates === 'infection rates') {
+  if (typeOfRates === 'infection data') {
     return `In ${getStateName(state.name)}, through ${getTweetableDate()}, ${
       groups.worstCasesGroup
     } were most likely to have contracted #COVID19. Get the latest analysis: https://www.covidtracking.com/race/infection-and-mortality-data/${
       state.childSlug.slug
     } #RacialDataTracker`
   }
-  if (typeOfRates === 'infection and mortality rates') {
+  if (typeOfRates === 'infection and mortality data') {
     if (groups.worstDeathsGroup === groups.worstCasesGroup) {
       return `In ${getStateName(state.name)}, through ${getTweetableDate()}, ${
         groups.worstCasesGroup

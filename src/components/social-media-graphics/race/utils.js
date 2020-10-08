@@ -205,18 +205,18 @@ const getTypeOfRates = (state, combinedStates) => {
   const stateStatus = getStateStatus(state, combinedStates)
 
   if (stateStatus.noCharts) {
-    return 'no rates'
+    return 'no data'
   }
 
   if (stateStatus.deathsOnly) {
-    return 'mortality rates'
+    return 'mortality data'
   }
 
   if (stateStatus.casesOnly) {
-    return 'infection rates'
+    return 'infection data'
   }
 
-  return 'infection and mortality rates'
+  return 'infection and mortality data'
 }
 
 const getBarWidth = (number, max, square, oneChart) => {
