@@ -13,8 +13,11 @@ const CasesCard = ({
   positive,
   positiveIncrease,
   sevenDayIncrease,
+  probableCases,
+  confirmedCases,
   national,
 }) => {
+  const definitionFields = ['positive', 'positiveCasesViral', 'probableCases']
   const sevenDayIncreasePercent = Math.round(sevenDayIncrease * 100 * 10) / 10
   const drillDownValue = Number.isNaN(sevenDayIncreasePercent)
     ? 'N/A'
@@ -42,24 +45,50 @@ const CasesCard = ({
           <DefinitionLink
             onDefinitionsToggle={() => {
               definitionContext({
-                fields: ['positive'],
+                fields: definitionFields,
                 highlight: 'positive',
               })
             }}
             label="Total cases"
           />
-          <DrillDown
-            label="New cases today"
-            value={positiveIncrease}
-            calculated
-          />
-          <DrillDown
-            label="Change over 7 days"
-            value={drillDownValue}
-            suffix={drillDownSuffix}
-            calculated
-          />
         </Statistic>
+        {confirmedCases && (
+          <Statistic title="Confirmed cases" value={confirmedCases} subelement>
+            <DefinitionLink
+              onDefinitionsToggle={() => {
+                definitionContext({
+                  fields: definitionFields,
+                  highlight: 'positiveCasesViral',
+                })
+              }}
+              label="Confirmed cases"
+            />
+          </Statistic>
+        )}
+        {probableCases && (
+          <Statistic title="Probable cases" value={probableCases} subelement>
+            <DefinitionLink
+              onDefinitionsToggle={() => {
+                definitionContext({
+                  fields: definitionFields,
+                  highlight: 'probableCases',
+                })
+              }}
+              label="Probable Cases"
+            />
+          </Statistic>
+        )}
+        <DrillDown
+          label="New cases today"
+          value={positiveIncrease}
+          calculated
+        />
+        <DrillDown
+          label="Change over 7 days"
+          value={drillDownValue}
+          suffix={drillDownSuffix}
+          calculated
+        />
       </CardBody>
     </Card>
   )
