@@ -17,6 +17,10 @@ const DataStateTotalTestsPage = ({ data }) => {
       state: (
         <Link to={`/data/state/${state.childSlug.slug}`}>{state.name}</Link>
       ),
+      totalTestResultsField:
+        state.totalTestResultsField === 'posNeg'
+          ? 'Positive + Negative'
+          : state.totalTestResultsField,
       field: (
         <Link to={`/about-data/data-definitions#definition-${column}`}>
           <FieldName field={column} />
@@ -49,13 +53,18 @@ const DataStateTotalTestsPage = ({ data }) => {
             alignLeft: true,
           },
           {
+            field: 'totalTestResultsField',
+            label: 'Total test results field',
+            alignLeft: true,
+          },
+          {
             field: 'field',
-            label: 'Total tests field',
+            label: '"New Tests" chart field',
             alignLeft: true,
           },
           {
             field: 'units',
-            label: 'Units',
+            label: '"New Tests" chart units',
             alignLeft: true,
           },
         ]}
@@ -103,6 +112,7 @@ export const query = graphql`
         name
         covidTrackingProjectPreferredTotalTestField
         covidTrackingProjectPreferredTotalTestUnits
+        totalTestResultsField
       }
     }
   }
