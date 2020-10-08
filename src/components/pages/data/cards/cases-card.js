@@ -17,6 +17,7 @@ const CasesCard = ({
   confirmedCases,
   national,
 }) => {
+  const definitionFields = ['positive', 'positiveCasesViral', 'probableCases']
   const sevenDayIncreasePercent = Math.round(sevenDayIncrease * 100 * 10) / 10
   const drillDownValue = Number.isNaN(sevenDayIncreasePercent)
     ? 'N/A'
@@ -44,7 +45,7 @@ const CasesCard = ({
           <DefinitionLink
             onDefinitionsToggle={() => {
               definitionContext({
-                fields: ['positive', 'positiveCasesViral'],
+                fields: definitionFields,
                 highlight: 'positive',
               })
             }}
@@ -56,7 +57,7 @@ const CasesCard = ({
             <DefinitionLink
               onDefinitionsToggle={() => {
                 definitionContext({
-                  fields: ['positive', 'positiveCasesViral'],
+                  fields: definitionFields,
                   highlight: 'positiveCasesViral',
                 })
               }}
@@ -69,7 +70,7 @@ const CasesCard = ({
             <DefinitionLink
               onDefinitionsToggle={() => {
                 definitionContext({
-                  fields: ['positive', 'positiveCasesViral', 'probableCases'],
+                  fields: definitionFields,
                   highlight: 'probableCases',
                 })
               }}
