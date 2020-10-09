@@ -38,6 +38,13 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
           }
           return result
         })}
+        order={[
+          'positiveTestsViral',
+          'totalTestsPeopleViral',
+          'totalTestsViral',
+          'totalTestEncountersViral',
+          'totalTestResults',
+        ]}
       />
       <TableResponsive
         labels={[
