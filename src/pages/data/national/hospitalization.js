@@ -23,8 +23,8 @@ const NationalDataHospitalizationPage = ({ data }) => {
           'hospitalizedCurrently',
           'inIcuCumulative',
           'inIcuCurrently',
-          'onVentilatorCurrently',
           'onVentilatorCumulative',
+          'onVentilatorCurrently',
         ]}
       />
       <TableResponsive
