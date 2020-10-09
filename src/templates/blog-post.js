@@ -44,14 +44,14 @@ const BlogPostTemplate = ({ data, path }) => {
         content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
         images={blogImages}
       />
-      {blogPost.childContentfulBlogPostFootnotesTextNode && (
-        <BlogPostFootnotes
-          footnotes={
-            blogPost.childContentfulBlogPostFootnotesTextNode
-              .childMarkdownRemark.html
-          }
-        />
-      )}
+      <BlogPostFootnotes
+        footnoteText={
+          blogPost.childContentfulBlogPostFootnotesTextNode &&
+          blogPost.childContentfulBlogPostFootnotesTextNode.childMarkdownRemark
+            .html
+        }
+        content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
+      />
       <BlogPostExtras blogPost={blogPost} />
     </Layout>
   )
