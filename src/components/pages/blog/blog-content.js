@@ -1,15 +1,17 @@
 import React from 'react'
-import { BLOCKS } from '@contentful/rich-text-types'
+import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import marked from 'marked'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import LongContent from '~components/common/long-content'
 import CleanSpacing from '~components/utils/clean-spacing'
 import TableContentBlock from './content-blocks/table-content-block'
 import ImageContentBlock from './content-blocks/image-content-block'
+import FootnoteContentBlock from './content-blocks/footnote-content-block'
 import TableauChart from '~components/charts/tableau'
 import blogContentStyles from './blog-content.module.scss'
 
 const BlogContent = ({ content, images }) => {
+  let footnoteNumber = 0
   const options = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => (
@@ -19,6 +21,19 @@ const BlogContent = ({ content, images }) => {
           ))}
         </p>
       ),
+      [INLINES.EMBEDDED_ENTRY]: node => {
+        if (typeof node.data.target.fields === 'undefined') {
+          return null
+        }
+        if (
+          node.data.target.sys.contentType.sys.contentful_id ===
+          'contentBlockFootnoteLink'
+        ) {
+          footnoteNumber += 1
+          return <FootnoteContentBlock number={footnoteNumber} />
+        }
+        return null
+      },
       [BLOCKS.EMBEDDED_ENTRY]: node => {
         if (typeof node.data.target.fields === 'undefined') {
           return null
