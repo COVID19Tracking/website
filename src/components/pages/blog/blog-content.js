@@ -27,7 +27,7 @@ const BlogContent = ({ content, images }) => {
         }
         if (
           node.data.target.sys.contentType.sys.contentful_id ===
-          'contentBlockFootnoteLink'
+          'contentBlockFootnote'
         ) {
           footnoteNumber += 1
           return <FootnoteContentBlock number={footnoteNumber} />

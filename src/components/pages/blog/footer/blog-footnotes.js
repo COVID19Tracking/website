@@ -29,7 +29,7 @@ const Footnotes = ({ footnoteText, content }) => {
       if (
         typeof item.nodeType === 'undefined' ||
         item.nodeType !== 'embedded-entry-inline' ||
-        item.data.target.sys.contentType.sys.id !== 'contentBlockFootnoteLink'
+        item.data.target.sys.contentType.sys.id !== 'contentBlockFootnote'
       ) {
         return
       }
