@@ -16,7 +16,10 @@ const NationalDataCasesPage = ({ data }) => {
         { link: `/data/national`, title: 'Totals for the US' },
       ]}
     >
-      <Definitions definitions={data.allContentfulDataDefinition.nodes} />
+      <Definitions
+        definitions={data.allContentfulDataDefinition.nodes}
+        order={['positive', 'positiveIncrease']}
+      />
       <TableResponsive
         labels={[
           {

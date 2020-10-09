@@ -9,7 +9,6 @@ const Definitions = ({ definitions, order }) => {
       definitions.find(definition => definition.fieldName === field),
     )
   })
-  console.log(orderedDefinitions)
   const [expanded, setExpanded] = useState([])
   return (
     <Row className={definitionStyles.definitions}>
