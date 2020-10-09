@@ -4,7 +4,9 @@ exports[`Components : Pages : Blog : Image Content Block : Keep Size, Full Width
 <div
   className="image fullWidthMobile keepSize"
 >
-  <img />
+  <img
+    loading="lazy"
+  />
 </div>
 `;
 
