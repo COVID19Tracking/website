@@ -17,7 +17,17 @@ const StateTestAntibodiesTemplate = ({ pageContext, path, data }) => {
       ]}
       path={path}
     >
-      <Definitions definitions={data.allContentfulDataDefinition.nodes} />
+      <Definitions
+        definitions={data.allContentfulDataDefinition.nodes}
+        order={[
+          'totalTestsPeopleAntibody',
+          'totalTestsAntibody',
+          'negativeTestsPeopleAntibody',
+          'negativeTestsAntibody',
+          'positiveTestsPeopleAntibody',
+          'positiveTestsAntibody',
+        ]}
+      />
       <TableResponsive
         labels={[
           {
