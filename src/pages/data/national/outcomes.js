@@ -16,7 +16,10 @@ const NationalDataOutcomesPage = ({ data }) => {
         { link: `/data/national`, title: 'Totals for the US' },
       ]}
     >
-      <Definitions definitions={data.allContentfulDataDefinition.nodes} />
+      <Definitions
+        definitions={data.allContentfulDataDefinition.nodes}
+        order={['recovered', 'death']}
+      />
       <TableResponsive
         labels={[
           {

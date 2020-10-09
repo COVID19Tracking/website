@@ -16,7 +16,15 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
       ]}
       path={path}
     >
-      <Definitions definitions={data.allContentfulDataDefinition.nodes} />
+      <Definitions
+        definitions={data.allContentfulDataDefinition.nodes}
+        order={[
+          'positive',
+          'positiveIncrease',
+          'positiveCasesViral',
+          'probableCases',
+        ]}
+      />
       <TableResponsive
         labels={[
           {

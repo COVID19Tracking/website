@@ -21,7 +21,7 @@ const ImageContentBlock = ({
     )}
   >
     {keepSize ? (
-      <img src={imageUrl} alt={image.title} />
+      <img src={imageUrl} alt={image.title} loading="lazy" />
     ) : (
       <Img fluid={image.fluid} alt={image.title} />
     )}
