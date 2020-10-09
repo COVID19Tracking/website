@@ -9,12 +9,14 @@ const ImageContentBlock = ({
   image,
   className,
   keepSize = false,
+  fullWidthMobile = false,
   imageUrl,
 }) => (
   <div
     className={classnames(
       className,
       imageContentBlockStyles.image,
+      fullWidthMobile && imageContentBlockStyles.fullWidthMobile,
       keepSize && imageContentBlockStyles.keepSize,
     )}
   >

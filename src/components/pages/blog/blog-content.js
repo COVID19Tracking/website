@@ -49,12 +49,13 @@ const BlogContent = ({ content, images }) => {
           node.data.target.sys.contentType.sys.contentful_id ===
           'contentBlockImage'
         ) {
-          const { caption, keepSize } = node.data.target.fields
+          const { caption, keepSize, fullWidthMobile } = node.data.target.fields
           return (
             <ImageContentBlock
               image={images[node.data.target.sys.contentful_id].image}
               caption={caption}
               keepSize={keepSize && keepSize['en-US']}
+              fullWidthMobile={fullWidthMobile && fullWidthMobile['en-US']}
               className={blogContentStyles.image}
               imageUrl={
                 node.data.target.fields.image['en-US'].fields.file['en-US'].url
