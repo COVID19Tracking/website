@@ -49,7 +49,7 @@ const Footnotes = ({ footnoteText, content }) => {
           dangerouslySetInnerHTML={{ __html: footnoteText }}
         />
       )}
-      {footnotes.length && (
+      {footnotes.length > 0 && (
         <div className={blogFootnotesStyle.footnotes}>
           {footnotes.map((footnote, index) => (
             <Footnote
