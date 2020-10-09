@@ -8,3 +8,20 @@
     }
   }
 }
+
+.full-width-mobile {
+  @media (min-width: $viewport-md) and (max-width: $viewport-lg) {
+    // 8 cols on tablet, to match text content
+    flex-basis: 80%;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (min-width: $viewport-lg) {
+    // 6 cols wide on desktop, to match text content
+    flex-basis: 60%;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
