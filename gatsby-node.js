@@ -206,6 +206,11 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve(`./src/templates/blog-post.js`),
         context: { ...node, blogImages },
       })
+
+      createRedirect({
+        fromPath: shortPath,
+        toPath: longPath,
+      })
     }
   })
 
