@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components : Pages : Blog : Table Content Block renders correctly 1`] = `
+exports[`Components : Common : Table Content Block renders correctly 1`] = `
 <table
   className="table"
 >

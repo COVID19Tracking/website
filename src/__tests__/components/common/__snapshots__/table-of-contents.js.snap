@@ -2,26 +2,46 @@
 
 exports[`Components : Common: Table of Contents renders correctly 1`] = `
 <div
-  className="tableOfContents"
+  className="container container"
 >
-  <h2>
-    Table of contents
-  </h2>
-  <ul>
-    <li>
-      <a
-        href="#a"
-      >
-        A
-      </a>
-    </li>
-    <li>
-      <a
-        href="#b"
-      >
-        B
-      </a>
-    </li>
-  </ul>
+  <div
+    className="centered narrow"
+  >
+    <div
+      className="tableOfContents"
+    >
+      <h2>
+        Table of contents
+      </h2>
+      <ul>
+        <li>
+          <a
+            href="#abc-abc"
+          >
+            abc
+            <a
+              href="https://covidtracking.com/about-data/faq#where-do-you-get-your-data"
+            >
+              abc
+            </a>
+            abc
+          </a>
+        </li>
+        <li>
+          <a
+            href="#abc-abc"
+          >
+            abc
+            <a
+              href="https://covidtracking.com/about-data/faq#why-doesnt-your-data-match-what-i-see-on-the-official-covid-19-page-for-my-state"
+            >
+              abc
+            </a>
+            abc
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 `;

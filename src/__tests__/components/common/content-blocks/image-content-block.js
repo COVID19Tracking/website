@@ -1,8 +1,8 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import ImageContentBlock from '~components/pages/blog/content-blocks/image-content-block'
+import ImageContentBlock from '~components/common/content-blocks/image-content-block'
 
-describe('Components : Pages : Blog : Image Content Block', () => {
+describe('Components : Common : Image Content Block', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(
@@ -29,7 +29,7 @@ describe('Components : Pages : Blog : Image Content Block', () => {
   })
 })
 
-describe('Components : Pages : Blog : Image Content Block : Keep Size, Full Width Mobile', () => {
+describe('Components : Common : Image Content Block : Keep Size, Full Width Mobile', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(

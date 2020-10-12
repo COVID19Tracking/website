@@ -1,8 +1,8 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import TableContentBlock from '~components/pages/blog/content-blocks/table-content-block'
+import TableContentBlock from '~components/common/content-blocks/table-content-block'
 
-describe('Components : Pages : Blog : Table Content Block', () => {
+describe('Components : Common : Table Content Block', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(
