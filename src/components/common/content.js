@@ -3,7 +3,7 @@ import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import marked from 'marked'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
-import slugifyList from '~components/utils/slugify-list'
+import { slugifyList } from '~components/utils/slugify-list'
 import CleanSpacing from '~components/utils/clean-spacing'
 import TableauChart from '~components/charts/tableau'
 

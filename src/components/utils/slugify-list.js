@@ -23,4 +23,3 @@ const slugifyContentList = children => {
 }
 
 export { slugifyList, slugifyContentList }
-export default slugifyList
