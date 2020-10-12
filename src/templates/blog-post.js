@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 
-import BlogPostContent from '~components/pages/blog/blog-content'
+import Content from '~components/common/content'
 import BlogPostFootnotes from '~components/pages/blog/footer/blog-footnotes'
 import BlogPostExtras from '~components/pages/blog/footer/blog-extras'
 import FeaturedImage from '~components/pages/blog/featured-image'
@@ -40,7 +40,7 @@ const BlogPostTemplate = ({ data, path }) => {
       {blogPost.featuredImage && (
         <FeaturedImage image={blogPost.featuredImage} />
       )}
-      <BlogPostContent
+      <Content
         content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
         images={blogImages}
       />

@@ -237,6 +237,7 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-contentful',
       options: {
+        environment: 'content-blocks-1510-1511',
         spaceId: process.env.CONTENTFUL_SPACE,
         accessToken: process.env.CONTENTFUL_TOKEN,
         host: process.env.CONTENTFUL_PREVIEW

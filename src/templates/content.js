@@ -1,8 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import ContentfulContent from '~components/common/contentful-content'
+import Content from '~components/common/content'
 import TableOfContents from '~components/common/table-of-contents'
-import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 
 const ContentPageTemplate = ({ data, path }) => {
@@ -18,20 +17,18 @@ const ContentPageTemplate = ({ data, path }) => {
         },
       ]}
       socialCard={contentfulPage.socialCard}
-      centered
     >
       {contentfulPage.enableToc &&
         contentfulPage.body.childMarkdownRemark.headings && (
           <TableOfContents
-            headings={contentfulPage.body.childMarkdownRemark.headings}
+            headings={contentfulPage.childContentfulPageBodyRichTextRichTextNode.json}
           />
         )}
-      <LongContent>
-        <ContentfulContent
-          id={contentfulPage.contentful_id}
-          content={contentfulPage.body.childMarkdownRemark.html}
-        />
-      </LongContent>
+      <Content
+        content={
+          contentfulPage.childContentfulPageBodyRichTextRichTextNode.json
+        }
+      />
     </Layout>
   )
 }
@@ -47,14 +44,8 @@ export const query = graphql`
       returnLinkTitle
       returnLinkUrl
       enableToc
-      body {
-        childMarkdownRemark {
-          html
-          headings(depth: h2) {
-            id
-            value
-          }
-        }
+      childContentfulPageBodyRichTextRichTextNode {
+        json
       }
       socialCard {
         description {

@@ -2,13 +2,13 @@ import React from 'react'
 import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import marked from 'marked'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import LongContent from '~components/common/long-content'
+import LongContent from './long-content'
 import CleanSpacing from '~components/utils/clean-spacing'
 import TableContentBlock from './content-blocks/table-content-block'
 import ImageContentBlock from './content-blocks/image-content-block'
 import FootnoteContentBlock from './content-blocks/footnote-content-block'
 import TableauChart from '~components/charts/tableau'
-import blogContentStyles from './blog-content.module.scss'
+import contentStyles from './content.module.scss'
 
 const BlogContent = ({ content, images }) => {
   let footnoteNumber = 0
@@ -71,7 +71,7 @@ const BlogContent = ({ content, images }) => {
               caption={caption}
               keepSize={keepSize && keepSize['en-US']}
               fullWidthMobile={fullWidthMobile && fullWidthMobile['en-US']}
-              className={blogContentStyles.image}
+              className={contentStyles.image}
               imageUrl={
                 node.data.target.fields.image['en-US'].fields.file['en-US'].url
               }
@@ -96,7 +96,7 @@ const BlogContent = ({ content, images }) => {
   }
   return (
     <LongContent>
-      <div className={blogContentStyles.content}>
+      <div className={contentStyles.content}>
         {documentToReactComponents(content, options)}
       </div>
     </LongContent>
