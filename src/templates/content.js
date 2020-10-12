@@ -21,7 +21,10 @@ const ContentPageTemplate = ({ data, path }) => {
       {contentfulPage.enableToc &&
         contentfulPage.body.childMarkdownRemark.headings && (
           <TableOfContents
-            headings={contentfulPage.childContentfulPageBodyRichTextRichTextNode.json}
+            content={
+              contentfulPage.childContentfulPageBodyRichTextRichTextNode.json
+                .content
+            }
           />
         )}
       <Content
@@ -46,6 +49,15 @@ export const query = graphql`
       enableToc
       childContentfulPageBodyRichTextRichTextNode {
         json
+      }
+      body {
+        childMarkdownRemark {
+          html
+          headings(depth: h2) {
+            id
+            value
+          }
+        }
       }
       socialCard {
         description {

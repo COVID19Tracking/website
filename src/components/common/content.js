@@ -2,15 +2,21 @@ import React from 'react'
 import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import marked from 'marked'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import LongContent from './long-content'
+
+import slugifyList from '~components/utils/slugify-list'
 import CleanSpacing from '~components/utils/clean-spacing'
+import TableauChart from '~components/charts/tableau'
+
+import LongContent from './long-content'
 import TableContentBlock from './content-blocks/table-content-block'
 import ImageContentBlock from './content-blocks/image-content-block'
 import FootnoteContentBlock from './content-blocks/footnote-content-block'
-import TableauChart from '~components/charts/tableau'
+
 import contentStyles from './content.module.scss'
 
-const BlogContent = ({ content, images }) => {
+// todo handle other heading levels
+
+const Content = ({ content, images }) => {
   let footnoteNumber = 0
   const options = {
     renderNode: {
@@ -20,6 +26,13 @@ const BlogContent = ({ content, images }) => {
             <CleanSpacing>{child}</CleanSpacing>
           ))}
         </p>
+      ),
+      [BLOCKS.HEADING_2]: (node, children) => (
+        <h2 id={slugifyList(children)}>
+          {children.map(child => (
+            <CleanSpacing>{child}</CleanSpacing>
+          ))}
+        </h2>
       ),
       [INLINES.EMBEDDED_ENTRY]: node => {
         if (typeof node.data.target.fields === 'undefined') {
@@ -103,4 +116,4 @@ const BlogContent = ({ content, images }) => {
   )
 }
 
-export default BlogContent
+export default Content
