@@ -1,7 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+
 import Content from '~components/common/content'
+import ContentfulContent from '~components/common/contentful-content'
 import TableOfContents from '~components/common/table-of-contents'
+import LongContent from '~components/common/long-content'
+
 import Layout from '~components/layout'
 
 const ContentPageTemplate = ({ data, path }) => {
@@ -27,9 +31,13 @@ const ContentPageTemplate = ({ data, path }) => {
             }
           />
         )}
-      {contentfulPage.childContentfulPageBodyRichTextRichTextNode ===
-      undefined ? (
-        <p>undefined</p>
+      {contentfulPage.childContentfulPageBodyRichTextRichTextNode === null ? (
+        <LongContent>
+          <ContentfulContent
+            id={contentfulPage.contentful_id}
+            content={contentfulPage.body.childMarkdownRemark.html}
+          />
+        </LongContent>
       ) : (
         <Content
           content={

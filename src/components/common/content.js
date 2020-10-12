@@ -14,8 +14,6 @@ import FootnoteContentBlock from './content-blocks/footnote-content-block'
 
 import contentStyles from './content.module.scss'
 
-// todo handle other heading levels
-
 const Content = ({ content, images }) => {
   let footnoteNumber = 0
   const options = {
