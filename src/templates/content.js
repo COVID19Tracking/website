@@ -27,11 +27,16 @@ const ContentPageTemplate = ({ data, path }) => {
             }
           />
         )}
-      <Content
-        content={
-          contentfulPage.childContentfulPageBodyRichTextRichTextNode.json
-        }
-      />
+      {contentfulPage.childContentfulPageBodyRichTextRichTextNode ===
+      undefined ? (
+        <p>undefined</p>
+      ) : (
+        <Content
+          content={
+            contentfulPage.childContentfulPageBodyRichTextRichTextNode.json
+          }
+        />
+      )}
     </Layout>
   )
 }
