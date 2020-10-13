@@ -245,8 +245,8 @@ const StateRaceSocialCard = renderedComponent(
             asteriskFootnote={asteriskFootnote}
           />
           <div className={socialCardStyle.logosContainer}>
-            <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
             <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
+            <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
           </div>
         </div>
       </div>

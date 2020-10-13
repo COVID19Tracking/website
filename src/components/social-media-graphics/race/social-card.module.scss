@@ -161,13 +161,19 @@ body {
   }
 }
 
-.ctp-logo {
-  width: 26px;
-  margin-right: 5px; // ignore-style-rule
-}
+.logos-container {
+  display: flex;
+  flex-direction: column;
 
-.car-logo {
-  width: 43px;
+  .ctp-logo {
+    width: 110px;
+  }
+
+  .car-logo {
+    width: 76px;
+    margin-left: 17px;
+    @include margin(16, bottom);
+  }
 }
 
 .bar-container {
