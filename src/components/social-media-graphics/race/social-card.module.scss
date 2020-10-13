@@ -275,17 +275,17 @@ body {
   padding: 116px 180px; // ignore-style-rule
 
   .logos-container {
-    display: flex;
+    flex-direction: row-reverse;
     @include margin(16, top);
     justify-content: center;
 
     .ctp-logo {
-      width: 26px;
       margin-right: 6px; // ignore-style-rule
     }
 
     .car-logo {
-      width: 43px;
+      @include margin(16, right);
+      @include margin(0, bottom);
     }
   }
 
