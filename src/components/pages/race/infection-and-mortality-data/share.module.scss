@@ -10,8 +10,11 @@
 }
 
 .click-to-share {
+  p {
+    display: block;
+    margin: 0 auto;
+  }
   @include margin(16, (top, bottom));
-  display: block;
 }
 
 .social-sharing {

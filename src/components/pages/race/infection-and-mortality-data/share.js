@@ -94,11 +94,13 @@ export default ({ state, stateRaceData, combinedStates }) => {
         />
       </div>
       <DetailText centered className={shareStyles.clickToShare}>
-        Share this directly on social media or{' '}
-        <a href={getStateSquareImageUrl(state)}>
-          download a square image for Instagram
-        </a>
-        .
+        <p>
+          Share this directly on social media or{' '}
+          <a href={getStateSquareImageUrl(state)}>
+            download a square image for Instagram
+          </a>
+          .
+        </p>
       </DetailText>
       <SocialSharing
         shares={['facebook', 'twitter', 'link']}
