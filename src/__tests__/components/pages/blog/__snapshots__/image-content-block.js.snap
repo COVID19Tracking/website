@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Components : Pages : Blog : Image Content Block : Keep Size, Full Width Mobile renders correctly 1`] = `
+<div
+  className="image fullWidthMobile keepSize"
+>
+  <img
+    loading="lazy"
+  />
+</div>
+`;
+
 exports[`Components : Pages : Blog : Image Content Block renders correctly 1`] = `
 <div
   className="image"

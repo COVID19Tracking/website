@@ -27,7 +27,20 @@ const NationalDataPage = ({ data }) => (
     />
     <DownloadData slug="national" />
 
-    <Definitions definitions={data.allContentfulDataDefinition.nodes} />
+    <Definitions
+      definitions={data.allContentfulDataDefinition.nodes}
+      order={[
+        'states',
+        'totalTestResultsIncrease',
+        'positive',
+        'negative',
+        'hospitalizedCumulative',
+        'hospitalizedCurrently',
+        'death',
+        'recovered',
+        'totalTestResults',
+      ]}
+    />
     <TableResponsive
       labels={[
         {
@@ -89,9 +102,12 @@ export const query = graphql`
             "totalTestResultsIncrease"
             "positive"
             "negative"
+            "hospitalizedCumulative"
             "totalTestResults"
             "hospitalizedCurrently"
             "recovered"
+            "death"
+            "totalTestResults"
           ]
         }
       }

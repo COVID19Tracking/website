@@ -51,6 +51,9 @@ const gatsbyConfig = {
       resolve: 'gatsby-plugin-sass',
       options: {
         data: sassImports,
+        cssLoaderOptions: {
+          localIdentName: '[sha1:hash:hex:4]',
+        },
       },
     },
     {
@@ -411,7 +414,6 @@ const gatsbyConfig = {
         ],
       },
     },
-    'gatsby-plugin-minify-classnames',
   ],
 }
 

@@ -16,7 +16,17 @@ const StateHospitalizationTemplate = ({ pageContext, path, data }) => {
       ]}
       path={path}
     >
-      <Definitions definitions={data.allContentfulDataDefinition.nodes} />
+      <Definitions
+        definitions={data.allContentfulDataDefinition.nodes}
+        order={[
+          'hospitalizedCumulative',
+          'hospitalizedCurrently',
+          'inIcuCumulative',
+          'inIcuCurrently',
+          'onVentilatorCumulative',
+          'onVentilatorCurrently',
+        ]}
+      />
 
       <TableResponsive
         labels={[

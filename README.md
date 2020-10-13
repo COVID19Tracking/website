@@ -29,10 +29,10 @@ yarn install
 The website is built from two separate data sources: our own API for COVID data, and Contentful for content. To download the most recent COVID data and setup a `.env` file with a copy of read-only API keys to Contentful, run:
 
 ```shell
-yarn run setup
+yarn setup
 ```
 
-You can also run `yarn run setup:api-data` if you just want to download data and not touch the `.env` file.
+You can also run `yarn setup:api-data` if you just want to download data and not touch the `.env` file.
 
 To run the website locally, use:
 
@@ -58,15 +58,15 @@ Components live in `src/components` and are organized as follows:
 
 [![Coverage Status](https://coveralls.io/repos/github/COVID19Tracking/website/badge.svg?branch=master)](https://coveralls.io/github/COVID19Tracking/website?branch=master)
 
-We use Jest for automated testing, and all test files for Gatsby are located in `./src/__tests__`. Test files are structured following their related components. To run tests, use `yarn run test`.
+We use Jest for automated testing, and all test files for Gatsby are located in `./src/__tests__`. Test files are structured following their related components. To run tests, use `yarn test`.
 
 When you make a change to an interface, you will need to [update the Jest snapshot](https://jestjs.io/docs/en/snapshot-testing) for tests to complete successfully:
 
 ```shell
-yarn run test:update
+yarn test:update
 ```
 
-Before pushing your local branch to the repository, make sure to run `yarn run test:dev`. This will make sure the project is linted and all tests pass. Make sure that every test passes. Pull requests are automatically checked against these same tests.
+Before pushing your local branch to the repository, make sure to run `yarn test:dev`. This will make sure the project is linted and all tests pass. Make sure that every test passes. Pull requests are automatically checked against these same tests.
 
 ## Storybook
 
@@ -77,7 +77,7 @@ All common components throughout the site are documented in [Storybook](https://
 To preview the storybook locally, just run:
 
 ```shell
-yarn run storybook
+yarn storybook
 ```
 
 The storybook is now available at `http://localhost:6006`.
