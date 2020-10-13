@@ -11,6 +11,7 @@
 
 .click-to-share {
   @include margin(16, (top, bottom));
+  display: block;
 }
 
 .social-sharing {
