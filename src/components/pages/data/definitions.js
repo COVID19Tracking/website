@@ -2,7 +2,13 @@ import React, { useState } from 'react'
 import { Row, Col } from '~components/common/grid'
 import definitionStyles from './definitions.module.scss'
 
-const Definitions = ({ definitions }) => {
+const Definitions = ({ definitions, order }) => {
+  const orderedDefinitions = []
+  order.forEach(field => {
+    orderedDefinitions.push(
+      definitions.find(definition => definition.fieldName === field),
+    )
+  })
   const [expanded, setExpanded] = useState([])
   return (
     <Row className={definitionStyles.definitions}>
@@ -12,14 +18,14 @@ const Definitions = ({ definitions }) => {
           className={definitionStyles.expandAll}
           type="button"
           onClick={() => {
-            if (expanded.length === definitions.length) {
+            if (expanded.length === orderedDefinitions.length) {
               setExpanded([])
               return
             }
-            setExpanded(Array.from(definitions.keys()))
+            setExpanded(Array.from(orderedDefinitions.keys()))
           }}
         >
-          {expanded.length === definitions.length ? (
+          {expanded.length === orderedDefinitions.length ? (
             <>Collapse all</>
           ) : (
             <>Expand all</>
@@ -27,7 +33,7 @@ const Definitions = ({ definitions }) => {
         </button>
       </Col>
       <Col width={[4, 6, 9]} paddingLeft={[0, 0, 8]}>
-        {definitions.map((definition, key) => (
+        {orderedDefinitions.map((definition, key) => (
           <div key={`definition-${definition.name}`}>
             <button
               type="button"
