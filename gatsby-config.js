@@ -235,6 +235,12 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-render-components',
+      options: {
+        path: `${__dirname}/public/images`,
+      },
+    },
+    {
       resolve: 'gatsby-source-contentful',
       options: {
         spaceId: process.env.CONTENTFUL_SPACE,
@@ -308,6 +314,7 @@ const gatsbyConfig = {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
+          '~plugins': 'plugins',
           '~components': 'src/components',
           '~context': 'src/context',
           '~data': 'src/data',

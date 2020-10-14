@@ -2,7 +2,7 @@
   "name": "covid-tracking-project",
   "version": "0.0.1",
   "engines": {
-    "node": ">=10.13"
+    "node": ">=12.18"
   },
   "description": "Collects information from 50 US states, the District of Columbia, and 5 other US territories to provide the most comprehensive testing data we can collect for the novel coronavirus, SARS-CoV-2.",
   "author": "The COVID Tracking Project",
@@ -77,10 +77,13 @@
     "lodash": "^4.17.19",
     "luxon": "^1.22.0",
     "marked": "^0.8.2",
+    "mkdirp": "^1.0.4",
+    "mockdate": "^3.0.2",
     "mustache": "^4.0.1",
     "node-sass": "^4.14.1",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
+    "puppeteer": "^2.1.1",
     "query-string": "^6.12.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -89,6 +92,7 @@
     "react-is": "^16.8.0",
     "react-recaptcha": "^2.3.10",
     "react-typography": "^0.16.19",
+    "recursive-readdir": "^2.2.2",
     "regenerator-runtime": "^0.13.7",
     "slugify": "^1.4.0",
     "smartypants": "^0.1.1",

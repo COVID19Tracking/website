@@ -179,6 +179,31 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  let covidStateInfo = result.data.allCovidStateInfo.nodes
+
+  // we want to include the U.S. as a "state" here
+  covidStateInfo.unshift({
+    state: 'US',
+    name: 'United States',
+    childSlug: {
+      slug: 'united-states',
+    },
+  })
+
+  covidStateInfo = covidStateInfo.filter(node => node.state !== 'VI')
+  covidStateInfo = covidStateInfo.filter(node => node.state !== 'GU')
+
+  covidStateInfo.forEach(node => {
+    const { slug } = node.childSlug
+    createPage({
+      path: `/race/infection-and-mortality-data/${slug}`,
+      component: path.resolve(
+        `./src/templates/race/infection-and-mortality-data/landing.js`,
+      ),
+      context: node,
+    })
+  })
+
   result.data.allContentfulBlogPost.nodes.forEach(node => {
     const blogImages = []
     node.childContentfulBlogPostBlogContentRichTextNode.json.content

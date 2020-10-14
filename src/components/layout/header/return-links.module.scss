@@ -11,13 +11,13 @@
     display: none; // hide scrollbar
   }
 
-
   @media (max-width: $viewport-md) {
     @include margin(8, (top, bottom));
     @include padding(8, (top, bottom));
   }
 
-  a, span {
+  a,
+  span {
     line-height: 1.5;
   }
 
@@ -40,7 +40,9 @@
     }
   }
 
-  a, img, span {
+  a,
+  img,
+  span {
     @include margin(4, (left, right));
   }
 

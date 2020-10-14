@@ -1,8 +1,11 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import smartypants from 'smartypants'
+
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 import StateSeparate from './state-separate'
 import StateCombined from './state-combined'
+
 import statesStyle from './states.module.scss'
 
 const CrdtDashboardStates = () => {
@@ -312,6 +315,13 @@ const CrdtDashboardStates = () => {
     })
   })
 
+  /*
+  These are hardcoded territories that should not have social cards generated.
+  They will not have the CTA for viewing the race data graphically, and will
+  also not appear on the dropdown for the CRDT share images page.
+  */
+  const territoriesWithoutGraphics = ['AS', 'GU', 'MP', 'VI']
+
   return (
     <section>
       {states
@@ -324,6 +334,18 @@ const CrdtDashboardStates = () => {
             >
               {state.name}
             </h2>
+            {!territoriesWithoutGraphics.includes(state.state) && (
+              <p className={statesStyle.socialCardCta}>
+                Compare {state.name}’s infection and mortality data by race and
+                ethnicity.
+                <br />
+                <CtaLink
+                  to={`/race/infection-and-mortality-data#${state.state}`}
+                >
+                  View data per capita as a graphic
+                </CtaLink>
+              </p>
+            )}
             <div>
               {state.stateSeparate ? (
                 <StateSeparate state={state} />
