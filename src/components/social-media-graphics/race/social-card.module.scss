@@ -166,12 +166,12 @@ body {
   flex-direction: column;
 
   .ctp-logo {
-    width: 85px;
+    width: 108px;
   }
 
   .car-logo {
-    width: 54px;
-    margin-left: 15px; // ignore-style-rule
+    width: 68px;
+    margin-left: 20px; // ignore-style-rule
     @include margin(16, bottom);
   }
 }
