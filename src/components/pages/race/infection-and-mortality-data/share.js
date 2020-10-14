@@ -15,7 +15,7 @@ const getStateSquareImageUrl = state =>
 const getLandingPageUrl = (state, noCharts) =>
   noCharts
     ? 'https://covidtracking.com/race/get-better-data'
-    : `https://covidtracking.com/race/infection-and-mortality-data/${state.childSlug.slug}`
+    : `https://covidtracking.com/race/infection-and-mortality-data/${state.childSlug.slug}/`
 
 const getStateName = name => {
   if (name === 'District of Columbia') {
