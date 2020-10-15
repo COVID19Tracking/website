@@ -35,13 +35,6 @@ body {
     .deaths-header {
       @include margin(24, left);
     }
-
-    .bar {
-      * {
-        margin-top: 6px; // ignore-style-rule
-        line-height: 1.25;
-      }
-    }
   }
 }
 
@@ -115,14 +108,12 @@ body {
   }
 
   .bar-label {
-    justify-self: end;
+    justify-self: right;
     align-self: center;
     text-align: right;
   }
 
-  .bar,
   .bar-label {
-    @include margin(8, bottom);
     font-size: 14px; // ignore-style-rule
     line-height: 1.15;
   }
@@ -183,9 +174,9 @@ body {
   line-height: 1;
   align-items: flex-start;
 
-  & > span {
+  span {
+    align-self: center;
     margin-left: 5px; // ignore-style-rule
-    margin-top: 6px; // ignore-style-rule
   }
 }
 
@@ -194,11 +185,15 @@ body {
   width: 0px;
   font-size: 14px; // ignore-style-rule
   text-align: right;
-  margin-bottom: 10px; // ignore-style-rule
+  @include margin(4, (top, bottom));
 
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  span {
+    line-height: 1.25;
+  }
 
   &.has-inner-label {
     padding-right: 10px; // ignore-style-rule
