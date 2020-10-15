@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import marked from 'marked'
+import LongTermCarePreamble from '~components/pages/state/long-term-care/preamble'
 import LongTermCareSummaryTable from '~components/pages/state/long-term-care/summary-table'
 import LongTermCareFacilities from '~components/pages/state/long-term-care/facilities'
 import LongTermCareBarChart from '~components/pages/state/long-term-care/chart'
-import LongTermCareOverview from '~components/pages/state/long-term-care/overview'
 
 import LongTermCareAlertNote from '~components/pages/state/long-term-care/alert-note'
 import Layout from '~components/layout'
@@ -23,7 +23,8 @@ export default ({ pageContext, path, data }) => {
     >
       {data.aggregate.nodes.length ? (
         <>
-          <LongTermCareOverview
+          <LongTermCarePreamble
+            grade={data.covidState.dataQualityGrade}
             facilities={data.allCovidLtcFacilities.group.length}
             overview={data.aggregate.nodes[0]}
           />
@@ -56,6 +57,9 @@ export default ({ pageContext, path, data }) => {
 
 export const query = graphql`
   query($state: String!) {
+    covidState(state: { eq: $state }) {
+      dataQualityGrade
+    }
     aggregate: allCovidLtcStates(
       sort: { fields: date, order: DESC }
       filter: { state_abbr: { eq: $state }, data_type: { eq: "Aggregate" } }

@@ -2,7 +2,6 @@ import React from 'react'
 import { Row, Col } from '~components/common/grid'
 import Total from '~components/common/landing-page/total'
 import { CtaAnchorLink } from '~components/common/landing-page/call-to-action'
-import OverviewWrapper from '~components/common/overview-wrapper'
 import { FormatNumber } from '~components/utils/format'
 
 const LongTermCareOverview = ({ facilities, overview }) => {
@@ -17,7 +16,7 @@ const LongTermCareOverview = ({ facilities, overview }) => {
     }
   })
   return (
-    <OverviewWrapper>
+    <>
       <Row>
         <Col width={[4, 6, 3]}>
           <Total
@@ -49,7 +48,7 @@ const LongTermCareOverview = ({ facilities, overview }) => {
           </CtaAnchorLink>
         </Col>
       </Row>
-    </OverviewWrapper>
+    </>
   )
 }
 

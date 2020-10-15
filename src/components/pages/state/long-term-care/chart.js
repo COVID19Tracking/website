@@ -1,17 +1,35 @@
 import React from 'react'
-import {
-  ResponsiveContainer,
-  LineChart,
-  XAxis,
-  YAxis,
-  Line,
-  CartesianGrid,
-} from 'recharts'
+import { DateTime } from 'luxon'
+import { Row, Col } from '~components/common/grid'
+import BarChart from '~components/charts/bar-chart'
+import TooltipContents from '~components/charts/tooltip-contents'
 import colors from '~scss/colors.module.scss'
+
+const makeRenderTooltipContents = text => d => (
+  <TooltipContents
+    date={d.date}
+    items={[
+      {
+        text: <>{text}</>,
+        value: d.value,
+      },
+    ]}
+  />
+)
+
+const chartProps = {
+  height: 180, // these control the dimensions used to render the svg but not the final size
+  width: 280, // that is determined by the containing element
+  marginBottom: 40,
+  marginLeft: 60,
+  marginRight: 30,
+  xTicks: 3,
+  showTicks: 6,
+}
 
 const LongTermCareBarChart = ({ data }) => {
   const chartData = data.map(item => ({
-    date: item.date,
+    date: DateTime.fromISO(item.date).toJSDate(),
     deaths:
       item.deathres_other +
       item.deathres_nh +
@@ -22,33 +40,32 @@ const LongTermCareBarChart = ({ data }) => {
   }))
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
-      <LineChart width={500} height={300} data={chartData} anim>
-        <XAxis dataKey="date" />
-        <YAxis />
-        <CartesianGrid
-          vertical={false}
-          stroke={colors.slate700}
-          strokeDasharray="5 5"
+    <Row>
+      <Col width={[4, 3, 4]}>
+        <h3>Cases</h3>
+        <BarChart
+          data={chartData.map(({ date, cases }) => ({
+            date,
+            value: cases,
+          }))}
+          fill={colors.colorStrawberry100}
+          renderTooltipContents={makeRenderTooltipContents('Cases')}
+          {...chartProps}
         />
-        <Line
-          type="monotone"
-          dot={false}
-          animationDuration={0}
-          dataKey="deaths"
-          stroke={colors.colorPlum500}
-          strokeWidth={2}
+      </Col>
+      <Col width={[4, 3, 4]}>
+        <h3>Deaths</h3>
+        <BarChart
+          data={chartData.map(({ date, deaths }) => ({
+            date,
+            value: deaths,
+          }))}
+          fill={colors.colorSlate300}
+          renderTooltipContents={makeRenderTooltipContents('Deaths')}
+          {...chartProps}
         />
-        <Line
-          type="monotone"
-          dot={false}
-          animationDuration={0}
-          dataKey="cases"
-          stroke={colors.colorHoney500}
-          strokeWidth={2}
-        />
-      </LineChart>
-    </ResponsiveContainer>
+      </Col>
+    </Row>
   )
 }
 

@@ -90,7 +90,6 @@
     "react-is": "^16.8.0",
     "react-recaptcha": "^2.3.10",
     "react-typography": "^0.16.19",
-    "recharts": "^1.8.5",
     "regenerator-runtime": "^0.13.7",
     "slugify": "^1.4.0",
     "smartypants": "^0.1.1",
