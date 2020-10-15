@@ -248,18 +248,11 @@ body {
   .bar {
     height: 35px;
   }
-  .bar-container {
-    span {
-      margin-left: 5px; // ignore-style-rule
-      margin-top: 13px; // ignore-style-rule
-    }
-  }
   .death-bar-spacer {
     width: 24px;
   }
   .insufficient-data.insufficient-data-deaths {
     margin-left: 24px; // ignore-style-rule
-    padding-top: 11px; // ignore-style-rule
   }
 }
 
