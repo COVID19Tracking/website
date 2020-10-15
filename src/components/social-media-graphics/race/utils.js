@@ -69,7 +69,7 @@ const getGroups = state => {
       showCross: false,
     },
     {
-      label: 'American Indian/Alaska Native',
+      label: 'American Indian/ Alaska Native',
       style: socialCardStyle.barAian,
       cases: getGroupValue(state.aianPosPerCap),
       deaths: getGroupValue(state.aianDeathPerCap),
@@ -163,7 +163,7 @@ const getGroups = state => {
     White: 'White people',
     'Asian/Pacific Islander': 'Asians/Pacific Islanders',
     'Native Hawaiian/ Pacific Islander': 'Native Hawaiians/Pacific Islanders',
-    'American Indian/Alaska Native': 'American Indians/Alaska Natives',
+    'American Indian/ Alaska Native': 'American Indians/Alaska Natives',
   }
 
   const worstDeathsValue = Math.round(groups[0].deaths)

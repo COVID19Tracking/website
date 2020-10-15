@@ -68,7 +68,7 @@ const StateRaceSocialCard = renderedComponent(
     // special case to add an asterisk for Montana AIAN
     if (state.name === 'Montana') {
       groups.forEach((group, index) => {
-        if (group.label === 'American Indian/Alaska Native') {
+        if (group.label === 'American Indian/ Alaska Native') {
           groups[index].showCross = true
         }
       })

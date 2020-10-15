@@ -4,11 +4,11 @@ body {
 
 .wrapper {
   font: normal 100%/1.5 'Helvetica', 'Arial', 'sans-serif';
-  @include margin(24);
+  @include margin(24, (left, right));
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height: 425px; // 473 - (24px * 2)
+  height: 453px; // 473px - 20px bottom spacing
 }
 
 .wrapper.square {
@@ -34,13 +34,6 @@ body {
 
     .deaths-header {
       @include margin(24, left);
-    }
-
-    .bar {
-      * {
-        margin-top: 6px; // ignore-style-rule
-        line-height: 1.25;
-      }
     }
   }
 }
@@ -111,26 +104,24 @@ body {
   .deaths-header {
     justify-self: start;
     align-self: end;
-    font-size: 13px; // ignore-style-rule
+    font-size: 14px; // ignore-style-rule
   }
 
   .bar-label {
-    justify-self: end;
+    justify-self: right;
     align-self: center;
     text-align: right;
   }
 
-  .bar,
   .bar-label {
-    @include margin(8, bottom);
-    font-size: 13px; // ignore-style-rule
+    font-size: 14px; // ignore-style-rule
     line-height: 1.15;
   }
 }
 
 .footer {
   color: $color-slate-700;
-  font-size: 13px; // ignore-style-rule
+  font-size: 14px; // ignore-style-rule
   line-height: 1.2;
 }
 
@@ -164,6 +155,7 @@ body {
 .logos-container {
   display: flex;
   flex-direction: column;
+  @include padding(8, left);
 
   .ctp-logo {
     width: 108px;
@@ -178,26 +170,31 @@ body {
 
 .bar-container {
   display: flex;
-  font-size: 13px; // ignore-style-rule
+  font-size: 14px; // ignore-style-rule
   line-height: 1;
   align-items: flex-start;
 
-  & > span {
+  span {
+    align-self: center;
     margin-left: 5px; // ignore-style-rule
-    margin-top: 6px; // ignore-style-rule
   }
 }
 
 .bar {
   height: 25px;
   width: 0px;
-  font-size: 13px; // ignore-style-rule
+  font-size: 14px; // ignore-style-rule
   text-align: right;
-  margin-bottom: 10px; // ignore-style-rule
+  margin-top: 6px; // ignore-style-rule
+  margin-bottom: 6px; // ignore-style-rule
 
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  span {
+    line-height: 1.25;
+  }
 
   &.has-inner-label {
     padding-right: 10px; // ignore-style-rule
@@ -238,9 +235,9 @@ body {
 }
 
 .insufficient-data {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1;
-  padding-top: 6px; // ignore-style-rule
+  align-self: center;
   color: $color-slate-600;
 
   &.insufficient-data-deaths {
@@ -252,18 +249,11 @@ body {
   .bar {
     height: 35px;
   }
-  .bar-container {
-    span {
-      margin-left: 5px; // ignore-style-rule
-      margin-top: 13px; // ignore-style-rule
-    }
-  }
   .death-bar-spacer {
     width: 24px;
   }
   .insufficient-data.insufficient-data-deaths {
     margin-left: 24px; // ignore-style-rule
-    padding-top: 11px; // ignore-style-rule
   }
 }
 
