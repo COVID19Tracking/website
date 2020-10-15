@@ -173,7 +173,7 @@ export const query = graphql`
         nodes {
           facility_name
           date
-          facility_type
+          facility_type_state
           county
         }
       }
