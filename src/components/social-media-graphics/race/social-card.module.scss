@@ -4,11 +4,11 @@ body {
 
 .wrapper {
   font: normal 100%/1.5 'Helvetica', 'Arial', 'sans-serif';
-  @include margin(24, (left, right, bottom));
+  @include margin(24, (left, right));
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height: 449px; // 473px - 24px bottom spacing
+  height: 453px; // 473px - 20px bottom spacing
 }
 
 .wrapper.square {
@@ -185,7 +185,8 @@ body {
   width: 0px;
   font-size: 14px; // ignore-style-rule
   text-align: right;
-  @include margin(4, (top, bottom));
+  margin-top: 6px; // ignore-style-rule
+  margin-bottom: 6px; // ignore-style-rule
 
   display: flex;
   justify-content: flex-end;
