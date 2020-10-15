@@ -236,7 +236,7 @@ body {
 .insufficient-data {
   font-size: 14px;
   line-height: 1;
-  padding-top: 6px; // ignore-style-rule
+  align-self: center;
   color: $color-slate-600;
 
   &.insufficient-data-deaths {
