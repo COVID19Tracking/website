@@ -4,11 +4,11 @@ body {
 
 .wrapper {
   font: normal 100%/1.5 'Helvetica', 'Arial', 'sans-serif';
-  @include margin(24);
+  @include margin(24, (left, right, bottom));
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height: 425px; // 473 - (24px * 2)
+  height: 449px; // 473px - 24px bottom spacing
 }
 
 .wrapper.square {
@@ -164,6 +164,7 @@ body {
 .logos-container {
   display: flex;
   flex-direction: column;
+  @include padding(8, left);
 
   .ctp-logo {
     width: 108px;
