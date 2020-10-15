@@ -111,7 +111,7 @@ body {
   .deaths-header {
     justify-self: start;
     align-self: end;
-    font-size: 13px; // ignore-style-rule
+    font-size: 14px; // ignore-style-rule
   }
 
   .bar-label {
@@ -123,14 +123,14 @@ body {
   .bar,
   .bar-label {
     @include margin(8, bottom);
-    font-size: 13px; // ignore-style-rule
+    font-size: 14px; // ignore-style-rule
     line-height: 1.15;
   }
 }
 
 .footer {
   color: $color-slate-700;
-  font-size: 13px; // ignore-style-rule
+  font-size: 14px; // ignore-style-rule
   line-height: 1.2;
 }
 
@@ -178,7 +178,7 @@ body {
 
 .bar-container {
   display: flex;
-  font-size: 13px; // ignore-style-rule
+  font-size: 14px; // ignore-style-rule
   line-height: 1;
   align-items: flex-start;
 
@@ -191,7 +191,7 @@ body {
 .bar {
   height: 25px;
   width: 0px;
-  font-size: 13px; // ignore-style-rule
+  font-size: 14px; // ignore-style-rule
   text-align: right;
   margin-bottom: 10px; // ignore-style-rule
 
@@ -238,7 +238,7 @@ body {
 }
 
 .insufficient-data {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1;
   padding-top: 6px; // ignore-style-rule
   color: $color-slate-600;
