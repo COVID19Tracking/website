@@ -28,6 +28,16 @@ const getAllowedCategories = data => {
   return allowedCategories
 }
 
+const getStaffResColumns = data => {
+  let result = false
+  Object.keys(data).forEach(field => {
+    if (field.search('resstaff') > -1 && data[field]) {
+      result = true
+    }
+  })
+  return result
+}
+
 const fields = [
   'posres_',
   'deathres_',
@@ -37,18 +47,23 @@ const fields = [
   'deathresstaff_',
 ]
 
-const CategoryRows = ({ data, category }) => (
+const CategoryRows = ({ data, category, hasStaffRes }) => (
   <>
     {fields.map(field => (
-      <td>
-        <FormatNumber number={data[`${field}${category}`]} />
-      </td>
+      <>
+        {(hasStaffRes || field.search('resstaff') === -1) && (
+          <td>
+            <FormatNumber number={data[`${field}${category}`]} />
+          </td>
+        )}
+      </>
     ))}
   </>
 )
 
 const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
   const categories = getAllowedCategories(aggregate)
+  const hasStaffRes = getStaffResColumns(aggregate)
   return (
     <table className={classnames(summaryTableStyle.table, tableStyle.table)}>
       <thead>
@@ -58,8 +73,12 @@ const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
           <th scope="col">Resident deaths</th>
           <th scope="col">Staff cases</th>
           <th scope="col">Staff deaths</th>
-          <th scope="col">Staff &amp; Resident cases</th>
-          <th scope="col">Staff &amp; Resident deaths</th>
+          {hasStaffRes && (
+            <>
+              <th scope="col">Staff &amp; Resident cases</th>
+              <th scope="col">Staff &amp; Resident deaths</th>
+            </>
+          )}
         </tr>
       </thead>
       <tbody>
@@ -71,8 +90,12 @@ const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
               <td />
               <td />
               <td />
-              <td />
-              <td />
+              {hasStaffRes && (
+                <>
+                  <td />
+                  <td />
+                </>
+              )}
             </tr>
             <tr>
               <th scope="row">
@@ -81,7 +104,11 @@ const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
                   Cumulative
                 </span>
               </th>
-              <CategoryRows data={aggregate} category={category} />
+              <CategoryRows
+                data={aggregate}
+                category={category}
+                hasStaffRes={hasStaffRes}
+              />
             </tr>
             <tr>
               <th scope="row">
@@ -90,7 +117,11 @@ const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
                   Outbreak
                 </span>
               </th>
-              <CategoryRows data={outbreak} category={category} />
+              <CategoryRows
+                data={outbreak}
+                category={category}
+                hasStaffRes={hasStaffRes}
+              />
             </tr>
           </>
         ))}
