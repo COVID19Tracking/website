@@ -175,6 +175,8 @@ export const query = graphql`
           date
           facility_type_state
           county
+          resident_deaths
+          resident_positives
         }
       }
     }

@@ -12,8 +12,11 @@ const Form = props => {
   )
 }
 
-const FormLabel = ({ children, htmlFor, isRequired }) => (
-  <label className={formStyles.label} htmlFor={htmlFor}>
+const FormLabel = ({ children, htmlFor, isRequired, isHidden }) => (
+  <label
+    className={classnames(formStyles.label, isHidden && 'a11y-only')}
+    htmlFor={htmlFor}
+  >
     {children}
     {isRequired ? (
       <span className={formStyles.required}>required</span>
@@ -98,15 +101,17 @@ const Input = ({
   type,
   id,
   name,
+  hideLabel,
   isRequired,
   detailText,
+  placeholder,
   onChange,
   maxLength,
   className,
   defaultValue,
 }) => (
   <>
-    <FormLabel htmlFor={id} isRequired={isRequired}>
+    <FormLabel htmlFor={id} isRequired={isRequired} isHidden={hideLabel}>
       {label}
     </FormLabel>
     <input
@@ -115,6 +120,7 @@ const Input = ({
       type={type}
       aria-required={isRequired}
       onChange={onChange}
+      placeholder={placeholder}
       maxLength={maxLength}
       defaultValue={defaultValue}
       className={classnames(
