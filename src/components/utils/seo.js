@@ -4,6 +4,20 @@ import Helmet from 'react-helmet'
 import { Location } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
 
+const getImageSrc = (socialCard, defaultSocialCard) => {
+  if (typeof socialCard === 'string') {
+    // if socialCard param is the url to the social card image
+    return socialCard
+  }
+  if (!socialCard) {
+    return defaultSocialCard.image.resize.src
+  }
+  if (socialCard.description && !socialCard.image) {
+    return defaultSocialCard.image.resize.src
+  }
+  return socialCard.image.resize.src
+}
+
 function SEO({ lang, meta, title, socialCard }) {
   const { site, contentfulSocialCard } = useStaticQuery(
     graphql`
@@ -29,16 +43,15 @@ function SEO({ lang, meta, title, socialCard }) {
   )
 
   const defaultSocialCard = contentfulSocialCard
+
+  const imageSrc = getImageSrc(socialCard, defaultSocialCard)
   let description
-  let imageSrc
-  if (!socialCard) {
+
+  if (!socialCard || typeof socialCard === 'string') {
     description = defaultSocialCard.description.description
-    imageSrc = defaultSocialCard.image.resize.src
   } else if (socialCard.description && !socialCard.image) {
-    imageSrc = defaultSocialCard.image.resize.src
     description = socialCard.description.description
   } else {
-    imageSrc = socialCard.image.resize.src
     description = socialCard.description.description
   }
 

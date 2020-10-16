@@ -1,0 +1,28 @@
+.license-info {
+  @include margin(16, top);
+  a {
+    color: inherit;
+  }
+}
+
+.download-graphic {
+  @include margin(32, top);
+}
+
+.click-to-share {
+  p {
+    display: block;
+    margin: 0 auto;
+  }
+  @include margin(16, (top, bottom));
+}
+
+.social-sharing {
+  width: 8rem;
+  margin: 0 auto;
+}
+
+.share-wrapper {
+  border: 2px solid $color-slate-200;
+  @include margin(32, bottom);
+}

@@ -16,7 +16,15 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
       ]}
       path={path}
     >
-      <Definitions definitions={data.allContentfulDataDefinition.nodes} />
+      <Definitions
+        definitions={data.allContentfulDataDefinition.nodes}
+        order={[
+          'positive',
+          'positiveIncrease',
+          'positiveCasesViral',
+          'probableCases',
+        ]}
+      />
       <TableResponsive
         labels={[
           {
@@ -34,6 +42,11 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
           },
           {
             field: 'positiveCasesViral',
+            isNumeric: true,
+            label: 'Confirmed cases',
+          },
+          {
+            field: 'probableCases',
             isNumeric: true,
           },
         ]}
@@ -56,12 +69,18 @@ export const query = graphql`
         positive
         positiveIncrease
         positiveCasesViral
+        probableCases
       }
     }
     allContentfulDataDefinition(
       filter: {
         fieldName: {
-          in: ["positive", "positiveCasesViral", "positiveIncrease"]
+          in: [
+            "positive"
+            "positiveCasesViral"
+            "positiveIncrease"
+            "probableCases"
+          ]
         }
       }
     ) {

@@ -103,6 +103,7 @@ const Input = ({
   onChange,
   maxLength,
   className,
+  defaultValue,
 }) => (
   <>
     <FormLabel htmlFor={id} isRequired={isRequired}>
@@ -115,6 +116,7 @@ const Input = ({
       aria-required={isRequired}
       onChange={onChange}
       maxLength={maxLength}
+      defaultValue={defaultValue}
       className={classnames(
         className,
         detailText ? formStyles.inputDescription : null,

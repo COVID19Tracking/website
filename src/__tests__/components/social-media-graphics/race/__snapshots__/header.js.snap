@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Social Media Graphics : Race : Header : Cases Only renders correctly 1`] = `
+Array [
+  "In ",
+  <strong>
+    New Jersey
+  </strong>,
+  ", through",
+  " ",
+  "October",
+  " ",
+  "4",
+  ",",
+  " ",
+  "Black/African American people",
+  " were most likely to have contracted COVID-19.",
+]
+`;
+
+exports[`Components : Social Media Graphics : Race : Header : Death Rate Small n renders correctly 1`] = `
+Array [
+  "In ",
+  <strong>
+    New Jersey
+  </strong>,
+  ", through",
+  " ",
+  "October",
+  " ",
+  "4",
+  ",",
+  " ",
+  "American Indians/Alaska Natives",
+  " were most likely to have contracted COVID-19.",
+]
+`;
+
+exports[`Components : Social Media Graphics : Race : Header : Deaths Only renders correctly 1`] = `
+Array [
+  "In ",
+  <strong>
+    New Jersey
+  </strong>,
+  ", through",
+  " ",
+  "October",
+  " ",
+  "4",
+  ",",
+  " ",
+  "Black/African American people",
+  " were most likely to have died from COVID-19.",
+]
+`;
+
+exports[`Components : Social Media Graphics : Race : Header : Different Worst Cases and Mortalities renders correctly 1`] = `
+Array [
+  "In ",
+  <strong>
+    Connecticut
+  </strong>,
+  ", through",
+  " ",
+  "October",
+  " ",
+  "4",
+  ",",
+  " ",
+  "Black/African American people",
+  " were most likely to have contracted COVID-19.",
+  " ",
+  "White people",
+  " were most likely to have died.",
+]
+`;
+
+exports[`Components : Social Media Graphics : Race : Header : No Charts renders correctly 1`] = `
+Array [
+  "In ",
+  <strong>
+    New Jersey
+  </strong>,
+  ", race and ethnicity information is still not reported for COVID-19 cases and deaths. Help us get better data by contacting health officials at https://covidtracking.com/race/get-better-data.",
+]
+`;
+
+exports[`Components : Social Media Graphics : Race : Header : Same Worst Cases and Mortalities renders correctly 1`] = `
+Array [
+  "In ",
+  <strong>
+    Connecticut
+  </strong>,
+  ", through",
+  " ",
+  "October",
+  " ",
+  "4",
+  ",",
+  " ",
+  "Black/African American people",
+  " were most likely to have contracted COVID-19 and were also most likely to have died.",
+]
+`;

@@ -11,6 +11,27 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       AZ
     </h2>
+    <p
+      className="socialCardCta"
+    >
+      Compare 
+      AZ
+      ’s infection and mortality data by race and ethnicity.
+      <br />
+      <a
+        className="cta"
+        href="/race/infection-and-mortality-data#Arizona"
+      >
+        View data per capita as a graphic
+        <span
+          aria-hidden={true}
+          className="arrow"
+        >
+           
+          →
+        </span>
+      </a>
+    </p>
     <div>
       <div>
         <div
@@ -323,6 +344,27 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       DC
     </h2>
+    <p
+      className="socialCardCta"
+    >
+      Compare 
+      DC
+      ’s infection and mortality data by race and ethnicity.
+      <br />
+      <a
+        className="cta"
+        href="/race/infection-and-mortality-data#Washington, DC"
+      >
+        View data per capita as a graphic
+        <span
+          aria-hidden={true}
+          className="arrow"
+        >
+           
+          →
+        </span>
+      </a>
+    </p>
     <div>
       <div>
         <div
@@ -635,6 +677,27 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       GA
     </h2>
+    <p
+      className="socialCardCta"
+    >
+      Compare 
+      GA
+      ’s infection and mortality data by race and ethnicity.
+      <br />
+      <a
+        className="cta"
+        href="/race/infection-and-mortality-data#Georgia"
+      >
+        View data per capita as a graphic
+        <span
+          aria-hidden={true}
+          className="arrow"
+        >
+           
+          →
+        </span>
+      </a>
+    </p>
     <div>
       <div
         className="container"
@@ -725,6 +788,27 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       WA
     </h2>
+    <p
+      className="socialCardCta"
+    >
+      Compare 
+      WA
+      ’s infection and mortality data by race and ethnicity.
+      <br />
+      <a
+        className="cta"
+        href="/race/infection-and-mortality-data#Washington"
+      >
+        View data per capita as a graphic
+        <span
+          aria-hidden={true}
+          className="arrow"
+        >
+           
+          →
+        </span>
+      </a>
+    </p>
     <div>
       <div
         className="container"

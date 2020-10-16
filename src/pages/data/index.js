@@ -203,6 +203,7 @@ export const query = graphql`
         pending
         positive
         positiveCasesViral
+        probableCases
         positiveIncrease
         positiveTestsViral
         posNeg

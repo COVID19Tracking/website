@@ -30,6 +30,11 @@
   &:focus {
     outline: $color-plum-300 dotted 2px;
   }
+
+  &.outline-only {
+    background-color: transparent;
+    border: 3px solid $color-plum-700;
+  }
 }
 
 .link-copied {
