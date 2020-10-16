@@ -1,7 +1,7 @@
 import React from 'react'
 import { DateTime } from 'luxon'
 import { Row, Col } from '~components/common/grid'
-import BarChart from '~components/charts/bar-chart'
+import LineChart from '~components/charts/line-chart'
 import TooltipContents from '~components/charts/tooltip-contents'
 import colors from '~scss/colors.module.scss'
 
@@ -43,24 +43,24 @@ const LongTermCareBarChart = ({ data }) => {
     <Row>
       <Col width={[4, 3, 4]}>
         <h3>Cases</h3>
-        <BarChart
+        <LineChart
           data={chartData.map(({ date, cases }) => ({
             date,
             value: cases,
           }))}
-          fill={colors.colorStrawberry100}
+          lineColor={colors.colorStrawberry100}
           renderTooltipContents={makeRenderTooltipContents('Cases')}
           {...chartProps}
         />
       </Col>
       <Col width={[4, 3, 4]}>
         <h3>Deaths</h3>
-        <BarChart
+        <LineChart
           data={chartData.map(({ date, deaths }) => ({
             date,
             value: deaths,
           }))}
-          fill={colors.colorSlate300}
+          lineColor={colors.colorSlate300}
           renderTooltipContents={makeRenderTooltipContents('Deaths')}
           {...chartProps}
         />
