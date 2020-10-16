@@ -4,6 +4,7 @@ import { Row, Col } from '~components/common/grid'
 import LineChart from '~components/charts/line-chart'
 import TooltipContents from '~components/charts/tooltip-contents'
 import colors from '~scss/colors.module.scss'
+import chartStyles from './chart.module.scss'
 
 const makeRenderTooltipContents = text => d => (
   <TooltipContents
@@ -40,7 +41,7 @@ const LongTermCareBarChart = ({ data }) => {
   }))
 
   return (
-    <Row>
+    <Row className={chartStyles.charts}>
       <Col width={[4, 3, 4]}>
         <h3>Cases</h3>
         <LineChart
