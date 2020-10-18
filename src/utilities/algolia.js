@@ -164,7 +164,9 @@ function chunkPages(data) {
         .split('\n')
         .filter(chunk => chunk !== '')
     } else {
-      bodyChunks = documentToPlainTextString(node.childContentfulPageBodyRichTextRichTextNode.json)
+      bodyChunks = documentToPlainTextString(
+        node.childContentfulPageBodyRichTextRichTextNode.json,
+      )
         .split('. ') // new sentences
         .filter(chunk => chunk !== '')
     }
