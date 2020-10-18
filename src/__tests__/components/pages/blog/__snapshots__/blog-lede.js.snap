@@ -42,7 +42,7 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
     >
       <a
         className="socialButton"
-        href="https://www.facebook.com/sharer/sharer.php?u=https://covidtracking.com/askld-loaks-lopde"
+        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcovidtracking.com%2Faskld-loaks-lopde"
       >
         <img
           alt="Share on Facebook"
@@ -51,7 +51,7 @@ exports[`Components : Pages : Blog : Lede renders correctly 1`] = `
       </a>
       <a
         className="socialButton"
-        href="https://twitter.com/intent/tweet?url=https://covidtracking.com/askld-loaks-lopde&text=This is a test blog lede."
+        href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fcovidtracking.com%2Faskld-loaks-lopde&text=This%20is%20a%20test%20blog%20lede."
       >
         <img
           alt="Share on Twitter"
