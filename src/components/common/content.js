@@ -14,6 +14,13 @@ import FootnoteContentBlock from './content-blocks/footnote-content-block'
 
 import contentStyles from './content.module.scss'
 
+/*
+
+This is for handling rich text content, which we use on our blog
+and on some of our Contentful pages
+
+*/
+
 const Content = ({ content, images }) => {
   let footnoteNumber = 0
   const options = {

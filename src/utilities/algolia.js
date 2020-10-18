@@ -1,4 +1,5 @@
 import marked from 'marked'
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 
 /**
  * Return a qualified Algolia index name
@@ -69,6 +70,9 @@ const pagesQuery = `{
         title
         slug
         updatedAt(formatString: "MMMM D, YYYY")
+        childContentfulPageBodyRichTextRichTextNode {
+          json
+        }
         body {
           body
         }
@@ -135,6 +139,11 @@ function splitBodyIntoChunks(baseChunk, firstChunk, bodyChunks) {
     }
     return splitChunks
   }, chunks)
+  chunks.forEach(chunk => {
+    if (chunk.childContentfulPageBodyRichTextRichTextNode) {
+      delete chunk.childContentfulPageBodyRichTextRichTextNode
+    }
+  })
   return chunks
   /* eslint-enable no-param-reassign */
 }
@@ -149,10 +158,16 @@ function chunkPages(data) {
   return data.posts.edges.reduce((acc, { node }) => {
     const baseChunk = { ...node, body: '' }
     const firstChunk = { ...baseChunk, section: 'section0' }
-    const bodyChunks = marked(node.body.body)
-      .split('\n')
-      .filter(chunk => chunk !== '')
-
+    let bodyChunks
+    if (node.childContentfulPageBodyRichTextRichTextNode === null) {
+      bodyChunks = marked(node.body.body)
+        .split('\n')
+        .filter(chunk => chunk !== '')
+    } else {
+      bodyChunks = documentToPlainTextString(node.childContentfulPageBodyRichTextRichTextNode.json)
+        .split('. ') // new sentences
+        .filter(chunk => chunk !== '')
+    }
     return [...acc, ...splitBodyIntoChunks(baseChunk, firstChunk, bodyChunks)]
   }, [])
 }
