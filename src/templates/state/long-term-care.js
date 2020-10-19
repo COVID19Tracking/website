@@ -177,6 +177,7 @@ export const query = graphql`
           county
           resident_deaths
           resident_positives
+          ctp_facility_category
         }
       }
     }

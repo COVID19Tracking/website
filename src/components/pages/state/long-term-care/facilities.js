@@ -113,6 +113,9 @@ const LongTermCareFacilities = ({ facilities }) => {
             >
               Name
             </Th>
+            <Th header alignLeft>
+              Category
+            </Th>
             <Th
               header
               isFirst
@@ -138,6 +141,7 @@ const LongTermCareFacilities = ({ facilities }) => {
               {hasCounty && <Td alignLeft>{facility.county}</Td>}
               {hasCity && <Td alignLeft>{facility.city}</Td>}
               <Td alignLeft>{facility.facility_name}</Td>
+              <Td alignLeft>{facility.ctp_facility_category}</Td>
               <Td isFirst>{facility.resident_positives}</Td>
               <Td>{facility.resident_deaths}</Td>
             </tr>

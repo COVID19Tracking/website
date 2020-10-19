@@ -12,7 +12,7 @@ const categoryLabels = {
 }
 
 const getAllowedCategories = data => {
-  const categories = ['nh', 'ltc', 'alf', 'other']
+  const categories = ['nh', 'alf', 'other', 'ltc']
   const allowedCategories = []
   Object.keys(data).forEach(key => {
     categories.forEach(category => {
@@ -25,7 +25,9 @@ const getAllowedCategories = data => {
       }
     })
   })
-  return allowedCategories
+  return allowedCategories.sort(category =>
+    categories.indexOf(category) < allowedCategories.indexOf(category) ? -1 : 1,
+  )
 }
 
 const getStaffResColumns = data => {
