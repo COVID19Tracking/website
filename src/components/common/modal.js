@@ -3,7 +3,11 @@ import { DialogOverlay, DialogContent } from '@reach/dialog'
 import modalStyles from './modal.module.scss'
 
 const Modal = ({ children, isOpen, onClose }) => (
-  <DialogOverlay className={modalStyles.overlay} isOpen={isOpen}>
+  <DialogOverlay
+    className={modalStyles.overlay}
+    isOpen={isOpen}
+    onDismiss={onClose}
+  >
     <DialogContent className={modalStyles.content}>
       <button
         type="button"
