@@ -2,6 +2,16 @@ import React, { useState } from 'react'
 import { Table, Th, Td } from '~components/common/table'
 import { Form, Input } from '~components/common/form'
 
+const getNumber = number => {
+  if (!number) {
+    return 0
+  }
+  if (number.search('<') > -1) {
+    return 0
+  }
+  return parseInt(number, 10)
+}
+
 const SearchForm = ({ setSearchQuery }) => {
   const [search, setSearch] = useState(false)
   return (
@@ -42,6 +52,15 @@ const LongTermCareFacilities = ({ facilities }) => {
   const facilityList = facilities
     .map(group => group.nodes[0])
     .sort((a, b) => {
+      if (['resident_positives', 'resident_deaths'].indexOf(sort.field) > -1) {
+        if (getNumber(a[sort.field]) === getNumber(b[sort.field])) {
+          return 0
+        }
+        if (getNumber(a[sort.field]) < getNumber(b[sort.field])) {
+          return sort.desc ? 1 : -1
+        }
+        return sort.desc ? -1 : 1
+      }
       if (a[sort.field] === b[sort.field]) {
         return 0
       }
