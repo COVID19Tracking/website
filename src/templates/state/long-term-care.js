@@ -174,37 +174,15 @@ export const query = graphql`
           facility_name
           city
           date
-          facility_type_state
           county
           resident_deaths
           resident_positives
           ctp_facility_category
-          outbreak_resident_deaths
-          outbreak_resident_positives
-          outbreak_resident_probable
-          outbreak_resident_staff_deaths
-          outbreak_resident_probable_deaths
-          outbreak_resident_staff_positives
-          outbreak_resident_staff_probable_positives
-          outbreak_residents_tested
-          outbreak_staff_deaths
-          outbreak_staff_positive
-          outbreak_staff_probable
           outbreak_status
-          resident_probable
-          resident_probable_deaths
           resident_staff_positives
           resident_staff_deaths
-          resident_staff_probable_deaths
-          resident_staff_probable_positives
           staff_deaths
           staff_positive
-          staff_probable
-          staff_probable_deaths
-          state_facility_id
-          state_fed_regulated
-          date_outbreak_opened
-          date_outreak_closed
         }
       }
     }
