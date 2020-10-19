@@ -1,0 +1,11 @@
+.link-button {
+  @include remove-button-style();
+  color: $color-link;
+  text-decoration: underline;
+}
+
+.details {
+  h3 {
+    margin-top: 0;
+  }
+}

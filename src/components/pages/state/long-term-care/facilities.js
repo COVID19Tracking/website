@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import slugify from 'slugify'
 import { Table, Th, Td } from '~components/common/table'
 import { Form, Input } from '~components/common/form'
+import Modal from '~components/common/modal'
+import facilitiesStyles from './facilities.module.scss'
 
 const getNumber = number => {
   if (!number) {
@@ -11,6 +14,28 @@ const getNumber = number => {
   }
   return parseInt(number, 10)
 }
+
+const FacilityDetails = ({ facility }) => (
+  <div className={facilitiesStyles.details}>
+    <h3>{facility.facility_name}</h3>
+    <Table>
+      <thead>
+        <tr>
+          <Th header>Field</Th>
+          <Th header>Value</Th>
+        </tr>
+      </thead>
+      <tbody>
+        {Object.keys(facility).map(field => (
+          <tr>
+            <Td>{field}</Td>
+            <Td>{facility[field]}</Td>
+          </tr>
+        ))}
+      </tbody>
+    </Table>
+  </div>
+)
 
 const SearchForm = ({ setSearchQuery }) => {
   const [search, setSearch] = useState(false)
@@ -42,6 +67,7 @@ const SearchForm = ({ setSearchQuery }) => {
 const LongTermCareFacilities = ({ facilities }) => {
   const [sort, setSort] = useState({ field: 'name', desc: true })
   const [searchQuery, setSearchQuery] = useState(false)
+  const [openedFacility, setOpenedFacility] = useState(false)
 
   const hasCity =
     facilities.map(group => group.nodes[0]).filter(({ city }) => city).length >
@@ -98,6 +124,14 @@ const LongTermCareFacilities = ({ facilities }) => {
   return (
     <>
       <SearchForm setSearchQuery={query => setSearchQuery(query)} />
+      <Modal
+        isOpen={openedFacility}
+        onClose={() => {
+          setOpenedFacility(false)
+        }}
+      >
+        <FacilityDetails facility={openedFacility} />
+      </Modal>
       <Table>
         <thead>
           <tr>
@@ -155,16 +189,36 @@ const LongTermCareFacilities = ({ facilities }) => {
           </tr>
         </thead>
         <tbody>
-          {facilityList.map(facility => (
-            <tr>
-              {hasCounty && <Td alignLeft>{facility.county}</Td>}
-              {hasCity && <Td alignLeft>{facility.city}</Td>}
-              <Td alignLeft>{facility.facility_name}</Td>
-              <Td alignLeft>{facility.ctp_facility_category}</Td>
-              <Td isFirst>{facility.resident_positives}</Td>
-              <Td>{facility.resident_deaths}</Td>
-            </tr>
-          ))}
+          {facilityList.map(facility => {
+            const facilityId = slugify(
+              [facility.county, facility.city, facility.facility_name].join(
+                '-',
+              ),
+              { lower: true },
+            )
+            return (
+              <tr key={facilityId} id={facilityId}>
+                {hasCounty && <Td alignLeft>{facility.county}</Td>}
+                {hasCity && <Td alignLeft>{facility.city}</Td>}
+                <Td alignLeft>
+                  <button
+                    className={facilitiesStyles.linkButton}
+                    type="button"
+                    onClick={event => {
+                      event.preventDefault()
+                      setOpenedFacility(facility)
+                      window.location.hash = facilityId
+                    }}
+                  >
+                    {facility.facility_name}
+                  </button>
+                </Td>
+                <Td alignLeft>{facility.ctp_facility_category}</Td>
+                <Td isFirst>{facility.resident_positives}</Td>
+                <Td>{facility.resident_deaths}</Td>
+              </tr>
+            )
+          })}
         </tbody>
       </Table>
     </>
