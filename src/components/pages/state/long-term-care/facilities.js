@@ -3,6 +3,7 @@ import slugify from 'slugify'
 import { Table, Th, Td } from '~components/common/table'
 import { Form, Input } from '~components/common/form'
 import Modal from '~components/common/modal'
+import { FormatDate } from '~components/utils/format'
 import facilitiesStyles from './facilities.module.scss'
 
 const getNumber = number => {
@@ -15,23 +16,76 @@ const getNumber = number => {
   return parseInt(number, 10)
 }
 
+const FacilityDetailRow = ({ type, cases, deaths }) => (
+  <tr>
+    <Th scope="row" alignLeft>
+      {type}
+    </Th>
+    <Td isFirst>{cases}</Td>
+    <Td>{deaths}</Td>
+  </tr>
+)
+
 const FacilityDetails = ({ facility }) => (
   <div className={facilitiesStyles.details}>
-    <h3>{facility.facility_name}</h3>
+    <h3>
+      {facility.facility_name}
+      <span className={facilitiesStyles.category}>
+        <span className="a11y-only">A </span>
+        {facility.ctp_facility_category}
+      </span>
+    </h3>
+    <p>
+      <strong>Data last updated:</strong>{' '}
+      <FormatDate date={facility.date} format="LLLL d yyyy" />
+    </p>
+    <p>
+      {facility.county && (
+        <>
+          <strong>County:</strong> {facility.county}
+        </>
+      )}{' '}
+      {facility.city && (
+        <>
+          <strong>City:</strong> {facility.city}
+        </>
+      )}
+    </p>
+    <p>
+      <strong>Outbreak status:</strong>{' '}
+      {facility.outbreak_status ? (
+        <>{facility.outbreak_status}</>
+      ) : (
+        'None reported'
+      )}
+    </p>
+    <h4>Staff</h4>
     <Table>
       <thead>
         <tr>
-          <Th header>Field</Th>
-          <Th header>Value</Th>
+          <Th header alignLeft>
+            Individual
+          </Th>
+          <Th isFirst>Cases</Th>
+          <Th>Deaths</Th>
         </tr>
       </thead>
       <tbody>
-        {Object.keys(facility).map(field => (
-          <tr>
-            <Td>{field}</Td>
-            <Td>{facility[field]}</Td>
-          </tr>
-        ))}
+        <FacilityDetailRow
+          type="Residents"
+          cases={facility.resident_positives}
+          deaths={facility.resident_deaths}
+        />
+        <FacilityDetailRow
+          type="Staff"
+          cases={facility.staff_positive}
+          deaths={facility.staff_deaths}
+        />
+        <FacilityDetailRow
+          type="Residents &amp; staff"
+          cases={facility.resident_staff_positives}
+          deaths={facility.resident_staff_deaths}
+        />
       </tbody>
     </Table>
   </div>

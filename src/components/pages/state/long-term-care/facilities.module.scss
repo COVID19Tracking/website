@@ -7,5 +7,11 @@
 .details {
   h3 {
     margin-top: 0;
+    .category {
+      display: block;
+      color: $color-slate-600;
+      @include type-size(300);
+      font-weight: normal;
+    }
   }
 }
