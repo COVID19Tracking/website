@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import slugify from 'slugify'
 import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
@@ -123,9 +123,14 @@ const SearchForm = ({ setSearchQuery }) => {
 }
 
 const LongTermCareFacilities = ({ facilities }) => {
-  const [sort, setSort] = useState({ field: 'name', desc: true })
+  const [sort, setSort] = useState({ field: 'facility_name', desc: false })
   const [searchQuery, setSearchQuery] = useState(false)
   const [openedFacility, setOpenedFacility] = useState(false)
+  const [facilityList, setFacilityList] = useState(
+    facilities
+      .map(group => group.nodes[0])
+      .sort((a, b) => (a.facility_name > b.facility_name ? -1 : 1)),
+  )
 
   const hasCity =
     facilities.map(group => group.nodes[0]).filter(({ city }) => city).length >
@@ -134,37 +139,43 @@ const LongTermCareFacilities = ({ facilities }) => {
     facilities.map(group => group.nodes[0]).filter(({ county }) => county)
       .length > 0
 
-  const facilityList = facilities
-    .map(group => group.nodes[0])
-    .sort((a, b) => {
-      if (['resident_positives', 'resident_deaths'].indexOf(sort.field) > -1) {
-        if (getNumber(a[sort.field]) === getNumber(b[sort.field])) {
+  useEffect(() => {
+    const list = facilities
+      .map(group => group.nodes[0])
+      .sort((a, b) => {
+        if (
+          ['resident_positives', 'resident_deaths'].indexOf(sort.field) > -1
+        ) {
+          if (getNumber(a[sort.field]) === getNumber(b[sort.field])) {
+            return 0
+          }
+          if (getNumber(a[sort.field]) < getNumber(b[sort.field])) {
+            return sort.desc ? 1 : -1
+          }
+          return sort.desc ? -1 : 1
+        }
+        if (a[sort.field] === b[sort.field]) {
           return 0
         }
-        if (getNumber(a[sort.field]) < getNumber(b[sort.field])) {
+        if (a[sort.field] < b[sort.field]) {
           return sort.desc ? 1 : -1
         }
         return sort.desc ? -1 : 1
-      }
-      if (a[sort.field] === b[sort.field]) {
-        return 0
-      }
-      if (a[sort.field] < b[sort.field]) {
-        return sort.desc ? 1 : -1
-      }
-      return sort.desc ? -1 : 1
-    })
-    .filter(facility => {
-      if (!searchQuery) {
-        return true
-      }
-      return (
-        facility.facility_name.toLowerCase().search(searchQuery) > -1 ||
-        (facility.county &&
-          facility.county.toLowerCase().search(searchQuery) > -1) ||
-        (facility.city && facility.city.toLowerCase().search(searchQuery)) > -1
-      )
-    })
+      })
+      .filter(facility => {
+        if (!searchQuery) {
+          return true
+        }
+        return (
+          facility.facility_name.toLowerCase().search(searchQuery) > -1 ||
+          (facility.county &&
+            facility.county.toLowerCase().search(searchQuery) > -1) ||
+          (facility.city &&
+            facility.city.toLowerCase().search(searchQuery) > -1)
+        )
+      })
+    setFacilityList(list)
+  }, [sort, searchQuery])
 
   const handleSortClick = field => {
     const desc = sort.field === field ? !sort.desc : true
@@ -183,16 +194,18 @@ const LongTermCareFacilities = ({ facilities }) => {
   return (
     <>
       <SearchForm setSearchQuery={query => setSearchQuery(query)} />
-      <Modal
-        isOpen={openedFacility}
-        label={`Facility details for ${openedFacility &&
-          openedFacility.facility_name}`}
-        onClose={() => {
-          setOpenedFacility(false)
-        }}
-      >
-        <FacilityDetails facility={openedFacility} />
-      </Modal>
+      {openedFacility && (
+        <Modal
+          isOpen={openedFacility}
+          label={`Facility details for ${openedFacility &&
+            openedFacility.facility_name}`}
+          onClose={() => {
+            setOpenedFacility(false)
+          }}
+        >
+          <FacilityDetails facility={openedFacility} />
+        </Modal>
+      )}
       <Table>
         <thead>
           <tr>
