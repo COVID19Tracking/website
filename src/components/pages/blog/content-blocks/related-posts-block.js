@@ -1,12 +1,12 @@
 import React from 'react'
 import marked from 'marked'
 import { Link } from 'gatsby'
-import sidebarStyles from './sidebar-block.module.scss'
+import relatedPostStyles from './related-posts-block.module.scss'
 
-const SidebarContentBlock = ({ headline, lede, references }) => (
-  <div className={sidebarStyles.wrapper}>
-    <aside className={sidebarStyles.sidebar}>
-      <h3 className={sidebarStyles.headline}>{headline}</h3>
+const RelatedPostsContentBlock = ({ headline, lede, references }) => (
+  <div className={relatedPostStyles.wrapper}>
+    <aside className={relatedPostStyles.pullout}>
+      <h3 className={relatedPostStyles.headline}>{headline}</h3>
       {lede && <div dangerouslySetInnerHTML={{ __html: marked(lede) }} />}
       <ul>
         {references.map(reference => (
@@ -21,4 +21,4 @@ const SidebarContentBlock = ({ headline, lede, references }) => (
   </div>
 )
 
-export default SidebarContentBlock
+export default RelatedPostsContentBlock

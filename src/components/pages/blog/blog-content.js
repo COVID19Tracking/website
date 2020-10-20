@@ -7,7 +7,7 @@ import CleanSpacing from '~components/utils/clean-spacing'
 import TableContentBlock from './content-blocks/table-content-block'
 import ImageContentBlock from './content-blocks/image-content-block'
 import FootnoteContentBlock from './content-blocks/footnote-content-block'
-import SidebarContentBlock from './content-blocks/sidebar-block'
+import RelatedPostsContentBlock from './content-blocks/related-posts-block'
 import TableauChart from '~components/charts/tableau'
 import blogContentStyles from './blog-content.module.scss'
 
@@ -49,13 +49,13 @@ const BlogContent = ({ content, images }) => {
         }
         if (
           node.data.target.sys.contentType.sys.contentful_id ===
-          'contentBlockSidebar'
+          'contentBlockRelatedPosts'
         ) {
           return (
-            <SidebarContentBlock
+            <RelatedPostsContentBlock
               headline={node.data.target.fields.headline['en-US']}
               lede={node.data.target.fields.lede['en-US']}
-              references={node.data.target.fields.references['en-US']}
+              references={node.data.target.fields.relatedPosts['en-US']}
             />
           )
         }
