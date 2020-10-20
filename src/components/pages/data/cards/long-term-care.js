@@ -30,19 +30,19 @@ export default ({ data, stateSlug }) => {
             <Statistic title="Total deaths" value={current.total_death} />
             <Statistic title="Facilities tracked" value={facilities} />
             <DrillDown
-              label={`New deaths since ${formatDateToString(
-                last.date,
-                'LLL dd',
-              )}`}
-              value={getChange('total_death')}
-              calculated
-            />
-            <DrillDown
               label={`New cases since ${formatDateToString(
                 last.date,
                 'LLL dd',
               )}`}
               value={getChange('total_cases')}
+              calculated
+            />
+            <DrillDown
+              label={`New deaths since ${formatDateToString(
+                last.date,
+                'LLL dd',
+              )}`}
+              value={getChange('total_death')}
               calculated
             />
           </>
