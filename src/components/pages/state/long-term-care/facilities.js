@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import slugify from 'slugify'
+import Alert from '~components/common/alert'
 import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
 import { Form, Input } from '~components/common/form'
@@ -206,95 +207,101 @@ const LongTermCareFacilities = ({ facilities }) => {
           <FacilityDetails facility={openedFacility} />
         </Modal>
       )}
-      <Table>
-        <thead>
-          <tr>
-            {hasCounty && (
-              <Th
-                header
-                alignLeft
-                sortable
-                onClick={() => handleSortClick('county')}
-                sortDirection={sortDirection('county')}
-              >
-                County
-              </Th>
-            )}
-            {hasCity && (
-              <Th
-                header
-                alignLeft
-                sortable
-                onClick={() => handleSortClick('city')}
-                sortDirection={sortDirection('city')}
-              >
-                City
-              </Th>
-            )}
-            <Th
-              header
-              alignLeft
-              sortable
-              onClick={() => handleSortClick('facility_name')}
-              sortDirection={sortDirection('facility_name')}
-            >
-              Name
-            </Th>
-            <Th header alignLeft>
-              Category
-            </Th>
-            <Th
-              header
-              isFirst
-              sortable
-              onClick={() => handleSortClick('resident_positives')}
-              sortDirection={sortDirection('resident_positives')}
-            >
-              Resident positives
-            </Th>
-            <Th
-              header
-              sortable
-              onClick={() => handleSortClick('resident_deaths')}
-              sortDirection={sortDirection('resident_deaths')}
-            >
-              Resident deaths
-            </Th>
-          </tr>
-        </thead>
-        <tbody>
-          {facilityList.map(facility => {
-            const facilityId = slugify(
-              [facility.county, facility.city, facility.facility_name].join(
-                '-',
-              ),
-              { lower: true },
-            )
-            return (
-              <tr key={facilityId} id={facilityId}>
-                {hasCounty && <Td alignLeft>{facility.county}</Td>}
-                {hasCity && <Td alignLeft>{facility.city}</Td>}
-                <Td alignLeft>
-                  <button
-                    className={facilitiesStyles.linkButton}
-                    type="button"
-                    onClick={event => {
-                      event.preventDefault()
-                      setOpenedFacility(facility)
-                      window.location.hash = facilityId
-                    }}
+      <div role="region" aria-live="polite">
+        {facilityList.length > 0 ? (
+          <Table>
+            <thead>
+              <tr>
+                {hasCounty && (
+                  <Th
+                    header
+                    alignLeft
+                    sortable
+                    onClick={() => handleSortClick('county')}
+                    sortDirection={sortDirection('county')}
                   >
-                    {facility.facility_name}
-                  </button>
-                </Td>
-                <Td alignLeft>{facility.ctp_facility_category}</Td>
-                <Td isFirst>{facility.resident_positives}</Td>
-                <Td>{facility.resident_deaths}</Td>
+                    County
+                  </Th>
+                )}
+                {hasCity && (
+                  <Th
+                    header
+                    alignLeft
+                    sortable
+                    onClick={() => handleSortClick('city')}
+                    sortDirection={sortDirection('city')}
+                  >
+                    City
+                  </Th>
+                )}
+                <Th
+                  header
+                  alignLeft
+                  sortable
+                  onClick={() => handleSortClick('facility_name')}
+                  sortDirection={sortDirection('facility_name')}
+                >
+                  Name
+                </Th>
+                <Th header alignLeft>
+                  Category
+                </Th>
+                <Th
+                  header
+                  isFirst
+                  sortable
+                  onClick={() => handleSortClick('resident_positives')}
+                  sortDirection={sortDirection('resident_positives')}
+                >
+                  Resident positives
+                </Th>
+                <Th
+                  header
+                  sortable
+                  onClick={() => handleSortClick('resident_deaths')}
+                  sortDirection={sortDirection('resident_deaths')}
+                >
+                  Resident deaths
+                </Th>
               </tr>
-            )
-          })}
-        </tbody>
-      </Table>
+            </thead>
+            <tbody>
+              {facilityList.map(facility => {
+                const facilityId = slugify(
+                  [facility.county, facility.city, facility.facility_name].join(
+                    '-',
+                  ),
+                  { lower: true },
+                )
+                return (
+                  <tr key={facilityId} id={facilityId}>
+                    {hasCounty && <Td alignLeft>{facility.county}</Td>}
+                    {hasCity && <Td alignLeft>{facility.city}</Td>}
+                    <Td alignLeft>
+                      <button
+                        className={facilitiesStyles.linkButton}
+                        type="button"
+                        onClick={event => {
+                          event.preventDefault()
+                          setOpenedFacility(facility)
+                          window.location.hash = facilityId
+                        }}
+                      >
+                        {facility.facility_name}
+                      </button>
+                    </Td>
+                    <Td alignLeft>{facility.ctp_facility_category}</Td>
+                    <Td isFirst>{facility.resident_positives}</Td>
+                    <Td>{facility.resident_deaths}</Td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </Table>
+        ) : (
+          <Alert>No facilities found. Please refine your search.</Alert>
+        )}
+      </div>
     </>
   )
 }
