@@ -3,7 +3,7 @@
   @include col(4 6 10);
   margin: 0 auto;
 
-  & > *:not(.image) {
+  & > *:not(.image, aside) {
     @media (min-width: $viewport-md) and (max-width: $viewport-lg) {
       // non-image items become 8 cols on tablet
       flex-basis: 80%;

@@ -1,0 +1,16 @@
+.sidebar {
+  border-radius: 4px;
+  background-color: $color-plum-100;
+  @include padding(16);
+  @media (min-width: $viewport-md) {
+    max-width: 350px !important;
+  }
+  .headline {
+    margin-top: 0;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}

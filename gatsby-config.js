@@ -245,6 +245,7 @@ const gatsbyConfig = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE,
         accessToken: process.env.CONTENTFUL_TOKEN,
+        environment: 'content-blocks-1510-1511',
         host: process.env.CONTENTFUL_PREVIEW
           ? 'preview.contentful.com'
           : 'cdn.contentful.com',
