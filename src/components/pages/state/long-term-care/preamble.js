@@ -31,10 +31,16 @@ const LongTermCarePreamble = ({ grade, facilities, overview }) => {
           <h3 className={preambleStyle.header}>Download dataset</h3>
           <div className={downloadDataStyles.container}>
             <p>
-              <a href="/" className={downloadDataStyles.button}>
+              <a
+                href="https://github.com/COVID19Tracking/long-term-care-data"
+                className={downloadDataStyles.button}
+              >
                 State overview
               </a>
-              <a href="/" className={downloadDataStyles.button}>
+              <a
+                href="https://github.com/COVID19Tracking/long-term-care-data"
+                className={downloadDataStyles.button}
+              >
                 Facility data
               </a>
             </p>
