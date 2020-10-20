@@ -30,7 +30,7 @@ const TableResponsive = ({ labels, data }) => (
                   alignLeft && tableStyles.alignLeft,
                 )}
               >
-                <span className={tableResponsiveStyles.label}>
+                <span className={tableResponsiveStyles.cellLabel}>
                   {label || <FieldName field={field} />}
                 </span>
                 <span className={tableResponsiveStyles.value}>

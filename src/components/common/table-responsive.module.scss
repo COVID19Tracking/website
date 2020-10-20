@@ -25,12 +25,12 @@ $table-breakpoint: $viewport-lg;
   white-space: nowrap;
 }
 
-.label {
+.cell-label {
   white-space: pre-line;
   font-weight: bold;
   display: inline-block;
   text-align: left;
   @media (min-width: $table-breakpoint) {
-    display: none !important;
+    display: none;
   }
 }
