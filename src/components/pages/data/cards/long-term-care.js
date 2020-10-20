@@ -26,27 +26,25 @@ export default ({ data, stateSlug }) => {
       <CardBody>
         {data ? (
           <>
-            <Statistic title="Total cases" value={current.total_cases}>
-              <DrillDown
-                label={`New cases since ${formatDateToString(
-                  last.date,
-                  'LLL dd',
-                )}`}
-                value={getChange('total_cases')}
-                calculated
-              />
-            </Statistic>
-            <Statistic title="Total deaths" value={current.total_death}>
-              <DrillDown
-                label={`New deaths since ${formatDateToString(
-                  last.date,
-                  'LLL dd',
-                )}`}
-                value={getChange('total_death')}
-                calculated
-              />
-            </Statistic>
+            <Statistic title="Total cases" value={current.total_cases} />
+            <Statistic title="Total deaths" value={current.total_death} />
             <Statistic title="Facilities tracked" value={facilities} />
+            <DrillDown
+              label={`New deaths since ${formatDateToString(
+                last.date,
+                'LLL dd',
+              )}`}
+              value={getChange('total_death')}
+              calculated
+            />
+            <DrillDown
+              label={`New cases since ${formatDateToString(
+                last.date,
+                'LLL dd',
+              )}`}
+              value={getChange('total_cases')}
+              calculated
+            />
           </>
         ) : (
           <CardNote>No long-term care data reported.</CardNote>
