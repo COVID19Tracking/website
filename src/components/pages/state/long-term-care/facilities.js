@@ -198,8 +198,7 @@ const LongTermCareFacilities = ({ facilities }) => {
       {openedFacility && (
         <Modal
           isOpen={openedFacility}
-          label={`Facility details for ${openedFacility &&
-            openedFacility.facility_name}`}
+          label={`Facility details for ${openedFacility.facility_name}`}
           onClose={() => {
             setOpenedFacility(false)
           }}
