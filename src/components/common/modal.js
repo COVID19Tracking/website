@@ -2,13 +2,13 @@ import React from 'react'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
 import modalStyles from './modal.module.scss'
 
-const Modal = ({ children, isOpen, onClose }) => (
+const Modal = ({ children, label, isOpen, onClose }) => (
   <DialogOverlay
     className={modalStyles.overlay}
     isOpen={isOpen}
     onDismiss={onClose}
   >
-    <DialogContent className={modalStyles.content}>
+    <DialogContent aria-label={label} className={modalStyles.content}>
       <button
         type="button"
         className={modalStyles.close}

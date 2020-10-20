@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import slugify from 'slugify'
+import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
 import { Form, Input } from '~components/common/form'
 import Modal from '~components/common/modal'
@@ -91,26 +92,32 @@ const FacilityDetails = ({ facility }) => (
 const SearchForm = ({ setSearchQuery }) => {
   const [search, setSearch] = useState(false)
   return (
-    <Form>
-      <Input
-        type="text"
-        label="Search facilities"
-        placeholder="Search by city, county, or facility name"
-        hideLabel
-        onChange={event => {
-          setSearch(event.target.value)
-        }}
-      />
-      <button
-        type="submit"
-        onClick={event => {
-          const query = search.trim().toLowerCase()
-          event.preventDefault()
-          setSearchQuery(query.length ? query : false)
-        }}
-      >
-        Search
-      </button>
+    <Form
+      onSubmit={event => {
+        const query = search.trim().toLowerCase()
+        event.preventDefault()
+        setSearchQuery(query.length ? query : false)
+      }}
+      noMargin
+    >
+      <Row>
+        <Col width={[3, 3, 8]}>
+          <Input
+            type="text"
+            label="Search facilities"
+            placeholder="Search by city, county, or facility name"
+            hideLabel
+            onChange={event => {
+              setSearch(event.target.value)
+            }}
+          />
+        </Col>
+        <Col width={[1, 3, 4]}>
+          <button className={facilitiesStyles.searchButton} type="submit">
+            Search
+          </button>
+        </Col>
+      </Row>
     </Form>
   )
 }
@@ -126,6 +133,7 @@ const LongTermCareFacilities = ({ facilities }) => {
   const hasCounty =
     facilities.map(group => group.nodes[0]).filter(({ county }) => county)
       .length > 0
+
   const facilityList = facilities
     .map(group => group.nodes[0])
     .sort((a, b) => {
@@ -177,6 +185,8 @@ const LongTermCareFacilities = ({ facilities }) => {
       <SearchForm setSearchQuery={query => setSearchQuery(query)} />
       <Modal
         isOpen={openedFacility}
+        label={`Facility details for ${openedFacility &&
+          openedFacility.facility_name}`}
         onClose={() => {
           setOpenedFacility(false)
         }}

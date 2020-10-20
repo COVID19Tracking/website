@@ -4,6 +4,10 @@
   text-decoration: underline;
 }
 
+.search-button {
+  @include margin(4, top);
+}
+
 .details {
   h3 {
     margin-top: 0;

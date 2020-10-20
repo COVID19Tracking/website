@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import classnames from 'classnames'
 import tableStyle from '~components/common/table.module.scss'
 import summaryTableStyle from './summary-table.module.scss'
@@ -52,13 +52,13 @@ const fields = [
 const CategoryRows = ({ data, category, hasStaffRes }) => (
   <>
     {fields.map(field => (
-      <>
+      <Fragment key={field}>
         {(hasStaffRes || field.search('resstaff') === -1) && (
           <td>
             <FormatNumber number={data[`${field}${category}`]} />
           </td>
         )}
-      </>
+      </Fragment>
     ))}
   </>
 )
@@ -85,7 +85,7 @@ const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
       </thead>
       <tbody>
         {categories.map(category => (
-          <>
+          <Fragment key={category}>
             <tr aria-hidden className={summaryTableStyle.category}>
               <th scope="row">{categoryLabels[category]}</th>
               <td />
@@ -125,7 +125,7 @@ const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
                 hasStaffRes={hasStaffRes}
               />
             </tr>
-          </>
+          </Fragment>
         ))}
       </tbody>
     </table>

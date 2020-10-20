@@ -4,9 +4,12 @@ import formStyles from './form.module.scss'
 import DetailText from '~components/common/detail-text'
 
 const Form = props => {
-  const { children } = props
+  const { children, noMargin } = props
   return (
-    <form className={formStyles.form} {...props}>
+    <form
+      className={classnames(formStyles.form, noMargin && formStyles.noMargin)}
+      {...props}
+    >
       {children}
     </form>
   )
