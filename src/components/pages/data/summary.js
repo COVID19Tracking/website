@@ -135,7 +135,11 @@ const StateSummary = ({
           national={national}
         />
         {!national && (
-          <LongTermCareCard data={longTermCare} stateSlug={stateSlug} />
+          <LongTermCareCard
+            data={longTermCare}
+            stateDeaths={data.death}
+            stateSlug={stateSlug}
+          />
         )}
       </div>
     </DefinitionPanelContext.Provider>

@@ -4,7 +4,7 @@ import { Card, CardBody, CardNote } from '~components/common/card'
 import { Statistic, DrillDown } from '~components/common/statistic'
 import { FormatDate, formatDateToString } from '~components/utils/format'
 
-export default ({ data, stateSlug }) => {
+export default ({ data, stateDeaths, stateSlug }) => {
   const { current, last, facilities } = data
 
   const getChange = field => {
@@ -16,9 +16,16 @@ export default ({ data, stateSlug }) => {
     ) / 10}%`
   }
 
+  const percentDeaths = () => {
+    if (!current.total_death || !stateDeaths) {
+      return 'N/A'
+    }
+    return `${Math.round((current.total_death / stateDeaths) * 100 * 10) / 10}%`
+  }
+
   return (
     <Card
-      title="Long Term Care"
+      title="Long-Term Care"
       link={
         <Link to={`/data/state/${stateSlug}/long-term-care`}>More data</Link>
       }
@@ -29,10 +36,16 @@ export default ({ data, stateSlug }) => {
             <Statistic title="Total cases" value={current.total_cases} />
             <Statistic title="Total deaths" value={current.total_death} />
             <Statistic title="Facilities tracked" value={facilities} />
+
+            <DrillDown
+              label="Percent of state deaths from long-term care facilities"
+              value={percentDeaths()}
+              calculated
+            />
             <DrillDown
               label={`New cases since ${formatDateToString(
                 last.date,
-                'LLL dd',
+                'LLL d',
               )}`}
               value={getChange('total_cases')}
               calculated
@@ -40,7 +53,7 @@ export default ({ data, stateSlug }) => {
             <DrillDown
               label={`New deaths since ${formatDateToString(
                 last.date,
-                'LLL dd',
+                'LLL d',
               )}`}
               value={getChange('total_death')}
               calculated
