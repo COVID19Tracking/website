@@ -18,6 +18,6 @@
 
 .wrapper {
   @media (min-width: $viewport-lg) {
-    @include padding(32, left right);
+    @include padding(64, left);
   }
 }
