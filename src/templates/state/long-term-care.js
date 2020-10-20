@@ -24,6 +24,7 @@ export default ({ pageContext, path, data }) => {
       {data.aggregate.nodes.length ? (
         <>
           <LongTermCarePreamble
+            state={state.state}
             grade={data.covidState.dataQualityGrade}
             facilities={data.allCovidLtcFacilities.group.length}
             overview={data.aggregate.nodes[0]}
