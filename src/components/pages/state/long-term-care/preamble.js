@@ -7,7 +7,13 @@ import { LargeStateGrade } from '~components/pages/state/state-grade'
 import preambleStyle from '../preamble.module.scss'
 import downloadDataStyles from '../download-data.module.scss'
 
-const LongTermCarePreamble = ({ state, grade, facilities, overview }) => {
+const LongTermCarePreamble = ({
+  state,
+  stateName,
+  grade,
+  facilities,
+  overview,
+}) => {
   const { contentfulSnippet } = useStaticQuery(
     graphql`
       query {
@@ -41,7 +47,7 @@ const LongTermCarePreamble = ({ state, grade, facilities, overview }) => {
                 href={`https://github.com/COVID19Tracking/long-term-care-data/blob/master/facilities_${state.toLowerCase()}.csv`}
                 className={downloadDataStyles.button}
               >
-                Facility data
+                {stateName} Facility data
               </a>
               <a
                 href="https://github.com/COVID19Tracking/long-term-care-data/blob/master/facilities_all_states.csv"
