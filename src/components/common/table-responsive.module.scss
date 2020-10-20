@@ -31,6 +31,6 @@ $table-breakpoint: $viewport-lg;
   display: inline-block;
   text-align: left;
   @media (min-width: $table-breakpoint) {
-    display: none;
+    display: none !important;
   }
 }
