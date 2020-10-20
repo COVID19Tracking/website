@@ -62,7 +62,6 @@ const DataPage = ({ data }) => {
         stateData={data.allCovidState.nodes}
         sevenDaysAgoList={data.allCovidStateDaily.nodes}
         stateMetadata={data.allContentfulStateOrTerritory.nodes}
-        longTermCare={data.allCovidLtcStates.group}
       />
     </Layout>
   )
@@ -133,30 +132,14 @@ export const query = graphql`
         childLtc {
           facilities
           current {
-            deathres_other
-            deathres_ltc
-            deathres_alf
-            deathres_nh
-            deathresstaff_alf
-            deathresstaff_ltc
-            deathresstaff_nh
-            deathresstaff_other
-            deathstaff_alf
-            deathstaff_ltc
-            deathstaff_nh
-            deathstaff_other
-            posres_alf
-            posres_ltc
-            posres_nh
-            posres_other
-            posresstaff_alf
-            posresstaff_ltc
-            posstaff_other
-            posstaff_nh
-            posstaff_ltc
-            posstaff_alf
-            posresstaff_other
-            posresstaff_nh
+            total_cases
+            total_death
+            date
+          }
+          last {
+            total_cases
+            total_death
+            date
           }
         }
       }
@@ -245,14 +228,6 @@ export const query = graphql`
           childMarkdownRemark {
             html
           }
-        }
-      }
-    }
-    allCovidLtcStates(sort: { fields: date, order: DESC }) {
-      group(field: state_abbr, limit: 1) {
-        nodes {
-          date
-          state_abbr
         }
       }
     }

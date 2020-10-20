@@ -1,20 +1,21 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { Card, CardBody, CardNote } from '~components/common/card'
-import { Statistic } from '~components/common/statistic'
+import { Statistic, DrillDown } from '~components/common/statistic'
+import { FormatDate, formatDateToString } from '~components/utils/format'
 
 export default ({ data, stateSlug }) => {
-  let totalDeath = 0
-  let totalCases = 0
-  const { overview } = data
-  Object.keys(overview).forEach(key => {
-    if (key.search(/posres|posstaff/) > -1) {
-      totalCases += overview[key]
+  const { current, last, facilities } = data
+
+  const getChange = field => {
+    if (!current[field] || !last[field]) {
+      return 'N/A'
     }
-    if (key.search(/deathres|deathstaff/) > -1) {
-      totalDeath += overview[key]
-    }
-  })
+    return `${Math.round(
+      ((current[field] - last[field]) / last[field]) * 100 * 10,
+    ) / 10}%`
+  }
+
   return (
     <Card
       title="Long Term Care"
@@ -25,13 +26,34 @@ export default ({ data, stateSlug }) => {
       <CardBody>
         {data ? (
           <>
-            <Statistic title="Total cases" value={totalCases} />
-            <Statistic title="Total deaths" value={totalDeath} />
-            <Statistic title="Facilities tracked" value={data.facilities} />
+            <Statistic title="Total cases" value={current.total_cases}>
+              <DrillDown
+                label={`New cases since ${formatDateToString(
+                  last.date,
+                  'LLL dd',
+                )}`}
+                value={getChange('total_cases')}
+                calculated
+              />
+            </Statistic>
+            <Statistic title="Total deaths" value={current.total_death}>
+              <DrillDown
+                label={`New deaths since ${formatDateToString(
+                  last.date,
+                  'LLL dd',
+                )}`}
+                value={getChange('total_death')}
+                calculated
+              />
+            </Statistic>
+            <Statistic title="Facilities tracked" value={facilities} />
           </>
         ) : (
           <CardNote>No long-term care data reported.</CardNote>
         )}
+        <CardNote>
+          Data as of <FormatDate date={current.date} format="LLLL dd yyyy" />
+        </CardNote>
       </CardBody>
     </Card>
   )

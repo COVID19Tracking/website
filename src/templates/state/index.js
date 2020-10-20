@@ -44,10 +44,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
           population={covidStateInfo.childPopulation.population}
           metadata={contentfulStateOrTerritory}
           lastUpdated={covidState.lastUpdateEt}
-          longTermCare={{
-            facilities: data.allCovidLtcFacilities.group.length,
-            overview: data.allCovidLtcStates.nodes[0],
-          }}
+          longTermCare={data.covidStateInfo.childLtc}
         />
       </StateNavWrapper>
     </Layout>
@@ -79,6 +76,19 @@ export const query = graphql`
       covidTrackingProjectPreferredTotalTestUnits
       childPopulation {
         population
+      }
+      childLtc {
+        facilities
+        current {
+          date
+          total_cases
+          total_death
+        }
+        last {
+          date
+          total_cases
+          total_death
+        }
       }
     }
     allCovidUsDaily {
@@ -210,39 +220,7 @@ export const query = graphql`
         }
       }
     }
-    allCovidLtcStates(
-      sort: { fields: date, order: DESC }
-      filter: { state_abbr: { eq: $state }, data_type: { eq: "Aggregate" } }
-      limit: 1
-    ) {
-      nodes {
-        state_abbr
-        posstaff_other
-        posstaff_nh
-        posstaff_ltc
-        posstaff_alf
-        posres_other
-        posres_nh
-        posres_ltc
-        posres_alf
-        posresstaff_other
-        posresstaff_nh
-        posresstaff_ltc
-        posresstaff_alf
-        deathstaff_other
-        deathstaff_nh
-        deathstaff_ltc
-        deathstaff_alf
-        deathres_other
-        deathres_nh
-        deathres_ltc
-        deathres_alf
-        deathresstaff_other
-        deathresstaff_nh
-        deathresstaff_ltc
-        deathresstaff_alf
-      }
-    }
+
     allCovidLtcFacilities(
       sort: { fields: date, order: DESC }
       filter: { state: { eq: $state } }
