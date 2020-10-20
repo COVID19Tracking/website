@@ -51,14 +51,11 @@ const FacilityDetails = ({ facility }) => (
         </>
       )}
     </p>
-    <p>
-      <strong>Outbreak status:</strong>{' '}
-      {facility.outbreak_status ? (
-        <>{facility.outbreak_status}</>
-      ) : (
-        'None reported'
-      )}
-    </p>
+    {facility.outbreak_status && (
+      <p>
+        <strong>Outbreak status:</strong> {facility.outbreak_status}
+      </p>
+    )}
     <h4>Staff</h4>
     <Table>
       <thead>
