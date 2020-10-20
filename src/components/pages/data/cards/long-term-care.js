@@ -38,7 +38,12 @@ export default ({ data, stateDeaths, stateSlug }) => {
             <Statistic title="Facilities tracked" value={facilities} />
 
             <DrillDown
-              label="Percent of state deaths from LTC facilities"
+              label={
+                <>
+                  Percent of state deaths
+                  <br /> from LTC facilities
+                </>
+              }
               value={percentDeaths()}
               calculated
             />
