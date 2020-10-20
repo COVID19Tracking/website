@@ -26,7 +26,7 @@ exports[`Components : Common: Responsive table renders correctly 1`] = `
         className="noWrap"
       >
         <span
-          className="label"
+          className="cellLabel"
         >
           Date
         </span>
@@ -40,7 +40,7 @@ exports[`Components : Common: Responsive table renders correctly 1`] = `
         className=""
       >
         <span
-          className="label"
+          className="cellLabel"
         >
           Data
         </span>
@@ -56,7 +56,7 @@ exports[`Components : Common: Responsive table renders correctly 1`] = `
         className="noWrap"
       >
         <span
-          className="label"
+          className="cellLabel"
         >
           Date
         </span>
@@ -70,7 +70,7 @@ exports[`Components : Common: Responsive table renders correctly 1`] = `
         className=""
       >
         <span
-          className="label"
+          className="cellLabel"
         >
           Data
         </span>
