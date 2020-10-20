@@ -25,7 +25,7 @@ export default ({ data, stateDeaths, stateSlug }) => {
 
   return (
     <Card
-      title="Long-Term Care"
+      title="Long-Term Care (LTC)"
       link={
         <Link to={`/data/state/${stateSlug}/long-term-care`}>More data</Link>
       }
@@ -38,7 +38,7 @@ export default ({ data, stateDeaths, stateSlug }) => {
             <Statistic title="Facilities tracked" value={facilities} />
 
             <DrillDown
-              label="Percent of state deaths from long-term care facilities"
+              label="Percent of state deaths from LTC facilities"
               value={percentDeaths()}
               calculated
             />
