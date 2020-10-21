@@ -2,6 +2,7 @@
   border-radius: 4px;
   background-color: $color-plum-100;
   @include padding(16);
+  @include margin(8, top bottom);
   color: $color-plum-700;
   a {
     color: $color-plum-700;
