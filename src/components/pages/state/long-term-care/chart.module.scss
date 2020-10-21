@@ -1,3 +1,23 @@
 .charts {
   justify-content: center;
 }
+
+.legend {
+  list-style-type: none;
+  @include type-size(100);
+  width: 100%;
+  padding: 0;
+  @include margin(32, left right);
+  @include margin(16, top bottom);
+  text-align: center;
+  li {
+    display: inline-block;
+    @include margin(16, right);
+  }
+  .legend-color {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    @include margin(8, right);
+  }
+}
