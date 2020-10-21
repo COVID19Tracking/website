@@ -21,15 +21,15 @@ body {
     left: 35px;
     top: 80px;
 
-    // reduce race labels area to 112px instead of 150 px
-    grid-template-columns: [race-labels-start] 112px [race-labels-end case-bars-start] 238px [case-bars-end death-bars-start] 262px [death-bars-end];
+    // reduce race labels area to 130px instead of 150 px
+    grid-template-columns: [race-labels-start] 130px [race-labels-end case-bars-start] 238px [case-bars-end death-bars-start] 262px [death-bars-end];
 
     &.cases-only {
-      grid-template-columns: [race-labels-start] 112px [race-labels-end case-bars-start] 1fr [death-bars-end case-bars-end death-bars-start];
+      grid-template-columns: [race-labels-start] 130px [race-labels-end case-bars-start] 1fr [death-bars-end case-bars-end death-bars-start];
     }
 
     &.deaths-only {
-      grid-template-columns: [race-labels-start] 112px [race-labels-end case-bars-start] 1fr [death-bars-end case-bars-end death-bars-start];
+      grid-template-columns: [race-labels-start] 130px [race-labels-end case-bars-start] 1fr [death-bars-end case-bars-end death-bars-start];
     }
 
     .deaths-header {
@@ -123,6 +123,10 @@ body {
   color: $color-slate-700;
   font-size: 14px; // ignore-style-rule
   line-height: 1.2;
+}
+
+.footer.national {
+  font-size: 13px; // ignore-style-rule
 }
 
 .footer {
