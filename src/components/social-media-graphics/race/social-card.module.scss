@@ -125,10 +125,6 @@ body {
   line-height: 1.2;
 }
 
-.footer.national {
-  font-size: 13px; // ignore-style-rule
-}
-
 .footer {
   display: flex;
   align-items: flex-end;
@@ -138,10 +134,11 @@ body {
   .notes {
     margin-top: 13px; // ignore-style-rule
     width: 730px;
-    &.national {
-      bottom: 0px;
-    }
   }
+}
+
+.national {
+  font-size: 13px; // ignore-style-rule
 }
 
 .asterisk-footnote {
