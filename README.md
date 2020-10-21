@@ -37,7 +37,7 @@ You can also run `yarn setup:api-data` if you just want to download data and not
 To run the website locally, use:
 
 ```shell
-yarn run develop
+yarn develop
 ```
 
 The site is now running at `http://localhost:8000`. Any changes you make to code is live-updated. There is a GraphQL preview tool available at `http://localhost:8000/___graphql` to see what data is exposed to the website.
