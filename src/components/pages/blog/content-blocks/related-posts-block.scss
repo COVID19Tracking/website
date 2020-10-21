@@ -15,9 +15,3 @@
     padding: 0;
   }
 }
-
-.wrapper {
-  @media (min-width: $viewport-lg) {
-    @include padding(64, left);
-  }
-}
