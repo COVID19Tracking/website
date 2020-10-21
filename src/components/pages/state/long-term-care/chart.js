@@ -6,6 +6,7 @@ import LineChart from '~components/charts/line-chart'
 import TooltipContents from '~components/charts/tooltip-contents'
 import colors from '~scss/colors.module.scss'
 import chartStyles from './chart.module.scss'
+import Alert from '~components/common/alert'
 
 const residentColor = colors.colorHoney500
 const staffColor = colors.colorPlum600
@@ -34,6 +35,17 @@ const chartProps = {
 }
 
 const LongTermCareCharts = ({ data }) => {
+  const displayLegend = {
+    staff: false,
+    residents: false,
+    staffResidents: false,
+  }
+
+  const displayCharts = {
+    cases: false,
+    deaths: false,
+  }
+
   const caseData = [
     {
       color: residentColor,
@@ -124,52 +136,83 @@ const LongTermCareCharts = ({ data }) => {
     })
   })
 
+  const setDisplay = (chart, type) => {
+    if (chart[0].data.filter(item => item.value).length > 0) {
+      displayLegend.residents = true
+      displayCharts[type] = true
+    }
+    if (chart[1].data.filter(item => item.value).length > 0) {
+      displayLegend.staff = true
+      displayCharts[type] = true
+    }
+    if (chart[2].data.filter(item => item.value).length > 0) {
+      displayLegend.staffResidents = true
+      displayCharts[type] = true
+    }
+  }
+
+  setDisplay(caseData, 'cases')
+  setDisplay(deathData, 'deaths')
+
   return (
     <>
       <Row className={chartStyles.charts}>
         <Col width={[4, 3, 4]}>
           <h3>Cases</h3>
-          <LineChart
-            data={caseData}
-            lineColor={colors.colorStrawberry100}
-            renderTooltipContents={makeRenderTooltipContents('Cases')}
-            {...chartProps}
-          />
+
+          {displayCharts.cases ? (
+            <LineChart
+              data={caseData}
+              lineColor={colors.colorStrawberry100}
+              renderTooltipContents={makeRenderTooltipContents('Cases')}
+              {...chartProps}
+            />
+          ) : (
+            <Alert>We do not have enough data to chart cases.</Alert>
+          )}
         </Col>
         <Col width={[4, 3, 4]}>
           <h3>Deaths</h3>
-          {
+          {displayCharts.deaths ? (
             <LineChart
               data={deathData}
               lineColor={colors.colorSlate300}
               renderTooltipContents={makeRenderTooltipContents('Deaths')}
               {...chartProps}
             />
-          }
+          ) : (
+            <Alert>We do not have enough data to chart deaths.</Alert>
+          )}
         </Col>
       </Row>
       <ul className={chartStyles.legend} aria-hidden>
-        <li>
-          <span
-            className={chartStyles.legendColor}
-            style={{ background: residentColor }}
-          />{' '}
-          Residents
-        </li>
-        <li>
-          <span
-            className={chartStyles.legendColor}
-            style={{ background: staffColor }}
-          />{' '}
-          Staff
-        </li>
-        <li>
-          <span
-            className={chartStyles.legendColor}
-            style={{ background: staffResColor }}
-          />{' '}
-          Staff &amp; residents
-        </li>
+        {displayLegend.residents && (
+          <li>
+            <span
+              className={chartStyles.legendColor}
+              style={{ background: residentColor }}
+            />{' '}
+            Residents
+          </li>
+        )}
+        {displayLegend.staff && (
+          <li>
+            <span
+              className={chartStyles.legendColor}
+              style={{ background: staffColor }}
+            />{' '}
+            Staff
+          </li>
+        )}
+        {displayLegend.staffResidents && (
+          <li>
+            <span
+              className={chartStyles.legendColor}
+              style={{ background: staffResColor }}
+            />{' '}
+            Staff &amp; residents
+          </li>
+        )}
       </ul>
     </>
   )
