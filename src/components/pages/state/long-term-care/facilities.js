@@ -273,7 +273,7 @@ const LongTermCareFacilities = ({ facilities }) => {
                   { lower: true },
                 )
                 return (
-                  <tr key={facilityId} id={facilityId}>
+                  <tr key={facility.id} id={facilityId}>
                     {hasCounty && <Td alignLeft>{facility.county}</Td>}
                     {hasCity && <Td alignLeft>{facility.city}</Td>}
                     <Td alignLeft>
