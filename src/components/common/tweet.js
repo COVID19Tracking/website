@@ -35,7 +35,7 @@ const Tweet = ({ text, media, link, date }) => (
             alt="Twitter"
             className={tweetStyles.twitterLogo}
           />
-          <img src={media} alt="" />
+          <img src={media.replace(/http(s?):\/\//g, '//')} alt="" />
         </Col>
       )}
     </Row>
