@@ -47,7 +47,6 @@ const gatsbyConfig = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-svgr',
-    'gatsby-plugin-twitter',
     {
       resolve: 'gatsby-plugin-sass',
       options: {
