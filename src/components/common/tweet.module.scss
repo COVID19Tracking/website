@@ -30,6 +30,18 @@
     width: 20px;
     float: right;
     opacity: 0.8;
+    &.twitter-logo-mobile-only {
+      display: inline-block;
+      @media (min-width: $viewport-md) {
+        display: none;
+      }
+    }
+    &.twitter-logo-desktop-only {
+      display: none;
+      @media (min-width: $viewport-md) {
+        display: inline-block;
+      }
+    }
   }
   .date {
     @include type-size(100);
