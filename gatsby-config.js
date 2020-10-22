@@ -46,7 +46,8 @@ const gatsbyConfig = {
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    `gatsby-plugin-svgr`,
+    'gatsby-plugin-svgr',
+    'gatsby-plugin-twitter',
     {
       resolve: 'gatsby-plugin-sass',
       options: {
@@ -144,6 +145,13 @@ const gatsbyConfig = {
       options: {
         file: './_data/screenshots.json',
         type: 'CovidScreenshot',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/tweets.json',
+        type: 'CovidTweet',
       },
     },
     {

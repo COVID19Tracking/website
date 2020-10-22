@@ -10,6 +10,8 @@ import States from '~components/pages/data/states'
 import { DownloadDataRow } from '~components/pages/state/download-data'
 import Summary from '~components/pages/data/summary'
 import SummaryCharts from '~components/pages/data/summary-charts'
+import DailyTweet from '~components/pages/data/daily-tweet'
+import { Col, Row } from '~components/common/grid'
 
 const DataPage = ({ data }) => {
   const stateNavList = []
@@ -26,10 +28,17 @@ const DataPage = ({ data }) => {
       }}
       path="/data"
     >
-      <ContentfulContent
-        content={data.dataPreamble.content.childMarkdownRemark.html}
-        id={data.dataPreamble.contentful_id}
-      />
+      <Row>
+        <Col width={[4, 6, 3]}>
+          <ContentfulContent
+            content={data.dataPreamble.content.childMarkdownRemark.html}
+            id={data.dataPreamble.contentful_id}
+          />
+        </Col>
+        <Col width={[4, 6, 9]}>
+          <DailyTweet />
+        </Col>
+      </Row>
       <DownloadDataRow
         slug="all-states"
         lastUpdateEt={data.lastUpdate.nodes[0].date}
