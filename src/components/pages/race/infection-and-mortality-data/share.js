@@ -1,4 +1,7 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import { DateTime } from 'luxon'
+
 import DetailText from '~components/common/detail-text'
 import SocialSharing from '~components/common/social-sharing'
 import {
@@ -73,6 +76,18 @@ const getSocialCardShareText = (typeOfRates, state, groups) => {
 }
 
 export default ({ state, stateRaceData, combinedStates }) => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            buildId
+          }
+        }
+      }
+    `,
+  )
+
   if (state.name === '-- Select a state --') {
     return null
   }
@@ -85,11 +100,14 @@ export default ({ state, stateRaceData, combinedStates }) => {
 
   const socialCardShareText = getSocialCardShareText(typeOfRates, state, groups)
 
+  const today = DateTime.local().toFormat('L-d-yyyy')
+
   return (
     <>
       <div className={shareStyles.shareWrapper}>
         <img
-          src={`/images/race-dashboard/${state.childSlug.slug}.png`}
+          src={`/images/race-dashboard/${state.childSlug.slug}.png?${site
+            .siteMetadata.buildId || today}`}
           alt={socialCardShareText}
         />
       </div>
