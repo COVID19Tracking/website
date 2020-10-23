@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react'
 
 import { format } from 'd3-format'
 import { geoPath, geoAlbersUsa } from 'd3-geo'
-import { max } from 'd3-array'
+import { max, ticks } from 'd3-array'
 import { nest } from 'd3-collection'
 import { scaleSqrt, scaleThreshold } from 'd3-scale'
 
@@ -19,24 +19,6 @@ import importedColors from '~scss/colors.module.scss'
 
 const viewportSm = parseInt(breakpoints.viewportSm, 10)
 
-// transform colors from global into object of arrays that can be used by d3
-// TODO: update after merging changes from master.
-const colorSchemes = Object.assign.apply(
-  {},
-  ['Plum', 'Honey', 'Slate'].map(scheme => ({
-    [scheme.toLowerCase()]: new Array(8)
-      .fill(0)
-      .map((a, i) => importedColors[`color${scheme}${i + 1}00`]),
-  })),
-)
-
-// should be imported from constants file
-const colors = {
-  totalTestResults: colorSchemes.plum[5],
-  positive: colorSchemes.honey[4],
-  death: colorSchemes.slate[6],
-}
-
 // static d3 setup
 const margin = {
   bottom: 10,
@@ -44,44 +26,9 @@ const margin = {
   right: 10,
   top: 10,
 }
-// this should be dynamic, espcially with the numbers only growing each day.
-// for now there is just a scale for each of the fields.
 
-/*
-const limit = [
-  1,
-  5,
-  10,
-  25,
-  50,
-  100,
-  250,
-  500,
-  1000,
-  2500,
-  5000,
-  10000,
-  25000,
-  50000,
-]
-*/
-
-const colorLimits = {
-  death: [5, 10, 25, 50, 100, 250, 500],
-  positive: [100, 250, 500, 1000, 2500, 5000, 10000],
-  totalTestResults: [1000, 5000, 7500, 10000, 12500, 15000, 25000],
-}
 const strokeGrey = '#ababab'
 const strokeWhite = '#fff'
-
-const getColor = {
-  death: scaleThreshold(colorLimits.death, colorSchemes.slate),
-  positive: scaleThreshold(colorLimits.positive, colorSchemes.honey),
-  totalTestResults: scaleThreshold(
-    colorLimits.totalTestResults,
-    colorSchemes.plum,
-  ),
-}
 
 const getStrokeColor = {
   death: strokeWhite,
@@ -113,33 +60,115 @@ export default function Map({
 
   const data = useMemo(() => {
     if (!rawStateData || !path) return null
+
     const createMapFromArray = (array, keyField, valueField = null) => {
       return Object.assign(
         {},
         ...array.map(a => ({ [a[keyField]]: valueField ? a[valueField] : a })),
       )
     }
+
     const groupedByState = nest()
       .key(d => d.state)
       .entries(rawStateData)
     const stateMap = createMapFromArray(groupedByState, 'key', 'values')
-    const joinedFeatures = StatesWithPopulation.features.map(feature => ({
-      ...feature,
-      properties: {
-        ...feature.properties,
-        centroidCoordinates: path.centroid(feature), // should get rid of turf and use d3 for the centroid
-        dailyData: createMapFromArray(
-          stateMap[feature.properties.STUSPS],
-          'date',
-        ),
-      },
-    }))
+    const joinedFeatures = StatesWithPopulation.features.map(feature => {
+      // Calculate normalized values here instead of inside State components,
+      // so that we can use them to dynamically create color scales
+      const normalizationPopulation = 1000000
+      function getPerCapita(d) {
+        return (d / feature.properties.population) * normalizationPopulation
+      }
+      const state = stateMap[feature.properties.STUSPS].map(d => ({
+        ...d,
+        perCapita: {
+          death: getPerCapita(d.death ? d.death : 0),
+          positive: getPerCapita(d.positive ? d.positive : 0),
+          totalTestResults: getPerCapita(
+            d.totalTestResults ? d.totalTestResults : 0,
+          ),
+        },
+      }))
+      return {
+        ...feature,
+        properties: {
+          ...feature.properties,
+          centroidCoordinates: path.centroid(feature), // should get rid of turf and use d3 for the centroid
+          dailyData: createMapFromArray(state, 'date'),
+        },
+      }
+    })
+
     const tempData = { ...StatesWithPopulation, features: joinedFeatures }
     setJoinedData(tempData)
     return tempData
   }, [rawStateData, path])
 
+  /* ------ CHOROPLETH COLORS ------ */
+
+  // Maximum normalized values
+  const maxPerCapita = useMemo(() => {
+    if (!data) return null
+    const lastDay = data.features.map(
+      d => Object.values(d.properties.dailyData).slice(-1)[0].perCapita,
+    )
+    return {
+      death: max(lastDay, d => d.death),
+      positive: max(lastDay, d => d.positive),
+      totalTestResults: max(lastDay, d => d.totalTestResults),
+    }
+  }, [data])
+
+  const colorLimits = useMemo(
+    () =>
+      maxPerCapita && {
+        death: ticks(0, maxPerCapita.death, 8).slice(1, -1),
+        positive: ticks(0, maxPerCapita.positive, 8).slice(1, -1),
+        totalTestResults: ticks(0, maxPerCapita.totalTestResults, 8).slice(
+          1,
+          -1,
+        ),
+      },
+    [maxPerCapita],
+  )
+  const schemeMap = {
+    Slate: 'death',
+    Honey: 'positive',
+    Plum: 'totalTestResults',
+  }
+  const colorSchemes = useMemo(
+    () =>
+      colorLimits &&
+      Object.assign.apply(
+        {},
+        ['Plum', 'Honey', 'Slate'].map(scheme => ({
+          [scheme.toLowerCase()]: new Array(
+            colorLimits[schemeMap[scheme]].length + 1,
+          )
+            .fill(0)
+            .map((_, i) => importedColors[`color${scheme}${i + 1}00`]),
+        })),
+      ),
+    [colorLimits],
+  )
+
+  const color = useMemo(
+    () =>
+      colorLimits &&
+      colorSchemes && {
+        death: scaleThreshold(colorLimits.death, colorSchemes.slate),
+        positive: scaleThreshold(colorLimits.positive, colorSchemes.honey),
+        totalTestResults: scaleThreshold(
+          colorLimits.totalTestResults,
+          colorSchemes.plum,
+        ),
+      },
+    [colorLimits, colorSchemes],
+  )
+
   const [hoveredState, setHoveredState] = useState(null)
+
+  /* ------ BUBBLE SIZE ------ */
   const maxValue = useMemo(
     () =>
       data &&
@@ -161,6 +190,17 @@ export default function Map({
   )
   const [isMobile, setIsMobile] = useState(false)
 
+  /* ------ TOOLTIP COLORS ------ */
+  const tooltipColors = useMemo(
+    () =>
+      colorSchemes && {
+        totalTestResults: colorSchemes.plum[5],
+        positive: colorSchemes.honey[4],
+        death: colorSchemes.slate[6],
+      },
+    [colorSchemes],
+  )
+
   useEffect(() => {
     // we could use resize listener here
     if (window.screen.availWidth < viewportSm) {
@@ -179,7 +219,7 @@ export default function Map({
       >
         {useChoropleth ? (
           <ChoroLegend
-            color={getColor[currentField]}
+            color={color[currentField]}
             height={isMobile ? 180 : 36}
             width={isMobile ? 32 : 300}
             tickSize={isMobile ? 12 : 6}
@@ -207,7 +247,8 @@ export default function Map({
               geoJson={data}
               useChoropleth={useChoropleth}
               currentField={currentField}
-              getValue={getValue}
+              currentDate={currentDate}
+              getColor={color}
               hoveredState={hoveredState}
               setHoveredState={setHoveredState}
               path={path}
@@ -219,6 +260,7 @@ export default function Map({
             hoveredState={hoveredState}
             getValue={getValue}
             currentDate={currentDate}
+            colors={tooltipColors}
           />
         )}
       </div>
@@ -231,18 +273,18 @@ const States = ({
   geoJson,
   useChoropleth,
   currentField,
+  currentDate,
   hoveredState,
   setHoveredState,
-  getValue,
+  getColor,
   path,
 }) => {
-  // below function should use getValue
+  // Don't need to use getValue
   const getColorFromFeature = d => {
     if (!useChoropleth) return 'transparent'
-    const value = getValue(d) ? getValue(d) : 0 // account for undefined values
-    const normalizationPopulation = 1000000 // 1 million;
-    const normalizedValue =
-      value / (d.properties.population / normalizationPopulation)
+    const normalizedValue = d.properties.dailyData[currentDate]
+      ? d.properties.dailyData[currentDate].perCapita[currentField]
+      : 0
     return getColor[currentField](normalizedValue)
   }
   const strokeColor = useChoropleth ? getStrokeColor[currentField] : strokeGrey
@@ -361,7 +403,7 @@ const BubbleLegend = ({ r, maxValue, width, height }) => {
   )
 }
 
-const Tooltip = ({ hoveredState, currentDate, getValue }) => {
+const Tooltip = ({ hoveredState, currentDate, getValue, colors }) => {
   const { coordinates, state } = hoveredState
   const d = state
   const [x, y] = coordinates
