@@ -4,11 +4,12 @@ import { format } from 'd3-format'
 import { geoPath, geoAlbersUsa } from 'd3-geo'
 import { max, ticks } from 'd3-array'
 import { nest } from 'd3-collection'
-import { scaleSqrt, scaleThreshold } from 'd3-scale'
+import { scaleSqrt, scaleThreshold, scaleSequential } from 'd3-scale'
 
 import StatesWithPopulation from '~data/visualization/state-populations.json'
 
 import { formatNumber, formatDate, parseDate } from '~utilities/visualization'
+import { interpolateRgbMonotone } from '~utilities/interpolators'
 
 import './map.scss'
 
@@ -25,6 +26,22 @@ const margin = {
   left: 10,
   right: 10,
   top: 10,
+}
+
+const schemeMap = {
+  death: 'Slate',
+  positive: 'Honey',
+  totalTestResults: 'Plum',
+}
+
+const makeContinuous = (scheme, domain) => {
+  const baseColors = new Array(8)
+    .fill(0)
+    .map((_, i) => importedColors[`color${scheme}${i + 1}00`])
+  const interpolator = interpolateRgbMonotone(baseColors)
+  return scaleSequential()
+    .domain(domain)
+    .interpolator(interpolator)
 }
 
 const strokeGrey = '#ababab'
@@ -76,9 +93,8 @@ export default function Map({
       // Calculate normalized values here instead of inside State components,
       // so that we can use them to dynamically create color scales
       const normalizationPopulation = 1000000
-      function getPerCapita(d) {
-        return (d / feature.properties.population) * normalizationPopulation
-      }
+      const getPerCapita = d =>
+        (d / feature.properties.population) * normalizationPopulation
       const state = stateMap[feature.properties.STUSPS].map(d => ({
         ...d,
         perCapita: {
@@ -122,49 +138,43 @@ export default function Map({
   const colorLimits = useMemo(
     () =>
       maxPerCapita && {
-        death: ticks(0, maxPerCapita.death, 8).slice(1, -1),
-        positive: ticks(0, maxPerCapita.positive, 8).slice(1, -1),
-        totalTestResults: ticks(0, maxPerCapita.totalTestResults, 8).slice(
-          1,
-          -1,
-        ),
+        death: ticks(0, maxPerCapita.death, 7).slice(1),
+        positive: ticks(0, maxPerCapita.positive, 7).slice(1),
+        totalTestResults: ticks(0, maxPerCapita.totalTestResults, 7).slice(1),
       },
     [maxPerCapita],
   )
-  const schemeMap = {
-    Slate: 'death',
-    Honey: 'positive',
-    Plum: 'totalTestResults',
-  }
-  const colorSchemes = useMemo(
-    () =>
-      colorLimits &&
-      Object.assign.apply(
-        {},
-        ['Plum', 'Honey', 'Slate'].map(scheme => ({
-          [scheme.toLowerCase()]: new Array(
-            colorLimits[schemeMap[scheme]].length + 1,
-          )
-            .fill(0)
-            .map((_, i) => importedColors[`color${scheme}${i + 1}00`]),
-        })),
-      ),
-    [colorLimits],
-  )
 
-  const color = useMemo(
-    () =>
-      colorLimits &&
-      colorSchemes && {
-        death: scaleThreshold(colorLimits.death, colorSchemes.slate),
-        positive: scaleThreshold(colorLimits.positive, colorSchemes.honey),
-        totalTestResults: scaleThreshold(
-          colorLimits.totalTestResults,
-          colorSchemes.plum,
-        ),
-      },
-    [colorLimits, colorSchemes],
-  )
+  const color = useMemo(() => {
+    if (!colorLimits || !maxPerCapita) return null
+    // The number of thresholds, dynamically allocated by d3.ticks(),
+    // might be greater than the number of colors available in a given,
+    // discrete palette. Thus, we'll create a continuous scheme from said
+    // palette, then partition it into color thresholds.
+    const deathCS = makeContinuous(schemeMap.death, [0, maxPerCapita.death])
+    const positiveCS = makeContinuous(schemeMap.positive, [
+      0,
+      maxPerCapita.positive,
+    ])
+    const totalTestResultsCS = makeContinuous(schemeMap.totalTestResults, [
+      0,
+      maxPerCapita.totalTestResults,
+    ])
+    return {
+      death: scaleThreshold(
+        colorLimits.death.slice(0, -1),
+        colorLimits.death.map(d => deathCS(d)),
+      ),
+      positive: scaleThreshold(
+        colorLimits.positive.slice(0, -1),
+        colorLimits.positive.map(d => positiveCS(d)),
+      ),
+      totalTestResults: scaleThreshold(
+        colorLimits.totalTestResults.slice(0, -1),
+        colorLimits.totalTestResults.map(d => totalTestResultsCS(d)),
+      ),
+    }
+  }, [colorLimits, maxPerCapita])
 
   const [hoveredState, setHoveredState] = useState(null)
 
@@ -191,15 +201,11 @@ export default function Map({
   const [isMobile, setIsMobile] = useState(false)
 
   /* ------ TOOLTIP COLORS ------ */
-  const tooltipColors = useMemo(
-    () =>
-      colorSchemes && {
-        totalTestResults: colorSchemes.plum[5],
-        positive: colorSchemes.honey[4],
-        death: colorSchemes.slate[6],
-      },
-    [colorSchemes],
-  )
+  const tooltipColors = {
+    death: importedColors[`color${schemeMap.death}700`],
+    positive: importedColors[`color${schemeMap.positive}500`],
+    totalTestResults: importedColors[`color${schemeMap.totalTestResults}600`],
+  }
 
   useEffect(() => {
     // we could use resize listener here
