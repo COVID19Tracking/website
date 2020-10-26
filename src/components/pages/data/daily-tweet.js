@@ -32,12 +32,7 @@ const DailyTweet = () => {
     return null
   }
 
-  const {
-    id_str,
-    full_text,
-    entities,
-    created_at,
-  } = data.allCovidTweet.nodes[0]
+  const { id_str, full_text, entities, created_at } = data.allTweets.nodes[0]
 
   return (
     <Tweet
