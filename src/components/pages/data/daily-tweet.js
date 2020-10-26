@@ -28,6 +28,10 @@ const DailyTweet = () => {
     }
   `)
 
+  if (!data || !data.allCovidTweet.nodes.length) {
+    return null
+  }
+
   const {
     id_str,
     full_text,
