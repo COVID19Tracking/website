@@ -6,8 +6,8 @@ import Tweet from '~components/common/tweet'
 const DailyTweet = () => {
   const data = useStaticQuery(graphql`
     {
-      allCovidTweet(
-        filter: { full_text: { regex: "/Our daily update is published/" } }
+      allTweets(
+        filter: { is_pinned: { eq: true } }
         sort: { fields: id_str, order: DESC }
         limit: 1
       ) {

@@ -149,13 +149,6 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/tweets.json',
-        type: 'CovidTweet',
-      },
-    },
-    {
-      resolve: 'gatsby-source-covid-tracking-api',
-      options: {
         file: './_data/volunteers.json',
         type: 'CovidVolunteers',
         sortField: 'name',
@@ -239,6 +232,16 @@ const gatsbyConfig = {
         type: 'Counties',
         counties: `${__dirname}/_data/nyt_counties.json`,
         demographics: `${__dirname}/_data/census_demographics_counties.json`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-tweets',
+      options: {
+        type: 'Tweets',
+        files: {
+          tweets: `${__dirname}/_data/tweets.json`,
+          pinnedTweets: `${__dirname}/_data/pinned_tweets.json`,
+        },
       },
     },
     {
