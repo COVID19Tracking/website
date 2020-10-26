@@ -148,7 +148,7 @@
     "build:test": "jest --verbose --config=\"{}\" -- src/__tests__/build/index.js",
     "clean": "run-p clean:*",
     "clean:gatsby": "gatsby clean",
-    "develop": "gatsby develop",
+    "develop": "NODE_OPTIONS=--max_old_space_size=8192 gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md,scss}\"",
     "storybook": "start-storybook -p 6006",
     "storybook:deploy": "run-s storybook:build storybook:pages",
