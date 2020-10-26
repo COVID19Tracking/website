@@ -10,8 +10,10 @@ exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
 
   tweets.forEach(tweet => {
     tweet.is_pinned =
-      pinnedTweets.filter(pinnedTweet => pinnedTweet.id === tweet.id_str)
-        .length > 0
+      pinnedTweets &&
+      pinnedTweets.filter(
+        pinnedTweet => pinnedTweet.id && pinnedTweet.id === tweet.id_str,
+      ).length > 0
 
     const digest = crypto
       .createHash('md5')
