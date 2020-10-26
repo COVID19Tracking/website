@@ -9,7 +9,7 @@ const Tools = () => (
       <HeaderSearch />
     </div>
     <Link to="/contact/volunteer" className={headerStyle.getInvolved}>
-      Get involved
+      Volunteer
     </Link>
   </div>
 )
