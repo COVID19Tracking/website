@@ -28,7 +28,7 @@ const DailyTweet = () => {
     }
   `)
 
-  if (!data || !data.allCovidTweet.nodes.length) {
+  if (!data || !data.allCovidTweet) {
     return null
   }
 
