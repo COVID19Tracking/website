@@ -62,7 +62,7 @@ const MobileMenu = ({ expanded, topNavigation, subNavigation }) => {
         isMobile
       />
       <Link to="/contact/volunteer" className={headerStyle.getInvolved}>
-        Get Involved
+        Volunteer
       </Link>
       <div className={mobileMenuStyle.mobilePointer} />
     </div>

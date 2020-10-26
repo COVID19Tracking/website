@@ -224,7 +224,7 @@ Array [
             className="getInvolved"
             href="/contact/volunteer"
           >
-            Get Involved
+            Volunteer
           </a>
           <div
             className="mobilePointer"
@@ -456,7 +456,7 @@ Array [
               className="getInvolved"
               href="/contact/volunteer"
             >
-              Get involved
+              Volunteer
             </a>
           </div>
         </div>
@@ -869,7 +869,7 @@ Array [
             className="getInvolved"
             href="/contact/volunteer"
           >
-            Get Involved
+            Volunteer
           </a>
           <div
             className="mobilePointer"
@@ -1101,7 +1101,7 @@ Array [
               className="getInvolved"
               href="/contact/volunteer"
             >
-              Get involved
+              Volunteer
             </a>
           </div>
         </div>
