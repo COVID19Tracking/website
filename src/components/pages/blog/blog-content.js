@@ -54,7 +54,10 @@ const BlogContent = ({ content, images }) => {
           return (
             <RelatedPostsContentBlock
               headline={node.data.target.fields.headline['en-US']}
-              lede={node.data.target.fields.lede['en-US']}
+              subtitle={
+                node.data.target.fields.subtitle &&
+                node.data.target.fields.subtitle['en-US']
+              }
               references={node.data.target.fields.relatedPosts['en-US']}
             />
           )
