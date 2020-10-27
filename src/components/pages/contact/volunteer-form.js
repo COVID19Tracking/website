@@ -177,7 +177,7 @@ const VolunteerForm = () => {
       />
 
       <Textarea
-        label="Please tell us about the skills and experience you would bring to The COVID Tracking Project in 1-3 paragraphs."
+        label="Please tell us about the skills and experience you would bring to The COVID Tracking Project in 1-3 paragraphs. If you are particularly interested in one of the three data projects, please tell us which one."
         inputtype="text"
         name="why"
         id="why"
