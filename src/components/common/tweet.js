@@ -6,7 +6,7 @@ import twitterIcon from '~images/twitter_icon.png'
 import twitterLogo from '~images/icons/twitter.svg'
 
 const Tweet = ({ text, media, link, date, hideHandle = false }) => (
-  <a href={link} className={tweetStyles.tweet}>
+  <a href={link} target="_blank" rel="noreferrer" className={tweetStyles.tweet}>
     <Row>
       <Col width={[4, 4, media ? 6 : 12]}>
         {!hideHandle && (
