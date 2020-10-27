@@ -36,7 +36,7 @@ exports[`Components : Common: Tweet renders correctly 1`] = `
       <p
         className="date"
       >
-        October 20 2020
+        Tue Oct 20 23:11:41 +0000 2020
       </p>
     </div>
     <div
@@ -92,7 +92,7 @@ exports[`Components : Common: Tweet renders correctly 2`] = `
       <p
         className="date"
       >
-        October 20 2020
+        Tue Oct 20 23:11:41 +0000 2020
       </p>
     </div>
   </div>

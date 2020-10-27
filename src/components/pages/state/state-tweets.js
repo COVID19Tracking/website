@@ -10,7 +10,7 @@ const StateTweets = ({ name, tweets }) => {
   }
   return (
     <>
-      <h2>Our latest tweets about {name}</h2>
+      <h2 id="state-tweets">Our latest tweets about {name}</h2>
       <h4 className={stateTweetsStyle.twitterHandle}>
         <span className="a11y-only">Our twitter handle is </span>
 
