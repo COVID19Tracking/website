@@ -8,12 +8,12 @@ const DailyTweet = () => {
     {
       allTweets(
         filter: { is_pinned: { eq: true } }
-        sort: { fields: id_str, order: DESC }
+        sort: { fields: date, order: DESC }
         limit: 1
       ) {
         nodes {
-          created_at
           id_str
+          date(formatString: "MMMM D yyyy")
           entities {
             urls {
               display_url
@@ -32,14 +32,14 @@ const DailyTweet = () => {
     return null
   }
 
-  const { id_str, full_text, entities, created_at } = data.allTweets.nodes[0]
+  const { id_str, full_text, entities, date } = data.allTweets.nodes[0]
 
   return (
     <Tweet
       text={full_text}
       media={entities.media[0] && entities.media[0].media_url}
       link={`https://twitter.com/COVID19Tracking/status/${id_str}`}
-      date={created_at}
+      date={date}
     />
   )
 }

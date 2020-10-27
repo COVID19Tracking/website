@@ -144,6 +144,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/state/index.js`),
       context: {
         ...node,
+        nameRegex: `/${node.name}/g`,
         slug,
       },
     })
