@@ -4,6 +4,8 @@ exports[`Components : Common: Tweet renders correctly 1`] = `
 <a
   className="tweet"
   href="https://twitter.com/1318691388242956291"
+  rel="noreferrer"
+  target="_blank"
 >
   <div
     className="row"
@@ -60,6 +62,8 @@ exports[`Components : Common: Tweet renders correctly 2`] = `
 <a
   className="tweet"
   href="https://twitter.com/1318691388242956291"
+  rel="noreferrer"
+  target="_blank"
 >
   <div
     className="row"
