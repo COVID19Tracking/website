@@ -1,4 +1,5 @@
 const fs = require('fs-extra')
+const { DateTime } = require('luxon')
 const crypto = require('crypto')
 
 exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
@@ -14,6 +15,11 @@ exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
       pinnedTweets.filter(
         pinnedTweet => pinnedTweet.id && pinnedTweet.id === tweet.id_str,
       ).length > 0
+
+    tweet.date = DateTime.fromFormat(
+      tweet.created_at,
+      'EEE MMM d HH:mm:ss ZZZ yyyy',
+    ).toJSDate()
 
     const digest = crypto
       .createHash('md5')
