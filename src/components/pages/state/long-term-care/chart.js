@@ -31,11 +31,6 @@ const chartProps = {
 }
 
 const LongTermCareCharts = ({ data }) => {
-  const displayCharts = {
-    cases: false,
-    deaths: false,
-  }
-
   const caseData = []
   const deathData = []
 
