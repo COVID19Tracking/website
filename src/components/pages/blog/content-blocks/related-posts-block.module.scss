@@ -1,0 +1,23 @@
+.pullout {
+  border-radius: 4px;
+  background-color: $color-plum-100;
+  @include padding(16, right left);
+  @include padding(24, top bottom);
+  @include margin(8, top bottom);
+  color: $color-plum-700;
+  a {
+    color: $color-plum-700;
+  }
+  .headline {
+    margin-top: 0;
+  }
+  .subtitle p {
+    @include margin(16, bottom);
+  }
+}
+
+aside.pullout {
+  ul {
+    margin-bottom: 0;
+  }
+}

@@ -20,7 +20,9 @@ export default ({ separateStates, combinedStates, stateInfo }) => {
       window.location.hash
     ) {
       const stateFilter = window.location.hash.replace('#', '')
-      const foundState = stateInfo.find(node => node.state === stateFilter)
+      const foundState = stateInfo.find(
+        node => node.state.toLowerCase() === stateFilter.toLowerCase(),
+      )
       if (foundState) {
         setState(foundState)
       }

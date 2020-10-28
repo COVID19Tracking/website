@@ -1,0 +1,51 @@
+.tweet {
+  display: block;
+  border: 1px solid $color-slate-200;
+  border-radius: 4px;
+  @include padding(16);
+  @include margin(16, bottom);
+  text-decoration: none;
+  cursor: pointer;
+  blockquote {
+    margin: 0;
+  }
+  h4 {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    margin-top: 0;
+    @include margin(8, bottom);
+    img {
+      display: inline-block;
+      width: 35px;
+      @include margin(16, right);
+    }
+    @include type-size(300);
+  }
+  &:hover {
+    background: $color-slate-100;
+    text-decoration: none;
+  }
+  .twitter-logo {
+    width: 20px;
+    float: right;
+    opacity: 0.8;
+    &.twitter-logo-mobile-only {
+      display: inline-block;
+      @media (min-width: $viewport-md) {
+        display: none;
+      }
+    }
+    &.twitter-logo-desktop-only {
+      display: none;
+      @media (min-width: $viewport-md) {
+        display: inline-block;
+      }
+    }
+  }
+  .date {
+    @include type-size(100);
+    color: $color-slate-600;
+    margin-bottom: 0;
+  }
+}

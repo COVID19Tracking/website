@@ -6,6 +6,7 @@ import StatePreamble from '~components/pages/state/preamble'
 import SummaryCharts from '~components/pages/data/summary-charts'
 import StateSummary from '~components/pages/data/summary'
 import StateNotes from '~components/pages/state/state-notes'
+import StateTweets from '~components/pages/state/state-tweets'
 
 const StateTemplate = ({ pageContext, data, path }) => {
   const state = pageContext
@@ -18,6 +19,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
     allContentfulChartAnnotation,
     sevenDaysAgo,
     contentfulStateOrTerritory,
+    allTweets,
   } = data
   return (
     <Layout title={state.name} returnLinks={[{ link: '/data' }]} path={path}>
@@ -46,6 +48,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
           lastUpdated={covidState.lastUpdateEt}
           longTermCare={data.covidStateInfo.childLtc}
         />
+        <StateTweets tweets={allTweets} name={state.name} />
       </StateNavWrapper>
     </Layout>
   )
@@ -54,7 +57,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
 export default StateTemplate
 
 export const query = graphql`
-  query($state: String!, $sevenDaysAgo: Date) {
+  query($state: String!, $sevenDaysAgo: Date, $nameRegex: String!) {
     sevenDaysAgo: covidStateDaily(
       date: { eq: $sevenDaysAgo }
       state: { eq: $state }
@@ -220,15 +223,15 @@ export const query = graphql`
         }
       }
     }
-
-    allCovidLtcFacilities(
+    allTweets(
+      filter: { full_text: { regex: $nameRegex } }
       sort: { fields: date, order: DESC }
-      filter: { state: { eq: $state } }
+      limit: 5
     ) {
-      group(field: facility_name, limit: 1) {
-        nodes {
-          facility_name
-        }
+      nodes {
+        full_text
+        id_str
+        date(formatString: "MMMM D yyyy")
       }
     }
   }
