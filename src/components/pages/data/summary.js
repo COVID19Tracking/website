@@ -20,6 +20,7 @@ const StateSummary = ({
   data,
   sevenDaysAgo,
   metadata,
+  annotations = false,
   national = false,
 }) => {
   /*

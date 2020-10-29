@@ -20,6 +20,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
     sevenDaysAgo,
     contentfulStateOrTerritory,
     allTweets,
+    allCovidAnnotation,
   } = data
   return (
     <Layout title={state.name} returnLinks={[{ link: '/data' }]} path={path}>
@@ -46,6 +47,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
           population={covidStateInfo.childPopulation.population}
           metadata={contentfulStateOrTerritory}
           lastUpdated={covidState.lastUpdateEt}
+          annotations={allCovidAnnotation.nodes}
         />
         <StateTweets tweets={allTweets} name={state.name} />
       </StateNavWrapper>
@@ -218,6 +220,25 @@ export const query = graphql`
         full_text
         id_str
         date(formatString: "MMMM D yyyy")
+      }
+    }
+    allCovidAnnotation(filter: { state: { eq: $state } }) {
+      nodes {
+        state
+        metric
+        type
+        field
+        annotations {
+          evidence
+          evidence_source
+          summary
+          type
+          definitions {
+            definition
+            name
+            type
+          }
+        }
       }
     }
   }
