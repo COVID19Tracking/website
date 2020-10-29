@@ -85,7 +85,6 @@ export const query = graphql`
         hospitalizedCurrently
         states
         positive
-        pending
         negative
         hospitalizedCumulative
         death

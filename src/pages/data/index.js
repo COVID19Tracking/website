@@ -173,13 +173,11 @@ export const query = graphql`
         negativeTestsViral
         onVentilatorCumulative
         onVentilatorCurrently
-        pending
         positive
         positiveCasesViral
         probableCases
         positiveIncrease
         positiveTestsViral
-
         recovered
         state
         totalTestResults

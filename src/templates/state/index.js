@@ -103,7 +103,7 @@ export const query = graphql`
       negative
       lastUpdateEt
       dateModified(formatString: "MMM D, YYYY h:mm a")
-      pending
+
       hospitalizedCurrently
       hospitalizedCumulative
       inIcuCurrently
