@@ -179,7 +179,7 @@ export const query = graphql`
         probableCases
         positiveIncrease
         positiveTestsViral
-        posNeg
+
         recovered
         state
         totalTestResults

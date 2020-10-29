@@ -93,7 +93,6 @@ module.exports = (graphql, reporter) => {
               negativeIncrease
               onVentilatorCumulative
               onVentilatorCurrently
-              posNeg
               positive
               positiveIncrease
               recovered
