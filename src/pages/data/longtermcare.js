@@ -132,9 +132,9 @@ export default LongTermCarePage
 export const query = graphql`
   query {
     covidLtcWebsite {
-      facilitiesCumulative
-      deathsCumulative
       casesCumulative
+      deathsCumulative
+      facilitiesCumulative
     }
     contentfulSnippetCollection(slug: { eq: "long-term-care-landing-page" }) {
       snippets {

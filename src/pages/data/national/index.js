@@ -80,16 +80,16 @@ export const query = graphql`
     }
     allCovidUsDaily(sort: { order: DESC, fields: date }) {
       nodes {
+        date(formatString: "MMM D, YYYY")
+        death
+        hospitalizedCumulative
+        hospitalizedCurrently
+        negative
+        positive
+        recovered
+        states
         totalTestResults
         totalTestResultsIncrease
-        hospitalizedCurrently
-        states
-        positive
-        negative
-        hospitalizedCumulative
-        death
-        date(formatString: "MMM D, YYYY")
-        recovered
       }
     }
     allContentfulDataDefinition(
