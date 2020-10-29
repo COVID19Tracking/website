@@ -131,20 +131,12 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
     ) {
       nodes {
-        totalTestResults
-        totalTestEncountersViral
         totalTestEncountersViralIncrease
         totalTestsViralIncrease
         totalTestsPeopleViralIncrease
         totalTestResultsIncrease
-        positive
         positiveIncrease
-        pending
-        negative
-        hospitalized
         hospitalizedCurrently
-        hospitalizedIncrease
-        death
         deathIncrease
         date(formatString: "YYYYMMDD")
         childPopulation {
