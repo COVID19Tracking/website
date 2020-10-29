@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import {
   DefinitionPanel,
   DefinitionPanelContext,
+  AnnotationPanelContext,
 } from './cards/definitions-panel'
 
 import CasesCard from './cards/cases-card'
@@ -31,6 +32,8 @@ const StateSummary = ({
   */
   const [cardDefinitions, setCardDefinitions] = useState(false)
   const [highlightedDefinition, setHighlightedDefinition] = useState(false)
+  const [cardAnnotations, setCardAnnotations] = useState(false)
+  const [highlightedAnnotation, setHighlightedAnnotation] = useState(false)
   const { allContentfulDataDefinition } = useStaticQuery(graphql`
     {
       allContentfulDataDefinition {
@@ -65,75 +68,107 @@ const StateSummary = ({
       value={({ fields, highlight }) => {
         setCardDefinitions(fields)
         setHighlightedDefinition(highlight)
+        setCardAnnotations(false)
       }}
     >
-      {cardDefinitions && (
-        <DefinitionPanel
-          definitions={definitions}
-          highlightedDefinition={highlightedDefinition}
-          onHide={() => setCardDefinitions(false)}
-        />
-      )}
-      <div
-        className={classnames(
-          summaryStyles.container,
-          national && summaryStyles.fullWidth,
-        )}
+      <AnnotationPanelContext.Provider
+        value={{
+          annotations,
+          setCardAnnotations: ({ fields, highlight }) => {
+            setCardAnnotations(fields)
+            setHighlightedAnnotation(highlight)
+            setCardDefinitions(false)
+          },
+        }}
       >
-        <CasesCard
-          stateSlug={stateSlug}
-          positive={data.positive}
-          positiveIncrease={data.positiveIncrease}
-          probableCases={data.probableCases}
-          confirmedCases={data.positiveCasesViral}
-          sevenDayIncrease={sevenDayPositiveIncrease}
-          national={national}
-        />
-        {national && (
-          <NationalTestsCard
-            totalTestResults={data.totalTestResults}
-            totalTestResultsIncrease={data.totalTestResultsIncrease}
-            totalTestResulstPercentIncrease={
-              (data.totalTestResults - sevenDaysAgo.totalTestResults) /
-              sevenDaysAgo.totalTestResults
-            }
+        {cardDefinitions && (
+          <DefinitionPanel
+            definitions={definitions}
+            highlightedDefinition={highlightedDefinition}
+            onHide={() => setCardDefinitions(false)}
+            title="Definitions"
           />
         )}
-        {!national && (
-          <>
-            <TestsViralCard
-              stateSlug={stateSlug}
-              totalTestEncountersViral={data.totalTestEncountersViral}
-              totalTestsViral={data.totalTestsViral}
-              totalTestsPeopleViral={data.totalTestsPeopleViral}
-              unknownUnits={metadata && metadata.testUnitsUnknown}
-            />
-            <TestsAntibodyCard
-              stateSlug={stateSlug}
-              totalTestsAntibody={data.totalTestsAntibody}
-            />
-          </>
+        {cardAnnotations && (
+          <DefinitionPanel
+            annotations={annotations.filter(annotation => {
+              let result = false
+              cardAnnotations.forEach(cardAnnotation => {
+                if (
+                  annotation.field &&
+                  annotation.field.indexOf(cardAnnotation) > -1
+                ) {
+                  result = true
+                }
+              })
+              return result
+            })}
+            highlightedDefinition={highlightedAnnotation}
+            onHide={() => setCardAnnotations(false)}
+            title="Annotations"
+          />
         )}
-        <HospitalizationCard
-          stateSlug={stateSlug}
-          hospitalizedCumulative={data.hospitalizedCumulative}
-          inIcuCumulative={data.inIcuCumulative}
-          onVentilatorCumulative={data.onVentilatorCumulative}
-          hospitalizedCurrently={data.hospitalizedCurrently}
-          inIcuCurrently={data.inIcuCurrently}
-          onVentilatorCurrently={data.onVentilatorCurrently}
-          national={national}
-        />
-        <OutcomesCard
-          stateSlug={stateSlug}
-          deathsLabel={deathsLabel}
-          death={data.death}
-          deathConfirmed={data.deathConfirmed}
-          deathProbable={data.deathProbable}
-          recovered={data.recovered}
-          national={national}
-        />
-      </div>
+        <div
+          className={classnames(
+            summaryStyles.container,
+            national && summaryStyles.fullWidth,
+          )}
+        >
+          <CasesCard
+            stateSlug={stateSlug}
+            positive={data.positive}
+            positiveIncrease={data.positiveIncrease}
+            probableCases={data.probableCases}
+            confirmedCases={data.positiveCasesViral}
+            sevenDayIncrease={sevenDayPositiveIncrease}
+            national={national}
+          />
+          {national && (
+            <NationalTestsCard
+              totalTestResults={data.totalTestResults}
+              totalTestResultsIncrease={data.totalTestResultsIncrease}
+              totalTestResulstPercentIncrease={
+                (data.totalTestResults - sevenDaysAgo.totalTestResults) /
+                sevenDaysAgo.totalTestResults
+              }
+            />
+          )}
+          {!national && (
+            <>
+              <TestsViralCard
+                stateSlug={stateSlug}
+                totalTestEncountersViral={data.totalTestEncountersViral}
+                totalTestsViral={data.totalTestsViral}
+                totalTestsPeopleViral={data.totalTestsPeopleViral}
+                unknownUnits={metadata && metadata.testUnitsUnknown}
+              />
+              <TestsAntibodyCard
+                stateSlug={stateSlug}
+                totalTestsAntibody={data.totalTestsAntibody}
+              />
+            </>
+          )}
+          <HospitalizationCard
+            stateSlug={stateSlug}
+            hospitalizedCumulative={data.hospitalizedCumulative}
+            inIcuCumulative={data.inIcuCumulative}
+            onVentilatorCumulative={data.onVentilatorCumulative}
+            hospitalizedCurrently={data.hospitalizedCurrently}
+            inIcuCurrently={data.inIcuCurrently}
+            onVentilatorCurrently={data.onVentilatorCurrently}
+            national={national}
+          />
+          <OutcomesCard
+            stateSlug={stateSlug}
+            deathsLabel={deathsLabel}
+            death={data.death}
+            deathConfirmed={data.deathConfirmed}
+            deathProbable={data.deathProbable}
+            recovered={data.recovered}
+            national={national}
+          />
+        </div>
+      </AnnotationPanelContext.Provider>
     </DefinitionPanelContext.Provider>
   )
 }

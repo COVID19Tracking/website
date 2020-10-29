@@ -1,7 +1,10 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useContext } from 'react'
 import classnames from 'classnames'
 import closeIcon from '~images/icons/close-x.svg'
 import definitionsPanelStyles from './definitions-panel.module.scss'
+
+const DefinitionPanelContext = React.createContext()
+const AnnotationPanelContext = React.createContext()
 
 const Definition = ({ key, definition, highlighted }) => {
   const definitionRef = useRef(false)
@@ -34,9 +37,36 @@ const Definition = ({ key, definition, highlighted }) => {
   )
 }
 
-const DefinitionPanelContext = React.createContext()
+const Annotation = ({ key, annotation, highlighted }) => {
+  const annotationRef = useRef(false)
+  useEffect(() => {
+    if (highlighted) {
+      annotationRef.current.focus()
+    }
+  })
 
-const DefinitionPanel = ({ onHide, definitions, highlightedDefinition }) => {
+  return (
+    <div
+      key={key}
+      ref={annotationRef}
+      tabIndex="-1"
+      className={classnames(
+        definitionsPanelStyles.definition,
+        highlighted && definitionsPanelStyles.highlight,
+      )}
+    >
+      <h3 className={definitionsPanelStyles.title}>{annotation.metric}:</h3>
+    </div>
+  )
+}
+
+const DefinitionPanel = ({
+  onHide,
+  highlightedDefinition,
+  title,
+  definitions = false,
+  annotations = false,
+}) => {
   return (
     <div
       className={definitionsPanelStyles.definitionsPanel}
@@ -54,7 +84,7 @@ const DefinitionPanel = ({ onHide, definitions, highlightedDefinition }) => {
         }}
       >
         <div className={definitionsPanelStyles.header}>
-          <h2 id="definitionsDialogLabel">Definitions</h2>
+          <h2 id="definitionsDialogLabel">{title}</h2>
           <div className={definitionsPanelStyles.closePanelContainer}>
             <button
               type="button"
@@ -65,16 +95,53 @@ const DefinitionPanel = ({ onHide, definitions, highlightedDefinition }) => {
             </button>
           </div>
         </div>
-        {Object.keys(definitions).map(key => (
-          <Definition
-            key={key}
-            highlighted={definitions[key].fieldName === highlightedDefinition}
-            definition={definitions[key]}
-          />
-        ))}
+        {definitions && (
+          <>
+            {Object.keys(definitions).map(key => (
+              <Definition
+                key={key}
+                highlighted={
+                  definitions[key].fieldName === highlightedDefinition
+                }
+                definition={definitions[key]}
+              />
+            ))}
+          </>
+        )}
+        {annotations && (
+          <>
+            {annotations.map(annotation => (
+              <Annotation
+                annotation={annotation}
+                key={annotation.id}
+                highlighted={annotation.field === highlightedDefinition}
+              />
+            ))}
+          </>
+        )}
       </div>
     </div>
   )
 }
 
-export { DefinitionPanel, DefinitionPanelContext }
+const AnnotationButton = ({ field, children }) => {
+  const annotations = useContext(AnnotationPanelContext)
+  if (!annotations.annotations) {
+    return null
+  }
+  if (
+    annotations.annotations.filter(
+      annotation => annotation.field.indexOf(field) > -1,
+    )
+  ) {
+    return children
+  }
+  return null
+}
+
+export {
+  DefinitionPanel,
+  DefinitionPanelContext,
+  AnnotationPanelContext,
+  AnnotationButton,
+}

@@ -224,6 +224,7 @@ export const query = graphql`
     }
     allCovidAnnotation(filter: { state: { eq: $state } }) {
       nodes {
+        id
         state
         metric
         type

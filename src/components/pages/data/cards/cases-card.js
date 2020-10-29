@@ -1,7 +1,11 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 import { Card, CardBody } from '~components/common/card'
-import { DefinitionPanelContext } from './definitions-panel'
+import {
+  DefinitionPanelContext,
+  AnnotationPanelContext,
+  AnnotationButton,
+} from './definitions-panel'
 import {
   DrillDown,
   Statistic,
@@ -18,12 +22,14 @@ const CasesCard = ({
   national,
 }) => {
   const definitionFields = ['positive', 'positiveCasesViral', 'probableCases']
+  const annotationFields = ['Positive']
   const sevenDayIncreasePercent = Math.round(sevenDayIncrease * 100 * 10) / 10
   const drillDownValue = Number.isNaN(sevenDayIncreasePercent)
     ? 'N/A'
     : sevenDayIncreasePercent
   let drillDownSuffix = Number.isNaN(sevenDayIncreasePercent) ? '' : '%'
   const definitionContext = useContext(DefinitionPanelContext)
+  const annotationContext = useContext(AnnotationPanelContext)
   if (drillDownValue !== 'N/A') {
     drillDownSuffix += drillDownValue > 0 ? '+' : '-'
   }
@@ -51,6 +57,18 @@ const CasesCard = ({
             }}
             label="Total cases"
           />
+          <AnnotationButton field="Positive">
+            <DefinitionLink
+              title="Annotation"
+              onDefinitionsToggle={() => {
+                annotationContext.setCardAnnotations({
+                  fields: annotationFields,
+                  highlight: 'Positive',
+                })
+              }}
+              label="Annotation for total cases"
+            />
+          </AnnotationButton>
         </Statistic>
         {confirmedCases && (
           <Statistic title="Confirmed cases" value={confirmedCases} subelement>
