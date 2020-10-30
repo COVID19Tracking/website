@@ -5,6 +5,7 @@ exports[`Components : Pages : Blog : Image Content Block : Keep Size, Full Width
   className="image fullWidthMobile keepSize"
 >
   <img
+    aria-hidden={true}
     loading="lazy"
   />
 </div>
