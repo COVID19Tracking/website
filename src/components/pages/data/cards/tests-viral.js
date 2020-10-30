@@ -1,7 +1,11 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 import { Card, CardBody } from '~components/common/card'
-import { DefinitionPanelContext } from './definitions-panel'
+import {
+  DefinitionPanelContext,
+  AnnotationPanelContext,
+  AnnotationButton,
+} from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
 const TestsViralCard = ({
@@ -17,6 +21,13 @@ const TestsViralCard = ({
     'totalTestsViral',
     'totalTestsPeopleViral',
   ]
+  const annotationFields = [
+    'Total Tests (PCR)',
+    'Total Test Encounters (PCR)',
+    'Total PCR Tests (People)',
+  ]
+  const annotationContext = useContext(AnnotationPanelContext)
+
   return (
     <Card
       title="Viral (PCR) tests"
@@ -70,6 +81,18 @@ const TestsViralCard = ({
                 }}
                 label="Total tests (test encounters)"
               />
+              <AnnotationButton field="Total Test Encounters (PCR)">
+                <DefinitionLink
+                  title="Annotation"
+                  onDefinitionsToggle={() => {
+                    annotationContext.setCardAnnotations({
+                      fields: annotationFields,
+                      highlight: 'Total Test Encounters (PCR)',
+                    })
+                  }}
+                  label="Annotation for total cases"
+                />
+              </AnnotationButton>
             </Statistic>
             <Statistic
               title={
@@ -90,6 +113,18 @@ const TestsViralCard = ({
                 }}
                 label="Total tests (specimens)"
               />
+              <AnnotationButton field="Total Tests (PCR)">
+                <DefinitionLink
+                  title="Annotation"
+                  onDefinitionsToggle={() => {
+                    annotationContext.setCardAnnotations({
+                      fields: annotationFields,
+                      highlight: 'Total Tests (PCR)',
+                    })
+                  }}
+                  label="Annotation for Total Tests (PCR)"
+                />
+              </AnnotationButton>
             </Statistic>
             <Statistic
               title={
@@ -110,6 +145,18 @@ const TestsViralCard = ({
                 }}
                 label="Total tests (people)"
               />
+              <AnnotationButton field="Total PCR Tests (People)">
+                <DefinitionLink
+                  title="Annotation"
+                  onDefinitionsToggle={() => {
+                    annotationContext.setCardAnnotations({
+                      fields: annotationFields,
+                      highlight: 'Total PCR Tests (People)',
+                    })
+                  }}
+                  label="Annotation for Total PCR Tests (People)"
+                />
+              </AnnotationButton>
             </Statistic>
           </>
         )}
