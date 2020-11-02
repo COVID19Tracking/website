@@ -193,6 +193,7 @@ export const query = graphql`
         contentful_id
         image {
           title
+          description
           fluid(maxWidth: 2000, sizes: "4") {
             aspectRatio
             sizes

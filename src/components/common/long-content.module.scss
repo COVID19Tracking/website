@@ -7,4 +7,10 @@
     margin-top: 0;
     margin-bottom: spacer(24);
   }
+  code {
+    background: $color-slate-200;
+    @include padding(4, top bottom);
+    @include padding(8, right left);
+    border-radius: 4px;
+  }
 }
