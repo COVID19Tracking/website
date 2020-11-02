@@ -8,7 +8,6 @@ exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
 
   const tweets = await fs.readJson(files.tweets)
   const pinnedTweets = await fs.readJson(files.pinnedTweets)
-  const states = await fs.readJson(files.states)
 
   tweets.forEach(tweet => {
     tweet.is_pinned =
@@ -22,13 +21,6 @@ exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
       'EEE MMM d HH:mm:ss ZZZ yyyy',
     ).toJSDate()
 
-    tweet.states = states
-      .filter(
-        ({ state, name }) =>
-          tweet.full_text.indexOf(name) > -1 ||
-          tweet.full_text.indexOf(` ${state.toUpperCase()}`) > -1,
-      )
-      .map(state => state.state)
     const digest = crypto
       .createHash('md5')
       .update(JSON.stringify(tweet))
