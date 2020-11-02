@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react'
 import { DateTime } from 'luxon'
 import { Row, Col } from '~components/common/grid'
