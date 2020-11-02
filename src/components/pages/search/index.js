@@ -54,7 +54,7 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
   let searchEvent
 
   return (
-    <>
+    <div className={searchStyle.wrapper}>
       <div className={classnames(headerSearchStyle.search, searchStyle.search)}>
         <SearchAutocomplete
           ref={popoverRef}
@@ -131,7 +131,7 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
       ) : (
         <SearchNoResults query={query} />
       )}
-    </>
+    </div>
   )
 })
 

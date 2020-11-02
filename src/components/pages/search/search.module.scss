@@ -10,3 +10,9 @@
     margin-bottom: 48px;
   }
 }
+
+.wrapper {
+  @include row();
+  @include col(4 6 10);
+  margin: 0 auto;
+}
