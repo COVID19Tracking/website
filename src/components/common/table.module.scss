@@ -98,6 +98,9 @@
       font-weight: normal;
       text-align: right;
       padding: spacer(16) spacer(8);
+      &.align-left {
+        text-align: left;
+      }
     }
     &.wide {
       min-width: 13em;

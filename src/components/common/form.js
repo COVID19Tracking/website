@@ -4,16 +4,22 @@ import formStyles from './form.module.scss'
 import DetailText from '~components/common/detail-text'
 
 const Form = props => {
-  const { children } = props
+  const { children, noMargin } = props
   return (
-    <form className={formStyles.form} {...props}>
+    <form
+      className={classnames(formStyles.form, noMargin && formStyles.noMargin)}
+      {...props}
+    >
       {children}
     </form>
   )
 }
 
-const FormLabel = ({ children, htmlFor, isRequired }) => (
-  <label className={formStyles.label} htmlFor={htmlFor}>
+const FormLabel = ({ children, htmlFor, isRequired, isHidden }) => (
+  <label
+    className={classnames(formStyles.label, isHidden && 'a11y-only')}
+    htmlFor={htmlFor}
+  >
     {children}
     {isRequired ? (
       <span className={formStyles.required}>required</span>
@@ -98,15 +104,17 @@ const Input = ({
   type,
   id,
   name,
+  hideLabel,
   isRequired,
   detailText,
+  placeholder,
   onChange,
   maxLength,
   className,
   defaultValue,
 }) => (
   <>
-    <FormLabel htmlFor={id} isRequired={isRequired}>
+    <FormLabel htmlFor={id} isRequired={isRequired} isHidden={hideLabel}>
       {label}
     </FormLabel>
     <input
@@ -115,6 +123,7 @@ const Input = ({
       type={type}
       aria-required={isRequired}
       onChange={onChange}
+      placeholder={placeholder}
       maxLength={maxLength}
       defaultValue={defaultValue}
       className={classnames(

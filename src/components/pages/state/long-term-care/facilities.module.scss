@@ -1,0 +1,21 @@
+.link-button {
+  @include remove-button-style();
+  color: $color-link;
+  text-decoration: underline;
+}
+
+.search-button {
+  @include margin(4, top);
+}
+
+.details {
+  h3 {
+    margin-top: 0;
+    .category {
+      display: block;
+      color: $color-slate-600;
+      @include type-size(300);
+      font-weight: normal;
+    }
+  }
+}
