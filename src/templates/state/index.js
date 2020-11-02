@@ -96,29 +96,15 @@ export const query = graphql`
     }
     allCovidUsDaily {
       nodes {
-        totalTestResults
-        totalTestResultsIncrease
-        positive
-        positiveIncrease
-        pending
-        negative
-        hospitalized
-        hospitalizedIncrease
-        hospitalizedCurrently
-        death
-        deathIncrease
         date(formatString: "YYYYMMDD")
         childPopulation {
           deathIncrease {
             percent
           }
-          hospitalizedCurrently {
-            percent
-          }
           positiveIncrease {
             percent
           }
-          totalTestResultsIncrease {
+          hospitalizedCurrently {
             percent
           }
         }
@@ -131,7 +117,7 @@ export const query = graphql`
       negative
       lastUpdateEt
       dateModified(formatString: "MMM D, YYYY h:mm a")
-      pending
+
       hospitalizedCurrently
       hospitalizedCumulative
       inIcuCurrently
@@ -144,7 +130,6 @@ export const query = graphql`
       deathConfirmed
       totalTestResults
       dataQualityGrade
-      posNeg
       probableCases
       positiveCasesViral
       positiveTestsViral
@@ -160,20 +145,12 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
     ) {
       nodes {
-        totalTestResults
-        totalTestEncountersViral
         totalTestEncountersViralIncrease
         totalTestsViralIncrease
         totalTestsPeopleViralIncrease
         totalTestResultsIncrease
-        positive
         positiveIncrease
-        pending
-        negative
-        hospitalized
         hospitalizedCurrently
-        hospitalizedIncrease
-        death
         deathIncrease
         date(formatString: "YYYYMMDD")
         childPopulation {
