@@ -2,6 +2,13 @@
   width: 100%;
   input {
     width: 100%;
+    // set the default outer color to grey
+    box-shadow: 0 0 0 2px $color-slate-700;
+    &:focus,
+    &:active {
+      // ...and make it honey when focused
+      box-shadow: 0 0 0 2px $color-honey-400;
+    }
   }
 }
 
