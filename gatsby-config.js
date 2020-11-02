@@ -241,6 +241,7 @@ const gatsbyConfig = {
         files: {
           tweets: `${__dirname}/_data/tweets.json`,
           pinnedTweets: `${__dirname}/_data/pinned_tweets.json`,
+          states: `${__dirname}/_api/v1/states/info.json`,
         },
       },
     },
