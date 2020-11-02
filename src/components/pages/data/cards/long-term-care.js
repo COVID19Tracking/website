@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 import { Card, CardBody, CardNote } from '~components/common/card'
-import { Statistic, DrillDown } from '~components/common/statistic'
+import {
+  Statistic,
+  DrillDown,
+  DefinitionLink,
+} from '~components/common/statistic'
+import { DefinitionPanelContext } from './definitions-panel'
 import { FormatDate, formatDateToString } from '~components/utils/format'
 
 export default ({ data, stateDeaths, stateSlug }) => {
   const { current, last, facilities } = data
-
+  const definitionContext = useContext(DefinitionPanelContext)
+  const definitionFields = ['ltc_cases', 'ltc_deaths', 'ltc_facilities']
   const getChange = field => {
     if (!current[field] || !last[field]) {
       return 'N/A'
@@ -33,9 +39,39 @@ export default ({ data, stateDeaths, stateSlug }) => {
       <CardBody>
         {data ? (
           <>
-            <Statistic title="Total cases" value={current.total_cases} />
-            <Statistic title="Total deaths" value={current.total_death} />
-            <Statistic title="Facilities tracked" value={facilities} />
+            <Statistic title="Total cases" value={current.total_cases}>
+              <DefinitionLink
+                onDefinitionsToggle={() => {
+                  definitionContext({
+                    fields: definitionFields,
+                    highlight: 'ltc_cases',
+                  })
+                }}
+                label="Long-term care  cases"
+              />
+            </Statistic>
+            <Statistic title="Total deaths" value={current.total_death}>
+              <DefinitionLink
+                onDefinitionsToggle={() => {
+                  definitionContext({
+                    fields: definitionFields,
+                    highlight: 'ltc_deaths',
+                  })
+                }}
+                label="Long-term care deaths"
+              />
+            </Statistic>
+            <Statistic title="Facilities tracked" value={facilities}>
+              <DefinitionLink
+                onDefinitionsToggle={() => {
+                  definitionContext({
+                    fields: definitionFields,
+                    highlight: 'ltc_facilities',
+                  })
+                }}
+                label="Long-term care facilities"
+              />
+            </Statistic>
 
             <DrillDown
               label={

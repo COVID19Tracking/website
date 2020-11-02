@@ -31,7 +31,11 @@ export default ({ pageContext, path, data }) => {
             overview={data.aggregate.nodes[0]}
           />
           <LongTermCareBarChart data={data.cumulative.nodes} />
-          <LongTermCareAlertNote>An alert note.</LongTermCareAlertNote>
+          {data.covidLtcNotes.alerts && (
+            <LongTermCareAlertNote>
+              {data.covidLtcNotes.alerts}
+            </LongTermCareAlertNote>
+          )}
           <h2 id="summary">Summary</h2>
           <LongTermCareSummaryTable
             aggregate={data.aggregate.nodes[0]}
@@ -166,6 +170,7 @@ export const query = graphql`
     }
     covidLtcNotes(state: { eq: $state }) {
       notes
+      alerts
     }
     allCovidLtcFacilities(
       sort: { fields: date, order: DESC }
