@@ -1,5 +1,7 @@
 .search {
   width: 100%;
+  // positioned behind the results from the header search bar
+  z-index: -1;
   input {
     width: 100%;
     // set the default outer color to grey
