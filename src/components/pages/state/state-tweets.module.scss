@@ -1,0 +1,19 @@
+.twitter-handle {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  margin-top: 0;
+  @include margin(32, bottom);
+  @include type-size(300);
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  img {
+    display: inline-block;
+    width: 35px;
+    @include margin(16, right);
+  }
+}

@@ -20,7 +20,10 @@ const RelatedPosts = ({ blogPost }) => {
     // 2. (if no explicit related posts) Use recent posts from the
     //    post's first category if there are at least 3 others
     footerPosts = categories[0].blog_post.filter(post => post.publishDate)
-    relatedTitle = `More “${categories[0].name}” posts`
+    relatedTitle =
+      categories[0].name === 'Weekly Update'
+        ? 'More Weekly Updates'
+        : `More “${categories[0].name}” posts`
   } else {
     // 3. (if no category) Display recent posts
     const recentPosts = useStaticQuery(graphql`

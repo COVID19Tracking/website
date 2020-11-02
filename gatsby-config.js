@@ -46,7 +46,7 @@ const gatsbyConfig = {
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    `gatsby-plugin-svgr`,
+    'gatsby-plugin-svgr',
     {
       resolve: 'gatsby-plugin-sass',
       options: {
@@ -232,6 +232,16 @@ const gatsbyConfig = {
         type: 'Counties',
         counties: `${__dirname}/_data/nyt_counties.json`,
         demographics: `${__dirname}/_data/census_demographics_counties.json`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-tweets',
+      options: {
+        type: 'Tweets',
+        files: {
+          tweets: `${__dirname}/_data/tweets.json`,
+          pinnedTweets: `${__dirname}/_data/pinned_tweets.json`,
+        },
       },
     },
     {

@@ -3,10 +3,15 @@ import marked from 'marked'
 import { Link } from 'gatsby'
 import relatedPostStyles from './related-posts-block.module.scss'
 
-const RelatedPostsContentBlock = ({ headline, lede, references }) => (
+const RelatedPostsContentBlock = ({ headline, subtitle, references }) => (
   <aside className={relatedPostStyles.pullout}>
     <h3 className={relatedPostStyles.headline}>{headline}</h3>
-    {lede && <div dangerouslySetInnerHTML={{ __html: marked(lede) }} />}
+    {subtitle && (
+      <div
+        className={relatedPostStyles.subtitle}
+        dangerouslySetInnerHTML={{ __html: marked(subtitle) }}
+      />
+    )}
     <ul>
       {references.map(reference => (
         <li key={reference.fields.slug['en-US']}>
