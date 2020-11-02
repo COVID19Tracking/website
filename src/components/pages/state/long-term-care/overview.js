@@ -30,16 +30,6 @@ const LongTermCareOverview = ({ facilities, overview }) => {
     }
   `)
 
-  let totalDeath = 0
-  let totalCases = 0
-  Object.keys(overview).forEach(key => {
-    if (key.search(/posres|posstaff/) > -1) {
-      totalCases += overview[key]
-    }
-    if (key.search(/deathres|deathstaff/) > -1) {
-      totalDeath += overview[key]
-    }
-  })
   return (
     <>
       {highlightedDefinition && (
@@ -53,7 +43,7 @@ const LongTermCareOverview = ({ facilities, overview }) => {
         <Col width={[4, 6, 3]}>
           <Total
             label="Total cases"
-            number={<FormatNumber number={totalCases} />}
+            number={<FormatNumber number={overview.total_cases} />}
           >
             <button
               className={overviewStyles.definitionButton}
@@ -70,7 +60,7 @@ const LongTermCareOverview = ({ facilities, overview }) => {
         <Col width={[4, 6, 3]}>
           <Total
             label="Total deaths"
-            number={<FormatNumber number={totalDeath} />}
+            number={<FormatNumber number={overview.total_death} />}
           >
             <button
               className={overviewStyles.definitionButton}
