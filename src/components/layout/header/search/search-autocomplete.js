@@ -20,7 +20,10 @@ import {
 import styles from './search-autocomplete.module.scss'
 
 export default forwardRef(
-  ({ mobile, visible, onClick, hideAutocomplete }, popoverRef) => {
+  (
+    { mobile, visible, onClick, hideAutocomplete, onChangeInput },
+    popoverRef,
+  ) => {
     const [searchState, searchDispatch] = useSearch()
     const [showResults, setShowResults] = useState(true)
     const searchInputRef = useRef()
@@ -110,9 +113,12 @@ export default forwardRef(
               [styles.searchInputFocused]: autocompleteHasFocus,
             })}
             autoComplete="off"
-            onChange={event => {
-              setQuery(event.currentTarget.value)
-            }}
+            onChange={
+              onChangeInput ||
+              (event => {
+                setQuery(event.currentTarget.value)
+              })
+            }
             onKeyDown={event => {
               if (event.key === 'Enter') {
                 goToResultOrSearch(event.target.value)

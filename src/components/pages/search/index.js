@@ -1,11 +1,16 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect } from 'react'
+import classnames from 'classnames'
+import { navigate } from 'gatsby'
 import NProgress from 'nprogress'
 import withSearch from '~components/utils/with-search'
 import SearchNoResults from '~components/search/search-no-results'
 import SearchResultSection from '~components/search/search-result-section'
 import searchStyle from './search.module.scss'
-import searchIcon from '~images/icons/search-inverted.svg'
+
+import SearchAutocomplete from '~components/layout/header/search/search-autocomplete'
+import SearchButton from '~components/layout/header/search/search-button'
+import headerSearchStyle from '~components/layout/header/search/search.module.scss'
 
 import {
   types,
@@ -15,7 +20,7 @@ import {
   getSanitizedSlug,
 } from '~context/search-context'
 
-const Search = withSearch(({ navigate, search }) => {
+const Search = withSearch(({ mobile, popoverRef, search }) => {
   const [searchState, searchDispatch] = useSearch()
   const { query, results } = searchState
 
@@ -28,6 +33,10 @@ const Search = withSearch(({ navigate, search }) => {
     if (search.q) {
       setQuery(search.q)
     }
+    searchDispatch({
+      type: 'setAutocompleteFocus',
+      hasFocus: true, // always focused
+    })
   }, [])
 
   useEffect(() => {
@@ -46,36 +55,12 @@ const Search = withSearch(({ navigate, search }) => {
 
   return (
     <>
-      <form
-        className={searchStyle.searchForm}
-        onSubmit={event => {
-          event.preventDefault()
-        }}
-      >
-        <button
-          type="button"
-          className={searchStyle.searchSubmit}
-          aria-label="Submit search"
-          onClick={() => query && navigate(`/search?q=${query}`)}
-        >
-          <img
-            src={searchIcon}
-            className={searchStyle.searchIcon}
-            alt=""
-            aria-hidden="true"
-          />
-        </button>
-        {/* eslint-disable jsx-a11y/label-has-associated-control */}
-        <label htmlFor="search-page-input" className={searchStyle.label}>
-          Search
-        </label>
-        <input
-          type="search"
-          id="search-page-input"
-          name="search"
-          autoComplete="off"
-          defaultValue={query || ''}
-          onChange={event => {
+      <div className={classnames(headerSearchStyle.search, searchStyle.search)}>
+        <SearchAutocomplete
+          ref={popoverRef}
+          mobile={mobile}
+          visible
+          onChangeInput={event => {
             clearTimeout(searchEvent)
             const { value } = event.currentTarget
             searchEvent = setTimeout(() => {
@@ -84,8 +69,9 @@ const Search = withSearch(({ navigate, search }) => {
             }, 300)
           }}
         />
-        {/* eslint-enable jsx-a11y/label-has-associated-control */}
-      </form>
+
+        <SearchButton onClick={() => query && navigate(`/search?q=${query}`)} />
+      </div>
       {totalHits > 0 ? (
         <div className={searchStyle.searchResults}>
           <h2>
