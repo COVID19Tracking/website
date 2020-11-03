@@ -1,7 +1,7 @@
 .search {
   width: 100%;
   // positioned behind the results from the header search bar
-  z-index: -1;
+  z-index: 0;
   input {
     width: 100%;
     // set the default outer color to grey
@@ -46,20 +46,27 @@
     margin-bottom: spacer(64);
 
     .option {
-      padding: 13px 0; // ignore-style-rule
-      width: 100px;
-      border-radius: 4px;
-      background-color: $color-plum-100;
-      margin-right: spacer(32);
+      label {
+        padding: 13px 0; // ignore-style-rule
+        width: 100px;
+        border-radius: 4px;
+        background-color: $color-plum-100;
+        margin-right: spacer(32);
+        cursor: pointer;
 
-      text-align: center;
-      color: $color-plum-700;
-      font-weight: bold;
-      line-height: 1;
+        display: block;
+
+        text-align: center;
+        color: $color-plum-700;
+        font-weight: bold;
+        line-height: 1;
+      }
 
       &.checked {
-        color: white;
-        background-color: $color-plum-700;
+        label {
+          color: white;
+          background-color: $color-plum-700;
+        }
       }
     }
   }
