@@ -82,120 +82,140 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
     return id === currentFilterOptionID
   }
 
-  // todo filter by the currentFilterOption
+  const isDisplaySection = sectionTypeID => {
+    if (currentFilterOptionID === sectionTypeID) {
+      return true
+    }
+    if (currentFilterOptionID === 'all') {
+      return true
+    }
+    return false
+  }
 
   return (
-    <div className={searchStyle.wrapper}>
-      <div className={classnames(headerSearchStyle.search, searchStyle.search)}>
-        <SearchAutocomplete
-          ref={popoverRef}
-          mobile={mobile}
-          visible
-          onChangeInput={event => {
-            clearTimeout(searchEvent)
-            const { value } = event.currentTarget
-            searchEvent = setTimeout(() => {
-              setQuery(value)
-              window.history.pushState('', '', `?q=${value}`)
-            }, 300)
-          }}
-        />
+    <>
+      <div className={searchStyle.wrapper}>
+        <div
+          className={classnames(headerSearchStyle.search, searchStyle.search)}
+        >
+          <SearchAutocomplete
+            ref={popoverRef}
+            mobile={mobile}
+            visible
+            onChangeInput={event => {
+              clearTimeout(searchEvent)
+              const { value } = event.currentTarget
+              searchEvent = setTimeout(() => {
+                setQuery(value)
+                window.history.pushState('', '', `?q=${value}`)
+              }, 300)
+            }}
+          />
 
-        <SearchButton onClick={() => query && navigate(`/search?q=${query}`)} />
-      </div>
-      {totalHits > 0 ? (
-        <>
-          <span className={searchStyle.resultsLabel}>
-            <strong>{totalHits}</strong>{' '}
-            {totalHits === 1 ? 'result' : 'results'} found
-          </span>
-          <div className={searchStyle.filterButtons}>
-            <fieldset>
-              <legend>Filter search results</legend>
-              <div className={searchStyle.optionsContainer}>
-                {filterOptions.map(option => (
-                  <div
-                    key={option.id}
-                    className={classnames(
-                      searchStyle.option,
-                      isChecked(option.id) && searchStyle.checked,
-                    )}
-                  >
-                    <input
-                      type="radio"
-                      name="result-filter"
-                      id={option.id}
-                      value={option.id}
-                      checked={isChecked(option.id)}
-                      onChange={event => {
-                        setCurrentFilterOptionID(event.target.value)
+          <SearchButton
+            onClick={() => query && navigate(`/search?q=${query}`)}
+          />
+        </div>
+        {totalHits > 0 ? (
+          <>
+            <span className={searchStyle.resultsLabel}>
+              <strong>{totalHits}</strong>{' '}
+              {totalHits === 1 ? 'result' : 'results'} found
+            </span>
+            <div className={searchStyle.filterButtons}>
+              <fieldset>
+                <legend>Filter search results</legend>
+                <div className={searchStyle.optionsContainer}>
+                  {filterOptions.map(option => (
+                    <div
+                      key={option.id}
+                      className={classnames(
+                        searchStyle.option,
+                        isChecked(option.id) && searchStyle.checked,
+                      )}
+                    >
+                      <input
+                        type="radio"
+                        name="result-filter"
+                        id={option.id}
+                        value={option.id}
+                        checked={isChecked(option.id)}
+                        onChange={event => {
+                          setCurrentFilterOptionID(event.target.value)
+                        }}
+                      />
+                      <label htmlFor={option.id}>{option.name}</label>
+                    </div>
+                  ))}
+                </div>
+              </fieldset>
+            </div>
+            <div className={searchStyle.searchResults}>
+              {/* State results */}
+              {isDisplaySection('states') && (
+                <SearchResultSection
+                  query={query}
+                  results={results[types.STATE]}
+                  type="State"
+                  itemKey={state => state.state}
+                  itemTitle={state => state.name}
+                  itemUrl={state => getSanitizedSlug(types.STATE, state)}
+                  itemPublishDate={post => post.updatedAt}
+                  itemContent={post => (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: getHighlightResultOrExcerpt('state', post),
                       }}
                     />
-                    <label htmlFor={option.id}>{option.name}</label>
-                  </div>
-                ))}
-              </div>
-            </fieldset>
-          </div>
-          <div className={searchStyle.searchResults}>
-            {/* State results */}
-            <SearchResultSection
-              query={query}
-              results={results[types.STATE]}
-              type="State"
-              itemKey={state => state.state}
-              itemTitle={state => state.name}
-              itemUrl={state => getSanitizedSlug(types.STATE, state)}
-              itemPublishDate={post => post.updatedAt}
-              itemContent={post => (
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: getHighlightResultOrExcerpt('state', post),
-                  }}
+                  )}
                 />
               )}
-            />
 
-            {/* Blog post results */}
-            <SearchResultSection
-              query={query}
-              results={results[types.BLOG_POST]}
-              type="Blog post"
-              itemKey={post => post.objectID}
-              itemTitle={post => post.title}
-              itemUrl={post => getSanitizedSlug(types.BLOG_POST, post)}
-              itemPublishDate={post => post.updatedAt}
-              itemAuthor={post => post.author_name}
-              itemContent={post => (
-                <>
-                  <p>{post.lede}</p>
-                </>
-              )}
-            />
-
-            {/* Pages results */}
-            <SearchResultSection
-              query={query}
-              results={results[types.PAGE]}
-              type="Page"
-              itemKey={page => page.objectID}
-              itemTitle={page => page.title}
-              itemUrl={page => getSanitizedSlug(types.PAGE, page)}
-              itemPublishDate={page => page.updatedAt}
-              itemContent={page => (
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: getHighlightResultOrExcerpt('page', page),
-                  }}
+              {/* Blog post results */}
+              {isDisplaySection('blog-posts') && (
+                <SearchResultSection
+                  query={query}
+                  results={results[types.BLOG_POST]}
+                  type="Blog post"
+                  itemKey={post => post.objectID}
+                  itemTitle={post => post.title}
+                  itemUrl={post => getSanitizedSlug(types.BLOG_POST, post)}
+                  itemPublishDate={post => post.updatedAt}
+                  itemAuthor={post => post.author_name}
+                  itemContent={post => (
+                    <>
+                      <p>{post.lede}</p>
+                    </>
+                  )}
                 />
               )}
-            />
-          </div>
-        </>
-      ) : (
-        <SearchNoResults query={query} />
-      )}
-    </div>
+
+              {/* Pages results */}
+              {isDisplaySection('pages') && (
+                <SearchResultSection
+                  query={query}
+                  results={results[types.PAGE]}
+                  type="Page"
+                  itemKey={page => page.objectID}
+                  itemTitle={page => page.title}
+                  itemUrl={page => getSanitizedSlug(types.PAGE, page)}
+                  itemPublishDate={page => page.updatedAt}
+                  itemContent={page => (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: getHighlightResultOrExcerpt('page', page),
+                      }}
+                    />
+                  )}
+                />
+              )}
+            </div>
+          </>
+        ) : (
+          <SearchNoResults query={query} />
+        )}
+      </div>
+    </>
   )
 })
 
