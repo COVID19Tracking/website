@@ -78,6 +78,10 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
     filterOptions[0].id,
   ) // make "All" the default
 
+  const isChecked = id => {
+    return id === currentFilterOptionID
+  }
+
   // todo filter by the currentFilterOption
 
   return (
@@ -102,15 +106,21 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
       <div className={searchStyle.filterButtons}>
         <fieldset>
           <legend>Filter search results</legend>
-          <div>
+          <div className={searchStyle.optionsContainer}>
             {filterOptions.map(option => (
-              <div key={option.id}>
+              <div
+                key={option.id}
+                className={classnames(
+                  searchStyle.option,
+                  isChecked(option.id) && searchStyle.checked,
+                )}
+              >
                 <input
                   type="radio"
                   name="result-filter"
                   id={option.id}
                   value={option.id}
-                  checked={option.id === currentFilterOptionID}
+                  checked={isChecked(option.id)}
                   onChange={event => {
                     setCurrentFilterOptionID(event.target.value)
                   }}

@@ -30,3 +30,41 @@
   @include col(4 6 10);
   margin: 0 auto;
 }
+
+.filter-buttons {
+  fieldset {
+    border: none;
+    padding: 0;
+
+    legend {
+      display: none;
+    }
+  }
+
+  .options-container {
+    display: flex;
+    margin-top: spacer(16);
+
+    .option {
+      padding: 13px 0; // ignore-style-rule
+      width: 100px;
+      border-radius: 4px;
+      background-color: $color-plum-100;
+      margin-right: spacer(32);
+
+      text-align: center;
+      color: $color-plum-700;
+      font-weight: bold;
+      line-height: 1;
+
+      &.checked {
+        color: white;
+        background-color: $color-plum-700;
+      }
+    }
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+}
