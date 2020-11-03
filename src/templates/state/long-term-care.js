@@ -193,6 +193,8 @@ export const query = graphql`
           city
           date
           county
+          outbreak_resident_positives
+          outbreak_resident_deaths
           resident_deaths
           resident_positives
           ctp_facility_category
