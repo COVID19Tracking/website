@@ -15,7 +15,10 @@ module.exports = (graphql, reporter) => {
               }
             }
           }
-          allCounties(filter: { demographics: { total: { gt: 0 } } }) {
+          allCounties(
+            filter: { demographics: { total: { gt: 0 } } }
+            sort: { fields: [state, name] }
+          ) {
             nodes {
               name
               state
