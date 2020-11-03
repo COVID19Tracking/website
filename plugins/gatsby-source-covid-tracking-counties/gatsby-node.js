@@ -10,13 +10,19 @@ exports.sourceNodes = ({ actions, createNodeId, reporter }, configOptions) => {
     counties.forEach(county => {
       const fipsKey =
         !county.fips && county.county === 'New York City' ? 'nyc' : county.fips
+      if (!fipsKey) {
+        return
+      }
       if (typeof countyResults[fipsKey] === 'undefined') {
         countyResults[fipsKey] = {
           name: county.county,
           state: county.state,
           fips: fipsKey,
           current: county,
-          demographics: demographics.find(element => element.fips === fipsKey),
+          demographics: demographics.find(
+            element =>
+              element.fips.replace(/^0+/, '') === fipsKey.replace(/^0+/, ''),
+          ),
         }
       }
     })
