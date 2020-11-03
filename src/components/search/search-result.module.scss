@@ -1,12 +1,25 @@
 .result {
   margin-bottom: spacer(24);
 
+  .type {
+    color: $color-plum-700;
+    font-weight: bold;
+    @include type-size(100);
+  }
+
   h3 {
     @include type-size(400);
     font-weight: bold;
-    margin-bottom: spacer(24);
+    font-size: 30px; // todo fix this
+    margin-bottom: spacer(8);
     margin-top: 0;
+    line-height: 1.25;
+
+    a {
+      text-decoration: none;
+    }
   }
+
   p {
     margin-bottom: spacer(16);
 
@@ -15,11 +28,15 @@
     }
   }
 
-  .publish-date {
-    font-weight: bold;
+  .date {
+    color: $color-slate-700;
+  }
+
+  .children-container {
+    color: $text;
   }
 }
 
-.resultDetails {
+.result-details {
   margin-top: spacer(16);
 }
