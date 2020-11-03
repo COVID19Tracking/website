@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import DetailText from '~components/common/detail-text'
 import resultStyle from './search-result.module.scss'
-
 
 // todo link authors to their websites, etc.
 // todo break author names at ', ' and pass to list component
@@ -23,14 +21,10 @@ const SearchResult = ({
     <div className={resultStyle.childrenContainer}>{children}</div>
     {(publishDate || author) && (
       <div className={resultStyle.resultDetails}>
-        {author && (
-          <p className={resultStyle.author}>
-            By {author}
-          </p>
-        )}
+        {author && <p className={resultStyle.author}>By {author}</p>}
         {publishDate && (
           <p className={resultStyle.date}>
-            {type == "Blog post" ? "Published" : "Updated"} on {publishDate}
+            {type === 'Blog post' ? 'Published' : 'Updated'} on {publishDate}
           </p>
         )}
       </div>

@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-syntax */
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { navigate } from 'gatsby'
 import NProgress from 'nprogress'
@@ -55,6 +55,31 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
 
   // todo stop from freezing up when pushing enter
 
+  const filterOptions = [
+    {
+      id: 'all',
+      name: 'All', // this is the default
+    },
+    {
+      id: 'blog-posts',
+      name: 'Blog posts',
+    },
+    {
+      id: 'pages',
+      name: 'Pages',
+    },
+    {
+      id: 'states',
+      name: 'States',
+    },
+  ]
+
+  const [currentFilterOptionID, setCurrentFilterOptionID] = useState(
+    filterOptions[0].id,
+  ) // make "All" the default
+
+  // todo filter by the currentFilterOption
+
   return (
     <div className={searchStyle.wrapper}>
       <div className={classnames(headerSearchStyle.search, searchStyle.search)}>
@@ -74,10 +99,33 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
 
         <SearchButton onClick={() => query && navigate(`/search?q=${query}`)} />
       </div>
+      <div className={searchStyle.filterButtons}>
+        <fieldset>
+          <legend>Filter search results</legend>
+          <div>
+            {filterOptions.map(option => (
+              <div key={option.id}>
+                <input
+                  type="radio"
+                  name="result-filter"
+                  id={option.id}
+                  value={option.id}
+                  checked={option.id === currentFilterOptionID}
+                  onChange={event => {
+                    setCurrentFilterOptionID(event.target.value)
+                  }}
+                />
+                <label htmlFor={option.id}>{option.name}</label>
+              </div>
+            ))}
+          </div>
+        </fieldset>
+      </div>
       {totalHits > 0 ? (
         <>
           <span className={searchStyle.resultsLabel}>
-            <strong>{totalHits}</strong> {totalHits === 1 ? 'result' : 'results'} found
+            <strong>{totalHits}</strong>{' '}
+            {totalHits === 1 ? 'result' : 'results'} found
           </span>
           <div className={searchStyle.searchResults}>
             {/* State results */}
