@@ -59,18 +59,22 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
     {
       id: 'all',
       name: 'All', // this is the default
+      deactivated: false,
     },
     {
       id: 'blog-posts',
       name: 'Blog posts',
+      deactivated: results[types.BLOG_POST].nbHits === 0,
     },
     {
       id: 'pages',
       name: 'Pages',
+      deactivated: results[types.PAGE].nbHits === 0,
     },
     {
       id: 'states',
       name: 'States',
+      deactivated: results[types.STATE].nbHits === 0,
     },
   ]
 
@@ -133,6 +137,7 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
                       className={classnames(
                         searchStyle.option,
                         isChecked(option.id) && searchStyle.checked,
+                        option.deactivated && searchStyle.deactivated,
                       )}
                     >
                       <input

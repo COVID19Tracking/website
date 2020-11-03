@@ -69,6 +69,14 @@
           background-color: $color-plum-700;
         }
       }
+
+      &.deactivated {
+        label {
+          cursor: not-allowed;
+          color: $color-plum-400;
+          background-color: $color-plum-50;
+        }
+      }
     }
   }
 
