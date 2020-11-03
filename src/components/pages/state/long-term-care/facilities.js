@@ -150,7 +150,12 @@ const LongTermCareFacilities = ({ facilities }) => {
       .map(group => group.nodes[0])
       .sort((a, b) => {
         if (
-          ['resident_positives', 'resident_deaths'].indexOf(sort.field) > -1
+          [
+            'resident_positives',
+            'resident_deaths',
+            'outbreak_resident_positives',
+            'outbreak_resident_deaths',
+          ].indexOf(sort.field) > -1
         ) {
           if (getNumber(a[sort.field]) === getNumber(b[sort.field])) {
             return 0
@@ -270,6 +275,24 @@ const LongTermCareFacilities = ({ facilities }) => {
                 >
                   Resident deaths
                 </Th>
+
+                <Th
+                  header
+                  isFirst
+                  sortable
+                  onClick={() => handleSortClick('outbreak_resident_positives')}
+                  sortDirection={sortDirection('outbreak_resident_positives')}
+                >
+                  Outbreak Resident positives
+                </Th>
+                <Th
+                  header
+                  sortable
+                  onClick={() => handleSortClick('outbreak_resident_deaths')}
+                  sortDirection={sortDirection('outbreak_resident_deaths')}
+                >
+                  Outbreak Resident deaths
+                </Th>
               </tr>
             </thead>
             <tbody>
@@ -300,6 +323,8 @@ const LongTermCareFacilities = ({ facilities }) => {
                     <Td alignLeft>{facility.ctp_facility_category}</Td>
                     <Td isFirst>{facility.resident_positives}</Td>
                     <Td>{facility.resident_deaths}</Td>
+                    <Td isFirst>{facility.outbreak_resident_positives}</Td>
+                    <Td>{facility.outbreak_resident_deaths}</Td>
                   </tr>
                 )
               })}

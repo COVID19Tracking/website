@@ -1,6 +1,7 @@
 .link-button {
   @include remove-button-style();
   color: $color-link;
+  text-align: left;
   text-decoration: underline;
 }
 
