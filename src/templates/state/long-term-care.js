@@ -27,8 +27,8 @@ export default ({ pageContext, path, data }) => {
             state={state.state}
             stateName={state.name}
             grade={data.covidState.dataQualityGrade}
-            facilities={data.allCovidLtcFacilities.group.length}
-            overview={data.aggregate.nodes[0]}
+            facilities={data.covidStateInfo.childLtc.facilities}
+            overview={data.covidStateInfo.childLtc.current}
           />
           <LongTermCareBarChart data={data.cumulative.nodes} />
           {data.covidLtcNotes.alerts && (
@@ -65,6 +65,16 @@ export const query = graphql`
   query($state: String!) {
     covidState(state: { eq: $state }) {
       dataQualityGrade
+    }
+    covidStateInfo(state: { eq: $state }) {
+      childLtc {
+        facilities
+        current {
+          date
+          total_cases
+          total_death
+        }
+      }
     }
     aggregate: allCovidLtcStates(
       sort: { fields: date, order: DESC }

@@ -90,7 +90,7 @@ const FacilityDetails = ({ facility }) => (
   </div>
 )
 
-const SearchForm = ({ setSearchQuery }) => {
+const SearchForm = ({ hasFacilities, setSearchQuery }) => {
   const [search, setSearch] = useState(false)
   return (
     <Form
@@ -106,7 +106,12 @@ const SearchForm = ({ setSearchQuery }) => {
           <Input
             type="text"
             label="Search facilities"
-            placeholder="Search by city, county, or facility name"
+            placeholder={
+              hasFacilities
+                ? 'Search by city, county, or facility name'
+                : 'Facility information not reported'
+            }
+            diabled={!hasFacilities}
             hideLabel
             onChange={event => {
               setSearch(event.target.value)
@@ -194,7 +199,10 @@ const LongTermCareFacilities = ({ facilities }) => {
   }
   return (
     <>
-      <SearchForm setSearchQuery={query => setSearchQuery(query)} />
+      <SearchForm
+        hasFacilities={facilities.length > 0}
+        setSearchQuery={query => setSearchQuery(query)}
+      />
       {openedFacility && (
         <Modal
           isOpen={openedFacility}
@@ -298,7 +306,13 @@ const LongTermCareFacilities = ({ facilities }) => {
             </tbody>
           </Table>
         ) : (
-          <Alert>No facilities found. Please refine your search.</Alert>
+          <>
+            {facilities.length > 0 ? (
+              <Alert>No facilities found. Please refine your search.</Alert>
+            ) : (
+              <Alert>Facility information not reported</Alert>
+            )}
+          </>
         )}
       </div>
     </>
