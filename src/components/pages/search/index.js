@@ -101,7 +101,6 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
           <SearchAutocomplete
             ref={popoverRef}
             mobile={mobile}
-            visible
             onChangeInput={event => {
               clearTimeout(searchEvent)
               const { value } = event.currentTarget
@@ -110,6 +109,8 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
                 window.history.pushState('', '', `?q=${value}`)
               }, 300)
             }}
+            visible
+            suppressAutocomplete
           />
 
           <SearchButton

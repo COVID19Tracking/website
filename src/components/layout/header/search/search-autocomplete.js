@@ -21,7 +21,7 @@ import styles from './search-autocomplete.module.scss'
 
 export default forwardRef(
   (
-    { mobile, visible, onClick, hideAutocomplete, onChangeInput },
+    { mobile, visible, onClick, hideAutocomplete, onChangeInput, suppressAutocomplete },
     popoverRef,
   ) => {
     const [searchState, searchDispatch] = useSearch()
@@ -130,7 +130,7 @@ export default forwardRef(
             onClick={!autocompleteHasFocus && onClick}
           />
           <span className={styles.searchLabel}>Search</span>
-          {totalHits && showResults ? (
+          {!suppressAutocomplete && totalHits && showResults ? (
             <ComboboxPopover
               ref={popoverRef}
               portal={false}
