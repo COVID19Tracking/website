@@ -103,40 +103,40 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
 
         <SearchButton onClick={() => query && navigate(`/search?q=${query}`)} />
       </div>
-      <div className={searchStyle.filterButtons}>
-        <fieldset>
-          <legend>Filter search results</legend>
-          <div className={searchStyle.optionsContainer}>
-            {filterOptions.map(option => (
-              <div
-                key={option.id}
-                className={classnames(
-                  searchStyle.option,
-                  isChecked(option.id) && searchStyle.checked,
-                )}
-              >
-                <input
-                  type="radio"
-                  name="result-filter"
-                  id={option.id}
-                  value={option.id}
-                  checked={isChecked(option.id)}
-                  onChange={event => {
-                    setCurrentFilterOptionID(event.target.value)
-                  }}
-                />
-                <label htmlFor={option.id}>{option.name}</label>
-              </div>
-            ))}
-          </div>
-        </fieldset>
-      </div>
       {totalHits > 0 ? (
         <>
           <span className={searchStyle.resultsLabel}>
             <strong>{totalHits}</strong>{' '}
             {totalHits === 1 ? 'result' : 'results'} found
           </span>
+          <div className={searchStyle.filterButtons}>
+            <fieldset>
+              <legend>Filter search results</legend>
+              <div className={searchStyle.optionsContainer}>
+                {filterOptions.map(option => (
+                  <div
+                    key={option.id}
+                    className={classnames(
+                      searchStyle.option,
+                      isChecked(option.id) && searchStyle.checked,
+                    )}
+                  >
+                    <input
+                      type="radio"
+                      name="result-filter"
+                      id={option.id}
+                      value={option.id}
+                      checked={isChecked(option.id)}
+                      onChange={event => {
+                        setCurrentFilterOptionID(event.target.value)
+                      }}
+                    />
+                    <label htmlFor={option.id}>{option.name}</label>
+                  </div>
+                ))}
+              </div>
+            </fieldset>
+          </div>
           <div className={searchStyle.searchResults}>
             {/* State results */}
             <SearchResultSection
