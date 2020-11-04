@@ -1,12 +1,15 @@
-.links {
-  margin-top: spacer(32);
+.section {
+  @include margin(32, top bottom);
   @media (min-width: $viewport-lg) {
-    margin-top: spacer(64);
+    @include margin(64, top bottom);
   }
+}
+
+.links {
   a {
-    margin: spacer(16) 0;
+    @include margin(16, top bottom);
     @media (min-width: $viewport-lg) {
-      margin: spacer(32) 0;
+      @include margin(32, top bottom);
     }
   }
 }
