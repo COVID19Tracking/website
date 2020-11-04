@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import StateNavWrapper from '~components/pages/data/state-nav-wrapper'
 import { useStaticQuery } from 'gatsby'
+import StateNavWrapper from '~components/pages/data/state-nav-wrapper'
 
 beforeEach(() => {
   useStaticQuery.mockImplementation(() => ({
