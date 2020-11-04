@@ -20,7 +20,7 @@ import {
   getSanitizedSlug,
 } from '~context/search-context'
 
-const Search = withSearch(({ mobile, popoverRef, search }) => {
+const Search = withSearch(({ mobile, popoverRef, search, updateSearch = null }) => {
   const [searchState, searchDispatch] = useSearch()
   const { query, results } = searchState
 
@@ -32,6 +32,7 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
   useEffect(() => {
     if (search.q) {
       setQuery(search.q)
+      updateSearch && updateSearch(search.q)
     }
     searchDispatch({
       type: 'setAutocompleteFocus',
@@ -41,6 +42,7 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
 
   useEffect(() => {
     if (query) {
+      updateSearch && updateSearch(query)
       querySearch(searchState, searchDispatch)
     }
   }, [query])
@@ -52,8 +54,6 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
       (results[types.PAGE].nbHits || 0)
 
   let searchEvent
-
-  // todo stop from freezing up when pushing enter
 
   const filterOptions = [
     {
