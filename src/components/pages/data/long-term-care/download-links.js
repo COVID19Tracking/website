@@ -43,8 +43,9 @@ const DataLongTermCareLinks = () => (
           View the spreadsheet
         </CtaAnchorLink>
       </Col>
-      <Col width={[4, 6, 4]}>
+      <Col width={[4, 6, 4]} paddingLeft={[0, 0, 16]}>
         <StateNavigation
+          defaultIsOpen
           linkAs={({ state }) => (
             <Link
               to={`/data/state/${state.childSlug.slug}/long-term-care`}

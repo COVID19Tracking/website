@@ -8,8 +8,8 @@ import {
 } from '~components/common/tablet-disclosure'
 import stateNavStyle from './state-nav.module.scss'
 
-const StateNav = ({ className, linkAs }) => {
-  const [isOpen, setIsOpen] = useState(false)
+const StateNav = ({ className, linkAs, defaultIsOpen = false }) => {
+  const [isOpen, setIsOpen] = useState(defaultIsOpen)
 
   const data = useStaticQuery(graphql`
     {
