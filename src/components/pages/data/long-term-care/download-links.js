@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { CtaAnchorLink } from '~components/common/landing-page/call-to-action'
-import LtcStateNavigation from './state-navigation'
+import StateNavigation from '~components/common/state-nav'
 import { Row, Col } from '~components/common/grid'
 import linksStyle from './download-links.module.scss'
 
@@ -43,7 +44,16 @@ const DataLongTermCareLinks = () => (
         </CtaAnchorLink>
       </Col>
       <Col width={[4, 6, 4]}>
-        <LtcStateNavigation />
+        <StateNavigation
+          linkAs={({ state }) => (
+            <Link
+              to={`/data/state/${state.childSlug.slug}/long-term-care`}
+              aria-label={state.name}
+            >
+              {state.state}
+            </Link>
+          )}
+        />
       </Col>
     </Row>
   </div>
