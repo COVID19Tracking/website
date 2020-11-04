@@ -69,8 +69,8 @@ const LongTermCarePage = ({ data }) => {
       <DetailText small>
         <Snippet slug="ltc-top-notes" />
       </DetailText>
-      <DownloadLinks />
       <Container centered>
+        <DownloadLinks />
         <LongContent>
           <Snippet slug="ltc-1" />
         </LongContent>

@@ -7,9 +7,12 @@ const Row = ({ children, className }) => (
 )
 
 const Col = props => {
-  const { children, width } = props
+  const { children, width, className } = props
   const classes = [gridStyles.col]
   const sides = ['Top', 'Right', 'Bottom', 'Left']
+  if (className) {
+    classes.push(className)
+  }
   classes.push(gridStyles[`colSmall${width[0]}`])
   classes.push(gridStyles[`colMedium${width[1]}`])
   classes.push(gridStyles[`colLarge${width[2]}`])
