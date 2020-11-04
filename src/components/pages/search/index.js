@@ -147,7 +147,7 @@ const Search = withSearch(({ mobile, popoverRef, search }) => {
                         value={option.id}
                         checked={isChecked(option.id)}
                         onChange={event => {
-                          setCurrentFilterOptionID(event.target.value)
+                          !option.deactivated && setCurrentFilterOptionID(event.target.value)
                         }}
                       />
                       <label htmlFor={option.id}>{option.name}</label>
