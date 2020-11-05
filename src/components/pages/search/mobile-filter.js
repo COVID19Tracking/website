@@ -13,13 +13,18 @@ const MobileFilter = ({ options, isChecked, setCurrentOptionID }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className={blogCategoriesListStyles.wrapper}>
+    <div
+      className={classnames(
+        blogCategoriesListStyles.wrapper,
+        mobileFilterStyles.wrapper,
+      )}
+    >
       <TabletDisclosure className={blogCategoriesListStyles.container}>
         <TabletDisclosureHeader isOpen={isOpen} setIsOpen={setIsOpen}>
           <h3>Sort by</h3>
         </TabletDisclosureHeader>
         <TabletDisclosureContent isOpen={isOpen}>
-          <ul
+          <div
             role="navigation"
             aria-label="Categories"
             className={classnames(
@@ -59,7 +64,7 @@ const MobileFilter = ({ options, isChecked, setCurrentOptionID }) => {
                 </label>
               </div>
             ))}
-          </ul>
+          </div>
         </TabletDisclosureContent>
       </TabletDisclosure>
     </div>

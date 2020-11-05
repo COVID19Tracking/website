@@ -152,6 +152,7 @@ const Search = withSearch(
                           value={option.id}
                           checked={isChecked(option.id)}
                           onChange={event => {
+                            /* eslint-disable no-unused-expressions */
                             !option.deactivated &&
                               setCurrentFilterOptionID(event.target.value)
                           }}

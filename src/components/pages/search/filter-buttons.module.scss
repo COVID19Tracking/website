@@ -1,4 +1,8 @@
 .filter-buttons {
+  @media screen and (max-width: $viewport-ms) {
+    display: none;
+  }
+
   fieldset {
     border: none;
     padding: 0;

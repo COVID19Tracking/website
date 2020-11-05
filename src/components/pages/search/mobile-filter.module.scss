@@ -30,3 +30,9 @@
     display: none;
   }
 }
+
+.wrapper {
+  @media screen and (min-width: $viewport-ms) {
+    display: none;
+  }
+}
