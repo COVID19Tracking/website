@@ -11,26 +11,63 @@ import {
 } from '~components/common/tablet-disclosure'
 import blogCategoriesListStyles from '~components/pages/blog/blog-categories-list.module.scss'
 
-const Filters = ({ currentOptionID, setCurrentOptionID, options }) => {
-  const isChecked = id => {
-    return id === currentOptionID
-  }
+const FilterButtons = ({ options, isChecked, setCurrentOptionID }) => (
+  <div className={searchStyle.filterButtons}>
+    <fieldset>
+      <legend>Filter search results</legend>
+      <div className={searchStyle.optionsContainer}>
+        {options.map(option => (
+          <div
+            key={option.id}
+            className={classnames(
+              searchStyle.option,
+              isChecked(option.id) && searchStyle.checked,
+              option.deactivated && searchStyle.deactivated,
+            )}
+          >
+            <input
+              type="radio"
+              name="result-filter"
+              id={option.id}
+              value={option.id}
+              checked={isChecked(option.id)}
+              onChange={event => {
+                /* eslint-disable no-unused-expressions */
+                !option.deactivated && setCurrentOptionID(event.target.value)
+              }}
+            />
+            <label htmlFor={option.id}>{option.name}</label>
+          </div>
+        ))}
+      </div>
+    </fieldset>
+  </div>
+)
 
+const MobileFilter = ({ options, isChecked, setCurrentOptionID }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <>
-      <div className={searchStyle.filterButtons}>
-        <fieldset>
-          <legend>Filter search results</legend>
-          <div className={searchStyle.optionsContainer}>
+    <div className={blogCategoriesListStyles.wrapper}>
+      <TabletDisclosure className={blogCategoriesListStyles.container}>
+        <TabletDisclosureHeader isOpen={isOpen} setIsOpen={setIsOpen}>
+          <h3>Sort by</h3>
+        </TabletDisclosureHeader>
+        <TabletDisclosureContent isOpen={isOpen}>
+          <ul
+            role="navigation"
+            aria-label="Categories"
+            className={classnames(
+              blogCategoriesListStyles.categoryList,
+              searchStyle.filterDropdown,
+            )}
+          >
             {options.map(option => (
               <div
                 key={option.id}
                 className={classnames(
                   searchStyle.option,
-                  isChecked(option.id) && searchStyle.checked,
-                  option.deactivated && searchStyle.deactivated,
+                  isChecked(option.id) && searchStyle.active,
                 )}
               >
                 <input
@@ -45,61 +82,41 @@ const Filters = ({ currentOptionID, setCurrentOptionID, options }) => {
                       setCurrentOptionID(event.target.value)
                   }}
                 />
-                <label htmlFor={option.id}>{option.name}</label>
-              </div>
-            ))}
-          </div>
-        </fieldset>
-      </div>
-      <div className={blogCategoriesListStyles.wrapper}>
-        <TabletDisclosure className={blogCategoriesListStyles.container}>
-          <TabletDisclosureHeader isOpen={isOpen} setIsOpen={setIsOpen}>
-            <h3>Sort by</h3>
-          </TabletDisclosureHeader>
-          <TabletDisclosureContent isOpen={isOpen}>
-            <ul
-              role="navigation"
-              aria-label="Categories"
-              className={classnames(
-                blogCategoriesListStyles.categoryList,
-                searchStyle.filterDropdown,
-              )}
-            >
-              {options.map(option => (
-                <div
-                  key={option.id}
+                <label
+                  htmlFor={option.id}
                   className={classnames(
-                    searchStyle.option,
-                    isChecked(option.id) && searchStyle.active,
+                    blogCategoriesListStyles.option,
+                    option.deactivated && searchStyle.deactivated,
                   )}
                 >
-                  <input
-                    type="radio"
-                    name="result-filter"
-                    id={option.id}
-                    value={option.id}
-                    checked={isChecked(option.id)}
-                    onChange={event => {
-                      /* eslint-disable no-unused-expressions */
-                      !option.deactivated &&
-                        setCurrentOptionID(event.target.value)
-                    }}
-                  />
-                  <label
-                    htmlFor={option.id}
-                    className={classnames(
-                      blogCategoriesListStyles.option,
-                      option.deactivated && searchStyle.deactivated,
-                    )}
-                  >
-                    {option.name}
-                  </label>
-                </div>
-              ))}
-            </ul>
-          </TabletDisclosureContent>
-        </TabletDisclosure>
-      </div>
+                  {option.name}
+                </label>
+              </div>
+            ))}
+          </ul>
+        </TabletDisclosureContent>
+      </TabletDisclosure>
+    </div>
+  )
+}
+
+const Filters = ({ currentOptionID, setCurrentOptionID, options }) => {
+  const isChecked = id => {
+    return id === currentOptionID
+  }
+
+  return (
+    <>
+      <FilterButtons
+        options={options}
+        setCurrentOptionID={setCurrentOptionID}
+        isChecked={isChecked}
+      />
+      <MobileFilter
+        options={options}
+        setCurrentOptionID={setCurrentOptionID}
+        isChecked={isChecked}
+      />
     </>
   )
 }
