@@ -21,7 +21,14 @@ import styles from './search-autocomplete.module.scss'
 
 export default forwardRef(
   (
-    { mobile, visible, onClick, hideAutocomplete, onChangeInput, suppressAutocomplete },
+    {
+      mobile,
+      visible,
+      onClick,
+      hideAutocomplete,
+      onChangeInput,
+      suppressAutocomplete,
+    },
     popoverRef,
   ) => {
     const [searchState, searchDispatch] = useSearch()
