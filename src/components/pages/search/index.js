@@ -3,13 +3,16 @@ import React, { useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { navigate } from 'gatsby'
 import NProgress from 'nprogress'
+
 import withSearch from '~components/utils/with-search'
+
 import SearchNoResults from '~components/search/search-no-results'
 import SearchResultSection from '~components/search/search-result-section'
-import searchStyle from './search.module.scss'
-
 import SearchAutocomplete from '~components/layout/header/search/search-autocomplete'
 import SearchButton from '~components/layout/header/search/search-button'
+import SearchFilters from '~components/pages/search/filters'
+
+import searchStyle from './search.module.scss'
 import headerSearchStyle from '~components/layout/header/search/search.module.scss'
 
 import {
@@ -87,10 +90,6 @@ const Search = withSearch(
       filterOptions[0].id,
     ) // make "All" the default
 
-    const isChecked = id => {
-      return id === currentFilterOptionID
-    }
-
     const isDisplaySection = sectionTypeID => {
       if (currentFilterOptionID === sectionTypeID) {
         return true
@@ -132,37 +131,11 @@ const Search = withSearch(
                 <strong>{totalHits}</strong>{' '}
                 {totalHits === 1 ? 'result' : 'results'} found
               </span>
-              <div className={searchStyle.filterButtons}>
-                <fieldset>
-                  <legend>Filter search results</legend>
-                  <div className={searchStyle.optionsContainer}>
-                    {filterOptions.map(option => (
-                      <div
-                        key={option.id}
-                        className={classnames(
-                          searchStyle.option,
-                          isChecked(option.id) && searchStyle.checked,
-                          option.deactivated && searchStyle.deactivated,
-                        )}
-                      >
-                        <input
-                          type="radio"
-                          name="result-filter"
-                          id={option.id}
-                          value={option.id}
-                          checked={isChecked(option.id)}
-                          onChange={event => {
-                            /* eslint-disable no-unused-expressions */
-                            !option.deactivated &&
-                              setCurrentFilterOptionID(event.target.value)
-                          }}
-                        />
-                        <label htmlFor={option.id}>{option.name}</label>
-                      </div>
-                    ))}
-                  </div>
-                </fieldset>
-              </div>
+              <SearchFilters
+                options={filterOptions}
+                currentOptionID={currentFilterOptionID}
+                setCurrentOptionID={setCurrentFilterOptionID}
+              />
               <div className={searchStyle.searchResults}>
                 {/* State results */}
                 {isDisplaySection('states') && (

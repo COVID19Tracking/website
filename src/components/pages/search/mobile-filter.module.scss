@@ -32,6 +32,10 @@
 }
 
 .wrapper {
+  width: 100%;
+  margin-top: spacer(16);
+  margin-bottom: spacer(16);
+
   @media screen and (min-width: $viewport-ms) {
     display: none;
   }
