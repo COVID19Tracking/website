@@ -25,8 +25,8 @@ const TabletDisclosureHeader = ({ isOpen, setIsOpen, children, className }) => (
     {children}
     <div className={TabletDisclosureStyles.caret} aria-expanded={isOpen}>
       <svg
-        width="8"
-        height="6"
+        width="14"
+        height="11"
         viewBox="0 0 8 6"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
