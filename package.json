@@ -69,7 +69,6 @@
     "gatsby-remark-smartypants": "^2.3.12",
     "gatsby-source-contentful": "4.0.0-4.0.0-rc.0.20",
     "gatsby-source-filesystem": "^2.3.31",
-    "gatsby-transformer-json": "^2.4.13",
     "gatsby-transformer-remark": "^2.8.36",
     "gatsby-transformer-sharp": "^2.5.16",
     "gatsby-transformer-yaml": "^2.4.13",
