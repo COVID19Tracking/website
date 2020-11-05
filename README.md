@@ -32,13 +32,14 @@ The website is built from two separate data sources: our own API for COVID data,
 yarn setup
 ```
 
-You can also run `yarn setup:api-data` if you just want to download data and not touch the `.env` file.
+You can also run `yarn setup:api-repo"` if you just want to download data and not touch the `.env` file.
 
 To run the website locally, use:
 
 ```shell
 yarn develop
 ```
+The project takes 8-10 minutes to build.
 
 The site is now running at `http://localhost:8000`. Any changes you make to code is live-updated. There is a GraphQL preview tool available at `http://localhost:8000/___graphql` to see what data is exposed to the website.
 
