@@ -1,29 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useState } from 'react'
 import Layout from '~components/layout'
-import FilterButtons from '~components/pages/search/filter-buttons'
-import MobileFilter from '~components/pages/search/mobile-filter'
-
-const Filters = ({ currentOptionID, setCurrentOptionID, options }) => {
-  const isChecked = id => {
-    return id === currentOptionID
-  }
-
-  return (
-    <>
-      <FilterButtons
-        options={options}
-        setCurrentOptionID={setCurrentOptionID}
-        isChecked={isChecked}
-      />
-      <MobileFilter
-        options={options}
-        setCurrentOptionID={setCurrentOptionID}
-        isChecked={isChecked}
-      />
-    </>
-  )
-}
+import Filters from '~components/pages/search/filters'
 
 const Search = () => {
   const filterOptions = [
