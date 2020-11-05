@@ -19,7 +19,9 @@ exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
     tweet.date = DateTime.fromFormat(
       tweet.created_at,
       'EEE MMM d HH:mm:ss ZZZ yyyy',
-    ).toJSDate()
+    )
+      .setZone('UTC')
+      .toJSDate()
 
     const digest = crypto
       .createHash('md5')
