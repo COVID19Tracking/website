@@ -21,7 +21,6 @@
   ],
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^14.1.1",
-    "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^14.1.0",
     "@loadable/component": "^5.13.2",
     "@reach/alert": "^0.9.1",
@@ -68,7 +67,7 @@
     "gatsby-plugin-sitemap": "^2.4.14",
     "gatsby-remark-autolink-headers": "^2.3.14",
     "gatsby-remark-smartypants": "^2.3.12",
-    "gatsby-source-contentful": "^2.3.48",
+    "gatsby-source-contentful": "4.0.0-4.0.0-rc.0.20",
     "gatsby-source-filesystem": "^2.3.31",
     "gatsby-transformer-json": "^2.4.13",
     "gatsby-transformer-remark": "^2.8.36",
