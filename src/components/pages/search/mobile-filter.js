@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import classnames from 'classnames'
-import searchStyle from '~components/pages/search/search.module.scss'
 import {
   TabletDisclosure,
   TabletDisclosureHeader,
   TabletDisclosureContent,
 } from '~components/common/tablet-disclosure'
 
+import mobileFilterStyles from './mobile-filter.module.scss'
 import blogCategoriesListStyles from '~components/pages/blog/blog-categories-list.module.scss'
 
 const MobileFilter = ({ options, isChecked, setCurrentOptionID }) => {
@@ -24,16 +24,16 @@ const MobileFilter = ({ options, isChecked, setCurrentOptionID }) => {
             aria-label="Categories"
             className={classnames(
               blogCategoriesListStyles.categoryList,
-              searchStyle.filterDropdown,
+              mobileFilterStyles.filterDropdown,
             )}
           >
             {options.map(option => (
               <div
                 key={option.id}
                 className={classnames(
-                  searchStyle.option,
-                  isChecked(option.id) && searchStyle.active,
-                  option.deactivated && searchStyle.deactivated,
+                  mobileFilterStyles.option,
+                  isChecked(option.id) && mobileFilterStyles.active,
+                  option.deactivated && mobileFilterStyles.deactivated,
                 )}
               >
                 <input
@@ -52,7 +52,7 @@ const MobileFilter = ({ options, isChecked, setCurrentOptionID }) => {
                   htmlFor={option.id}
                   className={classnames(
                     blogCategoriesListStyles.option,
-                    option.deactivated && searchStyle.deactivated,
+                    option.deactivated && mobileFilterStyles.deactivated,
                   )}
                 >
                   {option.name}

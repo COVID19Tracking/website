@@ -1,22 +1,20 @@
 /* eslint-disable no-restricted-syntax */
 import React from 'react'
 import classnames from 'classnames'
-import searchStyle from '~components/pages/search/search.module.scss'
-
-// todo break out styles from search module
+import filterButtonsStyles from './filter-buttons.module.scss'
 
 const FilterButtons = ({ options, isChecked, setCurrentOptionID }) => (
-  <div className={searchStyle.filterButtons}>
+  <div className={filterButtonsStyles.filterButtons}>
     <fieldset>
       <legend>Filter search results</legend>
-      <div className={searchStyle.optionsContainer}>
+      <div className={filterButtonsStyles.optionsContainer}>
         {options.map(option => (
           <div
             key={option.id}
             className={classnames(
-              searchStyle.option,
-              isChecked(option.id) && searchStyle.checked,
-              option.deactivated && searchStyle.deactivated,
+              filterButtonsStyles.option,
+              isChecked(option.id) && filterButtonsStyles.checked,
+              option.deactivated && filterButtonsStyles.deactivated,
             )}
           >
             <input
