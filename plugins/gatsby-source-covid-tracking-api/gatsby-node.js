@@ -9,7 +9,7 @@ exports.sourceNodes = async (
 ) => {
   const { createNode } = actions
   const { file, sortField, type, increaseFields } = configOptions
-
+  const start = new Date()
   try {
     fs.statSync(file)
   } catch {
@@ -65,5 +65,10 @@ Make sure to run "npm run setup" to clone the most recent version of the COVID A
 
     createNode({ ...item, ...nodeTemplate })
   })
-  reporter.success(`Created ${items.length} ${type} nodes`)
+  const end = new Date()
+  reporter.success(
+    `Created ${items.length} ${type} nodes in ${(end.getTime() -
+      start.getTime()) /
+      1000}s`,
+  )
 }
