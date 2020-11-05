@@ -65,4 +65,5 @@ Make sure to run "npm run setup" to clone the most recent version of the COVID A
 
     createNode({ ...item, ...nodeTemplate })
   })
+  reporter.success(`Created ${items.length} ${type} nodes`)
 }
