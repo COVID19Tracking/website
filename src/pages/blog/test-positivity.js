@@ -229,9 +229,7 @@ export const query = graphql`
           }
         }
       }
-      childContentfulBlogPostBlogContentRichTextNode {
-        json
-      }
+
       featuredImage {
         resize(width: 900) {
           src

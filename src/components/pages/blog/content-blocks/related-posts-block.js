@@ -1,5 +1,4 @@
 import React from 'react'
-import marked from 'marked'
 import { Link } from 'gatsby'
 import relatedPostStyles from './related-posts-block.module.scss'
 
@@ -9,15 +8,13 @@ const RelatedPostsContentBlock = ({ headline, subtitle, references }) => (
     {subtitle && (
       <div
         className={relatedPostStyles.subtitle}
-        dangerouslySetInnerHTML={{ __html: marked(subtitle) }}
+        dangerouslySetInnerHTML={{ __html: subtitle }}
       />
     )}
     <ul>
-      {references.map(reference => (
-        <li key={reference.fields.slug['en-US']}>
-          <Link to={`/blog/${reference.fields.slug['en-US']}`}>
-            {reference.fields.title['en-US']}
-          </Link>
+      {references.map(({ slug, title }) => (
+        <li key={slug}>
+          <Link to={`/blog/${slug}`}>{title}</Link>
         </li>
       ))}
     </ul>
