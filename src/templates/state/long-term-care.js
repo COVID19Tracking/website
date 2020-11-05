@@ -188,7 +188,6 @@ export const query = graphql`
     ) {
       group(field: facility_name, limit: 1) {
         nodes {
-          id
           facility_name
           city
           date
