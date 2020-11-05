@@ -53,8 +53,8 @@ const blogPostQuery = `{
           lede
         }
         updatedAt(formatString: "MMMM D, YYYY")
-        childContentfulBlogPostBlogContentRichTextNode {
-          json
+        blogContent {
+          raw
         }
         body {
           body
@@ -195,15 +195,13 @@ function chunkBlogPosts(data) {
     const firstChunk = { ...baseChunk, section: 'section0' }
 
     let bodyChunks
-    if (node.childContentfulBlogPostBlogContentRichTextNode === null) {
+    if (node.blogContent === null) {
       // todo remove this once we fully transition to rich text for blog posts
       bodyChunks = marked(node.body.body)
         .split('\n')
         .filter(chunk => chunk !== '')
     } else {
-      bodyChunks = documentToPlainTextString(
-        node.childContentfulBlogPostBlogContentRichTextNode.json,
-      )
+      bodyChunks = documentToPlainTextString(JSON.parse(node.blogContent.raw))
         .split('. ') // new sentences
         .filter(chunk => chunk !== '')
     }
