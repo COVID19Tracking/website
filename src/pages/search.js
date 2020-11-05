@@ -8,7 +8,7 @@ const SearchPage = () => {
     if (query === '' || query === null) {
       return 'Search results'
     }
-    return `Search results for "${query}"`
+    return `Search results for “${query}”`
   }
   return (
     <Layout title={getTitle()} centered>
