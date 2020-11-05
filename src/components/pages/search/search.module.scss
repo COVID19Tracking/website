@@ -84,3 +84,39 @@
     display: none;
   }
 }
+
+
+.filter-dropdown {
+
+  .option {
+    @include padding(16, (left, right));
+    @include padding(8, top);
+
+    line-height: 1.4;
+    @include type-size(100);
+    color: $color-plum-700;
+    text-decoration: underline;
+
+    &.deactivated {
+      text-decoration: none;
+    }
+
+    label {
+      cursor: pointer;
+
+      &.deactivated {
+        cursor: not-allowed;
+        color: $color-plum-400;
+      }
+    }
+  }
+
+  .active {
+    font-weight: bold;
+  }
+
+
+  input[type="radio"] {
+    display: none;
+  }
+}

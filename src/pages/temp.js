@@ -68,6 +68,7 @@ const MobileFilter = ({ options, isChecked, setCurrentOptionID }) => {
                 className={classnames(
                   searchStyle.option,
                   isChecked(option.id) && searchStyle.active,
+                  option.deactivated && searchStyle.deactivated,
                 )}
               >
                 <input
