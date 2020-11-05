@@ -64,6 +64,7 @@ exports[`Components : Pages : Data : State navigation renders correctly 1`] = `
         <ul>
           <li>
             <a
+              aria-label="California"
               href="#state-ca"
             >
               CA
@@ -71,9 +72,10 @@ exports[`Components : Pages : Data : State navigation renders correctly 1`] = `
           </li>
           <li>
             <a
-              href="#state-nm"
+              aria-label="Wisconsin"
+              href="#state-wi"
             >
-              NM
+              WI
             </a>
           </li>
         </ul>
@@ -142,6 +144,7 @@ exports[`Components : Pages : Data : State navigation renders correctly 2`] = `
         <ul>
           <li>
             <a
+              aria-label="California"
               href="/data/state/california"
             >
               CA
@@ -149,9 +152,10 @@ exports[`Components : Pages : Data : State navigation renders correctly 2`] = `
           </li>
           <li>
             <a
-              href="/data/state/new-mexico"
+              aria-label="Wisconsin"
+              href="/data/state/wisconsin"
             >
-              NM
+              WI
             </a>
           </li>
         </ul>

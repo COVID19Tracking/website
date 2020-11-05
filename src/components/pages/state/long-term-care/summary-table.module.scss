@@ -1,0 +1,14 @@
+.table {
+  tbody th[scope='row'] {
+    text-align: left;
+    font-weight: bold;
+  }
+}
+
+.sub-header {
+  &::before {
+    @include padding(8, right);
+    content: '∟';
+    line-height: 0.9;
+  }
+}

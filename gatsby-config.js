@@ -179,7 +179,28 @@ const gatsbyConfig = {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_data/long_term_care_website.json',
-        type: 'CovidLTCWebsite',
+        type: 'CovidLtcWebsite',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/long_term_care_states_complete.json',
+        type: 'CovidLtcStates',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/long_term_care_notes.json',
+        type: 'CovidLtcNotes',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/long_term_care_facilities.json',
+        type: 'CovidLtcFacilities',
       },
     },
     {
@@ -296,6 +317,12 @@ const gatsbyConfig = {
           'totalTestsViralIncrease',
           'totalTestsPeopleViralIncrease',
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-covid-ltc-totals',
+      options: {
+        type: 'CovidStateInfo',
       },
     },
     {

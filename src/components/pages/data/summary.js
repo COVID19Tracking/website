@@ -12,6 +12,7 @@ import OutcomesCard from './cards/outcomes-card'
 import TestsAntibodyCard from './cards/tests-antibody'
 import TestsViralCard from './cards/tests-viral'
 import NationalTestsCard from './cards/tests-national'
+import LongTermCareCard from './cards/long-term-care'
 
 import summaryStyles from './summary.module.scss'
 
@@ -20,6 +21,7 @@ const StateSummary = ({
   data,
   sevenDaysAgo,
   metadata,
+  longTermCare,
   national = false,
 }) => {
   /*
@@ -132,6 +134,13 @@ const StateSummary = ({
           recovered={data.recovered}
           national={national}
         />
+        {!national && (
+          <LongTermCareCard
+            data={longTermCare}
+            stateDeaths={data.death}
+            stateSlug={stateSlug}
+          />
+        )}
       </div>
     </DefinitionPanelContext.Provider>
   )

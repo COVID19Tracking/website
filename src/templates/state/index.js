@@ -46,6 +46,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
           population={covidStateInfo.childPopulation.population}
           metadata={contentfulStateOrTerritory}
           lastUpdated={covidState.lastUpdateEt}
+          longTermCare={data.covidStateInfo.childLtc}
         />
         <StateTweets tweets={allTweets} name={state.name} />
       </StateNavWrapper>
@@ -78,6 +79,19 @@ export const query = graphql`
       covidTrackingProjectPreferredTotalTestUnits
       childPopulation {
         population
+      }
+      childLtc {
+        facilities
+        current {
+          date
+          total_cases
+          total_death
+        }
+        last {
+          date
+          total_cases
+          total_death
+        }
       }
     }
     allCovidUsDaily {
