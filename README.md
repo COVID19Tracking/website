@@ -32,7 +32,7 @@ The website is built from two separate data sources: our own API for COVID data,
 yarn setup
 ```
 
-You can also run `yarn setup:api-repo"` if you just want to download data and not touch the `.env` file.
+You can also run `yarn setup:api-repo` if you just want to download data and not touch the `.env` file.
 
 To run the website locally, use:
 
