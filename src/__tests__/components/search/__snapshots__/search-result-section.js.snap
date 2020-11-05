@@ -7,14 +7,21 @@ exports[`Components : Search: Result section renders correctly 1`] = `
   <div
     className="result"
   >
-    <h3>
+    <span
+      className="type"
+    />
+    <h3
+      className="title"
+    >
       <a
         href="https://example.com"
       >
         test
       </a>
     </h3>
-    <div />
+    <div
+      className="childrenContainer"
+    />
   </div>
 </div>
 `;
@@ -26,14 +33,21 @@ exports[`Components : Search: Result section renders correctly 2`] = `
   <div
     className="result"
   >
-    <h3>
+    <span
+      className="type"
+    />
+    <h3
+      className="title"
+    >
       <a
         href="https://example.com"
       >
         test
       </a>
     </h3>
-    <div>
+    <div
+      className="childrenContainer"
+    >
       <p>
         Content
       </p>

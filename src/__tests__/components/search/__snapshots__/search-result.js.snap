@@ -4,14 +4,21 @@ exports[`Components : Search: Results renders correctly 1`] = `
 <div
   className="result"
 >
-  <h3>
+  <span
+    className="type"
+  />
+  <h3
+    className="title"
+  >
     <a
       href="https://example.com"
     >
       Test title
     </a>
   </h3>
-  <div />
+  <div
+    className="childrenContainer"
+  />
 </div>
 `;
 
@@ -19,14 +26,21 @@ exports[`Components : Search: Results renders correctly 2`] = `
 <div
   className="result"
 >
-  <h3>
+  <span
+    className="type"
+  />
+  <h3
+    className="title"
+  >
     <a
       href="https://example.com"
     >
       Test title
     </a>
   </h3>
-  <div>
+  <div
+    className="childrenContainer"
+  >
     <p>
       A child
     </p>
@@ -38,35 +52,37 @@ exports[`Components : Search: Results renders correctly 3`] = `
 <div
   className="result"
 >
-  <h3>
+  <span
+    className="type"
+  />
+  <h3
+    className="title"
+  >
     <a
       href="https://example.com"
     >
       Test title
     </a>
   </h3>
-  <div />
   <div
-    className="detail-text detailText"
+    className="childrenContainer"
+  />
+  <div
+    className="resultDetails"
   >
-    <div
-      className="resultDetails"
+    <p
+      className="author"
     >
-      <span
-        className="publishDate"
-      >
-        Updated 
-        April 23, 2020
-      </span>
-      <span
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": " &middot; ",
-          }
-        }
-      />
+      By 
       An author
-    </div>
+    </p>
+    <p
+      className="date"
+    >
+      Updated
+       on 
+      April 23, 2020
+    </p>
   </div>
 </div>
 `;
