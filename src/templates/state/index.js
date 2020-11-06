@@ -41,6 +41,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
       />
       <StateNavWrapper stateList={allCovidStateInfo.nodes} single>
         <StateSummary
+          stateName={state.name}
           sevenDaysAgo={sevenDaysAgo}
           stateSlug={state.slug}
           data={covidState}

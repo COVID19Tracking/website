@@ -19,6 +19,7 @@ import summaryStyles from './summary.module.scss'
 
 const StateSummary = ({
   stateSlug,
+  stateName,
   data,
   sevenDaysAgo,
   metadata,
@@ -107,7 +108,7 @@ const StateSummary = ({
             })}
             highlightedDefinition={highlightedAnnotation}
             onHide={() => setCardAnnotations(false)}
-            title="Annotations"
+            title={`${stateName} Annotations & Warnings`}
           />
         )}
         <div
