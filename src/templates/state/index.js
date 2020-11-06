@@ -219,7 +219,7 @@ export const query = graphql`
       nodes {
         airtable_id
         field
-        lastChecked(formatString: "MMMM d yyyy")
+        lastChecked(formatString: "MMMM DD yyyy")
         warning
       }
     }

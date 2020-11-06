@@ -234,7 +234,7 @@ export const query = graphql`
         airtable_id
         state
         field
-        lastChecked(formatString: "MMMM d yyyy")
+        lastChecked(formatString: "MMMM DD yyyy")
         warning
       }
     }
