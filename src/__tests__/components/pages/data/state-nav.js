@@ -1,27 +1,24 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { useStaticQuery } from 'gatsby'
 import StateNavWrapper from '~components/pages/data/state-nav-wrapper'
 
-const stateList = [
-  {
-    state: 'CA',
-    childSlug: {
-      slug: 'california',
+beforeEach(() => {
+  useStaticQuery.mockImplementation(() => ({
+    allCovidStateInfo: {
+      nodes: [
+        { state: 'CA', name: 'California', childSlug: { slug: 'california' } },
+        { state: 'WI', name: 'Wisconsin', childSlug: { slug: 'wisconsin' } },
+      ],
     },
-  },
-  {
-    state: 'NM',
-    childSlug: {
-      slug: 'new-mexico',
-    },
-  },
-]
+  }))
+})
 
 describe('Components : Pages : Data : State navigation', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(
-        <StateNavWrapper stateList={stateList}>
+        <StateNavWrapper>
           <p>Child paragraph</p>
         </StateNavWrapper>,
       )
@@ -30,7 +27,7 @@ describe('Components : Pages : Data : State navigation', () => {
 
     const singleTree = renderer
       .create(
-        <StateNavWrapper stateList={stateList} single>
+        <StateNavWrapper single>
           <p>Child paragraph</p>
         </StateNavWrapper>,
       )
