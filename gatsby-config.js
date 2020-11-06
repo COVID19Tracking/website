@@ -47,6 +47,14 @@ const gatsbyConfig = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-svgr',
     {
+      resolve: `gatsby-plugin-google-analytics-gdpr`,
+      options: {
+        trackingId: 'UA-182192518-1',
+        enableDevelopment: false,
+        anonymizeIP: true,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-sass',
       options: {
         data: sassImports,
