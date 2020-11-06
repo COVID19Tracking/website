@@ -216,22 +216,10 @@ export const query = graphql`
     }
     allCovidAnnotation(filter: { state: { eq: $state } }) {
       nodes {
-        id
-        state
-        metric
-        type
+        airtable_id
         field
-        annotations {
-          evidence
-          evidence_source
-          summary
-          type
-          definitions {
-            definition
-            name
-            type
-          }
-        }
+        lastChecked(formatString: "MMMM d yyyy")
+        warning
       }
     }
   }

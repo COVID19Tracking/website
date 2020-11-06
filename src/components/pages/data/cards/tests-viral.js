@@ -26,7 +26,7 @@ const TestsViralCard = ({
     'Total Test Encounters (PCR)',
     'Total PCR Tests (People)',
   ]
-  const annotationContext = useContext(AnnotationPanelContext)
+  const { setCardAnnotations } = useContext(AnnotationPanelContext)
 
   return (
     <Card
@@ -81,11 +81,12 @@ const TestsViralCard = ({
                 }}
                 label="Total tests (test encounters)"
               />
+              {}
               <AnnotationButton field="Total Test Encounters (PCR)">
                 <DefinitionLink
-                  title="Annotation"
+                  title="Warning"
                   onDefinitionsToggle={() => {
-                    annotationContext.setCardAnnotations({
+                    setCardAnnotations({
                       fields: annotationFields,
                       highlight: 'Total Test Encounters (PCR)',
                     })
@@ -115,9 +116,9 @@ const TestsViralCard = ({
               />
               <AnnotationButton field="Total Tests (PCR)">
                 <DefinitionLink
-                  title="Annotation"
+                  title="Warning"
                   onDefinitionsToggle={() => {
-                    annotationContext.setCardAnnotations({
+                    setCardAnnotations({
                       fields: annotationFields,
                       highlight: 'Total Tests (PCR)',
                     })
@@ -147,9 +148,9 @@ const TestsViralCard = ({
               />
               <AnnotationButton field="Total PCR Tests (People)">
                 <DefinitionLink
-                  title="Annotation"
+                  title="Warning"
                   onDefinitionsToggle={() => {
-                    annotationContext.setCardAnnotations({
+                    setCardAnnotations({
                       fields: annotationFields,
                       highlight: 'Total PCR Tests (People)',
                     })

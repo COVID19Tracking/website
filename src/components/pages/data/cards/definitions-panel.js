@@ -55,7 +55,12 @@ const Annotation = ({ key, annotation, highlighted }) => {
         highlighted && definitionsPanelStyles.highlight,
       )}
     >
-      <h3 className={definitionsPanelStyles.title}>{annotation.metric}:</h3>
+      <h3 className={definitionsPanelStyles.title}>
+        {annotation.field.map(field => (
+          <>{field}</>
+        ))}
+      </h3>
+      <p>{annotation.warning}</p>
     </div>
   )
 }
@@ -113,8 +118,10 @@ const DefinitionPanel = ({
             {annotations.map(annotation => (
               <Annotation
                 annotation={annotation}
-                key={annotation.id}
-                highlighted={annotation.field === highlightedDefinition}
+                key={annotation.airtable_id}
+                highlighted={
+                  annotation.field.indexOf(highlightedDefinition) > -1
+                }
               />
             ))}
           </>
@@ -125,14 +132,13 @@ const DefinitionPanel = ({
 }
 
 const AnnotationButton = ({ field, children }) => {
-  const annotations = useContext(AnnotationPanelContext)
-  if (!annotations.annotations) {
+  const { annotations } = useContext(AnnotationPanelContext)
+  if (!annotations) {
     return null
   }
   if (
-    annotations.annotations.filter(
-      annotation => annotation.field.indexOf(field) > -1,
-    )
+    annotations.filter(annotation => annotation.field.indexOf(field) > -1)
+      .length > 0
   ) {
     return children
   }
