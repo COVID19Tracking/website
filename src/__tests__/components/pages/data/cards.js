@@ -109,7 +109,13 @@ describe('Components : Pages : Data : Cards : Outcomes', () => {
 describe('Components : Pages : Data : Cards : Antibody tests', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<AntibodyCard stateSlug="california" totalTestsAntibody={14} />)
+      .create(
+        <AntibodyCard
+          stateSlug="california"
+          totalTestsAntibody={14}
+          totalTestsPeopleAntibody={12}
+        />,
+      )
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
