@@ -1,0 +1,15 @@
+.section {
+  @include margin(32, top bottom);
+  @media (min-width: $viewport-lg) {
+    @include margin(64, top bottom);
+  }
+}
+
+.links {
+  a {
+    @include margin(16, top bottom);
+    @media (min-width: $viewport-lg) {
+      @include margin(32, top bottom);
+    }
+  }
+}

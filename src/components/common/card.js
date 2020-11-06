@@ -42,10 +42,15 @@ const Card = ({ title, link, children }) => (
   </div>
 )
 
+const CardHeading = ({ children }) => (
+  <h4 className={cardStyles.heading}>{children}</h4>
+)
+
 export {
   Card,
   CardBody,
   CardNote,
+  CardHeading,
   CardDisclosure,
   CardDisclsoureButton,
   CardDisclosurePanel,

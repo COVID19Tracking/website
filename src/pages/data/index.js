@@ -82,9 +82,6 @@ export const query = graphql`
     nationalSummaryFootnote: contentfulSnippet(
       slug: { eq: "national-summary-footnote" }
     ) {
-      id
-      contentful_id
-      name
       content {
         childMarkdownRemark {
           html
@@ -92,7 +89,6 @@ export const query = graphql`
       }
     }
     dataPreamble: contentfulSnippet(slug: { eq: "data-preamble" }) {
-      id
       contentful_id
       name
       content {
@@ -102,18 +98,18 @@ export const query = graphql`
       }
     }
     covidUs {
+      death
+      hospitalizedCumulative
+      hospitalizedCurrently
+      inIcuCumulative
+      inIcuCurrently
+      negative
+      onVentilatorCumulative
+      onVentilatorCurrently
+      pending
       positive
       positiveIncrease
-      negative
-      pending
-      hospitalizedCurrently
-      hospitalizedCumulative
-      inIcuCurrently
-      inIcuCumulative
       recovered
-      onVentilatorCurrently
-      onVentilatorCumulative
-      death
       totalTestResults
       totalTestResultsIncrease
     }
@@ -123,24 +119,37 @@ export const query = graphql`
     }
     allCovidStateInfo(sort: { fields: name }) {
       nodes {
-        name
-        state
-        notes
         covid19Site
         covid19SiteSecondary
+        name
+        notes
+        state
         twitter
         childSlug {
           slug
+        }
+        childLtc {
+          facilities
+          current {
+            total_cases
+            total_death
+            date
+          }
+          last {
+            total_cases
+            total_death
+            date
+          }
         }
       }
     }
     allCovidUsDaily {
       nodes {
         date(formatString: "YYYYMMDD")
-        totalTestResultsIncrease
-        positiveIncrease
-        hospitalizedCurrently
         deathIncrease
+        hospitalizedCurrently
+        positiveIncrease
+        totalTestResultsIncrease
         childPopulation {
           deathIncrease {
             percent
@@ -160,6 +169,7 @@ export const query = graphql`
     allCovidState {
       nodes {
         dataQualityGrade
+        dateModified(formatString: "MMM D, YYYY h:mm a")
         death
         deathConfirmed
         deathProbable
@@ -168,26 +178,23 @@ export const query = graphql`
         inIcuCumulative
         inIcuCurrently
         lastUpdateEt
-        dateModified(formatString: "MMM D, YYYY h:mm a")
         negative
         negativeTestsViral
         onVentilatorCumulative
         onVentilatorCurrently
-        pending
         positive
         positiveCasesViral
-        probableCases
         positiveIncrease
         positiveTestsViral
-        posNeg
+        probableCases
         recovered
         state
+        totalTestEncountersViral
         totalTestResults
-        totalTestResults
+        totalTestsAntibody
+        totalTestsPeopleAntibody
         totalTestsPeopleViral
         totalTestsViral
-        totalTestEncountersViral
-        totalTestsAntibody
       }
     }
     allCovidStateDaily(filter: { date: { eq: $sevenDaysAgo } }) {
@@ -211,9 +218,9 @@ export const query = graphql`
         description {
           description
         }
-        date(formatString: "YYYYMMDD")
-        dataElement
         contentful_id
+        dataElement
+        date(formatString: "YYYYMMDD")
         childContentfulChartAnnotationDescriptionTextNode {
           childMarkdownRemark {
             html

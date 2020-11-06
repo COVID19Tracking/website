@@ -15,7 +15,10 @@ module.exports = (graphql, reporter) => {
               }
             }
           }
-          allCounties(filter: { demographics: { total: { gt: 0 } } }) {
+          allCounties(
+            filter: { demographics: { total: { gt: 0 } } }
+            sort: { fields: [state, name] }
+          ) {
             nodes {
               name
               state
@@ -54,7 +57,6 @@ module.exports = (graphql, reporter) => {
               negativeTestsViral
               onVentilatorCumulative
               onVentilatorCurrently
-              pending
               positive
               positiveCasesViral
               positiveIncrease
@@ -93,7 +95,6 @@ module.exports = (graphql, reporter) => {
               negativeIncrease
               onVentilatorCumulative
               onVentilatorCurrently
-              posNeg
               positive
               positiveIncrease
               recovered

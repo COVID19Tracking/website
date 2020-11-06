@@ -1,4 +1,5 @@
 import marked from 'marked'
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 
 /**
  * Return a qualified Algolia index name
@@ -52,6 +53,9 @@ const blogPostQuery = `{
           lede
         }
         updatedAt(formatString: "MMMM D, YYYY")
+        blogContent {
+          raw
+        }
         body {
           body
         }
@@ -135,6 +139,13 @@ function splitBodyIntoChunks(baseChunk, firstChunk, bodyChunks) {
     }
     return splitChunks
   }, chunks)
+
+  chunks.forEach(chunk => {
+    if (chunk.childContentfulBlogPostBlogContentRichTextNode) {
+      delete chunk.childContentfulBlogPostBlogContentRichTextNode
+    }
+  })
+
   return chunks
   /* eslint-enable no-param-reassign */
 }
@@ -182,9 +193,18 @@ function chunkBlogPosts(data) {
       objectID: node.contentful_id,
     }
     const firstChunk = { ...baseChunk, section: 'section0' }
-    const bodyChunks = marked(node.body.body)
-      .split('\n')
-      .filter(chunk => chunk !== '')
+
+    let bodyChunks
+    if (node.blogContent === null) {
+      // todo remove this once we fully transition to rich text for blog posts
+      bodyChunks = marked(node.body.body)
+        .split('\n')
+        .filter(chunk => chunk !== '')
+    } else {
+      bodyChunks = documentToPlainTextString(JSON.parse(node.blogContent.raw))
+        .split('. ') // new sentences
+        .filter(chunk => chunk !== '')
+    }
 
     return [...acc, ...splitBodyIntoChunks(baseChunk, firstChunk, bodyChunks)]
   }, [])

@@ -1,7 +1,7 @@
+/* eslint-disable camelcase */
 import React from 'react'
 import { BLOCKS, INLINES } from '@contentful/rich-text-types'
-import marked from 'marked'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import LongContent from '~components/common/long-content'
 import CleanSpacing from '~components/utils/clean-spacing'
 import TableContentBlock from './content-blocks/table-content-block'
@@ -11,7 +11,7 @@ import RelatedPostsContentBlock from './content-blocks/related-posts-block'
 import TableauChart from '~components/charts/tableau'
 import blogContentStyles from './blog-content.module.scss'
 
-const BlogContent = ({ content, images }) => {
+const BlogContent = ({ content }) => {
   let footnoteNumber = 0
   const options = {
     renderNode: {
@@ -23,85 +23,61 @@ const BlogContent = ({ content, images }) => {
         </p>
       ),
       [INLINES.EMBEDDED_ENTRY]: node => {
-        if (typeof node.data.target.fields === 'undefined') {
-          return null
-        }
-        if (
-          node.data.target.sys.contentType.sys.contentful_id ===
-          'contentBlockFootnote'
-        ) {
+        const { target } = node.data
+        const { __typename } = target
+        if (__typename === 'ContentfulContentBlockFootnote') {
           footnoteNumber += 1
           return <FootnoteContentBlock number={footnoteNumber} />
         }
         return null
       },
       [BLOCKS.EMBEDDED_ENTRY]: node => {
-        if (typeof node.data.target.fields === 'undefined') {
-          return null
+        const { target } = node.data
+        const { __typename } = target
+        if (__typename === 'ContentfulContentBlockTable') {
+          return <TableContentBlock table={target.table.table} />
         }
-        if (
-          node.data.target.sys.contentType.sys.contentful_id ===
-          'contentBlockTable'
-        ) {
-          return (
-            <TableContentBlock table={node.data.target.fields.table['en-US']} />
-          )
-        }
-        if (
-          node.data.target.sys.contentType.sys.contentful_id ===
-          'contentBlockRelatedPosts'
-        ) {
+        if (__typename === 'ContentfulContentBlockRelatedPosts') {
+          const { headline, subtitle, relatedPosts } = target
           return (
             <RelatedPostsContentBlock
-              headline={node.data.target.fields.headline['en-US']}
-              subtitle={
-                node.data.target.fields.subtitle &&
-                node.data.target.fields.subtitle['en-US']
-              }
-              references={node.data.target.fields.relatedPosts['en-US']}
+              headline={headline}
+              subtitle={subtitle && subtitle.childMarkdownRemark.html}
+              references={relatedPosts}
             />
           )
         }
-        if (
-          node.data.target.sys.contentType.sys.contentful_id ===
-          'contentBlockTableauChart'
-        ) {
-          const { url, height, mobileUrl } = node.data.target.fields
+        if (__typename === 'ContentfulContentBlockTableauChart') {
+          const { contentful_id, url, height, mobileUrl } = target
           return (
             <TableauChart
-              id={node.data.target.sys.contentful_id}
-              viewUrl={url['en-US']}
-              viewUrlMobile={mobileUrl['en-US']}
-              height={height['en-US']}
+              id={contentful_id}
+              viewUrl={url}
+              viewUrlMobile={mobileUrl}
+              height={height}
             />
           )
         }
-        if (
-          node.data.target.sys.contentType.sys.contentful_id ===
-          'contentBlockImage'
-        ) {
-          const { caption, keepSize, fullWidthMobile } = node.data.target.fields
+        if (__typename === 'ContentfulContentBlockImage') {
+          const { image, caption, keepSize, fullWidthMobile } = target
           return (
             <ImageContentBlock
-              image={images[node.data.target.sys.contentful_id].image}
+              image={image}
               caption={caption}
               keepSize={keepSize && keepSize['en-US']}
               fullWidthMobile={fullWidthMobile && fullWidthMobile['en-US']}
               className={blogContentStyles.image}
-              imageUrl={
-                node.data.target.fields.image['en-US'].fields.file['en-US'].url
-              }
+              imageUrl={image.url}
             />
           )
         }
-        if (
-          node.data.target.sys.contentType.sys.contentful_id ===
-          'contentBlockMarkdown'
-        ) {
+        if (__typename === 'ContentfulContentBlockMarkdown') {
           return (
             <div
               dangerouslySetInnerHTML={{
-                __html: marked(node.data.target.fields.content['en-US']),
+                __html:
+                  target.childContentfulContentBlockMarkdownContentTextNode
+                    .childMarkdownRemark.html,
               }}
             />
           )
@@ -113,7 +89,7 @@ const BlogContent = ({ content, images }) => {
   return (
     <LongContent>
       <div className={blogContentStyles.content}>
-        {documentToReactComponents(content, options)}
+        {content && renderRichText(content, options)}
       </div>
     </LongContent>
   )

@@ -9,7 +9,7 @@ import Total from '~components/common/landing-page/total'
 import { Col, Row } from '~components/common/grid'
 import { FormatNumber } from '~components/utils/format'
 import DetailText from '~components/common/detail-text'
-import DownloadLinks from '~components/pages/data/ltc/download-links'
+import DownloadLinks from '~components/pages/data/long-term-care/download-links'
 import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
 
@@ -69,8 +69,8 @@ const LongTermCarePage = ({ data }) => {
       <DetailText small>
         <Snippet slug="ltc-top-notes" />
       </DetailText>
-      <DownloadLinks />
       <Container centered>
+        <DownloadLinks />
         <LongContent>
           <Snippet slug="ltc-1" />
         </LongContent>
@@ -132,9 +132,9 @@ export default LongTermCarePage
 export const query = graphql`
   query {
     covidLtcWebsite {
-      facilitiesCumulative
-      deathsCumulative
       casesCumulative
+      deathsCumulative
+      facilitiesCumulative
     }
     contentfulSnippetCollection(slug: { eq: "long-term-care-landing-page" }) {
       snippets {

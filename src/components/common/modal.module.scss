@@ -1,0 +1,30 @@
+.overlay {
+  background: hsla(0, 0%, 0%, 0.33);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.content {
+  width: 100vw;
+  @include padding(16);
+  margin: 5vh auto;
+  background: white;
+  outline: none;
+  @media (min-width: $viewport-lg) {
+    width: 60vw;
+    margin: 10vh auto;
+    @include padding(32);
+  }
+}
+
+.close {
+  float: right;
+  @include remove-button-style();
+  @include type-size(500);
+  font-weight: bold;
+  margin-top: -15px; // ignore-style-rules
+}

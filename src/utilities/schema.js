@@ -1,6 +1,79 @@
 module.exports = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
+    type CovidLtcStates implements Node {
+      data_timestamp: String
+      data_type: String
+      posres_nh: Int
+      probposres_nh: Int
+      deathres_nh: Int
+      probdeathres_nh: Int
+      posstaff_nh: Int
+      probposstaff_nh: Int
+      deathstaff_nh: Int
+      probdeathstaff_nh: Int
+      posresstaff_nh: Int
+      probposresstaff_nh: Int
+      deathresstaff_nh: Int
+      probdeathresstaff_nh: Int
+      outbrkfac_nh: Int
+      testedfac_nh: Int
+      outrkfactestsconducted_nh: Int
+      testedres_nh: Int
+      testedstaff_nh: Int
+      posres_alf: Int
+      probposres_alf: Int
+      deathres_alf: Int
+      probdeathres_alf: Int
+      posstaff_alf: Int
+      probposstaff_alf: Int
+      deathstaff_alf: Int
+      probdeathstaff_alf: Int
+      posresstaff_alf: Int
+      probposresstaff_alf: Int
+      deathresstaff_alf: Int
+      probdeathresstaff_alf: Int
+      outbrkfac_alf: Int
+      testedfac_alf: Int
+      outrkfactestsconducted_alf: Int
+      testedres_alf: Int
+      testedstaff_alf: Int
+      posres_ltc: Int
+      probposres_ltc: Int
+      deathres_ltc: Int
+      probdeathres_ltc: Int
+      posstaff_ltc: Int
+      probposstaff_ltc: Int
+      deathstaff_ltc: Int
+      probdeathstaff_ltc: Int
+      posresstaff_ltc: Int
+      probposresstaff_ltc: Int
+      deathresstaff_ltc: Int
+      probdeathresstaff_ltc: Int
+      outbrkfac_ltc: Int
+      testedfac_ltc: Int
+      outrkfactestsconducted_ltc: Int
+      testedres_ltc: Int
+      testedstaff_ltc: Int
+      posres_other: Int
+      probposres_other: Int
+      deathres_other: Int
+      probdeathres_other: Int
+      posstaff_other: Int
+      probposstaff_other: Int
+      deathstaff_other: Int
+      probdeathstaff_other: Int
+      posresstaff_other: Int
+      probposresstaff_other: Int
+      deathresstaff_other: Int
+      probdeathresstaff_other: Int
+      outbrkfac_other: Int
+      testedfac_other: Int
+      outrkfactestsconducted_other: Int
+      testedres_other: Int
+      testedstaff_other: String
+
+    }
     type CovidScreenshot implements Node {
       dateChecked: String
     }

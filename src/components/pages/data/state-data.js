@@ -33,6 +33,7 @@ const State = ({ state, metadata }) => {
         }}
         metadata={metadata}
         lastUpdate={state.dateModified}
+        longTermCare={state.childLtc}
       />
 
       <StateLinksDisclosure
