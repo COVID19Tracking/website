@@ -96,11 +96,10 @@ const VolunteerForm = () => {
       />
 
       <List
-        label="When are you most available to volunteer?"
+        label="When are you available to volunteer?"
         isRequired
         options={[
-          { value: 'weekdays', label: 'Weekdays' },
-          { value: 'mornings', label: 'Weekday mornings' },
+          { value: 'weekdays', label: 'Weekday afternoons' },
           { value: 'evenings', label: 'Weekday evenings' },
           { value: 'weekends', label: 'Weekends' },
         ]}
@@ -163,7 +162,7 @@ const VolunteerForm = () => {
           {
             value: 'journalism',
             label:
-              'I am a journalism student or professional who can help monitor local news or do outreach to state officials.',
+              'I am a journalism or communications student or professional who can help do outreach to state officials.',
           },
 
           {
