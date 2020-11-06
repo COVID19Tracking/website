@@ -61,6 +61,7 @@ const Annotation = ({ key, annotation, highlighted }) => {
         ))}
       </h3>
       <p>{annotation.warning}</p>
+      {annotation.lastChecked && <p>Last updated: {annotation.lastChecked}</p>}
     </div>
   )
 }
