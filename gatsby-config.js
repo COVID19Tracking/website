@@ -41,7 +41,6 @@ const gatsbyConfig = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
-    'gatsby-transformer-json',
     'gatsby-plugin-eslint',
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sharp',
@@ -238,13 +237,6 @@ const gatsbyConfig = {
       options: {
         name: 'press-logos',
         path: `${__dirname}/src/data/homepage-press.yml`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'api-status',
-        path: `${__dirname}/_api/v1/status.json`,
       },
     },
     {
