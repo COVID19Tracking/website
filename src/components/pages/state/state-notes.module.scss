@@ -22,9 +22,29 @@
   &.is-expanded {
     clip: auto;
     height: auto;
-    margin: 0;
+    @include margin(16, top bottom);
     overflow: auto;
     position: relative;
     width: auto;
   }
+}
+
+.fade-wrapper {
+  position: relative;
+  &.is-expanded {
+    .fader {
+      display: none;
+    }
+  }
+}
+
+.fader {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 30px 0; // ignore-style-rule
+  background-image: linear-gradient(to bottom, transparent, white);
 }

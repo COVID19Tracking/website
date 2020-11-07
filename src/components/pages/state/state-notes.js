@@ -21,19 +21,29 @@ const StateNotes = ({ notes }) => {
   return (
     <Container className={stateNotesStyle.container}>
       <span className={stateNotesStyle.label}>Notes: </span>
-      {notesArray.map((note, index) => (
-        <p
-          key={note}
-          dangerouslySetInnerHTML={{
-            __html: smartypants(marked.inlineLexer(note, [])),
-          }}
-          className={classnames(
-            'state-note-expandable',
-            index > 1 && stateNotesStyle.expandable,
-            isExpanded && stateNotesStyle.isExpanded,
-          )}
-        />
-      ))}
+      <div
+        className={classnames(
+          stateNotesStyle.fadeWrapper,
+          isExpanded && stateNotesStyle.isExpanded,
+        )}
+      >
+        {notesArray.map((note, index) => (
+          <p
+            key={note}
+            dangerouslySetInnerHTML={{
+              __html: smartypants(marked.inlineLexer(note, [])),
+            }}
+            className={classnames(
+              'state-note-expandable',
+              index > 1 && stateNotesStyle.expandable,
+              isExpanded && stateNotesStyle.isExpanded,
+            )}
+          />
+        ))}
+        {notesArray.length > 2 && (
+          <div className={classnames('js-enabled', stateNotesStyle.fader)} />
+        )}
+      </div>
       {notesArray.length > 2 && (
         <button
           className={stateNotesStyle.expand}
