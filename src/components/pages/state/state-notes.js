@@ -15,38 +15,40 @@ const getBoldedText = text =>
 const StateNotes = ({ notes }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const highlightedNotes = getBoldedText(notes)
-  const notesArray = highlightedNotes.split('\n')
+  const notesArray = highlightedNotes
+    .split('\n')
+    .filter(text => text.trim().length > 0)
   return (
     <Container className={stateNotesStyle.container}>
-      <div
-        className={classnames(
-          'notes-expandable',
-          stateNotesStyle.expandable,
-          isExpanded && stateNotesStyle.isExpanded,
-        )}
-      >
-        <span className={stateNotesStyle.label}>Notes: </span>
-        {notesArray.map(note => (
-          <div
-            key={note}
-            dangerouslySetInnerHTML={{ __html: smartypants(marked(note)) }}
-          />
-        ))}
-        {!isExpanded && <div className={stateNotesStyle.fader} />}
-      </div>
-      <button
-        className={stateNotesStyle.expand}
-        type="button"
-        aria-hidden
-        onClick={() => {
-          setIsExpanded(!isExpanded)
-        }}
-      >
-        {isExpanded ? <>Collapse state note</> : <>Read more</>}{' '}
-        <span className={stateNotesStyle.arrow}>
-          {isExpanded ? <>↑</> : <>↓</>}
-        </span>
-      </button>
+      <span className={stateNotesStyle.label}>Notes: </span>
+      {notesArray.map((note, index) => (
+        <p
+          key={note}
+          dangerouslySetInnerHTML={{
+            __html: smartypants(marked.inlineLexer(note, [])),
+          }}
+          className={classnames(
+            'state-note-expandable',
+            index > 1 && stateNotesStyle.expandable,
+            isExpanded && stateNotesStyle.isExpanded,
+          )}
+        />
+      ))}
+      {notesArray.length > 2 && (
+        <button
+          className={stateNotesStyle.expand}
+          type="button"
+          aria-hidden
+          onClick={() => {
+            setIsExpanded(!isExpanded)
+          }}
+        >
+          {isExpanded ? <>Collapse state note</> : <>Read more</>}{' '}
+          <span className={stateNotesStyle.arrow}>
+            {isExpanded ? <>↑</> : <>↓</>}
+          </span>
+        </button>
+      )}
     </Container>
   )
 }

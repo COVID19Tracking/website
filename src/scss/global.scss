@@ -120,11 +120,13 @@ select,
     }
   }
 
-  .notes-expandable {
-    height: auto !important;
-    .fader {
-      display: none;
-    }
+  .state-note-expandable {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: auto;
+    position: relative;
+    width: auto;
   }
 }
 

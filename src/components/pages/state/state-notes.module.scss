@@ -19,26 +19,13 @@
 }
 
 .expandable {
-  max-height: 10rem;
-  overflow: hidden;
-  position: relative;
-  div {
-    display: inline;
-    p {
-      display: block;
-    }
-  }
+  @include a11y-only();
   &.is-expanded {
-    max-height: initial;
-  }
-  .fader {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
+    clip: auto;
+    height: auto;
     margin: 0;
-    padding: 30px 0; // ignore-style-rule
-    background-image: linear-gradient(to bottom, transparent, white);
+    overflow: auto;
+    position: relative;
+    width: auto;
   }
 }
