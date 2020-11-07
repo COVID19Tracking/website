@@ -5,7 +5,7 @@ exports[`Components : Pages : State : State notes renders correctly 1`] = `
   className="container container container"
 >
   <div
-    className="narrow"
+    className="full"
   >
     <div
       className="notes-expandable expandable"
