@@ -12,12 +12,12 @@ const getBoldedText = text =>
     '**$1 $2$3**',
   )
 
-const StateNotes = ({ notes, isNarrow = true }) => {
+const StateNotes = ({ notes }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const highlightedNotes = getBoldedText(notes)
   const notesArray = highlightedNotes.split('\n')
   return (
-    <Container narrow={isNarrow} className={stateNotesStyle.container}>
+    <Container className={stateNotesStyle.container}>
       <div
         className={classnames(
           'notes-expandable',

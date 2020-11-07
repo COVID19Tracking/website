@@ -7,49 +7,70 @@ exports[`Components : Pages : State : State notes renders correctly 1`] = `
   <div
     className="narrow"
   >
-    <span
-      className="label"
+    <div
+      className="notes-expandable expandable"
     >
-      Notes: 
-    </span>
-    <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "<p>This is the first paragraph for <strong>June 13</strong>.</p>
+      <span
+        className="label"
+      >
+        Notes: 
+      </span>
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<p>This is the first paragraph for <strong>June 13</strong>.</p>
 ",
+          }
         }
-      }
-    />
-    <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "",
+      />
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "",
+          }
         }
-      }
-    />
-    <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "<p>This second line tests years, as in <strong>July 14, 2020</strong>.</p>
+      />
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<p>This second line tests years, as in <strong>July 14, 2020</strong>.</p>
 ",
+          }
         }
-      }
-    />
-    <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "",
+      />
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "",
+          }
         }
-      }
-    />
-    <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "<p>You can also format with <strong>August 18 2020</strong>, I guess that is fine too.</p>
+      />
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<p>You can also format with <strong>August 18 2020</strong>, I guess that is fine too.</p>
 ",
+          }
         }
-      }
-    />
+      />
+      <div
+        className="fader"
+      />
+    </div>
+    <button
+      aria-hidden={true}
+      className="expand"
+      onClick={[Function]}
+      type="button"
+    >
+      Read more
+       
+      <span
+        className="arrow"
+      >
+        ↓
+      </span>
+    </button>
   </div>
 </div>
 `;

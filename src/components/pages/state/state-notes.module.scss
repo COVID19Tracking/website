@@ -19,7 +19,7 @@
 }
 
 .expandable {
-  height: 15rem;
+  max-height: 10rem;
   overflow: hidden;
   position: relative;
   div {
@@ -29,7 +29,7 @@
     }
   }
   &.is-expanded {
-    height: auto;
+    max-height: initial;
   }
   .fader {
     position: absolute;
