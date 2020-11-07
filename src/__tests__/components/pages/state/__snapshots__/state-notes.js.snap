@@ -12,30 +12,37 @@ exports[`Components : Pages : State : State notes renders correctly 1`] = `
     >
       Notes: 
     </span>
-    <p
-      className="state-note-expandable"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "This is the first paragraph for <strong>June 13</strong>.",
+    <div
+      className="fadeWrapper"
+    >
+      <p
+        className="state-note-expandable"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "This is the first paragraph for <strong>June 13</strong>.",
+          }
         }
-      }
-    />
-    <p
-      className="state-note-expandable"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "This second line tests years, as in <strong>July 14, 2020</strong>.",
+      />
+      <p
+        className="state-note-expandable"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "This second line tests years, as in <strong>July 14, 2020</strong>.",
+          }
         }
-      }
-    />
-    <p
-      className="state-note-expandable expandable"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "You can also format with <strong>August 18 2020</strong>, I guess that is fine too.",
+      />
+      <p
+        className="state-note-expandable expandable"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "You can also format with <strong>August 18 2020</strong>, I guess that is fine too.",
+          }
         }
-      }
-    />
+      />
+      <div
+        className="js-enabled fader"
+      />
+    </div>
     <button
       aria-hidden={true}
       className="expand"
