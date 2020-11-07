@@ -43,7 +43,7 @@ const StateNotes = ({ notes }) => {
             setIsExpanded(!isExpanded)
           }}
         >
-          {isExpanded ? <>Collapse state note</> : <>Read more</>}{' '}
+          {isExpanded ? <>Collapse state notes</> : <>Read more state notes</>}{' '}
           <span className={stateNotesStyle.arrow}>
             {isExpanded ? <>↑</> : <>↓</>}
           </span>

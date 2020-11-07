@@ -8,10 +8,9 @@
 }
 
 .expand {
-  @include margin(16, top);
+  font-weight: bold;
   @include remove-button-style();
   text-decoration: underline;
-  color: $color-honey-700;
   .arrow {
     display: inline-block;
     @include margin(8, left);

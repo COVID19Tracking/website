@@ -7,63 +7,42 @@ exports[`Components : Pages : State : State notes renders correctly 1`] = `
   <div
     className="full"
   >
-    <div
-      className="notes-expandable expandable"
+    <span
+      className="label"
     >
-      <span
-        className="label"
-      >
-        Notes: 
-      </span>
-      <div
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>This is the first paragraph for <strong>June 13</strong>.</p>
-",
-          }
+      Notes: 
+    </span>
+    <p
+      className="state-note-expandable"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "This is the first paragraph for <strong>June 13</strong>.",
         }
-      />
-      <div
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "",
-          }
+      }
+    />
+    <p
+      className="state-note-expandable"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "This second line tests years, as in <strong>July 14, 2020</strong>.",
         }
-      />
-      <div
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>This second line tests years, as in <strong>July 14, 2020</strong>.</p>
-",
-          }
+      }
+    />
+    <p
+      className="state-note-expandable expandable"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "You can also format with <strong>August 18 2020</strong>, I guess that is fine too.",
         }
-      />
-      <div
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "",
-          }
-        }
-      />
-      <div
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>You can also format with <strong>August 18 2020</strong>, I guess that is fine too.</p>
-",
-          }
-        }
-      />
-      <div
-        className="fader"
-      />
-    </div>
+      }
+    />
     <button
       aria-hidden={true}
       className="expand"
       onClick={[Function]}
       type="button"
     >
-      Read more
+      Read more state notes
        
       <span
         className="arrow"
