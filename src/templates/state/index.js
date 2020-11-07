@@ -24,7 +24,6 @@ const StateTemplate = ({ pageContext, data, path }) => {
   return (
     <Layout title={state.name} returnLinks={[{ link: '/data' }]} path={path}>
       <StatePreamble state={state} covidState={covidState} />
-      {state.notes && <StateNotes notes={state.notes} />}
       <SummaryCharts
         name={state.name}
         history={allCovidStateDaily.nodes}
@@ -48,6 +47,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
           lastUpdated={covidState.lastUpdateEt}
           longTermCare={data.covidStateInfo.childLtc}
         />
+        {state.notes && <StateNotes notes={state.notes} />}
         <StateTweets tweets={allTweets} name={state.name} />
       </StateNavWrapper>
     </Layout>

@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import marked from 'marked'
+import classnames from 'classnames'
 import smartypants from 'smartypants'
 
 import Container from '~components/common/container'
@@ -12,17 +13,40 @@ const getBoldedText = text =>
   )
 
 const StateNotes = ({ notes, isNarrow = true }) => {
+  const [isExpanded, setIsExpanded] = useState(false)
   const highlightedNotes = getBoldedText(notes)
   const notesArray = highlightedNotes.split('\n')
   return (
     <Container narrow={isNarrow} className={stateNotesStyle.container}>
-      <span className={stateNotesStyle.label}>Notes: </span>
-      {notesArray.map(note => (
-        <div
-          key={note}
-          dangerouslySetInnerHTML={{ __html: smartypants(marked(note)) }}
-        />
-      ))}
+      <div
+        className={classnames(
+          'notes-expandable',
+          stateNotesStyle.expandable,
+          isExpanded && stateNotesStyle.isExpanded,
+        )}
+      >
+        <span className={stateNotesStyle.label}>Notes: </span>
+        {notesArray.map(note => (
+          <div
+            key={note}
+            dangerouslySetInnerHTML={{ __html: smartypants(marked(note)) }}
+          />
+        ))}
+        {!isExpanded && <div className={stateNotesStyle.fader} />}
+      </div>
+      <button
+        className={stateNotesStyle.expand}
+        type="button"
+        aria-hidden
+        onClick={() => {
+          setIsExpanded(!isExpanded)
+        }}
+      >
+        {isExpanded ? <>Collapse state note</> : <>Read more</>}{' '}
+        <span className={stateNotesStyle.arrow}>
+          {isExpanded ? <>↑</> : <>↓</>}
+        </span>
+      </button>
     </Container>
   )
 }

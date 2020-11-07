@@ -1,15 +1,44 @@
 .container {
   margin-left: 0;
   @include margin(16, top bottom);
+}
 
+.label {
+  font-weight: bold;
+}
+
+.expand {
+  @include margin(16, top);
+  @include remove-button-style();
+  text-decoration: underline;
+  color: $color-honey-700;
+  .arrow {
+    display: inline-block;
+    @include margin(8, left);
+  }
+}
+
+.expandable {
+  height: 15rem;
+  overflow: hidden;
+  position: relative;
   div {
     display: inline;
     p {
       display: block;
     }
   }
-}
-
-.label {
-  font-weight: bold;
+  &.is-expanded {
+    height: auto;
+  }
+  .fader {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 30px 0;
+    background-image: linear-gradient(to bottom, transparent, white);
+  }
 }

@@ -119,6 +119,13 @@ select,
       display: block !important;
     }
   }
+
+  .notes-expandable {
+    height: auto !important;
+    .fader {
+      display: none;
+    }
+  }
 }
 
 /*
