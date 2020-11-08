@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
 import NProgress from 'nprogress'
-import searchStyle from './search.module.scss'
+import classnames from 'classnames'
 import searchIcon from '~images/icons/search-inverted.svg'
-
 import { querySearch } from '~context/search-context'
+
+import searchStyle from './search.module.scss'
+import searchHeaderStyle from '~components/layout/header/search/search-autocomplete.module.scss'
 
 const Search = ({ query, search, searchDispatch, searchState, navigate }) => {
   function setQuery(value) {
@@ -46,7 +48,10 @@ const Search = ({ query, search, searchDispatch, searchState, navigate }) => {
         />
       </button>
       {/* eslint-disable jsx-a11y/label-has-associated-control */}
-      <label htmlFor="search-page-input" className={searchStyle.label}>
+      <label
+        htmlFor="search-page-input"
+        className={classnames(searchHeaderStyle.searchLabel, searchStyle.searchLabel)}
+      >
         Search
       </label>
       <input
@@ -55,6 +60,7 @@ const Search = ({ query, search, searchDispatch, searchState, navigate }) => {
         name="search"
         autoComplete="off"
         defaultValue={query || ''}
+        className={classnames(searchHeaderStyle.searchInput, searchStyle.searchInput)}
         onChange={event => {
           clearTimeout(searchEvent)
           const { value } = event.currentTarget

@@ -5,7 +5,24 @@
 
   input {
     width: 100%;
-    padding: 0.4rem 3.4rem 0.4rem 6rem;
+    padding: .55rem 3rem .55rem 5rem;
+  }
+}
+
+label.search-label {
+  display: inline;
+}
+
+.search-input {
+  color: $placeholder;
+  font-weight: 400;
+
+  // set the default outer color to grey
+  box-shadow: 0 0 0 2px $color-slate-700;
+  &:focus,
+  &:active {
+    // ...and make it honey when focused
+    box-shadow: 0 0 0 2px $color-honey-400;
   }
 }
 
@@ -22,16 +39,7 @@
 }
 
 .search-icon {
-  width: 1.25rem;
-}
-
-.label {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-
-  color: $placeholder;
+  width: 13px;
 }
 
 .search-results {
