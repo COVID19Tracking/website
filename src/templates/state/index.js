@@ -138,6 +138,7 @@ export const query = graphql`
       totalTestsViral
       totalTestEncountersViral
       totalTestsAntibody
+      totalTestsPeopleAntibody
       totalTestResultsSource
     }
     allCovidStateDaily(

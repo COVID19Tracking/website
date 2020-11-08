@@ -34,7 +34,6 @@ const DailyTweet = () => {
   }
 
   const { id_str, full_text, entities, created_at } = data.allTweets.nodes[0]
-  console.log(created_at)
   return (
     <Tweet
       text={full_text}

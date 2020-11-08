@@ -47,6 +47,14 @@ const gatsbyConfig = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-svgr',
     {
+      resolve: 'gatsby-plugin-google-analytics-gdpr',
+      options: {
+        trackingId: 'UA-182192518-1',
+        enableDevelopment: false,
+        anonymizeIP: true,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-sass',
       options: {
         data: sassImports,
@@ -330,7 +338,7 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-global-context`,
+      resolve: 'gatsby-plugin-global-context',
       options: {
         context: {
           sevenDaysAgo: DateTime.fromISO(latestDate)
@@ -340,7 +348,7 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-alias-imports`,
+      resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
           '~plugins': 'plugins',
@@ -385,7 +393,7 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: 'gatsby-plugin-feed',
       options: {
         query: `
           {
