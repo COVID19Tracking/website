@@ -3,12 +3,7 @@ import classnames from 'classnames'
 import overviewWrapperStyles from './overview-wrapper.module.scss'
 
 const OverviewWrapper = ({ children, className = false }) => (
-  <div
-    className={classnames(
-      overviewWrapperStyles.wrapper,
-      className && className,
-    )}
-  >
+  <div className={classnames(overviewWrapperStyles.wrapper, className)}>
     {children}
   </div>
 )
