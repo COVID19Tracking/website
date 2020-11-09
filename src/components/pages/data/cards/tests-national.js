@@ -37,19 +37,18 @@ const TestNationalCard = ({
               })
             }}
           />
-
-          <DrillDown
-            label="New tests today"
-            value={totalTestResultsIncrease}
-            calculated
-          />
-          <DrillDown
-            label="Change over 7 days"
-            value={percentIncrease}
-            suffix={`%${percentIncrease > 0 ? '+' : '-'}`}
-            calculated
-          />
         </Statistic>
+        <DrillDown
+          label="New tests today"
+          value={totalTestResultsIncrease}
+          calculated
+        />
+        <DrillDown
+          label="Change over 7 days"
+          value={percentIncrease}
+          suffix={`%${percentIncrease > 0 ? '+' : '-'}`}
+          calculated
+        />
       </CardBody>
     </Card>
   )
