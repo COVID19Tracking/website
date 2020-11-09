@@ -30,9 +30,7 @@
 }
 
 .button {
-  border: none;
-  background-color: transparent;
-  padding: 0;
+  @include remove-button-style();
   text-decoration: underline;
 }
 

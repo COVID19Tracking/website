@@ -3,7 +3,13 @@ import State from './state-data'
 import StateNavWrapper from './state-nav-wrapper'
 import statesStyles from './states.module.scss'
 
-const States = ({ states, stateData, sevenDaysAgoList, stateMetadata }) => {
+const States = ({
+  states,
+  stateData,
+  sevenDaysAgoList,
+  stateMetadata,
+  annotations,
+}) => {
   const stateList = []
   states.forEach(node => {
     const state = node
@@ -17,6 +23,10 @@ const States = ({ states, stateData, sevenDaysAgoList, stateMetadata }) => {
         state.sevenDaysAgo = data
       }
     })
+    state.annotations = annotations.filter(
+      annotation =>
+        annotation.state && annotation.state.indexOf(state.state) > -1,
+    )
     stateList.push(state)
   })
 
