@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Pages : Data : Summary chart description renders correctly 1`] = `
+<div
+  className="a11y-only"
+>
+  Cases
+   started at 
+  1234
+   on 
+  Mar  3
+   and our most recent data on
+   
+  Mar  4
+   
+  is
+   
+  132
+  .
+  The most recent low-point in 
+  cases
+   was
+   
+  Dec 31
+   when the value was 
+  .
+  The most recent high-point in 
+  cases
+   was
+   
+  Dec 31
+   when the value was 
+  .
+</div>
+`;
