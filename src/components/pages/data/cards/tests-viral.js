@@ -59,6 +59,19 @@ const TestsViralCard = ({
               }}
               label="Total tests (unclear units)"
             />
+
+            <AnnotationButton field="Total Tests (PCR)">
+              <DefinitionLink
+                title="Warning"
+                onDefinitionsToggle={() => {
+                  setCardAnnotations({
+                    fields: annotationFields,
+                    highlight: 'Total Tests (PCR)',
+                  })
+                }}
+                label="Annotation for Total Tests (in unclear units)"
+              />
+            </AnnotationButton>
           </Statistic>
         ) : (
           <>
