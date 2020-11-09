@@ -33,6 +33,7 @@ const State = ({ state, metadata }) => {
         }}
         metadata={metadata}
         lastUpdate={state.dateModified}
+        longTermCare={state.childLtc}
       />
 
       <StateLinksDisclosure
@@ -46,7 +47,7 @@ const State = ({ state, metadata }) => {
         <StateLinksDisclosurePanel state={state} />
       </StateLinksDisclosure>
 
-      {state.notes && <StateNotes isNarrow={false} notes={state.notes} />}
+      {state.notes && <StateNotes notes={state.notes} />}
       <a
         className={`state-top-link ${stateDataStyles.topLink}`}
         href="#reach-skip-nav"

@@ -18,6 +18,10 @@
     display: block;
   }
 
+  &.no-margin {
+    margin-bottom: 0;
+  }
+
   .input-description {
     margin-bottom: spacer(16) !important;
   }

@@ -39,7 +39,7 @@ exports[`Components : Pages : Data : Cards : Antibody tests renders correctly 1`
         <div
           className="title"
         >
-          Total tests
+          Total tests (specimens)
         </div>
         <div
           className="value"
@@ -50,7 +50,37 @@ exports[`Components : Pages : Data : Cards : Antibody tests renders correctly 1`
           className="info"
         >
           <button
-            aria-label="Definition of Total "
+            aria-label="Definition of Total antibody tests in specimens"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Total tests (people)
+        </div>
+        <div
+          className="value"
+        >
+          12
+        </div>
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Total antibody tests in people"
             className="link"
             onClick={[Function]}
             type="button"
@@ -735,51 +765,51 @@ exports[`Components : Pages : Data : Cards : National tests renders correctly 1`
           >
             Definition
           </button>
-          <div
-            className="drillDown"
-          >
-            <span
-              className="label"
-            >
-              New tests today
-              <div
-                aria-hidden={true}
-                className="calculated"
-              >
-                 
-                (Calculated)
-              </div>
-            </span>
-            <span
-              className="value"
-            >
-              1,400
-            </span>
-          </div>
-          <div
-            className="drillDown"
-          >
-            <span
-              className="label"
-            >
-              Change over 7 days
-              <div
-                aria-hidden={true}
-                className="calculated"
-              >
-                 
-                (Calculated)
-              </div>
-            </span>
-            <span
-              className="value"
-            >
-              1,340
-              %+
-            </span>
-          </div>
         </div>
       </div>
+    </div>
+    <div
+      className="drillDown"
+    >
+      <span
+        className="label"
+      >
+        New tests today
+        <div
+          aria-hidden={true}
+          className="calculated"
+        >
+           
+          (Calculated)
+        </div>
+      </span>
+      <span
+        className="value"
+      >
+        1,400
+      </span>
+    </div>
+    <div
+      className="drillDown"
+    >
+      <span
+        className="label"
+      >
+        Change over 7 days
+        <div
+          aria-hidden={true}
+          className="calculated"
+        >
+           
+          (Calculated)
+        </div>
+      </span>
+      <span
+        className="value"
+      >
+        1,340
+        %+
+      </span>
     </div>
   </div>
 </div>

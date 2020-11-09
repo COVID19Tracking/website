@@ -229,9 +229,7 @@ export const query = graphql`
           }
         }
       }
-      childContentfulBlogPostBlogContentRichTextNode {
-        json
-      }
+
       featuredImage {
         resize(width: 900) {
           src
@@ -243,11 +241,6 @@ export const query = graphql`
         lede
       }
       publishDate(formatString: "MMMM D, YYYY")
-      childContentfulBlogPostBodyTextNode {
-        childMarkdownRemark {
-          html
-        }
-      }
       childContentfulBlogPostFootnotesTextNode {
         childMarkdownRemark {
           html

@@ -10,10 +10,6 @@ import Hero from '~components/pages/blog/blog-hero'
 
 const BlogPostTemplate = ({ data, path }) => {
   const blogPost = data.contentfulBlogPost
-  const blogImages = {}
-  data.allContentfulContentBlockImage.nodes.forEach(image => {
-    blogImages[image.contentful_id] = image
-  })
   const socialCard = blogPost.socialCard || { description: blogPost.lede.lede }
   const hero = (
     <Hero
@@ -40,17 +36,14 @@ const BlogPostTemplate = ({ data, path }) => {
       {blogPost.featuredImage && (
         <FeaturedImage image={blogPost.featuredImage} />
       )}
-      <BlogPostContent
-        content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
-        images={blogImages}
-      />
+      <BlogPostContent content={blogPost.blogContent} />
       <BlogPostFootnotes
         footnoteText={
           blogPost.childContentfulBlogPostFootnotesTextNode &&
           blogPost.childContentfulBlogPostFootnotesTextNode.childMarkdownRemark
             .html
         }
-        content={blogPost.childContentfulBlogPostBlogContentRichTextNode.json}
+        contentBlocks={blogPost.blogContent.references}
       />
       <BlogPostExtras blogPost={blogPost} />
     </Layout>
@@ -60,7 +53,7 @@ const BlogPostTemplate = ({ data, path }) => {
 export default BlogPostTemplate
 
 export const query = graphql`
-  query($id: String!, $blogImages: [String]) {
+  query($id: String!) {
     contentfulBlogPost(id: { eq: $id }) {
       contentful_id
       title
@@ -127,6 +120,11 @@ export const query = graphql`
           lede
         }
       }
+      childContentfulBlogPostFootnotesTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
       categories {
         name
         slug
@@ -160,8 +158,75 @@ export const query = graphql`
           }
         }
       }
-      childContentfulBlogPostBlogContentRichTextNode {
-        json
+      blogContent {
+        raw
+        references {
+          ... on ContentfulContentBlockTableauChart {
+            id
+            contentful_id
+            name
+            height
+            mobileUrl
+            url
+          }
+          ... on ContentfulContentBlockTable {
+            id
+            contentful_id
+            table {
+              table
+            }
+          }
+          ... on ContentfulContentBlockRelatedPosts {
+            id
+            contentful_id
+            headline
+            subtitle {
+              childMarkdownRemark {
+                html
+              }
+            }
+            relatedPosts {
+              title
+              slug
+            }
+          }
+          ... on ContentfulContentBlockMarkdown {
+            id
+            contentful_id
+            childContentfulContentBlockMarkdownContentTextNode {
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
+          ... on ContentfulContentBlockImage {
+            id
+            contentful_id
+            keepSize
+            fullWidthMobile
+            caption
+            image {
+              file {
+                url
+              }
+              title
+              description
+              fluid(maxWidth: 2000, sizes: "4") {
+                aspectRatio
+                sizes
+                src
+                srcSet
+              }
+            }
+          }
+          ... on ContentfulContentBlockFootnote {
+            id
+            contentful_id
+            footnote {
+              footnote
+            }
+          }
+        }
       }
       featuredImage {
         resize(width: 900) {
@@ -174,33 +239,6 @@ export const query = graphql`
         lede
       }
       publishDate(formatString: "MMMM D, YYYY")
-      childContentfulBlogPostBodyTextNode {
-        childMarkdownRemark {
-          html
-        }
-      }
-
-      childContentfulBlogPostFootnotesTextNode {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
-    allContentfulContentBlockImage(
-      filter: { contentful_id: { in: $blogImages } }
-    ) {
-      nodes {
-        contentful_id
-        image {
-          title
-          fluid(maxWidth: 2000, sizes: "4") {
-            aspectRatio
-            sizes
-            src
-            srcSet
-          }
-        }
-      }
     }
   }
 `

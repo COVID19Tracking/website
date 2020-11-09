@@ -128,6 +128,19 @@ export const query = graphql`
         childSlug {
           slug
         }
+        childLtc {
+          facilities
+          current {
+            total_cases
+            total_death
+            date
+          }
+          last {
+            total_cases
+            total_death
+            date
+          }
+        }
       }
     }
     allCovidUsDaily {
@@ -179,6 +192,7 @@ export const query = graphql`
         totalTestEncountersViral
         totalTestResults
         totalTestsAntibody
+        totalTestsPeopleAntibody
         totalTestsPeopleViral
         totalTestsViral
       }

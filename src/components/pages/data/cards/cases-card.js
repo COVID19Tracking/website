@@ -52,7 +52,7 @@ const CasesCard = ({
             label="Total cases"
           />
         </Statistic>
-        {confirmedCases && (
+        {confirmedCases > 0 && confirmedCases !== null && (
           <Statistic title="Confirmed cases" value={confirmedCases} subelement>
             <DefinitionLink
               onDefinitionsToggle={() => {
@@ -65,7 +65,7 @@ const CasesCard = ({
             />
           </Statistic>
         )}
-        {probableCases && (
+        {probableCases > 0 && probableCases !== null && (
           <Statistic title="Probable cases" value={probableCases} subelement>
             <DefinitionLink
               onDefinitionsToggle={() => {
