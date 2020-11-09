@@ -4,23 +4,32 @@
   z-index: 0;
   input {
     width: 100%;
-    padding: .55rem 3rem .55rem 5rem;
+    padding: .55rem 3rem .55rem 5rem; // ignore-style-rule
   }
 }
 
 label.search-label {
   position: relative;
   display: inline;
-  top: 30px;
+  top: 10px;
+  width: 0px;
 }
 
 .search-input {
   color: $placeholder;
   font-weight: 400;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  border-radius: 4px;
 
   // set the default outer color to grey
   box-shadow: 0 0 0 2px $color-slate-700;
-  &:focus,
+  &:focus-within,
   &:active {
     // ...and make it honey when focused
     box-shadow: 0 0 0 2px $color-honey-400;
@@ -28,10 +37,9 @@ label.search-label {
 }
 
 .search-submit {
-  position: absolute;
+  position: relative;
   right: 0.4rem;
   top: 50%;
-  transform: translateY(-50%);
 
   appearance: none;
   background: none;
@@ -40,7 +48,7 @@ label.search-label {
 }
 
 .search-icon {
-  width: 13px;
+  width: 14px;
 }
 
 .search-results {
@@ -53,4 +61,8 @@ label.search-label {
   @include row();
   @include col(4 6 10);
   margin: 0 auto;
+}
+
+.results-label {
+  margin-top: spacer(16);
 }

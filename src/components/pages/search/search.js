@@ -34,19 +34,6 @@ const Search = ({ query, search, searchDispatch, searchState, navigate }) => {
         event.preventDefault()
       }}
     >
-      <button
-        type="button"
-        className={searchStyle.searchSubmit}
-        aria-label="Submit search"
-        onClick={() => query && navigate(`/search?q=${query}`)}
-      >
-        <img
-          src={searchIcon}
-          className={searchStyle.searchIcon}
-          alt=""
-          aria-hidden="true"
-        />
-      </button>
       {/* eslint-disable jsx-a11y/label-has-associated-control */}
       <label
         htmlFor="search-page-input"
@@ -76,6 +63,19 @@ const Search = ({ query, search, searchDispatch, searchState, navigate }) => {
           }, 300)
         }}
       />
+      <button
+        type="button"
+        className={searchStyle.searchSubmit}
+        aria-label="Submit search"
+        onClick={() => query && navigate(`/search?q=${query}`)}
+      >
+        <img
+          src={searchIcon}
+          className={searchStyle.searchIcon}
+          alt=""
+          aria-hidden="true"
+        />
+      </button>
       {/* eslint-enable jsx-a11y/label-has-associated-control */}
     </form>
   )
