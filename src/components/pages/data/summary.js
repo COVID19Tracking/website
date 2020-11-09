@@ -94,18 +94,25 @@ const StateSummary = ({
         )}
         {cardAnnotations && (
           <DefinitionPanel
-            annotations={annotations.filter(annotation => {
-              let result = false
-              cardAnnotations.forEach(cardAnnotation => {
-                if (
-                  annotation.field &&
-                  annotation.field.indexOf(cardAnnotation) > -1
-                ) {
-                  result = true
-                }
+            annotations={annotations
+              .filter(annotation => {
+                let result = false
+                cardAnnotations.forEach(cardAnnotation => {
+                  if (
+                    annotation.field &&
+                    annotation.field.indexOf(cardAnnotation) > -1
+                  ) {
+                    result = true
+                  }
+                })
+                return result
               })
-              return result
-            })}
+              .sort((a, b) =>
+                cardAnnotations.indexOf(a.field[0]) >
+                cardAnnotations.indexOf(b.field[0])
+                  ? 1
+                  : -1,
+              )}
             highlightedDefinition={highlightedAnnotation}
             onHide={() => setCardAnnotations(false)}
             title={`${stateName} Annotations & Warnings`}

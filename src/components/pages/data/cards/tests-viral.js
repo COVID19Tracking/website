@@ -22,8 +22,8 @@ const TestsViralCard = ({
     'totalTestsPeopleViral',
   ]
   const annotationFields = [
-    'Total Tests (PCR)',
     'Total Test Encounters (PCR)',
+    'Total Tests (PCR)',
     'Total PCR Tests (People)',
   ]
   const { setCardAnnotations } = useContext(AnnotationPanelContext)
