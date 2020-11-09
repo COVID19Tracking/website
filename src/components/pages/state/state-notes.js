@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import marked from 'marked'
+import classnames from 'classnames'
 import smartypants from 'smartypants'
 
 import Container from '~components/common/container'
@@ -11,18 +12,53 @@ const getBoldedText = text =>
     '**$1 $2$3**',
   )
 
-const StateNotes = ({ notes, isNarrow = true }) => {
+const StateNotes = ({ notes }) => {
+  const [isExpanded, setIsExpanded] = useState(false)
   const highlightedNotes = getBoldedText(notes)
-  const notesArray = highlightedNotes.split('\n')
+  const notesArray = highlightedNotes
+    .split('\n')
+    .filter(text => text.trim().length > 0)
   return (
-    <Container narrow={isNarrow} className={stateNotesStyle.container}>
+    <Container className={stateNotesStyle.container}>
       <span className={stateNotesStyle.label}>Notes: </span>
-      {notesArray.map(note => (
-        <div
-          key={note}
-          dangerouslySetInnerHTML={{ __html: smartypants(marked(note)) }}
-        />
-      ))}
+      <div
+        className={classnames(
+          stateNotesStyle.fadeWrapper,
+          isExpanded && stateNotesStyle.isExpanded,
+        )}
+      >
+        {notesArray.map((note, index) => (
+          <p
+            key={note}
+            dangerouslySetInnerHTML={{
+              __html: smartypants(marked.inlineLexer(note, [])),
+            }}
+            className={classnames(
+              'state-note-expandable',
+              index > 1 && stateNotesStyle.expandable,
+              isExpanded && stateNotesStyle.isExpanded,
+            )}
+          />
+        ))}
+        {notesArray.length > 2 && (
+          <div className={classnames('js-enabled', stateNotesStyle.fader)} />
+        )}
+      </div>
+      {notesArray.length > 2 && (
+        <button
+          className={stateNotesStyle.expand}
+          type="button"
+          aria-hidden
+          onClick={() => {
+            setIsExpanded(!isExpanded)
+          }}
+        >
+          {isExpanded ? <>Collapse state notes</> : <>Read more state notes</>}{' '}
+          <span className={stateNotesStyle.arrow}>
+            {isExpanded ? <>↑</> : <>↓</>}
+          </span>
+        </button>
+      )}
     </Container>
   )
 }
