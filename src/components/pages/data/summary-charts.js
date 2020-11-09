@@ -24,6 +24,34 @@ import styles from './summary-charts.module.scss'
 
 import TooltipContents from '~components/charts/tooltip-contents'
 
+const ChartDescription = ({ label, data }) => {
+  const startDate = parseDate(data[0].date)
+  const lastDate = parseDate(data[data.length - 1].date)
+  const start = data[0].value
+  const last = data[data.length - 1].value
+  const lowPoint = {
+    date: false,
+    value: false,
+  }
+  let directionUp = 0
+  lowPoint.forEach((point, index) => {
+    if(index > 7)
+  })
+
+  return (
+    <div>
+      {label} started at {start} on {startDate} and our most recent data on{' '}
+      {lastDate} it is at {last}.
+      {lowPoint.value !== false && (
+        <>
+          The most recent low-point in {label.toLowerCase()} was {lowPoint.date} when the
+          value was {lowPoint.value}.
+        </>
+      )}
+    </div>
+  )
+}
+
 const TestFieldIndicator = ({ field, units, national }) => (
   <span className={styles.testFieldIndicator}>
     {national ? (
@@ -346,6 +374,10 @@ const SummaryCharts = ({
             renderTooltipContents={makeRenderTooltipContents(`new tests`)}
             {...chartProps}
           />
+          <ChartDescription
+            label="New tests"
+            data={getDataForField(data, testField)}
+          />
         </Col>
         <Col {...colProps}>
           <h3>
@@ -358,6 +390,7 @@ const SummaryCharts = ({
             <CalculatedIndicator />
           </h3>
           {hasData(positiveField) ? (
+            <>
             <BarChart
               data={getDataForField(data, positiveField)}
               lineData={dailyAverage(data, positiveField)}
@@ -368,6 +401,11 @@ const SummaryCharts = ({
               renderTooltipContents={makeRenderTooltipContents('new cases')}
               {...chartProps}
             />
+            <ChartDescription
+              label="Cases"
+              data={getDataForField(data, positiveField)}
+            />
+            </>
           ) : (
             <ChartAlert message={getAlertMessage('cases')} />
           )}
@@ -383,7 +421,7 @@ const SummaryCharts = ({
           </h3>
 
           {hasData(hospitalizedField) ? (
-            <BarChart
+            <><BarChart
               data={getDataForField(data, hospitalizedField)}
               lineData={dailyAverage(data, hospitalizedField)}
               refLineData={dailyAverage(usData, hospitalizedField)}
@@ -398,6 +436,11 @@ const SummaryCharts = ({
               )}
               {...chartProps}
             />
+            <ChartDescription
+              label="Hospitalization"
+              data={getDataForField(data, hospitalizedField)}
+            />
+            </>
           ) : (
             <ChartAlert message={getAlertMessage('hospitalizations', true)} />
           )}
@@ -413,7 +456,7 @@ const SummaryCharts = ({
             <CalculatedIndicator />
           </h3>
           {hasData(deathField) ? (
-            <BarChart
+            <><BarChart
               data={getDataForField(data, deathField)}
               lineData={dailyAverage(data, deathField)}
               refLineData={dailyAverage(usData, deathField)}
@@ -423,6 +466,11 @@ const SummaryCharts = ({
               renderTooltipContents={makeRenderTooltipContents('new deaths')}
               {...chartProps}
             />
+            <ChartDescription
+              label="New deaths"
+              data={getDataForField(data, deathField)}
+            />
+            </>
           ) : (
             <ChartAlert message={getAlertMessage('deaths')} />
           )}
