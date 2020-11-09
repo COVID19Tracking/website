@@ -133,13 +133,14 @@ const DefinitionPanel = ({
 }
 
 const AnnotationButton = ({ field, children }) => {
-  const { annotations } = useContext(AnnotationPanelContext)
-  if (!annotations) {
+  const annotationContext = useContext(AnnotationPanelContext)
+  if (!annotationContext || !annotationContext.annotations) {
     return null
   }
   if (
-    annotations.filter(annotation => annotation.field.indexOf(field) > -1)
-      .length > 0
+    annotationContext.annotations.filter(
+      annotation => annotation.field.indexOf(field) > -1,
+    ).length > 0
   ) {
     return children
   }
