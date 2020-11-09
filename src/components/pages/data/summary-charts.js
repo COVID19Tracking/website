@@ -17,40 +17,13 @@ import Toggle from '~components/common/toggle'
 import ContentfulContent from '~components/common/contentful-content'
 import Alert from '~components/common/alert'
 import { FieldName } from '~components/utils/field-name'
+import ChartDescription from './summary-chart-description'
 import { ReactComponent as CtpLogo } from '~images/project-logo.svg'
 import colors from '~scss/colors.module.scss'
 
 import styles from './summary-charts.module.scss'
 
 import TooltipContents from '~components/charts/tooltip-contents'
-
-const ChartDescription = ({ label, data }) => {
-  const startDate = parseDate(data[0].date)
-  const lastDate = parseDate(data[data.length - 1].date)
-  const start = data[0].value
-  const last = data[data.length - 1].value
-  const lowPoint = {
-    date: false,
-    value: false,
-  }
-  let directionUp = 0
-  lowPoint.forEach((point, index) => {
-    if(index > 7)
-  })
-
-  return (
-    <div>
-      {label} started at {start} on {startDate} and our most recent data on{' '}
-      {lastDate} it is at {last}.
-      {lowPoint.value !== false && (
-        <>
-          The most recent low-point in {label.toLowerCase()} was {lowPoint.date} when the
-          value was {lowPoint.value}.
-        </>
-      )}
-    </div>
-  )
-}
 
 const TestFieldIndicator = ({ field, units, national }) => (
   <span className={styles.testFieldIndicator}>
@@ -391,20 +364,20 @@ const SummaryCharts = ({
           </h3>
           {hasData(positiveField) ? (
             <>
-            <BarChart
-              data={getDataForField(data, positiveField)}
-              lineData={dailyAverage(data, positiveField)}
-              refLineData={dailyAverage(usData, positiveField)}
-              fill={colors.colorStrawberry100}
-              lineColor={colors.colorStrawberry200}
-              annotations={splitAnnotations.cases}
-              renderTooltipContents={makeRenderTooltipContents('new cases')}
-              {...chartProps}
-            />
-            <ChartDescription
-              label="Cases"
-              data={getDataForField(data, positiveField)}
-            />
+              <BarChart
+                data={getDataForField(data, positiveField)}
+                lineData={dailyAverage(data, positiveField)}
+                refLineData={dailyAverage(usData, positiveField)}
+                fill={colors.colorStrawberry100}
+                lineColor={colors.colorStrawberry200}
+                annotations={splitAnnotations.cases}
+                renderTooltipContents={makeRenderTooltipContents('new cases')}
+                {...chartProps}
+              />
+              <ChartDescription
+                label="Cases"
+                data={getDataForField(data, positiveField)}
+              />
             </>
           ) : (
             <ChartAlert message={getAlertMessage('cases')} />
@@ -421,25 +394,26 @@ const SummaryCharts = ({
           </h3>
 
           {hasData(hospitalizedField) ? (
-            <><BarChart
-              data={getDataForField(data, hospitalizedField)}
-              lineData={dailyAverage(data, hospitalizedField)}
-              refLineData={dailyAverage(usData, hospitalizedField)}
-              fill={colors.colorBlueberry200}
-              lineColor={colors.colorBlueberry400}
-              annotations={splitAnnotations.hospitalizations}
-              renderTooltipContents={makeRenderTooltipContents(
-                <>
-                  current <br />
-                  hospitalizations
-                </>,
-              )}
-              {...chartProps}
-            />
-            <ChartDescription
-              label="Hospitalization"
-              data={getDataForField(data, hospitalizedField)}
-            />
+            <>
+              <BarChart
+                data={getDataForField(data, hospitalizedField)}
+                lineData={dailyAverage(data, hospitalizedField)}
+                refLineData={dailyAverage(usData, hospitalizedField)}
+                fill={colors.colorBlueberry200}
+                lineColor={colors.colorBlueberry400}
+                annotations={splitAnnotations.hospitalizations}
+                renderTooltipContents={makeRenderTooltipContents(
+                  <>
+                    current <br />
+                    hospitalizations
+                  </>,
+                )}
+                {...chartProps}
+              />
+              <ChartDescription
+                label="Hospitalization"
+                data={getDataForField(data, hospitalizedField)}
+              />
             </>
           ) : (
             <ChartAlert message={getAlertMessage('hospitalizations', true)} />
@@ -456,20 +430,21 @@ const SummaryCharts = ({
             <CalculatedIndicator />
           </h3>
           {hasData(deathField) ? (
-            <><BarChart
-              data={getDataForField(data, deathField)}
-              lineData={dailyAverage(data, deathField)}
-              refLineData={dailyAverage(usData, deathField)}
-              fill={colors.colorSlate300}
-              lineColor={colors.colorSlate700}
-              annotations={splitAnnotations.death}
-              renderTooltipContents={makeRenderTooltipContents('new deaths')}
-              {...chartProps}
-            />
-            <ChartDescription
-              label="New deaths"
-              data={getDataForField(data, deathField)}
-            />
+            <>
+              <BarChart
+                data={getDataForField(data, deathField)}
+                lineData={dailyAverage(data, deathField)}
+                refLineData={dailyAverage(usData, deathField)}
+                fill={colors.colorSlate300}
+                lineColor={colors.colorSlate700}
+                annotations={splitAnnotations.death}
+                renderTooltipContents={makeRenderTooltipContents('new deaths')}
+                {...chartProps}
+              />
+              <ChartDescription
+                label="New deaths"
+                data={getDataForField(data, deathField)}
+              />
             </>
           ) : (
             <ChartAlert message={getAlertMessage('deaths')} />
