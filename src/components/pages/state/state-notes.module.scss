@@ -1,15 +1,50 @@
 .container {
   margin-left: 0;
   @include margin(16, top bottom);
-
-  div {
-    display: inline;
-    p {
-      display: block;
-    }
-  }
 }
 
 .label {
   font-weight: bold;
+}
+
+.expand {
+  font-weight: bold;
+  @include remove-button-style();
+  text-decoration: underline;
+  .arrow {
+    display: inline-block;
+    @include margin(8, left);
+  }
+}
+
+.expandable {
+  @include a11y-only();
+  &.is-expanded {
+    clip: auto;
+    height: auto;
+    @include margin(16, top bottom);
+    overflow: auto;
+    position: relative;
+    width: auto;
+  }
+}
+
+.fade-wrapper {
+  position: relative;
+  &.is-expanded {
+    .fader {
+      display: none;
+    }
+  }
+}
+
+.fader {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 30px 0; // ignore-style-rule
+  background-image: linear-gradient(to bottom, transparent, white);
 }

@@ -39,7 +39,7 @@ const StatePreamble = ({ state, covidState }) => {
   const [downloadDataIsOpen, setDownloadDataIsOpen] = useState(false)
   // todo make state grade wrap as a circle with the grade description
   return (
-    <OverviewWrapper>
+    <OverviewWrapper className={preambleStyle.preamble}>
       <h2 className="a11y-only">State overview</h2>
       <Row>
         <Col width={[4, 3, 6]}>

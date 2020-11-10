@@ -24,6 +24,7 @@ const State = ({ state, metadata }) => {
         <StateGrade letterGrade={state.stateData.dataQualityGrade} />
       </div>
       <StateSummary
+        stateName={state.name}
         stateSlug={slug}
         data={state.stateData}
         sevenDaysAgo={state.sevenDaysAgo}
@@ -34,6 +35,7 @@ const State = ({ state, metadata }) => {
         metadata={metadata}
         lastUpdate={state.dateModified}
         longTermCare={state.childLtc}
+        annotations={state.annotations}
       />
 
       <StateLinksDisclosure
@@ -47,7 +49,7 @@ const State = ({ state, metadata }) => {
         <StateLinksDisclosurePanel state={state} />
       </StateLinksDisclosure>
 
-      {state.notes && <StateNotes isNarrow={false} notes={state.notes} />}
+      {state.notes && <StateNotes notes={state.notes} />}
       <a
         className={`state-top-link ${stateDataStyles.topLink}`}
         href="#reach-skip-nav"

@@ -44,7 +44,7 @@ const StatisticLink = ({ to, children }) => (
   </Link>
 )
 
-const DefinitionLink = ({ onDefinitionsToggle, label }) => {
+const DefinitionLink = ({ onDefinitionsToggle, label, title = false }) => {
   return (
     <button
       className={statisticStyles.link}
@@ -52,7 +52,7 @@ const DefinitionLink = ({ onDefinitionsToggle, label }) => {
       type="button"
       aria-label={`Definition of ${label}`}
     >
-      Definition
+      {title || <>Definition</>}
     </button>
   )
 }

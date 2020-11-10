@@ -119,6 +119,15 @@ select,
       display: block !important;
     }
   }
+
+  .state-note-expandable {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: auto;
+    position: relative;
+    width: auto;
+  }
 }
 
 /*

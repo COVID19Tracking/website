@@ -65,6 +65,7 @@ const DataPage = ({ data }) => {
         stateData={data.allCovidState.nodes}
         sevenDaysAgoList={data.allCovidStateDaily.nodes}
         stateMetadata={data.allContentfulStateOrTerritory.nodes}
+        annotations={data.allCovidAnnotation.nodes}
       />
     </Layout>
   )
@@ -226,6 +227,15 @@ export const query = graphql`
             html
           }
         }
+      }
+    }
+    allCovidAnnotation {
+      nodes {
+        airtable_id
+        state
+        field
+        lastChecked(formatString: "MMMM DD yyyy")
+        warning
       }
     }
   }
