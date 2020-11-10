@@ -27,6 +27,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
       <StatePreamble state={state} covidState={covidState} />
       <SummaryCharts
         name={state.name}
+        chartTables={`/data/state/${state.childSlug.slug}/chart-tables`}
         history={allCovidStateDaily.nodes}
         usHistory={allCovidUsDaily.nodes}
         annotations={allContentfulChartAnnotation}
