@@ -41,12 +41,19 @@ const gatsbyConfig = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
-    'gatsby-transformer-json',
     'gatsby-plugin-eslint',
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-svgr',
+    {
+      resolve: 'gatsby-plugin-google-analytics-gdpr',
+      options: {
+        trackingId: 'UA-182192518-1',
+        enableDevelopment: false,
+        anonymizeIP: true,
+      },
+    },
     {
       resolve: 'gatsby-plugin-sass',
       options: {
@@ -179,7 +186,28 @@ const gatsbyConfig = {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_data/long_term_care_website.json',
-        type: 'CovidLTCWebsite',
+        type: 'CovidLtcWebsite',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/long_term_care_states_complete.json',
+        type: 'CovidLtcStates',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/long_term_care_notes.json',
+        type: 'CovidLtcNotes',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/long_term_care_facilities.json',
+        type: 'CovidLtcFacilities',
       },
     },
     {
@@ -194,6 +222,13 @@ const gatsbyConfig = {
       options: {
         file: './_data/advocacy_territories.json',
         type: 'territoryInfo',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/annotations.json',
+        type: 'covidAnnotation',
       },
     },
     {
@@ -217,13 +252,6 @@ const gatsbyConfig = {
       options: {
         name: 'press-logos',
         path: `${__dirname}/src/data/homepage-press.yml`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'api-status',
-        path: `${__dirname}/_api/v1/status.json`,
       },
     },
     {
@@ -299,6 +327,12 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-transformer-covid-ltc-totals',
+      options: {
+        type: 'CovidStateInfo',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'The COVID Tracking Project',
@@ -311,7 +345,7 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-global-context`,
+      resolve: 'gatsby-plugin-global-context',
       options: {
         context: {
           sevenDaysAgo: DateTime.fromISO(latestDate)
@@ -321,7 +355,7 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-alias-imports`,
+      resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
           '~plugins': 'plugins',
@@ -366,7 +400,7 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: 'gatsby-plugin-feed',
       options: {
         query: `
           {

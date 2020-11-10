@@ -17,6 +17,7 @@ import Toggle from '~components/common/toggle'
 import ContentfulContent from '~components/common/contentful-content'
 import Alert from '~components/common/alert'
 import { FieldName } from '~components/utils/field-name'
+import ChartDescription from './summary-chart-description'
 import { ReactComponent as CtpLogo } from '~images/project-logo.svg'
 import colors from '~scss/colors.module.scss'
 
@@ -256,15 +257,15 @@ const SummaryCharts = ({
   const deathField = useMemo(() => `${prepend}deathIncrease`, [prepend])
 
   const colProps = {
-    width: [4, 3, 3], // 1 chart per line on small, 2 on medium & 4 on large screens
+    width: [3, 3, 3], // 1 chart per line on small, 2 on medium & 4 on large screens
     paddingLeft: [0, 0, 0],
     paddingRight: [0, 0, 0],
   }
 
   const splitAnnotations = generateAnnotationNumbers(annotations.nodes)
   const flattenedAnnotations = Object.values(splitAnnotations)
-    .reduce((acc, val) => [...acc, ...val], []) // .flat() // doesn't work in node
-    .sort((a, b) => a.annotationNumber - b.annotationNumber)
+    .reduce((acc, val) => [...acc, ...val], [])
+    .sort((a, b) => (a.annotationNumber > b.annotationNumber ? 1 : -1))
 
   const getAlertMessage = (field, current = false) =>
     `${name} has not reported data on  ${
@@ -346,6 +347,10 @@ const SummaryCharts = ({
             renderTooltipContents={makeRenderTooltipContents(`new tests`)}
             {...chartProps}
           />
+          <ChartDescription
+            label="New tests"
+            data={getDataForField(data, testField)}
+          />
         </Col>
         <Col {...colProps}>
           <h3>
@@ -358,16 +363,22 @@ const SummaryCharts = ({
             <CalculatedIndicator />
           </h3>
           {hasData(positiveField) ? (
-            <BarChart
-              data={getDataForField(data, positiveField)}
-              lineData={dailyAverage(data, positiveField)}
-              refLineData={dailyAverage(usData, positiveField)}
-              fill={colors.colorStrawberry100}
-              lineColor={colors.colorStrawberry200}
-              annotations={splitAnnotations.cases}
-              renderTooltipContents={makeRenderTooltipContents('new cases')}
-              {...chartProps}
-            />
+            <>
+              <BarChart
+                data={getDataForField(data, positiveField)}
+                lineData={dailyAverage(data, positiveField)}
+                refLineData={dailyAverage(usData, positiveField)}
+                fill={colors.colorStrawberry100}
+                lineColor={colors.colorStrawberry200}
+                annotations={splitAnnotations.cases}
+                renderTooltipContents={makeRenderTooltipContents('new cases')}
+                {...chartProps}
+              />
+              <ChartDescription
+                label="Cases"
+                data={getDataForField(data, positiveField)}
+              />
+            </>
           ) : (
             <ChartAlert message={getAlertMessage('cases')} />
           )}
@@ -383,21 +394,27 @@ const SummaryCharts = ({
           </h3>
 
           {hasData(hospitalizedField) ? (
-            <BarChart
-              data={getDataForField(data, hospitalizedField)}
-              lineData={dailyAverage(data, hospitalizedField)}
-              refLineData={dailyAverage(usData, hospitalizedField)}
-              fill={colors.colorBlueberry200}
-              lineColor={colors.colorBlueberry400}
-              annotations={splitAnnotations.hospitalizations}
-              renderTooltipContents={makeRenderTooltipContents(
-                <>
-                  current <br />
-                  hospitalizations
-                </>,
-              )}
-              {...chartProps}
-            />
+            <>
+              <BarChart
+                data={getDataForField(data, hospitalizedField)}
+                lineData={dailyAverage(data, hospitalizedField)}
+                refLineData={dailyAverage(usData, hospitalizedField)}
+                fill={colors.colorBlueberry200}
+                lineColor={colors.colorBlueberry400}
+                annotations={splitAnnotations.hospitalizations}
+                renderTooltipContents={makeRenderTooltipContents(
+                  <>
+                    current <br />
+                    hospitalizations
+                  </>,
+                )}
+                {...chartProps}
+              />
+              <ChartDescription
+                label="Hospitalization"
+                data={getDataForField(data, hospitalizedField)}
+              />
+            </>
           ) : (
             <ChartAlert message={getAlertMessage('hospitalizations', true)} />
           )}
@@ -413,16 +430,22 @@ const SummaryCharts = ({
             <CalculatedIndicator />
           </h3>
           {hasData(deathField) ? (
-            <BarChart
-              data={getDataForField(data, deathField)}
-              lineData={dailyAverage(data, deathField)}
-              refLineData={dailyAverage(usData, deathField)}
-              fill={colors.colorSlate300}
-              lineColor={colors.colorSlate700}
-              annotations={splitAnnotations.death}
-              renderTooltipContents={makeRenderTooltipContents('new deaths')}
-              {...chartProps}
-            />
+            <>
+              <BarChart
+                data={getDataForField(data, deathField)}
+                lineData={dailyAverage(data, deathField)}
+                refLineData={dailyAverage(usData, deathField)}
+                fill={colors.colorSlate300}
+                lineColor={colors.colorSlate700}
+                annotations={splitAnnotations.death}
+                renderTooltipContents={makeRenderTooltipContents('new deaths')}
+                {...chartProps}
+              />
+              <ChartDescription
+                label="New deaths"
+                data={getDataForField(data, deathField)}
+              />
+            </>
           ) : (
             <ChartAlert message={getAlertMessage('deaths')} />
           )}

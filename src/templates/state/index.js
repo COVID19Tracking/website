@@ -20,11 +20,11 @@ const StateTemplate = ({ pageContext, data, path }) => {
     sevenDaysAgo,
     contentfulStateOrTerritory,
     allTweets,
+    allCovidAnnotation,
   } = data
   return (
     <Layout title={state.name} returnLinks={[{ link: '/data' }]} path={path}>
       <StatePreamble state={state} covidState={covidState} />
-      {state.notes && <StateNotes notes={state.notes} />}
       <SummaryCharts
         name={state.name}
         history={allCovidStateDaily.nodes}
@@ -40,13 +40,17 @@ const StateTemplate = ({ pageContext, data, path }) => {
       />
       <StateNavWrapper stateList={allCovidStateInfo.nodes} single>
         <StateSummary
+          stateName={state.name}
           sevenDaysAgo={sevenDaysAgo}
           stateSlug={state.slug}
           data={covidState}
           population={covidStateInfo.childPopulation.population}
           metadata={contentfulStateOrTerritory}
           lastUpdated={covidState.lastUpdateEt}
+          annotations={allCovidAnnotation.nodes}
+          longTermCare={data.covidStateInfo.childLtc}
         />
+        {state.notes && <StateNotes notes={state.notes} />}
         <StateTweets tweets={allTweets} name={state.name} />
       </StateNavWrapper>
     </Layout>
@@ -78,6 +82,19 @@ export const query = graphql`
       covidTrackingProjectPreferredTotalTestUnits
       childPopulation {
         population
+      }
+      childLtc {
+        facilities
+        current {
+          date
+          total_cases
+          total_death
+        }
+        last {
+          date
+          total_cases
+          total_death
+        }
       }
     }
     allCovidUsDaily {
@@ -124,6 +141,7 @@ export const query = graphql`
       totalTestsViral
       totalTestEncountersViral
       totalTestsAntibody
+      totalTestsPeopleAntibody
       totalTestResultsSource
     }
     allCovidStateDaily(
@@ -195,6 +213,14 @@ export const query = graphql`
         full_text
         id_str
         date(formatString: "MMMM D yyyy")
+      }
+    }
+    allCovidAnnotation(filter: { state: { eq: $state } }) {
+      nodes {
+        airtable_id
+        field
+        lastChecked(formatString: "MMMM DD yyyy")
+        warning
       }
     }
   }

@@ -21,9 +21,18 @@ const ImageContentBlock = ({
     )}
   >
     {keepSize ? (
-      <img src={imageUrl} alt={image.title} loading="lazy" />
+      <img
+        src={imageUrl}
+        aria-hidden={image.description ? undefined : true}
+        alt={image.description}
+        loading="lazy"
+      />
     ) : (
-      <Img fluid={image.fluid} alt={image.title} />
+      <Img
+        fluid={image.fluid}
+        aria-hidden={image.description ? undefined : true}
+        alt={image.description}
+      />
     )}
     {caption && <ImageCredit>{caption['en-US']}</ImageCredit>}
   </div>

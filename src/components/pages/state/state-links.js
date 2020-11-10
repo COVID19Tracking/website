@@ -83,7 +83,7 @@ const StateLinksDisclosure = ({
   mobileOnly = false,
   children,
 }) => (
-  <div className={mobileOnly && preambleStyle.mobileDisclosure}>
+  <div className={mobileOnly ? preambleStyle.mobileDisclosure : undefined}>
     <Disclosure
       open={stateLinksAreOpen}
       onChange={() => setStateLinksAreOpen(!stateLinksAreOpen)}

@@ -65,6 +65,7 @@ const DataPage = ({ data }) => {
         stateData={data.allCovidState.nodes}
         sevenDaysAgoList={data.allCovidStateDaily.nodes}
         stateMetadata={data.allContentfulStateOrTerritory.nodes}
+        annotations={data.allCovidAnnotation.nodes}
       />
     </Layout>
   )
@@ -128,6 +129,19 @@ export const query = graphql`
         childSlug {
           slug
         }
+        childLtc {
+          facilities
+          current {
+            total_cases
+            total_death
+            date
+          }
+          last {
+            total_cases
+            total_death
+            date
+          }
+        }
       }
     }
     allCovidUsDaily {
@@ -179,6 +193,7 @@ export const query = graphql`
         totalTestEncountersViral
         totalTestResults
         totalTestsAntibody
+        totalTestsPeopleAntibody
         totalTestsPeopleViral
         totalTestsViral
       }
@@ -212,6 +227,15 @@ export const query = graphql`
             html
           }
         }
+      }
+    }
+    allCovidAnnotation {
+      nodes {
+        airtable_id
+        state
+        field
+        lastChecked(formatString: "MMMM DD yyyy")
+        warning
       }
     }
   }

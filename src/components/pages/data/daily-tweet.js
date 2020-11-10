@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import { DateTime } from 'luxon'
 import Tweet from '~components/common/tweet'
 
 const DailyTweet = () => {
@@ -13,7 +14,7 @@ const DailyTweet = () => {
       ) {
         nodes {
           id_str
-          date(formatString: "MMMM D yyyy")
+          created_at
           entities {
             urls {
               display_url
@@ -32,14 +33,17 @@ const DailyTweet = () => {
     return null
   }
 
-  const { id_str, full_text, entities, date } = data.allTweets.nodes[0]
-
+  const { id_str, full_text, entities, created_at } = data.allTweets.nodes[0]
   return (
     <Tweet
       text={full_text}
       media={entities.media[0] && entities.media[0].media_url}
       link={`https://twitter.com/COVID19Tracking/status/${id_str}`}
-      date={date}
+      date={DateTime.fromFormat(created_at, 'EEE MMM dd HH:mm:ss ZZZ yyyy', {
+        setZone: true,
+      })
+        .setZone('America/New_York')
+        .toFormat('LLLL d yyyy')}
     />
   )
 }

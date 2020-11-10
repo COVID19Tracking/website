@@ -1,0 +1,8 @@
+.definition-button {
+  @include remove-button-style();
+  color: $color-blueberry-400;
+  @include type-size(50);
+  display: inline-block;
+  @include margin(8, (right, bottom));
+  text-decoration: underline;
+}

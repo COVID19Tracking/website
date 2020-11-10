@@ -6,7 +6,7 @@ import {
   DisclosurePanel,
 } from '@reach/disclosure'
 import classnames from 'classnames'
-
+import OverviewWrapper from '~components/common/overview-wrapper'
 import { Row, Col } from '~components/common/grid'
 import {
   DownloadData,
@@ -39,7 +39,7 @@ const StatePreamble = ({ state, covidState }) => {
   const [downloadDataIsOpen, setDownloadDataIsOpen] = useState(false)
   // todo make state grade wrap as a circle with the grade description
   return (
-    <div className={preambleStyle.wrapper}>
+    <OverviewWrapper className={preambleStyle.preamble}>
       <h2 className="a11y-only">State overview</h2>
       <Row>
         <Col width={[4, 3, 6]}>
@@ -111,7 +111,7 @@ const StatePreamble = ({ state, covidState }) => {
           </StateLinksDisclosure>
         </Col>
       </Row>
-    </div>
+    </OverviewWrapper>
   )
 }
 
