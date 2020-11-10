@@ -78,7 +78,8 @@ const SearchAndResults = withSearch(({ search }) => {
         <>
           <span className={searchStyle.resultsLabel}>
             <strong>{totalHits}</strong>{' '}
-            {totalHits === 1 ? 'result' : 'results'} found for &ldquo;{query}&rdquo;
+            {totalHits === 1 ? 'result' : 'results'} found for &ldquo;{query}
+            &rdquo;
           </span>
           <SearchFilters
             options={filterOptions}
