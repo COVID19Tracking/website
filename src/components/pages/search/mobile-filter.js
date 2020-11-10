@@ -21,7 +21,7 @@ const MobileFilter = ({ options, isChecked, setCurrentOptionID }) => {
     >
       <TabletDisclosure className={blogCategoriesListStyles.container}>
         <TabletDisclosureHeader isOpen={isOpen} setIsOpen={setIsOpen}>
-          <h3>Sort by</h3>
+          <h3 className={mobileFilterStyles.header}>Sort by</h3>
         </TabletDisclosureHeader>
         <TabletDisclosureContent isOpen={isOpen}>
           <div

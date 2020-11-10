@@ -1,10 +1,10 @@
 .filter-dropdown {
   .option {
     @include padding(16, (left, right));
-    @include padding(8, top);
+    @include padding(16, top);
 
-    line-height: 1.4;
-    @include type-size(100);
+    line-height: 1;
+    @include type-size(200);
     color: $color-plum-700;
     text-decoration: underline;
 
@@ -31,10 +31,20 @@
   }
 }
 
+
 .wrapper {
   width: 100%;
   margin-top: spacer(16);
   margin-bottom: spacer(16);
+
+  button {
+    padding-bottom: spacer(4);
+
+    h3.header {
+      @include type-size(200);
+    }
+  }
+
 
   @media screen and (min-width: $viewport-ms) {
     display: none;
