@@ -4,6 +4,7 @@
   z-index: 0;
   input {
     width: 100%;
+    outline: 0;
     padding: .55rem 3rem .55rem 5rem; // ignore-style-rule
   }
 }
@@ -13,11 +14,17 @@ label.search-label {
   display: inline;
   top: 10px;
   width: 0px;
+  @media (max-width: $viewport-lg) {
+    color: $color-plum-500;
+  }
 }
 
 .search-input {
   color: $placeholder;
   font-weight: 400;
+  @media (max-width: $viewport-lg) {
+    background: transparent;
+  }
 }
 
 .search-form {
