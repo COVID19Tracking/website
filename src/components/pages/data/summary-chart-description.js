@@ -53,21 +53,18 @@ const ChartDescription = ({ label, data }) => {
 
   return (
     <div className="a11y-only">
-      {label} started at {start} on {startDate} and our most recent data on{' '}
-      {lastDate} {direction !== false ? <>it is moving {direction}</> : <>is</>}{' '}
-      {last}.
-      {lowPoint.value !== false && (
-        <>
-          The most recent low-point in {label.toLowerCase()} was{' '}
-          {formatDate(lowPoint.date)} when the value was {lowPoint.value}.
-        </>
-      )}
-      {highPoint.value !== false && (
-        <>
-          The most recent high-point in {label.toLowerCase()} was{' '}
-          {formatDate(highPoint.date)} when the value was {highPoint.value}.
-        </>
-      )}
+      {`${label} started at ${start} on ${startDate}, and the most recent data on ${lastDate}
+      was ${last}${direction !== false && `, and is moving ${direction}`}.
+      ${lowPoint.value !== false &&
+        `
+          The most recent low-point in ${label.toLowerCase()} was 
+          ${formatDate(lowPoint.date)}, at ${lowPoint.value}.
+        `}
+      ${highPoint.value !== false &&
+        `
+          The most recent high-point in ${label.toLowerCase()} was 
+          ${formatDate(highPoint.date)}, at ${highPoint.value}.
+        `}`}
     </div>
   )
 }
