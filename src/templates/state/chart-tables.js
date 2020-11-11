@@ -14,7 +14,10 @@ const StateChartTablesPage = ({ pageContext, data, path }) => {
   return (
     <Layout
       title={`${state.name} chart data`}
-      returnLinks={[{ link: '/data' }]}
+      returnLinks={[
+        { link: '/data' },
+        { link: `/data/state/${state.childSlug.slug}`, title: state.name },
+      ]}
       path={path}
     >
       <ChartTables

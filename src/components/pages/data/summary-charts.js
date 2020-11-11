@@ -473,7 +473,9 @@ const SummaryCharts = ({
             <DisclosurePanel>
               <Container narrow>
                 {chartTables && (
-                  <Link to={chartTables}>Access all data for these charts</Link>
+                  <Link className={styles.allDataLink} to={chartTables}>
+                    Access all data for these charts
+                  </Link>
                 )}
                 {flattenedAnnotations && (
                   <>

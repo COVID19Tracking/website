@@ -26,6 +26,7 @@ exports[`Components : Common: Responsive table renders correctly 1`] = `
         className="noWrap"
       >
         <span
+          aria-hidden={true}
           className="cellLabel"
         >
           Date
@@ -40,6 +41,7 @@ exports[`Components : Common: Responsive table renders correctly 1`] = `
         className=""
       >
         <span
+          aria-hidden={true}
           className="cellLabel"
         >
           Data
@@ -56,6 +58,7 @@ exports[`Components : Common: Responsive table renders correctly 1`] = `
         className="noWrap"
       >
         <span
+          aria-hidden={true}
           className="cellLabel"
         >
           Date
@@ -70,6 +73,7 @@ exports[`Components : Common: Responsive table renders correctly 1`] = `
         className=""
       >
         <span
+          aria-hidden={true}
           className="cellLabel"
         >
           Data
