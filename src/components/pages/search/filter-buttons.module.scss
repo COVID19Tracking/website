@@ -1,0 +1,57 @@
+.filter-buttons {
+  @media screen and (max-width: $viewport-ms) {
+    display: none;
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+
+    legend {
+      display: none;
+    }
+  }
+
+  .options-container {
+    display: flex;
+    margin-top: spacer(16);
+    margin-bottom: spacer(64);
+
+    .option {
+      label {
+        padding: 13px 0; // ignore-style-rule
+        width: 100px;
+        border-radius: 4px;
+        background-color: $color-plum-100;
+        margin-right: spacer(32);
+        cursor: pointer;
+
+        display: block;
+
+        text-align: center;
+        color: $color-plum-700;
+        font-weight: bold;
+        line-height: 1;
+      }
+
+      &.checked {
+        label {
+          color: white;
+          background-color: $color-plum-700;
+        }
+      }
+
+      &.deactivated {
+        label {
+          cursor: not-allowed;
+          color: $color-plum-400;
+          background-color: $color-plum-50;
+        }
+      }
+    }
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+}

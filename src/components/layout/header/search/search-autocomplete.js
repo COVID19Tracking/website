@@ -20,7 +20,17 @@ import {
 import styles from './search-autocomplete.module.scss'
 
 export default forwardRef(
-  ({ mobile, visible, onClick, hideAutocomplete }, popoverRef) => {
+  (
+    {
+      mobile,
+      visible,
+      onClick,
+      hideAutocomplete,
+      onChangeInput,
+      suppressAutocomplete,
+    },
+    popoverRef,
+  ) => {
     const [searchState, searchDispatch] = useSearch()
     const [showResults, setShowResults] = useState(true)
     const searchInputRef = useRef()
@@ -110,9 +120,12 @@ export default forwardRef(
               [styles.searchInputFocused]: autocompleteHasFocus,
             })}
             autoComplete="off"
-            onChange={event => {
-              setQuery(event.currentTarget.value)
-            }}
+            onChange={
+              onChangeInput ||
+              (event => {
+                setQuery(event.currentTarget.value)
+              })
+            }
             onKeyDown={event => {
               if (event.key === 'Enter') {
                 goToResultOrSearch(event.target.value)
@@ -124,7 +137,7 @@ export default forwardRef(
             onClick={!autocompleteHasFocus && onClick}
           />
           <span className={styles.searchLabel}>Search</span>
-          {totalHits && showResults ? (
+          {!suppressAutocomplete && totalHits && showResults ? (
             <ComboboxPopover
               ref={popoverRef}
               portal={false}

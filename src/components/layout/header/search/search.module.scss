@@ -7,6 +7,14 @@
   justify-content: center;
   align-items: stretch;
 
+  input {
+    cursor: pointer;
+    &:focus {
+      cursor: text;
+    }
+  }
+
+
   border-radius: 4px;
   z-index: 2;
 

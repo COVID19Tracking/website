@@ -5,8 +5,8 @@ const SearchNoResult = ({ query = false }) =>
   query && (
     <div>
       <h2>
-        No results for &quot;
-        {query}&quot;
+        No results for &ldquo;
+        {query}&rdquo;
       </h2>
       <p>
         We couldn’t find anything matching your search. Please try a different

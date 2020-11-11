@@ -5,6 +5,7 @@
 .container {
   border-radius: 4px;
   background-color: $color-plum-100;
+  @include padding(8, (top, bottom));
 
   h3,
   a {
@@ -34,10 +35,6 @@
       @include margin(0);
     }
   }
-}
-
-.category {
-  @include padding(8, top);
 }
 
 .category-list {

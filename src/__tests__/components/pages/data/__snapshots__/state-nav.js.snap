@@ -42,9 +42,9 @@ exports[`Components : Pages : Data : State navigation renders correctly 1`] = `
           <svg
             aria-hidden={true}
             fill="none"
-            height="6"
+            height="11"
             viewBox="0 0 8 6"
-            width="8"
+            width="14"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -122,9 +122,9 @@ exports[`Components : Pages : Data : State navigation renders correctly 2`] = `
           <svg
             aria-hidden={true}
             fill="none"
-            height="6"
+            height="11"
             viewBox="0 0 8 6"
-            width="8"
+            width="14"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
