@@ -58,6 +58,7 @@ const DataPage = ({ data }) => {
         history={data.allCovidUsDaily.nodes}
         annotations={data.allContentfulChartAnnotation}
         national
+        chartTables="/data/national/chart-tables"
       />
 
       <States

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { Table, Td, Th } from '~components/common/table'
-import { FormatDate } from '~components/utils/format'
+import { FormatDate, FormatNumber } from '~components/utils/format'
 
 const perMillion = percent => Math.round(percent * 1000000)
 
@@ -62,9 +62,17 @@ const ChartTables = ({ history, usHistory, testSource, testUnits }) => {
             <Td alignLeft>
               <FormatDate date={row.date} format="LLL d yyyy" />
             </Td>
-            <Td isFirst>{row[testField]}</Td>
-            <Td>{dailyAverage(row, testField)}</Td>
-            <Td>{perMillion(row.childPopulation[testField].percent)}</Td>
+            <Td isFirst>
+              <FormatNumber number={row[testField]} />
+            </Td>
+            <Td>
+              <FormatNumber number={dailyAverage(row, testField)} />
+            </Td>
+            <Td>
+              <FormatNumber
+                number={perMillion(row.childPopulation[testField].percent)}
+              />
+            </Td>
           </tr>
         ))}
       </ChartTable>
@@ -75,14 +83,26 @@ const ChartTables = ({ history, usHistory, testSource, testUnits }) => {
             <Td alignLeft>
               <FormatDate date={row.date} format="LLL d yyyy" />
             </Td>
-            <Td isFirst>{row.positiveIncrease}</Td>
-            <Td>{dailyAverage(row, 'positiveIncrease')}</Td>
-            <Td>{perMillion(row.childPopulation.positiveIncrease.percent)}</Td>
+            <Td isFirst>
+              <FormatNumber number={row.positiveIncrease} />
+            </Td>
             <Td>
-              {perMillion(
-                usHistory.find(item => item.date === row.date).childPopulation
-                  .positiveIncrease.percent,
-              )}
+              <FormatNumber number={dailyAverage(row, 'positiveIncrease')} />
+            </Td>
+            <Td>
+              <FormatNumber
+                number={perMillion(
+                  row.childPopulation.positiveIncrease.percent,
+                )}
+              />
+            </Td>
+            <Td>
+              <FormatNumber
+                number={perMillion(
+                  usHistory.find(item => item.date === row.date).childPopulation
+                    .positiveIncrease.percent,
+                )}
+              />
             </Td>
           </tr>
         ))}
@@ -95,15 +115,25 @@ const ChartTables = ({ history, usHistory, testSource, testUnits }) => {
               <FormatDate date={row.date} format="LLL d yyyy" />
             </Td>
             <Td isFirst>{row.hospitalizedCurrently}</Td>
-            <Td>{dailyAverage(row, 'hospitalizedCurrently')}</Td>
             <Td>
-              {perMillion(row.childPopulation.hospitalizedCurrently.percent)}
+              <FormatNumber
+                number={dailyAverage(row, 'hospitalizedCurrently')}
+              />
             </Td>
             <Td>
-              {perMillion(
-                usHistory.find(item => item.date === row.date).childPopulation
-                  .hospitalizedCurrently.percent,
-              )}
+              <FormatNumber
+                number={perMillion(
+                  row.childPopulation.hospitalizedCurrently.percent,
+                )}
+              />
+            </Td>
+            <Td>
+              <FormatNumber
+                number={perMillion(
+                  usHistory.find(item => item.date === row.date).childPopulation
+                    .hospitalizedCurrently.percent,
+                )}
+              />
             </Td>
           </tr>
         ))}
@@ -116,13 +146,21 @@ const ChartTables = ({ history, usHistory, testSource, testUnits }) => {
               <FormatDate date={row.date} format="LLL d yyyy" />
             </Td>
             <Td isFirst>{row.deathIncrease}</Td>
-            <Td>{dailyAverage(row, 'deathIncrease')}</Td>
-            <Td>{perMillion(row.childPopulation.deathIncrease.percent)}</Td>
             <Td>
-              {perMillion(
-                usHistory.find(item => item.date === row.date).childPopulation
-                  .deathIncrease.percent,
-              )}
+              <FormatNumber number={dailyAverage(row, 'deathIncrease')} />
+            </Td>
+            <Td>
+              <FormatNumber
+                number={perMillion(row.childPopulation.deathIncrease.percent)}
+              />
+            </Td>
+            <Td>
+              <FormatNumber
+                number={perMillion(
+                  usHistory.find(item => item.date === row.date).childPopulation
+                    .deathIncrease.percent,
+                )}
+              />
             </Td>
           </tr>
         ))}
