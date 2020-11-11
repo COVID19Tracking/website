@@ -4,15 +4,8 @@ exports[`Components : Pages : Data : Summary chart description renders correctly
 <div
   className="a11y-only"
 >
-  Cases started at 1234 on Mar  3, and the most recent data on Mar  4
-      was 132false.
+  false The most recent value
+      for Cases was 132 on Mar  4, and the earlist value for Cases was 1234 on Mar  3.
       
-          The most recent low-point in cases was 
-          Dec 31, at undefined.
-        
-      
-          The most recent high-point in cases was 
-          Dec 31, at undefined.
-        
 </div>
 `;
