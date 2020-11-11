@@ -1,6 +1,6 @@
 /* eslint-disable no-plusplus,no-param-reassign */
 import React, { useState, useMemo } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import {
   Disclosure,
   DisclosureButton,
@@ -134,6 +134,7 @@ const SummaryCharts = ({
   national = false,
   testSource = 'totalTestResults',
   testUnits = 'People',
+  chartTables = false,
 }) => {
   const siteData = useStaticQuery(graphql`
     {
@@ -471,6 +472,11 @@ const SummaryCharts = ({
             </DisclosureButton>
             <DisclosurePanel>
               <Container narrow>
+                {chartTables && (
+                  <Link className={styles.allDataLink} to={chartTables}>
+                    Access all data for these charts
+                  </Link>
+                )}
                 {flattenedAnnotations && (
                   <>
                     <ol className={styles.annotationList}>

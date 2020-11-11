@@ -43,6 +43,12 @@
   }
 }
 
+.all-data-link {
+  color: $color-slate-600;
+  display: block;
+  @include margin(16, top bottom);
+}
+
 .summary-charts {
   h3 {
     @include type-size(300);
