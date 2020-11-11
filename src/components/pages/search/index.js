@@ -1,40 +1,24 @@
 /* eslint-disable no-restricted-syntax */
-import React, { useEffect } from 'react'
-import NProgress from 'nprogress'
-import withSearch from '~components/utils/with-search'
+import React, { useState } from 'react'
+import { navigate } from 'gatsby'
+
+import SearchFilters from '~components/pages/search/filters'
 import SearchNoResults from '~components/search/search-no-results'
 import SearchResultSection from '~components/search/search-result-section'
-import searchStyle from './search.module.scss'
-import searchIcon from '~images/icons/search-inverted.svg'
-
+import withSearch from '~components/utils/with-search'
+import Search from './search'
 import {
   types,
   useSearch,
-  querySearch,
   getHighlightResultOrExcerpt,
   getSanitizedSlug,
 } from '~context/search-context'
 
-const Search = withSearch(({ navigate, search }) => {
+import searchStyle from './search.module.scss'
+
+const SearchAndResults = withSearch(({ search }) => {
   const [searchState, searchDispatch] = useSearch()
   const { query, results } = searchState
-
-  function setQuery(value) {
-    NProgress.start()
-    return searchDispatch({ type: 'setQuery', payload: value })
-  }
-
-  useEffect(() => {
-    if (search.q) {
-      setQuery(search.q)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (query) {
-      querySearch(searchState, searchDispatch)
-    }
-  }, [query])
 
   const totalHits =
     query &&
@@ -42,111 +26,132 @@ const Search = withSearch(({ navigate, search }) => {
       (results[types.BLOG_POST].nbHits || 0) +
       (results[types.PAGE].nbHits || 0)
 
-  let searchEvent
+  const filterOptions = [
+    {
+      id: 'all',
+      name: 'All', // this is the default
+      deactivated: false,
+    },
+    {
+      id: 'blog-posts',
+      name: 'Blog posts',
+      deactivated: results[types.BLOG_POST].nbHits === 0,
+    },
+    {
+      id: 'pages',
+      name: 'Pages',
+      deactivated: results[types.PAGE].nbHits === 0,
+    },
+    {
+      id: 'states',
+      name: 'States',
+      deactivated: results[types.STATE].nbHits === 0,
+    },
+  ]
+
+  const [currentFilterOptionID, setCurrentFilterOptionID] = useState(
+    filterOptions[0].id,
+  ) // make "All" the default
+
+  const isDisplaySection = sectionTypeID => {
+    if (currentFilterOptionID === sectionTypeID) {
+      return true
+    }
+    if (currentFilterOptionID === 'all') {
+      return true
+    }
+    return false
+  }
 
   return (
-    <>
-      <form
-        className={searchStyle.searchForm}
-        onSubmit={event => {
-          event.preventDefault()
-        }}
-      >
-        <button
-          type="button"
-          className={searchStyle.searchSubmit}
-          aria-label="Submit search"
-          onClick={() => query && navigate(`/search?q=${query}`)}
-        >
-          <img
-            src={searchIcon}
-            className={searchStyle.searchIcon}
-            alt=""
-            aria-hidden="true"
-          />
-        </button>
-        {/* eslint-disable jsx-a11y/label-has-associated-control */}
-        <label htmlFor="search-page-input" className={searchStyle.label}>
-          Search
-        </label>
-        <input
-          type="search"
-          id="search-page-input"
-          name="search"
-          autoComplete="off"
-          defaultValue={query || ''}
-          onChange={event => {
-            clearTimeout(searchEvent)
-            const { value } = event.currentTarget
-            searchEvent = setTimeout(() => {
-              setQuery(value)
-              window.history.pushState('', '', `?q=${value}`)
-            }, 300)
-          }}
+    <div className={searchStyle.wrapper}>
+      <div className={searchStyle.search}>
+        <Search
+          query={query}
+          search={search}
+          navigate={navigate}
+          searchDispatch={searchDispatch}
+          searchState={searchState}
         />
-        {/* eslint-enable jsx-a11y/label-has-associated-control */}
-      </form>
+      </div>
       {totalHits > 0 ? (
-        <div className={searchStyle.searchResults}>
-          <h2>
-            {totalHits} {totalHits === 1 ? 'result' : 'results'} matching &quot;
-            {query}&quot;
-          </h2>
-          {/* State results */}
-          <SearchResultSection
-            query={query}
-            results={results[types.STATE]}
-            itemKey={state => state.state}
-            itemTitle={state => state.name}
-            itemUrl={state => getSanitizedSlug(types.STATE, state)}
-            itemPublishDate={post => post.updatedAt}
-            itemContent={post => (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: getHighlightResultOrExcerpt('state', post),
-                }}
+        <>
+          <span className={searchStyle.resultsLabel}>
+            <strong>{totalHits}</strong>{' '}
+            {totalHits === 1 ? 'result' : 'results'} found for &ldquo;{query}
+            &rdquo;
+          </span>
+          <SearchFilters
+            options={filterOptions}
+            currentOptionID={currentFilterOptionID}
+            setCurrentOptionID={setCurrentFilterOptionID}
+          />
+          <div className={searchStyle.searchResults}>
+            {/* State results */}
+            {isDisplaySection('states') && (
+              <SearchResultSection
+                query={query}
+                results={results[types.STATE]}
+                type="State"
+                itemKey={state => state.state}
+                itemTitle={state => state.name}
+                itemUrl={state => getSanitizedSlug(types.STATE, state)}
+                itemPublishDate={post => post.updatedAt}
+                itemContent={post => (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: getHighlightResultOrExcerpt('state', post),
+                    }}
+                  />
+                )}
               />
             )}
-          />
 
-          {/* Blog post results */}
-          <SearchResultSection
-            query={query}
-            results={results[types.BLOG_POST]}
-            itemKey={post => post.objectID}
-            itemTitle={post => post.title}
-            itemUrl={post => getSanitizedSlug(types.BLOG_POST, post)}
-            itemPublishDate={post => post.updatedAt}
-            itemAuthor={post => post.author_name}
-            itemContent={post => (
-              <>
-                <p>{post.lede}</p>
-              </>
-            )}
-          />
-
-          {/* Pages results */}
-          <SearchResultSection
-            query={query}
-            results={results[types.PAGE]}
-            itemKey={page => page.objectID}
-            itemTitle={page => page.title}
-            itemUrl={page => getSanitizedSlug(types.PAGE, page)}
-            itemPublishDate={page => page.updatedAt}
-            itemContent={page => (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: getHighlightResultOrExcerpt('page', page),
-                }}
+            {/* Blog post results */}
+            {isDisplaySection('blog-posts') && (
+              <SearchResultSection
+                query={query}
+                results={results[types.BLOG_POST]}
+                type="Blog post"
+                itemKey={post => post.objectID}
+                itemTitle={post => post.title}
+                itemUrl={post => getSanitizedSlug(types.BLOG_POST, post)}
+                itemPublishDate={post => post.updatedAt}
+                itemAuthor={post => post.author_name}
+                itemContent={post => (
+                  <>
+                    <p>{post.lede}</p>
+                  </>
+                )}
               />
             )}
-          />
-        </div>
+
+            {/* Pages results */}
+            {isDisplaySection('pages') && (
+              <SearchResultSection
+                query={query}
+                results={results[types.PAGE]}
+                type="Page"
+                itemKey={page => page.objectID}
+                itemTitle={page => page.title}
+                itemUrl={page => getSanitizedSlug(types.PAGE, page)}
+                itemPublishDate={page => page.updatedAt}
+                itemContent={page => (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: getHighlightResultOrExcerpt('page', page),
+                    }}
+                  />
+                )}
+              />
+            )}
+          </div>
+        </>
       ) : (
         <SearchNoResults query={query} />
       )}
-    </>
+    </div>
   )
 })
 
-export default Search
+export default SearchAndResults

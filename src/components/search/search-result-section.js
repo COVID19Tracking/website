@@ -4,6 +4,7 @@ import sectionStyle from './search-result-section.module.scss'
 
 const SearchResultSection = ({
   results,
+  type,
   itemKey,
   itemTitle,
   itemUrl,
@@ -18,6 +19,7 @@ const SearchResultSection = ({
           <SearchResult
             key={itemKey(item)}
             title={itemTitle(item)}
+            type={type}
             url={itemUrl(item)}
             author={typeof itemAuthor !== 'undefined' && itemAuthor(item)}
             publishDate={

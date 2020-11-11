@@ -63,7 +63,7 @@ const Byline = ({
         darkBackground && bylineStyles.darkBackground,
       )}
     >
-      {hasHeadshots && (
+      {hasHeadshots && authorsWithHeadshots.length < 4 && (
         <div
           className={classnames(
             bylineStyles.headshotContainer,

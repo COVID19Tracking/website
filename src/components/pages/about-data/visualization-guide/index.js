@@ -1,12 +1,10 @@
 import React from 'react'
 import LongContent from '~components/common/long-content'
 import MapContainer from './map-container'
-import CdcComparisonChart from './cdc-comparison'
 import StateCumulativeTestsContainer from './state-cumulative-tests'
 import StateCumulativeDeathsContainer from './state-cumulative-deaths'
 import UsDailyDeathsContainer from './us-daily-deaths'
 import UsPositiveAndTotalTestsContainer from './us-total-positive-deaths'
-import cdcComparisonChart from '~images/visualization-guide/cdc-comparison-chart.png'
 
 import './dashboard.scss'
 import dashboardStyles from './dashboard.module.scss'
@@ -29,16 +27,6 @@ const VisualizationGuide = () => {
           together inconsistent state-reported data into a national set of
           numbers for COVID-19 case, death, and testing in the US with full
           daily updates.
-        </p>
-        <CdcComparisonChart image={cdcComparisonChart} />
-      </div>
-
-      <div className={dashboardStyles.moduleFeatured}>
-        <p>
-          According to our data, US metropolitan areas have been hit the
-          hardest. New York leads the rest of the country in the number of
-          positive cases by more than 120,000, followed by New Jersey,
-          Massachusetts, and Louisiana.
         </p>
         <p>
           Because COVID-19 testing and reporting are inconsistent among states,
@@ -64,6 +52,11 @@ const VisualizationGuide = () => {
           </a>
           .
         </p>
+      </div>
+
+      <MapContainer />
+
+      <div className={dashboardStyles.moduleFeatured}>
         <h3>Choose colors carefully.</h3>
         <p>
           Readers are likely experiencing some latent anxiety, so do your best
@@ -73,11 +66,6 @@ const VisualizationGuide = () => {
           overly playful or lighthearted. You also don&rsquo;t want to select
           colors that suggest the worst possible outcome.
         </p>
-      </div>
-
-      <MapContainer />
-
-      <div className={dashboardStyles.moduleFeatured}>
         <h3>Include the denominator.</h3>
         <p>
           Testing is one of the most important tools in controlling an outbreak.
@@ -101,6 +89,26 @@ const VisualizationGuide = () => {
       <UsPositiveAndTotalTestsContainer />
 
       <div className={dashboardStyles.moduleFeatured}>
+        <p>
+          A note on total tests: in the early months of the pandemic, we
+          calculated this figure by adding together positive and negative tests
+          reported by states. But as data reporting evolved, we started using
+          total test numbers published directly by states, a figure often
+          reported in different units. Though we are publishing total test
+          numbers in all available units for each state and territory on our
+          website, and in separate fields in our API, we prioritize units of
+          test encounters and specimens above people for calculating our test
+          totals. We lay out all the{' '}
+          <a href="/about-data/total-tests">
+            methodology details on our total tests explainer
+          </a>
+          .
+        </p>
+        <p>
+          If you use total tests in your visualizations, be mindful to note
+          different units when comparing states or time periods, and add
+          disclaimers when necessary.
+        </p>
         <h3>Be mindful when comparing states.</h3>
         <p>
           By comparing positive tests to total tests in each state and
@@ -117,7 +125,6 @@ const VisualizationGuide = () => {
 
       <div className={dashboardStyles.moduleFeatured}>
         <h3>Don’t ignore data uncertainty.</h3>
-
         <p>
           Though this is a national crisis, each US state or territory reports
           its data differently. We track numbers provided by each state, but the
@@ -185,8 +192,8 @@ const VisualizationGuide = () => {
           <a href="https://gothamist.com/news/surge-number-new-yorkers-dying-home-officials-suspect-undercount-covid-19-related-deaths">
             WNYC/Gothamist investigation
           </a>{' '}
-          found that as of Tuesday, April 7, around 200 New Yorkers had died at
-          home every day without access to testing and medical treatment.
+          found that as of April 7, around 200 New Yorkers had died at home
+          every day without access to testing and medical treatment.
           That&rsquo;s 10 times higher than NYC&rsquo;s typical at-home death
           rate. These deaths are likely caused by COVID-19. If this effect is
           widespread in the United States, that means official statistics
@@ -207,25 +214,6 @@ const VisualizationGuide = () => {
           we seek to inform people during this time of crisis.
         </p>
         <aside className="notes-section">
-          <div>
-            <strong>Notes</strong>
-          </div>
-          <p>
-            We derive the total value by adding together the positive and
-            negative value for each state. This is to account for differences in
-            how states reporting pending tests.
-          </p>
-          <p>
-            We changed the way we report California data on April 1. We synced
-            up with the{' '}
-            <a href="https://public.tableau.com/views/COVID-19PublicDashboard/Covid-19Public?:embed=y&:display_count=no&:showVizHome=no">
-              states&apos;s data dashboard
-            </a>
-            , whereas previously we had published testing updates from other
-            sources. This led to a drop in California&rsquo;s reported cases and
-            deaths in our dataset on April 1, since the state&rsquo;s data lags
-            behind our previous sources.
-          </p>
           <div className="source-section">
             <p>
               <strong>Source:</strong> The COVID Tracking Project
@@ -235,7 +223,8 @@ const VisualizationGuide = () => {
             <p>
               Graphics and development by Jeremia Kimelman, Gabe O&apos;Leary,
               Melba Madrigal, Vijay Sharwar, Aaron Mullan, Nathan Selikoff,
-              Alice Goldfarb, Jane Friedhoff, Norman Wang, Daniel Gilbert
+              Alice Goldfarb, Jane Friedhoff, Norman Wang, Daniel Gilbert, Duy
+              Nguyen.
             </p>
             <p>Visual editing by Júlia Ledur</p>
             <p>Text editing by Hannah Waters</p>
