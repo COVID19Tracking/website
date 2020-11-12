@@ -6,6 +6,7 @@ import { Statistic, DefinitionLink } from '~components/common/statistic'
 
 const HospitalizationCard = ({
   stateSlug,
+  stateName,
   hospitalizedCumulative,
   inIcuCumulative,
   onVentilatorCumulative,
@@ -35,8 +36,10 @@ const HospitalizationCard = ({
               : `/data/state/${stateSlug}/hospitalization`
           }
         >
-          Historical data{' '}
-          <span className="a11y-only"> for hospitalization</span>
+          <span className="a11y-only">
+            {national ? 'National' : stateName} hospitalization{' '}
+          </span>
+          Historical data
         </Link>
       }
     >

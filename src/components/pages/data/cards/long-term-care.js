@@ -9,7 +9,7 @@ import {
 import { DefinitionPanelContext } from './definitions-panel'
 import { FormatDate, formatDateToString } from '~components/utils/format'
 
-export default ({ data, stateDeaths, stateSlug }) => {
+export default ({ data, stateName, stateDeaths, stateSlug }) => {
   const { current, last, facilities } = data
   const definitionContext = useContext(DefinitionPanelContext)
   const definitionFields = ['ltc_cases', 'ltc_deaths', 'ltc_facilities']
@@ -33,7 +33,10 @@ export default ({ data, stateDeaths, stateSlug }) => {
     <Card
       title="Long-Term Care (LTC)"
       link={
-        <Link to={`/data/state/${stateSlug}/long-term-care`}>More data</Link>
+        <Link to={`/data/state/${stateSlug}/long-term-care`}>
+          <span className="a11y-only">{stateName} long-term care data </span>
+          <span aria-hidden>More data</span>
+        </Link>
       }
     >
       <CardBody>

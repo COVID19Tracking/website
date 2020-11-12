@@ -6,6 +6,7 @@ import { Statistic, DefinitionLink } from '~components/common/statistic'
 
 const OutcomesCard = ({
   stateSlug,
+  stateName,
   onDefinitionsToggle,
   deathsLabel,
   death,
@@ -35,7 +36,10 @@ const OutcomesCard = ({
               : `/data/state/${stateSlug}/outcomes`
           }
         >
-          Historical data <span className="a11y-only"> for outcomes</span>
+          <span className="a11y-only">
+            {national ? 'national' : stateName} outcomes{' '}
+          </span>
+          Historical data
         </Link>
       }
     >
