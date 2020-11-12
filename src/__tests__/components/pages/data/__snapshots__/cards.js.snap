@@ -18,12 +18,12 @@ exports[`Components : Pages : Data : Cards : Antibody tests renders correctly 1`
       <a
         href="/data/state/california/tests-antibody"
       >
-        Historical data 
         <span
           className="a11y-only"
         >
-           for antibody tests
+           antibody testing 
         </span>
+        Historical data
       </a>
     </span>
   </div>
@@ -112,12 +112,13 @@ exports[`Components : Pages : Data : Cards : Cases renders correctly 1`] = `
       <a
         href="/data/state/california/cases"
       >
-        Historical data 
         <span
           className="a11y-only"
         >
-           for cases
+           cases
+           
         </span>
+        Historical data
       </a>
     </span>
   </div>
@@ -279,12 +280,14 @@ exports[`Components : Pages : Data : Cards : Cases renders correctly 2`] = `
       <a
         href="/data/national/cases"
       >
-        Historical data 
         <span
           className="a11y-only"
         >
-           for cases
+          national
+           cases
+           
         </span>
+        Historical data
       </a>
     </span>
   </div>
@@ -386,13 +389,13 @@ exports[`Components : Pages : Data : Cards : Hospitalization renders correctly 1
       <a
         href="/data/state/california/hospitalization"
       >
-        Historical data
-         
         <span
           className="a11y-only"
         >
-           for hospitalization
+           hospitalization
+           
         </span>
+        Historical data
       </a>
     </span>
   </div>
@@ -601,13 +604,14 @@ exports[`Components : Pages : Data : Cards : Hospitalization renders correctly 2
       <a
         href="/data/national/hospitalization"
       >
-        Historical data
-         
         <span
           className="a11y-only"
         >
-           for hospitalization
+          National
+           hospitalization
+           
         </span>
+        Historical data
       </a>
     </span>
   </div>
@@ -726,12 +730,12 @@ exports[`Components : Pages : Data : Cards : National tests renders correctly 1`
       <a
         href="/data/national/tests"
       >
-        Historical data 
         <span
           className="a11y-only"
         >
-           for national tests
+          National testing 
         </span>
+        Historical data
       </a>
     </span>
   </div>
@@ -833,12 +837,13 @@ exports[`Components : Pages : Data : Cards : Outcomes renders correctly 1`] = `
       <a
         href="/data/state/california/outcomes"
       >
-        Historical data 
         <span
           className="a11y-only"
         >
-           for outcomes
+           outcomes
+           
         </span>
+        Historical data
       </a>
     </span>
   </div>
@@ -987,12 +992,14 @@ exports[`Components : Pages : Data : Cards : Outcomes renders correctly 2`] = `
       <a
         href="/data/national/outcomes"
       >
-        Historical data 
         <span
           className="a11y-only"
         >
-           for outcomes
+          national
+           outcomes
+           
         </span>
+        Historical data
       </a>
     </span>
   </div>
@@ -1141,13 +1148,13 @@ exports[`Components : Pages : Data : Cards : Viral tests renders correctly 1`] =
       <a
         href="/data/state/california/tests-viral"
       >
-        Historical data
-         
         <span
           className="a11y-only"
         >
-           for viral (PCR) tests
+           viral (PCR) testing 
         </span>
+        Historical data
+         
       </a>
     </span>
   </div>
@@ -1272,13 +1279,13 @@ exports[`Components : Pages : Data : Cards : Viral tests renders correctly 2`] =
       <a
         href="/data/state/california/tests-viral"
       >
-        Historical data
-         
         <span
           className="a11y-only"
         >
-           for viral (PCR) tests
+           viral (PCR) testing 
         </span>
+        Historical data
+         
       </a>
     </span>
   </div>
