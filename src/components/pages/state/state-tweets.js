@@ -13,13 +13,12 @@ const StateTweets = ({ name, tweets }) => {
       <h2 id="state-tweets">Our latest tweets about {name}</h2>
       <h4 className={stateTweetsStyle.twitterHandle}>
         <span className="a11y-only">Our twitter handle is </span>
-
         <a
           href="https://twitter.com/COVID19Tracking"
           target="_blank"
           rel="noreferrer"
         >
-          <img src={twitterIcon} alt="" />
+          <img src={twitterIcon} alt="@COVID19Tracking" />
         </a>
         <a
           href="https://twitter.com/COVID19Tracking"
