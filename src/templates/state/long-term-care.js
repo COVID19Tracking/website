@@ -29,7 +29,7 @@ export default ({ pageContext, path, data }) => {
             facilities={data.covidStateInfo.childLtc.facilities}
             overview={data.covidStateInfo.childLtc.current}
           />
-          <LongTermCareBarChart data={data.cumulative.nodes} />
+          <LongTermCareBarChart data={data.aggregate.nodes} />
           {data.covidLtcNotes.alerts && (
             <LongTermCareAlertNote>
               {data.covidLtcNotes.alerts}
@@ -113,40 +113,6 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
       filter: { state_abbr: { eq: $state }, data_type: { eq: "Outbreak" } }
       limit: 1
-    ) {
-      nodes {
-        date
-        posstaff_other
-        posstaff_nh
-        posstaff_ltc
-        posstaff_alf
-        posres_other
-        posres_nh
-        posres_ltc
-        posres_alf
-        posresstaff_other
-        posresstaff_nh
-        posresstaff_ltc
-        posresstaff_alf
-        deathstaff_other
-        deathstaff_nh
-        deathstaff_ltc
-        deathstaff_alf
-        deathres_other
-        deathres_nh
-        deathres_ltc
-        deathres_alf
-        deathresstaff_other
-        deathresstaff_nh
-        deathresstaff_ltc
-        deathresstaff_alf
-        data_type
-      }
-    }
-
-    cumulative: allCovidLtcStates(
-      sort: { fields: date }
-      filter: { state_abbr: { eq: $state }, data_type: { eq: "Cumulative" } }
     ) {
       nodes {
         date
