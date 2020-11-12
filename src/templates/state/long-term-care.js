@@ -26,7 +26,6 @@ export default ({ pageContext, path, data }) => {
           <LongTermCarePreamble
             state={state.state}
             stateName={state.name}
-            grade={data.covidState.dataQualityGrade}
             facilities={data.covidStateInfo.childLtc.facilities}
             overview={data.covidStateInfo.childLtc.current}
           />
