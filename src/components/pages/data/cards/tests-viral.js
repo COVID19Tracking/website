@@ -10,6 +10,7 @@ import { Statistic, DefinitionLink } from '~components/common/statistic'
 
 const TestsViralCard = ({
   stateSlug,
+  stateName,
   totalTestEncountersViral,
   totalTestsViral,
   totalTestsPeopleViral,
@@ -33,8 +34,8 @@ const TestsViralCard = ({
       title="Viral (PCR) tests"
       link={
         <Link to={`/data/state/${stateSlug}/tests-viral`}>
+          <span className="a11y-only">{stateName} viral (PCR) testing </span>
           Historical data{' '}
-          <span className="a11y-only"> for viral (PCR) tests</span>
         </Link>
       }
     >

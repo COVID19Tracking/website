@@ -126,6 +126,7 @@ const StateSummary = ({
         >
           <CasesCard
             stateSlug={stateSlug}
+            stateName={stateName}
             positive={data.positive}
             positiveIncrease={data.positiveIncrease}
             probableCases={data.probableCases}
@@ -147,6 +148,7 @@ const StateSummary = ({
             <>
               <TestsViralCard
                 stateSlug={stateSlug}
+                stateName={stateName}
                 totalTestEncountersViral={data.totalTestEncountersViral}
                 totalTestsViral={data.totalTestsViral}
                 totalTestsPeopleViral={data.totalTestsPeopleViral}
@@ -154,12 +156,14 @@ const StateSummary = ({
               />
               <TestsAntibodyCard
                 stateSlug={stateSlug}
+                stateName={stateName}
                 totalTestsAntibody={data.totalTestsAntibody}
               />
             </>
           )}
           <HospitalizationCard
             stateSlug={stateSlug}
+            stateName={stateName}
             hospitalizedCumulative={data.hospitalizedCumulative}
             inIcuCumulative={data.inIcuCumulative}
             onVentilatorCumulative={data.onVentilatorCumulative}
@@ -170,6 +174,7 @@ const StateSummary = ({
           />
           <OutcomesCard
             stateSlug={stateSlug}
+            stateName={stateName}
             deathsLabel={deathsLabel}
             death={data.death}
             deathConfirmed={data.deathConfirmed}
@@ -180,6 +185,7 @@ const StateSummary = ({
           {!national && (
             <LongTermCareCard
               data={longTermCare}
+              stateName={stateName}
               stateDeaths={data.death}
               stateSlug={stateSlug}
             />

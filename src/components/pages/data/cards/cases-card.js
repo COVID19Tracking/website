@@ -10,6 +10,7 @@ import {
 
 const CasesCard = ({
   stateSlug,
+  stateName,
   positive,
   positiveIncrease,
   sevenDayIncrease,
@@ -36,7 +37,10 @@ const CasesCard = ({
             national ? '/data/national/cases' : `/data/state/${stateSlug}/cases`
           }
         >
-          Historical data <span className="a11y-only"> for cases</span>
+          <span className="a11y-only">
+            {national ? 'national' : stateName} cases{' '}
+          </span>
+          Historical data
         </Link>
       }
     >
