@@ -78,7 +78,6 @@ export const query = graphql`
     aggregate: allCovidLtcStates(
       sort: { fields: date, order: DESC }
       filter: { state_abbr: { eq: $state }, data_type: { eq: "Aggregate" } }
-      limit: 1
     ) {
       nodes {
         date
