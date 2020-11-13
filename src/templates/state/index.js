@@ -216,7 +216,7 @@ export const query = graphql`
       nodes {
         full_text
         id_str
-        date(formatString: "MMMM D yyyy")
+        date(formatString: "MMMM D, yyyy")
       }
     }
     allCovidAnnotation(filter: { state: { eq: $state } }) {
