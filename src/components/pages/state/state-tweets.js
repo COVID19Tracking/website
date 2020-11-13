@@ -4,7 +4,7 @@ import Tweet from '~components/common/tweet'
 import twitterIcon from '~images/twitter_icon.png'
 import stateTweetsStyle from './state-tweets.module.scss'
 
-const StateTweets = ({ name, tweets }) => {
+const StateTweets = ({ name, stateAbbreviation, tweets }) => {
   if (typeof tweets.nodes === 'undefined' || !tweets.nodes.length) {
     return null
   }
@@ -31,6 +31,8 @@ const StateTweets = ({ name, tweets }) => {
       {tweets.nodes.map(tweet => (
         <Tweet
           hideHandle
+          stateName={name}
+          stateAbbreviation={stateAbbreviation}
           date={tweet.date}
           text={tweet.full_text}
           link={`https://twitter.com/COVID19Tracking/status/${tweet.id_str}`}
