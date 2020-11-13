@@ -30,11 +30,15 @@ exports[`Components : Common: Tweet renders correctly 1`] = `
         />
         @COVID19Tracking
       </h4>
-      <blockquote>
-        We’ve written about the ways that states are reporting  antigen tests, which are becoming a major tool for rapid COVID-19 testing. But if states don’t report results clearly, we won’t know the true impact of these tests.
+      <blockquote
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "We’ve written about the ways that states are reporting  antigen tests, which are becoming a major tool for rapid COVID-19 testing. But if states don’t report results clearly, we won’t know the true impact of these tests.
 
- 
-      </blockquote>
+ ",
+          }
+        }
+      />
       <p
         className="date"
       >
@@ -88,11 +92,15 @@ exports[`Components : Common: Tweet renders correctly 2`] = `
         />
         @COVID19Tracking
       </h4>
-      <blockquote>
-        We’ve written about the ways that states are reporting  antigen tests, which are becoming a major tool for rapid COVID-19 testing. But if states don’t report results clearly, we won’t know the true impact of these tests.
+      <blockquote
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "We’ve written about the ways that states are reporting  antigen tests, which are becoming a major tool for rapid COVID-19 testing. But if states don’t report results clearly, we won’t know the true impact of these tests.
 
- 
-      </blockquote>
+ ",
+          }
+        }
+      />
       <p
         className="date"
       >

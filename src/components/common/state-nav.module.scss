@@ -2,6 +2,7 @@
   h3 {
     line-height: 1;
   }
+  margin-top: spacer(8);
   @media (min-width: $viewport-lg) {
     @include padding(16, bottom);
     border-bottom: 1px solid $color-plum-300;

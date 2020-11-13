@@ -52,7 +52,11 @@ const StateTemplate = ({ pageContext, data, path }) => {
           longTermCare={data.covidStateInfo.childLtc}
         />
         {state.notes && <StateNotes notes={state.notes} />}
-        <StateTweets tweets={allTweets} name={state.name} />
+        <StateTweets
+          tweets={allTweets}
+          name={state.name}
+          stateAbbreviation={state.state}
+        />
       </StateNavWrapper>
     </Layout>
   )
@@ -121,7 +125,6 @@ export const query = graphql`
       negative
       lastUpdateEt
       dateModified(formatString: "MMM D, YYYY h:mm a")
-
       hospitalizedCurrently
       hospitalizedCumulative
       inIcuCurrently
@@ -213,7 +216,7 @@ export const query = graphql`
       nodes {
         full_text
         id_str
-        date(formatString: "MMMM D yyyy")
+        date(formatString: "MMMM D, yyyy")
       }
     }
     allCovidAnnotation(filter: { state: { eq: $state } }) {
