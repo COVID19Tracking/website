@@ -28,7 +28,6 @@ const Tweet = ({
   }
 
   const highlightedTweet = getBoldedText(text)
-  console.log(highlightedTweet)
 
   return (
     <a
