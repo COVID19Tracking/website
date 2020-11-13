@@ -14,17 +14,20 @@ const categoryLabels = {
 const getAllowedCategories = data => {
   const categories = ['nh', 'alf', 'other', 'ltc']
   const allowedCategories = []
-  Object.keys(data).forEach(key => {
-    categories.forEach(category => {
-      if (
-        key.search(`_${category}`) > -1 &&
-        data[key] > 0 &&
-        allowedCategories.indexOf(category) === -1
-      ) {
-        allowedCategories.push(category)
-      }
+  data.forEach(item => {
+    Object.keys(item).forEach(key => {
+      categories.forEach(category => {
+        if (
+          key.search(`_${category}`) > -1 &&
+          item[key] > 0 &&
+          allowedCategories.indexOf(category) === -1
+        ) {
+          allowedCategories.push(category)
+        }
+      })
     })
   })
+
   return allowedCategories.sort(category =>
     categories.indexOf(category) < allowedCategories.indexOf(category) ? -1 : 1,
   )
@@ -64,7 +67,7 @@ const CategoryRows = ({ data, category, hasStaffRes }) => (
 )
 
 const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
-  const categories = getAllowedCategories(aggregate)
+  const categories = getAllowedCategories([aggregate, outbreak])
   const hasStaffRes = getStaffResColumns(aggregate)
   return (
     <table className={classnames(summaryTableStyle.table, tableStyle.table)}>

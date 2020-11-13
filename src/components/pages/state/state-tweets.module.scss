@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   vertical-align: middle;
+  line-height: 0; // removes bottom space that misaligns from center
   margin-top: 0;
   @include margin(32, bottom);
   @include type-size(300);
