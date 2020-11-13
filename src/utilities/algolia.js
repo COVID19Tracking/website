@@ -194,7 +194,9 @@ function chunkBlogPosts(data) {
     }
     const firstChunk = { ...baseChunk, section: 'section0' }
 
-    const bodyChunks = documentToPlainTextString(JSON.parse(node.blogContent.raw))
+    const bodyChunks = documentToPlainTextString(
+      JSON.parse(node.blogContent.raw),
+    )
       .split('. ') // new sentences
       .filter(chunk => chunk !== '')
 
