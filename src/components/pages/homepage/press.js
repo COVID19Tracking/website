@@ -9,8 +9,6 @@ const HomepagePress = () => {
         nodes {
           name
           logo
-          width
-          featured
         }
       }
       allFile(filter: { dir: { regex: "/press-logos/" } }) {
