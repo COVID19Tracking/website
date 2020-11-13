@@ -195,16 +195,9 @@ function chunkBlogPosts(data) {
     const firstChunk = { ...baseChunk, section: 'section0' }
 
     let bodyChunks
-    if (node.blogContent === null) {
-      // todo remove this once we fully transition to rich text for blog posts
-      bodyChunks = marked(node.body.body)
-        .split('\n')
-        .filter(chunk => chunk !== '')
-    } else {
-      bodyChunks = documentToPlainTextString(JSON.parse(node.blogContent.raw))
-        .split('. ') // new sentences
-        .filter(chunk => chunk !== '')
-    }
+    bodyChunks = documentToPlainTextString(JSON.parse(node.blogContent.raw))
+      .split('. ') // new sentences
+      .filter(chunk => chunk !== '')
 
     return [...acc, ...splitBodyIntoChunks(baseChunk, firstChunk, bodyChunks)]
   }, [])
