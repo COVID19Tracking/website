@@ -24,6 +24,13 @@ describe('Components : Search: Results', () => {
           title="Test title"
           url="https://example.com"
           author="An author"
+          allAuthors={{
+            nodes: [
+              { name: 'An author', link: 'https://twitter.com/author' },
+              { name: 'Another author' },
+            ],
+          }}
+          type="Blog post"
           publishDate="April 23, 2020"
         />,
       )
