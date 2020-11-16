@@ -101,17 +101,17 @@ export const query = graphql`
     }
     covidUs {
       death
-      hospitalizedCumulative
+
       hospitalizedCurrently
-      inIcuCumulative
+
       inIcuCurrently
       negative
-      onVentilatorCumulative
+
       onVentilatorCurrently
       pending
       positive
       positiveIncrease
-      recovered
+
       totalTestResults
       totalTestResultsIncrease
     }

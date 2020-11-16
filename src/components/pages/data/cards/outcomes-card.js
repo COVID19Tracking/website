@@ -44,17 +44,19 @@ const OutcomesCard = ({
       }
     >
       <CardBody>
-        <Statistic title="Recovered" value={recovered}>
-          <DefinitionLink
-            label="Recovered"
-            onDefinitionsToggle={() => {
-              definitionContext({
-                fields,
-                highlight: 'recovered',
-              })
-            }}
-          />
-        </Statistic>
+        {!national && (
+          <Statistic title="Recovered" value={recovered}>
+            <DefinitionLink
+              label="Recovered"
+              onDefinitionsToggle={() => {
+                definitionContext({
+                  fields,
+                  highlight: 'recovered',
+                })
+              }}
+            />
+          </Statistic>
+        )}
         <Statistic title={deathsLabel} value={death}>
           <DefinitionLink
             label={deathsLabel}
