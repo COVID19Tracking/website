@@ -36,6 +36,9 @@ const BlogContent = ({ content }) => {
       },
       [BLOCKS.EMBEDDED_ENTRY]: node => {
         const { target } = node.data
+        if (typeof target === 'undefined') {
+          return null
+        }
         const { __typename } = target
         if (__typename === 'ContentfulContentBlockTable') {
           return <TableContentBlock table={target.table.table} />

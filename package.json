@@ -68,7 +68,7 @@
     "gatsby-plugin-sitemap": "^2.4.14",
     "gatsby-remark-autolink-headers": "^2.3.14",
     "gatsby-remark-smartypants": "^2.3.12",
-    "gatsby-source-contentful": "4.0.0-4.0.0-rc.0.20",
+    "gatsby-source-contentful": "4.0.0",
     "gatsby-source-filesystem": "^2.3.31",
     "gatsby-transformer-remark": "^2.8.36",
     "gatsby-transformer-sharp": "^2.5.16",
