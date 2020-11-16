@@ -1,6 +1,6 @@
 import React from 'react'
-import { Row, Col } from '~components/common/grid'
-import { Form, Input, InputDefinedLength } from '~components/common/form'
+import { Row } from '~components/common/grid'
+import { Form, Input } from '~components/common/form'
 import formStyle from './form.module.scss'
 
 const GetInvolvedForm = () => (
@@ -11,35 +11,7 @@ const GetInvolvedForm = () => (
     noValidate
   >
     <Row>
-      <Col
-        width={[4, 6, 6]}
-        paddingRight={[0, 0, 32]}
-        className={formStyle.grid}
-      >
-        <Input
-          label="First name"
-          type="text"
-          name="FNAME"
-          id="action-form-first-name"
-          isRequired
-        />
-      </Col>
-      <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]} className={formStyle.grid}>
-        <Input
-          label="Last name"
-          type="text"
-          name="LNAME"
-          id="action-form-last-name"
-          isRequired
-        />
-      </Col>
-    </Row>
-    <Row>
-      <Col
-        width={[4, 6, 6]}
-        paddingRight={[0, 0, 32]}
-        className={formStyle.grid}
-      >
+      <div className={formStyle.grid}>
         <Input
           label="Email address"
           type="email"
@@ -47,18 +19,7 @@ const GetInvolvedForm = () => (
           id="action-form-email"
           isRequired
         />
-      </Col>
-      <Col width={[4, 6, 6]} paddingLeft={[0, 0, 8]} className={formStyle.grid}>
-        <InputDefinedLength
-          label="Zip code"
-          detailText="To receive updates specific to your location, please enter a zip code."
-          type="text"
-          name="MMERGE3"
-          id="action-form-zip"
-          maxLength="5"
-          className={formStyle.zip}
-        />
-      </Col>
+      </div>
     </Row>
 
     <input
