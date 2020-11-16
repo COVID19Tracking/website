@@ -109,7 +109,7 @@ const OutcomesCard = ({
         {national && (
           <CardNote>
             We have{' '}
-            <Link to="/about-data/faq#removed-national">
+            <Link to="/about-data/faq#why-have-you-stopped-reporting-national-recoveries">
               removed recovered data for the US. Here&apos;s why
             </Link>
             .
