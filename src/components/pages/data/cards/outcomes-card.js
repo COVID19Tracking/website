@@ -32,7 +32,7 @@ const OutcomesCard = ({
         <Link
           to={
             national
-              ? '/data/national/outcomes'
+              ? '/data/national/deaths'
               : `/data/state/${stateSlug}/outcomes`
           }
         >
