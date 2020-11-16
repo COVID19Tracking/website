@@ -23,8 +23,9 @@ const BlogAuthors = ({ authorsList }) => {
 const SearchResultAuthor = ({ authorsList, author, type }) => {
   if (type === 'Blog post' && authorsList.length > 0) {
     return <BlogAuthors authorsList={authorsList} />
-  } else if (author) {
-    ;<p className={resultStyle.author}>By {author}</p>
+  }
+  if (author) {
+    return <p className={resultStyle.author}>By {author}</p>
   }
   return <></>
 }
