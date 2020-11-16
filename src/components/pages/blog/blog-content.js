@@ -24,6 +24,9 @@ const BlogContent = ({ content }) => {
       ),
       [INLINES.EMBEDDED_ENTRY]: node => {
         const { target } = node.data
+        if (typeof target === 'undefined') {
+          return null
+        }
         const { __typename } = target
         if (__typename === 'ContentfulContentBlockFootnote') {
           footnoteNumber += 1
