@@ -54,7 +54,9 @@ exports[`Components : Search: Results renders correctly 3`] = `
 >
   <span
     className="type"
-  />
+  >
+    Blog post
+  </span>
   <h3
     className="title"
   >
@@ -74,12 +76,16 @@ exports[`Components : Search: Results renders correctly 3`] = `
       className="author"
     >
       By 
-      An author
+      <a
+        href="https://twitter.com/author"
+      >
+        An author
+      </a>
     </p>
     <p
       className="date"
     >
-      Updated
+      Published
        on 
       April 23, 2020
     </p>
