@@ -73,3 +73,30 @@ label.search-label {
 .results-label {
   margin-top: spacer(16);
 }
+
+.clear {
+  display: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin-bottom: 4px;
+  margin-right: 16px;
+
+  font-size: 24px;
+  line-height: 0.6;
+  color: $color-slate-600;
+
+  &:focus {
+    outline: none;
+    div {
+      outline: black dotted 2px;
+    }
+  }
+}
+
+.search-form:focus-within {
+  .clear {
+    display: block;
+  }
+}

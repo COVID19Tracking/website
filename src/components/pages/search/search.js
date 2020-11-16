@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import NProgress from 'nprogress'
 import classnames from 'classnames'
 import searchIcon from '~images/icons/search-inverted.svg'
@@ -6,6 +6,24 @@ import { querySearch } from '~context/search-context'
 
 import searchStyle from './search.module.scss'
 import searchHeaderStyle from '~components/layout/header/search/search-autocomplete.module.scss'
+
+const ClearSearchButton = ({ inputRef, searchDispatch }) => {
+  return (
+    <button
+      type="button"
+      aria-label="Clear search content"
+      className={searchStyle.clear}
+      onClick={() => {
+        /* eslint-disable no-param-reassign */
+        inputRef.current.value = ''
+        searchDispatch({ type: 'setQuery', payload: '' }) // fire search update
+        inputRef.current.focus() // put cursor in the search box
+      }}
+    >
+      <div>&times;</div>
+    </button>
+  )
+}
 
 const Search = ({ query, search, searchDispatch, searchState, navigate }) => {
   function setQuery(value) {
@@ -24,6 +42,8 @@ const Search = ({ query, search, searchDispatch, searchState, navigate }) => {
       querySearch(searchState, searchDispatch)
     }
   }, [query])
+
+  const inputRef = useRef()
 
   let searchEvent
 
@@ -45,6 +65,7 @@ const Search = ({ query, search, searchDispatch, searchState, navigate }) => {
         Search
       </label>
       <input
+        ref={inputRef}
         type="search"
         id="search-page-input"
         name="search"
@@ -63,6 +84,7 @@ const Search = ({ query, search, searchDispatch, searchState, navigate }) => {
           }, 300)
         }}
       />
+      <ClearSearchButton inputRef={inputRef} searchDispatch={searchDispatch} />
       <button
         type="button"
         className={searchStyle.searchSubmit}
