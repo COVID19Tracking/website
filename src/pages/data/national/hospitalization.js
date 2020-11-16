@@ -26,7 +26,7 @@ const NationalDataHospitalizationPage = ({ data }) => {
       />
       <p>
         We have{' '}
-        <Link to="/about-data/faq">
+        <Link to="/about-data/faq#removed-national">
           removed cumulative hospitalization data for the US. Here&apos;s why
         </Link>
         .
