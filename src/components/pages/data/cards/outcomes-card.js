@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
-import { Card, CardBody } from '~components/common/card'
+import { Card, CardBody, CardNote } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
@@ -105,6 +105,15 @@ const OutcomesCard = ({
               }}
             />
           </Statistic>
+        )}
+        {national && (
+          <CardNote>
+            We have{' '}
+            <Link to="/about-data/faq">
+              removed recovered data for the US. Here&apos;s why
+            </Link>
+            .
+          </CardNote>
         )}
       </CardBody>
     </Card>

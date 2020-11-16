@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
 import Definitions from '~components/pages/data/definitions'
 import Layout from '~components/layout'
@@ -20,6 +20,13 @@ const NationalDataDeathsPage = ({ data }) => {
         definitions={data.allContentfulDataDefinition.nodes}
         order={['death']}
       />
+      <p>
+        We have{' '}
+        <Link to="/about-data/faq">
+          removed recovered data for the US. Here&apos;s why
+        </Link>
+        .
+      </p>
       <TableResponsive
         labels={[
           {
