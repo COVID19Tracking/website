@@ -34,10 +34,8 @@ const NationalDataPage = ({ data }) => (
         'totalTestResultsIncrease',
         'positive',
         'negative',
-        'hospitalizedCumulative',
         'hospitalizedCurrently',
         'death',
-        'recovered',
         'totalTestResults',
       ]}
     />
@@ -55,10 +53,8 @@ const NationalDataPage = ({ data }) => (
         { field: 'totalTestResultsIncrease', format: formatNumber },
         { field: 'positive', format: formatNumber },
         { field: 'negative', format: formatNumber },
-        { field: 'hospitalizedCumulative', format: formatNumber },
         { field: 'hospitalizedCurrently', format: formatNumber },
         { field: 'death', format: formatNumber },
-        { field: 'recovered', format: formatNumber },
         { field: 'totalTestResults', format: formatNumber },
       ]}
       data={data.allCovidUsDaily.nodes}
@@ -82,11 +78,10 @@ export const query = graphql`
       nodes {
         date(formatString: "MMM D, YYYY")
         death
-        hospitalizedCumulative
+
         hospitalizedCurrently
         negative
         positive
-        recovered
         states
         totalTestResults
         totalTestResultsIncrease
@@ -101,10 +96,8 @@ export const query = graphql`
             "totalTestResultsIncrease"
             "positive"
             "negative"
-            "hospitalizedCumulative"
             "totalTestResults"
             "hospitalizedCurrently"
-            "recovered"
             "death"
             "totalTestResults"
           ]
