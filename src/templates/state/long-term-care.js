@@ -26,7 +26,6 @@ export default ({ pageContext, path, data }) => {
           <LongTermCarePreamble
             state={state.state}
             stateName={state.name}
-            facilities={data.covidStateInfo.childLtc.facilities}
             overview={data.covidStateInfo.childLtc.current}
           />
           <LongTermCareBarChart data={data.aggregate.nodes} />
@@ -67,11 +66,14 @@ export const query = graphql`
     }
     covidStateInfo(state: { eq: $state }) {
       childLtc {
-        facilities
         current {
           date
           total_cases
           total_death
+          outbrkfac_alf
+          outbrkfac_ltc
+          outbrkfac_other
+          outbrkfac_nh
         }
       }
     }

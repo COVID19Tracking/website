@@ -131,10 +131,13 @@ export const query = graphql`
           slug
         }
         childLtc {
-          facilities
           current {
             total_cases
             total_death
+            outbrkfac_alf
+            outbrkfac_ltc
+            outbrkfac_other
+            outbrkfac_nh
             date
           }
           last {
