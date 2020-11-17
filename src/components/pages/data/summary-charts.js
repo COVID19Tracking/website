@@ -266,7 +266,7 @@ const SummaryCharts = ({
   const splitAnnotations = generateAnnotationNumbers(annotations.nodes)
   const flattenedAnnotations = Object.values(splitAnnotations)
     .reduce((acc, val) => [...acc, ...val], [])
-    .sort((a, b) => (a.annotationNumber > b.annotationNumber ? 1 : -1))
+    .sort((a, b) => (a.annotationSymbol > b.annotationSymbol ? 1 : -1))
 
   const getAlertMessage = (field, current = false) =>
     `${name} has not reported data on  ${
