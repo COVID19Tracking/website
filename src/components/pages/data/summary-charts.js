@@ -266,7 +266,7 @@ const SummaryCharts = ({
   const splitAnnotations = generateAnnotationNumbers(annotations.nodes)
   const flattenedAnnotations = Object.values(splitAnnotations)
     .reduce((acc, val) => [...acc, ...val], [])
-    .sort((a, b) => (a.annotationNumber > b.annotationNumber ? 1 : -1))
+    .sort((a, b) => (a.annotationSymbol > b.annotationSymbol ? 1 : -1))
 
   const getAlertMessage = (field, current = false) =>
     `${name} has not reported data on  ${
@@ -274,7 +274,7 @@ const SummaryCharts = ({
     }  COVID-19 ${field} for at least 30% of the past 90 days.`
 
   const showTodaysChartTick =
-    DateTime.fromISO(data[data.length - 1].date).day >= 15
+    DateTime.fromISO(data[data.length - 1].date).day >= 20
 
   const chartProps = {
     height: 280, // these control the dimensions used to render the svg but not the final size
