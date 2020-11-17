@@ -89,11 +89,14 @@ export const query = graphql`
         population
       }
       childLtc {
-        facilities
         current {
           date
           total_cases
           total_death
+          outbrkfac_alf
+          outbrkfac_ltc
+          outbrkfac_other
+          outbrkfac_nh
         }
         last {
           date

@@ -10,7 +10,13 @@ import { DefinitionPanelContext } from './definitions-panel'
 import { FormatDate, formatDateToString } from '~components/utils/format'
 
 export default ({ data, stateName, stateDeaths, stateSlug }) => {
-  const { current, last, facilities } = data
+  const { current, last } = data
+  let facilities = 0
+  Object.keys(current).forEach(key => {
+    if (key.search('outbrkfac') > -1) {
+      facilities += current[key]
+    }
+  })
   const definitionContext = useContext(DefinitionPanelContext)
   const definitionFields = ['ltc_cases', 'ltc_deaths', 'ltc_facilities']
   const getChange = field => {
@@ -64,7 +70,7 @@ export default ({ data, stateName, stateDeaths, stateSlug }) => {
                 label="Long-term care deaths"
               />
             </Statistic>
-            <Statistic title="Facilities tracked" value={facilities}>
+            <Statistic title="Number of facilities affected" value={facilities}>
               <DefinitionLink
                 onDefinitionsToggle={() => {
                   definitionContext({
