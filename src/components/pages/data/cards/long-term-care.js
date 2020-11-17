@@ -64,7 +64,7 @@ export default ({ data, stateName, stateDeaths, stateSlug }) => {
                 label="Long-term care deaths"
               />
             </Statistic>
-            <Statistic title="Facilities tracked" value={facilities}>
+            <Statistic title="Number of facilities affected" value={facilities}>
               <DefinitionLink
                 onDefinitionsToggle={() => {
                   definitionContext({
