@@ -1096,6 +1096,18 @@ exports[`Components : Pages : Data : Cards : Outcomes renders correctly 2`] = `
         </div>
       </div>
     </div>
+    <p
+      className="note"
+    >
+      We have
+       
+      <a
+        href="/about-data/faq#why-have-you-stopped-reporting-national-recoveries"
+      >
+        removed recovered data for the US. Here's why
+      </a>
+      .
+    </p>
   </div>
 </div>
 `;
