@@ -8,6 +8,7 @@ const SearchResultSection = ({
   itemKey,
   itemTitle,
   itemUrl,
+  authors,
   itemContent = undefined,
   itemAuthor = undefined,
   itemPublishDate = undefined,
@@ -21,6 +22,7 @@ const SearchResultSection = ({
             title={itemTitle(item)}
             type={type}
             url={itemUrl(item)}
+            allAuthors={authors}
             author={typeof itemAuthor !== 'undefined' && itemAuthor(item)}
             publishDate={
               typeof itemPublishDate !== 'undefined' && itemPublishDate(item)

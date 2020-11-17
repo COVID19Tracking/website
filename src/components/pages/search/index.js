@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useState } from 'react'
-import { navigate } from 'gatsby'
+import { navigate, useStaticQuery, graphql } from 'gatsby'
 
 import SearchFilters from '~components/pages/search/filters'
 import SearchNoResults from '~components/search/search-no-results'
@@ -17,6 +17,20 @@ import {
 import searchStyle from './search.module.scss'
 
 const SearchAndResults = withSearch(({ search }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulAuthor {
+        nodes {
+          name
+          link
+          twitterLink
+        }
+      }
+    }
+  `)
+
+  const { allContentfulAuthor } = data
+
   const [searchState, searchDispatch] = useSearch()
   const { query, results } = searchState
 
@@ -113,6 +127,7 @@ const SearchAndResults = withSearch(({ search }) => {
                 query={query}
                 results={results[types.BLOG_POST]}
                 type="Blog post"
+                authors={allContentfulAuthor}
                 itemKey={post => post.objectID}
                 itemTitle={post => post.title}
                 itemUrl={post => getSanitizedSlug(types.BLOG_POST, post)}
