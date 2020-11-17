@@ -76,7 +76,7 @@ const LongTermCareOverview = ({ facilities, overview }) => {
         </Col>
         <Col width={[4, 6, 3]}>
           <Total
-            label="Number of facilities affected"
+            label="Facilities affected"
             number={<FormatNumber number={facilities} />}
           >
             <button
