@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
 import Definitions from '~components/pages/data/definitions'
 import Layout from '~components/layout'
@@ -19,41 +19,29 @@ const NationalDataHospitalizationPage = ({ data }) => {
       <Definitions
         definitions={data.allContentfulDataDefinition.nodes}
         order={[
-          'hospitalizedCumulative',
           'hospitalizedCurrently',
-          'inIcuCumulative',
           'inIcuCurrently',
-          'onVentilatorCumulative',
           'onVentilatorCurrently',
         ]}
       />
+      <p>
+        We have{' '}
+        <Link to="/about-data/faq#why-have-you-stopped-reporting-national-cumulative-hospitalizations-icu-and-ventilation-numbers-on-your-website">
+          removed cumulative hospitalization data for the US. Here&apos;s why
+        </Link>
+        .
+      </p>
       <TableResponsive
         labels={[
           {
             field: 'date',
           },
           {
-            field: 'hospitalizedCumulative',
-            isNumeric: true,
-          },
-          {
             field: 'hospitalizedCurrently',
             isNumeric: true,
           },
           {
-            field: 'hospitalizedIncrease',
-            isNumeric: true,
-          },
-          {
-            field: 'inIcuCumulative',
-            isNumeric: true,
-          },
-          {
             field: 'inIcuCurrently',
-            isNumeric: true,
-          },
-          {
-            field: 'onVentilatorCumulative',
             isNumeric: true,
           },
           {
@@ -74,12 +62,8 @@ export const query = graphql`
     allCovidUsDaily(sort: { fields: date, order: DESC }) {
       nodes {
         date(formatString: "MMM D, YYYY")
-        hospitalizedCumulative
         hospitalizedCurrently
-        hospitalizedIncrease
-        inIcuCumulative
         inIcuCurrently
-        onVentilatorCumulative
         onVentilatorCurrently
       }
     }
@@ -88,11 +72,8 @@ export const query = graphql`
       filter: {
         fieldName: {
           in: [
-            "hospitalizedCumulative"
             "hospitalizedCurrently"
             "inIcuCurrently"
-            "inIcuCumulative"
-            "onVentilatorCumulative"
             "onVentilatorCurrently"
           ]
         }

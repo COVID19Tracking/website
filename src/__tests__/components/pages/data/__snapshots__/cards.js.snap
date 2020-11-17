@@ -990,7 +990,7 @@ exports[`Components : Pages : Data : Cards : Outcomes renders correctly 2`] = `
       className="link"
     >
       <a
-        href="/data/national/outcomes"
+        href="/data/national/deaths"
       >
         <span
           className="a11y-only"
@@ -1006,36 +1006,6 @@ exports[`Components : Pages : Data : Cards : Outcomes renders correctly 2`] = `
   <div
     className="body"
   >
-    <div
-      className="statisticWrapper"
-    >
-      <div
-        className="statistic"
-      >
-        <div
-          className="title"
-        >
-          Recovered
-        </div>
-        <div
-          className="value"
-        >
-          14
-        </div>
-        <div
-          className="info"
-        >
-          <button
-            aria-label="Definition of Recovered"
-            className="link"
-            onClick={[Function]}
-            type="button"
-          >
-            Definition
-          </button>
-        </div>
-      </div>
-    </div>
     <div
       className="statisticWrapper"
     >
@@ -1126,6 +1096,18 @@ exports[`Components : Pages : Data : Cards : Outcomes renders correctly 2`] = `
         </div>
       </div>
     </div>
+    <p
+      className="note"
+    >
+      We have
+       
+      <a
+        href="/about-data/faq#why-have-you-stopped-reporting-national-recoveries"
+      >
+        removed recovered data for the US. Here's why
+      </a>
+      .
+    </p>
   </div>
 </div>
 `;
