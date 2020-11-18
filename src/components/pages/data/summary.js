@@ -14,6 +14,7 @@ import TestsAntibodyCard from './cards/tests-antibody'
 import TestsViralCard from './cards/tests-viral'
 import NationalTestsCard from './cards/tests-national'
 import LongTermCareCard from './cards/long-term-care'
+import CrdtCasesCard from './cards/crdt-cases-card'
 
 import summaryStyles from './summary.module.scss'
 
@@ -24,6 +25,7 @@ const StateSummary = ({
   sevenDaysAgo,
   metadata,
   longTermCare,
+  raceData,
   annotations = false,
   national = false,
 }) => {
@@ -190,6 +192,7 @@ const StateSummary = ({
               stateSlug={stateSlug}
             />
           )}
+          {!national && <CrdtCasesCard raceData={raceData} />}
         </div>
       </AnnotationPanelContext.Provider>
     </DefinitionPanelContext.Provider>
