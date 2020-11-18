@@ -16,6 +16,9 @@ import NationalTestsCard from './cards/tests-national'
 import LongTermCareCard from './cards/long-term-care'
 import CrdtCasesCard from './cards/crdt-cases-card'
 
+import SmallCards from './cards/small-cards'
+import GradeSmallCard from './cards/small/grade-small-card'
+
 import summaryStyles from './summary.module.scss'
 
 const StateSummary = ({
@@ -192,6 +195,9 @@ const StateSummary = ({
               stateSlug={stateSlug}
             />
           )}
+          <SmallCards>
+            <GradeSmallCard grade={data.dataQualityGrade} />
+          </SmallCards>
           {!national && <CrdtCasesCard raceData={raceData} />}
         </div>
       </AnnotationPanelContext.Provider>
