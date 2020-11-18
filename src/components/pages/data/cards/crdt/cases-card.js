@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { Card, CardBody, CardNote } from '~components/common/card'
-import { DefinitionPanelContext } from './definitions-panel'
+import { DefinitionPanelContext } from '../definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
-import LastUpdatedLabel from './last-updated-label'
+import LastUpdatedLabel from '../last-updated-label'
 
 const perCapTo100k = value => {
   return Math.round(value * 100)
@@ -85,7 +85,7 @@ const CrdtCasesCard = ({ raceData }) => {
       <CardBody>
         <Statistic title="Cases per 100,000 people" hideValue>
           <DefinitionLink
-            label="Currently hospitalized"
+            label="Cases per 100,000 people"
             onDefinitionsToggle={() => {
               definitionContext({
                 fields,
