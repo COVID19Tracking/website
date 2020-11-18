@@ -13,7 +13,7 @@ const CardDisclosure = ({ children }) => (
   </div>
 )
 
-const CardDisclsoureButton = ({ closed, expanded }) => (
+const CardDisclosureButton = ({ closed, expanded }) => (
   <DisclosureButton>
     <span className={cardStyles.closed}>{closed}</span>
     <span className={cardStyles.expanded}>{expanded}</span>
@@ -52,6 +52,6 @@ export {
   CardNote,
   CardHeading,
   CardDisclosure,
-  CardDisclsoureButton,
+  CardDisclosureButton,
   CardDisclosurePanel,
 }

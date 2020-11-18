@@ -4,7 +4,7 @@ import {
   Card,
   CardBody,
   CardDisclosure,
-  CardDisclsoureButton,
+  CardDisclosureButton,
   CardDisclosurePanel,
 } from '~components/common/card'
 
@@ -24,7 +24,7 @@ describe('Components : Common: Card', () => {
         <Card title="A sample card">
           <CardBody>This is a card body.</CardBody>
           <CardDisclosure>
-            <CardDisclsoureButton>More information</CardDisclsoureButton>
+            <CardDisclosureButton>More information</CardDisclosureButton>
             <CardDisclosurePanel>
               Additional information that is usually hidden.
             </CardDisclosurePanel>
