@@ -11,11 +11,15 @@ const Statistic = ({
   children,
   subelement,
   hideValue,
+  grey,
+  noDefinitionLink,
 }) => (
   <div
     className={classnames(
       statisticStyles.statisticWrapper,
       subelement && statisticStyles.subelement,
+      noDefinitionLink && statisticStyles.noDefinitionLink,
+      grey && statisticStyles.grey,
     )}
   >
     <div className={statisticStyles.statistic}>

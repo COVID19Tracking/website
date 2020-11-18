@@ -81,8 +81,15 @@ const CrdtCasesCard = ({ raceData }) => {
           />
         </Statistic>
         {values.map(category => (
-          <Statistic title={category.name} subelement value={category.value} />
+          <Statistic
+            title={category.name}
+            value={category.value}
+            subelement
+            noDefinitionLink
+            grey
+          />
         ))}
+        <p>(All data on card are calculated)</p>
       </CardBody>
     </Card>
   )
