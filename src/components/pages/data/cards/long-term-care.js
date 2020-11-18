@@ -6,8 +6,9 @@ import {
   DrillDown,
   DefinitionLink,
 } from '~components/common/statistic'
+import LastUpdatedLabel from './last-updated-label'
 import { DefinitionPanelContext } from './definitions-panel'
-import { FormatDate, formatDateToString } from '~components/utils/format'
+import { formatDateToString } from '~components/utils/format'
 
 export default ({ data, stateName, stateDeaths, stateSlug }) => {
   const { current, last } = data
@@ -112,9 +113,7 @@ export default ({ data, stateName, stateDeaths, stateSlug }) => {
         ) : (
           <CardNote>No long-term care data reported.</CardNote>
         )}
-        <CardNote>
-          Data as of <FormatDate date={current.date} format="LLLL dd yyyy" />
-        </CardNote>
+        <LastUpdatedLabel date={current.date} />
       </CardBody>
     </Card>
   )

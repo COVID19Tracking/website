@@ -5,11 +5,10 @@ import { FormatDate } from '~components/utils/format'
 
 import lastUpdatedLabelStyle from './last-updated-label.module.scss'
 
-const LastUpdatedLabel = ({ lastUpdated }) => (
+const LastUpdatedLabel = ({ date }) => (
   <div className={lastUpdatedLabelStyle.container}>
     <img src={clockIcon} alt="Clock icon" width="14px" />
-    Data as of {lastUpdated}
-    <FormatDate date={new Date().getDate()} format="MMMM d, y" />
+    Data as of <FormatDate date={date} format="MMMM d, y" />
   </div>
 )
 
