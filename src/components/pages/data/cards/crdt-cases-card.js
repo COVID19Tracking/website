@@ -3,6 +3,8 @@ import { Card, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
+import LastUpdatedLabel from './last-updated-label'
+
 const perCapTo100k = value => {
   return Math.round(value * 100)
 }
@@ -76,6 +78,8 @@ const CrdtCasesCard = ({ raceData }) => {
 
   const values = createValuesList(raceData)
 
+  // todo stop using hardcoded date
+
   return (
     <Card title="Race & ethnicity cases">
       <CardBody>
@@ -101,6 +105,7 @@ const CrdtCasesCard = ({ raceData }) => {
           />
         ))}
         <p>(All data on card are calculated)</p>
+        <LastUpdatedLabel date="09/12/20" />
       </CardBody>
     </Card>
   )

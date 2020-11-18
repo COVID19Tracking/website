@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  @include type-size(100);
+  margin: spacer(8) 0;
+
+  img {
+    margin-right: spacer(4);
+  }
+}
