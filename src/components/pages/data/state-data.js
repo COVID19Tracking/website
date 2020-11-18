@@ -25,6 +25,7 @@ const State = ({ state, metadata }) => {
       </div>
       <StateSummary
         stateName={state.name}
+        stateAbbreviation={state.state}
         stateSlug={slug}
         data={state.stateData}
         sevenDaysAgo={state.sevenDaysAgo}

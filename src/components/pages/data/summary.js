@@ -19,12 +19,14 @@ import CrdtCasesCard from './cards/crdt-cases-card'
 import SmallCards from './cards/small-cards'
 import GradeSmallCard from './cards/small/grade-small-card'
 import ViewDataSmallCard from './cards/small/view-racial-data-small-card'
+import DataAsGraphicSmallCard from './cards/small/data-as-graphic-small-card'
 
 import summaryStyles from './summary.module.scss'
 
 const StateSummary = ({
   stateSlug,
   stateName,
+  stateAbbreviation,
   data,
   sevenDaysAgo,
   metadata,
@@ -200,6 +202,7 @@ const StateSummary = ({
             <SmallCards>
               <GradeSmallCard grade={data.dataQualityGrade} />
               <ViewDataSmallCard />
+              <DataAsGraphicSmallCard stateAbbreviation={stateAbbreviation} />
             </SmallCards>
           )}
           {!national && <CrdtCasesCard raceData={raceData} />}
