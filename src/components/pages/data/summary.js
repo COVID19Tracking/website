@@ -14,7 +14,8 @@ import TestsAntibodyCard from './cards/tests-antibody'
 import TestsViralCard from './cards/tests-viral'
 import NationalTestsCard from './cards/tests-national'
 import LongTermCareCard from './cards/long-term-care'
-import CrdtCasesCard from './cards/crdt-cases-card'
+import CrdtCasesCard from './cards/crdt/cases-card'
+import CrdtDeathsCard from './cards/crdt/deaths-card'
 
 import SmallCards from './cards/small-cards'
 import GradeSmallCard from './cards/small/grade-small-card'
@@ -206,6 +207,7 @@ const StateSummary = ({
             </SmallCards>
           )}
           {!national && <CrdtCasesCard raceData={raceData} />}
+          {!national && <CrdtDeathsCard raceData={raceData} />}
         </div>
       </AnnotationPanelContext.Provider>
     </DefinitionPanelContext.Provider>

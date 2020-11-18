@@ -39,7 +39,7 @@
 .note {
   @include type-size(100);
   color: $color-slate-700;
-  margin: 0;
+  margin: spacer(4) 0;
 }
 
 .disclosure {
