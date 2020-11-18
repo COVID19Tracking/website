@@ -18,6 +18,7 @@ import CrdtCasesCard from './cards/crdt-cases-card'
 
 import SmallCards from './cards/small-cards'
 import GradeSmallCard from './cards/small/grade-small-card'
+import ViewDataSmallCard from './cards/small/view-racial-data-small-card'
 
 import summaryStyles from './summary.module.scss'
 
@@ -195,9 +196,12 @@ const StateSummary = ({
               stateSlug={stateSlug}
             />
           )}
-          <SmallCards>
-            <GradeSmallCard grade={data.dataQualityGrade} />
-          </SmallCards>
+          {!national && (
+            <SmallCards>
+              <GradeSmallCard grade={data.dataQualityGrade} />
+              <ViewDataSmallCard />
+            </SmallCards>
+          )}
           {!national && <CrdtCasesCard raceData={raceData} />}
         </div>
       </AnnotationPanelContext.Provider>
