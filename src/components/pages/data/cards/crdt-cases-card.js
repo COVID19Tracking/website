@@ -57,7 +57,7 @@ const createValuesList = raceData => {
     })
   }
 
-  values.sort(function(a, b) {
+  values.sort((a, b) => {
     if (a.name < b.name) {
       return -1
     }
