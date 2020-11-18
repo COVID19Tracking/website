@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Card, CardBody } from '~components/common/card'
+import { Card, CardBody, CardNote } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
@@ -104,7 +104,7 @@ const CrdtCasesCard = ({ raceData }) => {
             grey
           />
         ))}
-        <p>(All data on card are calculated)</p>
+        <CardNote>(All data on card are calculated)</CardNote>
         <LastUpdatedLabel date="09/12/20" />
       </CardBody>
     </Card>
