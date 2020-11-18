@@ -4,7 +4,14 @@ import classnames from 'classnames'
 import { FormatNumber } from '~components/utils/format'
 import statisticStyles from './statistic.module.scss'
 
-const Statistic = ({ title, value, suffix, children, subelement }) => (
+const Statistic = ({
+  title,
+  value,
+  suffix,
+  children,
+  subelement,
+  hideValue,
+}) => (
   <div
     className={classnames(
       statisticStyles.statisticWrapper,
@@ -19,7 +26,7 @@ const Statistic = ({ title, value, suffix, children, subelement }) => (
           value === null && statisticStyles.nullValue,
         )}
       >
-        <NumberOrNotReported value={value} />
+        {!hideValue && <NumberOrNotReported value={value} />}
         {suffix}
       </div>
       {children && <div className={statisticStyles.info}>{children}</div>}

@@ -69,7 +69,7 @@ const CrdtCasesCard = ({ raceData }) => {
   return (
     <Card title="Race & ethnicity cases">
       <CardBody>
-        <Statistic title="Cases per 100,000 people" value="">
+        <Statistic title="Cases per 100,000 people" hideValue>
           <DefinitionLink
             label="Currently hospitalized"
             onDefinitionsToggle={() => {
