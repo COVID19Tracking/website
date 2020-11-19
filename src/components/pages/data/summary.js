@@ -42,7 +42,7 @@ const StateSummary = ({
   stateSlug: the name of the state, as a slug. like "arizona"
   data: API data from either usCovid or covidState
   sevenDaysAgo: seven day old API data from usCovidDaily or covidStateDaily
-  national: flag for the national summmary, true means this is national
+  national: flag for the national summary, true means this is national
   */
   const [cardDefinitions, setCardDefinitions] = useState(false)
   const [highlightedDefinition, setHighlightedDefinition] = useState(false)
@@ -78,7 +78,6 @@ const StateSummary = ({
     }))
 
   const raceValues = createRaceValues(raceData)
-  console.log(raceValues)
 
   return (
     <DefinitionPanelContext.Provider
@@ -211,8 +210,12 @@ const StateSummary = ({
               <DataAsGraphicSmallCard stateAbbreviation={stateAbbreviation} />
             </SmallCards>
           )}
-          {!national && <CrdtCasesCard raceData={raceValues} />}
-          {!national && <CrdtDeathsCard raceData={raceValues} />}
+          {!national && (
+            <CrdtCasesCard raceData={raceValues} stateName={stateName} />
+          )}
+          {!national && (
+            <CrdtDeathsCard raceData={raceValues} stateName={stateName} />
+          )}
         </div>
       </AnnotationPanelContext.Provider>
     </DefinitionPanelContext.Provider>

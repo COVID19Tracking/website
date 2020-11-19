@@ -4,8 +4,9 @@ import { DefinitionPanelContext } from '../definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
 import LastUpdatedLabel from '../last-updated-label'
+import NoDataReported from './no-data-reported'
 
-const CrdtCasesCard = ({ raceData }) => {
+const CrdtCasesCard = ({ raceData, stateName }) => {
   const definitionContext = useContext(DefinitionPanelContext)
   const fields = ['crdt_casesPer100k']
 
@@ -25,18 +26,28 @@ const CrdtCasesCard = ({ raceData }) => {
             }}
           />
         </Statistic>
-        {raceData.values.map(category => (
-          <Statistic
-            key={category.name}
-            title={category.name}
-            value={category.casesValue}
-            subelement
-            noDefinitionLink
-            grey
-          />
-        ))}
-        <CardNote>(All data on card are calculated)</CardNote>
-        <LastUpdatedLabel date="09/12/20" />
+        {raceData.hasCases ? (
+          <>
+            {raceData.values.map(category => (
+              <Statistic
+                key={category.name}
+                title={category.name}
+                value={category.casesValue}
+                subelement
+                noDefinitionLink
+                grey
+              />
+            ))}
+          </>
+        ) : (
+          <NoDataReported stateName={stateName} type="cases" />
+        )}
+        {raceData.hasCases && (
+          <>
+            <CardNote>(All data on card are calculated)</CardNote>
+            <LastUpdatedLabel date="09/12/20" />
+          </>
+        )}
       </CardBody>
     </Card>
   )

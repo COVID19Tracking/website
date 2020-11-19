@@ -79,6 +79,28 @@ const createValuesList = raceData => {
     return true // continue
   })
 
+  let hasCases = false
+
+  // check if there are any case values
+  values.every(value => {
+    if (value.casesValue === 'N/A') {
+      hasCases = true
+      return false // break out of every
+    }
+    return true // continue
+  })
+
+  let hasDeaths = false
+
+  // check if there are any case values
+  values.every(value => {
+    if (value.deathsValue === 'N/A') {
+      hasDeaths = true
+      return false // break out of every
+    }
+    return true // continue
+  })
+
   values.sort((a, b) => {
     if (a.name < b.name) {
       return -1
@@ -90,6 +112,8 @@ const createValuesList = raceData => {
   })
 
   return {
+    hasCases,
+    hasDeaths,
     hasAsterisk,
     values,
   }

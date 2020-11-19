@@ -4,8 +4,9 @@ import { DefinitionPanelContext } from '../definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
 import LastUpdatedLabel from '../last-updated-label'
+import NoDataReported from './no-data-reported'
 
-const CrdtCasesCard = ({ raceData }) => {
+const CrdtCasesCard = ({ raceData, stateName }) => {
   const definitionContext = useContext(DefinitionPanelContext)
   const fields = ['crdt_deathsPer100k']
 
@@ -25,25 +26,37 @@ const CrdtCasesCard = ({ raceData }) => {
             }}
           />
         </Statistic>
-        {raceData.values.map(category => (
-          <Statistic
-            key={category.name}
-            title={category.name}
-            value={category.deathsValue}
-            suffix={category.suffix}
-            subelement
-            noDefinitionLink
-            grey
-          />
-        ))}
-        <CardNote>(All data on card are calculated)</CardNote>
+        {raceData.hasDeaths ? (
+          <>
+            {raceData.values.map(category => (
+              <Statistic
+                key={category.name}
+                title={category.name}
+                value={category.deathsValue}
+                suffix={category.suffix}
+                subelement
+                noDefinitionLink
+                grey
+              />
+            ))}
+          </>
+        ) : (
+          <NoDataReported stateName={stateName} type="deaths" />
+        )}
+        {raceData.hasDeaths && (
+          <CardNote>(All data on card are calculated)</CardNote>
+        )}
         {raceData.hasAsterisk && (
           <CardNote>
             * Based on {'<'}10 deaths among members of this race/ethnicity.
             Interpret with caution.
           </CardNote>
         )}
-        <LastUpdatedLabel date="09/12/20" />
+        {raceData.hasDeaths && (
+          <>
+            <LastUpdatedLabel date="09/12/20" />
+          </>
+        )}
       </CardBody>
     </Card>
   )
