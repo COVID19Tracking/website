@@ -8,6 +8,16 @@ import StateSummary from '~components/pages/data/summary'
 import StateNotes from '~components/pages/state/state-notes'
 import StateTweets from '~components/pages/state/state-tweets'
 
+const getRaceData = data => {
+  if (data.allCovidRaceDataCombined.nodes.length > 0) {
+    return data.allCovidRaceDataCombined.nodes[0]
+  }
+  if (data.allCovidRaceDataSeparate.nodes.length > 0) {
+    return data.allCovidRaceDataSeparate.nodes[0]
+  }
+  return data.allCovidRaceDataSeparate.nodes[0]
+}
+
 const StateTemplate = ({ pageContext, data, path }) => {
   const state = pageContext
   const {
@@ -49,6 +59,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
           metadata={contentfulStateOrTerritory}
           lastUpdated={covidState.lastUpdateEt}
           annotations={allCovidAnnotation.nodes}
+          raceData={getRaceData(data)}
           longTermCare={data.covidStateInfo.childLtc}
         />
         {state.notes && <StateNotes notes={state.notes} />}
@@ -220,6 +231,64 @@ export const query = graphql`
         full_text
         id_str
         date(formatString: "MMMM D, yyyy")
+      }
+    }
+    allCovidRaceDataCombined(filter: { state: { eq: $state } }) {
+      nodes {
+        state
+        name
+        blackSmallN
+        latinXSmallN
+        asianSmallN
+        aianSmallN
+        whiteSmallN
+        apiSmallN
+        nhpiSmallN
+        blackPosPerCap
+        blackDeathPerCap
+        latinXPosPerCap
+        latinXDeathPerCap
+        asianPosPerCap
+        asianDeathPerCap
+        aianPosPerCap
+        aianDeathPerCap
+        whitePosPerCap
+        whiteDeathPerCap
+        nhpiPosPerCap
+        nhpiDeathPerCap
+        apiPosPerCap
+        apiDeathPerCap
+      }
+    }
+    allCovidRaceDataSeparate(filter: { state: { eq: $state } }) {
+      nodes {
+        state
+        name
+        knownRacePos
+        knownRaceDeath
+        knownEthPos
+        knownEthDeath
+        blackSmallN
+        latinXSmallN
+        asianSmallN
+        aianSmallN
+        whiteSmallN
+        apiSmallN
+        nhpiSmallN
+        blackPosPerCap
+        blackDeathPerCap
+        latinXPosPerCap
+        latinXDeathPerCap
+        asianPosPerCap
+        asianDeathPerCap
+        aianPosPerCap
+        aianDeathPerCap
+        whitePosPerCap
+        whiteDeathPerCap
+        nhpiPosPerCap
+        nhpiDeathPerCap
+        apiPosPerCap
+        apiDeathPerCap
       }
     }
     allCovidAnnotation(filter: { state: { eq: $state } }) {
