@@ -265,6 +265,9 @@ export const query = graphql`
         nhpiDeathPerCap
         apiPosPerCap
         apiDeathPerCap
+        lastCheckDate {
+          value
+        }
       }
     }
     allCovidRaceDataSeparate {
@@ -296,6 +299,9 @@ export const query = graphql`
         nhpiDeathPerCap
         apiPosPerCap
         apiDeathPerCap
+        lastCheckDate {
+          value
+        }
       }
     }
   }

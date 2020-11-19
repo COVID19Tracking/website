@@ -258,6 +258,9 @@ export const query = graphql`
         nhpiDeathPerCap
         apiPosPerCap
         apiDeathPerCap
+        lastCheckDate {
+          value
+        }
       }
     }
     allCovidRaceDataSeparate(filter: { state: { eq: $state } }) {
@@ -289,6 +292,9 @@ export const query = graphql`
         nhpiDeathPerCap
         apiPosPerCap
         apiDeathPerCap
+        lastCheckDate {
+          value
+        }
       }
     }
     allCovidAnnotation(filter: { state: { eq: $state } }) {

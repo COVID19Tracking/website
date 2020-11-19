@@ -10,8 +10,6 @@ const CrdtCasesCard = ({ raceData, stateName }) => {
   const definitionContext = useContext(DefinitionPanelContext)
   const fields = ['crdt_casesPer100k']
 
-  // todo stop using hardcoded date
-
   return (
     <Card title="Race & ethnicity cases">
       <CardBody>
@@ -45,7 +43,7 @@ const CrdtCasesCard = ({ raceData, stateName }) => {
         {raceData.hasCases && (
           <>
             <CardNote>(All data on card are calculated)</CardNote>
-            <LastUpdatedLabel date="09/12/20" />
+            <LastUpdatedLabel date={raceData.lastCheckDate} />
           </>
         )}
       </CardBody>
