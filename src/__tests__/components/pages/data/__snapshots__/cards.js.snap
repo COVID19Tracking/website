@@ -94,6 +94,365 @@ exports[`Components : Pages : Data : Cards : Antibody tests renders correctly 1`
 </div>
 `;
 
+exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="header"
+  >
+    <h3
+      className="title"
+    >
+      Race & ethnicity cases
+    </h3>
+  </div>
+  <div
+    className="body"
+  >
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Cases per 100,000 people
+        </div>
+        <div
+          className="value"
+        />
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Cases per 100,000 people"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper subelement noDefinitionLink grey"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          American Indian/Alaska Native
+        </div>
+        <div
+          className="value"
+        >
+          89
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper subelement noDefinitionLink grey"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Asian
+        </div>
+        <div
+          className="value"
+        >
+          120
+        </div>
+      </div>
+    </div>
+    <p
+      className="note"
+    >
+      (All data on card are calculated)
+    </p>
+    <div
+      className="container"
+    >
+      <img
+        alt="Clock icon"
+        src="test-file-stub"
+        width="14px"
+      />
+      Data as of 
+      Invalid DateTime
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 2`] = `
+<div
+  className="card"
+>
+  <div
+    className="header"
+  >
+    <h3
+      className="title"
+    >
+      Race & ethnicity cases
+    </h3>
+  </div>
+  <div
+    className="body"
+  >
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Cases per 100,000 people
+        </div>
+        <div
+          className="value"
+        />
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Cases per 100,000 people"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="alert alert"
+    >
+      <img
+        alt="Alert icon"
+        src="test-file-stub"
+      />
+      <div>
+        <p
+          className="header"
+        />
+        <div
+          className="content"
+        >
+          Nevada
+           does not report race/ethnicity data for 
+          cases
+          .
+          <br />
+          <a
+            href="/race/get-better-data"
+          >
+            Help us get better data
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="header"
+  >
+    <h3
+      className="title"
+    >
+      Race & ethnicity deaths
+    </h3>
+  </div>
+  <div
+    className="body"
+  >
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Deaths per 100,000 people
+        </div>
+        <div
+          className="value"
+        />
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Deaths per 100,000 people"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper subelement noDefinitionLink grey"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          American Indian/Alaska Native
+        </div>
+        <div
+          className="value"
+        >
+          4.3
+           
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper subelement noDefinitionLink grey"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Asian
+        </div>
+        <div
+          className="value"
+        >
+          N/A
+          *
+        </div>
+      </div>
+    </div>
+    <p
+      className="note"
+    >
+      (All data on card are calculated)
+    </p>
+    <p
+      className="note"
+    >
+      * Based on 
+      &lt;
+      10 deaths among members of this race/ethnicity. Interpret with caution.
+    </p>
+    <div
+      className="container"
+    >
+      <img
+        alt="Clock icon"
+        src="test-file-stub"
+        width="14px"
+      />
+      Data as of 
+      Invalid DateTime
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 2`] = `
+<div
+  className="card"
+>
+  <div
+    className="header"
+  >
+    <h3
+      className="title"
+    >
+      Race & ethnicity deaths
+    </h3>
+  </div>
+  <div
+    className="body"
+  >
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Deaths per 100,000 people
+        </div>
+        <div
+          className="value"
+        />
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Deaths per 100,000 people"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="alert alert"
+    >
+      <img
+        alt="Alert icon"
+        src="test-file-stub"
+      />
+      <div>
+        <p
+          className="header"
+        />
+        <div
+          className="content"
+        >
+          Nevada
+           does not report race/ethnicity data for 
+          deaths
+          .
+          <br />
+          <a
+            href="/race/get-better-data"
+          >
+            Help us get better data
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Components : Pages : Data : Cards : Cases renders correctly 1`] = `
 <div
   className="card"

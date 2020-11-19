@@ -10,6 +10,7 @@ const createValuesList = raceData => {
     return []
   }
   const values = []
+
   // perCap is *per 1,000*, multiply by 100 to get *per 100,000*
   if (raceData.aianDeathPerCap != null || raceData.aianPosPerCap != null) {
     values.push({

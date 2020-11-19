@@ -204,17 +204,15 @@ const StateSummary = ({
             />
           )}
           {!national && (
-            <SmallCards>
-              <GradeSmallCard grade={data.dataQualityGrade} />
-              <ViewDataSmallCard />
-              <DataAsGraphicSmallCard stateAbbreviation={stateAbbreviation} />
-            </SmallCards>
-          )}
-          {!national && (
-            <CrdtCasesCard raceData={raceValues} stateName={stateName} />
-          )}
-          {!national && (
-            <CrdtDeathsCard raceData={raceValues} stateName={stateName} />
+            <>
+              <SmallCards>
+                <GradeSmallCard grade={data.dataQualityGrade} />
+                <ViewDataSmallCard />
+                <DataAsGraphicSmallCard stateAbbreviation={stateAbbreviation} />
+              </SmallCards>
+              <CrdtCasesCard raceData={raceValues} stateName={stateName} />
+              <CrdtDeathsCard raceData={raceValues} stateName={stateName} />
+            </>
           )}
         </div>
       </AnnotationPanelContext.Provider>

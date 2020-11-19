@@ -7,6 +7,9 @@ import AntibodyCard from '~components/pages/data/cards/tests-antibody'
 import NationalTestsCard from '~components/pages/data/cards/tests-national'
 import ViralTestsCard from '~components/pages/data/cards/tests-viral'
 
+import CrdtCasesCard from '~components/pages/data/cards/crdt/cases-card'
+import CrdtDeathsCard from '~components/pages/data/cards/crdt/deaths-card'
+
 describe('Components : Pages : Data : Cards : Cases', () => {
   it('renders correctly', () => {
     const tree = renderer
@@ -162,5 +165,99 @@ describe('Components : Pages : Data : Cards : Viral tests', () => {
       )
       .toJSON()
     expect(treeUnknownUnits).toMatchSnapshot()
+  })
+})
+
+describe('Components : Pages : Data : Cards : CRDT : Cases', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(
+        <CrdtCasesCard
+          stateName="Nevada"
+          raceData={{
+            values: [
+              {
+                name: 'American Indian/Alaska Native',
+                deathsValue: 4.3,
+                casesValue: 89,
+                suffix: ' ',
+              },
+              {
+                name: 'Asian',
+                deathsValue: 'N/A',
+                casesValue: 120,
+                suffix: '*',
+              },
+            ],
+            hasDeaths: true,
+            hasCases: true,
+            hasAsterisk: true,
+          }}
+        />,
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+
+    const treeNoData = renderer
+      .create(
+        <CrdtCasesCard
+          stateName="Nevada"
+          raceData={{
+            values: [],
+            hasDeaths: false,
+            hasCases: false,
+            hasAsterisk: false,
+          }}
+        />,
+      )
+      .toJSON()
+    expect(treeNoData).toMatchSnapshot()
+  })
+})
+
+describe('Components : Pages : Data : Cards : CRDT : Deaths', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(
+        <CrdtDeathsCard
+          stateName="Nevada"
+          raceData={{
+            values: [
+              {
+                name: 'American Indian/Alaska Native',
+                deathsValue: 4.3,
+                casesValue: 89,
+                suffix: ' ',
+              },
+              {
+                name: 'Asian',
+                deathsValue: 'N/A',
+                casesValue: 120,
+                suffix: '*',
+              },
+            ],
+            hasDeaths: true,
+            hasCases: true,
+            hasAsterisk: true,
+          }}
+        />,
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+
+    const treeNoData = renderer
+      .create(
+        <CrdtDeathsCard
+          stateName="Nevada"
+          raceData={{
+            values: [],
+            hasDeaths: false,
+            hasCases: false,
+            hasAsterisk: false,
+          }}
+        />,
+      )
+      .toJSON()
+    expect(treeNoData).toMatchSnapshot()
   })
 })
