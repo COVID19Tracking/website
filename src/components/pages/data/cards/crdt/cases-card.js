@@ -25,7 +25,7 @@ const CrdtCasesCard = ({ raceData }) => {
             }}
           />
         </Statistic>
-        {raceData.map(category => (
+        {raceData.values.map(category => (
           <Statistic
             key={category.name}
             title={category.name}

@@ -68,6 +68,17 @@ const createValuesList = raceData => {
     })
   }
 
+  let hasAsterisk = false
+
+  // check if any values have an asterisk
+  values.every(value => {
+    if (value.suffix === '*') {
+      hasAsterisk = true
+      return false // break out of every
+    }
+    return true // continue
+  })
+
   values.sort((a, b) => {
     if (a.name < b.name) {
       return -1
@@ -78,7 +89,10 @@ const createValuesList = raceData => {
     return 0
   })
 
-  return values
+  return {
+    hasAsterisk,
+    values,
+  }
 }
 
 export default createValuesList

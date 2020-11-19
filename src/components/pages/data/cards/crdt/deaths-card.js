@@ -25,7 +25,7 @@ const CrdtCasesCard = ({ raceData }) => {
             }}
           />
         </Statistic>
-        {raceData.map(category => (
+        {raceData.values.map(category => (
           <Statistic
             key={category.name}
             title={category.name}
@@ -37,10 +37,12 @@ const CrdtCasesCard = ({ raceData }) => {
           />
         ))}
         <CardNote>(All data on card are calculated)</CardNote>
-        <CardNote>
-          * Based on {'<'}10 deaths among members of this race/ethnicity.
-          Interpret with caution.
-        </CardNote>
+        {raceData.hasAsterisk && (
+          <CardNote>
+            * Based on {'<'}10 deaths among members of this race/ethnicity.
+            Interpret with caution.
+          </CardNote>
+        )}
         <LastUpdatedLabel date="09/12/20" />
       </CardBody>
     </Card>
