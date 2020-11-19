@@ -14,6 +14,8 @@ import TestsAntibodyCard from './cards/tests-antibody'
 import TestsViralCard from './cards/tests-viral'
 import NationalTestsCard from './cards/tests-national'
 import LongTermCareCard from './cards/long-term-care'
+
+import createRaceValues from './cards/crdt/create-race-data'
 import CrdtCasesCard from './cards/crdt/cases-card'
 import CrdtDeathsCard from './cards/crdt/deaths-card'
 
@@ -74,6 +76,9 @@ const StateSummary = ({
       ...apiDefinitions.find(d => d.fieldName === def && d),
       ...def,
     }))
+
+  const raceValues = createRaceValues(raceData)
+  console.log(raceValues)
 
   return (
     <DefinitionPanelContext.Provider
@@ -206,8 +211,8 @@ const StateSummary = ({
               <DataAsGraphicSmallCard stateAbbreviation={stateAbbreviation} />
             </SmallCards>
           )}
-          {!national && <CrdtCasesCard raceData={raceData} />}
-          {!national && <CrdtDeathsCard raceData={raceData} />}
+          {!national && <CrdtCasesCard raceData={raceValues} />}
+          {!national && <CrdtDeathsCard raceData={raceValues} />}
         </div>
       </AnnotationPanelContext.Provider>
     </DefinitionPanelContext.Provider>
