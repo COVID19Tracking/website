@@ -24,8 +24,7 @@ const States = ({
       }
     })
     state.annotations = annotations.filter(
-      annotation =>
-        annotation.state && annotation.state.indexOf(state.state) > -1,
+      annotation => annotation.state && annotation.state === state.state,
     )
     stateList.push(state)
   })
