@@ -188,7 +188,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 1`] 
         width="14px"
       />
       Data as of 
-      Invalid DateTime
+      November 19, 2020
     </div>
   </div>
 </div>
@@ -372,7 +372,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 1`]
         width="14px"
       />
       Data as of 
-      Invalid DateTime
+      November 19, 2020
     </div>
   </div>
 </div>

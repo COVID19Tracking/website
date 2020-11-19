@@ -197,6 +197,7 @@ describe('Components : Pages : Data : Cards : CRDT : Cases', () => {
             hasDeaths: true,
             hasCases: true,
             hasAsterisk: true,
+            lastCheckDate: '20201119',
           }}
         />,
       )
@@ -212,6 +213,7 @@ describe('Components : Pages : Data : Cards : CRDT : Cases', () => {
             hasDeaths: false,
             hasCases: false,
             hasAsterisk: false,
+            lastCheckDate: '20201119',
           }}
         />,
       )
@@ -243,6 +245,7 @@ describe('Components : Pages : Data : Cards : CRDT : Deaths', () => {
             ],
             hasDeaths: true,
             hasCases: true,
+            lastCheckDate: '20201119',
             hasAsterisk: true,
           }}
         />,
@@ -259,6 +262,7 @@ describe('Components : Pages : Data : Cards : CRDT : Deaths', () => {
             hasDeaths: false,
             hasCases: false,
             hasAsterisk: false,
+            lastCheckDate: '20201119',
           }}
         />,
       )
