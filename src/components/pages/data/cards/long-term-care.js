@@ -57,7 +57,7 @@ export default ({ data, stateName, stateDeaths, stateSlug }) => {
                     highlight: 'ltc_cases',
                   })
                 }}
-                label="Long-term care  cases"
+                label="Long-term care cases"
               />
             </Statistic>
             <Statistic title="Total deaths" value={current.total_death}>
