@@ -6,6 +6,9 @@ const perCapTo100k = value => {
 }
 
 const createValuesList = raceData => {
+  if (raceData === undefined) {
+    return []
+  }
   const values = []
 
   // perCap is *per 1,000*, multiply by 100 to get *per 100,000*
