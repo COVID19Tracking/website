@@ -239,6 +239,12 @@ export const query = graphql`
         lede
       }
       publishDate(formatString: "MMMM D, YYYY")
+      chartData {
+        file {
+          url
+        }
+        title
+      }
     }
   }
 `
