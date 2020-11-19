@@ -10,6 +10,11 @@ import ViralTestsCard from '~components/pages/data/cards/tests-viral'
 import CrdtCasesCard from '~components/pages/data/cards/crdt/cases-card'
 import CrdtDeathsCard from '~components/pages/data/cards/crdt/deaths-card'
 
+import SmallCard from '~components/pages/data/cards/small'
+import DataAsGraphicSmallCard from '~components/pages/data/cards/small/data-as-graphic-small-card'
+import ViewRacialDataSmallCard from '~components/pages/data/cards/small/view-racial-data-small-card'
+import GradeSmallCard from '~components/pages/data/cards/small/grade-small-card'
+
 describe('Components : Pages : Data : Cards : Cases', () => {
   it('renders correctly', () => {
     const tree = renderer
@@ -259,5 +264,56 @@ describe('Components : Pages : Data : Cards : CRDT : Deaths', () => {
       )
       .toJSON()
     expect(treeNoData).toMatchSnapshot()
+  })
+})
+
+describe('Components : Pages : Data : Cards : Small Cards', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(
+        <SmallCard stateAbbreviation="NY" destination="/race/">
+          <p>child</p>
+        </SmallCard>,
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders correctly', () => {
+    const externalTree = renderer
+      .create(
+        <SmallCard
+          stateAbbreviation="NY"
+          destination="https://www.theatlantic.com/"
+          isInternal={false}
+        >
+          <p>child</p>
+        </SmallCard>,
+      )
+      .toJSON()
+    expect(externalTree).toMatchSnapshot()
+  })
+})
+
+describe('Components : Pages : Data : Cards : Small Cards : View data as graphic', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(<DataAsGraphicSmallCard stateAbbreviation="NY" />)
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})
+
+describe('Components : Pages : Data : Cards : Small Cards : Grade', () => {
+  it('renders correctly', () => {
+    const tree = renderer.create(<GradeSmallCard grade="b" />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})
+
+describe('Components : Pages : Data : Cards : Small Cards : View racial data', () => {
+  it('renders correctly', () => {
+    const tree = renderer.create(<ViewRacialDataSmallCard />).toJSON()
+    expect(tree).toMatchSnapshot()
   })
 })

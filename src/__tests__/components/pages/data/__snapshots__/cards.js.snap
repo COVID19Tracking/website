@@ -1471,6 +1471,127 @@ exports[`Components : Pages : Data : Cards : Outcomes renders correctly 2`] = `
 </div>
 `;
 
+exports[`Components : Pages : Data : Cards : Small Cards : Grade renders correctly 1`] = `
+<a
+  className="wrapper"
+  href="#"
+>
+  <div
+    className="container"
+  >
+    <img
+      alt="Grade b"
+      className="grade"
+      src="test-file-stub"
+    />
+    <span
+      className="link"
+    >
+      Current race & ethnicity data quality grade
+    </span>
+    <span
+      className="arrow"
+    >
+      →
+    </span>
+  </div>
+</a>
+`;
+
+exports[`Components : Pages : Data : Cards : Small Cards : View data as graphic renders correctly 1`] = `
+<a
+  className="wrapper"
+  href="/race/infection-and-mortality-data#NY"
+>
+  <div
+    className="container"
+  >
+    <img
+      alt="Chart icon"
+      src="test-file-stub"
+      width="30px"
+    />
+    <span
+      className="link"
+    >
+      View data per capita as a graphic
+    </span>
+    <span
+      className="arrow"
+    >
+      →
+    </span>
+  </div>
+</a>
+`;
+
+exports[`Components : Pages : Data : Cards : Small Cards : View racial data renders correctly 1`] = `
+<a
+  className="wrapper"
+  href="/race/dashboard"
+>
+  <div
+    className="container"
+  >
+    <img
+      alt="Spreadsheet icon"
+      src="test-file-stub"
+      width="30px"
+    />
+    <span
+      className="link"
+    >
+      View racial data dashboard
+    </span>
+    <span
+      className="arrow"
+    >
+      →
+    </span>
+  </div>
+</a>
+`;
+
+exports[`Components : Pages : Data : Cards : Small Cards renders correctly 1`] = `
+<a
+  className="wrapper"
+  href="/race/"
+>
+  <div
+    className="container"
+  >
+    <p>
+      child
+    </p>
+    <span
+      className="arrow"
+    >
+      →
+    </span>
+  </div>
+</a>
+`;
+
+exports[`Components : Pages : Data : Cards : Small Cards renders correctly 2`] = `
+<a
+  className="wrapper"
+  href="https://www.theatlantic.com/"
+>
+  <div
+    className="container"
+  >
+    <p>
+      child
+    </p>
+    <span
+      className="arrow"
+    >
+      →
+    </span>
+  </div>
+</a>
+`;
+
 exports[`Components : Pages : Data : Cards : Viral tests renders correctly 1`] = `
 <div
   className="card"
