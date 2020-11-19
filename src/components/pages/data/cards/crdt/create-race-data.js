@@ -6,9 +6,6 @@ const perCapTo100k = value => {
 }
 
 const createValuesList = raceData => {
-  if (raceData === undefined) {
-    return []
-  }
   const values = []
 
   // perCap is *per 1,000*, multiply by 100 to get *per 100,000*
@@ -84,7 +81,7 @@ const createValuesList = raceData => {
 
   // check if there are any case values
   values.every(value => {
-    if (value.casesValue === 'N/A') {
+    if (value.casesValue !== 'N/A') {
       hasCases = true
       return false // break out of every
     }
@@ -95,7 +92,7 @@ const createValuesList = raceData => {
 
   // check if there are any case values
   values.every(value => {
-    if (value.deathsValue === 'N/A') {
+    if (value.deathsValue !== 'N/A') {
       hasDeaths = true
       return false // break out of every
     }
@@ -112,11 +109,16 @@ const createValuesList = raceData => {
     return 0
   })
 
+  let lastCheckDate = raceData.lastCheckDate.value
+  // change format from YYYY-MM-DD to YYYYMMDD
+  lastCheckDate = lastCheckDate.split('-').join('')
+
   return {
     hasCases,
     hasDeaths,
     hasAsterisk,
     values,
+    lastCheckDate,
   }
 }
 
