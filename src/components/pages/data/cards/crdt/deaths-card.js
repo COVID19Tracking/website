@@ -19,49 +19,49 @@ const createValuesList = raceData => {
     values.push({
       name: 'American Indian/Alaska Native',
       value: perCapTo100k(raceData.aianDeathPerCap),
-      smallN: raceData.aianSmallN ? '*' : '',
+      smallN: raceData.aianSmallN ? '*' : ' ',
     })
   }
   if (raceData.apiDeathPerCap != null) {
     values.push({
       name: 'Asian/Pacific Islander',
       value: perCapTo100k(raceData.apiDeathPerCap),
-      smallN: raceData.apiSmallN ? '*' : '',
+      smallN: raceData.apiSmallN ? '*' : ' ',
     })
   }
   if (raceData.asianDeathPerCap != null) {
     values.push({
       name: 'Asian',
       value: perCapTo100k(raceData.asianDeathPerCap),
-      smallN: raceData.asianSmallN ? '*' : '',
+      smallN: raceData.asianSmallN ? '*' : ' ',
     })
   }
   if (raceData.blackDeathPerCap != null) {
     values.push({
       name: 'Black/African American',
       value: perCapTo100k(raceData.blackDeathPerCap),
-      smallN: raceData.blackSmallN ? '*' : '',
+      smallN: raceData.blackSmallN ? '*' : ' ',
     })
   }
   if (raceData.latinXDeathPerCap != null) {
     values.push({
       name: 'Hispanic/Latino',
       value: perCapTo100k(raceData.latinXDeathPerCap),
-      smallN: raceData.latinXSmallN ? '*' : '',
+      smallN: raceData.latinXSmallN ? '*' : ' ',
     })
   }
   if (raceData.nhpiDeathPerCap != null) {
     values.push({
       name: 'Native Hawaiian/Pacific Islander',
       value: perCapTo100k(raceData.nhpiDeathPerCap),
-      smallN: raceData.nhpiSmallN ? '*' : '',
+      smallN: raceData.nhpiSmallN ? '*' : ' ',
     })
   }
   if (raceData.whiteDeathPerCap != null) {
     values.push({
       name: 'White',
       value: perCapTo100k(raceData.whiteDeathPerCap),
-      smallN: raceData.whiteSmallN ? '*' : '',
+      smallN: raceData.whiteSmallN ? '*' : ' ',
     })
   }
 
