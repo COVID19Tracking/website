@@ -55,11 +55,7 @@ const Annotation = ({ key, annotation, highlighted }) => {
         highlighted && definitionsPanelStyles.highlight,
       )}
     >
-      <h3 className={definitionsPanelStyles.title}>
-        {annotation.field.map(field => (
-          <>{field}</>
-        ))}
-      </h3>
+      <h3 className={definitionsPanelStyles.title}>{annotation.field}</h3>
       <p>{annotation.warning}</p>
       {annotation.lastChecked && <p>Last updated {annotation.lastChecked}</p>}
     </div>
@@ -120,9 +116,7 @@ const DefinitionPanel = ({
               <Annotation
                 annotation={annotation}
                 key={annotation.airtable_id}
-                highlighted={
-                  annotation.field.indexOf(highlightedDefinition) > -1
-                }
+                highlighted={annotation.field === highlightedDefinition}
               />
             ))}
           </>
@@ -139,7 +133,7 @@ const AnnotationButton = ({ field, children }) => {
   }
   if (
     annotationContext.annotations.filter(
-      annotation => annotation.field.indexOf(field) > -1,
+      annotation => annotation.field === field,
     ).length > 0
   ) {
     return children
