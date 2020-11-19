@@ -3,6 +3,7 @@
   line-height: 1;
   @include type-size(100);
   margin: spacer(16) 0 spacer(8);
+  font-weight: 500;
 
   img {
     margin-right: spacer(4);
