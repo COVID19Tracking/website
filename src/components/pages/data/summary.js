@@ -207,7 +207,7 @@ const StateSummary = ({
             <>
               <SmallCards>
                 <GradeSmallCard grade={data.dataQualityGrade} />
-                <ViewDataSmallCard />
+                <ViewDataSmallCard stateAbbreviation={stateAbbreviation} />
                 <DataAsGraphicSmallCard stateAbbreviation={stateAbbreviation} />
               </SmallCards>
               <CrdtCasesCard raceData={raceValues} stateName={stateName} />
