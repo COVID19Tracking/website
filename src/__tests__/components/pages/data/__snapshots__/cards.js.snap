@@ -326,7 +326,6 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 1`]
           className="value"
         >
           4.3
-           
         </div>
       </div>
     </div>
