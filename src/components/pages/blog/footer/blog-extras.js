@@ -2,6 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import RelatedPosts from './related-posts'
 import AuthorFooter from './author-footer'
+import DownloadLinks from './download-links'
 import blogExtrasStyles from './blog-extras.module.scss'
 
 const BlogExtras = ({ blogPost }) => {
@@ -11,6 +12,7 @@ const BlogExtras = ({ blogPost }) => {
 
   return (
     <>
+      {blogPost.chartData && <DownloadLinks links={blogPost.chartData} />}
       {footerAuthors.length > 0 && (
         <>
           <hr className={blogExtrasStyles.divider} />
