@@ -104,7 +104,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 1`] 
     <h3
       className="title"
     >
-      Race & ethnicity cases
+      Race & ethnicity: cases
     </h3>
   </div>
   <div
@@ -204,7 +204,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 2`] 
     <h3
       className="title"
     >
-      Race & ethnicity cases
+      Race & ethnicity: cases
     </h3>
   </div>
   <div
@@ -252,15 +252,13 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 2`] 
         <div
           className="content"
         >
-          Nevada
-           does not report race/ethnicity data for 
-          cases
-          .
-          <br />
+          NV
+           does not report this information.
+           
           <a
             href="/race/get-better-data"
           >
-            Help us get better data
+            Help us get better data.
           </a>
         </div>
       </div>
@@ -279,7 +277,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 1`]
     <h3
       className="title"
     >
-      Race & ethnicity deaths
+      Race & ethnicity: deaths
     </h3>
   </div>
   <div
@@ -354,7 +352,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 1`]
     <p
       className="note"
     >
-      (All data on card are calculated)
+      (All data on card is calculated)
     </p>
     <p
       className="note"
@@ -388,7 +386,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 2`]
     <h3
       className="title"
     >
-      Race & ethnicity deaths
+      Race & ethnicity: deaths
     </h3>
   </div>
   <div
@@ -436,15 +434,13 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 2`]
         <div
           className="content"
         >
-          Nevada
-           does not report race/ethnicity data for 
-          deaths
-          .
-          <br />
+          NV
+           does not report this information.
+           
           <a
             href="/race/get-better-data"
           >
-            Help us get better data
+            Help us get better data.
           </a>
         </div>
       </div>
@@ -1528,7 +1524,7 @@ exports[`Components : Pages : Data : Cards : Small Cards : View data as graphic 
 exports[`Components : Pages : Data : Cards : Small Cards : View racial data renders correctly 1`] = `
 <a
   className="wrapper"
-  href="/race/dashboard"
+  href="/race/dashboard#state-ks"
 >
   <div
     className="container"

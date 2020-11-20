@@ -178,7 +178,7 @@ describe('Components : Pages : Data : Cards : CRDT : Cases', () => {
     const tree = renderer
       .create(
         <CrdtCasesCard
-          stateName="Nevada"
+          stateAbbreviation="NV"
           raceData={{
             values: [
               {
@@ -207,7 +207,7 @@ describe('Components : Pages : Data : Cards : CRDT : Cases', () => {
     const treeNoData = renderer
       .create(
         <CrdtCasesCard
-          stateName="Nevada"
+          stateAbbreviation="NV"
           raceData={{
             values: [],
             hasDeaths: false,
@@ -227,7 +227,7 @@ describe('Components : Pages : Data : Cards : CRDT : Deaths', () => {
     const tree = renderer
       .create(
         <CrdtDeathsCard
-          stateName="Nevada"
+          stateAbbreviation="NV"
           raceData={{
             values: [
               {
@@ -256,7 +256,7 @@ describe('Components : Pages : Data : Cards : CRDT : Deaths', () => {
     const treeNoData = renderer
       .create(
         <CrdtDeathsCard
-          stateName="Nevada"
+          stateAbbreviation="NV"
           raceData={{
             values: [],
             hasDeaths: false,
@@ -317,7 +317,9 @@ describe('Components : Pages : Data : Cards : Small Cards : Grade', () => {
 
 describe('Components : Pages : Data : Cards : Small Cards : View racial data', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<ViewRacialDataSmallCard />).toJSON()
+    const tree = renderer
+      .create(<ViewRacialDataSmallCard stateAbbreviation="KS" />)
+      .toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
