@@ -27,6 +27,10 @@ export default ({ pageContext, path, data }) => {
             state={state.state}
             stateName={state.name}
             overview={data.covidStateInfo.childLtc.current}
+            showFacilities={
+              data.allCovidLtcFacilities.group &&
+              data.allCovidLtcFacilities.group.length > 0
+            }
           />
           <LongTermCareBarChart data={data.aggregate.nodes} />
           {data.covidLtcNotes.alerts && (

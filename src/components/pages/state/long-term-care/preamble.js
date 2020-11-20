@@ -4,7 +4,7 @@ import LongTermCareOverview from './overview'
 import preambleStyle from '../preamble.module.scss'
 import downloadDataStyles from '../download-data.module.scss'
 
-const LongTermCarePreamble = ({ state, overview }) => {
+const LongTermCarePreamble = ({ state, overview, showFacilities = false }) => {
   let facilities = 0
   Object.keys(overview).forEach(key => {
     if (key.search('outbrkfac') > -1) {
@@ -25,12 +25,14 @@ const LongTermCarePreamble = ({ state, overview }) => {
           >
             State overview
           </a>
-          <a
-            href={`https://github.com/COVID19Tracking/long-term-care-data/blob/master/facilities_${state.toLowerCase()}.csv`}
-            className={downloadDataStyles.button}
-          >
-            All facilities
-          </a>
+          {showFacilities && (
+            <a
+              href={`https://github.com/COVID19Tracking/long-term-care-data/blob/master/facilities_${state.toLowerCase()}.csv`}
+              className={downloadDataStyles.button}
+            >
+              All facilities
+            </a>
+          )}
         </p>
       </div>
     </OverviewWrapper>
