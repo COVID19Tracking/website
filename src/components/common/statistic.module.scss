@@ -104,3 +104,8 @@
   color: $color-slate-600;
   @include type-size(100);
 }
+
+.no-asterisk {
+  // this is the width of an asterisk character
+  margin-right: 7.2px; // ignore-style-rule
+}

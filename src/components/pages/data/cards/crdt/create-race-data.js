@@ -17,7 +17,7 @@ const createValuesList = raceData => {
       name: 'American Indian/Alaska Native',
       deathsValue: perCapTo100k(raceData.aianDeathPerCap),
       casesValue: perCapTo100k(raceData.aianPosPerCap),
-      suffix: raceData.aianSmallN ? '*' : ' ',
+      asterisk: raceData.aianSmallN ? '*' : '',
     })
   }
   if (raceData.apiDeathPerCap != null || raceData.apiPosPerCap != null) {
@@ -25,7 +25,7 @@ const createValuesList = raceData => {
       name: 'Asian/Pacific Islander',
       deathsValue: perCapTo100k(raceData.apiDeathPerCap),
       casesValue: perCapTo100k(raceData.apiPosPerCap),
-      suffix: raceData.apiSmallN ? '*' : ' ',
+      asterisk: raceData.apiSmallN ? '*' : '',
     })
   }
   if (raceData.asianDeathPerCap != null || raceData.asianPosPerCap != null) {
@@ -33,7 +33,7 @@ const createValuesList = raceData => {
       name: 'Asian',
       deathsValue: perCapTo100k(raceData.asianDeathPerCap),
       casesValue: perCapTo100k(raceData.asianPosPerCap),
-      suffix: raceData.asianSmallN ? '*' : ' ',
+      asterisk: raceData.asianSmallN ? '*' : '',
     })
   }
   if (raceData.blackDeathPerCap != null || raceData.blackPosPerCap != null) {
@@ -41,7 +41,7 @@ const createValuesList = raceData => {
       name: 'Black/African American',
       deathsValue: perCapTo100k(raceData.blackDeathPerCap),
       casesValue: perCapTo100k(raceData.blackPosPerCap),
-      suffix: raceData.blackSmallN ? '*' : ' ',
+      asterisk: raceData.blackSmallN ? '*' : '',
     })
   }
   if (raceData.latinXDeathPerCap != null || raceData.latinXPosPerCap != null) {
@@ -49,7 +49,7 @@ const createValuesList = raceData => {
       name: 'Hispanic/Latino',
       deathsValue: perCapTo100k(raceData.latinXDeathPerCap),
       casesValue: perCapTo100k(raceData.latinXPosPerCap),
-      suffix: raceData.latinXSmallN ? '*' : ' ',
+      asterisk: raceData.latinXSmallN ? '*' : '',
     })
   }
   if (raceData.nhpiDeathPerCap != null || raceData.nhpiPosPerCap != null) {
@@ -57,7 +57,7 @@ const createValuesList = raceData => {
       name: 'Native Hawaiian/Pacific Islander',
       deathsValue: perCapTo100k(raceData.nhpiDeathPerCap),
       casesValue: perCapTo100k(raceData.nhpiPosPerCap),
-      suffix: raceData.nhpiSmallN ? '*' : ' ',
+      asterisk: raceData.nhpiSmallN ? '*' : '',
     })
   }
   if (raceData.whiteDeathPerCap != null || raceData.whitePosPerCap != null) {
@@ -65,7 +65,7 @@ const createValuesList = raceData => {
       name: 'White',
       deathsValue: perCapTo100k(raceData.whiteDeathPerCap),
       casesValue: perCapTo100k(raceData.whitePosPerCap),
-      suffix: raceData.whiteSmallN ? '*' : ' ',
+      asterisk: raceData.whiteSmallN ? '*' : '',
     })
   }
 

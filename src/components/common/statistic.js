@@ -12,6 +12,7 @@ const Statistic = ({
   subelement,
   hideValue,
   grey,
+  asterisk = false,
   noDefinitionLink,
 }) => (
   <div
@@ -28,10 +29,12 @@ const Statistic = ({
         className={classnames(
           statisticStyles.value,
           value === null && statisticStyles.nullValue,
+          asterisk === '' && statisticStyles.noAsterisk,
         )}
       >
         {!hideValue && <NumberOrNotReported value={value} />}
         {suffix}
+        {asterisk === '*' && '*'}
       </div>
       {children && <div className={statisticStyles.info}>{children}</div>}
     </div>

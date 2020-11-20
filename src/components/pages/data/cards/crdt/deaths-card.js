@@ -31,7 +31,7 @@ const CrdtCasesCard = ({ raceData, stateAbbreviation }) => {
                 key={category.name}
                 title={category.name}
                 value={category.deathsValue}
-                suffix={category.suffix}
+                asterisk={category.asterisk}
                 subelement
                 noDefinitionLink
                 grey
