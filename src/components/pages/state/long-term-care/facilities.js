@@ -33,14 +33,16 @@ const FacilityDetails = ({ stateSlug, facility, facilityId }) => (
   <div className={facilitiesStyles.details}>
     <h3>
       {facility.facility_name}
+      <span className={facilitiesStyles.share}>
+        <SocialSharing
+          shares={['link']}
+          url={`https://covidtracking.com/data/state/${stateSlug}/long-term-care#${facilityId}`}
+        />
+      </span>
       <span className={facilitiesStyles.category}>
         <span className="a11y-only">A </span>
         {facility.ctp_facility_category}
       </span>
-      <SocialSharing
-        shares={['link']}
-        url={`/data/state/${stateSlug}/long-term-care#${facilityId}`}
-      />
     </h3>
     <p>
       <strong>Data last updated:</strong>{' '}

@@ -20,3 +20,12 @@
     }
   }
 }
+
+.share {
+  display: inline-block;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  @include margin(16, left);
+  @include type-size(100);
+}
