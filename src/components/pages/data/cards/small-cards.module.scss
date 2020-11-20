@@ -1,7 +1,7 @@
-// padding-right seems to be adding spacing to the bottom of cards
-// this seems to be a css grid feature
 .container a {
-  padding-right: spacer(16);
+  margin-bottom: spacer(16);
+  display: block;
+
   &:last-child {
     padding-right: spacer(0);
   }
