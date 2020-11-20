@@ -42,7 +42,7 @@ const CrdtCasesCard = ({ raceData, stateName }) => {
           <NoDataReported stateName={stateName} type="deaths" />
         )}
         {raceData.hasDeaths && (
-          <CardNote>(All data on card are calculated)</CardNote>
+          <CardNote>(All data on card is calculated)</CardNote>
         )}
         {raceData.hasAsterisk && (
           <CardNote>
