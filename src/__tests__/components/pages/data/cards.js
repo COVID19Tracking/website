@@ -6,6 +6,7 @@ import OutcomesCard from '~components/pages/data/cards/outcomes-card'
 import AntibodyCard from '~components/pages/data/cards/tests-antibody'
 import NationalTestsCard from '~components/pages/data/cards/tests-national'
 import ViralTestsCard from '~components/pages/data/cards/tests-viral'
+import LongTermCareCard from '~components/pages/data/cards/long-term-care'
 
 describe('Components : Pages : Data : Cards : Cases', () => {
   it('renders correctly', () => {
@@ -162,5 +163,32 @@ describe('Components : Pages : Data : Cards : Viral tests', () => {
       )
       .toJSON()
     expect(treeUnknownUnits).toMatchSnapshot()
+  })
+})
+
+describe('Components : Pages : Data : Cards : Long term care card', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(
+        <LongTermCareCard
+          data={{
+            current: {
+              total_cases: 1200,
+              total_death: 300,
+              outbrkfac_alf: null,
+              outbrkfac_ltc: null,
+              outbrkfac_other: null,
+              outbrkfac_nh: null,
+              date: 20201112,
+            },
+            last: { total_cases: 1000, total_death: 200, date: 20201105 },
+          }}
+          stateName="Texas"
+          stateSlug="texas"
+          stateDeaths={2400}
+        />,
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
   })
 })

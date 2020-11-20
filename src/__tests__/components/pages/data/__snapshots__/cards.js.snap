@@ -712,6 +712,206 @@ exports[`Components : Pages : Data : Cards : Hospitalization renders correctly 2
 </div>
 `;
 
+exports[`Components : Pages : Data : Cards : Long term care card renders correctly 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="header"
+  >
+    <h3
+      className="title"
+    >
+      Long-Term Care (LTC)
+    </h3>
+    <span
+      className="link"
+    >
+      <a
+        href="/data/state/texas/long-term-care"
+      >
+        <span
+          className="a11y-only"
+        >
+          Texas
+           long-term care data 
+        </span>
+        <span
+          aria-hidden={true}
+        >
+          More data
+        </span>
+      </a>
+    </span>
+  </div>
+  <div
+    className="body"
+  >
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Total cases
+        </div>
+        <div
+          className="value"
+        >
+          1,200
+        </div>
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Long-term care  cases"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Total deaths
+        </div>
+        <div
+          className="value"
+        >
+          300
+        </div>
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Long-term care deaths"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Number of facilities affected
+        </div>
+        <div
+          className="value"
+        >
+          0
+        </div>
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Long-term care facilities"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="drillDown"
+    >
+      <span
+        className="label"
+      >
+        Percent of state deaths
+        <br />
+         from LTC facilities
+        <div
+          aria-hidden={true}
+          className="calculated"
+        >
+           
+          (Calculated)
+        </div>
+      </span>
+      <span
+        className="value"
+      >
+        12.5%
+      </span>
+    </div>
+    <div
+      className="drillDown"
+    >
+      <span
+        className="label"
+      >
+        New cases since Nov 5
+        <div
+          aria-hidden={true}
+          className="calculated"
+        >
+           
+          (Calculated)
+        </div>
+      </span>
+      <span
+        className="value"
+      >
+        20%
+      </span>
+    </div>
+    <div
+      className="drillDown"
+    >
+      <span
+        className="label"
+      >
+        New deaths since Nov 5
+        <div
+          aria-hidden={true}
+          className="calculated"
+        >
+           
+          (Calculated)
+        </div>
+      </span>
+      <span
+        className="value"
+      >
+        50%
+      </span>
+    </div>
+    <p
+      className="note"
+    >
+      Data as of 
+      November 12 2020
+    </p>
+  </div>
+</div>
+`;
+
 exports[`Components : Pages : Data : Cards : National tests renders correctly 1`] = `
 <div
   className="card"
