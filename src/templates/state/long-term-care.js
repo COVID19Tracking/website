@@ -51,6 +51,7 @@ export default ({ pageContext, path, data }) => {
           />
           <h2 id="facilities">Facilities</h2>
           <LongTermCareFacilities
+            stateSlug={slug}
             facilities={data.allCovidLtcFacilities.group}
           />
         </>
