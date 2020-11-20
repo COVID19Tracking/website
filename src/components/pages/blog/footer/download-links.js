@@ -6,7 +6,7 @@ import downloadDataStyles from '~components/pages/state/download-data.module.scs
 const DownloadLinks = ({ links }) => (
   <Container centered>
     <h4 className={downloadLinksStyles.header}>
-      Download this posts&apos; data
+      Download this post&apos;s data
     </h4>
     <p>
       {links.map(link => (
