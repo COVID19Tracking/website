@@ -210,8 +210,14 @@ const StateSummary = ({
                 <ViewDataSmallCard stateAbbreviation={stateAbbreviation} />
                 <DataAsGraphicSmallCard stateAbbreviation={stateAbbreviation} />
               </SmallCards>
-              <CrdtCasesCard raceData={raceValues} stateName={stateName} />
-              <CrdtDeathsCard raceData={raceValues} stateName={stateName} />
+              <CrdtCasesCard
+                raceData={raceValues}
+                stateAbbreviation={stateAbbreviation}
+              />
+              <CrdtDeathsCard
+                raceData={raceValues}
+                stateAbbreviation={stateAbbreviation}
+              />
             </>
           )}
         </div>

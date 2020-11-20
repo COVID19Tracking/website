@@ -6,7 +6,7 @@ import { Statistic, DefinitionLink } from '~components/common/statistic'
 import LastUpdatedLabel from '../last-updated-label'
 import NoDataReported from './no-data-reported'
 
-const CrdtCasesCard = ({ raceData, stateName }) => {
+const CrdtCasesCard = ({ raceData, stateAbbreviation }) => {
   const definitionContext = useContext(DefinitionPanelContext)
   const fields = ['crdt_casesPer100k']
 
@@ -38,7 +38,7 @@ const CrdtCasesCard = ({ raceData, stateName }) => {
             ))}
           </>
         ) : (
-          <NoDataReported stateName={stateName} type="cases" />
+          <NoDataReported stateAbbreviation={stateAbbreviation} />
         )}
         {raceData.hasCases && (
           <>
