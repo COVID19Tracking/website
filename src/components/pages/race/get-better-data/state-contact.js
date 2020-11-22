@@ -58,8 +58,8 @@ const StateContact = ({ currentState, governors }) => {
         </li>
       </ul>
       <DetailText className={stateContactStyle.detail}>
-        Source:{' '}
-        <a href="https://civilserviceusa.github.io/us-governors/">
+        Source:
+        <a href="https://civilserviceusa.github.io/us-governors/" style="padding-left: 4px;">
           Civil Services
         </a>
       </DetailText>
