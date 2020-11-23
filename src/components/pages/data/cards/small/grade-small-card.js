@@ -42,6 +42,7 @@ const GradeSmallCard = ({ grade }) => (
         }
         className={gradeSmallCardStyles.grade}
         alt={`Grade ${grade}`}
+        aria-hidden
       />
     </SmallCardIcon>
     <SmallCardLink>Current race & ethnicity data quality grade</SmallCardLink>

@@ -8,7 +8,7 @@ const DataAsGraphicSmallCard = ({ stateAbbreviation = 'US' }) => (
     destination={`/race/infection-and-mortality-data#${stateAbbreviation}`}
   >
     <SmallCardIcon>
-      <img src={chartIcon} alt="Chart icon" width="30px" />
+      <img src={chartIcon} alt="Chart icon" width="30px" aria-hidden />
     </SmallCardIcon>
     <SmallCardLink>View data per capita as a graphic</SmallCardLink>
   </SmallCard>
