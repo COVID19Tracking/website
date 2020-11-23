@@ -31,6 +31,7 @@ const ContactPage = ({ data }) => {
         encType="multipart/form-data"
         acceptCharset="utf-8"
         referrerPolicy="unsafe-url"
+        autocomplete="off"
       >
         <Select
           isRequired
