@@ -15,7 +15,7 @@ const ViewRacialDataSmallCard = ({ stateAbbreviation }) => (
         aria-hidden
       />
     </SmallCardIcon>
-    <SmallCardLink>View racial data dashboard</SmallCardLink>
+    <SmallCardLink>View all racial data for {stateAbbreviation}</SmallCardLink>
   </SmallCard>
 )
 

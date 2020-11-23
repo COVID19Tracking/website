@@ -10,7 +10,7 @@ const DataAsGraphicSmallCard = ({ stateAbbreviation = 'US' }) => (
     <SmallCardIcon>
       <img src={chartIcon} alt="Chart icon" width="30px" aria-hidden />
     </SmallCardIcon>
-    <SmallCardLink>View data per capita as a graphic</SmallCardLink>
+    <SmallCardLink>Get shareable graphic for this data</SmallCardLink>
   </SmallCard>
 )
 
