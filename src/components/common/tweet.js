@@ -22,9 +22,10 @@ const Tweet = ({
     if (!stateAbbreviation && !stateName) {
       return content
     }
-    const patternAsString = `(${stateName}|${stateAbbreviation})`
+    // match the state name or abbreviation, followed by a space or punctuation
+    const patternAsString = `(${stateName}|${stateAbbreviation})([-.,/;:() ])`
     const statePattern = new RegExp(patternAsString)
-    return content.replace(statePattern, '**$1**')
+    return content.replace(statePattern, '**$1**$2')
   }
 
   const highlightedTweet = getBoldedText(text)
