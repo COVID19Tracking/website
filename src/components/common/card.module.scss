@@ -2,6 +2,7 @@
   @media (min-width: $viewport-md) {
     border: 2px solid $color-slate-200;
   }
+  order: 0;
   .header {
     background: $color-plum-100;
     @include padding(16, (left, right));

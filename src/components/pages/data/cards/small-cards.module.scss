@@ -1,8 +1,14 @@
-.container a {
-  margin-bottom: spacer(16);
-  display: block;
+.container {
+  @media (max-width: $viewport-md) {
+    order: 1; // shifts to be after the main cards content
+  }
 
-  &:last-child {
-    padding-right: spacer(0);
+  a {
+    margin-bottom: spacer(16);
+    display: block;
+
+    &:last-child {
+      margin-bottom: spacer(0);
+    }
   }
 }
