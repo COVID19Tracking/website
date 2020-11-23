@@ -73,7 +73,7 @@ const createValuesList = raceData => {
 
   // check if any values have an asterisk
   values.every(value => {
-    if (value.suffix === '*') {
+    if (value.asterisk === '*') {
       hasAsterisk = true
       return false // break out of every
     }
