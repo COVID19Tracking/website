@@ -41,9 +41,7 @@ const CrdtCasesCard = ({ raceData, stateAbbreviation }) => {
         ) : (
           <NoDataReported stateAbbreviation={stateAbbreviation} />
         )}
-        {raceData.hasDeaths && (
-          <CardNote>(All data on card is calculated)</CardNote>
-        )}
+        {raceData.hasDeaths && <CardNote>(All data is calculated)</CardNote>}
         {raceData.hasAsterisk && (
           <CardNote>
             * Based on {'<'}10 deaths among members of this race/ethnicity.
