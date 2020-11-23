@@ -7,6 +7,7 @@ import { Form, Input } from '~components/common/form'
 import Modal from '~components/common/modal'
 import { FormatDate } from '~components/utils/format'
 import facilitiesStyles from './facilities.module.scss'
+import SocialSharing from '~components/common/social-sharing'
 
 const getNumber = number => {
   if (!number) {
@@ -28,10 +29,16 @@ const FacilityDetailRow = ({ type, cases, deaths }) => (
   </tr>
 )
 
-const FacilityDetails = ({ facility }) => (
+const FacilityDetails = ({ stateSlug, facility, facilityId }) => (
   <div className={facilitiesStyles.details}>
     <h3>
       {facility.facility_name}
+      <span className={facilitiesStyles.share}>
+        <SocialSharing
+          shares={['link']}
+          url={`https://covidtracking.com/data/state/${stateSlug}/long-term-care#${facilityId}`}
+        />
+      </span>
       <span className={facilitiesStyles.category}>
         <span className="a11y-only">A </span>
         {facility.ctp_facility_category}
@@ -128,10 +135,11 @@ const SearchForm = ({ hasFacilities, setSearchQuery }) => {
   )
 }
 
-const LongTermCareFacilities = ({ facilities }) => {
+const LongTermCareFacilities = ({ stateSlug, facilities }) => {
   const [sort, setSort] = useState({ field: 'facility_name', desc: false })
   const [searchQuery, setSearchQuery] = useState(false)
   const [openedFacility, setOpenedFacility] = useState(false)
+  const [openedFacilityId, setOpenedFacilityId] = useState(false)
   const [facilityList, setFacilityList] = useState(
     facilities
       .map(group => group.nodes[0])
@@ -216,7 +224,11 @@ const LongTermCareFacilities = ({ facilities }) => {
             setOpenedFacility(false)
           }}
         >
-          <FacilityDetails facility={openedFacility} />
+          <FacilityDetails
+            facility={openedFacility}
+            stateSlug={stateSlug}
+            facilityId={openedFacilityId}
+          />
         </Modal>
       )}
       <div role="region" aria-live="polite">
@@ -313,6 +325,7 @@ const LongTermCareFacilities = ({ facilities }) => {
                         type="button"
                         onClick={event => {
                           event.preventDefault()
+                          setOpenedFacilityId(facilityId)
                           setOpenedFacility(facility)
                           window.location.hash = facilityId
                         }}
