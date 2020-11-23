@@ -184,6 +184,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 1`] 
     >
       <img
         alt="Clock icon"
+        aria-hidden={true}
         src="test-file-stub"
         width="14px"
       />
@@ -365,6 +366,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 1`]
     >
       <img
         alt="Clock icon"
+        aria-hidden={true}
         src="test-file-stub"
         width="14px"
       />
@@ -1261,6 +1263,7 @@ exports[`Components : Pages : Data : Cards : Long term care card renders correct
     >
       <img
         alt="Clock icon"
+        aria-hidden={true}
         src="test-file-stub"
         width="14px"
       />
