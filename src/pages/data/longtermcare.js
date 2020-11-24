@@ -12,6 +12,7 @@ import DetailText from '~components/common/detail-text'
 import DownloadLinks from '~components/pages/data/long-term-care/download-links'
 import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
+import LTCForm from '~components/pages/data/long-term-care/form'
 
 const LongTermCarePage = ({ data }) => {
   const Snippet = ({ slug }) => {
@@ -122,6 +123,7 @@ const LongTermCarePage = ({ data }) => {
         <LongContent>
           <Snippet slug="ltc-thanks" />
         </LongContent>
+        <LTCForm />
       </Container>
     </Layout>
   )
