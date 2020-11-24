@@ -20,7 +20,7 @@ import CrdtCasesCard from './cards/crdt/cases-card'
 import CrdtDeathsCard from './cards/crdt/deaths-card'
 
 import SmallCards from './cards/small-cards'
-import GradeSmallCard from './cards/small/grade-small-card'
+// import GradeSmallCard from './cards/small/grade-small-card'
 import ViewDataSmallCard from './cards/small/view-racial-data-small-card'
 import DataAsGraphicSmallCard from './cards/small/data-as-graphic-small-card'
 import SectionHeader from './cards/section-header'
@@ -208,7 +208,7 @@ const StateSummary = ({
             <>
               <SectionHeader title="Race & ethnicity data" />
               <SmallCards>
-                <GradeSmallCard grade={data.dataQualityGrade} />
+                {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
                 <ViewDataSmallCard stateAbbreviation={stateAbbreviation} />
                 <DataAsGraphicSmallCard stateAbbreviation={stateAbbreviation} />
               </SmallCards>

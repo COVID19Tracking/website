@@ -8,7 +8,10 @@ import lastUpdatedLabelStyle from './last-updated-label.module.scss'
 const LastUpdatedLabel = ({ date }) => (
   <div className={lastUpdatedLabelStyle.container}>
     <img src={clockIcon} alt="Clock icon" width="14px" aria-hidden />
-    Data as of <FormatDate date={date} format="MMMM d, y" />
+    <span className={lastUpdatedLabelStyle.label}>Data as of </span>
+    <time>
+      <FormatDate date={date} format="MMMM d, y" />
+    </time>
   </div>
 )
 
