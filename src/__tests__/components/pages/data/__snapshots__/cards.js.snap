@@ -188,8 +188,14 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 1`] 
         src="test-file-stub"
         width="14px"
       />
-      Data as of 
-      November 19, 2020
+      <span
+        className="label"
+      >
+        Data as of 
+      </span>
+      <time>
+        November 19, 2020
+      </time>
     </div>
   </div>
 </div>
@@ -370,8 +376,14 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 1`]
         src="test-file-stub"
         width="14px"
       />
-      Data as of 
-      November 19, 2020
+      <span
+        className="label"
+      >
+        Data as of 
+      </span>
+      <time>
+        November 19, 2020
+      </time>
     </div>
   </div>
 </div>
@@ -1267,8 +1279,14 @@ exports[`Components : Pages : Data : Cards : Long term care card renders correct
         src="test-file-stub"
         width="14px"
       />
-      Data as of 
-      November 12, 2020
+      <span
+        className="label"
+      >
+        Data as of 
+      </span>
+      <time>
+        November 12, 2020
+      </time>
     </div>
   </div>
 </div>
