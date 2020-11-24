@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import formStyles from './form.module.scss'
 
 const LTCForm = () => {
   if (typeof window === 'undefined') {
-    return
+    return null
   }
   useEffect(() => {
     const scriptElement = document.createElement('script')
@@ -11,15 +12,16 @@ const LTCForm = () => {
       const formScriptElement = document.createElement('script')
       formScriptElement.src =
         'https://d3q1ytufopwvkq.cloudfront.net/1/formrenderer.js'
-      formScriptElement.onLoad = () => {
-        new FormRenderer({ project_id: 'q01EuOHV1HBGbhlB' })
+      formScriptElement.onload = () => {
+        const a = new window.FormRenderer({ project_id: 'q01EuOHV1HBGbhlB' })
+        console.log(a)
       }
       document.getElementsByTagName('head')[0].appendChild(formScriptElement)
     }
     document.getElementsByTagName('head')[0].appendChild(scriptElement)
   }, [])
 
-  return <form data-formrenderer />
+  return <form className={formStyles.form} data-formrenderer />
 }
 
 export default LTCForm
