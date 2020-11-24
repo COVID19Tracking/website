@@ -59,7 +59,7 @@ const gatsbyConfig = {
       options: {
         data: sassImports,
         cssLoaderOptions: {
-          localIdentName: '[sha1:hash:hex:4]',
+          localIdentName: '[sha1:hash:hex:5]',
         },
       },
     },
