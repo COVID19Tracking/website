@@ -2,6 +2,10 @@
   @include margin(16, bottom);
   @include type-size(300);
   line-height: 1.3;
+  @media (max-width: $viewport-md) {
+    margin-top: spacer(8);
+    margin-bottom: spacer(8);
+  }
 }
 
 .preamble {
