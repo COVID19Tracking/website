@@ -1,7 +1,6 @@
 .detail {
-  text-align: right;
+  text-align: left;
   @media (max-width: $viewport-sm) {
-    text-align: left;
     @include margin(16, top);
   }
 }
