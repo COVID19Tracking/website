@@ -155,11 +155,6 @@ const VolunteerForm = () => {
           },
 
           {
-            value: 'website',
-            label: "I'd like to help design or develop your website.",
-          },
-
-          {
             value: 'journalism',
             label:
               'I am a journalism or communications student or professional who can help do outreach to state officials.',
