@@ -1,5 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
+import { Link } from 'gatsby'
 import { Row, Col } from '~components/common/grid'
 import mapStyles from './map.module.scss'
 
@@ -156,7 +157,11 @@ const ChartMap = ({ history, current }) => {
   return (
     <Row>
       <Col width={[4, 6, 8]}>
+        <Link to="#skip-map" className={mapStyles.skipLink}>
+          Skip state map
+        </Link>
         <div className={mapStyles.map}>
+          <h3 className={mapStyles.heading}>New cases 14-day average</h3>
           {states.map(line => (
             <div>
               {line.map(state => (
@@ -168,7 +173,19 @@ const ChartMap = ({ history, current }) => {
                     stateStatus[state] < 0 && mapStyles.falling,
                   )}
                 >
-                  {state}
+                  {state && (
+                    <>
+                      <span className="a11y-only">In </span>
+                      {state}
+                      <span className="a11y-only">
+                        , cases are{' '}
+                        {stateStatus[state] > 0 &&
+                          stateStatus[state] <= 0.1 && <>rising</>}
+                        {stateStatus[state] > 0.1 && <>rising</>}{' '}
+                        {stateStatus[state] < 0 && <>falling</>}
+                      </span>
+                    </>
+                  )}
                 </div>
               ))}
             </div>
@@ -176,7 +193,7 @@ const ChartMap = ({ history, current }) => {
         </div>
       </Col>
       <Col width={[4, 6, 4]}>
-        <p className={mapStyles.mapLegend}>
+        <p className={mapStyles.mapLegend} id="skip-map">
           Cases are{' '}
           <span className={classnames(mapStyles.legend, mapStyles.rising)}>
             rising{' '}

@@ -3,6 +3,9 @@
   list-style-type: none;
   padding: 0;
   font-weight: bold;
+  abbr {
+    border-bottom: 0;
+  }
   li {
     @include margin(16, bottom);
     display: flex;
