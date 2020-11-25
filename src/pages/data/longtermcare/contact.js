@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import LTCForm from '~components/pages/data/long-term-care/form'
 import ContentfulContent from '~components/common/contentful-content'

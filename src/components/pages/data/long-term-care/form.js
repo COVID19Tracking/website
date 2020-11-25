@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useEffect } from 'react'
 import formStyles from './form.module.scss'
 
@@ -14,7 +16,6 @@ const LTCForm = () => {
         'https://d3q1ytufopwvkq.cloudfront.net/1/formrenderer.js'
       formScriptElement.onload = () => {
         const a = new window.FormRenderer({ project_id: 'q01EuOHV1HBGbhlB' })
-        console.log(a)
       }
       document.getElementsByTagName('head')[0].appendChild(formScriptElement)
     }

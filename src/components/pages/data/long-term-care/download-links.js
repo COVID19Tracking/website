@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { CtaAnchorLink } from '~components/common/landing-page/call-to-action'
+import {
+  CtaAnchorLink,
+  CtaLink,
+} from '~components/common/landing-page/call-to-action'
 import StateNavigation from '~components/common/state-nav'
 import { Row, Col } from '~components/common/grid'
 import linksStyle from './download-links.module.scss'
@@ -42,6 +45,9 @@ const DataLongTermCareLinks = () => (
         >
           View the spreadsheet
         </CtaAnchorLink>
+        <CtaLink to="/data/longtermcare/contact" block>
+          Contact us
+        </CtaLink>
       </Col>
       <Col width={[4, 6, 4]} paddingLeft={[0, 0, 16]}>
         <StateNavigation
