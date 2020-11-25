@@ -1,6 +1,40 @@
-.list {
-  img {
-    display: block;
-    border: 1px solid $color-slate-700;
+.carousel {
+  @include row();
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li {
+    &.chart {
+      @include col(2 2 2);
+      @media (min-width: $viewport-lg) {
+        @include a11y-only();
+        &.active {
+          @include a11y-only-off();
+          @include padding(8, right);
+          &:last-child {
+            padding: 0;
+          }
+        }
+      }
+      img {
+        display: block;
+        border: 1px solid $color-slate-700;
+        padding: 1px; // ignore-style-rule
+      }
+    }
+    &.navigation {
+      display: none;
+      @include col(1 1 1);
+      @media (min-width: $viewport-lg) {
+        display: list-item;
+        vertical-align: middle;
+      }
+      button {
+        @include remove-button-style();
+        @include type-size(700);
+        color: $color-plum-700;
+        @include margin(16, top);
+      }
+    }
   }
 }

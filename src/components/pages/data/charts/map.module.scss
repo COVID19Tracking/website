@@ -55,9 +55,6 @@ $color-unchanged: #d3d7d7;
 .skip-link {
   @include a11y-only();
   &:focus {
-    overflow: auto;
-    margin: 0;
-    height: auto;
-    position: relative;
+    @include a11y-only-off();
   }
 }
