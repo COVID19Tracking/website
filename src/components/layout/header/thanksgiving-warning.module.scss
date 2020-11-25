@@ -1,0 +1,7 @@
+.warning {
+  @include padding(16, top bottom);
+  background: $color-honey-300;
+  a {
+    color: black;
+  }
+}
