@@ -13,32 +13,45 @@ const DataChartsPage = () => {
           charts {
             title
             slug
+            thumbnail {
+              resize(width: 300) {
+                src
+              }
+            }
           }
         }
       }
     }
   `)
   return (
-    <Row className={chartListStyles.charts}>
+    <>
+      <h2 className="a11y-only">All charts</h2>
       {data.allContentfulChartCategory.nodes.map(({ name, charts }) => (
-        <Col
-          width={[4, 3, 3]}
-          paddingRight={[0, 8, 32]}
-          paddingLeft={[0, 0, 0]}
-        >
-          <h2>{name}</h2>
+        <>
           {charts && charts.length > 0 && (
-            <ul className={chartListStyles.list}>
-              {charts.map(item => (
-                <li>
-                  <Link to={`/data/charts/${item.slug}`}>{item.title}</Link>
-                </li>
-              ))}
-            </ul>
+            <>
+              <h3>{name}</h3>
+              <Row className={chartListStyles.list}>
+                {charts.map(item => (
+                  <Col width={[2, 2, 2]}>
+                    <Link to={`/data/charts/${item.slug}`}>
+                      {item.thumbnail && (
+                        <img
+                          src={item.thumbnail.resize.src}
+                          alt=""
+                          aria-hidden
+                        />
+                      )}
+                    </Link>
+                    <Link to={`/data/charts/${item.slug}`}>{item.title}</Link>
+                  </Col>
+                ))}
+              </Row>
+            </>
           )}
-        </Col>
+        </>
       ))}
-    </Row>
+    </>
   )
 }
 
