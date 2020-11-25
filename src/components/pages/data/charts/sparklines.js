@@ -67,7 +67,10 @@ const ChartSparklines = ({ history }) => {
   return (
     <>
       <h3 className={sparklineStyles.heading}>
-        On <FormatDate date={covidUs.date} format="LLLL d" />
+        <span>
+          On <FormatDate date={covidUs.date} format="LLLL d" />
+        </span>
+        <span>14 day trend</span>
       </h3>
       <ul className={sparklineStyles.list}>
         <li className={sparklineStyles.tests}>

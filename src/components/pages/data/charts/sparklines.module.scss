@@ -29,7 +29,10 @@
 .heading {
   text-transform: uppercase;
   margin: 0;
-  @include type-size(400);
+  @include type-size(300);
+  display: flex;
+  object-position: center;
+  justify-content: space-between;
 }
 
 .sparkline {
