@@ -1,30 +1,21 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
-import { Row, Col } from '~components/common/grid'
 import Container from '~components/common/container'
 import LongContent from '~components/common/long-content'
 import ContentfulContent from '~components/common/contentful-content'
 import ChartList from '~components/pages/data/charts/chart-list'
-import ChartSparklines from '~components/pages/data/charts/sparklines'
 import ChartTweet from '~components/pages/data/charts/tweet'
-import ChartMap from '~components/pages/data/charts/map'
+import ChartPreamble from '~components/pages/data/charts/preamble'
 
 const ChartsPage = ({ data }) => (
   <Layout title="Charts" returnLinks={[{ link: '/data' }]}>
     <h2>United States Overview</h2>
-    <Row>
-      <Col width={[4, 6, 4]}>
-        <ChartSparklines history={data.allCovidUsDaily.nodes} />
-      </Col>
-
-      <Col width={[4, 6, 8]} paddingLeft={[0, 0, 32]}>
-        <ChartMap
-          history={data.allCovidStateDaily.nodes}
-          current={data.allCovidState.nodes}
-        />
-      </Col>
-    </Row>
+    <ChartPreamble
+      usHistory={data.allCovidUsDaily.nodes}
+      history={data.allCovidStateDaily.nodes}
+      current={data.allCovidState.nodes}
+    />
     <ChartTweet />
     <ChartList />
 
