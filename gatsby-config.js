@@ -341,8 +341,15 @@ const gatsbyConfig = {
       resolve: 'gatsby-plugin-global-context',
       options: {
         context: {
+          latestDate: DateTime.fromISO(latestDate).toISODate(),
           sevenDaysAgo: DateTime.fromISO(latestDate)
             .minus({ days: 7 })
+            .toISODate(),
+          fourteenDaysAgo: DateTime.fromISO(latestDate)
+            .minus({ days: 14 })
+            .toISODate(),
+          ninetyDaysAgo: DateTime.fromISO(latestDate)
+            .minus({ days: 90 })
             .toISODate(),
         },
       },

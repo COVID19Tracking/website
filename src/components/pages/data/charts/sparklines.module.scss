@@ -1,0 +1,35 @@
+.list {
+  @include type-size(300);
+  list-style-type: none;
+  padding: 0;
+  font-weight: bold;
+  li {
+    @include margin(16, bottom);
+    display: flex;
+    object-position: center;
+    justify-content: space-between;
+  }
+  .tests {
+    color: $color-plum-500;
+  }
+  .cases {
+    color: $color-strawberry-200;
+  }
+  .hospitalization {
+    color: $color-blueberry-400;
+  }
+  .deaths {
+    color: $color-slate-600;
+  }
+}
+
+.heading {
+  text-transform: uppercase;
+  margin: 0;
+  @include type-size(400);
+}
+
+.sparkline {
+  width: 120px;
+  height: 40px;
+}
