@@ -12,6 +12,7 @@ const StatisticSparkline = ({ data, field, color }) => {
   const height = 40
   const width = 120
   const marginTop = 5
+  const marginRight = 20
   const dates = []
   const values = []
   data.forEach(item => {
@@ -41,11 +42,30 @@ const StatisticSparkline = ({ data, field, color }) => {
   return (
     <svg
       className={sparklineStyles.sparkline}
-      viewBox={`0 0 ${width} ${height - marginTop}`}
+      viewBox={`0 0 ${width + marginRight} ${height - marginTop}`}
       aria-hidden
     >
       <g transform={`translate(0 ${marginTop})`}>
-        <path d={lineFn(data)} stroke={color} strokeWidth={3} fill="none" />
+        <defs>
+          <marker
+            id={`triangle-${field}`}
+            refX="10"
+            refY="6"
+            markerWidth="30"
+            markerHeight="30"
+            markerUnits="userSpaceOnUse"
+            orient="auto"
+          >
+            <path d="M 0 0 12 6 0 12 3 6" style={{ fill: color }} />
+          </marker>
+        </defs>
+        <path
+          d={lineFn(data)}
+          stroke={color}
+          strokeWidth={3}
+          fill="none"
+          markerEnd={`url(#triangle-${field})`}
+        />
       </g>
     </svg>
   )
