@@ -22,6 +22,7 @@ const ChartCarousel = ({ charts }) => {
           <button
             type="button"
             aria-hidden
+            disabled={activeItem === 0 ? true : undefined}
             onClick={event => {
               event.preventDefault()
               updateActiveItem(-1)
@@ -53,6 +54,11 @@ const ChartCarousel = ({ charts }) => {
           <button
             type="button"
             aria-hidden
+            disabled={
+              activeItem >= charts.length - carouselLength - 1
+                ? true
+                : undefined
+            }
             onClick={event => {
               event.preventDefault()
               updateActiveItem(1)
