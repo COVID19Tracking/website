@@ -3,6 +3,11 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  &.no-carousel {
+    @media (min-width: $viewport-lg) {
+      margin-left: 8.33333%;
+    }
+  }
   li {
     &.chart {
       @include col(2 2 2);
@@ -40,5 +45,11 @@
         }
       }
     }
+  }
+}
+
+.heading {
+  @media (min-width: $viewport-lg) {
+    margin-left: 8.33333%;
   }
 }

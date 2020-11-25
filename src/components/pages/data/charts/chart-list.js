@@ -16,7 +16,12 @@ const ChartCarousel = ({ charts }) => {
     }
   }
   return (
-    <ul className={chartListStyles.carousel}>
+    <ul
+      className={classnames(
+        chartListStyles.carousel,
+        charts.length <= carouselLength && chartListStyles.noCarousel,
+      )}
+    >
       {charts.length > carouselLength && (
         <li className={chartListStyles.navigation}>
           <button
@@ -99,7 +104,7 @@ const DataChartsPage = () => {
         <>
           {charts && charts.length > 0 && (
             <>
-              <h3>{name}</h3>
+              <h3 className={chartListStyles.heading}>{name}</h3>
               <ChartCarousel charts={charts} />
             </>
           )}
