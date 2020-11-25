@@ -2,6 +2,13 @@ $color-falling: #8ae8c2;
 $color-rising: #fead82;
 $color-unchanged: #d3d7d7;
 
+.row {
+  flex-direction: column-reverse;
+  @media (min-width: $viewport-lg) {
+    flex-direction: row;
+  }
+}
+
 .map {
   @include type-size(100);
   width: 442px;
@@ -39,6 +46,10 @@ $color-unchanged: #d3d7d7;
   @include type-size(400);
   line-height: 2.5rem;
   font-weight: bold;
+  @include margin(32, bottom);
+  @media (min-width: $viewport-lg) {
+    margin-bottom: 0;
+  }
   .legend {
     display: inline-block;
     @include padding(4, left right);

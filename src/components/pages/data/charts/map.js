@@ -155,7 +155,7 @@ const ChartMap = ({ history, current }) => {
   const totalUnchanged =
     Object.keys(stateStatus).length - totalRising - totalFalling
   return (
-    <Row>
+    <Row className={mapStyles.row}>
       <Col width={[4, 6, 8]}>
         <Link to="#skip-map" className={mapStyles.skipLink}>
           Skip state map
