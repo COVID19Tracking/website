@@ -196,13 +196,13 @@ const ChartMap = ({ history, current }) => {
         <p className={mapStyles.mapLegend} id="skip-map">
           Cases are{' '}
           <span className={classnames(mapStyles.legend, mapStyles.rising)}>
-            rising{' '}
+            rising
           </span>{' '}
           in {totalRising} states,
-          <span className={mapStyles.legend}>staying the same </span> in{' '}
+          <span className={mapStyles.legend}>staying the same</span> in{' '}
           {totalUnchanged} states, and
           <span className={classnames(mapStyles.legend, mapStyles.falling)}>
-            falling{' '}
+            falling
           </span>{' '}
           in {totalFalling} states.
         </p>

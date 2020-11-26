@@ -51,8 +51,7 @@ $color-unchanged: #d3d7d7;
     margin-bottom: 0;
   }
   .legend {
-    display: inline-block;
-    @include padding(4, left right);
+    @include padding(4);
     background: $color-unchanged;
     &.rising {
       background: $color-rising;
