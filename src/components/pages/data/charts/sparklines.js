@@ -15,9 +15,24 @@ const StatisticSparkline = ({ data, field, color }) => {
   const marginRight = 20
   const dates = []
   const values = []
-  data.forEach(item => {
-    dates.push(DateTime.fromISO(item.date).toJSDate())
-    values.push(item[field])
+  const averages = []
+  data.forEach((item, key) => {
+    if (key < 14) {
+      return
+    }
+    let sum = 0
+    for (let i = key; i > key - 14; i -= 1) {
+      sum += data[i][field]
+    }
+    averages.push({
+      value: sum / 14,
+      date: DateTime.fromISO(item.date).toJSDate(),
+    })
+  })
+
+  averages.forEach(item => {
+    dates.push(item.date)
+    values.push(item.value)
   })
 
   const dateDomain = extent(dates)
@@ -34,10 +49,10 @@ const StatisticSparkline = ({ data, field, color }) => {
     .range([height, 0])
 
   const lineFn = line()
-    .defined(d => !Number.isNaN(d[field]) && d[field] !== null)
+    .defined(d => !Number.isNaN(d.value) && d.value !== null)
     .curve(curveNatural)
-    .x(d => xScaleTime(DateTime.fromISO(d.date).toJSDate()))
-    .y(d => yScale(d[field]))
+    .x(d => xScaleTime(d.date))
+    .y(d => yScale(d.value))
 
   return (
     <svg
@@ -60,7 +75,7 @@ const StatisticSparkline = ({ data, field, color }) => {
           </marker>
         </defs>
         <path
-          d={lineFn(data)}
+          d={lineFn(averages)}
           stroke={color}
           strokeWidth={3}
           fill="none"

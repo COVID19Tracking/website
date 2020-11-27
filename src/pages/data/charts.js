@@ -36,7 +36,7 @@ const ChartsPage = ({ data }) => (
 export default ChartsPage
 
 export const query = graphql`
-  query($fourteenDaysAgo: Date) {
+  query($fourteenDaysAgo: Date, $twentyEightDaysAgo: Date) {
     contentfulSnippet(slug: { eq: "chart-page-content" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
@@ -47,7 +47,7 @@ export const query = graphql`
     }
     allCovidUsDaily(
       sort: { fields: date }
-      filter: { date: { gte: $fourteenDaysAgo } }
+      filter: { date: { gte: $twentyEightDaysAgo } }
     ) {
       nodes {
         hospitalizedCurrently

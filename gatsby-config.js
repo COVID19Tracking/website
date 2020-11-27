@@ -348,6 +348,9 @@ const gatsbyConfig = {
           fourteenDaysAgo: DateTime.fromISO(latestDate)
             .minus({ days: 14 })
             .toISODate(),
+          twentyEightDaysAgo: DateTime.fromISO(latestDate)
+            .minus({ days: 28 })
+            .toISODate(),
           ninetyDaysAgo: DateTime.fromISO(latestDate)
             .minus({ days: 90 })
             .toISODate(),
