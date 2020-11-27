@@ -198,9 +198,9 @@ const ChartMap = ({ history, current }) => {
           <span className={classnames(mapStyles.legend, mapStyles.rising)}>
             rising
           </span>{' '}
-          in {totalRising} states,
+          in {totalRising} states,{' '}
           <span className={mapStyles.legend}>staying the same</span> in{' '}
-          {totalUnchanged} states, and
+          {totalUnchanged} states, and{' '}
           <span className={classnames(mapStyles.legend, mapStyles.falling)}>
             falling
           </span>{' '}
