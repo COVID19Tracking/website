@@ -1748,6 +1748,8 @@ exports[`Components : Pages : Data : Cards : Small Cards : View data as graphic 
 </a>
 `;
 
+exports[`Components : Pages : Data : Cards : Small Cards : View data as graphic renders correctly 2`] = `null`;
+
 exports[`Components : Pages : Data : Cards : Small Cards : View racial data renders correctly 1`] = `
 <a
   className="wrapper"
@@ -1776,6 +1778,8 @@ exports[`Components : Pages : Data : Cards : Small Cards : View racial data rend
   </div>
 </a>
 `;
+
+exports[`Components : Pages : Data : Cards : Small Cards : View racial data renders correctly 2`] = `null`;
 
 exports[`Components : Pages : Data : Cards : Small Cards renders correctly 1`] = `
 <a

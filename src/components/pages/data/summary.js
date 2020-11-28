@@ -78,6 +78,12 @@ const StateSummary = ({
       ...def,
     }))
 
+  // states that should be ignored for racial data *graphic* links
+  const racialDataGraphicIgnoreStates = ['AS', 'GU', 'MP', 'VI']
+
+  // states that should be ignored for racial data *tracker* links
+  const racialDataTrackerIgnoreStates = ['MP', 'GU']
+
   const raceValues = createRaceValues(raceData)
 
   return (
@@ -207,11 +213,25 @@ const StateSummary = ({
           {!national && (
             <>
               <SectionHeader title="Race & ethnicity data" />
-              <SmallCards>
-                {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
-                <ViewDataSmallCard stateAbbreviation={stateAbbreviation} />
-                <DataAsGraphicSmallCard stateAbbreviation={stateAbbreviation} />
-              </SmallCards>
+              {racialDataGraphicIgnoreStates.indexOf(stateAbbreviation) ===
+                -1 &&
+                racialDataTrackerIgnoreStates.indexOf(stateAbbreviation) ===
+                  -1 && (
+                  <SmallCards>
+                    {/* 
+                    only show if we're not ignoring the state for both the graphic and the tracker cards
+                    */}
+                    {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
+                    <ViewDataSmallCard
+                      stateAbbreviation={stateAbbreviation}
+                      ignoreStates={racialDataTrackerIgnoreStates}
+                    />
+                    <DataAsGraphicSmallCard
+                      stateAbbreviation={stateAbbreviation}
+                      ignoreStates={racialDataGraphicIgnoreStates}
+                    />
+                  </SmallCards>
+                )}
               <CrdtCasesCard
                 raceData={raceValues}
                 stateAbbreviation={stateAbbreviation}
