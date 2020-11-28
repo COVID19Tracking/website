@@ -21,7 +21,7 @@ const StatisticSparkline = ({ data, field, color }) => {
       return
     }
     let sum = 0
-    for (let i = key; i > key - 14; i -= 1) {
+    for (let i = key; i > key - 7; i -= 1) {
       sum += data[i][field]
     }
     averages.push({
