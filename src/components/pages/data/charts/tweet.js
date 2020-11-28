@@ -37,7 +37,10 @@ const ChartTweet = () => {
   return (
     <Container centered>
       <h2> The national picture over time</h2>
-      <img src={entities.media[0].media_url} alt={full_text} />
+      <img
+        src={entities.media[0].media_url.replace(/http(s?):\/\//g, '//')}
+        alt={full_text}
+      />
     </Container>
   )
 }
