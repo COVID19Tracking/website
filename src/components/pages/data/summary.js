@@ -81,8 +81,19 @@ const StateSummary = ({
   // states that should be ignored for racial data *graphic* links
   const racialDataGraphicIgnoreStates = ['AS', 'GU', 'MP', 'VI']
 
+  // true means we should hide this small card
+  const hideRacialDataGraphic =
+    racialDataGraphicIgnoreStates.indexOf(stateAbbreviation) > -1
+
   // states that should be ignored for racial data *tracker* links
-  const racialDataTrackerIgnoreStates = ['MP', 'GU']
+  const racialDataTrackerIgnoreStates = ['MP', 'AS']
+
+  // true means we should hide this small card
+  const hideRacialDataTracker =
+    racialDataTrackerIgnoreStates.indexOf(stateAbbreviation) > -1
+
+  // true means we should hide all small cards
+  const hideSmallCards = hideRacialDataGraphic && hideRacialDataTracker
 
   const raceValues = createRaceValues(raceData)
 
@@ -213,25 +224,19 @@ const StateSummary = ({
           {!national && (
             <>
               <SectionHeader title="Race & ethnicity data" />
-              {racialDataGraphicIgnoreStates.indexOf(stateAbbreviation) ===
-                -1 &&
-                racialDataTrackerIgnoreStates.indexOf(stateAbbreviation) ===
-                  -1 && (
-                  <SmallCards>
-                    {/* 
-                    only show if we're not ignoring the state for both the graphic and the tracker cards
-                    */}
-                    {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
-                    <ViewDataSmallCard
-                      stateAbbreviation={stateAbbreviation}
-                      ignoreStates={racialDataTrackerIgnoreStates}
-                    />
+              {!hideSmallCards && (
+                <SmallCards>
+                  {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
+                  {!hideRacialDataTracker && (
+                    <ViewDataSmallCard stateAbbreviation={stateAbbreviation} />
+                  )}
+                  {!hideRacialDataGraphic && (
                     <DataAsGraphicSmallCard
                       stateAbbreviation={stateAbbreviation}
-                      ignoreStates={racialDataGraphicIgnoreStates}
                     />
-                  </SmallCards>
-                )}
+                  )}
+                </SmallCards>
+              )}
               <CrdtCasesCard
                 raceData={raceValues}
                 stateAbbreviation={stateAbbreviation}
