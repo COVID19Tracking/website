@@ -26,6 +26,7 @@ const DataPage = ({ data }) => {
         description: pageDescription,
       }}
       path="/data"
+      showWarning
     >
       <ContentfulContent
         content={data.dataPreamble.content.childMarkdownRemark.html}

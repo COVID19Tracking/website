@@ -33,7 +33,12 @@ const StateTemplate = ({ pageContext, data, path }) => {
     allCovidAnnotation,
   } = data
   return (
-    <Layout title={state.name} returnLinks={[{ link: '/data' }]} path={path}>
+    <Layout
+      title={state.name}
+      returnLinks={[{ link: '/data' }]}
+      path={path}
+      showWarning
+    >
       <StatePreamble state={state} covidState={covidState} />
       <SummaryCharts
         name={state.name}

@@ -47,8 +47,8 @@ const ContactPage = ({ data }) => {
         <Input
           type="date"
           label="Date when issue began"
-          id="contact-date"
-          name="contact-date"
+          id="contact-issue-start-date"
+          name="contact-issue-start-date"
           isRequired
           onChange={event => setDate(event.target.value)}
         />
