@@ -334,13 +334,6 @@ describe('Components : Pages : Data : Cards : Small Cards : View data as graphic
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
-
-    const ignoreTree = renderer
-      .create(
-        <DataAsGraphicSmallCard stateAbbreviation="NY" ignoreStates={['NY']} />,
-      )
-      .toJSON()
-    expect(ignoreTree).toMatchSnapshot()
   })
 })
 
@@ -358,15 +351,6 @@ describe('Components : Pages : Data : Cards : Small Cards : View racial data', (
         <ViewRacialDataSmallCard stateAbbreviation="KS" ignoreStates={[]} />,
       )
       .toJSON()
-      expect(tree).toMatchSnapshot()
-    const ignoreTree = renderer
-      .create(
-        <ViewRacialDataSmallCard
-          stateAbbreviation="KS"
-          ignoreStates={['KS']}
-        />,
-      )
-      .toJSON()
-    expect(ignoreTree).toMatchSnapshot()
+    expect(tree).toMatchSnapshot()
   })
 })
