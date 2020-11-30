@@ -42,7 +42,7 @@ const CrdtCasesCard = ({ raceData, stateAbbreviation }) => {
         )}
         {raceData.hasCases && (
           <>
-            <CardNote>(All data on card are calculated)</CardNote>
+            <CardNote>(All data is calculated)</CardNote>
             <LastUpdatedLabel date={raceData.lastCheckDate} />
           </>
         )}
