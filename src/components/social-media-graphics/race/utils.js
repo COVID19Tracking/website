@@ -45,7 +45,7 @@ const getGroups = state => {
 
   let groups = [
     {
-      label: 'Black/African American',
+      label: 'Black\u200a/\u200aAfrican American',
       style: socialCardStyle.barBlack,
       cases: getGroupValue(state.blackPosPerCap),
       deaths: getGroupValue(state.blackDeathPerCap),
@@ -53,7 +53,7 @@ const getGroups = state => {
       showCross: false,
     },
     {
-      label: 'Hispanic/Latino',
+      label: 'Hispanic\u200a/\u200aLatino',
       style: socialCardStyle.barLatinx,
       cases: getGroupValue(state.latinXPosPerCap),
       deaths: getGroupValue(state.latinXDeathPerCap),
@@ -69,7 +69,7 @@ const getGroups = state => {
       showCross: false,
     },
     {
-      label: 'American Indian/ Alaska Native',
+      label: 'American Indian\u200a/\u200aAlaska Native',
       style: socialCardStyle.barAian,
       cases: getGroupValue(state.aianPosPerCap),
       deaths: getGroupValue(state.aianDeathPerCap),
@@ -85,7 +85,7 @@ const getGroups = state => {
       showCross: false,
     },
     {
-      label: 'Asian/Pacific Islander',
+      label: 'Asian\u200a/\u200aPacific Islander',
       style: socialCardStyle.barAPi,
       cases: getGroupValue(state.apiPosPerCap),
       deaths: getGroupValue(state.apiDeathPerCap),
@@ -93,7 +93,7 @@ const getGroups = state => {
       showCross: false,
     },
     {
-      label: 'Native Hawaiian/ Pacific Islander',
+      label: 'Native Hawaiian\u200a/\u200aPacific Islander',
       style: socialCardStyle.barNhpi,
       cases: getGroupValue(state.nhpiPosPerCap),
       deaths: getGroupValue(state.nhpiDeathPerCap),
@@ -117,20 +117,22 @@ const getGroups = state => {
     return {}
   }
 
-  const aPi = groups.find(group => group.label === 'Asian/Pacific Islander')
+  const aPi = groups.find(
+    group => group.label === 'Asian\u200a/\u200aPacific Islander',
+  )
 
   if (aPi.cases == null && aPi.deaths == null) {
     // if the aPi values do not exist...
     groups = groups.filter(
       // remove the aPi bar
-      group => group.label !== 'Asian/Pacific Islander',
+      group => group.label !== 'Asian\u200a/\u200aPacific Islander',
     )
   } else {
     // if the aPi values exist
     groups = groups.filter(
       // remove asian and NHPI bars
       group =>
-        group.label !== 'Native Hawaiian/ Pacific Islander' &&
+        group.label !== 'Native Hawaiian\u200a/\u200aPacific Islander' &&
         group.label !== 'Asian',
     )
   }
@@ -153,17 +155,21 @@ const getGroups = state => {
 
   /*
     Copy to be used whenever {{GROUP}} is written
-    e.g., "In Hawaii, as of September 16, Asians/Pacific Islanders
+    e.g., "In Hawaii, as of September 16, Asians\u200a/\u200aPacific Islanders
     have the highest COVID-19 infection rates..."
   */
   const copyLabels = {
-    'Black/African American': 'Black/African American people',
-    'Hispanic/Latino': 'Hispanic/Latino people',
+    'Black\u200a/\u200aAfrican American':
+      'Black\u200a/\u200aAfrican American people',
+    'Hispanic\u200a/\u200aLatino': 'Hispanic\u200a/\u200aLatino people',
     Asian: 'Asian people',
     White: 'White people',
-    'Asian/Pacific Islander': 'Asians/Pacific Islanders',
-    'Native Hawaiian/ Pacific Islander': 'Native Hawaiians/Pacific Islanders',
-    'American Indian/ Alaska Native': 'American Indians/Alaska Natives',
+    'Asian\u200a/\u200aPacific Islander':
+      'Asians\u200a/\u200aPacific Islanders',
+    'Native Hawaiian\u200a/\u200aPacific Islander':
+      'Native Hawaiians\u200a/\u200aPacific Islanders',
+    'American Indian\u200a/\u200aAlaska Native':
+      'American Indians\u200a/\u200aAlaska Natives',
   }
 
   const worstDeathsValue = Math.round(groups[0].deaths)
