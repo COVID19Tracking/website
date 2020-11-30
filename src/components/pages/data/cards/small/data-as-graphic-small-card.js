@@ -10,7 +10,9 @@ const DataAsGraphicSmallCard = ({ stateAbbreviation = 'US' }) => (
     <SmallCardIcon>
       <img src={chartIcon} alt="Chart icon" width="30px" aria-hidden />
     </SmallCardIcon>
-    <SmallCardLink>Get shareable graphic for this data</SmallCardLink>
+    <SmallCardLink>
+      Get shareable graphic for {stateAbbreviation}&apos;s racial data
+    </SmallCardLink>
   </SmallCard>
 )
 
