@@ -1,9 +1,0 @@
-.title {
-  grid-column: span 3;
-  @include type-size(400);
-  margin: 0;
-
-  @media (max-width: $viewport-md) {
-      grid-area: span 1;
-  }
-}

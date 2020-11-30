@@ -23,7 +23,6 @@ import SmallCards from './cards/small-cards'
 // import GradeSmallCard from './cards/small/grade-small-card'
 import ViewDataSmallCard from './cards/small/view-racial-data-small-card'
 import DataAsGraphicSmallCard from './cards/small/data-as-graphic-small-card'
-import SectionHeader from './cards/section-header'
 
 import summaryStyles from './summary.module.scss'
 
@@ -223,7 +222,6 @@ const StateSummary = ({
           )}
           {!national && (
             <>
-              <SectionHeader title="Race & ethnicity data" />
               {!hideSmallCards && (
                 <SmallCards>
                   {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
