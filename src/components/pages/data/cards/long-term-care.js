@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
-import { Card, CardBody, CardNote } from '~components/common/card'
+import { Card, CardBody } from '~components/common/card'
 import {
   Statistic,
   DrillDown,
   DefinitionLink,
 } from '~components/common/statistic'
+import LastUpdatedLabel from './last-updated-label'
 import { DefinitionPanelContext } from './definitions-panel'
-import { FormatDate, formatDateToString } from '~components/utils/format'
+import { formatDateToString } from '~components/utils/format'
 
 export default ({ data, stateName, stateDeaths, stateSlug }) => {
   const { current, last } = data
@@ -100,9 +101,7 @@ export default ({ data, stateName, stateDeaths, stateSlug }) => {
           value={getChange('total_death')}
           calculated
         />
-        <CardNote>
-          Data as of <FormatDate date={current.date} format="LLLL dd yyyy" />
-        </CardNote>
+        <LastUpdatedLabel date={current.date} />
       </CardBody>
     </Card>
   )

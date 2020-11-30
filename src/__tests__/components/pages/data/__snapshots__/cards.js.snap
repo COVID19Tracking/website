@@ -94,6 +94,374 @@ exports[`Components : Pages : Data : Cards : Antibody tests renders correctly 1`
 </div>
 `;
 
+exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="header"
+  >
+    <h3
+      className="title"
+    >
+      Race & ethnicity: cases
+    </h3>
+  </div>
+  <div
+    className="body"
+  >
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Cases per 100,000 people
+        </div>
+        <div
+          className="value"
+        />
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Cases per 100,000 people"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper subelement noDefinitionLink grey"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          American Indian/Alaska Native
+        </div>
+        <div
+          className="value"
+        >
+          89
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper subelement noDefinitionLink grey"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Asian
+        </div>
+        <div
+          className="value"
+        >
+          120
+        </div>
+      </div>
+    </div>
+    <p
+      className="note"
+    >
+      (All data is calculated)
+    </p>
+    <div
+      className="container"
+    >
+      <img
+        alt="Clock icon"
+        aria-hidden={true}
+        src="test-file-stub"
+        width="14px"
+      />
+      <span
+        className="label"
+      >
+        Data as of 
+      </span>
+      <time>
+        November 19, 2020
+      </time>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 2`] = `
+<div
+  className="card"
+>
+  <div
+    className="header"
+  >
+    <h3
+      className="title"
+    >
+      Race & ethnicity: cases
+    </h3>
+  </div>
+  <div
+    className="body"
+  >
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Cases per 100,000 people
+        </div>
+        <div
+          className="value"
+        />
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Cases per 100,000 people"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="alert alert"
+    >
+      <img
+        alt="Alert icon"
+        src="test-file-stub"
+      />
+      <div>
+        <p
+          className="header"
+        />
+        <div
+          className="content"
+        >
+          NV
+           does not report this information.
+           
+          <a
+            href="/race/get-better-data"
+          >
+            Help us get better data.
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="header"
+  >
+    <h3
+      className="title"
+    >
+      Race & ethnicity: deaths
+    </h3>
+  </div>
+  <div
+    className="body"
+  >
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Deaths per 100,000 people
+        </div>
+        <div
+          className="value"
+        />
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Deaths per 100,000 people"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper subelement noDefinitionLink grey"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          American Indian/Alaska Native
+        </div>
+        <div
+          className="value"
+        >
+          4.3
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper subelement noDefinitionLink grey"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Asian
+        </div>
+        <div
+          className="value"
+        >
+          N/A
+          *
+        </div>
+      </div>
+    </div>
+    <p
+      className="note"
+    >
+      (All data is calculated)
+    </p>
+    <p
+      className="note"
+    >
+      * Based on 
+      &lt;
+      10 deaths among members of this race/ethnicity. Interpret with caution.
+    </p>
+    <div
+      className="container"
+    >
+      <img
+        alt="Clock icon"
+        aria-hidden={true}
+        src="test-file-stub"
+        width="14px"
+      />
+      <span
+        className="label"
+      >
+        Data as of 
+      </span>
+      <time>
+        November 19, 2020
+      </time>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 2`] = `
+<div
+  className="card"
+>
+  <div
+    className="header"
+  >
+    <h3
+      className="title"
+    >
+      Race & ethnicity: deaths
+    </h3>
+  </div>
+  <div
+    className="body"
+  >
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Deaths per 100,000 people
+        </div>
+        <div
+          className="value"
+        />
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Deaths per 100,000 people"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="alert alert"
+    >
+      <img
+        alt="Alert icon"
+        src="test-file-stub"
+      />
+      <div>
+        <p
+          className="header"
+        />
+        <div
+          className="content"
+        >
+          NV
+           does not report this information.
+           
+          <a
+            href="/race/get-better-data"
+          >
+            Help us get better data.
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Components : Pages : Data : Cards : Cases renders correctly 1`] = `
 <div
   className="card"
@@ -902,12 +1270,24 @@ exports[`Components : Pages : Data : Cards : Long term care card renders correct
         50%
       </span>
     </div>
-    <p
-      className="note"
+    <div
+      className="container"
     >
-      Data as of 
-      November 12 2020
-    </p>
+      <img
+        alt="Clock icon"
+        aria-hidden={true}
+        src="test-file-stub"
+        width="14px"
+      />
+      <span
+        className="label"
+      >
+        Data as of 
+      </span>
+      <time>
+        November 12, 2020
+      </time>
+    </div>
   </div>
 </div>
 `;
@@ -1310,6 +1690,133 @@ exports[`Components : Pages : Data : Cards : Outcomes renders correctly 2`] = `
     </p>
   </div>
 </div>
+`;
+
+exports[`Components : Pages : Data : Cards : Small Cards : Grade renders correctly 1`] = `
+<a
+  className="wrapper"
+  href="#"
+>
+  <div
+    className="container"
+  >
+    <img
+      alt="Grade b"
+      aria-hidden={true}
+      className="grade"
+      src="test-file-stub"
+    />
+    <span
+      className="link"
+    >
+      Current race & ethnicity data quality grade
+    </span>
+    <span
+      className="arrow"
+    >
+      →
+    </span>
+  </div>
+</a>
+`;
+
+exports[`Components : Pages : Data : Cards : Small Cards : View data as graphic renders correctly 1`] = `
+<a
+  className="wrapper"
+  href="/race/infection-and-mortality-data#NY"
+>
+  <div
+    className="container"
+  >
+    <img
+      alt="Chart icon"
+      aria-hidden={true}
+      src="test-file-stub"
+      width="30px"
+    />
+    <span
+      className="link"
+    >
+      Get shareable graphic for 
+      NY
+      's racial data
+    </span>
+    <span
+      className="arrow"
+    >
+      →
+    </span>
+  </div>
+</a>
+`;
+
+exports[`Components : Pages : Data : Cards : Small Cards : View racial data renders correctly 1`] = `
+<a
+  className="wrapper"
+  href="/race/dashboard#state-ks"
+>
+  <div
+    className="container"
+  >
+    <img
+      alt="Spreadsheet icon"
+      aria-hidden={true}
+      src="test-file-stub"
+      width="30px"
+    />
+    <span
+      className="link"
+    >
+      View more racial data for 
+      KS
+    </span>
+    <span
+      className="arrow"
+    >
+      →
+    </span>
+  </div>
+</a>
+`;
+
+exports[`Components : Pages : Data : Cards : Small Cards renders correctly 1`] = `
+<a
+  className="wrapper"
+  href="/race/"
+>
+  <div
+    className="container"
+  >
+    <p>
+      child
+    </p>
+    <span
+      className="arrow"
+    >
+      →
+    </span>
+  </div>
+</a>
+`;
+
+exports[`Components : Pages : Data : Cards : Small Cards renders correctly 2`] = `
+<a
+  className="wrapper"
+  href="https://www.theatlantic.com/"
+>
+  <div
+    className="container"
+  >
+    <p>
+      child
+    </p>
+    <span
+      className="arrow"
+    >
+      →
+    </span>
+  </div>
+</a>
 `;
 
 exports[`Components : Pages : Data : Cards : Viral tests renders correctly 1`] = `
