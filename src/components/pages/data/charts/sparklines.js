@@ -25,7 +25,7 @@ const StatisticSparkline = ({ data, field, color }) => {
       sum += data[i][field]
     }
     averages.push({
-      value: sum / 14,
+      value: sum / 7,
       date: DateTime.fromISO(item.date).toJSDate(),
     })
   })
