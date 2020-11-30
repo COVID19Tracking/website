@@ -98,7 +98,7 @@ const DataChartsPage = () => {
     }
   `)
   return (
-    <>
+    <div className={chartListStyles.lists}>
       <h2 className="a11y-only">All charts</h2>
       {data.allContentfulChartCategory.nodes.map(({ name, charts }) => (
         <>
@@ -110,7 +110,7 @@ const DataChartsPage = () => {
           )}
         </>
       ))}
-    </>
+    </div>
   )
 }
 

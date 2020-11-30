@@ -5,6 +5,7 @@
   font-weight: bold;
   abbr {
     border-bottom: 0;
+    text-decoration: none;
   }
   li {
     @include margin(16, bottom);

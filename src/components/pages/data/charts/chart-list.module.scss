@@ -53,3 +53,7 @@
     margin-left: 8.33333%;
   }
 }
+
+.lists {
+  @include margin(64, bottom);
+}
