@@ -111,7 +111,7 @@ body {
     justify-self: right;
     align-self: center;
     text-align: right;
-    margin-left: 24px; // forces the category titles to wrap
+    margin-left: spacer(16); // forces the category titles to wrap
 
     font-size: 14px; // ignore-style-rule
     line-height: 1.15;
