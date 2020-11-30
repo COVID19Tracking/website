@@ -6,7 +6,7 @@ import thanksgivingWarningStyle from './thanksgiving-warning.module.scss'
 const ThanksgivingWarning = () => (
   <div className={thanksgivingWarningStyle.warning}>
     <Container>
-      As Thanksgiving holiday weekend ends, we expect{' '}
+      Due to the Thanksgiving holiday, we expect{' '}
       <Link to="/blog/daily-covid-19-data-is-about-to-get-weird">
         significant disruptions in state reported data
       </Link>
