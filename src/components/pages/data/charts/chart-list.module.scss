@@ -11,6 +11,10 @@
   li {
     &.chart {
       @include col(2 2 2);
+
+      &:last-child {
+        padding-right: 0.5rem !important;
+      }
       @media (min-width: $viewport-lg) {
         @include a11y-only();
         &.active {
