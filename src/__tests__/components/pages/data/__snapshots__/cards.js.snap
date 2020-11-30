@@ -177,7 +177,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 1`] 
     <p
       className="note"
     >
-      (All data on card are calculated)
+      (All data is calculated)
     </p>
     <div
       className="container"
@@ -1737,7 +1737,9 @@ exports[`Components : Pages : Data : Cards : Small Cards : View data as graphic 
     <span
       className="link"
     >
-      Get shareable graphic for this data
+      Get shareable graphic for 
+      NY
+      's racial data
     </span>
     <span
       className="arrow"
@@ -1765,7 +1767,7 @@ exports[`Components : Pages : Data : Cards : Small Cards : View racial data rend
     <span
       className="link"
     >
-      View all racial data for 
+      View more racial data for 
       KS
     </span>
     <span
