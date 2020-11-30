@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import StateRaceSocialCard from './social-card'
@@ -147,7 +147,7 @@ const CreateStateRaceSocialCards = () => {
   return (
     <>
       {states.map(state => (
-        <>
+        <Fragment key={state.state}>
           <StateRaceSocialCard
             state={
               data.allCovidRaceDataSeparate.nodes.find(
@@ -195,7 +195,7 @@ const CreateStateRaceSocialCards = () => {
             }}
             square
           />
-        </>
+        </Fragment>
       ))}
     </>
   )

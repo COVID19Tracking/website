@@ -1,10 +1,12 @@
 .title {
   font-weight: bold;
   @include type-size(100);
+  max-width: 70%;
 }
 
 .value {
   text-align: right;
+  white-space: pre;
   @include type-size(200);
   font-weight: bold;
   line-height: 1;
@@ -59,6 +61,14 @@
   text-decoration: underline;
 }
 
+.grey {
+  color: $color-slate-600;
+}
+
+.no-definition-link {
+  margin-bottom: spacer(8);
+}
+
 .drill-down {
   display: flex;
   justify-content: space-between;
@@ -93,4 +103,9 @@
 .not-reported {
   color: $color-slate-600;
   @include type-size(100);
+}
+
+.no-asterisk {
+  // this is the width of an asterisk character
+  margin-right: 7.2px; // ignore-style-rule
 }

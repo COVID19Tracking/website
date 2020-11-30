@@ -35,7 +35,7 @@ const getGroupValue = value => {
   if (value === null) {
     return null
   }
-  return value * 100 // perCap is *per 1,000*, mulitply by 100 to get *per 100,000*
+  return value * 100 // perCap is *per 1,000*, multiply by 100 to get *per 100,000*
 }
 
 const getGroups = state => {
