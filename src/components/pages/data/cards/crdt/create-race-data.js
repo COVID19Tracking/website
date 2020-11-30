@@ -12,9 +12,10 @@ const createValuesList = raceData => {
   const values = []
 
   // perCap is *per 1,000*, multiply by 100 to get *per 100,000*
+  // \u200a is a hair space
   if (raceData.aianDeathPerCap != null || raceData.aianPosPerCap != null) {
     values.push({
-      name: 'American Indian/Alaska Native',
+      name: 'American Indian\u200a/\u200aAlaska Native',
       deathsValue: perCapTo100k(raceData.aianDeathPerCap),
       casesValue: perCapTo100k(raceData.aianPosPerCap),
       asterisk: raceData.aianSmallN ? '*' : '',
@@ -22,7 +23,7 @@ const createValuesList = raceData => {
   }
   if (raceData.apiDeathPerCap != null || raceData.apiPosPerCap != null) {
     values.push({
-      name: 'Asian/Pacific Islander',
+      name: 'Asian\u200a/\u200aPacific Islander',
       deathsValue: perCapTo100k(raceData.apiDeathPerCap),
       casesValue: perCapTo100k(raceData.apiPosPerCap),
       asterisk: raceData.apiSmallN ? '*' : '',
@@ -38,7 +39,7 @@ const createValuesList = raceData => {
   }
   if (raceData.blackDeathPerCap != null || raceData.blackPosPerCap != null) {
     values.push({
-      name: 'Black/African American',
+      name: 'Black\u200a/\u200aAfrican American',
       deathsValue: perCapTo100k(raceData.blackDeathPerCap),
       casesValue: perCapTo100k(raceData.blackPosPerCap),
       asterisk: raceData.blackSmallN ? '*' : '',
@@ -46,7 +47,7 @@ const createValuesList = raceData => {
   }
   if (raceData.latinXDeathPerCap != null || raceData.latinXPosPerCap != null) {
     values.push({
-      name: 'Hispanic/Latino',
+      name: 'Hispanic\u200a/\u200aLatino',
       deathsValue: perCapTo100k(raceData.latinXDeathPerCap),
       casesValue: perCapTo100k(raceData.latinXPosPerCap),
       asterisk: raceData.latinXSmallN ? '*' : '',
@@ -54,7 +55,7 @@ const createValuesList = raceData => {
   }
   if (raceData.nhpiDeathPerCap != null || raceData.nhpiPosPerCap != null) {
     values.push({
-      name: 'Native Hawaiian/Pacific Islander',
+      name: 'Native Hawaiian\u200a/\u200aPacific Islander',
       deathsValue: perCapTo100k(raceData.nhpiDeathPerCap),
       casesValue: perCapTo100k(raceData.nhpiPosPerCap),
       asterisk: raceData.nhpiSmallN ? '*' : '',
