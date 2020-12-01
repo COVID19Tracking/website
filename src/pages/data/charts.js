@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import Container from '~components/common/container'
-import LongContent from '~components/common/long-content'
 import ContentfulContent from '~components/common/contentful-content'
 import ChartList from '~components/pages/data/charts/chart-list'
 import ChartTweet from '~components/pages/data/charts/tweet'
@@ -21,7 +20,7 @@ const ChartsPage = ({ data }) => (
         data.chartDisclaimer.childContentfulSnippetContentTextNode
           .childMarkdownRemark.html
       }
-      id={data.contentfulSnippet.contentful_id}
+      id={data.chartDisclaimer.contentful_id}
     />
     <ChartTweet />
     <ChartList />
@@ -32,7 +31,7 @@ const ChartsPage = ({ data }) => (
           data.chartFooter.childContentfulSnippetContentTextNode
             .childMarkdownRemark.html
         }
-        id={data.contentfulSnippet.contentful_id}
+        id={data.chartFooter.contentful_id}
       />
     </Container>
   </Layout>
