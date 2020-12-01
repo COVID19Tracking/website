@@ -12,6 +12,7 @@ const ChartTweet = () => {
         limit: 1
       ) {
         nodes {
+          id_str
           entities {
             urls {
               display_url
@@ -29,7 +30,7 @@ const ChartTweet = () => {
   if (!allTweets || !allTweets.nodes[0]) {
     return null
   }
-  const { entities, full_text } = allTweets.nodes[0]
+  const { entities, full_text, id_str } = allTweets.nodes[0]
   if (!entities.media) {
     return null
   }
@@ -37,10 +38,12 @@ const ChartTweet = () => {
   return (
     <Container centered>
       <h2> The national picture over time</h2>
-      <img
-        src={entities.media[0].media_url.replace(/http(s?):\/\//g, '//')}
-        alt={full_text}
-      />
+      <a href={`https://twitter.com/COVID19Tracking/status/${id_str}`}>
+        <img
+          src={entities.media[0].media_url.replace(/http(s?):\/\//g, '//')}
+          alt={full_text}
+        />
+      </a>
     </Container>
   )
 }
