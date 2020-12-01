@@ -3,7 +3,7 @@ import {
   Card,
   CardBody,
   CardDisclosure,
-  CardDisclsoureButton,
+  CardDisclosureButton,
   CardDisclosurePanel,
 } from '~components/common/card'
 
@@ -48,7 +48,7 @@ export const cardWithDisclosure = () => (
     <CardBody>
       <p>This is some conetnt within a card.</p>
       <CardDisclosure>
-        <CardDisclsoureButton
+        <CardDisclosureButton
           closed="More information"
           expanded="Hide more information"
         />

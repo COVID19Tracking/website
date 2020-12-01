@@ -26,6 +26,7 @@ const DataPage = ({ data }) => {
         description: pageDescription,
       }}
       path="/data"
+      showWarning
     >
       <ContentfulContent
         content={data.dataPreamble.content.childMarkdownRemark.html}
@@ -67,6 +68,8 @@ const DataPage = ({ data }) => {
         sevenDaysAgoList={data.allCovidStateDaily.nodes}
         stateMetadata={data.allContentfulStateOrTerritory.nodes}
         annotations={data.allCovidAnnotation.nodes}
+        raceDataCombined={data.allCovidRaceDataCombined.nodes}
+        raceDataSeparate={data.allCovidRaceDataSeparate.nodes}
       />
     </Layout>
   )
@@ -101,17 +104,13 @@ export const query = graphql`
     }
     covidUs {
       death
-
       hospitalizedCurrently
-
       inIcuCurrently
       negative
-
       onVentilatorCurrently
       pending
       positive
       positiveIncrease
-
       totalTestResults
       totalTestResultsIncrease
     }
@@ -240,6 +239,70 @@ export const query = graphql`
         field
         lastChecked(formatString: "MMMM DD yyyy")
         warning
+      }
+    }
+    allCovidRaceDataCombined {
+      nodes {
+        state
+        name
+        blackSmallN
+        latinXSmallN
+        asianSmallN
+        aianSmallN
+        whiteSmallN
+        apiSmallN
+        nhpiSmallN
+        blackPosPerCap
+        blackDeathPerCap
+        latinXPosPerCap
+        latinXDeathPerCap
+        asianPosPerCap
+        asianDeathPerCap
+        aianPosPerCap
+        aianDeathPerCap
+        whitePosPerCap
+        whiteDeathPerCap
+        nhpiPosPerCap
+        nhpiDeathPerCap
+        apiPosPerCap
+        apiDeathPerCap
+        lastCheckDate {
+          value
+        }
+      }
+    }
+    allCovidRaceDataSeparate {
+      nodes {
+        state
+        name
+        knownRacePos
+        knownRaceDeath
+        knownEthPos
+        knownEthDeath
+        blackSmallN
+        latinXSmallN
+        asianSmallN
+        aianSmallN
+        whiteSmallN
+        apiSmallN
+        nhpiSmallN
+        blackPosPerCap
+        blackDeathPerCap
+        latinXPosPerCap
+        latinXDeathPerCap
+        asianPosPerCap
+        asianDeathPerCap
+        aianPosPerCap
+        aianDeathPerCap
+        whitePosPerCap
+        whiteDeathPerCap
+        nhpiPosPerCap
+        nhpiDeathPerCap
+        apiPosPerCap
+        apiDeathPerCap
+        lastCheckDate {
+          value
+        }
       }
     }
   }

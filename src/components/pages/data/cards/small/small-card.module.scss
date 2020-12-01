@@ -1,0 +1,32 @@
+.container {
+  border: 2px solid $color-slate-200;
+  height: 75px;
+  padding: spacer(8);
+
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  grid-gap: 8px;
+
+  &:hover {
+    background-color: $color-slate-100;
+  }
+}
+
+span.arrow {
+  text-align: right;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.wrapper {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.link {
+  margin-left: spacer(4);
+  text-decoration: underline;
+}

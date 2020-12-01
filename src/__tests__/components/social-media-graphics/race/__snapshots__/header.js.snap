@@ -13,7 +13,7 @@ Array [
   "4",
   ",",
   " ",
-  "Black/African American people",
+  "Black / African American people",
   " were most likely to have contracted COVID-19.",
 ]
 `;
@@ -31,7 +31,7 @@ Array [
   "4",
   ",",
   " ",
-  "American Indians/Alaska Natives",
+  "American Indians / Alaska Natives",
   " were most likely to have contracted COVID-19.",
 ]
 `;
@@ -49,7 +49,7 @@ Array [
   "4",
   ",",
   " ",
-  "Black/African American people",
+  "Black / African American people",
   " were most likely to have died from COVID-19.",
 ]
 `;
@@ -67,7 +67,7 @@ Array [
   "4",
   ",",
   " ",
-  "Black/African American people",
+  "Black / African American people",
   " were most likely to have contracted COVID-19.",
   " ",
   "White people",
@@ -98,7 +98,7 @@ Array [
   "4",
   ",",
   " ",
-  "Black/African American people",
+  "Black / African American people",
   " were most likely to have contracted COVID-19 and were also most likely to have died.",
 ]
 `;
