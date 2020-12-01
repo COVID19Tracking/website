@@ -5,7 +5,7 @@
   padding: 0;
   &.no-carousel {
     @media (min-width: $viewport-lg) {
-      margin-left: 8.33333%;
+      margin-left: 8.33333%; // ignore-style-rule
     }
   }
   li {
@@ -14,7 +14,7 @@
       @include col(2 2 2);
 
       &:last-child {
-        padding-right: 0.5rem !important;
+        padding-right: 0.5rem !important; // ignore-style-rule
       }
       @media (min-width: $viewport-lg) {
         @include a11y-only();
@@ -55,7 +55,7 @@
 
 .heading {
   @media (min-width: $viewport-lg) {
-    margin-left: 8.33333%;
+    margin-left: 8.33333%; // ignore-style-rule
   }
 }
 
