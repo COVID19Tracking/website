@@ -58,7 +58,15 @@ const AdvocacyForm = ({ states, stateInfo, governors }) => {
             options={states}
             value={state}
             isRequired
-            onChange={e => setState(e.target.value)}
+            onChange={e => {
+              const stateData = stateInfo.find(
+                stateObject => stateObject.name === e.target.value,
+              )
+              if (stateData) {
+                setState(stateData.name)
+                window.location.hash = `#${stateData.stateAbbreviation}`
+              }
+            }}
           />
         </li>
 
