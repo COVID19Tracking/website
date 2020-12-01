@@ -146,11 +146,12 @@ const ChartMap = ({ history, current }) => {
   const stateStatus = {}
   history.forEach(row => {
     const today = current.find(item => item.state === row.state)
-    stateStatus[row.state] = (today.positive - row.positive) / row.positive
+    stateStatus[row.state] =
+      (today.positiveIncrease - row.positiveIncrease) / row.positiveIncrease
   })
   const totalRising = Object.values(stateStatus).filter(item => item > 0.1)
     .length
-  const totalFalling = Object.values(stateStatus).filter(item => item < 0)
+  const totalFalling = Object.values(stateStatus).filter(item => item < -0.1)
     .length
   const totalUnchanged =
     Object.keys(stateStatus).length - totalRising - totalFalling
@@ -170,7 +171,7 @@ const ChartMap = ({ history, current }) => {
                     mapStyles.state,
                     state && mapStyles.hasState,
                     stateStatus[state] > 0.1 && mapStyles.rising,
-                    stateStatus[state] < 0 && mapStyles.falling,
+                    stateStatus[state] < 0.1 && mapStyles.falling,
                   )}
                 >
                   {state && (

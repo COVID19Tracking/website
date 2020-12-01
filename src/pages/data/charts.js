@@ -77,13 +77,13 @@ export const query = graphql`
     ) {
       nodes {
         state
-        positive
+        positiveIncrease
       }
     }
     allCovidState {
       nodes {
         state
-        positive
+        positiveIncrease
       }
     }
   }
