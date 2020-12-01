@@ -9,6 +9,7 @@
     }
   }
   li {
+    @include margin(16, bottom);
     &.chart {
       @include col(2 2 2);
 

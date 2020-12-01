@@ -16,14 +16,9 @@ const ChartCarousel = ({ charts }) => {
     }
   }
   return (
-    <ul
-      className={classnames(
-        chartListStyles.carousel,
-        charts.length <= carouselLength && chartListStyles.noCarousel,
-      )}
-    >
-      {charts.length > carouselLength && (
-        <li className={chartListStyles.navigation}>
+    <ul className={classnames(chartListStyles.carousel)}>
+      <li className={chartListStyles.navigation}>
+        {charts.length > carouselLength && (
           <button
             type="button"
             aria-hidden
@@ -35,8 +30,8 @@ const ChartCarousel = ({ charts }) => {
           >
             ←<span className="a11y-only">Prior charts</span>
           </button>
-        </li>
-      )}
+        )}
+      </li>
       {charts.map((item, index) => (
         <li
           className={classnames(
@@ -54,8 +49,8 @@ const ChartCarousel = ({ charts }) => {
           <Link to={`/data/charts/${item.slug}`}>{item.title}</Link>
         </li>
       ))}
-      {charts.length > carouselLength && (
-        <li className={chartListStyles.navigation}>
+      <li className={chartListStyles.navigation}>
+        {charts.length > carouselLength && (
           <button
             type="button"
             aria-hidden
@@ -71,8 +66,8 @@ const ChartCarousel = ({ charts }) => {
           >
             →<span className="a11y-only">Next charts</span>
           </button>
-        </li>
-      )}
+        )}
+      </li>
     </ul>
   )
 }
