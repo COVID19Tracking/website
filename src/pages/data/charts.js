@@ -16,19 +16,24 @@ const ChartsPage = ({ data }) => (
       history={data.allCovidStateDaily.nodes}
       current={data.allCovidState.nodes}
     />
+    <ContentfulContent
+      content={
+        data.chartDisclaimer.childContentfulSnippetContentTextNode
+          .childMarkdownRemark.html
+      }
+      id={data.contentfulSnippet.contentful_id}
+    />
     <ChartTweet />
     <ChartList />
 
     <Container centered>
-      <LongContent>
-        <ContentfulContent
-          content={
-            data.contentfulSnippet.childContentfulSnippetContentTextNode
-              .childMarkdownRemark.html
-          }
-          id={data.contentfulSnippet.contentful_id}
-        />
-      </LongContent>
+      <ContentfulContent
+        content={
+          data.chartFooter.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
+        }
+        id={data.contentfulSnippet.contentful_id}
+      />
     </Container>
   </Layout>
 )
@@ -37,7 +42,15 @@ export default ChartsPage
 
 export const query = graphql`
   query($fourteenDaysAgo: Date, $twentyEightDaysAgo: Date) {
-    contentfulSnippet(slug: { eq: "chart-page-content" }) {
+    chartFooter: contentfulSnippet(slug: { eq: "chart-page-content" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    chartDisclaimer: contentfulSnippet(slug: { eq: "chart-page-disclaimer" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
