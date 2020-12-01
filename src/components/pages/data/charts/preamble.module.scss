@@ -1,0 +1,16 @@
+.preamble {
+  @include margin(16, bottom);
+  @include padding(32, bottom);
+  border-bottom: 1px solid $color-slate-500;
+}
+.column {
+  @include margin(16, bottom);
+  @include padding(16, bottom);
+  border-bottom: 1px solid $color-slate-500;
+  @media (min-width: $viewport-lg) {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-right: 1px solid $color-slate-500;
+  }
+}
