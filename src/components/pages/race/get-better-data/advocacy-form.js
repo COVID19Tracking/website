@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Form,
   Input,
@@ -18,6 +18,23 @@ const AdvocacyForm = ({ states, stateInfo, governors }) => {
   const noStateString = '-- Select a state --'
 
   const [state, setState] = useState(noStateString)
+
+  useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      window.location &&
+      window.location.hash
+    ) {
+      const stateFilter = window.location.hash.replace('#', '')
+      const foundState = stateInfo.find(
+        node =>
+          node.stateAbbreviation.toLowerCase() === stateFilter.toLowerCase(),
+      )
+      if (foundState) {
+        setState(foundState.name)
+      }
+    }
+  }, [])
 
   return (
     <Form
@@ -39,6 +56,7 @@ const AdvocacyForm = ({ states, stateInfo, governors }) => {
             name="state"
             id="state"
             options={states}
+            value={state}
             isRequired
             onChange={e => setState(e.target.value)}
           />
