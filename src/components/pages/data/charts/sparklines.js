@@ -124,7 +124,7 @@ const ChartSparklines = ({ history }) => {
             color={colors.colorStrawberry200}
           />
         </li>
-        <li className={sparklineStyles.hosptialization}>
+        <li className={sparklineStyles.hospitalization}>
           <span>
             <FormatNumber number={covidUs.hospitalizedCurrently} /> currently{' '}
             <abbr title="hospitalized">hosp.</abbr>
