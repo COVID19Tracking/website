@@ -134,7 +134,7 @@ const VolunteerForm = () => {
         id="skills"
         isRequired
         onChange={event => setSkill(event.target.value)}
-        detailText="Examples: Python, React, Gatsby, JavaScript, Tableau, data visualization, editing, social media, public health, research, journalism, science writing, etc."
+        detailText="Examples: Slack, Python, React, Gatsby, JavaScript, Tableau, data visualization, editing, social media, public health, research, journalism, science writing, etc."
       />
 
       <List
@@ -171,7 +171,7 @@ const VolunteerForm = () => {
       />
 
       <Textarea
-        label="Please tell us about the skills and experience you would bring to The COVID Tracking Project in 1-3 paragraphs. If you are particularly interested in one of the three data projects, please tell us which one."
+        label="Please tell us about the skills and experience you would bring to The COVID Tracking Project in 1-3 paragraphs. If you are particularly interested in one of the three data projects, please tell us which one. Please also tell us if you are familiar with Slack."
         inputtype="text"
         name="why"
         id="why"
