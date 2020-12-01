@@ -15,13 +15,15 @@ const ChartsPage = ({ data }) => (
       history={data.allCovidStateDaily.nodes}
       current={data.allCovidState.nodes}
     />
-    <ContentfulContent
-      content={
-        data.chartDisclaimer.childContentfulSnippetContentTextNode
-          .childMarkdownRemark.html
-      }
-      id={data.chartDisclaimer.contentful_id}
-    />
+    <Container centered>
+      <ContentfulContent
+        content={
+          data.chartDisclaimer.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
+        }
+        id={data.chartDisclaimer.contentful_id}
+      />
+    </Container>
     <ChartTweet />
     <ChartList />
 
