@@ -1,7 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import * as Gatsby from 'gatsby'
-import { StaticQuery } from 'gatsby'
 import DataWarning from '~components/layout/header/data-warning'
 
 const useStaticQuery = jest.spyOn(Gatsby, 'useStaticQuery')
