@@ -34,6 +34,7 @@ const State = ({ state, metadata }) => {
         lastUpdate={state.dateModified}
         longTermCare={state.childLtc}
         annotations={state.annotations}
+        hhsHospitalization={state.hhsHospitalization}
       />
 
       <StateLinksDisclosure

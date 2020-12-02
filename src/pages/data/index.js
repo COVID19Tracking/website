@@ -70,6 +70,7 @@ const DataPage = ({ data }) => {
         annotations={data.allCovidAnnotation.nodes}
         raceDataCombined={data.allCovidRaceDataCombined.nodes}
         raceDataSeparate={data.allCovidRaceDataSeparate.nodes}
+        hhsHospitalization={data.allHhsHospitalizationCovid.nodes}
       />
     </Layout>
   )
@@ -303,6 +304,12 @@ export const query = graphql`
         lastCheckDate {
           value
         }
+      }
+    }
+    allHhsHospitalizationCovid {
+      nodes {
+        state
+        inpatient_beds_used_covid
       }
     }
   }

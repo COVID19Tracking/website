@@ -31,6 +31,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
     contentfulStateOrTerritory,
     allTweets,
     allCovidAnnotation,
+    hhsHospitalizationCovid,
   } = data
   return (
     <Layout
@@ -67,6 +68,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
           annotations={allCovidAnnotation.nodes}
           raceData={getRaceData(data)}
           longTermCare={data.covidStateInfo.childLtc}
+          hhsHospitalization={hhsHospitalizationCovid}
         />
         {state.notes && <StateNotes notes={state.notes} />}
         <StateTweets
@@ -310,6 +312,10 @@ export const query = graphql`
         lastChecked(formatString: "MMMM DD yyyy")
         warning
       }
+    }
+    hhsHospitalizationCovid(state: { eq: $state }) {
+      state
+      inpatient_beds_used_covid
     }
   }
 `

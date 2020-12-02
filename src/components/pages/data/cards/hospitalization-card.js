@@ -14,6 +14,7 @@ const HospitalizationCard = ({
   inIcuCurrently,
   onVentilatorCurrently,
   national,
+  hhsHospitalization,
 }) => {
   const definitionContext = useContext(DefinitionPanelContext)
   const fields = [
@@ -99,6 +100,17 @@ const HospitalizationCard = ({
                 }}
               />
             </Statistic>
+
+            {hhsHospitalization && (
+              <Statistic
+                title="HHS Hospitalization"
+                value={parseInt(
+                  hhsHospitalization.inpatient_beds_used_covid,
+                  10,
+                )}
+                subelement
+              />
+            )}
             <Statistic
               title="Now hospitalized"
               value={hospitalizedCurrently}

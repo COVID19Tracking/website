@@ -35,6 +35,7 @@ const StateSummary = ({
   metadata,
   longTermCare,
   raceData,
+  hhsHospitalization,
   annotations = false,
   national = false,
 }) => {
@@ -200,6 +201,7 @@ const StateSummary = ({
             hospitalizedCurrently={data.hospitalizedCurrently}
             inIcuCurrently={data.inIcuCurrently}
             onVentilatorCurrently={data.onVentilatorCurrently}
+            hhsHospitalization={hhsHospitalization}
             national={national}
           />
           <OutcomesCard
