@@ -1,0 +1,70 @@
+$color-falling: #8ae8c2;
+$color-rising: #fead82;
+$color-unchanged: #d3d7d7;
+
+.row {
+  flex-direction: column-reverse;
+  @media (min-width: $viewport-lg) {
+    flex-direction: row;
+  }
+}
+
+.map {
+  @include type-size(100);
+  width: 442px;
+  position: relative;
+  .heading {
+    position: absolute;
+    z-index: 1;
+    color: $color-slate-700;
+    text-transform: uppercase;
+    margin: 0;
+    @include type-size(200);
+    font-weight: normal;
+  }
+  .state {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    text-align: center;
+    margin: 0 2px 2px 0; // ignore-style-rules
+    @include padding(4, top);
+    vertical-align: top;
+    &.has-state {
+      background: $color-unchanged;
+      text-align: center;
+    }
+    &.rising {
+      background: $color-rising;
+    }
+    &.falling {
+      background: $color-falling;
+    }
+  }
+}
+.map-legend {
+  @include type-size(400);
+  line-height: 2.5rem;
+  font-weight: bold;
+  @include margin(32, bottom);
+  @media (min-width: $viewport-lg) {
+    margin-bottom: 0;
+  }
+  .legend {
+    @include padding(4);
+    background: $color-unchanged;
+    &.rising {
+      background: $color-rising;
+    }
+    &.falling {
+      background: $color-falling;
+    }
+  }
+}
+
+.skip-link {
+  @include a11y-only();
+  &:focus {
+    @include a11y-only-off();
+  }
+}
