@@ -16,6 +16,7 @@ const DataWarning = () => {
       }
     }
   `)
+
   if (
     !data ||
     !data.contentfulSnippet ||
