@@ -10,6 +10,22 @@
   color: $color-plum-300;
   border-bottom: spacer(32) solid $color-plum-800;
 
+  &::-webkit-scrollbar {
+    width: initial;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $color-plum-800;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $color-plum-700;
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background: $color-plum-600;
+  }
+  
   @media (min-width: $viewport-lg) {
     height: 100%;
     right: 0%;
