@@ -10,7 +10,7 @@ const GetInvolvedForm = () => (
     target="_blank"
     noValidate
   >
-    <Col width={[4, 6, 6]} paddingRight={[0, 0, 0]} className={formStyle.grid}>
+    <Col width={[4, 6, 6]} padding={[0, 0, 0]} className={formStyle.grid}>
       <Input
         label="First name"
         type="text"
