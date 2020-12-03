@@ -29,9 +29,12 @@ const AdvocacyForm = ({ states, stateInfo, governors }) => {
     }
   }
 
-  window.onhashchange = () => {
-    const stateAbbreviation = window.location.hash.replace('#', '')
-    setComponentStateFromStateAbbreviation(stateAbbreviation)
+  
+  if (typeof window !== 'undefined' && window.locaton & window.location.hash) {
+    window.onhashchange = () => {
+      const stateAbbreviation = window.location.hash.replace('#', '')
+      setComponentStateFromStateAbbreviation(stateAbbreviation)
+    }
   }
 
   useEffect(() => {
