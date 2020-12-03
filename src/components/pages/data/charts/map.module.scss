@@ -32,7 +32,6 @@ $color-unchanged: #d3d7d7;
     vertical-align: top;
     &.has-state {
       background: $color-unchanged;
-      text-align: center;
     }
     &.rising {
       background: $color-rising;
