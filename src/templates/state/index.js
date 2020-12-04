@@ -31,7 +31,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
     contentfulStateOrTerritory,
     allTweets,
     allCovidAnnotation,
-    hhsHospitalizationCovid,
+    allHhsHospitalizationCovid,
   } = data
   return (
     <Layout
@@ -68,7 +68,9 @@ const StateTemplate = ({ pageContext, data, path }) => {
           annotations={allCovidAnnotation.nodes}
           raceData={getRaceData(data)}
           longTermCare={data.covidStateInfo.childLtc}
-          hhsHospitalization={hhsHospitalizationCovid}
+          hhsHospitalization={
+            allHhsHospitalizationCovid && allHhsHospitalizationCovid.nodes[0]
+          }
         />
         {state.notes && <StateNotes notes={state.notes} />}
         <StateTweets
@@ -313,9 +315,16 @@ export const query = graphql`
         warning
       }
     }
-    hhsHospitalizationCovid(state: { eq: $state }) {
-      state
-      inpatient_beds_used_covid
+    allHhsHospitalizationCovid(
+      filter: { state: { eq: $state } }
+      sort: { fields: reporting_cutoff_start, order: DESC }
+      limit: 1
+    ) {
+      nodes {
+        state
+        reporting_cutoff_start
+        inpatient_beds_used_covid
+      }
     }
   }
 `

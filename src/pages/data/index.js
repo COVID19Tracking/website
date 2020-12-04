@@ -70,7 +70,7 @@ const DataPage = ({ data }) => {
         annotations={data.allCovidAnnotation.nodes}
         raceDataCombined={data.allCovidRaceDataCombined.nodes}
         raceDataSeparate={data.allCovidRaceDataSeparate.nodes}
-        hhsHospitalization={data.allHhsHospitalizationCovid.nodes}
+        hhsHospitalization={data.allHhsHospitalizationCovid.group}
       />
     </Layout>
   )
@@ -306,10 +306,15 @@ export const query = graphql`
         }
       }
     }
-    allHhsHospitalizationCovid {
-      nodes {
-        state
-        inpatient_beds_used_covid
+    allHhsHospitalizationCovid(
+      sort: { fields: reporting_cutoff_start, order: DESC }
+    ) {
+      group(field: state, limit: 1) {
+        nodes {
+          state
+          inpatient_beds_used_covid
+          reporting_cutoff_start
+        }
       }
     }
   }

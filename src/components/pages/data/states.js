@@ -55,7 +55,7 @@ const States = ({
     )
 
     state.hhsHospitalization = hhsHospitalization
-      ? hhsHospitalization.find(record => record.state === state.state)
+      ? hhsHospitalization.find(record => record.nodes[0].state === state.state)
       : false
 
     stateList.push(state)
