@@ -41,9 +41,17 @@ const ImageContentBlock = ({
     )}
   >
     {linkToImage ? (
-      <a href={imageUrl}>
-        <ImageBlock image={image} imageUrl={imageUrl} keepSize={keepSize} />
-      </a>
+      <figure>
+        <a href={image.file.url}>
+          <ImageBlock image={image} imageUrl={imageUrl} keepSize={keepSize} />
+        </a>
+        <caption className={imageContentBlockStyles.caption}>
+          <a href={image.file.url}>
+            View high-resolution image{' '}
+            <span className="a11y-only">of {image.description}</span>
+          </a>
+        </caption>
+      </figure>
     ) : (
       <ImageBlock image={image} imageUrl={imageUrl} keepSize={keepSize} />
     )}
