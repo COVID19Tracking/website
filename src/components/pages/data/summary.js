@@ -14,6 +14,7 @@ import TestsAntibodyCard from './cards/tests-antibody'
 import TestsViralCard from './cards/tests-viral'
 import NationalTestsCard from './cards/tests-national'
 import LongTermCareCard from './cards/long-term-care'
+import HospitalizationHhsCard from './cards/hospitalization-hhs-card'
 
 import createRaceValues from './cards/crdt/create-race-data'
 import CrdtCasesCard from './cards/crdt/cases-card'
@@ -204,6 +205,13 @@ const StateSummary = ({
             hhsHospitalization={hhsHospitalization}
             national={national}
           />
+          {!national && hhsHospitalization && (
+            <HospitalizationHhsCard
+              stateSlug={stateSlug}
+              stateName={stateName}
+              hhsHospitalization={hhsHospitalization}
+            />
+          )}
           <OutcomesCard
             stateSlug={stateSlug}
             stateName={stateName}
