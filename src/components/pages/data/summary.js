@@ -243,7 +243,8 @@ const StateSummary = ({
             </>
           )}
         </div>
-        <div>
+
+        <div className={summaryStyles.container}>
           {!hideSmallCards && (
             <SmallCards>
               {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
