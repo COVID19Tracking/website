@@ -244,8 +244,8 @@ const StateSummary = ({
           )}
         </div>
 
-        <div className={summaryStyles.container}>
-          {!hideSmallCards && (
+        {!hideSmallCards && !national && (
+          <div className={summaryStyles.container}>
             <SmallCards>
               {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
               {!hideRacialDataTracker && (
@@ -261,8 +261,8 @@ const StateSummary = ({
                 />
               )}
             </SmallCards>
-          )}
-        </div>
+          </div>
+        )}
       </AnnotationPanelContext.Provider>
     </DefinitionPanelContext.Provider>
   )
