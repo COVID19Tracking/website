@@ -248,10 +248,16 @@ const StateSummary = ({
             <SmallCards>
               {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
               {!hideRacialDataTracker && (
-                <ViewDataSmallCard stateAbbreviation={stateAbbreviation} />
+                <ViewDataSmallCard
+                  stateName={stateName}
+                  stateAbbreviation={stateAbbreviation}
+                />
               )}
               {!hideRacialDataGraphic && (
-                <DataAsGraphicSmallCard stateAbbreviation={stateAbbreviation} />
+                <DataAsGraphicSmallCard
+                  stateName={stateName}
+                  stateAbbreviation={stateAbbreviation}
+                />
               )}
             </SmallCards>
           )}

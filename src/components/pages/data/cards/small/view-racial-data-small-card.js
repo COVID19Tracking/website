@@ -3,7 +3,7 @@ import { SmallCard, SmallCardIcon, SmallCardLink } from './index'
 
 import spreadsheetIcon from '~images/icons/spreadsheet.svg'
 
-const ViewRacialDataSmallCard = ({ stateAbbreviation }) => (
+const ViewRacialDataSmallCard = ({ stateAbbreviation, stateName }) => (
   <SmallCard
     destination={`/race/dashboard#state-${stateAbbreviation.toLowerCase()}`}
   >
@@ -15,7 +15,9 @@ const ViewRacialDataSmallCard = ({ stateAbbreviation }) => (
         aria-hidden
       />
     </SmallCardIcon>
-    <SmallCardLink>View more racial data for {stateAbbreviation}</SmallCardLink>
+    <SmallCardLink>
+      View more racial data<span className="a11y-only"> for {stateName}</span>
+    </SmallCardLink>
   </SmallCard>
 )
 

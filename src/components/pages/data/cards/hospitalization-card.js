@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import { Card, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
-import LastUpdatedLabel from './last-updated-label'
 
 const HospitalizationCard = ({
   stateSlug,
