@@ -232,19 +232,6 @@ const StateSummary = ({
           )}
           {!national && (
             <>
-              {!hideSmallCards && (
-                <SmallCards>
-                  {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
-                  {!hideRacialDataTracker && (
-                    <ViewDataSmallCard stateAbbreviation={stateAbbreviation} />
-                  )}
-                  {!hideRacialDataGraphic && (
-                    <DataAsGraphicSmallCard
-                      stateAbbreviation={stateAbbreviation}
-                    />
-                  )}
-                </SmallCards>
-              )}
               <CrdtCasesCard
                 raceData={raceValues}
                 stateAbbreviation={stateAbbreviation}
@@ -254,6 +241,19 @@ const StateSummary = ({
                 stateAbbreviation={stateAbbreviation}
               />
             </>
+          )}
+        </div>
+        <div>
+          {!hideSmallCards && (
+            <SmallCards>
+              {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
+              {!hideRacialDataTracker && (
+                <ViewDataSmallCard stateAbbreviation={stateAbbreviation} />
+              )}
+              {!hideRacialDataGraphic && (
+                <DataAsGraphicSmallCard stateAbbreviation={stateAbbreviation} />
+              )}
+            </SmallCards>
           )}
         </div>
       </AnnotationPanelContext.Provider>

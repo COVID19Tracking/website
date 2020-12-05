@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
-import { Card, CardHeading, CardBody } from '~components/common/card'
+import { Card, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 import LastUpdatedLabel from './last-updated-label'
@@ -15,7 +15,6 @@ const HospitalizationCard = ({
   inIcuCurrently,
   onVentilatorCurrently,
   national,
-  hhsHospitalization,
 }) => {
   const definitionContext = useContext(DefinitionPanelContext)
   const fields = [
@@ -168,42 +167,6 @@ const HospitalizationCard = ({
                 }}
               />
             </Statistic>
-          </>
-        )}
-
-        {hhsHospitalization && (
-          <>
-            <CardHeading>HHS Federal data</CardHeading>
-            <Statistic
-              title="Now hospitalized, suspected"
-              value={parseInt(hhsHospitalization.inpatient_beds_used_covid, 10)}
-            />
-            <Statistic
-              title="Now in ICU"
-              value={parseInt(
-                hhsHospitalization.staffed_icu_adult_patients_confirmed_and_suspected_covid,
-                10,
-              )}
-            />
-
-            <Statistic
-              title="Now hospitalized, confirmed"
-              value={
-                parseInt(
-                  hhsHospitalization.total_adult_patients_hospitalized_confirmed_covid,
-                  10,
-                ) +
-                parseInt(
-                  hhsHospitalization.total_pediatric_patients_hospitalized_confirmed_covid,
-                  10,
-                )
-              }
-            />
-
-            <LastUpdatedLabel
-              date={hhsHospitalization.reporting_cutoff_start}
-              label="HHS data as of"
-            />
           </>
         )}
       </CardBody>
