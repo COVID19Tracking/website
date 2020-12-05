@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react'
 import { Card, CardBody } from '~components/common/card'
 import { Statistic } from '~components/common/statistic'
