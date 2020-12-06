@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 import React from 'react'
-import { Card, CardBody } from '~components/common/card'
+import { Card, CardNote, CardBody } from '~components/common/card'
 import { Statistic } from '~components/common/statistic'
 import LastUpdatedLabel from './last-updated-label'
 
 const HospitalizationHHSCard = ({ hhsHospitalization }) => {
   return (
-    <Card title="HHS Hospitalization">
+    <Card title="Hospitalizations (HHS dataset)">
       <CardBody>
         <Statistic
           title="Now hospitalized (confirmed + suspected)"
@@ -33,6 +33,10 @@ const HospitalizationHHSCard = ({ hhsHospitalization }) => {
             10,
           )}
         />
+        <CardNote>
+          This data is from the <a href="/">HHS data thingy</a>. We include it
+          because it&apos;s important.
+        </CardNote>
         <LastUpdatedLabel date={hhsHospitalization.reporting_cutoff_start} />
       </CardBody>
     </Card>
