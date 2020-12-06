@@ -230,8 +230,30 @@ const StateSummary = ({
               stateSlug={stateSlug}
             />
           )}
-          {!national && (
-            <>
+        </div>
+        {!national && (
+          <>
+            <h4>Race &amp; ethnicity data</h4>
+            <div className={summaryStyles.container}>
+              {!hideSmallCards && (
+                <>
+                  <SmallCards>
+                    {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
+                    {!hideRacialDataTracker && (
+                      <ViewDataSmallCard
+                        stateName={stateName}
+                        stateAbbreviation={stateAbbreviation}
+                      />
+                    )}
+                    {!hideRacialDataGraphic && (
+                      <DataAsGraphicSmallCard
+                        stateName={stateName}
+                        stateAbbreviation={stateAbbreviation}
+                      />
+                    )}
+                  </SmallCards>
+                </>
+              )}
               <CrdtCasesCard
                 raceData={raceValues}
                 stateAbbreviation={stateAbbreviation}
@@ -240,28 +262,8 @@ const StateSummary = ({
                 raceData={raceValues}
                 stateAbbreviation={stateAbbreviation}
               />
-            </>
-          )}
-        </div>
-
-        {!hideSmallCards && !national && (
-          <div className={summaryStyles.container}>
-            <SmallCards>
-              {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
-              {!hideRacialDataTracker && (
-                <ViewDataSmallCard
-                  stateName={stateName}
-                  stateAbbreviation={stateAbbreviation}
-                />
-              )}
-              {!hideRacialDataGraphic && (
-                <DataAsGraphicSmallCard
-                  stateName={stateName}
-                  stateAbbreviation={stateAbbreviation}
-                />
-              )}
-            </SmallCards>
-          </div>
+            </div>
+          </>
         )}
       </AnnotationPanelContext.Provider>
     </DefinitionPanelContext.Provider>
