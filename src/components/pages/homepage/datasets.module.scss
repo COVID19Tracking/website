@@ -1,0 +1,30 @@
+.header {
+  margin-top: 0;
+}
+
+.toggle {
+  @include remove-button-style();
+  @include margin(16, left);
+  .text {
+    text-decoration: underline;
+  }
+}
+
+.state-list {
+  display: none;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  @include margin(16, top bottom);
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  &.shown {
+    display: flex;
+  }
+  li {
+    @include padding(16, left);
+    display: inline-flex;
+    width: 50px;
+    justify-content: center;
+  }
+}
