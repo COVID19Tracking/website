@@ -13,18 +13,30 @@ export default ({ separateStates, combinedStates, stateInfo }) => {
 
   const [state, setState] = useState(defaultState)
 
+  const setComponentStateFromStateAbbreviation = abbreviation => {
+    const stateObj = stateInfo.find(
+      node => node.state.toLowerCase() === abbreviation.toLowerCase(),
+    )
+    if (stateObj) {
+      setState(stateObj)
+    }
+  }
+
   useEffect(() => {
     if (
       typeof window !== 'undefined' &&
       window.location &&
       window.location.hash
     ) {
-      const stateFilter = window.location.hash.replace('#', '')
-      const foundState = stateInfo.find(
-        node => node.state.toLowerCase() === stateFilter.toLowerCase(),
-      )
-      if (foundState) {
-        setState(foundState)
+      const stateAbbreviation = window.location.hash.replace('#', '')
+      setComponentStateFromStateAbbreviation(stateAbbreviation)
+
+      window.onhashchange = () => {
+        const stateAbbreviationFromUrlChange = window.location.hash.replace(
+          '#',
+          '',
+        )
+        setComponentStateFromStateAbbreviation(stateAbbreviationFromUrlChange)
       }
     }
   }, [])
