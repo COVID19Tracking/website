@@ -2,4 +2,10 @@
   img {
     border: 1px solid $color-slate-200;
   }
+  h3 {
+    @include margin(16, top bottom);
+  }
+  p {
+    margin: 0;
+  }
 }

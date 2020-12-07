@@ -53,10 +53,7 @@ const HomepageWhoUses = () => {
             >
               COVID-19 Testing Insights Initiative
             </a>
-            , which brings data and expert analysis together in one place. The
-            initiative is designed to help policymakers and the public
-            understand the trajectory of the pandemic, and make decisions about
-            the path forward.
+            , which brings data and expert analysis together in one place.
           </p>
         </Col>
         <Col width={[4, 6, 4]}>
@@ -84,9 +81,7 @@ const HomepageWhoUses = () => {
           <p>
             Created by a group of public health and crisis experts,{' '}
             <a href="https://covidexitstrategy.org">covidexitstrategy.org</a>{' '}
-            identifies critical interventions needed to stop the spread of
-            COVID-19, and urges government decision-makers to apply them. They
-            use our data to power a dashboard comparing each state&#8217;s
+            uses our data to power a dashboard comparing each state&#8217;s
             interventions and testing levels with case counts and deaths over
             time.
           </p>
