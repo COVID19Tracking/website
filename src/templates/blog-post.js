@@ -205,6 +205,7 @@ export const query = graphql`
             keepSize
             fullWidthMobile
             caption
+            imageLink
             image {
               file {
                 url
