@@ -1,0 +1,19 @@
+.disclosure-toggle {
+  @include remove-button-style();
+  .text {
+    text-decoration: underline;
+  }
+}
+
+.disclosure {
+  display: none;
+  &.is-open {
+    display: block;
+  }
+}
+
+.selectButton {
+  @include remove-button-style();
+  width: 150px;
+  text-align: center;
+}
