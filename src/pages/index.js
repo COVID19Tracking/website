@@ -7,11 +7,10 @@ import Footer from '~components/layout/footer'
 import Container from '~components/common/landing-page/container'
 import HeaderHero from '~components/pages/homepage/header-hero'
 import BlogList from '~components/pages/homepage/blog-list'
-import Datasets from '~components/pages/homepage/datasets'
-import LargeDataset from '~components/pages/homepage/large-dataset'
-import LargeProject from '~components/pages/homepage/large-project'
 import LatestTotals from '~components/pages/homepage/latest-totals'
 import Press from '~components/pages/homepage/press'
+import HomepageAPI from '~components/pages/homepage/api'
+import HomepageAbout from '~components/pages/homepage/about'
 
 const Homepage = () => (
   <>
@@ -26,15 +25,12 @@ const Homepage = () => (
       <Container>
         <LatestTotals />
       </Container>
-      <LargeProject />
-      <Container>
-        <LargeDataset />
-        <Datasets />
-      </Container>
+      <HomepageAbout />
       <BlogList />
       <Container>
         <Press />
       </Container>
+      <HomepageAPI />
     </main>
     <Footer />
   </>

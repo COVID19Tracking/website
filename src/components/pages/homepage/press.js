@@ -5,7 +5,7 @@ import pressStyles from './press.module.scss'
 const HomepagePress = () => {
   const data = useStaticQuery(graphql`
     query {
-      allHomepagePressYaml {
+      allHomepagePressYaml(filter: { featured: { eq: true } }) {
         nodes {
           name
           logo
