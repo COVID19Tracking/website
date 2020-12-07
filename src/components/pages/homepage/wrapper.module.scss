@@ -1,7 +1,29 @@
 .wrapper {
-  background: $color-plum-600;
+  background: $color-plum-700;
+  @include padding(32, top bottom);
+  @include margin(32, top bottom);
   color: white;
+  &.no-margin {
+    margin-bottom: 0;
+  }
   a {
     color: white;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      @include margin(16, bottom);
+    }
+  }
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.links {
+  @media (min-width: $viewport-lg) {
+    border-left: 1px solid white;
   }
 }
