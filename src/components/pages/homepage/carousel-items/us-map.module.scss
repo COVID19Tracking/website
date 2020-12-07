@@ -52,6 +52,7 @@ $color-levels-text: (
     z-index: 100;
     @media (min-width: $viewport-lg) {
       display: block;
+      margin-top: -100px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -88,7 +89,7 @@ $color-levels-text: (
 }
 
 .state {
-  stroke: white;
+  stroke: $color-plum-700;
   stroke-width: 3px;
   cursor: pointer;
   &.active,

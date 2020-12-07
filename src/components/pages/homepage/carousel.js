@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import classnames from 'classnames'
+import Container from '~components/common/container'
 import USMap from './carousel-items/us-map'
 import DailyTweet from './carousel-items/daily-tweet'
 import carouselStyle from './carousel.module.scss'
@@ -16,7 +17,10 @@ const CarouselItem = ({ item }) => {
   const ItemComponent = Components[item.configuration.component]
   return (
     <>
-      <ItemComponent configuration={item.configuration.configuration} />
+      <ItemComponent
+        configuration={item.configuration.configuration}
+        item={item}
+      />
 
       <button
         className={carouselStyle.disclosureToggle}
@@ -79,23 +83,27 @@ const HomepageCarousel = () => {
     }
   `)
   return (
-    <div>
-      <CarouselItem item={data.contentfulHomepageCarousel.items[currentItem]} />
-      <div role="group">
-        {data.contentfulHomepageCarousel.items.map((item, key) => (
-          <button
-            type="button"
-            className={carouselStyle.selectButton}
-            onClick={event => {
-              event.preventDefault()
-              setCurrentItem(key)
-            }}
-          >
-            <img src={item.thumbnail.fixed.src} aria-hidden alt="" />
-            {item.label}
-          </button>
-        ))}
-      </div>
+    <div className={carouselStyle.carousel}>
+      <Container>
+        <CarouselItem
+          item={data.contentfulHomepageCarousel.items[currentItem]}
+        />
+        <div role="group" className={carouselStyle.carouselSelector}>
+          {data.contentfulHomepageCarousel.items.map((item, key) => (
+            <button
+              type="button"
+              className={carouselStyle.selectButton}
+              onClick={event => {
+                event.preventDefault()
+                setCurrentItem(key)
+              }}
+            >
+              <img src={item.thumbnail.fixed.src} aria-hidden alt="" />
+              {item.label}
+            </button>
+          ))}
+        </div>
+      </Container>
     </div>
   )
 }

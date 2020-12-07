@@ -1,5 +1,9 @@
 .disclosure-toggle {
   @include remove-button-style();
+  color: white;
+  display: block;
+  width: 100%;
+  text-align: center;
   .text {
     text-decoration: underline;
   }
@@ -12,8 +16,20 @@
   }
 }
 
-.selectButton {
+.select-button {
   @include remove-button-style();
   width: 150px;
+  text-align: center;
+  color: white;
+}
+
+.carousel {
+  background: $color-plum-700;
+  color: white;
+  @include padding(32, bottom);
+}
+
+.carousel-selector {
+  @include margin(16, top);
   text-align: center;
 }

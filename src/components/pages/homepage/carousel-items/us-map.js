@@ -408,7 +408,7 @@ const Map = ({ metric }) => {
   )
 }
 
-export default ({ configuration }) => {
+export default ({ configuration, item }) => {
   const { metric } = configuration
   const data = useStaticQuery(graphql`
     {
@@ -470,7 +470,7 @@ export default ({ configuration }) => {
       <a href="#skip-map" className={usMapStyles.skipMap}>
         Skip map &amp; list of states
       </a>
-
+      <h2>{item.label}</h2>
       <Map metric={metric} />
       <StateList states={states} metric={metric} />
 
