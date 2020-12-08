@@ -32,14 +32,8 @@ const HospitalizationHHSCard = ({ hhsHospitalization }) => {
         <Statistic
           title="Now hospitalized (confirmed only)"
           value={
-            parseInt(
-              hhsHospitalization.total_adult_patients_hospitalized_confirmed_covid,
-              10,
-            ) +
-            parseInt(
-              hhsHospitalization.total_pediatric_patients_hospitalized_confirmed_covid,
-              10,
-            )
+            hhsHospitalization.total_adult_patients_hospitalized_confirmed_covid +
+            hhsHospitalization.total_pediatric_patients_hospitalized_confirmed_covid
           }
           subelement
         >
@@ -55,10 +49,9 @@ const HospitalizationHHSCard = ({ hhsHospitalization }) => {
         </Statistic>
         <Statistic
           title="Now in ICU  (confirmed + suspected)"
-          value={parseInt(
-            hhsHospitalization.staffed_icu_adult_patients_confirmed_and_suspected_covid,
-            10,
-          )}
+          value={
+            hhsHospitalization.staffed_icu_adult_patients_confirmed_and_suspected_covid
+          }
         >
           <DefinitionLink
             label="Now in ICU  (confirmed + suspected)"
@@ -77,7 +70,7 @@ const HospitalizationHHSCard = ({ hhsHospitalization }) => {
           </a>
           .
         </CardNote>
-        <LastUpdatedLabel date={hhsHospitalization.reporting_cutoff_start} />
+        <LastUpdatedLabel date={hhsHospitalization.date} />
       </CardBody>
     </Card>
   )

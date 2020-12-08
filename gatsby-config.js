@@ -227,7 +227,7 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/hhs_reported_hospital_utilization.json',
+        file: './_data/hhs_hospitalization.json',
         type: 'hhsHospitalizationCovid',
       },
     },
