@@ -13,7 +13,7 @@ const HospitalizationHHSCard = ({ hhsHospitalization }) => {
     'hhsHospitalizedConfirmedSuspected',
   ]
   return (
-    <Card title="Federal hospitalization">
+    <Card title="Hospitalization (HHS data)">
       <CardBody>
         <Statistic
           title="Now hospitalized (confirmed + suspected)"
