@@ -20,6 +20,7 @@ const DataWarning = () => {
   if (
     !data ||
     !data.contentfulSnippet ||
+    !data.contentfulSnippet.content ||
     !data.contentfulSnippet.content.content.trim().length
   ) {
     return null

@@ -72,7 +72,7 @@ const HospitalizationHHSCard = ({ hhsHospitalization }) => {
         </Statistic>
         <CardNote>
           This data is{' '}
-          <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">
+          <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-state">
             published by HHS
           </a>
           .
