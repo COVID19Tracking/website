@@ -171,7 +171,7 @@ const ChartMap = ({ history, current }) => {
                     mapStyles.state,
                     state && mapStyles.hasState,
                     stateStatus[state] > 0.1 && mapStyles.rising,
-                    stateStatus[state] < 0.1 && mapStyles.falling,
+                    stateStatus[state] < -0.1 && mapStyles.falling,
                   )}
                 >
                   {state && (

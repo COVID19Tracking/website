@@ -65,7 +65,13 @@ const BlogContent = ({ content }) => {
           )
         }
         if (__typename === 'ContentfulContentBlockImage') {
-          const { image, caption, keepSize, fullWidthMobile } = target
+          const {
+            image,
+            caption,
+            keepSize,
+            fullWidthMobile,
+            imageLink,
+          } = target
           return (
             <ImageContentBlock
               image={image}
@@ -74,6 +80,7 @@ const BlogContent = ({ content }) => {
               fullWidthMobile={fullWidthMobile && fullWidthMobile['en-US']}
               className={blogContentStyles.image}
               imageUrl={image.url}
+              linkToImage={imageLink}
             />
           )
         }
