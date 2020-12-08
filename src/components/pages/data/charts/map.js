@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import classnames from 'classnames'
-import { Link } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Row, Col } from '~components/common/grid'
+import ContentfulContent from '~components/common/contentful-content'
 import mapStyles from './map.module.scss'
 
 const states = [
@@ -143,6 +144,20 @@ const states = [
 ]
 
 const ChartMap = ({ stateHistory }) => {
+  const [disclosureOpen, setDisclosureOpen] = useState(false)
+  const disclosureRef = useRef()
+  const data = useStaticQuery(graphql`
+    {
+      contentfulSnippet(slug: { eq: "chart-map-description" }) {
+        contentful_id
+        childContentfulSnippetContentTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+    }
+  `)
   const stateStatus = {}
   const history = {}
   stateHistory.forEach(row => {
@@ -157,7 +172,7 @@ const ChartMap = ({ stateHistory }) => {
     for (let i = 0; i < 7; i += 1) {
       currentAverage += history[state][i].positiveIncrease
     }
-    for (let i = 14; i < 7 + 14; i += 1) {
+    for (let i = 7; i < 14; i += 1) {
       pastAverage += history[state][i].positiveIncrease
     }
     currentAverage /= 7
@@ -171,60 +186,98 @@ const ChartMap = ({ stateHistory }) => {
     .length
   const totalUnchanged =
     Object.keys(stateStatus).length - totalRising - totalFalling
+
+  useEffect(() => {
+    if (disclosureOpen) {
+      disclosureRef.current.focus()
+    }
+  }, [disclosureOpen])
   return (
-    <Row className={mapStyles.row}>
-      <Col width={[4, 6, 8]}>
-        <Link to="#skip-map" className={mapStyles.skipLink}>
-          Skip state map
-        </Link>
-        <div className={mapStyles.map}>
-          <h3 className={mapStyles.heading}>New cases 14-day average</h3>
-          {states.map(line => (
-            <div>
-              {line.map(state => (
-                <div
-                  className={classnames(
-                    mapStyles.state,
-                    state && mapStyles.hasState,
-                    stateStatus[state] > 0.1 && mapStyles.rising,
-                    stateStatus[state] < -0.1 && mapStyles.falling,
-                  )}
-                >
-                  {state && (
-                    <>
-                      <span className="a11y-only">In </span>
-                      {state}
-                      <span className="a11y-only">
-                        , cases are{' '}
-                        {stateStatus[state] > 0 &&
-                          stateStatus[state] <= 0.1 && <>rising</>}
-                        {stateStatus[state] > 0.1 && <>rising</>}{' '}
-                        {stateStatus[state] < 0 && <>falling</>}
-                      </span>
-                    </>
-                  )}
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </Col>
-      <Col width={[4, 6, 4]}>
-        <p className={mapStyles.mapLegend} id="skip-map">
-          Cases are{' '}
-          <span className={classnames(mapStyles.legend, mapStyles.rising)}>
-            rising
-          </span>{' '}
-          in {totalRising} states,{' '}
-          <span className={mapStyles.legend}>staying the same</span> in{' '}
-          {totalUnchanged} states, and{' '}
-          <span className={classnames(mapStyles.legend, mapStyles.falling)}>
-            falling
-          </span>{' '}
-          in {totalFalling} states.
-        </p>
-      </Col>
-    </Row>
+    <>
+      <Row className={mapStyles.row}>
+        <Col width={[4, 6, 8]}>
+          <Link to="#skip-map" className={mapStyles.skipLink}>
+            Skip state map
+          </Link>
+          <div className={mapStyles.map}>
+            <h3 className={mapStyles.heading}>
+              New cases change in 7-day average
+            </h3>
+            {states.map(line => (
+              <div>
+                {line.map(state => (
+                  <div
+                    className={classnames(
+                      mapStyles.state,
+                      state && mapStyles.hasState,
+                      stateStatus[state] > 0.1 && mapStyles.rising,
+                      stateStatus[state] < -0.1 && mapStyles.falling,
+                    )}
+                  >
+                    {state && (
+                      <>
+                        <span className="a11y-only">In </span>
+                        {state}
+                        <span className="a11y-only">
+                          , cases are{' '}
+                          {stateStatus[state] > 0 &&
+                            stateStatus[state] <= 0.1 && <>rising</>}
+                          {stateStatus[state] > 0.1 && <>rising</>}{' '}
+                          {stateStatus[state] < 0 && <>falling</>}
+                        </span>
+                      </>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </Col>
+        <Col width={[4, 6, 4]}>
+          <p className={mapStyles.mapLegend} id="skip-map">
+            Cases are{' '}
+            <span className={classnames(mapStyles.legend, mapStyles.rising)}>
+              rising
+            </span>{' '}
+            in {totalRising} states,{' '}
+            <span className={mapStyles.legend}>staying the same</span> in{' '}
+            {totalUnchanged} states, and{' '}
+            <span className={classnames(mapStyles.legend, mapStyles.falling)}>
+              falling
+            </span>{' '}
+            in {totalFalling} states.
+          </p>
+        </Col>
+      </Row>
+      <button
+        className={mapStyles.disclosureButton}
+        type="button"
+        aria-expanded={disclosureOpen}
+        onClick={event => {
+          event.preventDefault()
+          setDisclosureOpen(!disclosureOpen)
+        }}
+      >
+        <span className={mapStyles.text}>Map information</span>{' '}
+        <span aria-hidden>{disclosureOpen ? <>↑</> : <>↓</>}</span>
+      </button>
+      <div
+        ref={disclosureRef}
+        tabIndex="-1"
+        className={classnames(
+          mapStyles.disclosure,
+          disclosureOpen && mapStyles.isOpen,
+        )}
+      >
+        <ContentfulContent
+          content={
+            data.contentfulSnippet.childContentfulSnippetContentTextNode
+              .childMarkdownRemark.html
+          }
+          id={data.contentfulSnippet.contentful_id}
+        />
+      </div>
+    </>
   )
 }
 

@@ -67,3 +67,18 @@ $color-unchanged: #d3d7d7;
     @include a11y-only-off();
   }
 }
+
+.disclosure-button {
+  @include remove-button-style();
+  @include margin(16, top);
+  .text {
+    text-decoration: underline;
+  }
+}
+
+.disclosure {
+  display: none;
+  &.is-open {
+    display: block;
+  }
+}
