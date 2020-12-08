@@ -142,13 +142,29 @@ const states = [
   ],
 ]
 
-const ChartMap = ({ history, current }) => {
+const ChartMap = ({ stateHistory }) => {
   const stateStatus = {}
-  history.forEach(row => {
-    const today = current.find(item => item.state === row.state)
-    stateStatus[row.state] =
-      (today.positiveIncrease - row.positiveIncrease) / row.positiveIncrease
+  const history = {}
+  stateHistory.forEach(row => {
+    if (typeof history[row.state] === 'undefined') {
+      history[row.state] = []
+    }
+    history[row.state].push(row)
   })
+  Object.keys(history).forEach(state => {
+    let currentAverage = 0
+    let pastAverage = 0
+    for (let i = 0; i < 7; i += 1) {
+      currentAverage += history[state][i].positiveIncrease
+    }
+    for (let i = 14; i < 7 + 14; i += 1) {
+      pastAverage += history[state][i].positiveIncrease
+    }
+    currentAverage /= 7
+    pastAverage /= 7
+    stateStatus[state] = (currentAverage - pastAverage) / pastAverage
+  })
+
   const totalRising = Object.values(stateStatus).filter(item => item > 0.1)
     .length
   const totalFalling = Object.values(stateStatus).filter(item => item < -0.1)
