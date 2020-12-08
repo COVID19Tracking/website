@@ -14,6 +14,7 @@ import TestsAntibodyCard from './cards/tests-antibody'
 import TestsViralCard from './cards/tests-viral'
 import NationalTestsCard from './cards/tests-national'
 import LongTermCareCard from './cards/long-term-care'
+import HospitalizationHhsCard from './cards/hospitalization-hhs-card'
 
 import createRaceValues from './cards/crdt/create-race-data'
 import CrdtCasesCard from './cards/crdt/cases-card'
@@ -35,6 +36,7 @@ const StateSummary = ({
   metadata,
   longTermCare,
   raceData,
+  hhsHospitalization,
   annotations = false,
   national = false,
 }) => {
@@ -200,8 +202,16 @@ const StateSummary = ({
             hospitalizedCurrently={data.hospitalizedCurrently}
             inIcuCurrently={data.inIcuCurrently}
             onVentilatorCurrently={data.onVentilatorCurrently}
+            hhsHospitalization={hhsHospitalization}
             national={national}
           />
+          {!national && hhsHospitalization && (
+            <HospitalizationHhsCard
+              stateSlug={stateSlug}
+              stateName={stateName}
+              hhsHospitalization={hhsHospitalization}
+            />
+          )}
           <OutcomesCard
             stateSlug={stateSlug}
             stateName={stateName}
@@ -220,20 +230,29 @@ const StateSummary = ({
               stateSlug={stateSlug}
             />
           )}
-          {!national && (
-            <>
+        </div>
+        {!national && (
+          <>
+            <h4>Race &amp; ethnicity data</h4>
+            <div className={summaryStyles.container}>
               {!hideSmallCards && (
-                <SmallCards>
-                  {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
-                  {!hideRacialDataTracker && (
-                    <ViewDataSmallCard stateAbbreviation={stateAbbreviation} />
-                  )}
-                  {!hideRacialDataGraphic && (
-                    <DataAsGraphicSmallCard
-                      stateAbbreviation={stateAbbreviation}
-                    />
-                  )}
-                </SmallCards>
+                <>
+                  <SmallCards>
+                    {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
+                    {!hideRacialDataTracker && (
+                      <ViewDataSmallCard
+                        stateName={stateName}
+                        stateAbbreviation={stateAbbreviation}
+                      />
+                    )}
+                    {!hideRacialDataGraphic && (
+                      <DataAsGraphicSmallCard
+                        stateName={stateName}
+                        stateAbbreviation={stateAbbreviation}
+                      />
+                    )}
+                  </SmallCards>
+                </>
               )}
               <CrdtCasesCard
                 raceData={raceValues}
@@ -243,9 +262,9 @@ const StateSummary = ({
                 raceData={raceValues}
                 stateAbbreviation={stateAbbreviation}
               />
-            </>
-          )}
-        </div>
+            </div>
+          </>
+        )}
       </AnnotationPanelContext.Provider>
     </DefinitionPanelContext.Provider>
   )

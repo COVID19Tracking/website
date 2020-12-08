@@ -3,7 +3,7 @@ import { SmallCard, SmallCardIcon, SmallCardLink } from './index'
 
 import chartIcon from '~images/icons/chart.svg'
 
-const DataAsGraphicSmallCard = ({ stateAbbreviation = 'US' }) => (
+const DataAsGraphicSmallCard = ({ stateAbbreviation = 'US', stateName }) => (
   <SmallCard
     destination={`/race/infection-and-mortality-data#${stateAbbreviation}`}
   >
@@ -11,7 +11,9 @@ const DataAsGraphicSmallCard = ({ stateAbbreviation = 'US' }) => (
       <img src={chartIcon} alt="Chart icon" width="30px" aria-hidden />
     </SmallCardIcon>
     <SmallCardLink>
-      Get shareable graphic for {stateAbbreviation}&apos;s racial data
+      Get shareable graphic{' '}
+      <span className="a11y-only">for {stateName}&apos;s</span>
+      <span aria-hidden>of</span> racial data
     </SmallCardLink>
   </SmallCard>
 )

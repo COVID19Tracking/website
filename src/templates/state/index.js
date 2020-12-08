@@ -31,6 +31,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
     contentfulStateOrTerritory,
     allTweets,
     allCovidAnnotation,
+    allHhsHospitalizationCovid,
   } = data
   return (
     <Layout
@@ -67,6 +68,9 @@ const StateTemplate = ({ pageContext, data, path }) => {
           annotations={allCovidAnnotation.nodes}
           raceData={getRaceData(data)}
           longTermCare={data.covidStateInfo.childLtc}
+          hhsHospitalization={
+            allHhsHospitalizationCovid && allHhsHospitalizationCovid.nodes[0]
+          }
         />
         {state.notes && <StateNotes notes={state.notes} />}
         <StateTweets
@@ -309,6 +313,20 @@ export const query = graphql`
         field
         lastChecked(formatString: "MMMM DD yyyy")
         warning
+      }
+    }
+    allHhsHospitalizationCovid(
+      filter: { state: { eq: $state } }
+      sort: { fields: reporting_cutoff_start, order: DESC }
+      limit: 1
+    ) {
+      nodes {
+        state
+        reporting_cutoff_start
+        inpatient_beds_used_covid
+        staffed_icu_adult_patients_confirmed_and_suspected_covid
+        total_adult_patients_hospitalized_confirmed_covid
+        total_pediatric_patients_hospitalized_confirmed_covid
       }
     }
   }

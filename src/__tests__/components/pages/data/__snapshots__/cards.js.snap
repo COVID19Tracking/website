@@ -191,7 +191,8 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 1`] 
       <span
         className="label"
       >
-        Data as of 
+        Data as of
+         
       </span>
       <time>
         November 19, 2020
@@ -379,7 +380,8 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 1`]
       <span
         className="label"
       >
-        Data as of 
+        Data as of
+         
       </span>
       <time>
         November 19, 2020
@@ -779,36 +781,6 @@ exports[`Components : Pages : Data : Cards : Hospitalization renders correctly 1
         <div
           className="title"
         >
-          Ever hospitalized
-        </div>
-        <div
-          className="value"
-        >
-          4
-        </div>
-        <div
-          className="info"
-        >
-          <button
-            aria-label="Definition of Ever hospitalized"
-            className="link"
-            onClick={[Function]}
-            type="button"
-          >
-            Definition
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      className="statisticWrapper subelement"
-    >
-      <div
-        className="statistic"
-      >
-        <div
-          className="title"
-        >
           Now hospitalized
         </div>
         <div
@@ -821,6 +793,96 @@ exports[`Components : Pages : Data : Cards : Hospitalization renders correctly 1
         >
           <button
             aria-label="Definition of Now hospitalized"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Now in ICU
+        </div>
+        <div
+          className="value"
+        >
+          13
+        </div>
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Now in ICU"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Now on ventilator
+        </div>
+        <div
+          className="value"
+        >
+          15
+        </div>
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Now on ventilator"
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Definition
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="statisticWrapper"
+    >
+      <div
+        className="statistic"
+      >
+        <div
+          className="title"
+        >
+          Ever hospitalized
+        </div>
+        <div
+          className="value"
+        >
+          4
+        </div>
+        <div
+          className="info"
+        >
+          <button
+            aria-label="Definition of Ever hospitalized"
             className="link"
             onClick={[Function]}
             type="button"
@@ -861,36 +923,6 @@ exports[`Components : Pages : Data : Cards : Hospitalization renders correctly 1
       </div>
     </div>
     <div
-      className="statisticWrapper subelement"
-    >
-      <div
-        className="statistic"
-      >
-        <div
-          className="title"
-        >
-          Now in ICU
-        </div>
-        <div
-          className="value"
-        >
-          13
-        </div>
-        <div
-          className="info"
-        >
-          <button
-            aria-label="Definition of Now in ICU"
-            className="link"
-            onClick={[Function]}
-            type="button"
-          >
-            Definition
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
       className="statisticWrapper"
     >
       <div
@@ -911,36 +943,6 @@ exports[`Components : Pages : Data : Cards : Hospitalization renders correctly 1
         >
           <button
             aria-label="Definition of Ever on ventilator"
-            className="link"
-            onClick={[Function]}
-            type="button"
-          >
-            Definition
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      className="statisticWrapper subelement"
-    >
-      <div
-        className="statistic"
-      >
-        <div
-          className="title"
-        >
-          Now on ventilator
-        </div>
-        <div
-          className="value"
-        >
-          15
-        </div>
-        <div
-          className="info"
-        >
-          <button
-            aria-label="Definition of Now on ventilator"
             className="link"
             onClick={[Function]}
             type="button"
@@ -1090,7 +1092,7 @@ exports[`Components : Pages : Data : Cards : Long term care card renders correct
     <h3
       className="title"
     >
-      Long-Term Care (LTC)
+      Long-term care (LTC)
     </h3>
     <span
       className="link"
@@ -1282,7 +1284,8 @@ exports[`Components : Pages : Data : Cards : Long term care card renders correct
       <span
         className="label"
       >
-        Data as of 
+        Data as of
+         
       </span>
       <time>
         November 12, 2020
@@ -1737,9 +1740,20 @@ exports[`Components : Pages : Data : Cards : Small Cards : View data as graphic 
     <span
       className="link"
     >
-      Get shareable graphic for 
-      NY
-      's racial data
+      Get shareable graphic
+       
+      <span
+        className="a11y-only"
+      >
+        for 
+        's
+      </span>
+      <span
+        aria-hidden={true}
+      >
+        of
+      </span>
+       racial data
     </span>
     <span
       className="arrow"
@@ -1767,8 +1781,12 @@ exports[`Components : Pages : Data : Cards : Small Cards : View racial data rend
     <span
       className="link"
     >
-      View more racial data for 
-      KS
+      View more racial data
+      <span
+        className="a11y-only"
+      >
+         for 
+      </span>
     </span>
     <span
       className="arrow"
