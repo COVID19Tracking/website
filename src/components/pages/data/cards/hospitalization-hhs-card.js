@@ -77,7 +77,7 @@ const HospitalizationHHSCard = ({ hhsHospitalization }) => {
           </a>
           .
         </CardNote>
-        <LastUpdatedLabel date={hhsHospitalization.reporting_cutoff_start} />
+        <LastUpdatedLabel date={hhsHospitalization.date} />
       </CardBody>
     </Card>
   )

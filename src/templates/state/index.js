@@ -317,12 +317,12 @@ export const query = graphql`
     }
     allHhsHospitalizationCovid(
       filter: { state: { eq: $state } }
-      sort: { fields: reporting_cutoff_start, order: DESC }
+      sort: { fields: date, order: DESC }
       limit: 1
     ) {
       nodes {
         state
-        reporting_cutoff_start
+        date
         inpatient_beds_used_covid
         staffed_icu_adult_patients_confirmed_and_suspected_covid
         total_adult_patients_hospitalized_confirmed_covid
