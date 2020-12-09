@@ -15,7 +15,7 @@ const StateHHSHospitalization = ({ pageContext, path }) => {
       path={path}
       showWarning
     >
-      <HHSFacilitiesList />
+      <HHSFacilitiesList state={pageContext.state} />
     </Layout>
   )
 }

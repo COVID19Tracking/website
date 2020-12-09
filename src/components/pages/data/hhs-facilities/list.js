@@ -38,7 +38,7 @@ const SearchForm = ({ setQuery }) => {
   )
 }
 
-const HHSFacilitiesList = () => {
+const HHSFacilitiesList = ({ state = false }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [results, setResults] = useState(false)
   const client = algoliasearch(
@@ -48,9 +48,10 @@ const HHSFacilitiesList = () => {
   const index = client.initIndex('test_hhs_facilities')
 
   const search = async query => {
-    const hits = await index.search(query, {
+    const options = {
       distinct: true,
       hitsPerPage: 100,
+      filters: state ? `state:"${state}"` : undefined,
       attributesToRetrieve: [
         'hospital_name',
         'city',
@@ -61,7 +62,8 @@ const HHSFacilitiesList = () => {
         'inpatient_beds_used_7_day_avg',
         'icu_beds_used_7_day_avg',
       ],
-    })
+    }
+    const hits = await index.search(query, options)
     setResults(hits)
     setIsLoading(false)
   }
@@ -79,24 +81,32 @@ const HHSFacilitiesList = () => {
         <Table>
           <thead>
             <tr>
-              <Th header>State</Th>
-              <Th header>Name</Th>
-              <Th header>Address</Th>
-              <Th header>COVID patients</Th>
+              {!state && <Th header>State</Th>}
+              <Th header alignLeft>
+                Name
+              </Th>
+              <Th header alignLeft>
+                Address
+              </Th>
+              <Th header isFirst>
+                COVID patients
+              </Th>
               <Th header>COVID ICU patients</Th>
             </tr>
           </thead>
           <tbody>
             {results.hits.map(hit => (
               <tr>
-                <Td>{hit.state}</Td>
-                <Td>{hit.hospital_name}</Td>
-                <Td>
+                {!state && <Td>{hit.state}</Td>}
+                <Td alignLeft>{hit.hospital_name}</Td>
+                <Td alignLeft>
                   <address>
-                    {hit.address}, {hit.city}
+                    {hit.address}
+                    <br />
+                    {hit.city}
                   </address>
                 </Td>
-                <Td>{hit.inpatient_beds_used_7_day_avg}</Td>
+                <Td isFirst>{hit.inpatient_beds_used_7_day_avg}</Td>
                 <Td>{hit.icu_beds_used_7_day_avg}</Td>
               </tr>
             ))}
