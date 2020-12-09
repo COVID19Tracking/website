@@ -11,7 +11,7 @@ const StateHHSHospitalization = () => {
       path="/data/hospital-facilities"
       showWarning
     >
-      <HHSFacilitiesMap center={[-97, 38]} zoom={3} />
+      <HHSFacilitiesMap center={[-97, 38]} zoom={4} />
       <HHSFacilitiesList />
     </Layout>
   )

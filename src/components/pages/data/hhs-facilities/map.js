@@ -21,7 +21,7 @@ const FacilityDetails = ({ facility }) => (
   </>
 )
 
-const HHSFacilitiesMap = ({ center, zoom }) => {
+const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   const data = useStaticQuery(
     graphql`
       {
@@ -79,12 +79,13 @@ const HHSFacilitiesMap = ({ center, zoom }) => {
       zoom: mapZoom,
     })
     mapRef.current = map
-    window.map = map // for easier debugging and querying via console
 
     map.addControl(new mapboxgl.NavigationControl(), 'top-right')
 
     map.on('load', () => {
-      map.setLayoutProperty('Deaths', 'visibility', 'none')
+      if (state) {
+        map.setFilter('HHS Facilities', ['==', ['get', 'state'], state])
+      }
     })
 
     map.on('mousemove', event => {
