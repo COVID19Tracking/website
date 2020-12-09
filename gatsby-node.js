@@ -187,6 +187,12 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/state/chart-tables.js`),
       context: node,
     })
+
+    createPage({
+      path: `/data/state/${slug}/hospital-facilities`,
+      component: path.resolve(`./src/templates/state/hospital-facilities.js`),
+      context: node,
+    })
   })
 
   let covidStateInfo = result.data.allCovidStateInfo.nodes
