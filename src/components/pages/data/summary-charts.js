@@ -13,7 +13,7 @@ import Container from '~components/common/container'
 import BarChart from '~components/charts/bar-chart'
 import { parseDate, formatDate } from '~utilities/visualization'
 import { Row, Col } from '~components/common/grid'
-import Toggle from '~components/common/toggle'
+import RadioToggle from '~components/common/radio-toggle'
 import ContentfulContent from '~components/common/contentful-content'
 import Alert from '~components/common/alert'
 import { FieldName } from '~components/utils/field-name'
@@ -304,13 +304,13 @@ const SummaryCharts = ({
         <h2 className="a11y-only">Summary charts</h2>
         <div className={styles.toggleContainer}>
           {usHistory && (
-            <Toggle
+            <RadioToggle
               options={['Totals', 'Per 1M people']}
               state={usePerCap}
               setState={setUsePerCap}
             />
           )}
-          <Toggle
+          <RadioToggle
             options={['Last 90 days', 'Full range']}
             state={useFullRange}
             setState={setUseFullRange}

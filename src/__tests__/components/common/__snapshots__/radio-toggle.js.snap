@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components : Common: Card renders correctly 1`] = `
+<div
+  className="toggle"
+  role="radiogroup"
+>
+  <button
+    aria-checked={false}
+    className={false}
+    onClick={[Function]}
+    role="radio"
+    title="Last 90 days"
+    type="button"
+  >
+    Last 90 days
+  </button>
+  <button
+    aria-checked={true}
+    className="active"
+    onClick={[Function]}
+    role="radio"
+    title="Full range"
+    type="button"
+  >
+    Full range
+  </button>
+</div>
+`;
