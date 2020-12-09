@@ -2,7 +2,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import mapboxgl from 'mapbox-gl'
-import MapboxGeocoder from '@mapbox/mapbox-sdk/services/geocoding'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { Form, Input } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
@@ -44,11 +43,6 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
 
   const mapNode = useRef(null)
   const mapRef = useRef(null)
-
-  const geocodingClient = new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken,
-    mapboxgl,
-  })
 
   const selectFacility = event => {
     const bbox = [
@@ -106,12 +100,19 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       <Form
         onSubmit={event => {
           event.preventDefault()
-          geocodingClient
-            .forwardGeocode({
-              query,
-              limit: 1,
-            })
-            .send()
+          if (
+            typeof window === 'undefined' ||
+            typeof window.fetch === 'undefined'
+          ) {
+            return
+          }
+          window
+            .fetch(
+              `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+                query,
+              )}.json?limit=1&access_token=${mapboxgl.accessToken}`,
+            )
+            .then(response => response.json())
             .then(response => {
               const feature = response.body.features.pop()
               mapRef.current.easeTo({

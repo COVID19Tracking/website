@@ -139,14 +139,14 @@ const gatsbyConfig = {
           'totalTestsPeopleViral',
         ],
       },
-    } /*
+    },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_data/screenshots.json',
         type: 'CovidScreenshot',
       },
-    },*/,
+    },
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
