@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components : Common: Card renders correctly 1`] = `
+exports[`Components : Common: RadioToggle renders correctly 1`] = `
 <div
   className="toggle"
   role="radiogroup"
