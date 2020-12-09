@@ -46,6 +46,7 @@
     "d3-time": "^1.1.0",
     "d3-time-format": "^2.2.3",
     "dotenv": "^8.2.0",
+    "electron": "^11.0.4",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-loader": "^3.0.2",
