@@ -1,0 +1,96 @@
+.tooltip {
+  display: none;
+  @media (hover: hover) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 300px;
+    border: 1px solid $color-slate-700;
+    background: white;
+    @include padding(16);
+    @include type-size(100);
+    h3 {
+      @include type-size(100);
+      font-weight: bold;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.modal {
+  display: none;
+  @media (hover: none) {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    background: hsla(0, 0%, 0%, 0.33);
+
+    .content {
+      width: 100vw;
+      @include padding(16);
+      margin: 5vh auto;
+      background: white;
+      outline: none;
+    }
+
+    .close {
+      float: right;
+      @include remove-button-style();
+      @include type-size(500);
+      font-weight: bold;
+      margin-top: -15px; // ignore-style-rules
+    }
+  }
+}
+
+.legend {
+  @include margin(32, bottom);
+  @include margin(16, top);
+
+  .no-shortage {
+    border-bottom: 3px solid $color-plum-600;
+  }
+  .shortage {
+    border-bottom: 3px solid $color-honey-400;
+  }
+}
+
+.toggle {
+  align-self: flex-start;
+  cursor: pointer;
+  display: flex;
+  width: fit-content;
+  button {
+    @include remove-button-style();
+    color: $color-slate-600;
+    border: solid $color-slate-200 2px;
+    font-weight: initial;
+    &:before {
+      display: block;
+      content: attr(title);
+      font-weight: 700;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+    @include type-size(100);
+    margin: -1px; // ignore-style-rule
+    padding: 2px 15px; // ignore-style-rule
+    white-space: nowrap;
+
+    &.active {
+      color: black;
+      border: solid black 2px;
+      font-weight: 700;
+      z-index: 1;
+    }
+  }
+}
