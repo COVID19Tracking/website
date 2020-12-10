@@ -114,7 +114,10 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
             )
             .then(response => response.json())
             .then(response => {
-              const feature = response.body.features.pop()
+              if (response.features.length === 0) {
+                return
+              }
+              const feature = response.features.pop()
               mapRef.current.easeTo({
                 center: feature.center,
                 zoom: 7,
