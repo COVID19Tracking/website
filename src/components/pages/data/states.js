@@ -11,6 +11,7 @@ const States = ({
   annotations,
   raceDataCombined,
   raceDataSeparate,
+  hhsHospitalization,
 }) => {
   const stateList = []
 
@@ -52,6 +53,11 @@ const States = ({
     state.annotations = annotations.filter(
       annotation => annotation.state && annotation.state === state.state,
     )
+
+    state.hhsHospitalization = hhsHospitalization
+      ? hhsHospitalization.find(record => record.nodes[0].state === state.state)
+      : false
+
     stateList.push(state)
   })
 

@@ -1,6 +1,14 @@
 module.exports = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
+    type ltcCurrent implements Node {
+      total_cases: Int
+      total_death: Int
+      outbrkfac_alf: Int
+      outbrkfac_ltc: Int
+      outbrkfac_other: Int
+      outbrkfac_nh: Int
+    }
     type CovidLtcStates implements Node {
       data_timestamp: String
       data_type: String

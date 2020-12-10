@@ -225,6 +225,13 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/hhs_hospitalization.json',
+        type: 'hhsHospitalizationCovid',
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [

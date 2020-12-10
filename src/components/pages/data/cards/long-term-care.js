@@ -38,7 +38,7 @@ export default ({ data, stateName, stateDeaths, stateSlug }) => {
 
   return (
     <Card
-      title="Long-Term Care (LTC)"
+      title="Long-term care (LTC)"
       link={
         <Link to={`/data/state/${stateSlug}/long-term-care`}>
           <span className="a11y-only">{stateName} long-term care data </span>

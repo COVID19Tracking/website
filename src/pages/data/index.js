@@ -70,6 +70,7 @@ const DataPage = ({ data }) => {
         annotations={data.allCovidAnnotation.nodes}
         raceDataCombined={data.allCovidRaceDataCombined.nodes}
         raceDataSeparate={data.allCovidRaceDataSeparate.nodes}
+        hhsHospitalization={data.allHhsHospitalizationCovid.group}
       />
     </Layout>
   )
@@ -302,6 +303,18 @@ export const query = graphql`
         apiDeathPerCap
         lastCheckDate {
           value
+        }
+      }
+    }
+    allHhsHospitalizationCovid(sort: { fields: date, order: DESC }) {
+      group(field: state, limit: 1) {
+        nodes {
+          state
+          date
+          inpatient_beds_used_covid
+          staffed_icu_adult_patients_confirmed_and_suspected_covid
+          total_adult_patients_hospitalized_confirmed_covid
+          total_pediatric_patients_hospitalized_confirmed_covid
         }
       }
     }
