@@ -1,6 +1,5 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState, useRef } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { Form, Input } from '~components/common/form'
@@ -21,18 +20,7 @@ const FacilityDetails = ({ facility }) => (
 )
 
 const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
-  const data = useStaticQuery(
-    graphql`
-      {
-        site {
-          siteMetadata {
-            mapBoxToken
-          }
-        }
-      }
-    `,
-  )
-  mapboxgl.accessToken = data.site.siteMetadata.mapBoxToken
+  mapboxgl.accessToken = process.env.GATSBY_MAPBOX_API_TOKEN
   const [activeFacility, setActiveFacility] = useState(false)
   const [query, setQuery] = useState(false)
   const [tooltip, setTooltip] = useState({ x: 0, y: 0 })
@@ -61,18 +49,12 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   }
 
   useEffect(() => {
-    const mapCenter = center
-    const mapZoom = zoom
-
-    // Token must be set before constructing map
-
     const map = new mapboxgl.Map({
       container: mapNode.current,
       style: `mapbox://styles/covidtrackingproject/ckihibso80hsg19o8q5gbq9z7`,
-      center: mapCenter,
-      zoom: mapZoom,
+      center,
+      zoom,
     })
-    mapRef.current = map
 
     map.addControl(new mapboxgl.NavigationControl(), 'top-right')
 
@@ -90,6 +72,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       selectFacility(event)
     })
 
+    mapRef.current = map
     return () => {
       map.remove()
     }
@@ -110,7 +93,9 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
             .fetch(
               `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
                 query,
-              )}.json?limit=1&access_token=${mapboxgl.accessToken}`,
+              )}.json?limit=1&access_token=${
+                process.env.GATSBY_MAPBOX_API_TOKEN
+              }`,
             )
             .then(response => response.json())
             .then(response => {
