@@ -18,6 +18,12 @@
   cursor: pointer;
 }
 
+.state-direction {
+  fill: white;
+  @include type-size(300);
+  text-anchor: middle;
+}
+
 .state-indicator {
   fill: $color-plum-400;
   cursor: pointer;

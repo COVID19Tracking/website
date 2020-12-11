@@ -15,6 +15,21 @@ export default {
         state.state,
         item => item.childPopulation.positive.per100k,
       ),
+    getDirection: (history, state) => {
+      const items = history.find(group => group.nodes[0].state === state.state)
+      if (!items) {
+        return null
+      }
+      const { nodes } = items
+      let currentAverage = 0
+      let pastAverage = 0
+      for (let i = 0; i < 7; i += 1) {
+        currentAverage += nodes[i].childPopulation.positive.per100k
+        pastAverage += nodes[i + 7].childPopulation.positive.per100k
+      }
+      const direction = currentAverage / 7 - pastAverage / 7 / (pastAverage / 7)
+      return direction > 0.1 ? 'up' : 'down'
+    },
     getColor: item => {
       if (item > 5000) {
         return mapStyle.level4
@@ -32,7 +47,22 @@ export default {
     title: 'Average daily cases in the last seven days',
     getValue: (history, state) =>
       getAverage(history, state.state, item => item.positiveIncrease),
+    getDirection: (history, state) => {
+      const items = history.find(group => group.nodes[0].state === state.state)
+      if (!items) {
+        return null
+      }
+      const { nodes } = items
 
+      let currentAverage = 0
+      let pastAverage = 0
+      for (let i = 0; i < 7; i += 1) {
+        currentAverage += nodes[i].positiveIncrease
+        pastAverage += nodes[i + 7].positiveIncrease
+      }
+      const direction = currentAverage / 7 - pastAverage / 7 / (pastAverage / 7)
+      return direction > 0.1 ? 'up' : 'down'
+    },
     getColor: item => {
       if (item > 5000) {
         return mapStyle.level4

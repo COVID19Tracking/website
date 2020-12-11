@@ -69,6 +69,27 @@ const State = ({ x, y, r, state, onClick, className }) => {
       >
         {Math.round(state.value).toLocaleString()}
       </text>
+
+      <text
+        x={x}
+        y={y + r / 1.6}
+        className={mapStyle.stateDirection}
+        onClick={() => {
+          if (onClick) {
+            onClick()
+          }
+        }}
+      >
+        {state.direction === 'up' ? (
+          <>
+            ▲<span className="a11y-only">Moving up</span>
+          </>
+        ) : (
+          <>
+            ▼<span className="a11y-only">Moving down</span>
+          </>
+        )}
+      </text>
     </g>
   )
 }
