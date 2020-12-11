@@ -61,8 +61,9 @@ const USMap = ({ configuration, item }) => {
         death
       }
       allCovidStateDaily(sort: { fields: [state, date], order: [ASC, DESC] }) {
-        group(field: state, limit: 7) {
+        group(field: state, limit: 90) {
           nodes {
+            date
             state
             positiveIncrease
             negativeIncrease
@@ -81,7 +82,8 @@ const USMap = ({ configuration, item }) => {
   const getAverage = (state, value) =>
     data.allCovidStateDaily.group
       .find(group => group.nodes[0].state === state)
-      .nodes.reduce((total, item) => total + value(item), 0) / 7
+      .nodes.slice(0, 7)
+      .reduce((total, item) => total + value(item), 0) / 7
 
   const states = data.allCovidStateInfo.nodes.map(state => {
     let value = 0
@@ -98,6 +100,9 @@ const USMap = ({ configuration, item }) => {
       ...state,
       current: data.allCovidState.nodes.find(row => row.state === state.state),
       value,
+      history: data.allCovidStateDaily.group.find(
+        group => group.nodes[0].state === state.state,
+      ).nodes,
     }
   })
   let usValue = 0
