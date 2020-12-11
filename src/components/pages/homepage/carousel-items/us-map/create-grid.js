@@ -5,7 +5,7 @@ export default (states, grid) => {
   const rows = grid.length
   const cols = grid[0].length
   const stroke = 0
-  const scale = 2
+  const scale = 0.2
   const x = (hexRad * scale) / 2 + stroke * scale
   let y = hexRad * scale + stroke * scale
   const side = Math.sin(Math.PI / 6) * hexRad
@@ -16,7 +16,7 @@ export default (states, grid) => {
   const stateHexes = []
 
   for (let i = 0; i < grid.length; i += 1) {
-    const loopX = offset ? hexApo * 2 : hexApo
+    const loopX = offset ? hexApo : 0
     let locX = x
     for (let s = 0; s < grid[i].length; s += 1) {
       const gridPlot = grid[i][s]

@@ -73,8 +73,8 @@ const State = ({ x, y, r, state, onClick }) => {
 }
 
 const US = ({ r, onClick }) => {
-  const x = r + 10
-  const y = r + 10
+  const x = r
+  const y = r
   const hexPoints = [
     [x, y - r],
     [x + coxSix * r, y - sinSix * r],
