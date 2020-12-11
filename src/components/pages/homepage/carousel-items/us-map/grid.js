@@ -6,14 +6,14 @@ import { mobileGrid } from '../state-matrix'
 import mapStyle from './us-map.module.scss'
 
 const Grid = ({ states, metric }) => {
-  const { stateHexes, width, height } = createGrid(states, mobileGrid)
+  const { stateHexes, width, height } = createGrid(states, mobileGrid, true)
   return (
     <div className={mapStyle.gridWrapper}>
       <h3>{metric.title}</h3>
       <svg
         className={mapStyle.grid}
         style={{ width: '100%', height: '100%' }}
-        viewBox={`0 0 ${width} ${height}`}
+        viewBox={`0 -50 ${width} ${height}`}
         tabIndex="0"
         aria-hidden
       >

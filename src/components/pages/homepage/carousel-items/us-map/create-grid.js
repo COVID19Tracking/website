@@ -1,4 +1,4 @@
-export default (states, grid) => {
+export default (states, grid, isGrid) => {
   const hexDi = 100
   const hexRad = hexDi / 2
   const hexApo = hexRad * Math.cos(Math.PI / 6)
@@ -16,7 +16,10 @@ export default (states, grid) => {
   const stateHexes = []
 
   for (let i = 0; i < grid.length; i += 1) {
-    const loopX = offset ? hexApo : 0
+    const defaultLoop = isGrid ? hexApo : 0
+
+    const defaultOffset = isGrid ? hexApo * 2 : hexApo
+    const loopX = offset ? defaultOffset : defaultLoop
     let locX = x
     for (let s = 0; s < grid[i].length; s += 1) {
       const gridPlot = grid[i][s]
