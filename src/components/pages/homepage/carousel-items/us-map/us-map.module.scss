@@ -40,3 +40,18 @@
     display: none;
   }
 }
+
+.map-label {
+  @include padding(16, top);
+  h3 {
+    @include type-size(300);
+    margin: 0;
+  }
+  p {
+    margin: 0;
+    .keyboard {
+      display: inline-block;
+      @include margin(16, left);
+    }
+  }
+}

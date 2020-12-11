@@ -8,8 +8,9 @@ import createGrid from './create-grid'
 import { desktopGrid } from '../state-matrix'
 import mapStyle from './us-map.module.scss'
 
-const Map = ({ states, us }) => {
+const Map = ({ states, us, metric, lastUpdate }) => {
   const [activeState, setActiveState] = useState(false)
+  const [hasKeyboardFocus, setHasKeyboardFocus] = useState(false)
   const mapRef = useRef()
 
   const { stateHexes, width, height, hexRad } = createGrid(states, desktopGrid)
@@ -55,6 +56,18 @@ const Map = ({ states, us }) => {
     <div>
       <Row>
         <Col width={[4, 6, 10]}>
+          <div className={mapStyle.mapLabel}>
+            <h3>{metric.title}</h3>
+            <p>
+              Data updated {lastUpdate}
+              {hasKeyboardFocus && (
+                <span className={mapStyle.keyboard}>
+                  Use the <strong>arrow keys</strong> to move between states,
+                  and <strong>Escape</strong> to leave the map.
+                </span>
+              )}
+            </p>
+          </div>
           <svg
             className={mapStyle.map}
             ref={mapRef}
@@ -62,12 +75,16 @@ const Map = ({ states, us }) => {
             viewBox={`0 0 ${width} ${height}`}
             tabIndex="0"
             aria-hidden
+            onBlur={() => {
+              setHasKeyboardFocus(false)
+            }}
             onFocus={() => {
               setActiveState(
                 stateHexes.find(({ state }) => state.state === 'WA'),
               )
             }}
             onKeyDown={event => {
+              setHasKeyboardFocus(true)
               event.preventDefault()
               if (event.key === 'Escape') {
                 mapRef.current.blur()

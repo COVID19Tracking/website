@@ -6,6 +6,7 @@ const getAverage = (history, state, value) =>
 
 export default {
   casesPer100k: {
+    title: 'Average cases per 100k people in the last seven days',
     getValue: (history, state) =>
       getAverage(
         history,
@@ -14,6 +15,7 @@ export default {
       ),
   },
   sevenDayPositive: {
+    title: 'Average daily cases in the last seven days',
     getValue: (history, state) =>
       getAverage(history, state.state, item => item.positiveIncrease),
   },

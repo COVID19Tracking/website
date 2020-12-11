@@ -5,10 +5,11 @@ import createGrid from './create-grid'
 import { mobileGrid } from '../state-matrix'
 import mapStyle from './us-map.module.scss'
 
-const Grid = ({ states }) => {
+const Grid = ({ states, metric }) => {
   const { stateHexes, width, height } = createGrid(states, mobileGrid)
   return (
     <div>
+      <h2>{metric.title}</h2>
       <svg
         className={mapStyle.grid}
         style={{ width: '100%', height: '100%' }}

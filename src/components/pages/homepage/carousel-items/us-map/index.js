@@ -27,6 +27,14 @@ const USMap = ({ configuration, item }) => {
   const { metric } = configuration
   const data = useStaticQuery(graphql`
     {
+      lastUpdate: allCovidUsDaily(
+        sort: { fields: date, order: DESC }
+        limit: 1
+      ) {
+        nodes {
+          date(formatString: "MMMM D, YYYY")
+        }
+      }
       allCovidStateInfo(sort: { fields: name }) {
         nodes {
           name
@@ -80,12 +88,6 @@ const USMap = ({ configuration, item }) => {
     }
   `)
 
-  const getAverage = (state, value) =>
-    data.allCovidStateDaily.group
-      .find(group => group.nodes[0].state === state)
-      .nodes.slice(0, 7)
-      .reduce((total, item) => total + value(item), 0) / 7
-
   const states = data.allCovidStateInfo.nodes.map(state => {
     return {
       ...state,
@@ -102,10 +104,17 @@ const USMap = ({ configuration, item }) => {
     value: usValue,
   }
 
+  const lastUpdate = data.lastUpdate.nodes[0].date
+
   return (
     <>
-      <Map states={states} metric={metric} us={us} />
-      <Grid states={states} metric={metric} us={us} />
+      <Map
+        states={states}
+        metric={metrics[metric]}
+        us={us}
+        lastUpdate={lastUpdate}
+      />
+      <Grid states={states} metric={metric} us={us} lastUpdate={lastUpdate} />
       <List states={states} metric={metric} us={us} />
       <svg aria-hidden>
         <filter id="dropshadow">
