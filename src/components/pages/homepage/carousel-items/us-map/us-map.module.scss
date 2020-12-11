@@ -40,12 +40,3 @@
     display: none;
   }
 }
-
-.number {
-  @include type-size(500);
-  .label {
-    margin: 0;
-    @include type-size(200);
-    text-align: right;
-  }
-}

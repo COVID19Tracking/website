@@ -1,0 +1,32 @@
+.number {
+  @include type-size(500);
+  @include padding(16, top bottom);
+  border-bottom: 1px solid $color-slate-400;
+  .label {
+    margin: 0;
+    @include type-size(200);
+  }
+}
+
+.header {
+  @include type-size(300);
+}
+
+.state-name {
+  @include type-size(400);
+  margin: 0;
+  @include padding(16, bottom);
+  border-bottom: 1px solid $color-slate-400;
+}
+
+.link {
+  text-decoration: none;
+  @include type-size(300);
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    .text {
+      text-decoration: underline;
+    }
+  }
+}
