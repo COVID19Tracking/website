@@ -1,6 +1,7 @@
 /*eslint-disable */
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
+import metrics from './metrics'
 import Map from './map'
 import Grid from './grid'
 
@@ -86,20 +87,10 @@ const USMap = ({ configuration, item }) => {
       .reduce((total, item) => total + value(item), 0) / 7
 
   const states = data.allCovidStateInfo.nodes.map(state => {
-    let value = 0
-    if (metric === 'casesPer100k') {
-      value = getAverage(
-        state.state,
-        state => state.childPopulation.positive.per100k,
-      )
-    }
-    if (metric === 'sevenDayPositive') {
-      value = getAverage(state.state, state => state.positiveIncrease)
-    }
     return {
       ...state,
       current: data.allCovidState.nodes.find(row => row.state === state.state),
-      value,
+      value: metrics[metric].getValue(data.allCovidStateDaily.group, state),
       history: data.allCovidStateDaily.group.find(
         group => group.nodes[0].state === state.state,
       ).nodes,
