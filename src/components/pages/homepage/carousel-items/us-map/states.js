@@ -1,11 +1,12 @@
 import React from 'react'
+import classnames from 'classnames'
 import mapStyle from './us-map.module.scss'
 
 const piSix = Math.PI / 6
 const coxSix = Math.cos(piSix)
 const sinSix = Math.sin(piSix)
 
-const State = ({ x, y, r, state, onClick }) => {
+const State = ({ x, y, r, state, onClick, className }) => {
   const padding = r / 8
   const hexPoints = [
     [x, y - r + padding],
@@ -36,7 +37,7 @@ const State = ({ x, y, r, state, onClick }) => {
       />
       <polygon
         points={hexIndicatorPoints.map(item => item.join(',')).join(' ')}
-        className={mapStyle.stateIndicator}
+        className={classnames(mapStyle.stateIndicator, className(state.value))}
         onClick={() => {
           if (onClick) {
             onClick()

@@ -21,6 +21,18 @@
 .state-indicator {
   fill: $color-plum-400;
   cursor: pointer;
+  &.level-1 {
+    fill: $color-honey-300;
+  }
+  &.level-2 {
+    fill: $color-honey-400;
+  }
+  &.level-3 {
+    fill: $color-honey-500;
+  }
+  &.level-4 {
+    fill: $color-honey-600;
+  }
 }
 
 .active-state {
@@ -34,7 +46,7 @@
   }
 }
 
-.grid {
+.grid-wrapper {
   display: block;
   @media (min-width: $viewport-md) {
     display: none;

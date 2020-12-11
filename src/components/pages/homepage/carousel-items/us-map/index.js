@@ -114,7 +114,12 @@ const USMap = ({ configuration, item }) => {
         us={us}
         lastUpdate={lastUpdate}
       />
-      <Grid states={states} metric={metric} us={us} lastUpdate={lastUpdate} />
+      <Grid
+        states={states}
+        metric={metrics[metric]}
+        us={us}
+        lastUpdate={lastUpdate}
+      />
       <List states={states} metric={metric} us={us} />
       <svg aria-hidden>
         <filter id="dropshadow">

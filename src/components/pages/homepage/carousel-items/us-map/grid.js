@@ -8,8 +8,8 @@ import mapStyle from './us-map.module.scss'
 const Grid = ({ states, metric }) => {
   const { stateHexes, width, height } = createGrid(states, mobileGrid)
   return (
-    <div>
-      <h2>{metric.title}</h2>
+    <div className={mapStyle.gridWrapper}>
+      <h3>{metric.title}</h3>
       <svg
         className={mapStyle.grid}
         style={{ width: '100%', height: '100%' }}
@@ -26,6 +26,7 @@ const Grid = ({ states, metric }) => {
             onClick={() => {
               navigate(`/data/state/${state.childSlug.slug}`)
             }}
+            className={value => metric.getColor(value)}
           />
         ))}
       </svg>

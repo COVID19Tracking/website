@@ -126,6 +126,7 @@ const Map = ({ states, us, metric, lastUpdate }) => {
                 onClick={() => {
                   setActiveState({ x, y, r, state })
                 }}
+                className={value => metric.getColor(value)}
               />
             ))}
             {activeState && (
@@ -134,6 +135,7 @@ const Map = ({ states, us, metric, lastUpdate }) => {
                 y={activeState.y}
                 r={activeState.r * 1.5}
                 state={activeState.state}
+                className={value => metric.getColor(value)}
               />
             )}
           </svg>
