@@ -1,6 +1,8 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useRef, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import classnames from 'classnames'
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs'
 import Container from '~components/common/container'
 import USMap from './carousel-items/us-map'
 import DailyTweet from './carousel-items/daily-tweet'
@@ -56,7 +58,6 @@ const CarouselItem = ({ item }) => {
 }
 
 const HomepageCarousel = () => {
-  const [currentItem, setCurrentItem] = useState(0)
   const data = useStaticQuery(graphql`
     {
       contentfulHomepageCarousel {
@@ -83,28 +84,26 @@ const HomepageCarousel = () => {
     }
   `)
   return (
-    <div className={carouselStyle.carousel}>
-      <Container>
-        <CarouselItem
-          item={data.contentfulHomepageCarousel.items[currentItem]}
-        />
-        <div role="group" className={carouselStyle.carouselSelector}>
+    <Tabs>
+      <TabList className={carouselStyle.tabs}>
+        <Container>
           {data.contentfulHomepageCarousel.items.map((item, key) => (
-            <button
-              type="button"
-              className={carouselStyle.selectButton}
-              onClick={event => {
-                event.preventDefault()
-                setCurrentItem(key)
-              }}
-            >
-              <img src={item.thumbnail.fixed.src} aria-hidden alt="" />
-              {item.label}
-            </button>
+            <Tab key={`carousel-tab-${key}`}>{item.label}</Tab>
           ))}
-        </div>
-      </Container>
-    </div>
+        </Container>
+      </TabList>
+      <div className={carouselStyle.carousel}>
+        <Container>
+          <TabPanels>
+            {data.contentfulHomepageCarousel.items.map((item, key) => (
+              <TabPanel key={`carousel-item-${key}`}>
+                <CarouselItem item={item} />
+              </TabPanel>
+            ))}
+          </TabPanels>
+        </Container>
+      </div>
+    </Tabs>
   )
 }
 

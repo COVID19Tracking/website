@@ -16,20 +16,20 @@
   }
 }
 
-.select-button {
-  @include remove-button-style();
-  width: 150px;
-  text-align: center;
-  color: white;
-}
-
 .carousel {
-  background: $color-plum-700;
-  color: white;
-  @include padding(32, bottom);
+  background: $color-slate-100;
 }
 
-.carousel-selector {
+.tabs {
   @include margin(16, top);
-  text-align: center;
+  button {
+    @include remove-button-style();
+    @include padding(8, top bottom);
+    width: 150px;
+    text-align: center;
+    border-bottom: 3px solid white;
+    &[aria-selected='true'] {
+      border-bottom-color: $color-slate-600;
+    }
+  }
 }

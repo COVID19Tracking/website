@@ -1,205 +1,51 @@
-$color-levels-background: (
-  100: $color-plum-600,
-  200: $color-plum-200,
-  500: white,
-  700: #fef9cd,
-  600: $color-honey-100,
-  1000: $color-honey-400,
-  1100: #5d6d9a,
-  1200: rgb(136, 167, 186),
-  1300: #b5e2db,
-);
-
-$color-levels-text: (
-  100: white,
-  200: black,
-  500: black,
-  600: black,
-  700: black,
-  1000: black,
-  1100: white,
-  1200: white,
-  1300: black,
-);
-
-@each $name, $value in $color-levels-text {
-  .level-text-#{$name} {
-    fill: $value;
-    color: $value;
-    a {
-      fill: $value;
-      color: $value;
-    }
-  }
-}
-
-@each $name, $value in $color-levels-background {
-  .level-background-#{$name} {
-    background: $value;
-    fill: $value;
-  }
-}
-
-.map-wrapper {
-  position: relative;
-  h1 {
-    margin-top: 0;
-    @include type-size(600);
-    text-align: center;
-  }
-  .map {
-    display: none;
-    z-index: 100;
-    @media (min-width: $viewport-lg) {
-      display: block;
-      margin-top: -100px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-  .instructions {
-    width: 250px;
-    background: $color-plum-200;
-    color: black;
-    position: absolute;
-    top: -15px;
-    @include padding(16);
-  }
-  .map-heading {
-    @include type-size(400);
-    margin-top: 0;
-    @media (min-width: $viewport-lg) {
-      text-align: center;
-      width: 100%;
-    }
-    div {
-      @include type-size(300);
-      @include margin(16, top);
-      font-weight: normal;
-    }
-  }
-}
-
-.tooltip {
-  fill: $color-plum-200;
-  stroke: $color-plum-700;
-  stroke-width: 3px;
-  width: 150px;
-  height: 100px;
-}
-
 .state {
-  stroke: $color-plum-700;
-  stroke-width: 3px;
+  fill: white;
+  @include type-size(100);
   cursor: pointer;
-  &.active,
-  &.hovered {
-    stroke: black;
-    stroke-width: 5px;
-    z-index: 100;
-  }
 }
 
-.label {
-  @include type-size(300);
+.state-name {
+  fill: black;
+  font-weight: bold;
+  text-anchor: middle;
   cursor: pointer;
-  &.state-label {
-    font-weight: bold;
-    @include type-size(400);
-  }
 }
 
-.state-list {
-  @include margin(32, top bottom);
-  @media (min-width: $viewport-lg) {
-    @include a11y-only();
-  }
-  .list {
-    .state {
-      width: 80px;
-      height: 80px;
-      display: inline-block;
-      @include margin(8, right bottom);
-      @include padding(8);
-      text-align: center;
-      a {
-        text-decoration: none;
-        display: block;
-      }
-      .name {
-        @include type-size(400);
-      }
-    }
-  }
+.state-number {
+  fill: black;
+  font-weight: normal;
+  text-anchor: middle;
+  cursor: pointer;
 }
 
-.legend {
+.state-indicator {
+  fill: $color-plum-400;
+  cursor: pointer;
+}
+
+.active-state {
+  @include type-size(200);
+}
+
+.map {
   display: none;
-  width: 70%;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  margin: spacer(32) auto;
-  @media (min-width: $viewport-lg) {
-    display: grid;
-  }
-  .item {
-    text-align: center;
-    @include padding(4, right);
-    .bar {
-      height: spacer(8);
-      @include margin(8, bottom);
-    }
+  @media (min-width: $viewport-md) {
+    display: block;
   }
 }
 
-$toggle-button-radius: 4px;
-
-.toggle {
-  margin-top: spacer(16);
-  margin-bottom: spacer(32);
-  text-align: center;
-  button {
-    border: 1px solid white;
-    @include type-size(300);
-    @include padding(8, top bottom);
-    @include padding(16, left right);
-    cursor: pointer;
-    background: $color-plum-800;
-    color: white;
-    border-radius: none;
-    &:first-child {
-      border-top-left-radius: $toggle-button-radius;
-      border-bottom-left-radius: $toggle-button-radius;
-    }
-    &:last-child {
-      border-top-right-radius: $toggle-button-radius;
-      border-bottom-right-radius: $toggle-button-radius;
-    }
-    &[data-active] {
-      color: black;
-      background: white;
-    }
+.grid {
+  display: block;
+  @media (min-width: $viewport-md) {
+    display: none;
   }
 }
 
-.note {
-  @include col(4 6 8);
-  p {
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-  @media (min-width: $viewport-lg) {
-    margin: spacer(64) auto 0 auto;
-  }
-}
-
-.skip-map {
-  @include a11y-only();
-  background: $color-plum-200;
-  @include padding(16);
-  &:focus {
-    width: auto;
-    height: auto;
-    clip: auto;
+.number {
+  @include type-size(500);
+  .label {
+    margin: 0;
+    @include type-size(200);
+    text-align: right;
   }
 }
