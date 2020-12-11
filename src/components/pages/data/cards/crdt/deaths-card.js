@@ -11,7 +11,7 @@ const CrdtCasesCard = ({ raceData, stateAbbreviation }) => {
   const fields = ['crdt_deathsPer100k']
 
   return (
-    <Card title="Race & ethnicity: deaths">
+    <Card title="Race & ethnicity: deaths per capita">
       <CardBody>
         <Statistic title="Deaths per 100,000 people" hideValue>
           <DefinitionLink
