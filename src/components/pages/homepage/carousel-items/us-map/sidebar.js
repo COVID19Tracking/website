@@ -75,7 +75,7 @@ const Sidebar = ({ state, us }) => (
           to={`/data/state/${state.state.name}`}
           className={sidebarStyle.link}
         >
-          <span className={sidebarStyle.text}>All {state.state.name} data</span>{' '}
+          <span className={sidebarStyle.text}>All state data</span>{' '}
           <span aria-hidden>→</span>
         </Link>
       </>

@@ -15,7 +15,7 @@ const List = ({ states, metric, us }) => (
       {states.map(state => (
         <li>
           <Link to={`/data/state/${state.childSlug.slug}`}>{state.name}</Link>:{' '}
-          {Math.round(state.value)}
+          {Math.round(state.value)} and is moving {state.direction}
         </li>
       ))}
     </ul>

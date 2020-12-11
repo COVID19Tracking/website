@@ -27,8 +27,13 @@ export default {
         currentAverage += nodes[i].childPopulation.positive.per100k
         pastAverage += nodes[i + 7].childPopulation.positive.per100k
       }
-      const direction = currentAverage / 7 - pastAverage / 7 / (pastAverage / 7)
-      return direction > 0.1 ? 'up' : 'down'
+      currentAverage /= 7
+      pastAverage /= 7
+      const direction = (currentAverage - pastAverage) / pastAverage
+      if (direction > 0.1) {
+        return 'up'
+      }
+      return direction < -0.1 ? 'down' : 'unchanged'
     },
     getColor: item => {
       if (item > 5000) {
@@ -60,8 +65,13 @@ export default {
         currentAverage += nodes[i].positiveIncrease
         pastAverage += nodes[i + 7].positiveIncrease
       }
-      const direction = currentAverage / 7 - pastAverage / 7 / (pastAverage / 7)
-      return direction > 0.1 ? 'up' : 'down'
+      currentAverage /= 7
+      pastAverage /= 7
+      const direction = (currentAverage - pastAverage) / pastAverage
+      if (direction > 0.1) {
+        return 'up'
+      }
+      return direction < -0.1 ? 'down' : 'unchanged'
     },
     getColor: item => {
       if (item > 5000) {

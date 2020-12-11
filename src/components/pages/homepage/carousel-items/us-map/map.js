@@ -78,13 +78,14 @@ const Map = ({ states, us, metric, lastUpdate }) => {
             onBlur={() => {
               setHasKeyboardFocus(false)
             }}
-            onFocus={() => {
-              setActiveState(
-                stateHexes.find(({ state }) => state.state === 'WA'),
-              )
-            }}
             onKeyDown={event => {
               setHasKeyboardFocus(true)
+              if (!activeState) {
+                setActiveState(
+                  stateHexes.find(({ state }) => state.state === 'WA'),
+                )
+                return
+              }
               event.preventDefault()
               if (event.key === 'Escape') {
                 mapRef.current.blur()

@@ -80,11 +80,12 @@ const State = ({ x, y, r, state, onClick, className }) => {
           }
         }}
       >
-        {state.direction === 'up' ? (
+        {state.direction === 'up' && (
           <>
             ▲<span className="a11y-only">Moving up</span>
           </>
-        ) : (
+        )}
+        {state.direction === 'down' && (
           <>
             ▼<span className="a11y-only">Moving down</span>
           </>
