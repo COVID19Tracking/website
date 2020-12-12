@@ -3,10 +3,14 @@ import { Link } from 'gatsby'
 import classnames from 'classnames'
 import categoryStyles from './blog-categories.module.scss'
 
-const BlogCategories = ({ categories, lightBackground }) => {
+const BlogCategories = ({ categories, lightBackground, subPath, useLink }) => {
   if (!categories) {
     return null
   }
+
+  const linkHref = category =>
+    useLink ? `${subPath}/category/${category.slug}` : subPath
+
   return (
     <div className={categoryStyles.categoriesContainer}>
       {categories.map(category => (
@@ -17,7 +21,7 @@ const BlogCategories = ({ categories, lightBackground }) => {
           )}
           key={category.slug}
         >
-          <Link to={`/blog/category/${category.slug}`}>{category.name}</Link>
+          <Link to={linkHref(category)}>{category.name}</Link>
         </p>
       ))}
     </div>

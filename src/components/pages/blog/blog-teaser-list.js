@@ -6,17 +6,26 @@ import Container from '~components/common/container'
 import CleanSpacing from '~components/utils/clean-spacing'
 import blogTeaserListStyle from './blog-teaser-list.module.scss'
 
-const BlogTeaserList = ({ items }) => (
+const BlogTeaserList = ({
+  items,
+  subPath = '/blog',
+  useCategoryLink = true,
+}) => (
   <Container narrow className={blogTeaserListStyle.container}>
     {items.map(node => (
       <div key={`blog-${node.slug}`} className={blogTeaserListStyle.teaser}>
-        <Categories categories={node.categories} lightBackground />
+        <Categories
+          categories={node.categories}
+          lightBackground
+          subPath={subPath}
+          useLink={useCategoryLink}
+        />
         <h2 className={blogTeaserListStyle.title}>
           <Link
             to={
               node.overrideBlogPage
                 ? node.overrideBlogPath
-                : `/blog/${node.slug}`
+                : `${subPath}/${node.slug}`
             }
           >
             {node.title}
