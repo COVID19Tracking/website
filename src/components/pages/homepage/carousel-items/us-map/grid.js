@@ -2,7 +2,7 @@ import React from 'react'
 import { navigate } from 'gatsby'
 import { State } from './states'
 import createGrid from './create-grid'
-import { mobileGrid } from '../state-matrix'
+import { mobileGrid } from './state-matrix'
 import mapStyle from './us-map.module.scss'
 
 const Grid = ({ states, metric }) => {

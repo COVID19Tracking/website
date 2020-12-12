@@ -5,18 +5,23 @@ import classnames from 'classnames'
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs'
 import Container from '~components/common/container'
 import USMap from './carousel-items/us-map'
+import ChartNationalHospitalization from './carousel-items/chart-national-hospitalization'
 import DailyTweet from './carousel-items/daily-tweet'
 import carouselStyle from './carousel.module.scss'
 
-const Components = {
+const components = {
   'us-map': USMap,
   'daily-tweet': DailyTweet,
+  'chart-national-hospitalization': ChartNationalHospitalization,
 }
 
 const CarouselItem = ({ item }) => {
   const [disclosureOpen, setDisclosureOpen] = useState(false)
   const disclosureRef = useRef()
-  const ItemComponent = Components[item.configuration.component]
+  if (typeof components[item.configuration.component] === 'undefined') {
+    return null
+  }
+  const ItemComponent = components[item.configuration.component]
   return (
     <>
       <ItemComponent
@@ -68,11 +73,6 @@ const HomepageCarousel = () => {
               metric
             }
             component
-          }
-          thumbnail {
-            fixed(width: 200) {
-              src
-            }
           }
           childContentfulHomepageCarouselItemDataDisclaimerTextNode {
             childMarkdownRemark {

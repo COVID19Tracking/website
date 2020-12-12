@@ -5,7 +5,7 @@ import { Row, Col } from '~components/common/grid'
 import { State, US } from './states'
 import Sidebar from './sidebar'
 import createGrid from './create-grid'
-import { desktopGrid } from '../state-matrix'
+import { desktopGrid } from './state-matrix'
 import mapStyle from './us-map.module.scss'
 
 const Map = ({ states, us, metric, lastUpdate }) => {
