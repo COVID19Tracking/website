@@ -43,12 +43,12 @@ const StateLinks = ({
           Official Twitter
         </a>
       )}
-      <Link
+      <a
         className={stateLinksStyle.link}
-        to={`/data/state/${stateSlug}/screenshots`}
+        href={`https://screenshots.covidtracking.com/${stateSlug}`}
       >
         <span>View screenshots</span>
-      </Link>
+      </a>
     </div>
   )
 }
