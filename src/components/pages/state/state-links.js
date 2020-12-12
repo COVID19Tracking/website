@@ -1,6 +1,5 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
-import { Link } from 'gatsby'
 import {
   Disclosure,
   DisclosureButton,
@@ -43,12 +42,12 @@ const StateLinks = ({
           Official Twitter
         </a>
       )}
-      <Link
+      <a
         className={stateLinksStyle.link}
-        to={`/data/state/${stateSlug}/screenshots`}
+        href={`https://screenshots.covidtracking.com/${stateSlug}`}
       >
         <span>View screenshots</span>
-      </Link>
+      </a>
     </div>
   )
 }
