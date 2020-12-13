@@ -170,11 +170,6 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/state/outcomes.js`),
       context: node,
     })
-    createPage({
-      path: `/data/state/${slug}/screenshots`,
-      component: path.resolve(`./src/templates/state/screenshots.js`),
-      context: node,
-    })
 
     createPage({
       path: `/data/state/${slug}/long-term-care`,
@@ -186,6 +181,11 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/data/state/${slug}/chart-tables`,
       component: path.resolve(`./src/templates/state/chart-tables.js`),
       context: node,
+    })
+
+    createRedirect({
+      fromPath: `/data/state/${slug}/screenshots`,
+      toPath: `https://screenshots.covidtracking.com/${slug}`,
     })
   })
 
