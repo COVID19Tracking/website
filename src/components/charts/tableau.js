@@ -7,6 +7,7 @@ const TableauCharts = ({
   id,
   viewUrl,
   height,
+  className = false,
   mobileHeight = false,
   viewUrlMobile = false,
 }) => {
@@ -36,7 +37,7 @@ const TableauCharts = ({
     <>
       <div
         className={classnames(
-          tableauStyle.chart,
+          className || tableauStyle.chart,
           viewUrlMobile && tableauStyle.hasMobileView,
         )}
         id={`chart-${id}`}
