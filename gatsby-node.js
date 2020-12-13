@@ -67,6 +67,13 @@ exports.createPages = async ({ graphql, actions }) => {
           id
         }
       }
+      allContentfulCrdtArticle {
+        nodes {
+          id
+          contentful_id
+          slug
+        }
+      }
       allContentfulChart {
         nodes {
           id
@@ -95,6 +102,14 @@ exports.createPages = async ({ graphql, actions }) => {
         numPages,
         currentPage: i + 1,
       },
+    })
+  })
+
+  result.data.allContentfulCrdtArticle.nodes.forEach(node => {
+    createPage({
+      path: `/race/reports/${node.slug}`,
+      component: path.resolve('./src/templates/race/reports/crdt-report.js'),
+      context: node,
     })
   })
 
@@ -242,6 +257,16 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/blog/category/${node.slug}`,
       component: path.resolve(`./src/templates/blog-category.js`),
       context: node,
+    })
+  })
+
+  result.data.allContentfulCrdtArticle.nodes.forEach(node => {
+    const longPath = `/race/reports/${node.slug}`
+    const shortPath = `/${node.contentful_id}`
+
+    createRedirect({
+      fromPath: shortPath,
+      toPath: longPath,
     })
   })
 }
