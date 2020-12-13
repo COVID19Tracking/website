@@ -62,15 +62,17 @@ const ReportingPage = () => {
       returnLinks={[{ link: '/race', title: 'Racial Data Tracker' }]}
       path={path}
       centered
+      centerTitle
     >
       <LongContent>
         <p>
-          As 2020 comes to an end, we team up with student journalists at New
-          York University led by{' '}
-          <a href="https://twitter.com/merbroussard">Dr. Meredith Broussard</a>{' '}
-          to investigate the ongoing racial inequities in testing and treatment
-          across the country, using state-level data from the COVID Racial Data
-          Tracker.
+          As 2020 comes to an end, we team up with student reporters at New York 
+          University led by data journalist{' '}
+          <a href="https://twitter.com/merbroussard">
+            Meredith Broussard
+          </a>{' '}
+          to investigate ongoing racial inequities in testing and treatment
+          across the country.
         </p>
       </LongContent>
       <Container>
