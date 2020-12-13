@@ -17,23 +17,30 @@ const BlogHero = ({
   twitterText,
   id,
   hideByline,
+  returnLinksContent = null,
+  subPath = '/blog',
+  subName = 'Blog',
 }) => (
   <div className={blogHeroStyles.container} narrow centered>
     <ReturnLinks>
-      <Link to="/blog">Blog</Link>
-      {categories && (
+      {returnLinksContent || (
         <>
-          <img src={rightCaret} alt="" height="12px" />
-          {categories.map((category, index) => (
+          <Link to={subPath}>{subName}</Link>
+          {categories && (
             <>
-              <Link to={`/blog/category/${category.slug}`}>
-                {category.name}
-              </Link>
-              {index !== categories.length - 1 && (
-                <span aria-hidden>&bull;</span>
-              )}
+              <img src={rightCaret} alt="" height="12px" />
+              {categories.map((category, index) => (
+                <>
+                  <Link to={`${subPath}/category/${category.slug}`}>
+                    {category.name}
+                  </Link>
+                  {index !== categories.length - 1 && (
+                    <span aria-hidden>&bull;</span>
+                  )}
+                </>
+              ))}
             </>
-          ))}
+          )}
         </>
       )}
     </ReturnLinks>
@@ -42,7 +49,7 @@ const BlogHero = ({
       authors={authors}
       published={published}
       updated={updated}
-      lede={lede}
+      lede={lede || ''}
       twitterText={twitterText}
       id={id}
       darkBackground
