@@ -7,6 +7,7 @@ import rightCaret from '~images/icons/right-caret.svg'
 
 import BlogPostHero from '~components/pages/blog/blog-hero'
 import ReportContent from '~components/pages/race/reports/report-content'
+import ReportExtras from '~components/pages/race/reports/footer/report-extras'
 
 const ReportTemplate = ({ data, path }) => {
   const crdtReport = data.contentfulCrdtArticle
@@ -41,6 +42,7 @@ const ReportTemplate = ({ data, path }) => {
       centerTitle
     >
       <ReportContent content={crdtReport.blogContent} />
+      <ReportExtras crdtReport={crdtReport} />
     </Layout>
   )
 }
