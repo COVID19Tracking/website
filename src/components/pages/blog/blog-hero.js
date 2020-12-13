@@ -17,7 +17,7 @@ const BlogHero = ({
   twitterText,
   id,
   hideByline,
-  returnLinksContent = null,
+  returnLinksContent,
   subPath = '/blog',
   subName = 'Blog',
 }) => (
