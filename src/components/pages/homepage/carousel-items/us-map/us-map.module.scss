@@ -29,15 +29,19 @@
   cursor: pointer;
   &.level-1 {
     fill: $color-honey-300;
+    background: $color-honey-300;
   }
   &.level-2 {
     fill: $color-honey-400;
+    background: $color-honey-400;
   }
   &.level-3 {
     fill: $color-honey-500;
+    background: $color-honey-500;
   }
   &.level-4 {
     fill: $color-honey-600;
+    background: $color-honey-600;
   }
 }
 
@@ -49,6 +53,7 @@
   display: none;
   @media (min-width: $viewport-md) {
     display: block;
+    @include margin(16, bottom);
   }
 }
 
@@ -72,4 +77,30 @@
       @include margin(16, left);
     }
   }
+}
+
+.legend-toggle {
+  @include remove-button-style();
+  cursor: pointer;
+  .text {
+    text-decoration: underline;
+  }
+}
+
+.legend {
+  list-style-type: none;
+  @include margin(16, top);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    @include margin(32, right);
+    display: flex;
+    align-items: center;
+  }
+}
+
+.legend-hex {
+  width: 30px;
+  height: 30px;
 }

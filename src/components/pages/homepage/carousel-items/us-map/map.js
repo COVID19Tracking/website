@@ -2,11 +2,48 @@
 import React, { useRef, useState } from 'react'
 import { navigate } from 'gatsby'
 import { Row, Col } from '~components/common/grid'
-import { State, US } from './states'
+import { State, US, Legend } from './states'
 import Sidebar from './sidebar'
 import createGrid from './create-grid'
 import { desktopGrid } from './state-matrix'
 import mapStyle from './us-map.module.scss'
+
+const MapLegend = ({ legend }) => {
+  const hexRadius = 15
+  const [isExpanded, setIsExpanded] = useState(false)
+  return (
+    <>
+      <button
+        className={mapStyle.legendToggle}
+        type="button"
+        aria-expanded={isExpanded}
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        <span className={mapStyle.text}>View legend</span>{' '}
+        <span aria-hidden>{isExpanded ? <>↑</> : <>↓</>}</span>
+      </button>
+      {isExpanded && (
+        <div aria-expanded>
+          <ul className={mapStyle.legend}>
+            {legend.map(item => (
+              <li>
+                <svg
+                  className={mapStyle.legendHex}
+                  viewBox={`0 0 ${hexRadius * 2 + 10} ${hexRadius * 2 + 10}`}
+                  tabIndex="0"
+                  aria-hidden
+                >
+                  <Legend r={hexRadius} className={item.style} />
+                </svg>
+                {item.label}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </>
+  )
+}
 
 const Map = ({ states, us, metric, lastUpdate }) => {
   const [activeState, setActiveState] = useState(false)
@@ -71,8 +108,8 @@ const Map = ({ states, us, metric, lastUpdate }) => {
           <svg
             className={mapStyle.map}
             ref={mapRef}
-            style={{ width: '100%', height: '100%' }}
-            viewBox={`0 0 ${width} ${height}`}
+            style={{ width: '100%' }}
+            viewBox={`0 -50 ${width} ${height}`}
             tabIndex="0"
             aria-hidden
             onBlur={() => {
@@ -140,6 +177,7 @@ const Map = ({ states, us, metric, lastUpdate }) => {
               />
             )}
           </svg>
+          <MapLegend legend={metric.legend} />
         </Col>
         <Col width={[4, 6, 2]}>
           <Sidebar state={activeState} us={us.current} />

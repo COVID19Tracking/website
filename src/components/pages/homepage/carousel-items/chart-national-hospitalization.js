@@ -42,8 +42,8 @@ const CarouselChartNationalHospitalization = () => {
           lineData={hospitalizationAverage}
           fill={colors.colorPlum200}
           lineColor={colors.colorPlum700}
-          height={280}
-          width={280}
+          height={450}
+          width={900}
           marginBottom={40}
           marginLeft={60}
           marginRight={30}
@@ -53,6 +53,7 @@ const CarouselChartNationalHospitalization = () => {
           lastXTick
         />
       </Col>
+      <Col width={[4, 6, 8]} />
     </Row>
   )
 }

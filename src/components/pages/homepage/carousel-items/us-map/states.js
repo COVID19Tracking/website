@@ -6,6 +6,28 @@ const piSix = Math.PI / 6
 const coxSix = Math.cos(piSix)
 const sinSix = Math.sin(piSix)
 
+const Legend = ({ r, className }) => {
+  const x = r + 5
+  const y = r + 5
+  const padding = 0
+  const hexPoints = [
+    [x, y - r + padding],
+    [x + coxSix * r - padding, y - sinSix * r],
+    [x + coxSix * r - padding, y + sinSix * r],
+    [x, y + r - padding],
+    [x - coxSix * r + padding, y + sinSix * r],
+    [x - coxSix * r + padding, y - sinSix * r],
+  ]
+  return (
+    <g>
+      <polygon
+        points={hexPoints.map(item => item.join(',')).join(' ')}
+        className={classnames(mapStyle.stateIndicator, className)}
+      />
+    </g>
+  )
+}
+
 const State = ({ x, y, r, state, onClick, className }) => {
   const padding = r / 8
   const hexPoints = [
@@ -126,4 +148,4 @@ const US = ({ r, onClick }) => {
   )
 }
 
-export { State, US }
+export { State, US, Legend }

@@ -121,7 +121,7 @@ const USMap = ({ configuration, item }) => {
         lastUpdate={lastUpdate}
       />
       <List states={states} metric={metric} us={us} />
-      <svg aria-hidden>
+      <svg aria-hidden width={0} height={0}>
         <filter id="dropshadow">
           <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
           <feOffset dx="0" dy="0" result="offsetblur" />

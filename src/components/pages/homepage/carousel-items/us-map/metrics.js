@@ -27,6 +27,24 @@ export default {
       }
       return mapStyle.level1
     },
+    legend: [
+      {
+        style: mapStyle.level1,
+        label: '< 2,000',
+      },
+      {
+        style: mapStyle.level2,
+        label: '2,000 - 3,000',
+      },
+      {
+        style: mapStyle.level3,
+        label: '3,000 - 5,000',
+      },
+      {
+        style: mapStyle.level4,
+        label: '> 5,000 cases',
+      },
+    ],
   },
   sevenDayPositive: {
     title: 'Average daily cases in the last seven days',
@@ -45,5 +63,23 @@ export default {
       }
       return mapStyle.level1
     },
+    legend: [
+      {
+        style: mapStyle.level1,
+        label: '< 2,000',
+      },
+      {
+        style: mapStyle.level2,
+        label: '2,000 - 3,000',
+      },
+      {
+        style: mapStyle.level3,
+        label: '3,000 - 5,000',
+      },
+      {
+        style: mapStyle.level4,
+        label: '> 5,000 cases',
+      },
+    ],
   },
 }
