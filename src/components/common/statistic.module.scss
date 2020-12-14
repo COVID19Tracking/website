@@ -2,6 +2,9 @@
   font-weight: bold;
   @include type-size(100);
   max-width: 70%;
+  &.full-width {
+    max-width: 100%;
+  }
 }
 
 .value {

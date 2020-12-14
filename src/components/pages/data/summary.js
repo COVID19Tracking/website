@@ -234,6 +234,18 @@ const StateSummary = ({
         {!national && (
           <>
             <h4>Race &amp; ethnicity data</h4>
+            <p>
+              We compute the number of{' '}
+              <strong>cases and deaths per 100k people</strong> for each race
+              and ethnicity.
+            </p>
+            <p>
+              These numbers show the scale of outcomes compared to the size of
+              each group’s population.{' '}
+              <strong>These are not the number of cases or deaths</strong>,
+              rather the proportion of each demographic group who have been
+              affected.
+            </p>
             <div className={summaryStyles.container}>
               {!hideSmallCards && (
                 <>
