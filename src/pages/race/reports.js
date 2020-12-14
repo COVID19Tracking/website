@@ -1,4 +1,4 @@
-/*eslint-disable*/
+/* eslint-disable no-param-reassign */
 
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
@@ -66,13 +66,11 @@ const ReportingPage = () => {
     >
       <LongContent>
         <p>
-          As 2020 comes to an end, we team up with student reporters at New York 
+          As 2020 comes to an end, we team up with student reporters at New York
           University led by data journalist{' '}
-          <a href="https://twitter.com/merbroussard">
-            Meredith Broussard
-          </a>{' '}
-          to investigate ongoing racial inequities in testing and treatment
-          across the country.
+          <a href="https://twitter.com/merbroussard">Meredith Broussard</a> to
+          investigate ongoing racial inequities in testing and treatment across
+          the country.
         </p>
       </LongContent>
       <Container>

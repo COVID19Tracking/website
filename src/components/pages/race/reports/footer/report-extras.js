@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import React from 'react'
 import AuthorFooter from '~components/pages/blog/footer/author-footer'
 import reportExtrasStyles from './report-extras.module.scss'

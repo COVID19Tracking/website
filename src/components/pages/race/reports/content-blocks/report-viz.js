@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React, { useEffect, useState } from 'react'
 import TableauChart from '~components/charts/tableau'
 import ImageContentBlock from '~components/pages/blog/content-blocks/image-content-block'
