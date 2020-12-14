@@ -1,10 +1,11 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import { DateTime } from 'luxon'
-import { FormatNumber } from '~components/utils/format'
+import { Number } from '../sidebar'
 import LineChart from '~components/charts/line-chart'
 import sidebarStyle from './sidebar.module.scss'
 import colors from '~scss/colors.module.scss'
+import { Row, Col } from '~components/common/grid'
 
 const chartProps = {
   height: 180,
@@ -50,28 +51,27 @@ const Chart = ({ history }) => {
   )
 }
 
-const MapNumber = ({ number, label }) => (
-  <div className={sidebarStyle.number}>
-    <h3 className="a11y-only">{label}</h3>
-    <FormatNumber number={number} />
-    <p aria-hidden className={sidebarStyle.label}>
-      {label}
-    </p>
-  </div>
-)
-
 const Sidebar = ({ state, us }) => (
-  <>
+  <div className={sidebarStyle.sidebar}>
     <h2 className={sidebarStyle.header}>Latest totals</h2>
     {state ? (
       <>
         <h3 className={sidebarStyle.stateName}>{state.state.name}</h3>
-        <MapNumber
-          number={state.state.current.totalTestResults}
-          label="Total test results"
-        />
-        <MapNumber number={state.state.current.positive} label="Cases" />
-        <MapNumber number={state.state.current.death} label="Deaths" />
+        <Row>
+          <Col width={[4, 2, 12]}>
+            <Number
+              number={state.state.current.totalTestResults}
+              label="Total test results"
+            />
+          </Col>
+          <Col width={[4, 2, 12]}>
+            <Number number={state.state.current.positive} label="Cases" />
+          </Col>
+          <Col width={[4, 2, 12]}>
+            <Number number={state.state.current.death} label="Deaths" />
+          </Col>
+        </Row>
+
         <Chart history={state.state.history} />
         <Link
           to={`/data/state/${state.state.name}`}
@@ -82,13 +82,19 @@ const Sidebar = ({ state, us }) => (
         </Link>
       </>
     ) : (
-      <>
-        <MapNumber number={us.totalTestResults} label="Total test results" />
-        <MapNumber number={us.positive} label="Cases" />
-        <MapNumber number={us.death} label="Deaths" />
-      </>
+      <Row>
+        <Col width={[4, 2, 12]}>
+          <Number number={us.totalTestResults} label="Total test results" />
+        </Col>
+        <Col width={[4, 2, 12]}>
+          <Number number={us.positive} label="Cases" />
+        </Col>
+        <Col width={[4, 2, 12]}>
+          <Number number={us.death} label="Deaths" />
+        </Col>
+      </Row>
     )}
-  </>
+  </div>
 )
 
 export default Sidebar

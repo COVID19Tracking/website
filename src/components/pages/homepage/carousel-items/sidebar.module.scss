@@ -1,0 +1,9 @@
+.number {
+  @include type-size(500);
+  @include padding(16, top bottom);
+  border-bottom: 1px solid $color-slate-400;
+  .label {
+    margin: 0;
+    @include type-size(200);
+  }
+}

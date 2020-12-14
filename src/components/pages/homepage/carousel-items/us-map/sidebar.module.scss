@@ -1,13 +1,3 @@
-.number {
-  @include type-size(500);
-  @include padding(16, top bottom);
-  border-bottom: 1px solid $color-slate-400;
-  .label {
-    margin: 0;
-    @include type-size(200);
-  }
-}
-
 .header {
   @include type-size(300);
 }
@@ -32,5 +22,16 @@
 }
 
 .chart {
-  @include margin(16, top);
+  display: none;
+  @media (min-width: $viewport-lg) {
+    display: block;
+    @include margin(16, top);
+  }
+}
+
+.sidebar {
+  display: none;
+  @media (min-width: $viewport-md) {
+    display: block;
+  }
 }
