@@ -1,7 +1,6 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import classnames from 'classnames'
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs'
 import Container from '~components/common/container'
 import USMap from './carousel-items/us-map'
@@ -16,8 +15,6 @@ const components = {
 }
 
 const CarouselItem = ({ item }) => {
-  const [disclosureOpen, setDisclosureOpen] = useState(false)
-  const disclosureRef = useRef()
   if (typeof components[item.configuration.component] === 'undefined') {
     return null
   }
@@ -27,36 +24,6 @@ const CarouselItem = ({ item }) => {
       <ItemComponent
         configuration={item.configuration.configuration}
         item={item}
-      />
-
-      <button
-        className={carouselStyle.disclosureToggle}
-        type="button"
-        aria-expanded={disclosureOpen}
-        onClick={event => {
-          event.preventDefault()
-          setDisclosureOpen(!disclosureOpen)
-          if (!disclosureOpen) {
-            disclosureRef.current.focus()
-          }
-        }}
-      >
-        <span className={carouselStyle.text}>About the data</span>{' '}
-        <span aria-hidden>{disclosureOpen ? <>↑</> : <>↓</>}</span>
-      </button>
-      <div
-        ref={disclosureRef}
-        tabIndex="-1"
-        className={classnames(
-          carouselStyle.disclosure,
-          disclosureOpen && carouselStyle.isOpen,
-        )}
-        aria-expanded={disclosureOpen}
-        dangerouslySetInnerHTML={{
-          __html:
-            item.childContentfulHomepageCarouselItemDataDisclaimerTextNode
-              .childMarkdownRemark.html,
-        }}
       />
     </>
   )
