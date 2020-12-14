@@ -28,7 +28,7 @@ const Legend = ({ r, className }) => {
   )
 }
 
-const State = ({ x, y, r, state, onClick, className }) => {
+const State = ({ x, y, r, state, onClick, className, isActive }) => {
   const padding = r / 8
   const hexPoints = [
     [x, y - r + padding],
@@ -50,7 +50,9 @@ const State = ({ x, y, r, state, onClick, className }) => {
       <polygon
         points={hexPoints.map(item => item.join(',')).join(' ')}
         className={mapStyle.state}
-        style={{ filter: 'url(#dropshadow)' }}
+        style={{
+          filter: isActive ? 'url(#dropshadow-large)' : 'url(#dropshadow)',
+        }}
         onClick={() => {
           if (onClick) {
             onClick()

@@ -52,7 +52,7 @@ const SvgFilters = () => (
       <feGaussianBlur in="SourceAlpha" stdDeviation="6" />
       <feOffset dx="0" dy="0" result="offsetblur" />
       <feComponentTransfer>
-        <feFuncA type="linear" slope="0.4" />
+        <feFuncA type="linear" slope="0.8" />
       </feComponentTransfer>
       <feMerge>
         <feMergeNode />
