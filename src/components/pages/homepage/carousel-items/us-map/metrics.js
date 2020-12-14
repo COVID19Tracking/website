@@ -15,6 +15,13 @@ export default {
         state.state,
         item => item.childPopulation.positive.per100k,
       ),
+    getUsValue: history =>
+      history
+        .slice(0, 7)
+        .reduce(
+          (total, item) => total + item.childPopulation.positive.per100k,
+          0,
+        ) / 7,
     getColor: item => {
       if (item > 5000) {
         return mapStyle.level4
@@ -51,6 +58,10 @@ export default {
     getValue: (history, state) =>
       getAverage(history, state.state, item => item.positiveIncrease),
 
+    getUsValue: history =>
+      history
+        .slice(0, 7)
+        .reduce((total, item) => total + item.positiveIncrease, 0) / 7,
     getColor: item => {
       if (item > 5000) {
         return mapStyle.level4

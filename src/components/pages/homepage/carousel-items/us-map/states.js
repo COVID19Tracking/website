@@ -95,7 +95,7 @@ const State = ({ x, y, r, state, onClick, className }) => {
   )
 }
 
-const US = ({ r, onClick }) => {
+const US = ({ r, value, onClick, className }) => {
   const x = r
   const y = r
   const hexPoints = [
@@ -123,7 +123,7 @@ const US = ({ r, onClick }) => {
       />
       <polygon
         points={hexIndicatorPoints.map(item => item.join(',')).join(' ')}
-        className={mapStyle.stateIndicator}
+        className={classnames(mapStyle.stateIndicator, className(value))}
         onClick={() => onClick()}
       />
       <text
@@ -142,7 +142,7 @@ const US = ({ r, onClick }) => {
         className={mapStyle.stateNumber}
         onClick={() => onClick()}
       >
-        [TK]
+        {Math.round(value).toLocaleString()}
       </text>
     </g>
   )

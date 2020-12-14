@@ -101,7 +101,7 @@ const USMap = ({ configuration, item }) => {
   let usValue = 0
   const us = {
     current: data.covidUs,
-    value: usValue,
+    value: metrics[metric].getUsValue(data.allCovidUsDaily.nodes),
   }
 
   const lastUpdate = data.lastUpdate.nodes[0].date

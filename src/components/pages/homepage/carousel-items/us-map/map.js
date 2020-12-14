@@ -151,6 +151,8 @@ const Map = ({ states, us, metric, lastUpdate }) => {
           >
             <US
               r={hexRad * 1.5}
+              value={us.value}
+              className={value => metric.getColor(value)}
               onClick={() => {
                 setActiveState(false)
               }}
