@@ -41,7 +41,10 @@ const ReportTemplate = ({ data, path }) => {
       hero={hero}
       centerTitle
     >
-      <ReportContent content={crdtReport.blogContent} />
+      <ReportContent
+        content={crdtReport.blogContent}
+        vizImage={crdtReport.imageTableauViz}
+      />
       <ReportExtras crdtReport={crdtReport} />
     </Layout>
   )
@@ -73,6 +76,21 @@ export const query = graphql`
             height
             src
           }
+        }
+      }
+      imageTableauViz {
+        id
+        contentful_id
+        file {
+          url
+        }
+        title
+        description
+        fluid(maxWidth: 720, sizes: "4") {
+          aspectRatio
+          sizes
+          src
+          srcSet
         }
       }
       socialCard {

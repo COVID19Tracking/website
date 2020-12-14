@@ -4,10 +4,10 @@ import { BLOCKS } from '@contentful/rich-text-types'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import LongContent from '~components/common/long-content'
 import CleanSpacing from '~components/utils/clean-spacing'
-import TableauChart from '~components/charts/tableau'
 import reportContentStyles from './report-content.module.scss'
+import Visualization from './content-blocks/report-viz'
 
-const ReportContent = ({ content }) => {
+const ReportContent = ({ content, vizImage }) => {
   const options = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_, children) => (
@@ -26,11 +26,11 @@ const ReportContent = ({ content }) => {
         if (__typename === 'ContentfulContentBlockTableauChart') {
           const { contentful_id, url, height } = target
           return (
-            <TableauChart
-              id={contentful_id}
-              viewUrl={url}
-              className={reportContentStyles.chart}
-              height={height + 27} // Account for bottom controls
+            <Visualization
+              contentfulId={contentful_id}
+              url={url}
+              height={height}
+              vizImage={vizImage}
             />
           )
         }
