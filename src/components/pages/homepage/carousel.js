@@ -4,7 +4,10 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs'
 import Container from '~components/common/container'
 import USMap from './carousel-items/us-map'
-import ChartNationalHospitalization from './carousel-items/chart-national-hospitalization'
+import ChartNationalHospitalization from './carousel-items/charts/national-hospitalization'
+import ChartNationalCases from './carousel-items/charts/national-cases'
+import CarouselChartNationalDeaths from './carousel-items/charts/national-deaths'
+import CarouselChartNationalTests from './carousel-items/charts/national-tests'
 import DailyTweet from './carousel-items/daily-tweet'
 import carouselStyle from './carousel.module.scss'
 
@@ -12,6 +15,9 @@ const components = {
   'us-map': USMap,
   'daily-tweet': DailyTweet,
   'chart-national-hospitalization': ChartNationalHospitalization,
+  'chart-national-cases': ChartNationalCases,
+  'chart-national-deaths': CarouselChartNationalDeaths,
+  'chart-national-testing': CarouselChartNationalTests,
 }
 
 const CarouselItem = ({ item }) => {
@@ -28,6 +34,33 @@ const CarouselItem = ({ item }) => {
     </>
   )
 }
+
+const SvgFilters = () => (
+  <svg aria-hidden width={0} height={0}>
+    <filter id="dropshadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+      <feOffset dx="0" dy="0" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="dropshadow-large">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" />
+      <feOffset dx="0" dy="0" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.4" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </svg>
+)
 
 const HomepageCarousel = () => {
   const data = useStaticQuery(graphql`
@@ -51,26 +84,29 @@ const HomepageCarousel = () => {
     }
   `)
   return (
-    <Tabs>
-      <TabList className={carouselStyle.tabs}>
-        <Container>
-          {data.contentfulHomepageCarousel.items.map((item, key) => (
-            <Tab key={`carousel-tab-${key}`}>{item.label}</Tab>
-          ))}
-        </Container>
-      </TabList>
-      <div className={carouselStyle.carousel}>
-        <Container>
-          <TabPanels>
+    <>
+      <Tabs>
+        <TabList className={carouselStyle.tabs}>
+          <Container>
             {data.contentfulHomepageCarousel.items.map((item, key) => (
-              <TabPanel key={`carousel-item-${key}`}>
-                <CarouselItem item={item} />
-              </TabPanel>
+              <Tab key={`carousel-tab-${key}`}>{item.label}</Tab>
             ))}
-          </TabPanels>
-        </Container>
-      </div>
-    </Tabs>
+          </Container>
+        </TabList>
+        <div className={carouselStyle.carousel}>
+          <Container>
+            <TabPanels>
+              {data.contentfulHomepageCarousel.items.map((item, key) => (
+                <TabPanel key={`carousel-item-${key}`}>
+                  <CarouselItem item={item} />
+                </TabPanel>
+              ))}
+            </TabPanels>
+          </Container>
+        </div>
+      </Tabs>
+      <SvgFilters />
+    </>
   )
 }
 

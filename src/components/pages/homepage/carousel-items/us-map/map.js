@@ -109,7 +109,7 @@ const Map = ({ states, us, metric, lastUpdate }) => {
             className={mapStyle.map}
             ref={mapRef}
             style={{ width: '100%' }}
-            viewBox={`0 -50 ${width} ${height}`}
+            viewBox={`0 -50 ${width} ${height + 50}`}
             tabIndex="0"
             aria-hidden
             onBlur={() => {
