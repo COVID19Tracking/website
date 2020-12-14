@@ -1,9 +1,23 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import { DateTime } from 'luxon'
 import BarChart from '~components/charts/bar-chart'
 import { Col, Row } from '~components/common/grid'
+import chartStyle from './chart.module.scss'
 
-const Chart = ({ data, field, fill, lineColor }) => {
+const Chart = ({ title, data, field, fill, lineColor }) => {
+  const graphqlData = useStaticQuery(graphql`
+    {
+      lastUpdate: allCovidUsDaily(
+        sort: { fields: date, order: DESC }
+        limit: 1
+      ) {
+        nodes {
+          date(formatString: "MMMM D, YYYY")
+        }
+      }
+    }
+  `)
   const daily = data
     .map(item => ({
       date: DateTime.fromISO(item.date).toJSDate(),
@@ -28,6 +42,10 @@ const Chart = ({ data, field, fill, lineColor }) => {
   return (
     <Row>
       <Col width={[4, 6, 8]}>
+        <div className={chartStyle.label}>
+          <h3>{title}</h3>
+          <p>Data updated {graphqlData.lastUpdate.nodes[0].date}</p>
+        </div>
         <BarChart
           data={daily}
           lineData={dailyAverage}
