@@ -7,9 +7,7 @@ exports[`Components : Pages : Blog : Categories renders correctly 1`] = `
   <p
     className="category"
   >
-    <a
-      href="/blog/category/category-one"
-    >
+    <a>
       category one
     </a>
   </p>
