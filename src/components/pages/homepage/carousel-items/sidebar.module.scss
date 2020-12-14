@@ -7,3 +7,7 @@
     @include type-size(200);
   }
 }
+
+.header {
+  @include type-size(300);
+}

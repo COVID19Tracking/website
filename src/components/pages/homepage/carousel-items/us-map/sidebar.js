@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import { DateTime } from 'luxon'
-import { Number } from '../sidebar'
+import { Number, Header } from '../sidebar'
 import LineChart from '~components/charts/line-chart'
 import sidebarStyle from './sidebar.module.scss'
 import colors from '~scss/colors.module.scss'
@@ -53,7 +53,7 @@ const Chart = ({ history }) => {
 
 const Sidebar = ({ state, us }) => (
   <div className={sidebarStyle.sidebar}>
-    <h2 className={sidebarStyle.header}>Latest totals</h2>
+    <Header>Latest totals</Header>
     {state ? (
       <>
         <h3 className={sidebarStyle.stateName}>{state.state.name}</h3>

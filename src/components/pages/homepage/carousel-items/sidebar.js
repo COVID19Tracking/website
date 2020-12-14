@@ -12,6 +12,10 @@ const Number = ({ number, label }) => (
   </div>
 )
 
+const Header = ({ children }) => (
+  <h2 className={sidebarStyle.header}>{children}</h2>
+)
+
 export default Number
 
-export { Number }
+export { Number, Header }
