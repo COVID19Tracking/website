@@ -1,13 +1,26 @@
+.wrapper {
+  background: $color-blueberry-250;
+  @include padding(64, top bottom);
+  p {
+    @include type-size(300);
+  }
+}
+
 .header {
-  margin-top: 0;
+  margin: 0;
 }
 
 .toggle {
   @include remove-button-style();
-  @include margin(16, left);
-  .text {
-    text-decoration: underline;
-  }
+  @include type-size(400);
+  @include margin(16, top);
+  color: $color-blueberry-400;
+}
+
+.state-link {
+  color: $color-blueberry-400;
+  @include type-size(400);
+  text-decoration: none;
 }
 
 .state-list {

@@ -1,10 +1,12 @@
 .wrapper {
   background: $color-slate-700;
-  @include padding(32, top bottom);
-  @include margin(32, top bottom);
+  @include padding(64, top bottom);
   color: white;
-  &.no-margin {
-    margin-bottom: 0;
+  &.bottom-margin {
+    @include margin(32, bottom);
+  }
+  &.top-margin {
+    @include margin(32, top);
   }
   a {
     color: white;
@@ -23,7 +25,7 @@
 }
 
 .links {
-  @media (min-width: $viewport-lg) {
-    border-left: 1px solid white;
-  }
+  border-top: 1px solid white;
+  @include type-size(300);
+  @include padding(16, top);
 }

@@ -36,6 +36,7 @@ const Chart = ({ history }) => {
 
   return (
     <div className={sidebarStyle.chart}>
+      <h3>New cases</h3>
       <LineChart
         data={[
           {
@@ -64,10 +65,10 @@ const Sidebar = ({ state, us }) => (
               label="Total test results"
             />
           </Col>
-          <Col width={[4, 2, 12]}>
+          <Col width={[4, 2, 12]} paddingLeft={[0, 16, 0]}>
             <Number number={state.state.current.positive} label="Cases" />
           </Col>
-          <Col width={[4, 2, 12]}>
+          <Col width={[4, 2, 12]} paddingLeft={[0, 16, 0]}>
             <Number number={state.state.current.death} label="Deaths" />
           </Col>
         </Row>

@@ -4,17 +4,13 @@ import HomepageWrapper from './wrapper'
 
 const HomepageAbout = () => (
   <HomepageWrapper
-    title="Snappy headline about the project"
+    bottomMargin
+    title="The COVID Tracking Project provides the most comprehensive data about COVID-19 in the US."
     links={[
       <Link to="/about-data">How to use the data</Link>,
       <Link to="/data/charts">Our charts</Link>,
     ]}
-  >
-    <p>
-      Every day, our volunteers compile the latest numbers on tests, cases,
-      hospitalizations, and patient outcomes from every US state and territory.
-    </p>
-  </HomepageWrapper>
+  />
 )
 
 export default HomepageAbout

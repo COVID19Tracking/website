@@ -23,6 +23,11 @@
     display: block;
     @include margin(16, top);
   }
+  h3 {
+    @include type-size(200);
+    margin: 0;
+    font-weight: normal;
+  }
 }
 
 .sidebar {

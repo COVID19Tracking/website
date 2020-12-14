@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import Container from '~components/common/landing-page/container'
+import Container from '~components/common/container'
 import { Row, Col } from '~components/common/grid'
 import wrapperStyle from './wrapper.module.scss'
 
@@ -8,12 +8,14 @@ const HomepageWrapper = ({
   children,
   links,
   title,
-  noBottomMargin = false,
+  bottomMargin = false,
+  topMargin = false,
 }) => (
   <div
     className={classnames(
       wrapperStyle.wrapper,
-      noBottomMargin && wrapperStyle.noMargin,
+      bottomMargin && wrapperStyle.noBottomMargin,
+      topMargin && wrapperStyle.noTopMargin,
     )}
   >
     <Container>
@@ -25,11 +27,14 @@ const HomepageWrapper = ({
         <Col
           width={[4, 6, 3]}
           className={wrapperStyle.links}
-          paddingLeft={[0, 0, 32]}
+          paddingLeft={[0, 0, 0]}
         >
           <ul>
             {links.map(link => (
-              <li>{link}</li>
+              <li>
+                {link}
+                <span aria-hidden> →</span>
+              </li>
             ))}
           </ul>
         </Col>

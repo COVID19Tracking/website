@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import classnames from 'classnames'
 import { Row, Col } from '~components/common/grid'
-import Container from '~components/common/landing-page/container'
+import Container from '~components/common/container'
 import datasetsStyle from './datasets.module.scss'
 
 const Dataset = ({ title, children, link, stateLink }) => {
@@ -26,8 +26,8 @@ const Dataset = ({ title, children, link, stateLink }) => {
     <>
       <h3 className={datasetsStyle.header}>{title}</h3>
       <p>{children}</p>
+      <div>{link}</div>
       <div>
-        {link}{' '}
         <button
           className={datasetsStyle.toggle}
           type="button"
@@ -69,40 +69,55 @@ const Dataset = ({ title, children, link, stateLink }) => {
 }
 
 const HomepageDatasets = () => (
-  <Container>
-    <h2>Our key datasets</h2>
-    <Row>
-      <Col width={[4, 3, 6]}>
-        <Dataset
-          title="Race &amp; ethnicity"
-          link={<Link to="/race">All race &amp; ethnicity data</Link>}
-          stateLink={state =>
-            `/race/dashboard#state-${state.state.toLowerCase()}`
-          }
-        >
-          The COVID Racial Data Tracker is a collaboration between the COVID
-          Tracking Project and the Boston University Center for Antiracist
-          Research. Together, we’re gathering the most complete and up-to-date
-          race and ethnicity data on COVID-19 in the United States.
-        </Dataset>
-      </Col>
-      <Col width={[4, 3, 6]}>
-        <Dataset
-          title="Long-term care"
-          link={<Link to="/data/longtermcare">All long-term care data</Link>}
-          stateLink={state =>
-            `/data/state/${state.childSlug.slug}/long-term-care`
-          }
-        >
-          To date, the Long-Term Care COVID Tracker is the most comprehensive
-          dataset about COVID-19 in US long-term care facilities. It compiles
-          crucial data about the effects of the pandemic on a population with
-          extraordinary vulnerabilities to the virus due to age, underlying
-          health conditions, or proximity to large outbreaks.
-        </Dataset>
-      </Col>
-    </Row>
-  </Container>
+  <div className={datasetsStyle.wrapper}>
+    <Container>
+      <Row>
+        <Col width={[4, 3, 6]} paddingRight={[0, 16, 32]}>
+          <Dataset
+            title="Race &amp; ethnicity"
+            link={
+              <Link to="/race" className={datasetsStyle.stateLink}>
+                All race &amp; ethnicity data <span aria-hidden>→</span>
+              </Link>
+            }
+            stateLink={state =>
+              `/race/dashboard#state-${state.state.toLowerCase()}`
+            }
+          >
+            <p>
+              The COVID Racial Data Tracker is a collaboration between the COVID
+              Tracking Project and the Boston University Center for Antiracist
+              Research. Together, we’re gathering the most complete and
+              up-to-date race and ethnicity data on COVID-19 in the United
+              States.
+            </p>
+          </Dataset>
+        </Col>
+        <Col width={[4, 3, 6]} paddingLeft={[0, 16, 32]}>
+          <Dataset
+            title="Long-term care"
+            link={
+              <Link to="/data/longtermcare" className={datasetsStyle.stateLink}>
+                All long-term care data <span aria-hidden>→</span>
+              </Link>
+            }
+            stateLink={state =>
+              `/data/state/${state.childSlug.slug}/long-term-care`
+            }
+          >
+            <p>
+              To date, the Long-Term Care COVID Tracker is the most
+              comprehensive dataset about COVID-19 in US long-term care
+              facilities. It compiles crucial data about the effects of the
+              pandemic on a population with extraordinary vulnerabilities to the
+              virus due to age, underlying health conditions, or proximity to
+              large outbreaks.
+            </p>
+          </Dataset>
+        </Col>
+      </Row>
+    </Container>
+  </div>
 )
 
 export default HomepageDatasets
