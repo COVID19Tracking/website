@@ -2,8 +2,8 @@ import { Link } from 'gatsby'
 import React from 'react'
 import { DateTime } from 'luxon'
 import { FormatNumber } from '~components/utils/format'
-import sidebarStyle from './sidebar.module.scss'
 import LineChart from '~components/charts/line-chart'
+import sidebarStyle from './sidebar.module.scss'
 import colors from '~scss/colors.module.scss'
 
 const chartProps = {
@@ -34,17 +34,19 @@ const Chart = ({ history }) => {
   })
 
   return (
-    <LineChart
-      data={[
-        {
-          color: colors.colorStrawberry200,
-          stroke: 2,
-          label: 'Cases',
-          data: caseData,
-        },
-      ]}
-      {...chartProps}
-    />
+    <div className={sidebarStyle.chart}>
+      <LineChart
+        data={[
+          {
+            color: colors.colorStrawberry200,
+            stroke: 2,
+            label: 'Cases',
+            data: caseData,
+          },
+        ]}
+        {...chartProps}
+      />
+    </div>
   )
 }
 

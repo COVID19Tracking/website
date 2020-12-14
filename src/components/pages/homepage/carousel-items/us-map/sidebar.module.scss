@@ -30,3 +30,7 @@
     }
   }
 }
+
+.chart {
+  @include margin(16, top);
+}
