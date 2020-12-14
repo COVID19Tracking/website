@@ -15,7 +15,7 @@ const List = ({ states, metric, us }) => (
       {states.map(state => (
         <li>
           <Link to={`/data/state/${state.childSlug.slug}`}>{state.name}</Link>:{' '}
-          {Math.round(state.value)} and is moving {state.direction}
+          {Math.round(state.value)}
         </li>
       ))}
     </ul>
@@ -93,10 +93,6 @@ const USMap = ({ configuration, item }) => {
       ...state,
       current: data.allCovidState.nodes.find(row => row.state === state.state),
       value: metrics[metric].getValue(data.allCovidStateDaily.group, state),
-      direction: metrics[metric].getDirection(
-        data.allCovidStateDaily.group,
-        state,
-      ),
       history: data.allCovidStateDaily.group.find(
         group => group.nodes[0].state === state.state,
       ).nodes,
