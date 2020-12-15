@@ -18,12 +18,18 @@
 }
 
 .chart {
-  display: none;
+  display: block;
+  @include margin(16, top);
+  svg {
+    @include margin(16, top left);
+  }
+  @media (min-width: $viewport-md) {
+    display: none;
+  }
   @media (min-width: $viewport-lg) {
     display: block;
-    @include margin(16, top);
     svg {
-      @include margin(16, top);
+      margin-left: 0;
     }
   }
   h3 {
@@ -39,5 +45,8 @@
   height: 100%;
   @media (min-width: $viewport-md) {
     display: flex;
+  }
+  &.in-modal {
+    display: flex !important;
   }
 }
