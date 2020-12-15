@@ -1,0 +1,73 @@
+.wrapper {
+  display: block;
+  @media (min-width: $viewport-md) {
+    display: none;
+  }
+}
+
+.us {
+  width: 180px;
+  height: 180px;
+  @include margin(16, top bottom);
+}
+
+.grid {
+  list-style-type: none;
+  padding: 0;
+  li {
+    display: inline-block;
+    @include margin(8, right bottom);
+  }
+}
+
+.state {
+  width: 64px;
+  height: 64px;
+  background: white;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.name {
+  font-weight: bold;
+  abbr {
+    border-bottom: 0;
+    text-decoration: none;
+  }
+}
+
+.indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+}
+
+.legend {
+  list-style-type: none;
+  @include margin(16, top);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  @media (min-width: $viewport-md) {
+    display: none;
+  }
+  li {
+    flex-basis: 50%;
+    @include margin(16, bottom);
+    display: flex;
+    align-items: center;
+  }
+  .swatch {
+    width: 20px;
+    height: 20px;
+    @include margin(8, right);
+  }
+}
