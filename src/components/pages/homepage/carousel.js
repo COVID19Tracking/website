@@ -8,12 +8,12 @@ import ChartNationalHospitalization from './carousel-items/charts/national-hospi
 import ChartNationalCases from './carousel-items/charts/national-cases'
 import CarouselChartNationalDeaths from './carousel-items/charts/national-deaths'
 import CarouselChartNationalTests from './carousel-items/charts/national-tests'
-import DailyTweet from './carousel-items/daily-tweet'
+import NationalCharts from './carousel-items/national-chart'
 import carouselStyle from './carousel.module.scss'
 
 const components = {
   'us-map': USMap,
-  'daily-tweet': DailyTweet,
+  'national-chart': NationalCharts,
   'chart-national-hospitalization': ChartNationalHospitalization,
   'chart-national-cases': ChartNationalCases,
   'chart-national-deaths': CarouselChartNationalDeaths,
