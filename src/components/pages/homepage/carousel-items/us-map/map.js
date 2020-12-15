@@ -78,7 +78,7 @@ const Map = ({ states, us, relatedPost, metric, lastUpdate }) => {
       <Row>
         <Col width={[4, 6, 9]}>
           <div className={mapStyle.mapLabel}>
-            <h3>{metric.title}</h3>
+            <h2>{metric.title}</h2>
             <p>
               Data updated {lastUpdate}
               {hasKeyboardFocus && (

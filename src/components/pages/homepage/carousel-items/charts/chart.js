@@ -51,7 +51,7 @@ const Chart = ({ title, data, field, fill, lineColor }) => {
     <Row>
       <Col width={[4, 6, 10]}>
         <div className={chartStyle.label}>
-          <h3>{title}</h3>
+          <h2>{title}</h2>
           <p>Data updated {lastUpdate.nodes[0].date}</p>
         </div>
         <BarChart

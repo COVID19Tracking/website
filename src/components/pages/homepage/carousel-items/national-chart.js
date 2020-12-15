@@ -78,7 +78,7 @@ const NationalChart = () => {
   return (
     <>
       <div className={chartStyle.label}>
-        <h3>National overview</h3>
+        <h2>National overview</h2>
         <p>Data updated {data.lastUpdate.nodes[0].date}</p>
       </div>
       <Row>
