@@ -21,7 +21,7 @@
   display: block;
   @include margin(16, top);
   svg {
-    @include margin(16, top left);
+    @include margin(32, top left right);
   }
   @media (min-width: $viewport-md) {
     display: none;
