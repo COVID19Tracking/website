@@ -8,12 +8,12 @@ const BlogFeatured = () => {
   const data = useStaticQuery(graphql`
     {
       allContentfulBlogPost(
-        filter: { featureOnHomepage: { ne: true } }
-        limit: 2
+        limit: 3
         sort: { fields: publishDate, order: DESC }
       ) {
         nodes {
           title
+          featureOnHomepage
           publishDate(formatString: "MMMM d, yyy")
           homepageImage {
             fixed(width: 800) {
@@ -33,10 +33,20 @@ const BlogFeatured = () => {
   if (!nodes) {
     return null
   }
+  let hasFeatured = false
+  const posts = nodes
+    .map(node => {
+      if (!hasFeatured && node.featureOnHomepage) {
+        hasFeatured = true
+        return false
+      }
+      return node
+    })
+    .filter(item => item)
   return (
     <>
       <Row>
-        {nodes.map((post, index) => (
+        {posts.map((post, index) => (
           <Col
             width={[4, 6, 6]}
             className={blogStyle.post}
