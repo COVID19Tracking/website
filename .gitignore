@@ -71,6 +71,7 @@ public
 # Data API build directory
 _data
 _api
+_screenshots
 
 # Storybook build
 storybook-static
