@@ -35,7 +35,9 @@
 
 .sidebar {
   display: none;
+  flex-direction: column;
+  height: 100%;
   @media (min-width: $viewport-md) {
-    display: block;
+    display: flex;
   }
 }

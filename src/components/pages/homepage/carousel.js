@@ -79,6 +79,11 @@ const HomepageCarousel = () => {
               html
             }
           }
+          relatedPost {
+            title
+            slug
+            publishDate(formatString: "MMM d, yyyy")
+          }
         }
       }
     }

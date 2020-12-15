@@ -37,7 +37,7 @@ export default {
     legend: [
       {
         style: mapStyle.level1,
-        label: '< 2,000',
+        label: 'Below 2,000 cases',
       },
       {
         style: mapStyle.level2,
@@ -49,7 +49,7 @@ export default {
       },
       {
         style: mapStyle.level4,
-        label: '> 5,000 cases',
+        label: 'Over 5,000 cases',
       },
     ],
   },
@@ -77,7 +77,7 @@ export default {
     legend: [
       {
         style: mapStyle.level1,
-        label: '< 2,000',
+        label: 'Below 2,000',
       },
       {
         style: mapStyle.level2,
@@ -89,7 +89,7 @@ export default {
       },
       {
         style: mapStyle.level4,
-        label: '> 5,000 cases',
+        label: 'Over 5,000 cases',
       },
     ],
   },

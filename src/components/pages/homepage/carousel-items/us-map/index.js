@@ -112,6 +112,7 @@ const USMap = ({ configuration, item }) => {
         states={states}
         metric={metrics[metric]}
         us={us}
+        relatedPost={item.relatedPost}
         lastUpdate={lastUpdate}
       />
       <Grid

@@ -10,42 +10,26 @@ import mapStyle from './us-map.module.scss'
 
 const MapLegend = ({ legend }) => {
   const hexRadius = 15
-  const [isExpanded, setIsExpanded] = useState(false)
   return (
-    <>
-      <button
-        className={mapStyle.legendToggle}
-        type="button"
-        aria-expanded={isExpanded}
-        onClick={() => setIsExpanded(!isExpanded)}
-      >
-        <span className={mapStyle.text}>View legend</span>{' '}
-        <span aria-hidden>{isExpanded ? <>↑</> : <>↓</>}</span>
-      </button>
-      {isExpanded && (
-        <div aria-expanded>
-          <ul className={mapStyle.legend}>
-            {legend.map(item => (
-              <li>
-                <svg
-                  className={mapStyle.legendHex}
-                  viewBox={`0 0 ${hexRadius * 2 + 10} ${hexRadius * 2 + 10}`}
-                  tabIndex="0"
-                  aria-hidden
-                >
-                  <Legend r={hexRadius} className={item.style} />
-                </svg>
-                {item.label}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </>
+    <ul className={mapStyle.legend}>
+      {legend.map(item => (
+        <li>
+          <svg
+            className={mapStyle.legendHex}
+            viewBox={`0 0 ${hexRadius * 2 + 10} ${hexRadius * 2 + 10}`}
+            tabIndex="0"
+            aria-hidden
+          >
+            <Legend r={hexRadius} className={item.style} />
+          </svg>
+          {item.label}
+        </li>
+      ))}
+    </ul>
   )
 }
 
-const Map = ({ states, us, metric, lastUpdate }) => {
+const Map = ({ states, us, relatedPost, metric, lastUpdate }) => {
   const [activeState, setActiveState] = useState(false)
   const [hasKeyboardFocus, setHasKeyboardFocus] = useState(false)
   const mapRef = useRef()
@@ -92,7 +76,7 @@ const Map = ({ states, us, metric, lastUpdate }) => {
   return (
     <div>
       <Row>
-        <Col width={[4, 6, 10]}>
+        <Col width={[4, 6, 9]}>
           <div className={mapStyle.mapLabel}>
             <h3>{metric.title}</h3>
             <p>
@@ -182,8 +166,12 @@ const Map = ({ states, us, metric, lastUpdate }) => {
           </svg>
           <MapLegend legend={metric.legend} />
         </Col>
-        <Col width={[4, 6, 2]}>
-          <Sidebar state={activeState} us={us.current} />
+        <Col width={[4, 6, 3]}>
+          <Sidebar
+            state={activeState}
+            us={us.current}
+            relatedPost={relatedPost}
+          />
         </Col>
       </Row>
     </div>

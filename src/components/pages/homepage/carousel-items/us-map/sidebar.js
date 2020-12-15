@@ -1,11 +1,11 @@
-import { Link } from 'gatsby'
 import React from 'react'
+import { Link } from 'gatsby'
 import { DateTime } from 'luxon'
-import { Number, Header } from '../sidebar'
+import { Number, Header, RelatedPost } from '../sidebar'
 import LineChart from '~components/charts/line-chart'
 import sidebarStyle from './sidebar.module.scss'
 import colors from '~scss/colors.module.scss'
-import { Row, Col } from '~components/common/grid'
+import { Row } from '~components/common/grid'
 
 const chartProps = {
   height: 180,
@@ -52,25 +52,19 @@ const Chart = ({ history }) => {
   )
 }
 
-const Sidebar = ({ state, us }) => (
+const Sidebar = ({ state, us, relatedPost = false }) => (
   <div className={sidebarStyle.sidebar}>
     <Header>Latest totals</Header>
     {state ? (
       <>
         <h3 className={sidebarStyle.stateName}>{state.state.name}</h3>
         <Row>
-          <Col width={[4, 2, 12]}>
-            <Number
-              number={state.state.current.totalTestResults}
-              label="Total test results"
-            />
-          </Col>
-          <Col width={[4, 2, 12]} paddingLeft={[0, 16, 0]}>
-            <Number number={state.state.current.positive} label="Cases" />
-          </Col>
-          <Col width={[4, 2, 12]} paddingLeft={[0, 16, 0]}>
-            <Number number={state.state.current.death} label="Deaths" />
-          </Col>
+          <Number
+            number={state.state.current.totalTestResults}
+            label="Total test results"
+          />
+          <Number number={state.state.current.positive} label="Cases" />
+          <Number number={state.state.current.death} label="Deaths" />
         </Row>
 
         <Chart history={state.state.history} />
@@ -83,17 +77,20 @@ const Sidebar = ({ state, us }) => (
         </Link>
       </>
     ) : (
-      <Row>
-        <Col width={[4, 2, 12]}>
+      <>
+        <Row>
           <Number number={us.totalTestResults} label="Total test results" />
-        </Col>
-        <Col width={[4, 2, 12]}>
           <Number number={us.positive} label="Cases" />
-        </Col>
-        <Col width={[4, 2, 12]}>
           <Number number={us.death} label="Deaths" />
-        </Col>
-      </Row>
+        </Row>
+        {relatedPost && (
+          <RelatedPost
+            title={relatedPost.title}
+            slug={relatedPost.slug}
+            date={relatedPost.publishDate}
+          />
+        )}
+      </>
     )}
   </div>
 )
