@@ -1,4 +1,5 @@
 @import './normalize.css';
+@import './fonts.css';
 
 html {
   box-sizing: border-box;
@@ -13,10 +14,10 @@ html {
 body {
   @include type-size(200);
   color: $text;
-  font: 'Open Sans', normal 100%/1.5 'system-ui', '-apple-system',
-    'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
-    'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial',
-    'sans-serif';
+  font-family: 'Open Sans', 'system-ui', '-apple-system', 'BlinkMacSystemFont',
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+  font: normal 100%/1.5;
 }
 
 img {
