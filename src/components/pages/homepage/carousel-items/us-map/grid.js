@@ -1,10 +1,13 @@
-import React from 'react'
-import { navigate, Link } from 'gatsby'
+import React, { useState } from 'react'
+import { navigate } from 'gatsby'
+import { DialogContent, DialogOverlay } from '@reach/dialog'
 import classnames from 'classnames'
+import Sidebar from './sidebar'
 import { US } from './states'
 import gridStyle from './grid.module.scss'
 
-const Grid = ({ states, us, metric }) => {
+const Grid = ({ states, us, relatedPost, metric }) => {
+  const [activeState, setActiveState] = useState(false)
   return (
     <div className={gridStyle.wrapper}>
       <svg
@@ -25,23 +28,29 @@ const Grid = ({ states, us, metric }) => {
       <ul className={gridStyle.grid}>
         {states.map(state => (
           <li key={`grid-${state.state}`}>
-            <Link
+            <button
+              type="button"
               className={gridStyle.state}
-              to={`/data/state/${state.childSlug.slug}`}
+              onClick={event => {
+                event.preventDefault()
+                setActiveState(state)
+              }}
             >
-              <div className={gridStyle.name}>
-                <abbr title={state.name}>{state.state}</abbr>
-              </div>
-              <div className={gridStyle.value}>
-                {Math.round(state.value).toLocaleString()}
-              </div>
-              <div
-                className={classnames(
-                  gridStyle.indicator,
-                  metric.getColor(state.value),
-                )}
-              />
-            </Link>
+              <span>
+                <div className={gridStyle.name}>
+                  <abbr title={state.name}>{state.state}</abbr>
+                </div>
+                <div className={gridStyle.value}>
+                  {Math.round(state.value).toLocaleString()}
+                </div>
+                <div
+                  className={classnames(
+                    gridStyle.indicator,
+                    metric.getColor(state.value),
+                  )}
+                />
+              </span>
+            </button>
           </li>
         ))}
       </ul>
@@ -53,6 +62,32 @@ const Grid = ({ states, us, metric }) => {
           </li>
         ))}
       </ul>
+      <DialogOverlay
+        className={gridStyle.overlay}
+        isOpen={activeState && true}
+        onDismiss={() => {
+          setActiveState(false)
+        }}
+      >
+        <DialogContent className={gridStyle.modal}>
+          <button
+            className={gridStyle.modalClose}
+            type="button"
+            onClick={event => {
+              event.preventDefault()
+              setActiveState(false)
+            }}
+          >
+            &times;
+          </button>
+          <Sidebar
+            state={{ state: activeState }}
+            us={us.current}
+            relatedPost={relatedPost}
+            inModal
+          />
+        </DialogContent>
+      </DialogOverlay>
     </div>
   )
 }

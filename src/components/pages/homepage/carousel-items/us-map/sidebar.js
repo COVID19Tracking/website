@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import classnames from 'classnames'
 import { DateTime } from 'luxon'
 import { Number, Header, RelatedPost } from '../sidebar'
 import LineChart from '~components/charts/line-chart'
@@ -52,8 +53,13 @@ const Chart = ({ history }) => {
   )
 }
 
-const Sidebar = ({ state, us, relatedPost = false }) => (
-  <div className={sidebarStyle.sidebar}>
+const Sidebar = ({ state, us, inModal = false, relatedPost = false }) => (
+  <div
+    className={classnames(
+      sidebarStyle.sidebar,
+      inModal && sidebarStyle.inModal,
+    )}
+  >
     <Header>Latest totals</Header>
     {state ? (
       <>

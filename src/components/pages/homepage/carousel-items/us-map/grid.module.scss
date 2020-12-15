@@ -21,16 +21,25 @@
 }
 
 .state {
+  @include remove-button-style();
+  display: inline-block;
   width: 64px;
   height: 64px;
   background: white;
   text-align: center;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  display: inline-block;
   position: relative;
   text-decoration: none;
+  align-items: normal;
   &:hover {
     text-decoration: none;
+  }
+  > span {
+    width: 100%;
+    height: 100%;
+    @include padding(8, top);
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -47,7 +56,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 20px;
+  height: 15px;
 }
 
 .legend {
@@ -70,4 +79,31 @@
     height: 20px;
     @include margin(8, right);
   }
+}
+
+.overlay {
+  background: hsla(0, 0%, 0%, 0.33);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.modal {
+  background: $color-slate-100;
+  width: 100vw;
+  height: 100vh;
+  @include padding(16);
+  outline: none;
+  overflow-y: scroll;
+}
+
+.modal-close {
+  @include remove-button-style;
+  float: right;
+  @include type-size(600);
+  font-weight: 300;
+  color: $color-slate-700;
 }
