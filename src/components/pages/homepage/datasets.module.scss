@@ -15,12 +15,32 @@
   @include type-size(400);
   @include margin(16, top);
   color: $color-blueberry-400;
+  span[aria-hidden] {
+    display: inline-block;
+    @include margin(8, left);
+  }
+  &:hover {
+    text-decoration: underline;
+    span[aria-hidden] {
+      text-decoration: none;
+    }
+  }
 }
 
 .state-link {
   color: $color-blueberry-400;
   @include type-size(400);
   text-decoration: none;
+  span[aria-hidden] {
+    display: inline-block;
+    @include margin(8, left);
+  }
+  &:hover {
+    text-decoration: underline;
+    span[aria-hidden] {
+      text-decoration: none;
+    }
+  }
 }
 
 .state-list {

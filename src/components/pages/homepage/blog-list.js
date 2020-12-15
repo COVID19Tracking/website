@@ -1,39 +1,27 @@
 import React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
-import { Byline } from '~components/pages/blog/byline'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import { Col, Row } from '~components/common/grid'
+import blogStyle from './blog.module.scss'
 import CleanSpacing from '~components/utils/clean-spacing'
-import Container from '~components/common/landing-page/container'
-import { CtaLink } from '~components/common/landing-page/call-to-action'
-import blogListStyles from './blog-list.module.scss'
 
-const HomepageBlogList = () => {
+const BlogFeatured = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       allContentfulBlogPost(
+        filter: { featureOnHomepage: { ne: true } }
+        limit: 2
         sort: { fields: publishDate, order: DESC }
-        limit: 3
       ) {
         nodes {
           title
-          slug
-          overrideBlogPage
-          overrideBlogPath
-          authors {
-            name
-            twitterLink
-            link
-            headshot {
-              file {
-                fileName
-              }
-              resize(width: 100) {
-                width
-                height
-                src
-              }
+          publishDate(formatString: "MMMM d, yyy")
+          homepageImage {
+            fixed(width: 800) {
+              src
+              srcSet
             }
           }
-          publishDate(formatString: "MMMM D, YYYY")
+          slug
           lede {
             lede
           }
@@ -41,45 +29,38 @@ const HomepageBlogList = () => {
       }
     }
   `)
-  const posts = data.allContentfulBlogPost.nodes
+  const { nodes } = data && data.allContentfulBlogPost
+  if (!nodes) {
+    return null
+  }
   return (
-    <Container>
-      <h2>Our analysis &amp; updates</h2>
-      <div className={blogListStyles.container}>
-        <ul className={`press-list ${blogListStyles.blogList}`}>
-          {posts.map(node => (
-            <li
-              key={`homepage-blog-${node.slug}`}
-              className={blogListStyles.blogItem}
-            >
-              <h2>
-                <Link
-                  to={
-                    node.overrideBlogPage
-                      ? node.overrideBlogPath
-                      : `/blog/${node.slug}`
-                  }
-                >
-                  {node.title}
-                </Link>
-              </h2>
-              <p className={blogListStyles.lede}>
-                <CleanSpacing>{node.lede.lede}</CleanSpacing>
-              </p>
-              <Byline
-                authors={node.authors}
-                published={node.publishDate}
-                smallmargin
+    <>
+      <Row>
+        {nodes.map(post => (
+          <Col width={[4, 6, 6]} className={blogStyle.post}>
+            <div className={blogStyle.date}>{post.publishDate}</div>
+            <h3>
+              <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+            </h3>
+            <div className={blogStyle.lede}>
+              <CleanSpacing>{post.lede.lede}</CleanSpacing>
+            </div>
+            {post.homepageImage && (
+              <img
+                src={post.homepageImage.fixed.src}
+                srcSet={post.homepageImage.fixed.srcSet}
+                alt=""
+                aria-hidden
               />
-            </li>
-          ))}
-        </ul>
-        <CtaLink to="/blog" centered>
-          See more from our blog
-        </CtaLink>
-      </div>
-    </Container>
+            )}
+            <Link to={`/blog/${post.slug}`} className={blogStyle.link}>
+              Read the article<span aria-hidden> →</span>
+            </Link>
+          </Col>
+        ))}
+      </Row>
+    </>
   )
 }
 
-export default HomepageBlogList
+export default BlogFeatured

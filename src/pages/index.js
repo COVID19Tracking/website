@@ -5,6 +5,7 @@ import Header from '~components/layout/header'
 import SEO from '~components/utils/seo'
 import Footer from '~components/layout/footer'
 import Container from '~components/common/container'
+import BlogFeatured from '~components/pages/homepage/blog-featured'
 import BlogList from '~components/pages/homepage/blog-list'
 import Press from '~components/pages/homepage/press'
 import HomepageAPI from '~components/pages/homepage/api'
@@ -25,8 +26,10 @@ const Homepage = () => (
       <HomepageCarousel />
       <HomepageAbout />
       <HomepageDatsets />
-      <BlogList />
+
       <Container>
+        <BlogFeatured />
+        <BlogList />
         <HomepageWhoUses />
       </Container>
       <HomepageAPI />
