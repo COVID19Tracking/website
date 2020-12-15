@@ -16,8 +16,10 @@
 .related-post {
   background: #d8d8d8;
   @include padding(16);
-  height: 100%;
-  margin-bottom: -40px; // ignore-style-rule
+  @media (min-width: $viewport-md) {
+    height: 100%;
+    margin-bottom: -40px; // ignore-style-rule
+  }
   .date {
     color: $color-slate-700;
     @include type-size(100);

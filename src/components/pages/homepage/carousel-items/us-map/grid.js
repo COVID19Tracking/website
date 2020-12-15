@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { navigate } from 'gatsby'
 import { DialogContent, DialogOverlay } from '@reach/dialog'
 import classnames from 'classnames'
 import Sidebar from './sidebar'
@@ -8,6 +7,7 @@ import gridStyle from './grid.module.scss'
 
 const Grid = ({ states, us, relatedPost, metric }) => {
   const [activeState, setActiveState] = useState(false)
+  const [showUs, setShowUs] = useState(false)
   return (
     <div className={gridStyle.wrapper}>
       <svg
@@ -21,7 +21,8 @@ const Grid = ({ states, us, relatedPost, metric }) => {
           value={us.value}
           className={value => metric.getColor(value)}
           onClick={() => {
-            navigate('/data/national')
+            setShowUs(true)
+            setActiveState(false)
           }}
         />
       </svg>
@@ -64,9 +65,10 @@ const Grid = ({ states, us, relatedPost, metric }) => {
       </ul>
       <DialogOverlay
         className={gridStyle.overlay}
-        isOpen={activeState && true}
+        isOpen={(activeState || showUs) && true}
         onDismiss={() => {
           setActiveState(false)
+          setShowUs(false)
         }}
       >
         <DialogContent className={gridStyle.modal}>
@@ -81,7 +83,7 @@ const Grid = ({ states, us, relatedPost, metric }) => {
             &times;
           </button>
           <Sidebar
-            state={{ state: activeState }}
+            state={showUs ? false : { state: activeState }}
             us={us.current}
             relatedPost={relatedPost}
             inModal
