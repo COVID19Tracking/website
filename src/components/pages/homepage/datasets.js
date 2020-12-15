@@ -72,7 +72,11 @@ const HomepageDatasets = () => (
   <div className={datasetsStyle.wrapper}>
     <Container>
       <Row>
-        <Col width={[4, 3, 6]} paddingRight={[0, 16, 32]}>
+        <Col
+          width={[4, 3, 6]}
+          paddingRight={[0, 16, 32]}
+          paddingBottom={[32, 0, 0]}
+        >
           <Dataset
             title="Race &amp; ethnicity"
             link={

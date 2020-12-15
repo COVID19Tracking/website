@@ -10,7 +10,6 @@ import BlogList from '~components/pages/homepage/blog-list'
 import Press from '~components/pages/homepage/press'
 import HomepageAPI from '~components/pages/homepage/api'
 import HomepageAbout from '~components/pages/homepage/about'
-import HomepageWhoUses from '~components/pages/homepage/who-uses'
 import HomepageCarousel from '~components/pages/homepage/carousel'
 import HomepageDatsets from '~components/pages/homepage/datasets'
 
@@ -30,7 +29,6 @@ const Homepage = () => (
       <Container>
         <BlogFeatured />
         <BlogList />
-        <HomepageWhoUses />
       </Container>
       <HomepageAPI />
       <Container>

@@ -10,12 +10,14 @@ const HomepageWrapper = ({
   title,
   bottomMargin = false,
   topMargin = false,
+  blue = false,
 }) => (
   <div
     className={classnames(
       wrapperStyle.wrapper,
       bottomMargin && wrapperStyle.bottomMargin,
       topMargin && wrapperStyle.topMargin,
+      blue && wrapperStyle.blue,
     )}
   >
     <Container>

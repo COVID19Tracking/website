@@ -36,8 +36,14 @@ const BlogFeatured = () => {
   return (
     <>
       <Row>
-        {nodes.map(post => (
-          <Col width={[4, 6, 6]} className={blogStyle.post}>
+        {nodes.map((post, index) => (
+          <Col
+            width={[4, 6, 6]}
+            className={blogStyle.post}
+            paddingRight={index === 0 && [0, 0, 32]}
+            paddingLeft={index === 1 && [0, 0, 32]}
+            paddingBottom={[32, 0, 0]}
+          >
             <div className={blogStyle.date}>{post.publishDate}</div>
             <h3>
               <Link to={`/blog/${post.slug}`}>{post.title}</Link>
@@ -48,6 +54,7 @@ const BlogFeatured = () => {
             {post.homepageImage && (
               <img
                 src={post.homepageImage.fixed.src}
+                className={blogStyle.image}
                 srcSet={post.homepageImage.fixed.srcSet}
                 alt=""
                 aria-hidden

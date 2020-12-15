@@ -5,6 +5,7 @@ import HomepageWrapper from './wrapper'
 const HomepageAPI = () => (
   <HomepageWrapper
     title="Our data API"
+    blue
     links={[
       <Link to="/data/api">All API information</Link>,
       <a href="https://covidtrackingproject.statuspage.io/">

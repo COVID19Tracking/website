@@ -12,6 +12,10 @@
   @include margin(64, bottom);
 }
 
+.image {
+  @include margin(32, top);
+}
+
 .link {
   @include type-size(300);
   @include margin(32, top);
