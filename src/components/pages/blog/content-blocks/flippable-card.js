@@ -30,8 +30,12 @@ const FlippableCard = ({ width, height, front, back, alternateText }) => {
           </div>
         </div>
       </button>
+      <img src={back.fixed.src} className="js-disabled" aria-hidden alt="" />
       <div className="a11y-only">{alternateText}</div>
-      <p aria-hidden className={cardStyles.directions}>
+      <p
+        aria-hidden
+        className={classnames('js-enabled-block', cardStyles.directions)}
+      >
         Click or tap card to flip it.
       </p>
     </div>
