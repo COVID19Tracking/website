@@ -24,7 +24,8 @@ const RelatedPost = ({ date, title, slug }) => (
       <p>{title}</p>
     </Link>
     <Link to={`/blog/${slug}`} className={sidebarStyle.link}>
-      Read the article →
+      Read the article<span aria-hidden>→</span>
+      <span className="a11y-only"> {title}</span>
     </Link>
   </div>
 )

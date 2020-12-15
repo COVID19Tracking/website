@@ -72,6 +72,7 @@ const BlogFeatured = () => {
             )}
             <Link to={`/blog/${post.slug}`} className={blogStyle.link}>
               Read the article<span aria-hidden> →</span>
+              <span className="a11y-only">{post.title}</span>
             </Link>
           </Col>
         ))}

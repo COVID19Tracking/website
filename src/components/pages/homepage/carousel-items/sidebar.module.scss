@@ -33,6 +33,16 @@
     @include type-size(300);
     @include margin(16, top bottom);
   }
+  .link {
+    span[aria-hidden] {
+      text-decoration: none !important;
+      display: inline-block;
+      @include margin(8, left);
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .related-flex {
