@@ -14,18 +14,18 @@ const HomepageWrapper = ({
   <div
     className={classnames(
       wrapperStyle.wrapper,
-      bottomMargin && wrapperStyle.noBottomMargin,
-      topMargin && wrapperStyle.noTopMargin,
+      bottomMargin && wrapperStyle.bottomMargin,
+      topMargin && wrapperStyle.topMargin,
     )}
   >
     <Container>
       <Row>
-        <Col width={[4, 6, 9]} paddingRight={[0, 0, 16]}>
+        <Col width={[4, 6, 8]} paddingRight={[0, 0, 64]}>
           <h2>{title}</h2>
           {children}
         </Col>
         <Col
-          width={[4, 6, 3]}
+          width={[4, 6, 4]}
           className={wrapperStyle.links}
           paddingLeft={[0, 0, 0]}
         >

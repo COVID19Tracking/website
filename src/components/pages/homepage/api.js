@@ -13,6 +13,7 @@ const HomepageAPI = () => (
       <a href="https://apichanges.covidtracking.com/">API change log</a>,
     ]}
     topMargin
+    bottomMargin
   >
     <p>
       Our public data API provides access to all of our data at a national and

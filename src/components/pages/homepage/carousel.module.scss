@@ -34,3 +34,7 @@
     }
   }
 }
+
+.filters {
+  @include a11y-only();
+}

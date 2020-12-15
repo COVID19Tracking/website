@@ -36,7 +36,7 @@ const CarouselItem = ({ item }) => {
 }
 
 const SvgFilters = () => (
-  <svg aria-hidden width={0} height={0}>
+  <svg aria-hidden className={carouselStyle.filters} width={0} height={0}>
     <filter id="dropshadow">
       <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
       <feOffset dx="0" dy="0" result="offsetblur" />

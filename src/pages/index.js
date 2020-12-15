@@ -28,9 +28,11 @@ const Homepage = () => (
       <BlogList />
       <Container>
         <HomepageWhoUses />
-        <Press />
       </Container>
       <HomepageAPI />
+      <Container>
+        <Press />
+      </Container>
     </main>
     <Footer noMargin />
   </>
