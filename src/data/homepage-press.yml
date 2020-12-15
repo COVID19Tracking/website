@@ -28,12 +28,14 @@
 - name: Politico
   logo: politico
   width: 100
+  featured: true
 - name: The New Yorker
   logo: the-new-yorker
   width: 160
 - name: National Public Radio
   logo: national-public-radio
   width: 85
+  featured: true
 - name: Ars Technica logo
   logo: ars-technica
 - name: Columbia Journalism Review

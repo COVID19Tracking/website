@@ -22,6 +22,7 @@ const HomepagePress = () => {
 
   return (
     <section className={pressStyles.section}>
+      <h2>Who uses our data?</h2>
       <div className={pressStyles.logos}>
         <p className="a11y-only">
           News organizations including The New York Times, The Washington Post,
