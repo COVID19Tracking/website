@@ -22,6 +22,9 @@
   @media (min-width: $viewport-lg) {
     display: block;
     @include margin(16, top);
+    svg {
+      @include margin(16, top);
+    }
   }
   h3 {
     @include type-size(200);
