@@ -40,7 +40,7 @@ const Dataset = ({ title, children, link, stateLink }) => {
             }
           }}
         >
-          <span className={datasetsStyle.text}>Jump to a state</span>{' '}
+          Jump to a state
           <span aria-hidden>{showList ? <>↑</> : <>↓</>}</span>
         </button>
       </div>
@@ -77,20 +77,17 @@ const HomepageDatasets = () => (
             title="Race &amp; ethnicity"
             link={
               <Link to="/race" className={datasetsStyle.stateLink}>
-                All race &amp; ethnicity data <span aria-hidden>→</span>
+                All race &amp; ethnicity data<span aria-hidden> →</span>
               </Link>
             }
             stateLink={state =>
               `/race/dashboard#state-${state.state.toLowerCase()}`
             }
           >
-            <p>
-              The COVID Racial Data Tracker is a collaboration between the COVID
-              Tracking Project and the Boston University Center for Antiracist
-              Research. Together, we’re gathering the most complete and
-              up-to-date race and ethnicity data on COVID-19 in the United
-              States.
-            </p>
+            The COVID Racial Data Tracker is a collaboration between the COVID
+            Tracking Project and the Boston University Center for Antiracist
+            Research. Together, we’re gathering the most complete and up-to-date
+            race and ethnicity data on COVID-19 in the United States.
           </Dataset>
         </Col>
         <Col width={[4, 3, 6]} paddingLeft={[0, 16, 32]}>
@@ -98,21 +95,18 @@ const HomepageDatasets = () => (
             title="Long-term care"
             link={
               <Link to="/data/longtermcare" className={datasetsStyle.stateLink}>
-                All long-term care data <span aria-hidden>→</span>
+                All long-term care data<span aria-hidden> →</span>
               </Link>
             }
             stateLink={state =>
               `/data/state/${state.childSlug.slug}/long-term-care`
             }
           >
-            <p>
-              To date, the Long-Term Care COVID Tracker is the most
-              comprehensive dataset about COVID-19 in US long-term care
-              facilities. It compiles crucial data about the effects of the
-              pandemic on a population with extraordinary vulnerabilities to the
-              virus due to age, underlying health conditions, or proximity to
-              large outbreaks.
-            </p>
+            To date, the Long-Term Care COVID Tracker is the most comprehensive
+            dataset about COVID-19 in US long-term care facilities. It compiles
+            crucial data about the effects of the pandemic on a population with
+            extraordinary vulnerabilities to the virus due to age, underlying
+            health conditions, or proximity to large outbreaks.
           </Dataset>
         </Col>
       </Row>
