@@ -35,9 +35,8 @@ const BlogFeatured = () => {
     return null
   }
   return (
-    <>
+    <section className={blogStyle.section}>
       <h2>Our analysis &amp; updates</h2>
-      <p className={blogStyle.subhead}>Content about our posts, TK.</p>
       <Row className={classnames(blogStyle.post, blogStyle.featured)}>
         <Col width={[4, 4, 6]}>
           <div className={blogStyle.date}>{post.publishDate}</div>
@@ -60,7 +59,7 @@ const BlogFeatured = () => {
           />
         </Col>
       </Row>
-    </>
+    </section>
   )
 }
 

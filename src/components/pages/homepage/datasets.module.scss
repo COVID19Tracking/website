@@ -1,6 +1,6 @@
 .wrapper {
   background: $color-blueberry-250;
-  @include padding(64, top bottom);
+  @include padding(80, top bottom);
   p {
     @include type-size(300);
   }

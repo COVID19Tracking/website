@@ -1,11 +1,11 @@
-.subhead {
-  margin-bottom: 64px;
-}
-
 .date {
   @include type-size(100);
   color: $color-slate-700;
   margin-bottom: 0;
+}
+
+.section {
+  @include margin(80, top);
 }
 
 .featured {
