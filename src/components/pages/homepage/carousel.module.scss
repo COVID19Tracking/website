@@ -18,7 +18,7 @@
 
 .carousel {
   background: $color-slate-100;
-  @include padding(16, bottom);
+  @include padding(16, top bottom);
 }
 
 .tab-container {
