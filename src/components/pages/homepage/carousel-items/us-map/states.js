@@ -97,9 +97,9 @@ const State = ({ x, y, r, state, onClick, className, isActive }) => {
   )
 }
 
-const US = ({ r, value, onClick, className }) => {
+const US = ({ r, value, onClick, className, inGrid }) => {
   const x = r
-  const y = r - r / 2
+  const y = inGrid ? r + 5 : r - r / 2
   const hexPoints = [
     [x, y - r],
     [x + coxSix * r, y - sinSix * r],

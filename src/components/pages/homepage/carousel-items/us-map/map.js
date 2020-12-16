@@ -29,7 +29,7 @@ const MapLegend = ({ legend }) => {
   )
 }
 
-const Map = ({ states, us, relatedPost, metric, lastUpdate }) => {
+const Map = ({ states, us, relatedPost, metric, lastUpdate, sevenDaysAgo }) => {
   const [activeState, setActiveState] = useState(false)
   const [hasKeyboardFocus, setHasKeyboardFocus] = useState(false)
   const mapRef = useRef()
@@ -80,7 +80,7 @@ const Map = ({ states, us, relatedPost, metric, lastUpdate }) => {
           <div className={mapStyle.mapLabel}>
             <h2>{metric.title}</h2>
             <p>
-              Data updated {lastUpdate}
+              From {sevenDaysAgo} to {lastUpdate}
               {hasKeyboardFocus && (
                 <span className={mapStyle.keyboard}>
                   Use the <strong>arrow keys</strong> to move between states,

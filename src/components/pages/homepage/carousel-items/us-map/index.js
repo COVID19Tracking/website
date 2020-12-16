@@ -1,6 +1,7 @@
 /*eslint-disable */
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
+import { DateTime } from 'luxon'
 import metrics from './metrics'
 import Map from './map'
 import Grid from './grid'
@@ -33,6 +34,7 @@ const USMap = ({ configuration, item }) => {
       ) {
         nodes {
           date(formatString: "MMMM D, YYYY")
+          isoDate: date
         }
       }
       allCovidStateInfo(sort: { fields: name }) {
@@ -105,7 +107,9 @@ const USMap = ({ configuration, item }) => {
   }
 
   const lastUpdate = data.lastUpdate.nodes[0].date
-
+  const sevenDaysAgo = DateTime.fromISO(data.lastUpdate.nodes[0].isoDate)
+    .minus({ days: 7 })
+    .toFormat('MMMM d, yyyy')
   return (
     <>
       <Map
@@ -114,13 +118,13 @@ const USMap = ({ configuration, item }) => {
         us={us}
         relatedPost={item.relatedPost}
         lastUpdate={lastUpdate}
+        sevenDaysAgo={sevenDaysAgo}
       />
       <Grid
         states={states}
         metric={metrics[metric]}
         us={us}
         relatedPost={item.relatedPost}
-        lastUpdate={lastUpdate}
       />
       <List states={states} metric={metric} us={us} />
     </>

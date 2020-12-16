@@ -12,7 +12,7 @@ const Grid = ({ states, us, relatedPost, metric }) => {
     <div className={gridStyle.wrapper}>
       <svg
         className={gridStyle.us}
-        viewBox="0 0 150 150"
+        viewBox="0 0 150 160"
         tabIndex="0"
         aria-hidden
       >
@@ -24,6 +24,7 @@ const Grid = ({ states, us, relatedPost, metric }) => {
             setShowUs(true)
             setActiveState(false)
           }}
+          inGrid
         />
       </svg>
       <ul className={gridStyle.grid}>

@@ -78,7 +78,7 @@ const HomepageDatasets = () => (
           paddingBottom={[32, 0, 0]}
         >
           <Dataset
-            title="Race &amp; ethnicity"
+            title="Race &amp; ethnicity data"
             link={
               <Link to="/race" className={datasetsStyle.stateLink}>
                 All race &amp; ethnicity data<span aria-hidden> →</span>
@@ -96,7 +96,7 @@ const HomepageDatasets = () => (
         </Col>
         <Col width={[4, 3, 6]} paddingLeft={[0, 16, 32]}>
           <Dataset
-            title="Long-term care"
+            title="Long-term-care data"
             link={
               <Link to="/data/longtermcare" className={datasetsStyle.stateLink}>
                 All long-term care data<span aria-hidden> →</span>
