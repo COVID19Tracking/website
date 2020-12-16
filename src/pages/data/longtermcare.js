@@ -96,8 +96,8 @@ const LongTermCarePage = ({ data }) => {
         id="ltc-2"
         height={525}
         mobileHeight={450}
-        viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
-        viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
+        viewUrl="https://public.tableau.com/views/LTCDataObservations/0_AllKeys?:language=en&:display_count=y&:origin=viz_share_link"
+        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/0_AllKeys?:language=en&:display_count=y&:origin=viz_share_link"
       />
       <Container centered>
         <LongContent>
