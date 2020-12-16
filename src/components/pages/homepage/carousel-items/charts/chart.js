@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { DateTime } from 'luxon'
+import ChartDataLink from '../chart-data-link'
 import BarChart from '~components/charts/bar-chart'
 import { Col, Row } from '~components/common/grid'
 import { Number, Header } from '../sidebar'
@@ -69,6 +70,9 @@ const Chart = ({ title, data, field, fill, lineColor }) => {
           showTicks={6}
           lastXTick
         />
+        <ChartDataLink to="/data/national/chart-tables">
+          Access all data for this chart
+        </ChartDataLink>
       </Col>
       <Col width={[4, 6, 2]}>
         <Header>Latest national totals</Header>

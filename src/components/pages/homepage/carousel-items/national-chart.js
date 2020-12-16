@@ -2,6 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { DateTime } from 'luxon'
 import { Row, Col } from '~components/common/grid'
+import ChartDataLink from './chart-data-link'
 import colors from '~scss/colors.module.scss'
 import BarChart from '~components/charts/bar-chart'
 import chartStyle from './charts/chart.module.scss'
@@ -119,6 +120,9 @@ const NationalChart = () => {
           />
         </Col>
       </Row>
+      <ChartDataLink to="/data/national/chart-tables">
+        Access all data for these charts
+      </ChartDataLink>
     </>
   )
 }
