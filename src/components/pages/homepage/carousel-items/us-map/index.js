@@ -58,6 +58,7 @@ const USMap = ({ configuration, item }) => {
       }
       allCovidState {
         nodes {
+          totalTestResults
           hospitalizedCurrently
           positive
           death

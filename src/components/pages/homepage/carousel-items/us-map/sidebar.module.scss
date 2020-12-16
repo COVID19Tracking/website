@@ -15,34 +15,13 @@
 .link {
   text-decoration: none;
   @include type-size(300);
+  @include margin(16, top);
   &:hover,
   &:focus {
     text-decoration: none;
     .text {
       text-decoration: underline;
     }
-  }
-}
-
-.chart {
-  display: block;
-  @include margin(16, top);
-  svg {
-    @include margin(32, top left right);
-  }
-  @media (min-width: $viewport-md) {
-    display: none;
-  }
-  @media (min-width: $viewport-lg) {
-    display: block;
-    svg {
-      margin-left: 0;
-    }
-  }
-  h3 {
-    @include type-size(200);
-    margin: 0;
-    font-weight: normal;
   }
 }
 
