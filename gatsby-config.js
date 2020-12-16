@@ -142,13 +142,6 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/screenshots.json',
-        type: 'CovidScreenshot',
-      },
-    },
-    {
-      resolve: 'gatsby-source-covid-tracking-api',
-      options: {
         file: './_data/volunteers.json',
         type: 'CovidVolunteers',
         sortField: 'name',
@@ -222,6 +215,13 @@ const gatsbyConfig = {
       options: {
         file: './_data/annotations.json',
         type: 'covidAnnotation',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/hhs_hospitalization.json',
+        type: 'hhsHospitalizationCovid',
       },
     },
     {

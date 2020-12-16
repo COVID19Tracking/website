@@ -90,7 +90,7 @@ const RacePage = () => {
               do have: the latest infection and death rates for each county,
               from a <cite>New York Times</cite> dataset, paired with the
               largest racial or ethnic group in that county, based on the Census
-              Bureau&apos;s 2018 ACS 5-Year estimates. The results are
+              Bureau&apos;s 2019 ACS 5-Year estimates. The results are
               staggering.
             </RacialDataParagraph>
           </LandingPageContainer>

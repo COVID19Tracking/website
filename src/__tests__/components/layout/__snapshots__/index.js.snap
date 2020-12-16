@@ -220,12 +220,6 @@ Array [
               </li>
             </ul>
           </nav>
-          <a
-            className="getInvolved"
-            href="/contact/volunteer"
-          >
-            Volunteer
-          </a>
           <div
             className="mobilePointer"
           />
@@ -452,12 +446,6 @@ Array [
                 </button>
               </div>
             </div>
-            <a
-              className="getInvolved"
-              href="/contact/volunteer"
-            >
-              Volunteer
-            </a>
           </div>
         </div>
         <div
@@ -865,12 +853,6 @@ Array [
               </li>
             </ul>
           </nav>
-          <a
-            className="getInvolved"
-            href="/contact/volunteer"
-          >
-            Volunteer
-          </a>
           <div
             className="mobilePointer"
           />
@@ -1097,12 +1079,6 @@ Array [
                 </button>
               </div>
             </div>
-            <a
-              className="getInvolved"
-              href="/contact/volunteer"
-            >
-              Volunteer
-            </a>
           </div>
         </div>
         <div

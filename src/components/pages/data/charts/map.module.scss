@@ -1,5 +1,5 @@
-$color-falling: #8ae8c2;
-$color-rising: #fead82;
+$color-falling: $qualitative-color-palette-200;
+$color-rising: $qualitative-color-palette-400;
 $color-unchanged: #d3d7d7;
 
 .row {
@@ -32,7 +32,6 @@ $color-unchanged: #d3d7d7;
     vertical-align: top;
     &.has-state {
       background: $color-unchanged;
-      text-align: center;
     }
     &.rising {
       background: $color-rising;
@@ -66,5 +65,20 @@ $color-unchanged: #d3d7d7;
   @include a11y-only();
   &:focus {
     @include a11y-only-off();
+  }
+}
+
+.disclosure-button {
+  @include remove-button-style();
+  @include margin(16, top);
+  .text {
+    text-decoration: underline;
+  }
+}
+
+.disclosure {
+  display: none;
+  &.is-open {
+    display: block;
   }
 }

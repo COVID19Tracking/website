@@ -12,8 +12,7 @@ const ChartsPage = ({ data }) => (
     <h2>United States Overview</h2>
     <ChartPreamble
       usHistory={data.allCovidUsDaily.nodes}
-      history={data.allCovidStateDaily.nodes}
-      current={data.allCovidState.nodes}
+      stateHistory={data.allCovidStateDaily.nodes}
     />
     <Container centered>
       <ContentfulContent
@@ -42,7 +41,7 @@ const ChartsPage = ({ data }) => (
 export default ChartsPage
 
 export const query = graphql`
-  query($fourteenDaysAgo: Date, $twentyEightDaysAgo: Date) {
+  query($twentyEightDaysAgo: Date) {
     chartFooter: contentfulSnippet(slug: { eq: "chart-page-content" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
@@ -72,15 +71,9 @@ export const query = graphql`
       }
     }
     allCovidStateDaily(
-      sort: { fields: date }
-      filter: { date: { eq: $fourteenDaysAgo } }
+      sort: { order: DESC, fields: date }
+      filter: { date: { gte: $twentyEightDaysAgo } }
     ) {
-      nodes {
-        state
-        positiveIncrease
-      }
-    }
-    allCovidState {
       nodes {
         state
         positiveIncrease

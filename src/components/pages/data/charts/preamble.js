@@ -4,7 +4,7 @@ import ChartSparklines from './sparklines'
 import ChartMap from './map'
 import preambleStyles from './preamble.module.scss'
 
-const ChartPreamble = ({ current, history, usHistory }) => (
+const ChartPreamble = ({ stateHistory, usHistory }) => (
   <Row className={preambleStyles.preamble}>
     <Col
       width={[4, 6, 4]}
@@ -15,7 +15,7 @@ const ChartPreamble = ({ current, history, usHistory }) => (
     </Col>
 
     <Col width={[4, 6, 8]} paddingLeft={[0, 0, 32]}>
-      <ChartMap history={history} current={current} />
+      <ChartMap stateHistory={stateHistory} />
     </Col>
   </Row>
 )
