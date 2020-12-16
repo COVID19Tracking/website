@@ -121,7 +121,7 @@ const StateSummary = ({
             definitions={definitions}
             highlightedDefinition={highlightedDefinition}
             onHide={() => setCardDefinitions(false)}
-            title="Definitions"
+            title={`${stateName} Definitions`}
           />
         )}
         {cardAnnotations && (
