@@ -91,13 +91,15 @@ const HomepageCarousel = () => {
   return (
     <>
       <Tabs>
-        <TabList className={carouselStyle.tabs}>
-          <Container>
-            {data.contentfulHomepageCarousel.items.map((item, key) => (
-              <Tab key={`carousel-tab-${key}`}>{item.label}</Tab>
-            ))}
-          </Container>
-        </TabList>
+        <div className={carouselStyle.tabContainer}>
+          <TabList className={carouselStyle.tabs}>
+            <Container>
+              {data.contentfulHomepageCarousel.items.map((item, key) => (
+                <Tab key={`carousel-tab-${key}`}>{item.label}</Tab>
+              ))}
+            </Container>
+          </TabList>
+        </div>
         <div className={carouselStyle.carousel}>
           <Container>
             <TabPanels>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import HomepageWrapper from './wrapper'
+import HomepageWrapper from './color-block'
 
 const HomepageAPI = () => (
   <HomepageWrapper

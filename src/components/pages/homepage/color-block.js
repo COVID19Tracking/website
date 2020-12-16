@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import Container from '~components/common/container'
 import { Row, Col } from '~components/common/grid'
-import wrapperStyle from './wrapper.module.scss'
+import colorBlockStyle from './color-block.module.scss'
 
 const HomepageWrapper = ({
   children,
@@ -14,10 +14,10 @@ const HomepageWrapper = ({
 }) => (
   <div
     className={classnames(
-      wrapperStyle.wrapper,
-      bottomMargin && wrapperStyle.bottomMargin,
-      topMargin && wrapperStyle.topMargin,
-      blue && wrapperStyle.blue,
+      colorBlockStyle.wrapper,
+      bottomMargin && colorBlockStyle.bottomMargin,
+      topMargin && colorBlockStyle.topMargin,
+      blue && colorBlockStyle.blue,
     )}
   >
     <Container>
@@ -28,7 +28,7 @@ const HomepageWrapper = ({
         </Col>
         <Col
           width={[4, 6, 4]}
-          className={wrapperStyle.links}
+          className={colorBlockStyle.links}
           paddingLeft={[0, 0, 0]}
         >
           <ul>

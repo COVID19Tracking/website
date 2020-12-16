@@ -21,6 +21,16 @@
   @include padding(16, bottom);
 }
 
+.tab-container {
+  overflow-x: scroll;
+  white-space: nowrap;
+  box-shadow: inset -3px -2px 5px rgba(0, 0, 0, 0.04);
+  @media (min-width: $viewport-md) {
+    overflow: auto;
+    white-space: normal;
+  }
+}
+
 .tabs {
   @include margin(16, top);
   button {
