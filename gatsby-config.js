@@ -281,8 +281,8 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-contentful',
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE,
-        accessToken: process.env.CONTENTFUL_TOKEN,
+        spaceId: process.env.CRDT_CONTENTFUL_SPACE,
+        accessToken: process.env.CRDT_CONTENTFUL_TOKEN,
         host: process.env.CONTENTFUL_PREVIEW
           ? 'preview.contentful.com'
           : 'cdn.contentful.com',
