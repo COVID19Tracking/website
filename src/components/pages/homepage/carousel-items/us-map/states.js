@@ -99,7 +99,7 @@ const State = ({ x, y, r, state, onClick, className, isActive }) => {
 
 const US = ({ r, value, onClick, className }) => {
   const x = r
-  const y = r
+  const y = r - r / 2
   const hexPoints = [
     [x, y - r],
     [x + coxSix * r, y - sinSix * r],

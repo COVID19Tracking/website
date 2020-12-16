@@ -93,7 +93,7 @@ const Map = ({ states, us, relatedPost, metric, lastUpdate }) => {
             className={mapStyle.map}
             ref={mapRef}
             style={{ width: '100%' }}
-            viewBox={`0 -50 ${width} ${height + 50}`}
+            viewBox={`-10 -60 ${width} ${height + 50}`}
             tabIndex="0"
             aria-hidden
             onBlur={() => {
@@ -161,6 +161,9 @@ const Map = ({ states, us, relatedPost, metric, lastUpdate }) => {
                 state={activeState.state}
                 isActive
                 className={value => metric.getColor(value)}
+                onClick={() => {
+                  setActiveState(false)
+                }}
               />
             )}
           </svg>

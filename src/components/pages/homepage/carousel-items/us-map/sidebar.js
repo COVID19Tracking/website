@@ -69,11 +69,11 @@ const Sidebar = ({ state, us, inModal = false, relatedPost = false }) => (
           </Link>
         </h3>
         <Row>
+          <Number number={state.state.current.positive} label="Total cases" />
           <Number
-            number={state.state.current.totalTestResults}
-            label="Total test results"
+            number={state.state.current.hospitalizedCurrently}
+            label="Currently hospitalized"
           />
-          <Number number={state.state.current.positive} label="Cases" />
           <Number number={state.state.current.death} label="Deaths" />
         </Row>
 
