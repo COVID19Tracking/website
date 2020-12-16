@@ -63,7 +63,11 @@ const Sidebar = ({ state, us, inModal = false, relatedPost = false }) => (
     <Header>Latest totals</Header>
     {state ? (
       <>
-        <h3 className={sidebarStyle.stateName}>{state.state.name}</h3>
+        <h3 className={sidebarStyle.stateName}>
+          <Link to={`/data/state/${state.state.childSlug.slug}`}>
+            {state.state.name}
+          </Link>
+        </h3>
         <Row>
           <Number
             number={state.state.current.totalTestResults}
@@ -75,7 +79,7 @@ const Sidebar = ({ state, us, inModal = false, relatedPost = false }) => (
 
         <Chart history={state.state.history} />
         <Link
-          to={`/data/state/${state.state.name}`}
+          to={`/data/state/${state.state.childSlug.slug}`}
           className={sidebarStyle.link}
         >
           <span className={sidebarStyle.text}>All state data</span>{' '}

@@ -3,6 +3,13 @@
   margin: 0;
   @include padding(16, bottom);
   border-bottom: 1px solid $color-slate-400;
+  a {
+    text-decoration: none;
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .link {
