@@ -12,7 +12,7 @@
 
 .toggle {
   @include remove-button-style();
-  @include type-size(400);
+  @include type-size(300);
   @include margin(16, top);
   color: $color-blueberry-400;
   span[aria-hidden] {
@@ -29,7 +29,7 @@
 
 .state-link {
   color: $color-blueberry-400;
-  @include type-size(400);
+  @include type-size(300);
   text-decoration: none;
   span[aria-hidden] {
     display: inline-block;
