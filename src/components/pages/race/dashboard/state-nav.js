@@ -26,10 +26,17 @@ const selectFirstItemOnKeyDown = (
   setWindowLocationFn = setWindowLocation,
 ) => {
   if (event.key !== 'Enter') {
+    // ignore keypresses that 'Enter'
     return
   }
   if (results && results.length === 1 && typeof window !== 'undefined') {
+    // update the selected stat if there is only one state
     setWindowLocationFn(`state-${results[0].state.toLowerCase()}`)
+    return
+  }
+  if (window.location.hash === '') {
+    // set hash to the top of the states list if it isn't already set
+    window.location.hash = 'states-top'
   }
 }
 
@@ -99,6 +106,7 @@ const StateNav = ({ title, stateList }) => {
                 onChange={event => {
                   setSearchTerm(event.target.value)
                 }}
+                onSubmit={event => selectFirstItemOnKeyDown(event, results)}
               />
             </form>
             {results ? (
