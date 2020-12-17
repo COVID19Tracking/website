@@ -102,11 +102,9 @@ export default ({ data, stateName, stateDeaths, stateSlug }) => {
           calculated
         />
         <CardNote>
-          Access{' '}
           <Link to={`/data/state/${stateSlug}/long-term-care/history`}>
-            historic data
+            View historical totals
           </Link>
-          .
         </CardNote>
         <LastUpdatedLabel date={current.date} />
       </CardBody>
