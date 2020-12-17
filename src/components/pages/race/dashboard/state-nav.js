@@ -26,11 +26,11 @@ const selectFirstItemOnKeyDown = (
   setWindowLocationFn = setWindowLocation,
 ) => {
   if (event.key !== 'Enter') {
-    // ignore keypresses that 'Enter'
+    // ignore key presses that are not 'Enter'
     return
   }
-  if (results && results.length === 1 && typeof window !== 'undefined') {
-    // update the selected stat if there is only one state
+  if (results && results.length > 0 && typeof window !== 'undefined') {
+    // select the first state result 
     setWindowLocationFn(`state-${results[0].state.toLowerCase()}`)
     return
   }
