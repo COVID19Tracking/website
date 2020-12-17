@@ -82,7 +82,7 @@ const HomepageCarousel = () => {
           relatedPost {
             title
             slug
-            publishDate(formatString: "MMM d, yyyy")
+            publishDate(formatString: "MMM D, YYYY")
           }
         }
       }
