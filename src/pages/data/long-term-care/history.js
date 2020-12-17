@@ -4,35 +4,28 @@ import TableResponsive from '~components/common/table-responsive'
 import Layout from '~components/layout'
 
 export default ({ path, data }) => {
-  const history = []
+  const history = {}
 
   data.aggregate.nodes.forEach(item => {
-    let staffCases = 0
-    let staffDeaths = 0
-    let residentCases = 0
-    let residentDeaths = 0
+    if (typeof history[item.isoDate] === 'undefined') {
+      history[item.isoDate] = {
+        date: item.date,
+        sort: item.isoDate,
+        cases: 0,
+        deaths: 0,
+        facilities: 0,
+      }
+    }
     Object.keys(item).forEach(key => {
-      if (key.search('posres') > -1) {
-        residentCases += item[key]
+      if (key.search(/posres|posstaff/) > -1) {
+        history[item.isoDate].cases += item[key]
       }
-      if (key.search('posstaff') > -1) {
-        staffCases += item[key]
+      if (key.search(/deathres|deathstaff/) > -1) {
+        history[item.isoDate].deaths += item[key]
       }
-      if (key.search('deathres') > -1) {
-        residentDeaths += item[key]
+      if (key.search('outbrkfac') > -1) {
+        history[item.isoDate].facilities += item[key]
       }
-      if (key.search('deathstaff') > -1) {
-        staffDeaths += item[key]
-      }
-    })
-    history.push({
-      date: item.date,
-      cases: staffCases + residentCases,
-      deaths: staffDeaths + residentDeaths,
-      staffCases,
-      staffDeaths,
-      residentCases,
-      residentDeaths,
     })
   })
   return (
@@ -50,38 +43,24 @@ export default ({ path, data }) => {
             field: 'date',
             label: 'Date',
           },
-          {
-            field: 'residentCases',
-            label: 'Resident Cases',
-            isNumeric: true,
-          },
-          {
-            field: 'residentDeaths',
-            label: 'Resident Deaths',
-            isNumeric: true,
-          },
-          {
-            field: 'staffCases',
-            label: 'Staff Cases',
-            isNumeric: true,
-          },
-          {
-            field: 'staffDeaths',
-            label: 'Staff Deaths',
-            isNumeric: true,
-          },
+
           {
             field: 'cases',
-            label: 'Total Cases',
+            label: 'Cases',
             isNumeric: true,
           },
           {
             field: 'deaths',
-            label: 'Total Deaths',
+            label: 'Deaths',
+            isNumeric: true,
+          },
+          {
+            field: 'facilities',
+            label: 'Facilities tracked',
             isNumeric: true,
           },
         ]}
-        data={history}
+        data={Object.values(history).sort((a, b) => (a.sort < b.sort ? 1 : -1))}
       />
     </Layout>
   )
@@ -95,6 +74,7 @@ export const query = graphql`
     ) {
       nodes {
         date(formatString: "MMM D, YYYY")
+        isoDate: date
         posstaff_other
         posstaff_nh
         posstaff_ltc
@@ -119,6 +99,10 @@ export const query = graphql`
         deathresstaff_nh
         deathresstaff_ltc
         deathresstaff_alf
+        outbrkfac_other
+        outbrkfac_nh
+        outbrkfac_ltc
+        outbrkfac_alf
         data_type
       }
     }
