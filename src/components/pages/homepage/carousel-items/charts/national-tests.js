@@ -23,7 +23,7 @@ const CarouselChartNationalTests = () => {
       field="totalTestResultsIncrease"
       fill={colors.colorPlum200}
       lineColor={colors.colorPlum700}
-      title="New tests"
+      title="New national tests"
     />
   )
 }
