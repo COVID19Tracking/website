@@ -101,9 +101,6 @@ const LongTermCarePage = ({ data }) => {
       />
       <Container centered>
         <LongContent>
-          <DetailText small>
-            <Snippet slug="ltc-timechart-notes" />
-          </DetailText>
           <Snippet slug="ltc-definitions" />
         </LongContent>
       </Container>
