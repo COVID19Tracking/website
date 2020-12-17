@@ -41,7 +41,7 @@ export default ({ pageContext, path, data }) => {
   })
   return (
     <Layout
-      title={`${state.name}: Long-term care history`}
+      title={`${state.name}: Long-term-care historical data`}
       returnLinks={[
         { link: '/data' },
         { link: `/data/state/${slug}`, title: state.name },
