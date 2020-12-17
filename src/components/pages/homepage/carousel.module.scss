@@ -48,3 +48,9 @@
 .filters {
   @include a11y-only();
 }
+
+.tab-panel {
+  [role='tabpanel']:focus {
+    outline: none;
+  }
+}

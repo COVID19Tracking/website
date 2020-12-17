@@ -51,10 +51,24 @@
   @include type-size(200);
 }
 
+.keyboard {
+  display: none;
+  margin: 0 auto;
+}
+
 .map {
   display: none;
   @media (min-width: $viewport-md) {
     display: block;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    @include link-focus;
+    .keyboard {
+      display: block;
+    }
   }
 }
 
@@ -63,13 +77,6 @@
   h2 {
     @include type-size(300);
     margin: 0;
-  }
-  p {
-    margin: 0;
-    .keyboard {
-      display: inline-block;
-      @include margin(16, left);
-    }
   }
 }
 

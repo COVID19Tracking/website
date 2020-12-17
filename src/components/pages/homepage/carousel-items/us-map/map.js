@@ -31,7 +31,6 @@ const MapLegend = ({ legend }) => {
 
 const Map = ({ states, us, relatedPost, metric, lastUpdate, sevenDaysAgo }) => {
   const [activeState, setActiveState] = useState(false)
-  const [hasKeyboardFocus, setHasKeyboardFocus] = useState(false)
   const mapRef = useRef()
 
   const { stateHexes, width, height, hexRad } = createGrid(states, desktopGrid)
@@ -81,12 +80,6 @@ const Map = ({ states, us, relatedPost, metric, lastUpdate, sevenDaysAgo }) => {
             <h2>{metric.title}</h2>
             <p>
               From {sevenDaysAgo} to {lastUpdate}
-              {hasKeyboardFocus && (
-                <span className={mapStyle.keyboard}>
-                  Use the <strong>arrow keys</strong> to move between states,
-                  and <strong>Escape</strong> to leave the map.
-                </span>
-              )}
             </p>
           </div>
           <svg
@@ -96,11 +89,7 @@ const Map = ({ states, us, relatedPost, metric, lastUpdate, sevenDaysAgo }) => {
             viewBox={`-10 -60 ${width} ${height + 50}`}
             tabIndex="0"
             aria-hidden
-            onBlur={() => {
-              setHasKeyboardFocus(false)
-            }}
             onKeyDown={event => {
-              setHasKeyboardFocus(true)
               if (!activeState) {
                 setActiveState(
                   stateHexes.find(({ state }) => state.state === 'WA'),
@@ -133,6 +122,10 @@ const Map = ({ states, us, relatedPost, metric, lastUpdate, sevenDaysAgo }) => {
               }
             }}
           >
+            <text className={mapStyle.keyboard} x={width / 4} y={0}>
+              Use the arrow keys to move between states, and Escape to leave the
+              map.
+            </text>
             <US
               r={hexRad * 1.5}
               value={us.value}

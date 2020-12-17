@@ -102,7 +102,7 @@ const HomepageCarousel = () => {
         </div>
         <div className={carouselStyle.carousel}>
           <Container>
-            <TabPanels>
+            <TabPanels className={carouselStyle.tabPanel}>
               {data.contentfulHomepageCarousel.items.map((item, key) => (
                 <TabPanel key={`carousel-item-${key}`}>
                   <CarouselItem item={item} />
