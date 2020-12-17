@@ -29,6 +29,7 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
         { link: `/data/state/${slug}`, title: state.name },
       ]}
       path={path}
+      showWarning
     >
       <Definitions
         definitions={data.allContentfulDataDefinition.nodes.map(node => {

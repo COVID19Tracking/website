@@ -1,14 +1,64 @@
-.list {
+.carousel {
+  @include row();
   list-style-type: none;
+  margin: 0;
   padding: 0;
+  &.no-carousel {
+    @media (min-width: $viewport-lg) {
+      margin-left: 8.33333%; // ignore-style-rule
+    }
+  }
   li {
-    @include margin(8, top bottom);
+    @include margin(16, bottom);
+    &.chart {
+      @include col(2 2 2);
+
+      &:last-child {
+        padding-right: 0.5rem !important; // ignore-style-rule
+      }
+      @media (min-width: $viewport-lg) {
+        @include a11y-only();
+        &.active {
+          @include a11y-only-off();
+          @include padding(8, right);
+          &:last-child {
+            padding: 0;
+          }
+        }
+      }
+      img {
+        display: block;
+        border: 1px solid $color-slate-700;
+        padding: 1px; // ignore-style-rule
+      }
+    }
+    &.navigation {
+      display: none;
+      @include col(1 1 1);
+      @media (min-width: $viewport-lg) {
+        display: list-item;
+        vertical-align: middle;
+      }
+      button {
+        @include remove-button-style();
+        @include type-size(700);
+        color: $color-plum-700;
+        @include margin(16, top);
+        &[disabled] {
+          color: $color-slate-300;
+          cursor: not-allowed;
+        }
+      }
+    }
   }
 }
 
-.charts {
-  @include margin(64, bottom);
-  h2 {
-    @include type-size(400);
+.heading {
+  @media (min-width: $viewport-lg) {
+    margin-left: 8.33333%; // ignore-style-rule
   }
+}
+
+.lists {
+  @include margin(64, bottom);
 }

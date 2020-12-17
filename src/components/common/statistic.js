@@ -4,23 +4,44 @@ import classnames from 'classnames'
 import { FormatNumber } from '~components/utils/format'
 import statisticStyles from './statistic.module.scss'
 
-const Statistic = ({ title, value, suffix, children, subelement }) => (
+const Statistic = ({
+  title,
+  value,
+  suffix,
+  children,
+  subelement,
+  hideValue,
+  grey,
+  asterisk = false,
+  noDefinitionLink,
+}) => (
   <div
     className={classnames(
       statisticStyles.statisticWrapper,
       subelement && statisticStyles.subelement,
+      noDefinitionLink && statisticStyles.noDefinitionLink,
+      grey && statisticStyles.grey,
     )}
   >
     <div className={statisticStyles.statistic}>
-      <div className={statisticStyles.title}>{title}</div>
+      <div
+        className={classnames(
+          statisticStyles.title,
+          hideValue && statisticStyles.fullWidth,
+        )}
+      >
+        {title}
+      </div>
       <div
         className={classnames(
           statisticStyles.value,
           value === null && statisticStyles.nullValue,
+          asterisk === '' && statisticStyles.noAsterisk,
         )}
       >
-        <NumberOrNotReported value={value} />
+        {!hideValue && <NumberOrNotReported value={value} />}
         {suffix}
+        {asterisk === '*' && '*'}
       </div>
       {children && <div className={statisticStyles.info}>{children}</div>}
     </div>

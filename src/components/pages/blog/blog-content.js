@@ -8,6 +8,7 @@ import TableContentBlock from './content-blocks/table-content-block'
 import ImageContentBlock from './content-blocks/image-content-block'
 import FootnoteContentBlock from './content-blocks/footnote-content-block'
 import RelatedPostsContentBlock from './content-blocks/related-posts-block'
+import FlippableCard from './content-blocks/flippable-card'
 import TableauChart from '~components/charts/tableau'
 import blogContentStyles from './blog-content.module.scss'
 
@@ -40,6 +41,17 @@ const BlogContent = ({ content }) => {
           return null
         }
         const { __typename } = target
+        if (__typename === 'ContentfulContentBlockFlippableCard') {
+          return (
+            <FlippableCard
+              width={target.width}
+              height={target.height}
+              front={target.cardFront}
+              back={target.cardBack}
+              alternateText={target.alternateText}
+            />
+          )
+        }
         if (__typename === 'ContentfulContentBlockTable') {
           return <TableContentBlock table={target.table.table} />
         }
@@ -65,7 +77,13 @@ const BlogContent = ({ content }) => {
           )
         }
         if (__typename === 'ContentfulContentBlockImage') {
-          const { image, caption, keepSize, fullWidthMobile } = target
+          const {
+            image,
+            caption,
+            keepSize,
+            fullWidthMobile,
+            imageLink,
+          } = target
           return (
             <ImageContentBlock
               image={image}
@@ -74,6 +92,7 @@ const BlogContent = ({ content }) => {
               fullWidthMobile={fullWidthMobile && fullWidthMobile['en-US']}
               className={blogContentStyles.image}
               imageUrl={image.url}
+              linkToImage={imageLink}
             />
           )
         }

@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  line-height: 1;
+  @include type-size(100);
+  margin: spacer(16) 0 spacer(8);
+  color: $color-slate-700;
+  vertical-align: middle;
+
+  img {
+    margin-right: spacer(4);
+  }
+}
+
+.label {
+  white-space: pre;
+}

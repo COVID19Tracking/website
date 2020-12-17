@@ -111,11 +111,16 @@ body {
     justify-self: right;
     align-self: center;
     text-align: right;
-  }
+    margin-left: spacer(16); // forces the category titles to wrap
 
-  .bar-label {
     font-size: 14px; // ignore-style-rule
     line-height: 1.15;
+  }
+}
+
+.square {
+  .bar-label {
+    margin-left: 0;
   }
 }
 
@@ -123,9 +128,7 @@ body {
   color: $color-slate-700;
   font-size: 14px; // ignore-style-rule
   line-height: 1.2;
-}
 
-.footer {
   display: flex;
   align-items: flex-end;
   @include margin(16, left); // matches grid
