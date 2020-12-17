@@ -94,7 +94,7 @@ const LongTermCarePage = ({ data }) => {
       </Container>
       <TableauChart
         id="ltc-2"
-        height={650}
+        height={700}
         mobileHeight={450}
         viewUrl="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall?:language=en&:display_count=y&:origin=viz_share_link"
         viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall?:language=en&:display_count=y&:origin=viz_share_link"
