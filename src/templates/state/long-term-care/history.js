@@ -9,20 +9,32 @@ export default ({ pageContext, path, data }) => {
   const history = []
 
   data.aggregate.nodes.forEach(item => {
-    let cases = 0
-    let deaths = 0
+    let staffCases = 0
+    let staffDeaths = 0
+    let residentCases = 0
+    let residentDeaths = 0
     Object.keys(item).forEach(key => {
-      if (key.search(/posres|posstaff/) > -1) {
-        cases += item[key]
+      if (key.search('posres') > -1) {
+        residentCases += item[key]
       }
-      if (key.search(/deathres|deathstaff/) > -1) {
-        deaths += item[key]
+      if (key.search('posstaff') > -1) {
+        staffCases += item[key]
+      }
+      if (key.search('deathres') > -1) {
+        residentDeaths += item[key]
+      }
+      if (key.search('deathstaff') > -1) {
+        staffDeaths += item[key]
       }
     })
     history.push({
       date: item.date,
-      cases,
-      deaths,
+      cases: staffCases + residentCases,
+      deaths: staffDeaths + residentDeaths,
+      staffCases,
+      staffDeaths,
+      residentCases,
+      residentDeaths,
     })
   })
   return (
@@ -31,6 +43,7 @@ export default ({ pageContext, path, data }) => {
       returnLinks={[
         { link: '/data' },
         { link: `/data/state/${slug}`, title: state.name },
+        { link: `/data/state/${slug}/long-term-care`, title: 'Long-term care' },
       ]}
       path={path}
     >
@@ -41,12 +54,34 @@ export default ({ pageContext, path, data }) => {
             label: 'Date',
           },
           {
+            field: 'residentCases',
+            label: 'Resident Cases',
+            isNumeric: true,
+          },
+          {
+            field: 'residentDeaths',
+            label: 'Resident Deaths',
+            isNumeric: true,
+          },
+          {
+            field: 'staffCases',
+            label: 'Staff Cases',
+            isNumeric: true,
+          },
+          {
+            field: 'staffDeaths',
+            label: 'Staff Deaths',
+            isNumeric: true,
+          },
+          {
             field: 'cases',
-            label: 'Cases',
+            label: 'Total Cases',
+            isNumeric: true,
           },
           {
             field: 'deaths',
-            label: 'Deaths',
+            label: 'Total Deaths',
+            isNumeric: true,
           },
         ]}
         data={history}

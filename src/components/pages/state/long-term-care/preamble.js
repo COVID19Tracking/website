@@ -4,7 +4,12 @@ import LongTermCareOverview from './overview'
 import preambleStyle from '../preamble.module.scss'
 import downloadDataStyles from '../download-data.module.scss'
 
-const LongTermCarePreamble = ({ state, overview, showFacilities = false }) => {
+const LongTermCarePreamble = ({
+  state,
+  stateSlug,
+  overview,
+  showFacilities = false,
+}) => {
   let facilities = 0
   Object.keys(overview).forEach(key => {
     if (key.search('outbrkfac') > -1) {
@@ -14,7 +19,11 @@ const LongTermCarePreamble = ({ state, overview, showFacilities = false }) => {
   return (
     <OverviewWrapper>
       <h2 className="a11y-only">State overview</h2>
-      <LongTermCareOverview facilities={facilities} overview={overview} />
+      <LongTermCareOverview
+        facilities={facilities}
+        overview={overview}
+        stateSlug={stateSlug}
+      />
 
       <h3 className={preambleStyle.header}>Download dataset</h3>
       <div className={downloadDataStyles.container}>
