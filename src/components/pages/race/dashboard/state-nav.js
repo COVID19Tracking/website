@@ -30,7 +30,7 @@ const selectFirstItemOnKeyDown = (
     return
   }
   if (results && results.length > 0 && typeof window !== 'undefined') {
-    // select the first state result 
+    // select the first state result
     setWindowLocationFn(`state-${results[0].state.toLowerCase()}`)
     return
   }
