@@ -14,16 +14,29 @@ import TestsAntibodyCard from './cards/tests-antibody'
 import TestsViralCard from './cards/tests-viral'
 import NationalTestsCard from './cards/tests-national'
 import LongTermCareCard from './cards/long-term-care'
+import HospitalizationHhsCard from './cards/hospitalization-hhs-card'
+
+import createRaceValues from './cards/crdt/create-race-data'
+import CrdtCasesCard from './cards/crdt/cases-card'
+import CrdtDeathsCard from './cards/crdt/deaths-card'
+
+import SmallCards from './cards/small-cards'
+// import GradeSmallCard from './cards/small/grade-small-card'
+import ViewDataSmallCard from './cards/small/view-racial-data-small-card'
+import DataAsGraphicSmallCard from './cards/small/data-as-graphic-small-card'
 
 import summaryStyles from './summary.module.scss'
 
 const StateSummary = ({
   stateSlug,
   stateName,
+  stateAbbreviation,
   data,
   sevenDaysAgo,
   metadata,
   longTermCare,
+  raceData,
+  hhsHospitalization,
   annotations = false,
   national = false,
 }) => {
@@ -31,7 +44,7 @@ const StateSummary = ({
   stateSlug: the name of the state, as a slug. like "arizona"
   data: API data from either usCovid or covidState
   sevenDaysAgo: seven day old API data from usCovidDaily or covidStateDaily
-  national: flag for the national summmary, true means this is national
+  national: flag for the national summary, true means this is national
   */
   const [cardDefinitions, setCardDefinitions] = useState(false)
   const [highlightedDefinition, setHighlightedDefinition] = useState(false)
@@ -66,6 +79,25 @@ const StateSummary = ({
       ...def,
     }))
 
+  // states that should be ignored for racial data *graphic* links
+  const racialDataGraphicIgnoreStates = ['AS', 'GU', 'MP', 'VI']
+
+  // true means we should hide this small card
+  const hideRacialDataGraphic =
+    racialDataGraphicIgnoreStates.indexOf(stateAbbreviation) > -1
+
+  // states that should be ignored for racial data *tracker* links
+  const racialDataTrackerIgnoreStates = ['MP', 'AS']
+
+  // true means we should hide this small card
+  const hideRacialDataTracker =
+    racialDataTrackerIgnoreStates.indexOf(stateAbbreviation) > -1
+
+  // true means we should hide all small cards
+  const hideSmallCards = hideRacialDataGraphic && hideRacialDataTracker
+
+  const raceValues = createRaceValues(raceData)
+
   return (
     <DefinitionPanelContext.Provider
       value={({ fields, highlight }) => {
@@ -89,7 +121,7 @@ const StateSummary = ({
             definitions={definitions}
             highlightedDefinition={highlightedDefinition}
             onHide={() => setCardDefinitions(false)}
-            title="Definitions"
+            title={`${stateName} Definitions`}
           />
         )}
         {cardAnnotations && (
@@ -170,8 +202,16 @@ const StateSummary = ({
             hospitalizedCurrently={data.hospitalizedCurrently}
             inIcuCurrently={data.inIcuCurrently}
             onVentilatorCurrently={data.onVentilatorCurrently}
+            hhsHospitalization={hhsHospitalization}
             national={national}
           />
+          {!national && hhsHospitalization && (
+            <HospitalizationHhsCard
+              stateSlug={stateSlug}
+              stateName={stateName}
+              hhsHospitalization={hhsHospitalization}
+            />
+          )}
           <OutcomesCard
             stateSlug={stateSlug}
             stateName={stateName}
@@ -191,6 +231,52 @@ const StateSummary = ({
             />
           )}
         </div>
+        {!national && (
+          <>
+            <h4>Race &amp; ethnicity data</h4>
+            <p>
+              We compute the number of{' '}
+              <strong>cases and deaths per 100k people</strong> for each race
+              and ethnicity.
+            </p>
+            <p>
+              These numbers show the scale of outcomes compared to the size of
+              each group’s population.{' '}
+              <strong>These are not the number of cases or deaths</strong>,
+              rather the proportion of each demographic group who have been
+              affected.
+            </p>
+            <div className={summaryStyles.container}>
+              {!hideSmallCards && (
+                <>
+                  <SmallCards>
+                    {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
+                    {!hideRacialDataTracker && (
+                      <ViewDataSmallCard
+                        stateName={stateName}
+                        stateAbbreviation={stateAbbreviation}
+                      />
+                    )}
+                    {!hideRacialDataGraphic && (
+                      <DataAsGraphicSmallCard
+                        stateName={stateName}
+                        stateAbbreviation={stateAbbreviation}
+                      />
+                    )}
+                  </SmallCards>
+                </>
+              )}
+              <CrdtCasesCard
+                raceData={raceValues}
+                stateAbbreviation={stateAbbreviation}
+              />
+              <CrdtDeathsCard
+                raceData={raceValues}
+                stateAbbreviation={stateAbbreviation}
+              />
+            </div>
+          </>
+        )}
       </AnnotationPanelContext.Provider>
     </DefinitionPanelContext.Provider>
   )

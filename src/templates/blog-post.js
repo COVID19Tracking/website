@@ -205,6 +205,7 @@ export const query = graphql`
             keepSize
             fullWidthMobile
             caption
+            imageLink
             image {
               file {
                 url
@@ -225,6 +226,25 @@ export const query = graphql`
             footnote {
               footnote
             }
+          }
+          ... on ContentfulContentBlockFlippableCard {
+            id
+            contentful_id
+            width
+            height
+            cardFront {
+              fixed(width: 900) {
+                src
+                srcSet
+              }
+            }
+            cardBack {
+              fixed(width: 900) {
+                src
+                srcSet
+              }
+            }
+            alternateText
           }
         }
       }

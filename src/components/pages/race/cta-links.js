@@ -12,7 +12,7 @@ const CtaLinks = () => (
     </CtaLink>
     <CtaAnchorLink
       centered
-      href="https://docs.google.com/spreadsheets/d/e/2PACX-1vR_xmYt4ACPDZCDJcY12kCiMiH0ODyx3E1ZvgOHB8ae1tRcjXbs_yWBOA4j4uoCEADVfC1PS2jYO68B/pub?gid=43720681&single=true&output=csv"
+      href="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaERcKJOD_EzrtCDK1dX1zkoMochlA9iHoHg_RSw3V8bkpfk1mpw4pfL5RdtSOyx_oScsUtyXyk/pub?gid=43720681&single=true&output=csv"
       onClick={() => {
         if (typeof window.fathom !== 'undefined') {
           window.fathom.trackGoal('Y2UISYEJ', 0)

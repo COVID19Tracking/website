@@ -8,6 +8,16 @@ import StateSummary from '~components/pages/data/summary'
 import StateNotes from '~components/pages/state/state-notes'
 import StateTweets from '~components/pages/state/state-tweets'
 
+const getRaceData = data => {
+  if (data.allCovidRaceDataCombined.nodes.length > 0) {
+    return data.allCovidRaceDataCombined.nodes[0]
+  }
+  if (data.allCovidRaceDataSeparate.nodes.length > 0) {
+    return data.allCovidRaceDataSeparate.nodes[0]
+  }
+  return data.allCovidRaceDataSeparate.nodes[0]
+}
+
 const StateTemplate = ({ pageContext, data, path }) => {
   const state = pageContext
   const {
@@ -21,9 +31,15 @@ const StateTemplate = ({ pageContext, data, path }) => {
     contentfulStateOrTerritory,
     allTweets,
     allCovidAnnotation,
+    allHhsHospitalizationCovid,
   } = data
   return (
-    <Layout title={state.name} returnLinks={[{ link: '/data' }]} path={path}>
+    <Layout
+      title={state.name}
+      returnLinks={[{ link: '/data' }]}
+      path={path}
+      showWarning
+    >
       <StatePreamble state={state} covidState={covidState} />
       <SummaryCharts
         name={state.name}
@@ -42,6 +58,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
       <StateNavWrapper stateList={allCovidStateInfo.nodes} single>
         <StateSummary
           stateName={state.name}
+          stateAbbreviation={state.state}
           sevenDaysAgo={sevenDaysAgo}
           stateSlug={state.slug}
           data={covidState}
@@ -49,7 +66,11 @@ const StateTemplate = ({ pageContext, data, path }) => {
           metadata={contentfulStateOrTerritory}
           lastUpdated={covidState.lastUpdateEt}
           annotations={allCovidAnnotation.nodes}
+          raceData={getRaceData(data)}
           longTermCare={data.covidStateInfo.childLtc}
+          hhsHospitalization={
+            allHhsHospitalizationCovid && allHhsHospitalizationCovid.nodes[0]
+          }
         />
         {state.notes && <StateNotes notes={state.notes} />}
         <StateTweets
@@ -222,12 +243,90 @@ export const query = graphql`
         date(formatString: "MMMM D, yyyy")
       }
     }
+    allCovidRaceDataCombined(filter: { state: { eq: $state } }) {
+      nodes {
+        state
+        name
+        blackSmallN
+        latinXSmallN
+        asianSmallN
+        aianSmallN
+        whiteSmallN
+        apiSmallN
+        nhpiSmallN
+        blackPosPerCap
+        blackDeathPerCap
+        latinXPosPerCap
+        latinXDeathPerCap
+        asianPosPerCap
+        asianDeathPerCap
+        aianPosPerCap
+        aianDeathPerCap
+        whitePosPerCap
+        whiteDeathPerCap
+        nhpiPosPerCap
+        nhpiDeathPerCap
+        apiPosPerCap
+        apiDeathPerCap
+        lastCheckDate {
+          value
+        }
+      }
+    }
+    allCovidRaceDataSeparate(filter: { state: { eq: $state } }) {
+      nodes {
+        state
+        name
+        knownRacePos
+        knownRaceDeath
+        knownEthPos
+        knownEthDeath
+        blackSmallN
+        latinXSmallN
+        asianSmallN
+        aianSmallN
+        whiteSmallN
+        apiSmallN
+        nhpiSmallN
+        blackPosPerCap
+        blackDeathPerCap
+        latinXPosPerCap
+        latinXDeathPerCap
+        asianPosPerCap
+        asianDeathPerCap
+        aianPosPerCap
+        aianDeathPerCap
+        whitePosPerCap
+        whiteDeathPerCap
+        nhpiPosPerCap
+        nhpiDeathPerCap
+        apiPosPerCap
+        apiDeathPerCap
+        lastCheckDate {
+          value
+        }
+      }
+    }
     allCovidAnnotation(filter: { state: { eq: $state } }) {
       nodes {
         airtable_id
         field
         lastChecked(formatString: "MMMM DD yyyy")
         warning
+      }
+    }
+    allHhsHospitalizationCovid(
+      filter: { state: { eq: $state } }
+      sort: { fields: date, order: DESC }
+      limit: 1
+    ) {
+      nodes {
+        state
+        date
+        inpatient_beds_used_covid
+        staffed_icu_adult_patients_confirmed_and_suspected_covid
+        total_adult_patients_hospitalized_confirmed_covid
+        total_pediatric_patients_hospitalized_confirmed_covid
       }
     }
   }

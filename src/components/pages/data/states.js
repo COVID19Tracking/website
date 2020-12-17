@@ -9,10 +9,37 @@ const States = ({
   sevenDaysAgoList,
   stateMetadata,
   annotations,
+  raceDataCombined,
+  raceDataSeparate,
+  hhsHospitalization,
 }) => {
   const stateList = []
+
+  // handle crdt data
+  const combinedStates = raceDataCombined.map(node => node.state)
   states.forEach(node => {
     const state = node
+
+    // handle crdt data
+    const isCombinedState = combinedStates.indexOf(state.state) >= 0
+    if (isCombinedState) {
+      // combined: ethnicity and race are together
+      raceDataCombined.forEach(data => {
+        if (data.state === state.state) {
+          state.raceData = data
+          state.raceData.isCombined = true
+        }
+      })
+    } else {
+      // not combined: ethnicity and race are separate
+      raceDataSeparate.forEach(data => {
+        if (data.state === state.state) {
+          state.raceData = data
+          state.raceData.isCombined = false
+        }
+      })
+    }
+
     stateData.forEach(data => {
       if (data.state === state.state) {
         state.stateData = data
@@ -26,6 +53,11 @@ const States = ({
     state.annotations = annotations.filter(
       annotation => annotation.state && annotation.state === state.state,
     )
+
+    state.hhsHospitalization = hhsHospitalization
+      ? hhsHospitalization.find(record => record.nodes[0].state === state.state)
+      : false
+
     stateList.push(state)
   })
 

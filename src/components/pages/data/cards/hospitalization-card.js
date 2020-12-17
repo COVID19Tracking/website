@@ -88,6 +88,40 @@ const HospitalizationCard = ({
           </>
         ) : (
           <>
+            <Statistic title="Now hospitalized" value={hospitalizedCurrently}>
+              <DefinitionLink
+                label="Now hospitalized"
+                onDefinitionsToggle={() => {
+                  definitionContext({
+                    fields,
+                    highlight: 'hospitalizedCurrently',
+                  })
+                }}
+              />
+            </Statistic>
+            <Statistic title="Now in ICU" value={inIcuCurrently}>
+              <DefinitionLink
+                label="Now in ICU"
+                onDefinitionsToggle={() => {
+                  definitionContext({
+                    fields,
+                    highlight: 'inIcuCurrently',
+                  })
+                }}
+              />
+            </Statistic>
+            <Statistic title="Now on ventilator" value={onVentilatorCurrently}>
+              <DefinitionLink
+                label="Now on ventilator"
+                onDefinitionsToggle={() => {
+                  definitionContext({
+                    fields,
+                    highlight: 'onVentilatorCurrently',
+                  })
+                }}
+              />
+            </Statistic>
+
             <Statistic title="Ever hospitalized" value={hospitalizedCumulative}>
               <DefinitionLink
                 label="Ever hospitalized"
@@ -99,21 +133,7 @@ const HospitalizationCard = ({
                 }}
               />
             </Statistic>
-            <Statistic
-              title="Now hospitalized"
-              value={hospitalizedCurrently}
-              subelement
-            >
-              <DefinitionLink
-                label="Now hospitalized"
-                onDefinitionsToggle={() => {
-                  definitionContext({
-                    fields,
-                    highlight: 'hospitalizedCurrently',
-                  })
-                }}
-              />
-            </Statistic>
+
             <Statistic title="Ever in ICU" value={inIcuCumulative}>
               <DefinitionLink
                 label="Ever in ICU"
@@ -121,17 +141,6 @@ const HospitalizationCard = ({
                   definitionContext({
                     fields,
                     highlight: 'inIcuCumulative',
-                  })
-                }}
-              />
-            </Statistic>
-            <Statistic title="Now in ICU" value={inIcuCurrently} subelement>
-              <DefinitionLink
-                label="Now in ICU"
-                onDefinitionsToggle={() => {
-                  definitionContext({
-                    fields,
-                    highlight: 'inIcuCurrently',
                   })
                 }}
               />
@@ -146,21 +155,6 @@ const HospitalizationCard = ({
                   definitionContext({
                     fields,
                     highlight: 'onVentilatorCumulative',
-                  })
-                }}
-              />
-            </Statistic>
-            <Statistic
-              title="Now on ventilator"
-              value={onVentilatorCurrently}
-              subelement
-            >
-              <DefinitionLink
-                label="Now on ventilator"
-                onDefinitionsToggle={() => {
-                  definitionContext({
-                    fields,
-                    highlight: 'onVentilatorCurrently',
                   })
                 }}
               />

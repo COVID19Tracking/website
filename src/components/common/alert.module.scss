@@ -10,7 +10,12 @@
 
   img {
     width: toRem(16);
+    min-width: toRem(16);
     margin: spacer(4) spacer(16) spacer(8) spacer(8);
+  }
+  
+  a {
+    color: $color-infobox-alert-dark;
   }
 
   p {
@@ -24,6 +29,7 @@
 
   .content {
     margin-top: spacer(4);
+    margin-bottom: spacer(4);
   }
 
   &.block {

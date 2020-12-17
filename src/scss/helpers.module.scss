@@ -70,6 +70,13 @@ $spacers: (
   width: 1px;
 }
 
+@mixin a11y-only-off {
+  overflow: auto;
+  margin: 0;
+  height: auto;
+  position: relative;
+}
+
 @mixin remove-button-style {
   border: 0;
   padding: 0;

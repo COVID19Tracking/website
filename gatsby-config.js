@@ -59,7 +59,7 @@ const gatsbyConfig = {
       options: {
         data: sassImports,
         cssLoaderOptions: {
-          localIdentName: '[sha1:hash:hex:4]',
+          localIdentName: '[sha1:hash:hex:5]',
         },
       },
     },
@@ -142,13 +142,6 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/screenshots.json',
-        type: 'CovidScreenshot',
-      },
-    },
-    {
-      resolve: 'gatsby-source-covid-tracking-api',
-      options: {
         file: './_data/volunteers.json',
         type: 'CovidVolunteers',
         sortField: 'name',
@@ -222,6 +215,13 @@ const gatsbyConfig = {
       options: {
         file: './_data/annotations.json',
         type: 'covidAnnotation',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/hhs_hospitalization.json',
+        type: 'hhsHospitalizationCovid',
       },
     },
     {
@@ -341,8 +341,18 @@ const gatsbyConfig = {
       resolve: 'gatsby-plugin-global-context',
       options: {
         context: {
+          latestDate: DateTime.fromISO(latestDate).toISODate(),
           sevenDaysAgo: DateTime.fromISO(latestDate)
             .minus({ days: 7 })
+            .toISODate(),
+          fourteenDaysAgo: DateTime.fromISO(latestDate)
+            .minus({ days: 14 })
+            .toISODate(),
+          twentyEightDaysAgo: DateTime.fromISO(latestDate)
+            .minus({ days: 28 })
+            .toISODate(),
+          ninetyDaysAgo: DateTime.fromISO(latestDate)
+            .minus({ days: 90 })
             .toISODate(),
         },
       },

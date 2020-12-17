@@ -34,7 +34,7 @@ exports[`Components : Pages : State : State links renders correctly 1`] = `
   </a>
   <a
     className="link"
-    href="/data/state/undefined/screenshots"
+    href="https://screenshots.covidtracking.com/undefined"
   >
     <span>
       View screenshots
@@ -77,7 +77,7 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
   </a>
   <a
     className="link"
-    href="/data/state/undefined/screenshots"
+    href="https://screenshots.covidtracking.com/undefined"
   >
     <span>
       View screenshots

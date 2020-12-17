@@ -44,11 +44,23 @@ The issue queue is the place for bug reports or feature requests. To make sure y
 
 We use the pull request (PR) process to test and discuss proposed changes to the website. Anyone can open a pull request, and the process for reviewing and merging requests is the same for everyone.
 
-**Important**: By submitting a PR, you agree to license your work under the same license as that used by the project.
+**Important**: By submitting a PR, you agree to license your work under the same [license as that used by the project](https://github.com/COVID19Tracking/website/blob/master/LICENSE).
 
 Before preparing a pull request, open an issue if there isn’t already one that your request fixes. We use issues to discuss options before deciding on a single approach. For tiny changes, like a typo, a separate issue is not needed.
 
 All pull requests run automated tests and deploy a test version of the site to preview changes. It’s OK if a draft or work-in-progress pull request is not passing, all tests and checks must be passing before the request can be merged. The deploy preview is very helpful for others to review your code, and is available in the “Details” link next to a check that will read “Deploy preview ready!”
+
+### Naming pull requests
+
+#### Single-contributor pull requests
+
+If you are the only contirbutor to a PR, use this naming convention: `<your-github-username>/<brief-patch-description>-[optional-related-issue]`
+
+This could look like: `octocat/add-notes-highlighting` or `octocat/fix-time-offset-1032` (where 1032 refers to a related issue).
+
+#### Multi-contributor pull requests or project pull requests
+
+Pull requests that involve multiple contributors or that have a large scope (i.e. many issues) should use this naming convention: `feature/<brief-description>`.
 
 ### Reviewing, approving and merging pull requests
 
@@ -62,9 +74,9 @@ Merges should only be made by the core website team, after a PR was reviewed and
 
 Write your commit messages and PR titles following the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.3/) format. The pattern is `<type>([optional scope]): Message,`, for example: `fix(docs): Fixed typos in contributor documentation`. They should be both concise and specific. Examples of good commit messages are:
 
-- fix(design): Added more padding to buttons
-- chore(docs): Copy edit the contributing page
-- feat(visualization): Added new
+- `fix(design): Added more padding to buttons`
+- `chore(docs): Copy edit the contributing page`
+- `feat(visualization): Added new`
 
 Examples of unhelpful messages:
 
