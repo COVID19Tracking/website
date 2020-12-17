@@ -32,10 +32,11 @@
 }
 
 .tabs {
-  @include margin(16, top);
+  background: $color-slate-50;
   button {
     @include remove-button-style();
-    @include padding(8, top bottom);
+    @include padding(32, top);
+    @include padding(16, bottom);
     width: 150px;
     text-align: center;
     border-bottom: 3px solid white;

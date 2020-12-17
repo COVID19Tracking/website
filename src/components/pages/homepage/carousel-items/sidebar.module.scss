@@ -14,7 +14,7 @@
 }
 
 .related-post {
-  background: #d8d8d8;
+  background: $color-slate-150;
   @include padding(16);
   @media (min-width: $viewport-md) {
     height: 100%;
@@ -27,7 +27,7 @@
   }
   a {
     text-decoration: none;
-    color: #373b88;
+    color: $color-blueberry-450;
   }
   .title {
     @include type-size(300);
