@@ -105,7 +105,7 @@ const LongTermCareOverview = ({ facilities, overview, stateSlug }) => {
             All facilities
           </CtaAnchorLink>
           <CtaLink to={`/data/state/${stateSlug}/long-term-care/history`} block>
-            Historic data
+            Historical totals
           </CtaLink>
         </Col>
       </Row>
