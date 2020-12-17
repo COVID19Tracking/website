@@ -1,7 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import marked from 'marked'
+import StateNotes from '~components/pages/state/state-notes'
 import TableResponsive from '~components/common/table-responsive'
+import LongTermCareAlertNote from '~components/pages/state/long-term-care/alert-note'
 import Layout from '~components/layout'
 
 export default ({ pageContext, path, data }) => {
@@ -48,11 +49,12 @@ export default ({ pageContext, path, data }) => {
       ]}
       path={path}
     >
-      <div
-        dangerouslySetInnerHTML={{
-          __html: marked(data.covidLtcNotes.notes),
-        }}
-      />
+      {data.covidLtcNotes.alerts && (
+        <LongTermCareAlertNote>
+          {data.covidLtcNotes.alerts}
+        </LongTermCareAlertNote>
+      )}
+      <StateNotes notes={data.covidLtcNotes.notes} />
       <TableResponsive
         labels={[
           {
