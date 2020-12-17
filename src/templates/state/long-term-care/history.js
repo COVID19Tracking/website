@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import marked from 'marked'
 import TableResponsive from '~components/common/table-responsive'
 import Layout from '~components/layout'
 
@@ -47,6 +48,11 @@ export default ({ pageContext, path, data }) => {
       ]}
       path={path}
     >
+      <div
+        dangerouslySetInnerHTML={{
+          __html: marked(data.covidLtcNotes.notes),
+        }}
+      />
       <TableResponsive
         labels={[
           {
@@ -92,6 +98,10 @@ export default ({ pageContext, path, data }) => {
 
 export const query = graphql`
   query($state: String!) {
+    covidLtcNotes(state: { eq: $state }) {
+      notes
+      alerts
+    }
     aggregate: allCovidLtcStates(
       sort: { fields: date, order: DESC }
       filter: { state_abbr: { eq: $state }, data_type: { eq: "Aggregate" } }
