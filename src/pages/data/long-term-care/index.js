@@ -87,23 +87,15 @@ const LongTermCarePage = ({ data }) => {
           <Snippet slug="ltc-2" />
         </LongContent>
       </Container>
-      <Container centered>
-        <LongContent>
-          <h2>Deaths in Long-Term Care Facilities by Region</h2>
-        </LongContent>
-      </Container>
       <TableauChart
         id="ltc-2"
-        height={525}
+        height={700}
         mobileHeight={450}
-        viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
-        viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/deathsbydate?:language=en&:display_count=y&:origin=viz_share_link"
+        viewUrl="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall?:language=en&:display_count=y&:origin=viz_share_link"
+        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall?:language=en&:display_count=y&:origin=viz_share_link"
       />
       <Container centered>
         <LongContent>
-          <DetailText small>
-            <Snippet slug="ltc-timechart-notes" />
-          </DetailText>
           <Snippet slug="ltc-definitions" />
         </LongContent>
       </Container>
