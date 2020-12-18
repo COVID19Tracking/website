@@ -330,7 +330,7 @@ export const query = graphql`
         total_pediatric_patients_hospitalized_confirmed_covid
       }
     }
-    urls: file(childTacoYaml: { state: { eq: "CA" } }) {
+    urls: file(childTacoYaml: { state: { eq: $state } }) {
       childTacoYaml {
         links {
           url
