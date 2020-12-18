@@ -46,6 +46,14 @@ const gatsbyConfig = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-svgr',
+    'gatsby-transformer-yaml',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'screenshotConfig',
+        path: `${__dirname}/_screenshots/configs/taco`,
+      },
+    },
     {
       resolve: 'gatsby-plugin-google-analytics-gdpr',
       options: {
@@ -137,13 +145,6 @@ const gatsbyConfig = {
           'totalTestsViral',
           'totalTestsPeopleViral',
         ],
-      },
-    },
-    {
-      resolve: 'gatsby-source-covid-tracking-api',
-      options: {
-        file: './_data/screenshots.json',
-        type: 'CovidScreenshot',
       },
     },
     {

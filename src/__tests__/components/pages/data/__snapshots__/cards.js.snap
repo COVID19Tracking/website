@@ -104,7 +104,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 1`] 
     <h3
       className="title"
     >
-      Race & ethnicity: cases
+      Race & ethnicity: cases per capita
     </h3>
   </div>
   <div
@@ -117,7 +117,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 1`] 
         className="statistic"
       >
         <div
-          className="title"
+          className="title fullWidth"
         >
           Cases per 100,000 people
         </div>
@@ -212,7 +212,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 2`] 
     <h3
       className="title"
     >
-      Race & ethnicity: cases
+      Race & ethnicity: cases per capita
     </h3>
   </div>
   <div
@@ -225,7 +225,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 2`] 
         className="statistic"
       >
         <div
-          className="title"
+          className="title fullWidth"
         >
           Cases per 100,000 people
         </div>
@@ -264,7 +264,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 2`] 
            does not report this information.
            
           <a
-            href="/race/get-better-data"
+            href="/race/get-better-data#NV"
           >
             Help us get better data.
           </a>
@@ -285,7 +285,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 1`]
     <h3
       className="title"
     >
-      Race & ethnicity: deaths
+      Race & ethnicity: deaths per capita
     </h3>
   </div>
   <div
@@ -298,7 +298,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 1`]
         className="statistic"
       >
         <div
-          className="title"
+          className="title fullWidth"
         >
           Deaths per 100,000 people
         </div>
@@ -401,7 +401,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 2`]
     <h3
       className="title"
     >
-      Race & ethnicity: deaths
+      Race & ethnicity: deaths per capita
     </h3>
   </div>
   <div
@@ -414,7 +414,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 2`]
         className="statistic"
       >
         <div
-          className="title"
+          className="title fullWidth"
         >
           Deaths per 100,000 people
         </div>
@@ -453,7 +453,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 2`]
            does not report this information.
            
           <a
-            href="/race/get-better-data"
+            href="/race/get-better-data#NV"
           >
             Help us get better data.
           </a>

@@ -1,6 +1,5 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
-import { Link } from 'gatsby'
 import {
   Disclosure,
   DisclosureButton,
@@ -9,28 +8,28 @@ import {
 import stateLinksStyle from './state-links.module.scss'
 import preambleStyle from './preamble.module.scss'
 
-const StateLinks = ({
-  twitter,
-  covid19Site,
-  covid19SiteSecondary,
-  covid19SiteTertiary,
-  stateName,
-  stateSlug,
-}) => {
+const StateLinks = ({ twitter, stateName, stateSlug, links }) => {
+  const getLink = type => {
+    const currentLink = links && links.find(link => link.name === type)
+    if (!currentLink) {
+      return false
+    }
+    return currentLink.url
+  }
   return (
     <div className={stateLinksStyle.container}>
-      {covid19Site && (
-        <a href={covid19Site} className={stateLinksStyle.link}>
+      {getLink('primary') && (
+        <a href={getLink('primary')} className={stateLinksStyle.link}>
           <span>Best current data source</span>
         </a>
       )}
-      {covid19SiteSecondary && (
-        <a href={covid19SiteSecondary} className={stateLinksStyle.link}>
+      {getLink('secondary') && (
+        <a href={getLink('secondary')} className={stateLinksStyle.link}>
           <span>Secondary data source</span>
         </a>
       )}
-      {covid19SiteTertiary && (
-        <a href={covid19SiteTertiary} className={stateLinksStyle.link}>
+      {getLink('tertiary') && (
+        <a href={getLink('tertiary')} className={stateLinksStyle.link}>
           <span>Tertiary data source</span>
         </a>
       )}
@@ -43,12 +42,12 @@ const StateLinks = ({
           Official Twitter
         </a>
       )}
-      <Link
+      <a
         className={stateLinksStyle.link}
-        to={`/data/state/${stateSlug}/screenshots`}
+        href={`https://screenshots.covidtracking.com/${stateSlug}`}
       >
         <span>View screenshots</span>
-      </Link>
+      </a>
     </div>
   )
 }
@@ -68,11 +67,9 @@ const StateLinksDisclosurePanel = ({ state }) => (
   <DisclosurePanel>
     <StateLinks
       twitter={state.twitter}
-      covid19Site={state.covid19Site}
-      covid19SiteSecondary={state.covid19SiteSecondary}
-      covid19SiteTertiary={state.covid19SiteTertiary}
       stateName={state.name}
       stateSlug={state.childSlug.slug}
+      links={state.links && state.links.childTacoYaml.links}
     />
   </DisclosurePanel>
 )
