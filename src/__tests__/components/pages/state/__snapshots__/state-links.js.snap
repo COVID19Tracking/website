@@ -6,22 +6,6 @@ exports[`Components : Pages : State : State links renders correctly 1`] = `
 >
   <a
     className="link"
-    href="https://example.com"
-  >
-    <span>
-      Best current data source
-    </span>
-  </a>
-  <a
-    className="link"
-    href="https://example.com2"
-  >
-    <span>
-      Secondary data source
-    </span>
-  </a>
-  <a
-    className="link"
     href="https://twitter.com/california-covid"
   >
     <span
@@ -47,22 +31,6 @@ exports[`Components : Pages : State : State links renders correctly 2`] = `
 <div
   className="container"
 >
-  <a
-    className="link"
-    href="https://example.com"
-  >
-    <span>
-      Best current data source
-    </span>
-  </a>
-  <a
-    className="link"
-    href="https://example.com2"
-  >
-    <span>
-      Secondary data source
-    </span>
-  </a>
   <a
     className="link"
     href="https://twitter.com/california-covid"
