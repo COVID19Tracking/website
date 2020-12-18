@@ -21,7 +21,7 @@ import {
 } from '~components/pages/state/state-links'
 import preambleStyle from './preamble.module.scss'
 
-const StatePreamble = ({ state, covidState }) => {
+const StatePreamble = ({ state, urls, covidState }) => {
   const { contentfulSnippet } = useStaticQuery(
     graphql`
       query {
@@ -37,6 +37,7 @@ const StatePreamble = ({ state, covidState }) => {
   )
   const [stateLinksAreOpen, setStateLinksAreOpen] = useState(false)
   const [downloadDataIsOpen, setDownloadDataIsOpen] = useState(false)
+  const { links } = urls.childTacoYaml
   // todo make state grade wrap as a circle with the grade description
   return (
     <OverviewWrapper className={preambleStyle.preamble}>
@@ -47,9 +48,7 @@ const StatePreamble = ({ state, covidState }) => {
             <h3 className={preambleStyle.header}>Where this data comes from</h3>
             <StateLinks
               twitter={state.twitter}
-              covid19Site={state.covid19Site}
-              covid19SiteSecondary={state.covid19SiteSecondary}
-              covid19SiteTertiary={state.covid19SiteTertiary}
+              links={links}
               stateName={state.name}
               stateSlug={state.childSlug.slug}
             />
