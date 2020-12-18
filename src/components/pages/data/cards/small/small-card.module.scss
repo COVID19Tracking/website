@@ -1,6 +1,6 @@
 .container {
   border: 2px solid $color-slate-200;
-  height: 75px;
+  min-height: 75px;
   padding: spacer(8);
 
   display: grid;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Form,
   Input,
@@ -18,6 +18,35 @@ const AdvocacyForm = ({ states, stateInfo, governors }) => {
   const noStateString = '-- Select a state --'
 
   const [state, setState] = useState(noStateString)
+
+  function setComponentStateFromStateAbbreviation(abbreviation) {
+    const stateObj = stateInfo.find(
+      node =>
+        node.stateAbbreviation.toLowerCase() === abbreviation.toLowerCase(),
+    )
+    if (stateObj) {
+      setState(stateObj.name)
+    }
+  }
+
+  useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      window.location &&
+      window.location.hash
+    ) {
+      const stateAbbreviation = window.location.hash.replace('#', '')
+      setComponentStateFromStateAbbreviation(stateAbbreviation)
+
+      window.onhashchange = () => {
+        const stateAbbreviationFromUrlChange = window.location.hash.replace(
+          '#',
+          '',
+        )
+        setComponentStateFromStateAbbreviation(stateAbbreviationFromUrlChange)
+      }
+    }
+  }, [])
 
   return (
     <Form
@@ -39,8 +68,17 @@ const AdvocacyForm = ({ states, stateInfo, governors }) => {
             name="state"
             id="state"
             options={states}
+            value={state}
             isRequired
-            onChange={e => setState(e.target.value)}
+            onChange={e => {
+              const stateData = stateInfo.find(
+                stateObject => stateObject.name === e.target.value,
+              )
+              if (stateData) {
+                setState(stateData.name)
+                window.location.hash = `#${stateData.stateAbbreviation}`
+              }
+            }}
           />
         </li>
 
