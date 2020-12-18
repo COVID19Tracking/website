@@ -1,7 +1,7 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import OverviewWrapper from '~components/common/overview-wrapper'
 import LongTermCareOverview from './overview'
-import preambleStyle from '../preamble.module.scss'
 import downloadDataStyles from '../download-data.module.scss'
 
 const LongTermCarePreamble = ({
@@ -24,26 +24,31 @@ const LongTermCarePreamble = ({
         overview={overview}
         stateSlug={stateSlug}
       />
-
-      <h3 className={preambleStyle.header}>Download dataset</h3>
       <div className={downloadDataStyles.container}>
         <p>
           <a
             href="https://github.com/COVID19Tracking/long-term-care-data/blob/master/state_overview.csv"
             className={downloadDataStyles.button}
           >
-            State overview
+            Download state dataset
           </a>
           {showFacilities && (
             <a
               href={`https://github.com/COVID19Tracking/long-term-care-data/blob/master/facilities_${state.toLowerCase()}.csv`}
               className={downloadDataStyles.button}
             >
-              All facilities
+              Download facility-level dataset
             </a>
           )}
         </p>
       </div>
+      <p>
+        Do you have information about a long-term-care facility in this state?{' '}
+        <Link to="/data/long-term-care/contact">
+          We would love to hear from you
+        </Link>
+        .
+      </p>
     </OverviewWrapper>
   )
 }
