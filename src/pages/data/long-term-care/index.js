@@ -87,11 +87,6 @@ const LongTermCarePage = ({ data }) => {
           <Snippet slug="ltc-2" />
         </LongContent>
       </Container>
-      <Container centered>
-        <LongContent>
-          <h2>Deaths in Long-Term Care Facilities by Region</h2>
-        </LongContent>
-      </Container>
       <TableauChart
         id="ltc-2"
         height={700}
