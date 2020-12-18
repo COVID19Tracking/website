@@ -5,7 +5,7 @@ import LTCForm from '~components/pages/data/long-term-care/form'
 import ContentfulContent from '~components/common/contentful-content'
 
 const LTCContactPage = ({ data }) => (
-  <Layout title="Long term care: Contact us">
+  <Layout title="Long term care: Contact us" centered>
     <ContentfulContent
       content={
         data.contentfulSnippet.childContentfulSnippetContentTextNode

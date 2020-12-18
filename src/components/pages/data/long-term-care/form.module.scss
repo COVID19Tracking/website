@@ -1,4 +1,8 @@
 .form {
+  label[for='c2'] {
+    display: none;
+  }
+
   label,
   legend {
     &[for] {
