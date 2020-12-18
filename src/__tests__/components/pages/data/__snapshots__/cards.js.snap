@@ -1272,6 +1272,15 @@ exports[`Components : Pages : Data : Cards : Long term care card renders correct
         50%
       </span>
     </div>
+    <p
+      className="note"
+    >
+      <a
+        href="/data/state/texas/long-term-care/history"
+      >
+        View historical totals
+      </a>
+    </p>
     <div
       className="container"
     >
