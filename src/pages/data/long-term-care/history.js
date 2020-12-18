@@ -37,6 +37,22 @@ export default ({ path, data }) => {
       ]}
       path={path}
     >
+      <p>
+        Cumulative COVID-19 totals represent total cases, deaths and facilities
+        as reported by states and territories. For states who report current
+        outbreaks but not cumulative data, CTP carries the highest reported
+        outbreak case or death total. Due to outbreak reporting, CTP’s
+        aggregated cumulative data for these states under-reports actual
+        cumulative totals. This information can be found in our Aggregate
+        Dataset. States vary in their reported cumulative data start date. Not
+        all states and territories report long-term care data. Total cases
+        represent a combined total of resident and staff COVID-19 cases and
+        probable cases. Total deaths represent a combined total of resident and
+        staff COVID-19 deaths and probable deaths. Total Number of Facilities
+        represent the number of facilities affected by COVID-19. This total
+        includes Long-Term Care Facilities, Nursing Homes, Skilled Nursing
+        Facilities, and Assisted Living Facilities.
+      </p>
       <TableResponsive
         labels={[
           {
@@ -103,6 +119,30 @@ export const query = graphql`
         outbrkfac_nh
         outbrkfac_ltc
         outbrkfac_alf
+        probposstaff_other
+        probposstaff_nh
+        probposstaff_ltc
+        probposstaff_alf
+        probposresstaff_other
+        probposresstaff_nh
+        probposresstaff_ltc
+        probposresstaff_alf
+        probposres_other
+        probposres_nh
+        probposres_ltc
+        probposres_alf
+        probdeathstaff_other
+        probdeathstaff_nh
+        probdeathstaff_ltc
+        probdeathstaff_alf
+        probdeathresstaff_other
+        probdeathresstaff_nh
+        probdeathresstaff_ltc
+        probdeathresstaff_alf
+        probdeathres_other
+        probdeathres_nh
+        probdeathres_ltc
+        probdeathres_alf
         data_type
       }
     }
