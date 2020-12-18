@@ -5,7 +5,9 @@ import percentageOverviewStyle from './percentage-overview.module.scss'
 const PercentContent = ({ percent }) => {
   if (percent) {
     return (
-      <span className={percentageOverviewStyle.percent}>{Math.round(percent)}%</span>
+      <span className={percentageOverviewStyle.percent}>
+        {Math.round(percent)}%
+      </span>
     )
   }
   return (
@@ -35,14 +37,18 @@ const PercentageOverview = ({
           <p>
             <PercentContent percent={Math.round(casePercent * 100)} />{' '}
             <span className="a11y-only">of</span>{' '}
-            <span className={percentageOverviewStyle.percentCaption}>Cases</span>
+            <span className={percentageOverviewStyle.percentCaption}>
+              Cases
+            </span>
           </p>
         </div>
         <div className={percentageOverviewStyle.dataItem}>
           <p>
             <PercentContent percent={Math.round(deathPercent * 100)} />{' '}
             <span className="a11y-only">of</span>{' '}
-            <span className={percentageOverviewStyle.percentCaption}>Deaths</span>
+            <span className={percentageOverviewStyle.percentCaption}>
+              Deaths
+            </span>
           </p>
         </div>
       </div>
