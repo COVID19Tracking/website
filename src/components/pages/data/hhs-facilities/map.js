@@ -91,7 +91,11 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
     if (typeof window === 'undefined') {
       return
     }
-
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        setRevealedFacility(false)
+      }
+    })
     const map = new mapboxgl.Map({
       container: mapNode.current,
       style: `mapbox://styles/covidtrackingproject/ckihibso80hsg19o8q5gbq9z7`,
