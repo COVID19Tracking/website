@@ -26,10 +26,8 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   const [query, setQuery] = useState(false)
   const [facilities, setFacilities] = useState(false)
   const [tooltip, setTooltip] = useState({ x: 0, y: 0 })
+  const [highlightedFacility, setHighlightedFacility] = useState(false)
   const layers = ['Hospitals', 'Null hospitals']
-  if (typeof window === 'undefined') {
-    return null
-  }
 
   const mapNode = useRef(null)
   const mapRef = useRef(null)
@@ -50,7 +48,13 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
     setTooltip(event.point)
   }
 
-  const getFacilitiesInBoundBox = event => {
+  const mapBoundChanged = event => {
+    if (typeof window !== 'undefined') {
+      window.location.hash = [
+        ...event.target.getCenter().toArray(),
+        event.target.getZoom(),
+      ].join(',')
+    }
     if (event.target.getZoom() < 4) {
       setFacilities(false)
       return
@@ -58,10 +62,21 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
     const features = mapRef.current.queryRenderedFeatures({
       layers,
     })
-    setFacilities(features.map(({ properties }) => properties))
+    setFacilities(
+      features.sort((a, b) =>
+        a.properties.hospital_name > b.properties.hospital_name ? 1 : -1,
+      ),
+    )
   }
 
   useEffect(() => {
+    console.log(highlightedFacility)
+  }, [highlightedFacility])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
     const map = new mapboxgl.Map({
       container: mapNode.current,
       style: `mapbox://styles/covidtrackingproject/ckihibso80hsg19o8q5gbq9z7`,
@@ -69,7 +84,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       zoom,
     })
 
-    map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+    map.addControl(new mapboxgl.NavigationControl(), 'top-left')
 
     map.on('load', () => {
       if (state) {
@@ -80,15 +95,15 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
     })
 
     map.on('moveend', event => {
-      getFacilitiesInBoundBox(event)
+      mapBoundChanged(event)
     })
 
     map.on('dragend', event => {
-      getFacilitiesInBoundBox(event)
+      mapBoundChanged(event)
     })
 
     map.on('zoomend', event => {
-      getFacilitiesInBoundBox(event)
+      mapBoundChanged(event)
     })
 
     map.on('mousemove', event => {
@@ -180,12 +195,37 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
               </thead>
               <tbody>
                 {facilities.map(facility => (
-                  <tr>
-                    <Td alignLeft>{facility.hospital_name}</Td>
+                  <tr
+                    onMouseEnter={() => {
+                      setHighlightedFacility(facility)
+                    }}
+                    onMouseLeave={() => {
+                      setHighlightedFacility(false)
+                    }}
+                    onFocus={() => {
+                      setHighlightedFacility(facility)
+                    }}
+                    onBlur={() => {
+                      setHighlightedFacility(false)
+                    }}
+                  >
+                    <Td alignLeft>
+                      <button
+                        type="button"
+                        onClick={event => {
+                          event.preventDefault()
+                          console.log(facility)
+                        }}
+                      >
+                        {facility.properties.hospital_name}
+                      </button>
+                    </Td>
                     <Td>
-                      {facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
+                      {facility.properties
+                        .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
                       0
-                        ? facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
+                        ? facility.properties
+                            .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
                         : 'N/A'}
                     </Td>
                   </tr>
@@ -197,6 +237,32 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       </div>
       <div className={facilitiesMapStyles.mapWrapper} role="img">
         <div className={facilitiesMapStyles.mapInset}>
+          <div className={facilitiesMapStyles.legend}>
+            <div className={facilitiesMapStyles.label}>
+              % of hospital beds with COVID patients
+            </div>
+            <div className={facilitiesMapStyles.scale}>
+              <div>
+                <div />
+                {'<'}10%
+              </div>
+              <div>
+                <div />
+                10-20%
+              </div>
+              <div>
+                <div />
+                20-30%
+              </div>
+              <div>
+                <div />
+                {'>'}30%
+              </div>
+            </div>
+            <div className={facilitiesMapStyles.label}>
+              Circle size indicates total COVID patients
+            </div>
+          </div>
           {activeFacility && (
             <>
               <div
