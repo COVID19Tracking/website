@@ -7,16 +7,19 @@ import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
 import facilitiesMapStyles from './map.module.scss'
 
+const fields = [
+  'total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg',
+  'staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg',
+  'adult_inpatient_beds_occupancy_all',
+  'adult_icu_beds_occupancy_all',
+  'adult_inpatient_beds_occupancy_covid',
+  'adult_icu_beds_occupancy_covid',
+  'mean_coverage',
+]
+
 const FacilityDetails = ({ facility }) => (
   <>
     <h3>{facility.hospital_name}</h3>
-    <address>
-      <strong>
-        {facility.address}
-        <br />
-        {facility.city}, {facility.state} {facility.zip}
-      </strong>
-    </address>
   </>
 )
 
@@ -27,12 +30,13 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   const [facilities, setFacilities] = useState(false)
   const [tooltip, setTooltip] = useState({ x: 0, y: 0 })
   const [highlightedFacility, setHighlightedFacility] = useState(false)
+  const [revealedFacility, setRevealedFacility] = useState(false)
   const layers = ['Hospitals', 'Null hospitals']
 
   const mapNode = useRef(null)
   const mapRef = useRef(null)
 
-  const selectFacility = event => {
+  const selectFacility = (event, show) => {
     const bbox = [
       [event.point.x - 5, event.point.y - 5],
       [event.point.x + 5, event.point.y + 5],
@@ -46,6 +50,9 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
     }
     setActiveFacility(features[0].properties)
     setTooltip(event.point)
+    if (show) {
+      setRevealedFacility(true)
+    }
   }
 
   const mapBoundChanged = event => {
@@ -77,6 +84,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
     if (typeof window === 'undefined') {
       return
     }
+
     const map = new mapboxgl.Map({
       container: mapNode.current,
       style: `mapbox://styles/covidtrackingproject/ckihibso80hsg19o8q5gbq9z7`,
@@ -111,13 +119,10 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
     })
 
     map.on('click', event => {
-      selectFacility(event)
+      selectFacility(event, true)
     })
 
     mapRef.current = map
-    return () => {
-      map.remove()
-    }
   }, [])
 
   return (
@@ -214,7 +219,8 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
                         type="button"
                         onClick={event => {
                           event.preventDefault()
-                          console.log(facility)
+                          setActiveFacility({ ...facility.properties })
+                          setRevealedFacility(true)
                         }}
                       >
                         {facility.properties.hospital_name}
@@ -237,6 +243,29 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       </div>
       <div className={facilitiesMapStyles.mapWrapper} role="img">
         <div className={facilitiesMapStyles.mapInset}>
+          {revealedFacility && (
+            <div className={facilitiesMapStyles.facilityCard} role="dialog">
+              <button
+                className={facilitiesMapStyles.close}
+                type="button"
+                onClick={event => {
+                  event.preventDefault()
+                  setRevealedFacility(false)
+                }}
+              >
+                &times;
+              </button>
+              <h2>{activeFacility.hospital_name}</h2>
+              <dl>
+                {fields.map(field => (
+                  <>
+                    <dt>{field}</dt>
+                    <dd>{activeFacility[field]}</dd>
+                  </>
+                ))}
+              </dl>
+            </div>
+          )}
           <div className={facilitiesMapStyles.legend}>
             <div className={facilitiesMapStyles.label}>
               % of hospital beds with COVID patients
@@ -270,26 +299,6 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
                 style={{ left: tooltip.x - 150, top: tooltip.y + 15 }}
               >
                 <FacilityDetails facility={activeFacility} />
-              </div>
-              <div
-                className={facilitiesMapStyles.modal}
-                aria-modal
-                aria-label={activeFacility.hospital_name}
-              >
-                <div className={facilitiesMapStyles.content}>
-                  <button
-                    type="button"
-                    className={facilitiesMapStyles.close}
-                    onClick={event => {
-                      event.preventDefault()
-                      setActiveFacility(false)
-                    }}
-                    aria-label="Close"
-                  >
-                    &times;
-                  </button>
-                  <FacilityDetails facility={activeFacility} />
-                </div>
               </div>
             </>
           )}
