@@ -25,6 +25,9 @@
   h2 {
     margin-top: 0;
   }
+  p {
+    @include type-size(300);
+  }
 }
 
 .links {
