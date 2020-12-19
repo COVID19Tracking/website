@@ -72,14 +72,6 @@
   }
 }
 
-.map-label {
-  @include padding(16, top);
-  h2 {
-    @include type-size(300);
-    margin: 0;
-  }
-}
-
 .legend-toggle {
   @include remove-button-style();
   cursor: pointer;

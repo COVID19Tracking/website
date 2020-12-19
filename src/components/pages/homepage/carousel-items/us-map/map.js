@@ -29,7 +29,7 @@ const MapLegend = ({ legend }) => {
   )
 }
 
-const Map = ({ states, us, relatedPost, metric, lastUpdate, sevenDaysAgo }) => {
+const Map = ({ states, us, relatedPost, metric, title }) => {
   const [activeState, setActiveState] = useState(false)
   const mapRef = useRef()
 
@@ -76,12 +76,7 @@ const Map = ({ states, us, relatedPost, metric, lastUpdate, sevenDaysAgo }) => {
     <div>
       <Row>
         <Col width={[4, 6, 9]}>
-          <div className={mapStyle.mapLabel}>
-            <h2>{metric.title}</h2>
-            <p>
-              From {sevenDaysAgo} to {lastUpdate}
-            </p>
-          </div>
+          {title}
           <svg
             className={mapStyle.map}
             ref={mapRef}
@@ -163,11 +158,7 @@ const Map = ({ states, us, relatedPost, metric, lastUpdate, sevenDaysAgo }) => {
           <MapLegend legend={metric.legend} />
         </Col>
         <Col width={[4, 6, 3]}>
-          <Sidebar
-            state={activeState}
-            us={us.current}
-            relatedPost={relatedPost}
-          />
+          <Sidebar state={activeState} relatedPost={relatedPost} />
         </Col>
       </Row>
     </div>

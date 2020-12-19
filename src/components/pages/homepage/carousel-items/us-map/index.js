@@ -5,6 +5,7 @@ import { DateTime } from 'luxon'
 import metrics from './metrics'
 import Map from './map'
 import Grid from './grid'
+import Title from '../title'
 
 const List = ({ states, metric, us }) => (
   <div className="a11y-only">
@@ -117,8 +118,11 @@ const USMap = ({ configuration, item }) => {
         metric={metrics[metric]}
         us={us}
         relatedPost={item.relatedPost}
-        lastUpdate={lastUpdate}
-        sevenDaysAgo={sevenDaysAgo}
+        title={
+          <Title title={metrics[metric].title}>
+            From {sevenDaysAgo} to {lastUpdate}
+          </Title>
+        }
       />
       <Grid
         states={states}

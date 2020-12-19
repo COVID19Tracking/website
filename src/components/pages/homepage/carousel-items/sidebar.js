@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import { FormatNumber } from '~components/utils/format'
+import { Row } from '~components/common/grid'
 import sidebarStyle from './sidebar.module.scss'
 
 const Number = ({ number, label }) => (
@@ -34,6 +35,39 @@ const RelatedFlex = ({ children }) => (
   <div className={sidebarStyle.relatedFlex}>{children}</div>
 )
 
+const NationalTotals = ({ relatedPost }) => {
+  const { covidUs } = useStaticQuery(graphql`
+    {
+      covidUs {
+        totalTestResults
+
+        positive
+        death
+      }
+    }
+  `)
+
+  return (
+    <>
+      <h3 className={sidebarStyle.nationalTitle}>
+        <Link to="/data">US Total</Link>
+      </h3>
+      <Row>
+        <Number number={covidUs.totalTestResults} label="Total test results" />
+        <Number number={covidUs.positive} label="Cases" />
+        <Number number={covidUs.death} label="Deaths" />
+      </Row>
+      {relatedPost && (
+        <RelatedPost
+          title={relatedPost.title}
+          slug={relatedPost.slug}
+          date={relatedPost.publishDate}
+        />
+      )}
+    </>
+  )
+}
+
 export default Number
 
-export { Number, Header, RelatedPost, RelatedFlex }
+export { Number, Header, RelatedPost, RelatedFlex, NationalTotals }

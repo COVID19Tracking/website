@@ -85,7 +85,6 @@ const Grid = ({ states, us, relatedPost, metric }) => {
           </button>
           <Sidebar
             state={showUs ? false : { state: activeState }}
-            us={us.current}
             relatedPost={relatedPost}
             inModal
           />

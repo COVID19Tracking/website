@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import HomepageWrapper from './color-block'
+import ColorBlock from './color-block'
 
 const HomepageAPI = () => (
-  <HomepageWrapper
+  <ColorBlock
     title="Our data API"
     blue
     links={[
@@ -20,7 +20,7 @@ const HomepageAPI = () => (
       Our public data API provides access to all of our data at a national and
       state level.
     </p>
-  </HomepageWrapper>
+  </ColorBlock>
 )
 
 export default HomepageAPI

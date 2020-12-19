@@ -1,18 +1,17 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import classnames from 'classnames'
-import { Number, Header, RelatedPost } from '../sidebar'
+import { Number, NationalTotals } from '../sidebar'
 import sidebarStyle from './sidebar.module.scss'
 import { Row } from '~components/common/grid'
 
-const Sidebar = ({ state, us, inModal = false, relatedPost = false }) => (
+const Sidebar = ({ state, inModal = false, relatedPost = false }) => (
   <div
     className={classnames(
       sidebarStyle.sidebar,
       inModal && sidebarStyle.inModal,
     )}
   >
-    <Header>Latest totals</Header>
     {state ? (
       <>
         <h3 className={sidebarStyle.stateName}>
@@ -41,23 +40,7 @@ const Sidebar = ({ state, us, inModal = false, relatedPost = false }) => (
         </Link>
       </>
     ) : (
-      <>
-        <h3 className={sidebarStyle.stateName}>
-          <Link to="/data">US Total</Link>
-        </h3>
-        <Row>
-          <Number number={us.totalTestResults} label="Total test results" />
-          <Number number={us.positive} label="Cases" />
-          <Number number={us.death} label="Deaths" />
-        </Row>
-        {relatedPost && (
-          <RelatedPost
-            title={relatedPost.title}
-            slug={relatedPost.slug}
-            date={relatedPost.publishDate}
-          />
-        )}
-      </>
+      <NationalTotals relatedPost={relatedPost} />
     )}
   </div>
 )

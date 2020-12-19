@@ -4,10 +4,10 @@ import { DateTime } from 'luxon'
 import ChartDataLink from '../chart-data-link'
 import BarChart from '~components/charts/bar-chart'
 import { Col, Row } from '~components/common/grid'
-import { Number, Header } from '../sidebar'
+import { NationalTotals } from '../sidebar'
 import chartStyle from './chart.module.scss'
 
-const Chart = ({ title, data, field, fill, lineColor }) => {
+const Chart = ({ title, data, field, fill, lineColor, relatedPost }) => {
   const graphqlData = useStaticQuery(graphql`
     {
       lastUpdate: allCovidUsDaily(
@@ -18,15 +18,9 @@ const Chart = ({ title, data, field, fill, lineColor }) => {
           date(formatString: "MMMM D, YYYY")
         }
       }
-
-      covidUs {
-        totalTestResults
-        positive
-        death
-      }
     }
   `)
-  const { covidUs, lastUpdate } = graphqlData
+  const { lastUpdate } = graphqlData
   const daily = data
     .map(item => ({
       date: DateTime.fromISO(item.date).toJSDate(),
@@ -75,21 +69,7 @@ const Chart = ({ title, data, field, fill, lineColor }) => {
         </ChartDataLink>
       </Col>
       <Col width={[4, 6, 2]}>
-        <Header>Latest national totals</Header>
-        <Row>
-          <Col width={[4, 2, 12]}>
-            <Number
-              number={covidUs.totalTestResults}
-              label="Total test results"
-            />
-          </Col>
-          <Col width={[4, 2, 12]}>
-            <Number number={covidUs.positive} label="Cases" />
-          </Col>
-          <Col width={[4, 2, 12]}>
-            <Number number={covidUs.death} label="Deaths" />
-          </Col>
-        </Row>
+        <NationalTotals relatedPost={relatedPost} />
       </Col>
     </Row>
   )

@@ -107,10 +107,11 @@ const HomepageDatasets = () => (
             }
           >
             To date, the Long-Term Care COVID Tracker is the most comprehensive
-            dataset about COVID-19 in US long-term care facilities. It compiles
-            crucial data about the effects of the pandemic on a population with
-            extraordinary vulnerabilities to the virus due to age, underlying
-            health conditions, or proximity to large outbreaks.
+            dataset about COVID-19 in US nursing homes and other long-term care
+            facilities. It compiles crucial data about the effects of the
+            pandemic on a population with extraordinary vulnerabilities to the
+            virus due to age, underlying health conditions, or proximity to
+            large outbreaks.
           </Dataset>
         </Col>
       </Row>

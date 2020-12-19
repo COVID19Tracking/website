@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import colors from '~scss/colors.module.scss'
 import Chart from './chart'
 
-const CarouselChartNationalHospitalization = () => {
+const CarouselChartNationalHospitalization = ({ item }) => {
   const data = useStaticQuery(graphql`
     {
       allCovidUsDaily(
@@ -24,6 +24,7 @@ const CarouselChartNationalHospitalization = () => {
       fill={colors.colorStrawberry100}
       lineColor={colors.colorStrawberry200}
       title="New national cases"
+      relatedPost={item.relatedPost}
     />
   )
 }

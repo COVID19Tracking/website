@@ -13,6 +13,20 @@
   @include type-size(300);
 }
 
+.national-title {
+  @include type-size(400);
+  margin: 0;
+  @include padding(16, bottom);
+  border-bottom: 1px solid $color-slate-400;
+  a {
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
 .related-post {
   background: $color-slate-150;
   @include padding(16);

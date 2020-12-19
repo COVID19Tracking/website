@@ -2,10 +2,11 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { DateTime } from 'luxon'
 import { Row, Col } from '~components/common/grid'
+import { NationalTotals } from './sidebar'
+import Title from './title'
 import ChartDataLink from './chart-data-link'
 import colors from '~scss/colors.module.scss'
 import BarChart from '~components/charts/bar-chart'
-import chartStyle from './charts/chart.module.scss'
 import nationalChartStyle from './national-charts.module.scss'
 
 const Chart = ({ data, field, fill, lineColor }) => {
@@ -50,7 +51,7 @@ const Chart = ({ data, field, fill, lineColor }) => {
   )
 }
 
-const NationalChart = () => {
+const NationalChart = ({ item }) => {
   const data = useStaticQuery(graphql`
     {
       lastUpdate: allCovidUsDaily(
@@ -78,51 +79,60 @@ const NationalChart = () => {
 
   return (
     <>
-      <div className={chartStyle.label}>
-        <h2>National overview</h2>
-        <p>Data updated {data.lastUpdate.nodes[0].date}</p>
-      </div>
       <Row>
-        <Col width={[2, 3, 3]}>
-          <h3 className={nationalChartStyle.label}>New tests</h3>
-          <Chart
-            data={data.allCovidUsDaily.nodes}
-            field="totalTestResultsIncrease"
-            fill={colors.colorPlum200}
-            lineColor={colors.colorPlum700}
-          />
+        <Col width={[4, 6, 10]}>
+          <Title title="National overview">
+            Data updated {data.lastUpdate.nodes[0].date}
+          </Title>
+          <Row>
+            <Col width={[2, 3, 3]}>
+              <h3 className={nationalChartStyle.label}>New tests</h3>
+              <Chart
+                data={data.allCovidUsDaily.nodes}
+                field="totalTestResultsIncrease"
+                fill={colors.colorPlum200}
+                lineColor={colors.colorPlum700}
+              />
+            </Col>
+            <Col width={[2, 3, 3]} paddingLeft={[0, 0, 0]}>
+              <h3 className={nationalChartStyle.label}>New cases</h3>
+              <Chart
+                data={data.allCovidUsDaily.nodes}
+                field="positiveIncrease"
+                fill={colors.colorStrawberry100}
+                lineColor={colors.colorStrawberry200}
+              />
+            </Col>
+            <Col width={[2, 3, 3]} paddingLeft={[0, 0, 0]}>
+              <h3 className={nationalChartStyle.label}>
+                Current hospitalizations
+              </h3>
+              <Chart
+                data={data.allCovidUsDaily.nodes}
+                field="hospitalizedCurrently"
+                fill={colors.colorBlueberry200}
+                lineColor={colors.colorBlueberry400}
+              />
+            </Col>
+            <Col width={[2, 3, 3]}>
+              <h3 className={nationalChartStyle.label}>New deaths</h3>
+              <Chart
+                data={data.allCovidUsDaily.nodes}
+                field="deathIncrease"
+                fill={colors.colorSlate300}
+                lineColor={colors.colorSlate700}
+              />
+            </Col>
+          </Row>
+
+          <ChartDataLink to="/data/national/chart-tables">
+            Access all data for these charts
+          </ChartDataLink>
         </Col>
-        <Col width={[2, 3, 3]} paddingLeft={[0, 0, 0]}>
-          <h3 className={nationalChartStyle.label}>New cases</h3>
-          <Chart
-            data={data.allCovidUsDaily.nodes}
-            field="positiveIncrease"
-            fill={colors.colorStrawberry100}
-            lineColor={colors.colorStrawberry200}
-          />
-        </Col>
-        <Col width={[2, 3, 3]} paddingLeft={[0, 0, 0]}>
-          <h3 className={nationalChartStyle.label}>Current hospitalizations</h3>
-          <Chart
-            data={data.allCovidUsDaily.nodes}
-            field="hospitalizedCurrently"
-            fill={colors.colorBlueberry200}
-            lineColor={colors.colorBlueberry400}
-          />
-        </Col>
-        <Col width={[2, 3, 3]}>
-          <h3 className={nationalChartStyle.label}>New deaths</h3>
-          <Chart
-            data={data.allCovidUsDaily.nodes}
-            field="deathIncrease"
-            fill={colors.colorSlate300}
-            lineColor={colors.colorSlate700}
-          />
+        <Col width={[4, 6, 2]}>
+          <NationalTotals relatedPost={item.relatedPost} />
         </Col>
       </Row>
-      <ChartDataLink to="/data/national/chart-tables">
-        Access all data for these charts
-      </ChartDataLink>
     </>
   )
 }
