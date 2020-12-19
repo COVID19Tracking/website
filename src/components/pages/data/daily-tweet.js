@@ -7,11 +7,7 @@ import Tweet from '~components/common/tweet'
 const DailyTweet = () => {
   const data = useStaticQuery(graphql`
     {
-      allTweets(
-        filter: { is_pinned: { eq: true } }
-        sort: { fields: date, order: DESC }
-        limit: 1
-      ) {
+      allTweets(filter: { is_pinned: { eq: true } }, limit: 1) {
         nodes {
           id_str
           created_at

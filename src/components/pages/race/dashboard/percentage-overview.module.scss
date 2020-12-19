@@ -1,13 +1,3 @@
-.container {
-  display: flex;
-  @media (max-width: $viewport-md) {
-    flex-direction: column;
-  }
-  div {
-    flex-basis: 50%;
-  }
-}
-
 .title {
   margin-bottom: spacer(4);
   margin-top: 0;
@@ -24,6 +14,9 @@
 .data {
   display: flex;
   justify-content: space-between;
+  @media (max-width: $viewport-md) {
+    flex-direction: column;
+  }
   img {
     width: toRem(46);
   }

@@ -227,6 +227,25 @@ export const query = graphql`
               footnote
             }
           }
+          ... on ContentfulContentBlockFlippableCard {
+            id
+            contentful_id
+            width
+            height
+            cardFront {
+              fixed(width: 900) {
+                src
+                srcSet
+              }
+            }
+            cardBack {
+              fixed(width: 900) {
+                src
+                srcSet
+              }
+            }
+            alternateText
+          }
         }
       }
       featuredImage {

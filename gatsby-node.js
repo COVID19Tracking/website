@@ -173,7 +173,15 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: `/data/state/${slug}/long-term-care`,
-      component: path.resolve(`./src/templates/state/long-term-care.js`),
+      component: path.resolve(`./src/templates/state/long-term-care/index.js`),
+      context: node,
+    })
+
+    createPage({
+      path: `/data/state/${slug}/long-term-care/history`,
+      component: path.resolve(
+        `./src/templates/state/long-term-care/history.js`,
+      ),
       context: node,
     })
 

@@ -91,6 +91,7 @@ export const query = graphql`
     }
     allCovidStateInfo {
       nodes {
+        stateAbbreviation: state
         name
       }
     }

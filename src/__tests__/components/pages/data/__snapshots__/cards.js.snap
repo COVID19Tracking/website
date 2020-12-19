@@ -264,7 +264,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 2`] 
            does not report this information.
            
           <a
-            href="/race/get-better-data"
+            href="/race/get-better-data#NV"
           >
             Help us get better data.
           </a>
@@ -453,7 +453,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 2`]
            does not report this information.
            
           <a
-            href="/race/get-better-data"
+            href="/race/get-better-data#NV"
           >
             Help us get better data.
           </a>
@@ -1272,6 +1272,15 @@ exports[`Components : Pages : Data : Cards : Long term care card renders correct
         50%
       </span>
     </div>
+    <p
+      className="note"
+    >
+      <a
+        href="/data/state/texas/long-term-care/history"
+      >
+        View historical totals
+      </a>
+    </p>
     <div
       className="container"
     >
