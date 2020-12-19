@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import slugify from 'slugify'
+import { Link } from 'gatsby'
 import Alert from '~components/common/alert'
 import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
@@ -216,6 +217,13 @@ const LongTermCareFacilities = ({ stateSlug, facilities }) => {
         hasFacilities={facilities.length > 0}
         setSearchQuery={query => setSearchQuery(query)}
       />
+      <p>
+        Do you have information about a facility on this list?{' '}
+        <Link to="/data/long-term-care/contact">
+          We would love to hear from you
+        </Link>
+        .
+      </p>
       {openedFacility && (
         <Modal
           isOpen={openedFacility}

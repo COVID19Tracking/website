@@ -93,7 +93,8 @@
     padding: spacer(8);
     cursor: pointer;
     &:hover,
-    &:focus {
+    &:focus,
+    &[data-selected] {
       color: white;
       background: black;
     }

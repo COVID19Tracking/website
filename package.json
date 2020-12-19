@@ -70,10 +70,10 @@
     "gatsby-remark-autolink-headers": "^2.3.14",
     "gatsby-remark-smartypants": "^2.3.12",
     "gatsby-source-contentful": "4.0.0",
-    "gatsby-source-filesystem": "^2.3.31",
+    "gatsby-source-filesystem": "^2.8.0",
     "gatsby-transformer-remark": "^2.8.36",
     "gatsby-transformer-sharp": "^2.5.16",
-    "gatsby-transformer-yaml": "^2.4.13",
+    "gatsby-transformer-yaml": "^2.8.0",
     "get-contrast": "^2.0.0",
     "is-url": "^1.2.4",
     "json2csv": "^5.0.1",
@@ -146,7 +146,7 @@
     "vue": "2.6.10"
   },
   "scripts": {
-    "build": "run-s setup:api-repo setup:data-repo build:gatsby build:test",
+    "build": "run-s setup:api-repo setup:data-repo setup:screenshot-repo build:gatsby build:test",
     "build-preview": "run-s setup build:gatsby build:test",
     "build:gatsby": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "build:test": "jest --verbose --config=\"{}\" -- src/__tests__/build/index.js",
@@ -163,9 +163,10 @@
     "test:coverage": "jest --coverage --maxWorkers 1",
     "test:lint": "eslint ./src",
     "test:dev": "run-s test:lint test",
-    "setup": "run-s setup:api-repo setup:env-vars setup:data-repo",
+    "setup": "run-s setup:api-repo setup:env-vars setup:data-repo setup:screenshot-repo",
     "setup:env-vars": "curl -L https://covidtracking.com/__developer/env-vars > .env",
     "setup:api-repo": "rm -rf _api || true && git clone --depth 1 https://github.com/COVID19Tracking/covid-public-api.git _api && rm -rf _api/.git",
-    "setup:data-repo": "rm -rf _data || true && git clone --depth 1 --branch data https://github.com/COVID19Tracking/website-data _data && rm -rf _data/.git"
+    "setup:data-repo": "rm -rf _data || true && git clone --depth 1 --branch data https://github.com/COVID19Tracking/website-data _data && rm -rf _data/.git",
+    "setup:screenshot-repo": "rm -rf _screenshot || true && git clone --depth 1 https://github.com/COVID19Tracking/screenshots _screenshots && rm -rf _screenshots/.git"
   }
 }

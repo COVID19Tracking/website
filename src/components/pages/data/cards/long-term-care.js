@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
-import { Card, CardBody } from '~components/common/card'
+import { Card, CardBody, CardNote } from '~components/common/card'
 import {
   Statistic,
   DrillDown,
@@ -101,6 +101,11 @@ export default ({ data, stateName, stateDeaths, stateSlug }) => {
           value={getChange('total_death')}
           calculated
         />
+        <CardNote>
+          <Link to={`/data/state/${stateSlug}/long-term-care/history`}>
+            View historical totals
+          </Link>
+        </CardNote>
         <LastUpdatedLabel date={current.date} />
       </CardBody>
     </Card>

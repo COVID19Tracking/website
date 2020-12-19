@@ -3,11 +3,14 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { Row, Col } from '~components/common/grid'
 import Total from '~components/common/landing-page/total'
 import { DefinitionPanel } from '~components/pages/data/cards/definitions-panel'
-import { CtaAnchorLink } from '~components/common/landing-page/call-to-action'
+import {
+  CtaLink,
+  CtaAnchorLink,
+} from '~components/common/landing-page/call-to-action'
 import { FormatNumber } from '~components/utils/format'
 import overviewStyles from './overview.module.scss'
 
-const LongTermCareOverview = ({ facilities, overview }) => {
+const LongTermCareOverview = ({ facilities, overview, stateSlug }) => {
   const [highlightedDefinition, setHighlightedDefinition] = useState(false)
   const { allContentfulDataDefinition } = useStaticQuery(graphql`
     {
@@ -101,6 +104,9 @@ const LongTermCareOverview = ({ facilities, overview }) => {
           <CtaAnchorLink block href="#facilities">
             All facilities
           </CtaAnchorLink>
+          <CtaLink to={`/data/state/${stateSlug}/long-term-care/history`} block>
+            Historical totals
+          </CtaLink>
         </Col>
       </Row>
     </>
