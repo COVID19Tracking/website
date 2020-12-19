@@ -189,9 +189,21 @@
   }
 }
 
+.facility-card-overlay {
+  position: absolute;
+  width: 10%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: inset 3px 0px 6px -2px rgba(0, 0, 0, 0.8);
+}
+
 .facility-card {
   position: absolute;
-  width: 100%;
+  width: 90%;
   height: 100%;
   top: 0;
   bottom: 0;

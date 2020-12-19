@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle, max-len */
+/* eslint-disable no-underscore-dangle,max-len,jsx-a11y/no-noninteractive-element-interactions,jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState, useRef } from 'react'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -75,6 +75,13 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       ),
     )
   }
+
+  useEffect(() => {
+    if (!revealedFacility) {
+      return
+    }
+    window.location.hash += `|id:${activeFacility.hospital_pk}`
+  }, [revealedFacility])
 
   useEffect(() => {
     console.log(highlightedFacility)
@@ -244,27 +251,34 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       <div className={facilitiesMapStyles.mapWrapper} role="img">
         <div className={facilitiesMapStyles.mapInset}>
           {revealedFacility && (
-            <div className={facilitiesMapStyles.facilityCard} role="dialog">
-              <button
-                className={facilitiesMapStyles.close}
-                type="button"
-                onClick={event => {
-                  event.preventDefault()
-                  setRevealedFacility(false)
-                }}
-              >
-                &times;
-              </button>
-              <h2>{activeFacility.hospital_name}</h2>
-              <dl>
-                {fields.map(field => (
-                  <>
-                    <dt>{field}</dt>
-                    <dd>{activeFacility[field]}</dd>
-                  </>
-                ))}
-              </dl>
-            </div>
+            <>
+              <div
+                role="dialog"
+                className={facilitiesMapStyles.facilityCardOverlay}
+                onClick={() => setRevealedFacility(false)}
+              />
+              <div className={facilitiesMapStyles.facilityCard} role="dialog">
+                <button
+                  className={facilitiesMapStyles.close}
+                  type="button"
+                  onClick={event => {
+                    event.preventDefault()
+                    setRevealedFacility(false)
+                  }}
+                >
+                  &times;
+                </button>
+                <h2>{activeFacility.hospital_name}</h2>
+                <dl>
+                  {fields.map(field => (
+                    <>
+                      <dt>{field}</dt>
+                      <dd>{activeFacility[field]}</dd>
+                    </>
+                  ))}
+                </dl>
+              </div>
+            </>
           )}
           <div className={facilitiesMapStyles.legend}>
             <div className={facilitiesMapStyles.label}>
