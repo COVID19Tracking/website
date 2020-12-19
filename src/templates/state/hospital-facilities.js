@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from '~components/layout'
-import HHSFacilitiesList from '~components/pages/data/hhs-facilities/list'
 import HHSFacilitiesMap from '~components/pages/data/hhs-facilities/map'
 import stateCenters from '~data/visualization/state-centers.json'
 
@@ -17,13 +16,13 @@ const StateHHSHospitalization = ({ pageContext, path }) => {
       ]}
       path={path}
       showWarning
+      noContainer
     >
       <HHSFacilitiesMap
         center={center ? [center.lon, center.lat] : [-97, 38]}
         zoom={center ? center.zoom : 4}
         state={state.state}
       />
-      <HHSFacilitiesList state={pageContext.state} />
     </Layout>
   )
 }

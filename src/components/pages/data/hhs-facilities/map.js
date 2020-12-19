@@ -1,9 +1,10 @@
-/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-underscore-dangle, max-len */
 import React, { useEffect, useState, useRef } from 'react'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { Form, Input } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
+import { Table, Th, Td } from '~components/common/table'
 import facilitiesMapStyles from './map.module.scss'
 
 const FacilityDetails = ({ facility }) => (
@@ -23,8 +24,9 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   mapboxgl.accessToken = process.env.GATSBY_MAPBOX_API_TOKEN
   const [activeFacility, setActiveFacility] = useState(false)
   const [query, setQuery] = useState(false)
+  const [facilities, setFacilities] = useState(false)
   const [tooltip, setTooltip] = useState({ x: 0, y: 0 })
-  const layers = ['HHS Facilities']
+  const layers = ['Hospitals', 'Null hospitals']
   if (typeof window === 'undefined') {
     return null
   }
@@ -48,6 +50,18 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
     setTooltip(event.point)
   }
 
+  const getFacilitiesInBoundBox = event => {
+    if (event.target.getZoom() < 4) {
+      setFacilities(false)
+      return
+    }
+    const bounds = mapRef.current.getBounds().toArray()
+    const features = mapRef.current.queryRenderedFeatures(bounds, {
+      layers,
+    })
+    console.log(features)
+  }
+
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: mapNode.current,
@@ -60,8 +74,22 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
 
     map.on('load', () => {
       if (state) {
-        map.setFilter('HHS Facilities', ['==', ['get', 'state'], state])
+        layers.forEach(layer => {
+          map.setFilter(layer, ['==', ['get', 'state'], state])
+        })
       }
+    })
+
+    map.on('moveend', event => {
+      getFacilitiesInBoundBox(event)
+    })
+
+    map.on('dragend', event => {
+      getFacilitiesInBoundBox(event)
+    })
+
+    map.on('zoomend', event => {
+      getFacilitiesInBoundBox(event)
     })
 
     map.on('mousemove', event => {
@@ -79,103 +107,124 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   }, [])
 
   return (
-    <>
-      <Form
-        onSubmit={event => {
-          event.preventDefault()
-          if (
-            typeof window === 'undefined' ||
-            typeof window.fetch === 'undefined'
-          ) {
-            return
-          }
-          window
-            .fetch(
-              `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-                query,
-              )}.json?limit=1&access_token=${
-                process.env.GATSBY_MAPBOX_API_TOKEN
-              }`,
-            )
-            .then(response => response.json())
-            .then(response => {
-              if (response.features.length === 0) {
-                return
-              }
-              const feature = response.features.pop()
-              mapRef.current.easeTo({
-                center: feature.center,
-                zoom: 7,
+    <div className={facilitiesMapStyles.container}>
+      <div className={facilitiesMapStyles.sidebar}>
+        <Form
+          onSubmit={event => {
+            event.preventDefault()
+            if (
+              typeof window === 'undefined' ||
+              typeof window.fetch === 'undefined'
+            ) {
+              return
+            }
+            window
+              .fetch(
+                `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+                  query,
+                )}.json?limit=1&access_token=${
+                  process.env.GATSBY_MAPBOX_API_TOKEN
+                }`,
+              )
+              .then(response => response.json())
+              .then(response => {
+                if (response.features.length === 0) {
+                  return
+                }
+                const feature = response.features.pop()
+                mapRef.current.easeTo({
+                  center: feature.center,
+                  zoom: 7,
+                })
               })
-            })
-        }}
-        noMargin
-      >
-        <Row>
-          <Col width={[3, 3, 8]}>
-            <Input
-              type="text"
-              label="Search facilities"
-              placeholder="Enter a city or zip code"
-              hideLabel
-              onChange={event => {
-                setQuery(event.target.value)
-              }}
-            />
-          </Col>
-          <Col width={[1, 3, 4]}>
-            <button type="submit">Search</button>
-          </Col>
-        </Row>
-      </Form>
-
-      <p className={facilitiesMapStyles.legend}>
-        Hospitals{' '}
-        <span className={facilitiesMapStyles.shortage}>experiencing</span> and{' '}
-        <span className={facilitiesMapStyles.noShortage}>not experiencing</span>{' '}
-        an ICU shortage .
-      </p>
-      <div
-        style={{
-          position: 'relative',
-          flex: ' 1 0 auto',
-          width: '100%',
-          height: '80vh',
-        }}
-      >
-        {activeFacility && (
-          <>
-            <div
-              className={facilitiesMapStyles.tooltip}
-              style={{ left: tooltip.x - 150, top: tooltip.y + 15 }}
-            >
-              <FacilityDetails facility={activeFacility} />
-            </div>
-            <div
-              className={facilitiesMapStyles.modal}
-              aria-modal
-              aria-label={activeFacility.hospital_name}
-            >
-              <div className={facilitiesMapStyles.content}>
-                <button
-                  type="button"
-                  className={facilitiesMapStyles.close}
-                  onClick={event => {
-                    event.preventDefault()
-                    setActiveFacility(false)
-                  }}
-                  aria-label="Close"
-                >
-                  &times;
-                </button>
+          }}
+          noMargin
+        >
+          <Row>
+            <Col width={[4, 6, 8]}>
+              <Input
+                type="text"
+                label="Search facilities"
+                placeholder="Enter a city or zip code"
+                hideLabel
+                onChange={event => {
+                  setQuery(event.target.value)
+                }}
+              />
+            </Col>
+            <Col width={[4, 6, 4]} paddingLeft={[0, 0, 8]}>
+              <button
+                type="submit"
+                className={facilitiesMapStyles.searchButton}
+              >
+                Search
+              </button>
+            </Col>
+          </Row>
+        </Form>
+        {facilities && (
+          <Table>
+            <thead>
+              <tr>
+                <Th alignLeft>Name</Th>
+                <Th alignLeft>COVID patients</Th>
+              </tr>
+            </thead>
+            <tbody>
+              {facilities.map(facility => (
+                <tr>
+                  <td>{facility.hospital_name}</td>
+                  <Td alignLeft>
+                    {
+                      facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
+                    }
+                  </Td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        )}
+      </div>
+      <div className={facilitiesMapStyles.mapWrapper} role="img">
+        <div className={facilitiesMapStyles.mapInset}>
+          {activeFacility && (
+            <>
+              <div
+                className={facilitiesMapStyles.tooltip}
+                style={{ left: tooltip.x - 150, top: tooltip.y + 15 }}
+              >
                 <FacilityDetails facility={activeFacility} />
               </div>
-            </div>
-          </>
-        )}
-        <div ref={mapNode} style={{ width: '100%', height: '100%' }} />
+              <div
+                className={facilitiesMapStyles.modal}
+                aria-modal
+                aria-label={activeFacility.hospital_name}
+              >
+                <div className={facilitiesMapStyles.content}>
+                  <button
+                    type="button"
+                    className={facilitiesMapStyles.close}
+                    onClick={event => {
+                      event.preventDefault()
+                      setActiveFacility(false)
+                    }}
+                    aria-label="Close"
+                  >
+                    &times;
+                  </button>
+                  <FacilityDetails facility={activeFacility} />
+                </div>
+              </div>
+            </>
+          )}
+          <div
+            ref={mapNode}
+            className={facilitiesMapStyles.map}
+            style={{ width: '100%', height: '100%' }}
+          />
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 
