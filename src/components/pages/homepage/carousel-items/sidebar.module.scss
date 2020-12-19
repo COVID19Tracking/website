@@ -32,7 +32,7 @@
   @include padding(16);
   @media (min-width: $viewport-md) {
     height: 100%;
-    margin-bottom: -40px; // ignore-style-rule
+    margin-bottom: -60px; // ignore-style-rule
   }
   .date {
     color: $color-slate-700;
