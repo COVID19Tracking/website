@@ -20,6 +20,21 @@ const fields = [
 const FacilityDetails = ({ facility }) => (
   <>
     <h3>{facility.hospital_name}</h3>
+    <p>
+      <strong>% of patients with COVID:</strong>{' '}
+      {facility.adult_inpatient_beds_occupancy_covid > 0 ? (
+        <>{Math.round(facility.adult_inpatient_beds_occupancy_covid * 100)}%</>
+      ) : (
+        'N/A'
+      )}
+    </p>
+    <p>
+      <strong>7-day average COVID patients:</strong>{' '}
+      {facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
+      0
+        ? facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
+        : 'N/A'}
+    </p>
   </>
 )
 
