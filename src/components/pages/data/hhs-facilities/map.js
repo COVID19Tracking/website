@@ -175,14 +175,14 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
               <thead className="a11y-only">
                 <tr>
                   <Th alignLeft>Name</Th>
-                  <Th alignLeft>COVID patients</Th>
+                  <Th>7-day average COVID patients</Th>
                 </tr>
               </thead>
               <tbody>
                 {facilities.map(facility => (
                   <tr>
                     <Td alignLeft>{facility.hospital_name}</Td>
-                    <Td alignLeft>
+                    <Td>
                       {facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
                       0
                         ? facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
