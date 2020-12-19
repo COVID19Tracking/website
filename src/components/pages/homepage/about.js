@@ -12,9 +12,8 @@ const HomepageAbout = () => (
     ]}
   >
     <p>
-      Our staff and volunteers collect and annotate data on tests, cases,
-      hospitalizations, deaths, nursing home statistics, and race and ethnicity
-      from official public state and territorial sources.
+      Every day, our volunteer teams compile the latest public health data from
+      official US state, territorial, and federal sources.
     </p>
   </ColorBlock>
 )
