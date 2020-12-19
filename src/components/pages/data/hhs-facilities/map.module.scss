@@ -12,7 +12,22 @@
 
 .sidebar {
   order: 1;
-  @include padding(16);
+  input[type='text'] {
+    margin-bottom: 0;
+  }
+  table {
+    overflow-y: scroll;
+    &[aria-hidden] {
+      margin-bottom: 0;
+    }
+    th {
+      padding-top: 0;
+    }
+  }
+  form {
+    background: $color-slate-100;
+    @include padding(16, top left right);
+  }
   @media (min-width: $viewport-md) {
     order: 0;
     max-width: 25%;
@@ -158,5 +173,13 @@
       font-weight: 700;
       z-index: 1;
     }
+  }
+}
+
+.table-scroll {
+  overflow-y: scroll;
+  height: calc(80vh - 150px);
+  table {
+    margin-top: 0;
   }
 }

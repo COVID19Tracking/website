@@ -110,9 +110,14 @@ const Td = ({ children, alignLeft, isFirst, additionalClass, rowspan }) => {
   return <td className={classnames(tdClasses)}>{children}</td>
 }
 
-const Table = ({ children, tableLabel }) => (
+const Table = ({ children, tableLabel, ariaHidden, className }) => (
   <div>
-    <table className={tableStyle.table}>{children}</table>
+    <table
+      aria-hidden={ariaHidden}
+      className={classnames(tableStyle.table, className && className)}
+    >
+      {children}
+    </table>
     {tableLabel && <DetailText>{tableLabel}</DetailText>}
   </div>
 )

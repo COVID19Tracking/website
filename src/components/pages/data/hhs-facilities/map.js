@@ -55,11 +55,10 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       setFacilities(false)
       return
     }
-    const bounds = mapRef.current.getBounds().toArray()
-    const features = mapRef.current.queryRenderedFeatures(bounds, {
+    const features = mapRef.current.queryRenderedFeatures({
       layers,
     })
-    console.log(features)
+    setFacilities(features.map(({ properties }) => properties))
   }
 
   useEffect(() => {
@@ -162,27 +161,38 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
             </Col>
           </Row>
         </Form>
+        <Table ariaHidden>
+          <thead>
+            <tr>
+              <Th alignLeft>Name</Th>
+              <Th>7-day average COVID patients</Th>
+            </tr>
+          </thead>
+        </Table>
         {facilities && (
-          <Table>
-            <thead>
-              <tr>
-                <Th alignLeft>Name</Th>
-                <Th alignLeft>COVID patients</Th>
-              </tr>
-            </thead>
-            <tbody>
-              {facilities.map(facility => (
+          <div className={facilitiesMapStyles.tableScroll}>
+            <Table>
+              <thead className="a11y-only">
                 <tr>
-                  <td>{facility.hospital_name}</td>
-                  <Td alignLeft>
-                    {
-                      facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
-                    }
-                  </Td>
+                  <Th alignLeft>Name</Th>
+                  <Th alignLeft>COVID patients</Th>
                 </tr>
-              ))}
-            </tbody>
-          </Table>
+              </thead>
+              <tbody>
+                {facilities.map(facility => (
+                  <tr>
+                    <Td alignLeft>{facility.hospital_name}</Td>
+                    <Td alignLeft>
+                      {facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
+                      0
+                        ? facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
+                        : 'N/A'}
+                    </Td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
         )}
       </div>
       <div className={facilitiesMapStyles.mapWrapper} role="img">
