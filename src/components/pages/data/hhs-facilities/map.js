@@ -80,7 +80,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
     if (!revealedFacility) {
       return
     }
-    window.location.hash += `|id:${activeFacility.hospital_pk}`
+    window.location.hash += `,|id:${activeFacility.hospital_pk}`
   }, [revealedFacility])
 
   useEffect(() => {
@@ -103,6 +103,12 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       zoom,
     })
 
+    const hash = window.location.hash.replace('#', '').split(',')
+    if (hash.length > 2) {
+      map.setCenter([hash[0], hash[1]])
+      map.setZoom(hash[2])
+    }
+
     map.addControl(new mapboxgl.NavigationControl(), 'top-left')
 
     map.on('load', () => {
@@ -110,6 +116,19 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
         layers.forEach(layer => {
           map.setFilter(layer, ['==', ['get', 'state'], state])
         })
+      }
+
+      if (window.location.hash) {
+        if (hash.length > 2) {
+          const features = map.queryRenderedFeatures({
+            layers,
+          })
+          setFacilities(
+            features.sort((a, b) =>
+              a.properties.hospital_name > b.properties.hospital_name ? 1 : -1,
+            ),
+          )
+        }
       }
     })
 
