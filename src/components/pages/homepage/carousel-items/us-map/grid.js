@@ -76,6 +76,7 @@ const Grid = ({ states, us, relatedPost, metric }) => {
           <button
             className={gridStyle.modalClose}
             type="button"
+            aria-label="close"
             onClick={event => {
               event.preventDefault()
               setActiveState(false)
