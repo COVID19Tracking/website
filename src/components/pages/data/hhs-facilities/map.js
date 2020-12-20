@@ -25,7 +25,7 @@ const FacilityDetails = ({ facility }) => (
       {facility.adult_inpatient_beds_occupancy_covid > 0 ? (
         <>{Math.round(facility.adult_inpatient_beds_occupancy_covid * 100)}%</>
       ) : (
-        'N/A'
+        'between 0 and 4'
       )}
     </p>
     <p>
@@ -33,7 +33,7 @@ const FacilityDetails = ({ facility }) => (
       {facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
       0
         ? facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
-        : 'N/A'}
+        : 'between 0 and 4'}
     </p>
     <p>Click to view more information</p>
   </>
@@ -287,11 +287,19 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
                     </Td>
                     <Td>
                       {facility.properties
-                        .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
-                      0
-                        ? facility.properties
-                            .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
-                        : 'N/A'}
+                        .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg ===
+                      null ? (
+                        <>N/A</>
+                      ) : (
+                        <>
+                          {facility.properties
+                            .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
+                          0
+                            ? facility.properties
+                                .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
+                            : 'between 0 and 4'}
+                        </>
+                      )}
                     </Td>
                   </tr>
                 ))}
