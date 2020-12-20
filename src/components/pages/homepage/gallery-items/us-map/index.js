@@ -1,5 +1,6 @@
 /*eslint-disable */
 import React from 'react'
+import slugify from 'slugify'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { DateTime } from 'luxon'
 import metrics from './metrics'
@@ -7,21 +8,36 @@ import Map from './map'
 import Grid from './grid'
 import Title from '../title'
 
-const List = ({ states, metric, us }) => (
+const Table = ({ states, metric, us }) => (
   <div className="a11y-only">
-    <Link to={`#skip-state-list-${metric}`}>Skip the list of states</Link>
-    <ul>
-      <li>
-        <Link to={`/data/national`}>US total</Link>: {us.value}
-      </li>
-      {states.map(state => (
-        <li>
-          <Link to={`/data/state/${state.childSlug.slug}`}>{state.name}</Link>:{' '}
-          {Math.round(state.value)}
-        </li>
-      ))}
-    </ul>
-    <div id={`skip-state-list-${metric}`} />
+    <Link to={`#skip-state-list-${slugify(metric.title)}`}>
+      Skip the list of states
+    </Link>
+    <table>
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>{metric.title}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>National total</td>
+          <td>{Math.round(us.value)}</td>
+        </tr>
+        {states.map(state => (
+          <tr>
+            <td>
+              <Link to={`/data/state/${state.childSlug.slug}`}>
+                {state.name}
+              </Link>
+            </td>
+            <td>{Math.round(state.value)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <div id={`skip-state-list-${slugify(metric.title)}`} />
   </div>
 )
 
@@ -130,7 +146,7 @@ const USMap = ({ configuration, item }) => {
         us={us}
         relatedPost={item.relatedPost}
       />
-      <List states={states} metric={metric} us={us} />
+      <Table states={states} metric={metrics[metric]} us={us} />
     </>
   )
 }

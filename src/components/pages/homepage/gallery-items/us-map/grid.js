@@ -9,7 +9,7 @@ const Grid = ({ states, us, relatedPost, metric }) => {
   const [activeState, setActiveState] = useState(false)
   const [showUs, setShowUs] = useState(false)
   return (
-    <div className={gridStyle.wrapper}>
+    <div className={gridStyle.wrapper} aria-hidden>
       <svg
         className={gridStyle.us}
         viewBox="0 0 150 160"
