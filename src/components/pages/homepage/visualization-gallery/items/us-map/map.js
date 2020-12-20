@@ -74,7 +74,7 @@ const Map = ({ states, us, relatedPost, metric, title }) => {
     })
   }
   return (
-    <div>
+    <div aria-hidden>
       <Row>
         <Col width={[4, 6, 9]}>
           {title}

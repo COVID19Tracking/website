@@ -11,6 +11,7 @@ const Sidebar = ({ state, inModal = false, relatedPost = false }) => (
       sidebarStyle.sidebar,
       inModal && sidebarStyle.inModal,
     )}
+    aria-hidden
   >
     {state ? (
       <>
