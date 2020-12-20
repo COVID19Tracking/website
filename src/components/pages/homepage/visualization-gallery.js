@@ -3,24 +3,24 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs'
 import Container from '~components/common/container'
-import USMap from './carousel-items/us-map'
-import ChartNationalHospitalization from './carousel-items/charts/national-hospitalization'
-import ChartNationalCases from './carousel-items/charts/national-cases'
-import CarouselChartNationalDeaths from './carousel-items/charts/national-deaths'
-import CarouselChartNationalTests from './carousel-items/charts/national-tests'
-import NationalCharts from './carousel-items/national-chart'
-import carouselStyle from './carousel.module.scss'
+import USMap from './gallery-items/us-map'
+import ChartNationalHospitalization from './gallery-items/charts/national-hospitalization'
+import ChartNationalCases from './gallery-items/charts/national-cases'
+import GalleryChartNationalDeaths from './gallery-items/charts/national-deaths'
+import GalleryChartNationalTests from './gallery-items/charts/national-tests'
+import NationalCharts from './gallery-items/national-chart'
+import galleryStyle from './visualization-gallery.module.scss'
 
 const components = {
   'us-map': USMap,
   'national-chart': NationalCharts,
   'chart-national-hospitalization': ChartNationalHospitalization,
   'chart-national-cases': ChartNationalCases,
-  'chart-national-deaths': CarouselChartNationalDeaths,
-  'chart-national-testing': CarouselChartNationalTests,
+  'chart-national-deaths': GalleryChartNationalDeaths,
+  'chart-national-testing': GalleryChartNationalTests,
 }
 
-const CarouselItem = ({ item }) => {
+const GalleryItem = ({ item }) => {
   if (typeof components[item.configuration.component] === 'undefined') {
     return null
   }
@@ -36,7 +36,7 @@ const CarouselItem = ({ item }) => {
 }
 
 const SvgFilters = () => (
-  <svg aria-hidden className={carouselStyle.filters} width={0} height={0}>
+  <svg aria-hidden className={galleryStyle.filters} width={0} height={0}>
     <filter id="dropshadow">
       <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
       <feOffset dx="0" dy="0" result="offsetblur" />
@@ -62,10 +62,10 @@ const SvgFilters = () => (
   </svg>
 )
 
-const HomepageCarousel = () => {
+const HomepageGallery = () => {
   const data = useStaticQuery(graphql`
     {
-      contentfulHomepageCarousel {
+      contentfulHomepageVisualizationGallery {
         items {
           label
           configuration {
@@ -74,7 +74,7 @@ const HomepageCarousel = () => {
             }
             component
           }
-          childContentfulHomepageCarouselItemDataDisclaimerTextNode {
+          childContentfulHomepageGalleryItemDataDisclaimerTextNode {
             childMarkdownRemark {
               html
             }
@@ -91,23 +91,27 @@ const HomepageCarousel = () => {
   return (
     <>
       <Tabs>
-        <div className={carouselStyle.tabContainer}>
-          <TabList className={carouselStyle.tabs}>
+        <div className={galleryStyle.tabContainer}>
+          <TabList className={galleryStyle.tabs}>
             <Container>
-              {data.contentfulHomepageCarousel.items.map((item, key) => (
-                <Tab key={`carousel-tab-${key}`}>{item.label}</Tab>
-              ))}
+              {data.contentfulHomepageVisualizationGallery.items.map(
+                (item, key) => (
+                  <Tab key={`gallery-tab-${key}`}>{item.label}</Tab>
+                ),
+              )}
             </Container>
           </TabList>
         </div>
-        <div className={carouselStyle.carousel}>
+        <div className={galleryStyle.gallery}>
           <Container>
-            <TabPanels className={carouselStyle.tabPanel}>
-              {data.contentfulHomepageCarousel.items.map((item, key) => (
-                <TabPanel key={`carousel-item-${key}`}>
-                  <CarouselItem item={item} />
-                </TabPanel>
-              ))}
+            <TabPanels className={galleryStyle.tabPanel}>
+              {data.contentfulHomepageVisualizationGallery.items.map(
+                (item, key) => (
+                  <TabPanel key={`gallery-item-${key}`}>
+                    <GalleryItem item={item} />
+                  </TabPanel>
+                ),
+              )}
             </TabPanels>
           </Container>
         </div>
@@ -117,4 +121,4 @@ const HomepageCarousel = () => {
   )
 }
 
-export default HomepageCarousel
+export default HomepageGallery
