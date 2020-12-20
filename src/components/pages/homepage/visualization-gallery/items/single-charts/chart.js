@@ -1,10 +1,10 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { DateTime } from 'luxon'
-import ChartDataLink from '../chart-data-link'
+import ChartDataLink from '../../components/chart-data-link'
 import BarChart from '~components/charts/bar-chart'
 import { Col, Row } from '~components/common/grid'
-import { NationalTotals } from '../sidebar'
+import { NationalTotals } from '../../components/sidebar'
 import chartStyle from './chart.module.scss'
 
 const Chart = ({ title, data, field, fill, lineColor, relatedPost }) => {

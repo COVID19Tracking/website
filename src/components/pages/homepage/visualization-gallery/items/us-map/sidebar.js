@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import classnames from 'classnames'
-import { Number, NationalTotals } from '../sidebar'
+import { Number, NationalTotals } from '../../components/sidebar'
 import sidebarStyle from './sidebar.module.scss'
 import { Row } from '~components/common/grid'
 

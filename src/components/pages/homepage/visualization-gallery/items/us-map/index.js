@@ -6,7 +6,7 @@ import { DateTime } from 'luxon'
 import metrics from './metrics'
 import Map from './map'
 import Grid from './grid'
-import Title from '../title'
+import Title from '../../components/title'
 
 const Table = ({ states, metric, us }) => (
   <div className="a11y-only">
