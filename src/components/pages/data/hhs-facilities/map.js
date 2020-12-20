@@ -48,6 +48,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   const [highlightedFacility, setHighlightedFacility] = useState(false)
   const [revealedFacility, setRevealedFacility] = useState(false)
   const [currentZoom, setCurrentZoom] = useState(0)
+  const [highlighedMarker, setHighlightedMarker] = useState(false)
   const layers = ['Hospitals', 'Null hospitals']
 
   const mapNode = useRef(null)
@@ -102,7 +103,17 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   }, [revealedFacility])
 
   useEffect(() => {
-    console.log(highlightedFacility)
+    if (!highlightedFacility || !highlightedFacility.geometry) {
+      return
+    }
+    if (highlighedMarker) {
+      highlighedMarker.remove()
+    }
+    const { coordinates } = highlightedFacility.geometry
+    const marker = new mapboxgl.Marker()
+      .setLngLat(coordinates)
+      .addTo(mapRef.current)
+    setHighlightedMarker(marker)
   }, [highlightedFacility])
 
   useEffect(() => {
