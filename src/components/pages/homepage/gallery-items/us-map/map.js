@@ -31,6 +31,7 @@ const MapLegend = ({ legend }) => {
 
 const Map = ({ states, us, relatedPost, metric, title }) => {
   const [activeState, setActiveState] = useState(false)
+  const [usIsActive, setUsIsActive] = useState(false)
   const mapRef = useRef()
 
   const { stateHexes, width, height, hexRad } = createGrid(states, desktopGrid)
@@ -85,6 +86,7 @@ const Map = ({ states, us, relatedPost, metric, title }) => {
             tabIndex="0"
             aria-hidden
             onKeyDown={event => {
+              setUsIsActive(false)
               if (!activeState) {
                 setActiveState(
                   stateHexes.find(({ state }) => state.state === 'WA'),
@@ -102,13 +104,23 @@ const Map = ({ states, us, relatedPost, metric, title }) => {
                 (event.shiftKey && event.key === 'Tab') ||
                 event.key === 'ArrowLeft'
               ) {
-                setStateNeighbor('w')
+                if (activeState && activeState.state.state === 'WA') {
+                  setActiveState(false)
+                  setUsIsActive(true)
+                } else {
+                  setStateNeighbor('w')
+                }
               }
               if (event.key === 'ArrowDown') {
                 setStateNeighbor('s')
               }
               if (event.key === 'ArrowUp') {
-                setStateNeighbor('n')
+                if (activeState && activeState.state.state === 'WA') {
+                  setActiveState(false)
+                  setUsIsActive(true)
+                } else {
+                  setStateNeighbor('n')
+                }
               }
               if (event.key === 'Enter') {
                 if (activeState === false) {
@@ -125,6 +137,7 @@ const Map = ({ states, us, relatedPost, metric, title }) => {
               r={hexRad * 1.5}
               value={us.value}
               className={value => metric.getColor(value)}
+              isActive={usIsActive}
               onClick={() => {
                 setActiveState(false)
               }}

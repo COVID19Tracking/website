@@ -97,7 +97,7 @@ const State = ({ x, y, r, state, onClick, className, isActive }) => {
   )
 }
 
-const US = ({ r, value, onClick, className, inGrid }) => {
+const US = ({ r, value, onClick, className, inGrid, isActive }) => {
   const x = r
   const y = inGrid ? r + 5 : r - r / 2
   const hexPoints = [
@@ -120,7 +120,9 @@ const US = ({ r, value, onClick, className, inGrid }) => {
       <polygon
         points={hexPoints.map(item => item.join(',')).join(' ')}
         className={mapStyle.state}
-        style={{ filter: 'url(#dropshadow)' }}
+        style={{
+          filter: isActive ? 'url(#dropshadow-large)' : 'url(#dropshadow)',
+        }}
         onClick={() => onClick()}
       />
       <polygon
