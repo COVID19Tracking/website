@@ -11,7 +11,7 @@ import mapStyle from './us-map.module.scss'
 const MapLegend = ({ legend }) => {
   const hexRadius = 15
   return (
-    <ul className={mapStyle.legend}>
+    <ul className={mapStyle.legend} aria-hidden>
       {legend.map(item => (
         <li>
           <svg
