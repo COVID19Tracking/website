@@ -15,6 +15,9 @@
   input[type='text'] {
     margin-bottom: 0;
   }
+  p {
+    @include margin(16, left);
+  }
   table {
     overflow-y: scroll;
     &[aria-hidden] {
@@ -98,6 +101,11 @@
       &:first-child {
         margin-top: 0;
       }
+    }
+  }
+  p {
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }

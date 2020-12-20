@@ -35,6 +35,7 @@ const FacilityDetails = ({ facility }) => (
         ? facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
         : 'N/A'}
     </p>
+    <p>Click to view more information</p>
   </>
 )
 
@@ -46,6 +47,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   const [tooltip, setTooltip] = useState({ x: 0, y: 0 })
   const [highlightedFacility, setHighlightedFacility] = useState(false)
   const [revealedFacility, setRevealedFacility] = useState(false)
+  const [currentZoom, setCurrentZoom] = useState(0)
   const layers = ['Hospitals', 'Null hospitals']
 
   const mapNode = useRef(null)
@@ -84,6 +86,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
     const features = mapRef.current.queryRenderedFeatures({
       layers,
     })
+    setCurrentZoom(event.target.getZoom())
     setFacilities(
       features.sort((a, b) =>
         a.properties.hospital_name > b.properties.hospital_name ? 1 : -1,
@@ -234,7 +237,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
             </tr>
           </thead>
         </Table>
-        {facilities && (
+        {facilities && facilities.length > 0 ? (
           <div className={facilitiesMapStyles.tableScroll}>
             <Table>
               <thead className="a11y-only">
@@ -284,6 +287,14 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
               </tbody>
             </Table>
           </div>
+        ) : (
+          <p>
+            {currentZoom < 4 ? (
+              <>Zoom in to get facility details.</>
+            ) : (
+              <>No facilities in the current map.</>
+            )}
+          </p>
         )}
       </div>
       <div className={facilitiesMapStyles.mapWrapper} role="img">
