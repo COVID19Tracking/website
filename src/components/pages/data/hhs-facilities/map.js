@@ -20,7 +20,7 @@ const fields = [
   {
     title: 'Percent of adult inpatient beds occupied by all patients',
     field: 'adult_inpatient_beds_occupancy_all',
-    value: value => `${Math.round(value * 100)}%`,
+    value: value => (value === null ? 'N/A' : `${Math.round(value * 100)}%`),
   },
   {
     title: 'Percent of adult ICU beds occupied by all patients',
@@ -53,7 +53,7 @@ const FacilityDetails = ({ facility }) => (
     <h3>{facility.hospital_name}</h3>
     <p>
       <strong>Adult COVID-19 patients currently in hospital:</strong>{' '}
-      {facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
+      {facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >=
       0 ? (
         <>
           {Math.round(
@@ -82,9 +82,21 @@ const FacilityDialog = ({ facility }) => (
         <div key={key}>
           <dt>{fields[key].title}</dt>
           <dd>
-            {fields[key].value
-              ? fields[key].value(facility[fields[key].field])
-              : facility[fields[key].field]}
+            {typeof facility[fields[key].field] !== 'undefined' ? (
+              <>
+                {facility[fields[key].field] < 0 ? (
+                  <>between 0 and 4</>
+                ) : (
+                  <>
+                    {fields[key].value
+                      ? fields[key].value(facility[fields[key].field])
+                      : facility[fields[key].field]}
+                  </>
+                )}
+              </>
+            ) : (
+              <>N/A</>
+            )}
           </dd>
         </div>
       ))}
