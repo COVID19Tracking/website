@@ -37,7 +37,7 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
   const { slug } = state.childSlug
 
   const annotations = data.allContentfulChartAnnotation.nodes
-  const dataRows = data.allCovidStateDaily.nodes.slice(0, 10) // todo remove me
+  const dataRows = data.allCovidStateDaily.nodes
 
   const annotationDates = annotations.map(annotation => annotation.date) // A list of the dates with annotations.
 
@@ -148,7 +148,7 @@ export const query = graphql`
       }
     }
     allContentfulChartAnnotation(
-      filter: { state: { code: { eq: "AL" } }, dataElement: { eq: "cases" } }
+      filter: { state: { code: { eq: $state } }, dataElement: { eq: "cases" } }
       sort: { fields: date, order: DESC }
     ) {
       nodes {
@@ -156,7 +156,7 @@ export const query = graphql`
         description {
           description
         }
-        date(formatString: "MMM DD, YYYY")
+        date(formatString: "MMM D, YYYY")
         dataElement
         contentful_id
         childContentfulChartAnnotationDescriptionTextNode {
