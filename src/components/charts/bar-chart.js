@@ -272,11 +272,15 @@ const AnnotationBubble = ({
     key={content}
     width="20"
     height="24"
-    x={xScaleTime(content.date) - 11}
+    x={xScaleTime ? xScaleTime(content.date) - 11 : 0}
     y={
-      yScale(
-        getValueForDate(content.date) > 10 ? getValueForDate(content.date) : 10,
-      ) - 26
+      yScale
+        ? yScale(
+            getValueForDate(content.date) > 10
+              ? getValueForDate(content.date)
+              : 10,
+          ) - 26
+        : 0
     }
     viewBox="0 0 20 24"
     fill="none"
@@ -383,4 +387,7 @@ BarChart.propTypes = {
   renderTooltipContents: PropTypes.func,
   perCapLabel: PropTypes.string,
 }
+
+export { BarChart, AnnotationBubble }
+
 export default BarChart
