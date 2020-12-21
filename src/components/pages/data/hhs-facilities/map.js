@@ -115,7 +115,6 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       setActiveFacility(false)
       return
     }
-    console.log(event.point)
     setActiveFacility(features[0].properties)
     setTooltip(event.point)
     if (show) {
