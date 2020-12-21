@@ -4,14 +4,14 @@ import SkipNavigation from '~components/utils/skip-navigation'
 import Header from '~components/layout/header'
 import SEO from '~components/utils/seo'
 import Footer from '~components/layout/footer'
-import Container from '~components/common/landing-page/container'
-import HeaderHero from '~components/pages/homepage/header-hero'
+import Container from '~components/common/container'
+import BlogFeatured from '~components/pages/homepage/blog-featured'
 import BlogList from '~components/pages/homepage/blog-list'
-import Datasets from '~components/pages/homepage/datasets'
-import LargeDataset from '~components/pages/homepage/large-dataset'
-import LargeProject from '~components/pages/homepage/large-project'
-import LatestTotals from '~components/pages/homepage/latest-totals'
 import Press from '~components/pages/homepage/press'
+import HomepageAPI from '~components/pages/homepage/api'
+import HomepageAbout from '~components/pages/homepage/about'
+import HomepageVisualizationGallery from '~components/pages/homepage/visualization-gallery'
+import HomepageDatsets from '~components/pages/homepage/datasets'
 
 const Homepage = () => (
   <>
@@ -19,24 +19,23 @@ const Homepage = () => (
     <SkipNavigation />
     <Header siteTitle="The COVID Tracking Project" noMargin />
     <SkipNavContent />
-    <HeaderHero />
     <h1 className="a11y-only">The COVID Tracking Project</h1>
 
     <main id="main">
+      <HomepageVisualizationGallery />
+      <HomepageAbout />
+      <HomepageDatsets />
+
       <Container>
-        <LatestTotals />
+        <BlogFeatured />
+        <BlogList />
       </Container>
-      <LargeProject />
-      <Container>
-        <LargeDataset />
-        <Datasets />
-      </Container>
-      <BlogList />
+      <HomepageAPI />
       <Container>
         <Press />
       </Container>
     </main>
-    <Footer />
+    <Footer noMargin />
   </>
 )
 

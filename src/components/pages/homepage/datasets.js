@@ -1,97 +1,122 @@
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import Feature from '~components/common/landing-page/feature'
+import React, { useState, useRef } from 'react'
+import { graphql, Link, useStaticQuery } from 'gatsby'
+import classnames from 'classnames'
+import { Row, Col } from '~components/common/grid'
+import Container from '~components/common/container'
+import datasetsStyle from './datasets.module.scss'
 
-const HomepageDatasets = () => {
+const Dataset = ({ title, children, link, stateLink }) => {
   const data = useStaticQuery(graphql`
-    query {
-      whiteHouse: file(relativePath: { regex: "/white-house.png/" }) {
-        relativePath
-        childImageSharp {
-          fluid(maxWidth: 1200, traceSVG: { color: "#182E4E" }) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-      covidExit: file(relativePath: { regex: "/covid-exit-strategy.png/" }) {
-        relativePath
-        childImageSharp {
-          fluid(maxWidth: 1200, traceSVG: { color: "#020202" }) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-      jhuTracker: file(relativePath: { regex: "/jhu-tracker.png/" }) {
-        relativePath
-        childImageSharp {
-          fluid(maxWidth: 1200, traceSVG: { color: "#020202" }) {
-            ...GatsbyImageSharpFluid_tracedSVG
+    {
+      allCovidStateInfo(sort: { fields: state }) {
+        nodes {
+          name
+          state
+          childSlug {
+            slug
           }
         }
       }
     }
   `)
+  const paneRef = useRef()
+  const [showList, setShowList] = useState(false)
+
   return (
-    <div>
-      <Feature
-        title="Johns Hopkins"
-        element={
-          <Img
-            fluid={data.jhuTracker.childImageSharp.fluid}
-            alt="Screenshot of a COVID Exit Strategy chart that uses COVID Tracking Project data in its state-by-state comparison of interventions, testing, and outcomes."
-          />
-        }
-        flip
-      >
-        Johns Hopkins relies on our testing data for its{' '}
-        <a
-          href="https://coronavirus.jhu.edu/testing"
-          target="_blank"
-          rel="nofollow noopener noreferrer"
+    <>
+      <h3 className={datasetsStyle.header}>{title}</h3>
+      <p>{children}</p>
+      <div>{link}</div>
+      <div>
+        <button
+          className={datasetsStyle.toggle}
+          type="button"
+          aria-expanded={showList}
+          onClick={event => {
+            event.preventDefault()
+            setShowList(!showList)
+            if (!showList) {
+              paneRef.current.focus()
+            }
+          }}
         >
-          COVID-19 Testing Insights Initiative
-        </a>
-        , which brings data and expert analysis together in one place. The
-        initiative is designed to help policymakers and the public understand
-        the trajectory of the pandemic, and make decisions about the path
-        forward.
-      </Feature>
-      <Feature
-        title="The White House"
-        element={
-          <Img
-            fluid={data.whiteHouse.childImageSharp.fluid}
-            alt="Image composite showing COVID Tracking Project data in use on a slide from the White House’s 'Opening Up America Again' testing strategy presentation deck."
-          />
-        }
+          Jump to a state
+          <span aria-hidden>{showList ? <>↑</> : <>↓</>}</span>
+        </button>
+      </div>
+      <ul
+        tabIndex="-1"
+        ref={paneRef}
+        className={classnames(
+          datasetsStyle.stateList,
+          showList && datasetsStyle.shown,
+        )}
+        hidden={!showList}
       >
-        The White House chose the COVID Tracking Project as the best source to
-        cite for daily US test numbers in its{' '}
-        <a href="https://www.whitehouse.gov/wp-content/uploads/2020/04/Testing-Overview-Final.pdf">
-          &ldquo;Opening Up America Again&rdquo; testing strategy
-        </a>
-        .
-      </Feature>
-      <Feature
-        title="COVID Exit Strategy"
-        element={
-          <Img
-            fluid={data.covidExit.childImageSharp.fluid}
-            alt="Screenshot of a COVID Exit Strategy chart that uses COVID Tracking Project data in its state-by-state comparison of interventions, testing, and outcomes."
-          />
-        }
-        flip
-      >
-        Created by a group of public health and crisis experts,{' '}
-        <a href="https://covidexitstrategy.org">covidexitstrategy.org</a>{' '}
-        identifies critical interventions needed to stop the spread of COVID-19,
-        and urges government decision-makers to apply them. They use our data to
-        power a dashboard comparing each state&#8217;s interventions and testing
-        levels with case counts and deaths over time.
-      </Feature>
-    </div>
+        {data.allCovidStateInfo.nodes.map(state => (
+          <li key={`${title}-${state.state}`}>
+            <Link
+              to={stateLink(state)}
+              aria-label={`${title} data for ${state.name}`}
+            >
+              {state.state}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
   )
 }
+
+const HomepageDatasets = () => (
+  <div className={datasetsStyle.wrapper}>
+    <Container>
+      <Row>
+        <Col
+          width={[4, 3, 6]}
+          paddingRight={[0, 16, 32]}
+          paddingBottom={[32, 0, 0]}
+        >
+          <Dataset
+            title="Race &amp; ethnicity data"
+            link={
+              <Link to="/race" className={datasetsStyle.stateLink}>
+                All race &amp; ethnicity data<span aria-hidden> →</span>
+              </Link>
+            }
+            stateLink={state =>
+              `/race/dashboard#state-${state.state.toLowerCase()}`
+            }
+          >
+            The COVID Racial Data Tracker is a collaboration between the COVID
+            Tracking Project and the Boston University Center for Antiracist
+            Research. Together, we’re gathering the most complete and up-to-date
+            race and ethnicity data on COVID-19 in the United States.
+          </Dataset>
+        </Col>
+        <Col width={[4, 3, 6]} paddingLeft={[0, 16, 32]}>
+          <Dataset
+            title="Long-term-care data"
+            link={
+              <Link to="/data/longtermcare" className={datasetsStyle.stateLink}>
+                All long-term care data<span aria-hidden> →</span>
+              </Link>
+            }
+            stateLink={state =>
+              `/data/state/${state.childSlug.slug}/long-term-care`
+            }
+          >
+            To date, the Long-Term Care COVID Tracker is the most comprehensive
+            dataset about COVID-19 in US nursing homes and other long-term care
+            facilities. It compiles crucial data about the effects of the
+            pandemic on a population with extraordinary vulnerabilities to the
+            virus due to age, underlying health conditions, or proximity to
+            large outbreaks.
+          </Dataset>
+        </Col>
+      </Row>
+    </Container>
+  </div>
+)
 
 export default HomepageDatasets
