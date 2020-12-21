@@ -443,6 +443,10 @@ const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
               <div className={facilitiesMapStyles.scale}>
                 <div>
                   <div />
+                  N/A
+                </div>
+                <div>
+                  <div />
                   0%
                 </div>
                 <div>
