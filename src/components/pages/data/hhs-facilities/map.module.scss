@@ -90,7 +90,7 @@
     top: 0;
     left: 0;
     z-index: 100;
-    width: 300px;
+    width: 350px;
     border: 1px solid $color-slate-700;
     background: white;
     @include padding(16);
@@ -180,7 +180,7 @@
       }
       &:nth-child(2) {
         > div {
-          background: $color-honey-400;
+          background: $color-blueberry-200;
         }
       }
       &:nth-child(3) {

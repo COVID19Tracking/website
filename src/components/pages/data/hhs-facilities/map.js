@@ -61,7 +61,7 @@ const FacilityDetails = ({ facility }) => (
       )}
     </p>
     <p>
-      <strong>% of inpatient beds occupied by COVID-19 patients:</strong>{' '}
+      <strong>Percent of inpatient beds occupied by COVID-19 patients:</strong>{' '}
       {facility.adult_inpatient_beds_occupancy_covid > 0
         ? `${Math.round(facility.adult_inpatient_beds_occupancy_covid * 100)}%`
         : 'between 0 and 4%'}
@@ -115,6 +115,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       setActiveFacility(false)
       return
     }
+    console.log(event.point)
     setActiveFacility(features[0].properties)
     setTooltip(event.point)
     if (show) {
@@ -423,7 +424,10 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
             <>
               <div
                 className={facilitiesMapStyles.tooltip}
-                style={{ left: tooltip.x - 150, top: tooltip.y + 15 }}
+                style={{
+                  left: Math.max(10, tooltip.x - 175),
+                  top: tooltip.y + 15,
+                }}
               >
                 <FacilityDetails facility={activeFacility} />
               </div>
