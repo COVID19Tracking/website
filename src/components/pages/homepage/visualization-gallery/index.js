@@ -122,3 +122,5 @@ const HomepageGallery = () => {
 }
 
 export default HomepageGallery
+
+export { SvgFilters, components }
