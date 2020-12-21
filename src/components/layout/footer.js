@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import classnames from 'classnames'
 import footerStyles from './footer.module.scss'
 
 import ctpLogo from '~images/project-logo.svg'
@@ -7,8 +8,13 @@ import githubLogo from '~images/footer/github-logo.svg'
 import twitterLogo from '~images/footer/twitter-logo.svg'
 import upArrow from '~images/footer/up-arrow.svg'
 
-const Footer = () => (
-  <footer className={footerStyles.wrapper}>
+const Footer = ({ noMargin = false }) => (
+  <footer
+    className={classnames(
+      footerStyles.wrapper,
+      noMargin && footerStyles.noMargin,
+    )}
+  >
     <div className={footerStyles.footer}>
       <div className={footerStyles.main}>
         <Link to="/" className={footerStyles.ctpLogo}>
