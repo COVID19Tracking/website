@@ -34,3 +34,8 @@ $table-breakpoint: $viewport-lg;
     display: none;
   }
 }
+
+.annotation {
+  position: relative;
+  margin-top: -4px; // ignore-style-rule
+}

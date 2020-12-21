@@ -8,25 +8,27 @@ import {
   AnnotationPanelContext,
   AnnotationButton,
 } from '~components/pages/data/cards/definitions-panel'
-import { DefinitionLink } from '~components/common/statistic'
+import { AnnotationBubble } from '~components/charts/bar-chart'
+import tableResponsiveStyles from '~components/common/table-responsive.module.scss'
 
 const AnnotationIcon = ({ annotation, annotationFields }) => {
   const annotationContext = useContext(AnnotationPanelContext)
 
-  // todo stop using definition link
+  // todo make annotation symbol dynamic
   return (
-    <AnnotationButton field={annotation.date}>
-      <DefinitionLink
-        title="Warning"
-        onDefinitionsToggle={() => {
-          annotationContext.setCardAnnotations({
-            fields: annotationFields,
-            highlight: annotation.date,
-          })
-        }}
-        label="Annotation for Total Tests (in unclear units)"
-      />
-    </AnnotationButton>
+    <div className={tableResponsiveStyles.annotation}>
+      <AnnotationButton field={annotation.date}>
+        <AnnotationBubble
+          content={{ annotationSymbol: 'A' }}
+          handleAnnotationClick={() => {
+            annotationContext.setCardAnnotations({
+              fields: annotationFields,
+              highlight: annotation.date,
+            })
+          }}
+        />
+      </AnnotationButton>
+    </div>
   )
 }
 
