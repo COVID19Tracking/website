@@ -40,7 +40,7 @@ const fields = [
   {
     title: 'Reporting completeness',
     field: 'mean_coverage',
-    value: value => `${Math.round(value)}%`,
+    value: value => `${Math.round(value * 100)}%`,
   },
   {
     title: 'Reporting week (spans Friday to Thursday)',
