@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle,max-len,jsx-a11y/no-noninteractive-element-interactions,jsx-a11y/click-events-have-key-events */
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, Fragment } from 'react'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { Form, Input } from '~components/common/form'
@@ -8,34 +8,83 @@ import { Table, Th, Td } from '~components/common/table'
 import facilitiesMapStyles from './map.module.scss'
 
 const fields = [
-  'total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg',
-  'staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg',
-  'adult_inpatient_beds_occupancy_all',
-  'adult_icu_beds_occupancy_all',
-  'adult_inpatient_beds_occupancy_covid',
-  'adult_icu_beds_occupancy_covid',
-  'mean_coverage',
+  {
+    title: 'Adult COVID-19 patients currently in hospital',
+    field:
+      'total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg',
+  },
+  {
+    title: 'Adult COVID-19 patients currently in ICU',
+    field: 'staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg',
+  },
+  {
+    title: 'Percent of adult inpatient beds occupied by all patients',
+    field: 'adult_inpatient_beds_occupancy_all',
+    value: value => `${Math.round(value * 100)}%`,
+  },
+  {
+    title: 'Percent of adult ICU beds occupied by all patients',
+    field: 'adult_icu_beds_occupancy_all',
+    value: value => `${Math.round(value * 100)}%`,
+  },
+  {
+    title: 'Percent of adult inpatient beds occupied by COVID-19 patients',
+    field: 'adult_inpatient_beds_occupancy_covid',
+    value: value => `${Math.round(value * 100)}%`,
+  },
+  {
+    title: 'Percent of adult ICU beds occupied by COVID-19 patients',
+    field: 'adult_icu_beds_occupancy_covid',
+    value: value => `${Math.round(value * 100)}%`,
+  },
+  { title: 'Reporting completeness', field: 'mean_coverage' },
+  {
+    title: 'Reporting week (spans Friday to Thursday)',
+    field: 'collection_week',
+  },
 ]
 
 const FacilityDetails = ({ facility }) => (
   <>
     <h3>{facility.hospital_name}</h3>
     <p>
-      <strong>% of patients with COVID:</strong>{' '}
-      {facility.adult_inpatient_beds_occupancy_covid > 0 ? (
-        <>{Math.round(facility.adult_inpatient_beds_occupancy_covid * 100)}%</>
+      <strong>Adult COVID-19 patients currently in hospital:</strong>{' '}
+      {facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
+      0 ? (
+        <>
+          {Math.round(
+            facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg,
+          )}
+        </>
       ) : (
         'between 0 and 4'
       )}
     </p>
     <p>
-      <strong>7-day average COVID patients:</strong>{' '}
-      {facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
-      0
-        ? facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
-        : 'between 0 and 4'}
+      <strong>% of inpatient beds occupied by COVID-19 patients:</strong>{' '}
+      {facility.adult_inpatient_beds_occupancy_covid > 0
+        ? `${Math.round(facility.adult_inpatient_beds_occupancy_covid * 100)}%`
+        : 'between 0 and 4%'}
     </p>
     <p>Click to view more information</p>
+  </>
+)
+
+const FacilityDialog = ({ facility }) => (
+  <>
+    <h2>{facility.hospital_name}</h2>
+    <dl className={facilitiesMapStyles.details}>
+      {Object.keys(fields).map(key => (
+        <div key={key}>
+          <dt>{fields[key].title}</dt>
+          <dd>
+            {fields[key].value
+              ? fields[key].value(facility[fields[key].field])
+              : facility[fields[key].field]}
+          </dd>
+        </div>
+      ))}
+    </dl>
   </>
 )
 
@@ -336,15 +385,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
                 >
                   &times;
                 </button>
-                <h2>{activeFacility.hospital_name}</h2>
-                <dl>
-                  {fields.map(field => (
-                    <>
-                      <dt>{field}</dt>
-                      <dd>{activeFacility[field]}</dd>
-                    </>
-                  ))}
-                </dl>
+                <FacilityDialog facility={activeFacility} />
               </div>
             </>
           )}
@@ -353,6 +394,10 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
               % of hospital beds with COVID patients
             </div>
             <div className={facilitiesMapStyles.scale}>
+              <div>
+                <div />
+                0%
+              </div>
               <div>
                 <div />
                 {'<'}10%

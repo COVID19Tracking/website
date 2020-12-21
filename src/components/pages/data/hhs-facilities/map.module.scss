@@ -172,23 +172,28 @@
     display: flex;
     @include margin(8, bottom);
     > div {
-      width: 70px;
+      width: 60px;
       text-align: center;
       > div {
         height: 15px;
-        background: $color-blueberry-200;
+        background: $color-honey-400;
       }
       &:nth-child(2) {
         > div {
-          background: $color-blueberry-300;
+          background: $color-honey-400;
         }
       }
       &:nth-child(3) {
         > div {
-          background: $color-blueberry-400;
+          background: $color-blueberry-300;
         }
       }
       &:nth-child(4) {
+        > div {
+          background: $color-blueberry-400;
+        }
+      }
+      &:nth-child(5) {
         > div {
           background: $color-blueberry-500;
         }
@@ -231,5 +236,29 @@
   }
   dt {
     font-weight: bold;
+  }
+}
+
+.details {
+  line-height: 1rem;
+  border-collapse: collapse;
+  > div {
+    display: flex;
+    border-bottom: 1px solid $color-slate-400;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  dt {
+    max-width: 80%;
+    flex-basis: 80%;
+    @include padding(16, top bottom left);
+  }
+  dd {
+    border-left: 1px solid $color-slate-400;
+    text-align: right;
+    max-width: 20%;
+    flex-basis: 20%;
+    @include padding(16, top bottom right);
   }
 }
