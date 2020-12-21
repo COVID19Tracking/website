@@ -5,6 +5,7 @@ import { Row, Col } from '~components/common/grid'
 import { NationalTotals } from '../components/sidebar'
 import Title from '../components/title'
 import ChartDataLink from '../components/chart-data-link'
+import Disclaimer from '../components/disclaimer'
 import colors from '~scss/colors.module.scss'
 import BarChart from '~components/charts/bar-chart'
 import nationalChartStyle from './national-charts.module.scss'
@@ -128,9 +129,17 @@ const NationalChart = ({ item }) => {
           <ChartDataLink to="/data/national/chart-tables">
             Access all data for these charts
           </ChartDataLink>
+          {item.childContentfulHomepageGalleryItemDataDisclaimerTextNode && (
+            <Disclaimer
+              text={
+                item.childContentfulHomepageGalleryItemDataDisclaimerTextNode
+                  .childMarkdownRemark.html
+              }
+            />
+          )}
         </Col>
         <Col width={[4, 6, 2]}>
-          <NationalTotals relatedPost={item.relatedPost} />
+          <NationalTotals />
         </Col>
       </Row>
     </>

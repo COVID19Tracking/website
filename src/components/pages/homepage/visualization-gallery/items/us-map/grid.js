@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { DialogContent, DialogOverlay } from '@reach/dialog'
 import classnames from 'classnames'
 import Sidebar from './sidebar'
+import Disclaimer from '../../components/disclaimer'
 import { US } from './states'
 import gridStyle from './grid.module.scss'
 
-const Grid = ({ states, us, relatedPost, metric }) => {
+const Grid = ({ states, us, relatedPost, metric, disclaimer = false }) => {
   const [activeState, setActiveState] = useState(false)
   const [showUs, setShowUs] = useState(false)
   return (
@@ -64,6 +65,7 @@ const Grid = ({ states, us, relatedPost, metric }) => {
           </li>
         ))}
       </ul>
+      {disclaimer && <Disclaimer text={disclaimer.childMarkdownRemark.html} />}
       <DialogOverlay
         className={gridStyle.overlay}
         isOpen={(activeState || showUs) && true}

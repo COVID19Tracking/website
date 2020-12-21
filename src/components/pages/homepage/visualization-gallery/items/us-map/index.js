@@ -1,7 +1,6 @@
 /*eslint-disable */
 import React from 'react'
-import slugify from 'slugify'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import { DateTime } from 'luxon'
 import metrics from './metrics'
 import Map from './map'
@@ -115,12 +114,18 @@ const USMap = ({ configuration, item }) => {
             From {sevenDaysAgo} to {lastUpdate}
           </Title>
         }
+        disclaimer={
+          item.childContentfulHomepageGalleryItemDataDisclaimerTextNode
+        }
       />
       <Grid
         states={states}
         metric={metrics[metric]}
         us={us}
         relatedPost={item.relatedPost}
+        disclaimer={
+          item.childContentfulHomepageGalleryItemDataDisclaimerTextNode
+        }
       />
       <Table states={states} metric={metrics[metric]} us={us} />
     </>

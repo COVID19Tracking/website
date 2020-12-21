@@ -4,6 +4,7 @@ import { navigate } from 'gatsby'
 import { Row, Col } from '~components/common/grid'
 import { State, US, Legend } from './states'
 import Sidebar from './sidebar'
+import Disclaimer from '../../components/disclaimer'
 import createGrid from './create-grid'
 import { desktopGrid } from './state-matrix'
 import mapStyle from './us-map.module.scss'
@@ -29,7 +30,14 @@ const MapLegend = ({ legend }) => {
   )
 }
 
-const Map = ({ states, us, relatedPost, metric, title }) => {
+const Map = ({
+  states,
+  us,
+  relatedPost,
+  metric,
+  title,
+  disclaimer = false,
+}) => {
   const [activeState, setActiveState] = useState(false)
   const [usIsActive, setUsIsActive] = useState(false)
   const mapRef = useRef()
@@ -169,6 +177,9 @@ const Map = ({ states, us, relatedPost, metric, title }) => {
             )}
           </svg>
           <MapLegend legend={metric.legend} />
+          {disclaimer && (
+            <Disclaimer text={disclaimer.childMarkdownRemark.html} />
+          )}
         </Col>
         <Col width={[4, 6, 3]}>
           <Sidebar state={activeState} relatedPost={relatedPost} />
