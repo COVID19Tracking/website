@@ -1,6 +1,5 @@
 .container {
   @include row();
-  @include margin(32, top);
 }
 
 .sidebar,
@@ -157,13 +156,14 @@
 }
 
 .legend {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 100;
-  background: white;
+  @include margin(32, top);
   @include padding(8);
   @include type-size(100);
+  display: flex;
+  justify-content: flex-end;
+  > div {
+    flex-wrap: wrap;
+  }
   .label {
     font-weight: bold;
     @include margin(8, bottom);

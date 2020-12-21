@@ -134,6 +134,47 @@ const FacilityDialog = ({ facility }) => (
   </>
 )
 
+const Legend = () => (
+  <Container>
+    <div className={facilitiesMapStyles.legend}>
+      <div>
+        <div className={facilitiesMapStyles.label}>
+          % of hospital beds with COVID patients
+        </div>
+        <div className={facilitiesMapStyles.scale}>
+          <div>
+            <div />
+            N/A
+          </div>
+          <div>
+            <div />
+            0%
+          </div>
+          <div>
+            <div />
+            {'<'}10%
+          </div>
+          <div>
+            <div />
+            10-20%
+          </div>
+          <div>
+            <div />
+            20-30%
+          </div>
+          <div>
+            <div />
+            {'>'}30%
+          </div>
+        </div>
+        <div className={facilitiesMapStyles.label}>
+          Circle size indicates total COVID patients
+        </div>
+      </div>
+    </div>
+  </Container>
+)
+
 const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
   mapboxgl.accessToken = process.env.GATSBY_MAPBOX_API_TOKEN
   const [activeFacility, setActiveFacility] = useState(false)
@@ -281,6 +322,7 @@ const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
 
   return (
     <>
+      <Legend />
       <div className={facilitiesMapStyles.container}>
         <div className={facilitiesMapStyles.sidebar}>
           <Form
@@ -436,40 +478,7 @@ const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
                 </div>
               </>
             )}
-            <div className={facilitiesMapStyles.legend}>
-              <div className={facilitiesMapStyles.label}>
-                % of hospital beds with COVID patients
-              </div>
-              <div className={facilitiesMapStyles.scale}>
-                <div>
-                  <div />
-                  N/A
-                </div>
-                <div>
-                  <div />
-                  0%
-                </div>
-                <div>
-                  <div />
-                  {'<'}10%
-                </div>
-                <div>
-                  <div />
-                  10-20%
-                </div>
-                <div>
-                  <div />
-                  20-30%
-                </div>
-                <div>
-                  <div />
-                  {'>'}30%
-                </div>
-              </div>
-              <div className={facilitiesMapStyles.label}>
-                Circle size indicates total COVID patients
-              </div>
-            </div>
+
             {activeFacility && (
               <>
                 <div
