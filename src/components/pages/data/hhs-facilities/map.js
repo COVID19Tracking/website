@@ -232,13 +232,6 @@ const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
   }
 
   useEffect(() => {
-    if (!revealedFacility) {
-      return
-    }
-    window.location.hash += `,|id:${activeFacility.hospital_pk}`
-  }, [revealedFacility])
-
-  useEffect(() => {
     if (!highlightedFacility || !highlightedFacility.geometry) {
       return
     }
