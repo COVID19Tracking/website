@@ -37,7 +37,11 @@ const fields = [
     field: 'adult_icu_beds_occupancy_covid',
     value: value => `${Math.round(value * 100)}%`,
   },
-  { title: 'Reporting completeness', field: 'mean_coverage' },
+  {
+    title: 'Reporting completeness',
+    field: 'mean_coverage',
+    value: value => `${Math.round(value)}%`,
+  },
   {
     title: 'Reporting week (spans Friday to Thursday)',
     field: 'collection_week',
