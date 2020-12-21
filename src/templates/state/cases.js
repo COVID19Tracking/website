@@ -7,6 +7,21 @@ import Layout from '~components/layout'
 const StateCasesTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
+
+  const annotations = data.allContentfulChartAnnotation.nodes
+  const dataRows = data.allCovidStateDaily.nodes.slice(0, 10) // todo remove me
+
+  // Match annotations with their respective days.
+  annotations.forEach(annotation => {
+    const row = dataRows.findIndex(r => r.date === annotation.date)
+    console.log(dataRows[row])
+    // todo use childMarkdownRemark here
+    console.log(annotation)
+    dataRows[row].annotations = (
+      <small>{annotation.description.description}</small>
+    )
+  })
+
   return (
     <Layout
       title={`${state.name}: Cases`}
@@ -27,7 +42,11 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
         ]}
       />
       <TableResponsive
+        annotations={data.allContentfulChartAnnotation}
         labels={[
+          {
+            field: 'annotations',
+          },
           {
             field: 'date',
             noWrap: true,
@@ -36,7 +55,6 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
             field: 'positive',
             isNumeric: true,
           },
-
           {
             field: 'positiveIncrease',
             isNumeric: true,
@@ -51,7 +69,7 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
             isNumeric: true,
           },
         ]}
-        data={data.allCovidStateDaily.nodes}
+        data={dataRows}
       />
     </Layout>
   )
@@ -71,6 +89,25 @@ export const query = graphql`
         positiveIncrease
         positiveCasesViral
         probableCases
+      }
+    }
+    allContentfulChartAnnotation(
+      filter: { state: { code: { eq: "AL" } }, dataElement: { eq: "cases" } }
+      sort: { fields: date, order: DESC }
+    ) {
+      nodes {
+        title
+        description {
+          description
+        }
+        date(formatString: "MMM DD, YYYY")
+        dataElement
+        contentful_id
+        childContentfulChartAnnotationDescriptionTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
     allContentfulDataDefinition(
