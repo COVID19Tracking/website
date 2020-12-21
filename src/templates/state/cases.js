@@ -11,15 +11,21 @@ import {
 import { AnnotationBubble } from '~components/charts/bar-chart'
 import tableResponsiveStyles from '~components/common/table-responsive.module.scss'
 
+const indexToLetter = index => {
+  return (index + 10).toString(36).toUpperCase()
+}
+
 const AnnotationIcon = ({ annotation, annotationFields }) => {
   const annotationContext = useContext(AnnotationPanelContext)
+
+  const index = annotationFields.findIndex(f => f === annotation.field)
 
   // todo make annotation symbol dynamic
   return (
     <div className={tableResponsiveStyles.annotation}>
       <AnnotationButton field={annotation.date}>
         <AnnotationBubble
-          content={{ annotationSymbol: 'A' }}
+          content={{ annotationSymbol: indexToLetter(index) }}
           handleAnnotationClick={() => {
             annotationContext.setCardAnnotations({
               fields: annotationFields,
@@ -42,7 +48,7 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
   const annotationDates = annotations.map(annotation => annotation.date) // A list of the dates with annotations.
 
   annotations.forEach((annotation, index) => {
-    // Standardize the content for the DefinitionsPanel
+    // Standardize the content for the DefinitionsPanel.
     annotations[index].field = annotation.date
     annotations[index].warning = annotation.description.description // todo use childMarkdownRemark here
 
