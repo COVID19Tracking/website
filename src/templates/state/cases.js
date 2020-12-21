@@ -100,6 +100,7 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
           labels={[
             {
               field: 'annotations',
+              style: tableResponsiveStyles.annotationCell,
             },
             {
               field: 'date',

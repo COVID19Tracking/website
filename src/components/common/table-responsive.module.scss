@@ -37,5 +37,14 @@ $table-breakpoint: $viewport-lg;
 
 .annotation {
   position: relative;
-  margin-top: -4px; // ignore-style-rule
+}
+
+.annotation-cell {
+  width: 0;
+}
+
+td.annotation-cell {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: spacer(8);
 }
