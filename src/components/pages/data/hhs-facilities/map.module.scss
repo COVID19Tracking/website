@@ -1,6 +1,6 @@
 .container {
   @include row();
-  @include margin(32, top bottom);
+  @include margin(32, top);
 }
 
 .sidebar,
@@ -261,4 +261,27 @@
     flex-basis: 20%;
     @include padding(16, top bottom right);
   }
+}
+
+.definitions-button {
+  @include remove-button-style();
+  text-decoration: underline;
+  color: $color-slate-700;
+  span[aria-hidden] {
+    display: inline-block;
+    text-decoration: none;
+    @include margin(8, left);
+  }
+}
+
+.definitions {
+  display: none;
+  &.is-open {
+    display: block;
+  }
+}
+
+.definitions-wrapper {
+  @include margin(16, top);
+  @include margin(32, bottom);
 }

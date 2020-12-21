@@ -1,11 +1,13 @@
 /* eslint-disable no-underscore-dangle,max-len,jsx-a11y/no-noninteractive-element-interactions,jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState, useRef, Fragment } from 'react'
 import mapboxgl from 'mapbox-gl'
-import 'mapbox-gl/dist/mapbox-gl.css'
+import classnames from 'classnames'
+import Container from '~components/common/container'
 import { Form, Input } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
 import facilitiesMapStyles from './map.module.scss'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 const fields = [
   {
@@ -74,6 +76,34 @@ const FacilityDetails = ({ facility }) => (
   </>
 )
 
+const Definitions = ({ definitions }) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div className={facilitiesMapStyles.definitionsWrapper}>
+      <button
+        aria-expanded={isOpen}
+        type="button"
+        className={facilitiesMapStyles.definitionsButton}
+        onClick={event => {
+          event.preventDefault()
+          setIsOpen(!isOpen)
+        }}
+      >
+        About this map<span aria-hidden> {isOpen ? <>↑</> : <>↓</>}</span>
+      </button>
+      <div
+        className={classnames(
+          facilitiesMapStyles.definitions,
+          isOpen && facilitiesMapStyles.isOpen,
+        )}
+      >
+        {definitions}
+      </div>
+    </div>
+  )
+}
+
 const FacilityDialog = ({ facility }) => (
   <>
     <h2>{facility.hospital_name}</h2>
@@ -104,7 +134,7 @@ const FacilityDialog = ({ facility }) => (
   </>
 )
 
-const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
+const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
   mapboxgl.accessToken = process.env.GATSBY_MAPBOX_API_TOKEN
   const [activeFacility, setActiveFacility] = useState(false)
   const [query, setQuery] = useState(false)
@@ -250,212 +280,217 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   }, [])
 
   return (
-    <div className={facilitiesMapStyles.container}>
-      <div className={facilitiesMapStyles.sidebar}>
-        <Form
-          onSubmit={event => {
-            event.preventDefault()
-            if (
-              typeof window === 'undefined' ||
-              typeof window.fetch === 'undefined'
-            ) {
-              return
-            }
-            window
-              .fetch(
-                `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-                  query,
-                )}.json?limit=1&access_token=${
-                  process.env.GATSBY_MAPBOX_API_TOKEN
-                }`,
-              )
-              .then(response => response.json())
-              .then(response => {
-                if (response.features.length === 0) {
-                  return
-                }
-                const feature = response.features.pop()
-                mapRef.current.easeTo({
-                  center: feature.center,
-                  zoom: 7,
+    <>
+      <div className={facilitiesMapStyles.container}>
+        <div className={facilitiesMapStyles.sidebar}>
+          <Form
+            onSubmit={event => {
+              event.preventDefault()
+              if (
+                typeof window === 'undefined' ||
+                typeof window.fetch === 'undefined'
+              ) {
+                return
+              }
+              window
+                .fetch(
+                  `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+                    query,
+                  )}.json?limit=1&access_token=${
+                    process.env.GATSBY_MAPBOX_API_TOKEN
+                  }`,
+                )
+                .then(response => response.json())
+                .then(response => {
+                  if (response.features.length === 0) {
+                    return
+                  }
+                  const feature = response.features.pop()
+                  mapRef.current.easeTo({
+                    center: feature.center,
+                    zoom: 7,
+                  })
                 })
-              })
-          }}
-          noMargin
-        >
-          <Row>
-            <Col width={[4, 6, 8]}>
-              <Input
-                type="text"
-                label="Search facilities"
-                placeholder="Enter a city or zip code"
-                hideLabel
-                onChange={event => {
-                  setQuery(event.target.value)
-                }}
-              />
-            </Col>
-            <Col width={[4, 6, 4]} paddingLeft={[0, 0, 8]}>
-              <button
-                type="submit"
-                className={facilitiesMapStyles.searchButton}
-              >
-                Search
-              </button>
-            </Col>
-          </Row>
-        </Form>
-        <Table ariaHidden>
-          <thead>
-            <tr>
-              <Th alignLeft>Name</Th>
-              <Th>7-day average COVID patients</Th>
-            </tr>
-          </thead>
-        </Table>
-        {facilities && facilities.length > 0 ? (
-          <div className={facilitiesMapStyles.tableScroll}>
-            <Table>
-              <thead className="a11y-only">
-                <tr>
-                  <Th alignLeft>Name</Th>
-                  <Th>7-day average COVID patients</Th>
-                </tr>
-              </thead>
-              <tbody>
-                {facilities.map(facility => (
-                  <tr
-                    onMouseEnter={() => {
-                      setHighlightedFacility(facility)
-                    }}
-                    onMouseLeave={() => {
-                      setHighlightedFacility(false)
-                    }}
-                    onFocus={() => {
-                      setHighlightedFacility(facility)
-                    }}
-                    onBlur={() => {
-                      setHighlightedFacility(false)
+            }}
+            noMargin
+          >
+            <Row>
+              <Col width={[4, 6, 8]}>
+                <Input
+                  type="text"
+                  label="Search facilities"
+                  placeholder="Enter a city or zip code"
+                  hideLabel
+                  onChange={event => {
+                    setQuery(event.target.value)
+                  }}
+                />
+              </Col>
+              <Col width={[4, 6, 4]} paddingLeft={[0, 0, 8]}>
+                <button
+                  type="submit"
+                  className={facilitiesMapStyles.searchButton}
+                >
+                  Search
+                </button>
+              </Col>
+            </Row>
+          </Form>
+          <Table ariaHidden>
+            <thead>
+              <tr>
+                <Th alignLeft>Name</Th>
+                <Th>7-day average COVID patients</Th>
+              </tr>
+            </thead>
+          </Table>
+          {facilities && facilities.length > 0 ? (
+            <div className={facilitiesMapStyles.tableScroll}>
+              <Table>
+                <thead className="a11y-only">
+                  <tr>
+                    <Th alignLeft>Name</Th>
+                    <Th>7-day average COVID patients</Th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {facilities.map(facility => (
+                    <tr
+                      onMouseEnter={() => {
+                        setHighlightedFacility(facility)
+                      }}
+                      onMouseLeave={() => {
+                        setHighlightedFacility(false)
+                      }}
+                      onFocus={() => {
+                        setHighlightedFacility(facility)
+                      }}
+                      onBlur={() => {
+                        setHighlightedFacility(false)
+                      }}
+                    >
+                      <Td alignLeft>
+                        <button
+                          type="button"
+                          onClick={event => {
+                            event.preventDefault()
+                            setActiveFacility({ ...facility.properties })
+                            setRevealedFacility(true)
+                          }}
+                        >
+                          {facility.properties.hospital_name}
+                        </button>
+                      </Td>
+                      <Td>
+                        {facility.properties
+                          .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg ===
+                        null ? (
+                          <>N/A</>
+                        ) : (
+                          <>
+                            {facility.properties
+                              .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
+                            0
+                              ? facility.properties
+                                  .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
+                              : 'between 0 and 4'}
+                          </>
+                        )}
+                      </Td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
+          ) : (
+            <p>
+              {currentZoom < 4 ? (
+                <>Zoom in to get facility details.</>
+              ) : (
+                <>No facilities in the current map.</>
+              )}
+            </p>
+          )}
+        </div>
+        <div className={facilitiesMapStyles.mapWrapper} role="img">
+          <div className={facilitiesMapStyles.mapInset}>
+            {revealedFacility && (
+              <>
+                <div
+                  role="dialog"
+                  className={facilitiesMapStyles.facilityCardOverlay}
+                  onClick={() => setRevealedFacility(false)}
+                />
+                <div className={facilitiesMapStyles.facilityCard} role="dialog">
+                  <button
+                    className={facilitiesMapStyles.close}
+                    type="button"
+                    onClick={event => {
+                      event.preventDefault()
+                      setRevealedFacility(false)
                     }}
                   >
-                    <Td alignLeft>
-                      <button
-                        type="button"
-                        onClick={event => {
-                          event.preventDefault()
-                          setActiveFacility({ ...facility.properties })
-                          setRevealedFacility(true)
-                        }}
-                      >
-                        {facility.properties.hospital_name}
-                      </button>
-                    </Td>
-                    <Td>
-                      {facility.properties
-                        .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg ===
-                      null ? (
-                        <>N/A</>
-                      ) : (
-                        <>
-                          {facility.properties
-                            .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
-                          0
-                            ? facility.properties
-                                .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
-                            : 'between 0 and 4'}
-                        </>
-                      )}
-                    </Td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
-        ) : (
-          <p>
-            {currentZoom < 4 ? (
-              <>Zoom in to get facility details.</>
-            ) : (
-              <>No facilities in the current map.</>
+                    &times;
+                  </button>
+                  <FacilityDialog facility={activeFacility} />
+                </div>
+              </>
             )}
-          </p>
-        )}
-      </div>
-      <div className={facilitiesMapStyles.mapWrapper} role="img">
-        <div className={facilitiesMapStyles.mapInset}>
-          {revealedFacility && (
-            <>
-              <div
-                role="dialog"
-                className={facilitiesMapStyles.facilityCardOverlay}
-                onClick={() => setRevealedFacility(false)}
-              />
-              <div className={facilitiesMapStyles.facilityCard} role="dialog">
-                <button
-                  className={facilitiesMapStyles.close}
-                  type="button"
-                  onClick={event => {
-                    event.preventDefault()
-                    setRevealedFacility(false)
+            <div className={facilitiesMapStyles.legend}>
+              <div className={facilitiesMapStyles.label}>
+                % of hospital beds with COVID patients
+              </div>
+              <div className={facilitiesMapStyles.scale}>
+                <div>
+                  <div />
+                  0%
+                </div>
+                <div>
+                  <div />
+                  {'<'}10%
+                </div>
+                <div>
+                  <div />
+                  10-20%
+                </div>
+                <div>
+                  <div />
+                  20-30%
+                </div>
+                <div>
+                  <div />
+                  {'>'}30%
+                </div>
+              </div>
+              <div className={facilitiesMapStyles.label}>
+                Circle size indicates total COVID patients
+              </div>
+            </div>
+            {activeFacility && (
+              <>
+                <div
+                  className={facilitiesMapStyles.tooltip}
+                  style={{
+                    left: Math.max(10, tooltip.x - 175),
+                    top: tooltip.y + 15,
                   }}
                 >
-                  &times;
-                </button>
-                <FacilityDialog facility={activeFacility} />
-              </div>
-            </>
-          )}
-          <div className={facilitiesMapStyles.legend}>
-            <div className={facilitiesMapStyles.label}>
-              % of hospital beds with COVID patients
-            </div>
-            <div className={facilitiesMapStyles.scale}>
-              <div>
-                <div />
-                0%
-              </div>
-              <div>
-                <div />
-                {'<'}10%
-              </div>
-              <div>
-                <div />
-                10-20%
-              </div>
-              <div>
-                <div />
-                20-30%
-              </div>
-              <div>
-                <div />
-                {'>'}30%
-              </div>
-            </div>
-            <div className={facilitiesMapStyles.label}>
-              Circle size indicates total COVID patients
-            </div>
+                  <FacilityDetails facility={activeFacility} />
+                </div>
+              </>
+            )}
+            <div
+              ref={mapNode}
+              className={facilitiesMapStyles.map}
+              style={{ width: '100%', height: '100%' }}
+            />
           </div>
-          {activeFacility && (
-            <>
-              <div
-                className={facilitiesMapStyles.tooltip}
-                style={{
-                  left: Math.max(10, tooltip.x - 175),
-                  top: tooltip.y + 15,
-                }}
-              >
-                <FacilityDetails facility={activeFacility} />
-              </div>
-            </>
-          )}
-          <div
-            ref={mapNode}
-            className={facilitiesMapStyles.map}
-            style={{ width: '100%', height: '100%' }}
-          />
         </div>
       </div>
-    </div>
+      <Container>
+        <Definitions definitions={definitions} />
+      </Container>
+    </>
   )
 }
 
