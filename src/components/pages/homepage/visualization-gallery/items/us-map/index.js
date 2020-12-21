@@ -40,6 +40,9 @@ const USMap = ({ configuration, item }) => {
             positive {
               per100k
             }
+            positiveIncrease {
+              per100k
+            }
           }
         }
       }
@@ -68,6 +71,11 @@ const USMap = ({ configuration, item }) => {
               population
               positive {
                 per100k
+                percent
+              }
+              positiveIncrease {
+                per100k
+                percent
               }
             }
           }

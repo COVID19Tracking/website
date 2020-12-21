@@ -8,28 +8,29 @@ const getAverage = (history, state, value) =>
 
 export default {
   casesPer100k: {
-    title: 'Average daily cases per 100k people in the last seven days',
+    title: 'Average daily new COVID-19 cases per 100k people (past 7 days)',
     getValue: (history, state) =>
       getAverage(
         history,
         state.state,
-        item => item.childPopulation.positive.per100k,
+        item => item.childPopulation.positiveIncrease.per100k,
       ),
     getUsValue: history =>
       history
         .slice(0, 7)
         .reduce(
-          (total, item) => total + item.childPopulation.positive.per100k,
+          (total, item) =>
+            total + item.childPopulation.positiveIncrease.per100k,
           0,
         ) / 7,
     getColor: item => {
-      if (item > 5000) {
+      if (item > 75) {
         return mapStyle.level4
       }
-      if (item > 3000) {
+      if (item > 50) {
         return mapStyle.level3
       }
-      if (item > 2000) {
+      if (item > 25) {
         return mapStyle.level2
       }
       return mapStyle.level1
@@ -37,24 +38,24 @@ export default {
     legend: [
       {
         style: mapStyle.level1,
-        label: 'Below 2,000 cases',
+        label: 'Under 25',
       },
       {
         style: mapStyle.level2,
-        label: '2,000 - 3,000',
+        label: '26 - 50',
       },
       {
         style: mapStyle.level3,
-        label: '3,000 - 5,000',
+        label: '51 - 75',
       },
       {
         style: mapStyle.level4,
-        label: 'Over 5,000 cases',
+        label: 'Over 75 cases',
       },
     ],
   },
   sevenDayPositive: {
-    title: 'Average daily cases in the last seven days',
+    title: 'Average daily new COVID-19 cases (past 7 days)',
     getValue: (history, state) =>
       getAverage(history, state.state, item => item.positiveIncrease),
 

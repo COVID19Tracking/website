@@ -81,7 +81,7 @@ const NationalChart = ({ item }) => {
     <>
       <Row>
         <Col width={[4, 6, 10]}>
-          <Title title="National overview">
+          <Title title="National COVID-19 topline metrics">
             Data updated {data.lastUpdate.nodes[0].date}
           </Title>
           <Row>
