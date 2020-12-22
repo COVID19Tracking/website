@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, { useState, useEffect } from 'react'
 import slugify from 'slugify'
 import { Link } from 'gatsby'
@@ -136,6 +137,14 @@ const SearchForm = ({ hasFacilities, setSearchQuery }) => {
   )
 }
 
+const probableFields = {
+  resident_positives: 'resident_probable',
+  resident_deaths: 'resident_probable_deaths',
+  outbreak_resident: 'outbreak_resident_probable',
+  outbreak_resident_deaths: 'outbreak_resident_probable_deaths',
+  resident_staff_deaths: 'resident_staff_probable_deaths',
+}
+
 const LongTermCareFacilities = ({ stateSlug, facilities }) => {
   const [sort, setSort] = useState({ field: 'facility_name', desc: false })
   const [searchQuery, setSearchQuery] = useState(false)
@@ -144,6 +153,20 @@ const LongTermCareFacilities = ({ stateSlug, facilities }) => {
   const [facilityList, setFacilityList] = useState(
     facilities
       .map(group => group.nodes[0])
+      .map(facility => {
+        Object.keys(probableFields).forEach(field => {
+          if (
+            facility[probableFields[field]] &&
+            !Number.isNaN(facility[field]) &&
+            !Number.isNaN(facility[probableFields[field]])
+          ) {
+            facility[field] =
+              parseInt(facility[field], 10) +
+              parseInt(facility[probableFields[field]], 10)
+          }
+        })
+        return facility
+      })
       .sort((a, b) => (a.facility_name > b.facility_name ? -1 : 1)),
   )
 
@@ -164,6 +187,7 @@ const LongTermCareFacilities = ({ stateSlug, facilities }) => {
           item.resident_positives ||
           item.resident_deaths,
       ).length > 0
+
   useEffect(() => {
     const list = facilities
       .map(group => group.nodes[0])

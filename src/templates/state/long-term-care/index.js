@@ -175,7 +175,11 @@ export const query = graphql`
           resident_staff_positives
           resident_staff_deaths
           staff_deaths
-          staff_positive
+          outbreak_resident_probable
+          outbreak_resident_probable_deaths
+          resident_probable
+          resident_probable_deaths
+          resident_staff_probable_deaths
         }
       }
     }
