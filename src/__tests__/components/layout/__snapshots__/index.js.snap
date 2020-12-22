@@ -146,7 +146,7 @@ Array [
                 >
                   <div
                     aria-labelledby="menu-button--menu"
-                    className="subMenu"
+                    className="header-sub-menu subMenu"
                     data-reach-menu-items=""
                     data-reach-menu-list=""
                     id="menu--1"
@@ -314,7 +314,7 @@ Array [
                   >
                     <div
                       aria-labelledby="menu-button--menu"
-                      className="subMenu"
+                      className="header-sub-menu subMenu"
                       data-reach-menu-items=""
                       data-reach-menu-list=""
                       id="menu--3"
@@ -779,7 +779,7 @@ Array [
                 >
                   <div
                     aria-labelledby="menu-button--menu--9"
-                    className="subMenu"
+                    className="header-sub-menu subMenu"
                     data-reach-menu-items=""
                     data-reach-menu-list=""
                     id="menu--9"
@@ -947,7 +947,7 @@ Array [
                   >
                     <div
                       aria-labelledby="menu-button--menu--11"
-                      className="subMenu"
+                      className="header-sub-menu subMenu"
                       data-reach-menu-items=""
                       data-reach-menu-list=""
                       id="menu--11"
