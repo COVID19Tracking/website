@@ -111,6 +111,15 @@ select,
     display: none !important;
   }
 
+  .header-sub-menu {
+    li {
+      a {
+        color: black;
+        background: transparent;
+      }
+    }
+  }
+
   .js-disabled {
     display: inline !important;
   }
