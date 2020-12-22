@@ -20,7 +20,6 @@ const AnnotationIcon = ({ annotation, annotationFields }) => {
 
   const index = annotationFields.findIndex(f => f === annotation.field)
 
-  // todo make annotation symbol dynamic
   return (
     <div className={tableResponsiveStyles.annotation}>
       <AnnotationButton field={annotation.date}>
@@ -54,7 +53,9 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
   annotations.forEach((annotation, index) => {
     // Standardize the content for the DefinitionsPanel.
     annotations[index].field = annotation.date
-    annotations[index].warning = annotation.description.description // todo use childMarkdownRemark here
+    annotations[index].htmlFormat = true
+    annotations[index].warning =
+      annotation.childContentfulChartAnnotationDescriptionTextNode.childMarkdownRemark.html
 
     // Match annotations with their respective days.
     const row = dataRows.findIndex(r => r.date === annotation.date)
