@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import ContentfulContent from '~components/common/contentful-content'
 import Container from '~components/common/container'
+import LongContent from '~components/common/long-content'
 import HHSFacilitiesMap from '~components/pages/data/hhs-facilities/map'
 
 const StateHHSHospitalization = ({ data }) => {
@@ -29,7 +30,9 @@ const StateHHSHospitalization = ({ data }) => {
       noContainer
     >
       <Container centered>
-        <Snippet slug="hhs-facilities-intro" />
+        <LongContent>
+          <Snippet slug="hhs-facilities-intro" />
+        </LongContent>
       </Container>
       <HHSFacilitiesMap
         center={[-97, 38]}
@@ -37,7 +40,9 @@ const StateHHSHospitalization = ({ data }) => {
         definitions={<Snippet slug="hhs-facilities-data-description" />}
       />
       <Container centered>
-        <Snippet slug="hhs-facilities-closure" />
+        <LongContent>
+          <Snippet slug="hhs-facilities-closure" />
+        </LongContent>
       </Container>
     </Layout>
   )

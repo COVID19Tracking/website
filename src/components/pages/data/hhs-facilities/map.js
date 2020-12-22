@@ -196,7 +196,7 @@ const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
   const [revealedFacility, setRevealedFacility] = useState(false)
   const [currentZoom, setCurrentZoom] = useState(0)
   const [highlighedMarker, setHighlightedMarker] = useState(false)
-  const layers = ['Hospitals', 'Null hospitals']
+  const layers = ['hospitals', 'hospitals-not-reported']
 
   const mapNode = useRef(null)
   const mapRef = useRef(null)
@@ -279,9 +279,7 @@ const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
 
     map.on('load', () => {
       if (state) {
-        layers.forEach(layer => {
-          map.setFilter(layer, ['==', ['get', 'state'], state])
-        })
+        map.setFilter('hospitals', ['==', ['get', 'state'], state])
       }
 
       if (window.location.hash && hash.length > 2) {
