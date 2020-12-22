@@ -1,9 +1,9 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import data from 'sample-chart-data'
-import { BarChart } from '~components/charts/bar-chart'
+import { BarChart, AnnotationBubble } from '~components/charts/bar-chart'
 
-describe('Components : Charts: Area chart', () => {
+describe('Components : Charts: Bar chart', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(
@@ -37,5 +37,18 @@ describe('Components : Charts: Area chart', () => {
       )
       .toJSON()
     expect(xAxisTree).toMatchSnapshot()
+  })
+})
+
+describe('Components : Charts: Annotation bubble', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(
+        <AnnotationBubble
+          content={{annotationSymbol: 'A'}}
+        />,
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
   })
 })
