@@ -20,7 +20,7 @@ const BlogHero = ({
 }) => (
   <div className={blogHeroStyles.container} narrow centered>
     <ReturnLinks>
-      <Link to="/blog">Blog</Link>
+      <Link to="/analysis-updates">Analysis &amp; updates</Link>
       {categories && (
         <>
           <img src={rightCaret} alt="" height="12px" />
