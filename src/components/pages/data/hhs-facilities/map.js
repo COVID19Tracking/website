@@ -293,7 +293,6 @@ const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
             a.properties.hospital_name > b.properties.hospital_name ? 1 : -1,
           ),
         )
-        console.log(features)
         if (hash.length === 4 && hash[3].search('id:' > -1)) {
           const id = hash[3].replace('id:', '')
           const linkedFeature = features.find(
