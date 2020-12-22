@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
 import Definitions from '~components/pages/data/definitions'
@@ -6,71 +6,19 @@ import Layout from '~components/layout'
 import {
   DefinitionPanel,
   AnnotationPanelContext,
-  AnnotationButton,
 } from '~components/pages/data/cards/definitions-panel'
-import { AnnotationBubble } from '~components/charts/bar-chart'
 import tableResponsiveStyles from '~components/common/table-responsive.module.scss'
 
-const indexToLetter = index => {
-  return (index + 10).toString(36).toUpperCase()
-}
-
-const AnnotationIcon = ({ annotation, annotationFields }) => {
-  const annotationContext = useContext(AnnotationPanelContext)
-
-  const index = annotationFields.findIndex(f => f === annotation.field)
-
-  return (
-    <div className={tableResponsiveStyles.annotation}>
-      <AnnotationButton field={annotation.date}>
-        <AnnotationBubble
-          content={{ annotationSymbol: indexToLetter(index) }}
-          handleAnnotationClick={() => {
-            annotationContext.setCardAnnotations({
-              fields: annotationFields,
-              highlight: annotation.date,
-            })
-          }}
-        />
-      </AnnotationButton>
-    </div>
-  )
-}
+import preprocessAnnotations from './preprocess-annotations'
 
 const StateCasesTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
 
-  const annotations = data.allContentfulChartAnnotation.nodes
-  const dataRows = data.allCovidStateDaily.nodes
-
-  dataRows.forEach((row, i) => {
-    dataRows[i].dateWithAnnotation = row.date
-  })
-
-  const annotationDates = annotations.map(annotation => annotation.date) // A list of the dates with annotations.
-
-  annotations.forEach((annotation, index) => {
-    // Standardize the content for the DefinitionsPanel.
-    annotations[index].field = annotation.date
-    annotations[index].htmlFormat = true
-    annotations[index].warning =
-      annotation.childContentfulChartAnnotationDescriptionTextNode.childMarkdownRemark.html
-
-    // Match annotations with their respective days.
-    const row = dataRows.findIndex(r => r.date === annotation.date)
-
-    // Add the annotation icon to the dateWithAnnotation value.
-    dataRows[row].dateWithAnnotation = (
-      <>
-        <AnnotationIcon
-          annotation={annotation}
-          annotationFields={annotationDates}
-        />
-        {dataRows[row].date}
-      </>
-    )
-  })
+  const { annotations, dataRows } = preprocessAnnotations(
+    data.allContentfulChartAnnotation.nodes,
+    data.allCovidStateDaily.nodes,
+  )
 
   const [cardAnnotations, setCardAnnotations] = useState(false)
   const [highlightedAnnotation, setHighlightedAnnotation] = useState(false)
