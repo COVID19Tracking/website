@@ -16,14 +16,14 @@ const Infobox = ({ facility, x, y }) => (
       {typeof facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg !==
       'undefined' ? (
         <>
-          {facility.adult_inpatient_beds_occupancy_covid > 0 ? (
+          {facility.adult_inpatient_beds_occupancy_covid >= 0 ? (
             <>
               {Math.round(
                 facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg,
               )}
             </>
           ) : (
-            'between 0 and 4%'
+            'between 0 and 4'
           )}
         </>
       ) : (
@@ -34,7 +34,7 @@ const Infobox = ({ facility, x, y }) => (
       <strong>Percent of inpatient beds occupied by COVID-19 patients:</strong>{' '}
       {typeof facility.adult_inpatient_beds_occupancy_covid !== 'undefined' ? (
         <>
-          {facility.adult_inpatient_beds_occupancy_covid > 0
+          {facility.adult_inpatient_beds_occupancy_covid >= 0
             ? `${Math.round(
                 facility.adult_inpatient_beds_occupancy_covid * 100,
               )}%`

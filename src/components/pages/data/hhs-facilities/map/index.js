@@ -257,19 +257,24 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
                         </button>
                       </Td>
                       <Td>
-                        {facility.properties
-                          .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg ===
-                        null ? (
-                          <>N/A</>
-                        ) : (
+                        {typeof facility.properties
+                          .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg !==
+                        'undefined' ? (
                           <>
                             {facility.properties
-                              .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
-                            0
-                              ? facility.properties
-                                  .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
-                              : 'between 0 and 4'}
+                              .adult_inpatient_beds_occupancy_covid >= 0 ? (
+                              <>
+                                {Math.round(
+                                  facility.properties
+                                    .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg,
+                                )}
+                              </>
+                            ) : (
+                              'between 0 and 4%'
+                            )}
                           </>
+                        ) : (
+                          <>N/A</>
                         )}
                       </Td>
                     </tr>
