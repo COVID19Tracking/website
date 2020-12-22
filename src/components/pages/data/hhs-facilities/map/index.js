@@ -156,7 +156,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   return (
     <>
       <Legend />
-      <div className={facilitiesMapStyles.container}>
+      <div className={facilitiesMapStyles.container} aria-hidden>
         <div className={facilitiesMapStyles.sidebar}>
           <Form
             onSubmit={event => {

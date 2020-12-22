@@ -1,5 +1,6 @@
 .definitions-button {
   @include remove-button-style();
+  @include margin(32, right);
   text-decoration: underline;
   color: $color-slate-700;
   span[aria-hidden] {

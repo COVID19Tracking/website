@@ -43,17 +43,19 @@ const fields = [
   },
 ]
 
-const FacilityDetails = ({ facility }) => (
+const FacilityDetails = ({ facility, hideSharing = false }) => (
   <>
     <h2>
       {facility.hospital_name}
-      <span className={facilityDetailsStyle.sharing}>
-        <SocialSharing
-          shares={['link']}
-          url={`https://covidtracking.com/data/hospital-facilities${typeof window !==
-            'undefined' && window.location.hash},id:${facility.hospital_pk}`}
-        />
-      </span>
+      {!hideSharing && (
+        <span className={facilityDetailsStyle.sharing}>
+          <SocialSharing
+            shares={['link']}
+            url={`https://covidtracking.com/data/hospital-facilities${typeof window !==
+              'undefined' && window.location.hash},id:${facility.hospital_pk}`}
+          />
+        </span>
+      )}
     </h2>
 
     <dl className={facilityDetailsStyle.details}>
@@ -84,3 +86,5 @@ const FacilityDetails = ({ facility }) => (
 )
 
 export default FacilityDetails
+
+export { fields }

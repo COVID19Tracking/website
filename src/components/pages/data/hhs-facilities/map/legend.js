@@ -4,7 +4,7 @@ import legendStyles from './legend.module.scss'
 
 const Legend = () => (
   <Container>
-    <div className={legendStyles.legend}>
+    <div className={legendStyles.legend} aria-hidden>
       <div>
         <div className={legendStyles.label}>
           % of hospital beds with COVID patients

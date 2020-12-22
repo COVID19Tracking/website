@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import classnames from 'classnames'
 import definitionsStyles from './definitions.module.scss'
 
@@ -30,6 +30,10 @@ const Definitions = () => {
       >
         About this map<span aria-hidden> {isOpen ? <>↑</> : <>↓</>}</span>
       </button>
+
+      <Link to="/data/hospital-facilities/search">
+        Search facilities in a table
+      </Link>
       <div
         className={classnames(
           definitionsStyles.definitions,

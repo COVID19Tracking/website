@@ -6,7 +6,7 @@ import Container from '~components/common/container'
 import LongContent from '~components/common/long-content'
 import HHSFacilitiesMap from '~components/pages/data/hhs-facilities/map'
 
-const StateHHSHospitalization = ({ data }) => {
+const HHSHospitalization = ({ data }) => {
   const Snippet = ({ slug }) => {
     const item = data.contentfulSnippetCollection.snippets.find(
       snippet => snippet.slug === slug,
@@ -34,11 +34,7 @@ const StateHHSHospitalization = ({ data }) => {
           <Snippet slug="hhs-facilities-intro" />
         </LongContent>
       </Container>
-      <HHSFacilitiesMap
-        center={[-97, 38]}
-        zoom={4}
-        definitions={<Snippet slug="hhs-facilities-data-description" />}
-      />
+      <HHSFacilitiesMap center={[-97, 38]} zoom={4} />
       <Container centered>
         <LongContent>
           <Snippet slug="hhs-facilities-closure" />
@@ -48,7 +44,7 @@ const StateHHSHospitalization = ({ data }) => {
   )
 }
 
-export default StateHHSHospitalization
+export default HHSHospitalization
 
 export const data = graphql`
   {
