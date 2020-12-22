@@ -1,4 +1,63 @@
-.container {
-  max-width: toRem(900);
-  margin: 0 auto;
+.wrapper {
+  background: $color-blueberry-250;
+  @include padding(80, top bottom);
+  p {
+    @include type-size(300);
+  }
+}
+
+.header {
+  margin: 0;
+}
+
+.toggle {
+  @include remove-button-style();
+  @include type-size(300);
+  @include margin(16, top);
+  color: $color-blueberry-400;
+  span[aria-hidden] {
+    display: inline-block;
+    @include margin(8, left);
+  }
+  &:hover {
+    text-decoration: underline;
+    span[aria-hidden] {
+      text-decoration: none;
+    }
+  }
+}
+
+.state-link {
+  color: $color-blueberry-400;
+  @include type-size(300);
+  text-decoration: none;
+  span[aria-hidden] {
+    display: inline-block;
+    @include margin(8, left);
+  }
+  &:hover {
+    text-decoration: underline;
+    span[aria-hidden] {
+      text-decoration: none;
+    }
+  }
+}
+
+.state-list {
+  display: none;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  @include margin(16, top bottom);
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  &.shown {
+    display: flex;
+  }
+  li {
+    @include padding(16, left);
+    display: inline-flex;
+    width: 50px;
+    justify-content: center;
+  }
 }

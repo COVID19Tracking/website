@@ -4,6 +4,9 @@
   @media (min-width: $viewport-md) {
     @include margin(64, top); // 4rem
   }
+  &.no-margin {
+    margin-top: 0;
+  }
 }
 
 .footer,

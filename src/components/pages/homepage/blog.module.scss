@@ -1,0 +1,50 @@
+.date {
+  @include type-size(100);
+  color: $color-slate-700;
+  margin-bottom: 0;
+}
+
+.section {
+  @include margin(80, top);
+}
+
+.featured {
+  @include margin(64, bottom);
+}
+
+.image {
+  @include margin(32, top);
+}
+
+.link {
+  @include type-size(300);
+  @include margin(32, top);
+  display: inline-block;
+}
+
+.lede {
+  @include type-size(300);
+}
+
+.image-wrapper {
+  width: 100%;
+}
+
+.post {
+  h3 {
+    margin-top: 0;
+  }
+  a {
+    text-decoration: none;
+    color: $color-blueberry-450;
+
+    span[aria-hidden] {
+      text-decoration: none;
+      display: inline-block;
+      @include margin(8, left);
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

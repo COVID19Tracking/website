@@ -1,0 +1,66 @@
+.number {
+  @include type-size(500);
+  @include padding(16, top bottom);
+  @include col(4 2 12, 0 0 0, 0 0 0);
+  border-bottom: 1px solid $color-slate-400;
+  .label {
+    margin: 0;
+    @include type-size(200);
+  }
+}
+
+.header {
+  @include type-size(300);
+}
+
+.national-title {
+  @include type-size(400);
+  margin: 0;
+  @include padding(16, bottom);
+  border-bottom: 1px solid $color-slate-400;
+  a {
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.related-post {
+  background: $color-slate-150;
+  @include padding(16);
+  @media (min-width: $viewport-md) {
+    height: 100%;
+    margin-bottom: -60px; // ignore-style-rule
+  }
+  .date {
+    color: $color-slate-700;
+    @include type-size(100);
+    @include margin(16, bottom);
+  }
+  a {
+    text-decoration: none;
+    color: $color-blueberry-450;
+  }
+  .title {
+    @include type-size(300);
+    @include margin(16, top bottom);
+  }
+  .link {
+    span[aria-hidden] {
+      text-decoration: none !important;
+      display: inline-block;
+      @include margin(8, left);
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.related-flex {
+  display: flex;
+  flex-flow: column wrap;
+  height: 100%;
+}
