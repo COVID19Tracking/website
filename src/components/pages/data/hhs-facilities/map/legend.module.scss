@@ -1,0 +1,55 @@
+.legend {
+  @include margin(32, top);
+  @include padding(8);
+  @include type-size(100);
+  display: flex;
+  justify-content: flex-end;
+  > div {
+    flex-wrap: wrap;
+  }
+  .label {
+    font-weight: bold;
+    @include margin(8, bottom);
+  }
+  .scale {
+    display: flex;
+    @include margin(8, bottom);
+    > div {
+      width: 60px;
+      text-align: center;
+      > div {
+        height: 15px;
+      }
+      &:first-child {
+        > div {
+          border: 3px solid $color-slate-400;
+        }
+      }
+      &:nth-child(2) {
+        > div {
+          background: $color-honey-400;
+        }
+      }
+      &:nth-child(3) {
+        > div {
+          background: $color-blueberry-200;
+        }
+      }
+      &:nth-child(4) {
+        > div {
+          background: $color-blueberry-300;
+        }
+      }
+      &:nth-child(5) {
+        > div {
+          background: $color-blueberry-400;
+        }
+      }
+      &:nth-child(6) {
+        > div {
+          background: $color-blueberry-500;
+        }
+      }
+    }
+  }
+}

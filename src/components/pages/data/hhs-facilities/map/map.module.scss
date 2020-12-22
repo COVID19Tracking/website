@@ -81,34 +81,6 @@
   box-shadow: inset 3px 0px 6px -2px rgba(0, 0, 0, 0.4);
 }
 
-.tooltip {
-  display: none;
-  @media (hover: hover) {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    width: 350px;
-    border: 1px solid $color-slate-700;
-    background: white;
-    @include padding(16);
-    @include type-size(100);
-    h3 {
-      @include type-size(100);
-      font-weight: bold;
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-  }
-  p {
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
 .search-button {
   @media (min-width: $viewport-lg) {
     @include margin(4, top);
@@ -155,62 +127,6 @@
   }
 }
 
-.legend {
-  @include margin(32, top);
-  @include padding(8);
-  @include type-size(100);
-  display: flex;
-  justify-content: flex-end;
-  > div {
-    flex-wrap: wrap;
-  }
-  .label {
-    font-weight: bold;
-    @include margin(8, bottom);
-  }
-  .scale {
-    display: flex;
-    @include margin(8, bottom);
-    > div {
-      width: 60px;
-      text-align: center;
-      > div {
-        height: 15px;
-      }
-      &:first-child {
-        > div {
-          border: 3px solid $color-slate-400;
-        }
-      }
-      &:nth-child(2) {
-        > div {
-          background: $color-honey-400;
-        }
-      }
-      &:nth-child(3) {
-        > div {
-          background: $color-blueberry-200;
-        }
-      }
-      &:nth-child(4) {
-        > div {
-          background: $color-blueberry-300;
-        }
-      }
-      &:nth-child(5) {
-        > div {
-          background: $color-blueberry-400;
-        }
-      }
-      &:nth-child(6) {
-        > div {
-          background: $color-blueberry-500;
-        }
-      }
-    }
-  }
-}
-
 .facility-card-overlay {
   position: absolute;
   width: 10%;
@@ -243,63 +159,4 @@
     float: right;
     @include type-size(600);
   }
-  dt {
-    font-weight: bold;
-  }
-}
-
-.details {
-  line-height: 1rem;
-  border-collapse: collapse;
-  > div {
-    display: flex;
-    border-bottom: 1px solid $color-slate-400;
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-  dt {
-    max-width: 80%;
-    flex-basis: 80%;
-    @include padding(16, top bottom left);
-  }
-  dd {
-    border-left: 1px solid $color-slate-400;
-    text-align: right;
-    max-width: 20%;
-    flex-basis: 20%;
-    @include padding(16, top bottom right);
-  }
-}
-
-.definitions-button {
-  @include remove-button-style();
-  text-decoration: underline;
-  color: $color-slate-700;
-  span[aria-hidden] {
-    display: inline-block;
-    text-decoration: none;
-    @include margin(8, left);
-  }
-}
-
-.definitions {
-  display: none;
-  &.is-open {
-    display: block;
-  }
-}
-
-.definitions-wrapper {
-  @include margin(16, top);
-  @include margin(32, bottom);
-}
-
-.sharing {
-  display: inline-block;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  @include margin(16, left);
-  @include type-size(100);
 }

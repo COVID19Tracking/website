@@ -1,206 +1,18 @@
 /* eslint-disable no-underscore-dangle,max-len,jsx-a11y/no-noninteractive-element-interactions,jsx-a11y/click-events-have-key-events */
-import React, { useEffect, useState, useRef, Fragment } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import mapboxgl from 'mapbox-gl'
-import classnames from 'classnames'
 import Container from '~components/common/container'
 import { Form, Input } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
-import SocialSharing from '~components/common/social-sharing'
+import FacilityDetails from '../facility-details'
+import Legend from './legend'
+import Infobox from './infobox'
+import Definitions from '../definitions'
 import facilitiesMapStyles from './map.module.scss'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
-const fields = [
-  {
-    title: 'Adult COVID-19 patients currently in hospital',
-    field:
-      'total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg',
-  },
-  {
-    title: 'Adult COVID-19 patients currently in ICU',
-    field: 'staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg',
-  },
-  {
-    title: 'Percent of adult inpatient beds occupied by all patients',
-    field: 'adult_inpatient_beds_occupancy_all',
-    value: value => (value === null ? 'N/A' : `${Math.round(value * 100)}%`),
-  },
-  {
-    title: 'Percent of adult ICU beds occupied by all patients',
-    field: 'adult_icu_beds_occupancy_all',
-    value: value => `${Math.round(value * 100)}%`,
-  },
-  {
-    title: 'Percent of adult inpatient beds occupied by COVID-19 patients',
-    field: 'adult_inpatient_beds_occupancy_covid',
-    value: value => `${Math.round(value * 100)}%`,
-  },
-  {
-    title: 'Percent of adult ICU beds occupied by COVID-19 patients',
-    field: 'adult_icu_beds_occupancy_covid',
-    value: value => `${Math.round(value * 100)}%`,
-  },
-  {
-    title: 'Reporting completeness',
-    field: 'mean_coverage',
-    value: value => `${Math.round(value * 100)}%`,
-  },
-  {
-    title: 'Reporting week (spans Friday to Thursday)',
-    field: 'collection_week',
-  },
-]
-
-const FacilityDetails = ({ facility }) => (
-  <>
-    <h3>{facility.hospital_name}</h3>
-    <p>
-      <strong>Adult COVID-19 patients currently in hospital:</strong>{' '}
-      {typeof facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg !==
-      'undefined' ? (
-        <>
-          {facility.adult_inpatient_beds_occupancy_covid > 0 ? (
-            <>
-              {Math.round(
-                facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg,
-              )}
-            </>
-          ) : (
-            'between 0 and 4%'
-          )}
-        </>
-      ) : (
-        <>N/A</>
-      )}
-    </p>
-    <p>
-      <strong>Percent of inpatient beds occupied by COVID-19 patients:</strong>{' '}
-      {typeof facility.adult_inpatient_beds_occupancy_covid !== 'undefined' ? (
-        <>
-          {facility.adult_inpatient_beds_occupancy_covid > 0
-            ? `${Math.round(
-                facility.adult_inpatient_beds_occupancy_covid * 100,
-              )}%`
-            : 'between 0 and 4%'}
-        </>
-      ) : (
-        <>N/A</>
-      )}
-    </p>
-    <p>Click to view more information</p>
-  </>
-)
-
-const Definitions = ({ definitions }) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  return (
-    <div className={facilitiesMapStyles.definitionsWrapper}>
-      <button
-        aria-expanded={isOpen}
-        type="button"
-        className={facilitiesMapStyles.definitionsButton}
-        onClick={event => {
-          event.preventDefault()
-          setIsOpen(!isOpen)
-        }}
-      >
-        About this map<span aria-hidden> {isOpen ? <>↑</> : <>↓</>}</span>
-      </button>
-      <div
-        className={classnames(
-          facilitiesMapStyles.definitions,
-          isOpen && facilitiesMapStyles.isOpen,
-        )}
-      >
-        {definitions}
-      </div>
-    </div>
-  )
-}
-
-const FacilityDialog = ({ facility }) => (
-  <>
-    <h2>
-      {facility.hospital_name}
-      <span className={facilitiesMapStyles.sharing}>
-        <SocialSharing
-          shares={['link']}
-          url={`https://covidtracking.com/data/hospital-facilities${typeof window !==
-            'undefined' && window.location.hash},id:${facility.hospital_pk}`}
-        />
-      </span>
-    </h2>
-
-    <dl className={facilitiesMapStyles.details}>
-      {Object.keys(fields).map(key => (
-        <div key={key}>
-          <dt>{fields[key].title}</dt>
-          <dd>
-            {typeof facility[fields[key].field] !== 'undefined' ? (
-              <>
-                {facility[fields[key].field] < 0 ? (
-                  <>between 0 and 4</>
-                ) : (
-                  <>
-                    {fields[key].value
-                      ? fields[key].value(facility[fields[key].field])
-                      : facility[fields[key].field]}
-                  </>
-                )}
-              </>
-            ) : (
-              <>N/A</>
-            )}
-          </dd>
-        </div>
-      ))}
-    </dl>
-  </>
-)
-
-const Legend = () => (
-  <Container>
-    <div className={facilitiesMapStyles.legend}>
-      <div>
-        <div className={facilitiesMapStyles.label}>
-          % of hospital beds with COVID patients
-        </div>
-        <div className={facilitiesMapStyles.scale}>
-          <div>
-            <div />
-            N/A
-          </div>
-          <div>
-            <div />
-            0%
-          </div>
-          <div>
-            <div />
-            {'<'}10%
-          </div>
-          <div>
-            <div />
-            10-20%
-          </div>
-          <div>
-            <div />
-            20-30%
-          </div>
-          <div>
-            <div />
-            {'>'}30%
-          </div>
-        </div>
-        <div className={facilitiesMapStyles.label}>
-          Circle size indicates total COVID patients
-        </div>
-      </div>
-    </div>
-  </Container>
-)
-
-const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
+const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   mapboxgl.accessToken = process.env.GATSBY_MAPBOX_API_TOKEN
   const [activeFacility, setActiveFacility] = useState(false)
   const [query, setQuery] = useState(false)
@@ -495,23 +307,13 @@ const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
                   >
                     &times;
                   </button>
-                  <FacilityDialog facility={activeFacility} />
+                  <FacilityDetails facility={activeFacility} />
                 </div>
               </>
             )}
 
             {activeFacility && (
-              <>
-                <div
-                  className={facilitiesMapStyles.tooltip}
-                  style={{
-                    left: Math.max(10, tooltip.x - 175),
-                    top: tooltip.y + 15,
-                  }}
-                >
-                  <FacilityDetails facility={activeFacility} />
-                </div>
-              </>
+              <Infobox facility={activeFacility} x={tooltip.x} y={tooltip.y} />
             )}
             <div
               ref={mapNode}
@@ -522,7 +324,7 @@ const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
         </div>
       </div>
       <Container>
-        <Definitions definitions={definitions} />
+        <Definitions />
       </Container>
     </>
   )
