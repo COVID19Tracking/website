@@ -34,7 +34,7 @@ const HHSHospitalization = ({ data }) => {
           <Snippet slug="hhs-facilities-intro" />
         </LongContent>
       </Container>
-      <HHSFacilitiesMap center={[-97, 38]} zoom={4} />
+      <HHSFacilitiesMap center={[-97, 38]} zoom={3.5} />
       <Container centered>
         <LongContent>
           <Snippet slug="hhs-facilities-closure" />
