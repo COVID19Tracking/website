@@ -134,13 +134,7 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
     ) {
       nodes {
-        title
-        description {
-          description
-        }
         date(formatString: "MMM D, YYYY")
-        dataElement
-        contentful_id
         childContentfulChartAnnotationDescriptionTextNode {
           childMarkdownRemark {
             html
