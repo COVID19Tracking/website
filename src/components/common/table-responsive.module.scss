@@ -34,3 +34,15 @@ $table-breakpoint: $viewport-lg;
     display: none;
   }
 }
+
+.annotation {
+  position: relative;
+  margin-right: spacer(16);
+  margin-top: -2px; // ignore-style-rule
+  height: 18px; // ignore-style-rule
+}
+
+.date-cell span.value {
+  display: flex;
+  float: right;
+}

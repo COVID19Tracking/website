@@ -56,7 +56,11 @@ const Annotation = ({ key, annotation, highlighted }) => {
       )}
     >
       <h3 className={definitionsPanelStyles.title}>{annotation.field}</h3>
-      <p>{annotation.warning}</p>
+      {annotation.htmlFormat ? (
+        <div dangerouslySetInnerHTML={{ __html: annotation.warning }} />
+      ) : (
+        <p>{annotation.warning}</p>
+      )}
       {annotation.lastChecked && <p>Last updated {annotation.lastChecked}</p>}
     </div>
   )
