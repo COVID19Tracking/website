@@ -43,11 +43,7 @@ describe('Components : Charts: Bar chart', () => {
 describe('Components : Charts: Annotation bubble', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(
-        <AnnotationBubble
-          content={{annotationSymbol: 'A'}}
-        />,
-      )
+      .create(<AnnotationBubble content={{ annotationSymbol: 'A' }} />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })

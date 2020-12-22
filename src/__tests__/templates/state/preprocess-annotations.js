@@ -67,7 +67,6 @@ describe('Templates : State : preprocessAnnotations', () => {
       expect(preprocessAnnotations(annotations, data)).toMatchSnapshot()
     })
     test('no annotations', () => {
-      console.log()
       expect(preprocessAnnotations([], data)).toMatchSnapshot()
     })
   })
