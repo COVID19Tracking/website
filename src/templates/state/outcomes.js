@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
 import Definitions from '~components/pages/data/definitions'
 import Layout from '~components/layout'
+import {
+  DefinitionPanel,
+  AnnotationPanelContext,
+} from '~components/pages/data/cards/definitions-panel'
+import tableResponsiveStyles from '~components/common/table-responsive.module.scss'
+
+import preprocessAnnotations from './preprocess-annotations'
 
 const StateOutcomesTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
+
+  const { annotations, dataRows } = preprocessAnnotations(
+    data.allContentfulChartAnnotation.nodes,
+    data.allCovidStateDaily.nodes,
+  )
+
+  const [cardAnnotations, setCardAnnotations] = useState(false)
+  const [highlightedAnnotation, setHighlightedAnnotation] = useState(false)
+
   return (
     <Layout
       title={`${state.name}: Outcomes`}
@@ -17,39 +33,59 @@ const StateOutcomesTemplate = ({ pageContext, path, data }) => {
       path={path}
       showWarning
     >
-      <Definitions
-        definitions={data.allContentfulDataDefinition.nodes}
-        order={['recovered', 'death', 'deathProbable', 'deathConfirmed']}
-      />
-      <TableResponsive
-        labels={[
-          {
-            field: 'date',
-            noWrap: true,
+      <AnnotationPanelContext.Provider
+        value={{
+          annotations,
+          setCardAnnotations: ({ fields, highlight }) => {
+            setCardAnnotations(fields)
+            setHighlightedAnnotation(highlight)
           },
-          {
-            field: 'recovered',
-            isNumeric: true,
-          },
-          {
-            field: 'death',
-            isNumeric: true,
-          },
-          {
-            field: 'deathIncrease',
-            isNumeric: true,
-          },
-          {
-            field: 'deathProbable',
-            isNumeric: true,
-          },
-          {
-            field: 'deathConfirmed',
-            isNumeric: true,
-          },
-        ]}
-        data={data.allCovidStateDaily.nodes}
-      />
+        }}
+      >
+        {cardAnnotations && (
+          <DefinitionPanel
+            annotations={annotations}
+            highlightedDefinition={highlightedAnnotation}
+            onHide={() => setCardAnnotations(false)}
+            title={`${state.name} outcomes time series information`}
+          />
+        )}
+        <Definitions
+          definitions={data.allContentfulDataDefinition.nodes}
+          order={['recovered', 'death', 'deathProbable', 'deathConfirmed']}
+        />
+        <TableResponsive
+          labels={[
+            {
+              field: 'dateWithAnnotation',
+              noWrap: true,
+              style: tableResponsiveStyles.dateCell,
+              label: 'Date',
+            },
+            {
+              field: 'recovered',
+              isNumeric: true,
+            },
+            {
+              field: 'death',
+              isNumeric: true,
+            },
+            {
+              field: 'deathIncrease',
+              isNumeric: true,
+            },
+            {
+              field: 'deathProbable',
+              isNumeric: true,
+            },
+            {
+              field: 'deathConfirmed',
+              isNumeric: true,
+            },
+          ]}
+          data={dataRows}
+        />
+      </AnnotationPanelContext.Provider>
     </Layout>
   )
 }
@@ -70,6 +106,28 @@ export const query = graphql`
         deathConfirmed
         death
         recovered
+      }
+    }
+    allContentfulChartAnnotation(
+      filter: {
+        state: { code: { eq: $state } }
+        dataElement: { in: ["death", "recovery"] }
+      }
+      sort: { fields: date, order: DESC }
+    ) {
+      nodes {
+        title
+        description {
+          description
+        }
+        date(formatString: "MMM D, YYYY")
+        dataElement
+        contentful_id
+        childContentfulChartAnnotationDescriptionTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
     allContentfulDataDefinition(
