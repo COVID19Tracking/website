@@ -47,7 +47,7 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
             annotations={annotations}
             highlightedDefinition={highlightedAnnotation}
             onHide={() => setCardAnnotations(false)}
-            title={`${state.name} Annotations & Warnings`}
+            title={`${state.name} cases time series information`}
           />
         )}
         <Definitions
