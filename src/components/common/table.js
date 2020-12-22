@@ -114,7 +114,7 @@ const Table = ({ children, tableLabel, ariaHidden, className }) => (
   <div>
     <table
       aria-hidden={ariaHidden}
-      className={classnames(tableStyle.table, className && className)}
+      className={classnames(tableStyle.table, className)}
     >
       {children}
     </table>
