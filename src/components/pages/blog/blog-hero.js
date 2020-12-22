@@ -26,7 +26,7 @@ const BlogHero = ({
           <img src={rightCaret} alt="" height="12px" />
           {categories.map((category, index) => (
             <>
-              <Link to={`/blog/category/${category.slug}`}>
+              <Link to={`/analysis-updates/category/${category.slug}`}>
                 {category.name}
               </Link>
               {index !== categories.length - 1 && (

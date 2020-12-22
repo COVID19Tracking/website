@@ -17,7 +17,9 @@ const BlogCategories = ({ categories, lightBackground }) => {
           )}
           key={category.slug}
         >
-          <Link to={`/blog/category/${category.slug}`}>{category.name}</Link>
+          <Link to={`/analysis-updates/category/${category.slug}`}>
+            {category.name}
+          </Link>
         </p>
       ))}
     </div>

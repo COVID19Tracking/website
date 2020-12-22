@@ -87,7 +87,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? `/blog` : `/blog/page/${i + 1}`,
+      path: i === 0 ? `/analysis-updates` : `/analysis-updates/page/${i + 1}`,
       component: path.resolve('./src/templates/blog-page.js'),
       context: {
         limit: postsPerPage,
@@ -223,7 +223,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   result.data.allContentfulBlogPost.nodes.forEach(node => {
-    const longPath = `/blog/${node.slug}`
+    const longPath = `/analysis-updates/${node.slug}`
     const shortPath = `/${node.contentful_id}`
 
     if (node.overrideBlogPage) {
@@ -247,7 +247,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allContentfulBlogCategory.nodes.forEach(node => {
     createPage({
-      path: `/blog/category/${node.slug}`,
+      path: `/analysis-updates/category/${node.slug}`,
       component: path.resolve(`./src/templates/blog-category.js`),
       context: node,
     })

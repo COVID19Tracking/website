@@ -46,7 +46,7 @@ const BlogCategoriesList = () => {
                 className={blogCategoriesListStyles.category}
                 key={category.slug}
               >
-                <Link to={`/blog/category/${category.slug}`}>
+                <Link to={`/analysis-updates/category/${category.slug}`}>
                   <p className={blogCategoriesListStyles.categoryText}>
                     {category.name} (
                     {category.blog_post && category.blog_post.length})

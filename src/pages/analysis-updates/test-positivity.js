@@ -78,7 +78,7 @@ const TestPositivityBlogPost = ({ data }) => {
       title={title}
       displayTitle="Blog"
       socialCard={socialCard}
-      path="/blog/test-positivity"
+      path="/analysis-updates/test-positivity"
       centerTitle
       hero={hero}
     >

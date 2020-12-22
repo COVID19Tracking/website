@@ -41,12 +41,15 @@ const BlogFeatured = () => {
         <Col width={[4, 4, 6]}>
           <div className={blogStyle.date}>{post.publishDate}</div>
           <h3>
-            <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+            <Link to={`/analysis-updates/${post.slug}`}>{post.title}</Link>
           </h3>
           <div className={blogStyle.lede}>
             <CleanSpacing>{post.lede.lede}</CleanSpacing>
           </div>
-          <Link to={`/blog/${post.slug}`} className={blogStyle.link}>
+          <Link
+            to={`/analysis-updates/${post.slug}`}
+            className={blogStyle.link}
+          >
             Read the article<span aria-hidden> →</span>
             <span className="a11y-only"> {post.title}</span>
           </Link>

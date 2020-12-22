@@ -8,8 +8,8 @@ import blogStyles from '~components/pages/blog/blog.module.scss'
 
 const BlogCategoryTemplate = ({ data, path }) => (
   <Layout
-    title={`Blog: ${data.contentfulBlogCategory.name}`}
-    returnLinks={[{ link: '/blog', title: 'All Posts' }]}
+    title={`Analysis & updates: ${data.contentfulBlogCategory.name}`}
+    returnLinks={[{ link: '/analysis-updates', title: 'All Posts' }]}
     path={path}
     centerTitle
   >
