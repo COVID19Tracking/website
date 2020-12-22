@@ -294,3 +294,12 @@
   @include margin(16, top);
   @include margin(32, bottom);
 }
+
+.sharing {
+  display: inline-block;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  @include margin(16, left);
+  @include type-size(100);
+}

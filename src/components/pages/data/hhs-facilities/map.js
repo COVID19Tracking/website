@@ -6,6 +6,7 @@ import Container from '~components/common/container'
 import { Form, Input } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
+import SocialSharing from '~components/common/social-sharing'
 import facilitiesMapStyles from './map.module.scss'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
@@ -106,7 +107,17 @@ const Definitions = ({ definitions }) => {
 
 const FacilityDialog = ({ facility }) => (
   <>
-    <h2>{facility.hospital_name}</h2>
+    <h2>
+      {facility.hospital_name}
+      <span className={facilitiesMapStyles.sharing}>
+        <SocialSharing
+          shares={['link']}
+          url={`https://covidtracking.com/data/hospital-facilities${typeof window !==
+            'undefined' && window.location.hash},id:${facility.hospital_pk}`}
+        />
+      </span>
+    </h2>
+
     <dl className={facilitiesMapStyles.details}>
       {Object.keys(fields).map(key => (
         <div key={key}>
@@ -254,18 +265,15 @@ const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
         setRevealedFacility(false)
       }
     })
+
+    const hash = window.location.hash.replace('#', '').split(',')
+
     const map = new mapboxgl.Map({
       container: mapNode.current,
       style: `mapbox://styles/covidtrackingproject/ckihibso80hsg19o8q5gbq9z7`,
-      center,
-      zoom,
+      center: hash.length > 2 ? [hash[0], hash[1]] : center,
+      zoom: hash.length > 2 ? hash[2] : zoom,
     })
-
-    const hash = window.location.hash.replace('#', '').split(',')
-    if (hash.length > 2) {
-      map.setCenter([hash[0], hash[1]])
-      map.setZoom(hash[2])
-    }
 
     map.addControl(new mapboxgl.NavigationControl(), 'top-left')
 
@@ -276,16 +284,25 @@ const HHSFacilitiesMap = ({ center, zoom, definitions, state = false }) => {
         })
       }
 
-      if (window.location.hash) {
-        if (hash.length > 2) {
-          const features = map.queryRenderedFeatures({
-            layers,
-          })
-          setFacilities(
-            features.sort((a, b) =>
-              a.properties.hospital_name > b.properties.hospital_name ? 1 : -1,
-            ),
+      if (window.location.hash && hash.length > 2) {
+        const features = map.queryRenderedFeatures({
+          layers,
+        })
+        setFacilities(
+          features.sort((a, b) =>
+            a.properties.hospital_name > b.properties.hospital_name ? 1 : -1,
+          ),
+        )
+        console.log(features)
+        if (hash.length === 4 && hash[3].search('id:' > -1)) {
+          const id = hash[3].replace('id:', '')
+          const linkedFeature = features.find(
+            feature => feature.properties.hospital_pk === id,
           )
+          if (linkedFeature) {
+            setActiveFacility({ ...linkedFeature.properties })
+            setRevealedFacility(true)
+          }
         }
       }
     })
