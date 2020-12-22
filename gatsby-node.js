@@ -191,12 +191,6 @@ exports.createPages = async ({ graphql, actions }) => {
       context: node,
     })
 
-    createPage({
-      path: `/data/state/${slug}/hospital-facilities`,
-      component: path.resolve(`./src/templates/state/hospital-facilities.js`),
-      context: node,
-    })
-
     createRedirect({
       fromPath: `/data/state/${slug}/screenshots`,
       toPath: `https://screenshots.covidtracking.com/${slug}`,
