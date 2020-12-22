@@ -45,6 +45,10 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
   const annotations = data.allContentfulChartAnnotation.nodes
   const dataRows = data.allCovidStateDaily.nodes
 
+  dataRows.forEach((row, i) => {
+    dataRows[i].dateWithAnnotation = row.date
+  })
+
   const annotationDates = annotations.map(annotation => annotation.date) // A list of the dates with annotations.
 
   annotations.forEach((annotation, index) => {
@@ -54,11 +58,16 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
 
     // Match annotations with their respective days.
     const row = dataRows.findIndex(r => r.date === annotation.date)
-    dataRows[row].annotations = (
-      <AnnotationIcon
-        annotation={annotation}
-        annotationFields={annotationDates}
-      />
+
+    // Add the annotation icon to the dateWithAnnotation value.
+    dataRows[row].dateWithAnnotation = (
+      <>
+        <AnnotationIcon
+          annotation={annotation}
+          annotationFields={annotationDates}
+        />
+        {dataRows[row].date}
+      </>
     )
   })
 
@@ -105,12 +114,10 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
           annotations={data.allContentfulChartAnnotation}
           labels={[
             {
-              field: 'annotations',
-              style: tableResponsiveStyles.annotationCell,
-            },
-            {
-              field: 'date',
+              field: 'dateWithAnnotation',
               noWrap: true,
+              style: tableResponsiveStyles.dateCell,
+              label: 'Date',
             },
             {
               field: 'positive',
