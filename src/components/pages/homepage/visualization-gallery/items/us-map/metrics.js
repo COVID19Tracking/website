@@ -50,7 +50,7 @@ export default {
       },
       {
         style: mapStyle.level4,
-        label: 'Over 75 cases',
+        label: 'Over 75 cases per 100k',
       },
     ],
   },
