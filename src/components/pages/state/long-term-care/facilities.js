@@ -275,7 +275,7 @@ const LongTermCareFacilities = ({ stateSlug, facilities }) => {
       )}
       <div role="region" aria-live="polite">
         {facilityList.length > 0 ? (
-          <p>
+          <>
             <Table>
               <thead>
                 <tr>
@@ -465,7 +465,7 @@ const LongTermCareFacilities = ({ stateSlug, facilities }) => {
                 })}
               </tbody>
             </Table>
-            <p>Case totals include confirmed and probable cases</p>
+            <p>Case totals include confirmed and probable cases.</p>
           </>
         ) : (
           <>
