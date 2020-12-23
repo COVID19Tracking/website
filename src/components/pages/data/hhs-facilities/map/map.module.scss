@@ -128,8 +128,8 @@
 }
 
 .facility-card-overlay {
+  width: 0;
   position: absolute;
-  width: 10%;
   height: 100%;
   top: 0;
   bottom: 0;
@@ -137,20 +137,28 @@
   z-index: 1000;
   background: rgba(0, 0, 0, 0.4);
   box-shadow: inset 3px 0px 6px -2px rgba(0, 0, 0, 0.8);
+  @media (min-width: $viewport-md) {
+    width: 10%;
+  }
 }
 
 .facility-card {
   position: absolute;
-  width: 90%;
+  width: 100%;
   height: 100%;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+  overflow-y: scroll;
   background: white;
   border-left: 1px solid $color-slate-100;
   @include padding(16);
+
+  @media (min-width: $viewport-md) {
+    width: 90%;
+  }
   h2 {
     margin-top: 0;
   }
