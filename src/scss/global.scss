@@ -121,6 +121,15 @@ select,
     }
   }
 
+  .sub-menu-link {
+    color: $color-plum-700 !important;
+    background: white !important;
+    &:hover {
+      color: white !important;
+      background: black !important;
+    }
+  }
+
   .state-note-expandable {
     clip: auto;
     height: auto;
