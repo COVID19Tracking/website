@@ -33,6 +33,7 @@ Array [
               "minHeight": "0px",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="mobileSearchContainer"
@@ -158,7 +159,7 @@ Array [
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -182,7 +183,7 @@ Array [
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -326,7 +327,7 @@ Array [
                         tabIndex={-1}
                       >
                         <a
-                          className="menuLink"
+                          className="sub-menu-link menuLink"
                           data-reach-menu-item=""
                           data-reach-menu-link=""
                           data-selected=""
@@ -350,7 +351,7 @@ Array [
                         tabIndex={-1}
                       >
                         <a
-                          className="menuLink"
+                          className="sub-menu-link menuLink"
                           data-reach-menu-item=""
                           data-reach-menu-link=""
                           data-selected=""
@@ -666,6 +667,7 @@ Array [
               "minHeight": "0px",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="mobileSearchContainer"
@@ -791,7 +793,7 @@ Array [
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -815,7 +817,7 @@ Array [
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -959,7 +961,7 @@ Array [
                         tabIndex={-1}
                       >
                         <a
-                          className="menuLink"
+                          className="sub-menu-link menuLink"
                           data-reach-menu-item=""
                           data-reach-menu-link=""
                           data-selected=""
@@ -983,7 +985,7 @@ Array [
                         tabIndex={-1}
                       >
                         <a
-                          className="menuLink"
+                          className="sub-menu-link menuLink"
                           data-reach-menu-item=""
                           data-reach-menu-link=""
                           data-selected=""
