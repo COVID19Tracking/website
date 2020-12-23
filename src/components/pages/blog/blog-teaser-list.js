@@ -16,7 +16,7 @@ const BlogTeaserList = ({ items }) => (
             to={
               node.overrideBlogPage
                 ? node.overrideBlogPath
-                : `/blog/${node.slug}`
+                : `/analysis-updates/${node.slug}`
             }
           >
             {node.title}

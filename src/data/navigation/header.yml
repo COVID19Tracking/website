@@ -12,5 +12,5 @@ items:
   - title: About Us
     link: /about
     subNavigation: about-project
-  - title: Blog
-    link: /blog
+  - title: Analysis & updates
+    link: /analysis-updates

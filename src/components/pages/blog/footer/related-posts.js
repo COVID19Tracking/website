@@ -71,12 +71,12 @@ const RelatedPosts = ({ blogPost }) => {
     <div className={RelatedPostsStyles.container}>
       <h2>{relatedTitle}</h2>
       <div className={RelatedPostsStyles.ctaWrapper}>
-        <CtaLink to="/blog">See all blog posts</CtaLink>
+        <CtaLink to="/analysis-updates">See all analysis &amp; updates</CtaLink>
       </div>
       {footerPosts.map(post => (
         <div key={post.slug} className={RelatedPostsStyles.post}>
           <h3>
-            <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+            <Link to={`/analysis-updates/${post.slug}`}>{post.title}</Link>
           </h3>
           <p className={RelatedPostsStyles.lede}>{post.lede.lede}</p>
           <Byline

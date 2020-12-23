@@ -20,13 +20,13 @@ const BlogHero = ({
 }) => (
   <div className={blogHeroStyles.container} narrow centered>
     <ReturnLinks>
-      <Link to="/blog">Blog</Link>
+      <Link to="/analysis-updates">Analysis &amp; updates</Link>
       {categories && (
         <>
           <img src={rightCaret} alt="" height="12px" />
           {categories.map((category, index) => (
             <>
-              <Link to={`/blog/category/${category.slug}`}>
+              <Link to={`/analysis-updates/category/${category.slug}`}>
                 {category.name}
               </Link>
               {index !== categories.length - 1 && (
