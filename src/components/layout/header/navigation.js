@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/aria-role,react/prefer-stateless-function */
 import React from 'react'
 import { Link } from 'gatsby'
+import classnames from 'classnames'
 import { Menu, MenuList, MenuButton, MenuLink } from '@reach/menu-button'
 import internalLink from '~components/utils/internal-link'
 import navigationStyles from './navigation.module.scss'
@@ -40,7 +41,10 @@ const Navigation = ({ topNavigation, subNavigation, isMobile }) => (
               typeof subNavigation[item.subNavigation] !== 'undefined' && (
                 <MenuList
                   role={undefined}
-                  className={navigationStyles.subMenu}
+                  className={classnames(
+                    'header-sub-menu',
+                    navigationStyles.subMenu,
+                  )}
                   onKeyDown={event => {
                     if (event.key === 'Tab') {
                       const keyEvent = new KeyboardEvent('keydown', {
@@ -55,7 +59,10 @@ const Navigation = ({ topNavigation, subNavigation, isMobile }) => (
                   {subNavigation[item.subNavigation].map(subItem => (
                     <MenuLink
                       key={subItem.link}
-                      className={navigationStyles.menuLink}
+                      className={classnames(
+                        'sub-menu-link',
+                        navigationStyles.menuLink,
+                      )}
                       to={internalLink(subItem.link)}
                       as={Link}
                     >

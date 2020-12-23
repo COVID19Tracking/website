@@ -1,0 +1,38 @@
+.state-name {
+  @include type-size(400);
+  margin: 0;
+  @include padding(16, bottom);
+  border-bottom: 1px solid $color-slate-400;
+  a {
+    text-decoration: none;
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.link {
+  text-decoration: none;
+  @include type-size(300);
+  @include margin(16, top);
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    .text {
+      text-decoration: underline;
+    }
+  }
+}
+
+.sidebar {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+  @media (min-width: $viewport-md) {
+    display: flex;
+  }
+  &.in-modal {
+    display: flex !important;
+  }
+}
