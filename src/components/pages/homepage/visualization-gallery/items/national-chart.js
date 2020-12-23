@@ -85,7 +85,7 @@ const NationalChart = ({ item }) => {
           <Title title="National COVID-19 topline metrics">
             Data updated {data.lastUpdate.nodes[0].date}
           </Title>
-          <Row>
+          <Row className={nationalChartStyle.row}>
             <Col width={[2, 3, 3]}>
               <h3 className={nationalChartStyle.label}>New tests</h3>
               <Chart
