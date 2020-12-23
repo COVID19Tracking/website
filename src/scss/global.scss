@@ -111,15 +111,6 @@ select,
     display: none !important;
   }
 
-  .header-sub-menu {
-    li {
-      a {
-        color: black;
-        background: transparent;
-      }
-    }
-  }
-
   .js-disabled {
     display: inline !important;
   }
@@ -127,6 +118,15 @@ select,
   .js-disabled-block {
     @media (min-width: $viewport-md) {
       display: block !important;
+    }
+  }
+
+  .sub-menu-link {
+    color: $color-plum-700 !important;
+    background: white !important;
+    &:hover {
+      color: white !important;
+      background: black !important;
     }
   }
 

@@ -59,7 +59,10 @@ const Navigation = ({ topNavigation, subNavigation, isMobile }) => (
                   {subNavigation[item.subNavigation].map(subItem => (
                     <MenuLink
                       key={subItem.link}
-                      className={navigationStyles.menuLink}
+                      className={classnames(
+                        'sub-menu-link',
+                        navigationStyles.menuLink,
+                      )}
                       to={internalLink(subItem.link)}
                       as={Link}
                     >
