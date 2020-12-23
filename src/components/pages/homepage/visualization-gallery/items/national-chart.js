@@ -7,7 +7,7 @@ import Title from '../components/title'
 import ChartDataLink from '../components/chart-data-link'
 import Disclaimer from '../components/disclaimer'
 import colors from '~scss/colors.module.scss'
-import BarChart from '~components/charts/bar-chart'
+import { BarChart } from '~components/charts/bar-chart'
 import nationalChartStyle from './national-charts.module.scss'
 
 const Chart = ({ data, field, fill, lineColor }) => {
@@ -85,7 +85,7 @@ const NationalChart = ({ item }) => {
           <Title title="National COVID-19 topline metrics">
             Data updated {data.lastUpdate.nodes[0].date}
           </Title>
-          <Row>
+          <Row className={nationalChartStyle.row}>
             <Col width={[2, 3, 3]}>
               <h3 className={nationalChartStyle.label}>New tests</h3>
               <Chart

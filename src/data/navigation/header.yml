@@ -1,6 +1,6 @@
 name: header
 items:
-  - title: Our Data
+  - title: The Data
     link: /data
     subNavigation: data
   - title: About the Data
