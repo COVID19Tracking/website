@@ -7,7 +7,7 @@ import Title from '../components/title'
 import ChartDataLink from '../components/chart-data-link'
 import Disclaimer from '../components/disclaimer'
 import colors from '~scss/colors.module.scss'
-import BarChart from '~components/charts/bar-chart'
+import { BarChart } from '~components/charts/bar-chart'
 import nationalChartStyle from './national-charts.module.scss'
 
 const Chart = ({ data, field, fill, lineColor }) => {

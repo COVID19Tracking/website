@@ -23,11 +23,12 @@ const TableResponsive = ({ labels, data }) => (
       {data.map(row => (
         <tr>
           {labels.map(
-            ({ field, label, format, isNumeric, noWrap, alignLeft }) => (
+            ({ field, label, format, isNumeric, noWrap, alignLeft, style }) => (
               <td
                 className={classnames(
                   noWrap && tableResponsiveStyles.noWrap,
                   alignLeft && tableStyles.alignLeft,
+                  style,
                 )}
               >
                 <span className={tableResponsiveStyles.cellLabel} aria-hidden>
