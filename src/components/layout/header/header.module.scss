@@ -153,11 +153,13 @@
         margin-bottom: 0.5625rem;
         @media (min-width: $viewport-lg) {
           display: inline-block;
-          margin-right: spacer(24);
+          margin-right: spacer(16);
           margin-bottom: 0;
           line-height: 1;
           position: relative;
-
+          &:last-child {
+            margin-right: 0;
+          }
           a {
             padding-bottom: spacer(4);
             position: relative;
