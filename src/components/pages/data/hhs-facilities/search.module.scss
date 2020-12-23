@@ -7,3 +7,7 @@
   text-align: left;
   text-decoration: underline;
 }
+
+.wrapper {
+  @include margin(64, top);
+}

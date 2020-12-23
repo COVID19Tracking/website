@@ -270,7 +270,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
                                 )}
                               </>
                             ) : (
-                              'between 0 and 4%'
+                              'between 0 and 4'
                             )}
                           </>
                         ) : (

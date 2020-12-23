@@ -67,7 +67,7 @@ const HHSFacilitiesSearch = () => {
   }
 
   return (
-    <>
+    <div className={searchStyle.wrapper}>
       <SearchForm
         setQuery={query => {
           setIsLoading(true)
@@ -173,7 +173,7 @@ const HHSFacilitiesSearch = () => {
           <FacilityDetails facility={openedFacility} hideSharing />
         </Modal>
       )}
-    </>
+    </div>
   )
 }
 
