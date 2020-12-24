@@ -21,7 +21,7 @@ const Header = ({ children }) => (
 const RelatedPost = ({ date, title, slug }) => (
   <div className={sidebarStyle.relatedPost}>
     <p className={sidebarStyle.date}>{date}</p>
-    <Link to={`/bloanalysis-updatesg/${slug}`} className={sidebarStyle.title}>
+    <Link to={`/analysis-updates/${slug}`} className={sidebarStyle.title}>
       <p>{title}</p>
     </Link>
     <Link to={`/analysis-updates/${slug}`} className={sidebarStyle.link}>
