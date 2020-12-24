@@ -1,0 +1,26 @@
+.legend {
+  @include margin(32, top);
+  @include padding(8);
+  text-align: right;
+  div {
+    @include margin(8, bottom);
+  }
+}
+
+.item {
+  border-bottom: 3px solid;
+  display: inline-block;
+  padding-bottom: 3px; // ignore-style-rule
+}
+
+.experiencing {
+  border-color: $color-honey-500;
+}
+
+.not-experiencing {
+  border-color: $color-plum-600;
+}
+
+.outbreak-only {
+  border-color: $color-slate-400;
+}

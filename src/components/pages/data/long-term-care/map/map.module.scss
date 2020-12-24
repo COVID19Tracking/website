@@ -1,0 +1,170 @@
+.container {
+  @include row();
+}
+
+.sidebar,
+.map-wrapper {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.sidebar {
+  order: 1;
+  input[type='text'] {
+    margin-bottom: 0;
+  }
+  p {
+    @include margin(16, left);
+  }
+  table {
+    overflow-y: scroll;
+    &[aria-hidden] {
+      margin-bottom: 0;
+    }
+    th {
+      padding-top: 0;
+    }
+    button {
+      @include remove-button-style();
+      text-align: left;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  form {
+    background: $color-slate-100;
+    @include padding(16, top left right);
+  }
+  @media (min-width: $viewport-md) {
+    order: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  @media (min-width: $viewport-lg) {
+    max-width: 30%;
+    flex-basis: 30%;
+  }
+}
+
+.map-wrapper {
+  order: 0;
+  @media (min-width: $viewport-md) {
+    order: 1;
+
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  @media (min-width: $viewport-lg) {
+    max-width: 70%;
+    flex-basis: 70%;
+  }
+}
+
+.map-inset {
+  position: relative;
+  flex: 1 0 auto;
+  width: 100%;
+  height: 80vh;
+}
+
+.map::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: inset 3px 0px 6px -2px rgba(0, 0, 0, 0.4);
+}
+
+.search-button {
+  @media (min-width: $viewport-lg) {
+    @include margin(4, top);
+  }
+}
+
+.toggle {
+  align-self: flex-start;
+  cursor: pointer;
+  display: flex;
+  width: fit-content;
+  button {
+    @include remove-button-style();
+    color: $color-slate-600;
+    border: solid $color-slate-200 2px;
+    font-weight: initial;
+    &:before {
+      display: block;
+      content: attr(title);
+      font-weight: 700;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+    @include type-size(100);
+    margin: -1px; // ignore-style-rule
+    padding: 2px 15px; // ignore-style-rule
+    white-space: nowrap;
+
+    &.active {
+      color: black;
+      border: solid black 2px;
+      font-weight: 700;
+      z-index: 1;
+    }
+  }
+}
+
+.table-scroll {
+  overflow-y: scroll;
+  height: calc(80vh - 150px);
+  table {
+    margin-top: 0;
+  }
+}
+
+.facility-card-overlay {
+  width: 0;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: inset 3px 0px 6px -2px rgba(0, 0, 0, 0.8);
+  @media (min-width: $viewport-md) {
+    width: 10%;
+  }
+}
+
+.facility-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  overflow-y: scroll;
+  background: white;
+  border-left: 1px solid $color-slate-100;
+  @include padding(16);
+
+  @media (min-width: $viewport-md) {
+    width: 90%;
+  }
+  h2 {
+    margin-top: 0;
+  }
+  .close {
+    @include remove-button-style();
+    float: right;
+    @include type-size(600);
+  }
+}

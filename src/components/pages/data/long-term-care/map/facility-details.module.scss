@@ -1,0 +1,33 @@
+.details {
+  line-height: 1rem;
+  border-collapse: collapse;
+  > div {
+    display: flex;
+    border-bottom: 1px solid $color-slate-400;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  dt {
+    max-width: 80%;
+    flex-basis: 80%;
+    font-weight: bold;
+    @include padding(16, top bottom left);
+  }
+  dd {
+    border-left: 1px solid $color-slate-400;
+    text-align: right;
+    max-width: 20%;
+    flex-basis: 20%;
+    @include padding(16, top bottom right);
+  }
+}
+
+.sharing {
+  display: inline-block;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  @include margin(16, left);
+  @include type-size(100);
+}

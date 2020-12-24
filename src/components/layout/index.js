@@ -25,6 +25,7 @@ const Layout = ({
   hero,
   centerTitle,
   showWarning = false,
+  noContainer = false,
 }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -55,7 +56,11 @@ const Layout = ({
       />
       <main id="main">
         <SkipNavContent />
-        <Container centered={centered}>{children}</Container>
+        {noContainer ? (
+          <>{children}</>
+        ) : (
+          <Container centered={centered}>{children}</Container>
+        )}
       </main>
       <Footer />
     </>
