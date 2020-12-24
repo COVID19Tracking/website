@@ -79,8 +79,8 @@ const LongTermCarePage = ({ data }) => {
         id="ltc-1"
         height={520}
         mobileHeight={450}
-        viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/FigMap?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"
-        viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCaremobile/FigMap?:language=en&:display_count=y&publish=yes&:origin=viz_share_link"
+        viewUrl="https://public.tableau.com/views/LTCDataObservations/web_FigMap?:language=en&:display_count=y&:origin=viz_share_link"
+        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/mob_FigMap?:language=en&:display_count=y&:origin=viz_share_link"
       />
       <Container centered>
         <LongContent>
@@ -91,7 +91,7 @@ const LongTermCarePage = ({ data }) => {
         id="ltc-2"
         height={700}
         mobileHeight={450}
-        viewUrl="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall?:language=en&:display_count=y&:origin=viz_share_link"
+        viewUrl="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall?:language=en&:retry=yes&:display_count=y&:origin=viz_share_link"
         viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall?:language=en&:display_count=y&:origin=viz_share_link"
       />
       <Container centered>
@@ -107,8 +107,8 @@ const LongTermCarePage = ({ data }) => {
       <TableauChart
         id="ltc-3"
         height={1300}
-        viewUrl="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCare/SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
-        viewUrlMobile="https://public.tableau.com/views/WebsiteCharts-CTPLong-TermCaremobile/SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
+        viewUrl="https://public.tableau.com/views/LTCDataObservations/web_SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
+        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/web_SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
       />
       <Container centered>
         <LongContent>
