@@ -20,6 +20,7 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
   const [revealedFacility, setRevealedFacility] = useState(false)
   const [currentZoom, setCurrentZoom] = useState(0)
   const [highlighedMarker, setHighlightedMarker] = useState(false)
+  const [mapLayer, setMapLayer] = useState('cases')
   const layers = ['cases']
 
   const mapNode = useRef(null)
@@ -141,9 +142,22 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
     mapRef.current = map
   }, [])
 
+  useEffect(() => {
+    if (!mapRef.current || !mapRef.current.isStyleLoaded()) {
+      return
+    }
+    layers.forEach(layer => {
+      mapRef.current.setLayoutProperty(
+        layer,
+        'visibility',
+        layer === mapLayer ? 'visible' : 'none',
+      )
+    })
+  }, [mapLayer])
+
   return (
     <>
-      <Legend />
+      <Legend mapLayer={mapLayer} setLayer={layer => setMapLayer(layer)} />
       <div className={facilitiesMapStyles.container} aria-hidden>
         <div className={facilitiesMapStyles.sidebar}>
           <Form
