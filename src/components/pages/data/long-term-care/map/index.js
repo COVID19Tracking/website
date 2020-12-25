@@ -21,7 +21,7 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
   const [currentZoom, setCurrentZoom] = useState(0)
   const [highlighedMarker, setHighlightedMarker] = useState(false)
   const [mapLayer, setMapLayer] = useState('cases')
-  const layers = ['cases']
+  const layers = ['cases', 'deaths']
 
   const mapNode = useRef(null)
   const mapRef = useRef(null)
