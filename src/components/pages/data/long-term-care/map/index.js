@@ -98,10 +98,12 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
       center: hash.length > 2 ? [hash[0], hash[1]] : center,
       zoom: hash.length > 2 ? hash[2] : zoom,
     })
+    console.log('map')
 
     map.addControl(new mapboxgl.NavigationControl(), 'top-right')
 
     map.on('load', () => {
+      console.log('map loaded')
       if (state) {
         map.setFilter('cases', ['==', ['get', 'state_abbreviation'], state])
       }
