@@ -24,3 +24,9 @@
 .outbreak-only {
   border-color: $color-slate-400;
 }
+
+.no-data {
+  display: inline-block;
+  background: $color-slate-100;
+  @include padding(8);
+}

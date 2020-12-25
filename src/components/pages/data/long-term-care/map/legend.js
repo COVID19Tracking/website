@@ -32,6 +32,10 @@ const Legend = () => (
         >
           only report outbreaks
         </span>
+        , and some states{' '}
+        <span className={legendStyles.noData}>
+          don&apos;t report any LTC data
+        </span>
         .
       </div>
     </div>

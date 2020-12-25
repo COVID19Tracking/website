@@ -51,7 +51,7 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
         event.target.getZoom(),
       ].join(',')
     }
-    if (event.target.getZoom() < 4) {
+    if (event.target.getZoom() < 6) {
       setFacilities(false)
       return
     }
@@ -98,12 +98,10 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
       center: hash.length > 2 ? [hash[0], hash[1]] : center,
       zoom: hash.length > 2 ? hash[2] : zoom,
     })
-    console.log('map')
 
     map.addControl(new mapboxgl.NavigationControl(), 'top-right')
 
     map.on('load', () => {
-      console.log('map loaded')
       if (state) {
         map.setFilter('cases', ['==', ['get', 'state_abbreviation'], state])
       }
@@ -254,7 +252,7 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
             </div>
           ) : (
             <p>
-              {currentZoom < 4 ? (
+              {currentZoom < 6 ? (
                 <>Zoom in to get facility details.</>
               ) : (
                 <>No facilities in the current map.</>
