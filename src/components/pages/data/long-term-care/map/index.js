@@ -99,11 +99,11 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
       zoom: hash.length > 2 ? hash[2] : zoom,
     })
 
-    map.addControl(new mapboxgl.NavigationControl(), 'top-left')
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right')
 
     map.on('load', () => {
       if (state) {
-        map.setFilter('hospitals', ['==', ['get', 'state'], state])
+        map.setFilter('cases', ['==', ['get', 'state_abbreviation'], state])
       }
 
       if (window.location.hash && hash.length > 2) {
@@ -112,19 +112,9 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
         })
         setFacilities(
           features.sort((a, b) =>
-            a.properties.hospital_name > b.properties.hospital_name ? 1 : -1,
+            a.properties.facility_name > b.properties.facility_name ? 1 : -1,
           ),
         )
-        if (hash.length === 4 && hash[3].search('id:') > -1) {
-          const id = hash[3].replace('id:', '')
-          const linkedFeature = features.find(
-            feature => feature.properties.hospital_pk === id,
-          )
-          if (linkedFeature) {
-            setActiveFacility({ ...linkedFeature.properties })
-            setRevealedFacility(true)
-          }
-        }
       }
     })
 
