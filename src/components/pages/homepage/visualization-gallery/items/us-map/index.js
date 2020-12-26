@@ -7,6 +7,7 @@ import Map from './map'
 import Grid from './grid'
 import Table from './table'
 import Title from '../../components/title'
+import { MetricContext, SvgFilters } from './drop-shadow'
 
 const USMap = ({ configuration, item }) => {
   const { metric } = configuration
@@ -103,7 +104,8 @@ const USMap = ({ configuration, item }) => {
     .minus({ days: 7 })
     .toFormat('MMMM d, yyyy')
   return (
-    <>
+    <MetricContext.Provider value={{ metric: metric }}>
+      <SvgFilters />
       <Map
         states={states}
         metric={metrics[metric]}
@@ -128,7 +130,7 @@ const USMap = ({ configuration, item }) => {
         }
       />
       <Table states={states} metric={metrics[metric]} us={us} />
-    </>
+    </MetricContext.Provider>
   )
 }
 
