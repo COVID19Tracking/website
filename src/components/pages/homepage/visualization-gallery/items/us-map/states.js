@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import classnames from 'classnames'
+import { MetricContext } from './drop-shadow'
 import mapStyle from './us-map.module.scss'
 
 const piSix = Math.PI / 6
@@ -45,13 +46,16 @@ const State = ({ x, y, r, state, onClick, className, isActive }) => {
     [x - coxSix * r + padding, y + sinSix * r],
     [x - coxSix * r + padding, y - sinSix * r + r / 1.5],
   ]
+  const { metric } = useContext(MetricContext)
   return (
     <g>
       <polygon
         points={hexPoints.map(item => item.join(',')).join(' ')}
         className={mapStyle.state}
         style={{
-          filter: isActive ? 'url(#dropshadow-large)' : 'url(#dropshadow)',
+          filter: isActive
+            ? `url(#dropshadow-large-${metric})`
+            : `url(#dropshadow-${metric})`,
         }}
         onClick={() => {
           if (onClick) {
@@ -115,13 +119,16 @@ const US = ({ r, value, onClick, className, inGrid, isActive }) => {
     [x - coxSix * r, y + sinSix * r],
     [x - coxSix * r, y - sinSix * r + r / 1.5],
   ]
+  const { metric } = useContext(MetricContext)
   return (
     <g>
       <polygon
         points={hexPoints.map(item => item.join(',')).join(' ')}
         className={mapStyle.state}
         style={{
-          filter: isActive ? 'url(#dropshadow-large)' : 'url(#dropshadow)',
+          filter: isActive
+            ? `url(#dropshadow-large-${metric})`
+            : `url(#dropshadow-${metric})`,
         }}
         onClick={() => onClick()}
       />
