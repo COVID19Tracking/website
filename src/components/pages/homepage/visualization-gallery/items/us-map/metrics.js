@@ -102,10 +102,10 @@ export default {
     getUsValue: history =>
       history[0].childPopulation.hospitalizedCurrently.percent * 1000000,
     getColor: item => {
-      if (item > 300) {
+      if (item > 500) {
         return mapStyle.blueLevel4
       }
-      if (item > 200) {
+      if (item > 250) {
         return mapStyle.blueLevel3
       }
       if (item > 100) {
@@ -120,15 +120,15 @@ export default {
       },
       {
         style: mapStyle.blueLevel2,
-        label: '100 - 200',
+        label: '100 - 250',
       },
       {
         style: mapStyle.blueLevel3,
-        label: '200 - 300',
+        label: '250 - 500',
       },
       {
         style: mapStyle.blueLevel4,
-        label: 'Over 300 hospitalizations per 1 million',
+        label: 'Over 500 hospitalizations per 1 million',
       },
     ],
   },
