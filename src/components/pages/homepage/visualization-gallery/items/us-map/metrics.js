@@ -94,4 +94,42 @@ export default {
       },
     ],
   },
+  hospitalizationPer1m: {
+    title: 'Currently hospitalized per 1 million people',
+    getValue: (history, state) =>
+      history.find(group => group.nodes[0].state === state.state).nodes[0]
+        .childPopulation.hospitalizedCurrently.percent * 1000000,
+    getUsValue: history =>
+      history[0].childPopulation.hospitalizedCurrently.percent * 1000000,
+    getColor: item => {
+      if (item > 500) {
+        return mapStyle.blueLevel4
+      }
+      if (item > 250) {
+        return mapStyle.blueLevel3
+      }
+      if (item > 100) {
+        return mapStyle.blueLevel2
+      }
+      return mapStyle.blueLevel1
+    },
+    legend: [
+      {
+        style: mapStyle.blueLevel1,
+        label: 'Under 100',
+      },
+      {
+        style: mapStyle.blueLevel2,
+        label: '100 - 250',
+      },
+      {
+        style: mapStyle.blueLevel3,
+        label: '250 - 500',
+      },
+      {
+        style: mapStyle.blueLevel4,
+        label: 'Over 500 hospitalizations per 1 million',
+      },
+    ],
+  },
 }

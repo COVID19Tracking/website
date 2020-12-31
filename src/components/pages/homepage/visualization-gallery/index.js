@@ -94,3 +94,5 @@ const HomepageGallery = () => {
 }
 
 export default HomepageGallery
+
+export { components }

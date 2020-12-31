@@ -37,6 +37,9 @@ const USMap = ({ configuration, item }) => {
           negativeIncrease
           childPopulation {
             population
+            hospitalizedCurrently {
+              percent
+            }
             positive {
               per100k
             }
@@ -59,6 +62,7 @@ const USMap = ({ configuration, item }) => {
         totalTestResults
         positive
         death
+        hospitalizedCurrently
       }
       allCovidStateDaily(sort: { fields: [state, date], order: [ASC, DESC] }) {
         group(field: state, limit: 90) {
@@ -71,6 +75,9 @@ const USMap = ({ configuration, item }) => {
               population
               positive {
                 per100k
+                percent
+              }
+              hospitalizedCurrently {
                 percent
               }
               positiveIncrease {
