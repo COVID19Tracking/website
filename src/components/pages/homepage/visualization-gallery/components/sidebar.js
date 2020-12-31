@@ -40,7 +40,7 @@ const NationalTotals = ({ relatedPost }) => {
     {
       covidUs {
         totalTestResults
-
+        hospitalizedCurrently
         positive
         death
       }
@@ -55,6 +55,10 @@ const NationalTotals = ({ relatedPost }) => {
       <Row>
         <Number number={covidUs.totalTestResults} label="Total test results" />
         <Number number={covidUs.positive} label="Cases" />
+        <Number
+          number={covidUs.hospitalizedCurrently}
+          label="Currently hospitalized"
+        />
         <Number number={covidUs.death} label="Deaths" />
       </Row>
       {relatedPost && (
