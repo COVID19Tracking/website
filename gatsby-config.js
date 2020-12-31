@@ -56,6 +56,7 @@ const gatsbyConfig = {
               family: 'Open Sans',
               variants: ['300', '400', '700'],
               subsets: ['latin-ext'],
+              fontDisplay: 'swap',
             },
           ],
         },
