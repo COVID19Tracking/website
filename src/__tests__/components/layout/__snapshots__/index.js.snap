@@ -567,6 +567,13 @@ Array [
             </li>
             <li>
               <a
+                href="/about/sitemap"
+              >
+                Sitemap
+              </a>
+            </li>
+            <li>
+              <a
                 href="/rss.xml"
               >
                 RSS
@@ -1197,6 +1204,13 @@ Array [
                 href="/about/accessibility"
               >
                 Accessibility
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about/sitemap"
+              >
+                Sitemap
               </a>
             </li>
             <li>
