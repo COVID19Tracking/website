@@ -178,7 +178,7 @@ const Map = ({
           </svg>
           <MapLegend legend={metric.legend} />
           {disclaimer && (
-            <Disclaimer text={disclaimer.childMarkdownRemark.html} />
+            <Disclaimer text={disclaimer.childMarkdownRemark.html} hideMobile />
           )}
         </Col>
         <Col width={[4, 6, 3]}>
