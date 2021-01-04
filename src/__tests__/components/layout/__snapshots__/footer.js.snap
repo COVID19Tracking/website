@@ -63,6 +63,13 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
           </li>
           <li>
             <a
+              href="/about/sitemap"
+            >
+              Sitemap
+            </a>
+          </li>
+          <li>
+            <a
               href="/rss.xml"
             >
               RSS
