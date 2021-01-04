@@ -16,6 +16,7 @@ const MobileMenu = ({ expanded, topNavigation, subNavigation }) => {
   useEffect(() => {
     if (expanded) {
       setMenuHeight({ ...menuHeight, initial: menuRef.current.offsetHeight })
+      menuRef.current.focus()
     }
   }, [expanded])
 
@@ -46,6 +47,7 @@ const MobileMenu = ({ expanded, topNavigation, subNavigation }) => {
       className={classNames(mobileMenuStyle.mobileMenu, {
         [mobileMenuStyle.mobileMenuExpanded]: expanded,
       })}
+      tabIndex="-1"
       style={{
         minHeight: `${menuHeight.current}px`,
       }}

@@ -21,10 +21,10 @@ const Header = ({ children }) => (
 const RelatedPost = ({ date, title, slug }) => (
   <div className={sidebarStyle.relatedPost}>
     <p className={sidebarStyle.date}>{date}</p>
-    <Link to={`/blog/${slug}`} className={sidebarStyle.title}>
+    <Link to={`/analysis-updates/${slug}`} className={sidebarStyle.title}>
       <p>{title}</p>
     </Link>
-    <Link to={`/blog/${slug}`} className={sidebarStyle.link}>
+    <Link to={`/analysis-updates/${slug}`} className={sidebarStyle.link}>
       Read the article<span aria-hidden>→</span>
       <span className="a11y-only"> {title}</span>
     </Link>
@@ -40,7 +40,7 @@ const NationalTotals = ({ relatedPost }) => {
     {
       covidUs {
         totalTestResults
-
+        hospitalizedCurrently
         positive
         death
       }
@@ -55,6 +55,10 @@ const NationalTotals = ({ relatedPost }) => {
       <Row>
         <Number number={covidUs.totalTestResults} label="Total test results" />
         <Number number={covidUs.positive} label="Cases" />
+        <Number
+          number={covidUs.hospitalizedCurrently}
+          label="Currently hospitalized"
+        />
         <Number number={covidUs.death} label="Deaths" />
       </Row>
       {relatedPost && (

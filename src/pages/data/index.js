@@ -20,7 +20,7 @@ const DataPage = ({ data }) => {
   const pageDescription = 'Our most up-to-date data on COVID-19 in the US.'
   return (
     <Layout
-      title="Our Data"
+      title="The Data"
       description={pageDescription}
       socialCard={{
         description: pageDescription,

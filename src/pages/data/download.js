@@ -8,6 +8,7 @@ const DataDownloadPage = ({ data }) => (
     title="Data Download"
     path="/data/download"
     returnLinks={[{ link: '/data' }]}
+    showWarning
   >
     <ContentfulContent
       content={

@@ -178,7 +178,7 @@ export function getSanitizedSlug(type, item) {
     case types.PAGE:
       return setTrailingIfMissing(item.slug)
     case types.BLOG_POST:
-      return `/blog${setTrailingIfMissing(item.slug)}`
+      return `/analysis-updates${setTrailingIfMissing(item.slug)}`
   }
 }
 

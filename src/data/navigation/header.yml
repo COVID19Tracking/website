@@ -1,6 +1,6 @@
 name: header
 items:
-  - title: Our Data
+  - title: The Data
     link: /data
     subNavigation: data
   - title: About the Data
@@ -12,5 +12,5 @@ items:
   - title: About Us
     link: /about
     subNavigation: about-project
-  - title: Blog
-    link: /blog
+  - title: Analysis & Updates
+    link: /analysis-updates

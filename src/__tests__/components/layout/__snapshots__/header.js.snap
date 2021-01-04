@@ -25,6 +25,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             "minHeight": "0px",
           }
         }
+        tabIndex="-1"
       >
         <div
           className="mobileSearchContainer"
@@ -138,7 +139,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
               >
                 <div
                   aria-labelledby="menu-button--menu"
-                  className="subMenu"
+                  className="header-sub-menu subMenu"
                   data-reach-menu-items=""
                   data-reach-menu-list=""
                   id="menu--1"
@@ -150,7 +151,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                     tabIndex={-1}
                   >
                     <a
-                      className="menuLink"
+                      className="sub-menu-link menuLink"
                       data-reach-menu-item=""
                       data-reach-menu-link=""
                       data-selected=""
@@ -174,7 +175,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                     tabIndex={-1}
                   >
                     <a
-                      className="menuLink"
+                      className="sub-menu-link menuLink"
                       data-reach-menu-item=""
                       data-reach-menu-link=""
                       data-selected=""
@@ -306,7 +307,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 >
                   <div
                     aria-labelledby="menu-button--menu"
-                    className="subMenu"
+                    className="header-sub-menu subMenu"
                     data-reach-menu-items=""
                     data-reach-menu-list=""
                     id="menu--3"
@@ -318,7 +319,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -342,7 +343,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -504,6 +505,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             "minHeight": "0px",
           }
         }
+        tabIndex="-1"
       >
         <div
           className="mobileSearchContainer"
@@ -617,7 +619,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
               >
                 <div
                   aria-labelledby="menu-button--menu--9"
-                  className="subMenu"
+                  className="header-sub-menu subMenu"
                   data-reach-menu-items=""
                   data-reach-menu-list=""
                   id="menu--9"
@@ -629,7 +631,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                     tabIndex={-1}
                   >
                     <a
-                      className="menuLink"
+                      className="sub-menu-link menuLink"
                       data-reach-menu-item=""
                       data-reach-menu-link=""
                       data-selected=""
@@ -653,7 +655,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                     tabIndex={-1}
                   >
                     <a
-                      className="menuLink"
+                      className="sub-menu-link menuLink"
                       data-reach-menu-item=""
                       data-reach-menu-link=""
                       data-selected=""
@@ -785,7 +787,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                 >
                   <div
                     aria-labelledby="menu-button--menu--11"
-                    className="subMenu"
+                    className="header-sub-menu subMenu"
                     data-reach-menu-items=""
                     data-reach-menu-list=""
                     id="menu--11"
@@ -797,7 +799,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -821,7 +823,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -983,6 +985,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             "minHeight": "0px",
           }
         }
+        tabIndex="-1"
       >
         <div
           className="mobileSearchContainer"
@@ -1096,7 +1099,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
               >
                 <div
                   aria-labelledby="menu-button--menu--18"
-                  className="subMenu"
+                  className="header-sub-menu subMenu"
                   data-reach-menu-items=""
                   data-reach-menu-list=""
                   id="menu--18"
@@ -1108,7 +1111,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                     tabIndex={-1}
                   >
                     <a
-                      className="menuLink"
+                      className="sub-menu-link menuLink"
                       data-reach-menu-item=""
                       data-reach-menu-link=""
                       data-selected=""
@@ -1132,7 +1135,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                     tabIndex={-1}
                   >
                     <a
-                      className="menuLink"
+                      className="sub-menu-link menuLink"
                       data-reach-menu-item=""
                       data-reach-menu-link=""
                       data-selected=""
@@ -1264,7 +1267,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 >
                   <div
                     aria-labelledby="menu-button--menu--20"
-                    className="subMenu"
+                    className="header-sub-menu subMenu"
                     data-reach-menu-items=""
                     data-reach-menu-list=""
                     id="menu--20"
@@ -1276,7 +1279,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -1300,7 +1303,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -1466,6 +1469,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
             "minHeight": "0px",
           }
         }
+        tabIndex="-1"
       >
         <div
           className="mobileSearchContainer"
@@ -1579,7 +1583,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
               >
                 <div
                   aria-labelledby="menu-button--menu--25"
-                  className="subMenu"
+                  className="header-sub-menu subMenu"
                   data-reach-menu-items=""
                   data-reach-menu-list=""
                   id="menu--25"
@@ -1591,7 +1595,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                     tabIndex={-1}
                   >
                     <a
-                      className="menuLink"
+                      className="sub-menu-link menuLink"
                       data-reach-menu-item=""
                       data-reach-menu-link=""
                       data-selected=""
@@ -1615,7 +1619,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                     tabIndex={-1}
                   >
                     <a
-                      className="menuLink"
+                      className="sub-menu-link menuLink"
                       data-reach-menu-item=""
                       data-reach-menu-link=""
                       data-selected=""
@@ -1747,7 +1751,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                 >
                   <div
                     aria-labelledby="menu-button--menu--27"
-                    className="subMenu"
+                    className="header-sub-menu subMenu"
                     data-reach-menu-items=""
                     data-reach-menu-list=""
                     id="menu--27"
@@ -1759,7 +1763,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -1783,7 +1787,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -1945,6 +1949,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
             "minHeight": "0px",
           }
         }
+        tabIndex="-1"
       >
         <div
           className="mobileSearchContainer"
@@ -2058,7 +2063,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
               >
                 <div
                   aria-labelledby="menu-button--menu--32"
-                  className="subMenu"
+                  className="header-sub-menu subMenu"
                   data-reach-menu-items=""
                   data-reach-menu-list=""
                   id="menu--32"
@@ -2070,7 +2075,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
                     tabIndex={-1}
                   >
                     <a
-                      className="menuLink"
+                      className="sub-menu-link menuLink"
                       data-reach-menu-item=""
                       data-reach-menu-link=""
                       data-selected=""
@@ -2094,7 +2099,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
                     tabIndex={-1}
                   >
                     <a
-                      className="menuLink"
+                      className="sub-menu-link menuLink"
                       data-reach-menu-item=""
                       data-reach-menu-link=""
                       data-selected=""
@@ -2226,7 +2231,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
                 >
                   <div
                     aria-labelledby="menu-button--menu--34"
-                    className="subMenu"
+                    className="header-sub-menu subMenu"
                     data-reach-menu-items=""
                     data-reach-menu-list=""
                     id="menu--34"
@@ -2238,7 +2243,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -2262,7 +2267,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""

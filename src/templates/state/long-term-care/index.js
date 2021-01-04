@@ -166,6 +166,8 @@ export const query = graphql`
           county
           outbreak_resident_positives
           outbreak_resident_deaths
+          outbreak_resident_staff_positives
+          outbreak_resident_staff_deaths
           resident_deaths
           resident_positives
           ctp_facility_category
@@ -173,7 +175,11 @@ export const query = graphql`
           resident_staff_positives
           resident_staff_deaths
           staff_deaths
-          staff_positive
+          outbreak_resident_probable
+          outbreak_resident_probable_deaths
+          resident_probable
+          resident_probable_deaths
+          resident_staff_probable_deaths
         }
       }
     }

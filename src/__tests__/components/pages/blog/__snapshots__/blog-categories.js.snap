@@ -8,7 +8,7 @@ exports[`Components : Pages : Blog : Categories renders correctly 1`] = `
     className="category"
   >
     <a
-      href="/blog/category/category-one"
+      href="/analysis-updates/category/category-one"
     >
       category one
     </a>

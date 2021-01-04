@@ -87,7 +87,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? `/blog` : `/blog/page/${i + 1}`,
+      path: i === 0 ? `/analysis-updates` : `/analysis-updates/page/${i + 1}`,
       component: path.resolve('./src/templates/blog-page.js'),
       context: {
         limit: postsPerPage,
@@ -115,6 +115,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: `/document/download/${node.slug}`,
       toPath: node.document.file.url,
+      isPermanent: true,
     })
   })
 
@@ -122,6 +123,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: from,
       toPath: redirectTo,
+      isPermanent: true,
     })
   })
 
@@ -194,6 +196,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: `/data/state/${slug}/screenshots`,
       toPath: `https://screenshots.covidtracking.com/${slug}`,
+      isPermanent: true,
     })
   })
 
@@ -223,13 +226,14 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   result.data.allContentfulBlogPost.nodes.forEach(node => {
-    const longPath = `/blog/${node.slug}`
+    const longPath = `/analysis-updates/${node.slug}`
     const shortPath = `/${node.contentful_id}`
 
     if (node.overrideBlogPage) {
       createRedirect({
         fromPath: shortPath,
         toPath: node.overrideBlogPath,
+        isPermanent: true,
       })
     } else {
       createPage({
@@ -241,13 +245,14 @@ exports.createPages = async ({ graphql, actions }) => {
       createRedirect({
         fromPath: shortPath,
         toPath: longPath,
+        isPermanent: true,
       })
     }
   })
 
   result.data.allContentfulBlogCategory.nodes.forEach(node => {
     createPage({
-      path: `/blog/category/${node.slug}`,
+      path: `/analysis-updates/category/${node.slug}`,
       component: path.resolve(`./src/templates/blog-category.js`),
       context: node,
     })

@@ -1,9 +1,6 @@
 import React from 'react'
 import Layout from '~components/layout'
-import {
-  SvgFilters,
-  components,
-} from '~components/pages/homepage/visualization-gallery'
+import { components } from '~components/pages/homepage/visualization-gallery'
 
 const Item = ({ component, item }) => {
   const ItemComponent = component
@@ -12,7 +9,6 @@ const Item = ({ component, item }) => {
 
 const VizualizationSheet = () => (
   <Layout title="Visualization sheet">
-    <SvgFilters />
     <h2>US Map - cases per 100k</h2>
     <p>Use the following configuration in Contentful:</p>
     <code>
@@ -49,6 +45,26 @@ const VizualizationSheet = () => (
         relatedPost: false,
         configuration: {
           metric: 'sevenDayPositive',
+        },
+      }}
+    />
+    <hr />
+    <h2>US Map - hospitalization per 1M</h2>
+    <p>Use the following configuration in Contentful:</p>
+    <code>
+      <pre>{`{
+    "component": "us-map",
+    "configuration": {
+        "metric": "hospitalizationPer1m"
+    }
+}`}</pre>
+    </code>
+    <Item
+      component={components['us-map']}
+      item={{
+        relatedPost: false,
+        configuration: {
+          metric: 'hospitalizationPer1m',
         },
       }}
     />

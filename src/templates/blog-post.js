@@ -26,8 +26,8 @@ const BlogPostTemplate = ({ data, path }) => {
 
   return (
     <Layout
-      title={`Blog | ${blogPost.title}`}
-      displayTitle="Blog"
+      title={`Analysis & updates | ${blogPost.title}`}
+      displayTitle="Analysis and updates"
       socialCard={socialCard}
       path={path}
       hero={hero}

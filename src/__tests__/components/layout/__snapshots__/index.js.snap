@@ -33,6 +33,7 @@ Array [
               "minHeight": "0px",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="mobileSearchContainer"
@@ -146,7 +147,7 @@ Array [
                 >
                   <div
                     aria-labelledby="menu-button--menu"
-                    className="subMenu"
+                    className="header-sub-menu subMenu"
                     data-reach-menu-items=""
                     data-reach-menu-list=""
                     id="menu--1"
@@ -158,7 +159,7 @@ Array [
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -182,7 +183,7 @@ Array [
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -314,7 +315,7 @@ Array [
                   >
                     <div
                       aria-labelledby="menu-button--menu"
-                      className="subMenu"
+                      className="header-sub-menu subMenu"
                       data-reach-menu-items=""
                       data-reach-menu-list=""
                       id="menu--3"
@@ -326,7 +327,7 @@ Array [
                         tabIndex={-1}
                       >
                         <a
-                          className="menuLink"
+                          className="sub-menu-link menuLink"
                           data-reach-menu-item=""
                           data-reach-menu-link=""
                           data-selected=""
@@ -350,7 +351,7 @@ Array [
                         tabIndex={-1}
                       >
                         <a
-                          className="menuLink"
+                          className="sub-menu-link menuLink"
                           data-reach-menu-item=""
                           data-reach-menu-link=""
                           data-selected=""
@@ -566,6 +567,13 @@ Array [
             </li>
             <li>
               <a
+                href="/about/sitemap"
+              >
+                Sitemap
+              </a>
+            </li>
+            <li>
+              <a
                 href="/rss.xml"
               >
                 RSS
@@ -607,7 +615,7 @@ Array [
     >
       <span>
         CovidTracking.com Copyright © 
-        2020
+        2021
          by The Atlantic Monthly Group. 
         <a
           href="/license"
@@ -666,6 +674,7 @@ Array [
               "minHeight": "0px",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="mobileSearchContainer"
@@ -779,7 +788,7 @@ Array [
                 >
                   <div
                     aria-labelledby="menu-button--menu--9"
-                    className="subMenu"
+                    className="header-sub-menu subMenu"
                     data-reach-menu-items=""
                     data-reach-menu-list=""
                     id="menu--9"
@@ -791,7 +800,7 @@ Array [
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -815,7 +824,7 @@ Array [
                       tabIndex={-1}
                     >
                       <a
-                        className="menuLink"
+                        className="sub-menu-link menuLink"
                         data-reach-menu-item=""
                         data-reach-menu-link=""
                         data-selected=""
@@ -947,7 +956,7 @@ Array [
                   >
                     <div
                       aria-labelledby="menu-button--menu--11"
-                      className="subMenu"
+                      className="header-sub-menu subMenu"
                       data-reach-menu-items=""
                       data-reach-menu-list=""
                       id="menu--11"
@@ -959,7 +968,7 @@ Array [
                         tabIndex={-1}
                       >
                         <a
-                          className="menuLink"
+                          className="sub-menu-link menuLink"
                           data-reach-menu-item=""
                           data-reach-menu-link=""
                           data-selected=""
@@ -983,7 +992,7 @@ Array [
                         tabIndex={-1}
                       >
                         <a
-                          className="menuLink"
+                          className="sub-menu-link menuLink"
                           data-reach-menu-item=""
                           data-reach-menu-link=""
                           data-selected=""
@@ -1199,6 +1208,13 @@ Array [
             </li>
             <li>
               <a
+                href="/about/sitemap"
+              >
+                Sitemap
+              </a>
+            </li>
+            <li>
+              <a
                 href="/rss.xml"
               >
                 RSS
@@ -1240,7 +1256,7 @@ Array [
     >
       <span>
         CovidTracking.com Copyright © 
-        2020
+        2021
          by The Atlantic Monthly Group. 
         <a
           href="/license"
