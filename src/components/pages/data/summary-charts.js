@@ -10,7 +10,7 @@ import { DateTime } from 'luxon'
 import { groupBy } from 'lodash'
 
 import Container from '~components/common/container'
-import BarChart from '~components/charts/bar-chart'
+import { BarChart } from '~components/charts/bar-chart'
 import { parseDate, formatDate } from '~utilities/visualization'
 import { Row, Col } from '~components/common/grid'
 import RadioToggle from '~components/common/radio-toggle'

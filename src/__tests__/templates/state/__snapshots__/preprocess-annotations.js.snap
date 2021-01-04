@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Templates : State : preprocessAnnotations preprocessAnnotations no annotations 1`] = `
+Object {
+  "annotations": Array [],
+  "dataRows": Array [
+    Object {
+      "date": "Dec 20, 2020",
+      "dateWithAnnotation": "Dec 20, 2020",
+      "death": 10383,
+      "deathConfirmed": 9437,
+      "deathIncrease": 2,
+      "deathProbable": 946,
+      "recovered": null,
+      "state": "TX",
+    },
+    Object {
+      "date": "Dec 19, 2020",
+      "dateWithAnnotation": "Dec 19, 2020",
+      "death": 10381,
+      "deathConfirmed": 9435,
+      "deathIncrease": 49,
+      "deathProbable": 946,
+      "recovered": null,
+      "state": "TX",
+    },
+    Object {
+      "date": "Dec 18, 2020",
+      "dateWithAnnotation": "Dec 18, 2020",
+      "death": 10332,
+      "deathConfirmed": 9396,
+      "deathIncrease": 38,
+      "deathProbable": 936,
+      "recovered": null,
+      "state": "TX",
+    },
+  ],
+}
+`;
+
+exports[`Templates : State : preprocessAnnotations preprocessAnnotations one annotation 1`] = `
+Object {
+  "annotations": Array [
+    Object {
+      "childContentfulChartAnnotationDescriptionTextNode": Object {
+        "childMarkdownRemark": Object {
+          "html": "<p>Annotation.</p>",
+        },
+      },
+      "date": "Dec 19, 2020",
+      "field": "Dec 19, 2020",
+      "htmlFormat": true,
+      "warning": "<p>Annotation.</p>",
+    },
+  ],
+  "dataRows": Array [
+    Object {
+      "date": "Dec 20, 2020",
+      "dateWithAnnotation": "Dec 20, 2020",
+      "death": 10383,
+      "deathConfirmed": 9437,
+      "deathIncrease": 2,
+      "deathProbable": 946,
+      "recovered": null,
+      "state": "TX",
+    },
+    Object {
+      "date": "Dec 19, 2020",
+      "dateWithAnnotation": <React.Fragment>
+        <AnnotationIcon
+          annotation={
+            Object {
+              "childContentfulChartAnnotationDescriptionTextNode": Object {
+                "childMarkdownRemark": Object {
+                  "html": "<p>Annotation.</p>",
+                },
+              },
+              "date": "Dec 19, 2020",
+              "field": "Dec 19, 2020",
+              "htmlFormat": true,
+              "warning": "<p>Annotation.</p>",
+            }
+          }
+          annotationFields={
+            Array [
+              "Dec 19, 2020",
+            ]
+          }
+        />
+        Dec 19, 2020
+      </React.Fragment>,
+      "death": 10381,
+      "deathConfirmed": 9435,
+      "deathIncrease": 49,
+      "deathProbable": 946,
+      "recovered": null,
+      "state": "TX",
+    },
+    Object {
+      "date": "Dec 18, 2020",
+      "dateWithAnnotation": "Dec 18, 2020",
+      "death": 10332,
+      "deathConfirmed": 9396,
+      "deathIncrease": 38,
+      "deathProbable": 936,
+      "recovered": null,
+      "state": "TX",
+    },
+  ],
+}
+`;
+
+exports[`Templates : State : preprocessAnnotations preprocessAnnotations two annotations 1`] = `
+Object {
+  "annotations": Array [
+    Object {
+      "childContentfulChartAnnotationDescriptionTextNode": Object {
+        "childMarkdownRemark": Object {
+          "html": "<p>Annotation.</p>",
+        },
+      },
+      "date": "Dec 19, 2020",
+      "field": "Dec 19, 2020",
+      "htmlFormat": true,
+      "warning": "<p>Annotation.</p>",
+    },
+    Object {
+      "childContentfulChartAnnotationDescriptionTextNode": Object {
+        "childMarkdownRemark": Object {
+          "html": "<p>Annotation No. 2.</p>",
+        },
+      },
+      "date": "Dec 20, 2020",
+      "field": "Dec 20, 2020",
+      "htmlFormat": true,
+      "warning": "<p>Annotation No. 2.</p>",
+    },
+  ],
+  "dataRows": Array [
+    Object {
+      "date": "Dec 20, 2020",
+      "dateWithAnnotation": <React.Fragment>
+        <AnnotationIcon
+          annotation={
+            Object {
+              "childContentfulChartAnnotationDescriptionTextNode": Object {
+                "childMarkdownRemark": Object {
+                  "html": "<p>Annotation No. 2.</p>",
+                },
+              },
+              "date": "Dec 20, 2020",
+              "field": "Dec 20, 2020",
+              "htmlFormat": true,
+              "warning": "<p>Annotation No. 2.</p>",
+            }
+          }
+          annotationFields={
+            Array [
+              "Dec 19, 2020",
+              "Dec 20, 2020",
+            ]
+          }
+        />
+        Dec 20, 2020
+      </React.Fragment>,
+      "death": 10383,
+      "deathConfirmed": 9437,
+      "deathIncrease": 2,
+      "deathProbable": 946,
+      "recovered": null,
+      "state": "TX",
+    },
+    Object {
+      "date": "Dec 19, 2020",
+      "dateWithAnnotation": <React.Fragment>
+        <AnnotationIcon
+          annotation={
+            Object {
+              "childContentfulChartAnnotationDescriptionTextNode": Object {
+                "childMarkdownRemark": Object {
+                  "html": "<p>Annotation.</p>",
+                },
+              },
+              "date": "Dec 19, 2020",
+              "field": "Dec 19, 2020",
+              "htmlFormat": true,
+              "warning": "<p>Annotation.</p>",
+            }
+          }
+          annotationFields={
+            Array [
+              "Dec 19, 2020",
+              "Dec 20, 2020",
+            ]
+          }
+        />
+        Dec 19, 2020
+      </React.Fragment>,
+      "death": 10381,
+      "deathConfirmed": 9435,
+      "deathIncrease": 49,
+      "deathProbable": 946,
+      "recovered": null,
+      "state": "TX",
+    },
+    Object {
+      "date": "Dec 18, 2020",
+      "dateWithAnnotation": "Dec 18, 2020",
+      "death": 10332,
+      "deathConfirmed": 9396,
+      "deathIncrease": 38,
+      "deathProbable": 936,
+      "recovered": null,
+      "state": "TX",
+    },
+  ],
+}
+`;

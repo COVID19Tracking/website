@@ -1,0 +1,37 @@
+.wrapper {
+  background: $color-slate-700;
+  @include padding(64, top bottom);
+  color: white;
+  &.blue {
+    background-color: $color-plum-700;
+  }
+  &.bottom-margin {
+    @include margin(32, bottom);
+  }
+  &.top-margin {
+    @include margin(80, top);
+  }
+  a {
+    color: white;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      @include margin(16, bottom);
+    }
+  }
+  h2 {
+    margin-top: 0;
+  }
+  p {
+    @include type-size(300);
+  }
+}
+
+.links {
+  border-top: 1px solid white;
+  @include type-size(300);
+  @include padding(16, top);
+}

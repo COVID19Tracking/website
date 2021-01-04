@@ -10,10 +10,12 @@ import blogStyles from '~components/pages/blog/blog.module.scss'
 const BlogPageTemplate = ({ data, pageContext }) => {
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
-  const title = isFirst ? 'Blog' : `Blog – Page ${currentPage}`
+  const title = isFirst
+    ? 'Analysis & updates'
+    : `Analysis & updates – Page ${currentPage}`
 
   return (
-    <Layout title={title} path="/blog" centerTitle>
+    <Layout title={title} path="/analysis-updates" centerTitle>
       <Container className={blogStyles.container}>
         <BlogCategoriesList />
         <BlogTeaserList items={data.allContentfulBlogPost.nodes} />

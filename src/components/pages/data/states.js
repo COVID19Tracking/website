@@ -12,6 +12,7 @@ const States = ({
   raceDataCombined,
   raceDataSeparate,
   hhsHospitalization,
+  screenshotLinks,
 }) => {
   const stateList = []
 
@@ -58,6 +59,9 @@ const States = ({
       ? hhsHospitalization.find(record => record.nodes[0].state === state.state)
       : false
 
+    state.links = screenshotLinks
+      ? screenshotLinks.find(item => item.childTacoYaml.state === state.state)
+      : false
     stateList.push(state)
   })
 

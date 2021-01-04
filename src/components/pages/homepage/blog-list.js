@@ -1,40 +1,27 @@
 import React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
-import { Byline } from '~components/pages/blog/byline'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import { Col, Row } from '~components/common/grid'
+import blogStyle from './blog.module.scss'
 import CleanSpacing from '~components/utils/clean-spacing'
-import Container from '~components/common/landing-page/container'
-import { CtaLink } from '~components/common/landing-page/call-to-action'
-import Paragraph from '~components/common/landing-page/paragraph'
-import blogListStyles from './blog-list.module.scss'
 
-const HomepageBlogList = () => {
+const BlogFeatured = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       allContentfulBlogPost(
-        sort: { fields: publishDate, order: DESC }
         limit: 3
+        sort: { fields: publishDate, order: DESC }
       ) {
         nodes {
           title
-          slug
-          overrideBlogPage
-          overrideBlogPath
-          authors {
-            name
-            twitterLink
-            link
-            headshot {
-              file {
-                fileName
-              }
-              resize(width: 100) {
-                width
-                height
-                src
-              }
+          featureOnHomepage
+          publishDate(formatString: "MMM D, YYYY")
+          homepageImage {
+            fixed(width: 800) {
+              src
+              srcSet
             }
           }
-          publishDate(formatString: "MMMM D, YYYY")
+          slug
           lede {
             lede
           }
@@ -42,50 +29,60 @@ const HomepageBlogList = () => {
       }
     }
   `)
-  const posts = data.allContentfulBlogPost.nodes
+  const { nodes } = data && data.allContentfulBlogPost
+  if (!nodes) {
+    return null
+  }
+  let hasFeatured = false
+  const posts = nodes
+    .map(node => {
+      if (!hasFeatured && node.featureOnHomepage) {
+        hasFeatured = true
+        return false
+      }
+      return node
+    })
+    .filter(item => item)
+    .slice(0, 2)
   return (
-    <div className={blogListStyles.wrapper}>
-      <Container>
-        <Paragraph>
-          See how we work, what we&#8217;re learning, and what&#8217;s changing
-          in our data on our project blog.
-        </Paragraph>
-        <div className={blogListStyles.container}>
-          <ul className={`press-list ${blogListStyles.blogList}`}>
-            {posts.map(node => (
-              <li
-                key={`homepage-blog-${node.slug}`}
-                className={blogListStyles.blogItem}
-              >
-                <h2>
-                  <Link
-                    to={
-                      node.overrideBlogPage
-                        ? node.overrideBlogPath
-                        : `/blog/${node.slug}`
-                    }
-                  >
-                    {node.title}
-                  </Link>
-                </h2>
-                <p className={blogListStyles.lede}>
-                  <CleanSpacing>{node.lede.lede}</CleanSpacing>
-                </p>
-                <Byline
-                  authors={node.authors}
-                  published={node.publishDate}
-                  smallmargin
-                />
-              </li>
-            ))}
-          </ul>
-          <CtaLink to="/blog" centered>
-            See more from our blog
-          </CtaLink>
-        </div>
-      </Container>
-    </div>
+    <>
+      <Row>
+        {posts.map((post, index) => (
+          <Col
+            width={[4, 6, 6]}
+            className={blogStyle.post}
+            paddingRight={index === 0 && [0, 0, 32]}
+            paddingLeft={index === 1 && [0, 0, 32]}
+            paddingBottom={[32, 0, 0]}
+          >
+            <div className={blogStyle.date}>{post.publishDate}</div>
+            <h3>
+              <Link to={`/analysis-updates/${post.slug}`}>{post.title}</Link>
+            </h3>
+            <div className={blogStyle.lede}>
+              <CleanSpacing>{post.lede.lede}</CleanSpacing>
+            </div>
+            {post.homepageImage && (
+              <img
+                src={post.homepageImage.fixed.src}
+                className={blogStyle.image}
+                srcSet={post.homepageImage.fixed.srcSet}
+                alt=""
+                aria-hidden
+              />
+            )}
+            <Link
+              to={`/analysis-updates/${post.slug}`}
+              className={blogStyle.link}
+            >
+              Read the article<span aria-hidden> →</span>
+              <span className="a11y-only">{post.title}</span>
+            </Link>
+          </Col>
+        ))}
+      </Row>
+    </>
   )
 }
 
-export default HomepageBlogList
+export default BlogFeatured

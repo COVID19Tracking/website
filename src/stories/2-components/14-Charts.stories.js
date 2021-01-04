@@ -2,7 +2,7 @@
 import React from 'react'
 
 import AreaChart from '~components/charts/area-chart'
-import BarChart from '~components/charts/bar-chart'
+import { BarChart } from '~components/charts/bar-chart'
 
 import { parseDate } from '~utilities/visualization'
 

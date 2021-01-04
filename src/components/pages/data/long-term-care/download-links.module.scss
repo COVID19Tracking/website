@@ -13,3 +13,10 @@
     }
   }
 }
+
+.contact {
+  background: $color-honey-200;
+  border-radius: 4px;
+  @include padding(16);
+  @include margin(16, top);
+}

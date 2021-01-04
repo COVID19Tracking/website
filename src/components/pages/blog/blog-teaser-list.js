@@ -8,7 +8,7 @@ import blogTeaserListStyle from './blog-teaser-list.module.scss'
 
 const BlogTeaserList = ({
   items,
-  subPath = '/blog',
+  subPath = '/analysis-updates',
   useCategoryLink = true,
 }) => (
   <Container narrow className={blogTeaserListStyle.container}>

@@ -12,9 +12,9 @@ exports[`Components : Pages : Blog : Related Posts : Category Posts renders corr
   >
     <a
       className="cta"
-      href="/blog"
+      href="/analysis-updates"
     >
-      See all blog posts
+      See all analysis & updates
       <span
         aria-hidden={true}
         className="arrow"
@@ -29,7 +29,7 @@ exports[`Components : Pages : Blog : Related Posts : Category Posts renders corr
   >
     <h3>
       <a
-        href="/blog/blogslug"
+        href="/analysis-updates/blogslug"
       >
         Post title
       </a>
@@ -68,7 +68,7 @@ exports[`Components : Pages : Blog : Related Posts : Category Posts renders corr
   >
     <h3>
       <a
-        href="/blog/blog-slug-number-two"
+        href="/analysis-updates/blog-slug-number-two"
       >
         a blog post
       </a>
@@ -123,9 +123,9 @@ exports[`Components : Pages : Blog : Related Posts : Explicit Related Posts rend
   >
     <a
       className="cta"
-      href="/blog"
+      href="/analysis-updates"
     >
-      See all blog posts
+      See all analysis & updates
       <span
         aria-hidden={true}
         className="arrow"
@@ -140,7 +140,7 @@ exports[`Components : Pages : Blog : Related Posts : Explicit Related Posts rend
   >
     <h3>
       <a
-        href="/blog/blogslug"
+        href="/analysis-updates/blogslug"
       >
         Post title
       </a>
@@ -179,7 +179,7 @@ exports[`Components : Pages : Blog : Related Posts : Explicit Related Posts rend
   >
     <h3>
       <a
-        href="/blog/blog-slug-number-two"
+        href="/analysis-updates/blog-slug-number-two"
       >
         a blog post
       </a>
@@ -234,9 +234,9 @@ exports[`Components : Pages : Blog : Related Posts : Recent Posts renders correc
   >
     <a
       className="cta"
-      href="/blog"
+      href="/analysis-updates"
     >
-      See all blog posts
+      See all analysis & updates
       <span
         aria-hidden={true}
         className="arrow"
@@ -251,7 +251,7 @@ exports[`Components : Pages : Blog : Related Posts : Recent Posts renders correc
   >
     <h3>
       <a
-        href="/blog/blogslug"
+        href="/analysis-updates/blogslug"
       >
         Post title
       </a>
@@ -290,7 +290,7 @@ exports[`Components : Pages : Blog : Related Posts : Recent Posts renders correc
   >
     <h3>
       <a
-        href="/blog/blog-slug-number-two"
+        href="/analysis-updates/blog-slug-number-two"
       >
         a blog post
       </a>

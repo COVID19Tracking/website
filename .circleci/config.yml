@@ -29,11 +29,15 @@ jobs:
       - run:
           name: fetch-data-repo
           command: 'yarn run setup:data-repo'
+      - run:
+          name: fetch-screenshot-repo
+          command: 'yarn run setup:screenshot-repo'
       - persist_to_workspace:
           root: *workspace_root
           paths:
             - _api
             - _data
+            - _screenshots
   gatsby-build:
     executor: main-executor
     steps:

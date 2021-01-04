@@ -1,0 +1,7 @@
+.label {
+  @include type-size(200);
+}
+
+.row {
+  align-items: flex-end;
+}

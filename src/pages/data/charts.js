@@ -8,7 +8,7 @@ import ChartTweet from '~components/pages/data/charts/tweet'
 import ChartPreamble from '~components/pages/data/charts/preamble'
 
 const ChartsPage = ({ data }) => (
-  <Layout title="Charts" returnLinks={[{ link: '/data' }]}>
+  <Layout title="Charts" returnLinks={[{ link: '/data' }]} showWarning>
     <h2>United States Overview</h2>
     <ChartPreamble
       usHistory={data.allCovidUsDaily.nodes}
