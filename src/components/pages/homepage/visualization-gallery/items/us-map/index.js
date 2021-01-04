@@ -120,7 +120,7 @@ const USMap = ({ configuration, item }) => {
         relatedPost={item.relatedPost}
         title={
           <Title title={metrics[metric].title}>
-            From {sevenDaysAgo} to {lastUpdate}
+            {metrics[metric].subTitle(lastUpdate, sevenDaysAgo)}
           </Title>
         }
         disclaimer={
