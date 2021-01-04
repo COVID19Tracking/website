@@ -57,7 +57,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
         event.target.getZoom(),
       ].join(',')
     }
-    if (event.target.getZoom() < 4) {
+    if (event.target.getZoom() < 6) {
       setFacilities(false)
       return
     }
@@ -103,7 +103,8 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       style: `mapbox://styles/covidtrackingproject/ckihibso80hsg19o8q5gbq9z7`,
       center: hash.length > 2 ? [hash[0], hash[1]] : center,
       zoom: hash.length > 2 ? hash[2] : zoom,
-      minZoom: 2,
+      minZoom: 3.5,
+      maxZoom: 18,
     })
 
     map.addControl(new mapboxgl.NavigationControl(), 'top-left')
@@ -303,7 +304,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
             </div>
           ) : (
             <p>
-              {currentZoom < 4 ? (
+              {currentZoom < 6 ? (
                 <>Zoom in to get facility details.</>
               ) : (
                 <>No facilities in the current map.</>
