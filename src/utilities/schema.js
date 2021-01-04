@@ -9,6 +9,26 @@ module.exports = ({ actions }) => {
       outbrkfac_other: Int
       outbrkfac_nh: Int
     }
+    type CovidLtcFacilities implements Node {
+      outbreak_resident_deaths: String
+      outbreak_resident_positives: String
+      outbreak_resident_probable: String
+      outbreak_resident_probable_deaths: String
+      outbreak_resident_staff_deaths: String
+      outbreak_resident_staff_positives: String
+      outbreak_residents_tested: String
+      outbreak_staff_deaths: String
+      outbreak_staff_positive: String
+      outbreak_staff_probable: String
+      resident_census: String
+      resident_deaths: String
+      resident_positives: String
+      resident_probable: String
+      resident_probable_deaths: String
+      resident_staff_deaths: String
+      resident_staff_positives: String
+      resident_staff_probable_deaths: String
+    }
     type CovidLtcStates implements Node {
       data_timestamp: String
       data_type: String

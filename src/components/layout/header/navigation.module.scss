@@ -86,14 +86,14 @@
   outline: solid 2px $color-plum-700;
   padding: spacer(4);
 
-  a.menu-link,
-  a.menu-link[aria-current] {
+  a.menu-link {
     color: $color-plum-700;
     display: block;
     padding: spacer(8);
     cursor: pointer;
     &:hover,
-    &:focus {
+    &:focus,
+    &[data-selected] {
       color: white;
       background: black;
     }

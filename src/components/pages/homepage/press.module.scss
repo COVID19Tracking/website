@@ -1,18 +1,9 @@
-.press {
-  margin-top: spacer(16);
-  margin-bottom: spacer(80);
-}
-
 .header {
-  @include type-size(300);
   @include margin(64, bottom);
-  @media (min-width: $viewport-lg) {
-    @include type-size(400);
-  }
 }
 
 .section {
-  @include margin(80, top);
+  @include margin(64, top bottom);
 }
 
 .logos {
@@ -20,9 +11,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  &.extra-margin {
-    margin-bottom: spacer(32);
-  }
   img {
     filter: grayscale(1);
     height: 1.5rem;

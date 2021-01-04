@@ -26,8 +26,8 @@ const BlogPostTemplate = ({ data, path }) => {
 
   return (
     <Layout
-      title={`Blog | ${blogPost.title}`}
-      displayTitle="Blog"
+      title={`Analysis & updates | ${blogPost.title}`}
+      displayTitle="Analysis and updates"
       socialCard={socialCard}
       path={path}
       hero={hero}
@@ -226,6 +226,25 @@ export const query = graphql`
             footnote {
               footnote
             }
+          }
+          ... on ContentfulContentBlockFlippableCard {
+            id
+            contentful_id
+            width
+            height
+            cardFront {
+              fixed(width: 900) {
+                src
+                srcSet
+              }
+            }
+            cardBack {
+              fixed(width: 900) {
+                src
+                srcSet
+              }
+            }
+            alternateText
           }
         }
       }

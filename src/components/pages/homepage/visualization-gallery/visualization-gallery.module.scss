@@ -1,0 +1,52 @@
+.disclosure-toggle {
+  @include remove-button-style();
+  color: white;
+  display: block;
+  width: 100%;
+  text-align: center;
+  .text {
+    text-decoration: underline;
+  }
+}
+
+.disclosure {
+  display: none;
+  &.is-open {
+    display: block;
+  }
+}
+
+.gallery {
+  @include padding(32, top bottom);
+}
+
+.tab-container {
+  overflow-x: scroll;
+  white-space: nowrap;
+  box-shadow: inset -3px -2px 5px rgba(0, 0, 0, 0.04);
+  @media (min-width: $viewport-md) {
+    overflow: auto;
+    white-space: normal;
+  }
+}
+
+.tabs {
+  background: $color-slate-50;
+  button {
+    @include remove-button-style();
+    @include padding(32, top);
+    @include padding(16, bottom);
+    width: 150px;
+    text-align: center;
+    border-bottom: 3px solid white;
+    &[aria-selected='true'] {
+      border-bottom-color: $color-slate-600;
+    }
+  }
+}
+
+.tab-panel {
+  [role='tabpanel']:focus {
+    outline: none;
+  }
+}

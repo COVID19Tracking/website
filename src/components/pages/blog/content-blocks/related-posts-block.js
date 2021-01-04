@@ -14,7 +14,7 @@ const RelatedPostsContentBlock = ({ headline, subtitle, references }) => (
     <ul>
       {references.map(({ slug, title }) => (
         <li key={slug}>
-          <Link to={`/blog/${slug}`}>{title}</Link>
+          <Link to={`/analysis-updates/${slug}`}>{title}</Link>
         </li>
       ))}
     </ul>

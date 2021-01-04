@@ -14,7 +14,7 @@ exports[`Components : Pages : Blog : Blog Teaser List renders correctly 1`] = `
         className="title"
       >
         <a
-          href="/blog/we-made-a-blog-post"
+          href="/analysis-updates/we-made-a-blog-post"
         >
           We Made a Blog Post
         </a>
@@ -75,7 +75,7 @@ exports[`Components : Pages : Blog : Blog Teaser List renders correctly 1`] = `
         className="title"
       >
         <a
-          href="/blog/new-blog-post"
+          href="/analysis-updates/new-blog-post"
         >
           New Blog Post
         </a>

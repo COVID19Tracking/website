@@ -13,9 +13,9 @@ const BlogPagination = ({ currentPage, numPages }) => {
   const isLast = currentPage === numPages
   const prevPage =
     currentPage - 1 === 1
-      ? '/blog'
-      : `/blog/page/${(currentPage - 1).toString()}`
-  const nextPage = `/blog/page/${(currentPage + 1).toString()}`
+      ? '/analysis-updates'
+      : `/analysis-updates/page/${(currentPage - 1).toString()}`
+  const nextPage = `/analysis-updates/page/${(currentPage + 1).toString()}`
 
   const inactivePrev = isFirst ? blogPaginationStyle.inactiveLink : ''
   const inactiveNext = isLast ? blogPaginationStyle.inactiveLink : ''

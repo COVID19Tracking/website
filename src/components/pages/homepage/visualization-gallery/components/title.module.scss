@@ -1,0 +1,10 @@
+.title {
+  h3 {
+    @include type-size(400);
+    @include margin(8, bottom);
+    margin-top: 0;
+  }
+  p {
+    margin-top: 0;
+  }
+}

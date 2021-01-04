@@ -1,0 +1,119 @@
+.state {
+  fill: white;
+  @include type-size(100);
+  cursor: pointer;
+}
+
+.state-name {
+  fill: black;
+  font-weight: bold;
+  text-anchor: middle;
+  cursor: pointer;
+}
+
+.state-number {
+  fill: black;
+  font-weight: normal;
+  text-anchor: middle;
+  cursor: pointer;
+}
+
+.state-direction {
+  fill: white;
+  @include type-size(300);
+  text-anchor: middle;
+}
+
+.state-indicator {
+  fill: $color-plum-400;
+  background: $color-plum-400;
+  cursor: pointer;
+}
+
+.level-1 {
+  fill: #ffad4a;
+  background: #ffad4a;
+}
+.level-2 {
+  fill: #de893f;
+  background: #de893f;
+}
+.level-3 {
+  fill: #bc6635;
+  background: #bc6635;
+}
+.level-4 {
+  fill: #9b422a;
+  background: #9b422a;
+}
+
+.blue-level-1 {
+  fill: $color-blueberry-100;
+  background: $color-blueberry-100;
+}
+.blue-level-2 {
+  fill: $color-blueberry-200;
+  background: $color-blueberry-200;
+}
+.blue-level-3 {
+  fill: $color-blueberry-300;
+  background: $color-blueberry-300;
+}
+.blue-level-4 {
+  fill: $color-blueberry-500;
+  background: $color-blueberry-500;
+}
+
+.active-state {
+  @include type-size(200);
+}
+
+.keyboard {
+  display: none;
+  margin: 0 auto;
+}
+
+.map {
+  display: none;
+  @media (min-width: $viewport-md) {
+    display: block;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    @include link-focus;
+    .keyboard {
+      display: block;
+    }
+  }
+}
+
+.legend-toggle {
+  @include remove-button-style();
+  cursor: pointer;
+  .text {
+    text-decoration: underline;
+  }
+}
+
+.legend {
+  list-style-type: none;
+  @include margin(16, top);
+  padding: 0;
+  display: none;
+  flex-wrap: wrap;
+  @media (min-width: $viewport-md) {
+    display: flex;
+  }
+  li {
+    @include margin(32, right);
+    display: flex;
+    align-items: center;
+  }
+}
+
+.legend-hex {
+  width: 30px;
+  height: 30px;
+}

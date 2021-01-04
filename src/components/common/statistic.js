@@ -24,7 +24,14 @@ const Statistic = ({
     )}
   >
     <div className={statisticStyles.statistic}>
-      <div className={statisticStyles.title}>{title}</div>
+      <div
+        className={classnames(
+          statisticStyles.title,
+          hideValue && statisticStyles.fullWidth,
+        )}
+      >
+        {title}
+      </div>
       <div
         className={classnames(
           statisticStyles.value,

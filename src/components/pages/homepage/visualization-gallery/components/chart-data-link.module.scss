@@ -1,0 +1,5 @@
+.link {
+  color: $color-slate-700;
+  display: inline-block;
+  @include margin(16, top);
+}

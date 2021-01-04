@@ -20,7 +20,7 @@ const DataPage = ({ data }) => {
   const pageDescription = 'Our most up-to-date data on COVID-19 in the US.'
   return (
     <Layout
-      title="Our Data"
+      title="The Data"
       description={pageDescription}
       socialCard={{
         description: pageDescription,
@@ -71,6 +71,7 @@ const DataPage = ({ data }) => {
         raceDataCombined={data.allCovidRaceDataCombined.nodes}
         raceDataSeparate={data.allCovidRaceDataSeparate.nodes}
         hhsHospitalization={data.allHhsHospitalizationCovid.group}
+        screenshotLinks={data.urls.nodes}
       />
     </Layout>
   )
@@ -121,8 +122,6 @@ export const query = graphql`
     }
     allCovidStateInfo(sort: { fields: name }) {
       nodes {
-        covid19Site
-        covid19SiteSecondary
         name
         notes
         state
@@ -315,6 +314,17 @@ export const query = graphql`
           staffed_icu_adult_patients_confirmed_and_suspected_covid
           total_adult_patients_hospitalized_confirmed_covid
           total_pediatric_patients_hospitalized_confirmed_covid
+        }
+      }
+    }
+    urls: allFile {
+      nodes {
+        childTacoYaml {
+          links {
+            url
+            name
+          }
+          state
         }
       }
     }
