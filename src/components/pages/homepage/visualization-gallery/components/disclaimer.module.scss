@@ -15,3 +15,10 @@
     display: block;
   }
 }
+
+.hide-mobile {
+  display: none;
+  @media (min-width: $viewport-md) {
+    display: block;
+  }
+}
