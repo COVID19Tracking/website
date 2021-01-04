@@ -23,11 +23,16 @@ const Visualization = ({ contentfulId, url, height, vizImage }) => {
 
   const breakpoint = 830
   const [vizComponent, setVizComponent] = useState(
-    window.innerWidth < breakpoint ? image : tableau,
+    typeof window !== 'undefined' && window.innerWidth < breakpoint
+      ? image
+      : tableau,
   )
 
   // Responsive viz: if screen width smaller than Tableau viz, switch to image
   useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
     const handleResize = () => {
       const newWidth = window.innerWidth
       if (newWidth < breakpoint) {
