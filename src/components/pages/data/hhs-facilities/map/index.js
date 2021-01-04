@@ -103,6 +103,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       style: `mapbox://styles/covidtrackingproject/ckihibso80hsg19o8q5gbq9z7`,
       center: hash.length > 2 ? [hash[0], hash[1]] : center,
       zoom: hash.length > 2 ? hash[2] : zoom,
+      minZoom: 2,
     })
 
     map.addControl(new mapboxgl.NavigationControl(), 'top-left')
@@ -111,7 +112,6 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       if (state) {
         map.setFilter('hospitals', ['==', ['get', 'state'], state])
       }
-
       if (window.location.hash && hash.length > 2) {
         const features = map.queryRenderedFeatures({
           layers: layers[layer],
@@ -202,7 +202,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
                   const feature = response.features.pop()
                   mapRef.current.easeTo({
                     center: feature.center,
-                    zoom: 7,
+                    zoom: 11,
                   })
                 })
             }}
