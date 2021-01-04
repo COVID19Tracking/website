@@ -14,6 +14,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 
 const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   mapboxgl.accessToken = process.env.GATSBY_MAPBOX_API_TOKEN
+  const [layer, setLayer] = useState('patients')
   const [activeFacility, setActiveFacility] = useState(false)
   const [query, setQuery] = useState(false)
   const [facilities, setFacilities] = useState(false)
@@ -22,7 +23,10 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
   const [revealedFacility, setRevealedFacility] = useState(false)
   const [currentZoom, setCurrentZoom] = useState(0)
   const [highlighedMarker, setHighlightedMarker] = useState(false)
-  const layers = ['hospitals', 'hospitals-not-reported']
+  const layers = {
+    patients: ['hospitals', 'hospitals-not-reported'],
+    icu: ['icu', 'icu-not-reported'],
+  }
 
   const mapNode = useRef(null)
   const mapRef = useRef(null)
@@ -33,7 +37,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       [event.point.x + 5, event.point.y + 5],
     ]
     const features = mapRef.current.queryRenderedFeatures(bbox, {
-      layers,
+      layers: layers[layer],
     })
     if (!features || !features.length) {
       setActiveFacility(false)
@@ -58,7 +62,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       return
     }
     const features = mapRef.current.queryRenderedFeatures({
-      layers,
+      layers: layers[layer],
     })
     setCurrentZoom(event.target.getZoom())
     setFacilities(
@@ -110,7 +114,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
 
       if (window.location.hash && hash.length > 2) {
         const features = map.queryRenderedFeatures({
-          layers,
+          layers: layers[layer],
         })
         setFacilities(
           features.sort((a, b) =>
@@ -153,9 +157,24 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
     mapRef.current = map
   }, [])
 
+  useEffect(() => {
+    if (!mapRef.current || !mapRef.current.isStyleLoaded()) {
+      return
+    }
+    Object.keys(layers).forEach(key => {
+      layers[key].forEach(subLayer => {
+        mapRef.current.setLayoutProperty(
+          subLayer,
+          'visibility',
+          layer === key ? 'visible' : 'none',
+        )
+      })
+    })
+  }, [layer])
+
   return (
     <>
-      <Legend />
+      <Legend mapLayer={layer} setLayer={newLayer => setLayer(newLayer)} />
       <div className={facilitiesMapStyles.container} aria-hidden>
         <div className={facilitiesMapStyles.sidebar}>
           <Form

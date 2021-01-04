@@ -1,3 +1,10 @@
+.wrapper {
+  @include margin(32, top);
+  :first-child {
+    align-self: flex-end;
+  }
+}
+
 .legend {
   @include margin(32, top);
   @include padding(8);
@@ -50,6 +57,38 @@
           background: $color-blueberry-500;
         }
       }
+    }
+  }
+}
+
+.toggle {
+  cursor: pointer;
+  @include margin(16, bottom);
+  display: flex;
+  width: fit-content;
+  button {
+    @include remove-button-style();
+    color: $color-slate-600;
+    border: solid $color-slate-200 2px;
+    font-weight: initial;
+    &:before {
+      display: block;
+      content: attr(title);
+      font-weight: 700;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+    @include type-size(100);
+    margin: -1px; // ignore-style-rule
+    padding: 2px 15px; // ignore-style-rule
+    white-space: nowrap;
+
+    &.active {
+      color: black;
+      border: solid black 2px;
+      font-weight: 700;
+      z-index: 1;
     }
   }
 }
