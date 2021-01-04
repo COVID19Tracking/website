@@ -111,7 +111,7 @@ export const query = graphql`
     allContentfulBlogPost(sort: { fields: publishDate, order: DESC }) {
       nodes {
         title
-        publishDate(formatString: "MMMM d yyyy")
+        publishDate(formatString: "MMMM D yyyy")
         slug
       }
     }
