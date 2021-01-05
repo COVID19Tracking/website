@@ -4,7 +4,7 @@ const FieldValue = ({ field, percent }) => {
   if (typeof field === 'undefined' || field === '') {
     return <>N/A</>
   }
-  if (field > 0) {
+  if (field > -1) {
     return (
       <>
         {`${
