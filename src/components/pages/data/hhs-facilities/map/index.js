@@ -37,7 +37,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       [event.point.x + 5, event.point.y + 5],
     ]
     const features = mapRef.current.queryRenderedFeatures(bbox, {
-      layers: layers[layer],
+      layers: [...layers.patients, ...layers.icu],
     })
     if (!features || !features.length) {
       setActiveFacility(false)
@@ -62,7 +62,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       return
     }
     const features = mapRef.current.queryRenderedFeatures({
-      layers: layers[layer],
+      layers: [...layers.patients, ...layers.icu],
     })
     setCurrentZoom(event.target.getZoom())
     setFacilities(
@@ -115,7 +115,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
       }
       if (window.location.hash && hash.length > 2) {
         const features = map.queryRenderedFeatures({
-          layers: layers[layer],
+          layers: [...layers.patients, ...layers.icu],
         })
         setFacilities(
           features.sort((a, b) =>
