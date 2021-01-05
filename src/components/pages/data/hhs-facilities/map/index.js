@@ -235,7 +235,9 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
             <thead>
               <tr>
                 <Th alignLeft>Name</Th>
-                <Th>7-day average COVID patients</Th>
+                <Th>
+                  7-day average COVID {layer === 'icu' && <>ICU</>} patients
+                </Th>
               </tr>
             </thead>
           </Table>
@@ -245,7 +247,9 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
                 <thead className="a11y-only">
                   <tr>
                     <Th alignLeft>Name</Th>
-                    <Th>7-day average COVID patients</Th>
+                    <Th>
+                      7-day average COVID {layer === 'icu' && <>ICU</>} patients
+                    </Th>
                   </tr>
                 </thead>
                 <tbody>
@@ -277,24 +281,53 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
                         </button>
                       </Td>
                       <Td>
-                        {typeof facility.properties
-                          .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg !==
-                        'undefined' ? (
+                        {layer === 'patients' && (
                           <>
-                            {facility.properties
-                              .adult_inpatient_beds_occupancy_covid >= 0 ? (
+                            {typeof facility.properties
+                              .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg !==
+                            'undefined' ? (
                               <>
-                                {Math.round(
-                                  facility.properties
-                                    .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg,
+                                {facility.properties
+                                  .adult_inpatient_beds_occupancy_covid >= 0 ? (
+                                  <>
+                                    {Math.round(
+                                      facility.properties
+                                        .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg,
+                                    )}
+                                  </>
+                                ) : (
+                                  'between 0 and 4'
                                 )}
                               </>
                             ) : (
-                              'between 0 and 4'
+                              <>N/A</>
                             )}
                           </>
-                        ) : (
-                          <>N/A</>
+                        )}
+
+                        {layer === 'icu' && (
+                          <>
+                            {typeof facility.properties
+                              .staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg !==
+                            'undefined' ? (
+                              <>
+                                {facility.properties
+                                  .staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg >=
+                                0 ? (
+                                  <>
+                                    {Math.round(
+                                      facility.properties
+                                        .staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg,
+                                    )}
+                                  </>
+                                ) : (
+                                  'between 0 and 4'
+                                )}
+                              </>
+                            ) : (
+                              <>N/A</>
+                            )}
+                          </>
                         )}
                       </Td>
                     </tr>
@@ -338,7 +371,12 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
             )}
 
             {activeFacility && (
-              <Infobox facility={activeFacility} x={tooltip.x} y={tooltip.y} />
+              <Infobox
+                layer={layer}
+                facility={activeFacility}
+                x={tooltip.x}
+                y={tooltip.y}
+              />
             )}
             <div
               ref={mapNode}
