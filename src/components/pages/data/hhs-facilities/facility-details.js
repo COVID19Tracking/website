@@ -46,6 +46,7 @@ const fields = [
   {
     title: 'Reporting week (spans Friday to Thursday)',
     field: 'collection_week',
+    raw: true,
   },
 ]
 
@@ -69,10 +70,14 @@ const FacilityDetails = ({ facility, hideSharing = false }) => (
         <div key={key}>
           <dt>{fields[key].title}</dt>
           <dd>
-            <FieldValue
-              field={facility[fields[key].field]}
-              percent={fields[key].percent}
-            />
+            {fields[key].raw ? (
+              facility[fields[key].field]
+            ) : (
+              <FieldValue
+                field={facility[fields[key].field]}
+                percent={fields[key].percent}
+              />
+            )}
           </dd>
         </div>
       ))}
