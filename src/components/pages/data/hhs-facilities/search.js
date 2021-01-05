@@ -126,7 +126,8 @@ const HHSFacilitiesSearch = () => {
                       {typeof hit.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg !==
                       'undefined' ? (
                         <>
-                          {hit.adult_inpatient_beds_occupancy_covid > 0 ? (
+                          {hit.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
+                          0 ? (
                             <>
                               {Math.round(
                                 hit.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg,

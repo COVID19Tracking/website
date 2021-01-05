@@ -288,7 +288,8 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
                             'undefined' ? (
                               <>
                                 {facility.properties
-                                  .adult_inpatient_beds_occupancy_covid >= 0 ? (
+                                  .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >=
+                                0 ? (
                                   <>
                                     {Math.round(
                                       facility.properties
