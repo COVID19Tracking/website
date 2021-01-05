@@ -5,6 +5,7 @@ import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
 import { Form, Input } from '~components/common/form'
 import Modal from '~components/common/modal'
+import FieldValue from './field-value'
 import FacilityDetails, { fields } from './facility-details'
 import searchStyle from './search.module.scss'
 
@@ -84,19 +85,19 @@ const HHSFacilitiesSearch = () => {
             <Table>
               <thead>
                 <tr>
-                  <Th header>State</Th>
-                  <Th header alignLeft>
-                    Name
+                  <Th>State</Th>
+                  <Th alignLeft>Name</Th>
+                  <Th alignLeft>Address</Th>
+                  <Th header="COVID patients in hospital" isFirst alignLeft>
+                    Adult patients (7 day average)
                   </Th>
-                  <Th header alignLeft>
-                    Address
+                  <Th header scope="col">
+                    Percent of inpatient beds
                   </Th>
-                  <Th header isFirst>
-                    Adult COVID-19 patients currently in hospital
+                  <Th header="COVID patients in ICU" isFirst alignLeft>
+                    Adult patients (7 day average)
                   </Th>
-                  <Th header>
-                    Percent of inpatient beds occupied by COVID-19 patients
-                  </Th>
+                  <Th header="COVID patients in ICU">Percent of ICU beds</Th>
                 </tr>
               </thead>
               <tbody>
@@ -123,37 +124,30 @@ const HHSFacilitiesSearch = () => {
                       </address>
                     </Td>
                     <Td isFirst>
-                      {typeof hit.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg !==
-                      'undefined' ? (
-                        <>
-                          {hit.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >
-                          0 ? (
-                            <>
-                              {Math.round(
-                                hit.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg,
-                              )}
-                            </>
-                          ) : (
-                            'between 0 and 4%'
-                          )}
-                        </>
-                      ) : (
-                        <>N/A</>
-                      )}
+                      <FieldValue
+                        field={
+                          hit.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
+                        }
+                      />
                     </Td>
                     <Td>
-                      {typeof hit.adult_inpatient_beds_occupancy_covid !==
-                      'undefined' ? (
-                        <>
-                          {hit.adult_inpatient_beds_occupancy_covid > 0
-                            ? `${Math.round(
-                                hit.adult_inpatient_beds_occupancy_covid * 100,
-                              )}%`
-                            : 'between 0 and 4%'}
-                        </>
-                      ) : (
-                        <>N/A</>
-                      )}
+                      <FieldValue
+                        field={hit.adult_inpatient_beds_occupancy_covid}
+                        percent
+                      />
+                    </Td>
+                    <Td>
+                      <FieldValue
+                        field={
+                          hit.staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg
+                        }
+                      />
+                    </Td>
+                    <Td>
+                      <FieldValue
+                        field={hit.adult_icu_beds_occupancy_covid}
+                        percent
+                      />
                     </Td>
                   </tr>
                 ))}

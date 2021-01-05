@@ -7,6 +7,7 @@ import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
 import FacilityDetails from '../facility-details'
 import Legend from './legend'
+import FieldValue from '../field-value'
 import Infobox from './infobox'
 import Definitions from '../definitions'
 import facilitiesMapStyles from './map.module.scss'
@@ -282,53 +283,21 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
                       </Td>
                       <Td>
                         {layer === 'patients' && (
-                          <>
-                            {typeof facility.properties
-                              .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg !==
-                            'undefined' ? (
-                              <>
-                                {facility.properties
-                                  .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg >=
-                                0 ? (
-                                  <>
-                                    {Math.round(
-                                      facility.properties
-                                        .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg,
-                                    )}
-                                  </>
-                                ) : (
-                                  'between 0 and 4'
-                                )}
-                              </>
-                            ) : (
-                              <>N/A</>
-                            )}
-                          </>
+                          <FieldValue
+                            field={
+                              facility.properties
+                                .total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
+                            }
+                          />
                         )}
 
                         {layer === 'icu' && (
-                          <>
-                            {typeof facility.properties
-                              .staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg !==
-                            'undefined' ? (
-                              <>
-                                {facility.properties
-                                  .staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg >=
-                                0 ? (
-                                  <>
-                                    {Math.round(
-                                      facility.properties
-                                        .staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg,
-                                    )}
-                                  </>
-                                ) : (
-                                  'between 0 and 4'
-                                )}
-                              </>
-                            ) : (
-                              <>N/A</>
-                            )}
-                          </>
+                          <FieldValue
+                            field={
+                              facility.properties
+                                .staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg
+                            }
+                          />
                         )}
                       </Td>
                     </tr>

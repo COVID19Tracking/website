@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react'
+import FieldValue from '../field-value'
 import infoboxStyle from './infobox.module.scss'
 
 const Infobox = ({ layer, facility, x, y }) => (
@@ -15,79 +16,37 @@ const Infobox = ({ layer, facility, x, y }) => (
       <>
         <p>
           <strong>Adult COVID-19 patients currently in hospital:</strong>{' '}
-          {typeof facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg !==
-          'undefined' ? (
-            <>
-              {facility.adult_inpatient_beds_occupancy_covid >= 0 ? (
-                <>
-                  {Math.round(
-                    facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg,
-                  )}
-                </>
-              ) : (
-                'between 0 and 4'
-              )}
-            </>
-          ) : (
-            <>N/A</>
-          )}
+          <FieldValue
+            field={
+              facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
+            }
+          />
         </p>
         <p>
           <strong>
             Percent of inpatient beds occupied by COVID-19 patients:
           </strong>{' '}
-          {typeof facility.adult_inpatient_beds_occupancy_covid !==
-          'undefined' ? (
-            <>
-              {facility.adult_inpatient_beds_occupancy_covid >= 0
-                ? `${Math.round(
-                    facility.adult_inpatient_beds_occupancy_covid * 100,
-                  )}%`
-                : 'between 0 and 4%'}
-            </>
-          ) : (
-            <>N/A</>
-          )}
+          <FieldValue
+            field={facility.adult_inpatient_beds_occupancy_covid}
+            percent
+          />
         </p>
       </>
     )}
 
     {layer === 'icu' && (
       <>
-        {console.log(facility.adult_inpatient_beds_occupancy_covid)}
         <p>
           <strong>Adult COVID-19 ICU patients currently in hospital:</strong>{' '}
-          {typeof facility.staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg !==
-          'undefined' ? (
-            <>
-              {facility.staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg >=
-              0 ? (
-                <>
-                  {Math.round(
-                    facility.staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg,
-                  )}
-                </>
-              ) : (
-                'between 0 and 4'
-              )}
-            </>
-          ) : (
-            <>N/A</>
-          )}
+          <FieldValue
+            field={
+              facility.staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg
+            }
+          />
         </p>
         <p>
           <strong>Percent of ICU beds occupied by COVID-19 patients:</strong>{' '}
-          {typeof facility.adult_icu_beds_occupancy_covid !== 'undefined' ? (
-            <>
-              {facility.adult_icu_beds_occupancy_covid >= 0
-                ? `${Math.round(
-                    facility.adult_icu_beds_occupancy_covid * 100,
-                  )}%`
-                : 'between 0 and 4%'}
-            </>
-          ) : (
-            <>N/A</>
-          )}
+          <FieldValue field={facility.adult_icu_beds_occupancy_covid} percent />
         </p>
       </>
     )}

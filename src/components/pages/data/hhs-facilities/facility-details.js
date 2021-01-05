@@ -1,4 +1,5 @@
 import React from 'react'
+import FieldValue from './field-value'
 import facilityDetailsStyle from './facility-details.module.scss'
 import SocialSharing from '~components/common/social-sharing'
 
@@ -14,21 +15,25 @@ const fields = [
   },
   {
     title: 'Percent of adult inpatient beds occupied by all patients',
+    percent: true,
     field: 'adult_inpatient_beds_occupancy_all',
     value: value => (value === null ? 'N/A' : `${Math.round(value * 100)}%`),
   },
   {
     title: 'Percent of adult ICU beds occupied by all patients',
+    percent: true,
     field: 'adult_icu_beds_occupancy_all',
     value: value => `${Math.round(value * 100)}%`,
   },
   {
     title: 'Percent of adult inpatient beds occupied by COVID-19 patients',
+    percent: true,
     field: 'adult_inpatient_beds_occupancy_covid',
     value: value => `${Math.round(value * 100)}%`,
   },
   {
     title: 'Percent of adult ICU beds occupied by COVID-19 patients',
+    percent: true,
     field: 'adult_icu_beds_occupancy_covid',
     value: value => `${Math.round(value * 100)}%`,
   },
@@ -63,21 +68,10 @@ const FacilityDetails = ({ facility, hideSharing = false }) => (
         <div key={key}>
           <dt>{fields[key].title}</dt>
           <dd>
-            {typeof facility[fields[key].field] !== 'undefined' ? (
-              <>
-                {facility[fields[key].field] < 0 ? (
-                  <>between 0 and 4</>
-                ) : (
-                  <>
-                    {fields[key].value
-                      ? fields[key].value(facility[fields[key].field])
-                      : facility[fields[key].field]}
-                  </>
-                )}
-              </>
-            ) : (
-              <>N/A</>
-            )}
+            <FieldValue
+              field={facility[fields[key].field]}
+              percent={fields[key].percent}
+            />
           </dd>
         </div>
       ))}
