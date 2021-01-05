@@ -40,6 +40,7 @@ const fields = [
   {
     title: 'Reporting completeness',
     field: 'mean_coverage',
+    percent: true,
     value: value => `${Math.round(value * 100)}%`,
   },
   {
