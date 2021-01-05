@@ -54,12 +54,14 @@ const Infobox = ({ layer, facility, x, y }) => (
 
     {layer === 'icu' && (
       <>
+        {console.log(facility.adult_inpatient_beds_occupancy_covid)}
         <p>
           <strong>Adult COVID-19 ICU patients currently in hospital:</strong>{' '}
           {typeof facility.staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg !==
           'undefined' ? (
             <>
-              {facility.adult_inpatient_beds_occupancy_covid >= 0 ? (
+              {facility.staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg >=
+              0 ? (
                 <>
                   {Math.round(
                     facility.staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg,

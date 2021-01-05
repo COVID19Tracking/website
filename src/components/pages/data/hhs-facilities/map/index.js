@@ -57,6 +57,7 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
         event.target.getZoom(),
       ].join(',')
     }
+    setCurrentZoom(event.target.getZoom())
     if (event.target.getZoom() < 6) {
       setFacilities(false)
       return
@@ -64,7 +65,6 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
     const features = mapRef.current.queryRenderedFeatures({
       layers: [...layers.patients, ...layers.icu],
     })
-    setCurrentZoom(event.target.getZoom())
     setFacilities(
       features.sort((a, b) =>
         a.properties.hospital_name > b.properties.hospital_name ? 1 : -1,
