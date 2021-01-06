@@ -4,6 +4,7 @@ import { Card, CardNote, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 import LastUpdatedLabel from './last-updated-label'
+import { Link } from 'gatsby'
 
 const HospitalizationHHSCard = ({ hhsHospitalization }) => {
   const definitionContext = useContext(DefinitionPanelContext)
@@ -15,6 +16,13 @@ const HospitalizationHHSCard = ({ hhsHospitalization }) => {
   return (
     <Card title="Hospitalization (HHS data)">
       <CardBody>
+        <CardNote>
+          <Link to="/data/hospital-facilities">
+            See this<span className="a11y-only"> HHS hospitalization</span> data
+            on a map
+          </Link>
+          .
+        </CardNote>
         <Statistic
           title="Now hospitalized (confirmed + suspected)"
           value={parseInt(hhsHospitalization.inpatient_beds_used_covid, 10)}
