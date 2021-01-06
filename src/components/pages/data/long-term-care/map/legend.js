@@ -1,37 +1,26 @@
 import React from 'react'
 import classnames from 'classnames'
 import Container from '~components/common/container'
+import LayerToggle from '~components/common/map/layer-toggle'
 import legendStyles from './legend.module.scss'
 import { Col, Row } from '~components/common/grid'
 
-const Legend = ({ mapLayer, setLayer }) => (
+const Legend = () => (
   <Container>
     <Row className={legendStyles.wrapper}>
       <Col width={[4, 6, 4]}>
-        <div
-          className={legendStyles.toggle}
-          role="group"
-          aria-label="Toggle map layers"
-        >
-          <button
-            className={mapLayer === 'cases' && legendStyles.active}
-            type="button"
-            onClick={() => {
-              setLayer('cases')
-            }}
-          >
-            Cases
-          </button>
-          <button
-            className={mapLayer === 'deaths' && legendStyles.active}
-            type="button"
-            onClick={() => {
-              setLayer('deaths')
-            }}
-          >
-            Deaths
-          </button>
-        </div>
+        <LayerToggle
+          layers={[
+            {
+              id: 'cases',
+              name: 'Cases',
+            },
+            {
+              id: 'deaths',
+              name: 'Deaths',
+            },
+          ]}
+        />
       </Col>
       <Col width={[4, 6, 8]}>
         <div className={legendStyles.legend} aria-hidden>

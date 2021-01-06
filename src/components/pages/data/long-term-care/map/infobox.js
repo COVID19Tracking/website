@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react'
-import infoboxStyle from './infobox.module.scss'
+import Infobox from '~components/common/map/infobox'
 
 const Item = ({ title, value }) => (
   <p>
@@ -8,20 +8,14 @@ const Item = ({ title, value }) => (
   </p>
 )
 
-const Infobox = ({ facility, x, y }) => {
+const LtcInfobox = ({ facility, x, y }) => {
   const hasResidentData =
     facility.outbreak_resident_positives ||
     facility.outbreak_resident_deaths ||
     facility.resident_positives ||
     facility.resident_deaths
   return (
-    <div
-      className={infoboxStyle.infobox}
-      style={{
-        left: Math.max(10, x - 175),
-        top: y + 15,
-      }}
-    >
+    <Infobox x={x} y={y}>
       <h3>{facility.facility_name}</h3>
       {hasResidentData ? (
         <>
@@ -60,8 +54,8 @@ const Infobox = ({ facility, x, y }) => {
         </>
       )}
       <p>Click to view more information</p>
-    </div>
+    </Infobox>
   )
 }
 
-export default Infobox
+export default LtcInfobox

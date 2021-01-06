@@ -3,13 +3,15 @@ import React, { useEffect, useState, useRef } from 'react'
 import mapboxgl from 'mapbox-gl'
 import url from 'url'
 import Container from '~components/common/container'
-import { Form, Input } from '~components/common/form'
-import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
 import FacilityDetails from '../facility-details'
 import Legend from './legend'
 import FieldValue from '../field-value'
 import Infobox from './infobox'
+import Sidebar from '~components/common/map/sidebar'
+import Overlay from '~components/common/map/overlay'
+import Wrapper from '~components/common/map/wrapper'
+import MapContext from '~components/common/map/map-context'
 import Definitions from '../definitions'
 import stateCenters from '~data/visualization/state-centers.json'
 import facilitiesMapStyles from './map.module.scss'
@@ -17,9 +19,8 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 
 const HHSFacilitiesMap = ({ center, zoom }) => {
   mapboxgl.accessToken = process.env.GATSBY_MAPBOX_API_TOKEN
-  const [layer, setLayer] = useState('patients')
+  const [mapLayer, setMapLayer] = useState('patients')
   const [activeFacility, setActiveFacility] = useState(false)
-  const [query, setQuery] = useState(false)
   const [facilities, setFacilities] = useState(false)
   const [tooltip, setTooltip] = useState({ x: 0, y: 0 })
   const [highlightedFacility, setHighlightedFacility] = useState(false)
@@ -207,80 +208,29 @@ const HHSFacilitiesMap = ({ center, zoom }) => {
         mapRef.current.setLayoutProperty(
           subLayer,
           'visibility',
-          layer === key ? 'visible' : 'none',
+          mapLayer === key ? 'visible' : 'none',
         )
       })
     })
-  }, [layer])
+  }, [mapLayer])
 
   return (
-    <>
-      <Legend
-        mapLayer={layer}
-        setLayer={newLayer => setLayer(newLayer)}
-        date={mapDate}
-      />
+    <MapContext.Provider
+      value={{
+        mapLayer,
+        setMapLayer,
+        infoboxPosition: tooltip,
+      }}
+    >
+      <Legend date={mapDate} />
       <div className={facilitiesMapStyles.container} aria-hidden>
-        <div className={facilitiesMapStyles.sidebar}>
-          <Form
-            onSubmit={event => {
-              event.preventDefault()
-              if (
-                typeof window === 'undefined' ||
-                typeof window.fetch === 'undefined'
-              ) {
-                return
-              }
-              window
-                .fetch(
-                  `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-                    query,
-                  )}.json?limit=1&access_token=${
-                    process.env.GATSBY_MAPBOX_API_TOKEN
-                  }`,
-                )
-                .then(response => response.json())
-                .then(response => {
-                  if (response.features.length === 0) {
-                    return
-                  }
-                  const feature = response.features.pop()
-                  mapRef.current.easeTo({
-                    center: feature.center,
-                    zoom: 11,
-                  })
-                })
-            }}
-            noMargin
-          >
-            <Row>
-              <Col width={[4, 6, 8]}>
-                <Input
-                  type="text"
-                  label="Search facilities"
-                  placeholder="Enter a city or zip code"
-                  hideLabel
-                  onChange={event => {
-                    setQuery(event.target.value)
-                  }}
-                />
-              </Col>
-              <Col width={[4, 6, 4]} paddingLeft={[0, 0, 8]}>
-                <button
-                  type="submit"
-                  className={facilitiesMapStyles.searchButton}
-                >
-                  Search
-                </button>
-              </Col>
-            </Row>
-          </Form>
+        <Sidebar map={mapRef.current}>
           <Table ariaHidden>
             <thead>
               <tr>
                 <Th alignLeft>Name</Th>
                 <Th>
-                  7-day average COVID {layer === 'icu' && <>ICU</>} patients
+                  7-day average COVID {mapLayer === 'icu' && <>ICU</>} patients
                 </Th>
               </tr>
             </thead>
@@ -292,7 +242,8 @@ const HHSFacilitiesMap = ({ center, zoom }) => {
                   <tr>
                     <Th alignLeft>Name</Th>
                     <Th>
-                      7-day average COVID {layer === 'icu' && <>ICU</>} patients
+                      7-day average COVID {mapLayer === 'icu' && <>ICU</>}{' '}
+                      patients
                     </Th>
                   </tr>
                 </thead>
@@ -325,7 +276,7 @@ const HHSFacilitiesMap = ({ center, zoom }) => {
                         </button>
                       </Td>
                       <Td>
-                        {layer === 'patients' && (
+                        {mapLayer === 'patients' && (
                           <FieldValue
                             field={
                               facility.properties
@@ -334,7 +285,7 @@ const HHSFacilitiesMap = ({ center, zoom }) => {
                           />
                         )}
 
-                        {layer === 'icu' && (
+                        {mapLayer === 'icu' && (
                           <FieldValue
                             field={
                               facility.properties
@@ -357,52 +308,37 @@ const HHSFacilitiesMap = ({ center, zoom }) => {
               )}
             </p>
           )}
-        </div>
-        <div className={facilitiesMapStyles.mapWrapper} role="img">
-          <div className={facilitiesMapStyles.mapInset}>
-            {revealedFacility && (
-              <>
-                <div
-                  role="dialog"
-                  className={facilitiesMapStyles.facilityCardOverlay}
-                  onClick={() => setRevealedFacility(false)}
-                />
-                <div className={facilitiesMapStyles.facilityCard} role="dialog">
-                  <button
-                    className={facilitiesMapStyles.close}
-                    type="button"
-                    onClick={event => {
-                      event.preventDefault()
-                      setRevealedFacility(false)
-                    }}
-                  >
-                    &times;
-                  </button>
-                  <FacilityDetails facility={activeFacility} />
-                </div>
-              </>
-            )}
+        </Sidebar>
+        <Wrapper>
+          {revealedFacility && (
+            <Overlay
+              close={() => {
+                setRevealedFacility(false)
+              }}
+            >
+              <FacilityDetails facility={activeFacility} />
+            </Overlay>
+          )}
 
-            {activeFacility && (
-              <Infobox
-                layer={layer}
-                facility={activeFacility}
-                x={tooltip.x}
-                y={tooltip.y}
-              />
-            )}
-            <div
-              ref={mapNode}
-              className={facilitiesMapStyles.map}
-              style={{ width: '100%', height: '100%' }}
+          {activeFacility && (
+            <Infobox
+              layer={mapLayer}
+              facility={activeFacility}
+              x={tooltip.x}
+              y={tooltip.y}
             />
-          </div>
-        </div>
+          )}
+          <div
+            ref={mapNode}
+            className={facilitiesMapStyles.map}
+            style={{ width: '100%', height: '100%' }}
+          />
+        </Wrapper>
       </div>
       <Container>
         <Definitions />
       </Container>
-    </>
+    </MapContext.Provider>
   )
 }
 
