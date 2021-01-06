@@ -26,6 +26,7 @@ const HHSFacilitiesMap = ({ center, zoom }) => {
   const [revealedFacility, setRevealedFacility] = useState(false)
   const [currentZoom, setCurrentZoom] = useState(0)
   const [highlighedMarker, setHighlightedMarker] = useState(false)
+  const [mapDate, setMapDate] = useState(false)
   const layers = {
     patients: ['hospitals', 'hospitals-not-reported'],
     icu: ['icu', 'icu-not-reported'],
@@ -141,6 +142,17 @@ const HHSFacilitiesMap = ({ center, zoom }) => {
     map.addControl(new mapboxgl.NavigationControl(), 'top-left')
 
     map.on('load', () => {
+      const featureDates = map
+        .queryRenderedFeatures({
+          layers: [...layers.patients, ...layers.icu],
+        })
+        .map(feature => feature.properties.collection_week)
+      setMapDate(
+        featureDates
+          .filter((date, index) => featureDates.indexOf(date) === index)
+          .sort((a, b) => (a > b ? 1 : -1))
+          .pop(),
+      )
       if (window.location.hash && hash.length > 2) {
         const features = map.queryRenderedFeatures({
           layers: [...layers.patients, ...layers.icu],
@@ -203,7 +215,11 @@ const HHSFacilitiesMap = ({ center, zoom }) => {
 
   return (
     <>
-      <Legend mapLayer={layer} setLayer={newLayer => setLayer(newLayer)} />
+      <Legend
+        mapLayer={layer}
+        setLayer={newLayer => setLayer(newLayer)}
+        date={mapDate}
+      />
       <div className={facilitiesMapStyles.container} aria-hidden>
         <div className={facilitiesMapStyles.sidebar}>
           <Form
