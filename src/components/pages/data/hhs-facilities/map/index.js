@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle,max-len,jsx-a11y/no-noninteractive-element-interactions,jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState, useRef } from 'react'
 import mapboxgl from 'mapbox-gl'
+import url from 'url'
 import Container from '~components/common/container'
 import { Form, Input } from '~components/common/form'
 import { Row, Col } from '~components/common/grid'
@@ -10,10 +11,11 @@ import Legend from './legend'
 import FieldValue from '../field-value'
 import Infobox from './infobox'
 import Definitions from '../definitions'
+import stateCenters from '~data/visualization/state-centers.json'
 import facilitiesMapStyles from './map.module.scss'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
-const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
+const HHSFacilitiesMap = ({ center, zoom }) => {
   mapboxgl.accessToken = process.env.GATSBY_MAPBOX_API_TOKEN
   const [layer, setLayer] = useState('patients')
   const [activeFacility, setActiveFacility] = useState(false)
@@ -96,14 +98,42 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
         setRevealedFacility(false)
       }
     })
-
-    const hash = window.location.hash.replace('#', '').split(',')
-
+    const pageUrl = url.parse(window.location.href, true)
+    const hash = pageUrl.hash ? pageUrl.hash.replace('#', '').split(',') : []
+    const { state } = pageUrl.query
+    const mapCenter = (() => {
+      if (hash.length) {
+        return [hash[0], hash[1]]
+      }
+      if (state) {
+        const stateCenter = stateCenters.find(
+          stateCenterItem => stateCenterItem.state === state,
+        )
+        if (stateCenter) {
+          return [stateCenter.lon, stateCenter.lat]
+        }
+      }
+      return center
+    })()
+    const mapZoom = (() => {
+      if (hash.length > 2) {
+        return hash[2]
+      }
+      if (state) {
+        const stateCenter = stateCenters.find(
+          stateCenterItem => stateCenterItem.state === state,
+        )
+        if (stateCenter) {
+          return stateCenter.zoom
+        }
+      }
+      return zoom
+    })()
     const map = new mapboxgl.Map({
       container: mapNode.current,
       style: `mapbox://styles/covidtrackingproject/ckihibso80hsg19o8q5gbq9z7`,
-      center: hash.length > 2 ? [hash[0], hash[1]] : center,
-      zoom: hash.length > 2 ? hash[2] : zoom,
+      center: mapCenter,
+      zoom: mapZoom,
       minZoom: 3.5,
       maxZoom: 18,
     })
@@ -111,9 +141,6 @@ const HHSFacilitiesMap = ({ center, zoom, state = false }) => {
     map.addControl(new mapboxgl.NavigationControl(), 'top-left')
 
     map.on('load', () => {
-      if (state) {
-        map.setFilter('hospitals', ['==', ['get', 'state'], state])
-      }
       if (window.location.hash && hash.length > 2) {
         const features = map.queryRenderedFeatures({
           layers: [...layers.patients, ...layers.icu],

@@ -209,6 +209,7 @@ const StateSummary = ({
             <HospitalizationHhsCard
               stateSlug={stateSlug}
               stateName={stateName}
+              stateAbbreviation={stateAbbreviation}
               hhsHospitalization={hhsHospitalization}
             />
           )}

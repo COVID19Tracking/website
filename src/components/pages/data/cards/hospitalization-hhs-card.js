@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 import React, { useContext } from 'react'
+import { Link } from 'gatsby'
 import { Card, CardNote, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 import LastUpdatedLabel from './last-updated-label'
-import { Link } from 'gatsby'
 
-const HospitalizationHHSCard = ({ hhsHospitalization }) => {
+const HospitalizationHHSCard = ({ hhsHospitalization, stateAbbreviation }) => {
   const definitionContext = useContext(DefinitionPanelContext)
   const fields = [
     'hhsICUConfirmedSuspected',
@@ -17,7 +17,7 @@ const HospitalizationHHSCard = ({ hhsHospitalization }) => {
     <Card title="Hospitalization (HHS data)">
       <CardBody>
         <CardNote>
-          <Link to="/data/hospital-facilities">
+          <Link to={`/data/hospital-facilities?state=${stateAbbreviation}`}>
             See this<span className="a11y-only"> HHS hospitalization</span> data
             on a map
           </Link>
