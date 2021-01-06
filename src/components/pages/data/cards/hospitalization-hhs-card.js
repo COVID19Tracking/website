@@ -1,11 +1,12 @@
 /* eslint-disable max-len */
 import React, { useContext } from 'react'
+import { Link } from 'gatsby'
 import { Card, CardNote, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 import LastUpdatedLabel from './last-updated-label'
 
-const HospitalizationHHSCard = ({ hhsHospitalization }) => {
+const HospitalizationHHSCard = ({ hhsHospitalization, stateAbbreviation }) => {
   const definitionContext = useContext(DefinitionPanelContext)
   const fields = [
     'hhsICUConfirmedSuspected',
@@ -15,6 +16,13 @@ const HospitalizationHHSCard = ({ hhsHospitalization }) => {
   return (
     <Card title="Hospitalization (HHS data)">
       <CardBody>
+        <CardNote>
+          <Link to={`/data/hospital-facilities?state=${stateAbbreviation}`}>
+            See this<span className="a11y-only"> HHS hospitalization</span> data
+            on a map
+          </Link>
+          .
+        </CardNote>
         <Statistic
           title="Now hospitalized (confirmed + suspected)"
           value={parseInt(hhsHospitalization.inpatient_beds_used_covid, 10)}

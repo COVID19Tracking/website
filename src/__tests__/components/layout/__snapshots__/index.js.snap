@@ -567,6 +567,13 @@ Array [
             </li>
             <li>
               <a
+                href="/about/sitemap"
+              >
+                Sitemap
+              </a>
+            </li>
+            <li>
+              <a
                 href="/rss.xml"
               >
                 RSS
@@ -608,7 +615,7 @@ Array [
     >
       <span>
         CovidTracking.com Copyright © 
-        2020
+        2021
          by The Atlantic Monthly Group. 
         <a
           href="/license"
@@ -1201,6 +1208,13 @@ Array [
             </li>
             <li>
               <a
+                href="/about/sitemap"
+              >
+                Sitemap
+              </a>
+            </li>
+            <li>
+              <a
                 href="/rss.xml"
               >
                 RSS
@@ -1242,7 +1256,7 @@ Array [
     >
       <span>
         CovidTracking.com Copyright © 
-        2020
+        2021
          by The Atlantic Monthly Group. 
         <a
           href="/license"

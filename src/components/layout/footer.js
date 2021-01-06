@@ -44,6 +44,9 @@ const Footer = ({ noMargin = false }) => (
               <Link to="/about/accessibility">Accessibility</Link>
             </li>
             <li>
+              <Link to="/about/sitemap">Sitemap</Link>
+            </li>
+            <li>
               <a href="/rss.xml">RSS</a>
             </li>
           </ul>

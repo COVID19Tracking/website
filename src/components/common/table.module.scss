@@ -10,7 +10,8 @@
 }
 
 .header-label {
-  @include bold-type-size(200);
+  @include bold-type-size(100);
+  @include margin(8, bottom);
   left: 0.5rem;
   position: absolute;
   bottom: 2.1rem;

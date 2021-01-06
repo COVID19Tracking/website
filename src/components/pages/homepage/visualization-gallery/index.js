@@ -35,33 +35,6 @@ const GalleryItem = ({ item }) => {
   )
 }
 
-const SvgFilters = () => (
-  <svg aria-hidden className={galleryStyle.filters} width={0} height={0}>
-    <filter id="dropshadow">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
-      <feOffset dx="0" dy="0" result="offsetblur" />
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3" />
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-    <filter id="dropshadow-large">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="6" />
-      <feOffset dx="0" dy="0" result="offsetblur" />
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.8" />
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-  </svg>
-)
-
 const HomepageGallery = () => {
   const data = useStaticQuery(graphql`
     {
@@ -116,11 +89,10 @@ const HomepageGallery = () => {
           </Container>
         </div>
       </Tabs>
-      <SvgFilters />
     </>
   )
 }
 
 export default HomepageGallery
 
-export { SvgFilters, components }
+export { components }

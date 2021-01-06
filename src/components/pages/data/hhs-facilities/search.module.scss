@@ -1,0 +1,13 @@
+.search-button {
+  @include margin(8, top);
+}
+
+.modal-button {
+  @include remove-button-style();
+  text-align: left;
+  text-decoration: underline;
+}
+
+.wrapper {
+  @include margin(64, top);
+}

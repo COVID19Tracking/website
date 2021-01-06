@@ -115,6 +115,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: `/document/download/${node.slug}`,
       toPath: node.document.file.url,
+      isPermanent: true,
     })
   })
 
@@ -122,6 +123,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: from,
       toPath: redirectTo,
+      isPermanent: true,
     })
   })
 
@@ -194,6 +196,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: `/data/state/${slug}/screenshots`,
       toPath: `https://screenshots.covidtracking.com/${slug}`,
+      isPermanent: true,
     })
   })
 
@@ -230,6 +233,7 @@ exports.createPages = async ({ graphql, actions }) => {
       createRedirect({
         fromPath: shortPath,
         toPath: node.overrideBlogPath,
+        isPermanent: true,
       })
     } else {
       createPage({
@@ -241,6 +245,7 @@ exports.createPages = async ({ graphql, actions }) => {
       createRedirect({
         fromPath: shortPath,
         toPath: longPath,
+        isPermanent: true,
       })
     }
   })

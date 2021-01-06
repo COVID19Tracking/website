@@ -9,6 +9,7 @@ const getAverage = (history, state, value) =>
 export default {
   casesPer100k: {
     title: 'Average daily new COVID-19 cases per 100k people (past 7 days)',
+    subTitle: (now, sevenDaysAgo) => `From ${sevenDaysAgo} to ${now}`,
     getValue: (history, state) =>
       getAverage(
         history,
@@ -56,6 +57,7 @@ export default {
   },
   sevenDayPositive: {
     title: 'Average daily new COVID-19 cases (past 7 days)',
+    subTitle: (now, sevenDaysAgo) => `From ${sevenDaysAgo} to ${now}`,
     getValue: (history, state) =>
       getAverage(history, state.state, item => item.positiveIncrease),
 
@@ -91,6 +93,45 @@ export default {
       {
         style: mapStyle.level4,
         label: 'Over 5,000 cases',
+      },
+    ],
+  },
+  hospitalizationPer1m: {
+    title: 'Currently hospitalized per 1 million people',
+    subTitle: now => `Data updated ${now}`,
+    getValue: (history, state) =>
+      history.find(group => group.nodes[0].state === state.state).nodes[0]
+        .childPopulation.hospitalizedCurrently.percent * 1000000,
+    getUsValue: history =>
+      history[0].childPopulation.hospitalizedCurrently.percent * 1000000,
+    getColor: item => {
+      if (item > 500) {
+        return mapStyle.blueLevel4
+      }
+      if (item > 250) {
+        return mapStyle.blueLevel3
+      }
+      if (item > 100) {
+        return mapStyle.blueLevel2
+      }
+      return mapStyle.blueLevel1
+    },
+    legend: [
+      {
+        style: mapStyle.blueLevel1,
+        label: 'Under 100',
+      },
+      {
+        style: mapStyle.blueLevel2,
+        label: '100 - 250',
+      },
+      {
+        style: mapStyle.blueLevel3,
+        label: '250 - 500',
+      },
+      {
+        style: mapStyle.blueLevel4,
+        label: 'Over 500 hospitalizations per 1 million',
       },
     ],
   },

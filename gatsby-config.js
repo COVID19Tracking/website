@@ -48,6 +48,12 @@ const gatsbyConfig = {
     'gatsby-plugin-svgr',
     'gatsby-transformer-yaml',
     {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://covidtracking.com',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-webfonts',
       options: {
         fonts: {
@@ -56,6 +62,7 @@ const gatsbyConfig = {
               family: 'Open Sans',
               variants: ['300', '400', '700'],
               subsets: ['latin-ext'],
+              fontDisplay: 'swap',
             },
           ],
         },

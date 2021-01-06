@@ -1078,6 +1078,16 @@ exports[`Components : Pages : Data : Cards : Hospitalization renders correctly 2
         </div>
       </div>
     </div>
+    <p
+      className="note"
+    >
+      <a
+        href="/data/hospital-facilities"
+      >
+        See HHS hospitalization data on a map
+      </a>
+      .
+    </p>
   </div>
 </div>
 `;
