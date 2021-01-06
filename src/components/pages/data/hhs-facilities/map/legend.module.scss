@@ -7,7 +7,7 @@
 
 .legend {
   @include margin(32, top);
-  @include padding(8);
+  @include padding(8, top bottom);
   @include type-size(100);
   display: flex;
   justify-content: flex-end;
@@ -20,6 +20,7 @@
   }
   .scale {
     display: flex;
+    flex-wrap: wrap;
     @include margin(8, bottom);
     > div {
       width: 60px;

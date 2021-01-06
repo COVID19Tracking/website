@@ -8,7 +8,7 @@ import legendStyles from './legend.module.scss'
 const Legend = ({ mapLayer, setLayer, date }) => (
   <Container>
     <Row className={legendStyles.wrapper}>
-      <Col width={[4, 6, 6]}>
+      <Col width={[4, 6, 6]} paddingRight={[0, 0, 0]}>
         <div
           className={legendStyles.toggle}
           role="group"
@@ -43,7 +43,7 @@ const Legend = ({ mapLayer, setLayer, date }) => (
           />
         </p>
       </Col>
-      <Col width={[4, 6, 6]}>
+      <Col width={[4, 6, 6]} paddingLeft={[0, 0, 16]}>
         <div className={legendStyles.legend} aria-hidden>
           <div>
             <div className={legendStyles.label}>
