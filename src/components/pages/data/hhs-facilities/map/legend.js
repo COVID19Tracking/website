@@ -36,8 +36,7 @@ const Legend = ({ mapLayer, setLayer, date }) => (
         <p className={legendStyles.dates}>
           {date ? (
             <>
-              Data for
-              <FormatDate date={date} format="LLLL d, yyyy" /> to{' '}
+              Data for <FormatDate date={date} format="LLLL d, yyyy" /> to{' '}
               <FormatDate
                 date={DateTime.fromISO(date)
                   .plus({ days: 6 })
