@@ -11,6 +11,7 @@ const NationalDataHospitalizationPage = ({ data }) => {
       returnLinkTitle="Our Data"
       returnLink="/data"
       path="/data/national/hospitalization"
+      description="Currently hospitalized, ICU, and ventilator numbers in the US for each day from January 2020 to the present."
       returnLinks={[
         { link: '/data' },
         { link: `/data/national`, title: 'Totals for the US' },

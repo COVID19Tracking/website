@@ -11,6 +11,7 @@ const NationalDataDeathsPage = ({ data }) => {
       returnLinkTitle="Our Data"
       returnLink="/data"
       path="/data/national/deaths"
+      description="COVID deaths numbers in the US for each day from January 2020 to the present."
       returnLinks={[
         { link: '/data' },
         { link: `/data/national`, title: 'Totals for the US' },

@@ -17,7 +17,11 @@ const DataDefintionsPage = ({ data }) => {
   ]
   const { nodes } = data.allContentfulDataDefinition
   return (
-    <Layout title="Data Definitions" centered>
+    <Layout
+      title="Data Definitions"
+      description="COVID-19 data definitions change frequently across the 56 jurisdictions we track, so we must sometimes update our data definitions to reflect the realities we find in the data."
+      centered
+    >
       <LongContent>
         <ContentfulContent
           content={

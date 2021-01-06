@@ -29,7 +29,11 @@ const LongTermCarePage = ({ data }) => {
   }
 
   return (
-    <Layout title="The Long-Term Care COVID Tracker" path="/data/longtermcare">
+    <Layout
+      title="The Long-Term Care COVID Tracker"
+      path="/data/longtermcare"
+      description="To date, the Long-Term Care COVID Tracker is the most comprehensive dataset about COVID-19 in US long-term care facilities."
+    >
       <Paragraph>
         <span
           dangerouslySetInnerHTML={{

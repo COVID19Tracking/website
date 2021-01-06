@@ -17,14 +17,10 @@ const DataPage = ({ data }) => {
   data.allCovidStateInfo.nodes.forEach(node => {
     stateNavList.push(node)
   })
-  const pageDescription = 'Our most up-to-date data on COVID-19 in the US.'
   return (
     <Layout
       title="The Data"
-      description={pageDescription}
-      socialCard={{
-        description: pageDescription,
-      }}
+      description="Our most up-to-date data on COVID-19 in the US."
       path="/data"
       showWarning
     >

@@ -14,9 +14,7 @@ const NationalDataPage = ({ data }) => (
     title="US Historical Data"
     path="/data/us-daily"
     returnLinks={[{ link: '/data' }]}
-    socialCard={{
-      description: 'Cumulative record of our daily totals.',
-    }}
+    description="Daily totals for all metrics collected from January 2020 to the present."
   >
     <ContentfulContent
       content={
