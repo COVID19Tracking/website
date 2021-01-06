@@ -6,11 +6,7 @@ const FieldValue = ({ field, percent }) => {
   }
   if (field > -1) {
     return (
-      <>
-        {`${
-          percent ? `${Math.round(field * 100)}%` : Math.round(field * 10) / 10
-        }`}
-      </>
+      <>{`${percent ? `${Math.round(field * 100)}%` : Math.round(field)}`}</>
     )
   }
   return <>between 0 and 4{percent && <>%</>}</>
