@@ -50,19 +50,19 @@ const Legend = ({ mapLayer, setLayer }) => (
               </div>
               <div>
                 <div />
-                {'<'}10%
+                {'<'}15%
               </div>
               <div>
                 <div />
-                10-20%
+                15-30%
               </div>
               <div>
                 <div />
-                20-30%
+                30-45%
               </div>
               <div>
                 <div />
-                {'>'}30%
+                {'>'}45%
               </div>
             </div>
             <div className={legendStyles.label}>
