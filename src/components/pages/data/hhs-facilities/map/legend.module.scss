@@ -1,0 +1,94 @@
+.wrapper {
+  @include margin(32, top);
+  :first-child {
+    align-self: flex-end;
+  }
+}
+
+.legend {
+  @include margin(32, top);
+  @include padding(8);
+  @include type-size(100);
+  display: flex;
+  justify-content: flex-end;
+  > div {
+    flex-wrap: wrap;
+  }
+  .label {
+    font-weight: bold;
+    @include margin(8, bottom);
+  }
+  .scale {
+    display: flex;
+    @include margin(8, bottom);
+    > div {
+      width: 60px;
+      text-align: center;
+      > div {
+        height: 15px;
+      }
+      &:first-child {
+        > div {
+          border: 3px solid $color-slate-400;
+        }
+      }
+      &:nth-child(2) {
+        > div {
+          background: $color-honey-400;
+        }
+      }
+      &:nth-child(3) {
+        > div {
+          background: $color-blueberry-200;
+        }
+      }
+      &:nth-child(4) {
+        > div {
+          background: $color-blueberry-300;
+        }
+      }
+      &:nth-child(5) {
+        > div {
+          background: $color-blueberry-400;
+        }
+      }
+      &:nth-child(6) {
+        > div {
+          background: $color-blueberry-500;
+        }
+      }
+    }
+  }
+}
+
+.toggle {
+  cursor: pointer;
+  @include margin(16, bottom);
+  display: flex;
+  width: fit-content;
+  button {
+    @include remove-button-style();
+    color: $color-slate-600;
+    border: solid $color-slate-200 2px;
+    font-weight: initial;
+    &:before {
+      display: block;
+      content: attr(title);
+      font-weight: 700;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+    @include type-size(100);
+    margin: -1px; // ignore-style-rule
+    padding: 2px 15px; // ignore-style-rule
+    white-space: nowrap;
+
+    &.active {
+      color: black;
+      border: solid black 2px;
+      font-weight: 700;
+      z-index: 1;
+    }
+  }
+}

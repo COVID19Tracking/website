@@ -281,6 +281,10 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
             test: /react-scrollama/,
             use: loaders.null(),
           },
+          {
+            test: /mapbox-gl/,
+            use: loaders.null(),
+          },
         ],
       },
     })
