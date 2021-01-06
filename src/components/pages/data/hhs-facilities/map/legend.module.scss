@@ -6,11 +6,13 @@
 }
 
 .legend {
-  @include margin(32, top);
-  @include padding(8);
+  @include padding(8, top bottom);
   @include type-size(100);
   display: flex;
   justify-content: flex-end;
+  @media (min-width: $viewport-md) {
+    @include margin(32, top);
+  }
   > div {
     flex-wrap: wrap;
   }
@@ -20,6 +22,7 @@
   }
   .scale {
     display: flex;
+    flex-wrap: wrap;
     @include margin(8, bottom);
     > div {
       width: 60px;
@@ -61,9 +64,14 @@
   }
 }
 
+.dates {
+  @include type-size(100);
+  @include margin(8, bottom top);
+}
+
 .toggle {
   cursor: pointer;
-  @include margin(16, bottom);
+  @include margin(8, bottom);
   display: flex;
   width: fit-content;
   button {
