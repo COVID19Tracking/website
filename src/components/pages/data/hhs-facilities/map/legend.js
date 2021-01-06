@@ -33,17 +33,22 @@ const Legend = ({ mapLayer, setLayer, date }) => (
             ICU patients
           </button>
         </div>
-        {date && (
-          <p className={legendStyles.dates}>
-            Data for <FormatDate date={date} format="LLLL d, yyyy" /> to{' '}
-            <FormatDate
-              date={DateTime.fromISO(date)
-                .plus({ days: 6 })
-                .toISO()}
-              format="LLLL d, yyyy"
-            />
-          </p>
-        )}
+        <p className={legendStyles.dates}>
+          {date ? (
+            <>
+              Data for
+              <FormatDate date={date} format="LLLL d, yyyy" /> to{' '}
+              <FormatDate
+                date={DateTime.fromISO(date)
+                  .plus({ days: 6 })
+                  .toISO()}
+                format="LLLL d, yyyy"
+              />
+            </>
+          ) : (
+            <>&nbsp;</>
+          )}
+        </p>
       </Col>
       <Col width={[4, 6, 6]} paddingLeft={[0, 0, 16]}>
         <div className={legendStyles.legend} aria-hidden>
