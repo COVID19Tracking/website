@@ -11,8 +11,8 @@ const formatNumber = number => <FormatNumber number={number} />
 
 const NationalDataPage = ({ data }) => (
   <Layout
-    title="US Historical Data"
-    path="/data/us-daily"
+    title="Totals for the US"
+    path="/data/national"
     returnLinks={[{ link: '/data' }]}
     socialCard={{
       description: 'Cumulative record of our daily totals.',
