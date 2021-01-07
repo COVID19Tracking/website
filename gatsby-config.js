@@ -87,9 +87,12 @@ const gatsbyConfig = {
       resolve: 'gatsby-plugin-sass',
       options: {
         data: sassImports,
-        cssLoaderOptions: {
-          localIdentName: '[sha1:hash:hex:5]',
-        },
+        cssLoaderOptions:
+          process.env.NODE_ENV === 'production'
+            ? {
+                localIdentName: '[sha1:hash:hex:5]',
+              }
+            : {},
       },
     },
     {
