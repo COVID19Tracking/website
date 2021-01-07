@@ -57,7 +57,7 @@ const RacePage = () => {
         <LandingPageSection noBorder noMargin>
           <LandingPageContainer>
             <LargeHeader center narrow>
-              Nationwide, Black people are dying at{' '}
+              Nationwide, Black people have died at{' '}
               <FormatNumber number={blackwhiteRateRatio} precision={1} /> times
               the rate of white people.
             </LargeHeader>
