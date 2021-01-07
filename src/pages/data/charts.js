@@ -9,11 +9,6 @@ import ChartPreamble from '~components/pages/data/charts/preamble'
 
 const ChartsPage = ({ data }) => (
   <Layout title="Charts" returnLinks={[{ link: '/data' }]} showWarning>
-    <h2>United States Overview</h2>
-    <ChartPreamble
-      usHistory={data.allCovidUsDaily.nodes}
-      stateHistory={data.allCovidStateDaily.nodes}
-    />
     <Container centered>
       <ContentfulContent
         content={
@@ -23,7 +18,14 @@ const ChartsPage = ({ data }) => (
         id={data.chartDisclaimer.contentful_id}
       />
     </Container>
+    <h2>United States Overview</h2>
+    <ChartPreamble
+      usHistory={data.allCovidUsDaily.nodes}
+      stateHistory={data.allCovidStateDaily.nodes}
+    />
+
     <ChartTweet />
+    <h2>Our chart gallery</h2>
     <ChartList />
 
     <Container centered>

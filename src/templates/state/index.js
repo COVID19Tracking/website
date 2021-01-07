@@ -149,7 +149,7 @@ export const query = graphql`
       positiveIncrease
       negative
       lastUpdateEt
-      dateModified(formatString: "MMM D, YYYY h:mm a")
+      dateModified(formatString: "MMMM D, YYYY h:mm a")
       hospitalizedCurrently
       hospitalizedCumulative
       inIcuCurrently

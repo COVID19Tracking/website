@@ -23,7 +23,7 @@ const HHSHospitalization = ({ data }) => {
 
   return (
     <Layout
-      title="Hospital facilities"
+      title="Hospital Facilities"
       returnLinks={[{ link: '/data' }]}
       path="/data/hospital-facilities"
       showWarning

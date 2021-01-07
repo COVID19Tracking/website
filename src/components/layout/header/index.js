@@ -134,6 +134,7 @@ const Header = withSearch(
     return (
       <>
         <DevelopmentWarning />
+        {showWarning && <DataWarning />}
         <header
           className={classnames(
             'site-header',
@@ -251,7 +252,6 @@ const Header = withSearch(
               {hero}
             </Container>
           </div>
-          {showWarning && <DataWarning />}
         </header>
       </>
     )

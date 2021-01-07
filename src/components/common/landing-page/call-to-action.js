@@ -10,6 +10,18 @@ const Arrow = () => (
   </span>
 )
 
+const NewWindow = () => (
+  <>
+    <span className="a11y-only">(Opens a new window)</span>
+    <span
+      className={classnames(ctaLinkStyle.newWindow, ctaLinkStyle.arrow)}
+      aria-hidden
+    >
+      {' '}
+    </span>
+  </>
+)
+
 const CtaLink = ({
   to,
   children,
@@ -38,6 +50,7 @@ const CtaAnchorLink = ({
   centered = false,
   block = false,
   bold = false,
+  newWindow = false,
 }) => (
   <a
     href={href}
@@ -47,10 +60,12 @@ const CtaAnchorLink = ({
       bold && ctaLinkStyle.bold,
       block && ctaLinkStyle.block,
     )}
+    target={newWindow && '_blank'}
+    rel="noreferrer"
     onClick={onClick}
   >
     {children}
-    <Arrow />
+    {newWindow ? <NewWindow /> : <Arrow />}
   </a>
 )
 

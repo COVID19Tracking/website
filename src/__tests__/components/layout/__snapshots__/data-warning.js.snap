@@ -10,6 +10,13 @@ exports[`Components : Layout : Data warning is displayed if there is content 1`]
     <div
       className="full"
     >
+      <button
+        aria-label="Hide this warning"
+        onClick={[Function]}
+        type="button"
+      >
+        ×
+      </button>
       <p
         dangerouslySetInnerHTML={
           Object {

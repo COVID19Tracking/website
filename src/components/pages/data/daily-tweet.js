@@ -39,7 +39,7 @@ const DailyTweet = () => {
         setZone: true,
       })
         .setZone('America/New_York')
-        .toFormat('LLLL d yyyy')}
+        .toFormat('LLLL d, yyyy')}
     />
   )
 }

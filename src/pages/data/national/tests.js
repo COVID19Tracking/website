@@ -6,7 +6,7 @@ import Layout from '~components/layout'
 
 const NationalDataTestPage = ({ data }) => (
   <Layout
-    title="National: testing"
+    title="National Data: Testing"
     returnLinkTitle="Our Data"
     returnLink="/data"
     path="/data/national/tests"
@@ -56,7 +56,7 @@ export const query = graphql`
   {
     allCovidUsDaily(sort: { fields: date, order: DESC }) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         negative
         negativeIncrease
         positive
