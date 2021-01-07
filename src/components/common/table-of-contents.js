@@ -14,4 +14,8 @@ const TableOfContents = ({ headings }) => (
   </div>
 )
 
+export const TableOfContentsWrapper = ({ children }) => (
+  <div className={tocStyle.tableOfContents}>{children}</div>
+)
+
 export default TableOfContents

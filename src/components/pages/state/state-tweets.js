@@ -40,6 +40,7 @@ const StateTweets = ({ name, stateAbbreviation, tweets }) => {
       ))}
       <CtaAnchorLink
         href={`https://twitter.com/search?q=from%3A%40COVID19Tracking%20${name}&src=typed_query`}
+        newWindow
       >
         More tweets about {name}
       </CtaAnchorLink>

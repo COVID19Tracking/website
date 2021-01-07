@@ -4,6 +4,7 @@ import slugify from 'slugify'
 import Layout from '~components/layout'
 import LongContent from '~components/common/long-content'
 import ContentfulContent from '~components/common/contentful-content'
+import { TableOfContentsWrapper } from '~components/common/table-of-contents'
 
 const DataDefintionsPage = ({ data }) => {
   const categories = [
@@ -30,13 +31,18 @@ const DataDefintionsPage = ({ data }) => {
           }
           id={data.preamble.contentful_id}
         />
-        <ul>
-          {categories.map(category => (
-            <li>
-              <a href={`#${slugify(category, { lower: true })}`}>{category}</a>
-            </li>
-          ))}
-        </ul>
+        <TableOfContentsWrapper>
+          <h2>Data categories</h2>
+          <ul>
+            {categories.map(category => (
+              <li>
+                <a href={`#${slugify(category, { lower: true })}`}>
+                  {category}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </TableOfContentsWrapper>
         {categories.map(category => (
           <>
             <h2 id={slugify(category, { lower: true })}>{category}</h2>

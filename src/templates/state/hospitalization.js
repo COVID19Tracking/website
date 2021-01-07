@@ -117,7 +117,7 @@ export const query = graphql`
     ) {
       nodes {
         state
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         hospitalizedCumulative
         hospitalizedCurrently
         hospitalizedIncrease
@@ -135,7 +135,7 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
     ) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         childContentfulChartAnnotationDescriptionTextNode {
           childMarkdownRemark {
             html

@@ -169,7 +169,7 @@ export const query = graphql`
     allCovidState {
       nodes {
         dataQualityGrade
-        dateModified(formatString: "MMM D, YYYY h:mm a")
+        dateModified(formatString: "MMMM D, YYYY h:mm a")
         death
         deathConfirmed
         deathProbable

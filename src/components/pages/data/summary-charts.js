@@ -95,16 +95,6 @@ const ChartAlert = ({ message }) => (
   </div>
 )
 
-const CalculatedIndicator = ({ openDisclosure }) => (
-  <a
-    href="#summary-charts"
-    className={styles.calculated}
-    onClick={openDisclosure}
-  >
-    (Calculated)
-  </a>
-)
-
 const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
   if (
     !annotations ||
@@ -305,13 +295,13 @@ const SummaryCharts = ({
         <div className={styles.toggleContainer}>
           {usHistory && (
             <RadioToggle
-              options={['Totals', 'Per 1M people']}
+              options={['Total', 'Per 1M people']}
               state={usePerCap}
               setState={setUsePerCap}
             />
           )}
           <RadioToggle
-            options={['Last 90 days', 'Full range']}
+            options={['Last 90 days', 'Historical']}
             state={useFullRange}
             setState={setUseFullRange}
           />
@@ -328,9 +318,6 @@ const SummaryCharts = ({
             <AnnotationIndicator
               annotations={annotations}
               dataElement="tests"
-              openDisclosure={() => setDisclosureOpen(true)}
-            />
-            <CalculatedIndicator
               openDisclosure={() => setDisclosureOpen(true)}
             />
             <TestFieldIndicator
@@ -361,7 +348,6 @@ const SummaryCharts = ({
               dataElement="cases"
               openDisclosure={() => setDisclosureOpen(true)}
             />
-            <CalculatedIndicator />
           </h3>
           {hasData(positiveField) ? (
             <>
@@ -428,7 +414,6 @@ const SummaryCharts = ({
               dataElement="death"
               openDisclosure={() => setDisclosureOpen(true)}
             />
-            <CalculatedIndicator />
           </h3>
           {hasData(deathField) ? (
             <>
@@ -533,7 +518,8 @@ const LegendComponent = ({ name }) => (
         strokeDasharray={!name ? '4' : undefined}
       />
     </svg>
-    {name || 'National'} 7-day average
+    {name ? <>Solid</> : <>Dashed</>} line represents {name || 'National'} 7-day
+    average
   </div>
 )
 

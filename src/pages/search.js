@@ -6,9 +6,9 @@ const SearchPage = () => {
   const [query, setQuery] = useState('')
   const getTitle = () => {
     if (query === '' || query === null) {
-      return 'Search results'
+      return 'Search Results'
     }
-    return `Search results for “${query}”`
+    return `Search Results for “${query}”`
   }
   return (
     <Layout title={getTitle()} centered>
