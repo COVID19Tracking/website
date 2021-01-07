@@ -37,26 +37,19 @@ const DownloadDataRow = ({
   national = false,
 }) => (
   <>
-    <Row>
-      {!children && (
-        <Col width={[4, 6, children ? 4 : 6]}>
-          <div className={downloadDataStyles.lastUpdatedContainer}>
-            <LastUpdated date={lastUpdateEt} national={national} />
-          </div>
-        </Col>
-      )}
+    <Row className={downloadDataStyles.row}>
       <Col width={[4, 6, 6]}>
+        <div className={downloadDataStyles.lastUpdatedContainer}>
+          <LastUpdated date={lastUpdateEt} national={national} noMargin />
+        </div>
+      </Col>
+      <Col width={[4, 6, children ? 3 : 6]}>
         <div className={preambleStyle.largeDisclosure}>
           <DownloadData slug={slug} />
         </div>
       </Col>
-      <Col width={[4, 6, 6]}>{children}</Col>
+      {children && <Col width={[4, 6, 3]}>{children}</Col>}
     </Row>
-    {children && (
-      <div className={downloadDataStyles.lastUpdatedContainer}>
-        <LastUpdated date={lastUpdateEt} national={national} />
-      </div>
-    )}
   </>
 )
 

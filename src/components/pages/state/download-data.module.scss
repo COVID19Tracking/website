@@ -1,15 +1,6 @@
 .button {
   display: inline-block;
-  text-decoration: none;
-  font-weight: bold;
-  @include padding(8);
   @include margin(16, right);
-  background: $color-plum-100;
-  border-radius: 4px;
-  color: $color-plum-800;
-  @media (max-width: $viewport-md) {
-    @include margin(16, top);
-  }
 }
 
 .header {
@@ -27,10 +18,17 @@
   @media (min-width: $viewport-lg) {
     justify-content: right;
   }
+  p {
+    margin: 0;
+  }
 }
 
 .last-updated-container {
   display: flex;
   height: 100%;
   align-items: center;
+}
+
+.row {
+  @include margin(32, top);
 }
