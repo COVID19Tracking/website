@@ -2,10 +2,6 @@
 @import '~scss/colors.module.scss';
 
 .info-line {
-  display: flex;
-  @media screen and (max-width: $viewport-md) {
-    flex-direction: column;
-  }
   .toggle-container {
     flex-grow: 1;
     display: flex;
@@ -23,21 +19,8 @@
       flex-grow: initial;
     }
   }
-  .legend-container {
-    display: flex;
-    > * {
-      margin-left: spacer(8);
-    }
-    @media screen and (max-width: $viewport-lg) {
-      flex-direction: column-reverse;
-      flex-grow: initial;
-      > * {
-        margin-left: 0;
-        margin-bottom: spacer(8);
-      }
-    }
-  }
   .legend-component {
+    @include margin(16, top);
     display: flex;
     align-items: center;
   }
