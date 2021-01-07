@@ -14,9 +14,8 @@
   width: 71.25rem;
   max-width: calc(100vw - 4rem);
   margin: 0 auto;
-
-  a,
-  span {
+  color: white;
+  a {
     color: white;
   }
 
@@ -120,6 +119,10 @@ hr.divider {
 
   justify-content: space-between;
   align-items: center;
+
+  p {
+    @include padding(8, left);
+  }
 
   span {
     @include col(3 5 10);

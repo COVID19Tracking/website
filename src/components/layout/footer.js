@@ -8,7 +8,7 @@ import githubLogo from '~images/footer/github-logo.svg'
 import twitterLogo from '~images/footer/twitter-logo.svg'
 import upArrow from '~images/footer/up-arrow.svg'
 
-const Footer = ({ noMargin = false }) => (
+const Footer = ({ noMargin = false, hideAbout = false }) => (
   <footer
     className={classnames(
       footerStyles.wrapper,
@@ -67,6 +67,12 @@ const Footer = ({ noMargin = false }) => (
     </div>
     <hr className={footerStyles.divider} />
     <div className={footerStyles.copyright}>
+      {!hideAbout && (
+        <p>
+          The COVID Tracking Project collects and publishes the most complete
+          data about COVID-19 in the US.
+        </p>
+      )}
       <span>
         CovidTracking.com Copyright &copy; {new Date().getFullYear()} by The
         Atlantic Monthly Group. <Link to="/license">(CC BY 4.0)</Link>
