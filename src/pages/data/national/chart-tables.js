@@ -59,7 +59,7 @@ const NationalChartTablesPage = ({ data, path }) => {
 
   return (
     <Layout
-      title="National chart data"
+      title="National Chart Data"
       returnLinks={[
         { link: '/data' },
         { link: `/data/national`, title: 'Totals for the US' },

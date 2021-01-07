@@ -7,7 +7,7 @@ import Layout from '~components/layout'
 const NationalDataHospitalizationPage = ({ data }) => {
   return (
     <Layout
-      title="National: Hospitalization"
+      title="National Data: Hospitalization"
       returnLinkTitle="Our Data"
       returnLink="/data"
       path="/data/national/hospitalization"

@@ -6,7 +6,7 @@ import Layout from '~components/layout'
 
 const NationalDataTestPage = ({ data }) => (
   <Layout
-    title="National: testing"
+    title="National Data: Testing"
     returnLinkTitle="Our Data"
     returnLink="/data"
     path="/data/national/tests"

@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '~components/layout'
 
 const ContactSuccessPage = () => (
-  <Layout title="Thank you" centered>
+  <Layout title="Thank You" centered>
     <h2>Thank you for contacting us!</h2>
     <p>
       Thanks for contacting us! Please note that we review and log all feedback,
