@@ -15,9 +15,10 @@
       @include margin(16, bottom);
     }
   }
-  [aria-hidden] {
+  [aria-hidden]::after {
     text-decoration: none;
     display: inline-block;
     @include margin(4, left);
+    @include new-window-icon();
   }
 }

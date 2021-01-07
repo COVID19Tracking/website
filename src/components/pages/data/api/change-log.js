@@ -11,7 +11,8 @@ const ChangeLog = () => (
             target="_blank"
             rel="noreferrer"
           >
-            Latest API changes<span aria-hidden>→</span>
+            Latest API changes
+            <span aria-hidden />
           </a>
         </li>
         <li>
@@ -20,7 +21,8 @@ const ChangeLog = () => (
             target="_blank"
             rel="noreferrer"
           >
-            Status page<span aria-hidden>→</span>
+            Status page
+            <span aria-hidden />
           </a>
         </li>
       </ul>

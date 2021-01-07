@@ -1,5 +1,14 @@
 @import './breakpoints.module.scss';
 
+@function encodecolor($string) {
+  @if type-of($string) == 'color' {
+    $hex: str-slice(ie-hex-str($string), 4);
+    $string: unquote('#{$hex}');
+  }
+  $string: '%23' + $string;
+  @return $string;
+}
+
 // Base font size. If need be, can be made responsive.
 $base-font-size: 16;
 
@@ -82,4 +91,9 @@ $spacers: (
   padding: 0;
   background: transparent;
   cursor: pointer;
+}
+
+@mixin new-window-icon($color: #000000) {
+  $image-color: encodecolor($color);
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 20 20'%3E%3Cpath d='M17 17H3V3h5V1H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5h-2z' fill='#{$image-color}'/%3E%3Cpath d='M19 1h-8l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z' fill='#{$image-color}'/%3E%3C/svg%3E%0A");
 }
