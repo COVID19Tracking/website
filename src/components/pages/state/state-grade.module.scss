@@ -2,6 +2,7 @@
   @include margin(16, bottom);
   @media (min-width: $viewport-lg) {
     margin-bottom: 0;
+    text-align: right;
   }
   img {
     display: inline;

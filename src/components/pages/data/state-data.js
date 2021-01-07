@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import { StateGrade } from '~components/pages/state/state-grade'
 import StateSummary from '~components/pages/data/summary'
 import StateNotes from '~components/pages/state/state-notes'
 import LastUpdated from '~components/common/last-updated'
@@ -21,7 +20,6 @@ const State = ({ state, metadata }) => {
         <h3 id={`state-${state.state.toLowerCase()}`}>
           <Link to={`/data/state/${slug}`}>{state.name}</Link>
         </h3>
-        <StateGrade letterGrade={state.stateData.dataQualityGrade} />
       </div>
       <StateSummary
         stateName={state.name}

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import {
   Disclosure,
   DisclosureButton,
@@ -8,11 +7,11 @@ import {
 import classnames from 'classnames'
 import OverviewWrapper from '~components/common/overview-wrapper'
 import { Row, Col } from '~components/common/grid'
+import StateGrade from '~components/pages/state/state-grade'
 import {
   DownloadData,
   DownloadDataRow,
 } from '~components/pages/state/download-data'
-import { LargeStateGrade } from '~components/pages/state/state-grade'
 import {
   StateLinks,
   StateLinksDisclosure,
@@ -22,19 +21,6 @@ import {
 import preambleStyle from './preamble.module.scss'
 
 const StatePreamble = ({ state, urls, covidState }) => {
-  const { contentfulSnippet } = useStaticQuery(
-    graphql`
-      query {
-        contentfulSnippet(slug: { eq: "state-grades-preamble" }) {
-          content {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    `,
-  )
   const [stateLinksAreOpen, setStateLinksAreOpen] = useState(false)
   const [downloadDataIsOpen, setDownloadDataIsOpen] = useState(false)
   const { links } = urls.childTacoYaml
@@ -42,35 +28,22 @@ const StatePreamble = ({ state, urls, covidState }) => {
   return (
     <OverviewWrapper className={preambleStyle.preamble}>
       <h2 className="a11y-only">State overview</h2>
-      <Row>
-        <Col width={[4, 3, 6]}>
-          <div className={preambleStyle.largeDisclosure}>
-            <h3 className={preambleStyle.header}>Where this data comes from</h3>
-            <StateLinks
-              twitter={state.twitter}
-              links={links}
-              stateName={state.name}
-              stateSlug={state.childSlug.slug}
-            />
-          </div>
-        </Col>
-        <Col width={[4, 3, 6]}>
-          <h3 className={preambleStyle.header}>Current data quality grade</h3>
-          <div className={preambleStyle.gradeWrapper}>
-            <div
-              className={preambleStyle.gradeDescription}
-              dangerouslySetInnerHTML={{
-                __html: contentfulSnippet.content.childMarkdownRemark.html,
-              }}
-            />
-            <LargeStateGrade letterGrade={covidState.dataQualityGrade} />
-          </div>
-        </Col>
-      </Row>
+      <div className={preambleStyle.largeDisclosure}>
+        <h3 className={preambleStyle.header}>Where this data comes from</h3>
+        <StateLinks
+          twitter={state.twitter}
+          links={links}
+          stateName={state.name}
+          stateSlug={state.childSlug.slug}
+          fullWidth
+        />
+      </div>
       <DownloadDataRow
         slug={state.childSlug.slug}
         lastUpdateEt={covidState.dateModified}
-      />
+      >
+        <StateGrade letterGrade={covidState.dataQualityGrade} />
+      </DownloadDataRow>
       <Row>
         <Col width={[0, 0, 6]}>
           <div className={preambleStyle.mobileDisclosure}>

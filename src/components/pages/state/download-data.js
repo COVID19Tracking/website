@@ -30,19 +30,34 @@ const DownloadData = ({ slug, hideLabel = false }) => (
   </div>
 )
 
-const DownloadDataRow = ({ slug, lastUpdateEt, national = false }) => (
-  <Row>
-    <Col width={[4, 6, 6]}>
+const DownloadDataRow = ({
+  children,
+  slug,
+  lastUpdateEt,
+  national = false,
+}) => (
+  <>
+    <Row>
+      {!children && (
+        <Col width={[4, 6, children ? 4 : 6]}>
+          <div className={downloadDataStyles.lastUpdatedContainer}>
+            <LastUpdated date={lastUpdateEt} national={national} />
+          </div>
+        </Col>
+      )}
+      <Col width={[4, 6, 6]}>
+        <div className={preambleStyle.largeDisclosure}>
+          <DownloadData slug={slug} />
+        </div>
+      </Col>
+      <Col width={[4, 6, 6]}>{children}</Col>
+    </Row>
+    {children && (
       <div className={downloadDataStyles.lastUpdatedContainer}>
         <LastUpdated date={lastUpdateEt} national={national} />
       </div>
-    </Col>
-    <Col width={[4, 6, 6]}>
-      <div className={preambleStyle.largeDisclosure}>
-        <DownloadData slug={slug} />
-      </div>
-    </Col>
-  </Row>
+    )}
+  </>
 )
 
 export default DownloadData

@@ -10,4 +10,9 @@
   @media (min-width: $viewport-lg) {
     grid-template-columns: 1fr 1fr;
   }
+  &.full-width {
+    @media (min-width: $viewport-lg) {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
 }
