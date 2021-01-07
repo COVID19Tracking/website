@@ -25,7 +25,7 @@ const Footer = ({ noMargin = false, hideAbout = false }) => (
           />
         </Link>
         <div className={footerStyles.links}>
-          <ul className={footerStyles.footerList}>
+          <ul>
             <li>
               <Link to="/contact">Contact</Link>
             </li>

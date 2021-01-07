@@ -79,6 +79,16 @@
         grid-template-columns: 1fr;
         grid-template-rows: repeat(7, 1fr);
       }
+      a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        @media (min-width: $viewport-md) {
+          display: block;
+          align-items: inherit;
+          min-height: auto;
+        }
+      }
     }
 
     @media (max-width: $viewport-lg) {
