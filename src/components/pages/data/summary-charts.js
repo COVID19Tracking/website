@@ -305,13 +305,13 @@ const SummaryCharts = ({
         <div className={styles.toggleContainer}>
           {usHistory && (
             <RadioToggle
-              options={['Totals', 'Per 1M people']}
+              options={['Total', 'Per 1M people']}
               state={usePerCap}
               setState={setUsePerCap}
             />
           )}
           <RadioToggle
-            options={['Last 90 days', 'Full range']}
+            options={['Last 90 days', 'Historical']}
             state={useFullRange}
             setState={setUseFullRange}
           />
