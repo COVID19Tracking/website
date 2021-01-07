@@ -8,6 +8,9 @@
   &:hover {
     @include link-hover;
   }
+  .new-window::after {
+    @include new-window-icon($color-honey-700);
+  }
 }
 
 .centered {

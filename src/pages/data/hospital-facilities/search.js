@@ -10,7 +10,7 @@ import HHSFacilitiesSearch from '~components/pages/data/hhs-facilities/search'
 const HHSHospitalizationSearch = ({ data }) => {
   return (
     <Layout
-      title="Hospital facilities"
+      title="Search Hospital Facilities"
       returnLinks={[{ link: '/data' }]}
       path="/data/hospital-facilities"
       noContainer

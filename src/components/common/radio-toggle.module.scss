@@ -28,6 +28,7 @@
   width: fit-content;
   button {
     @extend %toggle-inactive;
+    cursor: pointer;
     @include type-size(100);
     margin: -1px; // ignore-style-rule
     padding: 2px 15px; // ignore-style-rule

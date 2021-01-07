@@ -26,7 +26,7 @@ const ContactOtherPage = () => {
 
   return (
     <Layout
-      title="Contact Us: Other questions"
+      title="Contact Us"
       socialCard={{
         description:
           'The COVID Tracking Project runs on the effort and diligence of hundreds of volunteers, and we welcome your contribution.',

@@ -5,6 +5,7 @@ import ContentfulContent from '~components/common/contentful-content'
 import LongContent from '~components/common/long-content'
 import Layout from '~components/layout'
 import VolunteersList from '~components/pages/about/volunteers-list'
+import Supporters from '~components/pages/about/supporters'
 
 const AboutPage = ({ data }) => (
   <Layout title="About Us" path="/about">
@@ -27,6 +28,7 @@ const AboutPage = ({ data }) => (
           }
           id={data.pastContributors.contentful_id}
         />
+        <Supporters />
       </Container>
     </LongContent>
   </Layout>

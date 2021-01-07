@@ -48,12 +48,17 @@
       font-weight: bold;
       @include type-size(200);
       color: white;
-
-      display: block;
       margin: 0 0.6rem 0 0; // ignore-style-rule
       padding: 0.4rem 0 0.2rem; // ignore-style-rule
       border-bottom: 3px solid transparent;
-
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      @media (min-width: $viewport-md) {
+        display: block;
+        align-items: inherit;
+        min-height: auto;
+      }
       &:focus {
         @include link-focus-dark-bg;
       }
