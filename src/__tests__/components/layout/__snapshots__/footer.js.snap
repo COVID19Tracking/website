@@ -109,6 +109,9 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
   <div
     className="copyright"
   >
+    <p>
+      The COVID Tracking Project collects and publishes the most complete data about COVID-19 in the US.
+    </p>
     <span>
       CovidTracking.com Copyright © 
       2021
