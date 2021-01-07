@@ -48,7 +48,7 @@ const DataWarning = () => {
               type="button"
               onClick={event => {
                 event.preventDefault()
-                setIsHidden(false)
+                setIsHidden(true)
                 const date = new Date()
                 date.setTime(date.getTime() + 10 * 24 * 60 * 60 * 1000)
                 document.cookie = `ctp_warning=1; expires=${date.toISOString()}; path=/`
