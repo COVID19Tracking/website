@@ -14,7 +14,7 @@ const BlogFeatured = () => {
         nodes {
           title
           featureOnHomepage
-          publishDate(formatString: "MMM D, YYYY")
+          publishDate(formatString: "MMMM D, YYYY")
           homepageImage {
             fixed(width: 800) {
               src

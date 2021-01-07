@@ -55,7 +55,7 @@ const HomepageGallery = () => {
           relatedPost {
             title
             slug
-            publishDate(formatString: "MMM D, YYYY")
+            publishDate(formatString: "MMMM D, YYYY")
           }
         }
       }

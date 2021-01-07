@@ -76,7 +76,7 @@ export const query = graphql`
     }
     allCovidUsDaily(sort: { order: DESC, fields: date }) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         death
 
         hospitalizedCurrently

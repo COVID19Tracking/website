@@ -89,7 +89,7 @@ export const query = graphql`
       filter: { data_type: { eq: "Aggregate" } }
     ) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         isoDate: date
         posstaff_other
         posstaff_nh

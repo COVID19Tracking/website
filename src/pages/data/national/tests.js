@@ -56,7 +56,7 @@ export const query = graphql`
   {
     allCovidUsDaily(sort: { fields: date, order: DESC }) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         negative
         negativeIncrease
         positive

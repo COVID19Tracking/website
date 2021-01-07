@@ -11,7 +11,7 @@ const LastUpdated = ({ date, national }) => (
       national && lastUpdatedStyle.national,
     )}
   >
-    {national ? <>Data for</> : <>State’s dataset was last updated at</>} {date}{' '}
+    {national ? <>Data for</> : <>State’s dataset was last updated </>} {date}{' '}
     {!national && <Timezone />}
   </p>
 )
