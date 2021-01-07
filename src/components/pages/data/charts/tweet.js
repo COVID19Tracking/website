@@ -36,15 +36,19 @@ const ChartTweet = () => {
   }
 
   return (
-    <Container centered>
-      <h2> The national picture over time</h2>
-      <a href={`https://twitter.com/COVID19Tracking/status/${id_str}`}>
-        <img
-          src={entities.media[0].media_url.replace(/http(s?):\/\//g, '//')}
-          alt={full_text}
-        />
-      </a>
-    </Container>
+    <>
+      <Container>
+        <h2> The national picture over time</h2>
+      </Container>
+      <Container centered>
+        <a href={`https://twitter.com/COVID19Tracking/status/${id_str}`}>
+          <img
+            src={entities.media[0].media_url.replace(/http(s?):\/\//g, '//')}
+            alt={full_text}
+          />
+        </a>
+      </Container>
+    </>
   )
 }
 export default ChartTweet
