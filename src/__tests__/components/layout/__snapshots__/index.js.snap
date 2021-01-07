@@ -527,9 +527,7 @@ Array [
         <div
           className="links"
         >
-          <ul
-            className="footerList"
-          >
+          <ul>
             <li>
               <a
                 href="/contact"
@@ -1171,9 +1169,7 @@ Array [
         <div
           className="links"
         >
-          <ul
-            className="footerList"
-          >
+          <ul>
             <li>
               <a
                 href="/contact"

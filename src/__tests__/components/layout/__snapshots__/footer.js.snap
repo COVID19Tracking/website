@@ -23,9 +23,7 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
       <div
         className="links"
       >
-        <ul
-          className="footerList"
-        >
+        <ul>
           <li>
             <a
               href="/contact"
