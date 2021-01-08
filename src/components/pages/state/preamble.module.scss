@@ -21,3 +21,8 @@
   @include remove-button-style();
   text-decoration: underline;
 }
+
+.notes {
+  font-weight: bold;
+  @include margin(16, bottom);
+}
