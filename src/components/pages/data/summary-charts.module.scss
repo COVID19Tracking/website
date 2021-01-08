@@ -2,6 +2,11 @@
 @import '~scss/colors.module.scss';
 
 .info-line {
+  h2 {
+    margin: 0;
+    @include type-size(400);
+    @include margin(16, bottom);
+  }
   .toggle-container {
     flex-grow: 1;
     display: flex;
@@ -101,6 +106,10 @@
   font-size: 0.8rem;
   display: inline;
   @include margin(4, left);
+}
+
+.charts {
+  @include margin(64, bottom);
 }
 
 .chart-logo {

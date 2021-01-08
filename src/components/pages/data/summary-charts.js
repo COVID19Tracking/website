@@ -289,9 +289,9 @@ const SummaryCharts = ({
       : {}),
   }
   return (
-    <>
+    <div className={styles.charts}>
       <div className={styles.infoLine}>
-        <h2 className="a11y-only">Summary charts</h2>
+        <h2>{name} Metrics</h2>
         <div className={styles.toggleContainer}>
           {usHistory && (
             <RadioToggle
@@ -501,7 +501,7 @@ const SummaryCharts = ({
           <CtpLogo className={styles.chartLogo} />
         </Col>
       </Row>
-    </>
+    </div>
   )
 }
 

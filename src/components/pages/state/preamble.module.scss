@@ -9,27 +9,11 @@
 }
 
 .preamble {
-  @include margin(32, bottom);
-}
-
-.grade-wrapper {
-  display: flex;
-  align-items: flex-start;
-  .grade-description {
-    @include margin(24, right);
-    display: inline;
-    p {
-      @include margin(0, top);
-    }
-  }
-  img {
-    width: 96px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    float: right;
-    @media (max-width: $viewport-md) {
-      width: 60px;
-    }
+  @include margin(64, bottom);
+  .header {
+    margin: 0;
+    @include type-size(400);
+    @include margin(16, bottom);
   }
 }
 

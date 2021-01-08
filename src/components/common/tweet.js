@@ -17,6 +17,7 @@ const Tweet = ({
   stateName,
   stateAbbreviation,
   hideHandle = false,
+  extraMargin = false,
 }) => {
   const getBoldedText = content => {
     if (!stateAbbreviation && !stateName) {
@@ -35,7 +36,10 @@ const Tweet = ({
       href={link}
       target="_blank"
       rel="noreferrer"
-      className={tweetStyles.tweet}
+      className={classnames(
+        tweetStyles.tweet,
+        extraMargin && tweetStyles.extraMargin,
+      )}
     >
       <Row>
         <Col width={[4, 4, media ? 6 : 12]}>

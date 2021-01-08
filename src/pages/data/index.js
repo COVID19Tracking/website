@@ -1,8 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import DetailText from '~components/common/detail-text'
-import Container from '~components/common/container'
 import Layout from '~components/layout'
 import ContentfulContent from '~components/common/contentful-content'
 import States from '~components/pages/data/states'
@@ -45,16 +43,6 @@ const DataPage = ({ data }) => {
         sevenDaysAgo={data.usSevenDaysAgo}
         national
       />
-      <Container narrow>
-        <DetailText>
-          <div
-            dangerouslySetInnerHTML={{
-              __html:
-                data.nationalSummaryFootnote.content.childMarkdownRemark.html,
-            }}
-          />
-        </DetailText>
-      </Container>
       <SummaryCharts
         history={data.allCovidUsDaily.nodes}
         annotations={data.allContentfulChartAnnotation}
@@ -84,15 +72,6 @@ export const query = graphql`
     lastUpdate: allCovidUsDaily(sort: { fields: date, order: DESC }, limit: 1) {
       nodes {
         date(formatString: "MMMM D, YYYY")
-      }
-    }
-    nationalSummaryFootnote: contentfulSnippet(
-      slug: { eq: "national-summary-footnote" }
-    ) {
-      content {
-        childMarkdownRemark {
-          html
-        }
       }
     }
     dataPreamble: contentfulSnippet(slug: { eq: "data-preamble" }) {
