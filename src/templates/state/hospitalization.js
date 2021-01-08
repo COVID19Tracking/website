@@ -31,6 +31,7 @@ const StateHospitalizationTemplate = ({ pageContext, path, data }) => {
         { link: `/data/state/${slug}`, title: state.name },
       ]}
       path={path}
+      description={`Data definitions and historical time series of data on patients now or ever hospitalized, in ICU, or on ventilator in ${state.name}.`}
       showWarning
     >
       <AnnotationPanelContext.Provider

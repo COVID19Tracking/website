@@ -11,6 +11,7 @@ const NationalDataCasesPage = ({ data }) => {
       returnLinkTitle="Our Data"
       returnLink="/data"
       path="/data/national/cases"
+      description="Numbers of new and cumulative cases for the US for each day from January 2020 to the present."
       returnLinks={[
         { link: '/data' },
         { link: `/data/national`, title: 'Totals for the US' },
