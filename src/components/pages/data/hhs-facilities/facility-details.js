@@ -38,6 +38,14 @@ const fields = [
     value: value => `${Math.round(value * 100)}%`,
   },
   {
+    title: 'Available adult inpatient beds',
+    field: 'adult_inpatient_beds_available',
+  },
+  {
+    title: 'Available adult ICU beds',
+    field: 'adult_icu_beds_available',
+  },
+  {
     title: 'Reporting completeness',
     field: 'mean_coverage',
     percent: true,
