@@ -9,7 +9,7 @@ const StatePreamble = ({ state, urls, covidState }) => {
   // todo make state grade wrap as a circle with the grade description
   return (
     <div className={preambleStyle.preamble}>
-      <h2 className={preambleStyle.header}>{state.name} Overview</h2>
+      <h2 className={preambleStyle.header}>{state.name} Data Sources</h2>
       <div className={preambleStyle.largeDisclosure}>
         <StateLinks
           twitter={state.twitter}
