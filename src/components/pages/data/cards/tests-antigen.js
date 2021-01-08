@@ -45,13 +45,7 @@ const TestsAntigenCard = ({
             label="Total antigen tests in people"
           />
         </Statistic>
-        <CardNote>
-          <b>Warning</b>: Antigen reporting may{' '}
-          <a href="https://covidtracking.com/analysis-updates/antigen-testing-reporting">
-            significantly understate
-          </a>{' '}
-          the true number of tests administered
-        </CardNote>
+        <CardNote>TKTK</CardNote>
       </CardBody>
     </Card>
   )
