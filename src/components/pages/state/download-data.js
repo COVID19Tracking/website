@@ -43,12 +43,16 @@ const DownloadDataRow = ({
           <LastUpdated date={lastUpdateEt} national={national} noMargin />
         </div>
       </Col>
-      <Col width={[4, 6, children ? 3 : 6]}>
+      <Col width={[4, 6, children ? 3 : 6]} paddingLeft={[0, 0, 16]}>
         <div className={preambleStyle.largeDisclosure}>
           <DownloadData slug={slug} />
         </div>
       </Col>
-      {children && <Col width={[4, 6, 3]}>{children}</Col>}
+      {children && (
+        <Col width={[4, 6, 3]} paddingLeft={[0, 0, 16]}>
+          {children}
+        </Col>
+      )}
     </Row>
   </>
 )

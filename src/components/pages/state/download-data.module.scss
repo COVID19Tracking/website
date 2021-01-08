@@ -30,5 +30,19 @@
 }
 
 .row {
-  @include margin(32, top);
+  @include margin(16, top);
+  @media (min-width: $viewport-lg) {
+    @include margin(32, top);
+  }
+  > div {
+    @include margin(16, bottom);
+    @media (min-width: $viewport-lg) {
+      margin: 0;
+    }
+    &:first-child {
+      @media (max-width: $viewport-lg) {
+        order: 3;
+      }
+    }
+  }
 }

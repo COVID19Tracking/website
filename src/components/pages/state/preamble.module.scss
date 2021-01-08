@@ -37,15 +37,3 @@
   @include remove-button-style();
   text-decoration: underline;
 }
-
-.mobile-disclosure {
-  @media (min-width: $viewport-md) {
-    display: none;
-  }
-}
-
-.large-disclosure {
-  @media (max-width: $viewport-md) {
-    display: none;
-  }
-}
