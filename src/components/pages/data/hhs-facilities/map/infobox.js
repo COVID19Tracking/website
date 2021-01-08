@@ -15,7 +15,7 @@ const Infobox = ({ layer, facility, x, y }) => (
     {layer === 'patients' && (
       <>
         <p>
-          <strong>Adult COVID-19 patients currently in hospital:</strong>{' '}
+          <strong>Adult COVID-19 patients in hospital:</strong>{' '}
           <FieldValue
             field={
               facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
@@ -23,9 +23,7 @@ const Infobox = ({ layer, facility, x, y }) => (
           />
         </p>
         <p>
-          <strong>
-            Percent of inpatient beds occupied by COVID-19 patients:
-          </strong>{' '}
+          <strong>% inpatient beds used by COVID-19 patients:</strong>{' '}
           <FieldValue
             field={facility.adult_inpatient_beds_occupancy_covid}
             percent
@@ -37,7 +35,7 @@ const Infobox = ({ layer, facility, x, y }) => (
     {layer === 'icu' && (
       <>
         <p>
-          <strong>Adult COVID-19 ICU patients currently in hospital:</strong>{' '}
+          <strong>Adult COVID-19 patients in ICU:</strong>{' '}
           <FieldValue
             field={
               facility.staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg
@@ -45,7 +43,7 @@ const Infobox = ({ layer, facility, x, y }) => (
           />
         </p>
         <p>
-          <strong>Percent of ICU beds occupied by COVID-19 patients:</strong>{' '}
+          <strong>% ICU beds used by COVID-19 patients: </strong>{' '}
           <FieldValue field={facility.adult_icu_beds_occupancy_covid} percent />
         </p>
       </>
