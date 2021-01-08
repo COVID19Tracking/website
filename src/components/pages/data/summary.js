@@ -11,6 +11,7 @@ import CasesCard from './cards/cases-card'
 import HospitalizationCard from './cards/hospitalization-card'
 import OutcomesCard from './cards/outcomes-card'
 import TestsAntibodyCard from './cards/tests-antibody'
+import TestsAntigenCard from './cards/tests-antigen'
 import TestsViralCard from './cards/tests-viral'
 import NationalTestsCard from './cards/tests-national'
 import LongTermCareCard from './cards/long-term-care'
@@ -166,7 +167,7 @@ const StateSummary = ({
             sevenDayIncrease={sevenDayPositiveIncrease}
             national={national}
           />
-          {national && (
+          {national ? (
             <NationalTestsCard
               totalTestResults={data.totalTestResults}
               totalTestResultsIncrease={data.totalTestResultsIncrease}
@@ -175,8 +176,7 @@ const StateSummary = ({
                 sevenDaysAgo.totalTestResults
               }
             />
-          )}
-          {!national && (
+          ) : (
             <>
               <TestsViralCard
                 stateSlug={stateSlug}
@@ -190,6 +190,12 @@ const StateSummary = ({
                 stateSlug={stateSlug}
                 stateName={stateName}
                 totalTestsAntibody={data.totalTestsAntibody}
+              />
+              <TestsAntigenCard
+                stateSlug={stateSlug}
+                stateName={stateName}
+                totalTestsAntigen={data.totalTestsAntigen}
+                totalTestsPeopleAntigen={data.totalTestsPeopleAntigen}
               />
             </>
           )}
