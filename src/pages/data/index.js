@@ -172,7 +172,7 @@ export const query = graphql`
     }
     allCovidState {
       nodes {
-        dateModified(formatString: "MMM D, YYYY h:mm a")
+        dateModified(formatString: "MMMM D, YYYY h:mm a")
         death
         deathConfirmed
         deathProbable
