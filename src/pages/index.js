@@ -35,7 +35,7 @@ const Homepage = () => (
         <Press />
       </Container>
     </main>
-    <Footer noMargin />
+    <Footer noMargin hideAbout />
   </>
 )
 

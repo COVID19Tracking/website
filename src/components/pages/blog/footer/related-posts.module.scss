@@ -1,7 +1,7 @@
 .container {
   display: grid;
   align-items: center;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr 2fr;
 
   @media (max-width: $viewport-md) {
     grid-template-columns: 100%;

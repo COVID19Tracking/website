@@ -11,8 +11,8 @@ const formatNumber = number => <FormatNumber number={number} />
 
 const NationalDataPage = ({ data }) => (
   <Layout
-    title="US Historical Data"
-    path="/data/us-daily"
+    title="Totals for the US"
+    path="/data/national"
     returnLinks={[{ link: '/data' }]}
     socialCard={{
       description: 'Cumulative record of our daily totals.',
@@ -76,7 +76,7 @@ export const query = graphql`
     }
     allCovidUsDaily(sort: { order: DESC, fields: date }) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         death
 
         hospitalizedCurrently
