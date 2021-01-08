@@ -43,23 +43,23 @@ const Tweet = ({
     >
       <Row>
         <Col width={[4, 4, media ? 6 : 12]}>
-          {!hideHandle && (
-            <>
-              <img
-                src={twitterLogo}
-                alt="Twitter"
-                className={classnames(
-                  tweetStyles.twitterLogo,
-                  media && tweetStyles.twitterLogoMobileOnly,
-                )}
-              />
+          <>
+            <img
+              src={twitterLogo}
+              alt="Twitter"
+              className={classnames(
+                tweetStyles.twitterLogo,
+                media && tweetStyles.twitterLogoMobileOnly,
+              )}
+            />
+            {!hideHandle && (
               <h4>
                 <span className="a11y-only">Latest tweet from </span>
                 <img src={twitterIcon} alt="" />
                 @COVID19Tracking
               </h4>
-            </>
-          )}
+            )}
+          </>
 
           <blockquote
             dangerouslySetInnerHTML={{
