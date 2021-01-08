@@ -168,7 +168,6 @@ export const query = graphql`
     }
     allCovidState {
       nodes {
-        dataQualityGrade
         dateModified(formatString: "MMMM D, YYYY h:mm a")
         death
         deathConfirmed

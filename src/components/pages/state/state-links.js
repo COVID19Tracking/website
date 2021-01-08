@@ -5,10 +5,17 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@reach/disclosure'
+import classnames from 'classnames'
 import stateLinksStyle from './state-links.module.scss'
 import preambleStyle from './preamble.module.scss'
 
-const StateLinks = ({ twitter, stateName, stateSlug, links }) => {
+const StateLinks = ({
+  twitter,
+  stateName,
+  stateSlug,
+  links,
+  fullWidth = false,
+}) => {
   const getLink = type => {
     const currentLink = links && links.find(link => link.name === type)
     if (!currentLink) {
@@ -17,7 +24,12 @@ const StateLinks = ({ twitter, stateName, stateSlug, links }) => {
     return currentLink.url
   }
   return (
-    <div className={stateLinksStyle.container}>
+    <div
+      className={classnames(
+        stateLinksStyle.container,
+        fullWidth && stateLinksStyle.fullWidth,
+      )}
+    >
       {getLink('primary') && (
         <a href={getLink('primary')} className={stateLinksStyle.link}>
           <span>Best current data source</span>

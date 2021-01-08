@@ -62,11 +62,3 @@ exports[`Components : Pages : State : State grade renders correctly 3`] = `
   />
 </p>
 `;
-
-exports[`Components : Pages : State : State grade renders correctly 4`] = `
-<img
-  alt="Grade a"
-  className="gradeLarge"
-  src="test-file-stub"
-/>
-`;

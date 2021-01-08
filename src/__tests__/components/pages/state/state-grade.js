@@ -1,9 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import {
-  StateGrade,
-  LargeStateGrade,
-} from '~components/pages/state/state-grade'
+import StateGrade from '~components/pages/state/state-grade'
 
 describe('Components : Pages : State : State grade', () => {
   it('renders correctly', () => {
@@ -15,10 +12,5 @@ describe('Components : Pages : State : State grade', () => {
 
     const naTree = renderer.create(<StateGrade />).toJSON()
     expect(naTree).toMatchSnapshot()
-
-    const largeTree = renderer
-      .create(<LargeStateGrade letterGrade="a" />)
-      .toJSON()
-    expect(largeTree).toMatchSnapshot()
   })
 })
