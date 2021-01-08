@@ -39,7 +39,7 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
 
   return (
     <Layout
-      title={`${state.name}: Viral (PCR) tests`}
+      title={`${state.name}: Viral (PCR) Tests`}
       returnLinks={[
         { link: '/data', title: 'Our Data' },
         { link: `/data/state/${slug}`, title: state.name },
@@ -80,6 +80,7 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
             'totalTestResults',
           ]}
         />
+        <h2>Viral (PCR) Tests History</h2>
         <TableResponsive
           labels={[
             {

@@ -54,6 +54,7 @@ const StateOutcomesTemplate = ({ pageContext, path, data }) => {
           definitions={data.allContentfulDataDefinition.nodes}
           order={['recovered', 'death', 'deathProbable', 'deathConfirmed']}
         />
+        <h2>Outcome History</h2>
         <TableResponsive
           labels={[
             {

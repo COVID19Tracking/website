@@ -61,7 +61,7 @@ const StateHospitalizationTemplate = ({ pageContext, path, data }) => {
             'onVentilatorCurrently',
           ]}
         />
-
+        <h2>Hospitalization History</h2>
         <TableResponsive
           labels={[
             {
