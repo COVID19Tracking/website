@@ -198,12 +198,6 @@ const StateSummary = ({
                 totalTestsAntigen={data.totalTestsAntigen}
                 totalTestsPeopleAntigen={data.totalTestsPeopleAntigen}
               />
-              <TestsAntigenCard
-                stateSlug={stateSlug}
-                stateName={stateName}
-                totalTestsAntigen={data.totalTestsAntigen}
-                totalTestsPeopleAntigen={data.totalTestsPeopleAntigen}
-              />
             </>
           )}
           <HospitalizationCard
