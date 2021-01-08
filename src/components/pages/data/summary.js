@@ -190,6 +190,7 @@ const StateSummary = ({
                 stateSlug={stateSlug}
                 stateName={stateName}
                 totalTestsAntibody={data.totalTestsAntibody}
+                totalTestsPeopleAntibody={data.totalTestsPeopleAntibody}
               />
               <TestsAntigenCard
                 stateSlug={stateSlug}
