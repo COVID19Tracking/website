@@ -1,5 +1,8 @@
 .detail-text {
   color: $color-slate-600;
+
+  display: flex;
+
   @include type-size(200);
   cite {
     font-style: italic;
