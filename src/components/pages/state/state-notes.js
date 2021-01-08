@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import marked from 'marked'
-import classnames from 'classnames'
 import smartypants from 'smartypants'
 
 import Container from '~components/common/container'
-import stateNotesStyle from './state-notes.module.scss'
+import LongContent from '~components/common/long-content'
 
 const getBoldedText = text =>
   text.replace(
@@ -13,52 +12,22 @@ const getBoldedText = text =>
   )
 
 const StateNotes = ({ notes }) => {
-  const [isExpanded, setIsExpanded] = useState(false)
   const highlightedNotes = getBoldedText(notes)
   const notesArray = highlightedNotes
     .split('\n')
     .filter(text => text.trim().length > 0)
   return (
-    <Container className={stateNotesStyle.container}>
-      <span className={stateNotesStyle.label}>Notes: </span>
-      <div
-        className={classnames(
-          stateNotesStyle.fadeWrapper,
-          isExpanded && stateNotesStyle.isExpanded,
-        )}
-      >
-        {notesArray.map((note, index) => (
+    <Container centered>
+      <LongContent>
+        {notesArray.map(note => (
           <p
             key={note}
             dangerouslySetInnerHTML={{
               __html: smartypants(marked.inlineLexer(note, [])),
             }}
-            className={classnames(
-              'state-note-expandable',
-              index > 1 && stateNotesStyle.expandable,
-              isExpanded && stateNotesStyle.isExpanded,
-            )}
           />
         ))}
-        {notesArray.length > 2 && (
-          <div className={classnames('js-enabled', stateNotesStyle.fader)} />
-        )}
-      </div>
-      {notesArray.length > 2 && (
-        <button
-          className={stateNotesStyle.expand}
-          type="button"
-          aria-hidden
-          onClick={() => {
-            setIsExpanded(!isExpanded)
-          }}
-        >
-          {isExpanded ? <>Collapse state notes</> : <>Read more state notes</>}{' '}
-          <span className={stateNotesStyle.arrow}>
-            {isExpanded ? <>↑</> : <>↓</>}
-          </span>
-        </button>
-      )}
+      </LongContent>
     </Container>
   )
 }

@@ -5,6 +5,7 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@reach/disclosure'
+import { Link } from 'gatsby'
 import classnames from 'classnames'
 import stateLinksStyle from './state-links.module.scss'
 import preambleStyle from './preamble.module.scss'
@@ -30,6 +31,7 @@ const StateLinks = ({
         fullWidth && stateLinksStyle.fullWidth,
       )}
     >
+      <Link to={`/data/state/${stateSlug}/notes`}>Notes and annotations</Link>
       {getLink('primary') && (
         <a href={getLink('primary')} className={stateLinksStyle.link}>
           <span>Best current data source</span>
