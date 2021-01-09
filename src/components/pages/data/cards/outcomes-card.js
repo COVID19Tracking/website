@@ -16,7 +16,14 @@ const OutcomesCard = ({
   recoveredMetricName,
   national,
 }) => {
-  const fields = ['recovered', 'death']
+  const fields = []
+
+  if (recovered) {
+    fields.push('recovered')
+  }
+
+  fields.push('death')
+
   if (deathProbable) {
     fields.push('deathProbable')
   }
@@ -45,7 +52,7 @@ const OutcomesCard = ({
       }
     >
       <CardBody>
-        {!national && (
+        {!national && recovered && (
           <Statistic title={recoveredMetricName} value={recovered}>
             <DefinitionLink
               label={recoveredMetricName}

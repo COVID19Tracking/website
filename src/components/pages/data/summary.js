@@ -121,7 +121,7 @@ const StateSummary = ({
       return true
     })
     if (hideAnnotation) {
-      return -1 // return -1 if we should hide the metric
+      return null // return null if we should hide the metric
     }
     return originalValue // otherwise, return the original metric
   }
