@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import StateGrade from '~components/pages/state/state-grade'
 import { DownloadDataRow } from '~components/pages/state/download-data'
 import { StateLinks } from '~components/pages/state/state-links'
@@ -11,11 +10,6 @@ const StatePreamble = ({ state, urls, covidState }) => {
   return (
     <div className={preambleStyle.preamble}>
       <h2 className={preambleStyle.header}>{state.name} Data Sources</h2>
-      <p className={preambleStyle.notes}>
-        <Link to={`/data/state/${state.childSlug.slug}/notes`}>
-          Notes and annotations
-        </Link>
-      </p>
       <StateLinks
         twitter={state.twitter}
         links={links}

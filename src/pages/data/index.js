@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import ContentfulContent from '~components/common/contentful-content'
 import States from '~components/pages/data/states'
-
 import { DownloadDataRow } from '~components/pages/state/download-data'
 import Summary from '~components/pages/data/summary'
 import SummaryCharts from '~components/pages/data/summary-charts'
