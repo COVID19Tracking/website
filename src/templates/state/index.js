@@ -5,7 +5,6 @@ import StateNavWrapper from '~components/pages/data/state-nav-wrapper'
 import StatePreamble from '~components/pages/state/preamble'
 import SummaryCharts from '~components/pages/data/summary-charts'
 import StateSummary from '~components/pages/data/summary'
-import StateNotesLink from '~components/pages/state/state-notes-link'
 import StateTweets from '~components/pages/state/state-tweets'
 
 const getRaceData = data => {
@@ -56,7 +55,6 @@ const StateTemplate = ({ pageContext, data, path }) => {
         }
         testUnits={covidStateInfo.covidTrackingProjectPreferredTotalTestUnits}
       />
-      <StateNotesLink state={state} />
       <StateNavWrapper stateList={allCovidStateInfo.nodes} single>
         <StateSummary
           stateName={state.name}

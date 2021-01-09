@@ -10,6 +10,9 @@
 
 .preamble {
   @include margin(64, bottom);
+  @media (min-width: $viewport-lg) {
+    @include margin(80, bottom);
+  }
   .header {
     margin: 0;
     @include type-size(400);

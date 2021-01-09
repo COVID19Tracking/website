@@ -291,7 +291,13 @@ const SummaryCharts = ({
   return (
     <div className={styles.charts}>
       <div className={styles.infoLine}>
-        <h2>Overview of {name} COVID-19 Data</h2>
+        <h2>
+          {national ? (
+            <> Overview of National COVID-19 Data</>
+          ) : (
+            <>Key Metrics</>
+          )}
+        </h2>
         <div className={styles.toggleContainer}>
           {usHistory && (
             <RadioToggle
