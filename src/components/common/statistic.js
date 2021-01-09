@@ -14,39 +14,46 @@ const Statistic = ({
   grey,
   asterisk = false,
   noDefinitionLink,
-}) => (
-  <div
-    className={classnames(
-      statisticStyles.statisticWrapper,
-      subelement && statisticStyles.subelement,
-      noDefinitionLink && statisticStyles.noDefinitionLink,
-      grey && statisticStyles.grey,
-    )}
-  >
-    <div className={statisticStyles.statistic}>
-      <div
-        className={classnames(
-          statisticStyles.title,
-          hideValue && statisticStyles.fullWidth,
-        )}
-      >
-        {title}
+}) => {
+  // return nothing if the value is -1 (means that this should be hidden)
+  if (value === -1) {
+    return <></>
+  }
+
+  return (
+    <div
+      className={classnames(
+        statisticStyles.statisticWrapper,
+        subelement && statisticStyles.subelement,
+        noDefinitionLink && statisticStyles.noDefinitionLink,
+        grey && statisticStyles.grey,
+      )}
+    >
+      <div className={statisticStyles.statistic}>
+        <div
+          className={classnames(
+            statisticStyles.title,
+            hideValue && statisticStyles.fullWidth,
+          )}
+        >
+          {title}
+        </div>
+        <div
+          className={classnames(
+            statisticStyles.value,
+            value === null && statisticStyles.nullValue,
+            asterisk === '' && statisticStyles.noAsterisk,
+          )}
+        >
+          {!hideValue && <NumberOrNotReported value={value} />}
+          {suffix}
+          {asterisk === '*' && '*'}
+        </div>
+        {children && <div className={statisticStyles.info}>{children}</div>}
       </div>
-      <div
-        className={classnames(
-          statisticStyles.value,
-          value === null && statisticStyles.nullValue,
-          asterisk === '' && statisticStyles.noAsterisk,
-        )}
-      >
-        {!hideValue && <NumberOrNotReported value={value} />}
-        {suffix}
-        {asterisk === '*' && '*'}
-      </div>
-      {children && <div className={statisticStyles.info}>{children}</div>}
     </div>
-  </div>
-)
+  )
+}
 
 const NumberOrNotReported = ({ value }) => {
   /*

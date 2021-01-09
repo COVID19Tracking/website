@@ -13,6 +13,7 @@ const OutcomesCard = ({
   deathConfirmed,
   deathProbable,
   recovered,
+  recoveredMetricName,
   national,
 }) => {
   const fields = ['recovered', 'death']
@@ -45,9 +46,9 @@ const OutcomesCard = ({
     >
       <CardBody>
         {!national && (
-          <Statistic title="Recovered" value={recovered}>
+          <Statistic title={recoveredMetricName} value={recovered}>
             <DefinitionLink
-              label="Recovered"
+              label={recoveredMetricName}
               onDefinitionsToggle={() => {
                 definitionContext({
                   fields,

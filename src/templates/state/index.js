@@ -315,6 +315,8 @@ export const query = graphql`
         field
         lastChecked(formatString: "MMMM DD yyyy")
         warning
+        hideField
+        metricTitle
       }
     }
     allHhsHospitalizationCovid(
