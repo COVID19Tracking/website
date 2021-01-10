@@ -17,6 +17,10 @@
 
   margin: 0 auto;
 
+  @media (max-width: $viewport-lg) {
+    @include margin(16, bottom);
+  }
+
   button {
     @extend %toggle-inactive;
 

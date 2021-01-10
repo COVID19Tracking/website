@@ -1,7 +1,15 @@
 .hero {
   @include margin(16);
+  
+  @media (max-width: $viewport-lg) {
+    @include margin(0, (right, left));
+  }
 }
 
 .wrapper {
   border: 1px solid $color-slate-500;
+  
+  @media (max-width: $viewport-lg) {
+    border: none;
+  }
 }

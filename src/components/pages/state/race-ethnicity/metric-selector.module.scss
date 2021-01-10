@@ -19,6 +19,11 @@
   display: flex;
   cursor: pointer;
 
+  @media (max-width: $viewport-lg) {
+    // todo complete mobile styles here
+    flex-direction: column;
+  }
+
   @include margin(32, bottom);
 
   button {
