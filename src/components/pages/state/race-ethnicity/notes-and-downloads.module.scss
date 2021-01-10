@@ -10,7 +10,7 @@
 
 .links {
   display: flex;
-  @include margin(32, bottom);
+  @include margin(16, bottom);
 
   a {
     @include margin(16, right);
