@@ -28,6 +28,9 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
       showWarning
     >
       <Hero
+        stateName={state.name}
+        stateSlug={state.childSlug.slug}
+        stateAbbreviation={state.state}
         currentMetric={currentMetric}
         setCurrentMetric={setCurrentMetric}
         usePer100kRate={usePer100kRate}

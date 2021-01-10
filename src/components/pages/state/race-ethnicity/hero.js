@@ -8,6 +8,9 @@ import NotesAndDownloads from './notes-and-downloads'
 import styles from './hero.module.scss'
 
 const Hero = ({
+  stateName,
+  stateSlug,
+  stateAbbreviation,
   currentMetric,
   setCurrentMetric,
   usePer100kRate,
@@ -23,11 +26,10 @@ const Hero = ({
           className={styles.ratesToggle}
         />
         <Charts />
-        {/** todo remove hardcoded NM values */}
         <NotesAndDownloads
-          slug="new-mexico"
-          stateAbbreviation="NM"
-          stateName="New Mexico"
+          slug={stateSlug}
+          stateAbbreviation={stateAbbreviation}
+          stateName={stateName}
         />
       </div>
     </div>
