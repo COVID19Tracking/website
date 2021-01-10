@@ -17,8 +17,6 @@
 
   margin: 0 auto;
 
-  @include margin(32, bottom);
-
   button {
     @extend %toggle-inactive;
 

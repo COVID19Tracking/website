@@ -1,2 +1,12 @@
 .wrapper {
+  h3 {
+    color: $color-plum-700;
+    @include type-size(200);
+    text-align: center;
+    @include padding(16, bottom);
+    @include margin(32, bottom);
+    margin-top: -28px; // ignore-style-rule
+  }
+
+  z-index: -1;
 }
