@@ -1,6 +1,7 @@
 import React from 'react'
-import MetricSelector from '~components/pages/state/race-ethnicity/metric-selector'
-import RatesToggle from '~components/pages/state/race-ethnicity/rates-toggle'
+import MetricSelector from './metric-selector'
+import RatesToggle from './rates-toggle'
+import Charts from './charts'
 
 import styles from './hero.module.scss'
 
@@ -19,6 +20,7 @@ const Hero = ({
           setState={setUsePer100kRate}
           className={styles.ratesToggle}
         />
+        <Charts />
       </div>
     </div>
   )
