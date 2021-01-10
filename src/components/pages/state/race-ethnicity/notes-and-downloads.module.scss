@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  h4 {
+    @include margin(8, bottom);
+    @include type-size(300);
+  }
+}
+
+.links {
+  display: flex;
+  @include margin(32, bottom);
+
+  a {
+    @include margin(16, right);
+
+    &:last-child {
+      @include margin(0, right);
+    }
+  }
+}
+
+.notes {
+  li {
+    @include margin(8, bottom);
+  }
+}
