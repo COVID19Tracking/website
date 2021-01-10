@@ -12,7 +12,7 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
   const [currentMetric, setCurrentMetric] = useState('Cases')
 
   // false: showing numbers, true: showing rates per 100k
-  const [per100kToggle, setPer100kToggle] = useState(false)
+  const [usePer100kRate, setUsePer100kRate] = useState(false)
 
   return (
     <Layout
@@ -30,9 +30,12 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
       <Hero
         currentMetric={currentMetric}
         setCurrentMetric={setCurrentMetric}
-        per100kToggle={per100kToggle}
-        setPer100kToggle={setPer100kToggle}
+        usePer100kRate={usePer100kRate}
+        setUsePer100kRate={setUsePer100kRate}
       />
+      Showing a chart of {currentMetric}{' '}
+      {usePer100kRate ? 'per 100k' : 'raw numbers'}
+      <br />
       {data.allCovidStateDaily.nodes[0].state}
     </Layout>
   )

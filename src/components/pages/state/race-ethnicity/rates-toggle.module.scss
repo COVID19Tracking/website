@@ -2,42 +2,39 @@
 
 %toggle-active {
   color: $color-plum-700;
-  span {
-      border-bottom: 3px solid $color-plum-700;
-  }
+  background-color: $color-plum-100;
+  border: 1px solid $color-plum-700;
 }
 
 %toggle-inactive {
   color: $color-slate-400;
-  span {
-      border-bottom: 3px solid transparent;
-  }
 }
 
 .toggle {
-  align-self: flex-start;
+  justify-content: center;
   display: flex;
   cursor: pointer;
+
+  margin: 0 auto;
 
   @include margin(32, bottom);
 
   button {
     @extend %toggle-inactive;
 
-    border: none;
+    border: 1px solid $color-slate-400;
     background-color: transparent;
+    width: 175px;
+
+    // removes double border
+    margin: -1px; // ignore-style-rule
 
     cursor: pointer;
 
-    @include padding(32, (left, right));
-
-    &:first-child {
-      @include padding(0, left);
-    }
-
-    @include type-size(400);
-    line-height: 1.5;
+    @include type-size(100);
     font-weight: bold;
+
+    height: 2rem;
 
     &.active {
       @extend %toggle-active;

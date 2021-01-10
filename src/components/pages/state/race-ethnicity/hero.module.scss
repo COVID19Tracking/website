@@ -1,7 +1,7 @@
 .hero {
-    @include margin(16);
+  @include margin(16);
 }
 
 .wrapper {
-    border: 1px solid $color-slate-500;
+  border: 1px solid $color-slate-500;
 }

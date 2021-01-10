@@ -5,6 +5,7 @@ import styles from './metric-selector.module.scss'
 const MetricSelector = ({ state, setState }) => {
   const options = ['Tests', 'Cases', 'Hospitalizations', 'Deaths']
 
+  // todo collapse into list on mobile like blog categories
   return (
     <div className={styles.toggle} role="radiogroup">
       {options.map(option => (
