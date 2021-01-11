@@ -2,13 +2,11 @@ import React from 'react'
 
 import styles from './metric-selector.module.scss'
 
-const MetricSelector = ({ state, setState }) => {
-  const options = ['Tests', 'Cases', 'Hospitalizations', 'Deaths']
-
+const MetricSelector = ({ state, setState, availableMetrics }) => {
   // todo collapse into list on mobile like blog categories
   return (
     <div className={styles.toggle} role="radiogroup">
-      {options.map(option => (
+      {availableMetrics.map(option => (
         <button
           className={state === option ? styles.active : undefined}
           title={option}
