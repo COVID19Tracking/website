@@ -344,6 +344,7 @@ const SummaryCharts = ({
           <ChartDescription
             label="New tests"
             data={getDataForField(data, testField)}
+            link={chartTables}
           />
         </Col>
         <Col {...colProps}>
@@ -370,6 +371,7 @@ const SummaryCharts = ({
               <ChartDescription
                 label="Cases"
                 data={getDataForField(data, positiveField)}
+                link={chartTables}
               />
             </>
           ) : (
@@ -406,6 +408,7 @@ const SummaryCharts = ({
               <ChartDescription
                 label="Hospitalization"
                 data={getDataForField(data, hospitalizedField)}
+                link={chartTables}
               />
             </>
           ) : (
@@ -436,6 +439,7 @@ const SummaryCharts = ({
               <ChartDescription
                 label="New deaths"
                 data={getDataForField(data, deathField)}
+                link={chartTables}
               />
             </>
           ) : (
