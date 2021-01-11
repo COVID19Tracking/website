@@ -13,7 +13,7 @@ const OutcomesCard = ({
   deathConfirmed,
   deathProbable,
   recovered,
-  recoveredMetricName = "Recovered",
+  recoveredMetricName = 'Recovered',
   national,
 }) => {
   const fields = []
