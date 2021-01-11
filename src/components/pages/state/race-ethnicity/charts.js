@@ -5,7 +5,7 @@ import styles from './charts.module.scss'
 import colors from '~scss/colors.module.scss'
 
 // todo pass the data here
-const Charts = () => {
+const Charts = ({ population, usePer100kRate }) => {
   const chartProps = {
     height: 180, // these control the dimensions used to render the svg but not the final size
     width: 280, // that is determined by the containing element
@@ -23,6 +23,14 @@ const Charts = () => {
     { date: new Date(2018, 11, 27), value: 230 },
     { date: new Date(2018, 11, 28), value: 290 },
   ]
+
+  if (usePer100kRate) {
+    // use per 100k metrics
+    /* eslint-disable no-param-reassign */
+    caseData.forEach((point, i, dataArray) => {
+      dataArray[i].value = point.value / (population / 100000)
+    })
+  }
 
   // todo add renderTooltipContents to line charts
 
