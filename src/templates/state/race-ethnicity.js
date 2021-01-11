@@ -39,7 +39,7 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
       Showing a chart of {currentMetric}{' '}
       {usePer100kRate ? 'per 100k' : 'raw numbers'}
       <br />
-      {data.allCovidStateDaily.nodes[0].state}
+      {data.allCovidRaceDataTimeseries.nodes[0].Date}
     </Layout>
   )
 }
@@ -48,52 +48,63 @@ export default RaceEthnicityHistoricalTemplate
 
 export const query = graphql`
   query($state: String!) {
-    allCovidStateDaily(
-      filter: { state: { eq: $state } }
-      sort: { fields: date, order: DESC }
+    allCovidRaceDataTimeseries(
+      filter: { Date: { ne: null }, State: { eq: $state } }
     ) {
       nodes {
-        state
-        date(formatString: "MMMM D, YYYY")
-        deathProbable
-        deathIncrease
-        deathConfirmed
-        death
-        recovered
-      }
-    }
-    allContentfulChartAnnotation(
-      filter: {
-        state: { code: { eq: $state } }
-        dataElement: { in: ["death", "recovery"] }
-      }
-      sort: { fields: date, order: DESC }
-    ) {
-      nodes {
-        date(formatString: "MMMM D, YYYY")
-        childContentfulChartAnnotationDescriptionTextNode {
-          childMarkdownRemark {
-            html
-          }
-        }
-      }
-    }
-    allContentfulDataDefinition(
-      sort: { fields: name }
-      filter: {
-        fieldName: {
-          in: ["recovered", "death", "deathProbable", "deathConfirmed"]
-        }
-      }
-    ) {
-      nodes {
-        name
-        fieldName
-        childContentfulDataDefinitionDefinitionTextNode {
-          childMarkdownRemark {
-            html
-          }
-        }
+        Cases_Asian
+        Cases_AIAN
+        Cases_Black
+        Cases_White
+        Cases_Unknown
+        Cases_Total
+        Cases_Other
+        Cases_NHPI
+        Cases_Multiracial
+        Cases_LatinX
+        Cases_Ethnicity_Unknown
+        Cases_Ethnicity_NonHispanic
+        Cases_Ethnicity_Hispanic
+        Date
+        Deaths_AIAN
+        Deaths_Asian
+        Deaths_Black
+        Deaths_Ethnicity_Hispanic
+        Deaths_Ethnicity_NonHispanic
+        Deaths_LatinX
+        Deaths_Ethnicity_Unknown
+        Deaths_Multiracial
+        Deaths_NHPI
+        Deaths_Other
+        Deaths_Total
+        Deaths_Unknown
+        Deaths_White
+        Hosp_AIAN
+        Hosp_Asian
+        Hosp_Black
+        Hosp_Ethnicity_Hispanic
+        Hosp_Ethnicity_NonHispanic
+        Hosp_Ethnicity_Unknown
+        Hosp_LatinX
+        Hosp_Multiracial
+        Hosp_NHPI
+        Hosp_Other
+        Hosp_Total
+        Hosp_Unknown
+        Hosp_White
+        Tests_AIAN
+        Tests_Asian
+        Tests_Black
+        Tests_Ethnicity_Hispanic
+        Tests_Ethnicity_NonHispanic
+        Tests_Ethnicity_Unknown
+        Tests_LatinX
+        Tests_Multiracial
+        Tests_NHPI
+        Tests_Other
+        Tests_Total
+        Tests_Unknown
+        Tests_White
       }
     }
   }
