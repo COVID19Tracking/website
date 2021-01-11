@@ -86,15 +86,13 @@ const DefinitionLinkInner = ({ title }) => {
   if (!title) {
     return <>Definition</>
   }
-  if (title === 'Warning') {
-    return (
-      <div className={statisticStyles.warningContainer}>
-        <img src={alertBang} alt="Alert bang icon" />
-        Warning
-      </div>
-    )
-  }
-  return <>title</>
+  // Include the warning icon if this is not a definition
+  return (
+    <div className={statisticStyles.warningContainer}>
+      <img src={alertBang} alt="Alert bang icon" />
+      {title || 'Warning'}
+    </div>
+  )
 }
 
 const StatisticGroup = ({ children }) => (
