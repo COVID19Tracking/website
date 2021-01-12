@@ -30,6 +30,7 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
         { link: '/data' },
         { link: `/data/state/${slug}`, title: state.name },
       ]}
+      description={`Data definitions and historical time series of data on confirmed cases, probable cases, total cases, and daily new cases in ${state.name}.`}
       path={path}
       showWarning
     >

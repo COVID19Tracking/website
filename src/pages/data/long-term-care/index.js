@@ -29,7 +29,11 @@ const LongTermCarePage = ({ data }) => {
   }
 
   return (
-    <Layout title="The Long-Term Care COVID Tracker" path="/data/longtermcare">
+    <Layout
+      title="The Long-Term Care COVID Tracker"
+      path="/data/longtermcare"
+      description="To date, the Long-Term Care COVID Tracker is the most comprehensive dataset about COVID-19 in US long-term care facilities."
+    >
       <Paragraph>
         <span
           dangerouslySetInnerHTML={{
@@ -92,7 +96,7 @@ const LongTermCarePage = ({ data }) => {
         height={700}
         mobileHeight={450}
         viewUrl="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall?:language=en&:retry=yes&:display_count=y&:origin=viz_share_link"
-        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall?:language=en&:display_count=y&:origin=viz_share_link"
+        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall_mob?:language=en&:display_count=y&:origin=viz_share_link"
       />
       <Container centered>
         <LongContent>

@@ -31,6 +31,7 @@ const StateOutcomesTemplate = ({ pageContext, path, data }) => {
         { link: `/data/state/${slug}`, title: state.name },
       ]}
       path={path}
+      description={`Data definitions and historical time series of data on recovered cases and probable, confirmed, total, and daily new deaths in ${state.name}.`}
       showWarning
     >
       <AnnotationPanelContext.Provider

@@ -97,7 +97,6 @@ module.exports = (graphql, reporter) => {
               onVentilatorCurrently
               positive
               positiveIncrease
-              recovered
               states
               totalTestResults
               totalTestResultsIncrease
