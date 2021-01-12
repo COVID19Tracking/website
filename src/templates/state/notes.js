@@ -19,13 +19,7 @@ const StateNotesTemplate = ({ pageContext, path, data }) => {
       showWarning
     >
       <StatePreamble state={state} covidState={covidState} hideNotesLink />
-      <p>
-        When {state.name} reports no data, several days of data, or unusual data
-        (such as decreases in values that should increase), our volunteers note
-        it here on the date the anomaly occurred. We also note here changes in
-        our own methodology that affect the data.
-      </p>
-      <StateNotes notes={covidStateInfo.notes} />
+      <StateNotes stateName={state.name} notes={covidStateInfo.notes} />
     </Layout>
   )
 }
