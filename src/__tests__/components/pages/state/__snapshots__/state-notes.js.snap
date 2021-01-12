@@ -10,6 +10,10 @@ exports[`Components : Pages : State : State notes renders correctly 1`] = `
     <div
       className="content"
     >
+      <p>
+        When 
+         reports no data, several days of data, or unusual data (such as decreases in values that should increase), our volunteers note it here on the date the anomaly occurred. We also note here changes in our own methodology that affect the data.
+      </p>
       <p
         dangerouslySetInnerHTML={
           Object {
