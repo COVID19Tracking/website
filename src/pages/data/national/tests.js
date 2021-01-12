@@ -20,6 +20,7 @@ const NationalDataTestPage = ({ data }) => (
       definitions={data.allContentfulDataDefinition.nodes}
       order={['positive', 'negative', 'totalTestResults']}
     />
+    <h2>Testing History</h2>
     <TableResponsive
       labels={[
         {
