@@ -70,7 +70,7 @@ const Charts = ({
       chartData.Cases = getMetricData(allData, 'Cases', caseMetrics)
       chartData.Deaths = getMetricData(allData, 'Deaths', deathMetrics)
       chartData.Hosp = getMetricData(allData, 'Hosp', hospMetrics)
-      chartData.Test = getMetricData(allData, 'Test', testMetrics)
+      chartData.Tests = getMetricData(allData, 'Tests', testMetrics)
 
       return chartData
     }, [])
@@ -83,6 +83,7 @@ const Charts = ({
   if (usePer100kRate) {
     // use per 100k metrics
     /* eslint-disable no-param-reassign */
+    // todo stop this from dividing the original value multiple times (i.e. don't edit the original value)
     // todo use all racial groups, not just Black
     allData[currentMetric].Black.forEach((point, i, dataArray) => {
       // todo use population on a per-race/ethnicity basis (not on a per-state basis)
@@ -92,8 +93,6 @@ const Charts = ({
 
   // todo add renderTooltipContents to line charts
   // todo use all racial groups, not just Black
-
-  console.log(allData)
 
   return (
     <div className={styles.wrapper}>

@@ -80,6 +80,7 @@ const Hero = ({
           state={usePer100kRate}
           setState={setUsePer100kRate}
           className={styles.ratesToggle}
+          currentMetric={currentMetric}
         />
         <Charts
           population={200000}

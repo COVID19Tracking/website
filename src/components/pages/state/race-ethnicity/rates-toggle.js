@@ -2,12 +2,12 @@ import React from 'react'
 
 import styles from './rates-toggle.module.scss'
 
-const RatesToggle = ({ state, setState }) => {
+const RatesToggle = ({ state, setState, currentMetric }) => {
   return (
     <div className={styles.toggle} role="radiogroup">
       <button
         className={!state && styles.active}
-        title="Cases"
+        title={currentMetric}
         aria-checked={!state}
         onClick={event => {
           event.preventDefault()
@@ -17,11 +17,11 @@ const RatesToggle = ({ state, setState }) => {
         role="radio"
         type="button"
       >
-        <span>Cases</span>
+        <span>{currentMetric}</span>
       </button>
       <button
         className={state && styles.active}
-        title="Cases Per 100k People"
+        title={`${currentMetric} Per 100k People`}
         aria-checked={state}
         onClick={event => {
           event.preventDefault()
@@ -31,7 +31,7 @@ const RatesToggle = ({ state, setState }) => {
         role="radio"
         type="button"
       >
-        <span>Cases Per 100k People</span>
+        <span>{currentMetric} Per 100k People</span>
       </button>
     </div>
   )
