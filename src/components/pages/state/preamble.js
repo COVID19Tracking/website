@@ -24,7 +24,7 @@ const StatePreamble = ({ state, covidState, hideNotesLink = false }) => {
             target="_blank"
             href={`https://screenshots.covidtracking.com/${state.childSlug.slug}`}
           >
-            <span>Where this data comes from</span>
+            <span>Data sources and screenshots for {state.name}</span>
           </a>
         </li>
       </ul>
