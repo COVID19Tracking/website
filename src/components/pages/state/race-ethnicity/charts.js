@@ -13,16 +13,6 @@ const Charts = ({
 }) => {
   // todo use population on a per-race/ethnicity basis (not on a per-state basis)
 
-  const chartProps = {
-    height: 180, // these control the dimensions used to render the svg but not the final size
-    width: 280, // that is determined by the containing element
-    marginBottom: 40,
-    marginLeft: 60,
-    marginRight: 30,
-    xTicks: 3,
-    showTicks: 6,
-  }
-
   const getAvailableMetricFields = (latestDay, startsWith) => {
     const listOfMetrics = []
 
@@ -102,11 +92,10 @@ const Charts = ({
             color: colors.colorBlueberry200,
             stroke: 2,
             label: 'Cases',
-            data: allData[currentMetric].Black,
+            data: allData[currentMetric],
           },
         ]}
         title="Race Data"
-        {...chartProps}
       />
       <Chart
         data={[
@@ -114,11 +103,10 @@ const Charts = ({
             color: colors.colorStrawberry200,
             stroke: 2,
             label: 'Cases',
-            data: allData[currentMetric].LatinX,
+            data: allData[currentMetric],
           },
         ]}
         title="Ethnicity Data"
-        {...chartProps}
       />
     </div>
   )

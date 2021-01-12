@@ -1,5 +1,5 @@
 import React from 'react'
-import LineChart from '~components/charts/line-chart'
+import MultiLineChart from '~components/charts/multi-line-chart'
 
 import styles from './chart.module.scss'
 
@@ -19,7 +19,7 @@ const Chart = ({ data, title }) => {
   return (
     <div className={styles.wrapper}>
       <h3>{title}</h3>
-      <LineChart data={data} {...chartProps} />
+      <MultiLineChart data={data} {...chartProps} />
     </div>
   )
 }
