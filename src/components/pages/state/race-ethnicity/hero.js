@@ -66,7 +66,7 @@ const Hero = ({
   setCurrentMetric,
   usePer100kRate,
   setUsePer100kRate,
-  timeseriesData,
+  timeSeriesData,
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -74,7 +74,7 @@ const Hero = ({
         <MetricSelector
           state={currentMetric}
           setState={setCurrentMetric}
-          availableMetrics={availableMetrics(timeseriesData)}
+          availableMetrics={availableMetrics(timeSeriesData)}
         />
         <RatesToggle
           state={usePer100kRate}
@@ -84,7 +84,7 @@ const Hero = ({
         <Charts
           population={200000}
           usePer100kRate={usePer100kRate}
-          timeSeriesData={timeseriesData}
+          timeSeriesData={timeSeriesData}
         />
         <NotesAndDownloads
           slug={stateSlug}

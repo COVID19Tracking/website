@@ -34,7 +34,7 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
         setCurrentMetric={setCurrentMetric}
         usePer100kRate={usePer100kRate}
         setUsePer100kRate={setUsePer100kRate}
-        timeseriesData={data.allCovidRaceDataTimeseries.nodes}
+        timeSeriesData={data.allCovidRaceDataTimeseries.nodes}
       />
       Showing a chart of {currentMetric}{' '}
       {usePer100kRate ? 'per 100k' : 'raw numbers'}
