@@ -5,9 +5,13 @@ import Chart from './chart'
 import styles from './charts.module.scss'
 import colors from '~scss/colors.module.scss'
 
-const Charts = ({ population, usePer100kRate, timeSeriesData }) => {
+const Charts = ({
+  population,
+  usePer100kRate,
+  timeSeriesData,
+  currentMetric,
+}) => {
   // todo use population on a per-race/ethnicity basis (not on a per-state basis)
-  // todo pass metric type (cases/deaths/hosp)
 
   const chartProps = {
     height: 180, // these control the dimensions used to render the svg but not the final size
@@ -80,7 +84,7 @@ const Charts = ({ population, usePer100kRate, timeSeriesData }) => {
     // use per 100k metrics
     /* eslint-disable no-param-reassign */
     // todo use all racial groups, not just Black
-    allData.Cases.Black.forEach((point, i, dataArray) => {
+    allData[currentMetric].Black.forEach((point, i, dataArray) => {
       // todo use population on a per-race/ethnicity basis (not on a per-state basis)
       dataArray[i].value = point.value / (population / 100000)
     })
@@ -88,6 +92,8 @@ const Charts = ({ population, usePer100kRate, timeSeriesData }) => {
 
   // todo add renderTooltipContents to line charts
   // todo use all racial groups, not just Black
+
+  console.log(allData)
 
   return (
     <div className={styles.wrapper}>
@@ -97,7 +103,7 @@ const Charts = ({ population, usePer100kRate, timeSeriesData }) => {
             color: colors.colorBlueberry200,
             stroke: 2,
             label: 'Cases',
-            data: allData.Cases.Black,
+            data: allData[currentMetric].Black,
           },
         ]}
         title="Race Data"
@@ -109,7 +115,7 @@ const Charts = ({ population, usePer100kRate, timeSeriesData }) => {
             color: colors.colorStrawberry200,
             stroke: 2,
             label: 'Cases',
-            data: allData.Cases.Black,
+            data: allData[currentMetric].LatinX,
           },
         ]}
         title="Ethnicity Data"

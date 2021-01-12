@@ -85,6 +85,7 @@ const Hero = ({
           population={200000}
           usePer100kRate={usePer100kRate}
           timeSeriesData={timeSeriesData}
+          currentMetric={currentMetric}
         />
         <NotesAndDownloads
           slug={stateSlug}
