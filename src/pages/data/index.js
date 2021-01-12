@@ -1,12 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import DetailText from '~components/common/detail-text'
-import Container from '~components/common/container'
 import Layout from '~components/layout'
 import ContentfulContent from '~components/common/contentful-content'
 import States from '~components/pages/data/states'
-
 import { DownloadDataRow } from '~components/pages/state/download-data'
 import Summary from '~components/pages/data/summary'
 import SummaryCharts from '~components/pages/data/summary-charts'
@@ -41,16 +38,6 @@ const DataPage = ({ data }) => {
         sevenDaysAgo={data.usSevenDaysAgo}
         national
       />
-      <Container narrow>
-        <DetailText>
-          <div
-            dangerouslySetInnerHTML={{
-              __html:
-                data.nationalSummaryFootnote.content.childMarkdownRemark.html,
-            }}
-          />
-        </DetailText>
-      </Container>
       <SummaryCharts
         history={data.allCovidUsDaily.nodes}
         annotations={data.allContentfulChartAnnotation}
@@ -67,7 +54,6 @@ const DataPage = ({ data }) => {
         raceDataCombined={data.allCovidRaceDataCombined.nodes}
         raceDataSeparate={data.allCovidRaceDataSeparate.nodes}
         hhsHospitalization={data.allHhsHospitalizationCovid.group}
-        screenshotLinks={data.urls.nodes}
       />
     </Layout>
   )
@@ -80,15 +66,6 @@ export const query = graphql`
     lastUpdate: allCovidUsDaily(sort: { fields: date, order: DESC }, limit: 1) {
       nodes {
         date(formatString: "MMMM D, YYYY")
-      }
-    }
-    nationalSummaryFootnote: contentfulSnippet(
-      slug: { eq: "national-summary-footnote" }
-    ) {
-      content {
-        childMarkdownRemark {
-          html
-        }
       }
     }
     dataPreamble: contentfulSnippet(slug: { eq: "data-preamble" }) {
@@ -311,17 +288,6 @@ export const query = graphql`
           staffed_icu_adult_patients_confirmed_and_suspected_covid
           total_adult_patients_hospitalized_confirmed_covid
           total_pediatric_patients_hospitalized_confirmed_covid
-        }
-      }
-    }
-    urls: allFile {
-      nodes {
-        childTacoYaml {
-          links {
-            url
-            name
-          }
-          state
         }
       }
     }

@@ -60,6 +60,7 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
             'probableCases',
           ]}
         />
+        <h2>Case History</h2>
         <TableResponsive
           annotations={data.allContentfulChartAnnotation}
           labels={[

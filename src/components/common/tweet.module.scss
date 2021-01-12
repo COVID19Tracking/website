@@ -6,6 +6,9 @@
   @include margin(16, bottom);
   text-decoration: none;
   cursor: pointer;
+  &.extra-margin {
+    @include margin(32, bottom);
+  }
   blockquote {
     margin: 0;
   }
