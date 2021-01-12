@@ -30,6 +30,7 @@ const StateTestAntibodiesTemplate = ({ pageContext, path, data }) => {
           'positiveTestsAntibody',
         ]}
       />
+      <h2>Antibody Tests History</h2>
       <TableResponsive
         labels={[
           {

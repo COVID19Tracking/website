@@ -99,6 +99,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
               >
                 <a
                   href="/test-a"
+                  onClick={[Function]}
                 >
                   Test A
                 </a>
@@ -206,6 +207,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
               >
                 <a
                   href="/test-b"
+                  onClick={[Function]}
                 >
                   Test B
                 </a>
@@ -267,6 +269,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 >
                   <a
                     href="/test-a"
+                    onClick={[Function]}
                   >
                     Test A
                   </a>
@@ -374,6 +377,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
                 >
                   <a
                     href="/test-b"
+                    onClick={[Function]}
                   >
                     Test B
                   </a>
@@ -579,6 +583,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
               >
                 <a
                   href="/test-a"
+                  onClick={[Function]}
                 >
                   Test A
                 </a>
@@ -686,6 +691,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
               >
                 <a
                   href="/test-b"
+                  onClick={[Function]}
                 >
                   Test B
                 </a>
@@ -747,6 +753,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                 >
                   <a
                     href="/test-a"
+                    onClick={[Function]}
                   >
                     Test A
                   </a>
@@ -854,6 +861,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
                 >
                   <a
                     href="/test-b"
+                    onClick={[Function]}
                   >
                     Test B
                   </a>
@@ -1059,6 +1067,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
               >
                 <a
                   href="/test-a"
+                  onClick={[Function]}
                 >
                   Test A
                 </a>
@@ -1166,6 +1175,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
               >
                 <a
                   href="/test-b"
+                  onClick={[Function]}
                 >
                   Test B
                 </a>
@@ -1227,6 +1237,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 >
                   <a
                     href="/test-a"
+                    onClick={[Function]}
                   >
                     Test A
                   </a>
@@ -1334,6 +1345,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 >
                   <a
                     href="/test-b"
+                    onClick={[Function]}
                   >
                     Test B
                   </a>
@@ -1543,6 +1555,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
               >
                 <a
                   href="/test-a"
+                  onClick={[Function]}
                 >
                   Test A
                 </a>
@@ -1650,6 +1663,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
               >
                 <a
                   href="/test-b"
+                  onClick={[Function]}
                 >
                   Test B
                 </a>
@@ -1711,6 +1725,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                 >
                   <a
                     href="/test-a"
+                    onClick={[Function]}
                   >
                     Test A
                   </a>
@@ -1818,6 +1833,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                 >
                   <a
                     href="/test-b"
+                    onClick={[Function]}
                   >
                     Test B
                   </a>
@@ -2023,6 +2039,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
               >
                 <a
                   href="/test-a"
+                  onClick={[Function]}
                 >
                   Test A
                 </a>
@@ -2130,6 +2147,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
               >
                 <a
                   href="/test-b"
+                  onClick={[Function]}
                 >
                   Test B
                 </a>
@@ -2191,6 +2209,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
                 >
                   <a
                     href="/test-a"
+                    onClick={[Function]}
                   >
                     Test A
                   </a>
@@ -2298,6 +2317,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
                 >
                   <a
                     href="/test-b"
+                    onClick={[Function]}
                   >
                     Test B
                   </a>
