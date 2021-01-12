@@ -314,6 +314,7 @@ export const query = graphql`
         warning
         hideField
         metricTitle
+        warningTitle
       }
     }
     allHhsHospitalizationCovid(
