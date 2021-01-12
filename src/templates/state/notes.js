@@ -33,7 +33,7 @@ export const query = graphql`
     }
     covidState(state: { eq: $state }) {
       lastUpdateEt
-      dateModified
+      dateModified(formatString: "MMMM D, YYYY h:mm a")
       dataQualityGrade
     }
   }
