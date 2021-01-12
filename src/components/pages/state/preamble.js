@@ -14,7 +14,7 @@ const StatePreamble = ({ state, covidState, hideNotesLink = false }) => {
         {!hideNotesLink && (
           <li>
             <Link to={`/data/state/${state.childSlug.slug}/notes`}>
-              Notes, data anomalies, and official cautions for {state.name}.
+              Notes, data anomalies, and official cautions for {state.name}
             </Link>
           </li>
         )}
