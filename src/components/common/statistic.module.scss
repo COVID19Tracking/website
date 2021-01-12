@@ -50,13 +50,15 @@
 .info {
   flex: 100%;
   line-height: 1;
+  @include margin(8, bottom);
 }
 
 .link {
   color: $color-blueberry-400;
   @include type-size(50);
-  display: inline-block;
-  @include margin(8, (right, bottom));
+  display: block;
+  @include margin(8, right);
+  @include margin(4, bottom);
   cursor: pointer;
   border: none;
   background: inherit;
@@ -111,4 +113,13 @@
 .no-asterisk {
   // this is the width of an asterisk character
   margin-right: 7.2px; // ignore-style-rule
+}
+
+.warning-container {
+  display: flex;
+  align-items: center;
+  img {
+    width: 16px;
+    @include margin(4, right);
+  }
 }

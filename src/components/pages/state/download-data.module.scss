@@ -30,9 +30,8 @@
 }
 
 .row {
-  @include margin(16, top);
   @media (min-width: $viewport-lg) {
-    @include margin(32, top);
+    @include margin(16, top);
   }
   > div {
     @include margin(16, bottom);

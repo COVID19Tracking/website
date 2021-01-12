@@ -26,7 +26,6 @@ exports.createPages = async ({ graphql, actions }) => {
           covid19Site
           covid19SiteSecondary
           covid19SiteTertiary
-          notes
           name
           state
           twitter
@@ -177,7 +176,11 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/state/outcomes.js`),
       context: node,
     })
-
+    createPage({
+      path: `/data/state/${slug}/notes`,
+      component: path.resolve(`./src/templates/state/notes.js`),
+      context: node,
+    })
     createPage({
       path: `/data/state/${slug}/long-term-care`,
       component: path.resolve(`./src/templates/state/long-term-care/index.js`),

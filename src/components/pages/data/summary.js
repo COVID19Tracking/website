@@ -7,6 +7,8 @@ import {
   AnnotationPanelContext,
 } from './cards/definitions-panel'
 
+import DetailText from '~components/common/detail-text'
+import Container from '~components/common/container'
 import CasesCard from './cards/cases-card'
 import HospitalizationCard from './cards/hospitalization-card'
 import OutcomesCard from './cards/outcomes-card'
@@ -27,6 +29,20 @@ import ViewDataSmallCard from './cards/small/view-racial-data-small-card'
 import DataAsGraphicSmallCard from './cards/small/data-as-graphic-small-card'
 
 import summaryStyles from './summary.module.scss'
+
+const NationalText = ({ footnote }) => {
+  return (
+    <Container narrow>
+      <DetailText>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: footnote.content.childMarkdownRemark.html,
+          }}
+        />
+      </DetailText>
+    </Container>
+  )
+}
 
 const StateSummary = ({
   stateSlug,
@@ -51,7 +67,10 @@ const StateSummary = ({
   const [highlightedDefinition, setHighlightedDefinition] = useState(false)
   const [cardAnnotations, setCardAnnotations] = useState(false)
   const [highlightedAnnotation, setHighlightedAnnotation] = useState(false)
-  const { allContentfulDataDefinition } = useStaticQuery(graphql`
+  const {
+    allContentfulDataDefinition,
+    nationalSummaryFootnote,
+  } = useStaticQuery(graphql`
     {
       allContentfulDataDefinition {
         nodes {
@@ -61,6 +80,15 @@ const StateSummary = ({
             childMarkdownRemark {
               html
             }
+          }
+        }
+      }
+      nationalSummaryFootnote: contentfulSnippet(
+        slug: { eq: "national-summary-footnote" }
+      ) {
+        content {
+          childMarkdownRemark {
+            html
           }
         }
       }
@@ -151,93 +179,104 @@ const StateSummary = ({
             title={`${stateName} Annotations & Warnings`}
           />
         )}
-        <div
-          className={classnames(
-            summaryStyles.container,
-            national && summaryStyles.fullWidth,
-          )}
-        >
-          <CasesCard
-            stateSlug={stateSlug}
-            stateName={stateName}
-            positive={data.positive}
-            positiveIncrease={data.positiveIncrease}
-            probableCases={data.probableCases}
-            confirmedCases={data.positiveCasesViral}
-            sevenDayIncrease={sevenDayPositiveIncrease}
-            national={national}
-          />
-          {national ? (
-            <NationalTestsCard
-              totalTestResults={data.totalTestResults}
-              totalTestResultsIncrease={data.totalTestResultsIncrease}
-              totalTestResulstPercentIncrease={
-                (data.totalTestResults - sevenDaysAgo.totalTestResults) /
-                sevenDaysAgo.totalTestResults
-              }
-            />
-          ) : (
-            <>
-              <TestsViralCard
-                stateSlug={stateSlug}
-                stateName={stateName}
-                totalTestEncountersViral={data.totalTestEncountersViral}
-                totalTestsViral={data.totalTestsViral}
-                totalTestsPeopleViral={data.totalTestsPeopleViral}
-                unknownUnits={metadata && metadata.testUnitsUnknown}
-              />
-              <TestsAntigenCard
-                stateSlug={stateSlug}
-                stateName={stateName}
-                totalTestsAntigen={data.totalTestsAntigen}
-                totalTestsPeopleAntigen={data.totalTestsPeopleAntigen}
-              />
-              <TestsAntibodyCard
-                stateSlug={stateSlug}
-                stateName={stateName}
-                totalTestsAntibody={data.totalTestsAntibody}
-                totalTestsPeopleAntibody={data.totalTestsPeopleAntibody}
-              />
-            </>
-          )}
-          <HospitalizationCard
-            stateSlug={stateSlug}
-            stateName={stateName}
-            hospitalizedCumulative={data.hospitalizedCumulative}
-            inIcuCumulative={data.inIcuCumulative}
-            onVentilatorCumulative={data.onVentilatorCumulative}
-            hospitalizedCurrently={data.hospitalizedCurrently}
-            inIcuCurrently={data.inIcuCurrently}
-            onVentilatorCurrently={data.onVentilatorCurrently}
-            hhsHospitalization={hhsHospitalization}
-            national={national}
-          />
-          {!national && hhsHospitalization && (
-            <HospitalizationHhsCard
+        <div className={summaryStyles.wrapper}>
+          <div
+            className={classnames(
+              summaryStyles.container,
+              national && summaryStyles.fullWidth,
+            )}
+          >
+            <CasesCard
               stateSlug={stateSlug}
               stateName={stateName}
-              stateAbbreviation={stateAbbreviation}
+              positive={data.positive}
+              positiveIncrease={data.positiveIncrease}
+              probableCases={data.probableCases}
+              confirmedCases={data.positiveCasesViral}
+              sevenDayIncrease={sevenDayPositiveIncrease}
+              national={national}
+            />
+            {national && (
+              <NationalTestsCard
+                totalTestResults={data.totalTestResults}
+                totalTestResultsIncrease={data.totalTestResultsIncrease}
+                totalTestResulstPercentIncrease={
+                  (data.totalTestResults - sevenDaysAgo.totalTestResults) /
+                  sevenDaysAgo.totalTestResults
+                }
+              />
+            )}
+            {!national && (
+              <>
+                <TestsViralCard
+                  stateSlug={stateSlug}
+                  stateName={stateName}
+                  totalTestEncountersViral={data.totalTestEncountersViral}
+                  totalTestsViral={data.totalTestsViral}
+                  totalTestsPeopleViral={data.totalTestsPeopleViral}
+                  unknownUnits={metadata && metadata.testUnitsUnknown}
+                  annotations={annotations}
+                />
+                <TestsAntigenCard
+                  stateSlug={stateSlug}
+                  stateName={stateName}
+                  totalTestsAntigen={data.totalTestsAntigen}
+                  totalTestsPeopleAntigen={data.totalTestsPeopleAntigen}
+                />
+                <TestsAntibodyCard
+                  stateSlug={stateSlug}
+                  stateName={stateName}
+                  totalTestsAntibody={data.totalTestsAntibody}
+                  totalTestsPeopleAntibody={data.totalTestsPeopleAntibody}
+                />
+              </>
+            )}
+            <HospitalizationCard
+              stateSlug={stateSlug}
+              stateName={stateName}
+              hospitalizedCumulative={data.hospitalizedCumulative}
+              inIcuCumulative={data.inIcuCumulative}
+              onVentilatorCumulative={data.onVentilatorCumulative}
+              hospitalizedCurrently={data.hospitalizedCurrently}
+              inIcuCurrently={data.inIcuCurrently}
+              onVentilatorCurrently={data.onVentilatorCurrently}
               hhsHospitalization={hhsHospitalization}
+              national={national}
             />
-          )}
-          <OutcomesCard
-            stateSlug={stateSlug}
-            stateName={stateName}
-            deathsLabel={deathsLabel}
-            death={data.death}
-            deathConfirmed={data.deathConfirmed}
-            deathProbable={data.deathProbable}
-            recovered={data.recovered}
-            national={national}
-          />
-          {!national && (
-            <LongTermCareCard
-              data={longTermCare}
-              stateName={stateName}
-              stateDeaths={data.death}
+            {!national && hhsHospitalization && (
+              <HospitalizationHhsCard
+                stateSlug={stateSlug}
+                stateName={stateName}
+                hospitalizedCumulative={data.hospitalizedCumulative}
+                inIcuCumulative={data.inIcuCumulative}
+                onVentilatorCumulative={data.onVentilatorCumulative}
+                hospitalizedCurrently={data.hospitalizedCurrently}
+                inIcuCurrently={data.inIcuCurrently}
+                onVentilatorCurrently={data.onVentilatorCurrently}
+                hhsHospitalization={hhsHospitalization}
+                national={national}
+              />
+            )}
+            <OutcomesCard
               stateSlug={stateSlug}
+              stateName={stateName}
+              deathsLabel={deathsLabel}
+              death={data.death}
+              deathConfirmed={data.deathConfirmed}
+              deathProbable={data.deathProbable}
+              recovered={data.recovered}
+              national={national}
             />
-          )}
+            {!national && (
+              <LongTermCareCard
+                data={longTermCare}
+                stateName={stateName}
+                stateDeaths={data.death}
+                stateSlug={stateSlug}
+              />
+            )}
+          </div>
+          {national && <NationalText footnote={nationalSummaryFootnote} />}
         </div>
         {!national && (
           <>

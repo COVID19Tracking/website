@@ -1,18 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
-import StateSummary from '~components/pages/data/summary'
-import StateNotes from '~components/pages/state/state-notes'
 import LastUpdated from '~components/common/last-updated'
-import {
-  StateLinksDisclosure,
-  StateLinksDisclosureButton,
-  StateLinksDisclosurePanel,
-} from '~components/pages/state/state-links'
+import StateSummary from '~components/pages/data/summary'
 
 import stateDataStyles from './state-data.module.scss'
 
 const State = ({ state, metadata }) => {
-  const [stateLinksOpen, setStateLinksOpen] = useState(false)
   const { slug } = state.childSlug
   return (
     <>
@@ -20,6 +13,13 @@ const State = ({ state, metadata }) => {
         <h3 id={`state-${state.state.toLowerCase()}`}>
           <Link to={`/data/state/${slug}`}>{state.name}</Link>
         </h3>
+        <LastUpdated date={state.stateData.dateModified} />
+        <p>
+          <Link to={`/data/state/${slug}`}>
+            Full state data including data sources and notes
+          </Link>
+          .
+        </p>
       </div>
       <StateSummary
         stateName={state.name}
@@ -37,18 +37,6 @@ const State = ({ state, metadata }) => {
         }
       />
 
-      <StateLinksDisclosure
-        stateLinksAreOpen={stateLinksOpen}
-        setStateLinksAreOpen={setStateLinksOpen}
-      >
-        <div className={stateDataStyles.stateLinksHeader}>
-          <StateLinksDisclosureButton stateLinksAreOpen={stateLinksOpen} />
-          <LastUpdated date={state.stateData.dateModified} />
-        </div>
-        <StateLinksDisclosurePanel state={state} />
-      </StateLinksDisclosure>
-
-      {state.notes && <StateNotes notes={state.notes} />}
       <a
         className={`state-top-link ${stateDataStyles.topLink}`}
         href="#reach-skip-nav"

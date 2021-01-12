@@ -107,6 +107,7 @@ Array [
                 >
                   <a
                     href="/test-a"
+                    onClick={[Function]}
                   >
                     Test A
                   </a>
@@ -214,6 +215,7 @@ Array [
                 >
                   <a
                     href="/test-b"
+                    onClick={[Function]}
                   >
                     Test B
                   </a>
@@ -275,6 +277,7 @@ Array [
                   >
                     <a
                       href="/test-a"
+                      onClick={[Function]}
                     >
                       Test A
                     </a>
@@ -382,6 +385,7 @@ Array [
                   >
                     <a
                       href="/test-b"
+                      onClick={[Function]}
                     >
                       Test B
                     </a>
@@ -749,6 +753,7 @@ Array [
                 >
                   <a
                     href="/test-a"
+                    onClick={[Function]}
                   >
                     Test A
                   </a>
@@ -856,6 +861,7 @@ Array [
                 >
                   <a
                     href="/test-b"
+                    onClick={[Function]}
                   >
                     Test B
                   </a>
@@ -917,6 +923,7 @@ Array [
                   >
                     <a
                       href="/test-a"
+                      onClick={[Function]}
                     >
                       Test A
                     </a>
@@ -1024,6 +1031,7 @@ Array [
                   >
                     <a
                       href="/test-b"
+                      onClick={[Function]}
                     >
                       Test B
                     </a>
