@@ -1886,7 +1886,7 @@ exports[`Components : Pages : Data : Cards : Viral tests renders correctly 1`] =
         >
           Total tests
           <br />
-          (in test encounters)
+          (test encounters)
         </div>
         <div
           className="value"
@@ -1918,7 +1918,7 @@ exports[`Components : Pages : Data : Cards : Viral tests renders correctly 1`] =
         >
           Total tests
           <br />
-          (in specimens)
+          (specimens)
         </div>
         <div
           className="value"
@@ -1950,7 +1950,7 @@ exports[`Components : Pages : Data : Cards : Viral tests renders correctly 1`] =
         >
           Total tests
           <br />
-          (in people)
+          (people)
         </div>
         <div
           className="value"
@@ -2017,7 +2017,7 @@ exports[`Components : Pages : Data : Cards : Viral tests renders correctly 2`] =
         >
           Total tests
           <br />
-          (in unclear units)
+          (unclear units)
         </div>
         <div
           className="value"

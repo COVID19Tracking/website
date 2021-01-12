@@ -46,7 +46,7 @@ const TestsViralCard = ({
               <>
                 Total tests
                 <br />
-                (in unclear units)
+                (unclear units)
               </>
             }
             value={totalTestsViral}
@@ -70,7 +70,7 @@ const TestsViralCard = ({
                     highlight: 'Total Tests (PCR)',
                   })
                 }}
-                label="Annotation for Total Tests (in unclear units)"
+                label="Annotation for Total Tests (unclear units)"
               />
             </AnnotationButton>
           </Statistic>
@@ -81,7 +81,7 @@ const TestsViralCard = ({
                 <>
                   Total tests
                   <br />
-                  (in test encounters)
+                  (test encounters)
                 </>
               }
               value={totalTestEncountersViral}
@@ -114,7 +114,7 @@ const TestsViralCard = ({
                 <>
                   Total tests
                   <br />
-                  (in specimens)
+                  (specimens)
                 </>
               }
               value={totalTestsViral}
@@ -146,7 +146,7 @@ const TestsViralCard = ({
                 <>
                   Total tests
                   <br />
-                  (in people)
+                  (people)
                 </>
               }
               value={totalTestsPeopleViral}
