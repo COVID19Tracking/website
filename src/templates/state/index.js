@@ -37,6 +37,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
       title={state.name}
       returnLinks={[{ link: '/data' }]}
       path={path}
+      description={`Cases, testing, hospitalization, outcomes, long-term-care, and race and ethnicity data for ${state.name}, plus data sources, notes, and grade.`}
       showWarning
     >
       <StatePreamble state={state} covidState={covidState} />
