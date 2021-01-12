@@ -214,6 +214,7 @@ const StateSummary = ({
                   totalTestsViral={data.totalTestsViral}
                   totalTestsPeopleViral={data.totalTestsPeopleViral}
                   unknownUnits={metadata && metadata.testUnitsUnknown}
+                  annotations={annotations}
                 />
                 <TestsAntibodyCard
                   stateSlug={stateSlug}
