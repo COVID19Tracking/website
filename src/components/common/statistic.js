@@ -90,7 +90,7 @@ const DefinitionLinkInner = ({ title }) => {
   return (
     <div className={statisticStyles.warningContainer}>
       <img src={alertBang} alt="Alert bang icon" />
-      {title || 'Warning'}
+      {title.charAt(0).toUpperCase() + title.slice(1) || 'Warning'}
     </div>
   )
 }
