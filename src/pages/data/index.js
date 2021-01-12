@@ -58,7 +58,6 @@ const DataPage = ({ data }) => {
         raceDataCombined={data.allCovidRaceDataCombined.nodes}
         raceDataSeparate={data.allCovidRaceDataSeparate.nodes}
         hhsHospitalization={data.allHhsHospitalizationCovid.group}
-        screenshotLinks={data.urls.nodes}
       />
     </Layout>
   )
@@ -291,17 +290,6 @@ export const query = graphql`
           staffed_icu_adult_patients_confirmed_and_suspected_covid
           total_adult_patients_hospitalized_confirmed_covid
           total_pediatric_patients_hospitalized_confirmed_covid
-        }
-      }
-    }
-    urls: allFile {
-      nodes {
-        childTacoYaml {
-          links {
-            url
-            name
-          }
-          state
         }
       }
     }

@@ -31,7 +31,6 @@ const StateTemplate = ({ pageContext, data, path }) => {
     allTweets,
     allCovidAnnotation,
     allHhsHospitalizationCovid,
-    urls,
   } = data
   return (
     <Layout
@@ -40,7 +39,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
       path={path}
       showWarning
     >
-      <StatePreamble state={state} urls={urls} covidState={covidState} />
+      <StatePreamble state={state} covidState={covidState} />
       <SummaryCharts
         name={state.name}
         chartTables={`/data/state/${state.childSlug.slug}/chart-tables`}
@@ -326,15 +325,6 @@ export const query = graphql`
         staffed_icu_adult_patients_confirmed_and_suspected_covid
         total_adult_patients_hospitalized_confirmed_covid
         total_pediatric_patients_hospitalized_confirmed_covid
-      }
-    }
-    urls: file(childTacoYaml: { state: { eq: $state } }) {
-      childTacoYaml {
-        links {
-          url
-          name
-        }
-        state
       }
     }
   }

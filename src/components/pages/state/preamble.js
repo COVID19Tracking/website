@@ -5,24 +5,26 @@ import Timezone from '~components/common/timezone'
 import preambleStyle from './preamble.module.scss'
 import { Row, Col } from '~components/common/grid'
 
-const StatePreamble = ({ state, covidState }) => {
+const StatePreamble = ({ state, covidState, hideNotesLink = false }) => {
   // todo make state grade wrap as a circle with the grade description
   return (
     <div className={preambleStyle.preamble}>
       <h2 className={preambleStyle.header}>{state.name} Overview</h2>
       <ul>
-        <li>
-          <Link to={`/data/state/${state.childSlug.slug}/notes`}>
-            What you need to know about this data
-          </Link>
-        </li>
+        {!hideNotesLink && (
+          <li>
+            <Link to={`/data/state/${state.childSlug.slug}/notes`}>
+              What you need to know about this data
+            </Link>
+          </li>
+        )}
         <li>
           <a
             rel="noreferrer"
             target="_blank"
             href={`https://screenshots.covidtracking.com/${state.childSlug.slug}`}
           >
-            <span>Sources and screenshots</span>
+            <span>Where this data comes from</span>
           </a>
         </li>
       </ul>
