@@ -56,13 +56,10 @@ export const query = graphql`
         Cases_AIAN
         Cases_Black
         Cases_White
-        Cases_Unknown
-        Cases_Total
         Cases_Other
         Cases_NHPI
         Cases_Multiracial
         Cases_LatinX
-        Cases_Ethnicity_Unknown
         Cases_Ethnicity_NonHispanic
         Cases_Ethnicity_Hispanic
         Date
@@ -72,38 +69,29 @@ export const query = graphql`
         Deaths_Ethnicity_Hispanic
         Deaths_Ethnicity_NonHispanic
         Deaths_LatinX
-        Deaths_Ethnicity_Unknown
         Deaths_Multiracial
         Deaths_NHPI
         Deaths_Other
-        Deaths_Total
-        Deaths_Unknown
         Deaths_White
         Hosp_AIAN
         Hosp_Asian
         Hosp_Black
         Hosp_Ethnicity_Hispanic
         Hosp_Ethnicity_NonHispanic
-        Hosp_Ethnicity_Unknown
         Hosp_LatinX
         Hosp_Multiracial
         Hosp_NHPI
         Hosp_Other
-        Hosp_Total
-        Hosp_Unknown
         Hosp_White
         Tests_AIAN
         Tests_Asian
         Tests_Black
         Tests_Ethnicity_Hispanic
         Tests_Ethnicity_NonHispanic
-        Tests_Ethnicity_Unknown
         Tests_LatinX
         Tests_Multiracial
         Tests_NHPI
         Tests_Other
-        Tests_Total
-        Tests_Unknown
         Tests_White
       }
     }

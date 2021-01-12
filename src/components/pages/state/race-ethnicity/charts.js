@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useMemo } from 'react'
+import { DateTime } from 'luxon'
 import Chart from './chart'
 
 import styles from './charts.module.scss'
 import colors from '~scss/colors.module.scss'
 
-// todo pass the data here
-const Charts = ({ population, usePer100kRate }) => {
+const Charts = ({ population, usePer100kRate, timeSeriesData }) => {
+  // todo use population on a per-race/ethnicity basis (not on a per-state basis)
+  // todo pass metric type (cases/deaths/hosp)
+
   const chartProps = {
     height: 180, // these control the dimensions used to render the svg but not the final size
     width: 280, // that is determined by the containing element
@@ -16,23 +19,75 @@ const Charts = ({ population, usePer100kRate }) => {
     showTicks: 6,
   }
 
-  const caseData = [
-    { date: new Date(2018, 11, 24), value: 200 },
-    { date: new Date(2018, 11, 25), value: 120 },
-    { date: new Date(2018, 11, 26), value: 250 },
-    { date: new Date(2018, 11, 27), value: 230 },
-    { date: new Date(2018, 11, 28), value: 290 },
-  ]
+  const getAvailableMetricFields = (latestDay, startsWith) => {
+    const listOfMetrics = []
+
+    Object.keys(latestDay).forEach(value => {
+      if (value.startsWith(startsWith)) {
+        listOfMetrics.push(value)
+      }
+    })
+
+    return listOfMetrics
+  }
+
+  const getMetricData = (allData, metricTitle, metrics) => {
+    /** Restructures a single metric's racial data (i.e. cases) for charts */
+    const completedData = {} // store the final metric data object
+
+    metrics.forEach(metric => {
+      const metricTimeSeries = [] // create a time series array for each metric
+      allData.forEach(day => {
+        // for each day, add this metric's data to the time series
+        metricTimeSeries.push({
+          date: DateTime.fromISO(day.Date).setZone('America/New_York'),
+          value: day[metric],
+        })
+      })
+      // remove the 'Cases_' prefix from the metric
+      const cleanMetricTitle = metric.replace(`${metricTitle}_`, '')
+      // add this time series to the completed object
+      completedData[cleanMetricTitle] = metricTimeSeries
+    })
+
+    return completedData
+  }
+
+  const generateChartData = allData => {
+    /** Transforms API time series data into chart-ready data */
+    const computedChartData = useMemo(() => {
+      const latestDay = allData[0]
+      const caseMetrics = getAvailableMetricFields(latestDay, 'Cases_')
+      const deathMetrics = getAvailableMetricFields(latestDay, 'Deaths_')
+      const hospMetrics = getAvailableMetricFields(latestDay, 'Hosp_')
+      const testMetrics = getAvailableMetricFields(latestDay, 'Tests_')
+
+      const chartData = {}
+      chartData.Cases = getMetricData(allData, 'Cases', caseMetrics)
+      chartData.Deaths = getMetricData(allData, 'Deaths', deathMetrics)
+      chartData.Hosp = getMetricData(allData, 'Hosp', hospMetrics)
+      chartData.Test = getMetricData(allData, 'Test', testMetrics)
+
+      return chartData
+    }, [])
+
+    return computedChartData
+  }
+
+  const allData = generateChartData(timeSeriesData)
 
   if (usePer100kRate) {
     // use per 100k metrics
     /* eslint-disable no-param-reassign */
-    caseData.forEach((point, i, dataArray) => {
+    // todo use all racial groups, not just Black
+    allData.Cases.Black.forEach((point, i, dataArray) => {
+      // todo use population on a per-race/ethnicity basis (not on a per-state basis)
       dataArray[i].value = point.value / (population / 100000)
     })
   }
 
   // todo add renderTooltipContents to line charts
+  // todo use all racial groups, not just Black
 
   return (
     <div className={styles.wrapper}>
@@ -42,7 +97,7 @@ const Charts = ({ population, usePer100kRate }) => {
             color: colors.colorBlueberry200,
             stroke: 2,
             label: 'Cases',
-            data: caseData,
+            data: allData.Cases.Black,
           },
         ]}
         title="Race Data"
@@ -54,7 +109,7 @@ const Charts = ({ population, usePer100kRate }) => {
             color: colors.colorStrawberry200,
             stroke: 2,
             label: 'Cases',
-            data: caseData,
+            data: allData.Cases.Black,
           },
         ]}
         title="Ethnicity Data"

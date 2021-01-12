@@ -81,7 +81,11 @@ const Hero = ({
           setState={setUsePer100kRate}
           className={styles.ratesToggle}
         />
-        <Charts population={200000} usePer100kRate={usePer100kRate} />
+        <Charts
+          population={200000}
+          usePer100kRate={usePer100kRate}
+          timeSeriesData={timeseriesData}
+        />
         <NotesAndDownloads
           slug={stateSlug}
           stateAbbreviation={stateAbbreviation}
