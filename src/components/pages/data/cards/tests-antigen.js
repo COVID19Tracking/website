@@ -47,9 +47,9 @@ const TestsAntigenCard = ({
         </Statistic>
         <CardNote>
           <b>Warning</b>: Antigen reporting may{' '}
-          <a href="https://covidtracking.com/analysis-updates/antigen-testing-reporting">
+          <Link to="/analysis-updates/antigen-testing-reporting">
             significantly understate
-          </a>{' '}
+          </Link>{' '}
           the true number of tests administered
         </CardNote>
       </CardBody>
