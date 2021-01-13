@@ -11,7 +11,8 @@ const Charts = ({
   timeSeriesData,
   currentMetric,
 }) => {
-  // todo use population on a per-race/ethnicity basis (not on a per-state basis)
+  // todo use population on a per-race/ethnicity basis
+  // (not on a per-state basis)
 
   const getAvailableMetricFields = (latestDay, startsWith, raceOnly) => {
     /**
@@ -101,11 +102,13 @@ const Charts = ({
   if (usePer100kRate) {
     // use per 100k metrics
     /* eslint-disable no-param-reassign */
-    // todo stop this from dividing the original value multiple times (i.e. don't edit the original value)
+    // todo stop this from dividing the original value multiple times
+    //  (i.e. don't edit the original value)
     // todo use all racial groups, not just Black
     // todo apply to both race and ethnicity data
     allRaceData[currentMetric].Black.forEach((point, i, dataArray) => {
-      // todo use population on a per-race/ethnicity basis (not on a per-state basis)
+      // todo use population on a per-race/ethnicity basis
+      //   (not on a per-state basis)
       dataArray[i].value = point.value / (population / 100000)
     })
   }
