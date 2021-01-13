@@ -11,7 +11,7 @@ const ChangeLog = () => (
             target="_blank"
             rel="noreferrer"
           >
-            Latest API changes
+            Latest changes
             <span aria-hidden />
           </a>
         </li>
