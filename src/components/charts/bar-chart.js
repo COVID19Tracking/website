@@ -119,8 +119,8 @@ const BarChart = ({
     }
     const column = data[keyboardFocus]
     setTooltip({
-      top: height,
-      left: xScale(column.date) + 230,
+      top: chartRef.current.getBoundingClientRect().top,
+      left: chartRef.current.getBoundingClientRect().left,
       d: column,
     })
   }, [keyboardFocus])
@@ -143,7 +143,7 @@ const BarChart = ({
             setKeyboardFocus(false)
             chartRef.current.blur()
           }
-          if (event.key === 'Tab' || event.key === 'ArrowRight') {
+          if (event.key === 'ArrowRight') {
             setKeyboardFocus(
               keyboardFocus < data.length ? keyboardFocus + 1 : data.length,
             )
