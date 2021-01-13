@@ -64,6 +64,21 @@
   background: $color-blueberry-500;
 }
 
+.deaths-rising {
+  fill: #3b4249;
+  background: #3b4249;
+}
+
+.deaths-same {
+  fill: #c6c6c6;
+  background: #c6c6c6;
+}
+
+.deaths-falling {
+  fill: #97cde2;
+  background: #97cde2;
+}
+
 .active-state {
   @include type-size(200);
 }
