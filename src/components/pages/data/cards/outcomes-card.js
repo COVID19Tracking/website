@@ -18,7 +18,7 @@ const OutcomesCard = ({
 }) => {
   const fields = []
 
-  if (recovered) {
+  if (recovered && recoveredMetricName === 'Recovered') {
     fields.push('recovered')
   }
 

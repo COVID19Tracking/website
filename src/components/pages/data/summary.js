@@ -178,6 +178,49 @@ const StateSummary = ({
     return displayName
   }
 
+  const addMetricTextDefinitions = (allDefinitions, allAnnotations) => {
+    /**
+     * Adds definitions from Airtable stored in the metricText variable to the
+     * definitions already in the allDefinitions array from Contentful.
+     */
+    if (!allDefinitions) {
+      return allDefinitions
+    }
+
+    let isOutcomes = false
+
+    allDefinitions.every(definition => {
+      if (definition.fieldName === 'death') {
+        isOutcomes = true
+        return false
+      }
+      return true
+    })
+
+    if (!isOutcomes) {
+      return allDefinitions
+    }
+
+    allAnnotations.forEach(annotation => {
+      if (annotation.metricText != null) {
+        const definitionShim = {
+          childContentfulDataDefinitionDefinitionTextNode: {
+            childMarkdownRemark: {
+              html: annotation.metricText,
+            },
+          },
+          fieldName: annotation.field.toLowerCase(),
+          name: annotation.metricTitle,
+        }
+        allDefinitions.unshift(definitionShim)
+      }
+    })
+
+    return allDefinitions
+  }
+
+  addMetricTextDefinitions(definitions, annotations)
+
   return (
     <DefinitionPanelContext.Provider
       value={({ fields, highlight }) => {

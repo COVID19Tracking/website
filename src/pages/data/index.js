@@ -213,6 +213,7 @@ export const query = graphql`
         warning
         hideField
         metricTitle
+        metricText
         warningTitle
       }
     }
