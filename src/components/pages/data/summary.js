@@ -127,6 +127,101 @@ const StateSummary = ({
 
   const raceValues = createRaceValues(raceData)
 
+  const checkHiddenStatus = (metricName, allAnnotations, originalValue) => {
+    /*
+    Checks if a metric should be hidden.
+
+    metricName: the name of the metric from Airtable
+    allAnnotations: the list of annotations passed to this component
+    originalValue: the originalValue of the metric
+      (to be shown if the value should not be hidden)
+    */
+    if (allAnnotations.length === 0 || allAnnotations === false) {
+      return originalValue
+    }
+    let hideAnnotation = false // assume we'll show the annotation
+    allAnnotations.every(annotation => {
+      if (annotation.field === metricName && annotation.hideField === 1) {
+        // if this annotation is for the metric we're looking for ...
+        // and we should hide it, then set the hideAnnotation variable
+        hideAnnotation = true
+        return false
+      }
+      return true
+    })
+    if (hideAnnotation) {
+      return null // return null if we should hide the metric
+    }
+    return originalValue // otherwise, return the original metric
+  }
+
+  const getMetricTitle = (metricName, allAnnotations) => {
+    /*
+    Gets the title for a metric when the title is ambiguous.
+
+    (i.e. "Recovered" may be "Hospital discharges" in some cases.
+    This method returns the appropriate metric title.)
+    */
+    if (allAnnotations.length === 0 || allAnnotations === false) {
+      return metricName
+    }
+    let displayName = metricName // assume the metricName is correct
+    allAnnotations.every(annotation => {
+      if (annotation.field === metricName) {
+        // if this annotation is for the metric we're looking for ...
+        if (annotation.metricTitle !== null) {
+          displayName = annotation.metricTitle
+        }
+        return false // break out of every
+      }
+      return true
+    })
+    return displayName
+  }
+
+  const addMetricTextDefinitions = (allDefinitions, allAnnotations) => {
+    /**
+     * Adds definitions from Airtable stored in the metricText variable to the
+     * definitions already in the allDefinitions array from Contentful.
+     */
+    if (!allDefinitions) {
+      return allDefinitions
+    }
+
+    let isOutcomes = false
+
+    allDefinitions.every(definition => {
+      if (definition.fieldName === 'death') {
+        isOutcomes = true
+        return false
+      }
+      return true
+    })
+
+    if (!isOutcomes) {
+      return allDefinitions
+    }
+
+    allAnnotations.forEach(annotation => {
+      if (annotation.metricText != null) {
+        const definitionShim = {
+          childContentfulDataDefinitionDefinitionTextNode: {
+            childMarkdownRemark: {
+              html: annotation.metricText,
+            },
+          },
+          fieldName: annotation.field.toLowerCase(),
+          name: annotation.metricTitle,
+        }
+        allDefinitions.unshift(definitionShim)
+      }
+    })
+
+    return allDefinitions
+  }
+
+  addMetricTextDefinitions(definitions, annotations)
+
   return (
     <DefinitionPanelContext.Provider
       value={({ fields, highlight }) => {
@@ -264,7 +359,12 @@ const StateSummary = ({
               death={data.death}
               deathConfirmed={data.deathConfirmed}
               deathProbable={data.deathProbable}
-              recovered={data.recovered}
+              recovered={checkHiddenStatus(
+                'Recovered',
+                annotations,
+                data.recovered,
+              )}
+              recoveredMetricName={getMetricTitle('Recovered', annotations)}
               national={national}
             />
             {!national && (
