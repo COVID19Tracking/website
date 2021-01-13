@@ -44,7 +44,7 @@ const Grid = ({ states, us, relatedPost, metric, disclaimer = false }) => {
                   <abbr title={state.name}>{state.state}</abbr>
                 </div>
                 <div className={gridStyle.value}>
-                  {Math.round(state.value).toLocaleString()}
+                  {metric.format(state.value)}
                 </div>
                 <div
                   className={classnames(
