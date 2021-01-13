@@ -46,7 +46,7 @@ const State = ({ x, y, r, state, onClick, className, isActive }) => {
     [x - coxSix * r + padding, y + sinSix * r],
     [x - coxSix * r + padding, y - sinSix * r + r / 1.5],
   ]
-  const { metric } = useContext(MetricContext)
+  const { metric, format } = useContext(MetricContext)
   return (
     <g>
       <polygon
@@ -95,7 +95,7 @@ const State = ({ x, y, r, state, onClick, className, isActive }) => {
           }
         }}
       >
-        {Math.round(state.value).toLocaleString()}
+        {format(state.value)}
       </text>
     </g>
   )
@@ -119,7 +119,7 @@ const US = ({ r, value, onClick, className, inGrid, isActive }) => {
     [x - coxSix * r, y + sinSix * r],
     [x - coxSix * r, y - sinSix * r + r / 1.5],
   ]
-  const { metric } = useContext(MetricContext)
+  const { metric, format } = useContext(MetricContext)
   return (
     <g>
       <polygon
@@ -153,7 +153,7 @@ const US = ({ r, value, onClick, className, inGrid, isActive }) => {
         className={mapStyle.stateNumber}
         onClick={() => onClick()}
       >
-        {Math.round(value).toLocaleString()}
+        {format(value)}
       </text>
     </g>
   )

@@ -36,7 +36,7 @@ const Sidebar = ({ state, inModal = false, relatedPost = false }) => (
           to={`/data/state/${state.state.childSlug.slug}`}
           className={sidebarStyle.link}
         >
-          <span className={sidebarStyle.text}>All state data</span>{' '}
+          <span className={sidebarStyle.text}>All {state.state.name} data</span>{' '}
           <span aria-hidden>→</span>
         </Link>
       </>
