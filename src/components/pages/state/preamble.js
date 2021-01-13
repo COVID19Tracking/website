@@ -28,18 +28,18 @@ const StatePreamble = ({ state, covidState, hideNotesLink = false }) => {
           </a>
         </li>
       </ul>
-      <Row>
+      <Row className={preambleStyle.row}>
         <Col width={[4, 6, 4]}>
           Last updated {covidState.dateModified} <Timezone />
         </Col>
-        <Col width={[4, 6, 4]}>
+        <Col width={[4, 6, 4]} paddingLeft={[0, 0, 16]}>
           Download data as a{' '}
           <a href={`/data/download/${state.childSlug.slug}-history.csv`}>
             CSV file
           </a>{' '}
           or with our <Link to="/data/api">API</Link>.
         </Col>
-        <Col width={[4, 6, 4]}>
+        <Col width={[4, 6, 4]} paddingLeft={[0, 0, 16]}>
           <StateGrade letterGrade={covidState.dataQualityGrade} />
         </Col>
       </Row>

@@ -38,3 +38,12 @@
   @include remove-button-style();
   text-decoration: underline;
 }
+
+.row {
+  > div {
+    @include margin(16, bottom);
+    @media (min-width: $viewport-lg) {
+      margin-bottom: 0;
+    }
+  }
+}
