@@ -13,7 +13,12 @@ const Charts = ({
 }) => {
   // todo use population on a per-race/ethnicity basis (not on a per-state basis)
 
-  const getAvailableMetricFields = (latestDay, startsWith) => {
+  const getAvailableMetricFields = (latestDay, startsWith, raceOnly) => {
+    /**
+     * Returns a list of all of the available metric fields.
+     * raceOnly: returns only race values when true, only ethnicity
+     *  values when false
+     */
     const listOfMetrics = []
 
     Object.keys(latestDay).forEach(value => {
@@ -21,6 +26,13 @@ const Charts = ({
         listOfMetrics.push(value)
       }
     })
+
+    if (raceOnly) {
+      return listOfMetrics.filter(metric => !metric.includes('Ethnicity'))
+    }
+    if (!raceOnly) {
+      return listOfMetrics.filter(metric => metric.includes('Ethnicity'))
+    }
 
     return listOfMetrics
   }
@@ -47,14 +59,29 @@ const Charts = ({
     return completedData
   }
 
-  const generateChartData = allData => {
-    /** Transforms API time series data into chart-ready data */
+  const generateChartData = (allData, raceOnly) => {
+    /** Transforms API time series data into chart-ready data
+     * raceOnly: returns only race values when true, only ethnicity
+     *  values when false
+     */
     const computedChartData = useMemo(() => {
       const latestDay = allData[0]
-      const caseMetrics = getAvailableMetricFields(latestDay, 'Cases_')
-      const deathMetrics = getAvailableMetricFields(latestDay, 'Deaths_')
-      const hospMetrics = getAvailableMetricFields(latestDay, 'Hosp_')
-      const testMetrics = getAvailableMetricFields(latestDay, 'Tests_')
+      const caseMetrics = getAvailableMetricFields(
+        latestDay,
+        'Cases_',
+        raceOnly,
+      )
+      const deathMetrics = getAvailableMetricFields(
+        latestDay,
+        'Deaths_',
+        raceOnly,
+      )
+      const hospMetrics = getAvailableMetricFields(latestDay, 'Hosp_', raceOnly)
+      const testMetrics = getAvailableMetricFields(
+        latestDay,
+        'Tests_',
+        raceOnly,
+      )
 
       const chartData = {}
       chartData.Cases = getMetricData(allData, 'Cases', caseMetrics)
@@ -68,14 +95,16 @@ const Charts = ({
     return computedChartData
   }
 
-  const allData = generateChartData(timeSeriesData)
+  const allRaceData = generateChartData(timeSeriesData, true)
+  const allEthnicityData = generateChartData(timeSeriesData, false)
 
   if (usePer100kRate) {
     // use per 100k metrics
     /* eslint-disable no-param-reassign */
     // todo stop this from dividing the original value multiple times (i.e. don't edit the original value)
     // todo use all racial groups, not just Black
-    allData[currentMetric].Black.forEach((point, i, dataArray) => {
+    // todo apply to both race and ethnicity data
+    allRaceData[currentMetric].Black.forEach((point, i, dataArray) => {
       // todo use population on a per-race/ethnicity basis (not on a per-state basis)
       dataArray[i].value = point.value / (population / 100000)
     })
@@ -85,16 +114,16 @@ const Charts = ({
 
   // todo separate race and ethnicity, based on combined or separate states
 
-  // todo find alternatives to red
+  // todo find alternatives to red, blue, green
 
   const colorMap = {
     AIAN: colors.crdtAian,
     Asian: colors.crdtAsian,
     Black: colors.crdtBlack,
-    Ethnicity_Hispanic: colors.crdtHispanicLatino,
+    Ethnicity_Hispanic: 'blue',
     Ethnicity_NonHispanic: 'red',
-    LatinX: 'red',
-    Multiracial: 'red',
+    LatinX: colors.Latinx,
+    Multiracial: 'green',
     NHPI: colors.crdtNhpi,
     White: colors.crdtWhite,
   }
@@ -106,7 +135,7 @@ const Charts = ({
           {
             colorMap,
             label: 'Cases',
-            data: allData[currentMetric],
+            data: allRaceData[currentMetric],
           },
         ]}
         title="Race Data"
@@ -116,7 +145,7 @@ const Charts = ({
           {
             colorMap,
             label: 'Cases',
-            data: allData[currentMetric],
+            data: allEthnicityData[currentMetric],
           },
         ]}
         title="Ethnicity Data"
