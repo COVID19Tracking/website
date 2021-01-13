@@ -169,6 +169,8 @@ export const query = graphql`
         totalTestResults
         totalTestsAntibody
         totalTestsPeopleAntibody
+        totalTestsAntigen
+        totalTestsPeopleAntigen
         totalTestsPeopleViral
         totalTestsViral
       }
