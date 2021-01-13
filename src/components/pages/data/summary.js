@@ -13,6 +13,7 @@ import CasesCard from './cards/cases-card'
 import HospitalizationCard from './cards/hospitalization-card'
 import OutcomesCard from './cards/outcomes-card'
 import TestsAntibodyCard from './cards/tests-antibody'
+import TestsAntigenCard from './cards/tests-antigen'
 import TestsViralCard from './cards/tests-viral'
 import NationalTestsCard from './cards/tests-national'
 import LongTermCareCard from './cards/long-term-care'
@@ -214,11 +215,19 @@ const StateSummary = ({
                   totalTestsViral={data.totalTestsViral}
                   totalTestsPeopleViral={data.totalTestsPeopleViral}
                   unknownUnits={metadata && metadata.testUnitsUnknown}
+                  annotations={annotations}
+                />
+                <TestsAntigenCard
+                  stateSlug={stateSlug}
+                  stateName={stateName}
+                  totalTestsAntigen={data.totalTestsAntigen}
+                  totalTestsPeopleAntigen={data.totalTestsPeopleAntigen}
                 />
                 <TestsAntibodyCard
                   stateSlug={stateSlug}
                   stateName={stateName}
                   totalTestsAntibody={data.totalTestsAntibody}
+                  totalTestsPeopleAntibody={data.totalTestsPeopleAntibody}
                 />
               </>
             )}
@@ -238,8 +247,14 @@ const StateSummary = ({
               <HospitalizationHhsCard
                 stateSlug={stateSlug}
                 stateName={stateName}
-                stateAbbreviation={stateAbbreviation}
+                hospitalizedCumulative={data.hospitalizedCumulative}
+                inIcuCumulative={data.inIcuCumulative}
+                onVentilatorCumulative={data.onVentilatorCumulative}
+                hospitalizedCurrently={data.hospitalizedCurrently}
+                inIcuCurrently={data.inIcuCurrently}
+                onVentilatorCurrently={data.onVentilatorCurrently}
                 hhsHospitalization={hhsHospitalization}
+                national={national}
               />
             )}
             <OutcomesCard

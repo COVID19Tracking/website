@@ -169,6 +169,8 @@ export const query = graphql`
         totalTestResults
         totalTestsAntibody
         totalTestsPeopleAntibody
+        totalTestsAntigen
+        totalTestsPeopleAntigen
         totalTestsPeopleViral
         totalTestsViral
       }
@@ -211,6 +213,7 @@ export const query = graphql`
         field
         lastChecked(formatString: "MMMM DD yyyy")
         warning
+        warningTitle
       }
     }
     allCovidRaceDataCombined {
