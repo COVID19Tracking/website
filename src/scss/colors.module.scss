@@ -86,6 +86,14 @@ $qualitative-color-palette-400: #f4a071;
 $qualitative-color-palette-500: #2f6488;
 $qualitative-color-palette-600: #527740;
 
+
+$crdt-asian: #012656;
+$crdt-white: #cccc00;
+$crdt-black: #a19bca;
+$crdt-hispanic-latino: #f4a071;
+$crdt-nhpi: #2f6488;
+$crdt-aian: #527740;
+
 :export {
   text: $text;
   link: $color-link;
@@ -127,4 +135,10 @@ $qualitative-color-palette-600: #527740;
   qualiTativecolorPalette400: $qualitative-color-palette-400;
   qualiTativecolorPalette500: $qualitative-color-palette-500;
   qualiTativecolorPalette600: $qualitative-color-palette-600;
+  crdtAsian: $crdt-asian;
+  crdtWhite: $crdt-white;
+  crdtBlack: $crdt-black;
+  crdtHispanicLatino: $crdt-hispanic-latino;
+  crdtNhpi: $crdt-nhpi;
+  crdtAian: $crdt-aian;
 }

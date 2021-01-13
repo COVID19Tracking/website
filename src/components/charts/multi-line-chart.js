@@ -168,7 +168,7 @@ const MultiLineChart = ({
                   {Object.keys(item.data).map(category => (
                     <path
                       d={lineFn(item.data[category])}
-                      stroke="red"
+                      stroke={item.colorMap[category]}
                       strokeWidth="1px"
                       fill="none"
                     />

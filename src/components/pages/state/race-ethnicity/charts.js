@@ -82,15 +82,29 @@ const Charts = ({
   }
 
   // todo add renderTooltipContents to line charts
-  // todo use all racial groups, not just Black
+
+  // todo separate race and ethnicity, based on combined or separate states
+
+  // todo find alternatives to red
+
+  const colorMap = {
+    AIAN: colors.crdtAian,
+    Asian: colors.crdtAsian,
+    Black: colors.crdtBlack,
+    Ethnicity_Hispanic: colors.crdtHispanicLatino,
+    Ethnicity_NonHispanic: 'red',
+    LatinX: 'red',
+    Multiracial: 'red',
+    NHPI: colors.crdtNhpi,
+    White: colors.crdtWhite,
+  }
 
   return (
     <div className={styles.wrapper}>
       <Chart
         data={[
           {
-            color: colors.colorBlueberry200,
-            stroke: 2,
+            colorMap,
             label: 'Cases',
             data: allData[currentMetric],
           },
@@ -100,8 +114,7 @@ const Charts = ({
       <Chart
         data={[
           {
-            color: colors.colorStrawberry200,
-            stroke: 2,
+            colorMap,
             label: 'Cases',
             data: allData[currentMetric],
           },
