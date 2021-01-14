@@ -21,4 +21,8 @@
   for = "/api/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
-    
+
+[[headers]]
+  for = "/images/race-dashboard/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
