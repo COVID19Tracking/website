@@ -21,6 +21,7 @@ const NationalDataCasesPage = ({ data }) => {
         definitions={data.allContentfulDataDefinition.nodes}
         order={['positive', 'positiveIncrease']}
       />
+      <h2>Case History</h2>
       <TableResponsive
         labels={[
           {

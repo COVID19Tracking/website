@@ -25,6 +25,7 @@ const NationalDataHospitalizationPage = ({ data }) => {
           'onVentilatorCurrently',
         ]}
       />
+      <h2>Hospitalization History</h2>
       <p>
         We have{' '}
         <Link to="/about-data/faq#why-have-you-stopped-reporting-national-cumulative-hospitalizations-icu-and-ventilation-numbers-on-your-website">

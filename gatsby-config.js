@@ -69,13 +69,6 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'screenshotConfig',
-        path: `${__dirname}/_screenshots/configs/taco`,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-google-analytics-gdpr',
       options: {
         trackingId: 'UA-182192518-1',

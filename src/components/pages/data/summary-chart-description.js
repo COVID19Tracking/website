@@ -1,5 +1,5 @@
-/* eslint-disable no-plusplus */
 import React from 'react'
+import { Link } from 'gatsby'
 import { formatDate } from '~utilities/visualization'
 
 const averageSize = 14
@@ -11,7 +11,7 @@ const getDataTrends = data => {
   const getRange = (startIndex, endIndex) => {
     const many = []
 
-    for (let i = startIndex; i < endIndex; i++) {
+    for (let i = startIndex; i < endIndex; i += 1) {
       many.push(typeof data[i] === 'undefined' ? null : data[i])
     }
 
@@ -40,7 +40,7 @@ const getDataTrends = data => {
   return { spikes, troughs, direction }
 }
 
-const ChartDescription = ({ label, data }) => {
+const ChartDescription = ({ label, data, link }) => {
   const { spikes, troughs, direction } = getDataTrends(
     data.map(item => item.value),
   )
@@ -61,11 +61,11 @@ const ChartDescription = ({ label, data }) => {
         `The highest recent value for ${label} was ${
           highPoint.value
         } on ${formatDate(highPoint.date)}.`}
-
       {lowPoint.value &&
         `The lowest recent value for ${label} was ${
           lowPoint.value
-        } on ${formatDate(lowPoint.date)}.`}
+        } on ${formatDate(lowPoint.date)}.`}{' '}
+      <Link to={link}>Access all chart data</Link>
     </div>
   )
 }

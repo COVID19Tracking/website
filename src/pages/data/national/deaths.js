@@ -21,6 +21,7 @@ const NationalDataDeathsPage = ({ data }) => {
         definitions={data.allContentfulDataDefinition.nodes}
         order={['death']}
       />
+      <h2>Deaths History</h2>
       <p>
         We have{' '}
         <Link to="/about-data/faq#why-have-you-stopped-reporting-national-recoveries">

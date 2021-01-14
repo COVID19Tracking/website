@@ -26,7 +26,6 @@ exports.createPages = async ({ graphql, actions }) => {
           covid19Site
           covid19SiteSecondary
           covid19SiteTertiary
-          notes
           name
           state
           twitter
@@ -158,6 +157,11 @@ exports.createPages = async ({ graphql, actions }) => {
       context: node,
     })
     createPage({
+      path: `/data/state/${slug}/tests-antigen`,
+      component: path.resolve(`./src/templates/state/tests-antigen.js`),
+      context: node,
+    })
+    createPage({
       path: `/data/state/${slug}/tests-viral`,
       component: path.resolve(`./src/templates/state/tests-viral.js`),
       context: node,
@@ -175,6 +179,11 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/data/state/${slug}/race-ethnicity`,
       component: path.resolve(`./src/templates/state/race-ethnicity.js`),
+      context: node,
+    })
+    createPage({
+      path: `/data/state/${slug}/notes`,
+      component: path.resolve(`./src/templates/state/notes.js`),
       context: node,
     })
     createPage({

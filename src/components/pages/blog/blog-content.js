@@ -88,10 +88,10 @@ const BlogContent = ({ content }) => {
             <ImageContentBlock
               image={image}
               caption={caption}
-              keepSize={keepSize && keepSize['en-US']}
-              fullWidthMobile={fullWidthMobile && fullWidthMobile['en-US']}
+              keepSize={keepSize}
+              fullWidthMobile={fullWidthMobile}
               className={blogContentStyles.image}
-              imageUrl={image.url}
+              imageUrl={image.file.url}
               linkToImage={imageLink}
             />
           )

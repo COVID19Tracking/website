@@ -4,33 +4,30 @@ import TableResponsive from '~components/common/table-responsive'
 import Definitions from '~components/pages/data/definitions'
 import Layout from '~components/layout'
 
-const StateTestAntibodiesTemplate = ({ pageContext, path, data }) => {
+const StateTestAntigenTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
 
   return (
     <Layout
-      title={`${state.name}: Antibody tests`}
+      title={`${state.name}: Antigen tests`}
       returnLinks={[
         { link: '/data', title: 'Our Data' },
         { link: `/data/state/${slug}`, title: state.name },
       ]}
       path={path}
-      description={`Data definitions and time series of data on total, positive, and negative antibody tests in units of specimens or people for ${state.name}.`}
+      description={`Data definitions and time series of data on total and positive antigen tests in units of specimens or people for ${state.name}.`}
       showWarning
     >
       <Definitions
         definitions={data.allContentfulDataDefinition.nodes}
         order={[
-          'totalTestsPeopleAntibody',
-          'totalTestsAntibody',
-          'negativeTestsPeopleAntibody',
-          'negativeTestsAntibody',
-          'positiveTestsPeopleAntibody',
-          'positiveTestsAntibody',
+          'totalTestsPeopleAntigen',
+          'totalTestsAntigen',
+          'positiveTestsPeopleAntigen',
+          'positiveTestsAntigen',
         ]}
       />
-      <h2>Antibody Tests History</h2>
       <TableResponsive
         labels={[
           {
@@ -38,27 +35,19 @@ const StateTestAntibodiesTemplate = ({ pageContext, path, data }) => {
             noWrap: true,
           },
           {
-            field: 'totalTestsPeopleAntibody',
+            field: 'totalTestsPeopleAntigen',
             isNumeric: true,
           },
           {
-            field: 'totalTestsAntibody',
+            field: 'totalTestsAntigen',
             isNumeric: true,
           },
           {
-            field: 'negativeTestsPeopleAntibody',
+            field: 'positiveTestsPeopleAntigen',
             isNumeric: true,
           },
           {
-            field: 'negativeTestsAntibody',
-            isNumeric: true,
-          },
-          {
-            field: 'positiveTestsPeopleAntibody',
-            isNumeric: true,
-          },
-          {
-            field: 'positiveTestsAntibody',
+            field: 'positiveTestsAntigen',
             isNumeric: true,
           },
         ]}
@@ -68,7 +57,7 @@ const StateTestAntibodiesTemplate = ({ pageContext, path, data }) => {
   )
 }
 
-export default StateTestAntibodiesTemplate
+export default StateTestAntigenTemplate
 
 export const query = graphql`
   query($state: String!) {
@@ -78,25 +67,20 @@ export const query = graphql`
     ) {
       nodes {
         date(formatString: "MMMM D, YYYY")
-        totalTestsPeopleAntibody
-        totalTestsAntibody
-        negativeTestsPeopleAntibody
-        negativeTestsAntibody
-        positiveTestsPeopleAntibody
-        positiveTestsAntibody
+        positiveTestsPeopleAntigen
+        positiveTestsAntigen
+        totalTestsPeopleAntigen
+        totalTestsAntigen
       }
     }
-
     allContentfulDataDefinition(
       filter: {
         fieldName: {
           in: [
-            "totalTestsPeopleAntibody"
-            "totalTestsAntibody"
-            "negativeTestsPeopleAntibody"
-            "negativeTestsAntibody"
-            "positiveTestsPeopleAntibody"
-            "positiveTestsAntibody"
+            "totalTestsPeopleAntigen"
+            "totalTestsAntigen"
+            "positiveTestsPeopleAntigen"
+            "positiveTestsAntigen"
           ]
         }
       }

@@ -96,7 +96,7 @@ const LongTermCarePage = ({ data }) => {
         height={700}
         mobileHeight={450}
         viewUrl="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall?:language=en&:retry=yes&:display_count=y&:origin=viz_share_link"
-        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall?:language=en&:display_count=y&:origin=viz_share_link"
+        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall_mob?:language=en&:display_count=y&:origin=viz_share_link"
       />
       <Container centered>
         <LongContent>

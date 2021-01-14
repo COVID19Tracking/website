@@ -1,6 +1,9 @@
 .table {
   width: 100%;
   border-collapse: collapse;
+  @include margin(8, bottom);
+  flex-basis: 100% !important;
+  max-width: 100% !important;
   tr,
   td,
   th {
@@ -11,6 +14,11 @@
   }
   th {
     font-weight: bolder;
+    background: $color-slate-100;
+  }
+  th,
+  td {
+    @include padding(16);
   }
 }
 
@@ -50,13 +58,6 @@
     border: 0;
     @media (min-width: $viewport-lg) {
       display: table-cell;
-      padding: 1rem;
-      &:first-child {
-        padding-left: 0;
-      }
-      &:last-child {
-        padding-right: 0;
-      }
     }
   }
 }

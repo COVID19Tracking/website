@@ -1,195 +1,177 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components : Pages : Data : Definitions renders correctly 1`] = `
-<div
-  className="row definitions"
->
-  <div
-    className="col colSmall4 colMedium6 colLarge3"
+Array [
+  <h2>
+    Definitions
+  </h2>,
+  <button
+    aria-controls="panel--1"
+    aria-expanded={false}
+    className="definitionButton"
+    data-reach-disclosure-button=""
+    data-state="collapsed"
+    onClick={[Function]}
+    type="button"
   >
-    <h3
-      className="header"
+    Test definition A
+     
+    <span
+      aria-hidden={true}
+      className="arrowDown"
     >
-      Definitions
-    </h3>
-    <button
-      className="expandAll"
-      onClick={[Function]}
-      type="button"
+      ↓
+    </span>
+     
+    <span
+      aria-hidden={true}
+      className="arrowUp"
     >
-      Expand all
-    </button>
-  </div>
+      ↑
+    </span>
+  </button>,
   <div
-    className="col colSmall4 colMedium6 colLarge9 paddingLeftSmall0 paddingLeftMedium0 paddingLeftLarge8"
+    data-reach-disclosure-panel=""
+    data-state="collapsed"
+    hidden={true}
+    id="panel--1"
+    tabIndex={-1}
   >
-    <div>
-      <button
-        aria-controls="definition-pane--0"
-        aria-expanded={false}
-        className="definitionButton"
-        onClick={[Function]}
-        type="button"
-      >
-        Test definition A
-         
-        <span
-          aria-hidden={true}
-          className="arrowDown"
-        >
-          ↓
-        </span>
-         
-        <span
-          aria-hidden={true}
-          className="arrowUp"
-        >
-          ↑
-        </span>
-      </button>
-      <div
-        className="pane"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Test <strong>definition</strong> content A.",
-          }
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Test <strong>definition</strong> content A.",
         }
-        hidden={true}
-        id="definition-pane--0"
-      />
-    </div>
-    <div>
-      <button
-        aria-controls="definition-pane--1"
-        aria-expanded={false}
-        className="definitionButton"
-        onClick={[Function]}
-        type="button"
-      >
-        Test definition B
-         
-        <span
-          aria-hidden={true}
-          className="arrowDown"
-        >
-          ↓
-        </span>
-         
-        <span
-          aria-hidden={true}
-          className="arrowUp"
-        >
-          ↑
-        </span>
-      </button>
-      <div
-        className="pane"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Test <strong>definition</strong> content B.",
-          }
+      }
+    />
+  </div>,
+  <button
+    aria-controls="panel--2"
+    aria-expanded={false}
+    className="definitionButton"
+    data-reach-disclosure-button=""
+    data-state="collapsed"
+    onClick={[Function]}
+    type="button"
+  >
+    Test definition B
+     
+    <span
+      aria-hidden={true}
+      className="arrowDown"
+    >
+      ↓
+    </span>
+     
+    <span
+      aria-hidden={true}
+      className="arrowUp"
+    >
+      ↑
+    </span>
+  </button>,
+  <div
+    data-reach-disclosure-panel=""
+    data-state="collapsed"
+    hidden={true}
+    id="panel--2"
+    tabIndex={-1}
+  >
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Test <strong>definition</strong> content B.",
         }
-        hidden={true}
-        id="definition-pane--1"
-      />
-    </div>
-  </div>
-</div>
+      }
+    />
+  </div>,
+]
 `;
 
 exports[`Components : Pages : Data : Definitions renders correctly 2`] = `
-<div
-  className="row definitions"
->
-  <div
-    className="col colSmall4 colMedium6 colLarge3"
+Array [
+  <h2>
+    Definitions
+  </h2>,
+  <button
+    aria-controls="panel--5"
+    aria-expanded={false}
+    className="definitionButton"
+    data-reach-disclosure-button=""
+    data-state="collapsed"
+    onClick={[Function]}
+    type="button"
   >
-    <h3
-      className="header"
+    Test definition B
+     
+    <span
+      aria-hidden={true}
+      className="arrowDown"
     >
-      Definitions
-    </h3>
-    <button
-      className="expandAll"
-      onClick={[Function]}
-      type="button"
+      ↓
+    </span>
+     
+    <span
+      aria-hidden={true}
+      className="arrowUp"
     >
-      Expand all
-    </button>
-  </div>
+      ↑
+    </span>
+  </button>,
   <div
-    className="col colSmall4 colMedium6 colLarge9 paddingLeftSmall0 paddingLeftMedium0 paddingLeftLarge8"
+    data-reach-disclosure-panel=""
+    data-state="collapsed"
+    hidden={true}
+    id="panel--5"
+    tabIndex={-1}
   >
-    <div>
-      <button
-        aria-controls="definition-pane--0"
-        aria-expanded={false}
-        className="definitionButton"
-        onClick={[Function]}
-        type="button"
-      >
-        Test definition B
-         
-        <span
-          aria-hidden={true}
-          className="arrowDown"
-        >
-          ↓
-        </span>
-         
-        <span
-          aria-hidden={true}
-          className="arrowUp"
-        >
-          ↑
-        </span>
-      </button>
-      <div
-        className="pane"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Test <strong>definition</strong> content B.",
-          }
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Test <strong>definition</strong> content B.",
         }
-        hidden={true}
-        id="definition-pane--0"
-      />
-    </div>
-    <div>
-      <button
-        aria-controls="definition-pane--1"
-        aria-expanded={false}
-        className="definitionButton"
-        onClick={[Function]}
-        type="button"
-      >
-        Test definition A
-         
-        <span
-          aria-hidden={true}
-          className="arrowDown"
-        >
-          ↓
-        </span>
-         
-        <span
-          aria-hidden={true}
-          className="arrowUp"
-        >
-          ↑
-        </span>
-      </button>
-      <div
-        className="pane"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "Test <strong>definition</strong> content A.",
-          }
+      }
+    />
+  </div>,
+  <button
+    aria-controls="panel--6"
+    aria-expanded={false}
+    className="definitionButton"
+    data-reach-disclosure-button=""
+    data-state="collapsed"
+    onClick={[Function]}
+    type="button"
+  >
+    Test definition A
+     
+    <span
+      aria-hidden={true}
+      className="arrowDown"
+    >
+      ↓
+    </span>
+     
+    <span
+      aria-hidden={true}
+      className="arrowUp"
+    >
+      ↑
+    </span>
+  </button>,
+  <div
+    data-reach-disclosure-panel=""
+    data-state="collapsed"
+    hidden={true}
+    id="panel--6"
+    tabIndex={-1}
+  >
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Test <strong>definition</strong> content A.",
         }
-        hidden={true}
-        id="definition-pane--1"
-      />
-    </div>
-  </div>
-</div>
+      }
+    />
+  </div>,
+]
 `;

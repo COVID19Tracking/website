@@ -289,9 +289,15 @@ const SummaryCharts = ({
       : {}),
   }
   return (
-    <>
+    <div className={styles.charts}>
       <div className={styles.infoLine}>
-        <h2 className="a11y-only">Summary charts</h2>
+        <h2>
+          {national ? (
+            <> Overview of National COVID-19 Data</>
+          ) : (
+            <>Key Metrics</>
+          )}
+        </h2>
         <div className={styles.toggleContainer}>
           {usHistory && (
             <RadioToggle
@@ -338,6 +344,7 @@ const SummaryCharts = ({
           <ChartDescription
             label="New tests"
             data={getDataForField(data, testField)}
+            link={chartTables}
           />
         </Col>
         <Col {...colProps}>
@@ -364,6 +371,7 @@ const SummaryCharts = ({
               <ChartDescription
                 label="Cases"
                 data={getDataForField(data, positiveField)}
+                link={chartTables}
               />
             </>
           ) : (
@@ -400,6 +408,7 @@ const SummaryCharts = ({
               <ChartDescription
                 label="Hospitalization"
                 data={getDataForField(data, hospitalizedField)}
+                link={chartTables}
               />
             </>
           ) : (
@@ -430,6 +439,7 @@ const SummaryCharts = ({
               <ChartDescription
                 label="New deaths"
                 data={getDataForField(data, deathField)}
+                link={chartTables}
               />
             </>
           ) : (
@@ -501,7 +511,7 @@ const SummaryCharts = ({
           <CtpLogo className={styles.chartLogo} />
         </Col>
       </Row>
-    </>
+    </div>
   )
 }
 

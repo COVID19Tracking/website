@@ -15,6 +15,7 @@ const TestsViralCard = ({
   totalTestsViral,
   totalTestsPeopleViral,
   unknownUnits = false,
+  annotations,
 }) => {
   const definitionContext = useContext(DefinitionPanelContext)
   const fields = [
@@ -28,6 +29,21 @@ const TestsViralCard = ({
     'Total PCR Tests (People)',
   ]
   const annotationContext = useContext(AnnotationPanelContext)
+
+  const getWarningTitle = (annotationsList, annotationField) => {
+    let fieldName = 'Warning'
+    if (!annotationsList) {
+      return fieldName
+    }
+    annotationsList.every(annotation => {
+      if (annotation.field === annotationField) {
+        fieldName = annotation.warningTitle
+        return false
+      }
+      return true
+    })
+    return fieldName
+  }
 
   return (
     <Card
@@ -46,11 +62,23 @@ const TestsViralCard = ({
               <>
                 Total tests
                 <br />
-                (in unclear units)
+                (unclear units)
               </>
             }
             value={totalTestsViral}
           >
+            <AnnotationButton field="Total Tests (PCR)">
+              <DefinitionLink
+                title={getWarningTitle(annotations, 'Total Tests (PCR)')}
+                onDefinitionsToggle={() => {
+                  annotationContext.setCardAnnotations({
+                    fields: annotationFields,
+                    highlight: 'Total Tests (PCR)',
+                  })
+                }}
+                label="Annotation for Total Tests (unclear units)"
+              />
+            </AnnotationButton>
             <DefinitionLink
               onDefinitionsToggle={() => {
                 definitionContext({
@@ -60,19 +88,6 @@ const TestsViralCard = ({
               }}
               label="Total tests (unclear units)"
             />
-
-            <AnnotationButton field="Total Tests (PCR)">
-              <DefinitionLink
-                title="Warning"
-                onDefinitionsToggle={() => {
-                  annotationContext.setCardAnnotations({
-                    fields: annotationFields,
-                    highlight: 'Total Tests (PCR)',
-                  })
-                }}
-                label="Annotation for Total Tests (in unclear units)"
-              />
-            </AnnotationButton>
           </Statistic>
         ) : (
           <>
@@ -81,24 +96,17 @@ const TestsViralCard = ({
                 <>
                   Total tests
                   <br />
-                  (in test encounters)
+                  (test encounters)
                 </>
               }
               value={totalTestEncountersViral}
             >
-              <DefinitionLink
-                onDefinitionsToggle={() => {
-                  definitionContext({
-                    fields,
-                    highlight: 'totalTestEncountersViral',
-                  })
-                }}
-                label="Total tests (test encounters)"
-              />
-              {}
               <AnnotationButton field="Total Test Encounters (PCR)">
                 <DefinitionLink
-                  title="Warning"
+                  title={getWarningTitle(
+                    annotations,
+                    'Total Test Encounters (PCR)',
+                  )}
                   onDefinitionsToggle={() => {
                     annotationContext.setCardAnnotations({
                       fields: annotationFields,
@@ -108,29 +116,29 @@ const TestsViralCard = ({
                   label="Annotation for total cases"
                 />
               </AnnotationButton>
+              <DefinitionLink
+                onDefinitionsToggle={() => {
+                  definitionContext({
+                    fields,
+                    highlight: 'totalTestEncountersViral',
+                  })
+                }}
+                label="Total tests (test encounters)"
+              />
             </Statistic>
             <Statistic
               title={
                 <>
                   Total tests
                   <br />
-                  (in specimens)
+                  (specimens)
                 </>
               }
               value={totalTestsViral}
             >
-              <DefinitionLink
-                onDefinitionsToggle={() => {
-                  definitionContext({
-                    fields,
-                    highlight: 'totalTestsViral',
-                  })
-                }}
-                label="Total tests (specimens)"
-              />
               <AnnotationButton field="Total Tests (PCR)">
                 <DefinitionLink
-                  title="Warning"
+                  title={getWarningTitle(annotations, 'Total Tests (PCR)')}
                   onDefinitionsToggle={() => {
                     annotationContext.setCardAnnotations({
                       fields: annotationFields,
@@ -140,29 +148,32 @@ const TestsViralCard = ({
                   label="Annotation for Total Tests (PCR)"
                 />
               </AnnotationButton>
+              <DefinitionLink
+                onDefinitionsToggle={() => {
+                  definitionContext({
+                    fields,
+                    highlight: 'totalTestsViral',
+                  })
+                }}
+                label="Total tests (specimens)"
+              />{' '}
             </Statistic>
             <Statistic
               title={
                 <>
                   Total tests
                   <br />
-                  (in people)
+                  (people)
                 </>
               }
               value={totalTestsPeopleViral}
             >
-              <DefinitionLink
-                onDefinitionsToggle={() => {
-                  definitionContext({
-                    fields,
-                    highlight: 'totalTestsPeopleViral',
-                  })
-                }}
-                label="Total tests (people)"
-              />
               <AnnotationButton field="Total PCR Tests (People)">
                 <DefinitionLink
-                  title="Warning"
+                  title={getWarningTitle(
+                    annotations,
+                    'Total PCR Tests (People)',
+                  )}
                   onDefinitionsToggle={() => {
                     annotationContext.setCardAnnotations({
                       fields: annotationFields,
@@ -172,6 +183,15 @@ const TestsViralCard = ({
                   label="Annotation for Total PCR Tests (People)"
                 />
               </AnnotationButton>
+              <DefinitionLink
+                onDefinitionsToggle={() => {
+                  definitionContext({
+                    fields,
+                    highlight: 'totalTestsPeopleViral',
+                  })
+                }}
+                label="Total tests (people)"
+              />
             </Statistic>
           </>
         )}

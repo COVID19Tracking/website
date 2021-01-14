@@ -1,33 +1,49 @@
 import React from 'react'
-import OverviewWrapper from '~components/common/overview-wrapper'
+import { Link } from 'gatsby'
 import StateGrade from '~components/pages/state/state-grade'
-import { DownloadDataRow } from '~components/pages/state/download-data'
-import { StateLinks } from '~components/pages/state/state-links'
+import Timezone from '~components/common/timezone'
 import preambleStyle from './preamble.module.scss'
+import { Row, Col } from '~components/common/grid'
 
-const StatePreamble = ({ state, urls, covidState }) => {
-  const { links } = urls.childTacoYaml
+const StatePreamble = ({ state, covidState, hideNotesLink = false }) => {
   // todo make state grade wrap as a circle with the grade description
   return (
-    <OverviewWrapper className={preambleStyle.preamble}>
-      <h2 className="a11y-only">State overview</h2>
-      <div className={preambleStyle.largeDisclosure}>
-        <h3 className={preambleStyle.header}>Where this data comes from</h3>
-        <StateLinks
-          twitter={state.twitter}
-          links={links}
-          stateName={state.name}
-          stateSlug={state.childSlug.slug}
-          fullWidth
-        />
-      </div>
-      <DownloadDataRow
-        slug={state.childSlug.slug}
-        lastUpdateEt={covidState.dateModified}
-      >
-        <StateGrade letterGrade={covidState.dataQualityGrade} />
-      </DownloadDataRow>
-    </OverviewWrapper>
+    <div className={preambleStyle.preamble}>
+      <h2 className={preambleStyle.header}>{state.name} Overview</h2>
+      <ul>
+        {!hideNotesLink && (
+          <li>
+            <Link to={`/data/state/${state.childSlug.slug}/notes`}>
+              Notes, data anomalies, and official cautions for {state.name}
+            </Link>
+          </li>
+        )}
+        <li>
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={`https://screenshots.covidtracking.com/${state.childSlug.slug}`}
+          >
+            <span>Data sources and screenshots for {state.name}</span>
+          </a>
+        </li>
+      </ul>
+      <Row className={preambleStyle.row}>
+        <Col width={[4, 6, 4]}>
+          Last updated {covidState.dateModified} <Timezone />
+        </Col>
+        <Col width={[4, 6, 4]} paddingLeft={[0, 0, 16]}>
+          Download data as a{' '}
+          <a href={`/data/download/${state.childSlug.slug}-history.csv`}>
+            CSV file
+          </a>{' '}
+          or with our <Link to="/data/api">API</Link>.
+        </Col>
+        <Col width={[4, 6, 4]} paddingLeft={[0, 0, 16]}>
+          <StateGrade letterGrade={covidState.dataQualityGrade} />
+        </Col>
+      </Row>
+    </div>
   )
 }
 

@@ -14,7 +14,6 @@
   }
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
-  @include margin(32, bottom);
 
   @media (max-width: $viewport-lg) and (min-width: $viewport-md) {
     grid-template-columns: 1fr 1fr;
@@ -24,4 +23,8 @@
     grid-template-columns: 1fr;
     margin-bottom: 0;
   }
+}
+
+.wrapper {
+  @include margin(32, bottom);
 }
