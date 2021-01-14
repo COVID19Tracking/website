@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react'
 import { DateTime } from 'luxon'
+
 import Chart from './chart'
+import getAvailableMetricFields from './utils'
 
 import styles from './charts.module.scss'
 import colors from '~scss/colors.module.scss'
@@ -13,30 +15,6 @@ const Charts = ({
 }) => {
   // todo use population on a per-race/ethnicity basis
   // (not on a per-state basis)
-
-  const getAvailableMetricFields = (latestDay, startsWith, raceOnly) => {
-    /**
-     * Returns a list of all of the available metric fields.
-     * raceOnly: returns only race values when true, only ethnicity
-     *  values when false
-     */
-    const listOfMetrics = []
-
-    Object.keys(latestDay).forEach(value => {
-      if (value.startsWith(startsWith)) {
-        listOfMetrics.push(value)
-      }
-    })
-
-    if (raceOnly) {
-      return listOfMetrics.filter(metric => !metric.includes('Ethnicity'))
-    }
-    if (!raceOnly) {
-      return listOfMetrics.filter(metric => metric.includes('Ethnicity'))
-    }
-
-    return listOfMetrics
-  }
 
   const getMetricData = (allData, metricTitle, metrics) => {
     /** Restructures a single metric's racial data (i.e. cases) for charts */
