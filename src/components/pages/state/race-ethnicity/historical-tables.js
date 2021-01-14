@@ -62,7 +62,14 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
       labels[index] = {
         field: tableMetric,
         label: `Known ${removeMetricPrefix(tableMetric)}`,
+        isNumeric: true,
       }
+    })
+
+    labels.unshift({
+      field: `${currentMetric}_Total`,
+      label: 'Total',
+      isNumeric: true,
     })
 
     labels.unshift({
@@ -83,6 +90,8 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
     currentMetric,
     allEthnicityData,
   )
+
+  console.log(timeSeriesData)
 
   return (
     <>
