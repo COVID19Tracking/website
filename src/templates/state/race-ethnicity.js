@@ -62,6 +62,7 @@ export const query = graphql`
         Cases_LatinX
         Cases_Ethnicity_NonHispanic
         Cases_Ethnicity_Hispanic
+        Cases_Ethnicity_Unknown
         Cases_Total
         Date
         Deaths_AIAN
@@ -69,6 +70,7 @@ export const query = graphql`
         Deaths_Black
         Deaths_Ethnicity_Hispanic
         Deaths_Ethnicity_NonHispanic
+        Deaths_Ethnicity_Unknown
         Deaths_LatinX
         Deaths_Multiracial
         Deaths_NHPI
@@ -80,6 +82,7 @@ export const query = graphql`
         Hosp_Black
         Hosp_Ethnicity_Hispanic
         Hosp_Ethnicity_NonHispanic
+        Hosp_Ethnicity_Unknown
         Hosp_LatinX
         Hosp_Multiracial
         Hosp_NHPI
@@ -91,6 +94,7 @@ export const query = graphql`
         Tests_Black
         Tests_Ethnicity_Hispanic
         Tests_Ethnicity_NonHispanic
+        Tests_Ethnicity_Unknown
         Tests_LatinX
         Tests_Multiracial
         Tests_NHPI
