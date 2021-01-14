@@ -54,7 +54,7 @@
 .skip-link {
   @include a11y-only();
   &:focus {
-    padding: 1rem;
+    @include padding(16);
     position: absolute;
     top: 10px;
     left: 10px;
