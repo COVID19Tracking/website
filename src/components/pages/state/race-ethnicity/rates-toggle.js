@@ -20,7 +20,7 @@ const RatesToggle = ({ state, setState, currentMetric }) => {
         <span>{currentMetric}</span>
       </button>
       <button
-        className={state && styles.active}
+        className={state ? styles.active : ''}
         title={`${currentMetric} Per 100k People`}
         aria-checked={state}
         onClick={event => {

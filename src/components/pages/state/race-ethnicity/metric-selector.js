@@ -8,6 +8,7 @@ const MetricSelector = ({ state, setState, availableMetrics }) => {
     <div className={styles.toggle} role="radiogroup">
       {availableMetrics.map(option => (
         <button
+          key={option}
           className={state === option ? styles.active : undefined}
           title={option}
           aria-checked={state === option}

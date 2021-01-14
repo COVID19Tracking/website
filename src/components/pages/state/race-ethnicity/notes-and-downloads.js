@@ -25,7 +25,7 @@ const NotesAndDownloads = ({ slug, stateAbbreviation, stateName }) => {
         <h4>Notes</h4>
         <ol>
           {notes.map(note => (
-            <li>{note}</li>
+            <li key={note}>{note}</li>
           ))}
         </ol>
       </div>
