@@ -9,10 +9,13 @@ const TableResponsive = ({ labels, data }) => (
   <table className={classnames(tableStyles.table, tableResponsiveStyles.table)}>
     <thead>
       <tr>
-        {labels.map(({ label, field, alignLeft }) => (
+        {labels.map(({ label, field, alignLeft, headerStyle }) => (
           <th
             scope="col"
-            className={classnames(alignLeft && tableStyles.alignLeft)}
+            className={classnames(
+              alignLeft && tableStyles.alignLeft,
+              headerStyle,
+            )}
           >
             {label || <FieldName field={field} />}
           </th>
