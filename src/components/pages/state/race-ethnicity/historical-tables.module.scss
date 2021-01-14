@@ -4,6 +4,11 @@
 
   table {
     width: inherit;
+    @include margin(0, top);
+
+    th {
+      @include padding(16, top);
+    }
   }
 
   @media (max-width: $viewport-lg) {
@@ -28,4 +33,11 @@
   @media (max-width: $viewport-lg) {
     display: inherit;
   }
+}
+
+.table-header {
+  color: $color-plum-700;
+  background-color: $color-plum-100;
+  @include margin(0, bottom);
+  @include padding(4);
 }

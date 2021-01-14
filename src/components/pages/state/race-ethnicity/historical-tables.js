@@ -5,6 +5,10 @@ import { getAvailableMetricFields, formatTimeSeriesDates } from './utils'
 
 import historicalTableStyles from './historical-tables.module.scss'
 
+const TableHeader = ({ header }) => (
+  <h4 className={historicalTableStyles.tableHeader}>{header}</h4>
+)
+
 const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
   const removeMetricPrefix = metric => {
     /**
@@ -104,17 +108,27 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
     false,
   )
 
+  // todo handle separately/combined distinction here
   return (
-    <div className={historicalTableStyles.container}>
-      <TableResponsive
-        labels={raceTableLabels}
-        data={formatTimeSeriesDates(timeSeriesData)}
-      />
-      <TableResponsive
-        labels={ethnicityTableLabels}
-        data={formatTimeSeriesDates(timeSeriesData)}
-      />
-    </div>
+    <>
+      <h3>Race and Ethnicity Reported Separately</h3>
+      <div className={historicalTableStyles.container}>
+        <div className={historicalTableStyles.table}>
+          <TableHeader header="Race" />
+          <TableResponsive
+            labels={raceTableLabels}
+            data={formatTimeSeriesDates(timeSeriesData)}
+          />
+        </div>
+        <div className={historicalTableStyles.table}>
+          <TableHeader header="Ethnicity" />
+          <TableResponsive
+            labels={ethnicityTableLabels}
+            data={formatTimeSeriesDates(timeSeriesData)}
+          />
+        </div>
+      </div>
+    </>
   )
 }
 
