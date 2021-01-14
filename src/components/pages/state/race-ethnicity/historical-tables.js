@@ -71,14 +71,14 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
       }
     })
 
-    labels.unshift({
-      field: `${currentMetric}_Total`,
-      label: 'Total',
-      isNumeric: true,
-    })
-
     if (raceOnly) {
       // race data
+      labels.unshift({
+        field: `${currentMetric}_Total`,
+        label: 'Total',
+        isNumeric: true,
+      })
+
       labels.unshift({
         field: 'formattedDate',
         noWrap: true,
@@ -86,6 +86,14 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
       })
     } else {
       // ethnicity data
+      labels.unshift({
+        field: `${currentMetric}_Total`,
+        label: 'Total',
+        isNumeric: true,
+        style: historicalTableStyles.ethnicityDate,
+        headerStyle: historicalTableStyles.ethnicityDate,
+      })
+
       labels.unshift({
         field: 'formattedDate',
         noWrap: true,
