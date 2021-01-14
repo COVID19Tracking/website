@@ -3,7 +3,7 @@ import React, { useMemo } from 'react'
 import TableResponsive from '~components/common/table-responsive'
 import { getAvailableMetricFields, formatTimeSeriesDates } from './utils'
 
-import tableResponsiveStyles from '~components/common/table-responsive.module.scss'
+import historicalTableStyles from './historical-tables.module.scss'
 
 const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
   const removeMetricPrefix = metric => {
@@ -50,9 +50,10 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
     return computedTableData
   }
 
-  const generateTableLabels = (activeMetric, availableMetrics) => {
+  const generateTableLabels = (activeMetric, availableMetrics, raceOnly) => {
     /**
      * Generates the labels array for TableResponsive.
+     * raceOnly: returns only race values when true, only ethnicity
      */
     const tableMetrics = availableMetrics[activeMetric]
 
@@ -72,12 +73,23 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
       isNumeric: true,
     })
 
-    labels.unshift({
-      field: 'formattedDate',
-      noWrap: true,
-      style: tableResponsiveStyles.dateCell,
-      label: 'Date',
-    })
+    if (raceOnly) {
+      // race data
+      labels.unshift({
+        field: 'formattedDate',
+        noWrap: true,
+        label: 'Date',
+      })
+    } else {
+      // ethnicity data
+      labels.unshift({
+        field: 'formattedDate',
+        noWrap: true,
+        style: historicalTableStyles.ethnicityDate,
+        headerStyle: historicalTableStyles.ethnicityDate,
+        label: 'Date',
+      })
+    }
 
     return labels
   }
@@ -85,16 +97,15 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
   const allRaceData = generateTableData(timeSeriesData, true)
   const allEthnicityData = generateTableData(timeSeriesData, false)
 
-  const raceTableLabels = generateTableLabels(currentMetric, allRaceData)
+  const raceTableLabels = generateTableLabels(currentMetric, allRaceData, true)
   const ethnicityTableLabels = generateTableLabels(
     currentMetric,
     allEthnicityData,
+    false,
   )
 
-  console.log(timeSeriesData)
-
   return (
-    <>
+    <div className={historicalTableStyles.container}>
       <TableResponsive
         labels={raceTableLabels}
         data={formatTimeSeriesDates(timeSeriesData)}
@@ -103,7 +114,7 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
         labels={ethnicityTableLabels}
         data={formatTimeSeriesDates(timeSeriesData)}
       />
-    </>
+    </div>
   )
 }
 

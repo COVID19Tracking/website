@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  table {
+    width: inherit;
+  }
+
+  @media (max-width: $viewport-lg) {
+    flex-direction: column;
+
+    table {
+      width: 100%;
+    }
+  }
+}
+
+
+.ethnicity-date {
+  // hides the ethnicity date column for large viewports
+  display: none;
+
+  span.value {
+    display: flex;
+    float: right;
+  }
+
+  @media (max-width: $viewport-lg) {
+    display: inherit;
+  }
+}
