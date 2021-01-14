@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 
-// import TableResponsive from '~components/common/table-responsive'
 import Layout from '~components/layout'
 import Hero from '~components/pages/state/race-ethnicity/hero'
+import HistoricalTables from '~components/pages/state/race-ethnicity/historical-tables'
 
 const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
@@ -35,6 +35,10 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
         usePer100kRate={usePer100kRate}
         setUsePer100kRate={setUsePer100kRate}
         timeSeriesData={data.allCovidRaceDataTimeseries.nodes}
+      />
+      <HistoricalTables
+        timeSeriesData={data.allCovidRaceDataTimeseries.nodes}
+        currentMetric={currentMetric}
       />
     </Layout>
   )
