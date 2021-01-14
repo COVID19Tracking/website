@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { DateTime } from 'luxon'
 
 import Chart from './chart'
-import getAvailableMetricFields from './utils'
+import { getAvailableMetricFields } from './utils'
 
 import styles from './charts.module.scss'
 import colors from '~scss/colors.module.scss'

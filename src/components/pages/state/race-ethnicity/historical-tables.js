@@ -1,7 +1,9 @@
 import React, { useMemo } from 'react'
 
 import TableResponsive from '~components/common/table-responsive'
-import getAvailableMetricFields from './utils'
+import { getAvailableMetricFields, formatTimeSeriesDates } from './utils'
+
+import tableResponsiveStyles from '~components/common/table-responsive.module.scss'
 
 const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
   const removeMetricPrefix = metric => {
@@ -10,6 +12,7 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
      */
     return metric.replace(/^[A-z]*_/, '')
   }
+
   const generateTableData = (allData, raceOnly) => {
     /** Transforms API time series data into table-ready data
      * raceOnly: returns only race values when true, only ethnicity
@@ -51,7 +54,6 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
     /**
      * Generates the labels array for TableResponsive.
      */
-    // todo add date column
     const tableMetrics = availableMetrics[activeMetric]
 
     const labels = []
@@ -61,6 +63,13 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
         field: tableMetric,
         label: `Known ${removeMetricPrefix(tableMetric)}`,
       }
+    })
+
+    labels.unshift({
+      field: 'formattedDate',
+      noWrap: true,
+      style: tableResponsiveStyles.dateCell,
+      label: 'Date',
     })
 
     return labels
@@ -77,8 +86,14 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
 
   return (
     <>
-      <TableResponsive labels={raceTableLabels} data={timeSeriesData} />
-      <TableResponsive labels={ethnicityTableLabels} data={timeSeriesData} />
+      <TableResponsive
+        labels={raceTableLabels}
+        data={formatTimeSeriesDates(timeSeriesData)}
+      />
+      <TableResponsive
+        labels={ethnicityTableLabels}
+        data={formatTimeSeriesDates(timeSeriesData)}
+      />
     </>
   )
 }

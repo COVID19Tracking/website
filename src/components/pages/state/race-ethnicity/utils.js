@@ -1,3 +1,5 @@
+import { formatDateToString } from '~components/utils/format'
+
 const getAvailableMetricFields = (latestDay, startsWith, raceOnly) => {
   /**
    * Returns a list of all of the available metric fields.
@@ -22,4 +24,14 @@ const getAvailableMetricFields = (latestDay, startsWith, raceOnly) => {
   return listOfMetrics
 }
 
-export default getAvailableMetricFields
+const formatTimeSeriesDates = timeSeriesData => {
+  const newDays = []
+
+  timeSeriesData.forEach((day, index) => {
+    newDays[index] = day
+    newDays[index].formattedDate = formatDateToString(day.Date, 'MMMM d, yyyy')
+  })
+  return newDays
+}
+
+export { getAvailableMetricFields, formatTimeSeriesDates }
