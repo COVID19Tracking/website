@@ -91,7 +91,7 @@ const BlogContent = ({ content }) => {
               keepSize={keepSize}
               fullWidthMobile={fullWidthMobile}
               className={blogContentStyles.image}
-              imageUrl={image.url}
+              imageUrl={image.file.url}
               linkToImage={imageLink}
             />
           )
