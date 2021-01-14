@@ -25,4 +25,8 @@
 [[headers]]
   for = "/images/race-dashboard/*"
   [headers.values]
-    Cache-Control = "public, max-age=3600"
+  cache-control = '''
+    max-age=3600,
+    no-cache,
+    no-store,
+    must-revalidate'''
