@@ -18,7 +18,6 @@ const MapLegend = ({ legend }) => {
           <svg
             className={mapStyle.legendHex}
             viewBox={`0 0 ${hexRadius * 2 + 10} ${hexRadius * 2 + 10}`}
-            tabIndex="0"
             aria-hidden
           >
             <Legend r={hexRadius} className={item.style} />
