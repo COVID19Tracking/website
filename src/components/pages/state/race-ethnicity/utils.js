@@ -9,7 +9,11 @@ const getAvailableMetricFields = (latestDay, startsWith, raceOnly) => {
   const listOfMetrics = []
 
   Object.keys(latestDay).forEach(value => {
-    if (value.startsWith(startsWith) && latestDay[value] != null) {
+    if (
+      value.startsWith(startsWith) &&
+      latestDay[value] != null &&
+      !value.includes('Total')
+    ) {
       listOfMetrics.push(value)
     }
   })
