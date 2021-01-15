@@ -59,7 +59,7 @@ const HHSFacilitiesAnomalies = () => {
                   <Th>State</Th>
                   <Th alignLeft>Name</Th>
                   <Th alignLeft>Address</Th>
-                  <Th isFirst>Anomalies</Th>
+                  <Th isFirst>Data Anomalies</Th>
                 </tr>
               </thead>
               <tbody>
