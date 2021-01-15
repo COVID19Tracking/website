@@ -30,7 +30,7 @@ const Infobox = ({ layer, facility, x, y }) => (
           />
         </p>
         <p>
-          <strong>% inpatient beds used by all patients::</strong>{' '}
+          <strong>% inpatient beds used by all patients:</strong>{' '}
           <FieldValue
             field={facility.adult_inpatient_beds_occupancy_all}
             percent
@@ -50,7 +50,7 @@ const Infobox = ({ layer, facility, x, y }) => (
           />
         </p>
         <p>
-          <strong>% ICU beds used by COVID-19 patients: </strong>{' '}
+          <strong>% ICU beds used by COVID-19 patients:</strong>{' '}
           <FieldValue field={facility.adult_icu_beds_occupancy_covid} percent />
         </p>
         <p>
