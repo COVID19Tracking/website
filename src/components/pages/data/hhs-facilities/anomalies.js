@@ -87,10 +87,11 @@ const HHSFacilitiesAnomalies = () => {
                     </Td>
 
                     <Td isFirst>
-                      {hit.anomaly_flag_inpt === '1' && <>Inpatient</>}{' '}
-                      {hit.anomaly_flag_icu === '1' &&
-                        hit.anomaly_flag_inpt === '1' && <> and </>}
-                      {hit.anomaly_flag_icu === '1' && <>ICU</>} anomalies
+                      {hit.anomaly_flag_inpt && <>Inpatient</>}{' '}
+                      {hit.anomaly_flag_icu && hit.anomaly_flag_inpt && (
+                        <> and </>
+                      )}
+                      {hit.anomaly_flag_icu && <>ICU</>}
                     </Td>
                   </tr>
                 ))}
