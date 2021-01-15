@@ -63,6 +63,8 @@ const HHSFacilitiesSearch = () => {
       'address',
       'hospital_pk',
       'state',
+      'anomaly_flag_inpt',
+      'anomaly_flag_icu',
       ...fields.map(field => field.field),
     ],
   }
@@ -72,9 +74,15 @@ const HHSFacilitiesSearch = () => {
       <SearchForm
         setQuery={query => {
           setIsLoading(true)
-          index.search(query, searchOptions).then(hits => {
+          index.search(query, searchOptions).then(resultHits => {
             setIsLoading(false)
-            setResults(hits)
+            setResults(
+              resultHits.hits.map(facility => ({
+                ...facility,
+                anomaly_flag_inpt: facility.anomaly_flag_inpt === '1',
+                anomaly_flag_icu: facility.anomaly_flag_icu === '1',
+              })),
+            )
           })
         }}
       />
@@ -101,8 +109,8 @@ const HHSFacilitiesSearch = () => {
                 </tr>
               </thead>
               <tbody>
-                {results.hits.map(hit => (
-                  <tr>
+                {results.map(hit => (
+                  <tr key={hit.hospital_pk}>
                     <Td>{hit.state}</Td>
                     <Td alignLeft>
                       <button

@@ -81,6 +81,10 @@ const Legend = ({ mapLayer, setLayer, date }) => (
                 <div />
                 {'>'}45%
               </div>
+              <div>
+                <div />
+                Anomaly
+              </div>
             </div>
             <div className={legendStyles.label}>
               Circle size indicates total COVID{' '}
