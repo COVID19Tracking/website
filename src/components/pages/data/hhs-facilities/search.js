@@ -102,7 +102,7 @@ const HHSFacilitiesSearch = () => {
               </thead>
               <tbody>
                 {results.hits.map(hit => (
-                  <tr>
+                  <tr key={hit.hospital_pk}>
                     <Td>{hit.state}</Td>
                     <Td alignLeft>
                       <button

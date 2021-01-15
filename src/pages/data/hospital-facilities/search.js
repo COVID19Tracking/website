@@ -11,8 +11,8 @@ const HHSHospitalizationSearch = ({ data }) => {
   return (
     <Layout
       title="Search Hospital Facilities"
-      returnLinks={[{ link: '/data' }]}
-      path="/data/hospital-facilities"
+      returnLinks={[{ link: '/data' }, { link: '/data/hospital-facilities' }]}
+      path="/data/hospital-facilities/search"
       noContainer
       showWarning
     >
@@ -31,7 +31,7 @@ const HHSHospitalizationSearch = ({ data }) => {
         </LongContent>
       </Container>
       <Container>
-        <HHSFacilitiesSearch center={[-97, 38]} zoom={4} />
+        <HHSFacilitiesSearch />
       </Container>
     </Layout>
   )
