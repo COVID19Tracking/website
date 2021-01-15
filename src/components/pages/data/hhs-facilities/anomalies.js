@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len,no-nested-ternary */
 import React, { useState, useEffect } from 'react'
 import algoliasearch from 'algoliasearch'
 import { Table, Th, Td } from '~components/common/table'
@@ -38,11 +38,22 @@ const HHSFacilitiesAnomalies = () => {
     index.search('', searchOptions).then(resultHits => {
       setIsLoading(false)
       setResults(
-        resultHits.hits.map(facility => ({
-          ...facility,
-          anomaly_flag_inpt: facility.anomaly_flag_inpt === '1',
-          anomaly_flag_icu: facility.anomaly_flag_icu === '1',
-        })),
+        resultHits.hits
+          .map(facility => ({
+            ...facility,
+            anomaly_flag_inpt: facility.anomaly_flag_inpt === '1',
+            anomaly_flag_icu: facility.anomaly_flag_icu === '1',
+          }))
+          .sort((a, b) => {
+            if (a.state === b.state) {
+              return a.hospital_name < b.hospital_name
+                ? -1
+                : a.hospital_name > b.hospital_name
+                ? 1
+                : 0
+            }
+            return a.state < b.state ? -1 : 1
+          }),
       )
     })
   }, [])
