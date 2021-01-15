@@ -13,6 +13,7 @@ const HHSHospitalizationSearch = ({ data }) => {
       title="Search Hospital Facilities"
       returnLinks={[{ link: '/data' }, { link: '/data/hospital-facilities' }]}
       path="/data/hospital-facilities/search"
+      description="The most detailed data ever made available on how COVID-19 is affecting American hospitals."
       noContainer
       showWarning
     >
