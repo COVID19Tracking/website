@@ -35,9 +35,15 @@ const HHSFacilitiesAnomalies = () => {
   }
 
   useEffect(() => {
-    index.search('', searchOptions).then(hits => {
+    index.search('', searchOptions).then(resultHits => {
       setIsLoading(false)
-      setResults(hits)
+      setResults(
+        resultHits.hits.map(facility => ({
+          ...facility,
+          anomaly_flag_inpt: facility.anomaly_flag_inpt === '1',
+          anomaly_flag_icu: facility.anomaly_flag_icu === '1',
+        })),
+      )
     })
   }, [])
 
@@ -57,7 +63,7 @@ const HHSFacilitiesAnomalies = () => {
                 </tr>
               </thead>
               <tbody>
-                {results.hits.map(hit => (
+                {results.map(hit => (
                   <tr key={hit.hospital_pk}>
                     <Td>{hit.state}</Td>
                     <Td alignLeft>
