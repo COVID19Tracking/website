@@ -74,21 +74,16 @@ const FacilityDetails = ({ facility, hideSharing = false }) => (
         </span>
       )}
     </h2>
-    {facility.anomaly_flag_inpt ||
-      (facility.anomaly_flag_icu && (
-        <div className={facilityDetailsStyle.alert}>
-          <img src={alertBang} aria-hidden alt="" />
-          <p>
-            <Link to="/data/hospital-facilities/anomalies">
-              This facility has {facility.anomaly_flag_inpt && <>inpatient</>}
-              {facility.anomaly_flag_inpt && facility.anomaly_flag_icu && (
-                <> and </>
-              )}
-              {facility.anomaly_flag_icu && <>ICU</>} anomalies
-            </Link>
-          </p>
-        </div>
-      ))}
+    {(facility.anomaly_flag_inpt || facility.anomaly_flag_icu) && (
+      <div className={facilityDetailsStyle.alert}>
+        <img src={alertBang} aria-hidden alt="" />
+        <p>
+          <Link to="/data/hospital-facilities/anomalies">
+            This facility has a data anomaly
+          </Link>
+        </p>
+      </div>
+    )}
     <dl className={facilityDetailsStyle.details}>
       {Object.keys(fields).map(key => (
         <div key={key}>
