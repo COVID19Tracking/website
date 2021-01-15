@@ -19,7 +19,7 @@ const Infobox = ({ layer, facility, x, y }) => (
         {facility.anomaly_flag_inpt && (
           <div className={infoboxStyle.alert}>
             <img src={alertBang} aria-hidden alt="" />
-            <p>This facility has anomalies</p>
+            <p>This facility has a data anomaly</p>
           </div>
         )}
         <p>
