@@ -36,7 +36,7 @@ const Definitions = () => {
       </Link>
 
       <Link to="/data/hospital-facilities/anomalies">
-        Some facilities with anomalies are hidden, view the list
+        Some facilities with data anomalies are minimized
       </Link>
       <div
         className={classnames(
