@@ -97,7 +97,6 @@ function transformStates(data) {
   return data.statesInfo.edges.map(({ node }) => ({
     ...node,
     updatedAt: stateModifiedDates[node.state],
-    notes: node.notes ? marked(node.notes) : '',
     slug: `/data/state/${node.childSlug.slug}`,
   }))
 }
@@ -203,10 +202,6 @@ function chunkBlogPosts(data) {
   }, [])
 }
 
-const stateSettings = {
-  attributesToSnippet: ['notes:50'],
-}
-
 /**
  * Settings shared (for now) amidst Page & BlogPost content types
  * in order to handle chunks + handle Snippets
@@ -224,7 +219,6 @@ export const queries = [
     query: stateQuery,
     indexName: prefixSearchIndex('state'),
     transformer: ({ data }) => transformStates(data),
-    settings: stateSettings,
   },
   {
     query: blogPostQuery,
