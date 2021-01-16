@@ -29,7 +29,6 @@ const stateQuery = `{
         objectID: state
         name
         state
-        notes
         childSlug {
           slug
         }
