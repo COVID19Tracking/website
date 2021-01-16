@@ -220,7 +220,9 @@ const StateSummary = ({
     return allDefinitions
   }
 
-  addMetricTextDefinitions(definitions, annotations)
+  if (annotations !== false) {
+    addMetricTextDefinitions(definitions, annotations)
+  }
 
   return (
     <DefinitionPanelContext.Provider
@@ -245,7 +247,11 @@ const StateSummary = ({
             definitions={definitions}
             highlightedDefinition={highlightedDefinition}
             onHide={() => setCardDefinitions(false)}
-            title={`${stateName} Definitions`}
+            title={
+              stateName === undefined
+                ? 'National Definitions'
+                : `${stateName} Definitions`
+            }
           />
         )}
         {cardAnnotations && (
