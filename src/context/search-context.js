@@ -146,9 +146,7 @@ export function getHighlightResultOrExcerpt(hitType, hit) {
     default:
       return ''
     case 'state':
-      return truncate(hit.notes.replace(/(<([^>]+)>)/gi, ''), {
-        length: 200,
-      })
+      return ''
     case 'page':
       /* eslint-disable no-underscore-dangle */
       return hit._snippetResult.body && hit._snippetResult.body.value
