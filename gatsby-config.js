@@ -252,7 +252,8 @@ const gatsbyConfig = {
           items.forEach(item => {
             if (
               typeof result[item.state] === 'undefined' ||
-              parseInt(item.date, 10) > parseInt(result[item.state].date, 10)
+              parseInt(item.date.replace(/\D/g, ''), 10) >
+                parseInt(result[item.state].date.replace(/\D/g, ''), 10)
             ) {
               result[item.state] = item
             }
