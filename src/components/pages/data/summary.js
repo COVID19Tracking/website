@@ -341,21 +341,12 @@ const StateSummary = ({
               hospitalizedCurrently={data.hospitalizedCurrently}
               inIcuCurrently={data.inIcuCurrently}
               onVentilatorCurrently={data.onVentilatorCurrently}
-              hhsHospitalization={hhsHospitalization}
               national={national}
             />
             {!national && hhsHospitalization && (
               <HospitalizationHhsCard
-                stateSlug={stateSlug}
-                stateName={stateName}
-                hospitalizedCumulative={data.hospitalizedCumulative}
-                inIcuCumulative={data.inIcuCumulative}
-                onVentilatorCumulative={data.onVentilatorCumulative}
-                hospitalizedCurrently={data.hospitalizedCurrently}
-                inIcuCurrently={data.inIcuCurrently}
-                onVentilatorCurrently={data.onVentilatorCurrently}
                 hhsHospitalization={hhsHospitalization}
-                national={national}
+                stateAbbreviation={stateAbbreviation}
               />
             )}
             <OutcomesCard
