@@ -8,7 +8,13 @@ exports.sourceNodes = async (
   configOptions,
 ) => {
   const { createNode } = actions
-  const { file, sortField, type, increaseFields } = configOptions
+  const {
+    file,
+    sortField,
+    type,
+    increaseFields,
+    transformItems,
+  } = configOptions
   const start = new Date()
   try {
     fs.statSync(file)
@@ -21,7 +27,10 @@ Make sure to run "npm run setup" to clone the most recent version of the COVID A
     return
   }
 
-  const items = await fs.readJson(file)
+  let items = await fs.readJson(file)
+  if (transformItems) {
+    items = transformItems(items)
+  }
   if (increaseFields && increaseFields.length) {
     items.sort((a, b) => (a.date > b.date ? 1 : -1))
   }

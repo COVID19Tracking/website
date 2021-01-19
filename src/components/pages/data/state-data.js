@@ -32,9 +32,7 @@ const State = ({ state, metadata }) => {
         lastUpdate={state.dateModified}
         longTermCare={state.childLtc}
         annotations={state.annotations}
-        hhsHospitalization={
-          state.hhsHospitalization && state.hhsHospitalization.nodes[0]
-        }
+        hhsHospitalization={state.hhsHospitalization}
       />
 
       <a
