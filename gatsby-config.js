@@ -245,6 +245,13 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
+        file: './_data/crdt_api.json',
+        type: 'crdtApi',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
         file: './_data/hhs_hospitalization.json',
         type: 'hhsHospitals',
         transformItems: items => {
