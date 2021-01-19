@@ -74,7 +74,7 @@ const FacilityDetails = ({ facility, hideSharing = false }) => (
         </span>
       )}
     </h2>
-    {(facility.anomaly_flag_inpt || facility.anomaly_flag_icu) && (
+    {facility.anomaly_flag_inpt || facility.anomaly_flag_icu ? (
       <div className={facilityDetailsStyle.alert}>
         <img src={alertBang} aria-hidden alt="" />
         <p>
@@ -83,7 +83,7 @@ const FacilityDetails = ({ facility, hideSharing = false }) => (
           </Link>
         </p>
       </div>
-    )}
+    ) : null}
     <dl className={facilityDetailsStyle.details}>
       {Object.keys(fields).map(key => (
         <div key={key}>

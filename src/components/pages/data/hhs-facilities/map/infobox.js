@@ -16,12 +16,12 @@ const Infobox = ({ layer, facility, x, y }) => (
 
     {layer === 'patients' && (
       <>
-        {facility.anomaly_flag_inpt && (
+        {facility.anomaly_flag_inpt === 1 ? (
           <div className={infoboxStyle.alert}>
             <img src={alertBang} aria-hidden alt="" />
             <p>This facility has a data anomaly</p>
           </div>
-        )}
+        ) : null}
         <p>
           <strong>Adult COVID-19 patients in hospital:</strong>{' '}
           <FieldValue
@@ -49,12 +49,12 @@ const Infobox = ({ layer, facility, x, y }) => (
 
     {layer === 'icu' && (
       <>
-        {facility.anomaly_flag_icu && (
+        {facility.anomaly_flag_icu ? (
           <div className={infoboxStyle.alert}>
             <img src={alertBang} aria-hidden alt="" />
             <p>This facility has a data anomaly</p>
           </div>
-        )}
+        ) : null}
         <p>
           <strong>Adult COVID-19 patients in ICU:</strong>{' '}
           <FieldValue
