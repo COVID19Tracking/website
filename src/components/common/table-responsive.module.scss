@@ -46,3 +46,7 @@ $table-breakpoint: $viewport-lg;
   display: flex;
   float: right;
 }
+
+thead.header-no-border {
+  border: none;
+}

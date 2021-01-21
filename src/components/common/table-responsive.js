@@ -5,8 +5,11 @@ import { FormatNumber } from '~components/utils/format'
 import tableStyles from './table.module.scss'
 import tableResponsiveStyles from './table-responsive.module.scss'
 
-const TableResponsive = ({ labels, data }) => (
+const TableResponsive = ({ labels, data, header }) => (
   <table className={classnames(tableStyles.table, tableResponsiveStyles.table)}>
+    {header && (
+      <thead className={tableResponsiveStyles.headerNoBorder}>{header}</thead>
+    )}
     <thead>
       <tr>
         {labels.map(({ label, field, alignLeft, headerStyle }) => (

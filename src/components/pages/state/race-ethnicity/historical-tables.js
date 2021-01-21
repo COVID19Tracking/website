@@ -6,8 +6,23 @@ import { getAvailableMetricFields, formatTableValues } from './utils'
 
 import historicalTableStyles from './historical-tables.module.scss'
 
-const TableHeader = ({ header }) => (
-  <h4 className={historicalTableStyles.tableHeader}>{header}</h4>
+const TableHeader = ({ header }) => {
+  /* eslint-disable jsx-a11y/control-has-associated-label */
+  // This wants a label for the empty spacing th value. We don't need that.
+  return (
+    <>
+      <th colSpan="100%">
+        <h4 className={historicalTableStyles.tableHeader}>{header}</h4>
+      </th>
+    </>
+  )
+}
+
+const RaceTableHeader = () => (
+  <>
+    <th colSpan={2} />
+    <TableHeader header="Race" />
+  </>
 )
 
 const HistoricalTables = ({
@@ -132,18 +147,18 @@ const HistoricalTables = ({
       />
       <div className={historicalTableStyles.container}>
         <div className={historicalTableStyles.table}>
-          <TableHeader header="Race" />
           <TableResponsive
             labels={raceTableLabels}
-            // todo pass here
+            // todo pass pop data here
+            header={<RaceTableHeader />}
             data={formatTableValues(timeSeriesData)}
           />
         </div>
         <div className={historicalTableStyles.table}>
-          <TableHeader header="Ethnicity" />
           <TableResponsive
             labels={ethnicityTableLabels}
-            // todo pass here
+            header={<TableHeader header="Ethnicity" />}
+            // todo pass pop data here
             data={formatTableValues(timeSeriesData)}
           />
         </div>
