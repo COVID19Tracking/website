@@ -48,6 +48,7 @@ const formatTableValues = timeSeriesData => {
         Number.isInteger(dataPointValue) &&
         dataPointValue < smallNumberCutoff
       ) {
+        // todo only use for per cap values
         newDays[index][dataPointName] = `${dataPointValue}*`
       }
     })
