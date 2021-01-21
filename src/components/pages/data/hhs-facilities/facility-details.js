@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import FieldValue from './field-value'
 import facilityDetailsStyle from './facility-details.module.scss'
+import alertBang from '~images/alert/alert-bang.svg'
 import SocialSharing from '~components/common/social-sharing'
 
 const fields = [
@@ -10,8 +12,10 @@ const fields = [
       'total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg',
   },
   {
-    title: 'Adult COVID-19 patients currently in ICU',
-    field: 'staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg',
+    title: 'Percent of adult inpatient beds occupied by COVID-19 patients',
+    percent: true,
+    field: 'adult_inpatient_beds_occupancy_covid',
+    value: value => `${Math.round(value * 100)}%`,
   },
   {
     title: 'Percent of adult inpatient beds occupied by all patients',
@@ -20,22 +24,28 @@ const fields = [
     value: value => (value === null ? 'N/A' : `${Math.round(value * 100)}%`),
   },
   {
-    title: 'Percent of adult ICU beds occupied by all patients',
-    percent: true,
-    field: 'adult_icu_beds_occupancy_all',
-    value: value => `${Math.round(value * 100)}%`,
+    title: 'Available adult inpatient beds',
+    field: 'adult_inpatient_beds_available',
   },
   {
-    title: 'Percent of adult inpatient beds occupied by COVID-19 patients',
-    percent: true,
-    field: 'adult_inpatient_beds_occupancy_covid',
-    value: value => `${Math.round(value * 100)}%`,
+    title: 'Adult COVID-19 patients currently in ICU',
+    field: 'staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg',
   },
   {
     title: 'Percent of adult ICU beds occupied by COVID-19 patients',
     percent: true,
     field: 'adult_icu_beds_occupancy_covid',
     value: value => `${Math.round(value * 100)}%`,
+  },
+  {
+    title: 'Percent of adult ICU beds occupied by all patients',
+    percent: true,
+    field: 'adult_icu_beds_occupancy_all',
+    value: value => `${Math.round(value * 100)}%`,
+  },
+  {
+    title: 'Available adult ICU beds',
+    field: 'adult_icu_beds_available',
   },
   {
     title: 'Reporting completeness',
@@ -64,7 +74,16 @@ const FacilityDetails = ({ facility, hideSharing = false }) => (
         </span>
       )}
     </h2>
-
+    {facility.anomaly_flag_inpt || facility.anomaly_flag_icu ? (
+      <div className={facilityDetailsStyle.alert}>
+        <img src={alertBang} aria-hidden alt="" />
+        <p>
+          <Link to="/data/hospital-facilities/anomalies">
+            This facility has a data anomaly
+          </Link>
+        </p>
+      </div>
+    ) : null}
     <dl className={facilityDetailsStyle.details}>
       {Object.keys(fields).map(key => (
         <div key={key}>

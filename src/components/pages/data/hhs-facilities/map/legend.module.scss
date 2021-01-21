@@ -27,12 +27,13 @@
     > div {
       width: 60px;
       text-align: center;
+      align-self: end;
       > div {
         height: 15px;
       }
       &:first-child {
         > div {
-          border: 3px solid $color-slate-400;
+          background: #cac3ba;
         }
       }
       &:nth-child(2) {
@@ -58,6 +59,17 @@
       &:nth-child(6) {
         > div {
           background: $color-blueberry-500;
+        }
+      }
+
+      &:nth-child(7) {
+        @include margin(16, left);
+        > div {
+          border: 2.5px solid black;
+          width: 12px;
+          height: 12px;
+          border-radius: 6px;
+          margin: 0 auto;
         }
       }
     }

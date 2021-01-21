@@ -2,6 +2,7 @@
 import React from 'react'
 import FieldValue from '../field-value'
 import infoboxStyle from './infobox.module.scss'
+import alertBang from '~images/alert/alert-bang.svg'
 
 const Infobox = ({ layer, facility, x, y }) => (
   <div
@@ -12,10 +13,17 @@ const Infobox = ({ layer, facility, x, y }) => (
     }}
   >
     <h3>{facility.hospital_name}</h3>
+
     {layer === 'patients' && (
       <>
+        {facility.anomaly_flag_inpt === 1 ? (
+          <div className={infoboxStyle.alert}>
+            <img src={alertBang} aria-hidden alt="" />
+            <p>This facility has a data anomaly</p>
+          </div>
+        ) : null}
         <p>
-          <strong>Adult COVID-19 patients currently in hospital:</strong>{' '}
+          <strong>Adult COVID-19 patients in hospital:</strong>{' '}
           <FieldValue
             field={
               facility.total_adult_patients_hospitalized_confirmed_and_suspected_covid_7_day_avg
@@ -23,11 +31,16 @@ const Infobox = ({ layer, facility, x, y }) => (
           />
         </p>
         <p>
-          <strong>
-            Percent of inpatient beds occupied by COVID-19 patients:
-          </strong>{' '}
+          <strong>% inpatient beds used by COVID-19 patients:</strong>{' '}
           <FieldValue
             field={facility.adult_inpatient_beds_occupancy_covid}
+            percent
+          />
+        </p>
+        <p>
+          <strong>% inpatient beds used by all patients:</strong>{' '}
+          <FieldValue
+            field={facility.adult_inpatient_beds_occupancy_all}
             percent
           />
         </p>
@@ -36,8 +49,14 @@ const Infobox = ({ layer, facility, x, y }) => (
 
     {layer === 'icu' && (
       <>
+        {facility.anomaly_flag_icu ? (
+          <div className={infoboxStyle.alert}>
+            <img src={alertBang} aria-hidden alt="" />
+            <p>This facility has a data anomaly</p>
+          </div>
+        ) : null}
         <p>
-          <strong>Adult COVID-19 ICU patients currently in hospital:</strong>{' '}
+          <strong>Adult COVID-19 patients in ICU:</strong>{' '}
           <FieldValue
             field={
               facility.staffed_icu_adult_patients_confirmed_and_suspected_covid_7_day_avg
@@ -45,8 +64,12 @@ const Infobox = ({ layer, facility, x, y }) => (
           />
         </p>
         <p>
-          <strong>Percent of ICU beds occupied by COVID-19 patients:</strong>{' '}
+          <strong>% ICU beds used by COVID-19 patients:</strong>{' '}
           <FieldValue field={facility.adult_icu_beds_occupancy_covid} percent />
+        </p>
+        <p>
+          <strong>% ICU beds used by all patients:</strong>{' '}
+          <FieldValue field={facility.adult_icu_beds_occupancy_all} percent />
         </p>
       </>
     )}

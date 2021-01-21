@@ -34,6 +34,10 @@ const Definitions = () => {
       <Link to="/data/hospital-facilities/search">
         Search facilities in a table
       </Link>
+
+      <Link to="/data/hospital-facilities/anomalies">
+        Some facilities with data anomalies are minimized
+      </Link>
       <div
         className={classnames(
           definitionsStyles.definitions,

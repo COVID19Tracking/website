@@ -253,7 +253,20 @@ const gatsbyConfig = {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_data/hhs_hospitalization.json',
-        type: 'hhsHospitalizationCovid',
+        type: 'hhsHospitals',
+        transformItems: items => {
+          const result = {}
+          items.forEach(item => {
+            if (
+              typeof result[item.state] === 'undefined' ||
+              parseInt(item.date.replace(/\D/g, ''), 10) >
+                parseInt(result[item.state].date.replace(/\D/g, ''), 10)
+            ) {
+              result[item.state] = item
+            }
+          })
+          return Object.values(result)
+        },
       },
     },
     {

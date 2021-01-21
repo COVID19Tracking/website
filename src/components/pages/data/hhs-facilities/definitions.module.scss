@@ -2,7 +2,6 @@
   @include remove-button-style();
   @include margin(32, right);
   text-decoration: underline;
-  color: $color-slate-700;
   span[aria-hidden] {
     display: inline-block;
     text-decoration: none;
@@ -20,4 +19,8 @@
 .definitions-wrapper {
   @include margin(16, top);
   @include margin(32, bottom);
+  > a {
+    display: inline-block;
+    @include margin(32, right);
+  }
 }

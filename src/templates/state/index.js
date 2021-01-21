@@ -30,7 +30,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
     contentfulStateOrTerritory,
     allTweets,
     allCovidAnnotation,
-    allHhsHospitalizationCovid,
+    hhsHospitals,
   } = data
   return (
     <Layout
@@ -68,9 +68,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
           annotations={allCovidAnnotation.nodes}
           raceData={getRaceData(data)}
           longTermCare={data.covidStateInfo.childLtc}
-          hhsHospitalization={
-            allHhsHospitalizationCovid && allHhsHospitalizationCovid.nodes[0]
-          }
+          hhsHospitalization={hhsHospitals}
         />
         <StateTweets
           tweets={allTweets}
@@ -320,19 +318,13 @@ export const query = graphql`
         warningTitle
       }
     }
-    allHhsHospitalizationCovid(
-      filter: { state: { eq: $state } }
-      sort: { fields: date, order: DESC }
-      limit: 1
-    ) {
-      nodes {
-        state
-        date
-        inpatient_beds_used_covid
-        staffed_icu_adult_patients_confirmed_and_suspected_covid
-        total_adult_patients_hospitalized_confirmed_covid
-        total_pediatric_patients_hospitalized_confirmed_covid
-      }
+    hhsHospitals(state: { eq: $state }) {
+      state
+      date
+      inpatient_beds_used_covid
+      staffed_icu_adult_patients_confirmed_and_suspected_covid
+      total_adult_patients_hospitalized_confirmed_covid
+      total_pediatric_patients_hospitalized_confirmed_covid
     }
   }
 `

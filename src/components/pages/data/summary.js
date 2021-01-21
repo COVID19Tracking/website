@@ -220,7 +220,9 @@ const StateSummary = ({
     return allDefinitions
   }
 
-  addMetricTextDefinitions(definitions, annotations)
+  if (annotations !== false) {
+    addMetricTextDefinitions(definitions, annotations)
+  }
 
   return (
     <DefinitionPanelContext.Provider
@@ -245,7 +247,11 @@ const StateSummary = ({
             definitions={definitions}
             highlightedDefinition={highlightedDefinition}
             onHide={() => setCardDefinitions(false)}
-            title={`${stateName} Definitions`}
+            title={
+              stateName === undefined
+                ? 'National Definitions'
+                : `${stateName} Definitions`
+            }
           />
         )}
         {cardAnnotations && (
@@ -335,21 +341,12 @@ const StateSummary = ({
               hospitalizedCurrently={data.hospitalizedCurrently}
               inIcuCurrently={data.inIcuCurrently}
               onVentilatorCurrently={data.onVentilatorCurrently}
-              hhsHospitalization={hhsHospitalization}
               national={national}
             />
             {!national && hhsHospitalization && (
               <HospitalizationHhsCard
-                stateSlug={stateSlug}
-                stateName={stateName}
-                hospitalizedCumulative={data.hospitalizedCumulative}
-                inIcuCumulative={data.inIcuCumulative}
-                onVentilatorCumulative={data.onVentilatorCumulative}
-                hospitalizedCurrently={data.hospitalizedCurrently}
-                inIcuCurrently={data.inIcuCurrently}
-                onVentilatorCurrently={data.onVentilatorCurrently}
                 hhsHospitalization={hhsHospitalization}
-                national={national}
+                stateAbbreviation={stateAbbreviation}
               />
             )}
             <OutcomesCard
