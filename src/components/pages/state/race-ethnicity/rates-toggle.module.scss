@@ -15,7 +15,7 @@
   display: flex;
   cursor: pointer;
 
-  @include margin(32, bottom);
+  @include margin(32, (top, bottom));
 
   @media (max-width: $viewport-lg) {
     @include margin(16, bottom);

@@ -125,7 +125,6 @@ const HistoricalTables = ({
   // todo handle separately/combined distinction here
   return (
     <>
-      <h3>Race and Ethnicity Reported Separately</h3>
       <RatesToggle
         state={usePer100kRate}
         setState={setUsePer100kRate}
