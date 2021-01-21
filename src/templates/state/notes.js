@@ -7,7 +7,7 @@ import Layout from '~components/layout'
 const StateNotesTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
-  const { covidState, covidStateInfo } = data
+  const { covidState, covidStateInfo, covidGradeStateAssessment } = data
   return (
     <Layout
       title={`${state.name} Notes`}
@@ -18,7 +18,12 @@ const StateNotesTemplate = ({ pageContext, path, data }) => {
       path={path}
       showWarning
     >
-      <StatePreamble state={state} covidState={covidState} hideNotesLink />
+      <StatePreamble
+        state={state}
+        covidState={covidState}
+        assessment={covidGradeStateAssessment}
+        hideNotesLink
+      />
       <StateNotes stateName={state.name} notes={covidStateInfo.notes} />
     </Layout>
   )
@@ -35,6 +40,9 @@ export const query = graphql`
       lastUpdateEt
       dateModified(formatString: "MMMM D, YYYY h:mm a")
       dataQualityGrade
+    }
+    covidGradeStateAssessment(state: { eq: $state }) {
+      crdt
     }
   }
 `
