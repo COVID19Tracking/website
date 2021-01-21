@@ -26,3 +26,11 @@
     @include margin(8, bottom);
   }
 }
+
+.downloads-container {
+  flex-basis: 25%;
+
+  .small-cards > a {
+    @include margin(16, right);
+  }
+}

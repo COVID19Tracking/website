@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import RacialDataSmallCard from '~components/pages/data/cards/small/view-racial-data-small-card'
+import DataAsGraphicSmallCard from '~components/pages/data/cards/small/data-as-graphic-small-card'
 
 import styles from './notes-and-downloads.module.scss'
 
@@ -44,11 +45,17 @@ const NotesAndDownloads = ({ slug, stateAbbreviation, stateName }) => {
             Metadata
           </Link>
         </div>
-        <RacialDataSmallCard
-          stateAbbreviation={stateAbbreviation}
-          stateName={stateName}
-          content="View racial data dashboard"
-        />
+        <div className={styles.smallCards}>
+          <RacialDataSmallCard
+            stateAbbreviation={stateAbbreviation}
+            stateName={stateName}
+            content="View racial data dashboard"
+          />
+          <DataAsGraphicSmallCard
+            stateAbbreviation={stateAbbreviation}
+            stateName={stateName}
+          />
+        </div>
       </div>
     </div>
   )
