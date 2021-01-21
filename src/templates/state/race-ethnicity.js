@@ -11,7 +11,7 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
   const [currentMetric, setCurrentMetric] = useState('Cases')
 
   // false: showing numbers, true: showing rates per 100k
-  const [usePer100kRate, setUsePer100kRate] = useState(false)
+  const [usePer100kRate, setUsePer100kRate] = useState(true)
 
   return (
     <Layout
