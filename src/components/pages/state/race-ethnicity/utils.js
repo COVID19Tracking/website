@@ -28,14 +28,31 @@ const getAvailableMetricFields = (latestDay, startsWith, raceOnly) => {
   return listOfMetrics
 }
 
-const formatTimeSeriesDates = timeSeriesData => {
+const formatTableValues = timeSeriesData => {
+  /**
+   * Adds the formattedDate field, adds asterisks for small numbers.
+   */
   const newDays = []
 
   timeSeriesData.forEach((day, index) => {
     newDays[index] = day
     newDays[index].formattedDate = formatDateToString(day.Date, 'MMMM d, yyyy')
+
+    const availableDataPoints = Object.keys(day)
+    const smallNumberCutoff = 10
+
+    availableDataPoints.forEach(dataPointName => {
+      const dataPointValue = day[dataPointName]
+      if (
+        dataPointValue != null &&
+        Number.isInteger(dataPointValue) &&
+        dataPointValue < smallNumberCutoff
+      ) {
+        newDays[index][dataPointName] = `${dataPointValue}*`
+      }
+    })
   })
   return newDays
 }
 
-export { getAvailableMetricFields, formatTimeSeriesDates }
+export { getAvailableMetricFields, formatTableValues }

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 
 import TableResponsive from '~components/common/table-responsive'
-import { getAvailableMetricFields, formatTimeSeriesDates } from './utils'
+import { getAvailableMetricFields, formatTableValues } from './utils'
 
 import historicalTableStyles from './historical-tables.module.scss'
 
@@ -125,14 +125,14 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
           <TableHeader header="Race" />
           <TableResponsive
             labels={raceTableLabels}
-            data={formatTimeSeriesDates(timeSeriesData)}
+            data={formatTableValues(timeSeriesData)}
           />
         </div>
         <div className={historicalTableStyles.table}>
           <TableHeader header="Ethnicity" />
           <TableResponsive
             labels={ethnicityTableLabels}
-            data={formatTimeSeriesDates(timeSeriesData)}
+            data={formatTableValues(timeSeriesData)}
           />
         </div>
       </div>
