@@ -1,7 +1,6 @@
 import React from 'react'
 
 import MetricSelector from './metric-selector'
-import RatesToggle from './rates-toggle'
 import Charts from './charts'
 import NotesAndDownloads from './notes-and-downloads'
 
@@ -78,7 +77,6 @@ const Hero = ({
   currentMetric,
   setCurrentMetric,
   usePer100kRate,
-  setUsePer100kRate,
   timeSeriesData,
 }) => {
   return (
@@ -88,12 +86,6 @@ const Hero = ({
           state={currentMetric}
           setState={setCurrentMetric}
           metrics={getMetrics(timeSeriesData)}
-        />
-        <RatesToggle
-          state={usePer100kRate}
-          setState={setUsePer100kRate}
-          className={styles.ratesToggle}
-          currentMetric={currentMetric}
         />
         <Charts
           population={200000}

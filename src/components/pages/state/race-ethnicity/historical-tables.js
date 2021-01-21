@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 
+import RatesToggle from './rates-toggle'
 import TableResponsive from '~components/common/table-responsive'
 import { getAvailableMetricFields, formatTableValues } from './utils'
 
@@ -9,7 +10,12 @@ const TableHeader = ({ header }) => (
   <h4 className={historicalTableStyles.tableHeader}>{header}</h4>
 )
 
-const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
+const HistoricalTables = ({
+  timeSeriesData,
+  currentMetric,
+  setUsePer100kRate,
+  usePer100kRate,
+}) => {
   const removeMetricPrefix = metric => {
     /**
      * Removes the 'Cases_' or 'Hosp_', etc. prefix from a string.
@@ -120,11 +126,17 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
   return (
     <>
       <h3>Race and Ethnicity Reported Separately</h3>
+      <RatesToggle
+        state={usePer100kRate}
+        setState={setUsePer100kRate}
+        currentMetric={currentMetric}
+      />
       <div className={historicalTableStyles.container}>
         <div className={historicalTableStyles.table}>
           <TableHeader header="Race" />
           <TableResponsive
             labels={raceTableLabels}
+            // todo pass here
             data={formatTableValues(timeSeriesData)}
           />
         </div>
@@ -132,6 +144,7 @@ const HistoricalTables = ({ timeSeriesData, currentMetric }) => {
           <TableHeader header="Ethnicity" />
           <TableResponsive
             labels={ethnicityTableLabels}
+            // todo pass here
             data={formatTableValues(timeSeriesData)}
           />
         </div>
