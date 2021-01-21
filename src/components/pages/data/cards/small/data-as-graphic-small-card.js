@@ -13,7 +13,7 @@ const DataAsGraphicSmallCard = ({ stateAbbreviation = 'US', stateName }) => (
     <SmallCardLink>
       Get shareable graphic{' '}
       <span className="a11y-only">for {stateName}&apos;s</span>
-      <span aria-hidden>of</span> racial data
+      <span aria-hidden>of {stateAbbreviation}&apos;s</span> racial data
     </SmallCardLink>
   </SmallCard>
 )
