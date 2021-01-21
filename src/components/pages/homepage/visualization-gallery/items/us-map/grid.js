@@ -81,6 +81,7 @@ const Grid = ({ states, us, relatedPost, metric, disclaimer = false }) => {
             aria-label="close"
             onClick={event => {
               event.preventDefault()
+              setShowUs(false)
               setActiveState(false)
             }}
           >
