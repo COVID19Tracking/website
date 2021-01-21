@@ -107,6 +107,7 @@ Array [
                 >
                   <a
                     href="/test-a"
+                    onClick={[Function]}
                   >
                     Test A
                   </a>
@@ -214,6 +215,7 @@ Array [
                 >
                   <a
                     href="/test-b"
+                    onClick={[Function]}
                   >
                     Test B
                   </a>
@@ -275,6 +277,7 @@ Array [
                   >
                     <a
                       href="/test-a"
+                      onClick={[Function]}
                     >
                       Test A
                     </a>
@@ -382,6 +385,7 @@ Array [
                   >
                     <a
                       href="/test-b"
+                      onClick={[Function]}
                     >
                       Test B
                     </a>
@@ -527,9 +531,7 @@ Array [
         <div
           className="links"
         >
-          <ul
-            className="footerList"
-          >
+          <ul>
             <li>
               <a
                 href="/contact"
@@ -563,6 +565,13 @@ Array [
                 href="/about/accessibility"
               >
                 Accessibility
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about/sitemap"
+              >
+                Sitemap
               </a>
             </li>
             <li>
@@ -606,9 +615,12 @@ Array [
     <div
       className="copyright"
     >
+      <p>
+        The COVID Tracking Project collects and publishes the most complete data about COVID-19 in the US.
+      </p>
       <span>
         CovidTracking.com Copyright © 
-        2020
+        2021
          by The Atlantic Monthly Group. 
         <a
           href="/license"
@@ -741,6 +753,7 @@ Array [
                 >
                   <a
                     href="/test-a"
+                    onClick={[Function]}
                   >
                     Test A
                   </a>
@@ -848,6 +861,7 @@ Array [
                 >
                   <a
                     href="/test-b"
+                    onClick={[Function]}
                   >
                     Test B
                   </a>
@@ -909,6 +923,7 @@ Array [
                   >
                     <a
                       href="/test-a"
+                      onClick={[Function]}
                     >
                       Test A
                     </a>
@@ -1016,6 +1031,7 @@ Array [
                   >
                     <a
                       href="/test-b"
+                      onClick={[Function]}
                     >
                       Test B
                     </a>
@@ -1161,9 +1177,7 @@ Array [
         <div
           className="links"
         >
-          <ul
-            className="footerList"
-          >
+          <ul>
             <li>
               <a
                 href="/contact"
@@ -1197,6 +1211,13 @@ Array [
                 href="/about/accessibility"
               >
                 Accessibility
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about/sitemap"
+              >
+                Sitemap
               </a>
             </li>
             <li>
@@ -1240,9 +1261,12 @@ Array [
     <div
       className="copyright"
     >
+      <p>
+        The COVID Tracking Project collects and publishes the most complete data about COVID-19 in the US.
+      </p>
       <span>
         CovidTracking.com Copyright © 
-        2020
+        2021
          by The Atlantic Monthly Group. 
         <a
           href="/license"

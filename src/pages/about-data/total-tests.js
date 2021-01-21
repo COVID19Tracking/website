@@ -34,6 +34,7 @@ const DataStateTotalTestsPage = ({ data }) => {
     <Layout
       title="How We Report Total Tests"
       path="/about-data/total-tests"
+      description="The 56 US states and territories we track report their total test results in three main ways: by specimens tested, by people tested, and by “test encounters,” a unit which usually counts unique people tested per day."
       returnLinks={[{ link: '/about-data' }]}
     >
       <Container centered>

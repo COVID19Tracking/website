@@ -1,0 +1,24 @@
+.change-log {
+  @include padding(32);
+  background: $color-plum-100;
+  @include margin(32, bottom);
+  @media (min-width: $viewport-md) {
+    width: 300px;
+    float: right;
+    @include margin(32, left);
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li:first-child {
+      @include margin(16, bottom);
+    }
+  }
+  [aria-hidden]::after {
+    text-decoration: none;
+    display: inline-block;
+    @include margin(4, left);
+    @include new-window-icon();
+  }
+}

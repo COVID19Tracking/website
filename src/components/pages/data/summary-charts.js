@@ -95,16 +95,6 @@ const ChartAlert = ({ message }) => (
   </div>
 )
 
-const CalculatedIndicator = ({ openDisclosure }) => (
-  <a
-    href="#summary-charts"
-    className={styles.calculated}
-    onClick={openDisclosure}
-  >
-    (Calculated)
-  </a>
-)
-
 const AnnotationIndicator = ({ annotations, dataElement, openDisclosure }) => {
   if (
     !annotations ||
@@ -299,19 +289,25 @@ const SummaryCharts = ({
       : {}),
   }
   return (
-    <>
+    <div className={styles.charts}>
       <div className={styles.infoLine}>
-        <h2 className="a11y-only">Summary charts</h2>
+        <h2>
+          {national ? (
+            <> Overview of National COVID-19 Data</>
+          ) : (
+            <>Key Metrics</>
+          )}
+        </h2>
         <div className={styles.toggleContainer}>
           {usHistory && (
             <RadioToggle
-              options={['Totals', 'Per 1M people']}
+              options={['Total', 'Per 1M people']}
               state={usePerCap}
               setState={setUsePerCap}
             />
           )}
           <RadioToggle
-            options={['Last 90 days', 'Full range']}
+            options={['Last 90 days', 'Historical']}
             state={useFullRange}
             setState={setUseFullRange}
           />
@@ -328,9 +324,6 @@ const SummaryCharts = ({
             <AnnotationIndicator
               annotations={annotations}
               dataElement="tests"
-              openDisclosure={() => setDisclosureOpen(true)}
-            />
-            <CalculatedIndicator
               openDisclosure={() => setDisclosureOpen(true)}
             />
             <TestFieldIndicator
@@ -351,6 +344,7 @@ const SummaryCharts = ({
           <ChartDescription
             label="New tests"
             data={getDataForField(data, testField)}
+            link={chartTables}
           />
         </Col>
         <Col {...colProps}>
@@ -361,7 +355,6 @@ const SummaryCharts = ({
               dataElement="cases"
               openDisclosure={() => setDisclosureOpen(true)}
             />
-            <CalculatedIndicator />
           </h3>
           {hasData(positiveField) ? (
             <>
@@ -378,6 +371,7 @@ const SummaryCharts = ({
               <ChartDescription
                 label="Cases"
                 data={getDataForField(data, positiveField)}
+                link={chartTables}
               />
             </>
           ) : (
@@ -414,6 +408,7 @@ const SummaryCharts = ({
               <ChartDescription
                 label="Hospitalization"
                 data={getDataForField(data, hospitalizedField)}
+                link={chartTables}
               />
             </>
           ) : (
@@ -428,7 +423,6 @@ const SummaryCharts = ({
               dataElement="death"
               openDisclosure={() => setDisclosureOpen(true)}
             />
-            <CalculatedIndicator />
           </h3>
           {hasData(deathField) ? (
             <>
@@ -445,6 +439,7 @@ const SummaryCharts = ({
               <ChartDescription
                 label="New deaths"
                 data={getDataForField(data, deathField)}
+                link={chartTables}
               />
             </>
           ) : (
@@ -516,7 +511,7 @@ const SummaryCharts = ({
           <CtpLogo className={styles.chartLogo} />
         </Col>
       </Row>
-    </>
+    </div>
   )
 }
 
@@ -533,7 +528,8 @@ const LegendComponent = ({ name }) => (
         strokeDasharray={!name ? '4' : undefined}
       />
     </svg>
-    {name || 'National'} 7-day average
+    {name ? <>Solid</> : <>Dashed</>} line represents {name || 'National'} 7-day
+    average
   </div>
 )
 

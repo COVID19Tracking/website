@@ -69,6 +69,26 @@ const VizualizationSheet = () => (
       }}
     />
     <hr />
+    <h2>US Map - deaths change 7day average</h2>
+    <p>Use the following configuration in Contentful:</p>
+    <code>
+      <pre>{`{
+    "component": "us-map",
+    "configuration": {
+        "metric": "deathsChange7day"
+    }
+}`}</pre>
+    </code>
+    <Item
+      component={components['us-map']}
+      item={{
+        relatedPost: false,
+        configuration: {
+          metric: 'deathsChange7day',
+        },
+      }}
+    />
+    <hr />
     <h2>National 4-up chart</h2>
     <Item
       component={components['national-chart']}

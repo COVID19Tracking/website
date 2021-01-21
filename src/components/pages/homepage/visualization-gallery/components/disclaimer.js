@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import classnames from 'classnames'
 import disclaimerStyle from './disclaimer.module.scss'
 
-const Disclaimer = ({ text }) => {
+const Disclaimer = ({ text, hideMobile }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div>
+    <div className={hideMobile && disclaimerStyle.hideMobile}>
       <button
         aria-expanded={isOpen}
         type="button"

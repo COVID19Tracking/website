@@ -16,6 +16,7 @@ const StateTestAntibodiesTemplate = ({ pageContext, path, data }) => {
         { link: `/data/state/${slug}`, title: state.name },
       ]}
       path={path}
+      description={`Data definitions and time series of data on total, positive, and negative antibody tests in units of specimens or people for ${state.name}.`}
       showWarning
     >
       <Definitions
@@ -29,6 +30,7 @@ const StateTestAntibodiesTemplate = ({ pageContext, path, data }) => {
           'positiveTestsAntibody',
         ]}
       />
+      <h2>Antibody Tests History</h2>
       <TableResponsive
         labels={[
           {
@@ -75,7 +77,7 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
     ) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         totalTestsPeopleAntibody
         totalTestsAntibody
         negativeTestsPeopleAntibody

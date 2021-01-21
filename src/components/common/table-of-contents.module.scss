@@ -4,6 +4,7 @@
   background: $color-plum-100;
   h2 {
     margin: 0;
+    @include type-size(400);
   }
   ul {
     list-style-type: none;

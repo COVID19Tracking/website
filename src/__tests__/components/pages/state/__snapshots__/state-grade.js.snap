@@ -9,7 +9,7 @@ exports[`Components : Pages : State : State grade renders correctly 1`] = `
     <a
       href="/state-grades"
     >
-      data quality grade
+      data completeness grade
     </a>
     :
   </span>
@@ -30,7 +30,7 @@ exports[`Components : Pages : State : State grade renders correctly 2`] = `
     <a
       href="/state-grades"
     >
-      data quality grade
+      data completeness grade
     </a>
     :
   </span>
@@ -51,7 +51,7 @@ exports[`Components : Pages : State : State grade renders correctly 3`] = `
     <a
       href="/state-grades"
     >
-      data quality grade
+      data completeness grade
     </a>
     :
   </span>
@@ -61,12 +61,4 @@ exports[`Components : Pages : State : State grade renders correctly 3`] = `
     src="test-file-stub"
   />
 </p>
-`;
-
-exports[`Components : Pages : State : State grade renders correctly 4`] = `
-<img
-  alt="Grade a"
-  className="gradeLarge"
-  src="test-file-stub"
-/>
 `;

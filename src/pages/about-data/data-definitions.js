@@ -4,6 +4,7 @@ import slugify from 'slugify'
 import Layout from '~components/layout'
 import LongContent from '~components/common/long-content'
 import ContentfulContent from '~components/common/contentful-content'
+import { TableOfContentsWrapper } from '~components/common/table-of-contents'
 
 const DataDefintionsPage = ({ data }) => {
   const categories = [
@@ -17,7 +18,11 @@ const DataDefintionsPage = ({ data }) => {
   ]
   const { nodes } = data.allContentfulDataDefinition
   return (
-    <Layout title="Data Definitions" centered>
+    <Layout
+      title="Data Definitions"
+      description="COVID-19 data definitions change frequently across the 56 jurisdictions we track, so we must sometimes update our data definitions to reflect the realities we find in the data."
+      centered
+    >
       <LongContent>
         <ContentfulContent
           content={
@@ -26,13 +31,18 @@ const DataDefintionsPage = ({ data }) => {
           }
           id={data.preamble.contentful_id}
         />
-        <ul>
-          {categories.map(category => (
-            <li>
-              <a href={`#${slugify(category, { lower: true })}`}>{category}</a>
-            </li>
-          ))}
-        </ul>
+        <TableOfContentsWrapper>
+          <h2>Data categories</h2>
+          <ul>
+            {categories.map(category => (
+              <li>
+                <a href={`#${slugify(category, { lower: true })}`}>
+                  {category}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </TableOfContentsWrapper>
         {categories.map(category => (
           <>
             <h2 id={slugify(category, { lower: true })}>{category}</h2>

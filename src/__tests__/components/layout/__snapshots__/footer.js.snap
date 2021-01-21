@@ -23,9 +23,7 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
       <div
         className="links"
       >
-        <ul
-          className="footerList"
-        >
+        <ul>
           <li>
             <a
               href="/contact"
@@ -59,6 +57,13 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
               href="/about/accessibility"
             >
               Accessibility
+            </a>
+          </li>
+          <li>
+            <a
+              href="/about/sitemap"
+            >
+              Sitemap
             </a>
           </li>
           <li>
@@ -102,9 +107,12 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
   <div
     className="copyright"
   >
+    <p>
+      The COVID Tracking Project collects and publishes the most complete data about COVID-19 in the US.
+    </p>
     <span>
       CovidTracking.com Copyright © 
-      2020
+      2021
        by The Atlantic Monthly Group. 
       <a
         href="/license"

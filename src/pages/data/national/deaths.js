@@ -7,10 +7,11 @@ import Layout from '~components/layout'
 const NationalDataDeathsPage = ({ data }) => {
   return (
     <Layout
-      title="National: Deaths"
+      title="National Data: Deaths"
       returnLinkTitle="Our Data"
       returnLink="/data"
       path="/data/national/deaths"
+      description="COVID deaths numbers in the US for each day from January 2020 to the present."
       returnLinks={[
         { link: '/data' },
         { link: `/data/national`, title: 'Totals for the US' },
@@ -20,6 +21,7 @@ const NationalDataDeathsPage = ({ data }) => {
         definitions={data.allContentfulDataDefinition.nodes}
         order={['death']}
       />
+      <h2>Deaths History</h2>
       <p>
         We have{' '}
         <Link to="/about-data/faq#why-have-you-stopped-reporting-national-recoveries">
@@ -53,7 +55,7 @@ export const query = graphql`
   {
     allCovidUsDaily(sort: { fields: date, order: DESC }) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         death
         deathIncrease
       }

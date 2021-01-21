@@ -19,6 +19,7 @@ export default ({ pageContext, path, data }) => {
         { link: '/data' },
         { link: `/data/state/${slug}`, title: state.name },
       ]}
+      description={`Cumulative and outbreak data on cases and deaths in nursing homes, assisted living, and other long-term-care facilities in ${state.name}.`}
       path={path}
     >
       {data.aggregate.nodes.length ? (

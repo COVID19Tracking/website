@@ -30,6 +30,7 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
         { link: '/data' },
         { link: `/data/state/${slug}`, title: state.name },
       ]}
+      description={`Data definitions and historical time series of data on confirmed cases, probable cases, total cases, and daily new cases in ${state.name}.`}
       path={path}
       showWarning
     >
@@ -59,6 +60,7 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
             'probableCases',
           ]}
         />
+        <h2>Case History</h2>
         <TableResponsive
           annotations={data.allContentfulChartAnnotation}
           labels={[
@@ -102,7 +104,7 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
     ) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         positive
         positiveIncrease
         positiveCasesViral
@@ -114,7 +116,7 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
     ) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         childContentfulChartAnnotationDescriptionTextNode {
           childMarkdownRemark {
             html

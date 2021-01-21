@@ -48,6 +48,12 @@ const gatsbyConfig = {
     'gatsby-plugin-svgr',
     'gatsby-transformer-yaml',
     {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://covidtracking.com',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-webfonts',
       options: {
         fonts: {
@@ -63,13 +69,6 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'screenshotConfig',
-        path: `${__dirname}/_screenshots/configs/taco`,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-google-analytics-gdpr',
       options: {
         trackingId: 'UA-182192518-1',
@@ -81,9 +80,12 @@ const gatsbyConfig = {
       resolve: 'gatsby-plugin-sass',
       options: {
         data: sassImports,
-        cssLoaderOptions: {
-          localIdentName: '[sha1:hash:hex:5]',
-        },
+        cssLoaderOptions:
+          process.env.NODE_ENV === 'production'
+            ? {
+                localIdentName: '[sha1:hash:hex:5]',
+              }
+            : {},
       },
     },
     {
@@ -244,7 +246,20 @@ const gatsbyConfig = {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_data/hhs_hospitalization.json',
-        type: 'hhsHospitalizationCovid',
+        type: 'hhsHospitals',
+        transformItems: items => {
+          const result = {}
+          items.forEach(item => {
+            if (
+              typeof result[item.state] === 'undefined' ||
+              parseInt(item.date.replace(/\D/g, ''), 10) >
+                parseInt(result[item.state].date.replace(/\D/g, ''), 10)
+            ) {
+              result[item.state] = item
+            }
+          })
+          return Object.values(result)
+        },
       },
     },
     {

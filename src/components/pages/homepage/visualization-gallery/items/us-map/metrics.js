@@ -1,14 +1,15 @@
 import mapStyle from './us-map.module.scss'
 
-const getAverage = (history, state, value) =>
+const getAverage = (history, state, value, offset = 0) =>
   history
     .find(group => group.nodes[0].state === state)
-    .nodes.slice(0, 7)
+    .nodes.slice(offset, offset + 7)
     .reduce((total, item) => total + value(item), 0) / 7
 
 export default {
   casesPer100k: {
     title: 'Average daily new COVID-19 cases per 100k people (past 7 days)',
+    subTitle: (now, sevenDaysAgo) => `From ${sevenDaysAgo} to ${now}`,
     getValue: (history, state) =>
       getAverage(
         history,
@@ -53,9 +54,11 @@ export default {
         label: 'Over 75 cases per 100k',
       },
     ],
+    format: value => Math.round(value).toLocaleString(),
   },
   sevenDayPositive: {
     title: 'Average daily new COVID-19 cases (past 7 days)',
+    subTitle: (now, sevenDaysAgo) => `From ${sevenDaysAgo} to ${now}`,
     getValue: (history, state) =>
       getAverage(history, state.state, item => item.positiveIncrease),
 
@@ -93,9 +96,11 @@ export default {
         label: 'Over 5,000 cases',
       },
     ],
+    format: value => Math.round(value).toLocaleString(),
   },
   hospitalizationPer1m: {
     title: 'Currently hospitalized per 1 million people',
+    subTitle: now => `Data updated ${now}`,
     getValue: (history, state) =>
       history.find(group => group.nodes[0].state === state.state).nodes[0]
         .childPopulation.hospitalizedCurrently.percent * 1000000,
@@ -131,5 +136,63 @@ export default {
         label: 'Over 500 hospitalizations per 1 million',
       },
     ],
+    format: value => Math.round(value).toLocaleString(),
+  },
+  deathsChange7day: {
+    title: 'Change in 7-day average deaths - today vs. previous week',
+    subTitle: (now, sevenDaysAgo) => `From ${sevenDaysAgo} to ${now}`,
+    getValue: (history, state) => {
+      const current = getAverage(
+        history,
+        state.state,
+        item => item.deathIncrease,
+      )
+
+      const past = getAverage(
+        history,
+        state.state,
+        item => item.deathIncrease,
+        7,
+      )
+
+      return (current - past) / past
+    },
+    getUsValue: history => {
+      const current =
+        history
+          .slice(0, 7)
+          .reduce((total, item) => total + item.deathIncrease, 0) / 7
+
+      const past =
+        history
+          .slice(7, 14)
+          .reduce((total, item) => total + item.deathIncrease, 0) / 7
+      return (current - past) / past
+    },
+    getColor: item => {
+      if (item > 0.1) {
+        return mapStyle.deathsRising
+      }
+      if (item > -0.1) {
+        return mapStyle.deathsSame
+      }
+      return mapStyle.deathsFalling
+    },
+    legend: [
+      {
+        style: mapStyle.deathsFalling,
+        label: 'Under -10%',
+      },
+      {
+        style: mapStyle.deathsSame,
+        label: '-10% to 10%',
+      },
+      {
+        style: mapStyle.deathsRising,
+        label: 'Over 10% change',
+      },
+    ],
+    format: value =>
+      Number.isNaN(value) ? '0%' : `${Math.round(value * 100)}%`,
   },
 }

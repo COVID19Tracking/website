@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import classnames from 'classnames'
 import { FormatNumber } from '~components/utils/format'
+
+import alertBang from '~images/alert/alert-bang.svg'
 import statisticStyles from './statistic.module.scss'
 
 const Statistic = ({
@@ -73,8 +75,23 @@ const DefinitionLink = ({ onDefinitionsToggle, label, title = false }) => {
       type="button"
       aria-label={`Definition of ${label}`}
     >
-      {title || <>Definition</>}
+      <DefinitionLinkInner title={title} />
     </button>
+  )
+}
+
+// todo include icon in sidebar
+
+const DefinitionLinkInner = ({ title }) => {
+  if (!title) {
+    return <>Definition</>
+  }
+  // Include the warning icon if this is not a definition
+  return (
+    <div className={statisticStyles.warningContainer}>
+      <img src={alertBang} alt="Alert" />
+      {title.charAt(0).toUpperCase() + title.slice(1) || 'Warning'}
+    </div>
   )
 }
 

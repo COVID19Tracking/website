@@ -134,6 +134,7 @@ const Header = withSearch(
     return (
       <>
         <DevelopmentWarning />
+        {showWarning && <DataWarning />}
         <header
           className={classnames(
             'site-header',
@@ -163,6 +164,9 @@ const Header = withSearch(
                 expanded={showMobileMenu}
                 topNavigation={topNavigation}
                 subNavigation={subNavigation}
+                hide={() => {
+                  showMobileMenu(false)
+                }}
               />
             </Expand>
             <div className={headerStyle.wrapper}>
@@ -251,7 +255,6 @@ const Header = withSearch(
               {hero}
             </Container>
           </div>
-          {showWarning && <DataWarning />}
         </header>
       </>
     )

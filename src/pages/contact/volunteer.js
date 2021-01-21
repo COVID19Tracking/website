@@ -6,11 +6,7 @@ import Layout from '~components/layout'
 import VolunteerForm from '~components/pages/contact/volunteer-form'
 
 const ContactVolunteerPage = ({ data }) => (
-  <Layout
-    title="Contact Us &mdash; Volunteering"
-    path="/contact/volunteer"
-    centered
-  >
+  <Layout title="Volunteer" path="/contact/volunteer" centered>
     <LongContent>
       <ContentfulContent
         content={

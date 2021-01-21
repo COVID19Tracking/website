@@ -55,14 +55,17 @@ const HomepageGallery = () => {
           relatedPost {
             title
             slug
-            publishDate(formatString: "MMM D, YYYY")
+            publishDate(formatString: "MMMM D, YYYY")
           }
         }
       }
     }
   `)
   return (
-    <>
+    <div className={galleryStyle.wrapper}>
+      <a href="#skip-visualization" className={galleryStyle.skipLink}>
+        Skip visualiations
+      </a>
       <Tabs>
         <div className={galleryStyle.tabContainer}>
           <TabList className={galleryStyle.tabs}>
@@ -89,7 +92,8 @@ const HomepageGallery = () => {
           </Container>
         </div>
       </Tabs>
-    </>
+      <div id="skip-visualization" />
+    </div>
   )
 }
 

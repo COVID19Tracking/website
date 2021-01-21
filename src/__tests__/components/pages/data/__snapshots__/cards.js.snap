@@ -1078,6 +1078,16 @@ exports[`Components : Pages : Data : Cards : Hospitalization renders correctly 2
         </div>
       </div>
     </div>
+    <p
+      className="note"
+    >
+      <a
+        href="/data/hospital-facilities"
+      >
+        See HHS hospitalization data on a map
+      </a>
+      .
+    </p>
   </div>
 </div>
 `;
@@ -1688,18 +1698,6 @@ exports[`Components : Pages : Data : Cards : Outcomes renders correctly 2`] = `
         </div>
       </div>
     </div>
-    <p
-      className="note"
-    >
-      We have
-       
-      <a
-        href="/about-data/faq#why-have-you-stopped-reporting-national-recoveries"
-      >
-        removed recovered data for the US. Here's why
-      </a>
-      .
-    </p>
   </div>
 </div>
 `;
@@ -1888,7 +1886,7 @@ exports[`Components : Pages : Data : Cards : Viral tests renders correctly 1`] =
         >
           Total tests
           <br />
-          (in test encounters)
+          (test encounters)
         </div>
         <div
           className="value"
@@ -1920,7 +1918,7 @@ exports[`Components : Pages : Data : Cards : Viral tests renders correctly 1`] =
         >
           Total tests
           <br />
-          (in specimens)
+          (specimens)
         </div>
         <div
           className="value"
@@ -1938,6 +1936,7 @@ exports[`Components : Pages : Data : Cards : Viral tests renders correctly 1`] =
           >
             Definition
           </button>
+           
         </div>
       </div>
     </div>
@@ -1952,7 +1951,7 @@ exports[`Components : Pages : Data : Cards : Viral tests renders correctly 1`] =
         >
           Total tests
           <br />
-          (in people)
+          (people)
         </div>
         <div
           className="value"
@@ -2019,7 +2018,7 @@ exports[`Components : Pages : Data : Cards : Viral tests renders correctly 2`] =
         >
           Total tests
           <br />
-          (in unclear units)
+          (unclear units)
         </div>
         <div
           className="value"

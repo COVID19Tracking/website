@@ -56,7 +56,7 @@ const ImageContentBlock = ({
       <ImageBlock image={image} imageUrl={imageUrl} keepSize={keepSize} />
     )}
 
-    {caption && <ImageCredit>{caption['en-US']}</ImageCredit>}
+    {caption && <ImageCredit>{caption}</ImageCredit>}
   </div>
 )
 

@@ -16,7 +16,13 @@ const VolunteersList = ({ items }) => (
       {items.map(({ node }) => (
         <li key={`volunteer-${node.name}`}>
           {node.website ? (
-            <a href={fixWebsitePrefix(node.website)}>{node.name}</a>
+            <a
+              href={fixWebsitePrefix(node.website)}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {node.name}
+            </a>
           ) : (
             <span>{node.name}</span>
           )}

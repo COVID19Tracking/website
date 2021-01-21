@@ -1,0 +1,41 @@
+.infobox {
+  display: none;
+  @media (hover: hover) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 350px;
+    border: 1px solid $color-slate-700;
+    background: white;
+    @include padding(16);
+    @include type-size(100);
+    h3 {
+      @include type-size(100);
+      font-weight: bold;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  img {
+    max-width: 18px;
+    display: inline-block;
+    @include margin(8, right);
+  }
+  p {
+    margin: 0;
+  }
+}

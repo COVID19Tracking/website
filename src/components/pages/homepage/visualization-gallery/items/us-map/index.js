@@ -35,6 +35,7 @@ const USMap = ({ configuration, item }) => {
         nodes {
           positiveIncrease
           negativeIncrease
+          deathIncrease
           childPopulation {
             population
             hospitalizedCurrently {
@@ -71,6 +72,7 @@ const USMap = ({ configuration, item }) => {
             state
             positiveIncrease
             negativeIncrease
+            deathIncrease
             childPopulation {
               population
               positive {
@@ -111,7 +113,9 @@ const USMap = ({ configuration, item }) => {
     .minus({ days: 7 })
     .toFormat('MMMM d, yyyy')
   return (
-    <MetricContext.Provider value={{ metric: metric }}>
+    <MetricContext.Provider
+      value={{ metric: metric, format: metrics[metric].format }}
+    >
       <SvgFilters />
       <Map
         states={states}
@@ -120,7 +124,7 @@ const USMap = ({ configuration, item }) => {
         relatedPost={item.relatedPost}
         title={
           <Title title={metrics[metric].title}>
-            From {sevenDaysAgo} to {lastUpdate}
+            {metrics[metric].subTitle(lastUpdate, sevenDaysAgo)}
           </Title>
         }
         disclaimer={

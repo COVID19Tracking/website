@@ -26,7 +26,6 @@ exports.createPages = async ({ graphql, actions }) => {
           covid19Site
           covid19SiteSecondary
           covid19SiteTertiary
-          notes
           name
           state
           twitter
@@ -130,6 +129,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: `/document/download/${node.slug}`,
       toPath: node.document.file.url,
+      isPermanent: true,
     })
   })
 
@@ -137,6 +137,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: from,
       toPath: redirectTo,
+      isPermanent: true,
     })
   })
 
@@ -171,6 +172,11 @@ exports.createPages = async ({ graphql, actions }) => {
       context: node,
     })
     createPage({
+      path: `/data/state/${slug}/tests-antigen`,
+      component: path.resolve(`./src/templates/state/tests-antigen.js`),
+      context: node,
+    })
+    createPage({
       path: `/data/state/${slug}/tests-viral`,
       component: path.resolve(`./src/templates/state/tests-viral.js`),
       context: node,
@@ -185,7 +191,11 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/state/outcomes.js`),
       context: node,
     })
-
+    createPage({
+      path: `/data/state/${slug}/notes`,
+      component: path.resolve(`./src/templates/state/notes.js`),
+      context: node,
+    })
     createPage({
       path: `/data/state/${slug}/long-term-care`,
       component: path.resolve(`./src/templates/state/long-term-care/index.js`),
@@ -209,6 +219,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: `/data/state/${slug}/screenshots`,
       toPath: `https://screenshots.covidtracking.com/${slug}`,
+      isPermanent: true,
     })
   })
 
@@ -245,6 +256,7 @@ exports.createPages = async ({ graphql, actions }) => {
       createRedirect({
         fromPath: shortPath,
         toPath: node.overrideBlogPath,
+        isPermanent: true,
       })
     } else {
       createPage({
@@ -256,6 +268,7 @@ exports.createPages = async ({ graphql, actions }) => {
       createRedirect({
         fromPath: shortPath,
         toPath: longPath,
+        isPermanent: true,
       })
     }
   })
@@ -299,6 +312,10 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
         rules: [
           {
             test: /react-scrollama/,
+            use: loaders.null(),
+          },
+          {
+            test: /mapbox-gl/,
             use: loaders.null(),
           },
         ],

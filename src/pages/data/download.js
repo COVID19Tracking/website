@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import ChangeLog from '~components/pages/data/api/change-log'
 import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
 
@@ -10,6 +11,7 @@ const DataDownloadPage = ({ data }) => (
     returnLinks={[{ link: '/data' }]}
     showWarning
   >
+    <ChangeLog />
     <ContentfulContent
       content={
         data.contentfulSnippet.childContentfulSnippetContentTextNode

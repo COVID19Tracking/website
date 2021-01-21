@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
-import { Card, CardBody, CardNote } from '~components/common/card'
+import { Card, CardBody } from '~components/common/card'
 import { DefinitionPanelContext } from './definitions-panel'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 
@@ -13,9 +13,17 @@ const OutcomesCard = ({
   deathConfirmed,
   deathProbable,
   recovered,
+  recoveredMetricName = 'Recovered',
   national,
 }) => {
-  const fields = ['recovered', 'death']
+  const fields = []
+
+  if (recovered && recoveredMetricName === 'Recovered') {
+    fields.push('recovered')
+  }
+
+  fields.push('death')
+
   if (deathProbable) {
     fields.push('deathProbable')
   }
@@ -44,10 +52,10 @@ const OutcomesCard = ({
       }
     >
       <CardBody>
-        {!national && (
-          <Statistic title="Recovered" value={recovered}>
+        {!national && recovered && (
+          <Statistic title={recoveredMetricName} value={recovered}>
             <DefinitionLink
-              label="Recovered"
+              label={recoveredMetricName}
               onDefinitionsToggle={() => {
                 definitionContext({
                   fields,
@@ -105,15 +113,6 @@ const OutcomesCard = ({
               }}
             />
           </Statistic>
-        )}
-        {national && (
-          <CardNote>
-            We have{' '}
-            <Link to="/about-data/faq#why-have-you-stopped-reporting-national-recoveries">
-              removed recovered data for the US. Here&apos;s why
-            </Link>
-            .
-          </CardNote>
         )}
       </CardBody>
     </Card>

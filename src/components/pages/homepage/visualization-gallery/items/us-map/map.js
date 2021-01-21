@@ -18,7 +18,6 @@ const MapLegend = ({ legend }) => {
           <svg
             className={mapStyle.legendHex}
             viewBox={`0 0 ${hexRadius * 2 + 10} ${hexRadius * 2 + 10}`}
-            tabIndex="0"
             aria-hidden
           >
             <Legend r={hexRadius} className={item.style} />
@@ -178,7 +177,7 @@ const Map = ({
           </svg>
           <MapLegend legend={metric.legend} />
           {disclaimer && (
-            <Disclaimer text={disclaimer.childMarkdownRemark.html} />
+            <Disclaimer text={disclaimer.childMarkdownRemark.html} hideMobile />
           )}
         </Col>
         <Col width={[4, 6, 3]}>

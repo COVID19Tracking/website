@@ -7,4 +7,11 @@
   a {
     color: black;
   }
+  button {
+    @include remove-button-style();
+    display: block;
+    float: right;
+    @include type-size(400);
+    @include margin(32, left);
+  }
 }

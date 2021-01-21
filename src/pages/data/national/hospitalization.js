@@ -7,10 +7,11 @@ import Layout from '~components/layout'
 const NationalDataHospitalizationPage = ({ data }) => {
   return (
     <Layout
-      title="National: Hospitalization"
+      title="National Data: Hospitalization"
       returnLinkTitle="Our Data"
       returnLink="/data"
       path="/data/national/hospitalization"
+      description="Currently hospitalized, ICU, and ventilator numbers in the US for each day from January 2020 to the present."
       returnLinks={[
         { link: '/data' },
         { link: `/data/national`, title: 'Totals for the US' },
@@ -24,6 +25,7 @@ const NationalDataHospitalizationPage = ({ data }) => {
           'onVentilatorCurrently',
         ]}
       />
+      <h2>Hospitalization History</h2>
       <p>
         We have{' '}
         <Link to="/about-data/faq#why-have-you-stopped-reporting-national-cumulative-hospitalizations-icu-and-ventilation-numbers-on-your-website">
@@ -61,7 +63,7 @@ export const query = graphql`
   {
     allCovidUsDaily(sort: { fields: date, order: DESC }) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         hospitalizedCurrently
         inIcuCurrently
         onVentilatorCurrently

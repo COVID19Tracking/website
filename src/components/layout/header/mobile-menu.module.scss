@@ -25,6 +25,16 @@
   nav {
     display: block;
     @include margin(16, top);
+    a {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+    [data-reach-menu] {
+      a {
+        display: flex;
+      }
+    }
     li {
       line-height: toRem(40);
       @media (hover: none) {
