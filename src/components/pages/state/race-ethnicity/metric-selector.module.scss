@@ -4,13 +4,16 @@
   color: $color-plum-700;
   span {
     border-bottom: 3px solid $color-plum-700;
+    @media (max-width: $viewport-lg) {
+      border-bottom: 2px solid #31347a;
+    }
   }
 }
 
 %toggle-inactive {
   color: $color-plum-400;
   span {
-    border-bottom: 3px solid transparent;
+    border-bottom: none;
   }
 }
 
@@ -26,13 +29,13 @@
 }
 
 .toggle {
-  align-self: flex-start;
   display: flex;
   cursor: pointer;
 
   @media (max-width: $viewport-lg) {
     // todo complete mobile styles here
     flex-direction: column;
+    align-items: flex-start;
   }
 
   @include margin(32, bottom);
@@ -61,6 +64,11 @@
 
     &.unavailable {
       @extend %toggle-unavailable;
+    }
+
+    @media (max-width: $viewport-lg) {
+      padding-left: 0;
+      margin-bottom: 0.5rem;
     }
   }
 }

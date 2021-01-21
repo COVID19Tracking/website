@@ -2,6 +2,10 @@
   display: flex;
   justify-content: space-between;
 
+  @media (max-width: $viewport-lg) {
+    flex-direction: column;
+  }
+
   h4 {
     @include margin(8, bottom);
     @include type-size(300);
