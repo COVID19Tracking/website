@@ -17,7 +17,10 @@ const StateAsessmentTemplate = ({ pageContext, path, data }) => {
       path={path}
       showWarning
     >
-      <Assessment assessments={allCovidGradeDataReportingProblems.nodes} />
+      <Assessment
+        stateName={state.name}
+        assessments={allCovidGradeDataReportingProblems.nodes}
+      />
     </Layout>
   )
 }
