@@ -1,43 +1,55 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import stateGradeStyle from './state-grade.module.scss'
-import gradeSmallAPlus from '~images/state-grades/small/a-plus.svg'
-import gradeSmallA from '~images/state-grades/small/a.svg'
-import gradeSmallB from '~images/state-grades/small/b.svg'
-import gradeSmallC from '~images/state-grades/small/c.svg'
-import gradeSmallD from '~images/state-grades/small/d.svg'
-import gradeSmallF from '~images/state-grades/small/f.svg'
-import gradeSmallNA from '~images/state-grades/small/na.svg'
 
-const grades = {
-  'a+': gradeSmallAPlus,
-  a: gradeSmallA,
-  b: gradeSmallB,
-  c: gradeSmallC,
-
-  d: gradeSmallD,
-
-  f: gradeSmallF,
-  na: gradeSmallNA,
+const adjectives = {
+  1: 'Serious',
+  2: 'Some',
+  3: 'Few',
 }
 
-const StateGrade = ({ letterGrade = 'na' }) => {
+const Grade = ({ grade, title, link }) => (
+  <li>
+    <span
+      style={{
+        background: (() => {
+          const levels = { 1: 'red', 2: 'yellow', 3: 'green' }
+          return levels[grade]
+        })(),
+        display: 'inline-block',
+        width: '15px',
+        height: '15px',
+        borderRadius: '50%',
+      }}
+    />
+    <Link to={link}>{adjectives[grade]} issues exist</Link> for {title}
+  </li>
+)
+
+const StateGrade = ({ slug, assessment }) => {
   return (
-    <p className={`state-grade ${stateGradeStyle.stateGrade}`}>
-      <span>
-        Current <Link to="/state-grades">data completeness grade</Link>:
-      </span>
-      <img
-        src={
-          letterGrade &&
-          typeof grades[letterGrade.toLowerCase()] !== 'undefined'
-            ? grades[letterGrade.toLowerCase()]
-            : grades.na
-        }
-        className={stateGradeStyle.grade}
-        alt={`Grade ${letterGrade}`}
-      />
-    </p>
+    <div className={stateGradeStyle.stateGrade}>
+      <h2 className={stateGradeStyle.header}>
+        Data quality{' '}
+        <span className={stateGradeStyle.learnMore}>
+          (
+          <Link to="/">
+            Learn more
+            <span className="a11y-only"> about data quality assessments</span>
+          </Link>
+          )
+        </span>
+      </h2>
+      <ul>
+        <li>[TACO TK]</li>
+        <Grade
+          grade={assessment.crdt}
+          title="Race and Ethnicity Data"
+          link={`/data/state/${slug}/assessment#race-ethnicity`}
+        />
+        <li>[LTC TK]</li>
+      </ul>
+    </div>
   )
 }
 

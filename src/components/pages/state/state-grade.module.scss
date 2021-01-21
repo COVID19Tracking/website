@@ -1,16 +1,15 @@
 .state-grade {
   margin: 0;
-  img {
-    display: inline;
-    vertical-align: middle;
-    margin-left: spacer(4);
+}
+
+.header {
+  margin: 0;
+  @include margin(16, bottom);
+  @include type-size(400);
+  .learn-more {
+    @include type-size(100);
+    font-weight: normal;
+    display: inline-block;
+    @include margin(16, left);
   }
-}
-
-.grade {
-  width: 28px;
-}
-
-.grade-large {
-  width: 200px;
 }

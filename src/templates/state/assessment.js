@@ -30,7 +30,6 @@ export const query = graphql`
       nodes {
         state
         text
-        order
         category
       }
     }

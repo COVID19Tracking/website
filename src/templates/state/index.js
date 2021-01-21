@@ -31,6 +31,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
     allTweets,
     allCovidAnnotation,
     hhsHospitals,
+    covidGradeStateAssessment,
   } = data
   return (
     <Layout
@@ -40,7 +41,11 @@ const StateTemplate = ({ pageContext, data, path }) => {
       description={`Cases, testing, hospitalization, outcomes, long-term-care, and race and ethnicity data for ${state.name}, plus data sources, notes, and grade.`}
       showWarning
     >
-      <StatePreamble state={state} covidState={covidState} />
+      <StatePreamble
+        state={state}
+        covidState={covidState}
+        assessment={covidGradeStateAssessment}
+      />
       <SummaryCharts
         name={state.name}
         chartTables={`/data/state/${state.childSlug.slug}/chart-tables`}
@@ -157,7 +162,6 @@ export const query = graphql`
       deathProbable
       deathConfirmed
       totalTestResults
-      dataQualityGrade
       probableCases
       positiveCasesViral
       positiveTestsViral
@@ -325,6 +329,9 @@ export const query = graphql`
       staffed_icu_adult_patients_confirmed_and_suspected_covid
       total_adult_patients_hospitalized_confirmed_covid
       total_pediatric_patients_hospitalized_confirmed_covid
+    }
+    covidGradeStateAssessment(state: { eq: $state }) {
+      crdt
     }
   }
 `

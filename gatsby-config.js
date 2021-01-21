@@ -252,6 +252,13 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
+        file: './_data/grades_state_assessment.json',
+        type: 'covidGradeStateAssessment',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
         file: './_data/hhs_hospitalization.json',
         type: 'hhsHospitals',
         transformItems: items => {
