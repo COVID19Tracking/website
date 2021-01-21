@@ -2,30 +2,29 @@ import React from 'react'
 import marked from 'marked'
 
 const Assessment = ({ stateName, assessments }) => {
-  if (!assessments.text) {
-    return null
-  }
-  const AssessmentList = ({ category }) => (
-    <ul>
-      {assessments
-        .filter(item => item.category === category)
-        .map(({ text }) => (
-          <li>{marked.inlineLexer(text, [])}</li>
-        ))}
-    </ul>
+  const AssessmentList = ({ slug, title, category }) => (
+    <>
+      <h2 id={slug}>{title || category}</h2>
+      <p>{stateName}:</p>
+      <ul>
+        {assessments
+          .filter(item => item.category === category)
+          .map(({ text }) => (
+            <li>{marked.inlineLexer(text, [])}</li>
+          ))}
+      </ul>
+    </>
   )
 
   return (
     <>
-      <h2 id="state-metrics">State-level metrics</h2>
-      <p>{stateName}: </p>
-      <AssessmentList category="Testing and Outcomes" />
-
-      <h2 id="race-ethnicity">Race and Ethnicity</h2>
-      <p>{stateName}: </p>
-      <AssessmentList category="Race and Ethnicity" />
-      <h2 id="long-term-care">Long-term care</h2>
-      <AssessmentList category="Long-Term Care" />
+      <AssessmentList
+        category="Testing and Outcomes"
+        slug="state-metrics"
+        title="State-level metrics"
+      />
+      <AssessmentList category="Race and Ethnicity" slug="race-ethnicity" />
+      <AssessmentList category="Long-Term Care" slug="long-term-care" />
     </>
   )
 }
