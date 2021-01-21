@@ -3,14 +3,25 @@
 %toggle-active {
   color: $color-plum-700;
   span {
-      border-bottom: 3px solid $color-plum-700;
+    border-bottom: 3px solid $color-plum-700;
   }
 }
 
 %toggle-inactive {
-  color: $color-slate-400;
+  color: $color-plum-400;
   span {
-      border-bottom: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+  }
+}
+
+%toggle-unavailable {
+  color: $color-slate-400;
+  display: flex;
+  cursor: not-allowed;
+
+  .bang {
+    max-width: 22px;
+    @include margin(4, right);
   }
 }
 
@@ -46,6 +57,10 @@
 
     &.active {
       @extend %toggle-active;
+    }
+
+    &.unavailable {
+      @extend %toggle-unavailable;
     }
   }
 }

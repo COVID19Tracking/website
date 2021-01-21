@@ -7,7 +7,7 @@ import NotesAndDownloads from './notes-and-downloads'
 
 import styles from './hero.module.scss'
 
-const availableMetrics = allData => {
+const getMetrics = allData => {
   /**
    * Identifies all of the available metrics (tests, hosp,
    * deaths, cases) for a given state
@@ -21,11 +21,24 @@ const availableMetrics = allData => {
     }
   })
 
-  const availableMetricTypes = []
+  const metrics = {
+    Tests: {
+      available: false,
+    },
+    Cases: {
+      available: false,
+    },
+    Hosp: {
+      available: false,
+    },
+    Deaths: {
+      available: false,
+    },
+  }
 
   nonNullValues.every(value => {
     if (value.startsWith('Cases_')) {
-      availableMetricTypes.push('Cases')
+      metrics.Cases.available = true
       return false
     }
     return true
@@ -33,7 +46,7 @@ const availableMetrics = allData => {
 
   nonNullValues.every(value => {
     if (value.startsWith('Deaths_')) {
-      availableMetricTypes.push('Deaths')
+      metrics.Deaths.available = true
       return false
     }
     return true
@@ -41,7 +54,7 @@ const availableMetrics = allData => {
 
   nonNullValues.every(value => {
     if (value.startsWith('Hosp_')) {
-      availableMetricTypes.push('Hosp')
+      metrics.Hosp.available = true
       return false
     }
     return true
@@ -49,13 +62,13 @@ const availableMetrics = allData => {
 
   nonNullValues.every(value => {
     if (value.startsWith('Tests_')) {
-      availableMetricTypes.push('Tests')
+      metrics.Tests.available = true
       return false
     }
     return true
   })
 
-  return availableMetricTypes
+  return metrics
 }
 
 const Hero = ({
@@ -74,7 +87,7 @@ const Hero = ({
         <MetricSelector
           state={currentMetric}
           setState={setCurrentMetric}
-          availableMetrics={availableMetrics(timeSeriesData)}
+          metrics={getMetrics(timeSeriesData)}
         />
         <RatesToggle
           state={usePer100kRate}
