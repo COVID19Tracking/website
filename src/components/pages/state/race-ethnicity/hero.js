@@ -1,7 +1,6 @@
 import React from 'react'
 
 import MetricSelector from './metric-selector'
-import Charts from './charts'
 import NotesAndDownloads from './notes-and-downloads'
 
 import styles from './hero.module.scss'
@@ -76,7 +75,6 @@ const Hero = ({
   stateAbbreviation,
   currentMetric,
   setCurrentMetric,
-  usePer100kRate,
   timeSeriesData,
 }) => {
   return (
@@ -86,12 +84,6 @@ const Hero = ({
           state={currentMetric}
           setState={setCurrentMetric}
           metrics={getMetrics(timeSeriesData)}
-        />
-        <Charts
-          population={200000}
-          usePer100kRate={usePer100kRate}
-          timeSeriesData={timeSeriesData}
-          currentMetric={currentMetric}
         />
         <NotesAndDownloads
           slug={stateSlug}
