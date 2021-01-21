@@ -72,7 +72,7 @@ const HistoricalTables = ({
     tableMetrics.forEach((tableMetric, index) => {
       labels[index] = {
         field: tableMetric,
-        label: `Known ${removeMetricPrefix(tableMetric)}`,
+        label: removeMetricPrefix(tableMetric),
         isNumeric: true,
       }
     })
