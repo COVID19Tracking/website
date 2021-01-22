@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import ContentfulContent from '~components/common/contentful-content'
 import Assessment from '~components/pages/state/assessment'
+import LongContent from '~components/common/long-content'
 
 const StateAsessmentTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
@@ -19,13 +20,15 @@ const StateAsessmentTemplate = ({ pageContext, path, data }) => {
       centered
       showWarning
     >
-      <ContentfulContent
-        id={contentfulSnippet.contentful_id}
-        content={contentfulSnippet.childContentfulSnippetContentTextNode.childMarkdownRemark.html.replace(
-          '{{NAME}}',
-          state.name,
-        )}
-      />
+      <LongContent>
+        <ContentfulContent
+          id={contentfulSnippet.contentful_id}
+          content={contentfulSnippet.childContentfulSnippetContentTextNode.childMarkdownRemark.html.replace(
+            '{{NAME}}',
+            state.name,
+          )}
+        />
+      </LongContent>
       <Assessment
         stateName={state.name}
         assessments={allCovidGradeDataReportingProblems.nodes}
