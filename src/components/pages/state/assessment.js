@@ -10,7 +10,9 @@ const Assessment = ({ stateName, assessments }) => {
         {assessments
           .filter(item => item.category === category)
           .map(({ text }) => (
-            <li>{marked.inlineLexer(text, [])}</li>
+            <li
+              dangerouslySetInnerHTML={{ __html: marked.inlineLexer(text, []) }}
+            />
           ))}
       </ul>
     </>
