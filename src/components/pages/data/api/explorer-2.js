@@ -5,6 +5,7 @@ import {
   DisclosurePanel,
 } from '@reach/disclosure'
 import explorerStyles from './explorer.module.scss'
+import ApiV2Conversion from './v2-conversion'
 
 const Endpoint = ({ endpoint }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -86,8 +87,22 @@ const Section = ({ title, endpoints }) => (
 )
 
 const ApiExplorer2 = () => {
+  const [crosswalkOpen, setCrosswalkOpen] = useState(false)
   return (
     <>
+      <Disclosure onChange={() => setCrosswalkOpen(!crosswalkOpen)}>
+        <DisclosureButton className={explorerStyles.button}>
+          <h3>
+            Convert fields from v1 to v2
+            <span aria-hidden className={explorerStyles.toggle}>
+              {crosswalkOpen ? <>↑</> : <>↓</>}
+            </span>
+          </h3>
+        </DisclosureButton>
+        <DisclosurePanel className={explorerStyles.panel}>
+          <ApiV2Conversion />
+        </DisclosurePanel>
+      </Disclosure>
       <Section
         title="National Data"
         endpoints={[
