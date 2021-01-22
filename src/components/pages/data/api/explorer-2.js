@@ -115,6 +115,11 @@ const ApiExplorer2 = () => {
               'Basic information about all states, including notes about our methodology and the websites we use to check for data.',
             path: '/v2beta/states.json',
           },
+          {
+            title: 'Historic data for a state or territory',
+            description: 'All historic data for a single state',
+            path: '/v2beta/states.json',
+          },
         ]}
       />
     </>
