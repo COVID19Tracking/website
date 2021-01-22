@@ -126,7 +126,7 @@ const ApiExplorer2 = () => {
             title: 'Historic data for a state or territory',
             description: 'All historic data for a single state',
             path: '/v2beta/states/[state-code]/daily.json',
-            sample: 'v2beta/states/ca/daily.json',
+            sample: '/v2beta/states/ca/daily.json',
             simplePath: '/v2beta/states/[state-code]/daily/simple.json',
             simpleSample: '/v2beta/states/ca/daily/simple.json',
           },
@@ -134,7 +134,7 @@ const ApiExplorer2 = () => {
             title: 'Single day of data for a state or territory',
             description: 'Returns data for a single day.',
             path: '/v2beta/states/[state-code]/[date-iso-format].json',
-            sample: 'v2beta/states/ca/2021-01-10.json',
+            sample: '/v2beta/states/ca/2021-01-10.json',
             simplePath:
               '/v2beta/states/[state-code]/[date-iso-format]/simple.json',
             simpleSample: '/v2beta/states/ca/2021-01-10/simple.json',
