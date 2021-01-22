@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import stateGradeStyle from './state-grade.module.scss'
+import fewIcon from '~images/data-quality-icons/few-line.svg'
+import someIcon from '~images/data-quality-icons/some-line.svg'
+import majorIcon from '~images/data-quality-icons/major-line.svg'
 
 const adjectives = {
   1: 'Serious',
@@ -8,21 +11,23 @@ const adjectives = {
   3: 'Few',
 }
 
+const icons = {
+  1: majorIcon,
+  2: someIcon,
+  3: fewIcon,
+}
+
 const Grade = ({ grade, title, link }) => (
   <li>
-    <span
-      style={{
-        background: (() => {
-          const levels = { 1: 'red', 2: 'yellow', 3: 'green' }
-          return levels[grade]
-        })(),
-        display: 'inline-block',
-        width: '15px',
-        height: '15px',
-        borderRadius: '50%',
-      }}
+    <img
+      className={stateGradeStyle.icon}
+      aria-hidden
+      alt=""
+      src={icons[grade]}
     />
-    <Link to={link}>{adjectives[grade]} issues exist</Link> for {title}
+    <span>
+      <Link to={link}>{adjectives[grade]} issues exist</Link> for {title}
+    </span>
   </li>
 )
 
@@ -40,7 +45,7 @@ const StateGrade = ({ slug, assessment }) => {
           )
         </span>
       </h2>
-      <ul>
+      <ul className={stateGradeStyle.list}>
         <li>[TACO TK]</li>
         <Grade
           grade={assessment.crdt}

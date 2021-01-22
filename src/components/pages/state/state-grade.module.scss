@@ -13,3 +13,16 @@
     @include margin(16, left);
   }
 }
+
+.icon {
+  display: inline-block;
+  @include margin(16, right);
+  width: 23px;
+}
+
+.list {
+  li {
+    display: flex;
+    align-items: center;
+  }
+}
