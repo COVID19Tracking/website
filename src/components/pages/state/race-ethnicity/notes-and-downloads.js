@@ -2,11 +2,54 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import { isCombined } from './utils'
+import Percent from '~components/pages/race/dashboard/percent'
+import { FormatDate } from '~components/utils/format'
 
 import RacialDataSmallCard from '~components/pages/data/cards/small/view-racial-data-small-card'
 import DataAsGraphicSmallCard from '~components/pages/data/cards/small/data-as-graphic-small-card'
 
 import styles from './notes-and-downloads.module.scss'
+
+const getDataCompletenessNote = (combined, separate) => {
+  /**
+   * Generates a note about data completeness for this state.
+   */
+  const stateIsCombined = isCombined(combined, separate)
+  const dataObject = stateIsCombined ? combined[0] : separate[0]
+
+  if (stateIsCombined) {
+    return (
+      <>
+        As of{' '}
+        <FormatDate
+          date={dataObject.lastCheckDate.value}
+          format="LLLL d, yyyy"
+        />
+        , {dataObject.name} has reported race/ethnicity data for{' '}
+        <Percent number={parseFloat(dataObject.knownRaceEthPos)} /> of cases and{' '}
+        <Percent number={parseFloat(dataObject.knownRaceEthDeath)} /> of deaths.
+      </>
+    )
+  }
+  if (!stateIsCombined) {
+    return (
+      <>
+        As of{' '}
+        <FormatDate
+          date={dataObject.lastCheckDate.value}
+          format="LLLL d, yyyy"
+        />
+        , {dataObject.name} has reported race data for{' '}
+        <Percent number={parseFloat(dataObject.knownRacePos)} /> of cases and{' '}
+        <Percent number={parseFloat(dataObject.knownRaceDeath)} /> of deaths,
+        and ethnicity for{' '}
+        <Percent number={parseFloat(dataObject.knownEthPos)} /> of cases and{' '}
+        <Percent number={parseFloat(dataObject.knownEthDeath)} /> of deaths.
+      </>
+    )
+  }
+  return ''
+}
 
 const getNotes = (combined, separate) => {
   /**
@@ -23,6 +66,7 @@ const getNotes = (combined, separate) => {
     .filter(
       noteContent => noteContent != null && typeof noteContent === 'string',
     )
+  notesList.unshift(getDataCompletenessNote(combined, separate))
   return notesList
 }
 

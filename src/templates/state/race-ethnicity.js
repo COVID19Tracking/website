@@ -54,22 +54,36 @@ export const query = graphql`
   query($state: String!) {
     allCovidRaceDataCombined(filter: { state: { eq: $state } }) {
       nodes {
+        name
         latinxNote
         mutExclNote
         popTableNote
         smallNNote
         apINote
         otherNote
+        lastCheckDate {
+          value
+        }
+        knownRaceEthDeath
+        knownRaceEthPos
       }
     }
     allCovidRaceDataSeparate(filter: { state: { eq: $state } }) {
       nodes {
+        name
         latinxNote
         mutExclNote
         popTableNote
         smallNNote
         otherNote
         aPINote
+        lastCheckDate {
+          value
+        }
+        knownRaceDeath
+        knownEthPos
+        knownEthDeath
+        knownRacePos
       }
     }
     allCovidRaceDataTimeseries(
