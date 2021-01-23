@@ -28,11 +28,16 @@ const getAvailableMetricFields = (latestDay, startsWith, raceOnly) => {
   return listOfMetrics
 }
 
-const formatTableValues = timeSeriesData => {
+const formatTableValues = (timeSeriesData, usingRates) => {
   /**
    * Adds the formattedDate field, adds asterisks for small numbers.
+   * @param usingRates: whether or not the user is looking at rates or
+   *   total numbers. true means the user is using rates.
    */
   const newDays = []
+
+  console.log(usingRates)
+  // todo handle rates toggle
 
   timeSeriesData.forEach((day, index) => {
     newDays[index] = day
@@ -48,11 +53,11 @@ const formatTableValues = timeSeriesData => {
         Number.isInteger(dataPointValue) &&
         dataPointValue < smallNumberCutoff
       ) {
-        // todo only use for per cap values - could use column in spreadsheet
         newDays[index][dataPointName] = `${dataPointValue}*`
       }
     })
   })
+
   return newDays
 }
 

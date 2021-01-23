@@ -151,7 +151,7 @@ const HistoricalTables = ({
             labels={raceTableLabels}
             // todo pass pop data here
             header={<RaceTableHeader />}
-            data={formatTableValues(timeSeriesData)}
+            data={formatTableValues(timeSeriesData, usePer100kRate)}
           />
         </div>
         <div className={historicalTableStyles.table}>
@@ -159,7 +159,7 @@ const HistoricalTables = ({
             labels={ethnicityTableLabels}
             header={<TableHeader header="Ethnicity" />}
             // todo pass pop data here
-            data={formatTableValues(timeSeriesData)}
+            data={formatTableValues(timeSeriesData, usePer100kRate)}
           />
         </div>
       </div>
