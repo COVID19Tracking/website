@@ -56,4 +56,17 @@ const formatTableValues = timeSeriesData => {
   return newDays
 }
 
-export { getAvailableMetricFields, formatTableValues }
+const isCombined = (combined, separate) => {
+  /**
+   * Identifies if a state reports racial data as combined or separate.
+   */
+  if (combined.length === 1) {
+    return true
+  }
+  if (separate.length === 1) {
+    return false
+  }
+  return null
+}
+
+export { getAvailableMetricFields, formatTableValues, isCombined }

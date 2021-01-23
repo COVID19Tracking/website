@@ -1,17 +1,40 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import { isCombined } from './utils'
+
 import RacialDataSmallCard from '~components/pages/data/cards/small/view-racial-data-small-card'
 import DataAsGraphicSmallCard from '~components/pages/data/cards/small/data-as-graphic-small-card'
 
 import styles from './notes-and-downloads.module.scss'
 
+const getNotes = (combined, separate) => {
+  /**
+   * Creates a list of notes for this state's data.
+   */
+  const notesObject = isCombined(combined, separate) ? combined[0] : separate[0]
+  const notesList = Object.keys(notesObject)
+    .map(note => {
+      if (note !== null && note.includes('Note')) {
+        return notesObject[note]
+      }
+      return null
+    })
+    .filter(
+      noteContent => noteContent != null && typeof noteContent === 'string',
+    )
+  return notesList
+}
+
 const NotesAndDownloads = ({
   slug,
   stateAbbreviation,
   stateName,
-  notesList,
+  combinedData,
+  separateData,
 }) => {
+  const notesList = getNotes(combinedData, separateData)
+
   return (
     <div className={styles.container}>
       <div className={styles.notes}>
