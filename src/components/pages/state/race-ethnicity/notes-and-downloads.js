@@ -6,26 +6,18 @@ import DataAsGraphicSmallCard from '~components/pages/data/cards/small/data-as-g
 
 import styles from './notes-and-downloads.module.scss'
 
-const NotesAndDownloads = ({ slug, stateAbbreviation, stateName }) => {
-  // todo pass notes to this component
-  const notes = [
-    'Note one',
-    'Note two',
-    'Note three',
-    'Note four',
-    'Note five',
-    'Note six',
-    'Note seven',
-    'Note eight',
-    'Note nine',
-  ]
-
+const NotesAndDownloads = ({
+  slug,
+  stateAbbreviation,
+  stateName,
+  notesList,
+}) => {
   return (
     <div className={styles.container}>
       <div className={styles.notes}>
         <h4>Notes</h4>
         <ol>
-          {notes.map(note => (
+          {notesList.map(note => (
             <li key={note}>{note}</li>
           ))}
         </ol>

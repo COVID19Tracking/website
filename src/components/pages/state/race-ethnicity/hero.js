@@ -69,6 +69,35 @@ const getMetrics = allData => {
   return metrics
 }
 
+const isCombined = (combined, separate) => {
+  /**
+   * Identifies if a state reports racial data as combined or separate.
+   */
+  if (combined.length === 1) {
+    return true
+  }
+  if (separate.length === 1) {
+    return false
+  }
+  return null
+}
+
+const getNotes = (combined, separate) => {
+  /**
+   * Creates a list of notes for this state's data.
+   */
+  const notesObject = isCombined(combined, separate) ? combined[0] : separate[0]
+  const notesList = Object.keys(notesObject)
+    .map(note => {
+      if (note !== null) {
+        return notesObject[note]
+      }
+      return null
+    })
+    .filter(note => note != null)
+  return notesList
+}
+
 const Hero = ({
   stateName,
   stateSlug,
@@ -76,7 +105,11 @@ const Hero = ({
   currentMetric,
   setCurrentMetric,
   timeSeriesData,
+  combinedNotes,
+  separateNotes,
 }) => {
+  const notes = getNotes(combinedNotes, separateNotes)
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.hero}>
@@ -89,6 +122,7 @@ const Hero = ({
           slug={stateSlug}
           stateAbbreviation={stateAbbreviation}
           stateName={stateName}
+          notesList={notes}
         />
       </div>
     </div>

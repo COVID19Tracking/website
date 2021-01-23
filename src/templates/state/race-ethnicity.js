@@ -35,6 +35,8 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
         usePer100kRate={usePer100kRate}
         setUsePer100kRate={setUsePer100kRate}
         timeSeriesData={data.allCovidRaceDataTimeseries.nodes}
+        combinedNotes={data.allCovidRaceDataCombined.nodes}
+        separateNotes={data.allCovidRaceDataSeparate.nodes}
       />
       <HistoricalTables
         timeSeriesData={data.allCovidRaceDataTimeseries.nodes}
@@ -50,6 +52,26 @@ export default RaceEthnicityHistoricalTemplate
 
 export const query = graphql`
   query($state: String!) {
+    allCovidRaceDataCombined(filter: { state: { eq: $state } }) {
+      nodes {
+        latinxNote
+        mutExclNote
+        popTableNote
+        smallNNote
+        apINote
+        otherNote
+      }
+    }
+    allCovidRaceDataSeparate(filter: { state: { eq: $state } }) {
+      nodes {
+        latinxNote
+        mutExclNote
+        popTableNote
+        smallNNote
+        otherNote
+        aPINote
+      }
+    }
     allCovidRaceDataTimeseries(
       filter: { Date: { ne: null }, State: { eq: $state } }
     ) {
