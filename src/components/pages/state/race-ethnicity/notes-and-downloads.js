@@ -87,6 +87,11 @@ const getNotes = (combined, separate) => {
    */
   const notesObject = isCombined(combined, separate) ? combined[0] : separate[0]
   let hasSmallNNote = false
+
+  if (notesObject === undefined || notesObject === null) {
+    return []
+  }
+
   const notesList = Object.keys(notesObject)
     .map(note => {
       if (note === 'smallNNote' && notesObject.smallNNote != null) {
