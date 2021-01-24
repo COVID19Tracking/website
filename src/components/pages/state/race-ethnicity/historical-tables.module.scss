@@ -82,3 +82,7 @@
     @include padding(16, top);
   }
 }
+
+th.hidden * {
+  display: none;
+}

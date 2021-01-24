@@ -8,23 +8,30 @@ import { getAvailableMetricFields, formatTableValues } from './utils'
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import historicalTableStyles from './historical-tables.module.scss'
 
-const TableHeader = ({ header }) => {
-  /* eslint-disable jsx-a11y/control-has-associated-label */
-  // This wants a label for the empty spacing th value. We don't need that.
+const TableHeader = ({ header, inner = false }) => {
+  if (!inner) {
+    return (
+      <tr>
+        <th colSpan="100%">
+          <h4 className={historicalTableStyles.tableHeader}>{header}</h4>
+        </th>
+      </tr>
+    )
+  }
   return (
-    <>
-      <th colSpan="100%">
-        <h4 className={historicalTableStyles.tableHeader}>{header}</h4>
-      </th>
-    </>
+    <th colSpan="100%">
+      <h4 className={historicalTableStyles.tableHeader}>{header}</h4>
+    </th>
   )
 }
 
 const RaceTableHeader = () => (
-  <>
-    <th colSpan={2} />
-    <TableHeader header="Race" />
-  </>
+  <tr>
+    <th colSpan={2} className={historicalTableStyles.hidden}>
+      <span>Historical data for</span>
+    </th>
+    <TableHeader header="Race" inner />
+  </tr>
 )
 
 const NoDataPlaceholder = ({ stateName, dataType, metric }) => (
