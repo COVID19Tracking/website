@@ -4,7 +4,7 @@
   color: $color-plum-700;
   span {
     border-bottom: 3px solid $color-plum-700;
-    @media (max-width: $viewport-lg) {
+    @media (max-width: $viewport-md) {
       border-bottom: 2px solid #31347a;
     }
   }
@@ -32,7 +32,7 @@
   display: flex;
   cursor: pointer;
 
-  @media (max-width: $viewport-lg) {
+  @media (max-width: $viewport-md) {
     // todo complete mobile styles here
     flex-direction: column;
     align-items: flex-start;
@@ -66,7 +66,7 @@
       @extend %toggle-unavailable;
     }
 
-    @media (max-width: $viewport-lg) {
+    @media (max-width: $viewport-md) {
       padding-left: 0;
       margin-bottom: 0.5rem;
     }
