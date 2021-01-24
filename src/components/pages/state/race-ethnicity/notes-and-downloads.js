@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import { isCombined } from './utils'
 import Percent from '~components/pages/race/dashboard/percent'
-import { FormatDate } from '~components/utils/format'
+import { FormatDate, FormatItemList } from '~components/utils/format'
 
 import RacialDataSmallCard from '~components/pages/data/cards/small/view-racial-data-small-card'
 import DataAsGraphicSmallCard from '~components/pages/data/cards/small/data-as-graphic-small-card'
@@ -51,13 +51,48 @@ const getDataCompletenessNote = (combined, separate) => {
   return ''
 }
 
+const getSmallNNote = notes => {
+  /**
+   * Gets the full text of the "Small N" note, with relevant
+   * race / ethnicity groups.
+   */
+  const fullNameDict = {
+    blackSmallN: 'Black or African American',
+    asianSmallN: 'Asian',
+    aianSmallN: 'American Indian or Alaska Native',
+    nhpiSmallN: 'Native Hawaiian or Other Pacific Islander',
+    whiteSmallN: 'White',
+    latinXSmallN: 'Hispanic or Latino',
+  }
+
+  const smallNCategories = Object.keys(notes)
+    .filter(
+      note =>
+        typeof note === 'string' &&
+        note.endsWith('SmallN') &&
+        notes[note] === true,
+    )
+    .map(note => fullNameDict[note])
+  return (
+    <>
+      {notes.smallNNote}{' '}
+      <FormatItemList items={smallNCategories} keys={smallNCategories} />
+    </>
+  )
+}
+
 const getNotes = (combined, separate) => {
   /**
    * Creates a list of notes for this state's data.
    */
   const notesObject = isCombined(combined, separate) ? combined[0] : separate[0]
+  let hasSmallNNote = false
   const notesList = Object.keys(notesObject)
     .map(note => {
+      if (note === 'smallNNote' && notesObject.smallNNote != null) {
+        hasSmallNNote = true
+        return null
+      }
       if (note !== null && note.includes('Note')) {
         return notesObject[note]
       }
@@ -67,6 +102,11 @@ const getNotes = (combined, separate) => {
       noteContent => noteContent != null && typeof noteContent === 'string',
     )
   notesList.unshift(getDataCompletenessNote(combined, separate))
+
+  if (hasSmallNNote) {
+    notesList.push(getSmallNNote(notesObject))
+  }
+
   return notesList
 }
 

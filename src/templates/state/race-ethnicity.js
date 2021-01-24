@@ -60,6 +60,12 @@ export const query = graphql`
         mutExclNote
         popTableNote
         smallNNote
+        blackSmallN
+        asianSmallN
+        aianSmallN
+        nhpiSmallN
+        whiteSmallN
+        latinXSmallN
         apINote
         otherNote
         lastCheckDate {
@@ -76,6 +82,12 @@ export const query = graphql`
         mutExclNote
         popTableNote
         smallNNote
+        blackSmallN
+        asianSmallN
+        aianSmallN
+        nhpiSmallN
+        whiteSmallN
+        latinXSmallN
         otherNote
         aPINote
         lastCheckDate {
