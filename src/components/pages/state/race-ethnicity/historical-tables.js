@@ -100,6 +100,13 @@ const HistoricalTables = ({
     return computedTableData
   }
 
+  const getTableHeaderStyle = label => {
+    if (label === 'NHPI' || label === 'AIAN') {
+      return historicalTableStyles.abbreviatedLabel
+    }
+    return null
+  }
+
   const generateTableLabels = (activeMetric, availableMetrics, raceOnly) => {
     /**
      * Generates the labels array for TableResponsive.
@@ -110,10 +117,12 @@ const HistoricalTables = ({
     const labels = []
 
     tableMetrics.forEach((tableMetric, index) => {
+      const label = removeMetricPrefix(tableMetric)
       labels[index] = {
         field: tableMetric,
-        label: removeMetricPrefix(tableMetric),
+        label,
         isNumeric: true,
+        headerStyle: getTableHeaderStyle(label),
       }
     })
 
