@@ -1,9 +1,11 @@
 import React, { useMemo } from 'react'
+import { Link } from 'gatsby'
 
-import RatesToggle from './rates-toggle'
 import TableResponsive from '~components/common/table-responsive'
+import RatesToggle from './rates-toggle'
 import { getAvailableMetricFields, formatTableValues } from './utils'
 
+import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import historicalTableStyles from './historical-tables.module.scss'
 
 const TableHeader = ({ header }) => {
@@ -25,11 +27,27 @@ const RaceTableHeader = () => (
   </>
 )
 
+const NoDataPlaceholder = ({ stateName, dataType, metric }) => (
+  <div className={historicalTableStyles.noDataContainer}>
+    <h3 className={historicalTableStyles.header}>
+      <img src={alertBang} alt="" className={historicalTableStyles.bang} />
+      {dataType}
+    </h3>
+    <p className={historicalTableStyles.content}>
+      {stateName} does not report {dataType.toLowerCase()} data for{' '}
+      {metric.toLowerCase()}.
+      <br />
+      <Link to="/race/get-better-data">Help us get better data.</Link>
+    </p>
+  </div>
+)
+
 const HistoricalTables = ({
   timeSeriesData,
   currentMetric,
   setUsePer100kRate,
   usePer100kRate,
+  stateName,
 }) => {
   const removeMetricPrefix = metric => {
     /**
@@ -137,7 +155,6 @@ const HistoricalTables = ({
     false,
   )
 
-  // todo handle separately/combined distinction here
   return (
     <>
       <RatesToggle
@@ -154,14 +171,24 @@ const HistoricalTables = ({
             data={formatTableValues(timeSeriesData, usePer100kRate)}
           />
         </div>
-        <div className={historicalTableStyles.table}>
-          <TableResponsive
-            labels={ethnicityTableLabels}
-            header={<TableHeader header="Ethnicity" />}
-            // todo pass pop data here
-            data={formatTableValues(timeSeriesData, usePer100kRate)}
+        {allEthnicityData[currentMetric].length === 0 ||
+        (allEthnicityData[currentMetric].length === 1 &&
+          allEthnicityData[currentMetric][0].endsWith('Ethnicity_Unknown')) ? (
+          <NoDataPlaceholder
+            stateName={stateName}
+            dataType="Ethnicity"
+            metric={currentMetric}
           />
-        </div>
+        ) : (
+          <div className={historicalTableStyles.table}>
+            <TableResponsive
+              labels={ethnicityTableLabels}
+              header={<TableHeader header="Ethnicity" />}
+              // todo pass pop data here
+              data={formatTableValues(timeSeriesData, usePer100kRate)}
+            />
+          </div>
+        )}
       </div>
     </>
   )

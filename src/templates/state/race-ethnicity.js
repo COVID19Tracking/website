@@ -39,6 +39,7 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
         separateNotes={data.allCovidRaceDataSeparate.nodes}
       />
       <HistoricalTables
+        stateName={state.name}
         timeSeriesData={data.allCovidRaceDataTimeseries.nodes}
         currentMetric={currentMetric}
         setUsePer100kRate={setUsePer100kRate}

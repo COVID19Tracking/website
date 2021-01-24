@@ -10,10 +10,10 @@
       @include padding(16, top);
     }
   }
-  
+
   div:first-child {
     @include margin(32, right);
-    
+
     @media (max-width: $viewport-lg) {
       @include margin(0, right);
     }
@@ -45,9 +45,40 @@
 .table-header {
   color: $color-plum-700;
   background-color: $color-plum-100;
-  
+
   @include margin(0, (bottom, top));
   @include padding(4);
-  
+
   text-align: left;
+}
+
+.no-data-container {
+  background-color: $color-infobox-alert-light;
+  flex-basis: 25%;
+
+  .header {
+    color: $color-plum-700;
+    border-bottom: 1px solid $color-infobox-alert-dark;
+    @include padding(32, (top, bottom));
+    @include margin(0, top);
+
+    @include type-size(400);
+
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-top: 1px; // ignore-style-rule
+      @include margin(8, right);
+    }
+  }
+
+  .header,
+  .content {
+    @include padding(16, (right, left));
+  }
+
+  .content {
+    @include padding(16, top);
+  }
 }
