@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 import { Link } from 'gatsby'
 
 import TableResponsive from '~components/common/table-responsive'
+
 import RatesToggle from './rates-toggle'
 import { getAvailableMetricFields, formatTableValues } from './utils'
 
@@ -100,11 +101,29 @@ const HistoricalTables = ({
     return computedTableData
   }
 
+  const labelTooltipDict = {
+    AIAN: 'American Indian or Alaska Native',
+    NHPI: 'Native Hawaiian or Pacific Islander',
+    Black: 'Black or African American',
+    Latinx: 'Hispanic or Latino',
+    NonHispanic: 'Not Hispanic or Latino',
+    Multiracial: 'Two or more races',
+  }
+
   const getTableHeaderStyle = label => {
-    if (label === 'NHPI' || label === 'AIAN') {
+    if (Object.keys(labelTooltipDict).indexOf(label) > -1) {
       return historicalTableStyles.abbreviatedLabel
     }
     return null
+  }
+
+  const getTableHeaderLabel = label => {
+    if (Object.keys(labelTooltipDict).indexOf(label) === -1) {
+      return label
+    }
+    // todo use tooltip
+    // error: React.Children.only expected to receive a single React element
+    return `${label} (w/ tt)`
   }
 
   const generateTableLabels = (activeMetric, availableMetrics, raceOnly) => {
@@ -112,53 +131,56 @@ const HistoricalTables = ({
      * Generates the labels array for TableResponsive.
      * raceOnly: returns only race values when true, only ethnicity
      */
-    const tableMetrics = availableMetrics[activeMetric]
+    const tableLabels = useMemo(() => {
+      const tableMetrics = availableMetrics[activeMetric]
 
-    const labels = []
+      const labels = []
 
-    tableMetrics.forEach((tableMetric, index) => {
-      const label = removeMetricPrefix(tableMetric)
-      labels[index] = {
-        field: tableMetric,
-        label,
-        isNumeric: true,
-        headerStyle: getTableHeaderStyle(label),
+      tableMetrics.forEach((tableMetric, index) => {
+        const label = removeMetricPrefix(tableMetric)
+        labels[index] = {
+          field: tableMetric,
+          label: getTableHeaderLabel(label),
+          isNumeric: true,
+          headerStyle: getTableHeaderStyle(label),
+        }
+      })
+
+      if (raceOnly) {
+        // race data
+        labels.unshift({
+          field: `${currentMetric}_Total`,
+          label: 'Total',
+          isNumeric: true,
+        })
+
+        labels.unshift({
+          field: 'formattedDate',
+          noWrap: true,
+          label: 'Date',
+        })
+      } else {
+        // ethnicity data
+        labels.unshift({
+          field: `${currentMetric}_Total`,
+          label: 'Total',
+          isNumeric: true,
+          style: historicalTableStyles.ethnicityDate,
+          headerStyle: historicalTableStyles.ethnicityDate,
+        })
+
+        labels.unshift({
+          field: 'formattedDate',
+          noWrap: true,
+          style: historicalTableStyles.ethnicityDate,
+          headerStyle: historicalTableStyles.ethnicityDate,
+          label: 'Date',
+        })
       }
-    })
+      return labels
+    }, [activeMetric, availableMetrics])
 
-    if (raceOnly) {
-      // race data
-      labels.unshift({
-        field: `${currentMetric}_Total`,
-        label: 'Total',
-        isNumeric: true,
-      })
-
-      labels.unshift({
-        field: 'formattedDate',
-        noWrap: true,
-        label: 'Date',
-      })
-    } else {
-      // ethnicity data
-      labels.unshift({
-        field: `${currentMetric}_Total`,
-        label: 'Total',
-        isNumeric: true,
-        style: historicalTableStyles.ethnicityDate,
-        headerStyle: historicalTableStyles.ethnicityDate,
-      })
-
-      labels.unshift({
-        field: 'formattedDate',
-        noWrap: true,
-        style: historicalTableStyles.ethnicityDate,
-        headerStyle: historicalTableStyles.ethnicityDate,
-        label: 'Date',
-      })
-    }
-
-    return labels
+    return tableLabels
   }
 
   const allRaceData = generateTableData(timeSeriesData, true)
