@@ -178,9 +178,7 @@ const HistoricalTables = ({
             data={formatTableValues(timeSeriesData, usePer100kRate)}
           />
         </div>
-        {allEthnicityData[currentMetric].length === 0 ||
-        (allEthnicityData[currentMetric].length === 1 &&
-          allEthnicityData[currentMetric][0].endsWith('Ethnicity_Unknown')) ? (
+        {allEthnicityData[currentMetric].length === 0 ? (
           <NoDataPlaceholder
             stateName={stateName}
             dataType="Ethnicity"
