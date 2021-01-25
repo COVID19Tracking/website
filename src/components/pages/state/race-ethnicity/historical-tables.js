@@ -7,7 +7,7 @@ import RatesToggle from './rates-toggle'
 import {
   getAvailableMetricFields,
   formatTableValues,
-  addPerCapitaValues,
+  addPer100kValues,
   removeMetricPrefix,
 } from './utils'
 
@@ -238,10 +238,10 @@ const HistoricalTables = ({
   )
 
   // includes per cap values
-  const completeTimeSeriesData = addPerCapitaValues(
-    timeSeriesData,
-    populationData,
-  )
+  const completeTimeSeriesData =
+    populationData === null
+      ? timeSeriesData
+      : addPer100kValues(timeSeriesData, populationData)
 
   const formattedTimeSeriesData = useMemo(
     () => formatTableValues(completeTimeSeriesData),
@@ -254,6 +254,7 @@ const HistoricalTables = ({
         state={usePer100kRate}
         setState={setUsePer100kRate}
         currentMetric={currentMetric}
+        noRates={populationData === null}
       />
       <div className={historicalTableStyles.container}>
         <div className={historicalTableStyles.table}>

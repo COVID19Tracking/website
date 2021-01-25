@@ -145,6 +145,6 @@ export {
   getAvailableMetricFields,
   formatTableValues,
   isCombined,
-  addPer100kValues as addPerCapitaValues,
+  addPer100kValues,
   removeMetricPrefix,
 }
