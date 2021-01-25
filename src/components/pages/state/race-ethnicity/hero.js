@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import MetricSelector from './metric-selector'
 import NotesAndDownloads from './notes-and-downloads'
@@ -114,7 +114,12 @@ const Hero = ({
   separateNotes,
 }) => {
   const metrics = getMetrics(timeSeriesData)
-  setCurrentMetric(getFirstAvailableMetric(metrics))
+
+  useEffect(() => {
+    // Set the current metric to the first available
+    // metric only once.
+    setCurrentMetric(getFirstAvailableMetric(metrics))
+  }, [])
 
   const lastCollectedByCtp = timeSeriesData[0].formattedDate
 
