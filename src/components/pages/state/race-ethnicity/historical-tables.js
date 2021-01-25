@@ -243,9 +243,9 @@ const HistoricalTables = ({
     populationData,
   )
 
-  const formattedTimeSeriesData = formatTableValues(
-    completeTimeSeriesData,
-    usePer100kRate,
+  const formattedTimeSeriesData = useMemo(
+    () => formatTableValues(completeTimeSeriesData),
+    [completeTimeSeriesData],
   )
 
   return (

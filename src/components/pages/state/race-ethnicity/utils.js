@@ -29,11 +29,9 @@ const getAvailableMetricFields = (latestDay, startsWith, raceOnly) => {
   return listOfMetrics
 }
 
-const formatTableValues = (timeSeriesData, usingRates) => {
+const formatTableValues = timeSeriesData => {
   /**
    * Adds the formattedDate field, adds asterisks for small numbers.
-   * @param usingRates: whether or not the user is looking at rates or
-   *   total numbers. true means the user is using rates.
    */
   const newDays = []
 
@@ -55,15 +53,14 @@ const formatTableValues = (timeSeriesData, usingRates) => {
         // Format the value if the value is numeric.
         newDays[index][dataPointName] = dataPointValue.toLocaleString()
       }
-      if (usingRates) {
-        // todo double-check this logic is right
-        if (
-          dataPointValue != null &&
-          Number.isInteger(dataPointValue) &&
-          dataPointValue < smallNumberCutoff
-        ) {
-          newDays[index][dataPointName] = `${dataPointValue}*`
-        }
+      // todo only do this for per100k values
+      // where the denominator < 10
+      if (
+        dataPointValue != null &&
+        Number.isInteger(dataPointValue) &&
+        dataPointValue < smallNumberCutoff
+      ) {
+        newDays[index][dataPointName] = `${dataPointValue}*`
       }
     })
   })
