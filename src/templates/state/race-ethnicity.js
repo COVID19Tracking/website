@@ -66,7 +66,7 @@ export const query = graphql`
         nhpiSmallN
         whiteSmallN
         latinXSmallN
-        apINote
+        apiNote
         otherNote
         lastCheckDate {
           value
@@ -89,7 +89,7 @@ export const query = graphql`
         whiteSmallN
         latinXSmallN
         otherNote
-        aPINote
+        apiNote
         lastCheckDate {
           value
         }
