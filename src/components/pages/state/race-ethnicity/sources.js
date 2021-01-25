@@ -6,7 +6,7 @@ import {
   DisclosurePanel,
 } from '@reach/disclosure'
 
-import styles from './rates-toggle.module.scss'
+import styles from './sources.module.scss'
 
 const Sources = ({ data }) => {
   const [isDisclosureOpen, setDisclosureOpen] = useState(false)
@@ -18,7 +18,7 @@ const Sources = ({ data }) => {
         open={isDisclosureOpen}
         onChange={() => setDisclosureOpen(!isDisclosureOpen)}
       >
-        <DisclosureButton className={styles.disclosure}>
+        <DisclosureButton className={styles.title}>
           Where this data comes from{' '}
           {isDisclosureOpen ? (
             <span className={styles.arrowUp} aria-hidden>
@@ -31,7 +31,7 @@ const Sources = ({ data }) => {
           )}
         </DisclosureButton>
         <DisclosurePanel>
-          <ol>
+          <ol className={styles.sourceList}>
             {[
               data.sourcePrimary,
               data.sourceSecondary,
