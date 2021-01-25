@@ -54,6 +54,7 @@ const DataPage = ({ data }) => {
         raceDataCombined={data.allCovidRaceDataCombined.nodes}
         raceDataSeparate={data.allCovidRaceDataSeparate.nodes}
         hhsHospitalization={data.allHhsHospitals.nodes}
+        ltcFedVaccinations={data.allLtcFedVaccinations.nodes}
       />
     </Layout>
   )
@@ -292,6 +293,21 @@ export const query = graphql`
         staffed_icu_adult_patients_confirmed_and_suspected_covid
         total_adult_patients_hospitalized_confirmed_covid
         total_pediatric_patients_hospitalized_confirmed_covid
+      }
+    }
+    allLtcFedVaccinations {
+      nodes {
+        Administered_Fed_LTC
+        Administered_Fed_LTC_Dose1
+        Administered_Fed_LTC_Dose1_Residents
+        Administered_Fed_LTC_Dose1_Staff
+        Administered_Fed_LTC_Dose1_Unk
+        Administered_Fed_LTC_Dose2
+        Administered_Fed_LTC_Dose2_Residents
+        Administered_Fed_LTC_Dose2_Staff
+        Administered_Fed_LTC_Dose2_Unk
+        Census2019
+        Location
       }
     }
   }

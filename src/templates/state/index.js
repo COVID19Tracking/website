@@ -31,6 +31,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
     allTweets,
     allCovidAnnotation,
     hhsHospitals,
+    ltcFedVaccinations,
   } = data
   return (
     <Layout
@@ -69,6 +70,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
           raceData={getRaceData(data)}
           longTermCare={data.covidStateInfo.childLtc}
           hhsHospitalization={hhsHospitals}
+          ltcFedVaccinations={ltcFedVaccinations}
         />
         <StateTweets
           tweets={allTweets}
@@ -325,6 +327,18 @@ export const query = graphql`
       staffed_icu_adult_patients_confirmed_and_suspected_covid
       total_adult_patients_hospitalized_confirmed_covid
       total_pediatric_patients_hospitalized_confirmed_covid
+    }
+    ltcFedVaccinations(Location: { eq: $state }) {
+      Administered_Fed_LTC
+      Administered_Fed_LTC_Dose1
+      Administered_Fed_LTC_Dose1_Residents
+      Administered_Fed_LTC_Dose1_Staff
+      Administered_Fed_LTC_Dose1_Unk
+      Administered_Fed_LTC_Dose2
+      Administered_Fed_LTC_Dose2_Residents
+      Administered_Fed_LTC_Dose2_Staff
+      Administered_Fed_LTC_Dose2_Unk
+      Census2019
     }
   }
 `

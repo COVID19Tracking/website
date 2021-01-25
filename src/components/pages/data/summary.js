@@ -18,7 +18,7 @@ import TestsViralCard from './cards/tests-viral'
 import NationalTestsCard from './cards/tests-national'
 import LongTermCareCard from './cards/long-term-care'
 import HospitalizationHhsCard from './cards/hospitalization-hhs-card'
-
+import LongTermCareVaccinationsCard from './cards/long-term-care-vaccinations'
 import createRaceValues from './cards/crdt/create-race-data'
 import CrdtCasesCard from './cards/crdt/cases-card'
 import CrdtDeathsCard from './cards/crdt/deaths-card'
@@ -54,6 +54,7 @@ const StateSummary = ({
   longTermCare,
   raceData,
   hhsHospitalization,
+  ltcFedVaccinations,
   annotations = false,
   national = false,
 }) => {
@@ -364,17 +365,25 @@ const StateSummary = ({
               recoveredMetricName={getMetricTitle('Recovered', annotations)}
               national={national}
             />
-            {!national && (
+          </div>
+          {national && <NationalText footnote={nationalSummaryFootnote} />}
+        </div>
+        {!national && (
+          <>
+            <h4>Long-term-care facilities</h4>
+            <div className={summaryStyles.container}>
               <LongTermCareCard
                 data={longTermCare}
                 stateName={stateName}
                 stateDeaths={data.death}
                 stateSlug={stateSlug}
               />
-            )}
-          </div>
-          {national && <NationalText footnote={nationalSummaryFootnote} />}
-        </div>
+              <LongTermCareVaccinationsCard
+                ltcFedVaccinations={ltcFedVaccinations}
+              />
+            </div>
+          </>
+        )}
         {!national && (
           <>
             <h4>Race &amp; ethnicity data</h4>

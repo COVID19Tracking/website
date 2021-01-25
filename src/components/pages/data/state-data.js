@@ -33,6 +33,7 @@ const State = ({ state, metadata }) => {
         longTermCare={state.childLtc}
         annotations={state.annotations}
         hhsHospitalization={state.hhsHospitalization}
+        ltcFedVaccinations={state.ltcFedVaccinations}
       />
 
       <a

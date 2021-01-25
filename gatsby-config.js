@@ -246,7 +246,7 @@ const gatsbyConfig = {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_data/ltc_fed_vaccinations.json',
-        type: 'territoryInfo',
+        type: 'ltcFedVaccinations',
       },
     },
     {
