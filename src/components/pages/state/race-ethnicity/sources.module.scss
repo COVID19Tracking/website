@@ -3,14 +3,16 @@
   border: none;
   font-weight: bold;
   text-decoration: underline;
-  padding: 0;
+
+  @include padding(0);
+  @include margin(16, top);
 }
 
 .source-list {
   list-style-type: none;
-  padding-left: 0;
-
+  @include padding(0, left);
+  
   li {
-    margin-bottom: 8px;
+    @include margin(8, bottom);
   }
 }

@@ -11,7 +11,6 @@ import styles from './sources.module.scss'
 const Sources = ({ data }) => {
   const [isDisclosureOpen, setDisclosureOpen] = useState(false)
 
-  console.log(data)
   return (
     <div>
       <Disclosure

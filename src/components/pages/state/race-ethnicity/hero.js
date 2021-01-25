@@ -2,6 +2,7 @@ import React from 'react'
 
 import MetricSelector from './metric-selector'
 import NotesAndDownloads from './notes-and-downloads'
+import DataAsOf from './data-as-of'
 import Sources from './sources'
 
 import styles from './hero.module.scss'
@@ -115,6 +116,8 @@ const Hero = ({
   const metrics = getMetrics(timeSeriesData)
   setCurrentMetric(getFirstAvailableMetric(metrics))
 
+  const lastCollectedByCtp = timeSeriesData[0].formattedDate
+
   // todo replace sourcesData with content from website-data
   const sourcesData = {
     sourcePrimary: 'https://crouton.net',
@@ -122,6 +125,7 @@ const Hero = ({
     // sourceTertiary: 'https://crouton.net',
     sourceQuaternary: 'https://crouton.net',
   }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.hero}>
@@ -129,6 +133,10 @@ const Hero = ({
           state={currentMetric}
           setState={setCurrentMetric}
           metrics={metrics}
+        />
+        <DataAsOf
+          stateDate="todo need this value"
+          ctpDate={lastCollectedByCtp}
         />
         <Sources data={sourcesData} />
         <NotesAndDownloads
