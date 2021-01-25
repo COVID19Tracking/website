@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 
+import { isCombined } from './utils'
 import MetricSelector from './metric-selector'
 import NotesAndDownloads from './notes-and-downloads'
 import DataAsOf from './data-as-of'
@@ -123,6 +124,10 @@ const Hero = ({
   }, [])
 
   const lastCollectedByCtp = timeSeriesData[0].formattedDate
+  const lastReportedByState = (isCombined(combinedNotes, separateNotes)
+    ? combinedNotes
+    : separateNotes
+  ).stateUpdate.value
 
   return (
     <div className={styles.wrapper}>
@@ -133,7 +138,7 @@ const Hero = ({
           metrics={metrics}
         />
         <DataAsOf
-          stateDate="todo need this value"
+          stateDate={lastReportedByState}
           ctpDate={lastCollectedByCtp}
         />
         <Sources data={stateSources} />
