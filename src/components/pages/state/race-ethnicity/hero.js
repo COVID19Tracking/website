@@ -121,9 +121,9 @@ const Hero = ({
   // todo replace sourcesData with content from website-data
   const sourcesData = {
     sourcePrimary: 'https://crouton.net',
-    sourceSecondary: 'https://crouton.net',
+    sourceSecondary: 'https://croutons.net',
     // sourceTertiary: 'https://crouton.net',
-    sourceQuaternary: 'https://crouton.net',
+    sourceQuaternary: 'https://acrouton.net',
   }
 
   return (
