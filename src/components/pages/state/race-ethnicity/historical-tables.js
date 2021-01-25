@@ -4,7 +4,12 @@ import { Link } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
 
 import RatesToggle from './rates-toggle'
-import { getAvailableMetricFields, formatTableValues } from './utils'
+import {
+  getAvailableMetricFields,
+  formatTableValues,
+  addPerCapitaValues,
+  removeMetricPrefix,
+} from './utils'
 
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import historicalTableStyles from './historical-tables.module.scss'
@@ -52,24 +57,18 @@ const NoDataPlaceholder = ({ stateName, dataType, metric }) => (
 
 const HistoricalTables = ({
   timeSeriesData,
+  populationData,
   currentMetric,
   setUsePer100kRate,
   usePer100kRate,
   stateName,
 }) => {
-  const removeMetricPrefix = metric => {
-    /**
-     * Removes the 'Cases_' or 'Hosp_', etc. prefix from a string.
-     */
-    return metric.replace(/^[A-z]*_/, '')
-  }
-
   const generateTableData = (allData, raceOnly) => {
     /** Transforms API time series data into table-ready data
      * raceOnly: returns only race values when true, only ethnicity
      *  values when false
      */
-    const computedTableData = useMemo(() => {
+    const computedTableMetrics = useMemo(() => {
       const latestDay = allData[0]
       const caseMetrics = getAvailableMetricFields(
         latestDay,
@@ -98,7 +97,7 @@ const HistoricalTables = ({
       return tableMetrics
     }, [])
 
-    return computedTableData
+    return computedTableMetrics
   }
 
   const labelTooltipDict = {
@@ -126,7 +125,11 @@ const HistoricalTables = ({
     return `${label} (w/ tt)`
   }
 
-  const generateTableLabels = (activeMetric, availableMetrics, raceOnly) => {
+  const generateBaseTableLabels = (
+    activeMetric,
+    availableMetrics,
+    raceOnly,
+  ) => {
     /**
      * Generates the labels array for TableResponsive.
      * raceOnly: returns only race values when true, only ethnicity
@@ -139,6 +142,7 @@ const HistoricalTables = ({
       tableMetrics.forEach((tableMetric, index) => {
         const label = removeMetricPrefix(tableMetric)
         labels[index] = {
+          fieldTotal: tableMetric,
           field: tableMetric,
           label: getTableHeaderLabel(label),
           isNumeric: true,
@@ -149,12 +153,14 @@ const HistoricalTables = ({
       if (raceOnly) {
         // race data
         labels.unshift({
+          fieldTotal: `${currentMetric}_Total`,
           field: `${currentMetric}_Total`,
           label: 'Total',
           isNumeric: true,
         })
 
         labels.unshift({
+          fieldTotal: 'formattedDate',
           field: 'formattedDate',
           noWrap: true,
           label: 'Date',
@@ -162,6 +168,7 @@ const HistoricalTables = ({
       } else {
         // ethnicity data
         labels.unshift({
+          fieldTotal: `${currentMetric}_Total`,
           field: `${currentMetric}_Total`,
           label: 'Total',
           isNumeric: true,
@@ -170,6 +177,7 @@ const HistoricalTables = ({
         })
 
         labels.unshift({
+          fieldTotal: 'formattedDate',
           field: 'formattedDate',
           noWrap: true,
           style: historicalTableStyles.ethnicityDate,
@@ -183,14 +191,65 @@ const HistoricalTables = ({
     return tableLabels
   }
 
+  const generateTableLabels = (
+    activeMetric,
+    availableMetrics,
+    raceOnly,
+    isPer100k,
+  ) => {
+    const base = generateBaseTableLabels(
+      activeMetric,
+      availableMetrics,
+      raceOnly,
+    )
+    if (!isPer100k) {
+      return base.map(label => {
+        if (label.field.toLowerCase().includes('date')) {
+          return label
+        }
+        const totalLabel = label
+        totalLabel.field = totalLabel.fieldTotal
+        return totalLabel
+      })
+    }
+    const baseWithPer100k = base
+    baseWithPer100k.map(label => {
+      if (label.field.toLowerCase().includes('date')) {
+        return label
+      }
+      const per100kLabel = label
+      per100kLabel.field = `${label.field}_per100k`
+      per100kLabel.isNumeric = false // todo remove this [?]
+      return per100kLabel
+    })
+    return baseWithPer100k
+  }
+
   const allRaceData = generateTableData(timeSeriesData, true)
   const allEthnicityData = generateTableData(timeSeriesData, false)
 
-  const raceTableLabels = generateTableLabels(currentMetric, allRaceData, true)
+  const raceTableLabels = generateTableLabels(
+    currentMetric,
+    allRaceData,
+    true,
+    usePer100kRate,
+  )
   const ethnicityTableLabels = generateTableLabels(
     currentMetric,
     allEthnicityData,
     false,
+    usePer100kRate,
+  )
+
+  // includes per cap values
+  const completeTimeSeriesData = addPerCapitaValues(
+    timeSeriesData,
+    populationData,
+  )
+
+  const formattedTimeSeriesData = formatTableValues(
+    completeTimeSeriesData,
+    usePer100kRate,
   )
 
   return (
@@ -204,9 +263,8 @@ const HistoricalTables = ({
         <div className={historicalTableStyles.table}>
           <TableResponsive
             labels={raceTableLabels}
-            // todo pass pop data here
             header={<RaceTableHeader />}
-            data={formatTableValues(timeSeriesData, usePer100kRate)}
+            data={formattedTimeSeriesData}
           />
         </div>
         {allEthnicityData[currentMetric].length === 0 ? (
@@ -220,8 +278,7 @@ const HistoricalTables = ({
             <TableResponsive
               labels={ethnicityTableLabels}
               header={<TableHeader header="Ethnicity" />}
-              // todo pass pop data here
-              data={formatTableValues(timeSeriesData, usePer100kRate)}
+              data={formattedTimeSeriesData}
             />
           </div>
         )}

@@ -42,6 +42,7 @@ const getMetrics = allData => {
     if (
       value.startsWith(prefix) &&
       !value.endsWith('Unknown') &&
+      !value.endsWith('_per100k') &&
       !value.endsWith('Total')
     ) {
       return true
@@ -51,7 +52,6 @@ const getMetrics = allData => {
 
   nonNullValues.every(value => {
     if (checkValue(value, 'Cases_')) {
-      console.log(value)
       metrics.Cases.available = true
       return false
     }

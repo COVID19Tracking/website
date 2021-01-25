@@ -41,6 +41,7 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
       <HistoricalTables
         stateName={state.name}
         timeSeriesData={data.allCovidRaceDataTimeseries.nodes}
+        populationData={data.covidAcsPopulation}
         currentMetric={currentMetric}
         setUsePer100kRate={setUsePer100kRate}
         usePer100kRate={usePer100kRate}
@@ -98,6 +99,18 @@ export const query = graphql`
         knownEthDeath
         knownRacePos
       }
+    }
+    covidAcsPopulation(state: { eq: $state }) {
+      aian
+      asian
+      black
+      hisp
+      nhpi
+      notHisp
+      other
+      total
+      twoOrMore
+      white
     }
     allCovidRaceDataTimeseries(
       filter: { Date: { ne: null }, State: { eq: $state } }
