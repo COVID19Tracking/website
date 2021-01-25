@@ -145,7 +145,6 @@ const HistoricalTables = ({
           fieldTotal: tableMetric,
           field: tableMetric,
           label: getTableHeaderLabel(label),
-          isNumeric: true,
           headerStyle: getTableHeaderStyle(label),
         }
       })
@@ -156,7 +155,6 @@ const HistoricalTables = ({
           fieldTotal: `${currentMetric}_Total`,
           field: `${currentMetric}_Total`,
           label: 'Total',
-          isNumeric: true,
         })
 
         labels.unshift({
@@ -171,7 +169,6 @@ const HistoricalTables = ({
           fieldTotal: `${currentMetric}_Total`,
           field: `${currentMetric}_Total`,
           label: 'Total',
-          isNumeric: true,
           style: historicalTableStyles.ethnicityDate,
           headerStyle: historicalTableStyles.ethnicityDate,
         })
@@ -219,7 +216,6 @@ const HistoricalTables = ({
       }
       const per100kLabel = label
       per100kLabel.field = `${label.field}_per100k`
-      per100kLabel.isNumeric = false // todo remove this [?]
       return per100kLabel
     })
     return baseWithPer100k

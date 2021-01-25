@@ -37,9 +37,6 @@ const formatTableValues = (timeSeriesData, usingRates) => {
    */
   const newDays = []
 
-  console.log(usingRates)
-  // todo handle rates toggle
-
   timeSeriesData.forEach((day, index) => {
     newDays[index] = day
     newDays[index].formattedDate = formatDateToString(day.Date, 'MMMM d, yyyy')
@@ -47,10 +44,19 @@ const formatTableValues = (timeSeriesData, usingRates) => {
     const availableDataPoints = Object.keys(day)
     const smallNumberCutoff = 10
 
-    if (usingRates) {
-      // todo double-check this logic is right
-      availableDataPoints.forEach(dataPointName => {
-        const dataPointValue = day[dataPointName]
+    availableDataPoints.forEach(dataPointName => {
+      const dataPointValue = day[dataPointName]
+
+      if (
+        typeof dataPointValue === 'number' &&
+        dataPointValue != null &&
+        !dataPointName.toLowerCase().includes('date')
+      ) {
+        // Format the value if the value is numeric.
+        newDays[index][dataPointName] = dataPointValue.toLocaleString()
+      }
+      if (usingRates) {
+        // todo double-check this logic is right
         if (
           dataPointValue != null &&
           Number.isInteger(dataPointValue) &&
@@ -58,8 +64,8 @@ const formatTableValues = (timeSeriesData, usingRates) => {
         ) {
           newDays[index][dataPointName] = `${dataPointValue}*`
         }
-      })
-    }
+      }
+    })
   })
 
   return newDays
