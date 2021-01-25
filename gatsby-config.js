@@ -210,6 +210,13 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
+        file: './_data/crdt_sources.json',
+        type: 'CovidRaceDataSources',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
         file: './_data/long_term_care_website.json',
         type: 'CovidLtcWebsite',
       },

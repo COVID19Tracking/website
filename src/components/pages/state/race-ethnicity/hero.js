@@ -112,6 +112,7 @@ const Hero = ({
   timeSeriesData,
   combinedNotes,
   separateNotes,
+  stateSources,
 }) => {
   const metrics = getMetrics(timeSeriesData)
 
@@ -122,14 +123,6 @@ const Hero = ({
   }, [])
 
   const lastCollectedByCtp = timeSeriesData[0].formattedDate
-
-  // todo replace sourcesData with content from website-data
-  const sourcesData = {
-    sourcePrimary: 'https://crouton.net',
-    sourceSecondary: 'https://croutons.net',
-    // sourceTertiary: 'https://crouton.net',
-    sourceQuaternary: 'https://acrouton.net',
-  }
 
   return (
     <div className={styles.wrapper}>
@@ -143,7 +136,7 @@ const Hero = ({
           stateDate="todo need this value"
           ctpDate={lastCollectedByCtp}
         />
-        <Sources data={sourcesData} />
+        <Sources data={stateSources} />
         <NotesAndDownloads
           slug={stateSlug}
           stateAbbreviation={stateAbbreviation}
