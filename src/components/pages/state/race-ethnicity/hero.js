@@ -115,6 +115,7 @@ const Hero = ({
   const metrics = getMetrics(timeSeriesData)
   setCurrentMetric(getFirstAvailableMetric(metrics))
 
+  // todo replace sourcesData with content from website-data
   const sourcesData = {
     sourcePrimary: 'https://crouton.net',
     sourceSecondary: 'https://crouton.net',
