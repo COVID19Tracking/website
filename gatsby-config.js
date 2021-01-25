@@ -245,6 +245,13 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
+        file: './_data/ltc_fed_vaccinations.json',
+        type: 'territoryInfo',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
         file: './_data/hhs_hospitalization.json',
         type: 'hhsHospitals',
         transformItems: items => {
@@ -301,6 +308,14 @@ const gatsbyConfig = {
           tweets: `${__dirname}/_data/tweets.json`,
           pinnedTweets: `${__dirname}/_data/pinned_tweets.json`,
         },
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-counties',
+      options: {
+        type: 'Counties',
+        counties: `${__dirname}/_data/nyt_counties.json`,
+        demographics: `${__dirname}/_data/census_demographics_counties.json`,
       },
     },
     {
