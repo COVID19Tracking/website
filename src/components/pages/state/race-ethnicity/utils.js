@@ -132,10 +132,10 @@ const isCombined = (combined, separate) => {
   /**
    * Identifies if a state reports racial data as combined or separate.
    */
-  if (combined.length === 1) {
+  if (separate === null && combined != null) {
     return true
   }
-  if (separate.length === 1) {
+  if (combined === null && separate != null) {
     return false
   }
   return null

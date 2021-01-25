@@ -15,7 +15,7 @@ const getDataCompletenessNote = (combined, separate) => {
    * Generates a note about data completeness for this state.
    */
   const stateIsCombined = isCombined(combined, separate)
-  const dataObject = stateIsCombined ? combined[0] : separate[0]
+  const dataObject = stateIsCombined ? combined : separate
 
   if (stateIsCombined) {
     return (
@@ -85,7 +85,7 @@ const getNotes = (combined, separate) => {
   /**
    * Creates a list of notes for this state's data.
    */
-  const notesObject = isCombined(combined, separate) ? combined[0] : separate[0]
+  const notesObject = isCombined(combined, separate) ? combined : separate
   let hasSmallNNote = false
 
   if (notesObject === undefined || notesObject === null) {

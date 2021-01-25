@@ -35,8 +35,8 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
         usePer100kRate={usePer100kRate}
         setUsePer100kRate={setUsePer100kRate}
         timeSeriesData={data.allCovidRaceDataTimeseries.nodes}
-        combinedNotes={data.allCovidRaceDataCombined.nodes}
-        separateNotes={data.allCovidRaceDataSeparate.nodes}
+        combinedNotes={data.covidRaceDataCombined}
+        separateNotes={data.covidRaceDataSeparate}
         stateSources={data.covidRaceDataSources}
       />
       <HistoricalTables
@@ -55,51 +55,53 @@ export default RaceEthnicityHistoricalTemplate
 
 export const query = graphql`
   query($state: String!) {
-    allCovidRaceDataCombined(filter: { state: { eq: $state } }) {
-      nodes {
-        name
-        latinxNote
-        mutExclNote
-        popTableNote
-        smallNNote
-        blackSmallN
-        asianSmallN
-        aianSmallN
-        nhpiSmallN
-        whiteSmallN
-        latinXSmallN
-        apiNote
-        otherNote
-        lastCheckDate {
-          value
-        }
-        knownRaceEthDeath
-        knownRaceEthPos
+    covidRaceDataCombined(state: { eq: $state }) {
+      name
+      latinxNote
+      mutExclNote
+      popTableNote
+      smallNNote
+      blackSmallN
+      asianSmallN
+      aianSmallN
+      nhpiSmallN
+      whiteSmallN
+      latinXSmallN
+      apiNote
+      otherNote
+      lastCheckDate {
+        value
       }
+      stateUpdate {
+        value
+      }
+      knownRaceEthDeath
+      knownRaceEthPos
     }
-    allCovidRaceDataSeparate(filter: { state: { eq: $state } }) {
-      nodes {
-        name
-        latinxNote
-        mutExclNote
-        popTableNote
-        smallNNote
-        blackSmallN
-        asianSmallN
-        aianSmallN
-        nhpiSmallN
-        whiteSmallN
-        latinXSmallN
-        otherNote
-        apiNote
-        lastCheckDate {
-          value
-        }
-        knownRaceDeath
-        knownEthPos
-        knownEthDeath
-        knownRacePos
+    covidRaceDataSeparate(state: { eq: $state }) {
+      name
+      latinxNote
+      mutExclNote
+      popTableNote
+      smallNNote
+      blackSmallN
+      asianSmallN
+      aianSmallN
+      nhpiSmallN
+      whiteSmallN
+      latinXSmallN
+      otherNote
+      apiNote
+      lastCheckDate {
+        value
       }
+      stateUpdate {
+        value
+      }
+      knownRaceDeath
+      knownEthPos
+      knownEthDeath
+      knownRacePos
     }
     covidRaceDataSources(state: { eq: $state }) {
       sourcePrimary
