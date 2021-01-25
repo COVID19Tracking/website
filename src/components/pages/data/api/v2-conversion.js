@@ -39,15 +39,19 @@ const ApiV2Conversion = () => {
         </thead>
         <tbody>
           {data.allContentfulDataDefinition.nodes.map(node => (
-            <tr>
-              <Td alignLeft>
-                <code>{node.fieldName}</code>
-              </Td>
-              <Td alignLeft>
-                <code>{node.v2Name}</code>
-              </Td>
-              <Td alignLeft>{node.name}</Td>
-            </tr>
+            <>
+              {node.fieldName.search(/\./) === -1 && (
+                <tr>
+                  <Td alignLeft>
+                    <code>{node.fieldName}</code>
+                  </Td>
+                  <Td alignLeft>
+                    <code>{node.v2Name}</code>
+                  </Td>
+                  <Td alignLeft>{node.name}</Td>
+                </tr>
+              )}
+            </>
           ))}
         </tbody>
       </Table>
