@@ -6,7 +6,7 @@ const RatesToggle = ({ state, setState, currentMetric }) => {
   return (
     <div className={styles.toggle} role="radiogroup">
       <button
-        className={!state && styles.active}
+        className={!state ? styles.active : ''}
         title={`Total ${currentMetric}`}
         aria-checked={!state}
         onClick={event => {
