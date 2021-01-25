@@ -2,6 +2,7 @@ import React from 'react'
 
 import MetricSelector from './metric-selector'
 import NotesAndDownloads from './notes-and-downloads'
+import Sources from './sources'
 
 import styles from './hero.module.scss'
 
@@ -114,6 +115,11 @@ const Hero = ({
   const metrics = getMetrics(timeSeriesData)
   setCurrentMetric(getFirstAvailableMetric(metrics))
 
+  const sourcesData = {
+    sourcePrimary: 'https://crouton.net',
+    sourceSecondary: 'https://crouton.net',
+    sourceTertiary: 'https://crouton.net',
+  }
   return (
     <div className={styles.wrapper}>
       <div className={styles.hero}>
@@ -122,6 +128,7 @@ const Hero = ({
           setState={setCurrentMetric}
           metrics={metrics}
         />
+        <Sources data={sourcesData} />
         <NotesAndDownloads
           slug={stateSlug}
           stateAbbreviation={stateAbbreviation}
