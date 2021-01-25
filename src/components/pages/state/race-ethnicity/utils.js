@@ -53,14 +53,19 @@ const formatTableValues = timeSeriesData => {
         // Format the value if the value is numeric.
         newDays[index][dataPointName] = dataPointValue.toLocaleString()
       }
-      // todo only do this for per100k values
-      // where the denominator < 10
       if (
         dataPointValue != null &&
         Number.isInteger(dataPointValue) &&
-        dataPointValue < smallNumberCutoff
+        dataPointName.endsWith('_per100k')
       ) {
-        newDays[index][dataPointName] = `${dataPointValue}*`
+        const rawDataPointName = dataPointName.substring(
+          0,
+          dataPointName.length - 8, // '_per100k' contains 8 characters
+        )
+        const rawDataPointValue = newDays[index][rawDataPointName]
+        if (rawDataPointValue < smallNumberCutoff) {
+          newDays[index][dataPointName] = `${dataPointValue.toLocaleString()}*`
+        }
       }
     })
   })
