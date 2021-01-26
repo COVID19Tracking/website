@@ -209,7 +209,7 @@ const HistoricalTables = ({
         return totalLabel
       })
     }
-    const baseWithPer100k = base
+    let baseWithPer100k = base
     baseWithPer100k.map(label => {
       if (label.field.toLowerCase().includes('date')) {
         return label
@@ -218,6 +218,12 @@ const HistoricalTables = ({
       per100kLabel.field = `${label.field}_per100k`
       return per100kLabel
     })
+
+    // Hide other and unknown values for per100k labels
+    baseWithPer100k = baseWithPer100k.filter(
+      label =>
+        !(label.field.includes('_Other') || label.field.includes('_Unknown')),
+    )
     return baseWithPer100k
   }
 
