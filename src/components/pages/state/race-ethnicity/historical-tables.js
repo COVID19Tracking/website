@@ -126,7 +126,7 @@ const HistoricalTables = ({
     }
     return (
       <Tooltip label={<span>{labelTooltipDict[label]}</span>}>
-        <span>{label}</span>
+        <span className={historicalTableStyles.headerLabel}>{label}</span>
       </Tooltip>
     )
   }
