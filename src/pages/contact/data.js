@@ -58,17 +58,12 @@ const ContactPage = ({ data }) => {
           name="data-fields"
           label="Which metric are you writing us about?"
           isRequired
-          options={[
-            'Cases',
-            'Tests',
-            'Hospitalization',
-            'Recovery',
-            'Death',
-            'Other',
-          ].map(item => ({
-            value: item,
-            label: item,
-          }))}
+          options={['Cases', 'Tests', 'Hospitalization', 'Death', 'Other'].map(
+            item => ({
+              value: item,
+              label: item,
+            }),
+          )}
         />
         <Row>
           <Col width={[4, 6, 6]} paddingRight={[0, 0, 32]}>
