@@ -150,13 +150,12 @@ const HistoricalTables = ({
      */
     const tableLabels = useMemo(() => {
       const tableMetrics = availableMetrics[activeMetric]
-      tableMetrics.sort() // Sort metrics alphabetically.
 
-      const labels = []
+      const unsortedLabels = []
 
       tableMetrics.forEach((tableMetric, index) => {
         const label = removeMetricPrefix(tableMetric)
-        labels[index] = {
+        unsortedLabels[index] = {
           fieldTotal: tableMetric,
           field: tableMetric,
           label: getTableHeaderLabel(label),
@@ -164,7 +163,46 @@ const HistoricalTables = ({
         }
       })
 
+      let labels
+
       if (raceOnly) {
+        const pushMetricByContains = (
+          listToSearch,
+          listToPush,
+          searchString,
+        ) => {
+          /**
+           * Push metrics from one list to another only if their fieldTotal
+           * property contains a search string.
+           */
+          listToSearch.every(metric => {
+            if (metric.fieldTotal.includes(searchString)) {
+              listToPush.push(metric)
+              return false
+            }
+            return true
+          })
+        }
+
+        labels = []
+
+        // Metrics in the same order as the dashboard.
+        const metricsInOrder = [
+          '_Black',
+          'LatinX',
+          '_Asian',
+          '_NHPI',
+          '_AIAN',
+          '_Multiracial',
+          '_White',
+          '_Other',
+        ]
+
+        // Sort metrics in the same order as the dashboard
+        metricsInOrder.forEach(metric => {
+          pushMetricByContains(unsortedLabels, labels, metric)
+        })
+
         // race data
         labels.unshift({
           fieldTotal: `${currentMetric}_Total`,
@@ -180,6 +218,9 @@ const HistoricalTables = ({
         })
       } else {
         // ethnicity data
+
+        labels = unsortedLabels // Don't need to sort for ethnicity.
+
         labels.unshift({
           fieldTotal: `${currentMetric}_Total`,
           field: `${currentMetric}_Total`,
