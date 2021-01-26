@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
   table {
     width: inherit;
@@ -12,7 +12,7 @@
   }
 
   div:first-child {
-    @include margin(32, right);
+    @include margin(64, right);
 
     @media (max-width: $viewport-lg) {
       @include margin(0, right);
