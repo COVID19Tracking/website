@@ -226,11 +226,13 @@ const HistoricalTables = ({
       return per100kLabel
     })
 
-    // Hide total, other, and unknown values for per100k labels
+    // Hide total, other, two (or more race), and unknown
+    // values for per100k labels.
     baseWithPer100k = baseWithPer100k.filter(
       label =>
         !(
           label.field.includes('_Other') ||
+          label.field.includes('Multiracial') ||
           label.field.includes('_Unknown') ||
           label.field.includes('_Total')
         ),
