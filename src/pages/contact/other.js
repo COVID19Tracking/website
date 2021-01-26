@@ -44,7 +44,7 @@ const ContactOtherPage = () => {
         <Select
           isRequired
           label="What are you contacting us about?"
-          detailText="Please let us know why you are contacting us so we can route your message to the right team"
+          detailText="Please let us know why you are contacting us so we can route your message to the right team. If you are contacting us about a chart or a page on our website, please provide the URL and the title of the chart or page."
           id="contact-reason"
           name="reason"
           options={reasons}
@@ -72,6 +72,13 @@ const ContactOtherPage = () => {
             />
           </Col>
         </Row>
+            <Input
+              type="url"
+              label="URL address of the page or chart you are writing us about"
+              name="url"
+              id="contact-url"
+              onChange={event => setURL(event.target.value)}
+            />
         <Textarea
           label="Message"
           name="body"
@@ -87,7 +94,7 @@ const ContactOtherPage = () => {
           </Alert>
         )}
         {reason !== defaultReason && !(email && message && name) && (
-          <Alert>All fields are required</Alert>
+          <Alert>Name, email, and message are required</Alert>
         )}
         <input
           type="text"
