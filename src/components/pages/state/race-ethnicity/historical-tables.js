@@ -263,6 +263,9 @@ const HistoricalTables = ({
   )
 
   const reportsRaceSeparately = () => {
+    if (populationData === null) {
+      return true // Guam
+    }
     if (populationData.type === 'sep') {
       return true
     }
