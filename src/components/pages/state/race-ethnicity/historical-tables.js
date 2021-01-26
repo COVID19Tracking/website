@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import classnames from 'classnames'
 
 import TableResponsive from '~components/common/table-responsive'
+import Tooltip from '~components/common/tooltip'
 
 import RatesToggle from './rates-toggle'
 import {
@@ -123,9 +124,11 @@ const HistoricalTables = ({
     if (Object.keys(labelTooltipDict).indexOf(label) === -1) {
       return label
     }
-    // todo use tooltip
-    // error: React.Children.only expected to receive a single React element
-    return `${label} (w/ tt)`
+    return (
+      <Tooltip label={<span>{labelTooltipDict[label]}</span>}>
+        <span>{label}</span>
+      </Tooltip>
+    )
   }
 
   const generateBaseTableLabels = (
