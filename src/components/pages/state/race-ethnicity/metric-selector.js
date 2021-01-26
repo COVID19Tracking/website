@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 
+import Tooltip from '~components/common/tooltip'
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 
 import styles from './metric-selector.module.scss'
@@ -29,31 +30,47 @@ const MetricButton = ({ children, option, metrics, state, setState }) => (
   </button>
 )
 
-const MetricSelector = ({ state, setState, metrics }) => {
+const MetricSelector = ({
+  currentMetric,
+  setCurrentMetric,
+  metrics,
+  stateName,
+}) => {
   return (
     <div className={styles.toggle} role="radiogroup">
       {Object.keys(metrics).map(option => (
         <>
           {!metrics[option].available ? (
-            <MetricButton
-              option={option}
-              metrics={metrics}
-              state={state}
-              setState={setState}
+            <Tooltip
+              label={
+                <span>
+                  {stateName} does not report race/ethnicity data for{' '}
+                  {option.toLocaleLowerCase()}.
+                </span>
+              }
             >
-              <img
-                src={alertBang}
-                alt={`${option} data is unavailable.`}
-                className={styles.bang}
-              />
-              <span>{option}</span>
-            </MetricButton>
+              <div>
+                <MetricButton
+                  option={option}
+                  metrics={metrics}
+                  state={currentMetric}
+                  setState={setCurrentMetric}
+                >
+                  <img
+                    src={alertBang}
+                    alt={`${option} data is unavailable.`}
+                    className={styles.bang}
+                  />
+                  <span>{option}</span>
+                </MetricButton>
+              </div>
+            </Tooltip>
           ) : (
             <MetricButton
               option={option}
               metrics={metrics}
-              state={state}
-              setState={setState}
+              state={currentMetric}
+              setState={setCurrentMetric}
             >
               <span>{option}</span>
             </MetricButton>

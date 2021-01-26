@@ -24,6 +24,7 @@
   align-items: center;
 
   cursor: not-allowed;
+  pointer-events: none;
 
   .bang {
     max-width: 22px;

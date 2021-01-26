@@ -133,9 +133,10 @@ const Hero = ({
     <div className={styles.wrapper}>
       <div className={styles.hero}>
         <MetricSelector
-          state={currentMetric}
-          setState={setCurrentMetric}
+          currentMetric={currentMetric}
+          setCurrentMetric={setCurrentMetric}
           metrics={metrics}
+          stateName={stateName}
         />
         <DataAsOf
           stateDate={lastReportedByState}
