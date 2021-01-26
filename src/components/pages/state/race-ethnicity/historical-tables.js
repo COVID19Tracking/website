@@ -108,8 +108,6 @@ const HistoricalTables = ({
     AIAN: 'American Indian or Alaska Native',
     NHPI: 'Native Hawaiian or Pacific Islander',
     Black: 'Black or African American',
-    Latinx: 'Hispanic or Latino',
-    NonHispanic: 'Not Hispanic or Latino',
     Multiracial: 'Two or more races',
   }
 
@@ -121,12 +119,22 @@ const HistoricalTables = ({
   }
 
   const getTableHeaderLabel = label => {
-    if (Object.keys(labelTooltipDict).indexOf(label) === -1) {
-      return label
+    let labelText = label
+
+    if (labelText === 'Hispanic' || labelText === 'LatinX') {
+      labelText = 'Hispanic\u200a/\u200aLatino'
+    }
+
+    if (labelText === 'NonHispanic') {
+      labelText = 'Non Hispanic\u200a/\u200aLatino'
+    }
+
+    if (Object.keys(labelTooltipDict).indexOf(labelText) === -1) {
+      return labelText
     }
     return (
-      <Tooltip label={<span>{labelTooltipDict[label]}</span>}>
-        <span className={historicalTableStyles.headerLabel}>{label}</span>
+      <Tooltip label={<span>{labelTooltipDict[labelText]}</span>}>
+        <span className={historicalTableStyles.headerLabel}>{labelText}</span>
       </Tooltip>
     )
   }
