@@ -62,7 +62,6 @@ const ContactPage = ({ data }) => {
             'Cases',
             'Tests',
             'Hospitalization',
-            'Recovery',
             'Death',
             'Other',
           ].map(item => ({
