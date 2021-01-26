@@ -49,7 +49,7 @@ const MetricSelector = ({
                 </span>
               }
             >
-              <div>
+              <div className={styles.unavailableWrapper}>
                 <MetricButton
                   option={option}
                   metrics={metrics}

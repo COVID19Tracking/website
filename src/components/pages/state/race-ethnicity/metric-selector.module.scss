@@ -23,13 +23,17 @@
   display: flex;
   align-items: center;
 
-  cursor: not-allowed;
   pointer-events: none;
-
+  
   .bang {
     max-width: 22px;
     @include margin(4, right);
   }
+}
+
+%toggle-unavailable,
+.unavailable-wrapper {
+  cursor: not-allowed;
 }
 
 .toggle {
