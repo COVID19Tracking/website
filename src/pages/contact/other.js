@@ -77,7 +77,6 @@ const ContactOtherPage = () => {
           label="URL address of the page or chart you are writing us about"
           name="url"
           id="contact-url"
-          onChange={event => setURL(event.target.value)}
         />
         <Textarea
           label="Message"
