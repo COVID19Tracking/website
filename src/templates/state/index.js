@@ -331,6 +331,8 @@ export const query = graphql`
       total_pediatric_patients_hospitalized_confirmed_covid
     }
     covidGradeStateAssessment(state: { eq: $state }) {
+      taco
+      ltc
       crdt
     }
   }

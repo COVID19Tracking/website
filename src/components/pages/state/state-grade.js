@@ -46,13 +46,21 @@ const StateGrade = ({ slug, assessment }) => {
         </span>
       </h2>
       <ul className={stateGradeStyle.list}>
-        <li>[TACO TK]</li>
+        <Grade
+          grade={assessment.taco}
+          title="State-level Metrics"
+          link={`/data/state/${slug}/assessment#state-metrics`}
+        />
         <Grade
           grade={assessment.crdt}
           title="Race and Ethnicity Data"
           link={`/data/state/${slug}/assessment#race-ethnicity`}
         />
-        <li>[LTC TK]</li>
+        <Grade
+          grade={assessment.ltc}
+          title="Long-Term Care Data"
+          link={`/data/state/${slug}/assessment#long-term-care`}
+        />
       </ul>
     </div>
   )
