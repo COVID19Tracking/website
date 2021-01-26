@@ -177,11 +177,6 @@ exports.createPages = async ({ graphql, actions }) => {
       context: node,
     })
     createPage({
-      path: `/data/state/${slug}/race-ethnicity`,
-      component: path.resolve(`./src/templates/state/race-ethnicity.js`),
-      context: node,
-    })
-    createPage({
       path: `/data/state/${slug}/notes`,
       component: path.resolve(`./src/templates/state/notes.js`),
       context: node,
@@ -210,6 +205,21 @@ exports.createPages = async ({ graphql, actions }) => {
       fromPath: `/data/state/${slug}/screenshots`,
       toPath: `https://screenshots.covidtracking.com/${slug}`,
       isPermanent: true,
+    })
+  })
+
+  let raceEthnicityHistoricalStateInfo = result.data.allCovidStateInfo.nodes
+
+  // Ignore MP, AS, and VI for historical race pages
+  raceEthnicityHistoricalStateInfo = raceEthnicityHistoricalStateInfo.filter(
+    node => ['MP', 'AS', 'VI'].indexOf(node.state) === -1,
+  )
+  raceEthnicityHistoricalStateInfo.forEach(node => {
+    const { slug } = node.childSlug
+    createPage({
+      path: `/data/state/${slug}/race-ethnicity`,
+      component: path.resolve(`./src/templates/state/race-ethnicity.js`),
+      context: node,
     })
   })
 
