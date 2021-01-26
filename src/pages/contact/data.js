@@ -41,7 +41,7 @@ const ContactPage = ({ data }) => {
           name="state"
           options={[
             'All states (US Data)',
-            ...data.allCovidStateInfo.nodes.map((node) => node.name),
+            ...data.allCovidStateInfo.nodes.map(node => node.name),
           ]}
         />
         <Input
@@ -50,7 +50,7 @@ const ContactPage = ({ data }) => {
           id="contact-issue-start-date"
           name="contact-issue-start-date"
           isRequired
-          onChange={(event) => setDate(event.target.value)}
+          onChange={event => setDate(event.target.value)}
         />
         <List
           type="checkbox"
@@ -59,7 +59,7 @@ const ContactPage = ({ data }) => {
           label="Which metric are you writing us about?"
           isRequired
           options={['Cases', 'Tests', 'Hospitalization', 'Death', 'Other'].map(
-            (item) => ({
+            item => ({
               value: item,
               label: item,
             }),
@@ -73,7 +73,7 @@ const ContactPage = ({ data }) => {
               type="text"
               name="name"
               id="contact-name"
-              onChange={(event) => {
+              onChange={event => {
                 setName(event.target.value)
               }}
             />
@@ -85,7 +85,7 @@ const ContactPage = ({ data }) => {
               label="Your email address"
               name="email"
               id="contact-email"
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={event => setEmail(event.target.value)}
             />
           </Col>
         </Row>
@@ -94,7 +94,7 @@ const ContactPage = ({ data }) => {
           name="body"
           id="contact-message"
           isRequired
-          onChange={(event) => setMessage(event.target.value)}
+          onChange={event => setMessage(event.target.value)}
         />
 
         <input
