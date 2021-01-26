@@ -32,10 +32,10 @@ const TableHeader = ({ header, inner = false }) => {
   )
 }
 
-const RaceTableHeader = ({ isSeparate }) => (
+const RaceTableHeader = ({ isPer100k, isSeparate }) => (
   <tr>
     {isSeparate && (
-      <th colSpan={2} className={historicalTableStyles.hidden}>
+      <th colSpan={isPer100k ? 1 : 2} className={historicalTableStyles.hidden}>
         <span>Historical data for</span>
       </th>
     )}
@@ -139,6 +139,7 @@ const HistoricalTables = ({
      */
     const tableLabels = useMemo(() => {
       const tableMetrics = availableMetrics[activeMetric]
+      tableMetrics.sort() // Sort metrics alphabetically.
 
       const labels = []
 
@@ -288,7 +289,12 @@ const HistoricalTables = ({
         <div className={historicalTableStyles.table}>
           <TableResponsive
             labels={raceTableLabels}
-            header={<RaceTableHeader isSeparate={reportsRaceSeparately()} />}
+            header={
+              <RaceTableHeader
+                isPer100k={usePer100kRate}
+                isSeparate={reportsRaceSeparately()}
+              />
+            }
             data={formattedTimeSeriesData}
           />
         </div>
