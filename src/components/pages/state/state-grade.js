@@ -35,10 +35,10 @@ const StateGrade = ({ slug, assessment }) => {
   return (
     <div className={stateGradeStyle.stateGrade}>
       <h2 className={stateGradeStyle.header}>
-        Data quality{' '}
+        Data Quality{' '}
         <span className={stateGradeStyle.learnMore}>
           (
-          <Link to="/">
+          <Link to={`/data/state/${slug}/assessment`}>
             Learn more
             <span className="a11y-only"> about data quality assessments</span>
           </Link>
