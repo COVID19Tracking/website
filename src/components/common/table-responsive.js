@@ -44,7 +44,7 @@ const TableResponsive = ({ labels, data, header }) => (
                   {isNumeric ? (
                     <FormatNumber number={row[field]} />
                   ) : (
-                    <>{format ? format(row[field]) : row[field]}</>
+                    <>{format ? format(row[field]) : row[field] || 'N/A'}</>
                   )}
                 </span>
               </td>
