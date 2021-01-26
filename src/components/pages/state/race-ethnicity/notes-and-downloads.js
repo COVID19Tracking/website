@@ -128,11 +128,11 @@ const NotesAndDownloads = ({
     <div className={styles.container}>
       <div className={styles.notes}>
         <h4>Notes</h4>
-        <ol>
+        <ul>
           {notesList.map(note => (
             <li key={note}>{note}</li>
           ))}
-        </ol>
+        </ul>
       </div>
       <div className={styles.downloadsContainer}>
         <h4>Download dataset</h4>
