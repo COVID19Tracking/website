@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import { Link } from 'gatsby'
+import classnames from 'classnames'
 
 import TableResponsive from '~components/common/table-responsive'
 
@@ -31,12 +32,14 @@ const TableHeader = ({ header, inner = false }) => {
   )
 }
 
-const RaceTableHeader = () => (
+const RaceTableHeader = ({ isSeparate }) => (
   <tr>
-    <th colSpan={2} className={historicalTableStyles.hidden}>
-      <span>Historical data for</span>
-    </th>
-    <TableHeader header="Race" inner />
+    {isSeparate && (
+      <th colSpan={2} className={historicalTableStyles.hidden}>
+        <span>Historical data for</span>
+      </th>
+    )}
+    <TableHeader header={isSeparate ? 'Race' : 'Race/Ethnicity'} inner />
   </tr>
 )
 
@@ -254,6 +257,16 @@ const HistoricalTables = ({
     [completeTimeSeriesData],
   )
 
+  const reportsRaceSeparately = () => {
+    if (populationData.type === 'sep') {
+      return true
+    }
+    if (populationData.type === 'com') {
+      return false
+    }
+    return null
+  }
+
   return (
     <>
       <RatesToggle
@@ -262,11 +275,16 @@ const HistoricalTables = ({
         currentMetric={currentMetric}
         noRates={populationData === null}
       />
-      <div className={historicalTableStyles.container}>
+      <div
+        className={classnames(
+          historicalTableStyles.container,
+          !reportsRaceSeparately() && historicalTableStyles.combined,
+        )}
+      >
         <div className={historicalTableStyles.table}>
           <TableResponsive
             labels={raceTableLabels}
-            header={<RaceTableHeader />}
+            header={<RaceTableHeader isSeparate={reportsRaceSeparately()} />}
             data={formattedTimeSeriesData}
           />
         </div>
@@ -277,13 +295,17 @@ const HistoricalTables = ({
             metric={currentMetric}
           />
         ) : (
-          <div className={historicalTableStyles.table}>
-            <TableResponsive
-              labels={ethnicityTableLabels}
-              header={<TableHeader header="Ethnicity" />}
-              data={formattedTimeSeriesData}
-            />
-          </div>
+          <>
+            {reportsRaceSeparately() && (
+              <div className={historicalTableStyles.table}>
+                <TableResponsive
+                  labels={ethnicityTableLabels}
+                  header={<TableHeader header="Ethnicity" />}
+                  data={formattedTimeSeriesData}
+                />
+              </div>
+            )}
+          </>
         )}
       </div>
     </>

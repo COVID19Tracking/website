@@ -118,6 +118,7 @@ export const query = graphql`
       notHisp
       other
       total
+      type
       twoOrMore
       white
     }
