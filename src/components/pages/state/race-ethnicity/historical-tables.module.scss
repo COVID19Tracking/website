@@ -3,12 +3,16 @@
   justify-content: center;
 
   table {
-    width: inherit;
+    width: 100%;
     @include margin(0, top);
 
     th {
       @include padding(16, top);
     }
+  }
+
+  div {
+    flex-grow: 1;
   }
 
   div:first-child {
