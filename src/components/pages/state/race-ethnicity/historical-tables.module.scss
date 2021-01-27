@@ -11,12 +11,15 @@
     }
   }
 
+  .ethnicity-table {
+    @include margin(64, left);
+  }
+
   div {
     flex-grow: 1;
   }
 
   div:first-child {
-    @include margin(64, right);
 
     @media (max-width: $viewport-lg) {
       @include margin(0, right);

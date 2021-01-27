@@ -343,7 +343,7 @@ const HistoricalTables = ({
           !reportsRaceSeparately() && historicalTableStyles.combined,
         )}
       >
-        <div className={historicalTableStyles.table}>
+        <div>
           <TableResponsive
             labels={raceTableLabels}
             header={
@@ -364,7 +364,7 @@ const HistoricalTables = ({
         ) : (
           <>
             {reportsRaceSeparately() && (
-              <div className={historicalTableStyles.table}>
+              <div className={historicalTableStyles.ethnicityTable}>
                 <TableResponsive
                   labels={ethnicityTableLabels}
                   header={<TableHeader header="Ethnicity" />}
