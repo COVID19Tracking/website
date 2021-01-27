@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react'
-import { Link } from 'gatsby'
 import classnames from 'classnames'
 
 import TableResponsive from '~components/common/table-responsive'
 import Tooltip from '~components/common/tooltip'
 
 import RatesToggle from './rates-toggle'
+import NoDataPlaceholder from './no-data'
 import {
   getAvailableMetricFields,
   formatTableValues,
@@ -13,7 +13,6 @@ import {
   removeMetricPrefix,
 } from './utils'
 
-import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import historicalTableStyles from './historical-tables.module.scss'
 
 const TableHeader = ({ header, inner = false }) => {
@@ -42,21 +41,6 @@ const RaceTableHeader = ({ isPer100k, isSeparate }) => (
     )}
     <TableHeader header={isSeparate ? 'Race' : 'Race/Ethnicity'} inner />
   </tr>
-)
-
-const NoDataPlaceholder = ({ stateName, dataType, metric }) => (
-  <div className={historicalTableStyles.noDataContainer}>
-    <h3 className={historicalTableStyles.header}>
-      <img src={alertBang} alt="" className={historicalTableStyles.bang} />
-      {dataType}
-    </h3>
-    <p className={historicalTableStyles.content}>
-      {stateName} does not report {dataType.toLowerCase()} data for{' '}
-      {metric.toLowerCase()}.
-      <br />
-      <Link to="/race/get-better-data">Help us get better data.</Link>
-    </p>
-  </div>
 )
 
 const HistoricalTables = ({
@@ -329,6 +313,18 @@ const HistoricalTables = ({
     return null
   }
 
+  const reportsEthnicityData = () => {
+    let hasNonNullValue = false
+    allEthnicityData[currentMetric].every(columnName => {
+      if (formattedTimeSeriesData[0][columnName] !== null) {
+        hasNonNullValue = true
+        return false
+      }
+      return true
+    })
+    return hasNonNullValue
+  }
+
   return (
     <>
       <RatesToggle
@@ -355,7 +351,7 @@ const HistoricalTables = ({
             data={formattedTimeSeriesData}
           />
         </div>
-        {allEthnicityData[currentMetric].length === 0 ? (
+        {!reportsEthnicityData() ? (
           <NoDataPlaceholder
             stateName={stateName}
             dataType="Ethnicity"
