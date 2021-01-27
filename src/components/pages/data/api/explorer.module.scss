@@ -44,3 +44,12 @@
   color: $color-slate-600;
   font-family: monospace;
 }
+
+.path-example {
+  [aria-hidden]::after {
+    text-decoration: none;
+    display: inline-block;
+    @include margin(4, left);
+    @include new-window-icon();
+  }
+}
