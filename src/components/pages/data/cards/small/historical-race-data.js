@@ -14,7 +14,7 @@ const HistoricalRaceDataSmallCard = ({ stateSlug, stateAbbreviation }) => (
       />
     </SmallCardIcon>
     <SmallCardLink>
-      View {stateAbbreviation}&apos;s historical data
+      View {stateAbbreviation}&apos;s historical racial data
     </SmallCardLink>
   </SmallCard>
 )
