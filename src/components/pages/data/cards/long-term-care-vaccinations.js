@@ -5,10 +5,6 @@ import { Statistic } from '~components/common/statistic'
 const LongTermCareVaccinations = ({ ltcFedVaccinations }) => (
   <Card title="Vaccinations">
     <CardBody>
-      <CardNote>
-        Vaccinations administered through the Pharmacy Partnership for Long-Term
-        Care Program
-      </CardNote>
       <Statistic
         title="Total resident &amp; staff doses administered"
         value={ltcFedVaccinations.Administered_Fed_LTC}
@@ -22,6 +18,10 @@ const LongTermCareVaccinations = ({ ltcFedVaccinations }) => (
         title="Staff &amp;resident 2nd dose administered"
         value={ltcFedVaccinations.Administered_Fed_LTC_Dose2}
       />
+      <CardNote>
+        Vaccinations administered through the Pharmacy Partnership for Long-Term
+        Care Program
+      </CardNote>
     </CardBody>
   </Card>
 )
