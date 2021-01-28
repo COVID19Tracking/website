@@ -68,7 +68,11 @@ const HistoricalTables = ({
         'Deaths_',
         raceOnly,
       )
-      const hospMetrics = getAvailableMetricFields(latestDay, 'Hosp_', raceOnly)
+      const hospMetrics = getAvailableMetricFields(
+        latestDay,
+        'Hospitalizations_',
+        raceOnly,
+      )
       const testMetrics = getAvailableMetricFields(
         latestDay,
         'Tests_',
@@ -79,7 +83,7 @@ const HistoricalTables = ({
 
       tableMetrics.Cases = caseMetrics
       tableMetrics.Deaths = deathMetrics
-      tableMetrics.Hosp = hospMetrics
+      tableMetrics.Hospitalizations = hospMetrics
       tableMetrics.Tests = testMetrics
 
       return tableMetrics

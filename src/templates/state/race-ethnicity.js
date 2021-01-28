@@ -151,18 +151,18 @@ export const query = graphql`
         Deaths_Other
         Deaths_White
         Deaths_Total
-        Hosp_AIAN
-        Hosp_Asian
-        Hosp_Black
-        Hosp_Ethnicity_Hispanic
-        Hosp_Ethnicity_NonHispanic
-        Hosp_Ethnicity_Unknown
-        Hosp_LatinX
-        Hosp_Multiracial
-        Hosp_NHPI
-        Hosp_Other
-        Hosp_White
-        Hosp_Total
+        Hospitalizations_AIAN: Hosp_AIAN
+        Hospitalizations_Asian: Hosp_Asian
+        Hospitalizations_Black: Hosp_Black
+        Hospitalizations_Ethnicity_Hispanic: Hosp_Ethnicity_Hispanic
+        Hospitalizations_Ethnicity_NonHispanic: Hosp_Ethnicity_NonHispanic
+        Hospitalizations_Ethnicity_Unknown: Hosp_Ethnicity_Unknown
+        Hospitalizations_LatinX: Hosp_LatinX
+        Hospitalizations_Multiracial: Hosp_Multiracial
+        Hospitalizations_NHPI: Hosp_NHPI
+        Hospitalizations_Other: Hosp_Other
+        Hospitalizations_White: Hosp_White
+        Hospitalizations_Total: Hosp_Total
         Tests_AIAN
         Tests_Asian
         Tests_Black

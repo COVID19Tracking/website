@@ -55,7 +55,7 @@ const Charts = ({
         'Deaths_',
         raceOnly,
       )
-      const hospMetrics = getAvailableMetricFields(latestDay, 'Hosp_', raceOnly)
+      const hospMetrics = getAvailableMetricFields(latestDay, 'Hospitalizations_', raceOnly)
       const testMetrics = getAvailableMetricFields(
         latestDay,
         'Tests_',
@@ -65,7 +65,7 @@ const Charts = ({
       const chartData = {}
       chartData.Cases = getMetricData(allData, 'Cases', caseMetrics)
       chartData.Deaths = getMetricData(allData, 'Deaths', deathMetrics)
-      chartData.Hosp = getMetricData(allData, 'Hosp', hospMetrics)
+      chartData.Hospitalizations = getMetricData(allData, 'Hospitalizations', hospMetrics)
       chartData.Tests = getMetricData(allData, 'Tests', testMetrics)
 
       return chartData
@@ -76,20 +76,6 @@ const Charts = ({
 
   const allRaceData = generateChartData(timeSeriesData, true)
   const allEthnicityData = generateChartData(timeSeriesData, false)
-
-  if (usePer100kRate) {
-    // use per 100k metrics
-    /* eslint-disable no-param-reassign */
-    // todo stop this from dividing the original value multiple times
-    //  (i.e. don't edit the original value)
-    // todo use all racial groups, not just Black
-    // todo apply to both race and ethnicity data
-    allRaceData[currentMetric].Black.forEach((point, i, dataArray) => {
-      // todo use population on a per-race/ethnicity basis
-      //   (not on a per-state basis)
-      dataArray[i].value = point.value / (population / 100000)
-    })
-  }
 
   // todo add renderTooltipContents to line charts
 

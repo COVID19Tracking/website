@@ -29,7 +29,7 @@ const getMetrics = allData => {
     Cases: {
       available: false,
     },
-    Hosp: {
+    Hospitalizations: {
       available: false,
     },
     Deaths: {
@@ -70,8 +70,8 @@ const getMetrics = allData => {
   })
 
   nonNullValues.every(value => {
-    if (checkValue(value, 'Hosp_')) {
-      metrics.Hosp.available = true
+    if (checkValue(value, 'Hospitalizations_')) {
+      metrics.Hospitalizations.available = true
       return false
     }
     return true

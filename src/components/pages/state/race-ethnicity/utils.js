@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { formatDateToString } from '~components/utils/format'
 
-const getAvailableMetricFields = (latestDay, startsWith, raceOnly) => {
+const getAvailableMetricFields = (latestDay, prefix, raceOnly) => {
   /**
    * Returns a list of all of the available metric fields.
    * raceOnly: returns only race values when true, only ethnicity
@@ -10,7 +10,7 @@ const getAvailableMetricFields = (latestDay, startsWith, raceOnly) => {
   const listOfMetrics = []
 
   Object.keys(latestDay).forEach(value => {
-    if (value.startsWith(startsWith) && !value.includes('Total')) {
+    if (value.startsWith(prefix) && !value.includes('Total')) {
       listOfMetrics.push(value)
     }
   })
@@ -71,7 +71,7 @@ const formatTableValues = timeSeriesData => {
 
 const removeMetricPrefix = metric => {
   /**
-   * Removes the 'Cases_' or 'Hosp_', etc. prefix from a string.
+   * Removes the 'Cases_' or 'Tests_', etc. prefix from a string.
    */
   return metric.replace(/^[A-z]*_/, '')
 }
