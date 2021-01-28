@@ -12,34 +12,6 @@ const labelTooltipDict = {
   Multiracial: 'Two or more races',
 }
 
-const getTableHeaderStyle = label => {
-  if (Object.keys(labelTooltipDict).indexOf(label) > -1) {
-    return historicalTableStyles.abbreviatedLabel
-  }
-  return null
-}
-
-const getTableHeaderLabel = label => {
-  let labelText = label
-
-  if (labelText === 'Hispanic' || labelText === 'LatinX') {
-    labelText = 'Hispanic\u200a/\u200aLatino'
-  }
-
-  if (labelText === 'NonHispanic') {
-    labelText = 'Non Hispanic\u200a/\u200aLatino'
-  }
-
-  if (Object.keys(labelTooltipDict).indexOf(labelText) === -1) {
-    return labelText
-  }
-  return (
-    <Tooltip label={<span>{labelTooltipDict[labelText]}</span>}>
-      <span className={historicalTableStyles.headerLabel}>{labelText}</span>
-    </Tooltip>
-  )
-}
-
 const generateBaseTableLabels = (
   activeMetric,
   availableMetrics,
@@ -48,11 +20,45 @@ const generateBaseTableLabels = (
 ) => {
   /**
    * Generates the labels array for TableResponsive.
-   * raceOnly: returns only race values when true, only ethnicity
-   * values when false
+   * @param {string} activeMetric: The current covid-19 metric for the state,
+   *   i.e. Cases or Tests.
+   * @param {Object} availableMetrics: A dictionary of the available metrics,
+   *   with keys like Cases, Tests.
+   * @param {boolean} raceOnly: Returns only race values when true, only
+   *   ethnicity values when false.
+   * @param {boolean} reportsRaceSeparately: Whether or not the state reports
+   *   race data separately from ethnicity data.
    */
   const tableLabels = useMemo(() => {
     const tableMetrics = availableMetrics[activeMetric]
+
+    const getTableHeaderStyle = label => {
+      if (Object.keys(labelTooltipDict).indexOf(label) > -1) {
+        return historicalTableStyles.abbreviatedLabel
+      }
+      return null
+    }
+
+    const getTableHeaderLabel = label => {
+      let labelText = label
+
+      if (labelText === 'Hispanic' || labelText === 'LatinX') {
+        labelText = 'Hispanic\u200a/\u200aLatino'
+      }
+
+      if (labelText === 'NonHispanic') {
+        labelText = 'Non Hispanic\u200a/\u200aLatino'
+      }
+
+      if (Object.keys(labelTooltipDict).indexOf(labelText) === -1) {
+        return labelText
+      }
+      return (
+        <Tooltip label={<span>{labelTooltipDict[labelText]}</span>}>
+          <span className={historicalTableStyles.headerLabel}>{labelText}</span>
+        </Tooltip>
+      )
+    }
 
     const unsortedLabels = []
 
