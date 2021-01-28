@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import classnames from 'classnames'
 
 import Tooltip from '~components/common/tooltip'
@@ -39,7 +39,7 @@ const MetricSelector = ({
   return (
     <div className={styles.toggle} role="radiogroup">
       {Object.keys(metrics).map(option => (
-        <>
+        <Fragment key={option}>
           {!metrics[option].available ? (
             <Tooltip
               label={
@@ -75,7 +75,7 @@ const MetricSelector = ({
               <span>{option}</span>
             </MetricButton>
           )}
-        </>
+        </Fragment>
       ))}
     </div>
   )
