@@ -66,13 +66,14 @@ const BlogContent = ({ content }) => {
           )
         }
         if (__typename === 'ContentfulContentBlockTableauChart') {
-          const { contentful_id, url, height, mobileUrl } = target
+          const { contentful_id, url, height, mobileUrl, mobileHeight } = target
           return (
             <TableauChart
               id={contentful_id}
               viewUrl={url}
               viewUrlMobile={mobileUrl}
               height={height}
+              mobileHeight={mobileHeight}
             />
           )
         }

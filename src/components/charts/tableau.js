@@ -9,6 +9,7 @@ const TableauCharts = ({
   height,
   mobileHeight = false,
   viewUrlMobile = false,
+  mobileHeight = false,
 }) => {
   const chartRef = useRef(false)
   const mobileChartRef = useRef(false)
