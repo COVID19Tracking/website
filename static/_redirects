@@ -40,3 +40,5 @@
 /documents/CDC_Report_CTP.pdf                 /document/download/cdc-paper
 /data/national/outcomes                       /data/national/deaths
 /blog/*                                       /analysis-updates/:splat
+
+/data/long-term-care                          /nursing-homes
