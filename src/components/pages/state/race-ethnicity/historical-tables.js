@@ -6,6 +6,7 @@ import Tooltip from '~components/common/tooltip'
 
 import RatesToggle from './rates-toggle'
 import NoDataPlaceholder from './no-data'
+import { TableHeader, RaceTableHeader } from './table-header'
 import {
   getAvailableMetricFields,
   formatTableValues,
@@ -14,34 +15,6 @@ import {
 } from './utils'
 
 import historicalTableStyles from './historical-tables.module.scss'
-
-const TableHeader = ({ header, inner = false }) => {
-  if (!inner) {
-    return (
-      <tr>
-        <th colSpan="100%">
-          <h4 className={historicalTableStyles.tableHeader}>{header}</h4>
-        </th>
-      </tr>
-    )
-  }
-  return (
-    <th colSpan="100%">
-      <h4 className={historicalTableStyles.tableHeader}>{header}</h4>
-    </th>
-  )
-}
-
-const RaceTableHeader = ({ isPer100k, isSeparate }) => (
-  <tr>
-    {isSeparate && (
-      <th colSpan={isPer100k ? 1 : 2} className={historicalTableStyles.hidden}>
-        <span>Historical data for</span>
-      </th>
-    )}
-    <TableHeader header={isSeparate ? 'Race' : 'Race/Ethnicity'} inner />
-  </tr>
-)
 
 const HistoricalTables = ({
   timeSeriesData,

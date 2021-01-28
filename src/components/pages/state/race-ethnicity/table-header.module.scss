@@ -1,0 +1,13 @@
+.table-header {
+  color: $color-plum-700;
+  background-color: $color-plum-100;
+
+  @include margin(0, (bottom, top));
+  @include padding(4);
+
+  text-align: left;
+}
+
+th.hidden * {
+  display: none;
+}
