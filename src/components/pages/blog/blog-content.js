@@ -74,6 +74,7 @@ const BlogContent = ({ content }) => {
               viewUrlMobile={mobileUrl}
               height={height}
               mobileHeight={mobileHeight}
+              className={blogContentStyles.image}
             />
           )
         }
