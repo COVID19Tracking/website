@@ -22,9 +22,7 @@ import LongTermCareVaccinationsCard from './cards/long-term-care-vaccinations'
 import createRaceValues from './cards/crdt/create-race-data'
 import CrdtCasesCard from './cards/crdt/cases-card'
 import CrdtDeathsCard from './cards/crdt/deaths-card'
-
 import SmallCards from './cards/small-cards'
-// import GradeSmallCard from './cards/small/grade-small-card'
 import ViewDataSmallCard from './cards/small/view-racial-data-small-card'
 import DataAsGraphicSmallCard from './cards/small/data-as-graphic-small-card'
 

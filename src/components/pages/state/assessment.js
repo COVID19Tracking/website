@@ -26,11 +26,7 @@ const Assessment = ({ stateName, assessments }) => {
         title="State-level metrics"
       />
       <AssessmentList category="Race and Ethnicity" slug="race-ethnicity" />
-      <AssessmentList
-        category="Long-Term Care"
-        title="Nursing Homes"
-        slug="nursing-home"
-      />
+      <AssessmentList category="Long-Term Care" slug="long-term-care" />
     </>
   )
 }
