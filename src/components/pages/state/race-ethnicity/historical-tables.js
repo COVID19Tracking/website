@@ -109,6 +109,7 @@ const HistoricalTables = ({
     /**
      * Generates the labels array for TableResponsive.
      * raceOnly: returns only race values when true, only ethnicity
+     * values when false
      */
     const tableLabels = useMemo(() => {
       const tableMetrics = availableMetrics[activeMetric]
