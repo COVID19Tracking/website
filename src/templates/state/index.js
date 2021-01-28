@@ -32,6 +32,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
     allCovidAnnotation,
     hhsHospitals,
     covidGradeStateAssessment,
+    ltcFedVaccinations,
   } = data
   return (
     <Layout
@@ -74,6 +75,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
           raceData={getRaceData(data)}
           longTermCare={data.covidStateInfo.childLtc}
           hhsHospitalization={hhsHospitals}
+          ltcFedVaccinations={ltcFedVaccinations}
         />
         <StateTweets
           tweets={allTweets}
@@ -334,6 +336,12 @@ export const query = graphql`
       taco
       ltc
       crdt
+    }
+    ltcFedVaccinations(Location: { eq: $state }) {
+      Administered_Fed_LTC
+      Administered_Fed_LTC_Dose1
+      Administered_Fed_LTC_Dose2
+      Date
     }
   }
 `

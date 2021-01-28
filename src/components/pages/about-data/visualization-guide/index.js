@@ -66,24 +66,6 @@ const VisualizationGuide = () => {
           overly playful or lighthearted. You also don&rsquo;t want to select
           colors that suggest the worst possible outcome.
         </p>
-        <h3>Include the denominator.</h3>
-        <p>
-          Testing is one of the most important tools in controlling an outbreak.
-          When universal testing is implemented, people who are infected with
-          the virus can be isolated from folks who test negative. This functions
-          as a targeted social distancing technique and can help slow the
-          outbreak.
-        </p>
-        <p>
-          Charting the number of positive tests alone is often problematic.
-          Simple case counts show where people are being tested, not necessarily
-          where people are sick. To illustrate the point, a state that reports
-          three cases of COVID-19 after testing 2,000 people is probably in a
-          different stage of its outbreak than a state that reports three cases
-          but has only tested 20 people. But if all you have is a case count,
-          those states look exactly the same. That is why we need to include the
-          total number of tests as a denominator.
-        </p>
       </div>
 
       <UsPositiveAndTotalTestsContainer />
