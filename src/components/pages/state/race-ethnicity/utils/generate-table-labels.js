@@ -30,9 +30,15 @@ const generateBaseTableLabels = (
    *   race data separately from ethnicity data.
    */
   const tableLabels = useMemo(() => {
+    // Only generate this content once...
+
+    // The metrics to show in the table header.
     const tableMetrics = availableMetrics[activeMetric]
 
     const getTableHeaderStyle = label => {
+      /**
+       * Gets the style for a given header label.
+       */
       if (Object.keys(labelTooltipDict).indexOf(label) > -1) {
         return historicalTableStyles.abbreviatedLabel
       }
@@ -40,6 +46,9 @@ const generateBaseTableLabels = (
     }
 
     const getTableHeaderLabel = label => {
+      /**
+       * Generates a column label for the table header.
+       */
       let labelText = label
 
       if (labelText === 'Hispanic' || labelText === 'LatinX') {
@@ -51,8 +60,13 @@ const generateBaseTableLabels = (
       }
 
       if (Object.keys(labelTooltipDict).indexOf(labelText) === -1) {
+        /*
+          Don't need a tooltip here: label is not an abbreviation / does not
+          need further explanation.
+        */
         return labelText
       }
+
       return (
         <Tooltip label={<span>{labelTooltipDict[labelText]}</span>}>
           <span className={historicalTableStyles.headerLabel}>{labelText}</span>
@@ -64,6 +78,8 @@ const generateBaseTableLabels = (
 
     tableMetrics.forEach((tableMetric, index) => {
       const label = removeMetricPrefix(tableMetric)
+
+      // Add each column label to the unsorted array.
       unsortedLabels[index] = {
         fieldTotal: tableMetric,
         field: tableMetric,
@@ -75,6 +91,8 @@ const generateBaseTableLabels = (
     let labels
 
     if (raceOnly) {
+      // Just looking at race data.
+
       const pushMetricByContains = (listToSearch, listToPush, searchString) => {
         /**
          * Push metrics from one list to another only if their fieldTotal
@@ -97,12 +115,15 @@ const generateBaseTableLabels = (
       // _Black is the first element
       metricsInOrder.push('_Black')
 
-      // LatinX but only if the state reports data as combined.
+      /*
+        Add LatinX but only if the state reports race data combined
+        with ethnicity.
+      */
       if (!reportsRaceSeparately) {
         metricsInOrder.push('LatinX')
       }
 
-      // All other metrics.
+      // All other metrics, in order.
       metricsInOrder.push(
         '_Asian',
         '_NHPI',
@@ -112,18 +133,18 @@ const generateBaseTableLabels = (
         '_Other',
       )
 
-      // Sort metrics in the same order as the dashboard
       metricsInOrder.forEach(metric => {
         pushMetricByContains(unsortedLabels, labels, metric)
       })
 
-      // race data
+      // Prepend the totals column.
       labels.unshift({
         fieldTotal: `${activeMetric}_Total`,
         field: `${activeMetric}_Total`,
         label: 'Total',
       })
 
+      // Prepend the date column.
       labels.unshift({
         fieldTotal: 'formattedDate',
         field: 'formattedDate',
@@ -131,10 +152,11 @@ const generateBaseTableLabels = (
         label: 'Date',
       })
     } else {
-      // ethnicity data
+      // Just looking at ethnicity data.
 
       labels = unsortedLabels // Don't need to sort for ethnicity.
 
+      // Prepend the totals column.
       labels.unshift({
         fieldTotal: `${activeMetric}_Total`,
         field: `${activeMetric}_Total`,
@@ -143,6 +165,7 @@ const generateBaseTableLabels = (
         headerStyle: historicalTableStyles.ethnicityDate,
       })
 
+      // Prepend the date column.
       labels.unshift({
         fieldTotal: 'formattedDate',
         field: 'formattedDate',
@@ -165,6 +188,19 @@ const generateTableLabels = (
   isPer100k,
   reportsRaceSeparately,
 ) => {
+  /**
+   * Generates the labels array for TableResponsive.
+   * @param {string} activeMetric: The current covid-19 metric for the state,
+   *   i.e. Cases or Tests.
+   * @param {Object} availableMetrics: A dictionary of the available metrics,
+   *   with keys like Cases, Tests.
+   * @param {boolean} raceOnly: Returns only race values when true, only
+   *   ethnicity values when false.
+   * @param {boolean} isPer100k: Whether or not the table should show rates
+   *   (per 100k people) or totals.
+   * @param {boolean} reportsRaceSeparately: Whether or not the state reports
+   *   race data separately from ethnicity data.
+   */
   const base = generateBaseTableLabels(
     activeMetric,
     availableMetrics,
@@ -191,7 +227,7 @@ const generateTableLabels = (
     return per100kLabel
   })
 
-  // Hide total, other, two (or more race), and unknown
+  // Hide total, other, two (or more races), and unknown
   // values for per100k labels.
   baseWithPer100k = baseWithPer100k.filter(
     label =>
