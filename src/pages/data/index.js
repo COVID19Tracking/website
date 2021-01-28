@@ -54,6 +54,7 @@ const DataPage = ({ data }) => {
         raceDataCombined={data.allCovidRaceDataCombined.nodes}
         raceDataSeparate={data.allCovidRaceDataSeparate.nodes}
         hhsHospitalization={data.allHhsHospitals.nodes}
+        ltcFedVaccinations={data.allLtcFedVaccinations.nodes}
       />
     </Layout>
   )
@@ -292,6 +293,15 @@ export const query = graphql`
         staffed_icu_adult_patients_confirmed_and_suspected_covid
         total_adult_patients_hospitalized_confirmed_covid
         total_pediatric_patients_hospitalized_confirmed_covid
+      }
+    }
+    allLtcFedVaccinations {
+      nodes {
+        Administered_Fed_LTC
+        Administered_Fed_LTC_Dose1
+        Administered_Fed_LTC_Dose2
+        Date
+        Location
       }
     }
   }
