@@ -16,7 +16,7 @@ executors:
     working_directory: *workspace_root
 
 jobs:
-  api:
+  setup:
     executor: main-executor
     steps:
       - checkout
@@ -34,36 +34,6 @@ jobs:
           paths:
             - _api
             - _data
-  gatsby-build:
-    executor: main-executor
-    steps:
-      - checkout
-      - attach_workspace:
-          at: *workspace_root
-      - run:
-          name: apt-update
-          command: 'sudo apt-get update'
-      - run:
-          name: install-dependencies
-          command: 'sudo apt-get install gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget'
-      - run:
-          name: install
-          command: 'yarn install'
-      - run:
-          name: setup
-          command: 'yarn run setup:env-vars'
-      - run:
-          name: build
-          command: 'yarn run build:gatsby'
-      - run:
-          name: test
-          command: 'yarn run build:test'
-      - persist_to_workspace:
-          root: *workspace_root
-          paths:
-            - _api
-            - _data
-            - public
   gatsby-test:
     executor: main-executor
     steps:
@@ -90,32 +60,14 @@ jobs:
       - run:
           name: lint
           command: 'yarn run test:lint'
-  storybook:
-    executor: main-executor
-    steps:
-      - checkout
-      - attach_workspace:
-          at: *workspace_root
-      - run:
-          name: install
-          command: 'yarn install'
-      - run:
-          name: storybook
-          command: 'yarn run storybook:build'
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - api
-      - gatsby-build:
-          requires:
-            - api
+      - setup
       - gatsby-lint:
           requires:
-            - api
+            - setup
       - gatsby-test:
           requires:
-            - api
-      - storybook:
-          requires:
-            - api
+            - setup
