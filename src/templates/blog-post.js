@@ -166,6 +166,7 @@ export const query = graphql`
             contentful_id
             name
             height
+            mobileHeight
             mobileUrl
             url
           }
