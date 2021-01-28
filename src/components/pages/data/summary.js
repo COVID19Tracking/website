@@ -378,9 +378,11 @@ const StateSummary = ({
                 stateDeaths={data.death}
                 stateSlug={stateSlug}
               />
-              <LongTermCareVaccinationsCard
-                ltcFedVaccinations={ltcFedVaccinations}
-              />
+              {ltcFedVaccinations && (
+                <LongTermCareVaccinationsCard
+                  ltcFedVaccinations={ltcFedVaccinations}
+                />
+              )}
             </div>
           </>
         )}

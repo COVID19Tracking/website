@@ -331,14 +331,8 @@ export const query = graphql`
     ltcFedVaccinations(Location: { eq: $state }) {
       Administered_Fed_LTC
       Administered_Fed_LTC_Dose1
-      Administered_Fed_LTC_Dose1_Residents
-      Administered_Fed_LTC_Dose1_Staff
-      Administered_Fed_LTC_Dose1_Unk
       Administered_Fed_LTC_Dose2
-      Administered_Fed_LTC_Dose2_Residents
-      Administered_Fed_LTC_Dose2_Staff
-      Administered_Fed_LTC_Dose2_Unk
-      Census2019
+      Date
     }
   }
 `
