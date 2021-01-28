@@ -33,12 +33,15 @@
 /help                                         /get-involved
 /about-project/help                           /get-involved
 /data-definitions                             /about-data/data-definitions
-/long-term-care                                 /data/long-term-care
-/longtermcare                                 /data/long-term-care
-/data/longtermcare                            /data/long-term-care
 /documents/CDC%20Data%20Report%20%20-%20The%20COVID%20Tracking%20Project.pdf /document/download/cdc-paper
 /documents/CDC_Report_CTP.pdf                 /document/download/cdc-paper
 /data/national/outcomes                       /data/national/deaths
 /blog/*                                       /analysis-updates/:splat
 
+
+/long-term-care                               /nursing-homes
+/longtermcare                                 /nursing-homes
+/data/longtermcare                            /nursing-homes
 /data/long-term-care                          /nursing-homes
+/data/long-term-care/contact                  /nursing-homes/contact
+/data/long-term-care/history                  /nursing-homes/history
