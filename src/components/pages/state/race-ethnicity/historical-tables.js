@@ -131,6 +131,7 @@ const HistoricalTables = ({
     activeMetric,
     availableMetrics,
     raceOnly,
+    reportsRaceSeparately,
   ) => {
     /**
      * Generates the labels array for TableResponsive.
@@ -175,16 +176,25 @@ const HistoricalTables = ({
         labels = []
 
         // Metrics in the same order as the dashboard.
-        const metricsInOrder = [
-          '_Black',
-          'LatinX',
+        const metricsInOrder = []
+
+        // _Black is the first element
+        metricsInOrder.push('_Black')
+
+        // LatinX but only if the state reports data as combined.
+        if (!reportsRaceSeparately) {
+          metricsInOrder.push('LatinX')
+        }
+
+        // All other metrics.
+        metricsInOrder.push(
           '_Asian',
           '_NHPI',
           '_AIAN',
           '_Multiracial',
           '_White',
           '_Other',
-        ]
+        )
 
         // Sort metrics in the same order as the dashboard
         metricsInOrder.forEach(metric => {
@@ -237,11 +247,13 @@ const HistoricalTables = ({
     availableMetrics,
     raceOnly,
     isPer100k,
+    reportsRaceSeparately,
   ) => {
     const base = generateBaseTableLabels(
       activeMetric,
       availableMetrics,
       raceOnly,
+      reportsRaceSeparately,
     )
     if (!isPer100k) {
       return base.map(label => {
@@ -280,30 +292,6 @@ const HistoricalTables = ({
   const allRaceData = generateTableData(timeSeriesData, true)
   const allEthnicityData = generateTableData(timeSeriesData, false)
 
-  const raceTableLabels = generateTableLabels(
-    currentMetric,
-    allRaceData,
-    true,
-    usePer100kRate,
-  )
-  const ethnicityTableLabels = generateTableLabels(
-    currentMetric,
-    allEthnicityData,
-    false,
-    usePer100kRate,
-  )
-
-  // includes per cap values
-  const completeTimeSeriesData =
-    populationData === null
-      ? timeSeriesData
-      : addPer100kValues(timeSeriesData, populationData)
-
-  const formattedTimeSeriesData = useMemo(
-    () => formatTableValues(completeTimeSeriesData),
-    [completeTimeSeriesData],
-  )
-
   const reportsRaceSeparately = () => {
     if (populationData === null) {
       return true // Guam
@@ -316,6 +304,32 @@ const HistoricalTables = ({
     }
     return null
   }
+
+  const raceTableLabels = generateTableLabels(
+    currentMetric,
+    allRaceData,
+    true,
+    usePer100kRate,
+    reportsRaceSeparately(),
+  )
+  const ethnicityTableLabels = generateTableLabels(
+    currentMetric,
+    allEthnicityData,
+    false,
+    usePer100kRate,
+    reportsRaceSeparately(),
+  )
+
+  // includes per cap values
+  const completeTimeSeriesData =
+    populationData === null
+      ? timeSeriesData
+      : addPer100kValues(timeSeriesData, populationData)
+
+  const formattedTimeSeriesData = useMemo(
+    () => formatTableValues(completeTimeSeriesData),
+    [completeTimeSeriesData],
+  )
 
   const reportsEthnicityData = () => {
     let hasNonNullValue = false
