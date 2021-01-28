@@ -5,7 +5,7 @@ const DataAsOf = ({ stateDate, ctpDate }) => {
   return (
     <div>
       Data as of <FormatDate date={stateDate} format="LLLL d, yyyy" /> | Data
-      last collected by CTP {ctpDate}
+      last collected by CTP <FormatDate date={ctpDate} format="LLLL d, yyyy" />
     </div>
   )
 }

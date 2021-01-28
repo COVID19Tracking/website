@@ -123,7 +123,6 @@ const Hero = ({
     setCurrentMetric(getFirstAvailableMetric(metrics))
   }, [])
 
-  const lastCollectedByCtp = timeSeriesData[0].formattedDate
   const lastReportedByState = (isCombined(combinedNotes, separateNotes)
     ? combinedNotes
     : separateNotes
@@ -140,7 +139,7 @@ const Hero = ({
         />
         <DataAsOf
           stateDate={lastReportedByState}
-          ctpDate={lastCollectedByCtp}
+          ctpDate={timeSeriesData[0].Date}
         />
         <Sources data={stateSources} />
         <NotesAndDownloads
