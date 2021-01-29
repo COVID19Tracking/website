@@ -7,6 +7,7 @@ import HistoricalTables from '~components/pages/state/race-ethnicity/historical-
 
 const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
+  const { slug } = state.childSlug
 
   const [currentMetric, setCurrentMetric] = useState('Cases')
 
@@ -17,10 +18,8 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
     <Layout
       title={`${state.name}: Race & Ethnicity Historical Data`}
       returnLinks={[
-        {
-          link: '/race/dashboard',
-          title: 'Racial Data Tracker',
-        },
+        { link: '/data', title: 'Our Data' },
+        { link: `/data/state/${slug}`, title: state.name },
       ]}
       path={path}
       description={`Historical time series of race and ethnicity data in ${state.name}.`}
