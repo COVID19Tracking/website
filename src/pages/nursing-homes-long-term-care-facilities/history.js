@@ -31,7 +31,7 @@ export default ({ path, data }) => {
   return (
     <Layout
       title="Long-Term Care National Historic Data"
-      returnLinks={[{ link: '/nursing-homes' }]}
+      returnLinks={[{ link: '/nursing-homes-long-term-care-facilities' }]}
       path={path}
     >
       <p>

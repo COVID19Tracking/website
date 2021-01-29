@@ -7,7 +7,7 @@ import ContentfulContent from '~components/common/contentful-content'
 const LTCContactPage = ({ data }) => (
   <Layout
     title="Long-Term Care: Contact us"
-    returnLinks={[{ link: '/nursing-homes' }]}
+    returnLinks={[{ link: '/nursing-homes-long-term-care-facilities' }]}
     centered
   >
     <ContentfulContent
