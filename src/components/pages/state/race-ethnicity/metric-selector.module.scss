@@ -79,7 +79,7 @@
 
     @media (max-width: $viewport-md) {
       padding-left: 0;
-      margin-bottom: 0.5rem;
+      @include margin(8, bottom);
     }
   }
 }
