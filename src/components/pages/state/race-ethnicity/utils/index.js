@@ -37,10 +37,6 @@ const formatTableValues = timeSeriesData => {
     availableDataPoints.forEach(dataPointName => {
       const dataPointValue = day[dataPointName]
 
-      if (dataPointValue === null) {
-        console.log('oop')
-      }
-
       if (
         typeof dataPointValue === 'number' &&
         dataPointValue != null &&
