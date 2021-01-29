@@ -253,10 +253,7 @@ const LongTermCareFacilities = ({ stateSlug, facilities }) => {
       />
       <p>
         Do you have information about a facility on this list?{' '}
-        <Link to="/data/long-term-care/contact">
-          We would love to hear from you
-        </Link>
-        .
+        <Link to="/nursing-homes/contact">We would love to hear from you</Link>.
       </p>
       {openedFacility && (
         <Modal

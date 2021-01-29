@@ -12,6 +12,7 @@ const AboutPage = ({ data }) => (
     title="About Us"
     description="The COVID Tracking Project is a volunteer organization launched from The Atlantic and dedicated to collecting and publishing the data required to understand the COVID-19 outbreak in the United States."
     path="/about"
+    forceSubNavigationKey="about"
   >
     <LongContent>
       <Container centered>
