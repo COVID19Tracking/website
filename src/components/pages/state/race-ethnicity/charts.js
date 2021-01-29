@@ -16,6 +16,9 @@ const Charts = ({
   // todo use population on a per-race/ethnicity basis
   // (not on a per-state basis)
 
+  console.log(population)
+  console.log(usePer100kRate)
+
   const getMetricData = (allData, metricTitle, metrics) => {
     /** Restructures a single metric's racial data (i.e. cases) for charts */
     const completedData = {} // store the final metric data object
