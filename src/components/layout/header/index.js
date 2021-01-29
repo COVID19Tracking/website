@@ -40,6 +40,7 @@ const Header = withSearch(
     hero,
     centerTitle,
     showWarning,
+    forceSubNavigationKey,
   }) => {
     const data = useStaticQuery(graphql`
       query {
@@ -100,6 +101,14 @@ const Header = withSearch(
         })
       }
     })
+
+    if (forceSubNavigationKey) {
+      pathNavigation = {
+        top: true,
+        parent: false,
+        subNavigation: subNavigation[forceSubNavigationKey],
+      }
+    }
 
     const [showMobileMenu, setShowMobileMenu] = useState(false)
 
