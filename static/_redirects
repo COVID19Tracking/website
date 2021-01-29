@@ -38,10 +38,10 @@
 /data/national/outcomes                       /data/national/deaths
 /blog/*                                       /analysis-updates/:splat
 
-
-/long-term-care                               /nursing-homes
-/longtermcare                                 /nursing-homes
-/data/longtermcare                            /nursing-homes
-/data/long-term-care                          /nursing-homes
-/data/long-term-care/contact                  /nursing-homes/contact
-/data/long-term-care/history                  /nursing-homes/history
+/nursing-homes                                /nursing-homes-long-term-care-facilities
+/long-term-care                               /nursing-homes-long-term-care-facilities
+/longtermcare                                 /nursing-homes-long-term-care-facilities
+/data/longtermcare                            /nursing-homes-long-term-care-facilities
+/data/long-term-care                          /nursing-homes-long-term-care-facilities
+/data/long-term-care/contact                  /nursing-homes-long-term-care-facilities/contact
+/data/long-term-care/history                  /nursing-homes-long-term-care-facilities/history

@@ -10,7 +10,7 @@ items:
     link: /race
     subNavigation: race
   - title: Nursing Homes
-    link: /nursing-homes
-    subNavigation: nursing-homes
+    link: /nursing-homes-long-term-care-facilities
+    subNavigation: nursing-homes-long-term-care-facilities
   - title: Analysis & Updates
     link: /analysis-updates
