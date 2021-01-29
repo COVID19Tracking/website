@@ -32,6 +32,77 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
         </span>
       </a>
     </p>
+    <div
+      className="container"
+    >
+      <a
+        className="wrapper"
+        href="/data/state/undefined/race-ethnicity/"
+      >
+        <div
+          className="container"
+        >
+          <img
+            alt="Historical icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="30px"
+          />
+          <span
+            className="link"
+          >
+            View 
+            Arizona
+            's historical racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
+      </a>
+      <a
+        className="wrapper"
+        href="/race/infection-and-mortality-data#Arizona"
+      >
+        <div
+          className="container"
+        >
+          <img
+            alt="Chart icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="30px"
+          />
+          <span
+            className="link"
+          >
+            Get shareable graphic
+             
+            <span
+              className="a11y-only"
+            >
+              for 
+              's
+            </span>
+            <span
+              aria-hidden={true}
+            >
+              of 
+              Arizona
+              's
+            </span>
+             racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
+      </a>
+    </div>
     <div>
       <div>
         <div
@@ -365,6 +436,77 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
         </span>
       </a>
     </p>
+    <div
+      className="container"
+    >
+      <a
+        className="wrapper"
+        href="/data/state/undefined/race-ethnicity/"
+      >
+        <div
+          className="container"
+        >
+          <img
+            alt="Historical icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="30px"
+          />
+          <span
+            className="link"
+          >
+            View 
+            Washington, DC
+            's historical racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
+      </a>
+      <a
+        className="wrapper"
+        href="/race/infection-and-mortality-data#Washington, DC"
+      >
+        <div
+          className="container"
+        >
+          <img
+            alt="Chart icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="30px"
+          />
+          <span
+            className="link"
+          >
+            Get shareable graphic
+             
+            <span
+              className="a11y-only"
+            >
+              for 
+              's
+            </span>
+            <span
+              aria-hidden={true}
+            >
+              of 
+              Washington, DC
+              's
+            </span>
+             racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
+      </a>
+    </div>
     <div>
       <div>
         <div
@@ -698,6 +840,77 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
         </span>
       </a>
     </p>
+    <div
+      className="container"
+    >
+      <a
+        className="wrapper"
+        href="/data/state/undefined/race-ethnicity/"
+      >
+        <div
+          className="container"
+        >
+          <img
+            alt="Historical icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="30px"
+          />
+          <span
+            className="link"
+          >
+            View 
+            Georgia
+            's historical racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
+      </a>
+      <a
+        className="wrapper"
+        href="/race/infection-and-mortality-data#Georgia"
+      >
+        <div
+          className="container"
+        >
+          <img
+            alt="Chart icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="30px"
+          />
+          <span
+            className="link"
+          >
+            Get shareable graphic
+             
+            <span
+              className="a11y-only"
+            >
+              for 
+              's
+            </span>
+            <span
+              aria-hidden={true}
+            >
+              of 
+              Georgia
+              's
+            </span>
+             racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
+      </a>
+    </div>
     <div>
       <div
         className="container"
@@ -809,6 +1022,77 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
         </span>
       </a>
     </p>
+    <div
+      className="container"
+    >
+      <a
+        className="wrapper"
+        href="/data/state/undefined/race-ethnicity/"
+      >
+        <div
+          className="container"
+        >
+          <img
+            alt="Historical icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="30px"
+          />
+          <span
+            className="link"
+          >
+            View 
+            Washington
+            's historical racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
+      </a>
+      <a
+        className="wrapper"
+        href="/race/infection-and-mortality-data#Washington"
+      >
+        <div
+          className="container"
+        >
+          <img
+            alt="Chart icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="30px"
+          />
+          <span
+            className="link"
+          >
+            Get shareable graphic
+             
+            <span
+              className="a11y-only"
+            >
+              for 
+              's
+            </span>
+            <span
+              aria-hidden={true}
+            >
+              of 
+              Washington
+              's
+            </span>
+             racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
+      </a>
+    </div>
     <div>
       <div
         className="container"
