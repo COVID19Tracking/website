@@ -55,7 +55,11 @@ const Charts = ({
         'Deaths_',
         raceOnly,
       )
-      const hospMetrics = getAvailableMetricFields(latestDay, 'Hospitalizations_', raceOnly)
+      const hospMetrics = getAvailableMetricFields(
+        latestDay,
+        'Hospitalizations_',
+        raceOnly,
+      )
       const testMetrics = getAvailableMetricFields(
         latestDay,
         'Tests_',
@@ -65,7 +69,11 @@ const Charts = ({
       const chartData = {}
       chartData.Cases = getMetricData(allData, 'Cases', caseMetrics)
       chartData.Deaths = getMetricData(allData, 'Deaths', deathMetrics)
-      chartData.Hospitalizations = getMetricData(allData, 'Hospitalizations', hospMetrics)
+      chartData.Hospitalizations = getMetricData(
+        allData,
+        'Hospitalizations',
+        hospMetrics,
+      )
       chartData.Tests = getMetricData(allData, 'Tests', testMetrics)
 
       return chartData
