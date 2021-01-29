@@ -9,6 +9,7 @@ const TableauCharts = ({
   height,
   mobileHeight = false,
   viewUrlMobile = false,
+  className = false,
 }) => {
   const chartRef = useRef(false)
   const mobileChartRef = useRef(false)
@@ -36,6 +37,7 @@ const TableauCharts = ({
     <>
       <div
         className={classnames(
+          className,
           tableauStyle.chart,
           viewUrlMobile && tableauStyle.hasMobileView,
         )}
@@ -44,7 +46,12 @@ const TableauCharts = ({
       />
       {viewUrlMobile && (
         <div
-          className={classnames(tableauStyle.chart, tableauStyle.mobile)}
+          className={classnames(
+            className,
+
+            tableauStyle.chart,
+            tableauStyle.mobile,
+          )}
           id={`chart-mobile-${id}`}
           ref={mobileChartRef}
         />
