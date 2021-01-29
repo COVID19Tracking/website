@@ -18,11 +18,7 @@ const getAvailableMetricFields = (latestDay, prefix, raceOnly) => {
   if (raceOnly) {
     return listOfMetrics.filter(metric => !metric.includes('Ethnicity'))
   }
-  if (!raceOnly) {
-    return listOfMetrics.filter(metric => metric.includes('Ethnicity'))
-  }
-
-  return listOfMetrics
+  return listOfMetrics.filter(metric => metric.includes('Ethnicity'))
 }
 
 const formatTableValues = timeSeriesData => {
@@ -40,6 +36,10 @@ const formatTableValues = timeSeriesData => {
 
     availableDataPoints.forEach(dataPointName => {
       const dataPointValue = day[dataPointName]
+
+      if (dataPointValue === null) {
+        console.log('oop')
+      }
 
       if (
         typeof dataPointValue === 'number' &&
