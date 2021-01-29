@@ -541,6 +541,13 @@ Array [
             </li>
             <li>
               <a
+                href="/about"
+              >
+                About Us
+              </a>
+            </li>
+            <li>
+              <a
                 href="/terms-and-conditions"
               >
                 Terms and Conditions
@@ -1183,6 +1190,13 @@ Array [
                 href="/contact"
               >
                 Contact
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about"
+              >
+                About Us
               </a>
             </li>
             <li>
