@@ -16,7 +16,7 @@ const DataWarning = () => {
     if (
       (typeof document.referrer !== 'undefined' &&
         document.referrer.search('rt.live') > -1) ||
-      window.location.href.search(/\?rtlive/) > -1
+      window.location.href.search(/\?source=rt/) > -1
     ) {
       setIsHidden(false)
     }
