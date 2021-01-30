@@ -10,7 +10,7 @@ const DataWarning = () => {
     if (typeof document === 'undefined') {
       return
     }
-    if (document.cookie && document.cookie.search('ctp_warning') > -1) {
+    if (document.cookie && document.cookie.search('rt_ctp_warning') > -1) {
       return
     }
     if (
@@ -35,7 +35,7 @@ const DataWarning = () => {
                 setIsHidden(true)
                 const date = new Date()
                 date.setTime(date.getTime() + 10 * 24 * 60 * 60 * 1000)
-                document.cookie = `ctp_warning=1; expires=${date.toISOString()}; path=/`
+                document.cookie = `rt_ctp_warning=1; expires=${date.toISOString()}; path=/`
               }}
             >
               &times;
