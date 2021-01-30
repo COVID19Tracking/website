@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import React, { useState, useEffect } from 'react'
 import Container from '~components/common/container'
 import dataWarningStyle from './data-warning.module.scss'
@@ -41,9 +42,12 @@ const DataWarning = () => {
             </button>
             <p role="alert">
               Welcome, rt.live users. We are unaffiliated with rt.live and do
-              not estimate reproduction numbers for COVID-19. We do offer
-              official public health data for 56 US states and territories and a
-              full set of chart tools you may find helpful.
+              not estimate reproduction numbers for COVID-19. We do offer{' '}
+              <Link to="/data">
+                official public health data for 56 US states and territories
+              </Link>{' '}
+              and a <Link to="/data/charts">full set of chart tools</Link> you
+              may find helpful.
             </p>
           </Container>
         </div>
