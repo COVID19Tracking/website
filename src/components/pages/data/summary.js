@@ -419,12 +419,10 @@ const StateSummary = ({
                         stateAbbreviation={stateAbbreviation}
                       />
                     )}
-                    {!hideRacialDataGraphic && (
-                      <DataAsGraphicSmallCard
-                        stateName={stateName}
-                        stateAbbreviation={stateAbbreviation}
-                      />
-                    )}
+                    <DataAsGraphicSmallCard
+                      stateName={stateName}
+                      stateAbbreviation={stateAbbreviation}
+                    />
                     {!hideRacialDataHistorical && (
                       <HistoricalRaceDataSmallCard
                         stateAbbreviation={stateAbbreviation}
