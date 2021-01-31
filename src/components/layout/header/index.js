@@ -23,6 +23,7 @@ import HeaderSubNavigation from './sub-navigation'
 import ReturnLinks from './return-links'
 import Tools from './tools'
 import DataWarning from './data-warning'
+import RtLiveWarning from './rt-live-warning'
 
 const expandStyles = {
   open: { background: colors.colorPlum800 },
@@ -40,6 +41,7 @@ const Header = withSearch(
     hero,
     centerTitle,
     showWarning,
+    forceSubNavigationKey,
   }) => {
     const data = useStaticQuery(graphql`
       query {
@@ -101,6 +103,14 @@ const Header = withSearch(
       }
     })
 
+    if (forceSubNavigationKey) {
+      pathNavigation = {
+        top: true,
+        parent: false,
+        subNavigation: subNavigation[forceSubNavigationKey],
+      }
+    }
+
     const [showMobileMenu, setShowMobileMenu] = useState(false)
 
     // Timeout id.
@@ -135,6 +145,7 @@ const Header = withSearch(
       <>
         <DevelopmentWarning />
         {showWarning && <DataWarning />}
+        <RtLiveWarning />
         <header
           className={classnames(
             'site-header',

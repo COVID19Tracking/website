@@ -156,7 +156,7 @@ const BarChart = ({
           }
         }}
       >
-        <g transform={`translate(${marginLeft} ${marginTop}`}>
+        <g transform={`translate(${marginLeft} ${marginTop})`}>
           <text className={classnames(chartStyles.label, styles.directions)}>
             Use arrows to move, Escape to leave.
           </text>
