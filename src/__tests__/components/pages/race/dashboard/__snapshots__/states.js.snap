@@ -18,19 +18,6 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
       AZ
       ’s infection and mortality data by race and ethnicity.
       <br />
-      <a
-        className="cta"
-        href="/race/infection-and-mortality-data#Arizona"
-      >
-        View data per capita as a graphic
-        <span
-          aria-hidden={true}
-          className="arrow"
-        >
-           
-          →
-        </span>
-      </a>
     </p>
     <div
       className="container"
@@ -46,7 +33,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
             alt="Historical icon"
             aria-hidden={true}
             src="test-file-stub"
-            width="30px"
+            width="32px"
           />
           <span
             className="link"
@@ -422,19 +409,6 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
       DC
       ’s infection and mortality data by race and ethnicity.
       <br />
-      <a
-        className="cta"
-        href="/race/infection-and-mortality-data#Washington, DC"
-      >
-        View data per capita as a graphic
-        <span
-          aria-hidden={true}
-          className="arrow"
-        >
-           
-          →
-        </span>
-      </a>
     </p>
     <div
       className="container"
@@ -450,7 +424,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
             alt="Historical icon"
             aria-hidden={true}
             src="test-file-stub"
-            width="30px"
+            width="32px"
           />
           <span
             className="link"
@@ -826,19 +800,6 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
       GA
       ’s infection and mortality data by race and ethnicity.
       <br />
-      <a
-        className="cta"
-        href="/race/infection-and-mortality-data#Georgia"
-      >
-        View data per capita as a graphic
-        <span
-          aria-hidden={true}
-          className="arrow"
-        >
-           
-          →
-        </span>
-      </a>
     </p>
     <div
       className="container"
@@ -854,7 +815,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
             alt="Historical icon"
             aria-hidden={true}
             src="test-file-stub"
-            width="30px"
+            width="32px"
           />
           <span
             className="link"
@@ -1008,19 +969,6 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
       WA
       ’s infection and mortality data by race and ethnicity.
       <br />
-      <a
-        className="cta"
-        href="/race/infection-and-mortality-data#Washington"
-      >
-        View data per capita as a graphic
-        <span
-          aria-hidden={true}
-          className="arrow"
-        >
-           
-          →
-        </span>
-      </a>
     </p>
     <div
       className="container"
@@ -1036,7 +984,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
             alt="Historical icon"
             aria-hidden={true}
             src="test-file-stub"
-            width="30px"
+            width="32px"
           />
           <span
             className="link"
