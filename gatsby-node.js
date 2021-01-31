@@ -212,7 +212,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Ignore MP, AS, and VI for historical race pages
   raceEthnicityHistoricalStateInfo = raceEthnicityHistoricalStateInfo.filter(
-    node => ['MP', 'AS', 'VI'].indexOf(node.state) === -1,
+    node => ['PR', 'MP', 'AS', 'VI'].indexOf(node.state) === -1,
   )
   raceEthnicityHistoricalStateInfo.forEach(node => {
     const { slug } = node.childSlug
