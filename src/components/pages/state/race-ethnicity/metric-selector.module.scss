@@ -24,7 +24,7 @@
   align-items: center;
 
   pointer-events: none;
-  
+
   .bang {
     max-width: 22px;
     @include margin(4, right);
@@ -51,10 +51,19 @@
   & > button,
   & > div {
     @include padding(32, (left, right));
-    
+
     &:first-child {
       @include padding(0, left);
     }
+
+    @media (max-width: $viewport-md) {
+      @include padding(0, left);
+      @include margin(8, bottom);
+    }
+  }
+
+  & > div button {
+    @include padding(0, left);
   }
 
   button {
@@ -75,11 +84,6 @@
 
     &.unavailable {
       @extend %toggle-unavailable;
-    }
-
-    @media (max-width: $viewport-md) {
-      padding-left: 0;
-      @include margin(8, bottom);
     }
   }
 }
