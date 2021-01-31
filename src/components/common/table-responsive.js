@@ -69,22 +69,26 @@ const TableResponsive = ({
         {data.slice(0, mobileShowNRows).map(row => (
           <TableRow labels={labels} row={row} />
         ))}
-        <Disclosure>
-          <tr className={tableResponsiveStyles.disclosureButton}>
-            <td colSpan={labels.length}>
-              <DisclosureButton>
-                <span className={tableResponsiveStyles.closed}>Show</span>
-                <span className={tableResponsiveStyles.expanded}>Hide</span> all
-                rows
-              </DisclosureButton>
-            </td>
-          </tr>
-          <DisclosurePanel className={tableResponsiveStyles.disclosurePanel}>
-            {data.slice(mobileShowNRows, data.length).map(row => (
-              <TableRow labels={labels} row={row} />
-            ))}
-          </DisclosurePanel>
-        </Disclosure>
+        {mobileShowNRows !== data.length && (
+          <Disclosure>
+            <tr className={tableResponsiveStyles.disclosureButton}>
+              <td colSpan={labels.length}>
+                <DisclosureButton>
+                  <span className={tableResponsiveStyles.closed}>Show</span>
+                  <span className={tableResponsiveStyles.expanded}>
+                    Hide
+                  </span>{' '}
+                  all rows
+                </DisclosureButton>
+              </td>
+            </tr>
+            <DisclosurePanel className={tableResponsiveStyles.disclosurePanel}>
+              {data.slice(mobileShowNRows, data.length).map(row => (
+                <TableRow labels={labels} row={row} />
+              ))}
+            </DisclosurePanel>
+          </Disclosure>
+        )}
       </>
     </tbody>
   </table>
