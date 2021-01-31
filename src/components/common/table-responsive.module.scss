@@ -52,6 +52,17 @@ thead.custom-header {
   clip: inherit;
   overflow: initial;
   position: inherit;
+
+  @media (max-width: $table-breakpoint) {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    th {
+      display: block;
+      width: 100%;
+    }
+  }
 }
 
 .disclosure-button {
