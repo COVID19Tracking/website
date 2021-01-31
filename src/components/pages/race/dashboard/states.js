@@ -2,7 +2,6 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import smartypants from 'smartypants'
 
-import { CtaLink } from '~components/common/landing-page/call-to-action'
 import DashboardSmallCards from './small-cards'
 import StateSeparate from './state-separate'
 import StateCombined from './state-combined'
@@ -361,11 +360,6 @@ const CrdtDashboardStates = () => {
                   Compare {state.name}’s infection and mortality data by race
                   and ethnicity.
                   <br />
-                  <CtaLink
-                    to={`/race/infection-and-mortality-data#${state.state}`}
-                  >
-                    View data per capita as a graphic
-                  </CtaLink>
                 </p>
                 <DashboardSmallCards
                   stateAbbreviation={state.state}
