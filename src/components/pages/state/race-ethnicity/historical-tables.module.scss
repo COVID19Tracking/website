@@ -13,6 +13,10 @@
 
   .ethnicity-table {
     @include margin(64, left);
+    
+    @media (max-width: $viewport-lg) {
+      @include margin(0, left);
+    }
   }
 
   div {

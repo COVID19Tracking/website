@@ -143,6 +143,7 @@ const HistoricalTables = ({
               />
             }
             data={formattedTimeSeriesData}
+            mobileShowNRows={3}
           />
         </div>
         {!reportsEthnicityData() ? (
@@ -159,6 +160,7 @@ const HistoricalTables = ({
                   labels={ethnicityTableLabels}
                   header={<TableHeader header="Ethnicity" />}
                   data={formattedTimeSeriesData}
+                  mobileShowNRows={3}
                 />
               </div>
             )}
