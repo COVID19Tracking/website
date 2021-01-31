@@ -13,7 +13,7 @@ const HistoricalRaceDataSmallCard = ({ stateSlug, stateAbbreviation }) => {
         <img
           src={historicalIcon}
           alt="Historical icon"
-          width="30px"
+          width="32px"
           aria-hidden
         />
       </SmallCardIcon>
