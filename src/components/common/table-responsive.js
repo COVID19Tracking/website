@@ -47,7 +47,7 @@ const TableResponsive = ({
 }) => (
   <table className={classnames(tableStyles.table, tableResponsiveStyles.table)}>
     {header && (
-      <thead className={tableResponsiveStyles.headerNoBorder}>{header}</thead>
+      <thead className={tableResponsiveStyles.customHeader}>{header}</thead>
     )}
     <thead>
       <tr>

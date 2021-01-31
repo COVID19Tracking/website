@@ -11,3 +11,9 @@
 th.hidden * {
   display: none;
 }
+
+@media (max-width: $viewport-lg) {
+  th.hidden {
+    display: none;
+  }
+}

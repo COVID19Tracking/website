@@ -47,8 +47,11 @@ $table-breakpoint: $viewport-lg;
   float: right;
 }
 
-thead.header-no-border {
+thead.custom-header {
   border: none;
+  clip: inherit;
+  overflow: initial;
+  position: inherit;
 }
 
 .disclosure-button {
