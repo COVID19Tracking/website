@@ -58,7 +58,6 @@ export const query = graphql`
       name
       latinxNote
       mutExclNote
-      historicalSmallNNote
       popTableNote
       smallNNote
       blackSmallN
@@ -69,6 +68,7 @@ export const query = graphql`
       latinXSmallN
       apiNote
       otherNote
+      historicalSmallNNote
       lastCheckDate {
         value
       }
@@ -82,7 +82,6 @@ export const query = graphql`
       name
       latinxNote
       mutExclNote
-      historicalSmallNNote
       popTableNote
       smallNNote
       blackSmallN
@@ -93,6 +92,7 @@ export const query = graphql`
       latinXSmallN
       otherNote
       apiNote
+      historicalSmallNNote
       lastCheckDate {
         value
       }

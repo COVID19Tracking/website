@@ -92,7 +92,7 @@ const getNotes = (combined, separate) => {
     return []
   }
 
-  const notesList = Object.keys(notesObject)
+  let notesList = Object.keys(notesObject)
     .map(note => {
       if (note === 'smallNNote' && notesObject.smallNNote != null) {
         hasSmallNNote = true
@@ -109,7 +109,11 @@ const getNotes = (combined, separate) => {
   notesList.unshift(getDataCompletenessNote(combined, separate))
 
   if (hasSmallNNote) {
-    notesList.push(getSmallNNote(notesObject))
+    notesList = [
+      ...notesList.slice(0, notesList.length - 1),
+      getSmallNNote(notesObject), // splice smallNNote as the second to last note
+      notesList[notesList.length - 1],
+    ]
   }
 
   return notesList
