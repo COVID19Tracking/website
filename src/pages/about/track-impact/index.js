@@ -54,7 +54,7 @@ const ImpactFormPage = () => {
         />
         <Input type="text" label="Profession/Title" name="title" id="title" />
         <Textarea
-          label="How have you used our data or interpretations?"
+          label="How have you used our data or analysis?"
           name="use"
           id="use"
           isRequired
