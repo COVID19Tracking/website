@@ -34,7 +34,6 @@ const ImpactFormPage = () => {
         method="POST"
         name="impact"
         action="/about/track-impact/success"
-        netlify-honeypot="covid-bot-field"
         data-netlify="true"
       >
         <Input
