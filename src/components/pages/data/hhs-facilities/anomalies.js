@@ -41,8 +41,12 @@ const HHSFacilitiesAnomalies = () => {
         resultHits.hits
           .map(facility => ({
             ...facility,
-            anomaly_flag_inpt: facility.anomaly_flag_inpt === '1',
-            anomaly_flag_icu: facility.anomaly_flag_icu === '1',
+            anomaly_flag_inpt:
+              facility.anomaly_flag_inpt === '1' ||
+              facility.anomaly_flag_inpt === 1,
+            anomaly_flag_icu:
+              facility.anomaly_flag_icu === '1' ||
+              facility.anomaly_flag_icu === 1,
           }))
           .sort((a, b) => {
             if (a.state === b.state) {
