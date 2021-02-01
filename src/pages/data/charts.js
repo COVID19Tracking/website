@@ -4,6 +4,7 @@ import Layout from '~components/layout'
 import Container from '~components/common/container'
 import ContentfulContent from '~components/common/contentful-content'
 import ChartList from '~components/pages/data/charts/chart-list'
+import ChartPreamble from '~components/pages/data/charts/preamble'
 
 const ChartsPage = ({ data }) => (
   <Layout title="Charts" returnLinks={[{ link: '/data' }]} showWarning>
@@ -16,6 +17,11 @@ const ChartsPage = ({ data }) => (
         id={data.chartDisclaimer.contentful_id}
       />
     </Container>
+    <h2>United States Overview</h2>
+    <ChartPreamble
+      usHistory={data.allCovidUsDaily.nodes}
+      stateHistory={data.allCovidStateDaily.nodes}
+    />
 
     <h2>Our chart gallery</h2>
     <ChartList />
