@@ -30,6 +30,9 @@ const Footer = ({ noMargin = false, hideAbout = false }) => (
               <Link to="/contact">Contact</Link>
             </li>
             <li>
+              <Link to="/about">About Us</Link>
+            </li>
+            <li>
               <Link to="/terms-and-conditions">Terms and Conditions</Link>
             </li>
             <li>
