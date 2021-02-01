@@ -6,11 +6,11 @@ items:
   - title: About the Data
     link: /about-data
     subNavigation: about-data
-  - title: Race and COVID-19
+  - title: Race & Ethnicity
     link: /race
     subNavigation: race
-  - title: About Us
-    link: /about
-    subNavigation: about-project
+  - title: Nursing Homes
+    link: /nursing-homes-long-term-care-facilities
+    subNavigation: nursing-homes-long-term-care-facilities
   - title: Analysis & Updates
     link: /analysis-updates

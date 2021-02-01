@@ -67,7 +67,7 @@ exports[`Components : Charts: Bar chart renders correctly 1`] = `
   viewBox="0 0 200 200"
 >
   <g
-    transform="translate(30 30"
+    transform="translate(30 30)"
   >
     <text
       className="label directions"
@@ -226,7 +226,7 @@ exports[`Components : Charts: Bar chart renders correctly 2`] = `
   viewBox="0 0 200 200"
 >
   <g
-    transform="translate(30 30"
+    transform="translate(30 30)"
   >
     <text
       className="label directions"
