@@ -4,7 +4,6 @@ import Layout from '~components/layout'
 import Container from '~components/common/container'
 import ContentfulContent from '~components/common/contentful-content'
 import ChartList from '~components/pages/data/charts/chart-list'
-import ChartPreamble from '~components/pages/data/charts/preamble'
 
 const ChartsPage = ({ data }) => (
   <Layout title="Charts" returnLinks={[{ link: '/data' }]} showWarning>
