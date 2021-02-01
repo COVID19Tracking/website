@@ -4,7 +4,6 @@ import Layout from '~components/layout'
 import Container from '~components/common/container'
 import ContentfulContent from '~components/common/contentful-content'
 import ChartList from '~components/pages/data/charts/chart-list'
-import ChartTweet from '~components/pages/data/charts/tweet'
 import ChartPreamble from '~components/pages/data/charts/preamble'
 
 const ChartsPage = ({ data }) => (
@@ -18,13 +17,7 @@ const ChartsPage = ({ data }) => (
         id={data.chartDisclaimer.contentful_id}
       />
     </Container>
-    <h2>United States Overview</h2>
-    <ChartPreamble
-      usHistory={data.allCovidUsDaily.nodes}
-      stateHistory={data.allCovidStateDaily.nodes}
-    />
 
-    <ChartTweet />
     <h2>Our chart gallery</h2>
     <ChartList />
 
