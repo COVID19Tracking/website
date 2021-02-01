@@ -36,6 +36,7 @@ const ImpactFormPage = () => {
         action="/about/track-impact/success"
         data-netlify="true"
       >
+        <input type="hidden" name="form-name" value="impact" />
         <Input
           type="text"
           label="Name"
