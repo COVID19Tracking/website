@@ -8,7 +8,9 @@ const HistoricalRaceDataSmallCard = ({ stateSlug, stateAbbreviation }) => {
     return <></>
   }
   return (
-    <SmallCard destination={`/data/state/${stateSlug}/race-ethnicity/`}>
+    <SmallCard
+      destination={`/data/state/${stateSlug}/race-ethnicity/historical`}
+    >
       <SmallCardIcon>
         <img
           src={historicalIcon}
