@@ -32,6 +32,7 @@ const DailyTweet = () => {
   const { id_str, full_text, entities, created_at } = data.allTweets.nodes[0]
   return (
     <Tweet
+      extraMargin
       text={full_text}
       media={entities.media[0] && entities.media[0].media_url}
       link={`https://twitter.com/COVID19Tracking/status/${id_str}`}
@@ -39,7 +40,7 @@ const DailyTweet = () => {
         setZone: true,
       })
         .setZone('America/New_York')
-        .toFormat('LLLL d yyyy')}
+        .toFormat('LLLL d, yyyy')}
     />
   )
 }

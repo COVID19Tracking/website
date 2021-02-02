@@ -6,10 +6,11 @@ import Layout from '~components/layout'
 
 const NationalDataTestPage = ({ data }) => (
   <Layout
-    title="National: testing"
+    title="National Data: Testing"
     returnLinkTitle="Our Data"
     returnLink="/data"
     path="/data/national/tests"
+    description="Numbers of PCR tests, negative results, and cases in the US for each day from January 2020 to the present."
     returnLinks={[
       { link: '/data' },
       { link: `/data/national`, title: 'Totals for the US' },
@@ -19,6 +20,7 @@ const NationalDataTestPage = ({ data }) => (
       definitions={data.allContentfulDataDefinition.nodes}
       order={['positive', 'negative', 'totalTestResults']}
     />
+    <h2>Testing History</h2>
     <TableResponsive
       labels={[
         {
@@ -56,7 +58,7 @@ export const query = graphql`
   {
     allCovidUsDaily(sort: { fields: date, order: DESC }) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         negative
         negativeIncrease
         positive

@@ -60,9 +60,21 @@ exports[`Components : Charts: Annotation bubble renders correctly 1`] = `
 exports[`Components : Charts: Bar chart renders correctly 1`] = `
 <svg
   aria-hidden={true}
-  className="chart"
+  className="chart chart"
+  onBlur={[Function]}
+  onKeyDown={[Function]}
+  tabIndex="0"
   viewBox="0 0 200 200"
 >
+  <g
+    transform="translate(30 30)"
+  >
+    <text
+      className="label directions"
+    >
+      Use arrows to move, Escape to leave.
+    </text>
+  </g>
   <g
     transform="translate(30 30)"
   >
@@ -146,7 +158,7 @@ exports[`Components : Charts: Bar chart renders correctly 1`] = `
     transform="translate(0 30)"
   >
     <rect
-      className={null}
+      className=""
       fill="#333"
       fillOpacity={0.8}
       height={132.8923076923077}
@@ -159,7 +171,7 @@ exports[`Components : Charts: Bar chart renders correctly 1`] = `
       y={7.107692307692311}
     />
     <rect
-      className={null}
+      className=""
       fill="#333"
       fillOpacity={0.8}
       height={13.246153846153845}
@@ -172,7 +184,7 @@ exports[`Components : Charts: Bar chart renders correctly 1`] = `
       y={126.75384615384615}
     />
     <rect
-      className={null}
+      className=""
       fill="#333"
       fillOpacity={0.8}
       height={132.7846153846154}
@@ -185,7 +197,7 @@ exports[`Components : Charts: Bar chart renders correctly 1`] = `
       y={7.215384615384615}
     />
     <rect
-      className={null}
+      className=""
       fill="#333"
       fillOpacity={0.8}
       height={14.215384615384622}
@@ -207,9 +219,21 @@ exports[`Components : Charts: Bar chart renders correctly 1`] = `
 exports[`Components : Charts: Bar chart renders correctly 2`] = `
 <svg
   aria-hidden={true}
-  className="chart"
+  className="chart chart"
+  onBlur={[Function]}
+  onKeyDown={[Function]}
+  tabIndex="0"
   viewBox="0 0 200 200"
 >
+  <g
+    transform="translate(30 30)"
+  >
+    <text
+      className="label directions"
+    >
+      Use arrows to move, Escape to leave.
+    </text>
+  </g>
   <g
     transform="translate(30 30)"
   >
@@ -309,7 +333,7 @@ exports[`Components : Charts: Bar chart renders correctly 2`] = `
     transform="translate(0 30)"
   >
     <rect
-      className={null}
+      className=""
       fill="#333"
       fillOpacity={0.8}
       height={132.8923076923077}
@@ -322,7 +346,7 @@ exports[`Components : Charts: Bar chart renders correctly 2`] = `
       y={7.107692307692311}
     />
     <rect
-      className={null}
+      className=""
       fill="#333"
       fillOpacity={0.8}
       height={13.246153846153845}
@@ -335,7 +359,7 @@ exports[`Components : Charts: Bar chart renders correctly 2`] = `
       y={126.75384615384615}
     />
     <rect
-      className={null}
+      className=""
       fill="#333"
       fillOpacity={0.8}
       height={132.7846153846154}
@@ -348,7 +372,7 @@ exports[`Components : Charts: Bar chart renders correctly 2`] = `
       y={7.215384615384615}
     />
     <rect
-      className={null}
+      className=""
       fill="#333"
       fillOpacity={0.8}
       height={14.215384615384622}

@@ -9,6 +9,7 @@ const HomepageAbout = () => (
       <Link to="/data">See the data</Link>,
       <Link to="/about-data">About the data</Link>,
       <Link to="/blog">Our analysis &amp; updates</Link>,
+      <Link to="/about">About us</Link>,
     ]}
   >
     <p>

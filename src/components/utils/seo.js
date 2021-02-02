@@ -18,7 +18,7 @@ const getImageSrc = (socialCard, defaultSocialCard) => {
   return socialCard.image.resize.src
 }
 
-function SEO({ lang, meta, title, socialCard }) {
+function SEO({ lang, meta, title, socialCard, description }) {
   const { site, contentfulSocialCard } = useStaticQuery(
     graphql`
       query {
@@ -45,15 +45,15 @@ function SEO({ lang, meta, title, socialCard }) {
   const defaultSocialCard = contentfulSocialCard
 
   const imageSrc = getImageSrc(socialCard, defaultSocialCard)
-  let description
-
-  if (!socialCard || typeof socialCard === 'string') {
-    description = defaultSocialCard.description.description
-  } else if (socialCard.description && !socialCard.image) {
-    description = socialCard.description.description
-  } else {
-    description = socialCard.description.description
-  }
+  const pageDescription = (() => {
+    if (description) {
+      return description
+    }
+    if (socialCard && typeof socialCard !== 'string') {
+      return socialCard.description.description
+    }
+    return defaultSocialCard.description.description
+  })()
 
   const urlSchema = 'https:'
 
@@ -90,7 +90,7 @@ function SEO({ lang, meta, title, socialCard }) {
             },
             {
               property: `og:description`,
-              content: description || site.siteMetadata.description,
+              content: pageDescription || site.siteMetadata.description,
             },
             {
               name: `twitter:title`,
@@ -115,7 +115,7 @@ function SEO({ lang, meta, title, socialCard }) {
             },
             {
               name: 'description',
-              content: description || site.siteMetadata.description,
+              content: pageDescription || site.siteMetadata.description,
             },
           ].concat(meta)}
         />

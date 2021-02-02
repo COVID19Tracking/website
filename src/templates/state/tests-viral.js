@@ -39,11 +39,12 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
 
   return (
     <Layout
-      title={`${state.name}: Viral (PCR) tests`}
+      title={`${state.name}: Viral (PCR) Tests`}
       returnLinks={[
         { link: '/data', title: 'Our Data' },
         { link: `/data/state/${slug}`, title: state.name },
       ]}
+      description={`Data definitions and historical time series of data on total and positive viral (PCR) tests in units of specimens or people for ${state.name}.`}
       path={path}
       showWarning
     >
@@ -80,6 +81,7 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
             'totalTestResults',
           ]}
         />
+        <h2>Viral (PCR) Tests History</h2>
         <TableResponsive
           labels={[
             {
@@ -126,7 +128,7 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
     ) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         positiveTestsViral
         totalTestsPeopleViral
         totalTestsViral
@@ -139,7 +141,7 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
     ) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         childContentfulChartAnnotationDescriptionTextNode {
           childMarkdownRemark {
             html

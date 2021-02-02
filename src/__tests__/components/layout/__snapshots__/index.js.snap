@@ -107,6 +107,7 @@ Array [
                 >
                   <a
                     href="/test-a"
+                    onClick={[Function]}
                   >
                     Test A
                   </a>
@@ -214,6 +215,7 @@ Array [
                 >
                   <a
                     href="/test-b"
+                    onClick={[Function]}
                   >
                     Test B
                   </a>
@@ -275,6 +277,7 @@ Array [
                   >
                     <a
                       href="/test-a"
+                      onClick={[Function]}
                     >
                       Test A
                     </a>
@@ -382,6 +385,7 @@ Array [
                   >
                     <a
                       href="/test-b"
+                      onClick={[Function]}
                     >
                       Test B
                     </a>
@@ -527,14 +531,19 @@ Array [
         <div
           className="links"
         >
-          <ul
-            className="footerList"
-          >
+          <ul>
             <li>
               <a
                 href="/contact"
               >
                 Contact
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about"
+              >
+                About Us
               </a>
             </li>
             <li>
@@ -613,6 +622,9 @@ Array [
     <div
       className="copyright"
     >
+      <p>
+        The COVID Tracking Project collects and publishes the most complete data about COVID-19 in the US.
+      </p>
       <span>
         CovidTracking.com Copyright © 
         2021
@@ -748,6 +760,7 @@ Array [
                 >
                   <a
                     href="/test-a"
+                    onClick={[Function]}
                   >
                     Test A
                   </a>
@@ -855,6 +868,7 @@ Array [
                 >
                   <a
                     href="/test-b"
+                    onClick={[Function]}
                   >
                     Test B
                   </a>
@@ -916,6 +930,7 @@ Array [
                   >
                     <a
                       href="/test-a"
+                      onClick={[Function]}
                     >
                       Test A
                     </a>
@@ -1023,6 +1038,7 @@ Array [
                   >
                     <a
                       href="/test-b"
+                      onClick={[Function]}
                     >
                       Test B
                     </a>
@@ -1168,14 +1184,19 @@ Array [
         <div
           className="links"
         >
-          <ul
-            className="footerList"
-          >
+          <ul>
             <li>
               <a
                 href="/contact"
               >
                 Contact
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about"
+              >
+                About Us
               </a>
             </li>
             <li>
@@ -1254,6 +1275,9 @@ Array [
     <div
       className="copyright"
     >
+      <p>
+        The COVID Tracking Project collects and publishes the most complete data about COVID-19 in the US.
+      </p>
       <span>
         CovidTracking.com Copyright © 
         2021

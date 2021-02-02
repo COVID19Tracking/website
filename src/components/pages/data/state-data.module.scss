@@ -1,20 +1,15 @@
 .header {
-  display: flex;
-  flex-direction: column;
-
+  @include margin(32, bottom);
   h3 {
-    margin-bottom: spacer(16);
+    @include margin(16, bottom);
     @media (min-width: $viewport-md) {
       margin-top: toRem(-50);
       padding-top: toRem(50);
-      display: inline-block;
+      display: block;
     }
   }
-
-  @media (min-width: $viewport-md) {
-    flex-direction: row;
-    align-items: first baseline;
-    justify-content: space-between;
+  p {
+    margin: 0;
   }
 }
 

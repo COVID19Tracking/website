@@ -1,116 +1,49 @@
-import React, { useState } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import {
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-} from '@reach/disclosure'
-import classnames from 'classnames'
-import OverviewWrapper from '~components/common/overview-wrapper'
-import { Row, Col } from '~components/common/grid'
-import {
-  DownloadData,
-  DownloadDataRow,
-} from '~components/pages/state/download-data'
-import { LargeStateGrade } from '~components/pages/state/state-grade'
-import {
-  StateLinks,
-  StateLinksDisclosure,
-  StateLinksDisclosureButton,
-  StateLinksDisclosurePanel,
-} from '~components/pages/state/state-links'
+import React from 'react'
+import { Link } from 'gatsby'
+import StateGrade from '~components/pages/state/state-grade'
+import Timezone from '~components/common/timezone'
 import preambleStyle from './preamble.module.scss'
+import { Row, Col } from '~components/common/grid'
 
-const StatePreamble = ({ state, urls, covidState }) => {
-  const { contentfulSnippet } = useStaticQuery(
-    graphql`
-      query {
-        contentfulSnippet(slug: { eq: "state-grades-preamble" }) {
-          content {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    `,
-  )
-  const [stateLinksAreOpen, setStateLinksAreOpen] = useState(false)
-  const [downloadDataIsOpen, setDownloadDataIsOpen] = useState(false)
-  const { links } = urls.childTacoYaml
+const StatePreamble = ({ state, covidState, hideNotesLink = false }) => {
   // todo make state grade wrap as a circle with the grade description
   return (
-    <OverviewWrapper className={preambleStyle.preamble}>
-      <h2 className="a11y-only">State overview</h2>
-      <Row>
-        <Col width={[4, 3, 6]}>
-          <div className={preambleStyle.largeDisclosure}>
-            <h3 className={preambleStyle.header}>Where this data comes from</h3>
-            <StateLinks
-              twitter={state.twitter}
-              links={links}
-              stateName={state.name}
-              stateSlug={state.childSlug.slug}
-            />
-          </div>
-        </Col>
-        <Col width={[4, 3, 6]}>
-          <h3 className={preambleStyle.header}>Current data quality grade</h3>
-          <div className={preambleStyle.gradeWrapper}>
-            <div
-              className={preambleStyle.gradeDescription}
-              dangerouslySetInnerHTML={{
-                __html: contentfulSnippet.content.childMarkdownRemark.html,
-              }}
-            />
-            <LargeStateGrade letterGrade={covidState.dataQualityGrade} />
-          </div>
-        </Col>
-      </Row>
-      <DownloadDataRow
-        slug={state.childSlug.slug}
-        lastUpdateEt={covidState.dateModified}
-      />
-      <Row>
-        <Col width={[0, 0, 6]}>
-          <div className={preambleStyle.mobileDisclosure}>
-            <Disclosure
-              open={downloadDataIsOpen}
-              onChange={() => setDownloadDataIsOpen(!downloadDataIsOpen)}
-            >
-              <DisclosureButton className={preambleStyle.button}>
-                <h3
-                  className={classnames(
-                    preambleStyle.header,
-                    preambleStyle.hiddenHeader,
-                  )}
-                >
-                  Get the data{' '}
-                  <span className={preambleStyle.toggle}>
-                    {downloadDataIsOpen ? <>&#8593;</> : <>&#8595;</>}
-                  </span>
-                </h3>
-              </DisclosureButton>
-              <DisclosurePanel>
-                <DownloadData slug={state.childSlug.slug} hideLabel />
-              </DisclosurePanel>
-            </Disclosure>
-          </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col width={[0, 0, 6]}>
-          <StateLinksDisclosure
-            stateLinksAreOpen={stateLinksAreOpen}
-            setStateLinksAreOpen={setStateLinksAreOpen}
-            mobileOnly
+    <div className={preambleStyle.preamble}>
+      <h2 className={preambleStyle.header}>{state.name} Overview</h2>
+      <ul>
+        {!hideNotesLink && (
+          <li>
+            <Link to={`/data/state/${state.childSlug.slug}/notes`}>
+              Notes, data anomalies, and official cautions for {state.name}
+            </Link>
+          </li>
+        )}
+        <li>
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={`https://screenshots.covidtracking.com/${state.childSlug.slug}`}
           >
-            <StateLinksDisclosureButton stateLinksAreOpen={stateLinksAreOpen} />
-            <StateLinksDisclosurePanel state={state} />
-          </StateLinksDisclosure>
+            <span>Data sources and screenshots for {state.name}</span>
+          </a>
+        </li>
+      </ul>
+      <Row className={preambleStyle.row}>
+        <Col width={[4, 6, 4]}>
+          Last updated {covidState.dateModified} <Timezone />
+        </Col>
+        <Col width={[4, 6, 4]} paddingLeft={[0, 0, 16]}>
+          Download data as a{' '}
+          <a href={`/data/download/${state.childSlug.slug}-history.csv`}>
+            CSV file
+          </a>{' '}
+          or with our <Link to="/data/api">API</Link>.
+        </Col>
+        <Col width={[4, 6, 4]} paddingLeft={[0, 0, 16]}>
+          <StateGrade letterGrade={covidState.dataQualityGrade} />
         </Col>
       </Row>
-    </OverviewWrapper>
+    </div>
   )
 }
 

@@ -25,3 +25,17 @@
     }
   }
 }
+
+.alert {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  img {
+    max-width: 18px;
+    display: inline-block;
+    @include margin(8, right);
+  }
+  p {
+    margin: 0;
+  }
+}

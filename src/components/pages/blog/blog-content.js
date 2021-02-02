@@ -66,13 +66,15 @@ const BlogContent = ({ content }) => {
           )
         }
         if (__typename === 'ContentfulContentBlockTableauChart') {
-          const { contentful_id, url, height, mobileUrl } = target
+          const { contentful_id, url, height, mobileUrl, mobileHeight } = target
           return (
             <TableauChart
               id={contentful_id}
               viewUrl={url}
               viewUrlMobile={mobileUrl}
               height={height}
+              mobileHeight={mobileHeight}
+              className={blogContentStyles.image}
             />
           )
         }
@@ -88,10 +90,10 @@ const BlogContent = ({ content }) => {
             <ImageContentBlock
               image={image}
               caption={caption}
-              keepSize={keepSize && keepSize['en-US']}
-              fullWidthMobile={fullWidthMobile && fullWidthMobile['en-US']}
+              keepSize={keepSize}
+              fullWidthMobile={fullWidthMobile}
               className={blogContentStyles.image}
-              imageUrl={image.url}
+              imageUrl={image.file.url}
               linkToImage={imageLink}
             />
           )

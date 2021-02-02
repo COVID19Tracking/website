@@ -31,6 +31,7 @@ const StateHospitalizationTemplate = ({ pageContext, path, data }) => {
         { link: `/data/state/${slug}`, title: state.name },
       ]}
       path={path}
+      description={`Data definitions and historical time series of data on patients now or ever hospitalized, in ICU, or on ventilator in ${state.name}.`}
       showWarning
     >
       <AnnotationPanelContext.Provider
@@ -61,7 +62,7 @@ const StateHospitalizationTemplate = ({ pageContext, path, data }) => {
             'onVentilatorCurrently',
           ]}
         />
-
+        <h2>Hospitalization History</h2>
         <TableResponsive
           labels={[
             {
@@ -116,7 +117,7 @@ export const query = graphql`
     ) {
       nodes {
         state
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         hospitalizedCumulative
         hospitalizedCurrently
         hospitalizedIncrease
@@ -134,7 +135,7 @@ export const query = graphql`
       sort: { fields: date, order: DESC }
     ) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         childContentfulChartAnnotationDescriptionTextNode {
           childMarkdownRemark {
             html

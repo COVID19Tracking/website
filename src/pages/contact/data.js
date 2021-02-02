@@ -17,7 +17,7 @@ const ContactPage = ({ data }) => {
 
   return (
     <Layout
-      title="Contact Us: Data"
+      title="Contact Us About the Data"
       socialCard={{
         description:
           'The COVID Tracking Project runs on the effort and diligence of hundreds of volunteers, and we welcome your contribution.',
@@ -58,17 +58,12 @@ const ContactPage = ({ data }) => {
           name="data-fields"
           label="Which metric are you writing us about?"
           isRequired
-          options={[
-            'Cases',
-            'Tests',
-            'Hospitalization',
-            'Recovery',
-            'Death',
-            'Other',
-          ].map(item => ({
-            value: item,
-            label: item,
-          }))}
+          options={['Cases', 'Tests', 'Hospitalization', 'Death', 'Other'].map(
+            item => ({
+              value: item,
+              label: item,
+            }),
+          )}
         />
         <Row>
           <Col width={[4, 6, 6]} paddingRight={[0, 0, 32]}>

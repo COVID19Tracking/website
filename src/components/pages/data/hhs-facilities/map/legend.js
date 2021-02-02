@@ -83,6 +83,18 @@ const Legend = ({ date }) => {
                   <>ICU patients</>
                 )}
               </div>
+              <div>
+                <div />
+                {'>'}45%
+              </div>
+              <div>
+                <div />
+                Anomaly
+              </div>
+            </div>
+            <div className={legendStyles.label}>
+              Circle size indicates total COVID{' '}
+              {mapLayer === 'patients' ? <>inpatients</> : <>ICU patients</>}
             </div>
           </div>
         </Col>

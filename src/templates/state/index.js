@@ -5,7 +5,6 @@ import StateNavWrapper from '~components/pages/data/state-nav-wrapper'
 import StatePreamble from '~components/pages/state/preamble'
 import SummaryCharts from '~components/pages/data/summary-charts'
 import StateSummary from '~components/pages/data/summary'
-import StateNotes from '~components/pages/state/state-notes'
 import StateTweets from '~components/pages/state/state-tweets'
 
 const getRaceData = data => {
@@ -31,17 +30,18 @@ const StateTemplate = ({ pageContext, data, path }) => {
     contentfulStateOrTerritory,
     allTweets,
     allCovidAnnotation,
-    allHhsHospitalizationCovid,
-    urls,
+    hhsHospitals,
+    ltcFedVaccinations,
   } = data
   return (
     <Layout
       title={state.name}
       returnLinks={[{ link: '/data' }]}
       path={path}
+      description={`Cases, testing, hospitalization, outcomes, long-term-care, and race and ethnicity data for ${state.name}, plus data sources, notes, and grade.`}
       showWarning
     >
-      <StatePreamble state={state} urls={urls} covidState={covidState} />
+      <StatePreamble state={state} covidState={covidState} />
       <SummaryCharts
         name={state.name}
         chartTables={`/data/state/${state.childSlug.slug}/chart-tables`}
@@ -69,11 +69,9 @@ const StateTemplate = ({ pageContext, data, path }) => {
           annotations={allCovidAnnotation.nodes}
           raceData={getRaceData(data)}
           longTermCare={data.covidStateInfo.childLtc}
-          hhsHospitalization={
-            allHhsHospitalizationCovid && allHhsHospitalizationCovid.nodes[0]
-          }
+          hhsHospitalization={hhsHospitals}
+          ltcFedVaccinations={ltcFedVaccinations}
         />
-        {state.notes && <StateNotes notes={state.notes} />}
         <StateTweets
           tweets={allTweets}
           name={state.name}
@@ -149,7 +147,7 @@ export const query = graphql`
       positiveIncrease
       negative
       lastUpdateEt
-      dateModified(formatString: "MMM D, YYYY h:mm a")
+      dateModified(formatString: "MMMM D, YYYY h:mm a")
       hospitalizedCurrently
       hospitalizedCumulative
       inIcuCurrently
@@ -171,6 +169,8 @@ export const query = graphql`
       totalTestEncountersViral
       totalTestsAntibody
       totalTestsPeopleAntibody
+      totalTestsAntigen
+      totalTestsPeopleAntigen
       totalTestResultsSource
     }
     allCovidStateDaily(
@@ -314,30 +314,25 @@ export const query = graphql`
         field
         lastChecked(formatString: "MMMM DD yyyy")
         warning
+        hideField
+        metricTitle
+        metricText
+        warningTitle
       }
     }
-    allHhsHospitalizationCovid(
-      filter: { state: { eq: $state } }
-      sort: { fields: date, order: DESC }
-      limit: 1
-    ) {
-      nodes {
-        state
-        date
-        inpatient_beds_used_covid
-        staffed_icu_adult_patients_confirmed_and_suspected_covid
-        total_adult_patients_hospitalized_confirmed_covid
-        total_pediatric_patients_hospitalized_confirmed_covid
-      }
+    hhsHospitals(state: { eq: $state }) {
+      state
+      date
+      inpatient_beds_used_covid
+      staffed_icu_adult_patients_confirmed_and_suspected_covid
+      total_adult_patients_hospitalized_confirmed_covid
+      total_pediatric_patients_hospitalized_confirmed_covid
     }
-    urls: file(childTacoYaml: { state: { eq: $state } }) {
-      childTacoYaml {
-        links {
-          url
-          name
-        }
-        state
-      }
+    ltcFedVaccinations(Location: { eq: $state }) {
+      Administered_Fed_LTC
+      Administered_Fed_LTC_Dose1
+      Administered_Fed_LTC_Dose2
+      Date
     }
   }
 `

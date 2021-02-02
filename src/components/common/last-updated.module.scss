@@ -2,5 +2,10 @@
   color: $color-slate-700;
   &.national {
     font-weight: bold;
+    @include type-size(300);
+  }
+  &.no-margin {
+    color: #000000;
+    margin: 0;
   }
 }

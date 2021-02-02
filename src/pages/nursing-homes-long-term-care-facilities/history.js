@@ -30,11 +30,8 @@ export default ({ path, data }) => {
   })
   return (
     <Layout
-      title="Long-term-care national historic data"
-      returnLinks={[
-        { link: '/data' },
-        { link: `/data/longtermcare`, title: 'Long-term care' },
-      ]}
+      title="Long-Term Care National Historic Data"
+      returnLinks={[{ link: '/nursing-homes-long-term-care-facilities' }]}
       path={path}
     >
       <p>
@@ -89,7 +86,7 @@ export const query = graphql`
       filter: { data_type: { eq: "Aggregate" } }
     ) {
       nodes {
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         isoDate: date
         posstaff_other
         posstaff_nh

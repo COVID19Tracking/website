@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types' // ES6
-
+import classnames from 'classnames'
 import { extent, max } from 'd3-array'
 import { scaleBand, scaleLinear, scaleTime } from 'd3-scale'
 import { line, curveCardinal } from 'd3-shape'
@@ -35,9 +35,11 @@ const BarChart = ({
   renderTooltipContents,
   perCapLabel,
 }) => {
+  const chartRef = useRef()
   const [tooltip, setTooltip] = useState(null)
   // Used for tooltip optimization
   const [timeoutRef, setTimeoutRef] = useState(null)
+  const [keyboardFocus, setKeyboardFocus] = useState(false)
 
   // Used when placing annotations
   const getValueForDate = date => {
@@ -103,19 +105,62 @@ const BarChart = ({
       d,
     })
   }
+
   const mouseOut = () => {
     if (timeoutRef) {
       clearTimeout(timeoutRef)
     }
     setTimeoutRef(setTimeout(() => setTooltip(null), 200))
   }
+
+  useEffect(() => {
+    if (keyboardFocus === false || typeof data[keyboardFocus] === 'undefined') {
+      return
+    }
+    const column = data[keyboardFocus]
+    setTooltip({
+      top: chartRef.current.getBoundingClientRect().top,
+      left: chartRef.current.getBoundingClientRect().left,
+      d: column,
+    })
+  }, [keyboardFocus])
+
   return (
     <>
       <svg
-        className={chartStyles.chart}
+        className={classnames(chartStyles.chart, styles.chart)}
         viewBox={`0 0 ${width} ${height}`}
+        tabIndex="0"
         aria-hidden
+        ref={chartRef}
+        onBlur={() => {
+          setTooltip(null)
+          setKeyboardFocus(false)
+        }}
+        onKeyDown={event => {
+          if (event.key === 'Escape') {
+            setTooltip(null)
+            setKeyboardFocus(false)
+            chartRef.current.blur()
+          }
+          if (event.key === 'ArrowRight') {
+            setKeyboardFocus(
+              keyboardFocus < data.length ? keyboardFocus + 1 : data.length,
+            )
+          }
+          if (
+            (event.shiftKey && event.key === 'Tab') ||
+            event.key === 'ArrowLeft'
+          ) {
+            setKeyboardFocus(keyboardFocus > 0 ? keyboardFocus - 1 : 0)
+          }
+        }}
       >
+        <g transform={`translate(${marginLeft} ${marginTop})`}>
+          <text className={classnames(chartStyles.label, styles.directions)}>
+            Use arrows to move, Escape to leave.
+          </text>
+        </g>
         {/* y ticks */}
         <g transform={`translate(${marginLeft} ${marginTop})`}>
           {yScale.ticks(yTicksEffective).map(
@@ -197,7 +242,7 @@ const BarChart = ({
         {/* data */}
         <g transform={`translate(0 ${marginTop})`} mask="url(#dataMask)">
           {/* bars (data) */}
-          {data.map(d => (
+          {data.map((d, key) => (
             <rect
               key={d.date + d.value}
               x={xScale(d.date)}
@@ -206,7 +251,10 @@ const BarChart = ({
               width={xScale.bandwidth()}
               fillOpacity={lineData ? 1 : 0.8}
               fill={fill}
-              className={renderTooltipContents && styles.interactiveBar}
+              className={classnames(
+                renderTooltipContents && styles.interactiveBar,
+                key === keyboardFocus && styles.selected,
+              )}
               onMouseOver={event => hover(event, d)}
               onFocus={event => hover(event, d)}
               onMouseOut={mouseOut}

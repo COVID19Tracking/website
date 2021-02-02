@@ -10,9 +10,10 @@ import HHSFacilitiesSearch from '~components/pages/data/hhs-facilities/search'
 const HHSHospitalizationSearch = ({ data }) => {
   return (
     <Layout
-      title="Hospital facilities"
-      returnLinks={[{ link: '/data' }]}
-      path="/data/hospital-facilities"
+      title="Search Hospital Facilities"
+      returnLinks={[{ link: '/data' }, { link: '/data/hospital-facilities' }]}
+      path="/data/hospital-facilities/search"
+      description="The most detailed data ever made available on how COVID-19 is affecting American hospitals."
       noContainer
       showWarning
     >
@@ -31,7 +32,7 @@ const HHSHospitalizationSearch = ({ data }) => {
         </LongContent>
       </Container>
       <Container>
-        <HHSFacilitiesSearch center={[-97, 38]} zoom={4} />
+        <HHSFacilitiesSearch />
       </Container>
     </Layout>
   )

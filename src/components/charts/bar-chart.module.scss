@@ -1,7 +1,8 @@
 @import '~scss/colors.module.scss';
 
 .interactive-bar {
-  &:hover {
+  &:hover,
+  &.selected {
     stroke: black;
   }
 }
@@ -17,5 +18,16 @@
   }
   .annotation-bubble-svg-fill {
     fill: white;
+  }
+}
+
+.chart {
+  .directions {
+    display: none;
+  }
+  &:focus {
+    .directions {
+      display: block;
+    }
   }
 }

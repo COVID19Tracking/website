@@ -13,6 +13,8 @@ Array [
     <li>
       <a
         href="https://example.com"
+        rel="noreferrer"
+        target="_blank"
       >
         Test With Website
       </a>
@@ -20,6 +22,8 @@ Array [
     <li>
       <a
         href="http://example.com"
+        rel="noreferrer"
+        target="_blank"
       >
         Test With Website Without Protocol
       </a>
