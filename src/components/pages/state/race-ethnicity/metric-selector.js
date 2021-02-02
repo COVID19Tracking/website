@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import classnames from 'classnames'
 
+import { FormatItemOrList } from '~components/utils/format'
 import Tooltip from '~components/common/tooltip'
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 
@@ -30,6 +31,25 @@ const MetricButton = ({ children, option, metrics, state, setState }) => (
   </button>
 )
 
+const DoesNotReportWarning = ({ stateName, metrics }) => {
+  const unavailableMetrics = Object.keys(metrics)
+    .filter(metric => !metrics[metric].available)
+    .map(metric => metric.toLowerCase())
+  return (
+    <p className={styles.doesNotReportContainer}>
+      <img src={alertBang} className={styles.bang} disabled alt="" />
+      <span>
+        {stateName} does not report race/ethnicity data for{' '}
+        <FormatItemOrList
+          items={unavailableMetrics}
+          keys={unavailableMetrics}
+        />
+        .
+      </span>
+    </p>
+  )
+}
+
 const MetricSelector = ({
   currentMetric,
   setCurrentMetric,
@@ -37,47 +57,50 @@ const MetricSelector = ({
   stateName,
 }) => {
   return (
-    <div className={styles.toggle} role="radiogroup">
-      {Object.keys(metrics).map(option => (
-        <Fragment key={option}>
-          {!metrics[option].available ? (
-            <Tooltip
-              label={
-                <span>
-                  {stateName} does not report race/ethnicity data for{' '}
-                  {option.toLocaleLowerCase()}.
-                </span>
-              }
-            >
-              <div className={styles.unavailableWrapper}>
-                <MetricButton
-                  option={option}
-                  metrics={metrics}
-                  state={currentMetric}
-                  setState={setCurrentMetric}
-                >
-                  <img
-                    src={alertBang}
-                    alt={`${option} data is unavailable.`}
-                    className={styles.bang}
-                  />
-                  <span>{option}</span>
-                </MetricButton>
-              </div>
-            </Tooltip>
-          ) : (
-            <MetricButton
-              option={option}
-              metrics={metrics}
-              state={currentMetric}
-              setState={setCurrentMetric}
-            >
-              <span>{option}</span>
-            </MetricButton>
-          )}
-        </Fragment>
-      ))}
-    </div>
+    <>
+      <div className={styles.toggle} role="radiogroup">
+        {Object.keys(metrics).map(option => (
+          <Fragment key={option}>
+            {!metrics[option].available ? (
+              <Tooltip
+                label={
+                  <span>
+                    {stateName} does not report race/ethnicity data for{' '}
+                    {option.toLocaleLowerCase()}.
+                  </span>
+                }
+              >
+                <div className={styles.unavailableWrapper}>
+                  <MetricButton
+                    option={option}
+                    metrics={metrics}
+                    state={currentMetric}
+                    setState={setCurrentMetric}
+                  >
+                    <img
+                      src={alertBang}
+                      alt={`${option} data is unavailable.`}
+                      className={styles.bang}
+                    />
+                    <span>{option}</span>
+                  </MetricButton>
+                </div>
+              </Tooltip>
+            ) : (
+              <MetricButton
+                option={option}
+                metrics={metrics}
+                state={currentMetric}
+                setState={setCurrentMetric}
+              >
+                <span>{option}</span>
+              </MetricButton>
+            )}
+          </Fragment>
+        ))}
+      </div>
+      <DoesNotReportWarning stateName={stateName} metrics={metrics} />
+    </>
   )
 }
 

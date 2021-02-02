@@ -87,3 +87,11 @@
     }
   }
 }
+
+.does-not-report-container {
+  img {
+    width: 22px;
+    margin-bottom: -4px; // ignore-style-rule
+    @include margin(4, right);
+  }
+}
