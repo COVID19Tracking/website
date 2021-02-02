@@ -189,6 +189,20 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
+        file: './_data/crdt_test_hosp_race_combined.json',
+        type: 'CovidRaceHospTestDataCombined',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/crdt_test_hosp_race_separate.json',
+        type: 'CovidRaceHospTestDataSeparate',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
         file: './_data/crdt_states_separate.json',
         type: 'CovidRaceDataSeparate',
       },

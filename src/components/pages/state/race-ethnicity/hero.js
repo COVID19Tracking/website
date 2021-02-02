@@ -113,6 +113,8 @@ const Hero = ({
   timeSeriesData,
   combinedNotes,
   separateNotes,
+  combinedTestHosp,
+  separateTestHosp,
   stateSources,
 }) => {
   const metrics = getMetrics(timeSeriesData)
@@ -148,6 +150,8 @@ const Hero = ({
           stateName={stateName}
           combinedData={combinedNotes}
           separateData={separateNotes}
+          combinedTestHosp={combinedTestHosp}
+          separateTestHosp={separateTestHosp}
         />
       </div>
     </div>

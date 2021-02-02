@@ -10,12 +10,18 @@ import DataAsGraphicSmallCard from '~components/pages/data/cards/small/data-as-g
 
 import styles from './notes-and-downloads.module.scss'
 
-const getDataCompletenessNote = (combined, separate) => {
+const getDataCompletenessNote = (
+  combined,
+  separate,
+  combinedTestHosp,
+  separateTestHosp,
+) => {
   /**
    * Generates a note about data completeness for this state.
    */
   const stateIsCombined = isCombined(combined, separate)
   const dataObject = stateIsCombined ? combined : separate
+  const testHospObject = stateIsCombined ? combinedTestHosp : separateTestHosp
 
   if (stateIsCombined) {
     return (
@@ -26,7 +32,10 @@ const getDataCompletenessNote = (combined, separate) => {
           format="LLLL d, yyyy"
         />
         , {dataObject.name} has reported race/ethnicity data for{' '}
-        <Percent number={parseFloat(dataObject.knownRaceEthPos)} /> of cases and{' '}
+        <Percent number={parseFloat(testHospObject.knownRaceEthTest)} /> of
+        tests, <Percent number={parseFloat(dataObject.knownRaceEthPos)} /> of
+        cases, <Percent number={parseFloat(testHospObject.knownRaceEthHosp)} />{' '}
+        of hospitalizations, and{' '}
         <Percent number={parseFloat(dataObject.knownRaceEthDeath)} /> of deaths.
       </>
     )
@@ -40,10 +49,16 @@ const getDataCompletenessNote = (combined, separate) => {
           format="LLLL d, yyyy"
         />
         , {dataObject.name} has reported race data for{' '}
-        <Percent number={parseFloat(dataObject.knownRacePos)} /> of cases and{' '}
+        <Percent number={parseFloat(testHospObject.knownRaceTest)} /> of tests,{' '}
+        <Percent number={parseFloat(dataObject.knownRacePos)} /> of cases,{' '}
+        <Percent number={parseFloat(testHospObject.knownRaceHosp)} /> of
+        hospitalizations, and{' '}
         <Percent number={parseFloat(dataObject.knownRaceDeath)} /> of deaths,
         and ethnicity for{' '}
-        <Percent number={parseFloat(dataObject.knownEthPos)} /> of cases and{' '}
+        <Percent number={parseFloat(testHospObject.knownEthTest)} /> of tests,{' '}
+        <Percent number={parseFloat(dataObject.knownEthPos)} /> of cases,{' '}
+        <Percent number={parseFloat(testHospObject.knownEthHosp)} /> of
+        hospitalizations, and{' '}
         <Percent number={parseFloat(dataObject.knownEthDeath)} /> of deaths.
       </>
     )
@@ -81,7 +96,7 @@ const getSmallNNote = notes => {
   )
 }
 
-const getNotes = (combined, separate) => {
+const getNotes = (combined, separate, combinedTestHosp, separateTestHosp) => {
   /**
    * Creates a list of notes for this state's data.
    */
@@ -106,7 +121,14 @@ const getNotes = (combined, separate) => {
     .filter(
       noteContent => noteContent != null && typeof noteContent === 'string',
     )
-  notesList.unshift(getDataCompletenessNote(combined, separate))
+  notesList.unshift(
+    getDataCompletenessNote(
+      combined,
+      separate,
+      combinedTestHosp,
+      separateTestHosp,
+    ),
+  )
 
   if (hasSmallNNote) {
     notesList = [
@@ -125,8 +147,15 @@ const NotesAndDownloads = ({
   stateName,
   combinedData,
   separateData,
+  combinedTestHosp,
+  separateTestHosp,
 }) => {
-  const notesList = getNotes(combinedData, separateData)
+  const notesList = getNotes(
+    combinedData,
+    separateData,
+    combinedTestHosp,
+    separateTestHosp,
+  )
 
   return (
     <div className={styles.container}>
