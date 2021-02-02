@@ -24,7 +24,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       <a
         className="wrapper"
-        href="/data/state/undefined/race-ethnicity/"
+        href="/data/state/undefined/race-ethnicity/historical"
       >
         <div
           className="container"
@@ -415,7 +415,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       <a
         className="wrapper"
-        href="/data/state/undefined/race-ethnicity/"
+        href="/data/state/undefined/race-ethnicity/historical"
       >
         <div
           className="container"
@@ -806,7 +806,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       <a
         className="wrapper"
-        href="/data/state/undefined/race-ethnicity/"
+        href="/data/state/undefined/race-ethnicity/historical"
       >
         <div
           className="container"
@@ -975,7 +975,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       <a
         className="wrapper"
-        href="/data/state/undefined/race-ethnicity/"
+        href="/data/state/undefined/race-ethnicity/historical"
       >
         <div
           className="container"
