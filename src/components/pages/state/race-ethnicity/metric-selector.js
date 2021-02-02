@@ -35,6 +35,9 @@ const DoesNotReportWarning = ({ stateName, metrics }) => {
   const unavailableMetrics = Object.keys(metrics)
     .filter(metric => !metrics[metric].available)
     .map(metric => metric.toLowerCase())
+  if (unavailableMetrics.length === 0) {
+    return <></>
+  }
   return (
     <p className={styles.doesNotReportContainer}>
       <img src={alertBang} className={styles.bang} disabled alt="" />
