@@ -2,7 +2,7 @@
 import React from 'react'
 import FieldValue from '../field-value'
 import Infobox from '~components/common/map/infobox'
-import infoboxStyle from '.~components/common/map/infobox.module.scss'
+import infoboxStyle from '~components/common/map/infobox.module.scss'
 import alertBang from '~images/alert/alert-bang.svg'
 
 const HhsInfobox = ({ layer, facility, x, y }) => (
