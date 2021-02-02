@@ -113,6 +113,10 @@ const getNotes = (combined, separate, combinedTestHosp, separateTestHosp) => {
         hasSmallNNote = true
         return null
       }
+      if (note === 'latinxNote' || note === 'mutExclNote') {
+        // these will be concatenated below
+        return null
+      }
       if (note !== null && note.includes('Note')) {
         return notesObject[note]
       }
@@ -121,6 +125,14 @@ const getNotes = (combined, separate, combinedTestHosp, separateTestHosp) => {
     .filter(
       noteContent => noteContent != null && typeof noteContent === 'string',
     )
+
+  if (notesObject.latinxNote === null) {
+    notesList.unshift(notesObject.mutExclNote)
+  } else {
+    // combine latinxNote and mutExclNote
+    notesList.unshift(`${notesObject.latinxNote} ${notesObject.mutExclNote}`)
+  }
+
   notesList.unshift(
     getDataCompletenessNote(
       combined,
