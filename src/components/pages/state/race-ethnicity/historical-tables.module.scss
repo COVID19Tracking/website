@@ -64,4 +64,16 @@
 
 .header-label {
   cursor: pointer;
+
+  @media (max-width: $viewport-lg) {
+    display: none;
+  }
+}
+
+.full-header-label {
+  display: none;
+
+  @media (max-width: $viewport-lg) {
+    display: block;
+  }
 }

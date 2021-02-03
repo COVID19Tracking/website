@@ -68,9 +68,16 @@ const generateBaseTableLabels = (
       }
 
       return (
-        <Tooltip label={<span>{labelTooltipDict[labelText]}</span>}>
-          <span className={historicalTableStyles.headerLabel}>{labelText}</span>
-        </Tooltip>
+        <>
+          <Tooltip label={<span>{labelTooltipDict[labelText]}</span>}>
+            <span className={historicalTableStyles.headerLabel} aria-hidden>
+              {labelText}
+            </span>
+          </Tooltip>
+          <span className={historicalTableStyles.fullHeaderLabel}>
+            {labelTooltipDict[labelText]}
+          </span>
+        </>
       )
     }
 
