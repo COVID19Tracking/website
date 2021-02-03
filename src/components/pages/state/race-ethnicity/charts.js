@@ -7,12 +7,7 @@ import { getAvailableMetricFields } from './utils'
 import styles from './charts.module.scss'
 import colors from '~scss/colors.module.scss'
 
-const Charts = ({
-  population,
-  usePer100kRate,
-  timeSeriesData,
-  currentMetric,
-}) => {
+const Charts = ({ timeSeriesData, currentMetric }) => {
   const getMetricData = (allData, metricTitle, metrics) => {
     /** Restructures a single metric's racial data (i.e. cases) for charts */
     const completedData = {} // store the final metric data object
