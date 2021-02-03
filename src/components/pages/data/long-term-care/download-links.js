@@ -39,7 +39,9 @@ const DataLongTermCareLinks = () => (
         >
           Download state notes
         </CtaAnchorLink>
-        <CtaLink to="/nursing-homes/history">View historical totals</CtaLink>
+        <CtaLink to="/nursing-homes-long-term-care-facilities/history">
+          View historical totals
+        </CtaLink>
         <CtaAnchorLink
           href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRa9HnmEl83YXHfbgSPpt0fJe4SyuYLc0GuBAglF4yMYaoKSPRCyXASaWXMrTu1WEYp1oeJZIYHpj7t/pubhtml"
           block
@@ -48,7 +50,7 @@ const DataLongTermCareLinks = () => (
         </CtaAnchorLink>
         <p className={linksStyle.contact}>
           Do you have information about a long-term-care facility?{' '}
-          <Link to="/nursing-homes/contact">
+          <Link to="/nursing-homes-long-term-care-facilities/contact">
             We would love to hear from you
           </Link>
           .
