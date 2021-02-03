@@ -41,6 +41,36 @@ const getDataCompletenessNote = (
     )
   }
   if (!stateIsCombined) {
+    if (
+      parseFloat(testHospObject.knownRaceHosp) === 0 &&
+      parseFloat(testHospObject.knownEthHosp) === 0 &&
+      parseFloat(testHospObject.knownRaceTest) === 0 &&
+      parseFloat(testHospObject.knownEthTest) === 0
+    ) {
+      /**
+       * Special case to make the copy shorter.
+       *
+       * State reports race and ethnicity separately and does not report
+       * hospitalizations or tests.
+       */
+      return (
+        <>
+          As of{' '}
+          <FormatDate
+            date={dataObject.lastCheckDate.value}
+            format="LLLL d, yyyy"
+          />
+          , {dataObject.name} has reported race data for{' '}
+          <Percent number={parseFloat(dataObject.knownRacePos)} /> of cases and{' '}
+          <Percent number={parseFloat(dataObject.knownRaceDeath)} /> of deaths,
+          and ethnicity for{' '}
+          <Percent number={parseFloat(dataObject.knownEthPos)} /> of cases and{' '}
+          <Percent number={parseFloat(dataObject.knownEthDeath)} /> of deaths.{' '}
+          {dataObject.name} does not report either race or ethnicity data for
+          tests or hospitalizations.
+        </>
+      )
+    }
     return (
       <>
         As of{' '}
@@ -54,7 +84,7 @@ const getDataCompletenessNote = (
         <Percent number={parseFloat(testHospObject.knownRaceHosp)} /> of
         hospitalizations, and{' '}
         <Percent number={parseFloat(dataObject.knownRaceDeath)} /> of deaths,
-        and ethnicity for{' '}
+        and ethnicity data for{' '}
         <Percent number={parseFloat(testHospObject.knownEthTest)} /> of tests,{' '}
         <Percent number={parseFloat(dataObject.knownEthPos)} /> of cases,{' '}
         <Percent number={parseFloat(testHospObject.knownEthHosp)} /> of
