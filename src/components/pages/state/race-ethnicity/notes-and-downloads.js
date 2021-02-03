@@ -214,7 +214,7 @@ const NotesAndDownloads = ({
         <div className={styles.links}>
           {/** todo update the href to the state's crdt csv */}
           <a
-            href={`#${slug}`}
+            href={`/data/download/${slug}-race-ethnicity-historical.csv`}
             aria-label={`Download ${stateName}'s racial data data as CSV`}
           >
             CSV
