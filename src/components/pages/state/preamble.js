@@ -40,7 +40,9 @@ const StatePreamble = ({
           </ul>
         </Col>
         <Col width={[4, 6, 6]}>
-          <StateGrade assessment={assessment} slug={state.childSlug.slug} />
+          {assessment && (
+            <StateGrade assessment={assessment} slug={state.childSlug.slug} />
+          )}
         </Col>
       </Row>
     </div>

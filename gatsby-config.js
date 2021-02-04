@@ -245,6 +245,13 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
+        file: './_data/grades_excluded_states.json',
+        type: 'covidGradeExcludedStates',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
         file: './_data/grades_data_reporting_problems.json',
         type: 'covidGradeDataReportingProblems',
       },
