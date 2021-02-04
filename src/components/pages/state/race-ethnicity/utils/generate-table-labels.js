@@ -138,6 +138,7 @@ const generateBaseTableLabels = (
         '_Multiracial',
         '_White',
         '_Other',
+        '_Unknown',
       )
 
       metricsInOrder.forEach(metric => {

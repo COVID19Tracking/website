@@ -148,6 +148,7 @@ export const query = graphql`
         Cases_Other
         Cases_NHPI
         Cases_Multiracial
+        Cases_Unknown
         Cases_LatinX
         Cases_Ethnicity_NonHispanic
         Cases_Ethnicity_Hispanic
@@ -162,6 +163,7 @@ export const query = graphql`
         Deaths_Ethnicity_Unknown
         Deaths_LatinX
         Deaths_Multiracial
+        Deaths_Unknown
         Deaths_NHPI
         Deaths_Other
         Deaths_White
@@ -173,6 +175,7 @@ export const query = graphql`
         Hospitalizations_Ethnicity_NonHispanic: Hosp_Ethnicity_NonHispanic
         Hospitalizations_Ethnicity_Unknown: Hosp_Ethnicity_Unknown
         Hospitalizations_LatinX: Hosp_LatinX
+        Hospitalizations_Unknown: Hosp_Unknown
         Hospitalizations_Multiracial: Hosp_Multiracial
         Hospitalizations_NHPI: Hosp_NHPI
         Hospitalizations_Other: Hosp_Other
@@ -185,6 +188,7 @@ export const query = graphql`
         Tests_Ethnicity_NonHispanic
         Tests_Ethnicity_Unknown
         Tests_LatinX
+        Tests_Unknown
         Tests_Multiracial
         Tests_NHPI
         Tests_Other
