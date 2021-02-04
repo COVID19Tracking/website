@@ -27,6 +27,7 @@ import SmallCards from './cards/small-cards'
 // import GradeSmallCard from './cards/small/grade-small-card'
 import ViewDataSmallCard from './cards/small/view-racial-data-small-card'
 import DataAsGraphicSmallCard from './cards/small/data-as-graphic-small-card'
+import HistoricalRaceDataSmallCard from './cards/small/historical-race-data'
 
 import summaryStyles from './summary.module.scss'
 
@@ -115,6 +116,12 @@ const StateSummary = ({
   // true means we should hide this small card
   const hideRacialDataGraphic =
     racialDataGraphicIgnoreStates.indexOf(stateAbbreviation) > -1
+
+  // states that should be ignored for historical racial data links
+  const racialDataHistoricalIgnoreStates = ['AS', 'MP', 'VI']
+
+  const hideRacialDataHistorical =
+    racialDataHistoricalIgnoreStates.indexOf(stateAbbreviation) > -1
 
   // states that should be ignored for racial data *tracker* links
   const racialDataTrackerIgnoreStates = ['MP', 'AS']
@@ -412,10 +419,14 @@ const StateSummary = ({
                         stateAbbreviation={stateAbbreviation}
                       />
                     )}
-                    {!hideRacialDataGraphic && (
-                      <DataAsGraphicSmallCard
-                        stateName={stateName}
+                    <DataAsGraphicSmallCard
+                      stateName={stateName}
+                      stateAbbreviation={stateAbbreviation}
+                    />
+                    {!hideRacialDataHistorical && (
+                      <HistoricalRaceDataSmallCard
                         stateAbbreviation={stateAbbreviation}
+                        stateSlug={stateSlug}
                       />
                     )}
                   </SmallCards>

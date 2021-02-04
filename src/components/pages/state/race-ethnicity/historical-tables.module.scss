@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  justify-content: center;
+
+  table {
+    width: 100%;
+    @include margin(0, top);
+
+    th {
+      @include padding(16, top);
+    }
+  }
+
+  .ethnicity-table {
+    @include margin(64, left);
+    
+    @media (max-width: $viewport-lg) {
+      @include margin(0, left);
+    }
+  }
+
+  div {
+    flex-grow: 1;
+  }
+
+  div:first-child {
+
+    @media (max-width: $viewport-lg) {
+      @include margin(0, right);
+    }
+  }
+
+  @media (max-width: $viewport-lg) {
+    flex-direction: column;
+
+    table {
+      width: 100%;
+    }
+  }
+
+  &.combined {
+    justify-content: center;
+  }
+}
+
+.ethnicity-date {
+  // hides the ethnicity date column for large viewports
+  display: none;
+
+  span.value {
+    display: flex;
+    float: right;
+  }
+
+  @media (max-width: $viewport-lg) {
+    display: inherit;
+  }
+}
+
+.abbreviated-label {
+  color: $color-plum-700;
+  text-decoration: underline;
+}
+
+.header-label {
+  cursor: pointer;
+
+  @media (max-width: $viewport-lg) {
+    display: none;
+  }
+}
+
+.full-header-label {
+  display: none;
+
+  @media (max-width: $viewport-lg) {
+    display: block;
+  }
+}
