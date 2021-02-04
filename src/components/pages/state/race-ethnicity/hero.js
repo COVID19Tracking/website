@@ -23,16 +23,16 @@ const getMetrics = allData => {
   })
 
   const metrics = {
-    Tests: {
-      available: false,
-    },
     Cases: {
       available: false,
     },
-    Hospitalizations: {
+    Deaths: {
       available: false,
     },
-    Deaths: {
+    Tests: {
+      available: false,
+    },
+    Hospitalizations: {
       available: false,
     },
   }
@@ -138,10 +138,12 @@ const Hero = ({
           setCurrentMetric={setCurrentMetric}
           metrics={metrics}
           stateName={stateName}
-        />
-        <DataAsOf
-          stateDate={lastReportedByState}
-          ctpDate={timeSeriesData[0].Date}
+          asOfDate={
+            <DataAsOf
+              stateDate={lastReportedByState}
+              ctpDate={timeSeriesData[0].Date}
+            />
+          }
         />
         <Sources data={stateSources} />
         <NotesAndDownloads

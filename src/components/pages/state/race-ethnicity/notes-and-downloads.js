@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import { isCombined } from './utils'
 import Percent from '~components/pages/race/dashboard/percent'
@@ -220,9 +219,11 @@ const NotesAndDownloads = ({
             CSV
           </a>
           {/** todo update the href to the state's metadata */}
+          {/** 
           <Link to="/data/api" aria-label={`Download ${stateName}'s Metadata`}>
             Metadata
           </Link>
+           */}
         </div>
         <div className={styles.smallCards}>
           <RacialDataSmallCard

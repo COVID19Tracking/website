@@ -58,6 +58,7 @@ const MetricSelector = ({
   setCurrentMetric,
   metrics,
   stateName,
+  asOfDate,
 }) => {
   return (
     <>
@@ -102,6 +103,7 @@ const MetricSelector = ({
           </Fragment>
         ))}
       </div>
+      {asOfDate}
       <DoesNotReportWarning stateName={stateName} metrics={metrics} />
     </>
   )
