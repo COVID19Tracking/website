@@ -356,11 +356,6 @@ const CrdtDashboardStates = () => {
             </h2>
             {!territoriesWithoutGraphics.includes(state.state) && (
               <>
-                <p className={statesStyle.socialCardCta}>
-                  Compare {state.name}’s infection and mortality data by race
-                  and ethnicity.
-                  <br />
-                </p>
                 <DashboardSmallCards
                   stateAbbreviation={state.state}
                   stateSlug={getStateSlug(state.state)}

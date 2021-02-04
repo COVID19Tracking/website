@@ -11,14 +11,6 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       AZ
     </h2>
-    <p
-      className="socialCardCta"
-    >
-      Compare 
-      AZ
-      ’s infection and mortality data by race and ethnicity.
-      <br />
-    </p>
     <div
       className="container"
     >
@@ -402,14 +394,6 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       DC
     </h2>
-    <p
-      className="socialCardCta"
-    >
-      Compare 
-      DC
-      ’s infection and mortality data by race and ethnicity.
-      <br />
-    </p>
     <div
       className="container"
     >
@@ -793,14 +777,6 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       GA
     </h2>
-    <p
-      className="socialCardCta"
-    >
-      Compare 
-      GA
-      ’s infection and mortality data by race and ethnicity.
-      <br />
-    </p>
     <div
       className="container"
     >
@@ -962,14 +938,6 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       WA
     </h2>
-    <p
-      className="socialCardCta"
-    >
-      Compare 
-      WA
-      ’s infection and mortality data by race and ethnicity.
-      <br />
-    </p>
     <div
       className="container"
     >
