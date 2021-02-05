@@ -16,7 +16,7 @@ const LtcInfobox = ({ layer, facility, x, y }) => {
     facility.resident_deaths
   return (
     <Infobox x={x} y={y}>
-      {layer === 'cms-cases' || layer === 'cms-deaths' ? (
+      {layer === 'cms-cases' ? (
         <>
           <h3>{facility.name}</h3>
           <Item

@@ -79,17 +79,20 @@ const fields = {
 const FacilityDetails = ({ facility, layer }) => (
   <>
     <h2>
-      {layer === 'cms-cases' || layer === 'cms-deaths' ? (
+      {layer === 'cms-cases' ? (
         <>{facility.name}</>
       ) : (
         <>{facility.facility_name}</>
       )}
     </h2>
+    {layer === 'cms-cases' && (
+      <p>
+        {facility.city}, {facility.state}
+      </p>
+    )}
 
     <dl className={facilityDetailsStyle.details}>
-      {fields[
-        layer === 'cms-cases' || layer === 'cms-deaths' ? 'cms' : 'ltc'
-      ].map(({ title, field }) => (
+      {fields[layer === 'cms-cases' ? 'cms' : 'ltc'].map(({ title, field }) => (
         <div key={field}>
           <dt>{title}</dt>
           <dd>{facility[field] || <>N/A</>}</dd>

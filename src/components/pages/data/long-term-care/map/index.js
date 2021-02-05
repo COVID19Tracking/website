@@ -22,7 +22,7 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
   const [currentZoom, setCurrentZoom] = useState(0)
   const [highlighedMarker, setHighlightedMarker] = useState(false)
   const [mapLayer, setMapLayer] = useState('cases')
-  const layers = ['cases', 'deaths', 'cms-cases', 'cms-deaths']
+  const layers = ['cases', 'deaths', 'cms-cases']
 
   const mapNode = useRef(null)
   const mapRef = useRef(null)
@@ -209,13 +209,13 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
                             setRevealedFacility(true)
                           }}
                         >
-                          {mapLayer === 'cms-cases' || mapLayer === 'cms-deaths'
+                          {mapLayer === 'cms-cases'
                             ? facility.properties.name
                             : facility.properties.facility_name}
                         </button>
                       </Td>
                       <Td>
-                        {mapLayer === 'cms-cases' || mapLayer === 'cms-deaths'
+                        {mapLayer === 'cms-cases'
                           ? facility.properties[
                               'residents-total-confirmed-covid-19'
                             ] +
