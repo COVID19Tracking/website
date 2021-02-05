@@ -1,0 +1,31 @@
+.no-data-container {
+  background-color: $color-infobox-alert-light;
+  flex-basis: 25%;
+  @include margin(64, left);
+
+  .header {
+    color: $color-plum-700;
+    border-bottom: 1px solid $color-infobox-alert-dark;
+    @include padding(32, (top, bottom));
+    @include margin(0, top);
+
+    @include type-size(400);
+
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-top: 1px; // ignore-style-rule
+      @include margin(8, right);
+    }
+  }
+
+  .header,
+  .content {
+    @include padding(16, (right, left));
+  }
+
+  .content {
+    @include padding(16, top);
+  }
+}

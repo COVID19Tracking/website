@@ -46,3 +46,63 @@ $table-breakpoint: $viewport-lg;
   display: flex;
   float: right;
 }
+
+thead.custom-header {
+  border: none;
+  clip: inherit;
+  overflow: initial;
+  position: inherit;
+
+  @media (max-width: $table-breakpoint) {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    th {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.disclosure-button {
+  td {
+    justify-content: center;
+
+    button {
+      border: 1px solid $color-slate-400;
+      background-color: $color-slate-200;
+      border-radius: 4px;
+
+      @include padding(16, (left, right));
+      @include padding(8, (top, bottom));
+    }
+  }
+
+  .closed {
+    display: inline-block;
+  }
+
+  .expanded {
+    display: none;
+  }
+
+  button[aria-expanded='true'] {
+    .closed {
+      display: none;
+    }
+    .expanded {
+      display: inline-block;
+    }
+  }
+
+  @media (min-width: $table-breakpoint) {
+    display: none;
+  }
+}
+
+.disclosure-panel {
+  @media (min-width: $table-breakpoint) {
+    display: contents !important;
+  }
+}

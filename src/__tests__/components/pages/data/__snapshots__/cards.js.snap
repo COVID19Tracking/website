@@ -1758,7 +1758,9 @@ exports[`Components : Pages : Data : Cards : Small Cards : View data as graphic 
       <span
         aria-hidden={true}
       >
-        of
+        of 
+        NY
+        's
       </span>
        racial data
     </span>

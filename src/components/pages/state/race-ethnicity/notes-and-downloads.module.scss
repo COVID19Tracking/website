@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: $viewport-md) {
+    flex-direction: column;
+  }
+
+  h4 {
+    @include margin(8, bottom);
+    @include type-size(300);
+  }
+}
+
+.links {
+  display: flex;
+  @include margin(16, bottom);
+
+  a {
+    @include margin(16, right);
+
+    &:last-child {
+      @include margin(0, right);
+    }
+  }
+}
+
+.notes {
+  flex-basis: 70%;
+
+  @media (min-width: $viewport-md) and (max-width: $viewport-lg) {
+    flex-basis: 50%;
+  }
+
+  li {
+    @include margin(8, bottom);
+  }
+}
+
+.downloads-container {
+  flex-basis: 25%;
+
+  @media (min-width: $viewport-md) and (max-width: $viewport-lg) {
+    flex-basis: 45%;
+  }
+
+  .small-cards > a {
+    @include margin(16, right);
+  }
+}

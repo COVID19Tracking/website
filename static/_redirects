@@ -45,3 +45,4 @@
 /data/long-term-care                          /nursing-homes-long-term-care-facilities
 /data/long-term-care/contact                  /nursing-homes-long-term-care-facilities/contact
 /data/long-term-care/history                  /nursing-homes-long-term-care-facilities/history
+/nursing-homes/history                        /nursing-homes-long-term-care-facilities/history

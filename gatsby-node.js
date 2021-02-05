@@ -208,6 +208,21 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  let raceEthnicityHistoricalStateInfo = result.data.allCovidStateInfo.nodes
+
+  // Ignore MP, AS, and VI for historical race pages
+  raceEthnicityHistoricalStateInfo = raceEthnicityHistoricalStateInfo.filter(
+    node => ['PR', 'MP', 'AS', 'VI'].indexOf(node.state) === -1,
+  )
+  raceEthnicityHistoricalStateInfo.forEach(node => {
+    const { slug } = node.childSlug
+    createPage({
+      path: `/data/state/${slug}/race-ethnicity/historical`,
+      component: path.resolve(`./src/templates/state/race-ethnicity.js`),
+      context: node,
+    })
+  })
+
   let covidStateInfo = result.data.allCovidStateInfo.nodes
 
   // we want to include the U.S. as a "state" here

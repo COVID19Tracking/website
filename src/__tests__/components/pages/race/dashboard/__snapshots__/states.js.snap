@@ -11,27 +11,77 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       AZ
     </h2>
-    <p
-      className="socialCardCta"
+    <div
+      className="container"
     >
-      Compare 
-      AZ
-      ’s infection and mortality data by race and ethnicity.
-      <br />
       <a
-        className="cta"
+        className="wrapper"
+        href="/data/state/undefined/race-ethnicity/historical"
+      >
+        <div
+          className="container"
+        >
+          <img
+            alt="Historical icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="32px"
+          />
+          <span
+            className="link"
+          >
+            View 
+            Arizona
+            's historical racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
+      </a>
+      <a
+        className="wrapper"
         href="/race/infection-and-mortality-data#Arizona"
       >
-        View data per capita as a graphic
-        <span
-          aria-hidden={true}
-          className="arrow"
+        <div
+          className="container"
         >
-           
-          →
-        </span>
+          <img
+            alt="Chart icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="30px"
+          />
+          <span
+            className="link"
+          >
+            Get shareable graphic
+             
+            <span
+              className="a11y-only"
+            >
+              for 
+              's
+            </span>
+            <span
+              aria-hidden={true}
+            >
+              of 
+              Arizona
+              's
+            </span>
+             racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
       </a>
-    </p>
+    </div>
     <div>
       <div>
         <div
@@ -344,27 +394,77 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       DC
     </h2>
-    <p
-      className="socialCardCta"
+    <div
+      className="container"
     >
-      Compare 
-      DC
-      ’s infection and mortality data by race and ethnicity.
-      <br />
       <a
-        className="cta"
+        className="wrapper"
+        href="/data/state/undefined/race-ethnicity/historical"
+      >
+        <div
+          className="container"
+        >
+          <img
+            alt="Historical icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="32px"
+          />
+          <span
+            className="link"
+          >
+            View 
+            Washington, DC
+            's historical racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
+      </a>
+      <a
+        className="wrapper"
         href="/race/infection-and-mortality-data#Washington, DC"
       >
-        View data per capita as a graphic
-        <span
-          aria-hidden={true}
-          className="arrow"
+        <div
+          className="container"
         >
-           
-          →
-        </span>
+          <img
+            alt="Chart icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="30px"
+          />
+          <span
+            className="link"
+          >
+            Get shareable graphic
+             
+            <span
+              className="a11y-only"
+            >
+              for 
+              's
+            </span>
+            <span
+              aria-hidden={true}
+            >
+              of 
+              Washington, DC
+              's
+            </span>
+             racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
       </a>
-    </p>
+    </div>
     <div>
       <div>
         <div
@@ -677,27 +777,77 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       GA
     </h2>
-    <p
-      className="socialCardCta"
+    <div
+      className="container"
     >
-      Compare 
-      GA
-      ’s infection and mortality data by race and ethnicity.
-      <br />
       <a
-        className="cta"
+        className="wrapper"
+        href="/data/state/undefined/race-ethnicity/historical"
+      >
+        <div
+          className="container"
+        >
+          <img
+            alt="Historical icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="32px"
+          />
+          <span
+            className="link"
+          >
+            View 
+            Georgia
+            's historical racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
+      </a>
+      <a
+        className="wrapper"
         href="/race/infection-and-mortality-data#Georgia"
       >
-        View data per capita as a graphic
-        <span
-          aria-hidden={true}
-          className="arrow"
+        <div
+          className="container"
         >
-           
-          →
-        </span>
+          <img
+            alt="Chart icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="30px"
+          />
+          <span
+            className="link"
+          >
+            Get shareable graphic
+             
+            <span
+              className="a11y-only"
+            >
+              for 
+              's
+            </span>
+            <span
+              aria-hidden={true}
+            >
+              of 
+              Georgia
+              's
+            </span>
+             racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
       </a>
-    </p>
+    </div>
     <div>
       <div
         className="container"
@@ -788,27 +938,77 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       WA
     </h2>
-    <p
-      className="socialCardCta"
+    <div
+      className="container"
     >
-      Compare 
-      WA
-      ’s infection and mortality data by race and ethnicity.
-      <br />
       <a
-        className="cta"
+        className="wrapper"
+        href="/data/state/undefined/race-ethnicity/historical"
+      >
+        <div
+          className="container"
+        >
+          <img
+            alt="Historical icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="32px"
+          />
+          <span
+            className="link"
+          >
+            View 
+            Washington
+            's historical racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
+      </a>
+      <a
+        className="wrapper"
         href="/race/infection-and-mortality-data#Washington"
       >
-        View data per capita as a graphic
-        <span
-          aria-hidden={true}
-          className="arrow"
+        <div
+          className="container"
         >
-           
-          →
-        </span>
+          <img
+            alt="Chart icon"
+            aria-hidden={true}
+            src="test-file-stub"
+            width="30px"
+          />
+          <span
+            className="link"
+          >
+            Get shareable graphic
+             
+            <span
+              className="a11y-only"
+            >
+              for 
+              's
+            </span>
+            <span
+              aria-hidden={true}
+            >
+              of 
+              Washington
+              's
+            </span>
+             racial data
+          </span>
+          <span
+            className="arrow"
+          >
+            →
+          </span>
+        </div>
       </a>
-    </p>
+    </div>
     <div>
       <div
         className="container"

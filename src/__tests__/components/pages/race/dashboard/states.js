@@ -17,6 +17,28 @@ beforeEach(() => {
         },
       ],
     },
+    allCovidStateInfo: {
+      nodes: [
+        {
+          childSlug: {
+            slug: 'alaska',
+          },
+          state: 'AK',
+        },
+        {
+          childSlug: {
+            slug: 'alabama',
+          },
+          state: 'AL',
+        },
+        {
+          childSlug: {
+            slug: 'arkansas',
+          },
+          state: 'AR',
+        },
+      ],
+    },
     allCovidRaceDataSeparate: {
       nodes: [
         {
