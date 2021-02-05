@@ -9,6 +9,7 @@ const StatePreamble = ({
   state,
   covidState,
   assessment,
+  assessmentDate,
   hideNotesLink = false,
 }) => {
   // todo make state grade wrap as a circle with the grade description
@@ -41,7 +42,11 @@ const StatePreamble = ({
         </Col>
         <Col width={[4, 6, 6]}>
           {assessment && (
-            <StateGrade assessment={assessment} slug={state.childSlug.slug} />
+            <StateGrade
+              assessment={assessment}
+              slug={state.childSlug.slug}
+              date={assessmentDate}
+            />
           )}
         </Col>
       </Row>

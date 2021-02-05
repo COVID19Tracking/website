@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import stateGradeStyle from './state-grade.module.scss'
+import LastUpdatedLabel from '~components/pages/data/cards/last-updated-label'
 import fewIcon from '~images/data-quality-icons/few-line.svg'
 import someIcon from '~images/data-quality-icons/some-line.svg'
 import majorIcon from '~images/data-quality-icons/major-line.svg'
@@ -31,7 +32,7 @@ const Grade = ({ grade, title, link }) => (
   </li>
 )
 
-const StateGrade = ({ slug, assessment }) => {
+const StateGrade = ({ slug, assessment, date }) => {
   return (
     <div className={stateGradeStyle.stateGrade}>
       <h2 className={stateGradeStyle.header}>
@@ -62,6 +63,8 @@ const StateGrade = ({ slug, assessment }) => {
           link={`/data/state/${slug}/assessment#long-term-care`}
         />
       </ul>
+
+      <LastUpdatedLabel date={date} label="Last updated" />
     </div>
   )
 }

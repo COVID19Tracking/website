@@ -34,6 +34,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
     covidGradeStateAssessment,
     ltcFedVaccinations,
     covidGradeExcludedStates,
+    assessmentDate,
   } = data
   return (
     <Layout
@@ -49,6 +50,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
         assessment={
           covidGradeExcludedStates ? false : covidGradeStateAssessment
         }
+        assessmentDate={assessmentDate.date}
       />
       <SummaryCharts
         name={state.name}
@@ -348,6 +350,9 @@ export const query = graphql`
     }
     covidGradeExcludedStates(state: { eq: $state }) {
       state
+    }
+    assessmentDate: covidGradeStateAssessment(date: { ne: null }) {
+      date
     }
   }
 `

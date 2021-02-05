@@ -5,6 +5,7 @@ import Layout from '~components/layout'
 import ContentfulContent from '~components/common/contentful-content'
 import Assessment from '~components/pages/state/assessment'
 import LongContent from '~components/common/long-content'
+import { FormatDate } from '~components/utils/format'
 
 const StateAsessmentTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
@@ -30,6 +31,12 @@ const StateAsessmentTemplate = ({ pageContext, path, data }) => {
           )}
         />
       </LongContent>
+      <p>
+        Last updated{' '}
+        <strong>
+          <FormatDate date={data.assessmentDate.date} format="LLLL d, yyyy" />
+        </strong>
+      </p>
       <Assessment
         stateName={state.name}
         assessments={allCovidGradeDataReportingProblems.nodes}
@@ -56,6 +63,9 @@ export const query = graphql`
           html
         }
       }
+    }
+    assessmentDate: covidGradeStateAssessment(date: { ne: null }) {
+      date
     }
   }
 `
