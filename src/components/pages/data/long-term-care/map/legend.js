@@ -21,14 +21,18 @@ const Legend = ({ mapLayer }) => (
             },
             {
               id: 'cms-cases',
-              name: 'Federal data',
+              name: 'Federal case data',
+            },
+            {
+              id: 'cms-deaths',
+              name: 'Federal death data',
             },
           ]}
         />
       </Col>
       <Col width={[4, 6, 8]}>
         <div className={legendStyles.legend} aria-hidden>
-          {mapLayer === 'cms-cases' ? (
+          {mapLayer === 'cms-cases' || mapLayer === 'cms-deaths' ? (
             <p>All facilities that report to the federal government.</p>
           ) : (
             <>

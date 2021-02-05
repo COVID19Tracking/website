@@ -22,7 +22,7 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
   const [currentZoom, setCurrentZoom] = useState(0)
   const [highlighedMarker, setHighlightedMarker] = useState(false)
   const [mapLayer, setMapLayer] = useState('cases')
-  const layers = ['cases', 'deaths', 'cms-cases']
+  const layers = ['cases', 'deaths', 'cms-cases', 'cms-deaths']
 
   const mapNode = useRef(null)
   const mapRef = useRef(null)
@@ -246,7 +246,7 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
                 setRevealedFacility(false)
               }}
             >
-              <FacilityDetails facility={activeFacility} />
+              <FacilityDetails facility={activeFacility} layer={mapLayer} />
             </Overlay>
           )}
 

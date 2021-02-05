@@ -21,7 +21,25 @@ const LtcInfobox = ({ layer, facility, x, y }) => {
           <h3>{facility.name}</h3>
           <Item
             title="Resident positives"
-            value={facility['Residents Total Confirmed COVID-19']}
+            value={
+              facility['residents-total-suspected-covid-19'] +
+              facility['residents-total-confirmed-covid-19']
+            }
+          />
+          <Item
+            title="Resident deaths"
+            value={facility['residents-total-all-deaths']}
+          />
+          <Item
+            title="Staff positives"
+            value={
+              facility['staff-total-suspected-covid-19'] +
+              facility['staff-total-confirmed-covid-19']
+            }
+          />
+          <Item
+            title="Staff deaths"
+            value={facility['staff-total-all-deaths']}
           />
         </>
       ) : (
