@@ -209,13 +209,13 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
                             setRevealedFacility(true)
                           }}
                         >
-                          {mapLayer === 'cms-cases'
+                          {mapLayer === 'cms-cases' || mapLayer === 'cms-deaths'
                             ? facility.properties.name
                             : facility.properties.facility_name}
                         </button>
                       </Td>
                       <Td>
-                        {mapLayer === 'cms-cases'
+                        {mapLayer === 'cms-cases' || mapLayer === 'cms-deaths'
                           ? facility.properties[
                               'residents-total-confirmed-covid-19'
                             ] +
