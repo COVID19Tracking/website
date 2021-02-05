@@ -21,11 +21,7 @@ const Legend = ({ mapLayer }) => (
             },
             {
               id: 'cms-cases',
-              name: 'Federal case data',
-            },
-            {
-              id: 'cms-deaths',
-              name: 'Federal death data',
+              name: 'Federal data',
             },
           ]}
         />
