@@ -21,6 +21,8 @@ html {
 
 body {
   margin: 0;
+  padding:0;
+  box-sizing: border-box;
 }
 
 /**
@@ -83,7 +85,7 @@ abbr[title] {
 
 b,
 strong {
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 /**
@@ -103,7 +105,7 @@ samp {
  */
 
 small {
-  font-size: 80%;
+  font-size: 60%;
 }
 
 /**
@@ -135,7 +137,7 @@ sup {
  */
 
 img {
-  border-style: none;
+  border-style: 2px solid black;
 }
 
 /* Forms

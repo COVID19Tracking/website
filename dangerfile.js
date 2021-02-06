@@ -1,4 +1,4 @@
-import danger, { message, fail, markdown } from 'danger'
+import danger, { message, fail, markdown, alert } from 'danger'
 
 const scssFiles = danger.git.modified_files
   .concat(danger.git.created_files)
