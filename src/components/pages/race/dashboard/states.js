@@ -278,6 +278,20 @@ const CrdtDashboardStates = () => {
           whiteSpecialCaseNotes
         }
       }
+      allCovidRaceHospTestDataCombined {
+        nodes {
+          name
+          anyHospData
+          anyTestData
+        }
+      }
+      allCovidRaceHospTestDataSeparate {
+        nodes {
+          name
+          anyHospData
+          anyTestData
+        }
+      }
       allCovidStateInfo {
         nodes {
           childSlug {
@@ -311,14 +325,32 @@ const CrdtDashboardStates = () => {
 
   const states = []
   data.allCovidRaceDataSeparate.nodes.forEach(state => {
+    let testHospData
+    data.allCovidRaceHospTestDataSeparate.nodes.every(testHospState => {
+      if (testHospState.name === state.name) {
+        testHospData = testHospState
+        return false
+      }
+      return true
+    })
     states.push({
       ...state,
+      ...testHospData,
       stateSeparate: true,
     })
   })
   data.allCovidRaceDataCombined.nodes.forEach(state => {
+    let testHospData
+    data.allCovidRaceHospTestDataCombined.nodes.every(testHospState => {
+      if (testHospState.name === state.name) {
+        testHospData = testHospState
+        return false
+      }
+      return true
+    })
     states.push({
       ...state,
+      ...testHospData,
       stateSeparate: false,
     })
   })
