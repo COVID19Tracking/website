@@ -25,18 +25,18 @@ const RaceTable = ({
         },
       },
       hospitalization: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.32,
+        disparity: data.blackHospDispFlag,
+        caution: data.blackHospCaution,
+        value: data.blackPctHosp,
         note: {
           value: undefined,
           index: undefined,
         },
       },
       test: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.6,
+        disparity: data.blackTestDispFlag,
+        caution: data.blackTestCaution,
+        value: data.blackPctTest,
         note: {
           value: undefined,
           index: undefined,
@@ -66,18 +66,18 @@ const RaceTable = ({
         },
       },
       hospitalization: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.32,
+        disparity: data.latinXHospDispFlag,
+        caution: data.latinXHospCaution,
+        value: data.latinXPctHosp,
         note: {
           value: undefined,
           index: undefined,
         },
       },
       test: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.6,
+        disparity: data.latinXTestDispFlag,
+        caution: data.latinXTestCaution,
+        value: data.latinXPctTest,
         note: {
           value: undefined,
           index: undefined,
@@ -106,18 +106,18 @@ const RaceTable = ({
         },
       },
       hospitalization: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.32,
+        disparity: data.asianHospDispFlag,
+        caution: data.asianHospCaution,
+        value: data.asianPctHosp,
         note: {
           value: undefined,
           index: undefined,
         },
       },
       test: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.6,
+        disparity: data.asianTestDispFlag,
+        caution: data.asianTestCaution,
+        value: data.asianPctTest,
         note: {
           value: undefined,
           index: undefined,
@@ -146,18 +146,18 @@ const RaceTable = ({
         },
       },
       hospitalization: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.32,
+        disparity: data.nhpiHospDispFlag,
+        caution: data.nhpiHospCaution,
+        value: data.nhpiPctHosp,
         note: {
           value: undefined,
           index: undefined,
         },
       },
       test: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.6,
+        disparity: data.nhpiTestDispFlag,
+        caution: data.nhpiTestCaution,
+        value: data.nhpiPctTest,
         note: {
           value: undefined,
           index: undefined,
@@ -186,18 +186,18 @@ const RaceTable = ({
         },
       },
       hospitalization: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.32,
+        disparity: data.aianHospDispFlag,
+        caution: data.aianHospCaution,
+        value: data.aianPctHosp,
         note: {
           value: undefined,
           index: undefined,
         },
       },
       test: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.6,
+        disparity: data.aianTestDispFlag,
+        caution: data.aianTestCaution,
+        value: data.aianPctTest,
         note: {
           value: undefined,
           index: undefined,
@@ -226,18 +226,18 @@ const RaceTable = ({
         },
       },
       hospitalization: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.32,
+        disparity: data.twoHospDispFlag,
+        caution: data.twoHospCaution,
+        value: data.twoPctHosp,
         note: {
           value: undefined,
           index: undefined,
         },
       },
       test: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.6,
+        disparity: data.twoTestDispFlag,
+        caution: data.twoTestCaution,
+        value: data.twoPctTest,
         note: {
           value: undefined,
           index: undefined,
@@ -266,18 +266,18 @@ const RaceTable = ({
         },
       },
       hospitalization: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.32,
+        disparity: data.whiteHospDispFlag,
+        caution: data.whiteHospCaution,
+        value: data.whitePctHosp,
         note: {
           value: undefined,
           index: undefined,
         },
       },
       test: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.6,
+        disparity: data.whiteTestDispFlag,
+        caution: data.whiteTestCaution,
+        value: data.whitePctTest,
         note: {
           value: undefined,
           index: undefined,
@@ -306,18 +306,18 @@ const RaceTable = ({
         },
       },
       hospitalization: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.32,
+        disparity: data.otherHospDispFlag,
+        caution: data.otherHospCaution,
+        value: data.otherPctHosp,
         note: {
           value: undefined,
           index: undefined,
         },
       },
       test: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.6,
+        disparity: data.otherTestDispFlag,
+        caution: data.otherTestCaution,
+        value: data.otherPctTest,
         note: {
           value: undefined,
           index: undefined,

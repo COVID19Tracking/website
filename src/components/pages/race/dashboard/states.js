@@ -283,6 +283,48 @@ const CrdtDashboardStates = () => {
           name
           anyHospData
           anyTestData
+          blackTestCaution
+          blackTestDispFlag
+          blackPctTest
+          blackHospCaution
+          blackHospDispFlag
+          blackPctHosp
+          latinXTestCaution
+          latinXTestDispFlag
+          latinXPctTest
+          latinXHospCaution
+          latinXHospDispFlag
+          latinXPctHosp
+          aianTestCaution
+          aianTestDispFlag
+          aianPctTest
+          aianHospCaution
+          aianHospDispFlag
+          aianPctHosp
+          nhpiTestCaution
+          nhpiTestDispFlag
+          nhpiPctTest
+          nhpiHospCaution
+          nhpiHospDispFlag
+          nhpiPctHosp
+          otherTestCaution
+          otherTestDispFlag
+          otherPctTest
+          otherHospCaution
+          otherHospDispFlag
+          otherPctHosp
+          twoTestCaution
+          twoTestDispFlag
+          twoPctTest
+          twoHospCaution
+          twoHospDispFlag
+          twoPctHosp
+          whiteTestCaution
+          whiteTestDispFlag
+          whitePctTest
+          whiteHospCaution
+          whiteHospDispFlag
+          whitePctHosp
         }
       }
       allCovidRaceHospTestDataSeparate {
