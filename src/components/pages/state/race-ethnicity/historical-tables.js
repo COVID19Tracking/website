@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import TableResponsive from '~components/common/table-responsive'
 
 import RatesToggle from './rates-toggle'
+import FilteredNotice from './filtered-notice'
 import NoDataPlaceholder from './no-data'
 import { TableHeader, RaceTableHeader } from './table-header'
 import {
@@ -119,6 +120,35 @@ const HistoricalTables = ({
     return hasNonNullValue
   }
 
+  let earliestDay
+
+  // Remove rows with nulls for all relevant values.
+  const filteredFormattedTimeSeriesData = formattedTimeSeriesData.filter(
+    day => {
+      // Get all of the relevant fields (i.e., 'Hospitalization_' fields).
+      const currentMetricFields = Object.keys(day).filter(field =>
+        field.startsWith(`${currentMetric}_`),
+      )
+
+      let hasRealValues = false // Assume all nulls for this day.
+      currentMetricFields.every(field => {
+        if (
+          day[field] === null ||
+          field.includes('Total') ||
+          field.includes('Unknown')
+        ) {
+          // Not a notable value.
+          return true
+        }
+        // If this value is not null and not a Total or Unknown value.
+        hasRealValues = true // Include this in the filtered fields.
+        earliestDay = day
+        return false
+      })
+      return hasRealValues
+    },
+  )
+
   return (
     <>
       <RatesToggle
@@ -142,7 +172,7 @@ const HistoricalTables = ({
                 isSeparate={reportsRaceSeparately()}
               />
             }
-            data={formattedTimeSeriesData}
+            data={filteredFormattedTimeSeriesData}
             mobileShowNRows={3}
           />
         </div>
@@ -159,7 +189,7 @@ const HistoricalTables = ({
                 <TableResponsive
                   labels={ethnicityTableLabels}
                   header={<TableHeader header="Ethnicity" />}
-                  data={formattedTimeSeriesData}
+                  data={filteredFormattedTimeSeriesData}
                   mobileShowNRows={3}
                 />
               </div>
@@ -167,6 +197,14 @@ const HistoricalTables = ({
           </>
         )}
       </div>
+      {earliestDay !== undefined && earliestDay.Date !== 20200412 && (
+        // If the earliest relevant data is not from the first CRDT shift...
+        <FilteredNotice
+          earliestDay={earliestDay}
+          currentMetric={currentMetric}
+          stateName={stateName}
+        />
+      )}
     </>
   )
 }
