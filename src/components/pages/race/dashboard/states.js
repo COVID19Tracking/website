@@ -332,6 +332,51 @@ const CrdtDashboardStates = () => {
           name
           anyHospData
           anyTestData
+          blackTestCaution
+          blackTestDispFlag
+          blackPctTest
+          blackHospCaution
+          blackHospDispFlag
+          blackPctHosp
+          latinXTestCaution
+          latinXTestDispFlag
+          latinXPctTest
+          latinXHospCaution
+          latinXHospDispFlag
+          latinXPctHosp
+          aianTestCaution
+          aianTestDispFlag
+          aianHospCaution
+          aianHospDispFlag
+          aianPctHosp
+          nhpiTestCaution
+          nhpiTestDispFlag
+          nhpiHospCaution
+          nhpiHospDispFlag
+          nhpiPctHosp
+          otherTestCaution
+          otherTestDispFlag
+          otherPctTest
+          otherHospCaution
+          otherHospDispFlag
+          otherPctHosp
+          twoTestCaution
+          twoTestDispFlag
+          twoHospCaution
+          twoHospDispFlag
+          twoPctHosp
+          whiteTestCaution
+          whiteTestDispFlag
+          whitePctTest
+          whiteHospCaution
+          whiteHospDispFlag
+          whitePctHosp
+          nonhispanicTestCaution
+          nonhispanicTestDispFlag
+          nonhispanicPctTest
+          nonhispanicHospCaution
+          nonhispanicHospDispFlag
+          nonhispanicPctHosp
         }
       }
       allCovidStateInfo {
@@ -364,6 +409,14 @@ const CrdtDashboardStates = () => {
       }
     }
   `)
+
+  /*
+  todo add:
+    * nhpiPctTest
+    * twoPctTest
+    * aianPctTest
+  to the test/hosp separate query
+ */
 
   const states = []
   data.allCovidRaceDataSeparate.nodes.forEach(state => {

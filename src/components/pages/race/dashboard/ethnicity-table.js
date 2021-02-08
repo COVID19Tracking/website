@@ -30,18 +30,18 @@ const EthnicityTable = ({
         },
       },
       hospitalization: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.16,
+        disparity: data.latinXHospDispFlag,
+        caution: data.latinXHospCaution,
+        value: data.latinXPctHosp,
         note: {
           value: undefined,
           index: undefined,
         },
       },
       test: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.54,
+        disparity: data.latinXTestDispFlag,
+        caution: data.latinXTestCaution,
+        value: data.latinXPctTest,
         note: {
           value: undefined,
           index: undefined,
@@ -68,18 +68,18 @@ const EthnicityTable = ({
         },
       },
       hospitalization: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.16,
+        disparity: data.nonhispanicHospDispFlag,
+        caution: data.nonhispanicHospCaution,
+        value: data.nonhispanicPctHosp,
         note: {
           value: undefined,
           index: undefined,
         },
       },
       test: {
-        disparity: undefined,
-        caution: undefined,
-        value: 0.54,
+        disparity: data.nonhispanicTestDispFlag,
+        caution: data.nonhispanicTestCaution,
+        value: data.nonhispanicPctTest,
         note: {
           value: undefined,
           index: undefined,
