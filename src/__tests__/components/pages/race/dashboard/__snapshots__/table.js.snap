@@ -210,6 +210,32 @@ exports[`Components : Pages : Race : Dashboard : Table Header renders correctly 
         />
       </span>
     </th>
+    <th
+      className="percent"
+      scope="col"
+    >
+      <span
+        role="text"
+      >
+        Percentage of tests
+        <div
+          className="symbolSpacer"
+        />
+      </span>
+    </th>
+    <th
+      className="percent"
+      scope="col"
+    >
+      <span
+        role="text"
+      >
+        Percentage of hospitalizations
+        <div
+          className="symbolSpacer"
+        />
+      </span>
+    </th>
   </tr>
 </thead>
 `;
