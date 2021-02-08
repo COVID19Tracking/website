@@ -61,6 +61,19 @@ const getListSpacer = (index, length, useAmpersand = true) => {
   return ', '
 }
 
+const getOrListSpacer = (index, length) => {
+  if (index === 0 && length === 2) {
+    return ' or ' // first item, only two items in the list
+  }
+  if (index === length - 2) {
+    return ', or ' // second to last item
+  }
+  if (index === length - 1) {
+    return '' // last item
+  }
+  return ', '
+}
+
 /**
  * Separates a list of components by `&` or `and`
  *
@@ -74,6 +87,30 @@ const FormatItemList = ({ items, keys, useAmpersand = true }) => {
     <>
       {items.map((item, index) => {
         const listSpacer = getListSpacer(index, length, useAmpersand)
+        return (
+          <Fragment key={keys[index]}>
+            {item}
+            {listSpacer === '' ? undefined : listSpacer}
+          </Fragment>
+        )
+      })}
+    </>
+  )
+}
+
+/**
+ * Separates a list of components by `,` and `or`.
+ *
+ * @param {array} items A list of components
+ * @param {array} keys The keys to use for the items
+ * @returns {string} The formatted fragment
+ */
+const FormatItemOrList = ({ items, keys }) => {
+  const { length } = items
+  return (
+    <>
+      {items.map((item, index) => {
+        const listSpacer = getOrListSpacer(index, length)
         return (
           <Fragment key={keys[index]}>
             {item}
@@ -105,5 +142,6 @@ export {
   lowercaseMeridiem,
   formatDateToString,
   FormatItemList,
+  FormatItemOrList,
   formatStringList,
 }

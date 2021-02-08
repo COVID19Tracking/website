@@ -1,0 +1,45 @@
+@import '~scss/colors.module.scss';
+
+%toggle-active {
+  color: $color-plum-700;
+  background-color: $color-plum-100;
+  border: 1px solid $color-plum-700;
+}
+
+%toggle-inactive {
+  color: $color-slate-400;
+}
+
+.toggle {
+  justify-content: center;
+  display: flex;
+  cursor: pointer;
+
+  @include margin(32, (top, bottom));
+
+  @media (max-width: $viewport-lg) {
+    @include margin(16, bottom);
+  }
+
+  button {
+    @extend %toggle-inactive;
+
+    border: 1px solid $color-slate-400;
+    background-color: transparent;
+    width: 175px;
+
+    // removes double border
+    margin: -1px; // ignore-style-rule
+
+    cursor: pointer;
+
+    @include type-size(100);
+    font-weight: bold;
+
+    height: 2rem;
+
+    &.active {
+      @extend %toggle-active;
+    }
+  }
+}

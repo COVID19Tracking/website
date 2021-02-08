@@ -189,8 +189,43 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
+        file: './_data/crdt_test_hosp_race_combined.json',
+        type: 'CovidRaceHospTestDataCombined',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/crdt_test_hosp_race_separate.json',
+        type: 'CovidRaceHospTestDataSeparate',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
         file: './_data/crdt_states_separate.json',
         type: 'CovidRaceDataSeparate',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/crdt_timeseries.json',
+        type: 'CovidRaceDataTimeseries',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/crdt_acs.json',
+        type: 'CovidAcsPopulation',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/crdt_sources.json',
+        type: 'CovidRaceDataSources',
       },
     },
     {

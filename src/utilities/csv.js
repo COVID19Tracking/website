@@ -81,6 +81,63 @@ module.exports = (graphql, reporter) => {
               totalTestsViralIncrease
             }
           }
+          allCovidRaceDataTimeseries(
+            filter: { Date: { ne: null } }
+            sort: { fields: Date, order: DESC }
+          ) {
+            nodes {
+              State
+              Date
+              Cases_Asian
+              Cases_AIAN
+              Cases_Black
+              Cases_White
+              Cases_Other
+              Cases_NHPI
+              Cases_Multiracial
+              Cases_LatinX
+              Cases_Ethnicity_NonHispanic
+              Cases_Ethnicity_Hispanic
+              Cases_Ethnicity_Unknown
+              Cases_Total
+              Deaths_AIAN
+              Deaths_Asian
+              Deaths_Black
+              Deaths_Ethnicity_Hispanic
+              Deaths_Ethnicity_NonHispanic
+              Deaths_Ethnicity_Unknown
+              Deaths_LatinX
+              Deaths_Multiracial
+              Deaths_NHPI
+              Deaths_Other
+              Deaths_White
+              Deaths_Total
+              Hospitalizations_AIAN: Hosp_AIAN
+              Hospitalizations_Asian: Hosp_Asian
+              Hospitalizations_Black: Hosp_Black
+              Hospitalizations_Ethnicity_Hispanic: Hosp_Ethnicity_Hispanic
+              Hospitalizations_Ethnicity_NonHispanic: Hosp_Ethnicity_NonHispanic
+              Hospitalizations_Ethnicity_Unknown: Hosp_Ethnicity_Unknown
+              Hospitalizations_LatinX: Hosp_LatinX
+              Hospitalizations_Multiracial: Hosp_Multiracial
+              Hospitalizations_NHPI: Hosp_NHPI
+              Hospitalizations_Other: Hosp_Other
+              Hospitalizations_White: Hosp_White
+              Hospitalizations_Total: Hosp_Total
+              Tests_AIAN
+              Tests_Asian
+              Tests_Black
+              Tests_Ethnicity_Hispanic
+              Tests_Ethnicity_NonHispanic
+              Tests_Ethnicity_Unknown
+              Tests_LatinX
+              Tests_Multiracial
+              Tests_NHPI
+              Tests_Other
+              Tests_White
+              Tests_Total
+            }
+          }
           allCovidUsDaily(sort: { fields: date, order: DESC }) {
             nodes {
               date
@@ -123,6 +180,24 @@ module.exports = (graphql, reporter) => {
             fs.outputFileSync(
               `./public/data/download/${states[state].childSlug.slug}-history.csv`,
               parse(stateData[state]),
+            )
+          })
+
+          // Generate historical CRDT CSVs.
+          const stateRaceEthnicityHistoricalData = {}
+          data.allCovidRaceDataTimeseries.nodes.forEach(row => {
+            if (
+              typeof stateRaceEthnicityHistoricalData[row.State] === 'undefined'
+            ) {
+              stateRaceEthnicityHistoricalData[row.State] = []
+            }
+            stateRaceEthnicityHistoricalData[row.State].push(row)
+          })
+
+          Object.keys(stateRaceEthnicityHistoricalData).forEach(state => {
+            fs.outputFileSync(
+              `./public/data/download/${states[state].childSlug.slug}-race-ethnicity-historical.csv`,
+              parse(stateRaceEthnicityHistoricalData[state]),
             )
           })
 

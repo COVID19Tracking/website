@@ -1,0 +1,18 @@
+.title {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  text-decoration: underline;
+
+  @include padding(0);
+  @include margin(16, top);
+}
+
+.source-list {
+  list-style-type: none;
+  @include padding(0, left);
+  
+  li {
+    @include margin(8, bottom);
+  }
+}
