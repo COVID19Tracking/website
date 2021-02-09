@@ -8,7 +8,7 @@ import { Col, Row } from '~components/common/grid'
 const Legend = ({ mapLayer }) => (
   <Container>
     <Row className={legendStyles.wrapper}>
-      <Col width={[4, 6, 4]}>
+      <Col width={[4, 6, 6]}>
         <LayerToggle
           layers={[
             {
@@ -20,13 +20,21 @@ const Legend = ({ mapLayer }) => (
               name: 'Deaths',
             },
             {
+              id: 'cases-outbreak-only',
+              name: 'Outbreak Cases',
+            },
+            {
+              id: 'deaths-outbreak-only',
+              name: 'Outbreak Deaths',
+            },
+            {
               id: 'cms-cases',
               name: 'Federal data',
             },
           ]}
         />
       </Col>
-      <Col width={[4, 6, 8]}>
+      <Col width={[4, 6, 6]}>
         <div className={legendStyles.legend} aria-hidden>
           {mapLayer === 'cms-cases' || mapLayer === 'cms-deaths' ? (
             <p>All facilities that report to the federal government.</p>
@@ -52,23 +60,6 @@ const Legend = ({ mapLayer }) => (
                   experiencing
                 </span>{' '}
                 an outbreak.
-              </div>
-              <div>
-                {' '}
-                Some states{' '}
-                <span
-                  className={classnames(
-                    legendStyles.item,
-                    legendStyles.outbreakOnly,
-                  )}
-                >
-                  only report outbreaks
-                </span>
-                , and some states{' '}
-                <span className={legendStyles.noData}>
-                  don&apos;t report any LTC data
-                </span>
-                .
               </div>
             </>
           )}

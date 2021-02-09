@@ -22,7 +22,13 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
   const [currentZoom, setCurrentZoom] = useState(0)
   const [highlighedMarker, setHighlightedMarker] = useState(false)
   const [mapLayer, setMapLayer] = useState('cases')
-  const layers = ['cases', 'deaths', 'cms-cases']
+  const layers = [
+    'cases',
+    'deaths',
+    'cases-outbreak-only',
+    'deaths-outbreak-only',
+    'cms-cases',
+  ]
 
   const mapNode = useRef(null)
   const mapRef = useRef(null)
@@ -69,6 +75,39 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
   }
 
   useEffect(() => {
+    if (!mapRef.current) {
+      return
+    }
+    if (mapLayer === 'cms-cases') {
+      mapRef.current.setLayoutProperty(
+        'states-outbreak-only',
+        'visibility',
+        'none',
+      )
+
+      mapRef.current.setLayoutProperty('states-all-data', 'visibility', 'none')
+
+      mapRef.current.setLayoutProperty('states', 'visibility', 'none')
+      return
+    }
+
+    mapRef.current.setLayoutProperty('states', 'visibility', 'visible')
+    mapRef.current.setLayoutProperty(
+      'states-outbreak-only',
+      'visibility',
+      ['cases', 'deaths'].indexOf(mapLayer) > -1 ? 'visible' : 'none',
+    )
+
+    mapRef.current.setLayoutProperty(
+      'states-all-data',
+      'visibility',
+      ['cases-outbreak-only', 'deaths-outbreak-only'].indexOf(mapLayer) > -1
+        ? 'visible'
+        : 'none',
+    )
+  }, [mapLayer])
+
+  useEffect(() => {
     if (!highlightedFacility || !highlightedFacility.geometry) {
       return
     }
@@ -96,7 +135,7 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
 
     const map = new mapboxgl.Map({
       container: mapNode.current,
-      style: 'mapbox://styles/covidtrackingproject/ckfeoswng0hc219o24blw5utn',
+      style: 'mapbox://styles/covidtrackingproject/ckkx6v37q178u17qtj0dn36b5',
       center: hash.length > 2 ? [hash[0], hash[1]] : center,
       zoom: hash.length > 2 ? hash[2] : zoom,
     })
