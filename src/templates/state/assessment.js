@@ -10,7 +10,11 @@ import { FormatDate } from '~components/utils/format'
 const StateAsessmentTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
-  const { allCovidGradeDataReportingProblems, contentfulSnippet } = data
+  const {
+    allCovidGradeDataReportingProblems,
+    contentfulSnippet,
+    covidGradeStateAssessment,
+  } = data
   return (
     <Layout
       title={`${state.name} Assessment`}
@@ -40,6 +44,7 @@ const StateAsessmentTemplate = ({ pageContext, path, data }) => {
       <Assessment
         stateName={state.name}
         assessments={allCovidGradeDataReportingProblems.nodes}
+        summary={covidGradeStateAssessment}
       />
     </Layout>
   )
@@ -55,6 +60,11 @@ export const query = graphql`
         text
         category
       }
+    }
+    covidGradeStateAssessment(state: { eq: $state }) {
+      taco
+      ltc
+      crdt
     }
     contentfulSnippet(slug: { eq: "state-assessment-lede" }) {
       contentful_id
