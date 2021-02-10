@@ -21,14 +21,8 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
   const [revealedFacility, setRevealedFacility] = useState(false)
   const [currentZoom, setCurrentZoom] = useState(0)
   const [highlighedMarker, setHighlightedMarker] = useState(false)
-  const [mapLayer, setMapLayer] = useState('cases')
-  const layers = [
-    'cases',
-    'deaths',
-    'cases-outbreak-only',
-    'deaths-outbreak-only',
-    'cms-cases',
-  ]
+  const [mapLayer, setMapLayer] = useState('facilities')
+  const layers = ['facilities', 'cases', 'deaths', 'cms-cases']
 
   const mapNode = useRef(null)
   const mapRef = useRef(null)
@@ -68,44 +62,14 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
     })
     setCurrentZoom(event.target.getZoom())
     setFacilities(
-      features.sort((a, b) =>
-        a.properties.hospital_name > b.properties.hospital_name ? 1 : -1,
-      ),
+      features.sort((a, b) => {
+        if (mapLayer === 'cms-cases') {
+          return a.properties.name > b.properties.name ? 1 : -1
+        }
+        return a.properties.facility_name > b.properties.facility_name ? 1 : -1
+      }),
     )
   }
-
-  useEffect(() => {
-    if (!mapRef.current) {
-      return
-    }
-    if (mapLayer === 'cms-cases') {
-      mapRef.current.setLayoutProperty(
-        'states-outbreak-only',
-        'visibility',
-        'none',
-      )
-
-      mapRef.current.setLayoutProperty('states-all-data', 'visibility', 'none')
-
-      mapRef.current.setLayoutProperty('states', 'visibility', 'none')
-      return
-    }
-
-    mapRef.current.setLayoutProperty('states', 'visibility', 'visible')
-    mapRef.current.setLayoutProperty(
-      'states-outbreak-only',
-      'visibility',
-      ['cases', 'deaths'].indexOf(mapLayer) > -1 ? 'visible' : 'none',
-    )
-
-    mapRef.current.setLayoutProperty(
-      'states-all-data',
-      'visibility',
-      ['cases-outbreak-only', 'deaths-outbreak-only'].indexOf(mapLayer) > -1
-        ? 'visible'
-        : 'none',
-    )
-  }, [mapLayer])
 
   useEffect(() => {
     if (!highlightedFacility || !highlightedFacility.geometry) {
@@ -193,6 +157,16 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
         layer === mapLayer ? 'visible' : 'none',
       )
     })
+    mapRef.current.setLayoutProperty(
+      'states-outbreak-only-cases',
+      'visibility',
+      mapLayer === 'cases' ? 'visible' : 'none',
+    )
+    mapRef.current.setLayoutProperty(
+      'states-outbreak-only-deaths',
+      'visibility',
+      mapLayer === 'deaths' ? 'visible' : 'none',
+    )
   }, [mapLayer])
 
   return (
