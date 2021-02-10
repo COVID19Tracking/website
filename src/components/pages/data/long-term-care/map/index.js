@@ -143,6 +143,10 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
       selectFacility(event, true)
     })
 
+    map.on('data', () => {
+      console.log('data')
+    })
+
     mapRef.current = map
   }, [])
 
@@ -184,7 +188,7 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
             <thead>
               <tr>
                 <Th alignLeft>Name</Th>
-                <Th>Resident cases</Th>
+                <Th>{mapLayer === 'deaths' ? 'Deaths' : 'Cases'}</Th>
               </tr>
             </thead>
           </Table>
@@ -194,7 +198,7 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
                 <thead className="a11y-only">
                   <tr>
                     <Th alignLeft>Name</Th>
-                    <Th>Resident cases</Th>
+                    <Th>{mapLayer === 'deaths' ? 'Deaths' : 'Cases'}</Th>
                   </tr>
                 </thead>
                 <tbody>
@@ -228,14 +232,17 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
                         </button>
                       </Td>
                       <Td>
-                        {mapLayer === 'cms-cases'
-                          ? facility.properties[
-                              'residents-total-confirmed-covid-19'
-                            ] +
+                        {mapLayer === 'cms-cases' &&
+                          facility.properties[
+                            'residents-total-confirmed-covid-19'
+                          ] +
                             facility.properties[
                               'residents-total-suspected-covid-19'
-                            ]
-                          : facility.properties.resident_positives}
+                            ]}
+                        {(mapLayer === 'cases' || mapLayer === 'facilities') &&
+                          facility.properties.radius_positive}
+                        {mapLayer === 'deaths' &&
+                          facility.properties.radius_deaths}
                       </Td>
                     </tr>
                   ))}

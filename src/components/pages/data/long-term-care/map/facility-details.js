@@ -12,6 +12,22 @@ const fields = {
       field: 'resident_deaths',
     },
     {
+      title: 'Staff cases',
+      field: 'staff_positives',
+    },
+    {
+      title: 'Staff deaths',
+      field: 'staff_deaths',
+    },
+    {
+      title: 'Resident & staff cases',
+      field: 'resident_staff_positives',
+    },
+    {
+      title: 'Resident & staff deaths',
+      field: 'resident_staff_deaths',
+    },
+    {
       title: 'Outbreak resident positives',
       field: 'outbreak_resident_positives',
     },
@@ -26,14 +42,6 @@ const fields = {
     {
       title: 'Outbreak resident & staff deaths',
       field: 'outbreak_resident_staff_deaths',
-    },
-    {
-      title: 'Staff cases',
-      field: 'staff_positives',
-    },
-    {
-      title: 'Staff deaths',
-      field: 'staff_deaths',
     },
   ],
   cms: [
