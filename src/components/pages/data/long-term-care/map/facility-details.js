@@ -20,6 +20,14 @@ const fields = {
       field: 'outbreak_resident_deaths',
     },
     {
+      title: 'Outbreak resident & staff positives',
+      field: 'outbreak_resident_staff_positives',
+    },
+    {
+      title: 'Outbreak resident & staff deaths',
+      field: 'outbreak_resident_staff_deaths',
+    },
+    {
       title: 'Staff cases',
       field: 'staff_positives',
     },
