@@ -7,7 +7,7 @@ import { Col, Row } from '~components/common/grid'
 const Legend = ({ mapLayer }) => (
   <Container>
     <Row className={legendStyles.wrapper}>
-      <Col width={[4, 6, 6]}>
+      <Col width={[4, 6, 4]}>
         <LayerToggle
           layers={[
             {
@@ -29,13 +29,23 @@ const Legend = ({ mapLayer }) => (
           ]}
         />
       </Col>
-      <Col width={[4, 6, 6]}>
+      <Col width={[4, 6, 8]}>
         <div className={legendStyles.legend} aria-hidden>
           {mapLayer === 'cms-cases' || mapLayer === 'cms-deaths' ? (
             <div>All facilities that report to the federal government.</div>
           ) : (
             <>
-              <div>Long-term care facilities. [Legend TK]</div>
+              <div>
+                Some states{' '}
+                <span className={legendStyles.outbreakOnly}>
+                  only report outbreak data
+                </span>
+                , while{' '}
+                <span className={legendStyles.missing}>
+                  others do not report any data
+                </span>
+                .
+              </div>
             </>
           )}
         </div>

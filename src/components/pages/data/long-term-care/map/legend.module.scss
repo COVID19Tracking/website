@@ -1,34 +1,30 @@
 .wrapper {
   @include margin(32, top);
+  @include margin(16, bottom);
+  align-items: center;
 }
 .legend {
-  @include padding(8);
   text-align: right;
   div {
     @include margin(8, bottom);
   }
 }
 
-.item {
-  border-bottom: 3px solid;
-  display: inline-block;
-  padding-bottom: 3px; // ignore-style-rule
-}
-
-.experiencing {
-  border-color: $color-honey-500;
-}
-
-.not-experiencing {
-  border-color: $color-plum-600;
-}
-
 .outbreak-only {
-  border-color: $color-slate-400;
+  display: inline-block;
+  background: #f3d8b7; // ignore-style-rule
+  @include padding(8);
 }
 
-.no-data {
+.missing {
   display: inline-block;
-  background: #ffdbc7; // ignore-style-rule
+  border: 1px solid $color-slate-300;
+  background: repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 5px,
+    $color-slate-300 6px,
+    $color-slate-300 6px
+  );
   @include padding(8);
 }
