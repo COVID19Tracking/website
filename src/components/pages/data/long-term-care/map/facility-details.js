@@ -67,7 +67,7 @@ const fields = {
     },
     {
       title: 'Resident total deaths',
-      field: 'residents-total-all-deaths',
+      field: 'residents-total-covid-19-deaths',
     },
     {
       title: 'Staff total confirmed cases',
@@ -87,7 +87,7 @@ const fields = {
     },
     {
       title: 'Staff total deaths',
-      field: 'staff-total-all-deaths',
+      field: 'staff-total-covid-19-deaths',
     },
   ],
 }
