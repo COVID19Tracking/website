@@ -32,6 +32,8 @@ const PercentageOverview = ({
   dataType,
   casePercent,
   deathPercent,
+  hospitalizationPercent,
+  testPercent,
   className,
 }) => {
   if (casePercent === undefined && deathPercent === undefined) {
@@ -45,6 +47,11 @@ const PercentageOverview = ({
       <div className={percentageOverviewStyle.data}>
         <PercentageItem percent={casePercent} caption="Cases" />
         <PercentageItem percent={deathPercent} caption="Deaths" />
+        <PercentageItem percent={testPercent} caption="Tests" />
+        <PercentageItem
+          percent={hospitalizationPercent}
+          caption="Hospitalizations"
+        />
       </div>
     </div>
   )
