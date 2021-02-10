@@ -55,7 +55,13 @@
     "zoom": 7,
     "state": "DE"
   },
-  { "name": "Washington DC", "lat": 38.9101, "lon": -77.0147, "zoom": 7 },
+  {
+    "name": "Washington DC",
+    "lat": 38.9101,
+    "lon": -77.0147,
+    "zoom": 7,
+    "state": "DC"
+  },
   {
     "name": "Florida",
     "lat": 28.6305,
