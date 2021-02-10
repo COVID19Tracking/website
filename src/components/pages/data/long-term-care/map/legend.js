@@ -22,10 +22,10 @@ const Legend = ({ mapLayer }) => (
               id: 'deaths',
               name: 'Deaths',
             },
-            {
+            /* {
               id: 'cms-cases',
               name: 'Federal data',
-            },
+            }, */
           ]}
         />
       </Col>

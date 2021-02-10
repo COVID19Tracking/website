@@ -22,7 +22,7 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
   const [currentZoom, setCurrentZoom] = useState(0)
   const [highlighedMarker, setHighlightedMarker] = useState(false)
   const [mapLayer, setMapLayer] = useState('facilities')
-  const layers = ['facilities', 'cases', 'deaths', 'cms-cases']
+  const layers = ['facilities', 'cases', 'deaths' /* ,'cms-cases' */]
 
   const mapNode = useRef(null)
   const mapRef = useRef(null)
@@ -145,7 +145,6 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
 
     map.on('data', event => {
       if (event.isSourceLoaded) {
-        console.log('eventtt')
         mapBoundChanged(event)
       }
     })
