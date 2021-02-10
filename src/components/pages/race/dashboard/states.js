@@ -346,11 +346,13 @@ const CrdtDashboardStates = () => {
           latinXPctHosp
           aianTestCaution
           aianTestDispFlag
+          aianPctTest
           aianHospCaution
           aianHospDispFlag
           aianPctHosp
           nhpiTestCaution
           nhpiTestDispFlag
+          nhpiPctTest
           nhpiHospCaution
           nhpiHospDispFlag
           nhpiPctHosp
@@ -362,6 +364,7 @@ const CrdtDashboardStates = () => {
           otherPctHosp
           twoTestCaution
           twoTestDispFlag
+          twoPctTest
           twoHospCaution
           twoHospDispFlag
           twoPctHosp
@@ -409,14 +412,6 @@ const CrdtDashboardStates = () => {
       }
     }
   `)
-
-  /*
-  todo add:
-    * nhpiPctTest
-    * twoPctTest
-    * aianPctTest
-  to the test/hosp separate query
- */
 
   const states = []
   data.allCovidRaceDataSeparate.nodes.forEach(state => {
