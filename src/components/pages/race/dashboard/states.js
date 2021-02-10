@@ -283,6 +283,8 @@ const CrdtDashboardStates = () => {
           name
           anyHospData
           anyTestData
+          knownRaceEthTest
+          knownRaceEthHosp
           blackTestCaution
           blackTestDispFlag
           blackPctTest
@@ -332,6 +334,10 @@ const CrdtDashboardStates = () => {
           name
           anyHospData
           anyTestData
+          knownEthHosp
+          knownEthTest
+          knownRaceHosp
+          knownRaceTest
           blackTestCaution
           blackTestDispFlag
           blackPctTest
