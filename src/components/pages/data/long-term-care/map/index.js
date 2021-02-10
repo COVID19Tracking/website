@@ -143,8 +143,11 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
       selectFacility(event, true)
     })
 
-    map.on('data', () => {
-      console.log('data')
+    map.on('data', event => {
+      if (event.isSourceLoaded) {
+        console.log('eventtt')
+        mapBoundChanged(event)
+      }
     })
 
     mapRef.current = map
@@ -181,7 +184,7 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
         infoboxPosition: tooltip,
       }}
     >
-      <Legend mapLayer={mapLayer} setLayer={layer => setMapLayer(layer)} />
+      <Legend mapLayer={mapLayer} />
       <div className={facilitiesMapStyles.container} aria-hidden>
         <Sidebar map={mapRef.current}>
           <Table ariaHidden>
