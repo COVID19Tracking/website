@@ -108,7 +108,9 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
 
     map.on('load', () => {
       if (state) {
-        map.setFilter('cases', ['==', ['get', 'state_abbreviation'], state])
+        layers.forEach(layer => {
+          map.setFilter(layer, ['==', ['get', 'state'], state])
+        })
       }
 
       if (window.location.hash && hash.length > 2) {

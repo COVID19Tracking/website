@@ -5,7 +5,7 @@ import LongTermCarePreamble from '~components/pages/state/long-term-care/preambl
 import LongTermCareSummaryTable from '~components/pages/state/long-term-care/summary-table'
 import LongTermCareFacilities from '~components/pages/state/long-term-care/facilities'
 import LongTermCareBarChart from '~components/pages/state/long-term-care/chart'
-
+import Container from '~components/common/container'
 import LongTermCareAlertNote from '~components/pages/state/long-term-care/alert-note'
 import Layout from '~components/layout'
 
@@ -21,46 +21,52 @@ export default ({ pageContext, path, data }) => {
       ]}
       description={`Cumulative and outbreak data on cases and deaths in nursing homes, assisted living, and other long-term-care facilities in ${state.name}.`}
       path={path}
+      noContainer
     >
       {data.aggregate.nodes.length ? (
         <>
-          <LongTermCarePreamble
-            state={state.state}
-            stateSlug={state.childSlug.slug}
-            stateName={state.name}
-            overview={data.covidStateInfo.childLtc.current}
-            showFacilities={
-              data.allCovidLtcFacilities.group &&
-              data.allCovidLtcFacilities.group.length > 0
-            }
-          />
-          <LongTermCareBarChart data={data.aggregate.nodes} />
-          {data.covidLtcNotes.alerts && (
-            <LongTermCareAlertNote>
-              {data.covidLtcNotes.alerts}
-            </LongTermCareAlertNote>
-          )}
-          <h2 id="summary">Summary</h2>
-          <LongTermCareSummaryTable
-            aggregate={data.aggregate.nodes[0]}
-            outbreak={data.outbreak.nodes[0]}
-          />
-          <h2 id="notes">State notes</h2>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: marked(data.covidLtcNotes.notes),
-            }}
-          />
-          <h2 id="facilities">Facilities</h2>
+          <Container>
+            <LongTermCarePreamble
+              state={state.state}
+              stateSlug={state.childSlug.slug}
+              stateName={state.name}
+              overview={data.covidStateInfo.childLtc.current}
+              showFacilities={
+                data.allCovidLtcFacilities.group &&
+                data.allCovidLtcFacilities.group.length > 0
+              }
+            />
+            <LongTermCareBarChart data={data.aggregate.nodes} />
+            {data.covidLtcNotes.alerts && (
+              <LongTermCareAlertNote>
+                {data.covidLtcNotes.alerts}
+              </LongTermCareAlertNote>
+            )}
+            <h2 id="summary">Summary</h2>
+            <LongTermCareSummaryTable
+              aggregate={data.aggregate.nodes[0]}
+              outbreak={data.outbreak.nodes[0]}
+            />
+            <h2 id="notes">State notes</h2>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: marked(data.covidLtcNotes.notes),
+              }}
+            />
+            <h2 id="facilities">Facilities</h2>
+          </Container>
           <LongTermCareFacilities
             stateSlug={slug}
             facilities={data.allCovidLtcFacilities.group}
+            stateAbbr={state.state}
           />
         </>
       ) : (
-        <LongTermCareAlertNote>
-          {state.name} does not report long-term care data.
-        </LongTermCareAlertNote>
+        <Container>
+          <LongTermCareAlertNote>
+            {state.name} does not report long-term care data.
+          </LongTermCareAlertNote>
+        </Container>
       )}
     </Layout>
   )

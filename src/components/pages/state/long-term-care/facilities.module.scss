@@ -29,3 +29,7 @@
   @include margin(16, left);
   @include type-size(100);
 }
+
+.disclosure-button {
+  @include remove-button-style();
+}
