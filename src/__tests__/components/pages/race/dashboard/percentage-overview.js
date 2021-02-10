@@ -9,6 +9,8 @@ describe('Components : Race : Dashboard : Percentage Overview', () => {
         <PercentageOverview
           stateName="New Mexico"
           dataType="race"
+          testPercent={0.27}
+          hospitalizationPercent={0.993}
           casePercent={0.22}
           deathPercent={0.043}
           className="race-class"
@@ -28,7 +30,8 @@ describe('Components : Race : Dashboard : Percentage Overview', () => {
       .toJSON()
     expect(nullTree).toMatchSnapshot()
 
-    const nullDeathTree = renderer
+    const nullTestHospDeathTree = renderer
+      // Null values for death, test, and hospitalization values.
       .create(
         <PercentageOverview
           stateName="New Mexico"
@@ -38,6 +41,6 @@ describe('Components : Race : Dashboard : Percentage Overview', () => {
         />,
       )
       .toJSON()
-    expect(nullDeathTree).toMatchSnapshot()
+    expect(nullTestHospDeathTree).toMatchSnapshot()
   })
 })
