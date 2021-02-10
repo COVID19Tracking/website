@@ -258,7 +258,7 @@ const LongTermCareFacilities = ({ stateSlug, stateAbbr, facilities }) => {
     <>
       <LTCMap
         center={stateCenter ? [stateCenter.lon, stateCenter.lat] : [-97, 38]}
-        zoom={stateCenter.zoom}
+        zoom={stateCenter ? stateCenter.zoom : 3.5}
         state={stateAbbr}
       />
       <Container>
