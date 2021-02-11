@@ -12,15 +12,12 @@
   }
 }
 .data {
-  display: flex;
-  justify-content: space-between;
-  @media (max-width: $viewport-md) {
-    flex-direction: column;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
   img {
     width: toRem(46);
   }
-  flex-direction: row;
 }
 
 .percent {

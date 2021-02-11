@@ -3,7 +3,7 @@
 exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correctly 1`] = `
 <div>
   <table
-    className="table"
+    className="table table"
   >
     <thead>
       <tr>
@@ -24,7 +24,9 @@ exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correct
           <span
             role="text"
           >
-            Percentage of population
+            Percentage of
+            <br />
+            population
           </span>
         </th>
         <th
@@ -38,10 +40,13 @@ exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correct
               alt="Alert icon"
               src="test-file-stub"
             />
-            Percentage of cases
-            <div
-              className="symbolSpacer"
-            />
+            <span
+              className="headerText"
+            >
+              Percentage of
+              <br />
+              cases
+            </span>
           </span>
         </th>
         <th
@@ -55,10 +60,53 @@ exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correct
               alt="Alert icon"
               src="test-file-stub"
             />
-            Percentage of deaths
-            <div
-              className="symbolSpacer"
+            <span
+              className="headerText"
+            >
+              Percentage of
+              <br />
+              deaths
+            </span>
+          </span>
+        </th>
+        <th
+          className="percent missingData"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
             />
+            <span
+              className="headerText"
+            >
+              Percentage of
+              <br />
+              tests
+            </span>
+          </span>
+        </th>
+        <th
+          className="percent missingData"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
+            />
+            <span
+              className="headerText"
+            >
+              Percentage of
+              <br />
+              hospitalizations
+            </span>
           </span>
         </th>
       </tr>
@@ -117,6 +165,42 @@ exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correct
             </a>
           </span>
         </td>
+        <td
+          className="missingData"
+          rowSpan={2}
+        >
+          <span>
+             does not report 
+            type
+             data for 
+            tests
+            .
+             
+            <a
+              href="/race/get-better-data"
+            >
+              Help us get better data.
+            </a>
+          </span>
+        </td>
+        <td
+          className="missingData"
+          rowSpan={2}
+        >
+          <span>
+             does not report 
+            type
+             data for 
+            hospitalizations
+            .
+             
+            <a
+              href="/race/get-better-data"
+            >
+              Help us get better data.
+            </a>
+          </span>
+        </td>
       </tr>
       <tr>
         <th
@@ -144,7 +228,7 @@ exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correct
 exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`] = `
 <div>
   <table
-    className="table"
+    className="table table"
   >
     <thead>
       <tr>
@@ -165,7 +249,9 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
           <span
             role="text"
           >
-            Percentage of population
+            Percentage of
+            <br />
+            population
           </span>
         </th>
         <th
@@ -179,10 +265,13 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
               alt="Alert icon"
               src="test-file-stub"
             />
-            Percentage of cases
-            <div
-              className="symbolSpacer"
-            />
+            <span
+              className="headerText"
+            >
+              Percentage of
+              <br />
+              cases
+            </span>
           </span>
         </th>
         <th
@@ -196,10 +285,53 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
               alt="Alert icon"
               src="test-file-stub"
             />
-            Percentage of deaths
-            <div
-              className="symbolSpacer"
+            <span
+              className="headerText"
+            >
+              Percentage of
+              <br />
+              deaths
+            </span>
+          </span>
+        </th>
+        <th
+          className="percent missingData"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
             />
+            <span
+              className="headerText"
+            >
+              Percentage of
+              <br />
+              tests
+            </span>
+          </span>
+        </th>
+        <th
+          className="percent missingData"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
+            />
+            <span
+              className="headerText"
+            >
+              Percentage of
+              <br />
+              hospitalizations
+            </span>
           </span>
         </th>
       </tr>
@@ -249,6 +381,42 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
             type
              data for 
             deaths
+            .
+             
+            <a
+              href="/race/get-better-data"
+            >
+              Help us get better data.
+            </a>
+          </span>
+        </td>
+        <td
+          className="missingData"
+          rowSpan={7}
+        >
+          <span>
+             does not report 
+            type
+             data for 
+            tests
+            .
+             
+            <a
+              href="/race/get-better-data"
+            >
+              Help us get better data.
+            </a>
+          </span>
+        </td>
+        <td
+          className="missingData"
+          rowSpan={7}
+        >
+          <span>
+             does not report 
+            type
+             data for 
+            hospitalizations
             .
              
             <a
@@ -375,7 +543,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
 exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`] = `
 <div>
   <table
-    className="table"
+    className="table table"
   >
     <thead>
       <tr>
@@ -396,7 +564,9 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
           <span
             role="text"
           >
-            Percentage of population
+            Percentage of
+            <br />
+            population
           </span>
         </th>
         <th
@@ -410,10 +580,13 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
               alt="Alert icon"
               src="test-file-stub"
             />
-            Percentage of cases
-            <div
-              className="symbolSpacer"
-            />
+            <span
+              className="headerText"
+            >
+              Percentage of
+              <br />
+              cases
+            </span>
           </span>
         </th>
         <th
@@ -427,10 +600,53 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
               alt="Alert icon"
               src="test-file-stub"
             />
-            Percentage of deaths
-            <div
-              className="symbolSpacer"
+            <span
+              className="headerText"
+            >
+              Percentage of
+              <br />
+              deaths
+            </span>
+          </span>
+        </th>
+        <th
+          className="percent missingData"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
             />
+            <span
+              className="headerText"
+            >
+              Percentage of
+              <br />
+              tests
+            </span>
+          </span>
+        </th>
+        <th
+          className="percent missingData"
+          scope="col"
+        >
+          <span
+            role="text"
+          >
+            <img
+              alt="Alert icon"
+              src="test-file-stub"
+            />
+            <span
+              className="headerText"
+            >
+              Percentage of
+              <br />
+              hospitalizations
+            </span>
           </span>
         </th>
       </tr>
@@ -480,6 +696,42 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
             type
              data for 
             deaths
+            .
+             
+            <a
+              href="/race/get-better-data"
+            >
+              Help us get better data.
+            </a>
+          </span>
+        </td>
+        <td
+          className="missingData"
+          rowSpan={7}
+        >
+          <span>
+             does not report 
+            type
+             data for 
+            tests
+            .
+             
+            <a
+              href="/race/get-better-data"
+            >
+              Help us get better data.
+            </a>
+          </span>
+        </td>
+        <td
+          className="missingData"
+          rowSpan={7}
+        >
+          <span>
+             does not report 
+            type
+             data for 
+            hospitalizations
             .
              
             <a
