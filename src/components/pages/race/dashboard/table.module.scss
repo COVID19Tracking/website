@@ -9,6 +9,7 @@
   }
   span {
     line-height: 1.5;
+    white-space: initial;
   }
 }
 
@@ -25,6 +26,7 @@ td.missing-data {
 }
 
 th.missing-data {
+  min-width: 11em;
   span {
     text-align: left;
     justify-content: flex-start;
