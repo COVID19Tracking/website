@@ -51,6 +51,30 @@ beforeEach(() => {
         },
       ],
     },
+    allCovidRaceHospTestDataSeparate: {
+      nodes: [
+        {
+          name: 'WA',
+          state: 'Washington',
+        },
+        {
+          name: 'GA',
+          state: 'Georgia',
+        },
+      ],
+    },
+    allCovidRaceHospTestDataCombined: {
+      nodes: [
+        {
+          name: 'AZ',
+          state: 'Arizona',
+        },
+        {
+          name: 'DC',
+          state: 'Washington, DC',
+        },
+      ],
+    },
     disparityNote: {
       contentful_id: 'aNeWRaNdoMSTrinG',
       childContentfulSnippetContentTextNode: {

@@ -295,7 +295,7 @@ const SummaryCharts = ({
           {national ? (
             <> Overview of National COVID-19 Data</>
           ) : (
-            <>Key Metrics</>
+            <>State-level Metrics</>
           )}
         </h2>
         <div className={styles.toggleContainer}>

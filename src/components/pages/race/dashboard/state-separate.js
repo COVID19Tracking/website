@@ -76,6 +76,8 @@ const StateSeparate = ({ state }) => {
         <PercentageOverview
           stateName={state.name}
           dataType="race"
+          hospitalizationPercent={state.knownRaceHosp}
+          testPercent={state.knownRaceTest}
           casePercent={state.knownRacePos}
           deathPercent={state.knownRaceDeath}
           className={stateStyle.totals}
@@ -112,6 +114,8 @@ const StateSeparate = ({ state }) => {
           <PercentageOverview
             stateName={state.name}
             dataType="ethnicity"
+            hospitalizationPercent={state.knownEthHosp}
+            testPercent={state.knownEthTest}
             casePercent={state.knownEthPos}
             deathPercent={state.knownEthDeath}
             className={stateStyle.totals}

@@ -8,7 +8,9 @@ import tooltipDisparityIcon from '~images/race-dashboard/tooltip-disparity-icon.
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import stateTableStyle from './table.module.scss'
 
-const StateTable = Table
+const StateTable = ({ children }) => (
+  <Table className={stateTableStyle.table}>{children}</Table>
+)
 
 const GroupRowHeader = ({ children }) => (
   <Th additionalClass={stateTableStyle.group} scope="row">
@@ -24,24 +26,48 @@ const StateTableDataHeader = ({ noData, children }) => {
   return (
     <Th additionalClass={classes}>
       {noData && <img src={alertBang} alt="Alert icon" />}
-      {children}
-      <div className={stateTableStyle.symbolSpacer} />
+      <span className={stateTableStyle.headerText}>
+        {children}
+        {!noData && <div className={stateTableStyle.symbolSpacer} />}
+      </span>
     </Th>
   )
 }
 
-const StateTableHeader = ({ groupTitle, noDeaths, noPositives }) => (
+const StateTableHeader = ({
+  groupTitle,
+  noDeaths,
+  noPositives,
+  noTests,
+  noHospitalizations,
+}) => (
   <thead>
     <tr>
       <Th additionalClass={stateTableStyle.group}>{groupTitle}</Th>
       <Th additionalClass={stateTableStyle.percent} isFirst>
-        Percentage of population
+        Percentage of
+        <br />
+        population
       </Th>
       <StateTableDataHeader noData={noPositives}>
-        Percentage of cases
+        Percentage of
+        <br />
+        cases
       </StateTableDataHeader>
       <StateTableDataHeader noData={noDeaths}>
-        Percentage of deaths
+        Percentage of
+        <br />
+        deaths
+      </StateTableDataHeader>
+      <StateTableDataHeader noData={noTests}>
+        Percentage of
+        <br />
+        tests
+      </StateTableDataHeader>
+      <StateTableDataHeader noData={noHospitalizations}>
+        Percentage of
+        <br />
+        hospitalizations
       </StateTableDataHeader>
     </tr>
   </thead>
@@ -100,7 +126,8 @@ const StateTableDataCell = ({
     <Td>
       <>
         <StateCellPercent
-          number={cellData.value}
+          // todo remove || for number
+          number={cellData.value || undefined}
           disparity={cellData.disparity}
           note={cellData.note.value}
           noteIndex={cellData.note.index + 1}
@@ -128,6 +155,8 @@ const StateTableBody = ({
   type,
   noPositives = false,
   noDeaths = false,
+  noTests = false,
+  noHospitalizations = false,
 }) => (
   <tbody>
     {rows.map((row, index) => (
@@ -156,6 +185,32 @@ const StateTableBody = ({
           noData={noDeaths}
           cellData={row.death}
         />
+        {row.test && (
+          <StateTableDataCell
+            // todo remove conditional here
+            index={index}
+            rowCount={rows.length}
+            type={type}
+            errorType="tests"
+            state={state}
+            stateAbbr={stateAbbr}
+            noData={noTests}
+            cellData={row.test}
+          />
+        )}
+        {row.hospitalization && (
+          // todo remove conditional here
+          <StateTableDataCell
+            index={index}
+            rowCount={rows.length}
+            type={type}
+            errorType="hospitalizations"
+            state={state}
+            stateAbbr={stateAbbr}
+            noData={noHospitalizations}
+            cellData={row.hospitalization}
+          />
+        )}
       </tr>
     ))}
   </tbody>

@@ -280,6 +280,27 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
+        file: './_data/grades_excluded_states.json',
+        type: 'covidGradeExcludedStates',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/grades_data_reporting_problems.json',
+        type: 'covidGradeDataReportingProblems',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/grades_state_assessment.json',
+        type: 'covidGradeStateAssessment',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
         file: './_data/ltc_fed_vaccinations.json',
         type: 'ltcFedVaccinations',
       },
