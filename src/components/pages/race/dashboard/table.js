@@ -8,7 +8,9 @@ import tooltipDisparityIcon from '~images/race-dashboard/tooltip-disparity-icon.
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import stateTableStyle from './table.module.scss'
 
-const StateTable = Table
+const StateTable = ({ children }) => (
+  <Table className={stateTableStyle.table}>{children}</Table>
+)
 
 const GroupRowHeader = ({ children }) => (
   <Th additionalClass={stateTableStyle.group} scope="row">
@@ -24,8 +26,10 @@ const StateTableDataHeader = ({ noData, children }) => {
   return (
     <Th additionalClass={classes}>
       {noData && <img src={alertBang} alt="Alert icon" />}
-      {children}
-      <div className={stateTableStyle.symbolSpacer} />
+      <span className={stateTableStyle.headerText}>
+        {children}
+        {!noData && <div className={stateTableStyle.symbolSpacer} />}
+      </span>
     </Th>
   )
 }
@@ -41,19 +45,29 @@ const StateTableHeader = ({
     <tr>
       <Th additionalClass={stateTableStyle.group}>{groupTitle}</Th>
       <Th additionalClass={stateTableStyle.percent} isFirst>
-        Percentage of population
+        Percentage of
+        <br />
+        population
       </Th>
       <StateTableDataHeader noData={noPositives}>
-        Percentage of cases
+        Percentage of
+        <br />
+        cases
       </StateTableDataHeader>
       <StateTableDataHeader noData={noDeaths}>
-        Percentage of deaths
+        Percentage of
+        <br />
+        deaths
       </StateTableDataHeader>
       <StateTableDataHeader noData={noTests}>
-        Percentage of tests
+        Percentage of
+        <br />
+        tests
       </StateTableDataHeader>
       <StateTableDataHeader noData={noHospitalizations}>
-        Percentage of hospitalizations
+        Percentage of
+        <br />
+        hospitalizations
       </StateTableDataHeader>
     </tr>
   </thead>
