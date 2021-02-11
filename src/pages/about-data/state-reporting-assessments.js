@@ -17,6 +17,13 @@ const StateReportingAssessmentPage = ({ data }) => {
   const assessments = data.allCovidGradeStateAssessment.nodes
 
   const AssessmentRow = ({ state }) => {
+    if (
+      data.allCovidGradeExcludedStates.nodes.find(
+        node => node.state === state.state,
+      )
+    ) {
+      return null
+    }
     const assessment = assessments.find(
       assessment => assessment.state === state.state,
     )
@@ -142,6 +149,11 @@ export const query = graphql`
         taco
         ltc
         crdt
+      }
+    }
+    allCovidGradeExcludedStates {
+      nodes {
+        state
       }
     }
     assessmentDate: covidGradeStateAssessment(date: { ne: null }) {
