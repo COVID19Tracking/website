@@ -17,11 +17,23 @@ const PercentContent = ({ percent }) => {
   )
 }
 
+const PercentageItem = ({ percent, caption }) => (
+  <div className={percentageOverviewStyle.dataItem}>
+    <p>
+      <PercentContent percent={Math.round(percent * 100)} />{' '}
+      <span className="a11y-only">of</span>{' '}
+      <span className={percentageOverviewStyle.percentCaption}>{caption}</span>
+    </p>
+  </div>
+)
+
 const PercentageOverview = ({
   stateName,
   dataType,
   casePercent,
   deathPercent,
+  hospitalizationPercent,
+  testPercent,
   className,
 }) => {
   if (casePercent === undefined && deathPercent === undefined) {
@@ -33,24 +45,13 @@ const PercentageOverview = ({
         {stateName} has reported {dataType} data for:
       </h3>
       <div className={percentageOverviewStyle.data}>
-        <div className={percentageOverviewStyle.dataItem}>
-          <p>
-            <PercentContent percent={Math.round(casePercent * 100)} />{' '}
-            <span className="a11y-only">of</span>{' '}
-            <span className={percentageOverviewStyle.percentCaption}>
-              Cases
-            </span>
-          </p>
-        </div>
-        <div className={percentageOverviewStyle.dataItem}>
-          <p>
-            <PercentContent percent={Math.round(deathPercent * 100)} />{' '}
-            <span className="a11y-only">of</span>{' '}
-            <span className={percentageOverviewStyle.percentCaption}>
-              Deaths
-            </span>
-          </p>
-        </div>
+        <PercentageItem percent={casePercent} caption="Cases" />
+        <PercentageItem percent={deathPercent} caption="Deaths" />
+        <PercentageItem percent={testPercent} caption="Tests" />
+        <PercentageItem
+          percent={hospitalizationPercent}
+          caption="Hospitalizations"
+        />
       </div>
     </div>
   )

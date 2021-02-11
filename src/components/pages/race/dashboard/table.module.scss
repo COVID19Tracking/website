@@ -1,12 +1,5 @@
-th.group {
-  width: 28%;
-  @media (min-width: $viewport-xl) {
-    min-width: 32%;
-  }
-}
-
-.percent {
-  width: 24%;
+.table {
+  table-layout: fixed;
 }
 
 .missing-data {
@@ -16,6 +9,7 @@ th.group {
   }
   span {
     line-height: 1.5;
+    white-space: initial;
   }
 }
 
@@ -25,7 +19,19 @@ td.missing-data {
   padding-right: spacer(24);
 }
 
+.header-text {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
 th.missing-data {
+  min-width: 11em;
+  span {
+    text-align: left;
+    justify-content: flex-start;
+    width: 100%;
+  }
   img {
     max-width: spacer(24);
     margin-right: spacer(8);

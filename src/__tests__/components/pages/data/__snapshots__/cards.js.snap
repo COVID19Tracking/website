@@ -1702,34 +1702,6 @@ exports[`Components : Pages : Data : Cards : Outcomes renders correctly 2`] = `
 </div>
 `;
 
-exports[`Components : Pages : Data : Cards : Small Cards : Grade renders correctly 1`] = `
-<a
-  className="wrapper"
-  href="#"
->
-  <div
-    className="container"
-  >
-    <img
-      alt="Grade b"
-      aria-hidden={true}
-      className="grade"
-      src="test-file-stub"
-    />
-    <span
-      className="link"
-    >
-      Current race & ethnicity data quality grade
-    </span>
-    <span
-      className="arrow"
-    >
-      →
-    </span>
-  </div>
-</a>
-`;
-
 exports[`Components : Pages : Data : Cards : Small Cards : View data as graphic renders correctly 1`] = `
 <a
   className="wrapper"

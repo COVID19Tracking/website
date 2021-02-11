@@ -31,7 +31,10 @@ const StateTemplate = ({ pageContext, data, path }) => {
     allTweets,
     allCovidAnnotation,
     hhsHospitals,
+    covidGradeStateAssessment,
     ltcFedVaccinations,
+    covidGradeExcludedStates,
+    assessmentDate,
   } = data
   return (
     <Layout
@@ -41,7 +44,14 @@ const StateTemplate = ({ pageContext, data, path }) => {
       description={`Cases, testing, hospitalization, outcomes, long-term-care, and race and ethnicity data for ${state.name}, plus data sources, notes, and grade.`}
       showWarning
     >
-      <StatePreamble state={state} covidState={covidState} />
+      <StatePreamble
+        state={state}
+        covidState={covidState}
+        assessment={
+          covidGradeExcludedStates ? false : covidGradeStateAssessment
+        }
+        assessmentDate={assessmentDate.date}
+      />
       <SummaryCharts
         name={state.name}
         chartTables={`/data/state/${state.childSlug.slug}/chart-tables`}
@@ -159,7 +169,6 @@ export const query = graphql`
       deathProbable
       deathConfirmed
       totalTestResults
-      dataQualityGrade
       probableCases
       positiveCasesViral
       positiveTestsViral
@@ -328,11 +337,22 @@ export const query = graphql`
       total_adult_patients_hospitalized_confirmed_covid
       total_pediatric_patients_hospitalized_confirmed_covid
     }
+    covidGradeStateAssessment(state: { eq: $state }) {
+      taco
+      ltc
+      crdt
+    }
     ltcFedVaccinations(Location: { eq: $state }) {
       Administered_Fed_LTC
       Administered_Fed_LTC_Dose1
       Administered_Fed_LTC_Dose2
       Date
+    }
+    covidGradeExcludedStates(state: { eq: $state }) {
+      state
+    }
+    assessmentDate: covidGradeStateAssessment(date: { ne: null }) {
+      date
     }
   }
 `

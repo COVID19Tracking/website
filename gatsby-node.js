@@ -78,6 +78,11 @@ exports.createPages = async ({ graphql, actions }) => {
           redirectTo
         }
       }
+      allCovidGradeExcludedStates {
+        nodes {
+          state
+        }
+      }
     }
   `)
 
@@ -181,6 +186,17 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/state/notes.js`),
       context: node,
     })
+    if (
+      !result.data.allCovidGradeExcludedStates.nodes.filter(
+        item => item.state === node.state,
+      ).length
+    ) {
+      createPage({
+        path: `/data/state/${slug}/assessment`,
+        component: path.resolve(`./src/templates/state/assessment.js`),
+        context: node,
+      })
+    }
     createPage({
       path: `/data/state/${slug}/long-term-care`,
       component: path.resolve(`./src/templates/state/long-term-care/index.js`),
