@@ -8,7 +8,9 @@ import Overlay from '~components/common/map/overlay'
 import FacilityDetails from './facility-details'
 import Legend from './legend'
 import Infobox from './infobox'
+import Definitions from './definitions'
 import Wrapper from '~components/common/map/wrapper'
+import Container from '~components/common/container'
 import facilitiesMapStyles from './map.module.scss'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
@@ -289,6 +291,9 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
           />
         </Wrapper>
       </div>
+      <Container>
+        <Definitions />
+      </Container>
     </MapContext.Provider>
   )
 }
