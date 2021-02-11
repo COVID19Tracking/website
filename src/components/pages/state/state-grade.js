@@ -36,7 +36,7 @@ const StateGrade = ({ slug, assessment, date }) => {
   return (
     <div className={stateGradeStyle.stateGrade}>
       <h2 className={stateGradeStyle.header}>
-        Data Quality{' '}
+        Data Reporting Assessment{' '}
         <span className={stateGradeStyle.learnMore}>
           (
           <Link to={`/data/state/${slug}/assessment`}>
