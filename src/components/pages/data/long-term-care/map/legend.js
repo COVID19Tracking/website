@@ -12,7 +12,7 @@ const Legend = ({ mapLayer }) => (
           layers={[
             {
               id: 'facilities',
-              name: 'All facilities',
+              name: 'All Facilities Impacted',
             },
             {
               id: 'cases',
@@ -36,15 +36,14 @@ const Legend = ({ mapLayer }) => (
           ) : (
             <>
               <div>
-                Some states{' '}
+                Most states report cumulative data, some states{' '}
                 <span className={legendStyles.outbreakOnly}>
-                  only report outbreak data
+                  only report outbreak data,
                 </span>
-                , while{' '}
+                while{' '}
                 <span className={legendStyles.missing}>
-                  others do not report any data
+                  others do not report any facility data.
                 </span>
-                .
               </div>
             </>
           )}

@@ -20,7 +20,10 @@ const LTCMapPage = ({ data }) => {
     )
   }
   return (
-    <Layout title="Long term care: Facility map" noContainer>
+    <Layout
+      title="COVID-19's impact on nursing homes and other long-term-care facilities"
+      noContainer
+    >
       <Container centered>
         <Snippet slug="ltc-map-lede" />
       </Container>

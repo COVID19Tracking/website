@@ -28,7 +28,7 @@ const Definitions = () => {
           setIsOpen(!isOpen)
         }}
       >
-        About this map<span aria-hidden> {isOpen ? <>↑</> : <>↓</>}</span>
+        Data definitions<span aria-hidden> {isOpen ? <>↑</> : <>↓</>}</span>
       </button>
 
       <div
