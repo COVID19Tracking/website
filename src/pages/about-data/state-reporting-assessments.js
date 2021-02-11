@@ -34,7 +34,7 @@ const StateReportingAssessmentPage = ({ data }) => {
             {state.name}
           </Link>
         </Td>
-        <Td isFirst>
+        <Td alignLeft isFirst>
           {assessment ? (
             <Link
               to={`/data/state/${state.childSlug.slug}/assessment#state-metrics`}
@@ -46,7 +46,7 @@ const StateReportingAssessmentPage = ({ data }) => {
           )}
         </Td>
 
-        <Td>
+        <Td alignLeft>
           {assessment ? (
             <Link
               to={`/data/state/${state.childSlug.slug}/assessment#race-ethnicity`}
@@ -58,7 +58,7 @@ const StateReportingAssessmentPage = ({ data }) => {
           )}
         </Td>
 
-        <Td>
+        <Td alignLeft>
           {assessment ? (
             <Link
               to={`/data/state/${state.childSlug.slug}/assessment#long-term-care`}
