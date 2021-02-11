@@ -14,7 +14,9 @@ exports[`Components : Race : National Chart renders correctly 1`] = `
       <span>
         Deaths per 
         100,000
-         people by race or ethnicity
+         people by race or ethnicity through
+         
+        January 1, 2020
       </span>
     </div>
     <div

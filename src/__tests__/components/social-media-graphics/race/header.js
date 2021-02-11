@@ -89,10 +89,12 @@ describe('Components : Social Media Graphics : Race : Header : No Charts', () =>
     const tree = renderer
       .create(
         <Header
+          // todo add here
           noCharts
           state={state}
           stateName="New Jersey"
           combinedStates={combinedStates}
+          lastUpdatedByCtp="20210101"
         />,
       )
       .toJSON()
@@ -108,6 +110,7 @@ describe('Components : Social Media Graphics : Race : Header : Deaths Only', () 
           state={deathsOnlyState}
           stateName="New Jersey"
           combinedStates={combinedStates}
+          lastUpdatedByCtp="20210101"
         />,
       )
       .toJSON()
@@ -123,6 +126,7 @@ describe('Components : Social Media Graphics : Race : Header : Cases Only', () =
           state={casesOnlyState}
           stateName="New Jersey"
           combinedStates={combinedStates}
+          lastUpdatedByCtp="20210101"
         />,
       )
       .toJSON()
@@ -134,7 +138,11 @@ describe('Components : Social Media Graphics : Race : Header : Death Rate Small 
   it('renders correctly', () => {
     const tree = renderer
       .create(
-        <Header state={deathRateSmallNState} combinedStates={combinedStates} />,
+        <Header
+          state={deathRateSmallNState}
+          combinedStates={combinedStates}
+          lastUpdatedByCtp="20210101"
+        />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -148,6 +156,7 @@ describe('Components : Social Media Graphics : Race : Header : Same Worst Cases 
         <Header
           state={sameWorstCasesAndMortalitiesState}
           combinedStates={combinedStates}
+          lastUpdatedByCtp="20210101"
         />,
       )
       .toJSON()
@@ -162,6 +171,7 @@ describe('Components : Social Media Graphics : Race : Header : Different Worst C
         <Header
           state={diffWorstCasesAndMortalitiesState}
           combinedStates={combinedStates}
+          lastUpdatedByCtp="20210101"
         />,
       )
       .toJSON()
