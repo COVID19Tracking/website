@@ -29,7 +29,7 @@ const NationalChart = () => {
         blackLivesLost
         blackPercentOfDeath
       }
-      covidRaceDataTimeseries {
+      covidRaceDataTimeseries(Date: { ne: null }) {
         Date
       }
     }
