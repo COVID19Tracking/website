@@ -63,6 +63,54 @@ exports[`Components : Race : Dashboard : Percentage Overview renders correctly 1
         </span>
       </p>
     </div>
+    <div
+      className="dataItem"
+    >
+      <p>
+        <span
+          className="percent"
+        >
+          27
+          %
+        </span>
+         
+        <span
+          className="a11y-only"
+        >
+          of
+        </span>
+         
+        <span
+          className="percentCaption"
+        >
+          Tests
+        </span>
+      </p>
+    </div>
+    <div
+      className="dataItem"
+    >
+      <p>
+        <span
+          className="percent"
+        >
+          99
+          %
+        </span>
+         
+        <span
+          className="a11y-only"
+        >
+          of
+        </span>
+         
+        <span
+          className="percentCaption"
+        >
+          Hospitalizations
+        </span>
+      </p>
+    </div>
   </div>
 </div>
 `;
@@ -131,6 +179,58 @@ exports[`Components : Race : Dashboard : Percentage Overview renders correctly 3
           className="percentCaption"
         >
           Deaths
+        </span>
+      </p>
+    </div>
+    <div
+      className="dataItem"
+    >
+      <p>
+        <span
+          className="percent"
+        >
+          <img
+            alt="Alert icon"
+            src="test-file-stub"
+          />
+        </span>
+         
+        <span
+          className="a11y-only"
+        >
+          of
+        </span>
+         
+        <span
+          className="percentCaption"
+        >
+          Tests
+        </span>
+      </p>
+    </div>
+    <div
+      className="dataItem"
+    >
+      <p>
+        <span
+          className="percent"
+        >
+          <img
+            alt="Alert icon"
+            src="test-file-stub"
+          />
+        </span>
+         
+        <span
+          className="a11y-only"
+        >
+          of
+        </span>
+         
+        <span
+          className="percentCaption"
+        >
+          Hospitalizations
         </span>
       </p>
     </div>
