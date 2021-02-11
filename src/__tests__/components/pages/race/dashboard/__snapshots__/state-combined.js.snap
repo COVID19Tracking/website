@@ -29,7 +29,7 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
   </h3>
   <div>
     <table
-      className="table"
+      className="table table"
     >
       <thead>
         <tr>
@@ -50,7 +50,9 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
             <span
               role="text"
             >
-              Percentage of population
+              Percentage of
+              <br />
+              population
             </span>
           </th>
           <th
@@ -60,10 +62,16 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
             <span
               role="text"
             >
-              Percentage of cases
-              <div
-                className="symbolSpacer"
-              />
+              <span
+                className="headerText"
+              >
+                Percentage of
+                <br />
+                cases
+                <div
+                  className="symbolSpacer"
+                />
+              </span>
             </span>
           </th>
           <th
@@ -73,10 +81,16 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
             <span
               role="text"
             >
-              Percentage of deaths
-              <div
-                className="symbolSpacer"
-              />
+              <span
+                className="headerText"
+              >
+                Percentage of
+                <br />
+                deaths
+                <div
+                  className="symbolSpacer"
+                />
+              </span>
             </span>
           </th>
           <th
@@ -90,10 +104,13 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 alt="Alert icon"
                 src="test-file-stub"
               />
-              Percentage of tests
-              <div
-                className="symbolSpacer"
-              />
+              <span
+                className="headerText"
+              >
+                Percentage of
+                <br />
+                tests
+              </span>
             </span>
           </th>
           <th
@@ -107,10 +124,13 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 alt="Alert icon"
                 src="test-file-stub"
               />
-              Percentage of hospitalizations
-              <div
-                className="symbolSpacer"
-              />
+              <span
+                className="headerText"
+              >
+                Percentage of
+                <br />
+                hospitalizations
+              </span>
             </span>
           </th>
         </tr>

@@ -111,7 +111,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
         </h3>
         <div>
           <table
-            className="table"
+            className="table table"
           >
             <thead>
               <tr>
@@ -132,7 +132,9 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                   <span
                     role="text"
                   >
-                    Percentage of population
+                    Percentage of
+                    <br />
+                    population
                   </span>
                 </th>
                 <th
@@ -146,10 +148,13 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                       alt="Alert icon"
                       src="test-file-stub"
                     />
-                    Percentage of cases
-                    <div
-                      className="symbolSpacer"
-                    />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      cases
+                    </span>
                   </span>
                 </th>
                 <th
@@ -163,10 +168,13 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                       alt="Alert icon"
                       src="test-file-stub"
                     />
-                    Percentage of deaths
-                    <div
-                      className="symbolSpacer"
-                    />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      deaths
+                    </span>
                   </span>
                 </th>
                 <th
@@ -180,10 +188,13 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                       alt="Alert icon"
                       src="test-file-stub"
                     />
-                    Percentage of tests
-                    <div
-                      className="symbolSpacer"
-                    />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      tests
+                    </span>
                   </span>
                 </th>
                 <th
@@ -197,10 +208,13 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                       alt="Alert icon"
                       src="test-file-stub"
                     />
-                    Percentage of hospitalizations
-                    <div
-                      className="symbolSpacer"
-                    />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      hospitalizations
+                    </span>
                   </span>
                 </th>
               </tr>
@@ -566,7 +580,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
         </h3>
         <div>
           <table
-            className="table"
+            className="table table"
           >
             <thead>
               <tr>
@@ -587,7 +601,9 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                   <span
                     role="text"
                   >
-                    Percentage of population
+                    Percentage of
+                    <br />
+                    population
                   </span>
                 </th>
                 <th
@@ -601,10 +617,13 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                       alt="Alert icon"
                       src="test-file-stub"
                     />
-                    Percentage of cases
-                    <div
-                      className="symbolSpacer"
-                    />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      cases
+                    </span>
                   </span>
                 </th>
                 <th
@@ -618,10 +637,13 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                       alt="Alert icon"
                       src="test-file-stub"
                     />
-                    Percentage of deaths
-                    <div
-                      className="symbolSpacer"
-                    />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      deaths
+                    </span>
                   </span>
                 </th>
                 <th
@@ -635,10 +657,13 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                       alt="Alert icon"
                       src="test-file-stub"
                     />
-                    Percentage of tests
-                    <div
-                      className="symbolSpacer"
-                    />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      tests
+                    </span>
                   </span>
                 </th>
                 <th
@@ -652,10 +677,13 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                       alt="Alert icon"
                       src="test-file-stub"
                     />
-                    Percentage of hospitalizations
-                    <div
-                      className="symbolSpacer"
-                    />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      hospitalizations
+                    </span>
                   </span>
                 </th>
               </tr>
