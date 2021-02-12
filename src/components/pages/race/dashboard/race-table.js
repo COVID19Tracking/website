@@ -24,6 +24,24 @@ const RaceTable = ({
           index: groupedNotes.indexOf(notes.blackPos),
         },
       },
+      hospitalization: {
+        disparity: data.blackHospDispFlag,
+        caution: data.blackHospCaution,
+        value: data.blackPctHosp,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
+      test: {
+        disparity: data.blackTestDispFlag,
+        caution: data.blackTestCaution,
+        value: data.blackPctTest,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
       death: {
         disparity: data.blackDeathDispFlag,
         caution: data.blackDeathCaution,
@@ -45,6 +63,24 @@ const RaceTable = ({
         note: {
           value: notes.latinXPos,
           index: groupedNotes.indexOf(notes.latinXPos),
+        },
+      },
+      hospitalization: {
+        disparity: data.latinXHospDispFlag,
+        caution: data.latinXHospCaution,
+        value: data.latinXPctHosp,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
+      test: {
+        disparity: data.latinXTestDispFlag,
+        caution: data.latinXTestCaution,
+        value: data.latinXPctTest,
+        note: {
+          value: undefined,
+          index: undefined,
         },
       },
       death: {
@@ -69,6 +105,24 @@ const RaceTable = ({
           index: groupedNotes.indexOf(notes.asianPos),
         },
       },
+      hospitalization: {
+        disparity: data.asianHospDispFlag,
+        caution: data.asianHospCaution,
+        value: data.asianPctHosp,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
+      test: {
+        disparity: data.asianTestDispFlag,
+        caution: data.asianTestCaution,
+        value: data.asianPctTest,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
       death: {
         disparity: data.asianDeathDispFlag,
         caution: data.asianDeathCaution,
@@ -89,6 +143,24 @@ const RaceTable = ({
         note: {
           value: notes.nhpiPos,
           index: groupedNotes.indexOf(notes.nhpiPos),
+        },
+      },
+      hospitalization: {
+        disparity: data.nhpiHospDispFlag,
+        caution: data.nhpiHospCaution,
+        value: data.nhpiPctHosp,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
+      test: {
+        disparity: data.nhpiTestDispFlag,
+        caution: data.nhpiTestCaution,
+        value: data.nhpiPctTest,
+        note: {
+          value: undefined,
+          index: undefined,
         },
       },
       death: {
@@ -113,6 +185,24 @@ const RaceTable = ({
           index: groupedNotes.indexOf(notes.aianPos),
         },
       },
+      hospitalization: {
+        disparity: data.aianHospDispFlag,
+        caution: data.aianHospCaution,
+        value: data.aianPctHosp,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
+      test: {
+        disparity: data.aianTestDispFlag,
+        caution: data.aianTestCaution,
+        value: data.aianPctTest,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
       death: {
         disparity: data.aianDeathDispFlag,
         caution: data.aianDeathCaution,
@@ -133,6 +223,24 @@ const RaceTable = ({
         note: {
           value: notes.twoPos,
           index: groupedNotes.indexOf(notes.twoPos),
+        },
+      },
+      hospitalization: {
+        disparity: data.twoHospDispFlag,
+        caution: data.twoHospCaution,
+        value: data.twoPctHosp,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
+      test: {
+        disparity: data.twoTestDispFlag,
+        caution: data.twoTestCaution,
+        value: data.twoPctTest,
+        note: {
+          value: undefined,
+          index: undefined,
         },
       },
       death: {
@@ -157,6 +265,24 @@ const RaceTable = ({
           index: groupedNotes.indexOf(notes.whitePos),
         },
       },
+      hospitalization: {
+        disparity: data.whiteHospDispFlag,
+        caution: data.whiteHospCaution,
+        value: data.whitePctHosp,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
+      test: {
+        disparity: data.whiteTestDispFlag,
+        caution: data.whiteTestCaution,
+        value: data.whitePctTest,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
       death: {
         disparity: data.whiteDeathDispFlag,
         caution: data.whiteDeathCaution,
@@ -177,6 +303,24 @@ const RaceTable = ({
         note: {
           value: notes.otherPos,
           index: groupedNotes.indexOf(notes.otherPos),
+        },
+      },
+      hospitalization: {
+        disparity: data.otherHospDispFlag,
+        caution: data.otherHospCaution,
+        value: data.otherPctHosp,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
+      test: {
+        disparity: data.otherTestDispFlag,
+        caution: data.otherTestCaution,
+        value: data.otherPctTest,
+        note: {
+          value: undefined,
+          index: undefined,
         },
       },
       death: {
@@ -200,6 +344,8 @@ const RaceTable = ({
       type={type}
       noPositives={noPositives}
       noDeaths={noDeaths}
+      noTests={!data.anyTestData}
+      noHospitalizations={!data.anyHospData}
     />
   )
 }

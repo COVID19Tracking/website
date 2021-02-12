@@ -44,6 +44,8 @@ const StateCombined = ({ state }) => {
         <PercentageOverview
           stateName={state.name}
           dataType="race and ethnicity"
+          hospitalizationPercent={state.knownRaceEthHosp}
+          testPercent={state.knownRaceEthTest}
           casePercent={state.knownRaceEthPos}
           deathPercent={state.knownRaceEthDeath}
           className={stateStyle.totals}
