@@ -27,8 +27,8 @@ const ChartLegend = ({ legendColors, categories }) => {
     Asian: 'Asian',
     AIAN: 'American Indian and Alaskan Native',
     NHPI: 'Native Hawaiian and Other Pacific Islander',
-    Ethnicity_Hispanic: 'Hispanic ethnicity (TKTKTK)',
-    Ethnicity_NonHispanic: 'Non Hispanic ethnicity (TKTKTK)',
+    Ethnicity_Hispanic: 'Hispanic or Latino',
+    Ethnicity_NonHispanic: 'Not Hispanic or Latino',
   }
   return (
     <div className={styles.legend}>
