@@ -7,11 +7,49 @@ import { getAvailablePer100kMetricFields } from './utils'
 import styles from './charts.module.scss'
 import colors from '~scss/colors.module.scss'
 
-const ChartsSection = ({ title, children }) => (
-  <div>
+const colorMap = {
+  AIAN: colors.crdtAian,
+  Asian: colors.crdtAsian,
+  Black: colors.crdtBlack,
+  Ethnicity_Hispanic: 'blue',
+  Ethnicity_NonHispanic: 'red',
+  LatinX: colors.crdtLatinx,
+  Multiracial: 'green',
+  NHPI: colors.crdtNhpi,
+  White: colors.crdtWhite,
+}
+
+const ChartLegend = ({ legendColors, categories }) => {
+  const categoryNames = {
+    White: 'White',
+    Black: 'Black or African American',
+    LatinX: 'Hispanic or Latino',
+    Asian: 'Asian',
+    AIAN: 'American Indian and Alaskan Native',
+    NHPI: 'Native Hawaiian and Other Pacific Islander',
+    Ethnicity_Hispanic: 'Hispanic ethnicity (TKTKTK)',
+    Ethnicity_NonHispanic: 'Non Hispanic ethnicity (TKTKTK)',
+  }
+  return (
+    <div className={styles.legend}>
+      {categories.map(category => (
+        <div className={styles.category}>
+          <div
+            style={{ 'background-color': legendColors[category] }}
+            className={styles.swatch}
+          />
+          {categoryNames[category]}
+        </div>
+      ))}
+    </div>
+  )
+}
+
+const ChartsSection = ({ title, children, legendCategories }) => (
+  <div className={styles.chartSection}>
     <h2>{title}</h2>
     {children}
-    {/* todo put the legend here */}
+    <ChartLegend legendColors={colorMap} categories={legendCategories} />
   </div>
 )
 
@@ -101,21 +139,12 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
 
   // todo find alternatives to red, blue, green
 
-  const colorMap = {
-    AIAN: colors.crdtAian,
-    Asian: colors.crdtAsian,
-    Black: colors.crdtBlack,
-    Ethnicity_Hispanic: 'blue',
-    Ethnicity_NonHispanic: 'red',
-    LatinX: colors.Latinx,
-    Multiracial: 'green',
-    NHPI: colors.crdtNhpi,
-    White: colors.crdtWhite,
-  }
+  const activeRaceCategories = Object.keys(allRaceData[currentMetric])
+  const activeEthnicityCategories = Object.keys(allEthnicityData[currentMetric])
 
   return (
     <div className={styles.wrapper}>
-      <ChartsSection title="Race data">
+      <ChartsSection title="Race data" legendCategories={activeRaceCategories}>
         <Chart
           data={[
             {
@@ -127,7 +156,10 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
           title={`${currentMetric} per 100k people`}
         />
       </ChartsSection>
-      <ChartsSection title="Ethnicity data">
+      <ChartsSection
+        title="Ethnicity data"
+        legendCategories={activeEthnicityCategories}
+      >
         <Chart
           data={[
             {
