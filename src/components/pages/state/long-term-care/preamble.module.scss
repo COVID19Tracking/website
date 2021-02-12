@@ -6,7 +6,8 @@
     justify-content: right;
   }
   p {
-    margin: 1rem 0 0;
+    @include margin(16, top);
+    margin-bottom: 0;
     > span {
       margin-right: 1rem;
       display: inline-block;
