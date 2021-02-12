@@ -47,7 +47,7 @@ const ChartLegend = ({ legendColors, categories }) => {
 
 const ChartsSection = ({ title, children, legendCategories }) => (
   <div className={styles.chartSection}>
-    <h2>{title}</h2>
+    <h3 className={styles.chartSectionTitle}>{title}</h3>
     {children}
     <ChartLegend legendColors={colorMap} categories={legendCategories} />
   </div>
