@@ -52,10 +52,13 @@ const NationalChart = () => {
     white: { label: 'White', emphasis: true },
     two: { label: 'Two or more races', emphasis: false },
     other: { label: 'Other', emphasis: false },
-    nhpi: { label: 'Native Hawaiian and Pacific Islander', emphasis: false },
+    nhpi: {
+      label: 'Native Hawaiian or Other Pacific Islander',
+      emphasis: false,
+    },
     latinX: { label: 'Hispanic or Latino', emphasis: false },
     black: { label: 'Black or African American', emphasis: true },
-    aian: { label: 'American Indian or Alaska Native', emphasis: false },
+    aian: { label: 'American Indian or Alaskan Native', emphasis: false },
     asian: { label: 'Asian', emphasis: false },
   }
 
