@@ -5,6 +5,7 @@ import MetricSelector from './metric-selector'
 import NotesAndDownloads from './notes-and-downloads'
 import DataAsOf from './data-as-of'
 import Sources from './sources'
+import Charts from './charts'
 
 import styles from './hero.module.scss'
 
@@ -111,6 +112,7 @@ const Hero = ({
   currentMetric,
   setCurrentMetric,
   timeSeriesData,
+  completeTimeSeriesData,
   combinedNotes,
   separateNotes,
   combinedTestHosp,
@@ -144,6 +146,10 @@ const Hero = ({
               ctpDate={timeSeriesData[0].Date}
             />
           }
+        />
+        <Charts
+          timeSeriesData={completeTimeSeriesData}
+          currentMetric={currentMetric}
         />
         <Sources data={stateSources} />
         <NotesAndDownloads

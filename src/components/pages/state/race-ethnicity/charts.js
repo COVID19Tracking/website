@@ -2,15 +2,25 @@ import React, { useMemo } from 'react'
 import { DateTime } from 'luxon'
 
 import Chart from './chart'
-import { getAvailableMetricFields } from './utils'
+import { getAvailablePer100kMetricFields } from './utils'
 
 import styles from './charts.module.scss'
 import colors from '~scss/colors.module.scss'
+
+const ChartsSection = ({ title, children }) => (
+  <div>
+    <h2>{title}</h2>
+    {children}
+    {/* todo put the legend here */}
+  </div>
+)
 
 const Charts = ({ timeSeriesData, currentMetric }) => {
   const getMetricData = (allData, metricTitle, metrics) => {
     /** Restructures a single metric's racial data (i.e. cases) for charts */
     const completedData = {} // store the final metric data object
+
+    const suffixToRemove = '_per100k'
 
     metrics.forEach(metric => {
       const metricTimeSeries = [] // create a time series array for each metric
@@ -22,9 +32,17 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
         })
       })
       // remove the 'Cases_' prefix from the metric
-      const cleanMetricTitle = metric.replace(`${metricTitle}_`, '')
-      // add this time series to the completed object
-      completedData[cleanMetricTitle] = metricTimeSeries
+      const cleanMetricTitle = metric
+        .replace(`${metricTitle}_`, '')
+        .replace(suffixToRemove, '')
+
+      const casesToIgnore = ['Multiracial', 'Other', 'Unknown']
+
+      // If this is not in the list to ignore...
+      if (casesToIgnore.indexOf(cleanMetricTitle) === -1) {
+        // Add this time series to the completed object.
+        completedData[cleanMetricTitle] = metricTimeSeries
+      }
     })
 
     return completedData
@@ -37,22 +55,22 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
      */
     const computedChartData = useMemo(() => {
       const latestDay = allData[0]
-      const caseMetrics = getAvailableMetricFields(
+      const caseMetrics = getAvailablePer100kMetricFields(
         latestDay,
         'Cases_',
         raceOnly,
       )
-      const deathMetrics = getAvailableMetricFields(
+      const deathMetrics = getAvailablePer100kMetricFields(
         latestDay,
         'Deaths_',
         raceOnly,
       )
-      const hospMetrics = getAvailableMetricFields(
+      const hospMetrics = getAvailablePer100kMetricFields(
         latestDay,
         'Hospitalizations_',
         raceOnly,
       )
-      const testMetrics = getAvailableMetricFields(
+      const testMetrics = getAvailablePer100kMetricFields(
         latestDay,
         'Tests_',
         raceOnly,
@@ -97,26 +115,30 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
 
   return (
     <div className={styles.wrapper}>
-      <Chart
-        data={[
-          {
-            colorMap,
-            label: 'Cases',
-            data: allRaceData[currentMetric],
-          },
-        ]}
-        title="Race Data"
-      />
-      <Chart
-        data={[
-          {
-            colorMap,
-            label: 'Cases',
-            data: allEthnicityData[currentMetric],
-          },
-        ]}
-        title="Ethnicity Data"
-      />
+      <ChartsSection title="Race data">
+        <Chart
+          data={[
+            {
+              colorMap,
+              label: `${currentMetric} per 100k people`,
+              data: allRaceData[currentMetric],
+            },
+          ]}
+          title={`${currentMetric} per 100k people`}
+        />
+      </ChartsSection>
+      <ChartsSection title="Ethnicity data">
+        <Chart
+          data={[
+            {
+              colorMap,
+              label: `${currentMetric} per 100k people`,
+              data: allEthnicityData[currentMetric],
+            },
+          ]}
+          title={`${currentMetric} per 100k people`}
+        />
+      </ChartsSection>
     </div>
   )
 }

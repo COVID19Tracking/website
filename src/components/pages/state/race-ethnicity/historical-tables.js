@@ -7,11 +7,7 @@ import RatesToggle from './rates-toggle'
 import FilteredNotice from './filtered-notice'
 import NoDataPlaceholder from './no-data'
 import { TableHeader, RaceTableHeader } from './table-header'
-import {
-  getAvailableMetricFields,
-  formatTableValues,
-  addPer100kValues,
-} from './utils'
+import { getAvailableMetricFields, formatTableValues } from './utils'
 
 import generateTableLabels from './utils/generate-table-labels'
 
@@ -19,6 +15,7 @@ import historicalTableStyles from './historical-tables.module.scss'
 
 const HistoricalTables = ({
   timeSeriesData,
+  completeTimeSeriesData,
   populationData,
   currentMetric,
   setUsePer100kRate,
@@ -96,12 +93,6 @@ const HistoricalTables = ({
     usePer100kRate,
     reportsRaceSeparately(),
   )
-
-  // includes per cap values
-  const completeTimeSeriesData =
-    populationData === null
-      ? timeSeriesData
-      : addPer100kValues(timeSeriesData, populationData)
 
   const formattedTimeSeriesData = useMemo(
     () => formatTableValues(completeTimeSeriesData),
