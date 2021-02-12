@@ -7,12 +7,15 @@ import {
 } from '@reach/disclosure'
 import classnames from 'classnames'
 import RacialDataParagraph from '~components/pages/race/paragraph'
-import { FormatNumber } from '~components/utils/format'
+import { FormatNumber, FormatDate } from '~components/utils/format'
 
 import nationalChartStyle from './national-chart.module.scss'
 
 const NationalChart = () => {
-  const { covidRaceDataHomepage } = useStaticQuery(graphql`
+  const {
+    covidRaceDataHomepage,
+    covidRaceDataTimeseries,
+  } = useStaticQuery(graphql`
     {
       covidRaceDataHomepage {
         aianMortalityRate
@@ -26,8 +29,13 @@ const NationalChart = () => {
         blackLivesLost
         blackPercentOfDeath
       }
+      covidRaceDataTimeseries(Date: { ne: null }) {
+        Date
+      }
     }
   `)
+
+  const lastUpdatedByCtp = covidRaceDataTimeseries.Date
 
   const raceApiContent = Object.entries(covidRaceDataHomepage).filter(
     e => e[0] !== 'blackLivesLost' && e[0] !== 'blackPercentOfDeath',
@@ -67,7 +75,8 @@ const NationalChart = () => {
           <div className={nationalChartStyle.spacer} />
           <span>
             Deaths per <FormatNumber number={perXPeople} /> people by race or
-            ethnicity
+            ethnicity through{' '}
+            <FormatDate date={lastUpdatedByCtp} format="LLLL d, yyyy" />
           </span>
         </div>
         {mortalityRateData.map(race => (
