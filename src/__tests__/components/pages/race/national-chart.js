@@ -16,6 +16,9 @@ beforeEach(() => {
       blackLivesLost: '26708',
       blackPercentOfDeath: '0.2329585598',
     },
+    covidRaceDataTimeseries: {
+      Date: '20200101',
+    },
   }))
 })
 

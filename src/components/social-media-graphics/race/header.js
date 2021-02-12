@@ -2,10 +2,16 @@ import React from 'react'
 
 import SocialCardLocale from './locale'
 import { getGroups, getStateStatus } from './utils'
+import { formatDateToString } from '~components/utils/format'
 
-const SocialCardHeader = ({ state, stateName, noCharts, combinedStates }) => {
+const SocialCardHeader = ({
+  state,
+  stateName,
+  noCharts,
+  combinedStates,
+  lastUpdatedByCtp,
+}) => {
   const { casesOnly, deathsOnly } = getStateStatus(state, combinedStates)
-  const today = new Date()
   const { worstCasesGroup, worstDeathsGroup } = getGroups(state)
 
   const name = state.name || stateName
@@ -21,11 +27,14 @@ const SocialCardHeader = ({ state, stateName, noCharts, combinedStates }) => {
     )
   }
 
+  const getLastUpdatedDate = () => {
+    return formatDateToString(lastUpdatedByCtp, 'LLLL d, yyyy')
+  }
+
   if (casesOnly) {
     return (
       <>
-        <SocialCardLocale name={name} />, through{' '}
-        {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
+        <SocialCardLocale name={name} />, through {getLastUpdatedDate()},{' '}
         {worstCasesGroup} were most likely to have contracted COVID-19.
       </>
     )
@@ -33,8 +42,7 @@ const SocialCardHeader = ({ state, stateName, noCharts, combinedStates }) => {
   if (deathsOnly) {
     return (
       <>
-        <SocialCardLocale name={name} />, through{' '}
-        {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
+        <SocialCardLocale name={name} />, through {getLastUpdatedDate()},{' '}
         {worstDeathsGroup} were most likely to have died from COVID-19.
       </>
     )
@@ -42,8 +50,7 @@ const SocialCardHeader = ({ state, stateName, noCharts, combinedStates }) => {
   if (state.deathRateSmallN) {
     return (
       <>
-        <SocialCardLocale name={name} />, through{' '}
-        {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
+        <SocialCardLocale name={name} />, through {getLastUpdatedDate()},{' '}
         {worstCasesGroup} were most likely to have contracted COVID-19.
       </>
     )
@@ -51,8 +58,7 @@ const SocialCardHeader = ({ state, stateName, noCharts, combinedStates }) => {
   if (worstDeathsGroup === worstCasesGroup) {
     return (
       <>
-        <SocialCardLocale name={name} />, through{' '}
-        {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
+        <SocialCardLocale name={name} />, through {getLastUpdatedDate()},{' '}
         {worstCasesGroup} were most likely to have contracted COVID-19 and were
         also most likely to have died.
       </>
@@ -60,8 +66,7 @@ const SocialCardHeader = ({ state, stateName, noCharts, combinedStates }) => {
   }
   return (
     <>
-      <SocialCardLocale name={name} />, through{' '}
-      {today.toLocaleString('default', { month: 'long' })} {today.getDate()},{' '}
+      <SocialCardLocale name={name} />, through {getLastUpdatedDate()},{' '}
       {worstCasesGroup} were most likely to have contracted COVID-19.{' '}
       {worstDeathsGroup} were most likely to have died.
     </>

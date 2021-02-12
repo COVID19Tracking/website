@@ -29,6 +29,24 @@ const EthnicityTable = ({
           index: groupedNotes.indexOf(notes.latinXDeath),
         },
       },
+      hospitalization: {
+        disparity: data.latinXHospDispFlag,
+        caution: data.latinXHospCaution,
+        value: data.latinXPctHosp,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
+      test: {
+        disparity: data.latinXTestDispFlag,
+        caution: data.latinXTestCaution,
+        value: data.latinXPctTest,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
     },
     {
       group: 'Not Hispanic or Latino',
@@ -49,6 +67,24 @@ const EthnicityTable = ({
           index: groupedNotes.indexOf(notes.nonhispanicDeath),
         },
       },
+      hospitalization: {
+        disparity: data.nonhispanicHospDispFlag,
+        caution: data.nonhispanicHospCaution,
+        value: data.nonhispanicPctHosp,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
+      test: {
+        disparity: data.nonhispanicTestDispFlag,
+        caution: data.nonhispanicTestCaution,
+        value: data.nonhispanicPctTest,
+        note: {
+          value: undefined,
+          index: undefined,
+        },
+      },
     },
   ]
   return (
@@ -58,6 +94,8 @@ const EthnicityTable = ({
       type={type}
       noPositives={noPositives}
       noDeaths={noDeaths}
+      noTests={!data.anyTestData}
+      noHospitalizations={!data.anyHospData}
     />
   )
 }

@@ -111,7 +111,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
         </h3>
         <div>
           <table
-            className="table"
+            className="table table"
           >
             <thead>
               <tr>
@@ -132,7 +132,9 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                   <span
                     role="text"
                   >
-                    Percentage of population
+                    Percentage of
+                    <br />
+                    population
                   </span>
                 </th>
                 <th
@@ -146,10 +148,13 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                       alt="Alert icon"
                       src="test-file-stub"
                     />
-                    Percentage of cases
-                    <div
-                      className="symbolSpacer"
-                    />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      cases
+                    </span>
                   </span>
                 </th>
                 <th
@@ -163,10 +168,53 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                       alt="Alert icon"
                       src="test-file-stub"
                     />
-                    Percentage of deaths
-                    <div
-                      className="symbolSpacer"
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      deaths
+                    </span>
+                  </span>
+                </th>
+                <th
+                  className="percent missingData"
+                  scope="col"
+                >
+                  <span
+                    role="text"
+                  >
+                    <img
+                      alt="Alert icon"
+                      src="test-file-stub"
                     />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      tests
+                    </span>
+                  </span>
+                </th>
+                <th
+                  className="percent missingData"
+                  scope="col"
+                >
+                  <span
+                    role="text"
+                  >
+                    <img
+                      alt="Alert icon"
+                      src="test-file-stub"
+                    />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      hospitalizations
+                    </span>
                   </span>
                 </th>
               </tr>
@@ -218,6 +266,44 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                     race/ethnicity
                      data for 
                     deaths
+                    .
+                     
+                    <a
+                      href="/race/get-better-data"
+                    >
+                      Help us get better data.
+                    </a>
+                  </span>
+                </td>
+                <td
+                  className="missingData"
+                  rowSpan={8}
+                >
+                  <span>
+                    AZ
+                     does not report 
+                    race/ethnicity
+                     data for 
+                    tests
+                    .
+                     
+                    <a
+                      href="/race/get-better-data"
+                    >
+                      Help us get better data.
+                    </a>
+                  </span>
+                </td>
+                <td
+                  className="missingData"
+                  rowSpan={8}
+                >
+                  <span>
+                    AZ
+                     does not report 
+                    race/ethnicity
+                     data for 
+                    hospitalizations
                     .
                      
                     <a
@@ -494,7 +580,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
         </h3>
         <div>
           <table
-            className="table"
+            className="table table"
           >
             <thead>
               <tr>
@@ -515,7 +601,9 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                   <span
                     role="text"
                   >
-                    Percentage of population
+                    Percentage of
+                    <br />
+                    population
                   </span>
                 </th>
                 <th
@@ -529,10 +617,13 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                       alt="Alert icon"
                       src="test-file-stub"
                     />
-                    Percentage of cases
-                    <div
-                      className="symbolSpacer"
-                    />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      cases
+                    </span>
                   </span>
                 </th>
                 <th
@@ -546,10 +637,53 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                       alt="Alert icon"
                       src="test-file-stub"
                     />
-                    Percentage of deaths
-                    <div
-                      className="symbolSpacer"
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      deaths
+                    </span>
+                  </span>
+                </th>
+                <th
+                  className="percent missingData"
+                  scope="col"
+                >
+                  <span
+                    role="text"
+                  >
+                    <img
+                      alt="Alert icon"
+                      src="test-file-stub"
                     />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      tests
+                    </span>
+                  </span>
+                </th>
+                <th
+                  className="percent missingData"
+                  scope="col"
+                >
+                  <span
+                    role="text"
+                  >
+                    <img
+                      alt="Alert icon"
+                      src="test-file-stub"
+                    />
+                    <span
+                      className="headerText"
+                    >
+                      Percentage of
+                      <br />
+                      hospitalizations
+                    </span>
                   </span>
                 </th>
               </tr>
@@ -601,6 +735,44 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                     race/ethnicity
                      data for 
                     deaths
+                    .
+                     
+                    <a
+                      href="/race/get-better-data"
+                    >
+                      Help us get better data.
+                    </a>
+                  </span>
+                </td>
+                <td
+                  className="missingData"
+                  rowSpan={8}
+                >
+                  <span>
+                    DC
+                     does not report 
+                    race/ethnicity
+                     data for 
+                    tests
+                    .
+                     
+                    <a
+                      href="/race/get-better-data"
+                    >
+                      Help us get better data.
+                    </a>
+                  </span>
+                </td>
+                <td
+                  className="missingData"
+                  rowSpan={8}
+                >
+                  <span>
+                    DC
+                     does not report 
+                    race/ethnicity
+                     data for 
+                    hospitalizations
                     .
                      
                     <a

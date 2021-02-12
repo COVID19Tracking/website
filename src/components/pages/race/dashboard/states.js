@@ -278,6 +278,116 @@ const CrdtDashboardStates = () => {
           whiteSpecialCaseNotes
         }
       }
+      allCovidRaceHospTestDataCombined {
+        nodes {
+          name
+          anyHospData
+          anyTestData
+          knownRaceEthTest
+          knownRaceEthHosp
+          blackTestCaution
+          blackTestDispFlag
+          blackPctTest
+          blackHospCaution
+          blackHospDispFlag
+          blackPctHosp
+          latinXTestCaution
+          latinXTestDispFlag
+          latinXPctTest
+          latinXHospCaution
+          latinXHospDispFlag
+          latinXPctHosp
+          aianTestCaution
+          aianTestDispFlag
+          aianPctTest
+          aianHospCaution
+          aianHospDispFlag
+          aianPctHosp
+          nhpiTestCaution
+          nhpiTestDispFlag
+          nhpiPctTest
+          nhpiHospCaution
+          nhpiHospDispFlag
+          nhpiPctHosp
+          otherTestCaution
+          otherTestDispFlag
+          otherPctTest
+          otherHospCaution
+          otherHospDispFlag
+          otherPctHosp
+          twoTestCaution
+          twoTestDispFlag
+          twoPctTest
+          twoHospCaution
+          twoHospDispFlag
+          twoPctHosp
+          whiteTestCaution
+          whiteTestDispFlag
+          whitePctTest
+          whiteHospCaution
+          whiteHospDispFlag
+          whitePctHosp
+        }
+      }
+      allCovidRaceHospTestDataSeparate {
+        nodes {
+          name
+          anyHospData
+          anyTestData
+          knownEthHosp
+          knownEthTest
+          knownRaceHosp
+          knownRaceTest
+          blackTestCaution
+          blackTestDispFlag
+          blackPctTest
+          blackHospCaution
+          blackHospDispFlag
+          blackPctHosp
+          latinXTestCaution
+          latinXTestDispFlag
+          latinXPctTest
+          latinXHospCaution
+          latinXHospDispFlag
+          latinXPctHosp
+          aianTestCaution
+          aianTestDispFlag
+          aianPctTest
+          aianHospCaution
+          aianHospDispFlag
+          aianPctHosp
+          nhpiTestCaution
+          nhpiTestDispFlag
+          nhpiPctTest
+          nhpiHospCaution
+          nhpiHospDispFlag
+          nhpiPctHosp
+          otherTestCaution
+          otherTestDispFlag
+          otherPctTest
+          otherHospCaution
+          otherHospDispFlag
+          otherPctHosp
+          twoTestCaution
+          twoTestDispFlag
+          twoPctTest
+          twoHospCaution
+          twoHospDispFlag
+          twoPctHosp
+          whiteTestCaution
+          whiteTestDispFlag
+          whitePctTest
+          whiteHospCaution
+          whiteHospDispFlag
+          whitePctHosp
+          nonhispanicTestCaution
+          nonhispanicTestDispFlag
+          nonhispanicPctTest
+          nonhispanicHospCaution
+          nonhispanicHospDispFlag
+          nonhispanicPctHosp
+        }
+      }
       allCovidStateInfo {
         nodes {
           childSlug {
@@ -311,14 +421,32 @@ const CrdtDashboardStates = () => {
 
   const states = []
   data.allCovidRaceDataSeparate.nodes.forEach(state => {
+    let testHospData
+    data.allCovidRaceHospTestDataSeparate.nodes.every(testHospState => {
+      if (testHospState.name === state.name) {
+        testHospData = testHospState
+        return false
+      }
+      return true
+    })
     states.push({
       ...state,
+      ...testHospData,
       stateSeparate: true,
     })
   })
   data.allCovidRaceDataCombined.nodes.forEach(state => {
+    let testHospData
+    data.allCovidRaceHospTestDataCombined.nodes.every(testHospState => {
+      if (testHospState.name === state.name) {
+        testHospData = testHospState
+        return false
+      }
+      return true
+    })
     states.push({
       ...state,
+      ...testHospData,
       stateSeparate: false,
     })
   })

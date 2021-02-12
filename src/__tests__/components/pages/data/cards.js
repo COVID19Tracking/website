@@ -14,7 +14,6 @@ import CrdtDeathsCard from '~components/pages/data/cards/crdt/deaths-card'
 import DefaultSmallCard from '~components/pages/data/cards/small'
 import DataAsGraphicSmallCard from '~components/pages/data/cards/small/data-as-graphic-small-card'
 import ViewRacialDataSmallCard from '~components/pages/data/cards/small/view-racial-data-small-card'
-import GradeSmallCard from '~components/pages/data/cards/small/grade-small-card'
 
 describe('Components : Pages : Data : Cards : Cases', () => {
   it('renders correctly', () => {
@@ -333,13 +332,6 @@ describe('Components : Pages : Data : Cards : Small Cards : View data as graphic
         <DataAsGraphicSmallCard stateAbbreviation="NY" ignoreStates={[]} />,
       )
       .toJSON()
-    expect(tree).toMatchSnapshot()
-  })
-})
-
-describe('Components : Pages : Data : Cards : Small Cards : Grade', () => {
-  it('renders correctly', () => {
-    const tree = renderer.create(<GradeSmallCard grade="b" />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

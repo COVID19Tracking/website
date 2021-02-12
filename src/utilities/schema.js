@@ -191,6 +191,11 @@ module.exports = ({ actions }) => {
       whiteDeathNotes: String
       whitePosNotes: String
     }
+    type CovidRaceHospTestDataSeparate implements Node {
+      nhpiPctTest: Float
+      twoPctTest: Float
+      aianPctTest: Float
+    }
   `
   createTypes(typeDefs)
 }
