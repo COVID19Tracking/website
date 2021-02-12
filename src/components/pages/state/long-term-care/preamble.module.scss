@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  @media (min-width: $viewport-lg) {
+    justify-content: right;
+  }
+  p {
+    margin: 1rem 0 0;
+    > span {
+      margin-right: 1rem;
+      display: inline-block;
+    }
+  }
+}
