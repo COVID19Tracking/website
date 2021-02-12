@@ -213,7 +213,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
           <span
             role="text"
           >
-            Black or African American alone
+            Black or African American
           </span>
         </th>
         <td
@@ -267,7 +267,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
           <span
             role="text"
           >
-            Asian alone
+            Asian
           </span>
         </th>
         <td
@@ -285,7 +285,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
           <span
             role="text"
           >
-            Native Hawaiian and Pacific Islander alone
+            Native Hawaiian or Other Pacific Islander
           </span>
         </th>
         <td
@@ -303,7 +303,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
           <span
             role="text"
           >
-            American Indian or Alaska Native alone
+            American Indian or Alaska Native
           </span>
         </th>
         <td
@@ -339,7 +339,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
           <span
             role="text"
           >
-            White alone
+            White
           </span>
         </th>
         <td
@@ -357,7 +357,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
           <span
             role="text"
           >
-            Some other race alone
+            Some other race
           </span>
         </th>
         <td
@@ -444,7 +444,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
           <span
             role="text"
           >
-            Black or African American alone
+            Black or African American
           </span>
         </th>
         <td
@@ -498,7 +498,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
           <span
             role="text"
           >
-            Asian alone
+            Asian
           </span>
         </th>
         <td
@@ -516,7 +516,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
           <span
             role="text"
           >
-            Native Hawaiian and Pacific Islander alone
+            Native Hawaiian or Other Pacific Islander
           </span>
         </th>
         <td
@@ -534,7 +534,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
           <span
             role="text"
           >
-            American Indian or Alaska Native alone
+            American Indian or Alaska Native
           </span>
         </th>
         <td
@@ -570,7 +570,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
           <span
             role="text"
           >
-            White alone
+            White
           </span>
         </th>
         <td
@@ -588,7 +588,7 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
           <span
             role="text"
           >
-            Some other race alone
+            Some other race
           </span>
         </th>
         <td

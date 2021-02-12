@@ -13,7 +13,7 @@ const RaceTable = ({
 }) => {
   const rows = [
     {
-      group: 'Black or African American alone',
+      group: 'Black or African American',
       population: data.blackPctPop,
       positive: {
         disparity: data.blackPosDispFlag,
@@ -58,7 +58,7 @@ const RaceTable = ({
       },
     },
     {
-      group: 'Asian alone',
+      group: 'Asian',
       population: data.asianPctPop,
       positive: {
         disparity: data.asianPosDispFlag,
@@ -80,7 +80,7 @@ const RaceTable = ({
       },
     },
     {
-      group: 'Native Hawaiian and Pacific Islander alone',
+      group: 'Native Hawaiian or Other Pacific Islander',
       population: data.nhpiPctPop,
       positive: {
         disparity: data.nhpiPosDispFlag,
@@ -102,7 +102,7 @@ const RaceTable = ({
       },
     },
     {
-      group: 'American Indian or Alaska Native alone',
+      group: 'American Indian or Alaska Native',
       population: data.aianPctPop,
       positive: {
         disparity: data.aianPosDispFlag,
@@ -146,7 +146,7 @@ const RaceTable = ({
       },
     },
     {
-      group: 'White alone',
+      group: 'White',
       population: data.whitePctPop,
       positive: {
         disparity: data.whitePosDispFlag,
@@ -168,7 +168,7 @@ const RaceTable = ({
       },
     },
     {
-      group: 'Some other race alone',
+      group: 'Some other race',
       population: data.otherPctPop,
       positive: {
         disparity: data.otherPosDispFlag,
