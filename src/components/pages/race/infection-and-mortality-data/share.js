@@ -37,7 +37,6 @@ const getSocialCardShareText = (
   groups,
   lastUpdatedDate,
 ) => {
-
   const getTweetableDate = () => {
     return formatDateToString(lastUpdatedDate, 'LLLL d, yyyy')
   }
