@@ -1,16 +1,37 @@
 import React from 'react'
 import countyChartLegendStyle from './county-chart-legend.module.scss'
 
-const legendStyles = {
-  'Black or African American alone':
-    countyChartLegendStyle.blackAfricanAmericanAlone,
-  'White alone': countyChartLegendStyle.whiteAlone,
-  'Hispanic or Latino': countyChartLegendStyle.hispanicLatino,
-  'Asian alone': countyChartLegendStyle.asianAlone,
-  'Two or more races': countyChartLegendStyle.twoOrMore,
-  'American Indian and Alaskan Native alone': countyChartLegendStyle.aianAlone,
-  'Native Hawaiian and Other Pacific Islander alone':
-    countyChartLegendStyle.nhpiAlone,
+const legendData = {
+  'Black or African American alone': {
+    style: countyChartLegendStyle.blackAfricanAmericanAlone,
+    // the label value maps the 'category alone' value to 'category', to align
+    // with the OMB standard.
+    label: 'Black or African American',
+  },
+  'White alone': {
+    style: countyChartLegendStyle.whiteAlone,
+    label: 'White',
+  },
+  'Hispanic or Latino': {
+    style: countyChartLegendStyle.hispanicLatino,
+    label: 'Hispanic or Latino',
+  },
+  'Asian alone': {
+    style: countyChartLegendStyle.asianAlone,
+    label: 'Asian',
+  },
+  'Two or more races': {
+    style: countyChartLegendStyle.twoOrMore,
+    label: 'Two or more races',
+  },
+  'American Indian and Alaskan Native alone': {
+    style: countyChartLegendStyle.aianAlone,
+    label: 'American Indian or Alaskan Native',
+  },
+  'Native Hawaiian and Other Pacific Islander alone': {
+    style: countyChartLegendStyle.nhpiAlone,
+    label: 'Native Hawaiian or Other Pacific Islander',
+  },
 }
 
 const CountyChartLegend = ({ data }) => {
@@ -30,9 +51,9 @@ const CountyChartLegend = ({ data }) => {
         {legends.map(legend => (
           <li key={`legend-${legend}`}>
             <span
-              className={`${countyChartLegendStyle.swatch} ${legendStyles[legend]}`}
+              className={`${countyChartLegendStyle.swatch} ${legendData[legend].style}`}
             />
-            {legend}
+            {legendData[legend].label}
           </li>
         ))}
       </ul>
