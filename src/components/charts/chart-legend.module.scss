@@ -1,0 +1,47 @@
+.legend {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-auto-rows: 1fr;
+  grid-column-gap: 1rem;
+  grid-row-gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0px 20%; // ignore-style-rule
+
+  .category,
+  .reset-button {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+  }
+
+  .category {
+    display: flex;
+    align-items: center;
+
+    @include margin(32, right);
+    text-align: left;
+
+    &:last-child {
+      @include margin(0, right);
+    }
+
+    .swatch {
+      flex-shrink: 0;
+      @include margin(8, right);
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .active-category {
+    font-weight: bold;
+  }
+
+  .reset-button {
+    color: $color-slate-700;
+    text-decoration: underline;
+    grid-column: span 2;
+  }
+}

@@ -1,24 +1,14 @@
 import React from 'react'
 import classnames from 'classnames'
-import styles from './charts.module.scss'
+import styles from './chart-legend.module.scss'
 
 const ChartLegend = ({
   legendColors,
   categories,
   selectedItem,
   setSelectedItem,
+  legendNames,
 }) => {
-  const categoryNames = {
-    White: 'White',
-    Black: 'Black or African American',
-    LatinX: 'Hispanic or Latino',
-    Asian: 'Asian',
-    AIAN: 'American Indian and Alaskan Native',
-    NHPI: 'Native Hawaiian and Other Pacific Islander',
-    Ethnicity_Hispanic: 'Hispanic or Latino',
-    Ethnicity_NonHispanic: 'Not Hispanic or Latino',
-  }
-
   /**
    * Gets the appropriate classes for a legend item, based on the
    * item's category name.
@@ -42,7 +32,7 @@ const ChartLegend = ({
             style={{ 'background-color': legendColors[category] }}
             className={styles.swatch}
           />
-          {categoryNames[category]}
+          {legendNames[category]}
         </button>
       ))}
       {selectedItem && (
