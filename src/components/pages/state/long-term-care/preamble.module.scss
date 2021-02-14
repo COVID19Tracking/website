@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  @media (min-width: $viewport-lg) {
+    justify-content: right;
+  }
+  p {
+    @include margin(16, top);
+    margin-bottom: 0;
+    > span {
+      margin-right: 1rem;
+      display: inline-block;
+    }
+  }
+}

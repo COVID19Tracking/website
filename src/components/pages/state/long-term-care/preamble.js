@@ -3,6 +3,8 @@ import { Link } from 'gatsby'
 import OverviewWrapper from '~components/common/overview-wrapper'
 import LongTermCareOverview from './overview'
 import downloadDataStyles from '../download-data.module.scss'
+import longTermCarePreambleStyle from './preamble.module.scss'
+import { FormatDate } from '~components/utils/format'
 
 const LongTermCarePreamble = ({
   state,
@@ -24,8 +26,14 @@ const LongTermCarePreamble = ({
         overview={overview}
         stateSlug={stateSlug}
       />
-      <div className={downloadDataStyles.container}>
+      <div className={longTermCarePreambleStyle.container}>
         <p>
+          <span>
+            Last updated{' '}
+            <strong>
+              <FormatDate date={overview.date} format="LLLL d, yyyy" />
+            </strong>
+          </span>
           <a
             href="https://github.com/COVID19Tracking/long-term-care-data/blob/master/state_overview.csv"
             className={downloadDataStyles.button}

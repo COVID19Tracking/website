@@ -63,7 +63,7 @@ exports[`Components : Race : National Chart renders correctly 1`] = `
         <span
           className="rowLabel"
         >
-          American Indian or Alaska Native
+          American Indian or Alaskan Native
         </span>
       </div>
       <div
@@ -77,7 +77,7 @@ exports[`Components : Race : National Chart renders correctly 1`] = `
       <span
         className="a11y-only"
       >
-        American Indian or Alaska Native
+        American Indian or Alaskan Native
          people have experienced
       </span>
       <span
@@ -211,7 +211,7 @@ exports[`Components : Race : National Chart renders correctly 1`] = `
         <span
           className="rowLabel"
         >
-          Native Hawaiian and Pacific Islander
+          Native Hawaiian or Other Pacific Islander
         </span>
       </div>
       <div
@@ -225,7 +225,7 @@ exports[`Components : Race : National Chart renders correctly 1`] = `
       <span
         className="a11y-only"
       >
-        Native Hawaiian and Pacific Islander
+        Native Hawaiian or Other Pacific Islander
          people have experienced
       </span>
       <span
