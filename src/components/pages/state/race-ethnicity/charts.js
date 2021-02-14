@@ -6,7 +6,7 @@ import { getAvailablePer100kMetricFields } from './utils'
 
 import styles from './charts.module.scss'
 import colors from '~scss/colors.module.scss'
-import ChartsSection from './charts-section'
+import ChartSection from './chart-section'
 
 export const colorMap = {
   AIAN: colors.crdtAian,
@@ -164,7 +164,7 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
 
   return (
     <div className={styles.wrapper}>
-      <ChartsSection
+      <ChartSection
         title="Race data"
         legendCategories={activeRaceCategories}
         selectedItem={selectedCategory}
@@ -182,8 +182,8 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
           ]}
           title={`${currentMetric} per 100k people`}
         />
-      </ChartsSection>
-      <ChartsSection
+      </ChartSection>
+      <ChartSection
         title="Ethnicity data"
         legendCategories={activeEthnicityCategories}
         selectedItem={selectedCategory}
@@ -201,7 +201,7 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
           ]}
           title={`${currentMetric} per 100k people`}
         />
-      </ChartsSection>
+      </ChartSection>
     </div>
   )
 }

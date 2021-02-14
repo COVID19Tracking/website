@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './charts.module.scss'
 import ChartLegend from '~components/charts/chart-legend'
 
-const ChartsSection = ({
+const ChartSection = ({
   title,
   children,
   legendCategories,
@@ -38,4 +38,4 @@ const ChartsSection = ({
   )
 }
 
-export default ChartsSection
+export default ChartSection
