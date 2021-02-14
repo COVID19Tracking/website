@@ -33,7 +33,12 @@
   .category {
     display: flex;
     align-items: center;
+    border: none;
+    background: inherit;
+
     @include margin(32, right);
+    text-align: left;
+    cursor: pointer;
 
     &:last-child {
       @include margin(0, right);
@@ -45,5 +50,9 @@
       width: 12px;
       height: 12px;
     }
+  }
+
+  .active-category {
+    font-weight: bold;
   }
 }

@@ -1,5 +1,6 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { DateTime } from 'luxon'
+import classnames from 'classnames'
 
 import Chart from './chart'
 import { getAvailablePer100kMetricFields } from './utils'
@@ -19,7 +20,12 @@ const colorMap = {
   White: colors.crdtWhite,
 }
 
-const ChartLegend = ({ legendColors, categories }) => {
+const ChartLegend = ({
+  legendColors,
+  categories,
+  selectedItem,
+  setSelectedItem,
+}) => {
   const categoryNames = {
     White: 'White',
     Black: 'Black or African American',
@@ -30,26 +36,53 @@ const ChartLegend = ({ legendColors, categories }) => {
     Ethnicity_Hispanic: 'Hispanic or Latino',
     Ethnicity_NonHispanic: 'Not Hispanic or Latino',
   }
+
+  /**
+   * Gets the appropriate classes for a legend item, based on the
+   * item's category name.
+   */
+  const getCategoryStyles = categoryName => {
+    if (selectedItem && categoryName === selectedItem) {
+      return classnames(styles.category, styles.activeCategory)
+    }
+    return styles.category
+  }
+
   return (
     <div className={styles.legend}>
       {categories.map(category => (
-        <div className={styles.category}>
+        <button
+          className={getCategoryStyles(category)}
+          onClick={() => setSelectedItem(category)}
+          type="button"
+        >
           <div
             style={{ 'background-color': legendColors[category] }}
             className={styles.swatch}
           />
           {categoryNames[category]}
-        </div>
+        </button>
       ))}
     </div>
   )
 }
 
-const ChartsSection = ({ title, children, legendCategories }) => (
+const ChartsSection = ({
+  title,
+  children,
+  legendCategories,
+  selectedItem,
+  setSelectedItem,
+}) => (
   <div className={styles.chartSection}>
     <h3 className={styles.chartSectionTitle}>{title}</h3>
     {children}
-    <ChartLegend legendColors={colorMap} categories={legendCategories} />
+    <ChartLegend
+      legendColors={colorMap}
+      categories={legendCategories}
+      selectedItem={selectedItem}
+      setSelectedItem={setSelectedItem}
+    />
   </div>
 )
 
@@ -142,13 +175,40 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
   const activeRaceCategories = Object.keys(allRaceData[currentMetric])
   const activeEthnicityCategories = Object.keys(allEthnicityData[currentMetric])
 
+  const [selectedCategory, setSelectedCategory] = useState(null)
+  // todo handle clicks outside of the legend to reset state
+
+  /**
+   * Gets the colors for the line charts.
+   * Greys out the non-selected values when a category is selected.
+   */
+  const getChartColors = () => {
+    if (selectedCategory === null) {
+      return colorMap
+    }
+
+    const selectedColorMap = { ...colorMap }
+
+    Object.keys(selectedColorMap).forEach(key => {
+      if (key !== selectedCategory) {
+        selectedColorMap[key] = colors.colorSlate200
+      }
+    })
+    return selectedColorMap
+  }
+
   return (
     <div className={styles.wrapper}>
-      <ChartsSection title="Race data" legendCategories={activeRaceCategories}>
+      <ChartsSection
+        title="Race data"
+        legendCategories={activeRaceCategories}
+        selectedItem={selectedCategory}
+        setSelectedItem={setSelectedCategory}
+      >
         <Chart
           data={[
             {
-              colorMap,
+              colorMap: getChartColors(),
               label: `${currentMetric} per 100k people`,
               data: allRaceData[currentMetric],
             },
@@ -159,11 +219,13 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
       <ChartsSection
         title="Ethnicity data"
         legendCategories={activeEthnicityCategories}
+        selectedItem={selectedCategory}
+        setSelectedItem={setSelectedCategory}
       >
         <Chart
           data={[
             {
-              colorMap,
+              colorMap: getChartColors(),
               label: `${currentMetric} per 100k people`,
               data: allEthnicityData[currentMetric],
             },
