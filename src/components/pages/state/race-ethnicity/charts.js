@@ -63,6 +63,15 @@ const ChartLegend = ({
           {categoryNames[category]}
         </button>
       ))}
+      {selectedItem && (
+        <button
+          onClick={() => setSelectedItem(null)}
+          type="button"
+          className={styles.resetButton}
+        >
+          Reset highlight
+        </button>
+      )}
     </div>
   )
 }

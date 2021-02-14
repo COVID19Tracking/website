@@ -30,15 +30,19 @@
 
   margin: 0px 20%; // ignore-style-rule
 
+  .category,
+  .reset-button {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+  }
+
   .category {
     display: flex;
     align-items: center;
-    border: none;
-    background: inherit;
 
     @include margin(32, right);
     text-align: left;
-    cursor: pointer;
 
     &:last-child {
       @include margin(0, right);
@@ -54,5 +58,11 @@
 
   .active-category {
     font-weight: bold;
+  }
+
+  .reset-button {
+    color: $color-slate-700;
+    text-decoration: underline;
+    grid-column: span 2;
   }
 }
