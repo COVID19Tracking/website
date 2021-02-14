@@ -1,14 +1,14 @@
 import React, { useMemo, useState, useRef, useEffect } from 'react'
 import { DateTime } from 'luxon'
-import classnames from 'classnames'
 
 import Chart from './chart'
 import { getAvailablePer100kMetricFields } from './utils'
 
 import styles from './charts.module.scss'
 import colors from '~scss/colors.module.scss'
+import ChartsSection from './charts-section'
 
-const colorMap = {
+export const colorMap = {
   AIAN: colors.crdtAian,
   Asian: colors.crdtAsian,
   Black: colors.crdtBlack,
@@ -19,84 +19,6 @@ const colorMap = {
   NHPI: colors.crdtNhpi,
   White: colors.crdtWhite,
 }
-
-const ChartLegend = ({
-  legendColors,
-  categories,
-  selectedItem,
-  setSelectedItem,
-}) => {
-  const categoryNames = {
-    White: 'White',
-    Black: 'Black or African American',
-    LatinX: 'Hispanic or Latino',
-    Asian: 'Asian',
-    AIAN: 'American Indian and Alaskan Native',
-    NHPI: 'Native Hawaiian and Other Pacific Islander',
-    Ethnicity_Hispanic: 'Hispanic or Latino',
-    Ethnicity_NonHispanic: 'Not Hispanic or Latino',
-  }
-
-  /**
-   * Gets the appropriate classes for a legend item, based on the
-   * item's category name.
-   */
-  const getCategoryStyles = categoryName => {
-    if (selectedItem && categoryName === selectedItem) {
-      return classnames(styles.category, styles.activeCategory)
-    }
-    return styles.category
-  }
-
-  return (
-    <div className={styles.legend}>
-      {categories.map(category => (
-        <button
-          className={getCategoryStyles(category)}
-          onClick={() => setSelectedItem(category)}
-          type="button"
-        >
-          <div
-            style={{ 'background-color': legendColors[category] }}
-            className={styles.swatch}
-          />
-          {categoryNames[category]}
-        </button>
-      ))}
-      {selectedItem && (
-        <button
-          onClick={() => setSelectedItem(null)}
-          type="button"
-          className={styles.resetButton}
-        >
-          Reset highlight
-        </button>
-      )}
-    </div>
-  )
-}
-
-const ChartsSection = ({
-  title,
-  children,
-  legendCategories,
-  selectedItem,
-  setSelectedItem,
-  legendRef,
-}) => (
-  <div className={styles.chartSection}>
-    <h3 className={styles.chartSectionTitle}>{title}</h3>
-    {children}
-    <div ref={legendRef}>
-      <ChartLegend
-        legendColors={colorMap}
-        categories={legendCategories}
-        selectedItem={selectedItem}
-        setSelectedItem={setSelectedItem}
-      />
-    </div>
-  </div>
-)
 
 const Charts = ({ timeSeriesData, currentMetric }) => {
   const getMetricData = (allData, metricTitle, metrics) => {
@@ -247,6 +169,7 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
         legendCategories={activeRaceCategories}
         selectedItem={selectedCategory}
         setSelectedItem={setSelectedCategory}
+        legendColors={colorMap}
         legendRef={raceLegendRef}
       >
         <Chart
@@ -265,6 +188,7 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
         legendCategories={activeEthnicityCategories}
         selectedItem={selectedCategory}
         setSelectedItem={setSelectedCategory}
+        legendColors={colorMap}
         legendRef={ethnicityLegendRef}
       >
         <Chart
