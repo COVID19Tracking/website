@@ -46,7 +46,7 @@ const ChartLegend = ({
       ) : (
         // this is a placeholder for the reset button so that the page doesn't
         // jump when selectedItem goes from null to not null
-        <div> </div>
+        <div className={styles.resetButton}> </div>
       )}
     </div>
   )
