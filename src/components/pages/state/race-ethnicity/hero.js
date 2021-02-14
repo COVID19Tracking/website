@@ -127,10 +127,9 @@ const Hero = ({
     setCurrentMetric(getFirstAvailableMetric(metrics))
   }, [])
 
-  const lastReportedByState = (isCombined(combinedNotes, separateNotes)
-    ? combinedNotes
-    : separateNotes
-  ).stateUpdate.value
+  const stateIsCombined = isCombined(combinedNotes, separateNotes)
+  const lastReportedByState = (stateIsCombined ? combinedNotes : separateNotes)
+    .stateUpdate.value
 
   return (
     <div className={styles.wrapper}>
@@ -150,6 +149,7 @@ const Hero = ({
         <Charts
           timeSeriesData={completeTimeSeriesData}
           currentMetric={currentMetric}
+          isCombined={stateIsCombined}
         />
         <Sources data={stateSources} />
         <NotesAndDownloads

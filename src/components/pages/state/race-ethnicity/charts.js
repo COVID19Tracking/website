@@ -20,7 +20,7 @@ export const colorMap = {
   White: colors.crdtWhite,
 }
 
-const Charts = ({ timeSeriesData, currentMetric }) => {
+const Charts = ({ timeSeriesData, currentMetric, isCombined }) => {
   const getMetricData = (allData, metricTitle, metrics) => {
     /** Restructures a single metric's racial data (i.e. cases) for charts */
     const completedData = {} // store the final metric data object
@@ -102,8 +102,6 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
 
   // todo add renderTooltipContents to line charts
 
-  // todo separate race and ethnicity, based on combined or separate states
-
   // todo find alternatives to red, blue, green
 
   const activeRaceCategories = Object.keys(allRaceData[currentMetric])
@@ -165,7 +163,7 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
   return (
     <div className={styles.wrapper}>
       <ChartSection
-        title="Race data"
+        title={isCombined ? 'Race/ethnicity data' : 'Race data'}
         legendCategories={activeRaceCategories}
         selectedItem={selectedCategory}
         setSelectedItem={setSelectedCategory}
@@ -183,25 +181,27 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
           title={`${currentMetric} per 100k people`}
         />
       </ChartSection>
-      <ChartSection
-        title="Ethnicity data"
-        legendCategories={activeEthnicityCategories}
-        selectedItem={selectedCategory}
-        setSelectedItem={setSelectedCategory}
-        legendColors={colorMap}
-        legendRef={ethnicityLegendRef}
-      >
-        <Chart
-          data={[
-            {
-              colorMap: getChartColors(),
-              label: `${currentMetric} per 100k people`,
-              data: allEthnicityData[currentMetric],
-            },
-          ]}
-          title={`${currentMetric} per 100k people`}
-        />
-      </ChartSection>
+      {!isCombined && (
+        <ChartSection
+          title="Ethnicity data"
+          legendCategories={activeEthnicityCategories}
+          selectedItem={selectedCategory}
+          setSelectedItem={setSelectedCategory}
+          legendColors={colorMap}
+          legendRef={ethnicityLegendRef}
+        >
+          <Chart
+            data={[
+              {
+                colorMap: getChartColors(),
+                label: `${currentMetric} per 100k people`,
+                data: allEthnicityData[currentMetric],
+              },
+            ]}
+            title={`${currentMetric} per 100k people`}
+          />
+        </ChartSection>
+      )}
     </div>
   )
 }
