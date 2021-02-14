@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useRef, useEffect } from 'react'
 import { DateTime } from 'luxon'
 import classnames from 'classnames'
 
@@ -73,16 +73,19 @@ const ChartsSection = ({
   legendCategories,
   selectedItem,
   setSelectedItem,
+  legendRef,
 }) => (
   <div className={styles.chartSection}>
     <h3 className={styles.chartSectionTitle}>{title}</h3>
     {children}
-    <ChartLegend
-      legendColors={colorMap}
-      categories={legendCategories}
-      selectedItem={selectedItem}
-      setSelectedItem={setSelectedItem}
-    />
+    <div ref={legendRef}>
+      <ChartLegend
+        legendColors={colorMap}
+        categories={legendCategories}
+        selectedItem={selectedItem}
+        setSelectedItem={setSelectedItem}
+      />
+    </div>
   </div>
 )
 
@@ -176,7 +179,6 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
   const activeEthnicityCategories = Object.keys(allEthnicityData[currentMetric])
 
   const [selectedCategory, setSelectedCategory] = useState(null)
-  // todo handle clicks outside of the legend to reset state
 
   /**
    * Gets the colors for the line charts.
@@ -187,7 +189,9 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
       return colorMap
     }
 
-    const selectedColorMap = { ...colorMap }
+    const selectedColorMap = {
+      ...colorMap,
+    }
 
     Object.keys(selectedColorMap).forEach(key => {
       if (key !== selectedCategory) {
@@ -197,6 +201,36 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
     return selectedColorMap
   }
 
+  /**
+   * Hook that resets the selected category on clicks outside of the passed ref.
+   * See: https://stackoverflow.com/questions/32553158/detect-click-outside-react-component
+   */
+  function useOutsideReset(ref) {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          // Reset the selected category
+          setSelectedCategory(null)
+        }
+      }
+      // Bind the event listener
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener('mousedown', handleClickOutside)
+      }
+    }, [ref])
+  }
+
+  const raceLegendRef = useRef(null)
+  useOutsideReset(raceLegendRef)
+
+  const ethnicityLegendRef = useRef(null)
+  useOutsideReset(ethnicityLegendRef)
+
   return (
     <div className={styles.wrapper}>
       <ChartsSection
@@ -204,6 +238,7 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
         legendCategories={activeRaceCategories}
         selectedItem={selectedCategory}
         setSelectedItem={setSelectedCategory}
+        legendRef={raceLegendRef}
       >
         <Chart
           data={[
@@ -221,6 +256,7 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
         legendCategories={activeEthnicityCategories}
         selectedItem={selectedCategory}
         setSelectedItem={setSelectedCategory}
+        legendRef={ethnicityLegendRef}
       >
         <Chart
           data={[
