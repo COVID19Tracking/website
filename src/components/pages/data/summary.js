@@ -410,7 +410,6 @@ const StateSummary = ({
               {!hideSmallCards && (
                 <>
                   <SmallCards>
-                    {/* <GradeSmallCard grade={data.dataQualityGrade} /> */}
                     {!hideRacialDataTracker && (
                       <ViewDataSmallCard
                         stateName={stateName}

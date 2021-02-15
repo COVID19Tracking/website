@@ -22,6 +22,7 @@ const StateRaceSocialCard = renderedComponent(
     square = false,
     statesReportingCases,
     statesReportingDeaths,
+    lastUpdatedByCtp,
   }) => {
     if (state === undefined) {
       return <></>
@@ -95,7 +96,11 @@ const StateRaceSocialCard = renderedComponent(
         )}
       >
         <p className={socialCardStyle.header}>
-          <SocialCardHeader state={state} combinedStates={combinedStates} />
+          <SocialCardHeader
+            state={state}
+            combinedStates={combinedStates}
+            lastUpdatedByCtp={lastUpdatedByCtp}
+          />
         </p>
         <div
           className={classnames(

@@ -127,6 +127,9 @@ const CreateStateRaceSocialCards = () => {
           }
         }
       }
+      covidRaceDataTimeseries(Date: { ne: null }) {
+        Date
+      }
     }
   `)
 
@@ -143,6 +146,8 @@ const CreateStateRaceSocialCards = () => {
   const combinedStates = data.allCovidRaceDataCombined.nodes.map(
     node => node.state,
   )
+
+  const lastUpdated = data.covidRaceDataTimeseries.Date
 
   return (
     <>
@@ -170,6 +175,7 @@ const CreateStateRaceSocialCards = () => {
               relativePath: 'race-dashboard',
               filename: `${state.childSlug.slug}`,
             }}
+            lastUpdatedByCtp={lastUpdated}
           />
           <StateRaceSocialCard
             state={
@@ -193,6 +199,7 @@ const CreateStateRaceSocialCards = () => {
               relativePath: 'race-dashboard',
               filename: `${state.childSlug.slug}-square`,
             }}
+            lastUpdatedByCtp={lastUpdated}
             square
           />
         </Fragment>
