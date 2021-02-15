@@ -33,3 +33,19 @@
 .disclosure-button {
   @include remove-button-style();
 }
+
+.map-button {
+  position: absolute;
+  color: white;
+  @include padding(8);
+  border-radius: 4px;
+  background: $color-plum-600;
+  display: block;
+  text-decoration: none;
+  z-index: 1000;
+  top: 2rem;
+  left: 2rem;
+  &:hover {
+    text-decoration: none;
+  }
+}

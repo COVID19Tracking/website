@@ -12,7 +12,13 @@ import Wrapper from '~components/common/map/wrapper'
 import facilitiesMapStyles from './map.module.scss'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
-const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
+const LTCFacilitiesMap = ({
+  center,
+  zoom,
+  state = false,
+  removeSidebar = false,
+  button = false,
+}) => {
   mapboxgl.accessToken = process.env.GATSBY_MAPBOX_API_TOKEN
   const [activeFacility, setActiveFacility] = useState(false)
   const [facilities, setFacilities] = useState(false)
@@ -185,85 +191,89 @@ const LTCFacilitiesMap = ({ center, zoom, state = false }) => {
         infoboxPosition: tooltip,
       }}
     >
-      <Legend mapLayer={mapLayer} />
+      {!removeSidebar && <Legend mapLayer={mapLayer} />}
       <div className={facilitiesMapStyles.container} aria-hidden>
-        <Sidebar map={mapRef.current}>
-          <Table ariaHidden>
-            <thead>
-              <tr>
-                <Th alignLeft>Name</Th>
-                <Th>{mapLayer === 'deaths' ? 'Deaths' : 'Cases'}</Th>
-              </tr>
-            </thead>
-          </Table>
-          {facilities && facilities.length > 0 ? (
-            <div className={facilitiesMapStyles.tableScroll}>
-              <Table>
-                <thead className="a11y-only">
-                  <tr>
-                    <Th alignLeft>Name</Th>
-                    <Th>{mapLayer === 'deaths' ? 'Deaths' : 'Cases'}</Th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {facilities.map(facility => (
-                    <tr
-                      onMouseEnter={() => {
-                        setHighlightedFacility(facility)
-                      }}
-                      onMouseLeave={() => {
-                        setHighlightedFacility(false)
-                      }}
-                      onFocus={() => {
-                        setHighlightedFacility(facility)
-                      }}
-                      onBlur={() => {
-                        setHighlightedFacility(false)
-                      }}
-                    >
-                      <Td alignLeft>
-                        <button
-                          type="button"
-                          onClick={event => {
-                            event.preventDefault()
-                            setActiveFacility({ ...facility.properties })
-                            setRevealedFacility(true)
-                          }}
-                        >
-                          {mapLayer === 'cms-cases'
-                            ? facility.properties.name
-                            : facility.properties.facility_name}
-                        </button>
-                      </Td>
-                      <Td>
-                        {mapLayer === 'cms-cases' &&
-                          facility.properties[
-                            'residents-total-confirmed-covid-19'
-                          ] +
-                            facility.properties[
-                              'residents-total-suspected-covid-19'
-                            ]}
-                        {(mapLayer === 'cases' || mapLayer === 'facilities') &&
-                          facility.properties.radius_positive}
-                        {mapLayer === 'deaths' &&
-                          facility.properties.radius_deaths}
-                      </Td>
+        {!removeSidebar && (
+          <Sidebar map={mapRef.current}>
+            <Table ariaHidden>
+              <thead>
+                <tr>
+                  <Th alignLeft>Name</Th>
+                  <Th>{mapLayer === 'deaths' ? 'Deaths' : 'Cases'}</Th>
+                </tr>
+              </thead>
+            </Table>
+            {facilities && facilities.length > 0 ? (
+              <div className={facilitiesMapStyles.tableScroll}>
+                <Table>
+                  <thead className="a11y-only">
+                    <tr>
+                      <Th alignLeft>Name</Th>
+                      <Th>{mapLayer === 'deaths' ? 'Deaths' : 'Cases'}</Th>
                     </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </div>
-          ) : (
-            <p>
-              {currentZoom < 6 ? (
-                <>Zoom in to get facility details.</>
-              ) : (
-                <>No facilities in the current map.</>
-              )}
-            </p>
-          )}
-        </Sidebar>
-        <Wrapper>
+                  </thead>
+                  <tbody>
+                    {facilities.map(facility => (
+                      <tr
+                        onMouseEnter={() => {
+                          setHighlightedFacility(facility)
+                        }}
+                        onMouseLeave={() => {
+                          setHighlightedFacility(false)
+                        }}
+                        onFocus={() => {
+                          setHighlightedFacility(facility)
+                        }}
+                        onBlur={() => {
+                          setHighlightedFacility(false)
+                        }}
+                      >
+                        <Td alignLeft>
+                          <button
+                            type="button"
+                            onClick={event => {
+                              event.preventDefault()
+                              setActiveFacility({ ...facility.properties })
+                              setRevealedFacility(true)
+                            }}
+                          >
+                            {mapLayer === 'cms-cases'
+                              ? facility.properties.name
+                              : facility.properties.facility_name}
+                          </button>
+                        </Td>
+                        <Td>
+                          {mapLayer === 'cms-cases' &&
+                            facility.properties[
+                              'residents-total-confirmed-covid-19'
+                            ] +
+                              facility.properties[
+                                'residents-total-suspected-covid-19'
+                              ]}
+                          {(mapLayer === 'cases' ||
+                            mapLayer === 'facilities') &&
+                            facility.properties.radius_positive}
+                          {mapLayer === 'deaths' &&
+                            facility.properties.radius_deaths}
+                        </Td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </div>
+            ) : (
+              <p>
+                {currentZoom < 6 ? (
+                  <>Zoom in to get facility details.</>
+                ) : (
+                  <>No facilities in the current map.</>
+                )}
+              </p>
+            )}
+          </Sidebar>
+        )}
+        <Wrapper fullWidth={removeSidebar}>
+          {button}
           {revealedFacility && (
             <Overlay
               close={() => {

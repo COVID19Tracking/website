@@ -12,6 +12,17 @@
     max-width: 70%;
     flex-basis: 70%;
   }
+  &.full-width {
+    @media (min-width: $viewport-md) {
+      order: 1;
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+    @media (min-width: $viewport-lg) {
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+  }
 }
 
 .inset {
