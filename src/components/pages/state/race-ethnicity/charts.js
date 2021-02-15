@@ -107,13 +107,16 @@ const Charts = ({ timeSeriesData, currentMetric, isCombined }) => {
   const activeRaceCategories = Object.keys(allRaceData[currentMetric])
   const activeEthnicityCategories = Object.keys(allEthnicityData[currentMetric])
 
-  const [selectedCategory, setSelectedCategory] = useState(null)
+  const [selectedRaceCategory, setSelectedRaceCategory] = useState(null)
+  const [selectedEthnicityCategory, setSelectedEthnicityCategory] = useState(
+    null,
+  )
 
   /**
    * Gets the colors for the line charts.
    * Greys out the non-selected values when a category is selected.
    */
-  const getChartColors = () => {
+  const getChartColors = selectedCategory => {
     if (selectedCategory === null) {
       return colorMap
     }
@@ -134,7 +137,7 @@ const Charts = ({ timeSeriesData, currentMetric, isCombined }) => {
    * Hook that resets the selected category on clicks outside of the passed ref.
    * See: https://stackoverflow.com/questions/32553158/detect-click-outside-react-component
    */
-  function useOutsideReset(ref) {
+  function useOutsideReset(ref, setSelectedCategory) {
     useEffect(() => {
       /**
        * Alert if clicked on outside of element
@@ -155,25 +158,25 @@ const Charts = ({ timeSeriesData, currentMetric, isCombined }) => {
   }
 
   const raceLegendRef = useRef(null)
-  useOutsideReset(raceLegendRef)
+  useOutsideReset(raceLegendRef, setSelectedRaceCategory)
 
   const ethnicityLegendRef = useRef(null)
-  useOutsideReset(ethnicityLegendRef)
+  useOutsideReset(ethnicityLegendRef, setSelectedEthnicityCategory)
 
   return (
     <div className={styles.wrapper}>
       <ChartSection
         title={isCombined ? 'Race/ethnicity data' : 'Race data'}
         legendCategories={activeRaceCategories}
-        selectedItem={selectedCategory}
-        setSelectedItem={setSelectedCategory}
+        selectedItem={selectedRaceCategory}
+        setSelectedItem={setSelectedRaceCategory}
         legendColors={colorMap}
         legendRef={raceLegendRef}
       >
         <Chart
           data={[
             {
-              colorMap: getChartColors(),
+              colorMap: getChartColors(selectedRaceCategory),
               label: `${currentMetric} per 100k people`,
               data: allRaceData[currentMetric],
             },
@@ -185,15 +188,15 @@ const Charts = ({ timeSeriesData, currentMetric, isCombined }) => {
         <ChartSection
           title="Ethnicity data"
           legendCategories={activeEthnicityCategories}
-          selectedItem={selectedCategory}
-          setSelectedItem={setSelectedCategory}
+          selectedItem={selectedEthnicityCategory}
+          setSelectedItem={setSelectedEthnicityCategory}
           legendColors={colorMap}
           legendRef={ethnicityLegendRef}
         >
           <Chart
             data={[
               {
-                colorMap: getChartColors(),
+                colorMap: getChartColors(selectedEthnicityCategory),
                 label: `${currentMetric} per 100k people`,
                 data: allEthnicityData[currentMetric],
               },

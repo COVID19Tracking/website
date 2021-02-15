@@ -41,7 +41,7 @@ const ChartLegend = ({
           type="button"
           className={styles.resetButton}
         >
-          Reset highlight
+          Clear filter
         </button>
       ) : (
         // this is a placeholder for the reset button so that the page doesn't
