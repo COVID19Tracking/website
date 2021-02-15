@@ -74,9 +74,6 @@ export default ({ pageContext, path, data }) => {
 
 export const query = graphql`
   query($state: String!) {
-    covidState(state: { eq: $state }) {
-      dataQualityGrade
-    }
     covidStateInfo(state: { eq: $state }) {
       childLtc {
         current {

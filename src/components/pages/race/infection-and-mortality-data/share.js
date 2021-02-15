@@ -9,6 +9,7 @@ import {
   getTypeOfRates,
   getStateStatus,
 } from '~components/social-media-graphics/race/utils'
+import { formatDateToString } from '~components/utils/format'
 
 import shareStyles from './share.module.scss'
 
@@ -30,14 +31,16 @@ const getStateName = name => {
   return name
 }
 
-const getTweetableDate = () => {
-  const today = new Date()
-  return `${today.toLocaleString('default', {
-    month: 'long',
-  })} ${today.getDate()}`
-}
+const getSocialCardShareText = (
+  typeOfRates,
+  state,
+  groups,
+  lastUpdatedDate,
+) => {
+  const getTweetableDate = () => {
+    return formatDateToString(lastUpdatedDate, 'LLLL d, yyyy')
+  }
 
-const getSocialCardShareText = (typeOfRates, state, groups) => {
   if (typeOfRates === 'no data') {
     return `In ${getStateName(
       state.name,
@@ -76,13 +79,16 @@ const getSocialCardShareText = (typeOfRates, state, groups) => {
 }
 
 export default ({ state, stateRaceData, combinedStates }) => {
-  const { site } = useStaticQuery(
+  const { site, covidRaceDataTimeseries } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             buildId
           }
+        }
+        covidRaceDataTimeseries(Date: { ne: null }) {
+          Date
         }
       }
     `,
@@ -98,7 +104,12 @@ export default ({ state, stateRaceData, combinedStates }) => {
 
   const { noCharts } = getStateStatus(stateRaceData, combinedStates)
 
-  const socialCardShareText = getSocialCardShareText(typeOfRates, state, groups)
+  const socialCardShareText = getSocialCardShareText(
+    typeOfRates,
+    state,
+    groups,
+    covidRaceDataTimeseries.Date,
+  )
 
   const today = DateTime.local().toFormat('L-d-yyyy')
 
