@@ -39,7 +39,6 @@ module.exports = (graphql, reporter) => {
             nodes {
               date
               state
-              dataQualityGrade
               death
               deathConfirmed
               deathIncrease
