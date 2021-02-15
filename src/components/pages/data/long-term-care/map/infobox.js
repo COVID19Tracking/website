@@ -20,7 +20,7 @@ const LtcInfobox = ({ layer, facility, x, y }) => {
         <>
           <h3>{facility.name}</h3>
           <Item
-            title="Resident positives"
+            title="Resident cases"
             value={
               facility['residents-total-suspected-covid-19'] +
               facility['residents-total-confirmed-covid-19']
@@ -31,7 +31,7 @@ const LtcInfobox = ({ layer, facility, x, y }) => {
             value={facility['residents-total-all-deaths']}
           />
           <Item
-            title="Staff positives"
+            title="Staff cases"
             value={
               facility['staff-total-suspected-covid-19'] +
               facility['staff-total-confirmed-covid-19']
@@ -48,23 +48,23 @@ const LtcInfobox = ({ layer, facility, x, y }) => {
           {hasResidentData ? (
             <>
               <Item
-                title="Resident positives"
+                title="Resident cases"
                 value={facility.resident_positives}
               />
               <Item title="Resident deaths" value={facility.resident_deaths} />
               <Item
-                title="Outbreak resident positives"
+                title="Outbreak resident cases"
                 value={facility.outbreak_resident_positives}
               />
               <Item
-                title="Outbreak resident positives"
+                title="Outbreak resident cases"
                 value={facility.outbreak_resident_deaths}
               />
             </>
           ) : (
             <>
               <Item
-                title="Resident &amp; staff positives"
+                title="Resident &amp; staff cases"
                 value={facility.resident_staff_positives}
               />
               <Item
@@ -72,11 +72,11 @@ const LtcInfobox = ({ layer, facility, x, y }) => {
                 value={facility.resident_staff_deaths}
               />
               <Item
-                title="Outbreak resident &amp; staff positives"
+                title="Outbreak resident &amp; staff cases"
                 value={facility.outbreak_resident_staff_positives}
               />
               <Item
-                title="Outbreak resident&amp; staff positives"
+                title="Outbreak resident&amp; staff cases"
                 value={facility.outbreak_resident_staff_deaths}
               />
             </>

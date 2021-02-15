@@ -4,7 +4,7 @@ import facilityDetailsStyle from './facility-details.module.scss'
 const fields = {
   ltc: [
     {
-      title: 'Resident positives',
+      title: 'Resident cases',
       field: 'resident_positives',
     },
     {
@@ -28,7 +28,7 @@ const fields = {
       field: 'resident_staff_deaths',
     },
     {
-      title: 'Outbreak resident positives',
+      title: 'Outbreak resident cases',
       field: 'outbreak_resident_positives',
     },
     {
@@ -36,7 +36,7 @@ const fields = {
       field: 'outbreak_resident_deaths',
     },
     {
-      title: 'Outbreak resident & staff positives',
+      title: 'Outbreak resident & staff cases',
       field: 'outbreak_resident_staff_positives',
     },
     {

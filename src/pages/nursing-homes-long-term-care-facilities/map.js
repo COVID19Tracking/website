@@ -21,7 +21,7 @@ const LTCMapPage = ({ data }) => {
   }
   return (
     <Layout
-      title="COVID-19's impact on nursing homes and other long-term-care facilities"
+      title="Nursing Homes and Other Long-Term-Care Facilities"
       noContainer
     >
       <Container centered>
