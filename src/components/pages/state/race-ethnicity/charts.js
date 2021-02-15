@@ -4,7 +4,6 @@ import { DateTime } from 'luxon'
 import Chart from './chart'
 import { getAvailablePer100kMetricFields } from './utils'
 
-import styles from './charts.module.scss'
 import colors from '~scss/colors.module.scss'
 import ChartSection from './chart-section'
 
@@ -164,7 +163,7 @@ const Charts = ({ timeSeriesData, currentMetric, isCombined }) => {
   useOutsideReset(ethnicityLegendRef, setSelectedEthnicityCategory)
 
   return (
-    <div className={styles.wrapper}>
+    <div>
       <ChartSection
         title={isCombined ? 'Race/ethnicity data' : 'Race data'}
         legendCategories={activeRaceCategories}

@@ -1,13 +1,17 @@
-.legend {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-auto-rows: 1fr;
-  grid-column-gap: 1rem;
-  grid-row-gap: 0.5rem;
-  justify-content: center;
-  align-items: center;
+.column-wrapper {
+  margin: 0 auto;
+}
 
-  margin: 0px 20%; // ignore-style-rule
+.legend {
+  @media (min-width: $viewport-md) {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-auto-rows: 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
 
   .category,
   .reset-button {
@@ -19,6 +23,11 @@
   .category {
     display: flex;
     align-items: center;
+
+    @media (max-width: $viewport-lg) {
+      @include margin(0, right);
+      @include margin(16, bottom);
+    }
 
     @include margin(32, right);
     text-align: left;

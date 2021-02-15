@@ -1,6 +1,9 @@
 import React from 'react'
-import styles from './charts.module.scss'
+
+import { Col } from '~components/common/grid'
 import ChartLegend from '~components/charts/chart-legend'
+
+import styles from './chart-section.module.scss'
 
 const ChartSection = ({
   title,
@@ -24,7 +27,9 @@ const ChartSection = ({
   return (
     <div className={styles.chartSection}>
       <h3 className={styles.chartSectionTitle}>{title}</h3>
-      {children}
+      <Col width={[4, 4, 6]} className={styles.column}>
+        {children}
+      </Col>
       <div ref={legendRef}>
         <ChartLegend
           legendColors={legendColors}

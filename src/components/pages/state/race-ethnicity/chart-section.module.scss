@@ -9,3 +9,12 @@
   text-align: center;
   @include margin(0, bottom);
 }
+
+.column {
+  margin: 0 auto;
+
+  text {
+    // The axis labels get very large on big screens without this rule.
+    font-size: 9px; // ignore-style-rule
+  }
+}

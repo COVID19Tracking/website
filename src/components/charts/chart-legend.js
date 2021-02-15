@@ -1,5 +1,8 @@
 import React from 'react'
 import classnames from 'classnames'
+
+import { Col } from '~components/common/grid'
+
 import styles from './chart-legend.module.scss'
 
 const ChartLegend = ({
@@ -21,34 +24,36 @@ const ChartLegend = ({
   }
 
   return (
-    <div className={styles.legend}>
-      {categories.map(category => (
-        <button
-          className={getCategoryStyles(category)}
-          onClick={() => setSelectedItem(category)}
-          type="button"
-        >
-          <div
-            style={{ 'background-color': legendColors[category] }}
-            className={styles.swatch}
-          />
-          {legendNames[category]}
-        </button>
-      ))}
-      {selectedItem ? (
-        <button
-          onClick={() => setSelectedItem(null)}
-          type="button"
-          className={styles.resetButton}
-        >
-          Clear filter
-        </button>
-      ) : (
-        // this is a placeholder for the reset button so that the page doesn't
-        // jump when selectedItem goes from null to not null
-        <div className={styles.resetButton}> </div>
-      )}
-    </div>
+    <Col width={[4, 6, 6]} className={styles.columnWrapper}>
+      <div className={styles.legend}>
+        {categories.map(category => (
+          <button
+            className={getCategoryStyles(category)}
+            onClick={() => setSelectedItem(category)}
+            type="button"
+          >
+            <div
+              style={{ 'background-color': legendColors[category] }}
+              className={styles.swatch}
+            />
+            {legendNames[category]}
+          </button>
+        ))}
+        {selectedItem ? (
+          <button
+            onClick={() => setSelectedItem(null)}
+            type="button"
+            className={styles.resetButton}
+          >
+            Clear filter
+          </button>
+        ) : (
+          // this is a placeholder for the reset button so that the page doesn't
+          // jump when selectedItem goes from null to not null
+          <div className={styles.resetButton}> </div>
+        )}
+      </div>
+    </Col>
   )
 }
 
