@@ -35,16 +35,10 @@ const Legend = ({ mapLayer }) => (
             <div>All facilities that report to the federal government.</div>
           ) : (
             <>
-              <div>
-                Most states report cumulative data, some states{' '}
-                <span className={legendStyles.outbreakOnly}>
-                  only report outbreak data,
-                </span>
-                while{' '}
-                <span className={legendStyles.missing}>
-                  others do not report any facility data.
-                </span>
-              </div>
+              <span className={legendStyles.outbreakOnly} />
+              State reports only outbreak data
+              <span className={legendStyles.missing} />
+              State reports no facility data
             </>
           )}
         </div>
