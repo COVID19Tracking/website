@@ -101,9 +101,14 @@ const FacilityDetails = ({ facility, layer }) => (
         <>{facility.facility_name}</>
       )}
     </h2>
-    {layer === 'cms-cases' && (
+    {layer === 'cms-cases' ? (
       <p>
         {facility.city}, {facility.state}
+      </p>
+    ) : (
+      <p>
+        {facility.county && <>{facility.county} County</>}
+        {facility.city && <> {facility.city} </>}, {facility.state}
       </p>
     )}
 
