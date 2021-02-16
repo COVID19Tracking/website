@@ -13,30 +13,6 @@ const createValuesList = raceData => {
 
   // perCap is *per 1,000*, multiply by 100 to get *per 100,000*
   // \u200a is a hair space
-  if (raceData.aianDeathPerCap != null || raceData.aianPosPerCap != null) {
-    values.push({
-      name: 'American Indian or Alaskan Native',
-      deathsValue: perCapTo100k(raceData.aianDeathPerCap),
-      casesValue: perCapTo100k(raceData.aianPosPerCap),
-      asterisk: raceData.aianSmallN ? '*' : '',
-    })
-  }
-  if (raceData.apiDeathPerCap != null || raceData.apiPosPerCap != null) {
-    values.push({
-      name: 'Asian or Pacific Islander',
-      deathsValue: perCapTo100k(raceData.apiDeathPerCap),
-      casesValue: perCapTo100k(raceData.apiPosPerCap),
-      asterisk: raceData.apiSmallN ? '*' : '',
-    })
-  }
-  if (raceData.asianDeathPerCap != null || raceData.asianPosPerCap != null) {
-    values.push({
-      name: 'Asian',
-      deathsValue: perCapTo100k(raceData.asianDeathPerCap),
-      casesValue: perCapTo100k(raceData.asianPosPerCap),
-      asterisk: raceData.asianSmallN ? '*' : '',
-    })
-  }
   if (raceData.blackDeathPerCap != null || raceData.blackPosPerCap != null) {
     values.push({
       name: 'Black or African American',
@@ -53,12 +29,36 @@ const createValuesList = raceData => {
       asterisk: raceData.latinXSmallN ? '*' : '',
     })
   }
+  if (raceData.asianDeathPerCap != null || raceData.asianPosPerCap != null) {
+    values.push({
+      name: 'Asian',
+      deathsValue: perCapTo100k(raceData.asianDeathPerCap),
+      casesValue: perCapTo100k(raceData.asianPosPerCap),
+      asterisk: raceData.asianSmallN ? '*' : '',
+    })
+  }
   if (raceData.nhpiDeathPerCap != null || raceData.nhpiPosPerCap != null) {
     values.push({
       name: 'Native Hawaiian or Other Pacific Islander',
       deathsValue: perCapTo100k(raceData.nhpiDeathPerCap),
       casesValue: perCapTo100k(raceData.nhpiPosPerCap),
       asterisk: raceData.nhpiSmallN ? '*' : '',
+    })
+  }
+  if (raceData.apiDeathPerCap != null || raceData.apiPosPerCap != null) {
+    values.push({
+      name: 'Asian or Pacific Islander',
+      deathsValue: perCapTo100k(raceData.apiDeathPerCap),
+      casesValue: perCapTo100k(raceData.apiPosPerCap),
+      asterisk: raceData.apiSmallN ? '*' : '',
+    })
+  }
+  if (raceData.aianDeathPerCap != null || raceData.aianPosPerCap != null) {
+    values.push({
+      name: 'American Indian or Alaskan Native',
+      deathsValue: perCapTo100k(raceData.aianDeathPerCap),
+      casesValue: perCapTo100k(raceData.aianPosPerCap),
+      asterisk: raceData.aianSmallN ? '*' : '',
     })
   }
   if (raceData.whiteDeathPerCap != null || raceData.whitePosPerCap != null) {
@@ -101,16 +101,6 @@ const createValuesList = raceData => {
       return false // break out of every
     }
     return true // continue
-  })
-
-  values.sort((a, b) => {
-    if (a.name < b.name) {
-      return -1
-    }
-    if (a.name > b.name) {
-      return 1
-    }
-    return 0
   })
 
   let lastCheckDate = raceData.lastCheckDate.value

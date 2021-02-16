@@ -36,6 +36,11 @@ const StatePreamble = ({
               </a>
             </li>
             <li>
+              <a href={`/data/download/${state.childSlug.slug}-history.csv`}>
+                Download a CSV of all data for {state.name}
+              </a>
+            </li>
+            <li>
               Last updated {covidState.dateModified} <Timezone />
             </li>
           </ul>
