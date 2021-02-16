@@ -1,7 +1,12 @@
 import { useMemo } from 'react'
 import { formatDateToString } from '~components/utils/format'
 
-const getAvailableMetricFields = (latestDay, prefix, raceOnly) => {
+const getAvailableMetricFieldsBase = (
+  latestDay,
+  prefix,
+  raceOnly,
+  per100kOnly = false,
+) => {
   /**
    * Returns a list of all of the available metric fields.
    * raceOnly: returns only race values when true, only ethnicity
@@ -11,7 +16,16 @@ const getAvailableMetricFields = (latestDay, prefix, raceOnly) => {
 
   Object.keys(latestDay).forEach(value => {
     if (value.startsWith(prefix) && !value.includes('Total')) {
-      listOfMetrics.push(value)
+      // Push to list if this is a per100k value and we're only adding
+      // per 100k values...
+      if (per100kOnly && value.endsWith('_per100k')) {
+        listOfMetrics.push(value)
+      }
+
+      // Push to list if we're including all values...
+      if (!per100kOnly) {
+        listOfMetrics.push(value)
+      }
     }
   })
 
@@ -19,6 +33,14 @@ const getAvailableMetricFields = (latestDay, prefix, raceOnly) => {
     return listOfMetrics.filter(metric => !metric.includes('Ethnicity'))
   }
   return listOfMetrics.filter(metric => metric.includes('Ethnicity'))
+}
+
+const getAvailableMetricFields = (latestDay, prefix, raceOnly) => {
+  return getAvailableMetricFieldsBase(latestDay, prefix, raceOnly, false)
+}
+
+const getAvailablePer100kMetricFields = (latestDay, prefix, raceOnly) => {
+  return getAvailableMetricFieldsBase(latestDay, prefix, raceOnly, true)
 }
 
 const formatTableValues = timeSeriesData => {
@@ -140,6 +162,7 @@ const isCombined = (combined, separate) => {
 
 export {
   getAvailableMetricFields,
+  getAvailablePer100kMetricFields,
   formatTableValues,
   isCombined,
   addPer100kValues,

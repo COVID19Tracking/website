@@ -182,6 +182,5 @@ const MultiLineChart = ({
     </>
   )
 }
-// todo don't just use red
 
 export default MultiLineChart
