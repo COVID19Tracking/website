@@ -162,6 +162,11 @@ const Charts = ({ timeSeriesData, currentMetric, isCombined }) => {
   const ethnicityLegendRef = useRef(null)
   useOutsideReset(ethnicityLegendRef, setSelectedEthnicityCategory)
 
+  const chartLabel = `${currentMetric} per 100k people`
+
+  const currentMetricIsEmpty =
+    Object.keys(allEthnicityData[currentMetric]).length === 0
+
   return (
     <div>
       <ChartSection
@@ -176,14 +181,14 @@ const Charts = ({ timeSeriesData, currentMetric, isCombined }) => {
           data={[
             {
               colorMap: getChartColors(selectedRaceCategory),
-              label: `${currentMetric} per 100k people`,
+              label: chartLabel,
               data: allRaceData[currentMetric],
             },
           ]}
-          title={`${currentMetric} per 100k people`}
+          title={chartLabel}
         />
       </ChartSection>
-      {!isCombined && (
+      {!currentMetricIsEmpty && (
         <ChartSection
           title="Ethnicity data"
           legendCategories={activeEthnicityCategories}
@@ -196,14 +201,15 @@ const Charts = ({ timeSeriesData, currentMetric, isCombined }) => {
             data={[
               {
                 colorMap: getChartColors(selectedEthnicityCategory),
-                label: `${currentMetric} per 100k people`,
+                label: chartLabel,
                 data: allEthnicityData[currentMetric],
               },
             ]}
-            title={`${currentMetric} per 100k people`}
+            title={chartLabel}
           />
         </ChartSection>
       )}
+      {!isCombined && currentMetricIsEmpty && <p>No data state</p>}
     </div>
   )
 }
