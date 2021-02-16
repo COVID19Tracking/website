@@ -101,13 +101,15 @@ const HistoricalTables = ({
 
   const reportsEthnicityData = () => {
     let hasNonNullValue = false
-    allEthnicityData[currentMetric].every(columnName => {
-      if (formattedTimeSeriesData[0][columnName] !== null) {
-        hasNonNullValue = true
-        return false
-      }
-      return true
-    })
+    allEthnicityData[currentMetric]
+      .filter(columnName => columnName !== 'Cases_Ethnicity_Unknown')
+      .every(columnName => {
+        if (formattedTimeSeriesData[0][columnName] !== null) {
+          hasNonNullValue = true
+          return false
+        }
+        return true
+      })
     return hasNonNullValue
   }
 
