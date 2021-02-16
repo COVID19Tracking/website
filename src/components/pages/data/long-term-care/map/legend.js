@@ -36,9 +36,20 @@ const Legend = ({ mapLayer }) => (
           ) : (
             <>
               <span className={legendStyles.outbreakOnly} />
-              State reports only outbreak data
+              State reports only outbreak data{' '}
+              {mapLayer === 'cases' ? (
+                <>for cases</>
+              ) : (
+                <>{mapLayer === 'deaths' && <>for deaths</>}</>
+              )}{' '}
               <span className={legendStyles.missing} />
-              State reports no facility data
+              State reports no{' '}
+              {mapLayer === 'cases' ? (
+                <>case</>
+              ) : (
+                <>{mapLayer === 'deaths' ? <>death</> : <>facility</>}</>
+              )}{' '}
+              data
             </>
           )}
         </div>

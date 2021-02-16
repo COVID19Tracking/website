@@ -176,8 +176,20 @@ const LTCFacilitiesMap = ({
       'visibility',
       mapLayer === 'cases' ? 'visible' : 'none',
     )
+
+    mapRef.current.setLayoutProperty(
+      'states-no-data-cases',
+      'visibility',
+      mapLayer === 'cases' ? 'visible' : 'none',
+    )
     mapRef.current.setLayoutProperty(
       'states-outbreak-only-deaths',
+      'visibility',
+      mapLayer === 'deaths' ? 'visible' : 'none',
+    )
+
+    mapRef.current.setLayoutProperty(
+      'states-no-data-deaths',
       'visibility',
       mapLayer === 'deaths' ? 'visible' : 'none',
     )
