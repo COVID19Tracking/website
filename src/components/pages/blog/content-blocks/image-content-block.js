@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import Img from 'gatsby-image'
+import marked from 'marked'
 import ImageCredit from '~components/common/image-credit'
 import imageContentBlockStyles from './image-content-block.module.scss'
 
@@ -56,7 +57,7 @@ const ImageContentBlock = ({
       <ImageBlock image={image} imageUrl={imageUrl} keepSize={keepSize} />
     )}
 
-    {caption && <ImageCredit>{caption}</ImageCredit>}
+    {caption && <ImageCredit>{marked.inlineLexer(caption, [])}</ImageCredit>}
   </div>
 )
 
