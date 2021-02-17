@@ -1,5 +1,6 @@
 import React from 'react'
 import facilityDetailsStyle from './facility-details.module.scss'
+import StateAlerts from './state-alert'
 
 const fields = {
   ltc: [
@@ -102,14 +103,19 @@ const FacilityDetails = ({ facility, layer }) => (
       )}
     </h2>
     {layer === 'cms-cases' ? (
-      <p>
-        {facility.city}, {facility.state}
-      </p>
+      <>
+        <p>
+          {facility.city}, {facility.state}
+        </p>
+      </>
     ) : (
-      <p>
-        {facility.county && <>{facility.county} County</>}
-        {facility.city && <> {facility.city} </>}, {facility.state}
-      </p>
+      <>
+        <p>
+          {facility.county && <>{facility.county} County</>}
+          {facility.city && <> {facility.city}, </>} {facility.state}
+        </p>
+        <StateAlerts state={facility.state} />
+      </>
     )}
 
     <dl className={facilityDetailsStyle.details}>

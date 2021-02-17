@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react'
 import Infobox from '~components/common/map/infobox'
+import StateAlert from './state-alert'
 
 const Item = ({ title, value }) => (
   <p>
@@ -45,6 +46,8 @@ const LtcInfobox = ({ layer, facility, x, y }) => {
       ) : (
         <>
           <h3>{facility.facility_name}</h3>
+          <StateAlert state={facility.state} />
+
           {hasResidentData ? (
             <>
               <Item
