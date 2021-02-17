@@ -76,7 +76,7 @@ const LtcInfobox = ({ layer, facility, x, y }) => {
                 value={facility.outbreak_resident_staff_positives}
               />
               <Item
-                title="Outbreak resident&amp; staff cases"
+                title="Outbreak resident &amp; staff deaths"
                 value={facility.outbreak_resident_staff_deaths}
               />
             </>
