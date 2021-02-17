@@ -3,6 +3,7 @@ import { DateTime } from 'luxon'
 
 import Chart from './chart'
 import { getAvailablePer100kMetricFields } from './utils'
+import NoData from '~components/pages/race/no-data-inner'
 
 import colors from '~scss/colors.module.scss'
 import ChartSection from './chart-section'
@@ -19,7 +20,7 @@ export const colorMap = {
   White: colors.crdtWhite,
 }
 
-const Charts = ({ timeSeriesData, currentMetric, isCombined }) => {
+const Charts = ({ timeSeriesData, currentMetric, isCombined, stateName }) => {
   const getMetricData = (allData, metricTitle, metrics) => {
     /** Restructures a single metric's racial data (i.e. cases) for charts */
     const completedData = {} // store the final metric data object
@@ -209,7 +210,15 @@ const Charts = ({ timeSeriesData, currentMetric, isCombined }) => {
           />
         </ChartSection>
       )}
-      {!isCombined && currentMetricIsEmpty && <p>No data state</p>}
+      {!isCombined && currentMetricIsEmpty && (
+        <div>
+          <NoData
+            metric={currentMetric}
+            dataType="ethnicity"
+            state={stateName}
+          />
+        </div>
+      )}
     </div>
   )
 }
