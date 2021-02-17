@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import Container from '~components/common/container'
 import LayerToggle from '~components/common/map/layer-toggle'
 import legendStyles from './legend.module.scss'
@@ -35,13 +36,19 @@ const Legend = ({ mapLayer }) => (
             <div>All facilities that report to the federal government.</div>
           ) : (
             <>
-              <span className={legendStyles.outbreakOnly} />
-              State reports only outbreak data{' '}
-              {mapLayer === 'cases' ? (
-                <>for cases</>
-              ) : (
-                <>{mapLayer === 'deaths' && <>for deaths</>}</>
-              )}{' '}
+              {(mapLayer === 'cases' || mapLayer === 'deaths') && (
+                <>
+                  <span className={legendStyles.outbreakOnly} />
+                  State reports&nbsp;
+                  <Link to="#ltc-map-definitions">only outbreak data</Link>
+                  &nbsp;
+                  {mapLayer === 'cases' ? (
+                    <>for cases</>
+                  ) : (
+                    <>{mapLayer === 'deaths' && <>for deaths</>}</>
+                  )}{' '}
+                </>
+              )}
               <span className={legendStyles.missing} />
               State reports no{' '}
               {mapLayer === 'cases' ? (
