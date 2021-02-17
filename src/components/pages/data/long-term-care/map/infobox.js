@@ -10,11 +10,11 @@ const Item = ({ title, value }) => (
 )
 
 const LtcInfobox = ({ layer, facility, x, y }) => {
-  const hasResidentData =
-    facility.outbreak_resident_positives ||
-    facility.outbreak_resident_deaths ||
-    facility.resident_positives ||
-    facility.resident_deaths
+  const hasResidentCaseData =
+    facility.outbreak_resident_positives || facility.resident_positives
+
+  const hasResidentDeathData =
+    facility.outbreak_resident_deaths || facility.resident_deaths
   return (
     <Infobox x={x} y={y}>
       {layer === 'cms-cases' ? (
@@ -48,41 +48,44 @@ const LtcInfobox = ({ layer, facility, x, y }) => {
           <h3>{facility.facility_name}</h3>
           <StateAlert state={facility.state} />
 
-          {hasResidentData ? (
-            <>
-              <Item
-                title="Resident cases"
-                value={facility.resident_positives}
-              />
-              <Item title="Resident deaths" value={facility.resident_deaths} />
-              <Item
-                title="Outbreak resident cases"
-                value={facility.outbreak_resident_positives}
-              />
-              <Item
-                title="Outbreak resident cases"
-                value={facility.outbreak_resident_deaths}
-              />
-            </>
+          {hasResidentCaseData ? (
+            <Item title="Resident cases" value={facility.resident_positives} />
           ) : (
-            <>
-              <Item
-                title="Resident &amp; staff cases"
-                value={facility.resident_staff_positives}
-              />
-              <Item
-                title="Resident &amp; staff deaths"
-                value={facility.resident_staff_deaths}
-              />
-              <Item
-                title="Outbreak resident &amp; staff cases"
-                value={facility.outbreak_resident_staff_positives}
-              />
-              <Item
-                title="Outbreak resident &amp; staff deaths"
-                value={facility.outbreak_resident_staff_deaths}
-              />
-            </>
+            <Item
+              title="Resident &amp; staff cases"
+              value={facility.resident_staff_positives}
+            />
+          )}
+          {hasResidentDeathData ? (
+            <Item title="Resident deaths" value={facility.resident_deaths} />
+          ) : (
+            <Item
+              title="Resident &amp; staff deaths"
+              value={facility.resident_staff_deaths}
+            />
+          )}
+
+          {hasResidentCaseData ? (
+            <Item
+              title="Outbreak resident cases"
+              value={facility.outbreak_resident_positives}
+            />
+          ) : (
+            <Item
+              title="Outbreak resident &amp; staff cases"
+              value={facility.outbreak_resident_staff_positives}
+            />
+          )}
+          {hasResidentDeathData ? (
+            <Item
+              title="Outbreak resident deaths"
+              value={facility.outbreak_resident_deaths}
+            />
+          ) : (
+            <Item
+              title="Outbreak resident &amp; staff deaths"
+              value={facility.outbreak_resident_staff_deaths}
+            />
           )}
         </>
       )}
