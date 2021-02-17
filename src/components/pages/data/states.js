@@ -13,6 +13,7 @@ const States = ({
   raceDataSeparate,
   hhsHospitalization,
   ltcFedVaccinations,
+  hhsTesting,
 }) => {
   const stateList = []
 
@@ -61,6 +62,9 @@ const States = ({
 
     state.ltcFedVaccinations = ltcFedVaccinations
       ? ltcFedVaccinations.find(record => record.Location === state.state)
+      : false
+    state.hhsTesting = hhsTesting
+      ? hhsTesting.find(record => record.state === state.state)
       : false
 
     stateList.push(state)

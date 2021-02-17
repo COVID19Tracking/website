@@ -44,7 +44,6 @@ const LineChart = ({
   const [timeoutRef, setTimeoutRef] = useState(null)
 
   const hover = (event, dataLine) => {
-    console.log(dataLine) // todo get current date's info
     // Ensure that tooltip doesn't flash when transitioning between bars
     if (timeoutRef) {
       clearTimeout(timeoutRef)
@@ -52,7 +51,6 @@ const LineChart = ({
     const isTouchEvent = !event.clientX
     const eventX = isTouchEvent ? event.touches[0].clientX : event.clientX
     const eventY = isTouchEvent ? event.touches[0].clientY : event.clientY
-    console.log(eventX, eventY)
 
     setTooltip({
       top: isTouchEvent ? eventY - 130 : eventY + 10,
