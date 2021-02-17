@@ -6,12 +6,6 @@ import { icons, adjectives } from '~components/pages/state/state-grade'
 const StateAlerts = ({ state }) => {
   const data = useStaticQuery(graphql`
     {
-      allCovidLtcNotes {
-        nodes {
-          state
-          alerts
-        }
-      }
       allCovidGradeStateAssessment {
         nodes {
           state
@@ -30,7 +24,6 @@ const StateAlerts = ({ state }) => {
     }
   `)
 
-  const alerts = data.allCovidLtcNotes.nodes.find(node => node.state === state)
   const assessment = data.allCovidGradeStateAssessment.nodes.find(
     node => node.state === state,
   )
@@ -38,7 +31,7 @@ const StateAlerts = ({ state }) => {
     node => node.state === state,
   )
 
-  if (!alerts && !assessment) {
+  if (!assessment) {
     return null
   }
   return (
@@ -50,8 +43,7 @@ const StateAlerts = ({ state }) => {
         >
           {adjectives[assessment.ltc]} issues exist
         </Link>{' '}
-        with this state&apos;s data
-        {alerts && alerts.alerts && <>, and the state has an active alert</>}
+        for long-term care data
       </p>
     </div>
   )
