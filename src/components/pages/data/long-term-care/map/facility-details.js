@@ -14,7 +14,7 @@ const fields = {
     },
     {
       title: 'Staff cases',
-      field: 'staff_positives',
+      field: 'staff_positive',
     },
     {
       title: 'Staff deaths',
