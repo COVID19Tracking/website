@@ -3,7 +3,7 @@ import { DateTime } from 'luxon'
 
 import Chart from './chart'
 import { getAvailablePer100kMetricFields } from './utils'
-import NoData from '~components/pages/race/no-data-inner'
+import NoData from './no-data-chart'
 
 import colors from '~scss/colors.module.scss'
 import ChartSection from './chart-section'
