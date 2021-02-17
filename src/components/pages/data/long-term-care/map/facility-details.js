@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import facilityDetailsStyle from './facility-details.module.scss'
 import StateAlerts from './state-alert'
 
@@ -93,42 +94,59 @@ const fields = {
   ],
 }
 
-const FacilityDetails = ({ facility, layer }) => (
-  <>
-    <h2>
+const FacilityDetails = ({ facility, layer }) => {
+  const data = useStaticQuery(graphql`
+    {
+      allCovidStateInfo {
+        nodes {
+          state
+          name
+        }
+      }
+    }
+  `)
+  const states = Object.fromEntries(
+    data.allCovidStateInfo.nodes.map(node => [node.state, node.name]),
+  )
+
+  return (
+    <>
+      <h2>
+        {layer === 'cms-cases' ? (
+          <>{facility.name}</>
+        ) : (
+          <>{facility.facility_name}</>
+        )}
+      </h2>
       {layer === 'cms-cases' ? (
-        <>{facility.name}</>
+        <>
+          <p>
+            {facility.city}, {states[facility.state]}
+          </p>
+        </>
       ) : (
-        <>{facility.facility_name}</>
+        <>
+          <p>
+            {facility.county && <>{facility.county} County, </>}
+            {facility.city && <> {facility.city}, </>} {states[facility.state]}
+          </p>
+          <StateAlerts state={facility.state} />
+        </>
       )}
-    </h2>
-    {layer === 'cms-cases' ? (
-      <>
-        <p>
-          {facility.city}, {facility.state}
-        </p>
-      </>
-    ) : (
-      <>
-        <p>
-          {facility.county && <>{facility.county} County</>}
-          {facility.city && <> {facility.city}, </>} {facility.state}
-        </p>
-        <StateAlerts state={facility.state} />
-      </>
-    )}
 
-    <dl className={facilityDetailsStyle.details}>
-      {fields[layer === 'cms-cases' ? 'cms' : 'ltc'].map(({ title, field }) => (
-        <div key={field}>
-          <dt>{title}</dt>
-          <dd>{facility[field] || <>N/A</>}</dd>
-        </div>
-      ))}
-    </dl>
-  </>
-)
-
+      <dl className={facilityDetailsStyle.details}>
+        {fields[layer === 'cms-cases' ? 'cms' : 'ltc'].map(
+          ({ title, field }) => (
+            <div key={field}>
+              <dt>{title}</dt>
+              <dd>{facility[field] || <>N/A</>}</dd>
+            </div>
+          ),
+        )}
+      </dl>
+    </>
+  )
+}
 export default FacilityDetails
 
 export { fields }
