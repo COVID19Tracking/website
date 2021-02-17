@@ -150,6 +150,7 @@ const Hero = ({
           timeSeriesData={completeTimeSeriesData}
           currentMetric={currentMetric}
           isCombined={stateIsCombined}
+          stateName={stateName}
         />
         <Sources data={stateSources} />
         <NotesAndDownloads
