@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import Tooltip from '~components/common/tooltip'
 import { Table, Th, Td } from '~components/common/table'
+
+import NoDataAlert from '../no-data-alert'
 import Percent from './percent'
 import { Notes, DisparitySymbol, TooltipContent } from './table-symbols'
+
 import tooltipDisparityIcon from '~images/race-dashboard/tooltip-disparity-icon.svg'
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 import stateTableStyle from './table.module.scss'
@@ -113,10 +115,7 @@ const StateTableDataCell = ({
     if (index === 0) {
       return (
         <Td rowspan={rowCount} additionalClass={stateTableStyle.missingData}>
-          <span>
-            {state} does not report {type.toLowerCase()} data for {errorType}.{' '}
-            <Link to="/race/get-better-data">Help us get better data.</Link>
-          </span>
+          <NoDataAlert state={state} dataType={type} metric={errorType} />
         </Td>
       )
     }
