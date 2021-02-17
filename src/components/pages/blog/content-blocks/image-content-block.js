@@ -28,6 +28,7 @@ const ImageContentBlock = ({
   caption,
   image,
   className,
+  longCaption = false,
   keepSize = false,
   fullWidthMobile = false,
   imageUrl,
@@ -57,7 +58,16 @@ const ImageContentBlock = ({
       <ImageBlock image={image} imageUrl={imageUrl} keepSize={keepSize} />
     )}
 
-    {caption && <ImageCredit>{marked.inlineLexer(caption, [])}</ImageCredit>}
+    {caption && !longCaption && <ImageCredit>{caption}</ImageCredit>}
+    {longCaption && (
+      <ImageCredit>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: marked.inlineLexer(longCaption, []),
+          }}
+        />
+      </ImageCredit>
+    )}
   </div>
 )
 

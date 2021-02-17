@@ -207,6 +207,11 @@ export const query = graphql`
             fullWidthMobile
             caption
             imageLink
+            childContentfulContentBlockImageLongCaptionTextNode {
+              childMarkdownRemark {
+                rawMarkdownBody
+              }
+            }
             image {
               file {
                 url

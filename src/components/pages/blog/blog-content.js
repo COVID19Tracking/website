@@ -86,9 +86,14 @@ const BlogContent = ({ content }) => {
             fullWidthMobile,
             imageLink,
           } = target
+          const longCaption =
+            target.childContentfulContentBlockImageLongCaptionTextNode &&
+            target.childContentfulContentBlockImageLongCaptionTextNode
+              .childMarkdownRemark.rawMarkdownBody
           return (
             <ImageContentBlock
               image={image}
+              longCaption={longCaption}
               caption={caption}
               keepSize={keepSize}
               fullWidthMobile={fullWidthMobile}
