@@ -205,31 +205,31 @@ body {
   }
 
   &.barBlack {
-    background: $qualitative-color-palette-300;
+    background: $crdt-black;
   }
   &.barLatinx {
-    background: $qualitative-color-palette-400;
+    background: $crdt-latinx;
   }
   &.barAll {
     background: $color-slate-400;
   }
   &.barAsian {
-    background: $color-plum-800;
+    background: $crdt-asian;
     color: white;
   }
   &.barAian {
-    background: $qualitative-color-palette-600;
+    background: $crdt-aian;
     color: white;
   }
   &.barWhite {
-    background: $qualitative-color-palette-200;
+    background: $crdt-white;
   }
   &.barNhpi {
-    background: $qualitative-color-palette-500;
+    background: $crdt-nhpi;
     color: white;
   }
   &.barAPi {
-    background: $color-plum-800;
+    background: $crdt-asian;
     color: white;
   }
 }
