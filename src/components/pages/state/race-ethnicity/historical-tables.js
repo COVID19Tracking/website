@@ -7,11 +7,7 @@ import RatesToggle from './rates-toggle'
 import FilteredNotice from './filtered-notice'
 import NoDataPlaceholder from './no-data'
 import { TableHeader, RaceTableHeader } from './table-header'
-import {
-  getAvailableMetricFields,
-  formatTableValues,
-  addPer100kValues,
-} from './utils'
+import { getAvailableMetricFields, formatTableValues } from './utils'
 
 import generateTableLabels from './utils/generate-table-labels'
 
@@ -19,6 +15,7 @@ import historicalTableStyles from './historical-tables.module.scss'
 
 const HistoricalTables = ({
   timeSeriesData,
+  completeTimeSeriesData,
   populationData,
   currentMetric,
   setUsePer100kRate,
@@ -97,12 +94,6 @@ const HistoricalTables = ({
     reportsRaceSeparately(),
   )
 
-  // includes per cap values
-  const completeTimeSeriesData =
-    populationData === null
-      ? timeSeriesData
-      : addPer100kValues(timeSeriesData, populationData)
-
   const formattedTimeSeriesData = useMemo(
     () => formatTableValues(completeTimeSeriesData),
     [completeTimeSeriesData],
@@ -110,13 +101,15 @@ const HistoricalTables = ({
 
   const reportsEthnicityData = () => {
     let hasNonNullValue = false
-    allEthnicityData[currentMetric].every(columnName => {
-      if (formattedTimeSeriesData[0][columnName] !== null) {
-        hasNonNullValue = true
-        return false
-      }
-      return true
-    })
+    allEthnicityData[currentMetric]
+      .filter(columnName => columnName !== 'Cases_Ethnicity_Unknown')
+      .every(columnName => {
+        if (formattedTimeSeriesData[0][columnName] !== null) {
+          hasNonNullValue = true
+          return false
+        }
+        return true
+      })
     return hasNonNullValue
   }
 

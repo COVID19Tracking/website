@@ -5,6 +5,7 @@ import MetricSelector from './metric-selector'
 import NotesAndDownloads from './notes-and-downloads'
 import DataAsOf from './data-as-of'
 import Sources from './sources'
+import Charts from './charts'
 
 import styles from './hero.module.scss'
 
@@ -111,6 +112,7 @@ const Hero = ({
   currentMetric,
   setCurrentMetric,
   timeSeriesData,
+  completeTimeSeriesData,
   combinedNotes,
   separateNotes,
   combinedTestHosp,
@@ -125,10 +127,9 @@ const Hero = ({
     setCurrentMetric(getFirstAvailableMetric(metrics))
   }, [])
 
-  const lastReportedByState = (isCombined(combinedNotes, separateNotes)
-    ? combinedNotes
-    : separateNotes
-  ).stateUpdate.value
+  const stateIsCombined = isCombined(combinedNotes, separateNotes)
+  const lastReportedByState = (stateIsCombined ? combinedNotes : separateNotes)
+    .stateUpdate.value
 
   return (
     <div className={styles.wrapper}>
@@ -144,6 +145,12 @@ const Hero = ({
               ctpDate={timeSeriesData[0].Date}
             />
           }
+        />
+        <Charts
+          timeSeriesData={completeTimeSeriesData}
+          currentMetric={currentMetric}
+          isCombined={stateIsCombined}
+          stateName={stateName}
         />
         <Sources data={stateSources} />
         <NotesAndDownloads

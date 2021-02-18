@@ -5,7 +5,6 @@
     text-align: center;
     @include padding(16, bottom);
     @include margin(32, bottom);
-    margin-top: -28px; // ignore-style-rule
 
     @media (max-width: $viewport-lg) {
       @include margin(8, top);
