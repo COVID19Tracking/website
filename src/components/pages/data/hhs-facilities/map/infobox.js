@@ -1,17 +1,12 @@
 /* eslint-disable max-len */
 import React from 'react'
 import FieldValue from '../field-value'
-import infoboxStyle from './infobox.module.scss'
+import Infobox from '~components/common/map/infobox'
+import infoboxStyle from '~components/common/map/infobox.module.scss'
 import alertBang from '~images/alert/alert-bang.svg'
 
-const Infobox = ({ layer, facility, x, y }) => (
-  <div
-    className={infoboxStyle.infobox}
-    style={{
-      left: Math.max(10, x - 175),
-      top: y + 15,
-    }}
-  >
+const HhsInfobox = ({ layer, facility, x, y }) => (
+  <Infobox x={x} y={y}>
     <h3>{facility.hospital_name}</h3>
 
     {layer === 'patients' && (
@@ -74,7 +69,7 @@ const Infobox = ({ layer, facility, x, y }) => (
       </>
     )}
     <p>Click to view more information</p>
-  </div>
+  </Infobox>
 )
 
-export default Infobox
+export default HhsInfobox

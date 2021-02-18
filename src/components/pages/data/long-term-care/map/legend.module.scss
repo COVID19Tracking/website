@@ -1,0 +1,36 @@
+.wrapper {
+  @include margin(32, top);
+  @include margin(16, bottom);
+  align-items: center;
+}
+.legend {
+  text-align: right;
+  @include margin(8, bottom);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.outbreak-only {
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  @include margin(8, right);
+  background: #f3d8b7; // ignore-style-rule
+  @include padding(8);
+}
+
+.missing {
+  display: inline-block;
+  border: 1px solid $color-slate-300;
+  height: 1.5rem;
+  width: 1.5rem;
+  @include margin(8, right);
+  @include margin(16, left);
+  background: repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 5px,
+    $color-slate-300 6px,
+    $color-slate-300 6px
+  );
+}

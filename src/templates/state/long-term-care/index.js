@@ -5,7 +5,6 @@ import LongTermCarePreamble from '~components/pages/state/long-term-care/preambl
 import LongTermCareSummaryTable from '~components/pages/state/long-term-care/summary-table'
 import LongTermCareFacilities from '~components/pages/state/long-term-care/facilities'
 import LongTermCareBarChart from '~components/pages/state/long-term-care/chart'
-
 import LongTermCareAlertNote from '~components/pages/state/long-term-care/alert-note'
 import Layout from '~components/layout'
 
@@ -40,6 +39,12 @@ export default ({ pageContext, path, data }) => {
               {data.covidLtcNotes.alerts}
             </LongTermCareAlertNote>
           )}
+          <h2 id="facilities">Facilities</h2>
+          <LongTermCareFacilities
+            stateSlug={slug}
+            facilities={data.allCovidLtcFacilities.group}
+            stateAbbr={state.state}
+          />
           <h2 id="summary">Summary</h2>
           <LongTermCareSummaryTable
             aggregate={data.aggregate.nodes[0]}
@@ -50,11 +55,6 @@ export default ({ pageContext, path, data }) => {
             dangerouslySetInnerHTML={{
               __html: marked(data.covidLtcNotes.notes),
             }}
-          />
-          <h2 id="facilities">Facilities</h2>
-          <LongTermCareFacilities
-            stateSlug={slug}
-            facilities={data.allCovidLtcFacilities.group}
           />
         </>
       ) : (

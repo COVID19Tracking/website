@@ -2,14 +2,21 @@
 import React, { useState, useEffect } from 'react'
 import slugify from 'slugify'
 import { Link } from 'gatsby'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@reach/disclosure'
 import Alert from '~components/common/alert'
 import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
 import { Form, Input } from '~components/common/form'
 import Modal from '~components/common/modal'
 import { FormatDate } from '~components/utils/format'
+import LTCMap from '~components/pages/data/long-term-care/map'
 import facilitiesStyles from './facilities.module.scss'
 import SocialSharing from '~components/common/social-sharing'
+import stateCenters from '~data/visualization/state-centers.json'
 
 const getNumber = number => {
   if (!number) {
@@ -145,7 +152,7 @@ const probableFields = {
   resident_staff_deaths: 'resident_staff_probable_deaths',
 }
 
-const LongTermCareFacilities = ({ stateSlug, facilities }) => {
+const LongTermCareFacilities = ({ stateSlug, stateAbbr, facilities }) => {
   const [sort, setSort] = useState({ field: 'facility_name', desc: false })
   const [searchQuery, setSearchQuery] = useState(false)
   const [openedFacility, setOpenedFacility] = useState(false)
@@ -245,235 +252,271 @@ const LongTermCareFacilities = ({ stateSlug, facilities }) => {
     }
     return null
   }
+  const stateCenter = stateCenters.find(center => center.state === stateAbbr)
   return (
     <>
-      <SearchForm
-        hasFacilities={facilities.length > 0}
-        setSearchQuery={query => setSearchQuery(query)}
+      <LTCMap
+        center={stateCenter ? [stateCenter.lon, stateCenter.lat] : [-97, 38]}
+        zoom={stateCenter ? stateCenter.zoom : 3.5}
+        removeSidebar
+        state={stateAbbr}
+        button={
+          <Link
+            className={facilitiesStyles.mapButton}
+            to={`/nursing-homes-long-term-care-facilities/map${stateCenter &&
+              `#${stateCenter.lon},${stateCenter.lat},${stateCenter.zoom}`}`}
+          >
+            View more details
+          </Link>
+        }
       />
-      <p>
-        Do you have information about a facility on this list?{' '}
-        <Link to="/nursing-homes/contact">We would love to hear from you</Link>.
-      </p>
-      {openedFacility && (
-        <Modal
-          isOpen={openedFacility}
-          label={`Facility details for ${openedFacility.facility_name}`}
-          onClose={() => {
-            setOpenedFacility(false)
-          }}
-        >
-          <FacilityDetails
-            facility={openedFacility}
-            stateSlug={stateSlug}
-            facilityId={openedFacilityId}
+      <Disclosure>
+        <DisclosureButton className={facilitiesStyles.disclosureButton}>
+          View data as a table {}
+        </DisclosureButton>
+        <DisclosurePanel>
+          <SearchForm
+            hasFacilities={facilities.length > 0}
+            setSearchQuery={query => setSearchQuery(query)}
           />
-        </Modal>
-      )}
-      <div role="region" aria-live="polite">
-        {facilityList.length > 0 ? (
-          <>
-            <Table>
-              <thead>
-                <tr>
-                  {hasCounty && (
-                    <Th
-                      header
-                      alignLeft
-                      sortable
-                      onClick={() => handleSortClick('county')}
-                      sortDirection={sortDirection('county')}
-                    >
-                      County
-                    </Th>
-                  )}
-                  {hasCity && (
-                    <Th
-                      header
-                      alignLeft
-                      sortable
-                      onClick={() => handleSortClick('city')}
-                      sortDirection={sortDirection('city')}
-                    >
-                      City
-                    </Th>
-                  )}
-                  <Th
-                    header
-                    alignLeft
-                    sortable
-                    onClick={() => handleSortClick('facility_name')}
-                    sortDirection={sortDirection('facility_name')}
-                  >
-                    Name
-                  </Th>
-                  <Th header alignLeft>
-                    Category
-                  </Th>
-                  {hasResidentData ? (
-                    <>
-                      <Th
-                        header
-                        isFirst
-                        sortable
-                        onClick={() => handleSortClick('resident_positives')}
-                        sortDirection={sortDirection('resident_positives')}
-                      >
-                        Resident positives
-                      </Th>
-                      <Th
-                        header
-                        sortable
-                        onClick={() => handleSortClick('resident_deaths')}
-                        sortDirection={sortDirection('resident_deaths')}
-                      >
-                        Resident deaths
-                      </Th>
-
-                      <Th
-                        header
-                        isFirst
-                        sortable
-                        onClick={() =>
-                          handleSortClick('outbreak_resident_positives')
-                        }
-                        sortDirection={sortDirection(
-                          'outbreak_resident_positives',
-                        )}
-                      >
-                        Outbreak Resident positives
-                      </Th>
-                      <Th
-                        header
-                        sortable
-                        onClick={() =>
-                          handleSortClick('outbreak_resident_deaths')
-                        }
-                        sortDirection={sortDirection(
-                          'outbreak_resident_deaths',
-                        )}
-                      >
-                        Outbreak Resident deaths
-                      </Th>
-                    </>
-                  ) : (
-                    <>
-                      <Th
-                        header
-                        isFirst
-                        sortable
-                        onClick={() =>
-                          handleSortClick('resident_staff_positives')
-                        }
-                        sortDirection={sortDirection(
-                          'resident_staff_positives',
-                        )}
-                      >
-                        Resident &amp; staff positives
-                      </Th>
-                      <Th
-                        header
-                        sortable
-                        onClick={() => handleSortClick('resident_staff_deaths')}
-                        sortDirection={sortDirection('resident_staff_deaths')}
-                      >
-                        Resident &amp; staff deaths
-                      </Th>
-
-                      <Th
-                        header
-                        isFirst
-                        sortable
-                        onClick={() =>
-                          handleSortClick('outbreak_resident_staff_positives')
-                        }
-                        sortDirection={sortDirection(
-                          'outbreak_resident_staff_positives',
-                        )}
-                      >
-                        Outbreak Resident &amp; staff positives
-                      </Th>
-                      <Th
-                        header
-                        sortable
-                        onClick={() =>
-                          handleSortClick('outbreak_resident_staff_deaths')
-                        }
-                        sortDirection={sortDirection(
-                          'outbreak_resident_staff_deaths',
-                        )}
-                      >
-                        Outbreak Resident &amp; staff deaths
-                      </Th>
-                    </>
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {facilityList.map(facility => {
-                  const facilityId = slugify(
-                    [
-                      facility.county,
-                      facility.city,
-                      facility.facility_name,
-                    ].join('-'),
-                    { lower: true },
-                  )
-                  return (
-                    <tr key={facilityId} id={facilityId}>
-                      {hasCounty && <Td alignLeft>{facility.county}</Td>}
-                      {hasCity && <Td alignLeft>{facility.city}</Td>}
-                      <Td alignLeft>
-                        <button
-                          className={facilitiesStyles.linkButton}
-                          type="button"
-                          onClick={event => {
-                            event.preventDefault()
-                            setOpenedFacilityId(facilityId)
-                            setOpenedFacility(facility)
-                            window.location.hash = facilityId
-                          }}
+          <p>
+            Do you have information about a facility on this list?{' '}
+            <Link to="/nursing-homes/contact">
+              We would love to hear from you
+            </Link>
+            .
+          </p>
+          {openedFacility && (
+            <Modal
+              isOpen={openedFacility}
+              label={`Facility details for ${openedFacility.facility_name}`}
+              onClose={() => {
+                setOpenedFacility(false)
+              }}
+            >
+              <FacilityDetails
+                facility={openedFacility}
+                stateSlug={stateSlug}
+                facilityId={openedFacilityId}
+              />
+            </Modal>
+          )}
+          <div role="region" aria-live="polite">
+            {facilityList.length > 0 ? (
+              <>
+                <Table>
+                  <thead>
+                    <tr>
+                      {hasCounty && (
+                        <Th
+                          header
+                          alignLeft
+                          sortable
+                          onClick={() => handleSortClick('county')}
+                          sortDirection={sortDirection('county')}
                         >
-                          {facility.facility_name}
-                        </button>
-                      </Td>
-                      <Td alignLeft>{facility.ctp_facility_category}</Td>
+                          County
+                        </Th>
+                      )}
+                      {hasCity && (
+                        <Th
+                          header
+                          alignLeft
+                          sortable
+                          onClick={() => handleSortClick('city')}
+                          sortDirection={sortDirection('city')}
+                        >
+                          City
+                        </Th>
+                      )}
+                      <Th
+                        header
+                        alignLeft
+                        sortable
+                        onClick={() => handleSortClick('facility_name')}
+                        sortDirection={sortDirection('facility_name')}
+                      >
+                        Name
+                      </Th>
+                      <Th header alignLeft>
+                        Category
+                      </Th>
                       {hasResidentData ? (
                         <>
-                          <Td isFirst>{facility.resident_positives}</Td>
-                          <Td>{facility.resident_deaths}</Td>
-                          <Td isFirst>
-                            {facility.outbreak_resident_positives}
-                          </Td>
-                          <Td>{facility.outbreak_resident_deaths}</Td>
+                          <Th
+                            header
+                            isFirst
+                            sortable
+                            onClick={() =>
+                              handleSortClick('resident_positives')
+                            }
+                            sortDirection={sortDirection('resident_positives')}
+                          >
+                            Resident positives
+                          </Th>
+                          <Th
+                            header
+                            sortable
+                            onClick={() => handleSortClick('resident_deaths')}
+                            sortDirection={sortDirection('resident_deaths')}
+                          >
+                            Resident deaths
+                          </Th>
+
+                          <Th
+                            header
+                            isFirst
+                            sortable
+                            onClick={() =>
+                              handleSortClick('outbreak_resident_positives')
+                            }
+                            sortDirection={sortDirection(
+                              'outbreak_resident_positives',
+                            )}
+                          >
+                            Outbreak Resident positives
+                          </Th>
+                          <Th
+                            header
+                            sortable
+                            onClick={() =>
+                              handleSortClick('outbreak_resident_deaths')
+                            }
+                            sortDirection={sortDirection(
+                              'outbreak_resident_deaths',
+                            )}
+                          >
+                            Outbreak Resident deaths
+                          </Th>
                         </>
                       ) : (
                         <>
-                          <Td isFirst>{facility.resident_staff_positives}</Td>
-                          <Td>{facility.resident_staff_deaths}</Td>
-                          <Td isFirst>
-                            {facility.outbreak_resident_staff_positives}
-                          </Td>
-                          <Td>{facility.outbreak_resident_staff_deaths}</Td>
+                          <Th
+                            header
+                            isFirst
+                            sortable
+                            onClick={() =>
+                              handleSortClick('resident_staff_positives')
+                            }
+                            sortDirection={sortDirection(
+                              'resident_staff_positives',
+                            )}
+                          >
+                            Resident &amp; staff positives
+                          </Th>
+                          <Th
+                            header
+                            sortable
+                            onClick={() =>
+                              handleSortClick('resident_staff_deaths')
+                            }
+                            sortDirection={sortDirection(
+                              'resident_staff_deaths',
+                            )}
+                          >
+                            Resident &amp; staff deaths
+                          </Th>
+
+                          <Th
+                            header
+                            isFirst
+                            sortable
+                            onClick={() =>
+                              handleSortClick(
+                                'outbreak_resident_staff_positives',
+                              )
+                            }
+                            sortDirection={sortDirection(
+                              'outbreak_resident_staff_positives',
+                            )}
+                          >
+                            Outbreak Resident &amp; staff positives
+                          </Th>
+                          <Th
+                            header
+                            sortable
+                            onClick={() =>
+                              handleSortClick('outbreak_resident_staff_deaths')
+                            }
+                            sortDirection={sortDirection(
+                              'outbreak_resident_staff_deaths',
+                            )}
+                          >
+                            Outbreak Resident &amp; staff deaths
+                          </Th>
                         </>
                       )}
                     </tr>
-                  )
-                })}
-              </tbody>
-            </Table>
-            <p>Case totals include confirmed and probable cases.</p>
-          </>
-        ) : (
-          <>
-            {facilities.length > 0 ? (
-              <Alert>No facilities found. Please refine your search.</Alert>
+                  </thead>
+                  <tbody>
+                    {facilityList.map(facility => {
+                      const facilityId = slugify(
+                        [
+                          facility.county,
+                          facility.city,
+                          facility.facility_name,
+                        ].join('-'),
+                        { lower: true },
+                      )
+                      return (
+                        <tr key={facilityId} id={facilityId}>
+                          {hasCounty && <Td alignLeft>{facility.county}</Td>}
+                          {hasCity && <Td alignLeft>{facility.city}</Td>}
+                          <Td alignLeft>
+                            <button
+                              className={facilitiesStyles.linkButton}
+                              type="button"
+                              onClick={event => {
+                                event.preventDefault()
+                                setOpenedFacilityId(facilityId)
+                                setOpenedFacility(facility)
+                                window.location.hash = facilityId
+                              }}
+                            >
+                              {facility.facility_name}
+                            </button>
+                          </Td>
+                          <Td alignLeft>{facility.ctp_facility_category}</Td>
+                          {hasResidentData ? (
+                            <>
+                              <Td isFirst>{facility.resident_positives}</Td>
+                              <Td>{facility.resident_deaths}</Td>
+                              <Td isFirst>
+                                {facility.outbreak_resident_positives}
+                              </Td>
+                              <Td>{facility.outbreak_resident_deaths}</Td>
+                            </>
+                          ) : (
+                            <>
+                              <Td isFirst>
+                                {facility.resident_staff_positives}
+                              </Td>
+                              <Td>{facility.resident_staff_deaths}</Td>
+                              <Td isFirst>
+                                {facility.outbreak_resident_staff_positives}
+                              </Td>
+                              <Td>{facility.outbreak_resident_staff_deaths}</Td>
+                            </>
+                          )}
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                </Table>
+                <p>Case totals include confirmed and probable cases.</p>
+              </>
             ) : (
-              <Alert>Facility information not reported</Alert>
+              <>
+                {facilities.length > 0 ? (
+                  <Alert>No facilities found. Please refine your search.</Alert>
+                ) : (
+                  <Alert>Facility information not reported</Alert>
+                )}
+              </>
             )}
-          </>
-        )}
-      </div>
+          </div>
+        </DisclosurePanel>
+      </Disclosure>
     </>
   )
 }

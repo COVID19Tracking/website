@@ -70,3 +70,5 @@ const StateGrade = ({ slug, assessment, date }) => {
 }
 
 export default StateGrade
+
+export { icons, adjectives }

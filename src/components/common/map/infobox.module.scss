@@ -12,7 +12,7 @@
     @include padding(16);
     @include type-size(100);
     h3 {
-      @include type-size(100);
+      @include type-size(200);
       font-weight: bold;
       &:first-child {
         margin-top: 0;

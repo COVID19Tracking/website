@@ -1,0 +1,40 @@
+.sidebar {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: 100%;
+  order: 1;
+  input[type='text'] {
+    margin-bottom: 0;
+  }
+  p {
+    @include margin(16, left);
+  }
+  table {
+    overflow-y: scroll;
+    &[aria-hidden] {
+      margin-bottom: 0;
+    }
+    th {
+      padding-top: 0;
+    }
+    button {
+      @include remove-button-style();
+      text-align: left;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  form {
+    background: $color-slate-100;
+    @include padding(16, top left right);
+  }
+  @media (min-width: $viewport-md) {
+    order: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  @media (min-width: $viewport-lg) {
+    max-width: 30%;
+    flex-basis: 30%;
+  }
+}
