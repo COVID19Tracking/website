@@ -613,6 +613,16 @@ Array [
               />
             </a>
           </li>
+          <li>
+            <a
+              href="https://www.instagram.com/covidtrackingproject/"
+            >
+              <img
+                alt="Instagram"
+                src="test-file-stub"
+              />
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -1262,6 +1272,16 @@ Array [
             >
               <img
                 alt="Twitter"
+                src="test-file-stub"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/covidtrackingproject/"
+            >
+              <img
+                alt="Instagram"
                 src="test-file-stub"
               />
             </a>

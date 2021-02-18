@@ -6,6 +6,7 @@ import footerStyles from './footer.module.scss'
 import ctpLogo from '~images/project-logo.svg'
 import githubLogo from '~images/footer/github-logo.svg'
 import twitterLogo from '~images/footer/twitter-logo.svg'
+import instagramLogo from '~images/footer/instagram-logo.svg'
 import upArrow from '~images/footer/up-arrow.svg'
 
 const Footer = ({ noMargin = false, hideAbout = false }) => (
@@ -63,6 +64,11 @@ const Footer = ({ noMargin = false, hideAbout = false }) => (
           <li>
             <a href="https://twitter.com/COVID19Tracking">
               <img src={twitterLogo} alt="Twitter" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/covidtrackingproject/">
+              <img src={instagramLogo} alt="Instagram" />
             </a>
           </li>
         </ul>

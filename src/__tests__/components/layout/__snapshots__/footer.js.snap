@@ -105,6 +105,16 @@ exports[`Components : Layout : Footer renders correctly 1`] = `
             />
           </a>
         </li>
+        <li>
+          <a
+            href="https://www.instagram.com/covidtrackingproject/"
+          >
+            <img
+              alt="Instagram"
+              src="test-file-stub"
+            />
+          </a>
+        </li>
       </ul>
     </div>
   </div>
