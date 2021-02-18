@@ -63,9 +63,19 @@ const LTCFacilitiesMap = ({
       setFacilities(false)
       return
     }
-    const features = mapRef.current.queryRenderedFeatures({
-      layers,
-    })
+    const hashes = []
+    const features = mapRef.current
+      .queryRenderedFeatures({
+        layers: [mapLayer],
+      })
+      .filter(item => {
+        if (hashes.indexOf(item.properties.hash) === -1) {
+          hashes.push(item.properties.hash)
+          return true
+        }
+        return false
+      })
+
     setCurrentZoom(event.target.getZoom())
     setFacilities(
       features.sort((a, b) => {
@@ -120,9 +130,18 @@ const LTCFacilitiesMap = ({
       }
 
       if (window.location.hash && hash.length > 2) {
-        const features = map.queryRenderedFeatures({
-          layers,
-        })
+        const hashes = []
+        const features = map
+          .queryRenderedFeatures({
+            layers: [mapLayer],
+          })
+          .filter(item => {
+            if (hashes.indexOf(item.properties.hash) === -1) {
+              hashes.push(item.properties.hash)
+              return true
+            }
+            return false
+          })
         setFacilities(
           features.sort((a, b) =>
             a.properties.facility_name > b.properties.facility_name ? 1 : -1,

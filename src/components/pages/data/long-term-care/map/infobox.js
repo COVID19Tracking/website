@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import Infobox from '~components/common/map/infobox'
-import StateAlert from './state-alert'
 
 const Item = ({ title, value }) => (
   <p>
@@ -10,6 +10,19 @@ const Item = ({ title, value }) => (
 )
 
 const LtcInfobox = ({ layer, facility, x, y }) => {
+  const data = useStaticQuery(graphql`
+    {
+      allCovidStateInfo {
+        nodes {
+          state
+          name
+        }
+      }
+    }
+  `)
+  const states = Object.fromEntries(
+    data.allCovidStateInfo.nodes.map(node => [node.state, node.name]),
+  )
   const hasResidentCaseData =
     facility.outbreak_resident_positives || facility.resident_positives
 
@@ -46,7 +59,10 @@ const LtcInfobox = ({ layer, facility, x, y }) => {
       ) : (
         <>
           <h3>{facility.facility_name}</h3>
-          <StateAlert state={facility.state} />
+          <p>
+            {facility.county && <>{facility.county} County, </>}
+            {facility.city && <> {facility.city}, </>} {states[facility.state]}
+          </p>
 
           {hasResidentCaseData ? (
             <Item title="Resident cases" value={facility.resident_positives} />
