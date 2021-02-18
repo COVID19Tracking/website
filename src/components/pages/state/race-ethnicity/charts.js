@@ -12,10 +12,9 @@ export const colorMap = {
   AIAN: colors.crdtAian,
   Asian: colors.crdtAsian,
   Black: colors.crdtBlack,
-  Ethnicity_Hispanic: 'blue',
-  Ethnicity_NonHispanic: 'red',
+  Ethnicity_Hispanic: colors.crdtLatinx,
+  Ethnicity_NonHispanic: colors.crdtNonHispanic,
   LatinX: colors.crdtLatinx,
-  Multiracial: 'green',
   NHPI: colors.crdtNhpi,
   White: colors.crdtWhite,
 }
@@ -101,8 +100,6 @@ const Charts = ({ timeSeriesData, currentMetric, isCombined, stateName }) => {
   const allEthnicityData = generateChartData(timeSeriesData, false)
 
   // todo add renderTooltipContents to line charts
-
-  // todo find alternatives to red, blue, green
 
   const activeRaceCategories = Object.keys(allRaceData[currentMetric])
   const activeEthnicityCategories = Object.keys(allEthnicityData[currentMetric])

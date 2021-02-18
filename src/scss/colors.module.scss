@@ -87,9 +87,10 @@ $qualitative-color-palette-500: #2f6488;
 $qualitative-color-palette-600: #527740;
 
 
-$crdt-asian: #012656;
+$crdt-asian: #E35942;
 $crdt-white: #cccc00;
 $crdt-black: #a19bca;
+$crdt-non-hispanic: #111354;
 $crdt-latinx: #f4a071;
 $crdt-nhpi: #2f6488;
 $crdt-aian: #527740;
@@ -139,6 +140,7 @@ $crdt-aian: #527740;
   crdtWhite: $crdt-white;
   crdtBlack: $crdt-black;
   crdtLatinx: $crdt-latinx;
+  crdtNonHispanic: $crdt-non-hispanic;
   crdtNhpi: $crdt-nhpi;
   crdtAian: $crdt-aian;
 }
