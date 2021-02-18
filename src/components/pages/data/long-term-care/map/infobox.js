@@ -60,8 +60,9 @@ const LtcInfobox = ({ layer, facility, x, y }) => {
         <>
           <h3>{facility.facility_name}</h3>
           <p>
+            {facility.city && <> {facility.city}, </>}
             {facility.county && <>{facility.county} County, </>}
-            {facility.city && <> {facility.city}, </>} {states[facility.state]}
+            {states[facility.state]}
           </p>
 
           {hasResidentCaseData ? (

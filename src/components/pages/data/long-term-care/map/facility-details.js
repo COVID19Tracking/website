@@ -127,8 +127,9 @@ const FacilityDetails = ({ facility, layer }) => {
       ) : (
         <>
           <p>
+            {facility.city && <> {facility.city}, </>}
             {facility.county && <>{facility.county} County, </>}
-            {facility.city && <> {facility.city}, </>} {states[facility.state]}
+            {states[facility.state]}
           </p>
           <StateAlerts state={facility.state} />
         </>
