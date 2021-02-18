@@ -222,7 +222,7 @@ const HHSFacilitiesMap = ({ center, zoom }) => {
         infoboxPosition: tooltip,
       }}
     >
-      <Legend date={mapDate} />
+      <Legend date={mapDate} mapLayer={mapLayer} />
       <div className={facilitiesMapStyles.container} aria-hidden>
         <Sidebar map={mapRef.current}>
           <Table ariaHidden>
