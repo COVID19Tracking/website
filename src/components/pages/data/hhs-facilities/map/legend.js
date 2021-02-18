@@ -2,37 +2,26 @@ import React from 'react'
 import { DateTime } from 'luxon'
 import { FormatDate } from '~components/utils/format'
 import Container from '~components/common/container'
+import LayerToggle from '~components/common/map/layer-toggle'
 import { Row, Col } from '~components/common/grid'
 import legendStyles from './legend.module.scss'
 
-const Legend = ({ mapLayer, setLayer, date }) => (
+const Legend = ({ mapLayer, date }) => (
   <Container>
     <Row className={legendStyles.wrapper}>
       <Col width={[4, 6, 6]} paddingRight={[0, 0, 0]}>
-        <div
-          className={legendStyles.toggle}
-          role="group"
-          aria-label="Toggle map layers"
-        >
-          <button
-            className={mapLayer === 'patients' && legendStyles.active}
-            type="button"
-            onClick={() => {
-              setLayer('patients')
-            }}
-          >
-            All inpatients
-          </button>
-          <button
-            className={mapLayer === 'icu' && legendStyles.active}
-            type="button"
-            onClick={() => {
-              setLayer('icu')
-            }}
-          >
-            ICU patients
-          </button>
-        </div>
+        <LayerToggle
+          layers={[
+            {
+              id: 'patients',
+              name: 'All inpatients',
+            },
+            {
+              id: 'icu',
+              name: 'ICU inpatients',
+            },
+          ]}
+        />
         <p className={legendStyles.dates}>
           {date ? (
             <>
