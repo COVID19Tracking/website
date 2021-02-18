@@ -1,9 +1,11 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 
 import { extent, max } from 'd3-array'
 import { scaleLinear, scaleTime } from 'd3-scale'
 import { line, curveCardinal } from 'd3-shape'
 import { timeMonth, timeDay } from 'd3-time'
+
+import Tooltip from './tooltip'
 
 import { formatDate, formatNumber } from '~utilities/visualization'
 
@@ -24,6 +26,7 @@ const LineChart = ({
   yTicks,
   lastXTick,
   perCapLabel,
+  renderTooltipContents,
 }) => {
   const totalXMargin = marginLeft + marginRight
   const totalYMargin = marginTop + marginBottom
@@ -36,6 +39,32 @@ const LineChart = ({
       values.push(row.value)
     })
   })
+
+  const [tooltip, setTooltip] = useState(null)
+  const [timeoutRef, setTimeoutRef] = useState(null)
+
+  const hover = (event, dataLine) => {
+    // Ensure that tooltip doesn't flash when transitioning between bars
+    if (timeoutRef) {
+      clearTimeout(timeoutRef)
+    }
+    const isTouchEvent = !event.clientX
+    const eventX = isTouchEvent ? event.touches[0].clientX : event.clientX
+    const eventY = isTouchEvent ? event.touches[0].clientY : event.clientY
+
+    setTooltip({
+      top: isTouchEvent ? eventY - 130 : eventY + 10,
+      left: isTouchEvent ? eventX - 80 : eventX + 5,
+      d: dataLine,
+    })
+  }
+
+  const mouseOut = () => {
+    if (timeoutRef) {
+      clearTimeout(timeoutRef)
+    }
+    setTimeoutRef(setTimeout(() => setTooltip(null), 200))
+  }
 
   const dateDomain = extent(dates)
 
@@ -159,17 +188,33 @@ const LineChart = ({
           {data && (
             <>
               {data.map(dataLine => (
-                <path
-                  d={lineFn(dataLine.data)}
-                  stroke={dataLine.color}
-                  strokeWidth={dataLine.stroke}
-                  fill="none"
-                />
+                <>
+                  <path
+                    d={lineFn(dataLine.data)}
+                    stroke={dataLine.color}
+                    strokeWidth={dataLine.stroke}
+                    fill="none"
+                  />
+                  {/* Add a wider hidden path for tooltips. */}
+                  <path
+                    d={lineFn(dataLine.data)}
+                    stroke="transparent"
+                    strokeWidth={6}
+                    fill="none"
+                    onMouseOver={event => hover(event, dataLine)}
+                    onFocus={event => hover(event, dataLine)}
+                    onMouseOut={mouseOut}
+                    onBlur={mouseOut}
+                  />
+                </>
               ))}
             </>
           )}
         </g>
       </svg>
+      {renderTooltipContents && tooltip && (
+        <Tooltip {...tooltip}>{renderTooltipContents(tooltip.d)} </Tooltip>
+      )}
     </>
   )
 }

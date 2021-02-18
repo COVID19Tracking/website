@@ -1,16 +1,31 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState, useRef, useEffect } from 'react'
 import { DateTime } from 'luxon'
 
 import Chart from './chart'
-import { getAvailableMetricFields } from './utils'
+import { getAvailablePer100kMetricFields } from './utils'
+import NoData from './no-data-chart'
 
-import styles from './charts.module.scss'
 import colors from '~scss/colors.module.scss'
+import ChartSection from './chart-section'
 
-const Charts = ({ timeSeriesData, currentMetric }) => {
+export const colorMap = {
+  AIAN: colors.crdtAian,
+  Asian: colors.crdtAsian,
+  Black: colors.crdtBlack,
+  Ethnicity_Hispanic: 'blue',
+  Ethnicity_NonHispanic: 'red',
+  LatinX: colors.crdtLatinx,
+  Multiracial: 'green',
+  NHPI: colors.crdtNhpi,
+  White: colors.crdtWhite,
+}
+
+const Charts = ({ timeSeriesData, currentMetric, isCombined, stateName }) => {
   const getMetricData = (allData, metricTitle, metrics) => {
     /** Restructures a single metric's racial data (i.e. cases) for charts */
     const completedData = {} // store the final metric data object
+
+    const suffixToRemove = '_per100k'
 
     metrics.forEach(metric => {
       const metricTimeSeries = [] // create a time series array for each metric
@@ -22,9 +37,17 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
         })
       })
       // remove the 'Cases_' prefix from the metric
-      const cleanMetricTitle = metric.replace(`${metricTitle}_`, '')
-      // add this time series to the completed object
-      completedData[cleanMetricTitle] = metricTimeSeries
+      const cleanMetricTitle = metric
+        .replace(`${metricTitle}_`, '')
+        .replace(suffixToRemove, '')
+
+      const casesToIgnore = ['Multiracial', 'Other', 'Unknown']
+
+      // If this is not in the list to ignore...
+      if (casesToIgnore.indexOf(cleanMetricTitle) === -1) {
+        // Add this time series to the completed object.
+        completedData[cleanMetricTitle] = metricTimeSeries
+      }
     })
 
     return completedData
@@ -37,22 +60,22 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
      */
     const computedChartData = useMemo(() => {
       const latestDay = allData[0]
-      const caseMetrics = getAvailableMetricFields(
+      const caseMetrics = getAvailablePer100kMetricFields(
         latestDay,
         'Cases_',
         raceOnly,
       )
-      const deathMetrics = getAvailableMetricFields(
+      const deathMetrics = getAvailablePer100kMetricFields(
         latestDay,
         'Deaths_',
         raceOnly,
       )
-      const hospMetrics = getAvailableMetricFields(
+      const hospMetrics = getAvailablePer100kMetricFields(
         latestDay,
         'Hospitalizations_',
         raceOnly,
       )
-      const testMetrics = getAvailableMetricFields(
+      const testMetrics = getAvailablePer100kMetricFields(
         latestDay,
         'Tests_',
         raceOnly,
@@ -79,44 +102,123 @@ const Charts = ({ timeSeriesData, currentMetric }) => {
 
   // todo add renderTooltipContents to line charts
 
-  // todo separate race and ethnicity, based on combined or separate states
-
   // todo find alternatives to red, blue, green
 
-  const colorMap = {
-    AIAN: colors.crdtAian,
-    Asian: colors.crdtAsian,
-    Black: colors.crdtBlack,
-    Ethnicity_Hispanic: 'blue',
-    Ethnicity_NonHispanic: 'red',
-    LatinX: colors.Latinx,
-    Multiracial: 'green',
-    NHPI: colors.crdtNhpi,
-    White: colors.crdtWhite,
+  const activeRaceCategories = Object.keys(allRaceData[currentMetric])
+  const activeEthnicityCategories = Object.keys(allEthnicityData[currentMetric])
+
+  const [selectedRaceCategory, setSelectedRaceCategory] = useState(null)
+  const [selectedEthnicityCategory, setSelectedEthnicityCategory] = useState(
+    null,
+  )
+
+  /**
+   * Gets the colors for the line charts.
+   * Greys out the non-selected values when a category is selected.
+   */
+  const getChartColors = selectedCategory => {
+    if (selectedCategory === null) {
+      return colorMap
+    }
+
+    const selectedColorMap = {
+      ...colorMap,
+    }
+
+    Object.keys(selectedColorMap).forEach(key => {
+      if (key !== selectedCategory) {
+        selectedColorMap[key] = colors.colorSlate200
+      }
+    })
+    return selectedColorMap
   }
 
+  /**
+   * Hook that resets the selected category on clicks outside of the passed ref.
+   * See: https://stackoverflow.com/questions/32553158/detect-click-outside-react-component
+   */
+  function useOutsideReset(ref, setSelectedCategory) {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          // Reset the selected category
+          setSelectedCategory(null)
+        }
+      }
+      // Bind the event listener
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener('mousedown', handleClickOutside)
+      }
+    }, [ref])
+  }
+
+  const raceLegendRef = useRef(null)
+  useOutsideReset(raceLegendRef, setSelectedRaceCategory)
+
+  const ethnicityLegendRef = useRef(null)
+  useOutsideReset(ethnicityLegendRef, setSelectedEthnicityCategory)
+
+  const chartLabel = `${currentMetric} per 100k people`
+
+  const currentMetricIsEmpty =
+    Object.keys(allEthnicityData[currentMetric]).length === 0
+
   return (
-    <div className={styles.wrapper}>
-      <Chart
-        data={[
-          {
-            colorMap,
-            label: 'Cases',
-            data: allRaceData[currentMetric],
-          },
-        ]}
-        title="Race Data"
-      />
-      <Chart
-        data={[
-          {
-            colorMap,
-            label: 'Cases',
-            data: allEthnicityData[currentMetric],
-          },
-        ]}
-        title="Ethnicity Data"
-      />
+    <div>
+      <ChartSection
+        title={isCombined ? 'Race/ethnicity data' : 'Race data'}
+        legendCategories={activeRaceCategories}
+        selectedItem={selectedRaceCategory}
+        setSelectedItem={setSelectedRaceCategory}
+        legendColors={colorMap}
+        legendRef={raceLegendRef}
+      >
+        <Chart
+          data={[
+            {
+              colorMap: getChartColors(selectedRaceCategory),
+              label: chartLabel,
+              data: allRaceData[currentMetric],
+            },
+          ]}
+          title={chartLabel}
+        />
+      </ChartSection>
+      {!currentMetricIsEmpty && (
+        <ChartSection
+          title="Ethnicity data"
+          legendCategories={activeEthnicityCategories}
+          selectedItem={selectedEthnicityCategory}
+          setSelectedItem={setSelectedEthnicityCategory}
+          legendColors={colorMap}
+          legendRef={ethnicityLegendRef}
+        >
+          <Chart
+            data={[
+              {
+                colorMap: getChartColors(selectedEthnicityCategory),
+                label: chartLabel,
+                data: allEthnicityData[currentMetric],
+              },
+            ]}
+            title={chartLabel}
+          />
+        </ChartSection>
+      )}
+      {!isCombined && currentMetricIsEmpty && (
+        <div>
+          <NoData
+            metric={currentMetric}
+            dataType="ethnicity"
+            state={stateName}
+          />
+        </div>
+      )}
     </div>
   )
 }

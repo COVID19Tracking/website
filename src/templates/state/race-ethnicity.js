@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import Hero from '~components/pages/state/race-ethnicity/hero'
 import HistoricalTables from '~components/pages/state/race-ethnicity/historical-tables'
+import { addPer100kValues } from '~components/pages/state/race-ethnicity/utils'
 
 const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
@@ -14,12 +15,27 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
   // false: showing numbers, true: showing rates per 100k
   const [usePer100kRate, setUsePer100kRate] = useState(true)
 
+  const populationData = data.covidAcsPopulation
+  const timeSeriesData = data.allCovidRaceDataTimeseries.nodes
+
+  // includes per cap values
+  const completeTimeSeriesData =
+    populationData === null
+      ? timeSeriesData
+      : addPer100kValues(timeSeriesData, populationData)
+
   return (
     <Layout
       title={`${state.name}: Race & Ethnicity Historical Data`}
       returnLinks={[
-        { link: '/data', title: 'Our Data' },
-        { link: `/data/state/${slug}`, title: state.name },
+        {
+          link: '/data',
+          title: 'Our Data',
+        },
+        {
+          link: `/data/state/${slug}`,
+          title: state.name,
+        },
       ]}
       path={path}
       description={`Historical time series of race and ethnicity data in ${state.name}.`}
@@ -33,7 +49,8 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
         setCurrentMetric={setCurrentMetric}
         usePer100kRate={usePer100kRate}
         setUsePer100kRate={setUsePer100kRate}
-        timeSeriesData={data.allCovidRaceDataTimeseries.nodes}
+        timeSeriesData={timeSeriesData}
+        completeTimeSeriesData={completeTimeSeriesData}
         combinedNotes={data.covidRaceDataCombined}
         separateNotes={data.covidRaceDataSeparate}
         combinedTestHosp={data.covidRaceHospTestDataCombined}
@@ -42,8 +59,9 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
       />
       <HistoricalTables
         stateName={state.name}
-        timeSeriesData={data.allCovidRaceDataTimeseries.nodes}
-        populationData={data.covidAcsPopulation}
+        timeSeriesData={timeSeriesData}
+        completeTimeSeriesData={completeTimeSeriesData}
+        populationData={populationData}
         currentMetric={currentMetric}
         setUsePer100kRate={setUsePer100kRate}
         usePer100kRate={usePer100kRate}
