@@ -157,17 +157,14 @@ const getGroups = state => {
     have the highest COVID-19 infection rates..."
   */
   const copyLabels = {
-    'Black or African American':
-      'Black or African American people',
+    'Black or African American': 'Black or African American people',
     'Hispanic or Latino': 'Hispanic or Latino people',
     Asian: 'Asian people',
     White: 'White people',
-    'Asian or Pacific Islander':
-      'Asians or Pacific Islanders',
+    'Asian or Pacific Islander': 'Asians or Pacific Islanders',
     'Native Hawaiian or Other Pacific Islander':
       'Native Hawaiians or Pacific Islanders',
-    'American Indian or Alaskan Native':
-      'American Indians or Alaskan Natives',
+    'American Indian or Alaskan Native': 'American Indians or Alaskan Natives',
   }
 
   const worstDeathsValue = Math.round(groups[0].deaths)
