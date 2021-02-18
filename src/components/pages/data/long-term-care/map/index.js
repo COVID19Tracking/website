@@ -66,7 +66,7 @@ const LTCFacilitiesMap = ({
     const hashes = []
     const features = mapRef.current
       .queryRenderedFeatures({
-        layers: [mapLayer],
+        layers,
       })
       .filter(item => {
         if (hashes.indexOf(item.properties.hash) === -1) {
@@ -133,7 +133,7 @@ const LTCFacilitiesMap = ({
         const hashes = []
         const features = map
           .queryRenderedFeatures({
-            layers: [mapLayer],
+            layers,
           })
           .filter(item => {
             if (hashes.indexOf(item.properties.hash) === -1) {
@@ -230,7 +230,6 @@ const LTCFacilitiesMap = ({
               <thead>
                 <tr>
                   <Th alignLeft>Name</Th>
-                  <Th>{mapLayer === 'deaths' ? 'Deaths' : 'Cases'}</Th>
                 </tr>
               </thead>
             </Table>
@@ -240,7 +239,6 @@ const LTCFacilitiesMap = ({
                   <thead className="a11y-only">
                     <tr>
                       <Th alignLeft>Name</Th>
-                      <Th>{mapLayer === 'deaths' ? 'Deaths' : 'Cases'}</Th>
                     </tr>
                   </thead>
                   <tbody>
@@ -272,20 +270,6 @@ const LTCFacilitiesMap = ({
                               ? facility.properties.name
                               : facility.properties.facility_name}
                           </button>
-                        </Td>
-                        <Td>
-                          {mapLayer === 'cms-cases' &&
-                            facility.properties[
-                              'residents-total-confirmed-covid-19'
-                            ] +
-                              facility.properties[
-                                'residents-total-suspected-covid-19'
-                              ]}
-                          {(mapLayer === 'cases' ||
-                            mapLayer === 'facilities') &&
-                            facility.properties.radius_positive}
-                          {mapLayer === 'deaths' &&
-                            facility.properties.radius_deaths}
                         </Td>
                       </tr>
                     ))}
