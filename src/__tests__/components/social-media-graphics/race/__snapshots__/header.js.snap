@@ -10,7 +10,7 @@ Array [
   "January 1, 2021",
   ",",
   " ",
-  "Black / African American people",
+  "Black or African American people",
   " were most likely to have contracted COVID-19.",
 ]
 `;
@@ -25,7 +25,7 @@ Array [
   "January 1, 2021",
   ",",
   " ",
-  "American Indians / Alaska Natives",
+  "American Indians or Alaskan Natives",
   " were most likely to have contracted COVID-19.",
 ]
 `;
@@ -40,7 +40,7 @@ Array [
   "January 1, 2021",
   ",",
   " ",
-  "Black / African American people",
+  "Black or African American people",
   " were most likely to have died from COVID-19.",
 ]
 `;
@@ -55,7 +55,7 @@ Array [
   "January 1, 2021",
   ",",
   " ",
-  "Black / African American people",
+  "Black or African American people",
   " were most likely to have contracted COVID-19.",
   " ",
   "White people",
@@ -83,7 +83,7 @@ Array [
   "January 1, 2021",
   ",",
   " ",
-  "Black / African American people",
+  "Black or African American people",
   " were most likely to have contracted COVID-19 and were also most likely to have died.",
 ]
 `;
