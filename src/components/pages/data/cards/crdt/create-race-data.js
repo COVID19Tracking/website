@@ -55,7 +55,7 @@ const createValuesList = raceData => {
   }
   if (raceData.aianDeathPerCap != null || raceData.aianPosPerCap != null) {
     values.push({
-      name: 'American Indian or Alaskan Native',
+      name: 'American Indian or Alaska Native',
       deathsValue: perCapTo100k(raceData.aianDeathPerCap),
       casesValue: perCapTo100k(raceData.aianPosPerCap),
       asterisk: raceData.aianSmallN ? '*' : '',
