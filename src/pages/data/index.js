@@ -53,6 +53,7 @@ const DataPage = ({ data }) => {
         hhsHospitalization={data.allHhsHospitals.nodes}
         ltcFedVaccinations={data.allLtcFedVaccinations.nodes}
         hhsTesting={data.allHhsTesting.nodes}
+        hhsTestingNotes={data.allHhsTestingNotes.nodes}
       />
     </Layout>
   )
@@ -299,6 +300,13 @@ export const query = graphql`
         date
         positive
         total
+      }
+    }
+    allHhsTestingNotes {
+      nodes {
+        state
+        sourceNotes
+        notes
       }
     }
     allLtcFedVaccinations {

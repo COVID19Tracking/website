@@ -36,6 +36,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
     covidGradeExcludedStates,
     assessmentDate,
     hhsTesting,
+    hhsTestingNotes,
   } = data
   return (
     <Layout
@@ -83,6 +84,7 @@ const StateTemplate = ({ pageContext, data, path }) => {
           hhsHospitalization={hhsHospitals}
           ltcFedVaccinations={ltcFedVaccinations}
           hhsTesting={hhsTesting}
+          hhsTestingNotes={hhsTestingNotes}
         />
         <StateTweets
           tweets={allTweets}
@@ -343,6 +345,10 @@ export const query = graphql`
       date
       positive
       total
+    }
+    hhsTestingNotes(state: { eq: $state }) {
+      sourceNotes
+      notes
     }
     covidGradeStateAssessment(state: { eq: $state }) {
       taco

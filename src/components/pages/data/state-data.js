@@ -35,6 +35,7 @@ const State = ({ state, metadata }) => {
         hhsHospitalization={state.hhsHospitalization}
         ltcFedVaccinations={state.ltcFedVaccinations}
         hhsTesting={state.hhsTesting}
+        hhsTestingNotes={state.hhsTestingNotes}
       />
 
       <a

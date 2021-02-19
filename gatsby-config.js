@@ -315,6 +315,13 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
+        file: './_data/hhs_testing_notes.json',
+        type: 'hhsTestingNotes',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
         file: './_data/hhs_hospitalization.json',
         type: 'hhsHospitals',
         transformItems: items => {

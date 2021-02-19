@@ -56,6 +56,7 @@ const StateSummary = ({
   hhsHospitalization,
   ltcFedVaccinations,
   hhsTesting,
+  hhsTestingNotes,
   annotations = false,
   national = false,
 }) => {
@@ -231,6 +232,18 @@ const StateSummary = ({
   if (annotations !== false) {
     addMetricTextDefinitions(definitions, annotations)
   }
+  if (
+    hhsTestingNotes &&
+    hhsTestingNotes.notes &&
+    !annotations.find(
+      annotation => annotation.field === 'Viral (PCR) tests (HHS data)',
+    )
+  ) {
+    annotations.push({
+      field: 'Viral (PCR) tests (HHS data)',
+      warning: hhsTestingNotes.notes,
+    })
+  }
 
   return (
     <DefinitionPanelContext.Provider
@@ -331,6 +344,7 @@ const StateSummary = ({
                     stateSlug={stateSlug}
                     stateName={stateName}
                     hhsTesting={hhsTesting}
+                    notes={hhsTestingNotes}
                   />
                 )}
                 <TestsAntigenCard
