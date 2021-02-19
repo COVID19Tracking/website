@@ -117,7 +117,9 @@ const getGroups = state => {
     return {}
   }
 
-  const aPi = groups.find(group => group.label === 'Asian\u200a/\u200aPacific Islander')
+  const aPi = groups.find(
+    group => group.label === 'Asian\u200a/\u200aPacific Islander',
+  )
 
   if (aPi.cases == null && aPi.deaths == null) {
     // if the aPi values do not exist...
@@ -157,14 +159,17 @@ const getGroups = state => {
     have the highest COVID-19 infection rates..."
   */
   const copyLabels = {
-    'Black\u200a/\u200aAfrican American': 'Black\u200a/\u200aAfrican American people',
+    'Black\u200a/\u200aAfrican American':
+      'Black\u200a/\u200aAfrican American people',
     'Hispanic\u200a/\u200aLatino': 'Hispanic\u200a/\u200aLatino people',
     Asian: 'Asian people',
     White: 'White people',
-    'Asian\u200a/\u200aPacific Islander': 'Asians\u200a/\u200aPacific Islanders',
+    'Asian\u200a/\u200aPacific Islander':
+      'Asians\u200a/\u200aPacific Islanders',
     'Native Hawaiian\u200a/\u200aOther Pacific Islander':
       'Native Hawaiians\u200a/\u200aOther Pacific Islanders',
-    'American Indian\u200a/\u200aAlaskan Native': 'American Indians\u200a/\u200aAlaskan Natives',
+    'American Indian\u200a/\u200aAlaskan Native':
+      'American Indians\u200a/\u200aAlaskan Natives',
   }
 
   const worstDeathsValue = Math.round(groups[0].deaths)
