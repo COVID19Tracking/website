@@ -8,7 +8,7 @@ const BlogFeatured = () => {
   const data = useStaticQuery(graphql`
     {
       allContentfulBlogPost(
-        limit: 3
+        limit: 5
         sort: { fields: publishDate, order: DESC }
       ) {
         nodes {
