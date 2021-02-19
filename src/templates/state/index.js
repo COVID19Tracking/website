@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from '~components/layout'
 import StateNavWrapper from '~components/pages/data/state-nav-wrapper'
 import StatePreamble from '~components/pages/state/preamble'
@@ -48,7 +48,14 @@ const StateTemplate = ({ pageContext, data, path }) => {
       <TransitionBox
         id="state-testing-and-outcomes"
         name={`${state.name} testing and outcomes`}
-      />
+      >
+        Starting <strong>March 7, 2021</strong> we are no longer collecting data
+        for {state.name}.{' '}
+        <Link to="/about-data/data-summary">
+          Learn about all our available datasets and alternative sources
+        </Link>
+        .
+      </TransitionBox>
       <StatePreamble
         state={state}
         covidState={covidState}
