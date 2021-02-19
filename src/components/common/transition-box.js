@@ -7,7 +7,7 @@ const TransitionBox = ({ id, name }) => (
     Starting <strong>March 7, 2021</strong> we are no longer collecting data for{' '}
     {name}.{' '}
     <Link to={`/about-data/data-summary#${id}`}>
-      Learn about this dataset and alternative sources.
+      Learn about this dataset and alternative sources
     </Link>
     .
   </div>
