@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'gatsby'
 import { Card, CardNote, CardBody } from '~components/common/card'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
 import { AnnotationPanelContext, AnnotationButton } from './definitions-panel'
@@ -34,6 +35,10 @@ const TestsHHSViralcard = ({ hhsTesting, notes }) => {
           <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-state">
             published by HHS
           </a>
+          . It{' '}
+          <Link to="/analysis-updates/federal-testing-datas-last-mile">
+            may differ from state-provided data
+          </Link>
           .
         </CardNote>
         <LastUpdatedLabel date={hhsTesting.date} />
