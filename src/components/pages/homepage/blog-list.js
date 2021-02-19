@@ -43,7 +43,7 @@ const BlogFeatured = () => {
       return node
     })
     .filter(item => item)
-    .slice(0, 2)
+    .slice(0, 4)
   return (
     <>
       <Row>
