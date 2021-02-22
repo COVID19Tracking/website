@@ -4,11 +4,8 @@ import SkipNavigation from '~components/utils/skip-navigation'
 import Header from '~components/layout/header'
 import SEO from '~components/utils/seo'
 import Footer from '~components/layout/footer'
-import Container from '~components/common/container'
-import BlogFeatured from '~components/pages/homepage/blog-featured'
-import BlogList from '~components/pages/homepage/blog-list'
 import HomepageAbout from '~components/pages/homepage/about'
-import HomepageDatsets from '~components/pages/homepage/datasets'
+import HomepageImpact from '~components/pages/homepage/impact'
 
 const Homepage = () => (
   <>
@@ -20,12 +17,7 @@ const Homepage = () => (
 
     <main id="main">
       <HomepageAbout />
-      <HomepageDatsets />
-
-      <Container>
-        <BlogFeatured />
-        <BlogList />
-      </Container>
+      <HomepageImpact />
     </main>
     <Footer noMargin hideAbout />
   </>

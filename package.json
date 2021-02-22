@@ -98,6 +98,7 @@
     "react-helmet": "^5.2.1",
     "react-is": "^16.8.0",
     "react-recaptcha": "^2.3.10",
+    "react-scroll-parallax": "^2.3.5",
     "react-typography": "^0.16.19",
     "recursive-readdir": "^2.2.2",
     "regenerator-runtime": "^0.13.7",
