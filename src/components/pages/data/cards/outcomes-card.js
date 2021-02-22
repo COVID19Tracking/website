@@ -116,18 +116,19 @@ const OutcomesCard = ({
             />
           </Statistic>
         )}
-
-        <Statistic title="Hospital discharges" value={hospitalizedDischarged}>
-          <DefinitionLink
-            label="Hospital discharges"
-            onDefinitionsToggle={() => {
-              definitionContext({
-                fields,
-                highlight: 'hospitalizedDischarged',
-              })
-            }}
-          />
-        </Statistic>
+        {!national && (
+          <Statistic title="Hospital discharges" value={hospitalizedDischarged}>
+            <DefinitionLink
+              label="Hospital discharges"
+              onDefinitionsToggle={() => {
+                definitionContext({
+                  fields,
+                  highlight: 'hospitalizedDischarged',
+                })
+              }}
+            />
+          </Statistic>
+        )}
       </CardBody>
     </Card>
   )
