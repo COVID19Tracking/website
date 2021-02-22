@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState, useEffect } from 'react'
 import slugify from 'slugify'
 import { Link } from 'gatsby'
@@ -8,25 +7,13 @@ import {
   DisclosurePanel,
 } from '@reach/disclosure'
 import Alert from '~components/common/alert'
-import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
-import { Form, Input } from '~components/common/form'
 import Modal from '~components/common/modal'
 import { FormatDate } from '~components/utils/format'
 import LTCMap from '~components/pages/data/long-term-care/map'
 import facilitiesStyles from './facilities.module.scss'
 import SocialSharing from '~components/common/social-sharing'
 import stateCenters from '~data/visualization/state-centers.json'
-
-const getNumber = number => {
-  if (!number) {
-    return 0
-  }
-  if (number.search('<') > -1) {
-    return 0
-  }
-  return parseInt(number, 10)
-}
 
 const FacilityDetailRow = ({ type, cases, deaths }) => (
   <tr>
