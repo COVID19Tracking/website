@@ -132,7 +132,7 @@ const LongTermCareFacilities = ({ stateSlug, stateAbbr }) => {
         listFacilities={mappedFacilities =>
           setFacilityList(
             mappedFacilities.sort((a, b) =>
-              a.properties.facility_name > b.properties.facility_name ? -1 : 1,
+              a.properties.facility_name > b.properties.facility_name ? 1 : -1,
             ),
           )
         }
