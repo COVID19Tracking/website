@@ -50,9 +50,10 @@ export const query = graphql`
       body {
         childMarkdownRemark {
           html
-          headings(depth: h2) {
+          headings {
             id
             value
+            depth
           }
         }
       }
