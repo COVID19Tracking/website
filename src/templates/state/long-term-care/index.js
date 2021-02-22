@@ -28,10 +28,7 @@ export default ({ pageContext, path, data }) => {
             stateSlug={state.childSlug.slug}
             stateName={state.name}
             overview={data.covidStateInfo.childLtc.current}
-            showFacilities={
-              data.allCovidLtcFacilities.group &&
-              data.allCovidLtcFacilities.group.length > 0
-            }
+            showFacilities
           />
           <LongTermCareBarChart data={data.aggregate.nodes} />
           {data.covidLtcNotes.alerts && (
@@ -40,11 +37,7 @@ export default ({ pageContext, path, data }) => {
             </LongTermCareAlertNote>
           )}
           <h2 id="facilities">Facilities</h2>
-          <LongTermCareFacilities
-            stateSlug={slug}
-            facilities={data.allCovidLtcFacilities.group}
-            stateAbbr={state.state}
-          />
+          <LongTermCareFacilities stateSlug={slug} stateAbbr={state.state} />
           <h2 id="summary">Summary</h2>
           <LongTermCareSummaryTable
             aggregate={data.aggregate.nodes[0]}
@@ -151,35 +144,6 @@ export const query = graphql`
     covidLtcNotes(state: { eq: $state }) {
       notes
       alerts
-    }
-    allCovidLtcFacilities(
-      sort: { fields: date, order: DESC }
-      filter: { state: { eq: $state } }
-    ) {
-      group(field: facility_name, limit: 1) {
-        nodes {
-          facility_name
-          city
-          date
-          county
-          outbreak_resident_positives
-          outbreak_resident_deaths
-          outbreak_resident_staff_positives
-          outbreak_resident_staff_deaths
-          resident_deaths
-          resident_positives
-          ctp_facility_category
-          outbreak_status
-          resident_staff_positives
-          resident_staff_deaths
-          staff_deaths
-          outbreak_resident_probable
-          outbreak_resident_probable_deaths
-          resident_probable
-          resident_probable_deaths
-          resident_staff_probable_deaths
-        }
-      }
     }
   }
 `

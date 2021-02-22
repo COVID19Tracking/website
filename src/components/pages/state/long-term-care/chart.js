@@ -2,22 +2,9 @@ import React from 'react'
 import { DateTime } from 'luxon'
 import { Row, Col } from '~components/common/grid'
 import LineChart from '~components/charts/line-chart'
-import TooltipContents from '~components/charts/tooltip-contents'
 import colors from '~scss/colors.module.scss'
 import chartStyles from './chart.module.scss'
 import Alert from '~components/common/alert'
-
-const makeRenderTooltipContents = text => d => (
-  <TooltipContents
-    date={d.date}
-    items={[
-      {
-        text: <>{text}</>,
-        value: d.value,
-      },
-    ]}
-  />
-)
 
 const chartProps = {
   height: 180, // these control the dimensions used to render the svg but not the final size
@@ -71,7 +58,6 @@ const LongTermCareCharts = ({ data }) => {
                   data: caseData,
                 },
               ]}
-              renderTooltipContents={makeRenderTooltipContents('Cases')}
               {...chartProps}
             />
           ) : (
@@ -90,7 +76,6 @@ const LongTermCareCharts = ({ data }) => {
                   data: deathData,
                 },
               ]}
-              renderTooltipContents={makeRenderTooltipContents('Deaths')}
               {...chartProps}
             />
           ) : (
