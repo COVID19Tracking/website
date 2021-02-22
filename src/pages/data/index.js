@@ -162,6 +162,7 @@ export const query = graphql`
         positiveTestsViral
         probableCases
         recovered
+        hospitalizedDischarged
         state
         totalTestEncountersViral
         totalTestResults

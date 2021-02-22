@@ -361,6 +361,7 @@ const StateSummary = ({
               deathsLabel={deathsLabel}
               death={data.death}
               deathConfirmed={data.deathConfirmed}
+              hospitalizedDischarged={data.hospitalizedDischarged}
               deathProbable={data.deathProbable}
               recovered={checkHiddenStatus(
                 'Recovered',
