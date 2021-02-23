@@ -47,7 +47,8 @@ const generateStates = (
       stateSeparate: false,
     })
   })
-  return states
+
+  return states.sort((a, b) => (a.name > b.name ? 1 : -1))
 }
 
 const CrdtDashboardStates = () => {
@@ -482,29 +483,27 @@ const CrdtDashboardStates = () => {
 
   return (
     <section>
-      {states
-        .sort((a, b) => (a.name > b.name ? 1 : -1))
-        .map(state => (
-          <div className={statesStyle.state}>
-            <h2
-              id={`state-${state.state.toLowerCase()}`}
-              className={statesStyle.header}
-            >
-              {state.name}
-            </h2>
-            <DashboardSmallCards
-              stateAbbreviation={state.state}
-              stateSlug={getStateSlug(state.state)}
-            />
-            <div>
-              {state.stateSeparate ? (
-                <StateSeparate state={state} />
-              ) : (
-                <StateCombined state={state} />
-              )}
-            </div>
+      {states.map(state => (
+        <div className={statesStyle.state}>
+          <h2
+            id={`state-${state.state.toLowerCase()}`}
+            className={statesStyle.header}
+          >
+            {state.name}
+          </h2>
+          <DashboardSmallCards
+            stateAbbreviation={state.state}
+            stateSlug={getStateSlug(state.state)}
+          />
+          <div>
+            {state.stateSeparate ? (
+              <StateSeparate state={state} />
+            ) : (
+              <StateCombined state={state} />
+            )}
           </div>
-        ))}
+        </div>
+      ))}
       <div className="js-disabled">
         <div
           id="notes-disparity"
