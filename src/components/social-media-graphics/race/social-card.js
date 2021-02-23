@@ -54,6 +54,48 @@ const getFootnoteStatuses = (stateGroups, stateName) => {
   }
 }
 
+// gets the width of the bar for the bar charts
+const getWidthPercentage = (number, max) => (number / max) * 100
+
+const ChartBar = ({
+  style,
+  deaths,
+  worstDeathsValue,
+  square,
+  isOneChart,
+  showAsterisk,
+}) => {
+  const widthPercentage = getWidthPercentage(deaths, worstDeathsValue)
+
+  return (
+    <div className={socialCardStyle.barContainer}>
+      <div className={socialCardStyle.deathBarSpacer} />
+      <div
+        className={classnames(
+          socialCardStyle.bar,
+          style,
+          widthPercentage !== 0 && socialCardStyle.hasInnerLabel,
+        )}
+        style={{
+          width: `${getBarWidth(
+            deaths,
+            worstDeathsValue,
+            square,
+            isOneChart,
+          )}px`,
+        }}
+      >
+        {widthPercentage > 50 && (
+          <BarContent value={deaths} showAsterisk={showAsterisk} />
+        )}
+      </div>
+      {widthPercentage <= 50 && (
+        <BarContent value={deaths} showAsterisk={showAsterisk} />
+      )}
+    </div>
+  )
+}
+
 const StateRaceSocialCard = renderedComponent(
   ({
     state,
@@ -75,9 +117,6 @@ const StateRaceSocialCard = renderedComponent(
     if (stateStatus.noCharts) {
       return <NoDataSocialCard stateName={state.name} square={square} />
     }
-
-    // gets the width of the bar for the bar charts
-    const getWidthPercentage = (number, max) => (number / max) * 100
 
     const { groups, worstCasesValue, worstDeathsValue } = getGroups(state)
 
@@ -200,39 +239,14 @@ const StateRaceSocialCard = renderedComponent(
                         {nullValue}
                       </span>
                     ) : (
-                      <div className={socialCardStyle.barContainer}>
-                        <div className={socialCardStyle.deathBarSpacer} />
-                        <div
-                          className={classnames(
-                            socialCardStyle.bar,
-                            style,
-                            getWidthPercentage(deaths, worstDeathsValue) !==
-                              0 && socialCardStyle.hasInnerLabel,
-                          )}
-                          style={{
-                            width: `${getBarWidth(
-                              deaths,
-                              worstDeathsValue,
-                              square,
-                              stateStatus.oneChart,
-                            )}px`,
-                          }}
-                        >
-                          {getWidthPercentage(deaths, worstDeathsValue) >
-                            50 && (
-                            <BarContent
-                              value={deaths}
-                              showAsterisk={showAsterisk}
-                            />
-                          )}
-                        </div>
-                        {getWidthPercentage(deaths, worstDeathsValue) <= 50 && (
-                          <BarContent
-                            value={deaths}
-                            showAsterisk={showAsterisk}
-                          />
-                        )}
-                      </div>
+                      <ChartBar
+                        style={style}
+                        deaths={deaths}
+                        worstDeathsValue={worstDeathsValue}
+                        square={square}
+                        showAsterisk={showAsterisk}
+                        isOneChart={stateStatus.oneChart}
+                      />
                     )}
                   </>
                 )}
