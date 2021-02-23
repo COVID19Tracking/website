@@ -9,14 +9,10 @@ This renders the children with the StateNav sidebar on the right side.
 stateList: the list of states to be included in the StateNav.
 single: whether or not this wraps a single state. true means this wraps only one
 */
-const StateNavWrapper = ({
-  children,
-  title = 'Data by State',
-  single = false,
-}) => (
+const StateNavWrapper = ({ children, single = false }) => (
   <div className={stateNavWrapperStyle.headerContainer}>
     <div className={stateNavWrapperStyle.states}>
-      {!single && <h2 className={stateNavWrapperStyle.title}>{title}</h2>}
+      {!single && <h2 className={stateNavWrapperStyle.title}>Data by State</h2>}
       <div className={stateNavWrapperStyle.statesWrapper}>{children}</div>
     </div>
     <StateNav
