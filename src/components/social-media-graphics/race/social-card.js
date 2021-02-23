@@ -59,17 +59,25 @@ const getWidthPercentage = (number, max) => (number / max) * 100
 
 const ChartBar = ({
   style,
-  deaths,
-  worstDeathsValue,
+  metric,
+  worstMetricValue,
   square,
   isOneChart,
   showAsterisk,
+  isDeaths,
 }) => {
-  const widthPercentage = getWidthPercentage(deaths, worstDeathsValue)
+  const widthPercentage = getWidthPercentage(metric, worstMetricValue)
+
+  const BarContent = ({ value, asterisk = false }) => (
+    <span>
+      <FormatNumber number={value} />
+      {asterisk && '*'}
+    </span>
+  )
 
   return (
     <div className={socialCardStyle.barContainer}>
-      <div className={socialCardStyle.deathBarSpacer} />
+      {isDeaths && <div className={socialCardStyle.deathBarSpacer} />}
       <div
         className={classnames(
           socialCardStyle.bar,
@@ -78,19 +86,19 @@ const ChartBar = ({
         )}
         style={{
           width: `${getBarWidth(
-            deaths,
-            worstDeathsValue,
+            metric,
+            worstMetricValue,
             square,
             isOneChart,
           )}px`,
         }}
       >
         {widthPercentage > 50 && (
-          <BarContent value={deaths} showAsterisk={showAsterisk} />
+          <BarContent value={metric} asterisk={showAsterisk} />
         )}
       </div>
       {widthPercentage <= 50 && (
-        <BarContent value={deaths} showAsterisk={showAsterisk} />
+        <BarContent value={metric} asterisk={showAsterisk} />
       )}
     </div>
   )
@@ -199,31 +207,14 @@ const StateRaceSocialCard = renderedComponent(
                         {nullValue}
                       </span>
                     ) : (
-                      <div className={socialCardStyle.barContainer}>
-                        <div
-                          className={classnames(
-                            socialCardStyle.bar,
-                            style,
-                            getWidthPercentage(cases, worstCasesValue) !== 0 &&
-                              socialCardStyle.hasInnerLabel,
-                          )}
-                          style={{
-                            width: `${getBarWidth(
-                              cases,
-                              worstCasesValue,
-                              square,
-                              stateStatus.oneChart,
-                            )}px`,
-                          }}
-                        >
-                          {getWidthPercentage(cases, worstCasesValue) > 50 && (
-                            <BarContent value={cases} />
-                          )}
-                        </div>
-                        {getWidthPercentage(cases, worstCasesValue) <= 50 && (
-                          <BarContent value={cases} />
-                        )}
-                      </div>
+                      <ChartBar
+                        style={style}
+                        metric={cases}
+                        worstMetricValue={worstCasesValue}
+                        square={square}
+                        showAsterisk={showAsterisk}
+                        isOneChart={stateStatus.oneChart}
+                      />
                     )}
                   </>
                 )}
@@ -241,11 +232,12 @@ const StateRaceSocialCard = renderedComponent(
                     ) : (
                       <ChartBar
                         style={style}
-                        deaths={deaths}
-                        worstDeathsValue={worstDeathsValue}
+                        metric={deaths}
+                        worstMetricValue={worstDeathsValue}
                         square={square}
                         showAsterisk={showAsterisk}
                         isOneChart={stateStatus.oneChart}
+                        isDeaths
                       />
                     )}
                   </>
@@ -272,13 +264,6 @@ const StateRaceSocialCard = renderedComponent(
       </div>
     )
   },
-)
-
-const BarContent = ({ value, showAsterisk = false }) => (
-  <span>
-    <FormatNumber number={value} />
-    {showAsterisk && '*'}
-  </span>
 )
 
 export default StateRaceSocialCard
