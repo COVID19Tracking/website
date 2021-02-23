@@ -54,9 +54,6 @@ const getFootnoteStatuses = (stateGroups, stateName) => {
   }
 }
 
-// gets the width of the bar for the bar charts
-const getWidthPercentage = (number, max) => (number / max) * 100
-
 const ChartBar = ({
   style,
   metric,
@@ -66,7 +63,8 @@ const ChartBar = ({
   showAsterisk = false,
   isDeaths,
 }) => {
-  const widthPercentage = getWidthPercentage(metric, worstMetricValue)
+  // gets the width of the bar for the bar charts
+  const widthPercentage = (metric / worstMetricValue) * 100
 
   const BarContent = ({ value, asterisk = false }) => (
     <span>
