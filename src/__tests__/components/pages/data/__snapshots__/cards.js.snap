@@ -1461,18 +1461,22 @@ exports[`Components : Pages : Data : Cards : Outcomes renders correctly 1`] = `
         <div
           className="title"
         >
-          Recovered
+          Hospital discharges
         </div>
         <div
           className="value"
         >
-          14
+          <span
+            className="notReported"
+          >
+            Not Reported
+          </span>
         </div>
         <div
           className="info"
         >
           <button
-            aria-label="Definition of Recovered"
+            aria-label="Definition of Hospital discharges"
             className="link"
             onClick={[Function]}
             type="button"
