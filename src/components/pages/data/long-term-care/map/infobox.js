@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len,no-underscore-dangle */
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Infobox from '~components/common/map/infobox'
@@ -9,7 +9,7 @@ const Item = ({ title, value }) => (
   </p>
 )
 
-const LtcInfobox = ({ layer, facility, x, y }) => {
+const LtcInfobox = ({ facility, x, y }) => {
   const data = useStaticQuery(graphql`
     {
       allCovidStateInfo {
@@ -30,7 +30,7 @@ const LtcInfobox = ({ layer, facility, x, y }) => {
     facility.outbreak_resident_deaths || facility.resident_deaths
   return (
     <Infobox x={x} y={y}>
-      {layer === 'cms-cases' ? (
+      {facility._layer === 'cms-facilities' ? (
         <>
           <h3>{facility.name}</h3>
           <Item

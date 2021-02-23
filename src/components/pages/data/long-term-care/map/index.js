@@ -29,7 +29,7 @@ const LTCFacilitiesMap = ({
   const [currentZoom, setCurrentZoom] = useState(0)
   const [highlighedMarker, setHighlightedMarker] = useState(false)
   const [mapLayer, setMapLayer] = useState('facilities')
-  const layers = ['facilities', 'cases', 'deaths' /* ,'cms-cases' */]
+  const layers = ['facilities', 'cases', 'deaths', 'cms-facilities']
 
   const mapNode = useRef(null)
   const mapRef = useRef(null)
@@ -46,7 +46,10 @@ const LTCFacilitiesMap = ({
       setActiveFacility(false)
       return
     }
-    setActiveFacility(features[0].properties)
+    setActiveFacility({
+      ...features[0].properties,
+      _layer: features[0].layer.id,
+    })
     setTooltip(event.point)
     if (show) {
       setRevealedFacility(true)
@@ -80,10 +83,11 @@ const LTCFacilitiesMap = ({
     setCurrentZoom(event.target.getZoom())
     setFacilities(
       features.sort((a, b) => {
-        if (mapLayer === 'cms-cases') {
-          return a.properties.name > b.properties.name ? 1 : -1
-        }
-        return a.properties.facility_name > b.properties.facility_name ? 1 : -1
+        const aName =
+          typeof a.properties.name !== 'undefined' ? 'name' : 'facility_name'
+        const bName =
+          typeof a.properties.name !== 'undefined' ? 'name' : 'facility_name'
+        return a.properties[aName] > b.properties[bName] ? 1 : -1
       }),
     )
   }
@@ -134,6 +138,7 @@ const LTCFacilitiesMap = ({
           }),
         )
       }
+      map.setLayoutProperty('cms-facilities', 'visibility', 'visible')
 
       if (window.location.hash && hash.length > 2) {
         const hashes = []
@@ -196,6 +201,11 @@ const LTCFacilitiesMap = ({
         layer === mapLayer ? 'visible' : 'none',
       )
     })
+    mapRef.current.setLayoutProperty(
+      'cms-facilities',
+      'visibility',
+      mapLayer === 'facilities' ? 'visible' : 'none',
+    )
     mapRef.current.setLayoutProperty(
       'states-outbreak-only-cases',
       'visibility',
@@ -272,7 +282,7 @@ const LTCFacilitiesMap = ({
                               setRevealedFacility(true)
                             }}
                           >
-                            {mapLayer === 'cms-cases'
+                            {facility.layer.id === 'cms-facilities'
                               ? facility.properties.name
                               : facility.properties.facility_name}
                           </button>
@@ -306,12 +316,7 @@ const LTCFacilitiesMap = ({
           )}
 
           {activeFacility && (
-            <Infobox
-              layer={mapLayer}
-              facility={activeFacility}
-              x={tooltip.x}
-              y={tooltip.y}
-            />
+            <Infobox facility={activeFacility} x={tooltip.x} y={tooltip.y} />
           )}
           <div
             ref={mapNode}

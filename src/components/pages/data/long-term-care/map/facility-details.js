@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import facilityDetailsStyle from './facility-details.module.scss'
@@ -94,7 +95,7 @@ const fields = {
   ],
 }
 
-const FacilityDetails = ({ facility, layer }) => {
+const FacilityDetails = ({ facility }) => {
   const data = useStaticQuery(graphql`
     {
       allCovidStateInfo {
@@ -112,13 +113,13 @@ const FacilityDetails = ({ facility, layer }) => {
   return (
     <>
       <h2>
-        {layer === 'cms-cases' ? (
+        {facility._layer === 'cms-facilities' ? (
           <>{facility.name}</>
         ) : (
           <>{facility.facility_name}</>
         )}
       </h2>
-      {layer === 'cms-cases' ? (
+      {facility._layer === 'cms-facilities' ? (
         <>
           <p>
             {facility.city}, {states[facility.state]}
@@ -136,7 +137,7 @@ const FacilityDetails = ({ facility, layer }) => {
       )}
 
       <dl className={facilityDetailsStyle.details}>
-        {fields[layer === 'cms-cases' ? 'cms' : 'ltc'].map(
+        {fields[facility._layer === 'cms-facilities' ? 'cms' : 'ltc'].map(
           ({ title, field }) => (
             <div key={field}>
               <dt>{title}</dt>
