@@ -8,6 +8,48 @@ import StateCombined from './state-combined'
 
 import statesStyle from './states.module.scss'
 
+const generateStates = (
+  separateStates,
+  combinedStates,
+  separateTestHosp,
+  combinedTestHosp,
+) => {
+  const states = []
+
+  separateStates.forEach(state => {
+    let testHospData
+    separateTestHosp.every(testHospState => {
+      if (testHospState.name === state.name) {
+        testHospData = testHospState
+        return false
+      }
+      return true
+    })
+    states.push({
+      ...state,
+      ...testHospData,
+      stateSeparate: true,
+    })
+  })
+
+  combinedStates.forEach(state => {
+    let testHospData
+    combinedTestHosp.every(testHospState => {
+      if (testHospState.name === state.name) {
+        testHospData = testHospState
+        return false
+      }
+      return true
+    })
+    states.push({
+      ...state,
+      ...testHospData,
+      stateSeparate: false,
+    })
+  })
+  return states
+}
+
 const CrdtDashboardStates = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -419,37 +461,12 @@ const CrdtDashboardStates = () => {
     }
   `)
 
-  const states = []
-  data.allCovidRaceDataSeparate.nodes.forEach(state => {
-    let testHospData
-    data.allCovidRaceHospTestDataSeparate.nodes.every(testHospState => {
-      if (testHospState.name === state.name) {
-        testHospData = testHospState
-        return false
-      }
-      return true
-    })
-    states.push({
-      ...state,
-      ...testHospData,
-      stateSeparate: true,
-    })
-  })
-  data.allCovidRaceDataCombined.nodes.forEach(state => {
-    let testHospData
-    data.allCovidRaceHospTestDataCombined.nodes.every(testHospState => {
-      if (testHospState.name === state.name) {
-        testHospData = testHospState
-        return false
-      }
-      return true
-    })
-    states.push({
-      ...state,
-      ...testHospData,
-      stateSeparate: false,
-    })
-  })
+  const states = generateStates(
+    data.allCovidRaceDataSeparate.nodes,
+    data.allCovidRaceDataCombined.nodes,
+    data.allCovidRaceHospTestDataSeparate.nodes,
+    data.allCovidRaceHospTestDataCombined.nodes,
+  )
 
   const getStateSlug = abbreviation => {
     let slug
