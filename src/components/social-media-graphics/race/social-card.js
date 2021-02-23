@@ -63,7 +63,7 @@ const ChartBar = ({
   worstMetricValue,
   square,
   isOneChart,
-  showAsterisk,
+  showAsterisk = false,
   isDeaths,
 }) => {
   const widthPercentage = getWidthPercentage(metric, worstMetricValue)
@@ -104,6 +104,75 @@ const ChartBar = ({
   )
 }
 
+const ChartRow = ({
+  group,
+  stateStatus,
+  worstCasesValue,
+  worstDeathsValue,
+  square,
+}) => {
+  const { label, style, cases, deaths, showAsterisk, showCross } = group
+
+  const BarLabel = ({ barLabel, cross }) => (
+    <span className={socialCardStyle.barLabel}>
+      {barLabel}
+      {cross && '†'}
+    </span>
+  )
+
+  const InsufficientDataPlaceholder = ({ isDeaths }) => {
+    const nullValue = 'No data reported' // the value to show for the empty state
+    return (
+      <span
+        className={classnames(
+          socialCardStyle.insufficientData,
+          isDeaths && socialCardStyle.insufficientDataDeaths,
+        )}
+      >
+        {nullValue}
+      </span>
+    )
+  }
+
+  return (
+    <>
+      <BarLabel barLabel={label} cross={showCross} />
+      {!stateStatus.deathsOnly && (
+        <>
+          {cases === null ? (
+            <InsufficientDataPlaceholder />
+          ) : (
+            <ChartBar
+              style={style}
+              metric={cases}
+              worstMetricValue={worstCasesValue}
+              square={square}
+              isOneChart={stateStatus.oneChart}
+            />
+          )}
+        </>
+      )}
+      {!stateStatus.casesOnly && (
+        <>
+          {deaths === null ? (
+            <InsufficientDataPlaceholder isDeaths />
+          ) : (
+            <ChartBar
+              style={style}
+              metric={deaths}
+              worstMetricValue={worstDeathsValue}
+              square={square}
+              showAsterisk={showAsterisk}
+              isOneChart={stateStatus.oneChart}
+              isDeaths
+            />
+          )}
+        </>
+      )}
+    </>
+  )
+}
+
 const StateRaceSocialCard = renderedComponent(
   ({
     state,
@@ -140,8 +209,6 @@ const StateRaceSocialCard = renderedComponent(
       })
     }
 
-    const nullValue = 'No data reported' // the value to show for the empty state
-
     const { showSmallNFootnote, asteriskFootnote } = getFootnoteStatuses(
       groups,
       state.name,
@@ -168,6 +235,7 @@ const StateRaceSocialCard = renderedComponent(
             stateStatus.deathsOnly && socialCardStyle.deathsOnly,
           )}
         >
+          {/* Spacers for CSS Grid */}
           <span />
           <span />
           <span />
@@ -193,58 +261,14 @@ const StateRaceSocialCard = renderedComponent(
               Deaths per 100,000 people
             </span>
           )}
-          {groups.map(
-            ({ label, style, cases, deaths, showAsterisk, showCross }) => (
-              <>
-                <span className={socialCardStyle.barLabel}>
-                  {label}
-                  {showCross && '†'}
-                </span>
-                {!stateStatus.deathsOnly && (
-                  <>
-                    {cases === null ? (
-                      <span className={socialCardStyle.insufficientData}>
-                        {nullValue}
-                      </span>
-                    ) : (
-                      <ChartBar
-                        style={style}
-                        metric={cases}
-                        worstMetricValue={worstCasesValue}
-                        square={square}
-                        showAsterisk={showAsterisk}
-                        isOneChart={stateStatus.oneChart}
-                      />
-                    )}
-                  </>
-                )}
-                {!stateStatus.casesOnly && (
-                  <>
-                    {deaths === null ? (
-                      <span
-                        className={classnames(
-                          socialCardStyle.insufficientData,
-                          socialCardStyle.insufficientDataDeaths,
-                        )}
-                      >
-                        {nullValue}
-                      </span>
-                    ) : (
-                      <ChartBar
-                        style={style}
-                        metric={deaths}
-                        worstMetricValue={worstDeathsValue}
-                        square={square}
-                        showAsterisk={showAsterisk}
-                        isOneChart={stateStatus.oneChart}
-                        isDeaths
-                      />
-                    )}
-                  </>
-                )}
-              </>
-            ),
-          )}
+          {groups.map(group => (
+            <ChartRow
+              group={group}
+              worstCasesValue={worstCasesValue}
+              worstDeathsValue={worstDeathsValue}
+              square={square}
+            />
+          ))}
         </div>
 
         <div className={socialCardStyle.footer}>
