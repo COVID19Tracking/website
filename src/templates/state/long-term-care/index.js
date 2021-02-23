@@ -28,6 +28,7 @@ export default ({ pageContext, path, data }) => {
             stateSlug={state.childSlug.slug}
             stateName={state.name}
             overview={data.covidStateInfo.childLtc.current}
+            assessment={data.covidGradeStateAssessment.ltc}
             showFacilities
           />
           <LongTermCareBarChart data={data.aggregate.nodes} />
@@ -106,6 +107,9 @@ export const query = graphql`
         deathresstaff_alf
         data_type
       }
+    }
+    covidGradeStateAssessment(state: { eq: $state }) {
+      ltc
     }
     outbreak: allCovidLtcStates(
       sort: { fields: date, order: DESC }

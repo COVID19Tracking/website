@@ -4,12 +4,15 @@ import OverviewWrapper from '~components/common/overview-wrapper'
 import LongTermCareOverview from './overview'
 import downloadDataStyles from '../download-data.module.scss'
 import longTermCarePreambleStyle from './preamble.module.scss'
+import stateGradeStyle from '../state-grade.module.scss'
 import { FormatDate } from '~components/utils/format'
+import { icons, adjectives } from '../state-grade'
 
 const LongTermCarePreamble = ({
   state,
   stateSlug,
   overview,
+  assessment,
   showFacilities = false,
 }) => {
   let facilities = 0
@@ -50,6 +53,20 @@ const LongTermCarePreamble = ({
           )}
         </p>
       </div>
+      <p className={longTermCarePreambleStyle.grade}>
+        <img
+          src={icons[assessment]}
+          className={stateGradeStyle.icon}
+          alt=""
+          aria-hidden
+        />{' '}
+        <span>
+          <Link to={`/data/state/${stateSlug}/assessment#long-term-care`}>
+            {adjectives[assessment]} issues exist
+          </Link>{' '}
+          with this state&apos;s data
+        </span>
+      </p>
       <p>
         Do you have information about a long-term-care facility in this state?{' '}
         <Link to="/data/long-term-care/contact">

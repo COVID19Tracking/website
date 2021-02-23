@@ -1,6 +1,6 @@
 import React from 'react'
 import State from './state-data'
-import StateNavWrapper from './state-nav-wrapper'
+import StateNavWrapper from '~components/common/state-nav-wrapper'
 import statesStyles from './states.module.scss'
 
 const States = ({
