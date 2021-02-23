@@ -109,15 +109,15 @@ const ApiExplorer2 = () => {
           {
             title: 'Historic US values',
             description: 'All COVID data for the US.',
-            path: '/v2beta/us/daily.json',
+            path: '/v2/us/daily.json',
           },
           {
             title: 'Single day of data',
             description: 'One day of data for the US.',
-            path: '/v2beta/us/daily/[date-iso-format].json',
-            sample: '/v2beta/us/daily/2021-01-02.json',
-            simplePath: '/v2beta/us/daily/[date-iso-format]/simple.json',
-            simpleSample: '/v2beta/us/daily/2021-01-02/simple.json',
+            path: '/v2/us/daily/[date-iso-format].json',
+            sample: '/v2/us/daily/2021-01-02.json',
+            simplePath: '/v2/us/daily/[date-iso-format]/simple.json',
+            simpleSample: '/v2/us/daily/2021-01-02/simple.json',
           },
         ]}
       />
@@ -128,31 +128,30 @@ const ApiExplorer2 = () => {
             title: 'All state metadata',
             description:
               'Basic information about all states, including notes about our methodology and the websites we use to check for data.',
-            path: '/v2beta/states.json',
+            path: '/v2/states.json',
           },
           {
             title: 'Single state metadata',
             description:
               'Basic information about all states, including notes about our methodology and the websites we use to check for data.',
-            path: '/v2beta/states/[state-code].json',
-            sample: '/v2beta/states/mi.json',
+            path: '/v2/states/[state-code].json',
+            sample: '/v2/states/mi.json',
           },
           {
             title: 'Historic data for a state or territory',
             description: 'All historic data for a single state',
-            path: '/v2beta/states/[state-code]/daily.json',
-            sample: '/v2beta/states/ca/daily.json',
-            simplePath: '/v2beta/states/[state-code]/daily/simple.json',
-            simpleSample: '/v2beta/states/ca/daily/simple.json',
+            path: '/v2/states/[state-code]/daily.json',
+            sample: '/v2/states/ca/daily.json',
+            simplePath: '/v2/states/[state-code]/daily/simple.json',
+            simpleSample: '/v2/states/ca/daily/simple.json',
           },
           {
             title: 'Single day of data for a state or territory',
             description: 'Returns data for a single day.',
-            path: '/v2beta/states/[state-code]/[date-iso-format].json',
-            sample: '/v2beta/states/ca/2021-01-10.json',
-            simplePath:
-              '/v2beta/states/[state-code]/[date-iso-format]/simple.json',
-            simpleSample: '/v2beta/states/ca/2021-01-10/simple.json',
+            path: '/v2/states/[state-code]/[date-iso-format].json',
+            sample: '/v2/states/ca/2021-01-10.json',
+            simplePath: '/v2/states/[state-code]/[date-iso-format]/simple.json',
+            simpleSample: '/v2/states/ca/2021-01-10/simple.json',
           },
         ]}
       />
