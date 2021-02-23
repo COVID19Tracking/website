@@ -480,13 +480,6 @@ const CrdtDashboardStates = () => {
     return slug
   }
 
-  /*
-  These are hardcoded territories that should not have social cards generated.
-  They will not have the CTA for viewing the race data graphically, and will
-  also not appear on the dropdown for the CRDT share images page.
-  */
-  const territoriesWithoutGraphics = ['AS', 'MP', 'VI']
-
   return (
     <section>
       {states
@@ -499,15 +492,10 @@ const CrdtDashboardStates = () => {
             >
               {state.name}
             </h2>
-            {!territoriesWithoutGraphics.includes(state.state) && (
-              <>
-                <DashboardSmallCards
-                  stateAbbreviation={state.state}
-                  stateSlug={getStateSlug(state.state)}
-                  // todo set the slug
-                />
-              </>
-            )}
+            <DashboardSmallCards
+              stateAbbreviation={state.state}
+              stateSlug={getStateSlug(state.state)}
+            />
             <div>
               {state.stateSeparate ? (
                 <StateSeparate state={state} />
