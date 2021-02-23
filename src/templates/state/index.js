@@ -162,7 +162,7 @@ export const query = graphql`
       hospitalizedCumulative
       inIcuCurrently
       inIcuCumulative
-      recovered
+      hospitalizedDischarged
       onVentilatorCurrently
       onVentilatorCumulative
       death
