@@ -2,8 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 
-import StateNav from '~components/pages/race/dashboard/state-nav'
 import LongContent from '~components/common/long-content'
+import StateNavWrapper from '~components/common/state-nav-wrapper'
 
 import States from '~components/pages/race/dashboard/states'
 import UsOverview from '~components/pages/race/dashboard/us-overview'
@@ -36,11 +36,12 @@ const RaceDashboardPage = ({ data }) => {
           statesDeathsCount={data.covidRaceDataHomepage.statesReportingDeaths}
         />
       </LongContent>
-      <StateNav
-        title="Race and ethnicity data by state"
-        stateList={stateList.sort((a, b) => (a.name < b.name ? -1 : 1))}
-      />
-      <States />
+      <StateNavWrapper
+        title="Race and Ethnicity Data by State"
+        stateList={stateList}
+      >
+        <States />
+      </StateNavWrapper>
     </Layout>
   )
 }
