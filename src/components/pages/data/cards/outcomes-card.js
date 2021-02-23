@@ -12,16 +12,10 @@ const OutcomesCard = ({
   death,
   deathConfirmed,
   deathProbable,
-  recovered,
   hospitalizedDischarged,
-  recoveredMetricName = 'Recovered',
   national,
 }) => {
   const fields = []
-
-  if (recovered && recoveredMetricName === 'Recovered') {
-    fields.push('recovered')
-  }
 
   fields.push('death')
 
@@ -54,14 +48,14 @@ const OutcomesCard = ({
       }
     >
       <CardBody>
-        {!national && recovered && (
-          <Statistic title={recoveredMetricName} value={recovered}>
+        {!national && (
+          <Statistic title="Hospital discharges" value={hospitalizedDischarged}>
             <DefinitionLink
-              label={recoveredMetricName}
+              label="Hospital discharges"
               onDefinitionsToggle={() => {
                 definitionContext({
                   fields,
-                  highlight: 'recovered',
+                  highlight: 'hospitalizedDischarged',
                 })
               }}
             />
@@ -111,19 +105,6 @@ const OutcomesCard = ({
                 definitionContext({
                   fields,
                   highlight: 'deathConfirmed',
-                })
-              }}
-            />
-          </Statistic>
-        )}
-        {!national && (
-          <Statistic title="Hospital discharges" value={hospitalizedDischarged}>
-            <DefinitionLink
-              label="Hospital discharges"
-              onDefinitionsToggle={() => {
-                definitionContext({
-                  fields,
-                  highlight: 'hospitalizedDischarged',
                 })
               }}
             />
