@@ -2,28 +2,27 @@ import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 import { Card, CardNote, CardBody } from '~components/common/card'
 import { Statistic, DefinitionLink } from '~components/common/statistic'
-import { AnnotationPanelContext, AnnotationButton } from './definitions-panel'
+import { AnnotationPanelContext } from './definitions-panel'
 import LastUpdatedLabel from './last-updated-label'
 
 const TestsHHSViralcard = ({ hhsTesting, notes }) => {
   const annotationContext = useContext(AnnotationPanelContext)
+  console.log(notes)
   return (
     <Card title="Viral (PCR) tests (HHS data)">
       <CardBody>
         <Statistic title="Total tests" value={hhsTesting.total} />
         <Statistic title="Positive tests" value={hhsTesting.positive} />
         {notes.notes && (
-          <AnnotationButton field="Total Tests (PCR)">
-            <DefinitionLink
-              onDefinitionsToggle={() => {
-                annotationContext.setCardAnnotations({
-                  fields: ['Viral (PCR) tests (HHS data)'],
-                  highlight: 'Viral (PCR) tests (HHS data)',
-                })
-              }}
-              title="Warning"
-            />
-          </AnnotationButton>
+          <DefinitionLink
+            onDefinitionsToggle={() => {
+              annotationContext.setCardAnnotations({
+                fields: ['Viral (PCR) tests (HHS data)'],
+                highlight: 'Viral (PCR) tests (HHS data)',
+              })
+            }}
+            title="Warning"
+          />
         )}
         {notes.sourceNotes && (
           <CardNote>
