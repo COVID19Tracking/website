@@ -7,7 +7,6 @@ import LastUpdatedLabel from './last-updated-label'
 
 const TestsHHSViralcard = ({ hhsTesting, notes }) => {
   const annotationContext = useContext(AnnotationPanelContext)
-  console.log(notes)
   return (
     <Card title="Viral (PCR) tests (HHS data)">
       <CardBody>
