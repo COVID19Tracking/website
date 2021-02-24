@@ -73,6 +73,7 @@ const StateSummary = ({
   const {
     allContentfulDataDefinition,
     nationalSummaryFootnote,
+    hhsTestingConfig,
   } = useStaticQuery(graphql`
     {
       allContentfulDataDefinition {
@@ -94,6 +95,10 @@ const StateSummary = ({
             html
           }
         }
+      }
+
+      hhsTestingConfig(description: { eq: "Community Profile Report" }) {
+        file
       }
     }
   `)
@@ -241,7 +246,15 @@ const StateSummary = ({
   ) {
     annotations.push({
       field: 'Viral (PCR) tests (HHS data)',
-      warning: hhsTestingNotes.notes,
+      warning: (
+        <>
+          <p>{hhsTestingNotes.notes}</p>
+          <p>
+            Sourced from the{' '}
+            <a href={hhsTestingConfig.file}>Community Profile Report</a>.
+          </p>
+        </>
+      ),
     })
   }
 
