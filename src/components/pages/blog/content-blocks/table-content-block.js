@@ -69,7 +69,9 @@ const TableContentBlock = ({ table, caption }) => {
         </tbody>
       </table>
       {caption && (
-        <ImageCredit className={tableStyle.caption}>{caption}</ImageCredit>
+        <ImageCredit className={tableStyle.caption}>
+          <div dangerouslySetInnerHTML={{ __html: marked(caption) }} />
+        </ImageCredit>
       )}
     </>
   )
