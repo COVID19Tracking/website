@@ -24,6 +24,7 @@ const Layout = ({
   socialCard,
   hero,
   centerTitle,
+  flipColors = false,
   showWarning = false,
   noContainer = false,
   forceSubNavigationKey = false,
@@ -55,6 +56,7 @@ const Layout = ({
         centerTitle={centerTitle}
         showWarning={showWarning}
         forceSubNavigationKey={forceSubNavigationKey}
+        flipColors={flipColors}
       />
       <main id="main">
         <SkipNavContent />
@@ -64,7 +66,7 @@ const Layout = ({
           <Container centered={centered}>{children}</Container>
         )}
       </main>
-      <Footer />
+      <Footer flipColors={flipColors} />
     </>
   )
 }

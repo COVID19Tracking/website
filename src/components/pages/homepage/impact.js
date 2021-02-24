@@ -1,20 +1,26 @@
 import React from 'react'
-import { Parallax } from 'react-scroll-parallax'
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
+import impactStyle from './impact.module.scss'
 
 const HomepageImpact = () => {
+  const people = [1, 2, 3]
   return (
-    <div>
-      <Parallax y={[-20, 20]}>
-        <div>A box</div>
-      </Parallax>
-
-      <Parallax y={[-40, 20]}>
-        <div>A box</div>
-      </Parallax>
-      <Parallax y={[-40, 40]}>
-        <div>A box</div>
-      </Parallax>
-    </div>
+    <ParallaxProvider>
+      <div className={impactStyle.root}>
+        {people.map(person => (
+          <Parallax
+            key={person}
+            y={[-1 * Math.random() * 100, Math.random() * 100]}
+          >
+            <img
+              className={impactStyle.image}
+              alt={`person-${person}`}
+              src="http://placeimg.com/140/200/animals/grayscale"
+            />
+          </Parallax>
+        ))}
+      </div>
+    </ParallaxProvider>
   )
 }
 
