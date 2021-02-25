@@ -11,7 +11,6 @@ const TestsHHSViralcard = ({ hhsTesting, notes }) => {
     <Card title="Viral (PCR) tests (HHS data)">
       <CardBody>
         <Statistic title="Total tests" value={hhsTesting.total} />
-        {/* <Statistic title="Positive tests" value={hhsTesting.positive} /> */}
         {notes.notes && (
           <DefinitionLink
             onDefinitionsToggle={() => {
