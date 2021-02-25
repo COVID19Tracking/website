@@ -176,6 +176,7 @@ export const query = graphql`
             table {
               table
             }
+            caption
           }
           ... on ContentfulContentBlockRelatedPosts {
             id

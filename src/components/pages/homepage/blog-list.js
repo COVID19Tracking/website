@@ -8,7 +8,7 @@ const BlogFeatured = () => {
   const data = useStaticQuery(graphql`
     {
       allContentfulBlogPost(
-        limit: 3
+        limit: 5
         sort: { fields: publishDate, order: DESC }
       ) {
         nodes {
@@ -43,7 +43,7 @@ const BlogFeatured = () => {
       return node
     })
     .filter(item => item)
-    .slice(0, 2)
+    .slice(0, 4)
   return (
     <>
       <Row>

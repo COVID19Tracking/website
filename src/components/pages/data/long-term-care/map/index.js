@@ -18,6 +18,7 @@ const LTCFacilitiesMap = ({
   state = false,
   removeSidebar = false,
   button = false,
+  listFacilities = false,
 }) => {
   mapboxgl.accessToken = process.env.GATSBY_MAPBOX_API_TOKEN
   const [activeFacility, setActiveFacility] = useState(false)
@@ -127,6 +128,11 @@ const LTCFacilitiesMap = ({
         layers.forEach(layer => {
           map.setFilter(layer, ['==', ['get', 'state'], state])
         })
+        listFacilities(
+          map.queryRenderedFeatures({
+            layers,
+          }),
+        )
       }
 
       if (window.location.hash && hash.length > 2) {

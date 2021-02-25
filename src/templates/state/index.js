@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '~components/layout'
-import StateNavWrapper from '~components/pages/data/state-nav-wrapper'
+import StateNavWrapper from '~components/common/state-nav-wrapper'
 import StatePreamble from '~components/pages/state/preamble'
 import SummaryCharts from '~components/pages/data/summary-charts'
 import StateSummary from '~components/pages/data/summary'
@@ -174,7 +174,7 @@ export const query = graphql`
       hospitalizedCumulative
       inIcuCurrently
       inIcuCumulative
-      recovered
+      hospitalizedDischarged
       onVentilatorCurrently
       onVentilatorCumulative
       death

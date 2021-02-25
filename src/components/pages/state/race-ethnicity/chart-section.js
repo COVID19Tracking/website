@@ -19,8 +19,8 @@ const ChartSection = ({
     Black: 'Black or African American',
     LatinX: 'Hispanic or Latino',
     Asian: 'Asian',
-    AIAN: 'American Indian and Alaskan Native',
-    NHPI: 'Native Hawaiian and Other Pacific Islander',
+    AIAN: 'American Indian or Alaska Native',
+    NHPI: 'Native Hawaiian or Other Pacific Islander',
     Ethnicity_Hispanic: 'Hispanic or Latino',
     Ethnicity_NonHispanic: 'Not Hispanic or Latino',
   }
