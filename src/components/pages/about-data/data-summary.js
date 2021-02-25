@@ -3,8 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import summaryStyle from './data-summary.module.scss'
 
 const categoryOrder = [
-  'testing-outcomes-data',
-  'long-term-care-datasets',
+  'testing-outcomes',
+  'long-term-care',
   'vaccine-metadata',
   'city-data',
   'miscellaneous-repositories',
