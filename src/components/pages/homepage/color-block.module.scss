@@ -1,7 +1,7 @@
 .wrapper {
-  background: $color-plum-700;
+  background: $color-plum-100;
   @include padding(64, top bottom);
-  color: white;
+  color: $color-plum-700;
   &.blue {
     background-color: $color-plum-700;
   }
@@ -12,7 +12,7 @@
     @include margin(80, top);
   }
   a {
-    color: white;
+    color: $color-plum-700;
   }
   ul {
     list-style-type: none;
@@ -31,7 +31,7 @@
 }
 
 .links {
-  border-top: 1px solid white;
+  border-top: 1px solid $color-plum-700;
   @include type-size(300);
   @include padding(16, top);
 }
