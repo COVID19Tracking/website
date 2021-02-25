@@ -1,6 +1,7 @@
 .wrapper {
   background: $color-plum-100;
   @include padding(64, top bottom);
+  @include margin(64, top);
   color: $color-plum-700;
   &.blue {
     background-color: $color-plum-700;

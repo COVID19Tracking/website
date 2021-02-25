@@ -1,12 +1,29 @@
 .root {
   display: flex;
   flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
 }
 
 .container {
   position: relative;
   width: 25em;
+}
+
+.image {
+  width: 25%;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media (min-width: $viewport-md) {
+    width: 10%;
+  }
+  &::after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }
+  img {
+    width: 140px;
+  }
 }
