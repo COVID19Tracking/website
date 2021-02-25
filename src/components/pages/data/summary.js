@@ -13,6 +13,7 @@ import CasesCard from './cards/cases-card'
 import HospitalizationCard from './cards/hospitalization-card'
 import OutcomesCard from './cards/outcomes-card'
 import TestsAntibodyCard from './cards/tests-antibody'
+import TestsHHSViralcard from './cards/hhs-tests-viral'
 import TestsAntigenCard from './cards/tests-antigen'
 import TestsViralCard from './cards/tests-viral'
 import NationalTestsCard from './cards/tests-national'
@@ -54,6 +55,8 @@ const StateSummary = ({
   raceData,
   hhsHospitalization,
   ltcFedVaccinations,
+  hhsTesting,
+  hhsTestingNotes,
   annotations = false,
   national = false,
 }) => {
@@ -70,6 +73,7 @@ const StateSummary = ({
   const {
     allContentfulDataDefinition,
     nationalSummaryFootnote,
+    hhsTestingConfig,
   } = useStaticQuery(graphql`
     {
       allContentfulDataDefinition {
@@ -91,6 +95,10 @@ const StateSummary = ({
             html
           }
         }
+      }
+
+      hhsTestingConfig(description: { eq: "Community Profile Report" }) {
+        file
       }
     }
   `)
@@ -176,6 +184,26 @@ const StateSummary = ({
 
   if (annotations !== false) {
     addMetricTextDefinitions(definitions, annotations)
+  }
+  if (
+    hhsTestingNotes &&
+    hhsTestingNotes.notes &&
+    !annotations.find(
+      annotation => annotation.field === 'Viral (PCR) tests (HHS data)',
+    )
+  ) {
+    annotations.push({
+      field: 'Viral (PCR) tests (HHS data)',
+      warning: (
+        <>
+          <p>{hhsTestingNotes.notes}</p>
+          <p>
+            Sourced from the{' '}
+            <a href={hhsTestingConfig.file}>Community Profile Report</a>.
+          </p>
+        </>
+      ),
+    })
   }
 
   return (
@@ -272,6 +300,14 @@ const StateSummary = ({
                   unknownUnits={metadata && metadata.testUnitsUnknown}
                   annotations={annotations}
                 />
+                {hhsTesting && (
+                  <TestsHHSViralcard
+                    stateSlug={stateSlug}
+                    stateName={stateName}
+                    hhsTesting={hhsTesting}
+                    notes={hhsTestingNotes}
+                  />
+                )}
                 <TestsAntigenCard
                   stateSlug={stateSlug}
                   stateName={stateName}
