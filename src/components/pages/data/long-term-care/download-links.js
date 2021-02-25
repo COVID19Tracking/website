@@ -57,6 +57,7 @@ const DataLongTermCareLinks = () => (
         </p>
       </Col>
       <Col width={[4, 6, 4]} paddingLeft={[0, 0, 16]}>
+        <div id="state-navigation" />
         <StateNavigation
           defaultIsOpen
           linkAs={({ state }) => (
