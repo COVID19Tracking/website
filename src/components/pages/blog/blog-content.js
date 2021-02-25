@@ -53,7 +53,12 @@ const BlogContent = ({ content }) => {
           )
         }
         if (__typename === 'ContentfulContentBlockTable') {
-          return <TableContentBlock table={target.table.table} />
+          return (
+            <TableContentBlock
+              table={target.table.table}
+              caption={target.caption}
+            />
+          )
         }
         if (__typename === 'ContentfulContentBlockRelatedPosts') {
           const { headline, subtitle, relatedPosts } = target

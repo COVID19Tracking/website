@@ -12,6 +12,9 @@
     margin-bottom: 0;
     li {
       @include margin(16, bottom);
+      &.sub-item {
+        @include margin(32, left);
+      }
       &:last-child {
         margin-bottom: 0;
       }

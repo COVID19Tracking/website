@@ -8,8 +8,8 @@ describe('Components : Common: Table of Contents', () => {
       .create(
         <TableOfContents
           headings={[
-            { id: 'a', value: 'A' },
-            { id: 'b', value: 'B' },
+            { id: 'a', value: 'A', depth: 1 },
+            { id: 'b', value: 'B', depth: 2 },
           ]}
         />,
       )

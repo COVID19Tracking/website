@@ -12,15 +12,10 @@ const OutcomesCard = ({
   death,
   deathConfirmed,
   deathProbable,
-  recovered,
-  recoveredMetricName = 'Recovered',
+  hospitalizedDischarged,
   national,
 }) => {
   const fields = []
-
-  if (recovered && recoveredMetricName === 'Recovered') {
-    fields.push('recovered')
-  }
 
   fields.push('death')
 
@@ -30,6 +25,7 @@ const OutcomesCard = ({
   if (deathConfirmed) {
     fields.push('deathConfirmed')
   }
+  fields.push('hospitalizedDischarged')
 
   const definitionContext = useContext(DefinitionPanelContext)
 
@@ -52,14 +48,14 @@ const OutcomesCard = ({
       }
     >
       <CardBody>
-        {!national && recovered && (
-          <Statistic title={recoveredMetricName} value={recovered}>
+        {!national && (
+          <Statistic title="Hospital discharges" value={hospitalizedDischarged}>
             <DefinitionLink
-              label={recoveredMetricName}
+              label="Hospital discharges"
               onDefinitionsToggle={() => {
                 definitionContext({
                   fields,
-                  highlight: 'recovered',
+                  highlight: 'hospitalizedDischarged',
                 })
               }}
             />
