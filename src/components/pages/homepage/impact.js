@@ -6,7 +6,7 @@ import Container from '~components/common/container'
 import impactStyle from './impact.module.scss'
 
 const HomepageImpact = () => {
-  const [selected, setSelected] = useState(false)
+  const [selected, setSelected] = useState(7)
   const [infoBoxPosition, setInfoBoxPosition] = useState({ top: 0, left: 0 })
   const selectedRef = useRef()
   const wrapperRef = useRef()
@@ -54,13 +54,16 @@ const HomepageImpact = () => {
   }, [])
 
   useEffect(() => {
-    if (!selected) {
+    if (!selected || typeof window === 'undefined') {
       return
     }
     const position = selectedRef.current.getBoundingClientRect()
     const wrapperPosition = wrapperRef.current.getBoundingClientRect()
+    const isRight = position.left - wrapperPosition.left > window.innerWidth / 2
+    console.log(isRight)
     setInfoBoxPosition({
-      left: position.left - wrapperPosition.left,
+      left:
+        position.left - wrapperPosition.left - (isRight ? position.width : 0),
       top: position.top - wrapperPosition.top + position.height,
     })
   }, [selected])
@@ -103,7 +106,13 @@ const HomepageImpact = () => {
               }}
             />
             {selected === index && (
-              <span className={impactStyle.info} style={infoBoxPosition}>
+              <span
+                className={classnames(
+                  impactStyle.info,
+                  infoBoxPosition.isRight && impactStyle.isRight,
+                )}
+                style={{ top: infoBoxPosition.top, left: infoBoxPosition.left }}
+              >
                 <h5>{person.data.Name}</h5>
                 {person.data.Team_s_ && (
                   <ul>

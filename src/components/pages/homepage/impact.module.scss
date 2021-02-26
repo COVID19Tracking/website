@@ -52,6 +52,22 @@
   position: absolute;
   @include padding(16);
   z-index: 10;
+  width: 50%;
+  @media (min-width: $viewport-md) {
+    width: 40%;
+  }
+  @media (min-width: $viewport-lg) {
+    width: 20%;
+  }
+  &.is-right {
+    margin-right: 50%;
+    @media (min-width: $viewport-md) {
+      margin-right: 20%;
+    }
+    @media (min-width: $viewport-lg) {
+      margin-right: 10%;
+    }
+  }
   h5 {
     margin: 0;
   }
