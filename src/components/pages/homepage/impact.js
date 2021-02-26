@@ -28,12 +28,6 @@ const HomepageImpact = () => {
             Email
             Image {
               localFiles {
-                greyscale: childImageSharp {
-                  fixed(width: 400, grayscale: true) {
-                    src
-                    srcSet
-                  }
-                }
                 color: childImageSharp {
                   fixed(width: 400) {
                     src
@@ -66,7 +60,7 @@ const HomepageImpact = () => {
     const position = selectedRef.current.getBoundingClientRect()
     const wrapperPosition = wrapperRef.current.getBoundingClientRect()
     setInfoBoxPosition({
-      left: position.left - wrapperPosition.left + position.height,
+      left: position.left - wrapperPosition.left,
       top: position.top - wrapperPosition.top + position.height,
     })
   }, [selected])
@@ -105,11 +99,7 @@ const HomepageImpact = () => {
               }}
               style={{
                 order: index + 1,
-                backgroundImage: `url(${
-                  person.data.Image.localFiles[0][
-                    selected === index ? 'color' : 'greyscale'
-                  ].fixed.src
-                })`,
+                backgroundImage: `url(${person.data.Image.localFiles[0].color.fixed.src})`,
               }}
             />
             {selected === index && (

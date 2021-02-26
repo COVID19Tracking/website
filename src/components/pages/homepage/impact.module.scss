@@ -82,6 +82,7 @@
   display: inline-block;
   background-repeat: no-repeat;
   background-size: cover;
+  filter: grayscale(100%);
   @media (min-width: $viewport-md) {
     width: 20%;
   }
@@ -95,5 +96,8 @@
   }
   img {
     width: 140px;
+  }
+  &:hover {
+    filter: none;
   }
 }
