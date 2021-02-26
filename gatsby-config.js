@@ -306,6 +306,21 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-source-airtable',
+      options: {
+        apiKey: process.env.AIRTABLE_API_KEY,
+        concurrency: 5,
+        tables: [
+          {
+            baseId: 'appyfALJRKzjOi4b6',
+            tableName: 'Table 1',
+            tableView: 'Website export',
+            mapping: { Image: 'fileNode' },
+          },
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_data/hhs_hospitalization.json',

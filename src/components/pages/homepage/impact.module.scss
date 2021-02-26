@@ -1,11 +1,49 @@
 .root {
   display: flex;
+  position: relative;
   flex-flow: row wrap;
 }
 
 .container {
   position: relative;
   width: 25em;
+}
+
+.message {
+  background: $color-plum-700;
+  color: white;
+  @include padding(16);
+  width: 100%;
+  text-align: right;
+  order: 5;
+  @media (min-width: $viewport-md) {
+    width: 100%;
+    order: 6;
+  }
+  @media (min-width: $viewport-lg) {
+    order: 14;
+    width: 70%;
+  }
+  a {
+    color: white;
+  }
+  &.messageTwo {
+    @include padding(8, top);
+    text-align: left;
+    order: 6;
+    width: 75%;
+    @media (min-width: $viewport-md) {
+      width: 80%;
+      order: 7;
+    }
+    @media (min-width: $viewport-lg) {
+      order: 20;
+      width: 40%;
+    }
+    a {
+      color: white;
+    }
+  }
 }
 
 .image {
@@ -16,6 +54,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   @media (min-width: $viewport-md) {
+    width: 20%;
+  }
+  @media (min-width: $viewport-lg) {
     width: 10%;
   }
   &::after {
