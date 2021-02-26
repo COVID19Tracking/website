@@ -6,7 +6,7 @@ import Container from '~components/common/container'
 import impactStyle from './impact.module.scss'
 
 const HomepageImpact = () => {
-  const [selected, setSelected] = useState(7)
+  const [selected, setSelected] = useState(false)
   const [infoBoxPosition, setInfoBoxPosition] = useState({ top: 0, left: 0 })
   const selectedRef = useRef()
   const wrapperRef = useRef()
