@@ -147,6 +147,7 @@ const StateRaceSocialCard = renderedComponent(
               worstCasesValue={worstCasesValue}
               worstDeathsValue={worstDeathsValue}
               square={square}
+              stateStatus={stateStatus}
             />
           ))}
         </div>
