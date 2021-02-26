@@ -95,29 +95,27 @@ const generateBaseTableLabels = (
       }
     })
 
-    let labels
+    const labels = []
+
+    // Metrics in the same order as the dashboard.
+    const metricsInOrder = []
+
+    const pushMetricByContains = (listToSearch, listToPush, searchString) => {
+      /**
+       * Push metrics from one list to another only if their fieldTotal
+       * property contains a search string.
+       */
+      listToSearch.every(metric => {
+        if (metric.fieldTotal.includes(searchString)) {
+          listToPush.push(metric)
+          return false
+        }
+        return true
+      })
+    }
 
     if (raceOnly) {
       // Just looking at race data.
-
-      const pushMetricByContains = (listToSearch, listToPush, searchString) => {
-        /**
-         * Push metrics from one list to another only if their fieldTotal
-         * property contains a search string.
-         */
-        listToSearch.every(metric => {
-          if (metric.fieldTotal.includes(searchString)) {
-            listToPush.push(metric)
-            return false
-          }
-          return true
-        })
-      }
-
-      labels = []
-
-      // Metrics in the same order as the dashboard.
-      const metricsInOrder = []
 
       // _Black is the first element
       metricsInOrder.push('_Black')
@@ -162,7 +160,12 @@ const generateBaseTableLabels = (
     } else {
       // Just looking at ethnicity data.
 
-      labels = unsortedLabels // Don't need to sort for ethnicity.
+      // All other metrics, in order.
+      metricsInOrder.push('_Ethnicity_NonHispanic', '_Ethnicity_Hispanic')
+
+      metricsInOrder.forEach(metric => {
+        pushMetricByContains(unsortedLabels, labels, metric)
+      })
 
       // Prepend the totals column.
       labels.unshift({
