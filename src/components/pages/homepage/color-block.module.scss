@@ -6,12 +6,6 @@
   &.blue {
     background-color: $color-plum-700;
   }
-  &.bottom-margin {
-    @include margin(32, bottom);
-  }
-  &.top-margin {
-    @include margin(80, top);
-  }
   a {
     color: $color-plum-700;
   }

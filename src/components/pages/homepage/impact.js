@@ -60,7 +60,6 @@ const HomepageImpact = () => {
     const position = selectedRef.current.getBoundingClientRect()
     const wrapperPosition = wrapperRef.current.getBoundingClientRect()
     const isRight = position.left - wrapperPosition.left > window.innerWidth / 2
-    console.log(isRight)
     setInfoBoxPosition({
       left:
         position.left - wrapperPosition.left - (isRight ? position.width : 0),
