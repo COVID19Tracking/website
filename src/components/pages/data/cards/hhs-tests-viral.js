@@ -29,7 +29,7 @@ const TestsHHSViralcard = ({ hhsTesting, notes }) => {
         )}
         <CardNote>
           This data is{' '}
-          <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-state">
+          <a href="https://healthdata.gov/dataset/covid-19-diagnostic-laboratory-testing-pcr-testing-time-series">
             published by HHS
           </a>
           . It{' '}
