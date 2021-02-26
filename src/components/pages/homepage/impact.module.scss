@@ -46,6 +46,34 @@
   }
 }
 
+.info {
+  background: $color-plum-200;
+  color: $color-plum-700;
+  position: absolute;
+  @include padding(16);
+  z-index: 10;
+  h5 {
+    margin: 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+      display: inline-block;
+      @include margin(8, left);
+      &::after {
+        content: ', ';
+      }
+      &:last-child {
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+}
+
 .image {
   cursor: pointer;
   width: 25%;

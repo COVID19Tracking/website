@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+/* eslint-disable no-underscore-dangle */
+import React, { useState, useEffect, useRef } from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import classnames from 'classnames'
 import Container from '~components/common/container'
@@ -6,6 +7,9 @@ import impactStyle from './impact.module.scss'
 
 const HomepageImpact = () => {
   const [selected, setSelected] = useState(false)
+  const [infoBoxPosition, setInfoBoxPosition] = useState({ top: 0, left: 0 })
+  const selectedRef = useRef()
+  const wrapperRef = useRef()
   const data = useStaticQuery(graphql`
     {
       allAirtable(
@@ -46,9 +50,30 @@ const HomepageImpact = () => {
     }
   `)
 
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      data.allAirtable.nodes.forEach(person => {
+        const image = new Image()
+        image.src = person.data.Image.localFiles[0].color.fixed.src
+      })
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!selected) {
+      return
+    }
+    const position = selectedRef.current.getBoundingClientRect()
+    const wrapperPosition = wrapperRef.current.getBoundingClientRect()
+    setInfoBoxPosition({
+      left: position.left - wrapperPosition.left + position.height,
+      top: position.top - wrapperPosition.top + position.height,
+    })
+  }, [selected])
+
   return (
     <Container>
-      <div className={impactStyle.root}>
+      <div className={impactStyle.root} ref={wrapperRef}>
         <div className={impactStyle.message}>
           <h3>
             We would like to thank our{' '}
@@ -65,6 +90,7 @@ const HomepageImpact = () => {
           <>
             <span
               className={impactStyle.image}
+              ref={selected === index ? selectedRef : null}
               onMouseOver={() => {
                 setSelected(index)
               }}
@@ -86,6 +112,18 @@ const HomepageImpact = () => {
                 })`,
               }}
             />
+            {selected === index && (
+              <span className={impactStyle.info} style={infoBoxPosition}>
+                <h5>{person.data.Name}</h5>
+                {person.data.Team_s_ && (
+                  <ul>
+                    {person.data.Team_s_.map(team => (
+                      <>{team && <li>{team}</li>}</>
+                    ))}
+                  </ul>
+                )}
+              </span>
+            )}
           </>
         ))}
       </div>
