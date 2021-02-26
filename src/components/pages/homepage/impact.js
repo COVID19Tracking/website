@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import classnames from 'classnames'
 import Container from '~components/common/container'
 import impactStyle from './impact.module.scss'
 
 const HomepageImpact = () => {
+  const [selected, setSelected] = useState(false)
   const data = useStaticQuery(graphql`
     {
       allAirtable(
@@ -23,8 +24,14 @@ const HomepageImpact = () => {
             Email
             Image {
               localFiles {
-                childImageSharp {
+                greyscale: childImageSharp {
                   fixed(width: 400, grayscale: true) {
+                    src
+                    srcSet
+                  }
+                }
+                color: childImageSharp {
+                  fixed(width: 400) {
                     src
                     srcSet
                   }
@@ -58,9 +65,25 @@ const HomepageImpact = () => {
           <>
             <span
               className={impactStyle.image}
+              onMouseOver={() => {
+                setSelected(index)
+              }}
+              onMouseOut={() => {
+                setSelected(false)
+              }}
+              onFocus={() => {
+                setSelected(index)
+              }}
+              onBlur={() => {
+                setSelected(false)
+              }}
               style={{
                 order: index + 1,
-                backgroundImage: `url(${person.data.Image.localFiles[0].childImageSharp.fixed.src})`,
+                backgroundImage: `url(${
+                  person.data.Image.localFiles[0][
+                    selected === index ? 'color' : 'greyscale'
+                  ].fixed.src
+                })`,
               }}
             />
           </>
