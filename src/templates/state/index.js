@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import StateNavWrapper from '~components/common/state-nav-wrapper'
 import StatePreamble from '~components/pages/state/preamble'
