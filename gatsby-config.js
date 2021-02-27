@@ -313,7 +313,7 @@ const gatsbyConfig = {
         tables: [
           {
             baseId: 'appyfALJRKzjOi4b6',
-            tableName: 'Table 1',
+            tableName: 'Homepage',
             tableView: 'Website export',
             mapping: { Image: 'fileNode' },
           },
