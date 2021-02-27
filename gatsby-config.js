@@ -321,6 +321,12 @@ const gatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-transformer-covid-volunteer-random',
+      options: {
+        type: 'airtable',
+      },
+    },
+    {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
         file: './_data/hhs_hospitalization.json',
