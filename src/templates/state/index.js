@@ -5,7 +5,6 @@ import StateNavWrapper from '~components/common/state-nav-wrapper'
 import StatePreamble from '~components/pages/state/preamble'
 import SummaryCharts from '~components/pages/data/summary-charts'
 import StateSummary from '~components/pages/data/summary'
-import TransitionBox from '~components/common/transition-box'
 import StateTweets from '~components/pages/state/state-tweets'
 
 const getRaceData = data => {
@@ -45,17 +44,6 @@ const StateTemplate = ({ pageContext, data, path }) => {
       description={`Cases, testing, hospitalization, outcomes, long-term-care, and race and ethnicity data for ${state.name}, plus data sources, notes, and grade.`}
       showWarning
     >
-      <TransitionBox
-        id="state-testing-and-outcomes"
-        name={`${state.name} testing and outcomes`}
-      >
-        Starting <strong>March 7, 2021</strong> we are no longer collecting data
-        for {state.name}.{' '}
-        <Link to="/about-data/data-summary">
-          Learn about all our available datasets and alternative sources
-        </Link>
-        .
-      </TransitionBox>
       <StatePreamble
         state={state}
         covidState={covidState}
