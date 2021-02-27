@@ -1,0 +1,5 @@
+.box {
+  background: $color-honey-300;
+  @include padding(16);
+  @include margin(16, top bottom);
+}

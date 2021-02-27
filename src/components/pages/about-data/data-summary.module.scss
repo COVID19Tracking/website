@@ -1,0 +1,26 @@
+.summary {
+  @include margin(64, top bottom);
+}
+
+.header {
+  margin: 0;
+}
+
+.links {
+  list-style-type: none;
+  padding: 0;
+  @include margin(32, top bottom);
+  li {
+    display: inline-block;
+    @include margin(16, right);
+    &::after {
+      content: '|';
+      @include margin(16, left);
+    }
+    &:last-child {
+      &::after {
+        content: none;
+      }
+    }
+  }
+}
