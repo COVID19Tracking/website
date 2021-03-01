@@ -46,7 +46,6 @@ const StateTestViralTemplate = ({ pageContext, path, data }) => {
       ]}
       description={`Data definitions and historical time series of data on total and positive viral (PCR) tests in units of specimens or people for ${state.name}.`}
       path={path}
-      showWarning
     >
       <AnnotationPanelContext.Provider
         value={{
