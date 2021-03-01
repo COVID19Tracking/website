@@ -1,5 +1,6 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
+import { TableOfContentsWrapper } from '~components/common/table-of-contents'
 import summaryStyle from './data-summary.module.scss'
 
 const categoryOrder = [
@@ -47,9 +48,25 @@ const DataSummary = () => {
 
   return (
     <>
+      <TableOfContentsWrapper>
+        <ul className={summaryStyle.toc}>
+          {categories.map(({ title, summaries }) => (
+            <li>
+              <strong>{title}</strong>
+              <ul>
+                {summaries.map(summary => (
+                  <li>
+                    <Link to={`#${summary.slug}`}>{summary.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </TableOfContentsWrapper>
       {categories.map(({ title, summaries }) => (
         <>
-          <h2>{title}</h2>
+          <h2 className={summaryStyle.category}>{title}</h2>
           {summaries.map(summary => (
             <div
               key={summary.slug}
