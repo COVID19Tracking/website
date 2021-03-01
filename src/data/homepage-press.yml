@@ -32,6 +32,7 @@
 - name: The New Yorker
   logo: the-new-yorker
   width: 160
+  featured: true
 - name: National Public Radio
   logo: national-public-radio
   width: 85
@@ -44,14 +45,17 @@
 - name: Los Angeles Times
   logo: la-times
   width: 180
+  featured: true
 - name: San Francisco Chronicle
   logo: sf-chronicle
   width: 180
+  featured: true
 - name: Business Insider
   logo: business-insider
 - name: Five thirty eight
   logo: five-thirty-eight
   width: 150
+  featured: true
 - name: Gizmodo logo
   logo: gizmodo
 - name: CBS News
@@ -66,3 +70,4 @@
 - name: The Boston Globe
   logo: the-boston-globe
   width: 125
+  featured: true
