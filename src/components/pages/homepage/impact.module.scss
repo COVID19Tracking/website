@@ -167,6 +167,7 @@
   }
   @media (min-width: $viewport-lg) {
     width: 70%;
+    @include margin(64, top bottom);
     &.over-mobile {
       display: inline-block;
     }
