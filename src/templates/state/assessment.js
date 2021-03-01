@@ -24,7 +24,6 @@ const StateAsessmentTemplate = ({ pageContext, path, data }) => {
       ]}
       path={path}
       centered
-      showWarning
     >
       <LongContent>
         <ContentfulContent

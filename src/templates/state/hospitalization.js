@@ -32,7 +32,6 @@ const StateHospitalizationTemplate = ({ pageContext, path, data }) => {
       ]}
       path={path}
       description={`Data definitions and historical time series of data on patients now or ever hospitalized, in ICU, or on ventilator in ${state.name}.`}
-      showWarning
     >
       <AnnotationPanelContext.Provider
         value={{

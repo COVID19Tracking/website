@@ -16,7 +16,6 @@ const HHSHospitalizationSearch = ({ data }) => {
       path="/data/hospital-facilities/anomalies"
       description="The most detailed data ever made available on how COVID-19 is affecting American hospitals."
       noContainer
-      showWarning
     >
       <Container centered>
         <ContentfulContent

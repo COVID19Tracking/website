@@ -39,7 +39,6 @@ const Header = withSearch(
     returnLinksContent,
     hero,
     centerTitle,
-    showWarning,
     forceSubNavigationKey,
   }) => {
     const data = useStaticQuery(graphql`
@@ -143,7 +142,7 @@ const Header = withSearch(
     return (
       <>
         <DevelopmentWarning />
-        {showWarning && <DataWarning />}
+        <DataWarning />
         <header
           className={classnames(
             'site-header',

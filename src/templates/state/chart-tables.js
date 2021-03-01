@@ -19,7 +19,6 @@ const StateChartTablesPage = ({ pageContext, data, path }) => {
         { link: `/data/state/${state.childSlug.slug}`, title: state.name },
       ]}
       path={path}
-      showWarning
     >
       <ChartTables
         history={allCovidStateDaily.nodes}
