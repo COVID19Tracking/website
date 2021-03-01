@@ -12,8 +12,10 @@ const HomepageImpact = () => {
   const wrapperRef = useRef()
   const data = useStaticQuery(graphql`
     {
-      allAirtable(
+      volunteers: allAirtable(
+        limit: 69
         filter: {
+          table: { eq: "Homepage" }
           data: {
             Image: {
               localFiles: {
@@ -46,7 +48,7 @@ const HomepageImpact = () => {
 
   useEffect(() => {
     if (typeof document !== 'undefined') {
-      data.allAirtable.nodes.forEach(person => {
+      data.volunteers.nodes.forEach(person => {
         const image = new Image()
         image.src = person.data.Image.localFiles[0].color.fixed.src
       })
@@ -72,20 +74,20 @@ const HomepageImpact = () => {
       <div className={impactStyle.root} ref={wrapperRef}>
         <div className={impactStyle.message}>
           <h3>
-            We would like to thank our{' '}
-            <Link to="/thank-you">over 1,300 volunteers</Link>.
+            <div>
+              We would like to thank our{' '}
+              <Link to="/thank-you">over 1,300 volunteers</Link>.
+            </div>
+            <div>Who gave you this data.</div>
           </h3>
         </div>
-
-        <div
-          className={classnames(impactStyle.message, impactStyle.messageTwo)}
-        >
-          <h3>Who gave you this data.</h3>
-        </div>
-        {data.allAirtable.nodes.map((person, index) => (
+        {data.volunteers.nodes.map((person, index) => (
           <>
             <span
-              className={impactStyle.image}
+              className={classnames(
+                impactStyle.image,
+                index > 20 && impactStyle.overMobile,
+              )}
               ref={selected === index ? selectedRef : null}
               onMouseOver={() => {
                 setSelected(index)

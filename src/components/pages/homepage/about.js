@@ -11,6 +11,7 @@ const HomepageAbout = () => (
       <Link to="/blog">What to do now</Link>,
       <Link to="/about">About us</Link>,
     ]}
+    topMargin
   >
     <p>
       March 7 was our last date of collecting data. Don&apos;t worry, all our

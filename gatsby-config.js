@@ -317,6 +317,12 @@ const gatsbyConfig = {
             tableView: 'Website export',
             mapping: { Image: 'fileNode' },
           },
+          {
+            baseId: 'appyfALJRKzjOi4b6',
+            tableName: 'Homepage impact',
+            tableView: 'Website export',
+            mapping: { Image: 'fileNode' },
+          },
         ],
       },
     },
