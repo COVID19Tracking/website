@@ -1,3 +1,4 @@
 .video {
-  @include margin(16, bottom);
+  @include margin(32, top);
+  @include margin(64, bottom);
 }

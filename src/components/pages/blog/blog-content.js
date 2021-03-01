@@ -63,11 +63,7 @@ const BlogContent = ({ content }) => {
         }
         if (__typename === 'ContentfulContentBlockVideo') {
           return (
-            <VideoContentBlock
-              url={target.youTubeUrl}
-              name={target.name}
-              className={blogContentStyles.image}
-            />
+            <VideoContentBlock url={target.youTubeUrl} name={target.name} />
           )
         }
         if (__typename === 'ContentfulContentBlockRelatedPosts') {

@@ -1,12 +1,11 @@
 import React from 'react'
-import classnames from 'classnames'
 import videoStyles from './video-content-block.module.scss'
 
-const VideoContentBlock = ({ name, url, className }) => (
+const VideoContentBlock = ({ name, url }) => (
   <iframe
-    width="980"
-    height="551"
-    className={classnames(videoStyles.video, className)}
+    width="560"
+    height="315"
+    className={videoStyles.video}
     title={name}
     src={`https://www.youtube.com/embed/${url.split('/').pop()}`}
     frameBorder="0"
