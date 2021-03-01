@@ -6,6 +6,7 @@ import LongContent from '~components/common/long-content'
 import CleanSpacing from '~components/utils/clean-spacing'
 import TableContentBlock from './content-blocks/table-content-block'
 import ImageContentBlock from './content-blocks/image-content-block'
+import VideoContentBlock from './content-blocks/video-content-block'
 import FootnoteContentBlock from './content-blocks/footnote-content-block'
 import RelatedPostsContentBlock from './content-blocks/related-posts-block'
 import FlippableCard from './content-blocks/flippable-card'
@@ -57,6 +58,15 @@ const BlogContent = ({ content }) => {
             <TableContentBlock
               table={target.table.table}
               caption={target.caption}
+            />
+          )
+        }
+        if (__typename === 'ContentfulContentBlockVideo') {
+          return (
+            <VideoContentBlock
+              url={target.youTubeUrl}
+              name={target.name}
+              className={blogContentStyles.image}
             />
           )
         }

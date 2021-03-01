@@ -178,6 +178,12 @@ export const query = graphql`
             }
             caption
           }
+          ... on ContentfulContentBlockVideo {
+            id
+            contentful_id
+            name
+            youTubeUrl
+          }
           ... on ContentfulContentBlockRelatedPosts {
             id
             contentful_id
