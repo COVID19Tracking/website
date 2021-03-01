@@ -107,11 +107,13 @@ const Impact = ({ press, files }) => (
     <div className={impactStyle.root}>
       <span className={impactStyle.quote}>
         <blockquote>
+          <span />
           The project is a demonstration of citizen know-how and civic
           dedication at a time when the country feels like it’s being pulled
           apart. Yet it’s confounding that, almost a year into the pandemic, the
           Covid Tracking Project is doing what might be expected of the U.S.
           government.
+          <span />
         </blockquote>
         <cite>
           <a href="https://www.bloomberg.com/news/features/2020-11-20/covid-tracking-project-volunteers-step-up-as-u-s-fails-during-pandemic">

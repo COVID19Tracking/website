@@ -133,8 +133,29 @@
   background-size: cover;
   @include margin(32, top bottom);
   blockquote {
+    position: relative;
     @include type-size(400);
     margin-left: 0;
+
+    > span:first-child::after {
+      content: '“';
+      font-size: 4.5rem;
+      font-family: serif;
+      display: inline-block;
+      @include margin(16, right);
+      font-weight: bold;
+      line-height: 0;
+    }
+    > span:last-child::after {
+      content: '”';
+      font-size: 4.5rem;
+      font-family: serif;
+      display: block;
+      float: right;
+      font-weight: bold;
+      line-height: 0;
+      @include margin(32, top);
+    }
   }
   cite {
     font-style: normal;
