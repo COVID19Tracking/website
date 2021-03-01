@@ -234,7 +234,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const { slug } = node.childSlug
     createPage({
       path: `/data/state/${slug}/race-ethnicity/historical`,
-      component: path.resolve(`./src/templates/state/race-ethnicity.js`),
+      component: path.resolve(`./src/templates/state/race-ethnicity/historical.js`),
       context: node,
     })
   })
