@@ -14,6 +14,7 @@ const HomepageImpact = () => {
     {
       volunteers: allAirtable(
         limit: 69
+        sort: { fields: childRandomSort___sort }
         filter: {
           table: { eq: "Homepage" }
           data: {
@@ -31,7 +32,7 @@ const HomepageImpact = () => {
             Image {
               localFiles {
                 color: childImageSharp {
-                  fixed(width: 400) {
+                  fixed(width: 200) {
                     src
                     srcSet
                   }
@@ -74,11 +75,9 @@ const HomepageImpact = () => {
       <div className={impactStyle.root} ref={wrapperRef}>
         <div className={impactStyle.message}>
           <h3>
-            <div>
-              We would like to thank our{' '}
-              <Link to="/thank-you">over 1,300 volunteers</Link>.
-            </div>
-            <div>Who gave you this data.</div>
+            We would like to thank the{' '}
+            <Link to="/thank-you">over 1,300 volunteers</Link> who gave you this
+            data.
           </h3>
         </div>
         {data.volunteers.nodes.map((person, index) => (
