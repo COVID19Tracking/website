@@ -6,6 +6,18 @@
   margin: 0;
 }
 
+.category {
+  @include padding(8, bottom);
+  border-bottom: 1.5px solid $color-plum-700;
+}
+
+ul.toc {
+  ul {
+    @include margin(32, left);
+    @include margin(16, top);
+  }
+}
+
 .links {
   list-style-type: none;
   padding: 0;
