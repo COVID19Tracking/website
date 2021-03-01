@@ -132,6 +132,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   @include margin(32, top bottom);
+  margin-left: auto;
+  margin-right: auto;
   blockquote {
     position: relative;
     @include type-size(400);
@@ -165,7 +167,6 @@
   }
   @media (min-width: $viewport-lg) {
     width: 70%;
-    @include margin(64, left);
     &.over-mobile {
       display: inline-block;
     }
