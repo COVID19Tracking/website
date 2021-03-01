@@ -20,21 +20,22 @@
   &.impact-message {
     text-align: left;
     @include padding(32);
+    order: 73;
   }
   @media (min-width: $viewport-md) {
     width: 100%;
     order: 6;
     &.impact-message {
       width: 100%;
-      order: inherit;
+      order: 32;
     }
   }
   @media (min-width: $viewport-lg) {
     order: 14;
     width: 70%;
     &.impact-message {
-      width: 100%;
-      order: inherit;
+      width: 70%;
+      order: 73;
     }
   }
   a {
@@ -99,7 +100,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   filter: grayscale(100%);
-  &.over-mobile {
+  &.over-mobile,
+  &.over-medium {
     display: none;
   }
   @media (min-width: $viewport-md) {
@@ -107,7 +109,8 @@
   }
   @media (min-width: $viewport-lg) {
     width: 10%;
-    &.over-mobile {
+    &.over-mobile,
+    &.over-medium {
       display: inline-block;
     }
   }

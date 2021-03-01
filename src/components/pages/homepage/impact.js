@@ -41,7 +41,7 @@ const Volunteers = ({ volunteers }) => {
         <h3>
           We would like to thank the{' '}
           <Link to="/thank-you">over 1,300 volunteers</Link> who gave you this
-          data.
+          data...
         </h3>
       </div>
       {volunteers.map((person, index) => (
@@ -50,7 +50,8 @@ const Volunteers = ({ volunteers }) => {
             href={`/thank-you#${slugify(person.data.Name, { lower: true })}`}
             className={classnames(
               impactStyle.image,
-              index > 27 && impactStyle.overMobile,
+              index > 32 && impactStyle.overMedium,
+              index > 23 && impactStyle.overMobile,
             )}
             ref={selected === index ? selectedRef : null}
             onMouseOver={() => {
@@ -92,18 +93,20 @@ const Volunteers = ({ volunteers }) => {
           )}
         </>
       ))}
+      <div
+        className={classnames(impactStyle.message, impactStyle.impactMessage)}
+      >
+        <h3>
+          ...data that <Link to="/analysis-updates">has been cited</Link> in
+          over [800] articles, [x thousand] TV spots, etc. [TK]
+        </h3>
+      </div>
     </div>
   )
 }
 
 const Impact = ({ press, files }) => (
   <>
-    <div className={classnames(impactStyle.message, impactStyle.impactMessage)}>
-      <h3>
-        <Link to="/analysis-updates">We&apos;ve been cited</Link> in over [800]
-        articles, [x thousand] TV spots, etc. [TK]
-      </h3>
-    </div>
     <div className={impactStyle.root}>
       <span className={impactStyle.quote}>
         <blockquote>
@@ -151,7 +154,7 @@ const HomepageImpact = () => {
         }
       }
       volunteers: allAirtable(
-        limit: 73
+        limit: 76
         sort: { fields: childRandomSort___sort }
         filter: {
           table: { eq: "Homepage" }
