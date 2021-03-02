@@ -41,3 +41,7 @@ ul.toc {
   text-align: center;
   @include margin(32, top bottom);
 }
+
+.resource {
+  @include margin(64, bottom);
+}

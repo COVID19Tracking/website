@@ -9,7 +9,7 @@ const DataSummaryResources = ({ resources }) => {
   return (
     <>
       {resources.map(resource => (
-        <div>
+        <div className={dataSummaryStyle.resource}>
           <h3>{resource.name}</h3>
           <div
             dangerouslySetInnerHTML={{
@@ -37,13 +37,13 @@ const DataSummaryResources = ({ resources }) => {
           ))}
           {resource.relatedPosts && (
             <>
-              <h3>Our related posts</h3>
+              <h4>Our related posts</h4>
               <ul>
                 {resource.relatedPosts.map(post => (
                   <li>
                     <Link
                       to={
-                        post.sys.contentType.id === 'blog'
+                        post.sys.contentType.sys.id === 'blog'
                           ? `/analysis-updates/${post.slug}`
                           : `/${post.slug}`
                       }
