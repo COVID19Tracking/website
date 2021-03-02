@@ -20,6 +20,8 @@
   button {
     @include remove-button-style();
     text-align: left;
+    display: block;
+    width: 100%;
   }
 }
 
