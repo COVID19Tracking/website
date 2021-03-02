@@ -58,3 +58,11 @@
     }
   }
 }
+
+.modal-header {
+  margin-top: 0;
+}
+
+.modal-content {
+  @include margin(32, top);
+}

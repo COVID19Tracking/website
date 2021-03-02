@@ -65,9 +65,11 @@ const ThankYou = () => {
       </ul>
       {selected && (
         <Modal isOpen onClose={() => setSelected(false)}>
-          <Row>
+          <Row className={thankYouStyle.modalContent}>
             <Col width={[1, 4, 8]}>
-              <h3>{selected.data.Name}</h3>
+              <h3 className={thankYouStyle.modalHeader}>
+                {selected.data.Name}
+              </h3>
               {selected.data.Link_to_personal_site_or_social_media_account && (
                 <p>
                   <a
