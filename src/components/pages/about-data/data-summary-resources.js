@@ -11,6 +11,7 @@ const DataSummaryResources = ({ resources }) => {
       {resources.map(resource => (
         <div className={dataSummaryStyle.resource}>
           <h3>{resource.name}</h3>
+          <p>Last updated {resource.updatedAt}</p>
           <div
             dangerouslySetInnerHTML={{
               __html: resource.description.childMarkdownRemark.html,
@@ -30,14 +31,11 @@ const DataSummaryResources = ({ resources }) => {
               </a>
             </p>
           )}
-          {resource.screenshots.map(screenshot => (
-            <div className={dataSummaryStyle.screenshot}>
-              <img src={screenshot.fixed.src} alt={screenshot.title} />
-            </div>
-          ))}
           {resource.relatedPosts && (
             <>
-              <h4>Our related posts</h4>
+              <h4 className={dataSummaryStyle.relatedPosts}>
+                Our related posts
+              </h4>
               <ul>
                 {resource.relatedPosts.map(post => (
                   <li>

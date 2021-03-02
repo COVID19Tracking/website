@@ -45,3 +45,7 @@ ul.toc {
 .resource {
   @include margin(64, bottom);
 }
+
+.related-posts {
+  margin-bottom: 0;
+}

@@ -44,6 +44,7 @@ export const query = graphql`
       }
       resources {
         name
+        updatedAt(formatString: "MMMM d, yyyy")
         linkUrl
         linkTitle
         downloadLinkTitle
@@ -63,12 +64,6 @@ export const query = graphql`
               }
             }
           }
-        }
-        screenshots {
-          fixed {
-            src
-          }
-          title
         }
       }
     }
