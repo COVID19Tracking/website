@@ -12,14 +12,12 @@
 .message {
   background: $color-plum-700;
   color: white;
-  @include padding(16, left right);
-  @include padding(16, top bottom);
+  @include padding(16);
   width: 100%;
   text-align: right;
   order: 5;
   &.impact-message {
     text-align: left;
-    @include padding(32);
     order: 73;
   }
   @media (min-width: $viewport-md) {
