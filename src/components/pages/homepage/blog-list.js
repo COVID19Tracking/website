@@ -8,7 +8,7 @@ const BlogFeatured = () => {
   const data = useStaticQuery(graphql`
     {
       allContentfulBlogPost(
-        limit: 3
+        limit: 6
         sort: { fields: publishDate, order: DESC }
       ) {
         nodes {
@@ -33,17 +33,7 @@ const BlogFeatured = () => {
   if (!nodes) {
     return null
   }
-  let hasFeatured = false
   const posts = nodes
-    .map(node => {
-      if (!hasFeatured && node.featureOnHomepage) {
-        hasFeatured = true
-        return false
-      }
-      return node
-    })
-    .filter(item => item)
-    .slice(0, 2)
   return (
     <>
       <Row>

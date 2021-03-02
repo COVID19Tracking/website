@@ -3,9 +3,12 @@ import { SkipNavContent } from '@reach/skip-nav'
 import SkipNavigation from '~components/utils/skip-navigation'
 import Header from '~components/layout/header'
 import SEO from '~components/utils/seo'
+import Container from '~components/common/container'
 import Footer from '~components/layout/footer'
 import HomepageAbout from '~components/pages/homepage/about'
 import HomepageImpact from '~components/pages/homepage/impact'
+import BlogList from '~components/pages/homepage/blog-list'
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 
 const Homepage = () => (
   <>
@@ -18,6 +21,13 @@ const Homepage = () => (
     <main id="main">
       <HomepageAbout />
       <HomepageImpact />
+      <Container>
+        <h2>Our analysis &amp; updates</h2>
+        <CtaLink bold block extraMargin to="/analysis-updates">
+          Read all our posts
+        </CtaLink>
+        <BlogList />
+      </Container>
     </main>
     <Footer noMargin hideAbout />
   </>

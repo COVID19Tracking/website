@@ -162,6 +162,7 @@
   }
   cite {
     font-style: normal;
+    @include type-size(300);
   }
   &.over-mobile {
     display: none;

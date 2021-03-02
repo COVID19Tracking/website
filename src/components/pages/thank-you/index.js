@@ -66,7 +66,7 @@ const ThankYou = () => {
       {selected && (
         <Modal isOpen onClose={() => setSelected(false)}>
           <Row className={thankYouStyle.modalContent}>
-            <Col width={[1, 4, 8]}>
+            <Col width={[4, 4, 8]}>
               <h3 className={thankYouStyle.modalHeader}>
                 {selected.data.Name}
               </h3>
@@ -96,7 +96,7 @@ const ThankYou = () => {
               )}
               {selected.data.Short_bio && <p>{selected.data.Short_bio}</p>}
             </Col>
-            <Col width={[1, 2, 4]}>
+            <Col width={[4, 2, 4]}>
               <Img
                 fluid={selected.data.Image.localFiles[0].childImageSharp.fluid}
                 alt=""

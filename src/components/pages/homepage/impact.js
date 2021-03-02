@@ -119,6 +119,7 @@ const Impact = ({ press, files }) => (
           <span />
         </blockquote>
         <cite>
+          —{' '}
           <a href="https://www.bloomberg.com/news/features/2020-11-20/covid-tracking-project-volunteers-step-up-as-u-s-fails-during-pandemic">
             Bloomberg
           </a>
