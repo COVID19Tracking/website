@@ -36,3 +36,8 @@ ul.toc {
     }
   }
 }
+
+.screenshot {
+  text-align: center;
+  @include margin(32, top bottom);
+}
