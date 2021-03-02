@@ -1,28 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 
+import Collapsible from '~components/common/collapsible'
 import Layout from '~components/layout'
-import Hero from '~components/pages/state/race-ethnicity/hero'
-import HistoricalTables from '~components/pages/state/race-ethnicity/historical-tables'
-import { addPer100kValues } from '~components/pages/state/race-ethnicity/utils'
 
-const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
+const RaceEthnicityStateTemplate = ({ pageContext, path }) => {
   const state = pageContext
   const { slug } = state.childSlug
-
-  const [currentMetric, setCurrentMetric] = useState('Cases')
-
-  // false: showing numbers, true: showing rates per 100k
-  const [usePer100kRate, setUsePer100kRate] = useState(true)
-
-  const populationData = data.covidAcsPopulation
-  const timeSeriesData = data.allCovidRaceDataTimeseries.nodes
-
-  // includes per cap values
-  const completeTimeSeriesData =
-    populationData === null
-      ? timeSeriesData
-      : addPer100kValues(timeSeriesData, populationData)
 
   return (
     <Layout
@@ -41,31 +25,9 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
       description={`Historical time series of race and ethnicity data in ${state.name}.`}
       showWarning
     >
-      <Hero
-        stateName={state.name}
-        stateSlug={state.childSlug.slug}
-        stateAbbreviation={state.state}
-        currentMetric={currentMetric}
-        setCurrentMetric={setCurrentMetric}
-        usePer100kRate={usePer100kRate}
-        setUsePer100kRate={setUsePer100kRate}
-        timeSeriesData={timeSeriesData}
-        completeTimeSeriesData={completeTimeSeriesData}
-        combinedNotes={data.covidRaceDataCombined}
-        separateNotes={data.covidRaceDataSeparate}
-        combinedTestHosp={data.covidRaceHospTestDataCombined}
-        separateTestHosp={data.covidRaceHospTestDataSeparate}
-        stateSources={data.covidRaceDataSources}
-      />
-      <HistoricalTables
-        stateName={state.name}
-        timeSeriesData={timeSeriesData}
-        completeTimeSeriesData={completeTimeSeriesData}
-        populationData={populationData}
-        currentMetric={currentMetric}
-        setUsePer100kRate={setUsePer100kRate}
-        usePer100kRate={usePer100kRate}
-      />
+      <Collapsible title="title">
+        <p>content</p>
+      </Collapsible>
     </Layout>
   )
 }
