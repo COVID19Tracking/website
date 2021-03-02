@@ -237,6 +237,11 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/state/race-ethnicity/historical.js`),
       context: node,
     })
+    createPage({
+      path: `/data/state/${slug}/race-ethnicity`,
+      component: path.resolve(`./src/templates/state/race-ethnicity/index.js`),
+      context: node,
+    })
   })
 
   let covidStateInfo = result.data.allCovidStateInfo.nodes
