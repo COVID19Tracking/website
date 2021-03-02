@@ -1,0 +1,30 @@
+.container {
+  border: 1px solid $color-slate-500;
+  border-radius: 4px;
+  @include padding(16, (left, right));
+}
+
+.content {
+  @include padding(16, bottom);
+}
+
+.header {
+  h3 {
+    @include margin(0);
+  }
+  @include margin(8, (top, bottom));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.collapse-button {
+  font-weight: bold;
+  color: $color-slate-600;
+  border: none;
+  cursor: pointer;
+  background: none;
+  span {
+    text-decoration: underline;
+  }
+}
