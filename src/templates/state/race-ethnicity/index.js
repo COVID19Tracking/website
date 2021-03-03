@@ -3,8 +3,11 @@ import { graphql } from 'gatsby'
 
 import Collapsible from '~components/common/collapsible'
 import Layout from '~components/layout'
+import Container from '~components/common/container'
 
-const RaceEthnicityStateTemplate = ({ pageContext, path }) => {
+import Hero from '~components/pages/race/breakouts/hero'
+
+const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
 
@@ -24,10 +27,26 @@ const RaceEthnicityStateTemplate = ({ pageContext, path }) => {
       path={path}
       description={`Historical time series of race and ethnicity data in ${state.name}.`}
       showWarning
+      noContainer
     >
-      <Collapsible title="title">
-        <p>content</p>
-      </Collapsible>
+      <Hero
+        stateName={state.name}
+        combinedData={data.covidRaceDataCombined}
+        separateData={data.covidRaceDataSeparate}
+        combinedTestHosp={data.covidRaceHospTestDataCombined}
+        separateTestHosp={data.covidRaceHospTestDataSeparate}
+      />
+      <Container centered>
+        <Collapsible title="Notes About the Data">
+          <p>content</p>
+        </Collapsible>
+        <Collapsible title="Historical Data">
+          <p>content</p>
+        </Collapsible>
+        <Collapsible title="Further Resources">
+          <p>content</p>
+        </Collapsible>
+      </Container>
     </Layout>
   )
 }
