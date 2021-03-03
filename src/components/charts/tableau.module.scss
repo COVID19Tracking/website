@@ -19,3 +19,12 @@
     }
   }
 }
+
+.warning {
+  @include padding(16);
+  @include margin(16, top);
+  background: $color-honey-300;
+  a {
+    color: black;
+  }
+}
