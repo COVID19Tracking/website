@@ -193,3 +193,16 @@
     }
   }
 }
+
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  p {
+    @include type-size(300);
+    @include margin(32, bottom);
+    @include padding(32, bottom);
+    margin-top: 0;
+    width: 100%;
+    border-bottom: 1px solid $color-slate-200;
+  }
+}

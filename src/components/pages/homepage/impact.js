@@ -126,6 +126,29 @@ const Impact = ({ press, files }) => (
         </cite>
       </span>
     </div>
+    <Container centered>
+      <div className={impactStyle.examples}>
+        <p>
+          Dr. Ibram Kendi spoke about CTP’s race tracker in May testimony before
+          the House Ways and Means Committee for a hearing on the pandemic and
+          communities of color.
+        </p>
+        <p>
+          A former head of HHS testified in June before the Senate committee on
+          Health, Education, Labor and Pensions and cited CTP’s finding about
+          the CDC’s data.
+        </p>
+        <p>
+          A senior scholar from the John Hopkins School of Public Health
+          testified before the House Homeland Security Committee in February
+          2021 and her testimony used CTP data.
+        </p>
+        <p>
+          Republican Whip Senator Steve Scalise cited CTP testing data in a
+          press release detailing the GOP coronavirus plan in May.
+        </p>
+      </div>
+    </Container>
     <div className={impactStyle.press}>
       {press.map(item => (
         <span>
