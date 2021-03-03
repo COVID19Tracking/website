@@ -12,10 +12,13 @@
 .message {
   background: $color-plum-700;
   color: white;
-  @include padding(16);
+  @include padding(16, top right left);
   width: 100%;
   text-align: right;
   order: 5;
+  br {
+    display: none;
+  }
   &.impact-message {
     text-align: left;
     order: 73;
@@ -29,8 +32,12 @@
     }
   }
   @media (min-width: $viewport-lg) {
-    order: 14;
-    width: 70%;
+    order: 13;
+    width: 80%;
+    br {
+      display: inline;
+    }
+    @include padding(32, top left right);
     &.impact-message {
       width: 70%;
       order: 73;
@@ -42,6 +49,20 @@
   h3 {
     margin: 0;
     line-height: 2.5rem;
+  }
+  &.message-2 {
+    order: 5;
+    width: 100%;
+    padding-top: 0;
+    @include padding(16, bottom);
+    @media (min-width: $viewport-md) {
+      order: 6;
+      width: 100%;
+    }
+    @media (min-width: $viewport-lg) {
+      order: 16;
+      width: 70%;
+    }
   }
 }
 

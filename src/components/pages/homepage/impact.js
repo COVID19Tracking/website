@@ -40,8 +40,15 @@ const Volunteers = ({ volunteers }) => {
       <div className={impactStyle.message}>
         <h3>
           We would like to thank the{' '}
-          <Link to="/thank-you">over 1,300 volunteers</Link> who gave you this
-          data...
+          <Link to="/thank-you">over 1,300 volunteers</Link> who,
+          <br /> for the last 12 months, collected and published
+        </h3>
+      </div>
+
+      <div className={classnames(impactStyle.message, impactStyle.message2)}>
+        <h3>
+          the most complete data about <br />
+          COVID-19 in the US.
         </h3>
       </div>
       {volunteers.map((person, index) => (
@@ -93,60 +100,28 @@ const Volunteers = ({ volunteers }) => {
           )}
         </>
       ))}
-      <div
-        className={classnames(impactStyle.message, impactStyle.impactMessage)}
-      >
-        <h3>
-          ...data that has <Link to="/analysis-updates">been cited</Link> in
-          more than 7,500 news stories.
-        </h3>
-      </div>
     </div>
   )
 }
 
 const Impact = ({ press, files }) => (
   <>
-    <div className={impactStyle.root}>
-      <span className={impactStyle.quote}>
-        <blockquote>
-          <span />
-          The project is a demonstration of citizen know-how and civic
-          dedication at a time when the country feels like it’s being pulled
-          apart. Yet it’s confounding that, almost a year into the pandemic, the
-          Covid Tracking Project is doing what might be expected of the U.S.
-          government.
-          <span />
-        </blockquote>
-        <cite>
-          —{' '}
-          <a href="https://www.bloomberg.com/news/features/2020-11-20/covid-tracking-project-volunteers-step-up-as-u-s-fails-during-pandemic">
-            Bloomberg News
-          </a>
-        </cite>
-      </span>
-    </div>
     <Container centered>
       <div className={impactStyle.examples}>
         <p>
-          We’ve been cited in nearly <strong>900 academic papers</strong>,
-          including major medical journals like The New England Journal of
-          Medicine, Nature, and JAMA.
+          The COVID Tracking project was cited in{' '}
+          <strong>nearly 900 academic papers</strong>, including major medical
+          journals like <em>The New England Journal of Medicine</em>,{' '}
+          <em>Nature</em>, and <em>JAMA</em>.
         </p>
         <p>
-          Our data has been used by{' '}
-          <strong>two presidential administrations</strong> and an array of
-          federal agencies, including the CDC, HHS and FDA.
+          Our data was used by <strong>two presidential administrations</strong>{' '}
+          and an array of federal agencies, including the CDC, HHS, and FDA.
         </p>
         <p>
           <strong>Federal lawmakers</strong> used our data in at least 10
           letters demanding answers on the pandemic response from government
           leaders and commercial labs.
-        </p>
-        <p>
-          Dr. Tom Frieden, a <strong>former CDC director</strong>, called our
-          work “invaluable,” and Dr. Deborah Birx called CTP “superb” and said
-          all Americans should be following us.
         </p>
       </div>
     </Container>
@@ -179,7 +154,7 @@ const HomepageImpact = () => {
         }
       }
       volunteers: allAirtable(
-        limit: 76
+        limit: 73
         sort: { fields: childRandomSort___sort }
         filter: {
           table: { eq: "Homepage" }

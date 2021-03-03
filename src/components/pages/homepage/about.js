@@ -4,7 +4,7 @@ import ColorBlock from './color-block'
 
 const HomepageAbout = () => (
   <ColorBlock
-    title="We're done here. [TK]"
+    title="The COVID Tracking Project has come to an end."
     links={[
       <Link to="/data">See the data</Link>,
       <Link to="/about-data">About the data</Link>,
@@ -14,8 +14,8 @@ const HomepageAbout = () => (
     topMargin
   >
     <p>
-      March 7 was our last date of collecting data. Don&apos;t worry, all our
-      data is still here.
+      Our final data data collection shift took place on March 7, 2021. Don’t
+      worry, all our data is still here.
     </p>
   </ColorBlock>
 )
