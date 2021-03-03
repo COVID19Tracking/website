@@ -8,7 +8,7 @@ import {
 import styles from './collapsible.module.scss'
 
 const Collapsible = ({ title, children, closed }) => {
-  const [isCollapsed, setIsCollapsed] = useState(closed)
+  const [isCollapsed, setIsCollapsed] = useState(!closed)
 
   const toggleIsCollapsed = () => {
     setIsCollapsed(prev => !prev)
