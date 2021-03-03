@@ -15,9 +15,13 @@ const Summary = ({ summary, hideTitle = false }) => (
   <div className={summaryStyle.summary} id={summary.slug}>
     {!hideTitle && (
       <h3 className={summaryStyle.header}>
-        <Link to={`/about-data/data-summary/${summary.slug}`}>
-          {summary.title}
-        </Link>
+        {summary.resources ? (
+          <Link to={`/about-data/data-summary/${summary.slug}`}>
+            {summary.title}
+          </Link>
+        ) : (
+          <>{summary.title}</>
+        )}
       </h3>
     )}
     <div
@@ -75,6 +79,9 @@ const DataSummary = () => {
               childMarkdownRemark {
                 html
               }
+            }
+            resources {
+              id
             }
           }
         }
