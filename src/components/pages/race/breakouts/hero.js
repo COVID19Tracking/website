@@ -3,9 +3,11 @@ import React from 'react'
 import Container from '~components/common/container'
 import { GradeInner } from '~components/pages/state/state-grade'
 
+import AvailabilityUpdatePanel from './availability-update-panel'
+import StickyNav from './sticky-nav'
+
 import rightCaret from '~images/icons/right-caret-dark.svg'
 import styles from './hero.module.scss'
-import AvailabilityUpdatePanel from './availability-update-panel'
 
 const Hero = ({
   stateName,
@@ -43,6 +45,7 @@ const Hero = ({
           lastUpdatedByState={coreData.stateUpdate.value}
           lastCheckedByCtp={lastUpdatedByCtp}
         />
+        <StickyNav stateName={stateName} stateSlug={stateSlug} />
       </Container>
     </div>
   )
