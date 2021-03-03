@@ -25,8 +25,13 @@
 
 .secondary {
   display: flex;
+
   div:first-child {
     flex-basis: 60%;
+  }
+
+  @media (max-width: $viewport-md) {
+    flex-direction: column;
   }
 }
 
@@ -38,6 +43,10 @@
     display: grid;
     grid-template-columns: auto auto;
     grid-row-gap: 4px;
+
+    @media (max-width: $viewport-md) {
+      grid-template-columns: auto;
+    }
 
     span {
       font-weight: bold;
