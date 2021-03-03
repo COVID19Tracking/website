@@ -2,16 +2,19 @@ import React from 'react'
 
 import Percent from '~components/pages/race/dashboard/percent'
 import Container from '~components/common/container'
+import { GradeInner } from '~components/pages/state/state-grade'
 
 import rightCaret from '~images/icons/right-caret-dark.svg'
 import styles from './hero.module.scss'
 
 const Hero = ({
   stateName,
+  stateSlug,
   combinedData,
   separateData,
   combinedTestHosp,
   separateTestHosp,
+  assessment,
 }) => {
   const isCombined = combinedData !== null
   const coreData = isCombined ? combinedData : separateData
@@ -98,7 +101,13 @@ const Hero = ({
           <img src={rightCaret} alt="" height="12px" /> <span>{stateName}</span>
         </div>
         <h2>{stateName}</h2>
-        <p>Reporting assessment: TKTK</p>
+        <div className={styles.assessment}>
+          <GradeInner
+            grade={assessment}
+            title="race and ethnicity data"
+            link={`/data/state/${stateSlug}/assessment#long-term-care`}
+          />
+        </div>
         <div className={styles.secondary}>
           <AvailabilityNote
             core={coreData}

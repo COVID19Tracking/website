@@ -16,12 +16,8 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
       title={`${state.name}: Race & Ethnicity Historical Data`}
       returnLinks={[
         {
-          link: '/data',
-          title: 'Our Data',
-        },
-        {
-          link: `/data/state/${slug}`,
-          title: state.name,
+          link: '/race/dashboard/',
+          title: 'Racial Data Tracker',
         },
       ]}
       path={path}
@@ -31,10 +27,12 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
     >
       <Hero
         stateName={state.name}
+        stateSlug={slug}
         combinedData={data.covidRaceDataCombined}
         separateData={data.covidRaceDataSeparate}
         combinedTestHosp={data.covidRaceHospTestDataCombined}
         separateTestHosp={data.covidRaceHospTestDataSeparate}
+        assessment={data.covidGradeStateAssessment.crdt}
       />
       <Container centered>
         <CollapsibleSection title="Notes About the Data" open={false}>
@@ -78,6 +76,9 @@ export const query = graphql`
       }
       knownRaceEthDeath
       knownRaceEthPos
+    }
+    covidGradeStateAssessment {
+      crdt
     }
     covidRaceDataSeparate(state: { eq: $state }) {
       name

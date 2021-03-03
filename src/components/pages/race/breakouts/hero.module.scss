@@ -6,7 +6,7 @@
 
   h2 {
     @include margin(24, top);
-    @include margin(0, bottom);
+    @include margin(8, bottom);
   }
 }
 
@@ -53,4 +53,9 @@
       font-size: 21px;
     }
   }
+}
+
+.assessment {
+  display: flex;
+  align-items: center;
 }
