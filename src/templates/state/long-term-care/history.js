@@ -54,7 +54,7 @@ export default ({ pageContext, path, data }) => {
           {data.covidLtcNotes.alerts}
         </LongTermCareAlertNote>
       )}
-      <StateNotes notes={data.covidLtcNotes.notes} />
+      <StateNotes hideLede notes={data.covidLtcNotes.notes} />
       <TableResponsive
         labels={[
           {
