@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Collapsible from '~components/common/collapsible'
+import CollapsibleSection from '~components/common/collapsible-section'
 import Layout from '~components/layout'
 import Container from '~components/common/container'
 
@@ -37,15 +37,15 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
         separateTestHosp={data.covidRaceHospTestDataSeparate}
       />
       <Container centered>
-        <Collapsible title="Notes About the Data" closed>
+        <CollapsibleSection title="Notes About the Data" closed>
           <p>content</p>
-        </Collapsible>
-        <Collapsible title="Historical Data">
+        </CollapsibleSection>
+        <CollapsibleSection title="Historical Data">
           <p>content</p>
-        </Collapsible>
-        <Collapsible title="Further Resources">
+        </CollapsibleSection>
+        <CollapsibleSection title="Further Resources">
           <p>content</p>
-        </Collapsible>
+        </CollapsibleSection>
       </Container>
     </Layout>
   )

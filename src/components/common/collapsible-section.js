@@ -5,7 +5,7 @@ import {
   DisclosurePanel,
 } from '@reach/disclosure'
 
-import styles from './collapsible.module.scss'
+import styles from './collapsible-section.module.scss'
 
 const Collapsible = ({ title, children, closed }) => {
   const [isCollapsed, setIsCollapsed] = useState(!closed)
