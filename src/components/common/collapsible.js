@@ -9,9 +9,9 @@ const Collapsible = ({ title, children }) => {
     setIsCollapsed(prev => !prev)
   }
 
-  const CollapseButton = ({ toggle }) => (
+  const CollapseButton = ({ collapsed, toggle }) => (
     <button type="button" onClick={toggle} className={styles.collapseButton}>
-      <span>Collapse</span> ↓
+      <span>Collapse</span> {collapsed ? '↓' : '↑'}
     </button>
   )
   return (
@@ -19,7 +19,7 @@ const Collapsible = ({ title, children }) => {
       <div className={styles.header}>
         <h3>{title}</h3>
         <div>
-          <CollapseButton toggle={toggleIsCollapsed} />
+          <CollapseButton toggle={toggleIsCollapsed} collapsed={isCollapsed} />
         </div>
       </div>
       {!isCollapsed && <div className={styles.content}>{children}</div>}
