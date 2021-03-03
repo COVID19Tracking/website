@@ -18,8 +18,8 @@ const icons = {
   3: fewIcon,
 }
 
-const Grade = ({ grade, title, link }) => (
-  <li>
+const GradeInner = ({ grade, title, link }) => (
+  <>
     <img
       className={stateGradeStyle.icon}
       aria-hidden
@@ -29,6 +29,12 @@ const Grade = ({ grade, title, link }) => (
     <span>
       <Link to={link}>{adjectives[grade]} issues exist</Link> for {title}
     </span>
+  </>
+)
+
+const GradeLi = ({ grade, title, link }) => (
+  <li>
+    <GradeInner grade={grade} title={title} link={link} />
   </li>
 )
 
@@ -47,17 +53,17 @@ const StateGrade = ({ slug, assessment, date }) => {
         </span>
       </h2>
       <ul className={stateGradeStyle.list}>
-        <Grade
+        <GradeLi
           grade={assessment.taco}
           title="state-level metrics"
           link={`/data/state/${slug}/assessment#state-metrics`}
         />
-        <Grade
+        <GradeLi
           grade={assessment.crdt}
           title="race and ethnicity data"
           link={`/data/state/${slug}/assessment#race-ethnicity`}
         />
-        <Grade
+        <GradeLi
           grade={assessment.ltc}
           title="long-term care data"
           link={`/data/state/${slug}/assessment#long-term-care`}
@@ -71,4 +77,4 @@ const StateGrade = ({ slug, assessment, date }) => {
 
 export default StateGrade
 
-export { icons, adjectives }
+export { icons, adjectives, GradeInner }
