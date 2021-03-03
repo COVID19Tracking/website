@@ -24,6 +24,7 @@
 }
 
 .secondary {
+  @include margin(16, top);
   display: flex;
 
   div:first-child {
@@ -38,6 +39,7 @@
 .availability-wrapper {
   p {
     @include margin(4, bottom);
+    @include margin(0, top);
   }
   .availability-grid {
     display: grid;
