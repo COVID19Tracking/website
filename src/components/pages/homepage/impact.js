@@ -97,8 +97,8 @@ const Volunteers = ({ volunteers }) => {
         className={classnames(impactStyle.message, impactStyle.impactMessage)}
       >
         <h3>
-          ...data that <Link to="/analysis-updates">has been cited</Link> in
-          over [800] articles, [x thousand] TV spots, etc. [TK]
+          ...data that has <Link to="/analysis-updates">been cited</Link> in
+          more than 7,500 news stories.
         </h3>
       </div>
     </div>
@@ -121,7 +121,7 @@ const Impact = ({ press, files }) => (
         <cite>
           —{' '}
           <a href="https://www.bloomberg.com/news/features/2020-11-20/covid-tracking-project-volunteers-step-up-as-u-s-fails-during-pandemic">
-            Bloomberg
+            Bloomberg News
           </a>
         </cite>
       </span>
@@ -129,27 +129,24 @@ const Impact = ({ press, files }) => (
     <Container centered>
       <div className={impactStyle.examples}>
         <p>
-          Dr. Ibram Kendi spoke about CTP’s race tracker in May testimony before
-          the <strong>House Ways and Means Committee</strong> for a hearing on
-          the pandemic and communities of color.
+          We’ve been cited in nearly <strong>900 academic papers</strong>,
+          including major medical journals like The New England Journal of
+          Medicine, Nature, and JAMA.
         </p>
         <p>
-          A former head of HHS testified in June before the{' '}
-          <strong>
-            Senate committee on Health, Education, Labor and Pensions
-          </strong>{' '}
-          and cited CTP’s finding about the CDC’s data.
+          Our data has been used by{' '}
+          <strong>two presidential administrations</strong> and an array of
+          federal agencies, including the CDC, HHS and FDA.
         </p>
         <p>
-          A senior scholar from the John Hopkins School of Public Health
-          testified before the{' '}
-          <strong>House Homeland Security Committee</strong> in February 2021
-          and her testimony used CTP data.
+          <strong>Federal lawmakers</strong> used our data in at least 10
+          letters demanding answers on the pandemic response from government
+          leaders and commercial labs.
         </p>
         <p>
-          Republican Whip Senator Steve Scalise cited CTP testing data in a
-          press release <strong>detailing the GOP coronavirus plan</strong> in
-          May.
+          Dr. Tom Frieden, a <strong>former CDC director</strong>, called our
+          work “invaluable,” and Dr. Deborah Birx called CTP “superb” and said
+          all Americans should be following us.
         </p>
       </div>
     </Container>

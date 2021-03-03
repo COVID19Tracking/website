@@ -197,6 +197,7 @@
 .examples {
   display: flex;
   flex-wrap: wrap;
+  @include margin(64, top bottom);
   p {
     @include type-size(300);
     @include margin(32, bottom);
@@ -204,5 +205,8 @@
     margin-top: 0;
     width: 100%;
     border-bottom: 1px solid $color-slate-200;
+    &:last-child {
+      border-bottom: 0;
+    }
   }
 }
