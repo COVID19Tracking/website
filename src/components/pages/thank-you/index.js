@@ -24,7 +24,7 @@ const ThankYou = () => {
             Image {
               localFiles {
                 childImageSharp {
-                  fluid(maxWidth: 400, traceSVG: { color: "#FFAD4A" }) {
+                  fluid(maxWidth: 400, traceSVG: { color: "#8b8dc7" }) {
                     ...GatsbyImageSharpFluid_tracedSVG
                   }
                 }
