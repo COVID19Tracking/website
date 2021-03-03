@@ -7,32 +7,29 @@ import {
 
 import styles from './collapsible-section.module.scss'
 
-const Collapsible = ({ title, children, closed }) => {
-  const [isCollapsed, setIsCollapsed] = useState(!closed)
+const Collapsible = ({ title, children, open = true }) => {
+  const [isOpen, setIsOpen] = useState(open)
 
-  const toggleIsCollapsed = () => {
-    setIsCollapsed(prev => !prev)
+  const toggleIsOpen = () => {
+    setIsOpen(prev => !prev)
   }
 
-  const CollapseButton = ({ collapsed, toggle }) => (
+  const CollapseButton = ({ openStatus, toggle }) => (
     <DisclosureButton
       type="button"
       onClick={toggle}
       className={styles.collapseButton}
     >
-      <span>{collapsed ? 'Open' : 'Collapse'}</span> {collapsed ? '↓' : '↑'}
+      <span>{openStatus ? 'Collapse' : 'Open'}</span> {openStatus ? '↑' : '↓'}
     </DisclosureButton>
   )
   return (
-    <Disclosure open={isCollapsed}>
+    <Disclosure open={isOpen}>
       <div className={styles.container}>
         <div className={styles.header}>
           <h3>{title}</h3>
           <div>
-            <CollapseButton
-              toggle={toggleIsCollapsed}
-              collapsed={isCollapsed}
-            />
+            <CollapseButton toggle={toggleIsOpen} openStatus={isOpen} />
           </div>
         </div>
         <DisclosurePanel className={styles.content}>{children}</DisclosurePanel>

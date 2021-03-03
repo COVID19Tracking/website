@@ -37,7 +37,7 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
         separateTestHosp={data.covidRaceHospTestDataSeparate}
       />
       <Container centered>
-        <CollapsibleSection title="Notes About the Data" closed>
+        <CollapsibleSection title="Notes About the Data" open={false}>
           <p>content</p>
         </CollapsibleSection>
         <CollapsibleSection title="Historical Data">
