@@ -126,6 +126,12 @@ const Impact = ({ press, files }) => (
           letters demanding answers on the pandemic response from government
           leaders and commercial labs.
         </p>
+        <p>
+          And our data was cited in <strong>over 7,500 news stories</strong> in
+          publications including <em>The New York Times</em>,{' '}
+          <em>The Washington Post</em>, <em>CNN</em>, <em>Vox</em>,{' '}
+          <em>ProPublica</em>, and many more.
+        </p>
       </div>
     </Container>
     <div className={impactStyle.press}>

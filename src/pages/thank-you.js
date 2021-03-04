@@ -3,7 +3,7 @@ import Layout from '~components/layout'
 import ThankYou from '~components/pages/thank-you'
 
 const ThankYouPage = () => (
-  <Layout title="Thank You">
+  <Layout title="Thank You to Our Volunteers">
     <ThankYou />
   </Layout>
 )

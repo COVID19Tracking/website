@@ -12,9 +12,9 @@
 .message {
   background: $color-plum-700;
   color: white;
-  @include padding(16, top right left);
+  @include padding(32, top right left);
   width: 100%;
-  text-align: right;
+  text-align: left;
   order: 5;
   br {
     display: none;
@@ -32,12 +32,11 @@
     }
   }
   @media (min-width: $viewport-lg) {
-    order: 13;
+    order: 11;
     width: 80%;
     br {
       display: inline;
     }
-    @include padding(32, top left right);
     &.impact-message {
       width: 70%;
       order: 73;
@@ -54,14 +53,14 @@
     order: 5;
     width: 100%;
     padding-top: 0;
-    @include padding(16, bottom);
+    @include padding(32, bottom);
     @media (min-width: $viewport-md) {
       order: 6;
       width: 100%;
     }
     @media (min-width: $viewport-lg) {
-      order: 16;
-      width: 70%;
+      order: 13;
+      width: 80%;
     }
   }
 }
