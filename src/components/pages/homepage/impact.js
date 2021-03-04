@@ -60,8 +60,8 @@ const Volunteers = ({ volunteers }) => {
             href={`/thank-you#${slugify(person.data.Name, { lower: true })}`}
             className={classnames(
               impactStyle.image,
-              index > 32 && impactStyle.overMedium,
-              index > 23 && impactStyle.overMobile,
+              index < 32 && impactStyle.mobile,
+              index < 40 && impactStyle.medium,
             )}
             ref={selected === index ? selectedRef : null}
             onMouseOver={() => {
@@ -157,7 +157,7 @@ const HomepageImpact = () => {
         }
       }
       volunteers: allAirtable(
-        limit: 75
+        limit: 95
         sort: { fields: childRandomSort___sort }
         filter: {
           table: { eq: "Homepage" }

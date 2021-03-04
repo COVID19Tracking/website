@@ -115,23 +115,23 @@
   width: 25%;
   position: relative;
   overflow: hidden;
-  display: inline-block;
+  display: none;
   background-repeat: no-repeat;
   background-size: cover;
   filter: grayscale(100%);
-  &.over-mobile,
-  &.over-medium {
-    display: none;
+  &.mobile {
+    display: inline-block;
   }
   @media (min-width: $viewport-md) {
     width: 20%;
+
+    &.medium {
+      display: inline-block;
+    }
   }
   @media (min-width: $viewport-lg) {
     width: 10%;
-    &.over-mobile,
-    &.over-medium {
-      display: inline-block;
-    }
+    display: inline-block;
   }
   &::after {
     content: '';
