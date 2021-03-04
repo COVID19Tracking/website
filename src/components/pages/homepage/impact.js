@@ -51,6 +51,9 @@ const Volunteers = ({ volunteers }) => {
           COVID-19 in the US.
         </h3>
       </div>
+      <a href="#skip-volunteers" className={impactStyle.skipLink}>
+        Skip volunteer list
+      </a>
       {volunteers.map((person, index) => (
         <>
           <a
@@ -107,7 +110,7 @@ const Volunteers = ({ volunteers }) => {
 const Impact = ({ press, files }) => (
   <>
     <Container centered>
-      <div className={impactStyle.examples}>
+      <div className={impactStyle.examples} id="skip-volunteers">
         <p>
           The COVID Tracking project was cited in{' '}
           <strong>nearly 900 academic papers</strong>, including major medical

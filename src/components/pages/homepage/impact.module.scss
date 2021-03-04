@@ -231,3 +231,18 @@
     }
   }
 }
+
+.skip-link {
+  @include a11y-only();
+  &:focus,
+  &:hover {
+    @include a11y-only-off();
+    clip: auto;
+    background: white;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    @include padding(16);
+    width: auto;
+  }
+}
