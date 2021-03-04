@@ -163,7 +163,7 @@ const HomepageImpact = () => {
         }
       }
       volunteers: allAirtable(
-        limit: 95
+        limit: 94
         sort: { fields: childRandomSort___sort }
         filter: {
           table: { eq: "Homepage" }
