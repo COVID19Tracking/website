@@ -35,6 +35,17 @@ const TableauCharts = ({
 
   return (
     <>
+      <div className={tableauStyle.warning}>
+        A{' '}
+        <a
+          href="https://trust.tableau.com/incidents/pyxx725nky8s"
+          target="_blank"
+          rel="noreferrer noopen"
+        >
+          major outage at Tableau
+        </a>{' '}
+        may cause this chart to not load.
+      </div>
       <div
         className={classnames(
           className,
