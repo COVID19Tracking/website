@@ -38,7 +38,7 @@ const TableauCharts = ({
       <div className={tableauStyle.warning}>
         A{' '}
         <a
-          href="https://trust.tableau.com/incidents/32j36c68bxg3"
+          href="https://trust.tableau.com/incidents/pyxx725nky8s"
           target="_blank"
           rel="noreferrer noopen"
         >
