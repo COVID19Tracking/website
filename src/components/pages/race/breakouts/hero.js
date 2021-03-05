@@ -12,17 +12,12 @@ import styles from './hero.module.scss'
 const Hero = ({
   stateName,
   stateSlug,
-  combinedData,
-  separateData,
-  combinedTestHosp,
-  separateTestHosp,
+  coreData,
+  testHospData,
+  isCombined,
   assessment,
   lastUpdatedByCtp,
 }) => {
-  const isCombined = combinedData !== null
-  const coreData = isCombined ? combinedData : separateData
-  const testHospData = isCombined ? combinedTestHosp : separateTestHosp
-
   return (
     <div className={styles.container}>
       <Container centered>
