@@ -53,122 +53,126 @@ const getFootnoteStatuses = (stateGroups, stateName) => {
   }
 }
 
-const StateRaceSocialCard = renderedComponent(
-  ({
-    state,
-    combinedStates,
-    square = false,
-    statesReportingCases,
-    statesReportingDeaths,
-    lastUpdatedByCtp,
-  }) => {
-    if (state === undefined) {
-      return <></>
-    }
-    if (state.name === 'Guam') {
-      return <></>
-    }
-    const stateStatus = getStateStatus(state, combinedStates)
+const StateRaceSocialCardInner = ({
+  state,
+  combinedStates,
+  square = false,
+  statesReportingCases,
+  statesReportingDeaths,
+  lastUpdatedByCtp,
+}) => {
+  if (state === undefined) {
+    return <></>
+  }
+  if (state.name === 'Guam') {
+    return <></>
+  }
+  const stateStatus = getStateStatus(state, combinedStates)
 
-    // handle empty state
-    if (stateStatus.noCharts) {
-      return <NoDataSocialCard stateName={state.name} square={square} />
-    }
+  // handle empty state
+  if (stateStatus.noCharts) {
+    return <NoDataSocialCard stateName={state.name} square={square} />
+  }
 
-    const { groups, worstCasesValue, worstDeathsValue } = getGroups(state)
+  const { groups, worstCasesValue, worstDeathsValue } = getGroups(state)
 
-    // sort groups by deaths if only deaths are reported
-    // (this is sorted by cases in utils.js by default)
-    if (stateStatus.deathsOnly) {
-      groups.sort((a, b) => {
-        // sort bars by # of deaths
-        if (a.deaths >= b.deaths) {
-          return -1
-        }
-        return 1
-      })
-    }
+  // sort groups by deaths if only deaths are reported
+  // (this is sorted by cases in utils.js by default)
+  if (stateStatus.deathsOnly) {
+    groups.sort((a, b) => {
+      // sort bars by # of deaths
+      if (a.deaths >= b.deaths) {
+        return -1
+      }
+      return 1
+    })
+  }
 
-    const { showSmallNFootnote, asteriskFootnote } = getFootnoteStatuses(
-      groups,
-      state.name,
-    )
+  const { showSmallNFootnote, asteriskFootnote } = getFootnoteStatuses(
+    groups,
+    state.name,
+  )
 
-    return (
+  return (
+    <div
+      className={classnames(
+        socialCardStyle.wrapper,
+        square && socialCardStyle.square,
+      )}
+    >
+      <p className={socialCardStyle.header}>
+        <SocialCardHeader
+          state={state}
+          combinedStates={combinedStates}
+          lastUpdatedByCtp={lastUpdatedByCtp}
+        />
+      </p>
       <div
         className={classnames(
-          socialCardStyle.wrapper,
-          square && socialCardStyle.square,
+          socialCardStyle.grid,
+          stateStatus.casesOnly && socialCardStyle.casesOnly,
+          stateStatus.deathsOnly && socialCardStyle.deathsOnly,
         )}
       >
-        <p className={socialCardStyle.header}>
-          <SocialCardHeader
-            state={state}
-            combinedStates={combinedStates}
-            lastUpdatedByCtp={lastUpdatedByCtp}
+        {/* Spacers for CSS Grid */}
+        <span />
+        <span />
+        <span />
+        <span />
+        {stateStatus.oneChart && <span />}
+        {!stateStatus.deathsOnly && (
+          <span
+            className={classnames(
+              socialCardStyle.casesHeader,
+              socialCardStyle.barHeader,
+            )}
+          >
+            Cases per 100,000 people
+          </span>
+        )}
+        {!stateStatus.casesOnly && (
+          <span
+            className={classnames(
+              socialCardStyle.deathsHeader,
+              socialCardStyle.barHeader,
+            )}
+          >
+            Deaths per 100,000 people
+          </span>
+        )}
+        {groups.map(group => (
+          <ChartRow
+            group={group}
+            stateStatus={stateStatus}
+            worstCasesValue={worstCasesValue}
+            worstDeathsValue={worstDeathsValue}
+            square={square}
           />
-        </p>
-        <div
-          className={classnames(
-            socialCardStyle.grid,
-            stateStatus.casesOnly && socialCardStyle.casesOnly,
-            stateStatus.deathsOnly && socialCardStyle.deathsOnly,
-          )}
-        >
-          {/* Spacers for CSS Grid */}
-          <span />
-          <span />
-          <span />
-          <span />
-          {stateStatus.oneChart && <span />}
-          {!stateStatus.deathsOnly && (
-            <span
-              className={classnames(
-                socialCardStyle.casesHeader,
-                socialCardStyle.barHeader,
-              )}
-            >
-              Cases per 100,000 people
-            </span>
-          )}
-          {!stateStatus.casesOnly && (
-            <span
-              className={classnames(
-                socialCardStyle.deathsHeader,
-                socialCardStyle.barHeader,
-              )}
-            >
-              Deaths per 100,000 people
-            </span>
-          )}
-          {groups.map(group => (
-            <ChartRow
-              group={group}
-              worstCasesValue={worstCasesValue}
-              worstDeathsValue={worstDeathsValue}
-              square={square}
-              stateStatus={stateStatus}
-            />
-          ))}
-        </div>
+        ))}
+      </div>
 
-        <div className={socialCardStyle.footer}>
-          <SocialCardFootnotes
-            state={state}
-            stateName={state.name}
-            statesReportingCases={statesReportingCases}
-            statesReportingDeaths={statesReportingDeaths}
-            showSmallNFootnote={showSmallNFootnote}
-            asteriskFootnote={asteriskFootnote}
-          />
-          <div className={socialCardStyle.logosContainer}>
-            <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
-            <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
-          </div>
+      <div className={socialCardStyle.footer}>
+        <SocialCardFootnotes
+          state={state}
+          stateName={state.name}
+          statesReportingCases={statesReportingCases}
+          statesReportingDeaths={statesReportingDeaths}
+          showSmallNFootnote={showSmallNFootnote}
+          asteriskFootnote={asteriskFootnote}
+        />
+        <div className={socialCardStyle.logosContainer}>
+          <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
+          <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
         </div>
       </div>
-    )
-  },
-)
+    </div>
+  )
+}
+
+const StateRaceSocialCard = renderedComponent(({ ...props }) => (
+  <StateRaceSocialCardInner {...props} />
+))
 
 export default StateRaceSocialCard
+
+export { StateRaceSocialCard, StateRaceSocialCardInner }
