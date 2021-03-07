@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import StateRaceSocialCard from './social-card'
+import { StateRaceSocialCard } from './social-card'
 
 const CreateStateRaceSocialCards = () => {
   const data = useStaticQuery(graphql`
