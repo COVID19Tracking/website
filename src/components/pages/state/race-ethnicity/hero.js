@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 import { isCombined } from './utils'
 import MetricSelector from './metric-selector'
-import NotesAndDownloads from './notes-and-downloads'
+import { NotesAndDownloads } from './notes-and-downloads'
 import DataAsOf from './data-as-of'
 import Sources from './sources'
 import Charts from './charts'

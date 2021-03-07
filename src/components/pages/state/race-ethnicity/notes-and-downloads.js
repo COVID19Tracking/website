@@ -179,7 +179,7 @@ const getNotes = (combined, separate, combinedTestHosp, separateTestHosp) => {
     ]
   }
 
-  return notesList
+  return [...new Set(notesList)] // unique
 }
 
 const Notes = ({
@@ -188,19 +188,16 @@ const Notes = ({
   combinedTestHosp,
   separateTestHosp,
 }) => (
-  <>
-    <h4>Notes</h4>
-    <ul>
-      {getNotes(
-        combinedData,
-        separateData,
-        combinedTestHosp,
-        separateTestHosp,
-      ).map(note => (
-        <li key={note}>{note}</li>
-      ))}
-    </ul>
-  </>
+  <ul>
+    {getNotes(
+      combinedData,
+      separateData,
+      combinedTestHosp,
+      separateTestHosp,
+    ).map(note => (
+      <li key={note}>{note}</li>
+    ))}
+  </ul>
 )
 const NotesAndDownloads = ({
   slug,
@@ -214,6 +211,7 @@ const NotesAndDownloads = ({
   return (
     <div className={styles.container}>
       <div className={styles.notes}>
+        <h4>Notes</h4>
         <Notes
           combinedData={combinedData}
           separateData={separateData}
@@ -255,3 +253,4 @@ const NotesAndDownloads = ({
 }
 
 export default NotesAndDownloads
+export { NotesAndDownloads, Notes }

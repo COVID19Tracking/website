@@ -7,6 +7,7 @@ import Container from '~components/common/container'
 import { StateRaceSocialCardInner } from '~components/social-media-graphics/race/social-card'
 
 import Hero from '~components/pages/race/breakouts/hero'
+import { Notes } from '~components/pages/state/race-ethnicity/notes-and-downloads'
 
 const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
@@ -46,7 +47,12 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
       />
       <Container centered>
         <CollapsibleSection title="Notes About the Data" open={false}>
-          <p>content</p>
+          <Notes
+            combinedData={data.covidRaceDataCombined}
+            separateData={data.covidRaceDataSeparate}
+            combinedTestHosp={data.covidRaceHospTestDataCombined}
+            separateTestHosp={data.covidRaceHospTestDataSeparate}
+          />
         </CollapsibleSection>
         <StateRaceSocialCardInner
           state={coreData}
@@ -83,6 +89,22 @@ export const query = graphql`
       crdt
     }
     covidRaceDataCombined(state: { eq: $state }) {
+      name
+      latinxNote
+      mutExclNote
+      popTableNote
+      smallNNote
+      blackSmallN
+      asianSmallN
+      aianSmallN
+      nhpiSmallN
+      whiteSmallN
+      latinXSmallN
+      apiNote
+      otherNote
+      historicalSmallNNote
+      knownRaceEthDeath
+      knownRaceEthPos
       aianANHPIDeathNotes
       aianANHPIPosNotes
       aianDeathCaution
@@ -192,8 +214,26 @@ export const query = graphql`
       stateUpdate {
         value
       }
+      lastCheckDate {
+        value
+      }
     }
     covidRaceDataSeparate(state: { eq: $state }) {
+      name
+      latinxNote
+      mutExclNote
+      smallNNote
+      blackSmallN
+      asianSmallN
+      aianSmallN
+      nhpiSmallN
+      whiteSmallN
+      latinXSmallN
+      apiNote
+      knownRaceDeath
+      knownEthPos
+      knownEthDeath
+      knownRacePos
       aianANHPIDeathNotes
       aianANHPIPosNotes
       aianDeathCaution
@@ -330,6 +370,9 @@ export const query = graphql`
       whiteSmallN
       whiteSpecialCaseNotes
       stateUpdate {
+        value
+      }
+      lastCheckDate {
         value
       }
     }
