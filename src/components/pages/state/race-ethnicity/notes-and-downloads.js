@@ -182,6 +182,26 @@ const getNotes = (combined, separate, combinedTestHosp, separateTestHosp) => {
   return notesList
 }
 
+const Notes = ({
+  combinedData,
+  separateData,
+  combinedTestHosp,
+  separateTestHosp,
+}) => (
+  <>
+    <h4>Notes</h4>
+    <ul>
+      {getNotes(
+        combinedData,
+        separateData,
+        combinedTestHosp,
+        separateTestHosp,
+      ).map(note => (
+        <li key={note}>{note}</li>
+      ))}
+    </ul>
+  </>
+)
 const NotesAndDownloads = ({
   slug,
   stateAbbreviation,
@@ -191,22 +211,15 @@ const NotesAndDownloads = ({
   combinedTestHosp,
   separateTestHosp,
 }) => {
-  const notesList = getNotes(
-    combinedData,
-    separateData,
-    combinedTestHosp,
-    separateTestHosp,
-  )
-
   return (
     <div className={styles.container}>
       <div className={styles.notes}>
-        <h4>Notes</h4>
-        <ul>
-          {notesList.map(note => (
-            <li key={note}>{note}</li>
-          ))}
-        </ul>
+        <Notes
+          combinedData={combinedData}
+          separateData={separateData}
+          combinedTestHosp={combinedTestHosp}
+          separateTestHosp={separateTestHosp}
+        />
       </div>
       <div className={styles.downloadsContainer}>
         <h4>Download dataset</h4>
