@@ -53,6 +53,49 @@ const getFootnoteStatuses = (stateGroups, stateName) => {
   }
 }
 
+const StateRaceBarCharts = ({
+  headers,
+  status,
+  groups,
+  worstCasesValue,
+  worstDeathsValue,
+  square = false,
+}) => (
+  <div
+    className={classnames(
+      socialCardStyle.grid,
+      status.casesOnly && socialCardStyle.casesOnly,
+      status.deathsOnly && socialCardStyle.deathsOnly,
+    )}
+  >
+    {/* Spacers for CSS Grid */}
+    <span />
+    <span />
+    <span />
+    <span />
+    {status.oneChart && <span />}
+    {headers.map((header, index) => (
+      <span
+        className={classnames(
+          socialCardStyle.barHeader,
+          index !== 0 && socialCardStyle.secondaryHeader,
+        )}
+      >
+        {header}
+      </span>
+    ))}
+    {groups.map(group => (
+      <ChartRow
+        group={group}
+        stateStatus={status}
+        worstCasesValue={worstCasesValue}
+        worstDeathsValue={worstDeathsValue}
+        square={square}
+      />
+    ))}
+  </div>
+)
+
 const StateRaceSocialCardInner = ({
   state,
   combinedStates,
@@ -88,6 +131,15 @@ const StateRaceSocialCardInner = ({
     })
   }
 
+  const headers = []
+  if (!stateStatus.deathsOnly) {
+    headers.push('Deaths per 100,000 people')
+  }
+
+  if (!stateStatus.casesOnly) {
+    headers.push('Cases per 100,000 people')
+  }
+
   const { showSmallNFootnote, asteriskFootnote } = getFootnoteStatuses(
     groups,
     state.name,
@@ -107,50 +159,14 @@ const StateRaceSocialCardInner = ({
           lastUpdatedByCtp={lastUpdatedByCtp}
         />
       </p>
-      <div
-        className={classnames(
-          socialCardStyle.grid,
-          stateStatus.casesOnly && socialCardStyle.casesOnly,
-          stateStatus.deathsOnly && socialCardStyle.deathsOnly,
-        )}
-      >
-        {/* Spacers for CSS Grid */}
-        <span />
-        <span />
-        <span />
-        <span />
-        {stateStatus.oneChart && <span />}
-        {!stateStatus.deathsOnly && (
-          <span
-            className={classnames(
-              socialCardStyle.casesHeader,
-              socialCardStyle.barHeader,
-            )}
-          >
-            Cases per 100,000 people
-          </span>
-        )}
-        {!stateStatus.casesOnly && (
-          <span
-            className={classnames(
-              socialCardStyle.deathsHeader,
-              socialCardStyle.barHeader,
-            )}
-          >
-            Deaths per 100,000 people
-          </span>
-        )}
-        {groups.map(group => (
-          <ChartRow
-            group={group}
-            stateStatus={stateStatus}
-            worstCasesValue={worstCasesValue}
-            worstDeathsValue={worstDeathsValue}
-            square={square}
-          />
-        ))}
-      </div>
-
+      <StateRaceBarCharts
+        headers={headers}
+        status={stateStatus}
+        groups={groups}
+        worstCasesValue={worstCasesValue}
+        worstDeathsValue={worstDeathsValue}
+        square={square}
+      />
       <div className={socialCardStyle.footer}>
         <SocialCardFootnotes
           state={state}

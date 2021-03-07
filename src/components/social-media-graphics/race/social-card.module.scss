@@ -89,22 +89,13 @@ body {
     font-weight: bold;
     @include margin(0, top);
     margin-bottom: 5px; // ignore-style-rule
-  }
-
-  .cases-header {
-    grid-area: 2 / case-bars-start / 3 / case-bars-end;
-  }
-
-  .deaths-header {
-    grid-area: 2 / death-bars-start / 3 / death-bars-end;
-    margin-left: 45px; // ignore-style-rule
-  }
-
-  .cases-header,
-  .deaths-header {
     justify-self: start;
     align-self: end;
     font-size: 14px; // ignore-style-rule
+  }
+
+  .secondary-header {
+    margin-left: 45px; // ignore-style-rule
   }
 
   .bar-label {
