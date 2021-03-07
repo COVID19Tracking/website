@@ -54,7 +54,7 @@ const Legend = ({ mapLayer }) => (
               {mapLayer === 'cases' ? (
                 <>case</>
               ) : (
-                <>{mapLayer === 'deaths' ? <>death</> : <>facility</>}</>
+                <>{mapLayer === 'deaths' && <>death</>}</>
               )}{' '}
               data
             </>
