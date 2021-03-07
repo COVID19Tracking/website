@@ -55,46 +55,49 @@ const getFootnoteStatuses = (stateGroups, stateName) => {
 
 const StateRaceBarCharts = ({
   headers,
-  status,
-  groups,
-  worstCasesValue,
-  worstDeathsValue,
+  state,
+  combinedStates,
   square = false,
-}) => (
-  <div
-    className={classnames(
-      socialCardStyle.grid,
-      status.casesOnly && socialCardStyle.casesOnly,
-      status.deathsOnly && socialCardStyle.deathsOnly,
-    )}
-  >
-    {/* Spacers for CSS Grid */}
-    <span />
-    <span />
-    <span />
-    <span />
-    {status.oneChart && <span />}
-    {headers.map((header, index) => (
-      <span
-        className={classnames(
-          socialCardStyle.barHeader,
-          index !== 0 && socialCardStyle.secondaryHeader,
-        )}
-      >
-        {header}
-      </span>
-    ))}
-    {groups.map(group => (
-      <ChartRow
-        group={group}
-        stateStatus={status}
-        worstCasesValue={worstCasesValue}
-        worstDeathsValue={worstDeathsValue}
-        square={square}
-      />
-    ))}
-  </div>
-)
+}) => {
+  const { groups, worstCasesValue, worstDeathsValue } = getGroups(state)
+  const status = getStateStatus(state, combinedStates)
+
+  return (
+    <div
+      className={classnames(
+        socialCardStyle.grid,
+        status.casesOnly && socialCardStyle.casesOnly,
+        status.deathsOnly && socialCardStyle.deathsOnly,
+      )}
+    >
+      {/* Spacers for CSS Grid */}
+      <span />
+      <span />
+      <span />
+      <span />
+      {status.oneChart && <span />}
+      {headers.map((header, index) => (
+        <span
+          className={classnames(
+            socialCardStyle.barHeader,
+            index !== 0 && socialCardStyle.secondaryHeader,
+          )}
+        >
+          {header}
+        </span>
+      ))}
+      {groups.map(group => (
+        <ChartRow
+          group={group}
+          stateStatus={status}
+          worstCasesValue={worstCasesValue}
+          worstDeathsValue={worstDeathsValue}
+          square={square}
+        />
+      ))}
+    </div>
+  )
+}
 
 const StateRaceSocialCardInner = ({
   state,
@@ -117,7 +120,7 @@ const StateRaceSocialCardInner = ({
     return <NoDataSocialCard stateName={state.name} square={square} />
   }
 
-  const { groups, worstCasesValue, worstDeathsValue } = getGroups(state)
+  const { groups } = getGroups(state)
 
   // sort groups by deaths if only deaths are reported
   // (this is sorted by cases in utils.js by default)
@@ -161,10 +164,8 @@ const StateRaceSocialCardInner = ({
       </p>
       <StateRaceBarCharts
         headers={headers}
-        status={stateStatus}
-        groups={groups}
-        worstCasesValue={worstCasesValue}
-        worstDeathsValue={worstDeathsValue}
+        state={state}
+        combinedStates={combinedStates}
         square={square}
       />
       <div className={socialCardStyle.footer}>
@@ -191,4 +192,4 @@ const StateRaceSocialCard = renderedComponent(({ ...props }) => (
 
 export default StateRaceSocialCard
 
-export { StateRaceSocialCard, StateRaceSocialCardInner }
+export { StateRaceSocialCard, StateRaceSocialCardInner, StateRaceBarCharts }

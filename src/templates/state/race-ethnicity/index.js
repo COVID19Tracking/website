@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import CollapsibleSection from '~components/common/collapsible-section'
 import Layout from '~components/layout'
 import Container from '~components/common/container'
-import { StateRaceSocialCardInner } from '~components/social-media-graphics/race/social-card'
+import { StateRaceBarCharts } from '~components/social-media-graphics/race/social-card'
 
 import Hero from '~components/pages/race/breakouts/hero'
 import { Notes } from '~components/pages/state/race-ethnicity/notes-and-downloads'
@@ -21,6 +21,11 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
     ? data.covidRaceHospTestDataCombined
     : data.covidRaceHospTestDataSeparate
   const lastUpdated = data.allCovidRaceDataTimeseries.nodes[0].Date
+
+  // const barChartHeaders = ['Tests', 'Cases', 'Hospitalizations', 'Deaths'].map(
+  const barChartHeaders = ['Cases', 'Deaths'].map(
+    type => `${type} per 100,000 people`,
+  )
 
   return (
     <Layout
@@ -54,12 +59,10 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
             separateTestHosp={data.covidRaceHospTestDataSeparate}
           />
         </CollapsibleSection>
-        <StateRaceSocialCardInner
+        <StateRaceBarCharts
+          headers={barChartHeaders}
           state={coreData}
-          statesReportingCases={[]}
-          statesReportingDeaths={[]}
           combinedStates={isCombined ? [state.state] : []}
-          lastUpdatedByCtp={lastUpdated}
         />
         <CollapsibleSection title="Historical Data">
           <p>content</p>
