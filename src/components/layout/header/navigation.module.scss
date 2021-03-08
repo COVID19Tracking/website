@@ -1,3 +1,18 @@
+.flip-colors {
+  .caret {
+    @media (max-width: $viewport-lg) {
+      background-color: white;
+    }
+    svg {
+      fill: $color-plum-700;
+    }
+  }
+  .sub-menu {
+    border-top: none;
+    @include margin(8, top);
+  }
+}
+
 .caret {
   appearance: none;
   background: none;

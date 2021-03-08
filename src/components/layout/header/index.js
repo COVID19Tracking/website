@@ -16,7 +16,9 @@ import headerStyle from './header.module.scss'
 import mobileMenuStyle from './mobile-menu.module.scss'
 
 import projectLogo from '~images/project-logo.svg'
+import projectLogoPlum from '~images/project-logo-plum.svg'
 import atlanticLogo from '~images/atlantic-logo.svg'
+import atlanticLogoPlum from '~images/atlantic-logo-plum.svg'
 
 import MobileMenu from './mobile-menu'
 import HeaderSubNavigation from './sub-navigation'
@@ -39,6 +41,7 @@ const Header = withSearch(
     returnLinksContent,
     hero,
     centerTitle,
+    flipColors = false,
     forceSubNavigationKey,
   }) => {
     const data = useStaticQuery(graphql`
@@ -147,6 +150,7 @@ const Header = withSearch(
           className={classnames(
             'site-header',
             headerStyle.siteHeader,
+            flipColors && headerStyle.flipColors,
             showMobileMenu && headerStyle.showMobileMenu,
             noMargin && headerStyle.noMargin,
           )}
@@ -155,6 +159,7 @@ const Header = withSearch(
             className={classnames(
               'container',
               headerStyle.container,
+              flipColors && headerStyle.flipColors,
 
               pathNavigation &&
                 pathNavigation.top &&
@@ -182,7 +187,7 @@ const Header = withSearch(
                 <div className={headerStyle.siteTitleInner}>
                   <Link to="/" className={headerStyle.projectLogo}>
                     <img
-                      src={projectLogo}
+                      src={flipColors ? projectLogoPlum : projectLogo}
                       alt="The COVID Tracking Project"
                       width="176px"
                     />
@@ -191,7 +196,10 @@ const Header = withSearch(
                 {(showMobileMenu || !autocompleteHasFocus) && (
                   <div className={headerStyle.navContainer}>
                     <button
-                      className={mobileMenuStyle.mobileToggle}
+                      className={classnames(
+                        flipColors && mobileMenuStyle.flipColors,
+                        mobileMenuStyle.mobileToggle,
+                      )}
                       type="button"
                       aria-expanded={showMobileMenu}
                       onClick={() => {
@@ -203,13 +211,18 @@ const Header = withSearch(
                     <HeaderNavigation
                       topNavigation={topNavigation}
                       subNavigation={subNavigation}
+                      flipColors={flipColors}
                     />
                   </div>
                 )}
                 <Tools />
               </div>
               <div className={headerStyle.atlanticBanner}>
-                <span>At</span> <img src={atlanticLogo} alt="The Atlantic" />
+                <span>At</span>{' '}
+                <img
+                  src={flipColors ? atlanticLogoPlum : atlanticLogo}
+                  alt="The Atlantic"
+                />
                 <div />
               </div>
             </div>

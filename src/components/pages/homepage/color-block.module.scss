@@ -1,16 +1,8 @@
 .wrapper {
-  background: $color-slate-700;
+  background: $color-plum-700;
   @include padding(64, top bottom);
   color: white;
-  &.blue {
-    background-color: $color-plum-700;
-  }
-  &.bottom-margin {
-    @include margin(32, bottom);
-  }
-  &.top-margin {
-    @include margin(80, top);
-  }
+
   a {
     color: white;
   }
@@ -31,7 +23,7 @@
 }
 
 .links {
-  border-top: 1px solid white;
+  border-top: 1px solid $color-plum-700;
   @include type-size(300);
   @include padding(16, top);
 }

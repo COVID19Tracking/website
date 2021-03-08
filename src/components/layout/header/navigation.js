@@ -6,12 +6,21 @@ import { Menu, MenuList, MenuButton, MenuLink } from '@reach/menu-button'
 import internalLink from '~components/utils/internal-link'
 import navigationStyles from './navigation.module.scss'
 
-const Navigation = ({ topNavigation, subNavigation, isMobile, hide }) => (
+const Navigation = ({
+  topNavigation,
+  subNavigation,
+  isMobile,
+  hide,
+  flipColors = false,
+}) => (
   <nav className="js-disabled-block" role="navigation">
     <ul
       role="menubar"
       aria-label="Main"
-      className={isMobile ? navigationStyles.mobile : ''}
+      className={classnames(
+        isMobile && navigationStyles.mobile,
+        flipColors && navigationStyles.flipColors,
+      )}
     >
       {topNavigation.map(item => (
         <li key={item.link} role="none" className={navigationStyles.menuItem}>
