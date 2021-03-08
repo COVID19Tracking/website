@@ -10,7 +10,14 @@ You can also format with August 18 2020, I guess that is fine too.`
 
 describe('Components : Pages : State : State notes', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<StateNotes notes={sampleText} />).toJSON()
+    const tree = renderer
+      .create(<StateNotes notes={sampleText} stateName="California" />)
+      .toJSON()
     expect(tree).toMatchSnapshot()
+
+    const treeHiddenLede = renderer
+      .create(<StateNotes notes={sampleText} hideLede />)
+      .toJSON()
+    expect(treeHiddenLede).toMatchSnapshot()
   })
 })

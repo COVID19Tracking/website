@@ -50,11 +50,11 @@ const Legend = ({ mapLayer }) => (
                 </>
               )}
               <span className={legendStyles.missing} />
-              State reports no{' '}
+              State reports no facility-level{' '}
               {mapLayer === 'cases' ? (
                 <>case</>
               ) : (
-                <>{mapLayer === 'deaths' ? <>death</> : <>facility</>}</>
+                <>{mapLayer === 'deaths' && <>death</>}</>
               )}{' '}
               data
             </>

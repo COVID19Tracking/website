@@ -12,8 +12,45 @@ exports[`Components : Pages : State : State notes renders correctly 1`] = `
     >
       <p>
         When 
+        California
          reports no data, several days of data, or unusual data (such as decreases in values that should increase), our volunteers note it here on the date the anomaly occurred. We also note here changes in our own methodology that affect the data.
       </p>
+      <p
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "This is the first paragraph for <strong>June 13</strong>.",
+          }
+        }
+      />
+      <p
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "This second line tests years, as in <strong>July 14, 2020</strong>.",
+          }
+        }
+      />
+      <p
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "You can also format with <strong>August 18 2020</strong>, I guess that is fine too.",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components : Pages : State : State notes renders correctly 2`] = `
+<div
+  className="container container"
+>
+  <div
+    className="centered narrow"
+  >
+    <div
+      className="content"
+    >
       <p
         dangerouslySetInnerHTML={
           Object {

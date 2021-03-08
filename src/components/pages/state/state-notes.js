@@ -10,7 +10,7 @@ const getBoldedText = text =>
     '**$1 $2$3**',
   )
 
-const StateNotes = ({ stateName, notes }) => {
+const StateNotes = ({ stateName, notes, hideLede = false }) => {
   const highlightedNotes = getBoldedText(notes)
   const notesArray = highlightedNotes
     .split('\n')
@@ -18,12 +18,14 @@ const StateNotes = ({ stateName, notes }) => {
   return (
     <Container centered>
       <LongContent>
-        <p>
-          When {stateName} reports no data, several days of data, or unusual
-          data (such as decreases in values that should increase), our
-          volunteers note it here on the date the anomaly occurred. We also note
-          here changes in our own methodology that affect the data.
-        </p>
+        {!hideLede && (
+          <p>
+            When {stateName} reports no data, several days of data, or unusual
+            data (such as decreases in values that should increase), our
+            volunteers note it here on the date the anomaly occurred. We also
+            note here changes in our own methodology that affect the data.
+          </p>
+        )}
         {notesArray.map(note => (
           <p
             key={note}

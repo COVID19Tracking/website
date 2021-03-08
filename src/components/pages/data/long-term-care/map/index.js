@@ -116,7 +116,7 @@ const LTCFacilitiesMap = ({
 
     const map = new mapboxgl.Map({
       container: mapNode.current,
-      style: 'mapbox://styles/covidtrackingproject/ckkx6v37q178u17qtj0dn36b5',
+      style: 'mapbox://styles/covidtrackingproject/cklwldely0z6i17qu3vh6tckd',
       center: hash.length > 2 ? [hash[0], hash[1]] : center,
       zoom: hash.length > 2 ? hash[2] : zoom,
     })
