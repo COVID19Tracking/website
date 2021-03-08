@@ -36,7 +36,7 @@ const FederalResources = () => {
             slug
             resources {
               name
-              updatedAt(formatString: "MMMM d, yyyy")
+              updatedAt(formatString: "MMMM D, yyyy")
               linkUrl
               downloadLinkUrl
               description {
@@ -59,7 +59,7 @@ const FederalResources = () => {
               chartLink
               geographicUnits
               queryLink
-              startDate(formatString: "MMMM D, yyyy")
+              startDate(formatString: "MMMM d, yyyy")
               timeseriesUnit
               updateFrequency
               youtubeVideoTitle

@@ -25,7 +25,6 @@ const DataSummaryResources = ({ resources }) => {
       {resources.map(resource => (
         <div className={dataSummaryStyle.resource}>
           <h3 id={slugify(resource.name, { lower: true })}>{resource.name}</h3>
-          <p>Last updated {resource.updatedAt}</p>
           <h4>About</h4>
           <ul className={dataSummaryStyle.definitions}>
             {aboutFields.map(({ name, field, link }) => (
@@ -60,6 +59,9 @@ const DataSummaryResources = ({ resources }) => {
               __html: resource.description.childMarkdownRemark.html,
             }}
           />
+          <p className={dataSummaryStyle.lastUpdated}>
+            Last updated {resource.updatedAt}
+          </p>
           {resource.screenshots && (
             <>
               {resource.screenshots.map(screenshot => (
