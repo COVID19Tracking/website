@@ -8,7 +8,7 @@ import Layout from '~components/layout'
 
 const DataApiPage = ({ data }) => {
   return (
-    <Layout title="Data API" path="/data/api" showWarning>
+    <Layout title="Data API" path="/data/api">
       <LongContent>
         <ChangeLog />
         <ContentfulContent

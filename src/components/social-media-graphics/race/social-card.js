@@ -3,17 +3,55 @@ import classnames from 'classnames'
 
 import { renderedComponent } from '~plugins/gatsby-render-components'
 
-import { FormatNumber } from '~components/utils/format'
-
 import Logo from '~images/ctp-icon-small.png'
 import CarLogo from '~images/car-logo-small.png'
 
 import SocialCardFootnotes from './footnotes'
 import SocialCardHeader from './header'
 import NoDataSocialCard from './no-data'
-import { getStateStatus, getGroups, getBarWidth } from './utils'
+import { getStateStatus, getGroups } from './utils'
 
 import socialCardStyle from './social-card.module.scss'
+import ChartRow from './chart-row'
+
+const getFootnoteStatuses = (stateGroups, stateName) => {
+  const groups = stateGroups
+  let showSmallNFootnote = false
+  let asteriskFootnote = null
+
+  // if any of the showAsterisk values is true
+  groups.forEach(group => {
+    if (group.showAsterisk) {
+      showSmallNFootnote = true // set showSmallNFootnote to true
+    }
+  })
+
+  // special case to add an asterisk for Montana AIAN
+  if (stateName === 'Montana') {
+    groups.forEach((group, index) => {
+      if (group.label === 'American Indian/ Alaska Native') {
+        groups[index].showCross = true
+      }
+    })
+    asteriskFootnote =
+      'Montana includes Native Hawaiians and Other Pacific Islanders in this category.'
+  }
+
+  // special case to add an asterisk for New Mexico API
+  if (stateName === 'New Mexico') {
+    groups.forEach((group, index) => {
+      if (group.label === 'Asian\u200a/\u200aPacific Islander') {
+        groups[index].showCross = true
+      }
+    })
+    asteriskFootnote =
+      'New Mexico defines this category as Asian alone for case data, and Asian/Pacific Islander for death data.'
+  }
+  return {
+    showSmallNFootnote,
+    asteriskFootnote,
+  }
+}
 
 const StateRaceSocialCard = renderedComponent(
   ({
@@ -30,17 +68,14 @@ const StateRaceSocialCard = renderedComponent(
     if (state.name === 'Guam') {
       return <></>
     }
-    // gets the width of the bar for the bar charts
-    const getWidthPercentage = (number, max) => (number / max) * 100
-
-    const groupValues = getGroups(state)
-    const { groups } = groupValues
     const stateStatus = getStateStatus(state, combinedStates)
 
     // handle empty state
     if (stateStatus.noCharts) {
       return <NoDataSocialCard stateName={state.name} square={square} />
     }
+
+    const { groups, worstCasesValue, worstDeathsValue } = getGroups(state)
 
     // sort groups by deaths if only deaths are reported
     // (this is sorted by cases in utils.js by default)
@@ -54,39 +89,10 @@ const StateRaceSocialCard = renderedComponent(
       })
     }
 
-    const nullValue = 'No data reported' // the value to show for the empty state
-
-    let showSmallNFootnote = false
-    let asteriskFootnote = null
-
-    // if any of the showAsterisk values is true
-    groups.forEach(group => {
-      if (group.showAsterisk) {
-        showSmallNFootnote = true // set showSmallNFootnote to true
-      }
-    })
-
-    // special case to add an asterisk for Montana AIAN
-    if (state.name === 'Montana') {
-      groups.forEach((group, index) => {
-        if (group.label === 'American Indian/ Alaska Native') {
-          groups[index].showCross = true
-        }
-      })
-      asteriskFootnote =
-        'Montana includes Native Hawaiians and Other Pacific Islanders in this category.'
-    }
-
-    // special case to add an asterisk for New Mexico API
-    if (state.name === 'New Mexico') {
-      groups.forEach((group, index) => {
-        if (group.label === 'Asian\u200a/\u200aPacific Islander') {
-          groups[index].showCross = true
-        }
-      })
-      asteriskFootnote =
-        'New Mexico defines this category as Asian alone for case data, and Asian/Pacific Islander for death data.'
-    }
+    const { showSmallNFootnote, asteriskFootnote } = getFootnoteStatuses(
+      groups,
+      state.name,
+    )
 
     return (
       <div
@@ -109,6 +115,7 @@ const StateRaceSocialCard = renderedComponent(
             stateStatus.deathsOnly && socialCardStyle.deathsOnly,
           )}
         >
+          {/* Spacers for CSS Grid */}
           <span />
           <span />
           <span />
@@ -134,110 +141,15 @@ const StateRaceSocialCard = renderedComponent(
               Deaths per 100,000 people
             </span>
           )}
-          {groups.map(
-            ({ label, style, cases, deaths, showAsterisk, showCross }) => (
-              <>
-                <span className={socialCardStyle.barLabel}>
-                  {label}
-                  {showCross && '†'}
-                </span>
-                {!stateStatus.deathsOnly && (
-                  <>
-                    {cases === null ? (
-                      <span className={socialCardStyle.insufficientData}>
-                        {nullValue}
-                      </span>
-                    ) : (
-                      <div className={socialCardStyle.barContainer}>
-                        <div
-                          className={classnames(
-                            socialCardStyle.bar,
-                            style,
-                            getWidthPercentage(
-                              cases,
-                              groupValues.worstCasesValue,
-                            ) !== 0 && socialCardStyle.hasInnerLabel,
-                          )}
-                          style={{
-                            width: `${getBarWidth(
-                              cases,
-                              groupValues.worstCasesValue,
-                              square,
-                              stateStatus.oneChart,
-                            )}px`,
-                          }}
-                        >
-                          {getWidthPercentage(
-                            cases,
-                            groupValues.worstCasesValue,
-                          ) > 50 && <BarContent value={cases} />}
-                        </div>
-                        {getWidthPercentage(
-                          cases,
-                          groupValues.worstCasesValue,
-                        ) <= 50 && <BarContent value={cases} />}
-                      </div>
-                    )}
-                  </>
-                )}
-                {!stateStatus.casesOnly && (
-                  <>
-                    {deaths === null ? (
-                      <span
-                        className={classnames(
-                          socialCardStyle.insufficientData,
-                          socialCardStyle.insufficientDataDeaths,
-                        )}
-                      >
-                        {nullValue}
-                      </span>
-                    ) : (
-                      <div className={socialCardStyle.barContainer}>
-                        <div className={socialCardStyle.deathBarSpacer} />
-                        <div
-                          className={classnames(
-                            socialCardStyle.bar,
-                            style,
-                            getWidthPercentage(
-                              deaths,
-                              groupValues.worstDeathsValue,
-                            ) !== 0 && socialCardStyle.hasInnerLabel,
-                          )}
-                          style={{
-                            width: `${getBarWidth(
-                              deaths,
-                              groupValues.worstDeathsValue,
-                              square,
-                              stateStatus.oneChart,
-                            )}px`,
-                          }}
-                        >
-                          {getWidthPercentage(
-                            deaths,
-                            groupValues.worstDeathsValue,
-                          ) > 50 && (
-                            <BarContent
-                              value={deaths}
-                              showAsterisk={showAsterisk}
-                            />
-                          )}
-                        </div>
-                        {getWidthPercentage(
-                          deaths,
-                          groupValues.worstDeathsValue,
-                        ) <= 50 && (
-                          <BarContent
-                            value={deaths}
-                            showAsterisk={showAsterisk}
-                          />
-                        )}
-                      </div>
-                    )}
-                  </>
-                )}
-              </>
-            ),
-          )}
+          {groups.map(group => (
+            <ChartRow
+              group={group}
+              worstCasesValue={worstCasesValue}
+              worstDeathsValue={worstDeathsValue}
+              square={square}
+              stateStatus={stateStatus}
+            />
+          ))}
         </div>
 
         <div className={socialCardStyle.footer}>
@@ -257,13 +169,6 @@ const StateRaceSocialCard = renderedComponent(
       </div>
     )
   },
-)
-
-const BarContent = ({ value, showAsterisk = false }) => (
-  <span>
-    <FormatNumber number={value} />
-    {showAsterisk && '*'}
-  </span>
 )
 
 export default StateRaceSocialCard

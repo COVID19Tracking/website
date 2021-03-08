@@ -25,7 +25,6 @@ const Layout = ({
   hero,
   centerTitle,
   flipColors = false,
-  showWarning = false,
   noContainer = false,
   forceSubNavigationKey = false,
 }) => {
@@ -54,7 +53,6 @@ const Layout = ({
         returnLinksContent={returnLinksContent}
         hero={hero}
         centerTitle={centerTitle}
-        showWarning={showWarning}
         forceSubNavigationKey={forceSubNavigationKey}
         flipColors={flipColors}
       />

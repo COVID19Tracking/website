@@ -1,0 +1,51 @@
+.summary {
+  @include margin(64, top bottom);
+}
+
+.header {
+  margin: 0;
+}
+
+.category {
+  @include padding(8, bottom);
+  border-bottom: 1.5px solid $color-plum-700;
+}
+
+ul.toc {
+  ul {
+    @include margin(32, left);
+    @include margin(16, top);
+  }
+}
+
+.links {
+  list-style-type: none;
+  padding: 0;
+  @include margin(32, top bottom);
+  li {
+    display: inline-block;
+    @include margin(16, right);
+    &::after {
+      content: '|';
+      @include margin(16, left);
+    }
+    &:last-child {
+      &::after {
+        content: none;
+      }
+    }
+  }
+}
+
+.screenshot {
+  text-align: center;
+  @include margin(32, top bottom);
+}
+
+.resource {
+  @include margin(64, bottom);
+}
+
+.related-posts {
+  margin-bottom: 0;
+}

@@ -41,7 +41,6 @@ const Header = withSearch(
     returnLinksContent,
     hero,
     centerTitle,
-    showWarning,
     flipColors = false,
     forceSubNavigationKey,
   }) => {
@@ -146,7 +145,7 @@ const Header = withSearch(
     return (
       <>
         <DevelopmentWarning />
-        {showWarning && <DataWarning />}
+        <DataWarning />
         <header
           className={classnames(
             'site-header',

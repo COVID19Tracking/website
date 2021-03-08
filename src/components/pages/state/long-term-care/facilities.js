@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import React, { useState, useEffect } from 'react'
 import slugify from 'slugify'
 import { Link } from 'gatsby'
@@ -8,25 +7,13 @@ import {
   DisclosurePanel,
 } from '@reach/disclosure'
 import Alert from '~components/common/alert'
-import { Row, Col } from '~components/common/grid'
 import { Table, Th, Td } from '~components/common/table'
-import { Form, Input } from '~components/common/form'
 import Modal from '~components/common/modal'
 import { FormatDate } from '~components/utils/format'
 import LTCMap from '~components/pages/data/long-term-care/map'
 import facilitiesStyles from './facilities.module.scss'
 import SocialSharing from '~components/common/social-sharing'
 import stateCenters from '~data/visualization/state-centers.json'
-
-const getNumber = number => {
-  if (!number) {
-    return 0
-  }
-  if (number.search('<') > -1) {
-    return 0
-  }
-  return parseInt(number, 10)
-}
 
 const FacilityDetailRow = ({ type, cases, deaths }) => (
   <tr>
@@ -106,152 +93,34 @@ const FacilityDetails = ({ stateSlug, facility, facilityId }) => (
   </div>
 )
 
-const SearchForm = ({ hasFacilities, setSearchQuery }) => {
-  const [search, setSearch] = useState(false)
-  return (
-    <Form
-      onSubmit={event => {
-        const query = search.trim().toLowerCase()
-        event.preventDefault()
-        setSearchQuery(query.length ? query : false)
-      }}
-      noMargin
-    >
-      <Row>
-        <Col width={[3, 3, 8]}>
-          <Input
-            type="text"
-            label="Search facilities"
-            placeholder={
-              hasFacilities
-                ? 'Search by city, county, or facility name'
-                : 'Facility information not reported'
-            }
-            diabled={!hasFacilities}
-            hideLabel
-            onChange={event => {
-              setSearch(event.target.value)
-            }}
-          />
-        </Col>
-        <Col width={[1, 3, 4]}>
-          <button className={facilitiesStyles.searchButton} type="submit">
-            Search
-          </button>
-        </Col>
-      </Row>
-    </Form>
-  )
-}
-
-const probableFields = {
-  resident_positives: 'resident_probable',
-  resident_deaths: 'resident_probable_deaths',
-  outbreak_resident: 'outbreak_resident_probable',
-  outbreak_resident_deaths: 'outbreak_resident_probable_deaths',
-  resident_staff_deaths: 'resident_staff_probable_deaths',
-}
-
-const LongTermCareFacilities = ({ stateSlug, stateAbbr, facilities }) => {
-  const [sort, setSort] = useState({ field: 'facility_name', desc: false })
-  const [searchQuery, setSearchQuery] = useState(false)
+const LongTermCareFacilities = ({ stateSlug, stateAbbr }) => {
   const [openedFacility, setOpenedFacility] = useState(false)
   const [openedFacilityId, setOpenedFacilityId] = useState(false)
-  const [facilityList, setFacilityList] = useState(
-    facilities
-      .map(group => group.nodes[0])
-      .map(facility => {
-        Object.keys(probableFields).forEach(field => {
-          if (
-            facility[probableFields[field]] &&
-            !Number.isNaN(facility[field]) &&
-            !Number.isNaN(facility[probableFields[field]])
-          ) {
-            facility[field] =
-              parseInt(facility[field], 10) +
-              parseInt(facility[probableFields[field]], 10)
-          }
-        })
-        return facility
-      })
-      .sort((a, b) => (a.facility_name > b.facility_name ? -1 : 1)),
-  )
-
-  const hasCity =
-    facilities.map(group => group.nodes[0]).filter(({ city }) => city).length >
-    0
-  const hasCounty =
-    facilities.map(group => group.nodes[0]).filter(({ county }) => county)
-      .length > 0
-
-  const hasResidentData =
-    facilities
-      .map(group => group.nodes[0])
-      .filter(
-        item =>
-          item.outbreak_resident_positives ||
-          item.outbreak_resident_deaths ||
-          item.resident_positives ||
-          item.resident_deaths,
-      ).length > 0
+  const [facilityList, setFacilityList] = useState([])
+  const [hasCity, setHasCity] = useState(false)
+  const [hasCounty, setHasCounty] = useState(false)
+  const [hasResidentData, setHasResidentData] = useState(false)
 
   useEffect(() => {
-    const list = facilities
-      .map(group => group.nodes[0])
-      .sort((a, b) => {
-        if (
-          [
-            'resident_positives',
-            'resident_deaths',
-            'outbreak_resident_positives',
-            'outbreak_resident_deaths',
-          ].indexOf(sort.field) > -1
-        ) {
-          if (getNumber(a[sort.field]) === getNumber(b[sort.field])) {
-            return 0
-          }
-          if (getNumber(a[sort.field]) < getNumber(b[sort.field])) {
-            return sort.desc ? 1 : -1
-          }
-          return sort.desc ? -1 : 1
-        }
-        if (a[sort.field] === b[sort.field]) {
-          return 0
-        }
-        if (a[sort.field] < b[sort.field]) {
-          return sort.desc ? 1 : -1
-        }
-        return sort.desc ? -1 : 1
-      })
-      .filter(facility => {
-        if (!searchQuery) {
-          return true
-        }
-        return (
-          facility.facility_name.toLowerCase().search(searchQuery) > -1 ||
-          (facility.county &&
-            facility.county.toLowerCase().search(searchQuery) > -1) ||
-          (facility.city &&
-            facility.city.toLowerCase().search(searchQuery) > -1)
-        )
-      })
-    setFacilityList(list)
-  }, [sort, searchQuery])
+    setHasCity(
+      facilityList.filter(({ properties }) => properties.city).length > 0,
+    )
 
-  const handleSortClick = field => {
-    const desc = sort.field === field ? !sort.desc : true
-    setSort({
-      field,
-      desc,
-    })
-  }
+    setHasCounty(
+      facilityList.filter(({ properties }) => properties.county).length > 0,
+    )
 
-  const sortDirection = field => {
-    if (sort.field === field) {
-      return sort.desc ? 'up' : 'down'
-    }
-    return null
-  }
+    setHasResidentData(
+      facilityList.filter(
+        item =>
+          item.properties.outbreak_resident_positives ||
+          item.properties.outbreak_resident_deaths ||
+          item.properties.resident_positives ||
+          item.properties.resident_deaths,
+      ).length > 0,
+    )
+  }, [facilityList])
+
   const stateCenter = stateCenters.find(center => center.state === stateAbbr)
   return (
     <>
@@ -260,6 +129,13 @@ const LongTermCareFacilities = ({ stateSlug, stateAbbr, facilities }) => {
         zoom={stateCenter ? stateCenter.zoom : 3.5}
         removeSidebar
         state={stateAbbr}
+        listFacilities={mappedFacilities =>
+          setFacilityList(
+            mappedFacilities.sort((a, b) =>
+              a.properties.facility_name > b.properties.facility_name ? 1 : -1,
+            ),
+          )
+        }
         button={
           <Link
             className={facilitiesStyles.mapButton}
@@ -275,10 +151,6 @@ const LongTermCareFacilities = ({ stateSlug, stateAbbr, facilities }) => {
           View data as a table {}
         </DisclosureButton>
         <DisclosurePanel>
-          <SearchForm
-            hasFacilities={facilities.length > 0}
-            setSearchQuery={query => setSearchQuery(query)}
-          />
           <p>
             Do you have information about a facility on this list?{' '}
             <Link to="/nursing-homes/contact">
@@ -308,34 +180,16 @@ const LongTermCareFacilities = ({ stateSlug, stateAbbr, facilities }) => {
                   <thead>
                     <tr>
                       {hasCounty && (
-                        <Th
-                          header
-                          alignLeft
-                          sortable
-                          onClick={() => handleSortClick('county')}
-                          sortDirection={sortDirection('county')}
-                        >
+                        <Th header alignLeft>
                           County
                         </Th>
                       )}
                       {hasCity && (
-                        <Th
-                          header
-                          alignLeft
-                          sortable
-                          onClick={() => handleSortClick('city')}
-                          sortDirection={sortDirection('city')}
-                        >
+                        <Th header alignLeft>
                           City
                         </Th>
                       )}
-                      <Th
-                        header
-                        alignLeft
-                        sortable
-                        onClick={() => handleSortClick('facility_name')}
-                        sortDirection={sortDirection('facility_name')}
-                      >
+                      <Th header alignLeft>
                         Name
                       </Th>
                       <Th header alignLeft>
@@ -343,113 +197,34 @@ const LongTermCareFacilities = ({ stateSlug, stateAbbr, facilities }) => {
                       </Th>
                       {hasResidentData ? (
                         <>
-                          <Th
-                            header
-                            isFirst
-                            sortable
-                            onClick={() =>
-                              handleSortClick('resident_positives')
-                            }
-                            sortDirection={sortDirection('resident_positives')}
-                          >
+                          <Th header isFirst>
                             Resident positives
                           </Th>
-                          <Th
-                            header
-                            sortable
-                            onClick={() => handleSortClick('resident_deaths')}
-                            sortDirection={sortDirection('resident_deaths')}
-                          >
-                            Resident deaths
-                          </Th>
+                          <Th header>Resident deaths</Th>
 
-                          <Th
-                            header
-                            isFirst
-                            sortable
-                            onClick={() =>
-                              handleSortClick('outbreak_resident_positives')
-                            }
-                            sortDirection={sortDirection(
-                              'outbreak_resident_positives',
-                            )}
-                          >
+                          <Th header isFirst>
                             Outbreak Resident positives
                           </Th>
-                          <Th
-                            header
-                            sortable
-                            onClick={() =>
-                              handleSortClick('outbreak_resident_deaths')
-                            }
-                            sortDirection={sortDirection(
-                              'outbreak_resident_deaths',
-                            )}
-                          >
-                            Outbreak Resident deaths
-                          </Th>
+                          <Th header>Outbreak Resident deaths</Th>
                         </>
                       ) : (
                         <>
-                          <Th
-                            header
-                            isFirst
-                            sortable
-                            onClick={() =>
-                              handleSortClick('resident_staff_positives')
-                            }
-                            sortDirection={sortDirection(
-                              'resident_staff_positives',
-                            )}
-                          >
+                          <Th header isFirst>
                             Resident &amp; staff positives
                           </Th>
-                          <Th
-                            header
-                            sortable
-                            onClick={() =>
-                              handleSortClick('resident_staff_deaths')
-                            }
-                            sortDirection={sortDirection(
-                              'resident_staff_deaths',
-                            )}
-                          >
-                            Resident &amp; staff deaths
-                          </Th>
+                          <Th header>Resident &amp; staff deaths</Th>
 
-                          <Th
-                            header
-                            isFirst
-                            sortable
-                            onClick={() =>
-                              handleSortClick(
-                                'outbreak_resident_staff_positives',
-                              )
-                            }
-                            sortDirection={sortDirection(
-                              'outbreak_resident_staff_positives',
-                            )}
-                          >
+                          <Th header isFirst>
                             Outbreak Resident &amp; staff positives
                           </Th>
-                          <Th
-                            header
-                            sortable
-                            onClick={() =>
-                              handleSortClick('outbreak_resident_staff_deaths')
-                            }
-                            sortDirection={sortDirection(
-                              'outbreak_resident_staff_deaths',
-                            )}
-                          >
-                            Outbreak Resident &amp; staff deaths
-                          </Th>
+                          <Th header>Outbreak Resident &amp; staff deaths</Th>
                         </>
                       )}
                     </tr>
                   </thead>
                   <tbody>
-                    {facilityList.map(facility => {
+                    {facilityList.map(({ properties }) => {
+                      const facility = properties
                       const facilityId = slugify(
                         [
                           facility.county,
@@ -507,7 +282,7 @@ const LongTermCareFacilities = ({ stateSlug, stateAbbr, facilities }) => {
               </>
             ) : (
               <>
-                {facilities.length > 0 ? (
+                {facilityList.length > 0 ? (
                   <Alert>No facilities found. Please refine your search.</Alert>
                 ) : (
                   <Alert>Facility information not reported</Alert>

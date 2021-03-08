@@ -1,6 +1,6 @@
 import React from 'react'
 import State from './state-data'
-import StateNavWrapper from './state-nav-wrapper'
+import StateNavWrapper from '~components/common/state-nav-wrapper'
 import statesStyles from './states.module.scss'
 
 const States = ({
@@ -13,6 +13,8 @@ const States = ({
   raceDataSeparate,
   hhsHospitalization,
   ltcFedVaccinations,
+  hhsTesting,
+  hhsTestingNotes,
 }) => {
   const stateList = []
 
@@ -61,6 +63,12 @@ const States = ({
 
     state.ltcFedVaccinations = ltcFedVaccinations
       ? ltcFedVaccinations.find(record => record.Location === state.state)
+      : false
+    state.hhsTesting = hhsTesting
+      ? hhsTesting.find(record => record.state === state.state)
+      : false
+    state.hhsTestingNotes = hhsTestingNotes
+      ? hhsTestingNotes.find(record => record.state === state.state)
       : false
 
     stateList.push(state)

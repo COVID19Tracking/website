@@ -27,7 +27,6 @@ const HHSHospitalization = ({ data }) => {
       returnLinks={[{ link: '/data' }]}
       path="/data/hospital-facilities"
       description="The most detailed data ever made available on how COVID-19 is affecting American hospitals."
-      showWarning
       noContainer
     >
       <Container centered>

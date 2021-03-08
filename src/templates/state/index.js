@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '~components/layout'
-import StateNavWrapper from '~components/pages/data/state-nav-wrapper'
+import StateNavWrapper from '~components/common/state-nav-wrapper'
 import StatePreamble from '~components/pages/state/preamble'
 import SummaryCharts from '~components/pages/data/summary-charts'
 import StateSummary from '~components/pages/data/summary'
@@ -35,6 +35,8 @@ const StateTemplate = ({ pageContext, data, path }) => {
     ltcFedVaccinations,
     covidGradeExcludedStates,
     assessmentDate,
+    hhsTesting,
+    hhsTestingNotes,
   } = data
   return (
     <Layout
@@ -42,7 +44,6 @@ const StateTemplate = ({ pageContext, data, path }) => {
       returnLinks={[{ link: '/data' }]}
       path={path}
       description={`Cases, testing, hospitalization, outcomes, long-term-care, and race and ethnicity data for ${state.name}, plus data sources, notes, and grade.`}
-      showWarning
     >
       <StatePreamble
         state={state}
@@ -81,6 +82,8 @@ const StateTemplate = ({ pageContext, data, path }) => {
           longTermCare={data.covidStateInfo.childLtc}
           hhsHospitalization={hhsHospitals}
           ltcFedVaccinations={ltcFedVaccinations}
+          hhsTesting={hhsTesting}
+          hhsTestingNotes={hhsTestingNotes}
         />
         <StateTweets
           tweets={allTweets}
@@ -162,7 +165,7 @@ export const query = graphql`
       hospitalizedCumulative
       inIcuCurrently
       inIcuCumulative
-      recovered
+      hospitalizedDischarged
       onVentilatorCurrently
       onVentilatorCumulative
       death
@@ -336,6 +339,15 @@ export const query = graphql`
       staffed_icu_adult_patients_confirmed_and_suspected_covid
       total_adult_patients_hospitalized_confirmed_covid
       total_pediatric_patients_hospitalized_confirmed_covid
+    }
+    hhsTesting(state: { eq: $state }) {
+      date
+      positive
+      total
+    }
+    hhsTestingNotes(state: { eq: $state }) {
+      sourceNotes
+      notes
     }
     covidGradeStateAssessment(state: { eq: $state }) {
       taco

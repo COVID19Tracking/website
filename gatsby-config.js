@@ -252,13 +252,6 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/long_term_care_facilities.json',
-        type: 'CovidLtcFacilities',
-      },
-    },
-    {
-      resolve: 'gatsby-source-covid-tracking-api',
-      options: {
         file: './_data/advocacy_governors.json',
         type: 'civilServiceGovernor',
       },
@@ -324,6 +317,27 @@ const gatsbyConfig = {
       resolve: 'gatsby-transformer-covid-volunteer-random',
       options: {
         type: 'Airtable',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/hhs_testing.json',
+        type: 'hhsTesting',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/hhs_testing_notes.json',
+        type: 'hhsTestingNotes',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/hhs_testing_config.json',
+        type: 'hhsTestingConfig',
       },
     },
     {

@@ -32,7 +32,6 @@ const StateCasesTemplate = ({ pageContext, path, data }) => {
       ]}
       description={`Data definitions and historical time series of data on confirmed cases, probable cases, total cases, and daily new cases in ${state.name}.`}
       path={path}
-      showWarning
     >
       <AnnotationPanelContext.Provider
         value={{

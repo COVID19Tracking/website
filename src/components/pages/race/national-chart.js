@@ -66,7 +66,7 @@ const NationalChart = () => {
     },
     latinX: { label: 'Hispanic or Latino', emphasis: false },
     black: { label: 'Black or African American', emphasis: true },
-    aian: { label: 'American Indian or Alaskan Native', emphasis: false },
+    aian: { label: 'American Indian or Alaska Native', emphasis: false },
     asian: { label: 'Asian', emphasis: false },
   }
 

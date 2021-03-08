@@ -8,14 +8,16 @@ exports[`Components : Common: Table of Contents renders correctly 1`] = `
     Table of contents
   </h2>
   <ul>
-    <li>
-      <a
-        href="#a"
-      >
+    <li
+      className={false}
+    >
+      <strong>
         A
-      </a>
+      </strong>
     </li>
-    <li>
+    <li
+      className="subItem"
+    >
       <a
         href="#b"
       >

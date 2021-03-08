@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react'
 import marked from 'marked'
+import ImageCredit from '~components/common/image-credit'
 import tableStyle from './table-content-block.module.scss'
 
 const renderCell = cell =>
@@ -36,36 +37,49 @@ const parseMarkdownTable = table => {
   }
 }
 
-const TableContentBlock = ({ table }) => {
+const TableContentBlock = ({ table, caption }) => {
   const { headers, rows } = parseMarkdownTable(table)
   return (
-    <table className={tableStyle.table}>
-      <thead>
-        <tr className={tableStyle.header}>
-          {headers.map(item => (
-            <th
-              key={`header-${item}`}
-              dangerouslySetInnerHTML={{ __html: item }}
-            />
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((row, index) => (
-          <tr key={`row-${index}`} className={tableStyle.row}>
-            {row.map((item, itemIndex) => (
-              <td key={`row-${index}-${item}`} alignLeft>
-                <span
-                  className={tableStyle.cellLabel}
-                  dangerouslySetInnerHTML={{ __html: headers[itemIndex] }}
-                />
-                <span dangerouslySetInnerHTML={{ __html: item }} />
-              </td>
+    <>
+      <table className={tableStyle.table}>
+        <thead>
+          <tr className={tableStyle.header}>
+            {headers.map(item => (
+              <th
+                key={`header-${item}`}
+                dangerouslySetInnerHTML={{ __html: item }}
+              />
             ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={`row-${index}`} className={tableStyle.row}>
+              {row.map((item, itemIndex) => (
+                <td key={`row-${index}-${item}`} alignLeft>
+                  <span
+                    className={tableStyle.cellLabel}
+                    dangerouslySetInnerHTML={{ __html: headers[itemIndex] }}
+                  />
+                  <span dangerouslySetInnerHTML={{ __html: item }} />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+        {caption && (
+          <caption className={tableStyle.caption}>
+            <ImageCredit>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: marked.inlineLexer(caption, []),
+                }}
+              />
+            </ImageCredit>
+          </caption>
+        )}
+      </table>
+    </>
   )
 }
 
