@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 
 import CollapsibleSection from '~components/common/collapsible-section'
@@ -9,6 +9,10 @@ import { StateRaceBarCharts } from '~components/social-media-graphics/race/socia
 import Hero from '~components/pages/race/breakouts/hero'
 import CumulativeNotes from '~components/pages/race/breakouts/cumulative-notes'
 import { Notes } from '~components/pages/state/race-ethnicity/notes-and-downloads'
+import SelectorAndCharts from '~components/pages/state/race-ethnicity/selector-and-charts'
+import { addPer100kValues } from '~components/pages/state/race-ethnicity/utils'
+
+import styles from './index.module.scss'
 
 const getAvailableMetrics = (isCombined, coreData, testHospData) => {
   const metrics = []
@@ -63,6 +67,17 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
     testHospData,
   )
 
+  const [currentMetric, setCurrentMetric] = useState('Cases')
+
+  const populationData = data.covidAcsPopulation
+  const timeSeriesData = data.allCovidRaceDataTimeseries.nodes
+
+  // includes per cap values
+  const completeTimeSeriesData =
+    populationData === null
+      ? timeSeriesData
+      : addPer100kValues(timeSeriesData, populationData)
+
   return (
     <Layout
       title={`${state.name}: Race & Ethnicity Historical Data`}
@@ -110,7 +125,17 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
       />
       <Container centered>
         <CollapsibleSection title="Historical Data">
-          <p>content</p>
+          <SelectorAndCharts
+            stateIsCombined={isCombined}
+            lastReportedByState={coreData.stateUpdate.value}
+            stateName={state.name}
+            currentMetric={currentMetric}
+            setCurrentMetric={setCurrentMetric}
+            asOfDate={timeSeriesData[0].Date}
+            completeTimeSeriesData={completeTimeSeriesData}
+            className={styles.selectorAndCharts}
+            isEmbed
+          />
         </CollapsibleSection>
         <CollapsibleSection title="Further Resources">
           <p>content</p>
@@ -124,13 +149,76 @@ export default RaceEthnicityStateTemplate
 
 export const query = graphql`
   query($state: String!) {
+    covidAcsPopulation(state: { eq: $state }) {
+      aian
+      asian
+      black
+      hisp
+      nhpi
+      notHisp
+      other
+      total
+      type
+      twoOrMore
+      white
+    }
     allCovidRaceDataTimeseries(
-      sort: { order: DESC, fields: Date }
-      filter: { State: { eq: $state } }
-      limit: 1
+      filter: { Date: { ne: null }, State: { eq: $state } }
     ) {
       nodes {
+        Cases_Asian
+        Cases_AIAN
+        Cases_Black
+        Cases_White
+        Cases_Other
+        Cases_NHPI
+        Cases_Multiracial
+        Cases_Unknown
+        Cases_LatinX
+        Cases_Ethnicity_NonHispanic
+        Cases_Ethnicity_Hispanic
+        Cases_Ethnicity_Unknown
+        Cases_Total
         Date
+        Deaths_AIAN
+        Deaths_Asian
+        Deaths_Black
+        Deaths_Ethnicity_Hispanic
+        Deaths_Ethnicity_NonHispanic
+        Deaths_Ethnicity_Unknown
+        Deaths_LatinX
+        Deaths_Multiracial
+        Deaths_Unknown
+        Deaths_NHPI
+        Deaths_Other
+        Deaths_White
+        Deaths_Total
+        Hospitalizations_AIAN: Hosp_AIAN
+        Hospitalizations_Asian: Hosp_Asian
+        Hospitalizations_Black: Hosp_Black
+        Hospitalizations_Ethnicity_Hispanic: Hosp_Ethnicity_Hispanic
+        Hospitalizations_Ethnicity_NonHispanic: Hosp_Ethnicity_NonHispanic
+        Hospitalizations_Ethnicity_Unknown: Hosp_Ethnicity_Unknown
+        Hospitalizations_LatinX: Hosp_LatinX
+        Hospitalizations_Unknown: Hosp_Unknown
+        Hospitalizations_Multiracial: Hosp_Multiracial
+        Hospitalizations_NHPI: Hosp_NHPI
+        Hospitalizations_Other: Hosp_Other
+        Hospitalizations_White: Hosp_White
+        Hospitalizations_Total: Hosp_Total
+        Tests_AIAN
+        Tests_Asian
+        Tests_Black
+        Tests_Ethnicity_Hispanic
+        Tests_Ethnicity_NonHispanic
+        Tests_Ethnicity_Unknown
+        Tests_LatinX
+        Tests_Unknown
+        Tests_Multiracial
+        Tests_NHPI
+        Tests_Other
+        Tests_White
+        Tests_Total
       }
     }
     covidGradeStateAssessment {

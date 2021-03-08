@@ -13,6 +13,7 @@ const ChartSection = ({
   setSelectedItem,
   legendColors,
   legendRef,
+  isEmbed,
 }) => {
   const categoryNames = {
     White: 'White',
@@ -27,7 +28,7 @@ const ChartSection = ({
   return (
     <div className={styles.chartSection}>
       <h3 className={styles.chartSectionTitle}>{title}</h3>
-      <Col width={[4, 4, 6]} className={styles.column}>
+      <Col width={isEmbed ? [4, 6, 12] : [4, 4, 6]} className={styles.column}>
         {children}
       </Col>
       <div ref={legendRef}>
@@ -37,6 +38,7 @@ const ChartSection = ({
           selectedItem={selectedItem}
           setSelectedItem={setSelectedItem}
           legendNames={categoryNames}
+          isEmbed={isEmbed}
         />
       </div>
     </div>
