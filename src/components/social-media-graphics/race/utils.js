@@ -153,9 +153,6 @@ const getGroups = (state, testHospState = null) => {
     ).hospitalizations = getGroupValue(testHospState.nhpiHospPercap)
   }
 
-  console.log(groups)
-  console.log(testHospState)
-
   let allNulls = true // assume all values are null
   groups.forEach(group => {
     if (group.cases !== null) {
@@ -226,8 +223,31 @@ const getGroups = (state, testHospState = null) => {
       'American Indians\u200a/\u200aAlaska Natives',
   }
 
-  const worstDeathsValue = Math.round(groups[0].deaths)
-  const worstDeathsGroup = copyLabels[groups[0].label]
+  const getMaxValueAndGroup = key => {
+    const values = groups.map(group => group[key])
+
+    if (values.every(v => v === null)) {
+      // if all values are null
+      return {
+        value: undefined,
+        group: undefined,
+      }
+    }
+    console.log(values)
+
+    const maxValue = Math.max(...values)
+    const maxGroup = groups.find(g => g[key] === maxValue)
+
+    return {
+      value: Math.round(maxValue),
+      group: copyLabels[maxGroup.label],
+    }
+  }
+
+  const worstDeaths = getMaxValueAndGroup('deaths')
+
+  const worstDeathsValue = worstDeaths.value
+  const worstDeathsGroup = worstDeaths.label
 
   groups.sort((a, b) => {
     // sort bars by # of cases
@@ -237,8 +257,10 @@ const getGroups = (state, testHospState = null) => {
     return 1
   })
 
-  const worstCasesValue = Math.round(groups[0].cases)
-  const worstCasesGroup = copyLabels[groups[0].label]
+  const worstCases = getMaxValueAndGroup('cases')
+
+  const worstCasesValue = worstCases.value
+  const worstCasesGroup = worstCases.label
 
   groups.forEach(group => {
     /* eslint-disable no-param-reassign */
@@ -250,6 +272,13 @@ const getGroups = (state, testHospState = null) => {
     }
   })
 
+  const worstMetrics = {
+    cases: worstCases,
+    deaths: worstDeaths,
+    tests: getMaxValueAndGroup('tests'),
+    hospitalizations: getMaxValueAndGroup('hospitalizations'),
+  }
+
   return {
     groups,
     maxCasesPerCap,
@@ -258,6 +287,7 @@ const getGroups = (state, testHospState = null) => {
     worstCasesValue,
     worstDeathsGroup,
     worstDeathsValue,
+    worstMetrics,
   }
 }
 
