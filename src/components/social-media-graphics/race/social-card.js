@@ -54,7 +54,7 @@ const getFootnoteStatuses = (stateGroups, stateName) => {
 }
 
 const StateRaceBarCharts = ({
-  availableMetrics,
+  availableMetrics = ['cases', 'deaths'],
   state,
   testHospData,
   combinedStates,

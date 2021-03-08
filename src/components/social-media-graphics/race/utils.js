@@ -226,7 +226,7 @@ const getGroups = (state, testHospState = null) => {
   const getMaxValueAndGroup = key => {
     const values = groups.map(group => group[key])
 
-    if (values.every(v => v === null)) {
+    if (values.every(v => v === null) || values.every(v => v === undefined)) {
       // if all values are null
       return {
         value: undefined,
