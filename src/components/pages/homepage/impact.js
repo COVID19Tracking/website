@@ -46,8 +46,7 @@ const Volunteers = ({ volunteers }) => {
 
       <div className={classnames(impactStyle.message, impactStyle.message2)}>
         <h3>
-          the most complete data about
-          <br />
+          the most complete data about <br />
           COVID-19 in the US.
         </h3>
       </div>
