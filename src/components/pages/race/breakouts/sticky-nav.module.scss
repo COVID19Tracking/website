@@ -1,14 +1,19 @@
 .container {
-  @include margin(64, top);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  background-color: $color-plum-100;
 
-  h5 {
-    @include margin(0, top);
-    @include margin(16, bottom);
-    font-weight: normal;
+  .container-inner > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include margin(8, (top, bottom));
+  
+    h5 {
+      @include margin(0, top);
+      @include margin(16, bottom);
+      font-weight: normal;
+    }
   }
+
   position: -webkit-sticky;
   position: sticky;
   z-index: 1;

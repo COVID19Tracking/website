@@ -2,8 +2,9 @@
   background-color: $color-plum-100;
   // Flush with nav
   margin-top: -64px; // ignore-style-rule
-  @include padding(32, (top, bottom));
-
+  @include padding(32, top);
+  @include padding(64, bottom);
+  
   h2 {
     @include margin(24, top);
     @include margin(8, bottom);
