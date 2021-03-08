@@ -83,6 +83,11 @@ const FederalResources = ({ resources = false }) => {
           name
         }
       }
+      allContentfulFederalDataPortal {
+        nodes {
+          name
+        }
+      }
     }
   `)
 
@@ -123,6 +128,18 @@ const FederalResources = ({ resources = false }) => {
             <strong>Federal Trackers</strong>
             <ul>
               {data.allContentfulFederalTrackers.nodes.map(tracker => (
+                <li>
+                  <Link to={`#${slugify(tracker.name, { lower: true })}`}>
+                    {tracker.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </li>
+          <li>
+            <strong>Federal Data Portals</strong>
+            <ul>
+              {data.allContentfulFederalDataPortal.nodes.map(tracker => (
                 <li>
                   <Link to={`#${slugify(tracker.name, { lower: true })}`}>
                     {tracker.name}
