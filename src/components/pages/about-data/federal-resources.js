@@ -25,7 +25,7 @@ const Resources = ({ summary }) => {
   )
 }
 
-const FederalResources = ({ resources = false }) => {
+const FederalResources = () => {
   const data = useStaticQuery(graphql`
     {
       allContentfulDataSummaryCategory {
@@ -112,7 +112,11 @@ const FederalResources = ({ resources = false }) => {
                         {summary.resources &&
                           summary.resources.map(resource => (
                             <li>
-                              <Link to={`#${resource.slug}`}>
+                              <Link
+                                to={`#${slugify(resource.name, {
+                                  lower: true,
+                                })}`}
+                              >
                                 {resource.name}
                               </Link>
                             </li>
@@ -152,7 +156,7 @@ const FederalResources = ({ resources = false }) => {
       </TableOfContentsWrapper>
       {categories.map(({ title, summaries }) => (
         <>
-          {(!resources || summaries.find(summary => summary.resources)) && (
+          {summaries.find(summary => summary.resources) && (
             <h2 className={summaryStyle.category}>{title}</h2>
           )}
           {summaries.map(summary => (

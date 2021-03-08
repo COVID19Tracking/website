@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import slugify from 'slugify'
 import Img from 'gatsby-image'
 import dataSummaryStyle from './data-summary.module.scss'
 
@@ -23,7 +24,7 @@ const DataSummaryResources = ({ resources }) => {
     <>
       {resources.map(resource => (
         <div className={dataSummaryStyle.resource}>
-          <h3>{resource.name}</h3>
+          <h3 id={slugify(resource.name, { lower: true })}>{resource.name}</h3>
           <p>Last updated {resource.updatedAt}</p>
           <h4>About</h4>
           <ul className={dataSummaryStyle.definitions}>
