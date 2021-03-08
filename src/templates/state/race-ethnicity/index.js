@@ -5,7 +5,7 @@ import CollapsibleSection from '~components/common/collapsible-section'
 import Layout from '~components/layout'
 import Container from '~components/common/container'
 import { StateRaceBarCharts } from '~components/social-media-graphics/race/social-card'
-
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 import Hero from '~components/pages/race/breakouts/hero'
 import CumulativeNotes from '~components/pages/race/breakouts/cumulative-notes'
 import { Notes } from '~components/pages/state/race-ethnicity/notes-and-downloads'
@@ -136,6 +136,9 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
             className={styles.selectorAndCharts}
             isEmbed
           />
+          <CtaLink bold centered to={`${path}/historical`}>
+            View All Historical Data
+          </CtaLink>
         </CollapsibleSection>
         <CollapsibleSection title="Further Resources">
           <p>content</p>
