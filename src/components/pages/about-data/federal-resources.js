@@ -7,6 +7,7 @@ import summaryStyle from './data-summary.module.scss'
 
 const categoryOrder = [
   'testing-outcomes',
+  'race-and-ethnicity',
   'long-term-care',
   'vaccine-metadata',
   'city-data',
