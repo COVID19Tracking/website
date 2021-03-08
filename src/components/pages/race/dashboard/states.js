@@ -6,8 +6,6 @@ import DashboardSmallCards from './small-cards'
 import StateSeparate from './state-separate'
 import StateCombined from './state-combined'
 
-import { StateRaceSocialCardInner } from '~components/social-media-graphics/race/social-card'
-
 import statesStyle from './states.module.scss'
 
 const generateStates = (
@@ -524,12 +522,6 @@ const CrdtDashboardStates = () => {
     }
   `)
 
-  const combinedStates = data.allCovidRaceDataCombined.nodes.map(
-    node => node.state,
-  )
-
-  const lastUpdated = data.covidRaceDataTimeseries.Date
-
   const states = generateStates(
     data.allCovidRaceDataSeparate.nodes,
     data.allCovidRaceDataCombined.nodes,
@@ -569,24 +561,6 @@ const CrdtDashboardStates = () => {
             ) : (
               <StateCombined state={state} />
             )}
-            <StateRaceSocialCardInner
-              state={
-                data.allCovidRaceDataSeparate.nodes.find(
-                  node => node.state === state.state,
-                ) ||
-                data.allCovidRaceDataCombined.nodes.find(
-                  node => node.state === state.state,
-                )
-              }
-              statesReportingCases={
-                data.covidRaceDataHomepage.statesReportingCases
-              }
-              statesReportingDeaths={
-                data.covidRaceDataHomepage.statesReportingDeaths
-              }
-              combinedStates={combinedStates}
-              lastUpdatedByCtp={lastUpdated}
-            />
           </div>
         </div>
       ))}
