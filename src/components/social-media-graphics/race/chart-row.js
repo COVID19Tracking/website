@@ -5,12 +5,21 @@ import ChartBar from './chart-bar'
 
 const ChartRow = ({
   group,
+  availableMetrics = ['cases', 'deaths'],
   stateStatus,
-  worstCasesValue,
-  worstDeathsValue,
+  worstCasesValue = undefined,
+  worstDeathsValue = undefined,
+  worstMetrics = undefined,
   square,
 }) => {
-  const { label, style, cases, deaths, showAsterisk, showCross } = group
+  const worstAllMetrics = worstMetrics
+
+  if (worstAllMetrics === undefined) {
+    worstAllMetrics.cases.value = worstCasesValue
+    worstAllMetrics.deaths.value = worstDeathsValue
+  }
+
+  const { label, style, showCross } = group
 
   const BarLabel = ({ barLabel, cross }) => (
     <span className={socialCardStyle.barLabel}>
@@ -36,38 +45,21 @@ const ChartRow = ({
   return (
     <>
       <BarLabel barLabel={label} cross={showCross} />
-      {!stateStatus.deathsOnly && (
+      {availableMetrics.map(metric => (
         <>
-          {cases === null ? (
+          {group[metric] === null ? (
             <InsufficientDataPlaceholder />
           ) : (
             <ChartBar
               style={style}
-              metric={cases}
-              worstMetricValue={worstCasesValue}
+              metric={group[metric]}
+              worstMetricValue={worstAllMetrics[metric].value}
               square={square}
               isOneChart={stateStatus.oneChart}
             />
           )}
         </>
-      )}
-      {!stateStatus.casesOnly && (
-        <>
-          {deaths === null ? (
-            <InsufficientDataPlaceholder isDeaths />
-          ) : (
-            <ChartBar
-              style={style}
-              metric={deaths}
-              worstMetricValue={worstDeathsValue}
-              square={square}
-              showAsterisk={showAsterisk}
-              isOneChart={stateStatus.oneChart}
-              isDeaths
-            />
-          )}
-        </>
-      )}
+      ))}
     </>
   )
 }

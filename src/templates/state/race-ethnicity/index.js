@@ -22,8 +22,10 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
     : data.covidRaceHospTestDataSeparate
   const lastUpdated = data.allCovidRaceDataTimeseries.nodes[0].Date
 
-  // const barChartHeaders = ['Tests', 'Cases', 'Hospitalizations', 'Deaths'].map(
-  const barChartHeaders = ['Cases', 'Deaths'].map(
+  // todo identify available metrics here
+  const availableMetrics = ['cases', 'deaths', 'tests']
+
+  const barChartHeaders = ['Cases', 'Deaths', 'Tests'].map(
     type => `${type} per 100,000 people`,
   )
 
@@ -60,6 +62,7 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
           />
         </CollapsibleSection>
         <StateRaceBarCharts
+          availableMetrics={availableMetrics}
           headers={barChartHeaders}
           state={coreData}
           testHospData={testHospData}

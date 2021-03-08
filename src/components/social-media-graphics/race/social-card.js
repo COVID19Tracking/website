@@ -55,29 +55,31 @@ const getFootnoteStatuses = (stateGroups, stateName) => {
 
 const StateRaceBarCharts = ({
   headers,
+  availableMetrics,
   state,
   testHospData,
   combinedStates,
   square = false,
 }) => {
-  const { groups, worstCasesValue, worstDeathsValue } = getGroups(
-    state,
-    testHospData,
-  )
+  const { groups, worstMetrics } = getGroups(state, testHospData)
   const status = getStateStatus(state, combinedStates)
+
+  const gridClasses = {
+    2: socialCardStyle.two,
+    3: socialCardStyle.three,
+    4: socialCardStyle.four,
+  }
 
   return (
     <div
       className={classnames(
         socialCardStyle.grid,
+        gridClasses[availableMetrics.length],
         status.casesOnly && socialCardStyle.casesOnly,
         status.deathsOnly && socialCardStyle.deathsOnly,
       )}
     >
       {/* Spacers for CSS Grid */}
-      <span />
-      <span />
-      <span />
       <span />
       {status.oneChart && <span />}
       {headers.map((header, index) => (
@@ -92,10 +94,10 @@ const StateRaceBarCharts = ({
       ))}
       {groups.map(group => (
         <ChartRow
+          availableMetrics={availableMetrics}
           group={group}
           stateStatus={status}
-          worstCasesValue={worstCasesValue}
-          worstDeathsValue={worstDeathsValue}
+          worstMetrics={worstMetrics}
           square={square}
         />
       ))}
