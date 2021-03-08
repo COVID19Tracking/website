@@ -5,6 +5,7 @@ import { renderedComponent } from '~plugins/gatsby-render-components'
 
 import Logo from '~images/ctp-icon-small.png'
 import CarLogo from '~images/car-logo-small.png'
+import Container from '~components/common/container'
 
 import SocialCardFootnotes from './footnotes'
 import SocialCardHeader from './header'
@@ -73,6 +74,10 @@ const StateRaceBarCharts = ({
     .map(m => m.charAt(0).toUpperCase() + m.slice(1))
     .map(m => `${m} per 100,000 people`)
 
+  if (headers === undefined || groups === undefined) {
+    return <Container centered>todo handle guam case</Container>
+  }
+
   return (
     <div
       className={classnames(
@@ -82,7 +87,7 @@ const StateRaceBarCharts = ({
         status.deathsOnly && socialCardStyle.deathsOnly,
       )}
     >
-      {/* Spacers for CSS Grid */}
+      {/* Spacer for CSS Grid */}
       <span />
       {status.oneChart && <span />}
       {headers.map((header, index) => (
