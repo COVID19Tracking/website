@@ -13,6 +13,7 @@ const DataSummaryPage = ({ data, path }) => {
         { link: '/about-data' },
         { link: '/about-data/data-summary', title: 'Add Datasets' },
       ]}
+      centered
     >
       <Summary hideTitle summary={data.contentfulDataSummary} />
       <h2>Where to find this data</h2>
@@ -46,8 +47,6 @@ export const query = graphql`
         name
         updatedAt(formatString: "MMMM d, yyyy")
         linkUrl
-        linkTitle
-        downloadLinkTitle
         downloadLinkUrl
         description {
           childMarkdownRemark {
@@ -63,6 +62,24 @@ export const query = graphql`
                 id
               }
             }
+          }
+        }
+        agency
+        chartLink
+        geographicUnits
+        queryLink
+        startDate(formatString: "MMMM d, yyyy")
+        timeseriesUnit
+        updateFrequency
+        youtubeVideoTitle
+        youtubeVideoUrl
+        screenshots {
+          description
+          fluid(maxWidth: 2000, sizes: "4") {
+            aspectRatio
+            sizes
+            src
+            srcSet
           }
         }
       }

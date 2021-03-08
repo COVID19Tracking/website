@@ -49,3 +49,10 @@ ul.toc {
 .related-posts {
   margin-bottom: 0;
 }
+
+.definitions {
+  strong {
+    display: inline-block;
+    @include margin(8, right);
+  }
+}
