@@ -14,7 +14,7 @@ const FederalTrackers = () => {
               html
             }
           }
-          createdAt(formatString: "MMMM dd, yyyy")
+          createdAt(formatString: "MMMM D, yyyy")
           format
           link
           name
