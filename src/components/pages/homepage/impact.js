@@ -34,20 +34,20 @@ const Volunteers = ({ volunteers }) => {
       top: position.top - wrapperPosition.top + position.height,
     })
   }, [selected])
-
   return (
     <div className={impactStyle.root} ref={wrapperRef}>
       <div className={impactStyle.message}>
         <h3>
           We would like to thank the{' '}
-          <Link to="/thank-you">over 1,300 volunteers</Link> who,
+          <Link to="/thank-you">hundreds of volunteers</Link> who,
           <br /> for the last 12 months, collected and published
         </h3>
       </div>
 
       <div className={classnames(impactStyle.message, impactStyle.message2)}>
         <h3>
-          the most complete data about <br />
+          the most complete data about
+          <br />
           COVID-19 in the US.
         </h3>
       </div>
