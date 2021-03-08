@@ -7,7 +7,6 @@ import summaryStyle from './data-summary.module.scss'
 
 const categoryOrder = [
   'testing-outcomes',
-  'race-and-ethnicity',
   'long-term-care',
   'vaccine-metadata',
   'city-data',
@@ -20,7 +19,6 @@ const Resources = ({ summary }) => {
   }
   return (
     <div className={summaryStyle.summary} id={summary.slug}>
-      <h3 className={summaryStyle.header}>{summary.title}</h3>
       <DataSummaryResources resources={summary.resources} />
     </div>
   )
@@ -155,11 +153,8 @@ const FederalResources = () => {
           </li>
         </ul>
       </TableOfContentsWrapper>
-      {categories.map(({ title, summaries }) => (
+      {categories.map(({ summaries }) => (
         <>
-          {summaries.find(summary => summary.resources) && (
-            <h2 className={summaryStyle.category}>{title}</h2>
-          )}
           {summaries.map(summary => (
             <Resources summary={summary} />
           ))}
