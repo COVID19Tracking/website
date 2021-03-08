@@ -22,9 +22,11 @@ const StickyNav = ({ stateName, stateSlug, allStates }) => (
       </div>
       <div className={styles.sticky}>
         <StateCombobox
-          // todo break out the combobox and label from the state-nav component
           stateList={allStates.sort((a, b) => (a.name < b.name ? -1 : 1))}
           labelText="View another state’s data"
+          linkFunction={state =>
+            `/data/state/${state.childSlug.slug}/race-ethnicity/`
+          }
         />
       </div>
     </Container>

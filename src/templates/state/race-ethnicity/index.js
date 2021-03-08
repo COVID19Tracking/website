@@ -78,14 +78,6 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
       ? timeSeriesData
       : addPer100kValues(timeSeriesData, populationData)
 
-  const allStates = []
-  data.allCovidRaceDataSeparate.nodes.forEach(s => {
-    allStates.push(s)
-  })
-  data.allCovidRaceDataCombined.nodes.forEach(s => {
-    allStates.push(s)
-  })
-
   return (
     <Layout
       title={`${state.name}: Race & Ethnicity Historical Data`}
@@ -108,7 +100,7 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
         testHospData={testHospData}
         assessment={data.covidGradeStateAssessment.crdt}
         lastUpdatedByCtp={lastUpdated}
-        allStates={allStates}
+        allStates={data.allCovidStateInfo.nodes}
       />
       <Container centered>
         <CollapsibleSection title="Notes About the Data" open={false}>
@@ -174,16 +166,13 @@ export const query = graphql`
       twoOrMore
       white
     }
-    allCovidRaceDataSeparate {
+    allCovidStateInfo {
       nodes {
         name
         state
-      }
-    }
-    allCovidRaceDataCombined {
-      nodes {
-        name
-        state
+        childSlug {
+          slug
+        }
       }
     }
     allCovidRaceDataTimeseries(

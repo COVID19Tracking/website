@@ -40,7 +40,7 @@ const selectFirstItemOnKeyDown = (
   }
 }
 
-const StateCombobox = ({ stateList, labelText }) => {
+const StateCombobox = ({ stateList, labelText, linkFunction }) => {
   const [searchTerm, setSearchTerm] = useState('')
 
   const searchStates = term => {
@@ -85,7 +85,11 @@ const StateCombobox = ({ stateList, labelText }) => {
           const stateId = getStateId(stateList, selectedItem)
 
           if (stateId && typeof window !== 'undefined') {
-            window.location.hash = `state-${stateId.state.toLowerCase()}`
+            if (linkFunction) {
+              window.location.href = linkFunction(stateId)
+            } else {
+              window.location.hash = `state-${stateId.state.toLowerCase()}`
+            }
           }
         }}
       >
