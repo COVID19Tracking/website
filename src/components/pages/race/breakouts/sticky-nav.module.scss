@@ -3,10 +3,15 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  
+
   h5 {
-      @include margin(0, top);
-      @include margin(16, bottom);
-      font-weight: normal;
+    @include margin(0, top);
+    @include margin(16, bottom);
+    font-weight: normal;
   }
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  width: calc(100% + 1px);
 }
