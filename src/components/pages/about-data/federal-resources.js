@@ -98,19 +98,20 @@ const FederalResources = ({ resources = false }) => {
         <ul className={summaryStyle.toc}>
           {categories.map(({ title, summaries }) => (
             <>
-              {summaries && summaries.filter(summary => summary.resources) && (
+              {summaries && summaries.find(summary => summary.resources) && (
                 <li>
                   <strong>{title}</strong>
                   <ul>
                     {summaries.map(summary => (
                       <>
-                        {summary.resources.map(resource => (
-                          <li>
-                            <Link to={`#${resource.slug}`}>
-                              {resource.name}
-                            </Link>
-                          </li>
-                        ))}
+                        {summary.resources &&
+                          summary.resources.map(resource => (
+                            <li>
+                              <Link to={`#${resource.slug}`}>
+                                {resource.name}
+                              </Link>
+                            </li>
+                          ))}
                       </>
                     ))}
                   </ul>
