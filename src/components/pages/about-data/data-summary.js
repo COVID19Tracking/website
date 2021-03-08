@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import { TableOfContentsWrapper } from '~components/common/table-of-contents'
+import DataSummaryResources from '~components/pages/about-data/data-summary-resources'
 import summaryStyle from './data-summary.module.scss'
 
 const categoryOrder = [
@@ -10,6 +11,13 @@ const categoryOrder = [
   'city-data',
   'miscellaneous-repositories',
 ]
+
+const Resources = ({ summary }) => (
+  <div className={summaryStyle.summary} id={summary.slug}>
+    <h3 className={summaryStyle.header}>{summary.title}</h3>
+    <DataSummaryResources resources={summary.resources} />
+  </div>
+)
 
 const Summary = ({ summary, hideTitle = false }) => (
   <div className={summaryStyle.summary} id={summary.slug}>
@@ -57,7 +65,7 @@ const Summary = ({ summary, hideTitle = false }) => (
   </div>
 )
 
-const DataSummary = () => {
+const DataSummary = ({ resources = false }) => {
   const data = useStaticQuery(graphql`
     {
       allContentfulDataSummaryCategory {
@@ -81,7 +89,44 @@ const DataSummary = () => {
               }
             }
             resources {
-              id
+              name
+              updatedAt(formatString: "MMMM d, yyyy")
+              linkUrl
+              downloadLinkUrl
+              description {
+                childMarkdownRemark {
+                  html
+                }
+              }
+              relatedPosts {
+                title
+                slug
+                sys {
+                  contentType {
+                    sys {
+                      id
+                    }
+                  }
+                }
+              }
+              agency
+              chartLink
+              geographicUnits
+              queryLink
+              startDate(formatString: "MMMM d, yyyy")
+              timeseriesUnit
+              updateFrequency
+              youtubeVideoTitle
+              youtubeVideoUrl
+              screenshots {
+                description
+                fluid(maxWidth: 2000, sizes: "4") {
+                  aspectRatio
+                  sizes
+                  src
+                  srcSet
+                }
+              }
             }
           }
         }
@@ -117,7 +162,13 @@ const DataSummary = () => {
         <>
           <h2 className={summaryStyle.category}>{title}</h2>
           {summaries.map(summary => (
-            <Summary key={summary.slug} summary={summary} />
+            <>
+              {resources ? (
+                <Resources summary={summary} />
+              ) : (
+                <Summary key={summary.slug} summary={summary} />
+              )}
+            </>
           ))}
         </>
       ))}
