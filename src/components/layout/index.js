@@ -24,7 +24,6 @@ const Layout = ({
   socialCard,
   hero,
   centerTitle,
-  showWarning = false,
   noContainer = false,
   forceSubNavigationKey = false,
 }) => {
@@ -53,7 +52,6 @@ const Layout = ({
         returnLinksContent={returnLinksContent}
         hero={hero}
         centerTitle={centerTitle}
-        showWarning={showWarning}
         forceSubNavigationKey={forceSubNavigationKey}
       />
       <main id="main">

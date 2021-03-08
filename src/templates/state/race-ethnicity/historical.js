@@ -39,7 +39,6 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
       ]}
       path={path}
       description={`Historical time series of race and ethnicity data in ${state.name}.`}
-      showWarning
     >
       <Hero
         stateName={state.name}

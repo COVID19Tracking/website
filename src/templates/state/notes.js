@@ -16,7 +16,6 @@ const StateNotesTemplate = ({ pageContext, path, data }) => {
         { link: `/data/state/${slug}`, title: state.name },
       ]}
       path={path}
-      showWarning
     >
       <StatePreamble
         state={state}

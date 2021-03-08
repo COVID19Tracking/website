@@ -18,7 +18,6 @@ const DataPage = ({ data }) => {
       title="The Data"
       description="Our most up-to-date data on COVID-19 in the US."
       path="/data"
-      showWarning
     >
       <ContentfulContent
         content={data.dataPreamble.content.childMarkdownRemark.html}

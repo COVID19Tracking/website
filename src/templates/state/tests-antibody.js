@@ -17,7 +17,6 @@ const StateTestAntibodiesTemplate = ({ pageContext, path, data }) => {
       ]}
       path={path}
       description={`Data definitions and time series of data on total, positive, and negative antibody tests in units of specimens or people for ${state.name}.`}
-      showWarning
     >
       <Definitions
         definitions={data.allContentfulDataDefinition.nodes}
