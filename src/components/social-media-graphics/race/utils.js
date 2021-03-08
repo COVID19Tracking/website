@@ -35,7 +35,7 @@ const getGroupValue = value => {
   if (value === null) {
     return null
   }
-  return value * 100 // perCap is *per 1,000*, multiply by 100 to get *per 100,000*
+  return Math.round(value * 100) // perCap is *per 1,000*, multiply by 100 to get *per 100,000*
 }
 
 const getGroups = (state, testHospState = null) => {
@@ -233,7 +233,6 @@ const getGroups = (state, testHospState = null) => {
         group: undefined,
       }
     }
-    console.log(values)
 
     const maxValue = Math.max(...values)
     const maxGroup = groups.find(g => g[key] === maxValue)

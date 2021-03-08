@@ -54,7 +54,6 @@ const getFootnoteStatuses = (stateGroups, stateName) => {
 }
 
 const StateRaceBarCharts = ({
-  headers,
   availableMetrics,
   state,
   testHospData,
@@ -69,6 +68,10 @@ const StateRaceBarCharts = ({
     3: socialCardStyle.three,
     4: socialCardStyle.four,
   }
+
+  const headers = availableMetrics
+    .map(m => m.charAt(0).toUpperCase() + m.slice(1))
+    .map(m => `${m} per 100,000 people`)
 
   return (
     <div

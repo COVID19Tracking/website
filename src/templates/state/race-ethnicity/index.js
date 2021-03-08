@@ -7,7 +7,42 @@ import Container from '~components/common/container'
 import { StateRaceBarCharts } from '~components/social-media-graphics/race/social-card'
 
 import Hero from '~components/pages/race/breakouts/hero'
+import CumulativeNotes from '~components/pages/race/breakouts/cumulative-notes'
 import { Notes } from '~components/pages/state/race-ethnicity/notes-and-downloads'
+
+const getAvailableMetrics = (isCombined, coreData, testHospData) => {
+  const metrics = []
+
+  if (isCombined) {
+    if (testHospData.knownRaceEthTest > 0) {
+      metrics.push('tests')
+    }
+    if (coreData.knownRaceEthPos > 0) {
+      metrics.push('cases')
+    }
+    if (testHospData.knownRaceEthHosp > 0) {
+      metrics.push('hospitalizations')
+    }
+    if (coreData.knownRaceEthDeath > 0) {
+      metrics.push('deaths')
+    }
+  } else {
+    if (testHospData.knownRaceTest > 0 || testHospData.knownEthTest > 0) {
+      metrics.push('tests')
+    }
+    if (coreData.knownRacePos > 0 || coreData.knownEthPos > 0) {
+      metrics.push('cases')
+    }
+    if (testHospData.knownRaceHosp > 0 || testHospData.knownEthHosp > 0) {
+      metrics.push('hospitalizations')
+    }
+    if (coreData.knownRaceDeath > 0 || coreData.knownEthDeath > 0) {
+      metrics.push('deaths')
+    }
+  }
+
+  return metrics
+}
 
 const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
   const state = pageContext
@@ -22,11 +57,10 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
     : data.covidRaceHospTestDataSeparate
   const lastUpdated = data.allCovidRaceDataTimeseries.nodes[0].Date
 
-  // todo identify available metrics here
-  const availableMetrics = ['cases', 'deaths', 'tests']
-
-  const barChartHeaders = ['Cases', 'Deaths', 'Tests'].map(
-    type => `${type} per 100,000 people`,
+  const availableMetrics = getAvailableMetrics(
+    isCombined,
+    coreData,
+    testHospData,
   )
 
   return (
@@ -61,13 +95,20 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
             separateTestHosp={data.covidRaceHospTestDataSeparate}
           />
         </CollapsibleSection>
-        <StateRaceBarCharts
+        <CumulativeNotes
           availableMetrics={availableMetrics}
-          headers={barChartHeaders}
           state={coreData}
           testHospData={testHospData}
-          combinedStates={isCombined ? [state.state] : []}
+          lastUpdated={lastUpdated}
         />
+      </Container>
+      <StateRaceBarCharts
+        availableMetrics={availableMetrics}
+        state={coreData}
+        testHospData={testHospData}
+        combinedStates={isCombined ? [state.state] : []}
+      />
+      <Container centered>
         <CollapsibleSection title="Historical Data">
           <p>content</p>
         </CollapsibleSection>
