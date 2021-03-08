@@ -11,7 +11,7 @@ const DataSummaryPage = ({ data, path }) => {
       path={path}
       returnLinks={[
         { link: '/about-data' },
-        { link: '/about-data/data-summary', title: 'Add Datasets' },
+        { link: '/about-data/data-summary', title: 'All Datasets' },
       ]}
       centered
     >
