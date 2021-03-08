@@ -80,7 +80,6 @@ module.exports = ({ actions }) => {
       outrkfactestsconducted_other: Int
       testedres_other: Int
       testedstaff_other: String
-
     }
     type CovidScreenshot implements Node {
       dateChecked: String
@@ -137,7 +136,6 @@ module.exports = ({ actions }) => {
       nonhispanicDeathNotes: String
       nonhispanicSpecialCaseNotes: String
     }
-
     type CovidRaceDataCombined implements Node {
       aianANHPIDeathNotes: String
       aianANHPIPosNotes: String
@@ -175,6 +173,8 @@ module.exports = ({ actions }) => {
       nhpiPctTest: Float
       twoPctTest: Float
       aianPctTest: Float
+      apiTestPercap: Float
+      apiHospPercap: Float
     }
   `
   createTypes(typeDefs)

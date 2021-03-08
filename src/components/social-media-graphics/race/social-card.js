@@ -56,10 +56,14 @@ const getFootnoteStatuses = (stateGroups, stateName) => {
 const StateRaceBarCharts = ({
   headers,
   state,
+  testHospData,
   combinedStates,
   square = false,
 }) => {
-  const { groups, worstCasesValue, worstDeathsValue } = getGroups(state)
+  const { groups, worstCasesValue, worstDeathsValue } = getGroups(
+    state,
+    testHospData,
+  )
   const status = getStateStatus(state, combinedStates)
 
   return (

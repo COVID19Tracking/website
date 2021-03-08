@@ -62,6 +62,7 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
         <StateRaceBarCharts
           headers={barChartHeaders}
           state={coreData}
+          testHospData={testHospData}
           combinedStates={isCombined ? [state.state] : []}
         />
         <CollapsibleSection title="Historical Data">
@@ -383,6 +384,20 @@ export const query = graphql`
       knownRaceEthHosp
       knownRaceEthTest
       name
+      blackTestPercap
+      blackHospPercap
+      latinXTestPercap
+      latinXHospPercap
+      asianTestPercap
+      asianHospPercap
+      aianTestPercap
+      aianHospPercap
+      whiteTestPercap
+      whiteHospPercap
+      apiTestPercap
+      apiHospPercap
+      nhpiTestPercap
+      nhpiHospPercap
     }
     covidRaceHospTestDataSeparate(state: { eq: $state }) {
       knownRaceHosp
@@ -390,6 +405,20 @@ export const query = graphql`
       knownEthHosp
       knownEthTest
       name
+      blackTestPercap
+      blackHospPercap
+      latinXTestPercap
+      latinXHospPercap
+      asianTestPercap
+      asianHospPercap
+      aianTestPercap
+      aianHospPercap
+      whiteTestPercap
+      whiteHospPercap
+      apiTestPercap
+      apiHospPercap
+      nhpiTestPercap
+      nhpiHospPercap
     }
   }
 `

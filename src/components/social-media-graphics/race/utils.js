@@ -38,7 +38,7 @@ const getGroupValue = value => {
   return value * 100 // perCap is *per 1,000*, multiply by 100 to get *per 100,000*
 }
 
-const getGroups = state => {
+const getGroups = (state, testHospState = null) => {
   if (state === undefined) {
     return {}
   }
@@ -101,6 +101,60 @@ const getGroups = state => {
       showCross: false,
     },
   ]
+
+  if (testHospState !== null) {
+    groups.find(
+      g => g.label === 'Black\u200a/\u200aAfrican American',
+    ).tests = getGroupValue(testHospState.blackTestPercap)
+    groups.find(
+      g => g.label === 'Black\u200a/\u200aAfrican American',
+    ).hospitalizations = getGroupValue(testHospState.blackHospPercap)
+
+    groups.find(
+      g => g.label === 'Hispanic\u200a/\u200aLatino',
+    ).tests = getGroupValue(testHospState.latinXTestPercap)
+    groups.find(
+      g => g.label === 'Hispanic\u200a/\u200aLatino',
+    ).hospitalizations = getGroupValue(testHospState.latinXHospPercap)
+
+    groups.find(g => g.label === 'Asian').tests = getGroupValue(
+      testHospState.asianTestPercap,
+    )
+    groups.find(g => g.label === 'Asian').hospitalizations = getGroupValue(
+      testHospState.asianHospPercap,
+    )
+
+    groups.find(
+      g => g.label === 'American Indian\u200a/\u200aAlaska Native',
+    ).tests = getGroupValue(testHospState.aianTestPercap)
+    groups.find(
+      g => g.label === 'American Indian\u200a/\u200aAlaska Native',
+    ).hospitalizations = getGroupValue(testHospState.aianHospPercap)
+
+    groups.find(g => g.label === 'White').tests = getGroupValue(
+      testHospState.whiteTestPercap,
+    )
+    groups.find(g => g.label === 'White').hospitalizations = getGroupValue(
+      testHospState.whiteHospPercap,
+    )
+
+    groups.find(
+      g => g.label === 'Asian\u200a/\u200aPacific Islander',
+    ).tests = getGroupValue(testHospState.apiTestPercap)
+    groups.find(
+      g => g.label === 'Asian\u200a/\u200aPacific Islander',
+    ).hospitalizations = getGroupValue(testHospState.apiHospPercap)
+
+    groups.find(
+      g => g.label === 'Native Hawaiian\u200a/\u200aPacific Islander',
+    ).tests = getGroupValue(testHospState.nhpiTestPercap)
+    groups.find(
+      g => g.label === 'Native Hawaiian\u200a/\u200aPacific Islander',
+    ).hospitalizations = getGroupValue(testHospState.nhpiHospPercap)
+  }
+
+  console.log(groups)
+  console.log(testHospState)
 
   let allNulls = true // assume all values are null
   groups.forEach(group => {
