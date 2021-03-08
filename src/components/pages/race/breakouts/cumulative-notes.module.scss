@@ -1,0 +1,14 @@
+.container {
+  p {
+    @include margin(0);
+  }
+
+  li {
+      @include margin(4, (top, bottom));
+  }
+}
+
+.header {
+  color: $color-plum-600;
+  @include type-size(300);
+}
