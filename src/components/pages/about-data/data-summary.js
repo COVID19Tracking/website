@@ -12,12 +12,17 @@ const categoryOrder = [
   'miscellaneous-repositories',
 ]
 
-const Resources = ({ summary }) => (
-  <div className={summaryStyle.summary} id={summary.slug}>
-    <h3 className={summaryStyle.header}>{summary.title}</h3>
-    <DataSummaryResources resources={summary.resources} />
-  </div>
-)
+const Resources = ({ summary }) => {
+  if (!summary.resources) {
+    return null
+  }
+  return (
+    <div className={summaryStyle.summary} id={summary.slug}>
+      <h3 className={summaryStyle.header}>{summary.title}</h3>
+      <DataSummaryResources resources={summary.resources} />
+    </div>
+  )
+}
 
 const Summary = ({ summary, hideTitle = false }) => (
   <div className={summaryStyle.summary} id={summary.slug}>
@@ -145,22 +150,35 @@ const DataSummary = ({ resources = false }) => {
       <TableOfContentsWrapper>
         <ul className={summaryStyle.toc}>
           {categories.map(({ title, summaries }) => (
-            <li>
-              <strong>{title}</strong>
-              <ul>
-                {summaries.map(summary => (
-                  <li>
-                    <Link to={`#${summary.slug}`}>{summary.title}</Link>
-                  </li>
-                ))}
-              </ul>
-            </li>
+            <>
+              {(!resources || summaries.find(summary => summary.resources)) && (
+                <li>
+                  <strong>{title}</strong>
+                  <ul>
+                    {summaries.map(summary => (
+                      <li>
+                        <Link to={`#${summary.slug}`}>{summary.title}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              )}
+            </>
           ))}
+          {resources && (
+            <li>
+              <strong>
+                <Link to="#federal-trackers">Federal Trackers</Link>
+              </strong>
+            </li>
+          )}
         </ul>
       </TableOfContentsWrapper>
       {categories.map(({ title, summaries }) => (
         <>
-          <h2 className={summaryStyle.category}>{title}</h2>
+          {(!resources || summaries.find(summary => summary.resources)) && (
+            <h2 className={summaryStyle.category}>{title}</h2>
+          )}
           {summaries.map(summary => (
             <>
               {resources ? (

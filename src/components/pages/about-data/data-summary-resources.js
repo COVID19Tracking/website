@@ -34,7 +34,12 @@ const DataSummaryResources = ({ resources }) => {
                     {link ? (
                       <>
                         <strong>
-                          <a href={resource[field]}>{name}</a>
+                          <a href={resource[field]}>
+                            {name}
+                            <span className="a11y-only">
+                              for {resource.name}
+                            </span>
+                          </a>
                         </strong>
                       </>
                     ) : (
