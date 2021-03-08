@@ -8,7 +8,7 @@ const HomepageAbout = () => (
     links={[
       <Link to="/data">See the data</Link>,
       <Link to="/about-data">About the data</Link>,
-      <Link to="/blog">What to do now</Link>,
+      <Link to="/about-data/data-summary">What to do now</Link>,
       <Link to="/about">About us</Link>,
     ]}
     topMargin

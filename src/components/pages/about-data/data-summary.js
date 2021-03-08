@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import { TableOfContentsWrapper } from '~components/common/table-of-contents'
-import DataSummaryResources from '~components/pages/about-data/data-summary-resources'
 import summaryStyle from './data-summary.module.scss'
 
 const categoryOrder = [
@@ -11,18 +10,6 @@ const categoryOrder = [
   'city-data',
   'miscellaneous-repositories',
 ]
-
-const Resources = ({ summary }) => {
-  if (!summary.resources) {
-    return null
-  }
-  return (
-    <div className={summaryStyle.summary} id={summary.slug}>
-      <h3 className={summaryStyle.header}>{summary.title}</h3>
-      <DataSummaryResources resources={summary.resources} />
-    </div>
-  )
-}
 
 const Summary = ({ summary, hideTitle = false }) => (
   <div className={summaryStyle.summary} id={summary.slug}>
@@ -70,7 +57,7 @@ const Summary = ({ summary, hideTitle = false }) => (
   </div>
 )
 
-const DataSummary = ({ resources = false }) => {
+const DataSummary = () => {
   const data = useStaticQuery(graphql`
     {
       allContentfulDataSummaryCategory {
@@ -95,43 +82,7 @@ const DataSummary = ({ resources = false }) => {
             }
             resources {
               name
-              updatedAt(formatString: "MMMM d, yyyy")
-              linkUrl
-              downloadLinkUrl
-              description {
-                childMarkdownRemark {
-                  html
-                }
-              }
-              relatedPosts {
-                title
-                slug
-                sys {
-                  contentType {
-                    sys {
-                      id
-                    }
-                  }
-                }
-              }
-              agency
-              chartLink
-              geographicUnits
-              queryLink
-              startDate(formatString: "MMMM D, yyyy")
-              timeseriesUnit
-              updateFrequency
-              youtubeVideoTitle
-              youtubeVideoUrl
-              screenshots {
-                description
-                fluid(maxWidth: 2000, sizes: "4") {
-                  aspectRatio
-                  sizes
-                  src
-                  srcSet
-                }
-              }
+              id
             }
           }
         }
@@ -151,42 +102,25 @@ const DataSummary = ({ resources = false }) => {
         <ul className={summaryStyle.toc}>
           {categories.map(({ title, summaries }) => (
             <>
-              {(!resources || summaries.find(summary => summary.resources)) && (
-                <li>
-                  <strong>{title}</strong>
-                  <ul>
-                    {summaries.map(summary => (
-                      <li>
-                        <Link to={`#${summary.slug}`}>{summary.title}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              )}
+              <li>
+                <strong>{title}</strong>
+                <ul>
+                  {summaries.map(summary => (
+                    <li>
+                      <Link to={`#${summary.slug}`}>{summary.title}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
             </>
           ))}
-          {resources && (
-            <li>
-              <strong>
-                <Link to="#federal-trackers">Federal Trackers</Link>
-              </strong>
-            </li>
-          )}
         </ul>
       </TableOfContentsWrapper>
       {categories.map(({ title, summaries }) => (
         <>
-          {(!resources || summaries.find(summary => summary.resources)) && (
-            <h2 className={summaryStyle.category}>{title}</h2>
-          )}
+          <h2 className={summaryStyle.category}>{title}</h2>
           {summaries.map(summary => (
-            <>
-              {resources ? (
-                <Resources summary={summary} />
-              ) : (
-                <Summary key={summary.slug} summary={summary} />
-              )}
-            </>
+            <Summary key={summary.slug} summary={summary} />
           ))}
         </>
       ))}
