@@ -9,18 +9,30 @@ import twitterLogo from '~images/footer/twitter-logo.svg'
 import instagramLogo from '~images/footer/instagram-logo.svg'
 import upArrow from '~images/footer/up-arrow.svg'
 
-const Footer = ({ noMargin = false, hideAbout = false }) => (
+import githubLogoPlum from '~images/footer/github-logo-plum.svg'
+import twitterLogoPlum from '~images/footer/twitter-logo-plum.svg'
+import instagramLogoPlum from '~images/footer/instagram-logo-plum.svg'
+import upArrowPlum from '~images/footer/up-arrow-plum.svg'
+
+import ctpLogoPlum from '~images/project-logo-plum.svg'
+
+const Footer = ({
+  noMargin = false,
+  hideAbout = false,
+  flipColors = false,
+}) => (
   <footer
     className={classnames(
       footerStyles.wrapper,
       noMargin && footerStyles.noMargin,
+      flipColors && footerStyles.flipColors,
     )}
   >
     <div className={footerStyles.footer}>
       <div className={footerStyles.main}>
         <Link to="/" className={footerStyles.ctpLogo}>
           <img
-            src={ctpLogo}
+            src={flipColors ? ctpLogoPlum : ctpLogo}
             alt="The COVID Tracking Project"
             className={footerStyles.projectLogo}
           />
@@ -58,17 +70,26 @@ const Footer = ({ noMargin = false, hideAbout = false }) => (
         <ul className={footerStyles.social}>
           <li>
             <a href="https://github.com/COVID19Tracking">
-              <img src={githubLogo} alt="GitHub" />
+              <img
+                src={flipColors ? githubLogoPlum : githubLogo}
+                alt="GitHub"
+              />
             </a>
           </li>
           <li>
             <a href="https://twitter.com/COVID19Tracking">
-              <img src={twitterLogo} alt="Twitter" />
+              <img
+                src={flipColors ? twitterLogoPlum : twitterLogo}
+                alt="Twitter"
+              />
             </a>
           </li>
           <li>
             <a href="https://www.instagram.com/covidtrackingproject/">
-              <img src={instagramLogo} alt="Instagram" />
+              <img
+                src={flipColors ? instagramLogoPlum : instagramLogo}
+                alt="Instagram"
+              />
             </a>
           </li>
         </ul>
@@ -88,7 +109,7 @@ const Footer = ({ noMargin = false, hideAbout = false }) => (
       </span>
       <a href="#reach-skip-nav" className={footerStyles.backToTop}>
         <span>Back to top</span>
-        <img src={upArrow} alt="" aria-hidden />
+        <img src={flipColors ? upArrowPlum : upArrow} alt="" aria-hidden />
       </a>
     </div>
   </footer>

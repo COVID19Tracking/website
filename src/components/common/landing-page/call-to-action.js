@@ -26,6 +26,7 @@ const CtaLink = ({
   to,
   children,
   centered = false,
+  extraMargin = false,
   bold = false,
   className,
 }) => (
@@ -35,6 +36,7 @@ const CtaLink = ({
       ctaLinkStyle.cta,
       centered && ctaLinkStyle.centered,
       bold && ctaLinkStyle.bold,
+      extraMargin && ctaLinkStyle.extraMargin,
       className,
     )}
   >

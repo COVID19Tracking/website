@@ -7,6 +7,16 @@
   &.no-margin {
     margin-top: 0;
   }
+  &.flip-colors {
+    background: white;
+    border-top: 1.5px solid $color-plum-700;
+    a {
+      color: $color-plum-700 !important;
+    }
+    .copyright {
+      color: $color-plum-700;
+    }
+  }
 }
 
 .footer,

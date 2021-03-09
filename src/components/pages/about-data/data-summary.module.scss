@@ -36,3 +36,27 @@ ul.toc {
     }
   }
 }
+
+.screenshot {
+  text-align: center;
+  @include margin(32, top bottom);
+}
+
+.resource {
+  @include margin(64, bottom);
+}
+
+.related-posts {
+  margin-bottom: 0;
+}
+
+.definitions {
+  strong {
+    display: inline-block;
+    @include margin(8, right);
+  }
+}
+
+.last-updated {
+  @include type-size(100);
+}

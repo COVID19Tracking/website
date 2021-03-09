@@ -27,3 +27,8 @@
 .block {
   display: block;
 }
+
+.extra-margin {
+  @include margin(32, top bottom);
+  display: block;
+}

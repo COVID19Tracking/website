@@ -1,0 +1,247 @@
+.root {
+  display: flex;
+  position: relative;
+  flex-flow: row wrap;
+}
+
+.container {
+  position: relative;
+  width: 25em;
+}
+
+.message {
+  background: $color-plum-700;
+  color: white;
+  @include padding(32, top right left);
+  width: 100%;
+  text-align: left;
+  order: 5;
+  br {
+    display: none;
+  }
+  &.impact-message {
+    text-align: left;
+    order: 73;
+  }
+  @media (min-width: $viewport-md) {
+    width: 100%;
+    order: 6;
+    &.impact-message {
+      width: 100%;
+      order: 32;
+    }
+  }
+  @media (min-width: $viewport-lg) {
+    order: 11;
+    width: 80%;
+    br {
+      display: inline;
+    }
+    &.impact-message {
+      width: 70%;
+      order: 73;
+    }
+  }
+  a {
+    color: white;
+  }
+  h3 {
+    margin: 0;
+    line-height: 2.5rem;
+  }
+  &.message-2 {
+    order: 5;
+    width: 100%;
+    padding-top: 0;
+    @include padding(32, bottom);
+    @media (min-width: $viewport-md) {
+      order: 6;
+      width: 100%;
+    }
+    @media (min-width: $viewport-lg) {
+      order: 13;
+      width: 80%;
+    }
+  }
+}
+
+.info {
+  background: $color-plum-200;
+  color: $color-plum-700;
+  position: absolute;
+  @include padding(16);
+  z-index: 10;
+  width: 50%;
+  @media (min-width: $viewport-md) {
+    width: 40%;
+  }
+  @media (min-width: $viewport-lg) {
+    width: 20%;
+  }
+  &.is-right {
+    margin-right: 50%;
+    @media (min-width: $viewport-md) {
+      margin-right: 20%;
+    }
+    @media (min-width: $viewport-lg) {
+      margin-right: 10%;
+    }
+  }
+  h5 {
+    margin: 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+      display: inline-block;
+      @include margin(8, left);
+      &::after {
+        content: ', ';
+      }
+      &:last-child {
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+.image {
+  cursor: pointer;
+  width: 25%;
+  position: relative;
+  overflow: hidden;
+  display: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: grayscale(100%);
+  &.mobile {
+    display: inline-block;
+  }
+  @media (min-width: $viewport-md) {
+    width: 20%;
+
+    &.medium {
+      display: inline-block;
+    }
+  }
+  @media (min-width: $viewport-lg) {
+    width: 10%;
+    display: inline-block;
+  }
+  &::after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }
+  img {
+    width: 140px;
+  }
+  &:hover {
+    filter: none;
+  }
+}
+
+.quote {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include margin(32, top bottom);
+  margin-left: auto;
+  margin-right: auto;
+  blockquote {
+    position: relative;
+    @include type-size(400);
+    margin-left: 0;
+
+    > span:first-child::after {
+      content: '“';
+      font-size: 4.5rem;
+      font-family: serif;
+      display: inline-block;
+      @include margin(16, right);
+      font-weight: bold;
+      line-height: 0;
+    }
+    > span:last-child::after {
+      content: '”';
+      font-size: 4.5rem;
+      font-family: serif;
+      display: block;
+      float: right;
+      font-weight: bold;
+      line-height: 0;
+      @include margin(32, top);
+    }
+  }
+  cite {
+    font-style: normal;
+    @include type-size(300);
+  }
+  &.over-mobile {
+    display: none;
+  }
+  @media (min-width: $viewport-lg) {
+    width: 70%;
+    @include margin(64, top bottom);
+    &.over-mobile {
+      display: inline-block;
+    }
+  }
+}
+
+.press {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  @include margin(32, top);
+  img {
+    filter: grayscale(1);
+    height: 1.5rem;
+    margin: 0 1.8rem 2rem 1.8rem; // ignore-style-rule
+    @media (min-width: $viewport-lg) {
+      height: 2rem;
+      margin: 0 spacer(32) spacer(64) spacer(32);
+      margin: 0 1.8rem 3.125rem 1.8rem; // ignore-style-rule
+    }
+  }
+}
+
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  @include margin(64, top bottom);
+  p {
+    @include type-size(300);
+    @include margin(32, bottom);
+    @include padding(32, bottom);
+    margin-top: 0;
+    width: 100%;
+    border-bottom: 1px solid $color-slate-200;
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.skip-link {
+  @include a11y-only();
+  &:focus,
+  &:hover {
+    @include a11y-only-off();
+    clip: auto;
+    background: white;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    @include padding(16);
+    width: auto;
+  }
+}

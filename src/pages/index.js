@@ -3,15 +3,12 @@ import { SkipNavContent } from '@reach/skip-nav'
 import SkipNavigation from '~components/utils/skip-navigation'
 import Header from '~components/layout/header'
 import SEO from '~components/utils/seo'
-import Footer from '~components/layout/footer'
 import Container from '~components/common/container'
-import BlogFeatured from '~components/pages/homepage/blog-featured'
-import BlogList from '~components/pages/homepage/blog-list'
-import Press from '~components/pages/homepage/press'
-import HomepageAPI from '~components/pages/homepage/api'
+import Footer from '~components/layout/footer'
 import HomepageAbout from '~components/pages/homepage/about'
-import HomepageVisualizationGallery from '~components/pages/homepage/visualization-gallery'
-import HomepageDatsets from '~components/pages/homepage/datasets'
+import HomepageImpact from '~components/pages/homepage/impact'
+import BlogList from '~components/pages/homepage/blog-list'
+import { CtaLink } from '~components/common/landing-page/call-to-action'
 
 const Homepage = () => (
   <>
@@ -22,17 +19,14 @@ const Homepage = () => (
     <h1 className="a11y-only">The COVID Tracking Project</h1>
 
     <main id="main">
-      <HomepageVisualizationGallery />
       <HomepageAbout />
-      <HomepageDatsets />
-
+      <HomepageImpact />
       <Container>
-        <BlogFeatured />
+        <h2>Our analysis &amp; updates</h2>
+        <CtaLink bold block extraMargin to="/analysis-updates">
+          Read all our posts
+        </CtaLink>
         <BlogList />
-      </Container>
-      <HomepageAPI />
-      <Container>
-        <Press />
       </Container>
     </main>
     <Footer noMargin hideAbout />
