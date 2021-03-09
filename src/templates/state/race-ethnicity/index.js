@@ -4,13 +4,15 @@ import { graphql } from 'gatsby'
 import CollapsibleSection from '~components/common/collapsible-section'
 import Layout from '~components/layout'
 import Container from '~components/common/container'
-import { StateRaceBarCharts } from '~components/social-media-graphics/race/social-card'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
+
+import { StateRaceBarCharts } from '~components/social-media-graphics/race/social-card'
 import Hero from '~components/pages/race/breakouts/hero'
 import CumulativeNotes from '~components/pages/race/breakouts/cumulative-notes'
 import { Notes } from '~components/pages/state/race-ethnicity/notes-and-downloads'
 import SelectorAndCharts from '~components/pages/state/race-ethnicity/selector-and-charts'
 import { addPer100kValues } from '~components/pages/state/race-ethnicity/utils'
+import { TableAndNotes } from '~components/pages/race/dashboard/state-separate'
 
 import styles from './index.module.scss'
 
@@ -126,6 +128,27 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
           combinedStates={isCombined ? [state.state] : []}
         />
       </div>
+      <Container>
+        {!isCombined ? (
+          <>
+            <TableAndNotes
+              stateData={{ ...coreData, ...testHospData }}
+              type="Race"
+              inEthnicityState
+            />
+            <TableAndNotes
+              stateData={{ ...coreData, ...testHospData }}
+              type="Ethnicity"
+            />
+          </>
+        ) : (
+          <TableAndNotes
+            // broken -- todo import from state-combined
+            stateData={{ ...coreData, ...testHospData }}
+            type="Race/ethnicity"
+          />
+        )}
+      </Container>
       <Container centered>
         <CollapsibleSection title="Historical Data">
           <SelectorAndCharts
@@ -240,22 +263,6 @@ export const query = graphql`
       crdt
     }
     covidRaceDataCombined(state: { eq: $state }) {
-      name
-      latinxNote
-      mutExclNote
-      popTableNote
-      smallNNote
-      blackSmallN
-      asianSmallN
-      aianSmallN
-      nhpiSmallN
-      whiteSmallN
-      latinXSmallN
-      apiNote
-      otherNote
-      historicalSmallNNote
-      knownRaceEthDeath
-      knownRaceEthPos
       aianANHPIDeathNotes
       aianANHPIPosNotes
       aianDeathCaution
@@ -275,6 +282,7 @@ export const query = graphql`
       anyDeathData
       anyPosData
       apiDeathPerCap
+      apiNote
       apiPosPerCap
       apiSmallN
       asianANHPIDeathNotes
@@ -309,6 +317,7 @@ export const query = graphql`
       blackPosNotes
       blackPosPerCap
       blackSmallN
+      historicalSmallNNote
       id
       knownRaceEthDeath
       knownRaceEthPos
@@ -317,6 +326,7 @@ export const query = graphql`
       latinXDeathNotes
       latinXDeathPerCap
       latinXDeaths
+      latinxNote
       latinXPctDeath
       latinXPctPop
       latinXPctPos
@@ -326,6 +336,7 @@ export const query = graphql`
       latinXPosNotes
       latinXPosPerCap
       latinXSmallN
+      mutExclNote
       name
       nhpiANHPIDeathNotes
       nhpiANHPIPosNotes
@@ -343,7 +354,36 @@ export const query = graphql`
       nhpiPosNotes
       nhpiPosPerCap
       nhpiSmallN
+      otherANHPIDeathNotes
+      otherANHPIPosNotes
+      otherDeathCaution
+      otherDeathDispFlag
+      otherDeathNotes
+      otherDeaths
+      otherNote
+      otherPctDeath
+      otherPctPop
+      otherPctPos
+      otherPosCaution
+      otherPosDispFlag
+      otherPositives
+      otherPosNotes
+      popTableNote
+      smallNNote
       state
+      twoANHPIDeathNotes
+      twoANHPIPosNotes
+      twoDeathCaution
+      twoDeathDispFlag
+      twoDeathNotes
+      twoDeaths
+      twoPctDeath
+      twoPctPop
+      twoPctPos
+      twoPosCaution
+      twoPosDispFlag
+      twoPositives
+      twoPosNotes
       unknownRaceEthDeath
       unknownRaceEthPos
       whiteANHPIDeathNotes
@@ -370,21 +410,6 @@ export const query = graphql`
       }
     }
     covidRaceDataSeparate(state: { eq: $state }) {
-      name
-      latinxNote
-      mutExclNote
-      smallNNote
-      blackSmallN
-      asianSmallN
-      aianSmallN
-      nhpiSmallN
-      whiteSmallN
-      latinXSmallN
-      apiNote
-      knownRaceDeath
-      knownEthPos
-      knownEthDeath
-      knownRacePos
       aianANHPIDeathNotes
       aianANHPIPosNotes
       aianDeathCaution
@@ -405,6 +430,7 @@ export const query = graphql`
       anyDeathData
       anyPosData
       apiDeathPerCap
+      apiNote
       apiPosPerCap
       apiSmallN
       asianANHPIDeathNotes
@@ -455,6 +481,7 @@ export const query = graphql`
       latinXDeathNotes
       latinXDeathPerCap
       latinXDeaths
+      latinxNote
       latinXPctDeath
       latinXPctPop
       latinXPctPos
@@ -464,6 +491,7 @@ export const query = graphql`
       latinXPosNotes
       latinXPosPerCap
       latinXSmallN
+      mutExclNote
       name
       nhpiANHPIDeathNotes
       nhpiANHPIPosNotes
@@ -496,9 +524,38 @@ export const query = graphql`
       nonhispanicPositives
       nonhispanicPosNotes
       nonhispanicSpecialCaseNotes
+      otherANHPIDeathNotes
+      otherANHPIPosNotes
+      otherDeathCaution
+      otherDeathDispFlag
+      otherDeathNotes
+      otherDeaths
+      otherPctDeath
+      otherPctPop
+      otherPctPos
+      otherPosCaution
+      otherPosDispFlag
+      otherPositives
+      otherPosNotes
+      otherSpecialCaseNotes
       posEthData
       posRaceData
+      smallNNote
       state
+      twoANHPIDeathNotes
+      twoANHPIPosNotes
+      twoDeathCaution
+      twoDeathDispFlag
+      twoDeathNotes
+      twoDeaths
+      twoPctDeath
+      twoPctPop
+      twoPctPos
+      twoPosCaution
+      twoPosDispFlag
+      twoPositives
+      twoPosNotes
+      twoSpecialCaseNotes
       unknownEthDeath
       unknownEthPos
       unknownRaceDeath

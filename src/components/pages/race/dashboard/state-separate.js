@@ -1,5 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
+
 import HeaderSorter from './header-sorter'
 import TableNotes from './table-notes'
 import PercentageOverview from './percentage-overview'
@@ -8,6 +9,7 @@ import cautionNotes from './caution-notes'
 import NoData from './no-data'
 import RaceTable from './race-table'
 import EthnicityTable from './ethnicity-table'
+
 import stateStyle from './state.module.scss'
 
 const getRaceNotes = stateData => {
@@ -72,13 +74,14 @@ const getEthnicityNotes = stateData => {
   }
 }
 
-const TableAndNotes = ({ stateData, disparityExists, type }) => {
+const TableAndNotes = ({ stateData, type, inEthnicityState, isCombined }) => {
   let allNotes
   if (type === 'Race') {
     allNotes = getRaceNotes(stateData)
   } else {
     allNotes = getEthnicityNotes(stateData)
   }
+
   const tableProps = {
     data: stateData,
     type,
@@ -86,11 +89,18 @@ const TableAndNotes = ({ stateData, disparityExists, type }) => {
     groupedNotes: allNotes.groupedNotes,
     noPositives: !stateData.posRaceData,
     noDeaths: !stateData.deathRaceData,
-    isInEthnicityState: type === 'Ethnicity',
+    isInEthnicityState: inEthnicityState,
+    isCombined,
   }
+
+  const disparityExists =
+    Object.keys(stateData).filter(
+      field => field.search('DispFlag') > -1 && stateData[field],
+    ).length > 0
+
   return (
     <div>
-      {type === 'Race' ? (
+      {type === 'Race' || type === 'Race/ethnicity' ? (
         <RaceTable {...tableProps} />
       ) : (
         <EthnicityTable {...tableProps} />
@@ -113,11 +123,6 @@ const StateSeparate = ({ state }) => {
     return <NoData stateName={stateData.name} />
   }
 
-  const disparityExists =
-    Object.keys(stateData).filter(
-      field => field.search('DispFlag') > -1 && stateData[field],
-    ).length > 0
-
   return (
     <div>
       <div className={stateStyle.stateOverview}>
@@ -136,47 +141,39 @@ const StateSeparate = ({ state }) => {
         </div>
       </div>
       <h3 className={stateStyle.tableTitle}>Cases and deaths by race</h3>
-      <TableAndNotes
-        stateData={stateData}
-        disparityExists={disparityExists}
-        type="Race"
-      />
-      <>
-        <div
-          className={classnames(
-            stateStyle.stateOverview,
-            stateStyle.ethnicityOverview,
-          )}
-        >
-          {/* this is the ethnicity data section */}
-          <PercentageOverview
-            stateName={state.name}
-            dataType="ethnicity"
-            hospitalizationPercent={state.knownEthHosp}
-            testPercent={state.knownEthTest}
-            casePercent={state.knownEthPos}
-            deathPercent={state.knownEthDeath}
-            className={stateStyle.totals}
-          />
-          <div className={stateStyle.note}>
-            <HeaderSorter stateName={state.name} stateReports="ethnicity" />
-          </div>
-        </div>
-        {(stateData.posEthData || stateData.deathEthData) && (
-          <>
-            <h3 className={stateStyle.tableTitle}>
-              Cases and deaths by ethnicity
-            </h3>
-            <TableAndNotes
-              stateData={stateData}
-              disparityExists={disparityExists}
-              type="Ethnicity"
-            />
-          </>
+      <TableAndNotes stateData={stateData} type="Race" />
+      <div
+        className={classnames(
+          stateStyle.stateOverview,
+          stateStyle.ethnicityOverview,
         )}
-      </>
+      >
+        {/* this is the ethnicity data section */}
+        <PercentageOverview
+          stateName={state.name}
+          dataType="ethnicity"
+          hospitalizationPercent={state.knownEthHosp}
+          testPercent={state.knownEthTest}
+          casePercent={state.knownEthPos}
+          deathPercent={state.knownEthDeath}
+          className={stateStyle.totals}
+        />
+        <div className={stateStyle.note}>
+          <HeaderSorter stateName={state.name} stateReports="ethnicity" />
+        </div>
+      </div>
+      {(stateData.posEthData || stateData.deathEthData) && (
+        <>
+          <h3 className={stateStyle.tableTitle}>
+            Cases and deaths by ethnicity
+          </h3>
+          <TableAndNotes stateData={stateData} type="Ethnicity" />
+        </>
+      )}
     </div>
   )
 }
 
 export default StateSeparate
+
+export { StateSeparate, TableAndNotes }
