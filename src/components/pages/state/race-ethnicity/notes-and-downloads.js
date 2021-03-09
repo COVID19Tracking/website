@@ -5,7 +5,7 @@ import Percent from '~components/pages/race/dashboard/percent'
 import { FormatDate, FormatItemList } from '~components/utils/format'
 
 import RacialDataSmallCard from '~components/pages/data/cards/small/view-racial-data-small-card'
-import DataAsGraphicSmallCard from '~components/pages/data/cards/small/data-as-graphic-small-card'
+import CrdtBreakoutSmallCard from '~components/pages/data/cards/small/crdt-breakout-small-card'
 
 import styles from './notes-and-downloads.module.scss'
 
@@ -242,10 +242,7 @@ const NotesAndDownloads = ({
             stateName={stateName}
             content="View racial data dashboard"
           />
-          <DataAsGraphicSmallCard
-            stateAbbreviation={stateAbbreviation}
-            stateName={stateName}
-          />
+          <CrdtBreakoutSmallCard stateSlug={slug} stateName={stateName} />
         </div>
       </div>
     </div>

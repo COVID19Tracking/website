@@ -25,7 +25,7 @@ import CrdtCasesCard from './cards/crdt/cases-card'
 import CrdtDeathsCard from './cards/crdt/deaths-card'
 import SmallCards from './cards/small-cards'
 import ViewDataSmallCard from './cards/small/view-racial-data-small-card'
-import DataAsGraphicSmallCard from './cards/small/data-as-graphic-small-card'
+import CrdtBreakoutSmallCard from './cards/small/crdt-breakout-small-card'
 import HistoricalRaceDataSmallCard from './cards/small/historical-race-data'
 
 import summaryStyles from './summary.module.scss'
@@ -395,8 +395,8 @@ const StateSummary = ({
                         stateAbbreviation={stateAbbreviation}
                       />
                     )}
-                    <DataAsGraphicSmallCard
-                      stateName={stateName}
+                    <CrdtBreakoutSmallCard
+                      stateSlug={stateSlug}
                       stateAbbreviation={stateAbbreviation}
                     />
                     {!hideRacialDataHistorical && (
