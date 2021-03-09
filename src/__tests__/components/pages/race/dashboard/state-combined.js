@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery } from 'gatsby'
-import StateCombined from '~components/pages/race/dashboard/state-combined'
+import { StateCombined } from '~components/pages/race/dashboard/state-combined'
 
 beforeEach(() => {
   useStaticQuery.mockImplementation(() => ({
