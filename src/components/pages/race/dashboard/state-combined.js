@@ -38,24 +38,29 @@ const CombinedTableAndNotes = ({ stateData }) => {
     ).length > 0
 
   return (
-    <div>
-      <RaceTable
-        data={stateData}
-        type="Race/ethnicity"
-        notes={notes}
-        groupedNotes={groupedNotes}
-        noPositives={!stateData.anyPosData}
-        noDeaths={!stateData.anyDeathData}
-        isCombined
-      />
-      <TableNotes
-        state={stateData.state}
-        stateName={stateData.name}
-        groupedNotes={groupedNotes}
-        disparityExists={disparityExists}
-        hispanicLatinxNote
-      />
-    </div>
+    <>
+      <h3 className={stateStyle.tableTitle}>
+        Cases and deaths by race/ethnicity
+      </h3>
+      <div>
+        <RaceTable
+          data={stateData}
+          type="Race/ethnicity"
+          notes={notes}
+          groupedNotes={groupedNotes}
+          noPositives={!stateData.anyPosData}
+          noDeaths={!stateData.anyDeathData}
+          isCombined
+        />
+        <TableNotes
+          state={stateData.state}
+          stateName={stateData.name}
+          groupedNotes={groupedNotes}
+          disparityExists={disparityExists}
+          hispanicLatinxNote
+        />
+      </div>
+    </>
   )
 }
 
@@ -78,9 +83,6 @@ const StateCombined = ({ state }) => {
           <HeaderSorter stateName={state.name} stateReports="race/ethnicity" />
         </div>
       </div>
-      <h3 className={stateStyle.tableTitle}>
-        Cases and deaths by race/ethnicity
-      </h3>
       <CombinedTableAndNotes stateData={stateData} />
     </div>
   )

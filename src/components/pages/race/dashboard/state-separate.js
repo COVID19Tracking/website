@@ -104,20 +104,25 @@ const SeparateTableAndNotes = ({
     ).length > 0
 
   return (
-    <div>
-      {type === 'Race' || type === 'Race/ethnicity' ? (
-        <RaceTable {...tableProps} />
-      ) : (
-        <EthnicityTable {...tableProps} />
-      )}
-      <TableNotes
-        state={stateData.state}
-        stateName={stateData.name}
-        type={type.toLowerCase()}
-        groupedNotes={allNotes.groupedNotes}
-        disparityExists={disparityExists}
-      />
-    </div>
+    <>
+      <h3 className={stateStyle.tableTitle}>
+        Cases and deaths by {type.toLowerCase()}
+      </h3>
+      <div>
+        {type === 'Race' || type === 'Race/ethnicity' ? (
+          <RaceTable {...tableProps} />
+        ) : (
+          <EthnicityTable {...tableProps} />
+        )}
+        <TableNotes
+          state={stateData.state}
+          stateName={stateData.name}
+          type={type.toLowerCase()}
+          groupedNotes={allNotes.groupedNotes}
+          disparityExists={disparityExists}
+        />
+      </div>
+    </>
   )
 }
 
@@ -145,7 +150,6 @@ const StateSeparate = ({ state }) => {
           <HeaderSorter stateName={state.name} stateReports="race" />
         </div>
       </div>
-      <h3 className={stateStyle.tableTitle}>Cases and deaths by race</h3>
       <SeparateTableAndNotes stateData={stateData} type="Race" />
       <div
         className={classnames(
@@ -169,9 +173,6 @@ const StateSeparate = ({ state }) => {
       </div>
       {(stateData.posEthData || stateData.deathEthData) && (
         <>
-          <h3 className={stateStyle.tableTitle}>
-            Cases and deaths by ethnicity
-          </h3>
           <SeparateTableAndNotes stateData={stateData} type="Ethnicity" />
         </>
       )}
