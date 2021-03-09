@@ -41,46 +41,6 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
           </span>
         </div>
       </a>
-      <a
-        className="wrapper"
-        href="/race/infection-and-mortality-data#Arizona"
-      >
-        <div
-          className="container"
-        >
-          <img
-            alt="Chart icon"
-            aria-hidden={true}
-            src="test-file-stub"
-            width="30px"
-          />
-          <span
-            className="link"
-          >
-            Get shareable graphic
-             
-            <span
-              className="a11y-only"
-            >
-              for 
-              's
-            </span>
-            <span
-              aria-hidden={true}
-            >
-              of 
-              Arizona
-              's
-            </span>
-             racial data
-          </span>
-          <span
-            className="arrow"
-          >
-            →
-          </span>
-        </div>
-      </a>
     </div>
     <div>
       <div>
@@ -110,364 +70,366 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
           Cases and deaths by race/ethnicity
         </h3>
         <div>
-          <table
-            className="table table"
-          >
-            <thead>
-              <tr>
-                <th
-                  className="group"
-                  scope="col"
-                >
-                  <span
-                    role="text"
-                  >
-                    Race/ethnicity
-                  </span>
-                </th>
-                <th
-                  className="borderLeft percent"
-                  scope="col"
-                >
-                  <span
-                    role="text"
-                  >
-                    Percentage of
-                    <br />
-                    population
-                  </span>
-                </th>
-                <th
-                  className="percent missingData"
-                  scope="col"
-                >
-                  <span
-                    role="text"
-                  >
-                    <img
-                      alt="Alert icon"
-                      src="test-file-stub"
-                    />
-                    <span
-                      className="headerText"
-                    >
-                      Percentage of
-                      <br />
-                      cases
-                    </span>
-                  </span>
-                </th>
-                <th
-                  className="percent missingData"
-                  scope="col"
-                >
-                  <span
-                    role="text"
-                  >
-                    <img
-                      alt="Alert icon"
-                      src="test-file-stub"
-                    />
-                    <span
-                      className="headerText"
-                    >
-                      Percentage of
-                      <br />
-                      deaths
-                    </span>
-                  </span>
-                </th>
-                <th
-                  className="percent missingData"
-                  scope="col"
-                >
-                  <span
-                    role="text"
-                  >
-                    <img
-                      alt="Alert icon"
-                      src="test-file-stub"
-                    />
-                    <span
-                      className="headerText"
-                    >
-                      Percentage of
-                      <br />
-                      tests
-                    </span>
-                  </span>
-                </th>
-                <th
-                  className="percent missingData"
-                  scope="col"
-                >
-                  <span
-                    role="text"
-                  >
-                    <img
-                      alt="Alert icon"
-                      src="test-file-stub"
-                    />
-                    <span
-                      className="headerText"
-                    >
-                      Percentage of
-                      <br />
-                      hospitalizations
-                    </span>
-                  </span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    Black or African American alone
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-                <td
-                  className="missingData"
-                  rowSpan={8}
-                >
-                  <span>
-                    AZ
-                     does not report 
-                    race/ethnicity
-                     data for 
-                    cases
-                    .
-                     
-                    <a
-                      href="/race/get-better-data"
-                    >
-                      Help us get better data.
-                    </a>
-                  </span>
-                </td>
-                <td
-                  className="missingData"
-                  rowSpan={8}
-                >
-                  <span>
-                    AZ
-                     does not report 
-                    race/ethnicity
-                     data for 
-                    deaths
-                    .
-                     
-                    <a
-                      href="/race/get-better-data"
-                    >
-                      Help us get better data.
-                    </a>
-                  </span>
-                </td>
-                <td
-                  className="missingData"
-                  rowSpan={8}
-                >
-                  <span>
-                    AZ
-                     does not report 
-                    race/ethnicity
-                     data for 
-                    tests
-                    .
-                     
-                    <a
-                      href="/race/get-better-data"
-                    >
-                      Help us get better data.
-                    </a>
-                  </span>
-                </td>
-                <td
-                  className="missingData"
-                  rowSpan={8}
-                >
-                  <span>
-                    AZ
-                     does not report 
-                    race/ethnicity
-                     data for 
-                    hospitalizations
-                    .
-                     
-                    <a
-                      href="/race/get-better-data"
-                    >
-                      Help us get better data.
-                    </a>
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    Hispanic or Latino *
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    Asian alone
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    Native Hawaiian and Pacific Islander alone
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    American Indian or Alaska Native alone
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    Two or more races
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    White alone
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    Some other race alone
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h4
-          className="header"
-          id="notes-arizona"
-        >
-          Notes
-           
-          <span
-            className="a11y-only"
-          >
-             for 
-            AZ
-          </span>
-        </h4>
-        <ul
-          className="list"
-        >
-          <li>
-            <span
-              className="emptyNote"
+          <div>
+            <table
+              className="table table"
             >
-              *
+              <thead>
+                <tr>
+                  <th
+                    className="group"
+                    scope="col"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Race/ethnicity
+                    </span>
+                  </th>
+                  <th
+                    className="borderLeft percent"
+                    scope="col"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Percentage of
+                      <br />
+                      population
+                    </span>
+                  </th>
+                  <th
+                    className="percent missingData"
+                    scope="col"
+                  >
+                    <span
+                      role="text"
+                    >
+                      <img
+                        alt="Alert icon"
+                        src="test-file-stub"
+                      />
+                      <span
+                        className="headerText"
+                      >
+                        Percentage of
+                        <br />
+                        cases
+                      </span>
+                    </span>
+                  </th>
+                  <th
+                    className="percent missingData"
+                    scope="col"
+                  >
+                    <span
+                      role="text"
+                    >
+                      <img
+                        alt="Alert icon"
+                        src="test-file-stub"
+                      />
+                      <span
+                        className="headerText"
+                      >
+                        Percentage of
+                        <br />
+                        deaths
+                      </span>
+                    </span>
+                  </th>
+                  <th
+                    className="percent missingData"
+                    scope="col"
+                  >
+                    <span
+                      role="text"
+                    >
+                      <img
+                        alt="Alert icon"
+                        src="test-file-stub"
+                      />
+                      <span
+                        className="headerText"
+                      >
+                        Percentage of
+                        <br />
+                        tests
+                      </span>
+                    </span>
+                  </th>
+                  <th
+                    className="percent missingData"
+                    scope="col"
+                  >
+                    <span
+                      role="text"
+                    >
+                      <img
+                        alt="Alert icon"
+                        src="test-file-stub"
+                      />
+                      <span
+                        className="headerText"
+                      >
+                        Percentage of
+                        <br />
+                        hospitalizations
+                      </span>
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Black or African American alone
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                  <td
+                    className="missingData"
+                    rowSpan={8}
+                  >
+                    <span>
+                      AZ
+                       does not report 
+                      race/ethnicity
+                       data for 
+                      cases
+                      .
+                       
+                      <a
+                        href="/race/get-better-data"
+                      >
+                        Help us get better data.
+                      </a>
+                    </span>
+                  </td>
+                  <td
+                    className="missingData"
+                    rowSpan={8}
+                  >
+                    <span>
+                      AZ
+                       does not report 
+                      race/ethnicity
+                       data for 
+                      deaths
+                      .
+                       
+                      <a
+                        href="/race/get-better-data"
+                      >
+                        Help us get better data.
+                      </a>
+                    </span>
+                  </td>
+                  <td
+                    className="missingData"
+                    rowSpan={8}
+                  >
+                    <span>
+                      AZ
+                       does not report 
+                      race/ethnicity
+                       data for 
+                      tests
+                      .
+                       
+                      <a
+                        href="/race/get-better-data"
+                      >
+                        Help us get better data.
+                      </a>
+                    </span>
+                  </td>
+                  <td
+                    className="missingData"
+                    rowSpan={8}
+                  >
+                    <span>
+                      AZ
+                       does not report 
+                      race/ethnicity
+                       data for 
+                      hospitalizations
+                      .
+                       
+                      <a
+                        href="/race/get-better-data"
+                      >
+                        Help us get better data.
+                      </a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Hispanic or Latino *
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Asian alone
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Native Hawaiian and Pacific Islander alone
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      American Indian or Alaska Native alone
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Two or more races
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      White alone
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Some other race alone
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h4
+            className="header"
+            id="notes-arizona"
+          >
+            Notes
+             
+            <span
+              className="a11y-only"
+            >
+               for 
+              AZ
             </span>
-             Hispanic or Latino ethnicity, any race. All other race categories in this table are defined as Not Hispanic or Latino.
-          </li>
-        </ul>
+          </h4>
+          <ul
+            className="list"
+          >
+            <li>
+              <span
+                className="emptyNote"
+              >
+                *
+              </span>
+               Hispanic or Latino ethnicity, any race. All other race categories in this table are defined as Not Hispanic or Latino.
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -510,46 +472,6 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
           </span>
         </div>
       </a>
-      <a
-        className="wrapper"
-        href="/race/infection-and-mortality-data#Washington, DC"
-      >
-        <div
-          className="container"
-        >
-          <img
-            alt="Chart icon"
-            aria-hidden={true}
-            src="test-file-stub"
-            width="30px"
-          />
-          <span
-            className="link"
-          >
-            Get shareable graphic
-             
-            <span
-              className="a11y-only"
-            >
-              for 
-              's
-            </span>
-            <span
-              aria-hidden={true}
-            >
-              of 
-              Washington, DC
-              's
-            </span>
-             racial data
-          </span>
-          <span
-            className="arrow"
-          >
-            →
-          </span>
-        </div>
-      </a>
     </div>
     <div>
       <div>
@@ -579,364 +501,366 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
           Cases and deaths by race/ethnicity
         </h3>
         <div>
-          <table
-            className="table table"
-          >
-            <thead>
-              <tr>
-                <th
-                  className="group"
-                  scope="col"
-                >
-                  <span
-                    role="text"
-                  >
-                    Race/ethnicity
-                  </span>
-                </th>
-                <th
-                  className="borderLeft percent"
-                  scope="col"
-                >
-                  <span
-                    role="text"
-                  >
-                    Percentage of
-                    <br />
-                    population
-                  </span>
-                </th>
-                <th
-                  className="percent missingData"
-                  scope="col"
-                >
-                  <span
-                    role="text"
-                  >
-                    <img
-                      alt="Alert icon"
-                      src="test-file-stub"
-                    />
-                    <span
-                      className="headerText"
-                    >
-                      Percentage of
-                      <br />
-                      cases
-                    </span>
-                  </span>
-                </th>
-                <th
-                  className="percent missingData"
-                  scope="col"
-                >
-                  <span
-                    role="text"
-                  >
-                    <img
-                      alt="Alert icon"
-                      src="test-file-stub"
-                    />
-                    <span
-                      className="headerText"
-                    >
-                      Percentage of
-                      <br />
-                      deaths
-                    </span>
-                  </span>
-                </th>
-                <th
-                  className="percent missingData"
-                  scope="col"
-                >
-                  <span
-                    role="text"
-                  >
-                    <img
-                      alt="Alert icon"
-                      src="test-file-stub"
-                    />
-                    <span
-                      className="headerText"
-                    >
-                      Percentage of
-                      <br />
-                      tests
-                    </span>
-                  </span>
-                </th>
-                <th
-                  className="percent missingData"
-                  scope="col"
-                >
-                  <span
-                    role="text"
-                  >
-                    <img
-                      alt="Alert icon"
-                      src="test-file-stub"
-                    />
-                    <span
-                      className="headerText"
-                    >
-                      Percentage of
-                      <br />
-                      hospitalizations
-                    </span>
-                  </span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    Black or African American alone
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-                <td
-                  className="missingData"
-                  rowSpan={8}
-                >
-                  <span>
-                    DC
-                     does not report 
-                    race/ethnicity
-                     data for 
-                    cases
-                    .
-                     
-                    <a
-                      href="/race/get-better-data"
-                    >
-                      Help us get better data.
-                    </a>
-                  </span>
-                </td>
-                <td
-                  className="missingData"
-                  rowSpan={8}
-                >
-                  <span>
-                    DC
-                     does not report 
-                    race/ethnicity
-                     data for 
-                    deaths
-                    .
-                     
-                    <a
-                      href="/race/get-better-data"
-                    >
-                      Help us get better data.
-                    </a>
-                  </span>
-                </td>
-                <td
-                  className="missingData"
-                  rowSpan={8}
-                >
-                  <span>
-                    DC
-                     does not report 
-                    race/ethnicity
-                     data for 
-                    tests
-                    .
-                     
-                    <a
-                      href="/race/get-better-data"
-                    >
-                      Help us get better data.
-                    </a>
-                  </span>
-                </td>
-                <td
-                  className="missingData"
-                  rowSpan={8}
-                >
-                  <span>
-                    DC
-                     does not report 
-                    race/ethnicity
-                     data for 
-                    hospitalizations
-                    .
-                     
-                    <a
-                      href="/race/get-better-data"
-                    >
-                      Help us get better data.
-                    </a>
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    Hispanic or Latino *
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    Asian alone
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    Native Hawaiian and Pacific Islander alone
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    American Indian or Alaska Native alone
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    Two or more races
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    White alone
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-              <tr>
-                <th
-                  className="group"
-                  scope="row"
-                >
-                  <span
-                    role="text"
-                  >
-                    Some other race alone
-                  </span>
-                </th>
-                <td
-                  className="borderLeft"
-                >
-                  0
-                  %
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h4
-          className="header"
-          id="notes-washington, dc"
-        >
-          Notes
-           
-          <span
-            className="a11y-only"
-          >
-             for 
-            DC
-          </span>
-        </h4>
-        <ul
-          className="list"
-        >
-          <li>
-            <span
-              className="emptyNote"
+          <div>
+            <table
+              className="table table"
             >
-              *
+              <thead>
+                <tr>
+                  <th
+                    className="group"
+                    scope="col"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Race/ethnicity
+                    </span>
+                  </th>
+                  <th
+                    className="borderLeft percent"
+                    scope="col"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Percentage of
+                      <br />
+                      population
+                    </span>
+                  </th>
+                  <th
+                    className="percent missingData"
+                    scope="col"
+                  >
+                    <span
+                      role="text"
+                    >
+                      <img
+                        alt="Alert icon"
+                        src="test-file-stub"
+                      />
+                      <span
+                        className="headerText"
+                      >
+                        Percentage of
+                        <br />
+                        cases
+                      </span>
+                    </span>
+                  </th>
+                  <th
+                    className="percent missingData"
+                    scope="col"
+                  >
+                    <span
+                      role="text"
+                    >
+                      <img
+                        alt="Alert icon"
+                        src="test-file-stub"
+                      />
+                      <span
+                        className="headerText"
+                      >
+                        Percentage of
+                        <br />
+                        deaths
+                      </span>
+                    </span>
+                  </th>
+                  <th
+                    className="percent missingData"
+                    scope="col"
+                  >
+                    <span
+                      role="text"
+                    >
+                      <img
+                        alt="Alert icon"
+                        src="test-file-stub"
+                      />
+                      <span
+                        className="headerText"
+                      >
+                        Percentage of
+                        <br />
+                        tests
+                      </span>
+                    </span>
+                  </th>
+                  <th
+                    className="percent missingData"
+                    scope="col"
+                  >
+                    <span
+                      role="text"
+                    >
+                      <img
+                        alt="Alert icon"
+                        src="test-file-stub"
+                      />
+                      <span
+                        className="headerText"
+                      >
+                        Percentage of
+                        <br />
+                        hospitalizations
+                      </span>
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Black or African American alone
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                  <td
+                    className="missingData"
+                    rowSpan={8}
+                  >
+                    <span>
+                      DC
+                       does not report 
+                      race/ethnicity
+                       data for 
+                      cases
+                      .
+                       
+                      <a
+                        href="/race/get-better-data"
+                      >
+                        Help us get better data.
+                      </a>
+                    </span>
+                  </td>
+                  <td
+                    className="missingData"
+                    rowSpan={8}
+                  >
+                    <span>
+                      DC
+                       does not report 
+                      race/ethnicity
+                       data for 
+                      deaths
+                      .
+                       
+                      <a
+                        href="/race/get-better-data"
+                      >
+                        Help us get better data.
+                      </a>
+                    </span>
+                  </td>
+                  <td
+                    className="missingData"
+                    rowSpan={8}
+                  >
+                    <span>
+                      DC
+                       does not report 
+                      race/ethnicity
+                       data for 
+                      tests
+                      .
+                       
+                      <a
+                        href="/race/get-better-data"
+                      >
+                        Help us get better data.
+                      </a>
+                    </span>
+                  </td>
+                  <td
+                    className="missingData"
+                    rowSpan={8}
+                  >
+                    <span>
+                      DC
+                       does not report 
+                      race/ethnicity
+                       data for 
+                      hospitalizations
+                      .
+                       
+                      <a
+                        href="/race/get-better-data"
+                      >
+                        Help us get better data.
+                      </a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Hispanic or Latino *
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Asian alone
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Native Hawaiian and Pacific Islander alone
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      American Indian or Alaska Native alone
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Two or more races
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      White alone
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    className="group"
+                    scope="row"
+                  >
+                    <span
+                      role="text"
+                    >
+                      Some other race alone
+                    </span>
+                  </th>
+                  <td
+                    className="borderLeft"
+                  >
+                    0
+                    %
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h4
+            className="header"
+            id="notes-washington, dc"
+          >
+            Notes
+             
+            <span
+              className="a11y-only"
+            >
+               for 
+              DC
             </span>
-             Hispanic or Latino ethnicity, any race. All other race categories in this table are defined as Not Hispanic or Latino.
-          </li>
-        </ul>
+          </h4>
+          <ul
+            className="list"
+          >
+            <li>
+              <span
+                className="emptyNote"
+              >
+                *
+              </span>
+               Hispanic or Latino ethnicity, any race. All other race categories in this table are defined as Not Hispanic or Latino.
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -971,46 +895,6 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
             View 
             Georgia
             's historical racial data
-          </span>
-          <span
-            className="arrow"
-          >
-            →
-          </span>
-        </div>
-      </a>
-      <a
-        className="wrapper"
-        href="/race/infection-and-mortality-data#Georgia"
-      >
-        <div
-          className="container"
-        >
-          <img
-            alt="Chart icon"
-            aria-hidden={true}
-            src="test-file-stub"
-            width="30px"
-          />
-          <span
-            className="link"
-          >
-            Get shareable graphic
-             
-            <span
-              className="a11y-only"
-            >
-              for 
-              's
-            </span>
-            <span
-              aria-hidden={true}
-            >
-              of 
-              Georgia
-              's
-            </span>
-             racial data
           </span>
           <span
             className="arrow"
@@ -1132,46 +1016,6 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
             View 
             Washington
             's historical racial data
-          </span>
-          <span
-            className="arrow"
-          >
-            →
-          </span>
-        </div>
-      </a>
-      <a
-        className="wrapper"
-        href="/race/infection-and-mortality-data#Washington"
-      >
-        <div
-          className="container"
-        >
-          <img
-            alt="Chart icon"
-            aria-hidden={true}
-            src="test-file-stub"
-            width="30px"
-          />
-          <span
-            className="link"
-          >
-            Get shareable graphic
-             
-            <span
-              className="a11y-only"
-            >
-              for 
-              's
-            </span>
-            <span
-              aria-hidden={true}
-            >
-              of 
-              Washington
-              's
-            </span>
-             racial data
           </span>
           <span
             className="arrow"
