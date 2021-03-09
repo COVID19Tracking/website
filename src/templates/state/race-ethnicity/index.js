@@ -129,7 +129,7 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
           combinedStates={isCombined ? [state.state] : []}
         />
       </div>
-      <Container>
+      <Container className={styles.tablesContainer}>
         {!isCombined ? (
           // separate
           <>
