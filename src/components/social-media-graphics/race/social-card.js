@@ -75,7 +75,12 @@ const StateRaceBarCharts = ({
     .map(m => `${m} per 100,000 people`)
 
   if (headers === undefined || groups === undefined) {
-    return <Container centered>todo handle guam case</Container>
+    return (
+      <Container centered>
+        Per capita data is not available. The US Census does not provide
+        population data by race/ethnicity for {state.name}.
+      </Container>
+    )
   }
 
   return (

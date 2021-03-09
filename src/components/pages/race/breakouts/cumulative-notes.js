@@ -13,7 +13,7 @@ const CumulativeNotes = ({
   const groups = getGroups(state, testHospData)
   if (Object.keys(groups).length === 0) {
     // Handle cases like Guam w/o per capita data
-    return <div className={styles.container}>No percap data</div>
+    return null
   }
   const { worstMetrics } = groups
   const metricVerbs = {
