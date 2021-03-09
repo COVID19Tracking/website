@@ -16,7 +16,7 @@ const SelectorAndCharts = ({
 }) => {
   const metrics = getMetrics(completeTimeSeriesData)
   return (
-    <div className={className && className}>
+    <div className={className}>
       <MetricSelector
         currentMetric={currentMetric}
         setCurrentMetric={setCurrentMetric}

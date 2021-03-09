@@ -234,7 +234,9 @@ exports.createPages = async ({ graphql, actions }) => {
     const { slug } = node.childSlug
     createPage({
       path: `/data/state/${slug}/race-ethnicity/historical`,
-      component: path.resolve(`./src/templates/state/race-ethnicity/historical.js`),
+      component: path.resolve(
+        `./src/templates/state/race-ethnicity/historical.js`,
+      ),
       context: node,
     })
     createPage({
@@ -255,8 +257,9 @@ exports.createPages = async ({ graphql, actions }) => {
     },
   })
 
-  covidStateInfo = covidStateInfo.filter(node => node.state !== 'VI')
-  covidStateInfo = covidStateInfo.filter(node => node.state !== 'GU')
+  covidStateInfo = covidStateInfo
+    .filter(node => node.state !== 'VI')
+    .filter(node => node.state !== 'GU')
 
   result.data.allContentfulBlogPost.nodes.forEach(node => {
     const longPath = `/analysis-updates/${node.slug}`

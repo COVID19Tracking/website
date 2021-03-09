@@ -35,42 +35,33 @@ const AvailabilityNote = ({ core, testHosp, combined }) => {
       </div>
     )
   }
-  if (!combined) {
-    return (
-      <div className={styles.availabilityWrapper}>
-        <p>Race data available for:</p>
-        <div className={styles.availabilityGrid}>
-          <Availability value={parseFloat(core.knownRacePos)} title="Cases" />
-          <Availability
-            value={parseFloat(core.knownRaceDeath)}
-            title="Deaths"
-          />
-          <Availability
-            value={parseFloat(testHosp.knownRaceTest)}
-            title="Tests"
-          />
-          <Availability
-            value={parseFloat(testHosp.knownRaceHosp)}
-            title="Hospitalizations"
-          />
-        </div>
-        <p>Ethnicity data available for:</p>
-        <div className={styles.availabilityGrid}>
-          <Availability value={parseFloat(core.knownEthPos)} title="Cases" />
-          <Availability value={parseFloat(core.knownEthDeath)} title="Deaths" />
-          <Availability
-            value={parseFloat(testHosp.knownEthTest)}
-            title="Tests"
-          />
-          <Availability
-            value={parseFloat(testHosp.knownEthHosp)}
-            title="Hospitalizations"
-          />
-        </div>
+  return (
+    <div className={styles.availabilityWrapper}>
+      <p>Race data available for:</p>
+      <div className={styles.availabilityGrid}>
+        <Availability value={parseFloat(core.knownRacePos)} title="Cases" />
+        <Availability value={parseFloat(core.knownRaceDeath)} title="Deaths" />
+        <Availability
+          value={parseFloat(testHosp.knownRaceTest)}
+          title="Tests"
+        />
+        <Availability
+          value={parseFloat(testHosp.knownRaceHosp)}
+          title="Hospitalizations"
+        />
       </div>
-    )
-  }
-  return null
+      <p>Ethnicity data available for:</p>
+      <div className={styles.availabilityGrid}>
+        <Availability value={parseFloat(core.knownEthPos)} title="Cases" />
+        <Availability value={parseFloat(core.knownEthDeath)} title="Deaths" />
+        <Availability value={parseFloat(testHosp.knownEthTest)} title="Tests" />
+        <Availability
+          value={parseFloat(testHosp.knownEthHosp)}
+          title="Hospitalizations"
+        />
+      </div>
+    </div>
+  )
 }
 
 const AvailabilityUpdatePanel = ({
