@@ -12,7 +12,8 @@ import CumulativeNotes from '~components/pages/race/breakouts/cumulative-notes'
 import { Notes } from '~components/pages/state/race-ethnicity/notes-and-downloads'
 import SelectorAndCharts from '~components/pages/state/race-ethnicity/selector-and-charts'
 import { addPer100kValues } from '~components/pages/state/race-ethnicity/utils'
-import { TableAndNotes } from '~components/pages/race/dashboard/state-separate'
+import { SeparateTableAndNotes } from '~components/pages/race/dashboard/state-separate'
+import { CombinedTableAndNotes } from '~components/pages/race/dashboard/state-combined'
 
 import styles from './index.module.scss'
 
@@ -130,23 +131,20 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
       </div>
       <Container>
         {!isCombined ? (
+          // separate
           <>
-            <TableAndNotes
+            <SeparateTableAndNotes
               stateData={{ ...coreData, ...testHospData }}
               type="Race"
               inEthnicityState
             />
-            <TableAndNotes
+            <SeparateTableAndNotes
               stateData={{ ...coreData, ...testHospData }}
               type="Ethnicity"
             />
           </>
         ) : (
-          <TableAndNotes
-            // broken -- todo import from state-combined
-            stateData={{ ...coreData, ...testHospData }}
-            type="Race/ethnicity"
-          />
+          <CombinedTableAndNotes stateData={{ ...coreData, ...testHospData }} />
         )}
       </Container>
       <Container centered>

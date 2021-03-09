@@ -74,7 +74,12 @@ const getEthnicityNotes = stateData => {
   }
 }
 
-const TableAndNotes = ({ stateData, type, inEthnicityState, isCombined }) => {
+const SeparateTableAndNotes = ({
+  stateData,
+  type,
+  inEthnicityState,
+  isCombined,
+}) => {
   let allNotes
   if (type === 'Race') {
     allNotes = getRaceNotes(stateData)
@@ -141,7 +146,7 @@ const StateSeparate = ({ state }) => {
         </div>
       </div>
       <h3 className={stateStyle.tableTitle}>Cases and deaths by race</h3>
-      <TableAndNotes stateData={stateData} type="Race" />
+      <SeparateTableAndNotes stateData={stateData} type="Race" />
       <div
         className={classnames(
           stateStyle.stateOverview,
@@ -167,7 +172,7 @@ const StateSeparate = ({ state }) => {
           <h3 className={stateStyle.tableTitle}>
             Cases and deaths by ethnicity
           </h3>
-          <TableAndNotes stateData={stateData} type="Ethnicity" />
+          <SeparateTableAndNotes stateData={stateData} type="Ethnicity" />
         </>
       )}
     </div>
@@ -176,4 +181,4 @@ const StateSeparate = ({ state }) => {
 
 export default StateSeparate
 
-export { StateSeparate, TableAndNotes }
+export { StateSeparate, SeparateTableAndNotes }

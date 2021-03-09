@@ -7,8 +7,7 @@ import cautionNotes from './caution-notes'
 import RaceTable from './race-table'
 import stateStyle from './state.module.scss'
 
-const StateCombined = ({ state }) => {
-  const stateData = state
+const CombinedTableAndNotes = ({ stateData }) => {
   let notes = {
     otherDeath: stateData.otherDeathNotes,
     otherPos: stateData.otherPosNotes,
@@ -40,23 +39,6 @@ const StateCombined = ({ state }) => {
 
   return (
     <div>
-      <div className={stateStyle.stateOverview}>
-        <PercentageOverview
-          stateName={state.name}
-          dataType="race and ethnicity"
-          hospitalizationPercent={state.knownRaceEthHosp}
-          testPercent={state.knownRaceEthTest}
-          casePercent={state.knownRaceEthPos}
-          deathPercent={state.knownRaceEthDeath}
-          className={stateStyle.totals}
-        />
-        <div className={stateStyle.note}>
-          <HeaderSorter stateName={state.name} stateReports="race/ethnicity" />
-        </div>
-      </div>
-      <h3 className={stateStyle.tableTitle}>
-        Cases and deaths by race/ethnicity
-      </h3>
       <RaceTable
         data={stateData}
         type="Race/ethnicity"
@@ -77,4 +59,33 @@ const StateCombined = ({ state }) => {
   )
 }
 
+const StateCombined = ({ state }) => {
+  const stateData = state
+
+  return (
+    <div>
+      <div className={stateStyle.stateOverview}>
+        <PercentageOverview
+          stateName={state.name}
+          dataType="race and ethnicity"
+          hospitalizationPercent={state.knownRaceEthHosp}
+          testPercent={state.knownRaceEthTest}
+          casePercent={state.knownRaceEthPos}
+          deathPercent={state.knownRaceEthDeath}
+          className={stateStyle.totals}
+        />
+        <div className={stateStyle.note}>
+          <HeaderSorter stateName={state.name} stateReports="race/ethnicity" />
+        </div>
+      </div>
+      <h3 className={stateStyle.tableTitle}>
+        Cases and deaths by race/ethnicity
+      </h3>
+      <CombinedTableAndNotes stateData={stateData} />
+    </div>
+  )
+}
+
 export default StateCombined
+
+export { StateCombined, CombinedTableAndNotes }
