@@ -10,8 +10,7 @@ import RaceTable from './race-table'
 import EthnicityTable from './ethnicity-table'
 import stateStyle from './state.module.scss'
 
-const StateSeparate = ({ state }) => {
-  const stateData = state
+const getRaceNotes = stateData => {
   let raceNotes = {
     otherDeath: stateData.otherDeathNotes,
     otherPos: stateData.otherPosNotes,
@@ -45,6 +44,13 @@ const StateSeparate = ({ state }) => {
     .filter(value => value)
     .reverse()
 
+  return {
+    notes: raceNotes,
+    groupedNotes: groupedRaceNotes,
+  }
+}
+
+const getEthnicityNotes = stateData => {
   let ethnicityNotes = {
     nonhispanicPos: stateData.nonhispanicPosNotes,
     nonhispanicDeath: stateData.nonhispanicDeathNotes,
@@ -59,6 +65,49 @@ const StateSeparate = ({ state }) => {
   const groupedEthnicityNotes = [...new Set(Object.values(ethnicityNotes))]
     .filter(value => value)
     .reverse()
+
+  return {
+    notes: ethnicityNotes,
+    groupedNotes: groupedEthnicityNotes,
+  }
+}
+
+const TableAndNotes = ({ stateData, disparityExists, type }) => {
+  let allNotes
+  if (type === 'Race') {
+    allNotes = getRaceNotes(stateData)
+  } else {
+    allNotes = getEthnicityNotes(stateData)
+  }
+  const tableProps = {
+    data: stateData,
+    type,
+    notes: allNotes.notes,
+    groupedNotes: allNotes.groupedNotes,
+    noPositives: !stateData.posRaceData,
+    noDeaths: !stateData.deathRaceData,
+    isInEthnicityState: type === 'Ethnicity',
+  }
+  return (
+    <div>
+      {type === 'Race' ? (
+        <RaceTable {...tableProps} />
+      ) : (
+        <EthnicityTable {...tableProps} />
+      )}
+      <TableNotes
+        state={stateData.state}
+        stateName={stateData.name}
+        type={type.toLowerCase()}
+        groupedNotes={allNotes.groupedNotes}
+        disparityExists={disparityExists}
+      />
+    </div>
+  )
+}
+
+const StateSeparate = ({ state }) => {
+  const stateData = state
 
   if (!stateData.anyPosData && !stateData.anyDeathData) {
     return <NoData stateName={stateData.name} />
@@ -87,21 +136,10 @@ const StateSeparate = ({ state }) => {
         </div>
       </div>
       <h3 className={stateStyle.tableTitle}>Cases and deaths by race</h3>
-      <RaceTable
-        data={stateData}
-        type="Race"
-        notes={raceNotes}
-        groupedNotes={groupedRaceNotes}
-        noPositives={!stateData.posRaceData}
-        noDeaths={!stateData.deathRaceData}
-        isInEthnicityState
-      />
-      <TableNotes
-        state={stateData.state}
-        stateName={stateData.name}
-        type="race"
-        groupedNotes={groupedRaceNotes}
+      <TableAndNotes
+        stateData={stateData}
         disparityExists={disparityExists}
+        type="Race"
       />
       <>
         <div
@@ -129,20 +167,10 @@ const StateSeparate = ({ state }) => {
             <h3 className={stateStyle.tableTitle}>
               Cases and deaths by ethnicity
             </h3>
-            <EthnicityTable
-              data={stateData}
-              type="Ethnicity"
-              notes={ethnicityNotes}
-              groupedNotes={groupedEthnicityNotes}
-              noPositives={!stateData.posEthData}
-              noDeaths={!stateData.deathEthData}
-            />
-            <TableNotes
-              state={stateData.state}
-              stateName={stateData.name}
-              type="ethnicity"
-              groupedNotes={groupedEthnicityNotes}
+            <TableAndNotes
+              stateData={stateData}
               disparityExists={disparityExists}
+              type="Ethnicity"
             />
           </>
         )}
