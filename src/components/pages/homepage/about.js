@@ -16,7 +16,7 @@ const HomepageAbout = () => (
     topMargin
   >
     <p>
-      Our final data data collection shift took place on March 7, 2021. Don’t
+      Our final data collection shift took place on March 7, 2021. Don’t
       worry, all our data is still here.
     </p>
   </ColorBlock>
