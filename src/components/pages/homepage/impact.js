@@ -108,7 +108,7 @@ const Impact = ({ press, files }) => (
     <Container centered>
       <div className={impactStyle.examples} id="skip-volunteers">
         <p>
-          The COVID Tracking project was cited in{' '}
+          The COVID Tracking Project was cited in{' '}
           <strong>nearly 900 academic papers</strong>, including major medical
           journals like <em>The New England Journal of Medicine</em>,{' '}
           <em>Nature</em>, and <em>JAMA</em>.
