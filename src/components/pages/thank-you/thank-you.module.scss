@@ -41,14 +41,11 @@
   padding: 0;
   display: inline-block;
   margin: 0;
+  white-space: pre;
   @include margin(16, top);
   li {
     display: inline-block;
-    @include margin(8, left);
 
-    &:first-child {
-      margin-left: 0;
-    }
     &::after {
       content: ', ';
     }
