@@ -24,7 +24,6 @@ import MobileMenu from './mobile-menu'
 import HeaderSubNavigation from './sub-navigation'
 import ReturnLinks from './return-links'
 import Tools from './tools'
-import DataWarning from './data-warning'
 
 const expandStyles = {
   open: { background: colors.colorPlum800 },
@@ -145,7 +144,6 @@ const Header = withSearch(
     return (
       <>
         <DevelopmentWarning />
-        <DataWarning />
         <header
           className={classnames(
             'site-header',

@@ -45,10 +45,7 @@ const Volunteers = ({ volunteers }) => {
       </div>
 
       <div className={classnames(impactStyle.message, impactStyle.message2)}>
-        <h3>
-          the most complete data about <br />
-          COVID-19 in the US.
-        </h3>
+        <h3>the most complete data about COVID-19 in the US.</h3>
       </div>
       <a href="#skip-volunteers" className={impactStyle.skipLink}>
         Skip volunteer list
