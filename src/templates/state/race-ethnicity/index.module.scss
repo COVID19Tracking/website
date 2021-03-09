@@ -2,3 +2,11 @@
   @include margin(32, top);
   @include margin(16);
 }
+
+.bar-charts > div {
+  margin-left: auto; // ignore-style-rule
+  margin-right: auto; // ignore-style-rule
+  @include margin(32, bottom);
+  @include margin(16, top);
+  width: max-content;
+}

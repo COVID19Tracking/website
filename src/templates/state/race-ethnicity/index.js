@@ -118,12 +118,14 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
           lastUpdated={lastUpdated}
         />
       </Container>
-      <StateRaceBarCharts
-        availableMetrics={availableMetrics}
-        state={coreData}
-        testHospData={testHospData}
-        combinedStates={isCombined ? [state.state] : []}
-      />
+      <div className={styles.barCharts}>
+        <StateRaceBarCharts
+          availableMetrics={availableMetrics}
+          state={coreData}
+          testHospData={testHospData}
+          combinedStates={isCombined ? [state.state] : []}
+        />
+      </div>
       <Container centered>
         <CollapsibleSection title="Historical Data">
           <SelectorAndCharts
