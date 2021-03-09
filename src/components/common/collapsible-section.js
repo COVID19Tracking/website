@@ -28,7 +28,7 @@ const Collapsible = ({ title, children, open = true }) => {
       <div className={styles.container}>
         <div className={styles.header}>
           <h3>{title}</h3>
-          <div>
+          <div className={styles.buttonContainer}>
             <CollapseButton toggle={toggleIsOpen} openStatus={isOpen} />
           </div>
         </div>

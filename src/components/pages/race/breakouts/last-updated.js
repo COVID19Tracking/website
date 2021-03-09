@@ -8,7 +8,7 @@ import checkedIcon from '~images/icons/checked.svg'
 import styles from './last-updated.module.scss'
 
 const LastUpdated = ({ lastUpdatedByState, lastCheckedByCtp }) => (
-  <div>
+  <div className={styles.wrapper}>
     <div className={styles.updated}>
       <img src={clockIcon} alt="" />
       Last updated by state:{' '}

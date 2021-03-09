@@ -6,11 +6,23 @@
     justify-content: space-between;
     align-items: center;
     @include margin(8, (top, bottom));
-  
+
+    @media (max-width: $viewport-lg) {
+      flex-direction: column;
+    }
+
     h5 {
       @include margin(0, top);
       @include margin(16, bottom);
       font-weight: normal;
+    }
+  }
+
+  @media (max-width: $viewport-lg) {
+    position: inherit;
+
+    .sticky {
+      width: 90%;
     }
   }
 

@@ -5,3 +5,9 @@
   }
   @include margin(16, bottom);
 }
+
+.wrapper {
+  @media (max-width: $viewport-lg) {
+    @include margin(16, top);
+  }
+}

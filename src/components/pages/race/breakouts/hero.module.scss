@@ -5,6 +5,10 @@
   @include padding(32, top);
   @include padding(64, bottom);
   
+  @media (max-width: $viewport-lg) {
+    @include padding(16, bottom);
+  }
+  
   h2 {
     @include margin(24, top);
     @include margin(8, bottom);

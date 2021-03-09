@@ -12,6 +12,10 @@
 .header {
   h3 {
     @include margin(0);
+
+    @media (max-width: $viewport-lg) {
+      @include type-size(400);
+    }
   }
   @include margin(8, (top, bottom));
   display: flex;
@@ -28,4 +32,8 @@
   span {
     text-decoration: underline;
   }
+}
+
+.button-container {
+  flex-shrink: 0;
 }
