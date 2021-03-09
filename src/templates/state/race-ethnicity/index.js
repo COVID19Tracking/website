@@ -583,44 +583,138 @@ export const query = graphql`
       }
     }
     covidRaceHospTestDataCombined(state: { eq: $state }) {
+      aianHospCaution
+      aianHospDispFlag
+      aianHospPercap
+      aianPctHosp
+      aianPctTest
+      aianTestCaution
+      aianTestDispFlag
+      aianTestPercap
+      anyHospData
+      anyTestData
+      apiHospPercap
+      apiTestPercap
+      asianHospPercap
+      asianTestPercap
+      blackHospCaution
+      blackHospDispFlag
+      blackHospPercap
+      blackPctHosp
+      blackPctTest
+      blackTestCaution
+      blackTestDispFlag
+      blackTestPercap
       knownRaceEthHosp
       knownRaceEthTest
-      name
-      blackTestPercap
-      blackHospPercap
-      latinXTestPercap
+      latinXHospCaution
+      latinXHospDispFlag
       latinXHospPercap
-      asianTestPercap
-      asianHospPercap
-      aianTestPercap
-      aianHospPercap
-      whiteTestPercap
-      whiteHospPercap
-      apiTestPercap
-      apiHospPercap
-      nhpiTestPercap
+      latinXPctHosp
+      latinXPctTest
+      latinXTestCaution
+      latinXTestDispFlag
+      latinXTestPercap
+      name
+      nhpiHospCaution
+      nhpiHospDispFlag
       nhpiHospPercap
+      nhpiPctHosp
+      nhpiPctTest
+      nhpiTestCaution
+      nhpiTestDispFlag
+      nhpiTestPercap
+      otherHospCaution
+      otherHospDispFlag
+      otherPctHosp
+      otherPctTest
+      otherTestCaution
+      otherTestDispFlag
+      twoHospCaution
+      twoHospDispFlag
+      twoPctHosp
+      twoPctTest
+      twoTestCaution
+      twoTestDispFlag
+      whiteHospCaution
+      whiteHospDispFlag
+      whiteHospPercap
+      whitePctHosp
+      whitePctTest
+      whiteTestCaution
+      whiteTestDispFlag
+      whiteTestPercap
     }
     covidRaceHospTestDataSeparate(state: { eq: $state }) {
-      knownRaceHosp
-      knownRaceTest
+      aianHospCaution
+      aianHospDispFlag
+      aianHospPercap
+      aianPctHosp
+      aianPctTest
+      aianTestCaution
+      aianTestDispFlag
+      aianTestPercap
+      anyHospData
+      anyTestData
+      apiHospPercap
+      apiTestPercap
+      asianHospPercap
+      asianTestPercap
+      blackHospCaution
+      blackHospDispFlag
+      blackHospPercap
+      blackPctHosp
+      blackPctTest
+      blackTestCaution
+      blackTestDispFlag
+      blackTestPercap
       knownEthHosp
       knownEthTest
-      name
-      blackTestPercap
-      blackHospPercap
-      latinXTestPercap
+      knownRaceHosp
+      knownRaceTest
+      latinXHospCaution
+      latinXHospDispFlag
       latinXHospPercap
-      asianTestPercap
-      asianHospPercap
-      aianTestPercap
-      aianHospPercap
-      whiteTestPercap
-      whiteHospPercap
-      apiTestPercap
-      apiHospPercap
-      nhpiTestPercap
+      latinXPctHosp
+      latinXPctTest
+      latinXTestCaution
+      latinXTestDispFlag
+      latinXTestPercap
+      name
+      nhpiHospCaution
+      nhpiHospDispFlag
       nhpiHospPercap
+      nhpiPctHosp
+      nhpiPctTest
+      nhpiTestCaution
+      nhpiTestDispFlag
+      nhpiTestPercap
+      nonhispanicHospCaution
+      nonhispanicHospDispFlag
+      nonhispanicPctHosp
+      nonhispanicPctTest
+      nonhispanicTestCaution
+      nonhispanicTestDispFlag
+      otherHospCaution
+      otherHospDispFlag
+      otherPctHosp
+      otherPctTest
+      otherTestCaution
+      otherTestDispFlag
+      twoHospCaution
+      twoHospDispFlag
+      twoPctHosp
+      twoPctTest
+      twoTestCaution
+      twoTestDispFlag
+      whiteHospCaution
+      whiteHospDispFlag
+      whiteHospPercap
+      whitePctHosp
+      whitePctTest
+      whiteTestCaution
+      whiteTestDispFlag
+      whiteTestPercap
     }
   }
 `
