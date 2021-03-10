@@ -37,6 +37,7 @@ const FederalResources = () => {
             title
             slug
             resources {
+              contentful_id
               name
               updatedAt(formatString: "MMMM D, yyyy")
               linkUrl
@@ -92,11 +93,30 @@ const FederalResources = () => {
     }
   `)
 
-  const categories = categoryOrder.map(slug =>
-    data.allContentfulDataSummaryCategory.nodes.find(
+  const categories = categoryOrder.map(slug => {
+    const result = data.allContentfulDataSummaryCategory.nodes.find(
       node => node.slug === slug,
-    ),
-  )
+    )
+    result.summaries.forEach((summary, summaryIndex) => {
+      if (summary.resources) {
+        summary.resources.forEach((resource, resourceIndex) => {
+          result.summaries.forEach((otherSummary, otherSummaryIndex) => {
+            if (otherSummary.resources) {
+              otherSummary.resources.forEach(otherResource => {
+                if (
+                  otherSummaryIndex !== summaryIndex &&
+                  otherResource.contentful_id === resource.contentful_id
+                ) {
+                  delete result.summaries[summaryIndex].resources[resourceIndex]
+                }
+              })
+            }
+          })
+        })
+      }
+    })
+    return result
+  })
 
   return (
     <>
