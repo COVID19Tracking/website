@@ -99,7 +99,7 @@ const DataSummary = () => {
 
   return (
     <>
-      <TableOfContentsWrapper>
+      <TableOfContentsWrapper topMargin>
         <ul className={summaryStyle.toc}>
           {categories.map(({ title, summaries }) => (
             <>
