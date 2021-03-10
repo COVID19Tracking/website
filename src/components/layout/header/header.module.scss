@@ -243,3 +243,8 @@
     padding: 0 spacer(8);
   }
 }
+
+.shutdown-box {
+  background: $color-honey-300;
+  @include padding(16, top bottom);
+}

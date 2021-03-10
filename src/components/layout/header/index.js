@@ -41,6 +41,7 @@ const Header = withSearch(
     hero,
     centerTitle,
     flipColors = false,
+    hideWarning = false,
     forceSubNavigationKey,
   }) => {
     const data = useStaticQuery(graphql`
@@ -274,6 +275,21 @@ const Header = withSearch(
               {hero}
             </Container>
           </div>
+          {!hideWarning && (
+            <div className={headerStyle.shutdownBox}>
+              <Container>
+                As of <strong>March 7, 2021</strong> we are{' '}
+                <Link to="/analysis-updates/giving-thanks-and-looking-ahead-our-data-collection-work-is-done">
+                  no longer collecting new data
+                </Link>
+                .{' '}
+                <Link to="/analysis-updates/federal-covid-data-101-how-to-find-data">
+                  Learn about available federal data
+                </Link>
+                .
+              </Container>
+            </div>
+          )}
         </header>
       </>
     )
