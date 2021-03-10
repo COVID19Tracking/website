@@ -16,7 +16,7 @@ export default ({ pageContext, path, data }) => {
     let residentCases = 0
     let residentDeaths = 0
     Object.keys(item).forEach(key => {
-      if (key.search('posres') > -1) {
+      if (key.search('posres_') > -1) {
         residentCases += item[key]
       }
       if (key.search('posstaff') > -1) {
