@@ -18,12 +18,7 @@ const Resources = ({ summary }) => {
   if (!summary.resources) {
     return null
   }
-  return (
-    <div className={summaryStyle.summary} id={summary.slug}>
-      <h2 className={summaryStyle.category}>{summary.title}</h2>
-      <DataSummaryResources resources={summary.resources} />
-    </div>
-  )
+  return <DataSummaryResources resources={summary.resources} />
 }
 
 const FederalResources = () => {
@@ -122,11 +117,13 @@ const FederalResources = () => {
     <>
       <TableOfContentsWrapper topMargin>
         <ul className={summaryStyle.toc}>
-          {categories.map(({ title, summaries }) => (
+          {categories.map(({ title, slug, summaries }) => (
             <>
               {summaries && summaries.find(summary => summary.resources) && (
                 <li>
-                  <strong>{title}</strong>
+                  <strong>
+                    <Link to={`#${slug}`}>{title}</Link>
+                  </strong>
                   <ul>
                     {summaries.map(summary => (
                       <>
@@ -150,7 +147,9 @@ const FederalResources = () => {
             </>
           ))}
           <li>
-            <strong>Federal trackers</strong>
+            <strong>
+              <Link to="#federal-trackers">Federal trackers</Link>
+            </strong>
             <ul>
               {data.allContentfulFederalTrackers.nodes.map(tracker => (
                 <li>
@@ -162,7 +161,9 @@ const FederalResources = () => {
             </ul>
           </li>
           <li>
-            <strong>Federal data portals</strong>
+            <strong>
+              <Link to="#federal-portals">Federal data portals</Link>
+            </strong>
             <ul>
               {data.allContentfulFederalDataPortal.nodes.map(tracker => (
                 <li>
@@ -175,8 +176,11 @@ const FederalResources = () => {
           </li>
         </ul>
       </TableOfContentsWrapper>
-      {categories.map(({ summaries }) => (
+      {categories.map(({ title, slug, summaries }) => (
         <>
+          <h2 className={summaryStyle.category} id={slug}>
+            {title}
+          </h2>
           {summaries.map(summary => (
             <Resources summary={summary} />
           ))}
