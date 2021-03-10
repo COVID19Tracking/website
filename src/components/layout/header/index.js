@@ -277,7 +277,7 @@ const Header = withSearch(
             {!hideWarning && (
               <div className={headerStyle.shutdownBox}>
                 <Container>
-                  Starting <strong>March 7, 2021</strong> we are{' '}
+                  As of <strong>March 7, 2021</strong> we are{' '}
                   <Link to="/analysis-updates/giving-thanks-and-looking-ahead-our-data-collection-work-is-done">
                     no longer collecting new data
                   </Link>

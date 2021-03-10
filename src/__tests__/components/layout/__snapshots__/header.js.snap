@@ -489,7 +489,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
         <div
           className="full"
         >
-          Starting 
+          As of 
           <strong>
             March 7, 2021
           </strong>
@@ -1004,7 +1004,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
         <div
           className="full"
         >
-          Starting 
+          As of 
           <strong>
             March 7, 2021
           </strong>
@@ -1523,7 +1523,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
         <div
           className="full"
         >
-          Starting 
+          As of 
           <strong>
             March 7, 2021
           </strong>
@@ -2038,7 +2038,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
         <div
           className="full"
         >
-          Starting 
+          As of 
           <strong>
             March 7, 2021
           </strong>
@@ -2553,7 +2553,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
         <div
           className="full"
         >
-          Starting 
+          As of 
           <strong>
             March 7, 2021
           </strong>
