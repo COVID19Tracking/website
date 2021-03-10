@@ -40,7 +40,7 @@ const FederalTrackers = () => {
   return (
     <>
       <h2 id="federal-trackers" className={summaryStyle.category}>
-        Federal Trackers
+        Federal trackers
       </h2>
       {data.allContentfulFederalTrackers.nodes.map(summary => (
         <>
@@ -76,7 +76,7 @@ const FederalTrackers = () => {
         </>
       ))}
       <h2 id="federal-portals" className={summaryStyle.category}>
-        Federal Data Portals
+        Federal data portals
       </h2>
       {data.allContentfulFederalDataPortal.nodes.map(summary => (
         <>

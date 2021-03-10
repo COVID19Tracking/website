@@ -150,7 +150,7 @@ const FederalResources = () => {
             </>
           ))}
           <li>
-            <strong>Federal Trackers</strong>
+            <strong>Federal trackers</strong>
             <ul>
               {data.allContentfulFederalTrackers.nodes.map(tracker => (
                 <li>
@@ -162,7 +162,7 @@ const FederalResources = () => {
             </ul>
           </li>
           <li>
-            <strong>Federal Data Portals</strong>
+            <strong>Federal data portals</strong>
             <ul>
               {data.allContentfulFederalDataPortal.nodes.map(tracker => (
                 <li>
