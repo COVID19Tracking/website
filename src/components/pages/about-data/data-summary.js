@@ -36,7 +36,7 @@ const Summary = ({ summary, hideTitle = false }) => (
           <a href={summary.definitionsLink}>Definitions</a>
         </li>
       )}
-      {summary.resources && (
+      {summary.resources && !hideTitle && (
         <li>
           <Link to={`/about-data/data-summary/${summary.slug}`}>
             Related federal data
