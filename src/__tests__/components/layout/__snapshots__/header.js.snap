@@ -480,6 +480,37 @@ exports[`Components : Layout : Header renders correctly 1`] = `
         </div>
       </div>
     </div>
+    <div
+      className="shutdownBox"
+    >
+      <div
+        className="container container"
+      >
+        <div
+          className="full"
+        >
+          Starting 
+          <strong>
+            March 7, 2021
+          </strong>
+           we are
+           
+          <a
+            href="/analysis-updates/giving-thanks-and-looking-ahead-our-data-collection-work-is-done"
+          >
+            no longer collecting new data
+          </a>
+          .
+           
+          <a
+            href="/analysis-updates/federal-covid-data-101-how-to-find-data"
+          >
+            Learn about available federal data
+          </a>
+          .
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 `;
@@ -961,6 +992,37 @@ exports[`Components : Layout : Header renders correctly 2`] = `
               Sample title
             </h1>
           </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="shutdownBox"
+    >
+      <div
+        className="container container"
+      >
+        <div
+          className="full"
+        >
+          Starting 
+          <strong>
+            March 7, 2021
+          </strong>
+           we are
+           
+          <a
+            href="/analysis-updates/giving-thanks-and-looking-ahead-our-data-collection-work-is-done"
+          >
+            no longer collecting new data
+          </a>
+          .
+           
+          <a
+            href="/analysis-updates/federal-covid-data-101-how-to-find-data"
+          >
+            Learn about available federal data
+          </a>
+          .
         </div>
       </div>
     </div>
@@ -1452,6 +1514,37 @@ exports[`Components : Layout : Header renders correctly 3`] = `
         </div>
       </div>
     </div>
+    <div
+      className="shutdownBox"
+    >
+      <div
+        className="container container"
+      >
+        <div
+          className="full"
+        >
+          Starting 
+          <strong>
+            March 7, 2021
+          </strong>
+           we are
+           
+          <a
+            href="/analysis-updates/giving-thanks-and-looking-ahead-our-data-collection-work-is-done"
+          >
+            no longer collecting new data
+          </a>
+          .
+           
+          <a
+            href="/analysis-updates/federal-covid-data-101-how-to-find-data"
+          >
+            Learn about available federal data
+          </a>
+          .
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 `;
@@ -1936,6 +2029,37 @@ exports[`Components : Layout : Header renders correctly 4`] = `
         </div>
       </div>
     </div>
+    <div
+      className="shutdownBox"
+    >
+      <div
+        className="container container"
+      >
+        <div
+          className="full"
+        >
+          Starting 
+          <strong>
+            March 7, 2021
+          </strong>
+           we are
+           
+          <a
+            href="/analysis-updates/giving-thanks-and-looking-ahead-our-data-collection-work-is-done"
+          >
+            no longer collecting new data
+          </a>
+          .
+           
+          <a
+            href="/analysis-updates/federal-covid-data-101-how-to-find-data"
+          >
+            Learn about available federal data
+          </a>
+          .
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 `;
@@ -2417,6 +2541,37 @@ exports[`Components : Layout : Header renders correctly 5`] = `
               Sample title
             </h1>
           </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="shutdownBox"
+    >
+      <div
+        className="container container"
+      >
+        <div
+          className="full"
+        >
+          Starting 
+          <strong>
+            March 7, 2021
+          </strong>
+           we are
+           
+          <a
+            href="/analysis-updates/giving-thanks-and-looking-ahead-our-data-collection-work-is-done"
+          >
+            no longer collecting new data
+          </a>
+          .
+           
+          <a
+            href="/analysis-updates/federal-covid-data-101-how-to-find-data"
+          >
+            Learn about available federal data
+          </a>
+          .
         </div>
       </div>
     </div>
