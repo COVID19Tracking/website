@@ -18,11 +18,7 @@ const Resources = ({ summary }) => {
   if (!summary.resources) {
     return null
   }
-  return (
-    <div className={summaryStyle.summary} id={summary.slug}>
-      <DataSummaryResources resources={summary.resources} />
-    </div>
-  )
+  return <DataSummaryResources resources={summary.resources} showSummaries />
 }
 
 const FederalResources = () => {
@@ -36,6 +32,7 @@ const FederalResources = () => {
             title
             slug
             resources {
+              contentful_id
               name
               updatedAt(formatString: "MMMM D, yyyy")
               linkUrl
@@ -44,6 +41,10 @@ const FederalResources = () => {
                 childMarkdownRemark {
                   html
                 }
+              }
+              data_summary {
+                title
+                slug
               }
               relatedPosts {
                 title
@@ -91,21 +92,42 @@ const FederalResources = () => {
     }
   `)
 
-  const categories = categoryOrder.map(slug =>
-    data.allContentfulDataSummaryCategory.nodes.find(
+  const categories = categoryOrder.map(slug => {
+    const result = data.allContentfulDataSummaryCategory.nodes.find(
       node => node.slug === slug,
-    ),
-  )
+    )
+    result.summaries.forEach((summary, summaryIndex) => {
+      if (summary.resources) {
+        summary.resources.forEach((resource, resourceIndex) => {
+          result.summaries.forEach((otherSummary, otherSummaryIndex) => {
+            if (otherSummary.resources) {
+              otherSummary.resources.forEach(otherResource => {
+                if (
+                  otherSummaryIndex !== summaryIndex &&
+                  otherResource.contentful_id === resource.contentful_id
+                ) {
+                  delete result.summaries[summaryIndex].resources[resourceIndex]
+                }
+              })
+            }
+          })
+        })
+      }
+    })
+    return result
+  })
 
   return (
     <>
-      <TableOfContentsWrapper>
+      <TableOfContentsWrapper topMargin>
         <ul className={summaryStyle.toc}>
-          {categories.map(({ title, summaries }) => (
+          {categories.map(({ title, slug, summaries }) => (
             <>
               {summaries && summaries.find(summary => summary.resources) && (
                 <li>
-                  <strong>{title}</strong>
+                  <strong>
+                    <Link to={`#${slug}`}>{title}</Link>
+                  </strong>
                   <ul>
                     {summaries.map(summary => (
                       <>
@@ -129,7 +151,9 @@ const FederalResources = () => {
             </>
           ))}
           <li>
-            <strong>Federal Trackers</strong>
+            <strong>
+              <Link to="#federal-trackers">Federal trackers</Link>
+            </strong>
             <ul>
               {data.allContentfulFederalTrackers.nodes.map(tracker => (
                 <li>
@@ -141,7 +165,9 @@ const FederalResources = () => {
             </ul>
           </li>
           <li>
-            <strong>Federal Data Portals</strong>
+            <strong>
+              <Link to="#federal-portals">Federal data portals</Link>
+            </strong>
             <ul>
               {data.allContentfulFederalDataPortal.nodes.map(tracker => (
                 <li>
@@ -154,8 +180,11 @@ const FederalResources = () => {
           </li>
         </ul>
       </TableOfContentsWrapper>
-      {categories.map(({ summaries }) => (
+      {categories.map(({ title, slug, summaries }) => (
         <>
+          <h2 className={summaryStyle.category} id={slug}>
+            {title}
+          </h2>
           {summaries.map(summary => (
             <Resources summary={summary} />
           ))}

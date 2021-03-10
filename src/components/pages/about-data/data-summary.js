@@ -14,17 +14,7 @@ const categoryOrder = [
 
 const Summary = ({ summary, hideTitle = false }) => (
   <div className={summaryStyle.summary} id={summary.slug}>
-    {!hideTitle && (
-      <h3 className={summaryStyle.header}>
-        {summary.resources ? (
-          <Link to={`/about-data/data-summary/${summary.slug}`}>
-            {summary.title}
-          </Link>
-        ) : (
-          <>{summary.title}</>
-        )}
-      </h3>
-    )}
+    {!hideTitle && <h3 className={summaryStyle.header}>{summary.title}</h3>}
     <div
       dangerouslySetInnerHTML={{
         __html:
@@ -44,6 +34,13 @@ const Summary = ({ summary, hideTitle = false }) => (
       {summary.definitionsLink && (
         <li>
           <a href={summary.definitionsLink}>Definitions</a>
+        </li>
+      )}
+      {summary.resources && (
+        <li>
+          <Link to={`/about-data/data-summary/${summary.slug}`}>
+            Related federal data
+          </Link>
         </li>
       )}
     </ul>
@@ -99,7 +96,7 @@ const DataSummary = () => {
 
   return (
     <>
-      <TableOfContentsWrapper>
+      <TableOfContentsWrapper topMargin>
         <ul className={summaryStyle.toc}>
           {categories.map(({ title, summaries }) => (
             <>
