@@ -24,6 +24,7 @@ const Layout = ({
   socialCard,
   hero,
   centerTitle,
+  hidewarning = false,
   flipColors = false,
   noContainer = false,
   forceSubNavigationKey = false,
@@ -55,6 +56,7 @@ const Layout = ({
         centerTitle={centerTitle}
         forceSubNavigationKey={forceSubNavigationKey}
         flipColors={flipColors}
+        hidewarning={hidewarning}
       />
       <main id="main">
         <SkipNavContent />
