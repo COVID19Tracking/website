@@ -20,7 +20,7 @@ const Resources = ({ summary }) => {
   }
   return (
     <div className={summaryStyle.summary} id={summary.slug}>
-      <h2>{summary.title}</h2>
+      <h2 className={summaryStyle.category}>{summary.title}</h2>
       <DataSummaryResources resources={summary.resources} />
     </div>
   )
