@@ -18,7 +18,7 @@ const Resources = ({ summary }) => {
   if (!summary.resources) {
     return null
   }
-  return <DataSummaryResources resources={summary.resources} />
+  return <DataSummaryResources resources={summary.resources} showSummaries />
 }
 
 const FederalResources = () => {
@@ -41,6 +41,10 @@ const FederalResources = () => {
                 childMarkdownRemark {
                   html
                 }
+              }
+              data_summary {
+                title
+                slug
               }
               relatedPosts {
                 title

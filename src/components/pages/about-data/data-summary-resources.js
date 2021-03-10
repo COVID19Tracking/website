@@ -16,7 +16,7 @@ const aboutFields = [
   { name: 'Chart link', field: 'chartLink', link: true },
 ]
 
-const DataSummaryResources = ({ resources }) => {
+const DataSummaryResources = ({ resources, showSummaries = true }) => {
   if (!resources) {
     return null
   }
@@ -69,25 +69,45 @@ const DataSummaryResources = ({ resources }) => {
               ))}
             </>
           )}
-          {resource.relatedPosts && (
+          {showSummaries && resource.data_summary && (
+            <>
+              <h4 className={dataSummaryStyle.relatedPosts}>
+                Our related datasets
+              </h4>
+              <ul>
+                {resource.data_summary.map(summary => (
+                  <li>
+                    <Link to={`/about-data/data-summary/${summary.slug}`}>
+                      {summary.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+          {(resource.relatedPosts || resource.youtubeVideoTitle) && (
             <>
               <h4 className={dataSummaryStyle.relatedPosts}>
                 Our related posts
               </h4>
               <ul>
-                {resource.relatedPosts.map(post => (
-                  <li>
-                    <Link
-                      to={
-                        post.sys.contentType.sys.id === 'blog'
-                          ? `/analysis-updates/${post.slug}`
-                          : `/${post.slug}`
-                      }
-                    >
-                      {post.title}
-                    </Link>
-                  </li>
-                ))}
+                {resource.relatedPosts && (
+                  <>
+                    {resource.relatedPosts.map(post => (
+                      <li>
+                        <Link
+                          to={
+                            post.sys.contentType.sys.id === 'blog'
+                              ? `/analysis-updates/${post.slug}`
+                              : `/${post.slug}`
+                          }
+                        >
+                          {post.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </>
+                )}
                 {resource.youtubeVideoTitle && (
                   <li>
                     <a href={resource.youtubeVideoUrl}>
