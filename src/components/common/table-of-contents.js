@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 import tocStyle from './table-of-contents.module.scss'
 
 const TableOfContents = ({ headings }) => (
@@ -21,8 +22,15 @@ const TableOfContents = ({ headings }) => (
   </div>
 )
 
-export const TableOfContentsWrapper = ({ children }) => (
-  <div className={tocStyle.tableOfContents}>{children}</div>
+export const TableOfContentsWrapper = ({ children, topMargin = false }) => (
+  <div
+    className={classnames(
+      tocStyle.tableOfContents,
+      topMargin && tocStyle.topMargin,
+    )}
+  >
+    {children}
+  </div>
 )
 
 export default TableOfContents
