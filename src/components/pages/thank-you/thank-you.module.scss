@@ -1,0 +1,69 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  @include margin(64, top);
+  > li {
+    width: 50%;
+    @include padding(16, left right);
+    @include margin(32, bottom);
+    @media (min-width: $viewport-md) {
+      width: 33.333333%;
+    }
+    @media (min-width: $viewport-lg) {
+      width: 25%;
+    }
+  }
+  h3 {
+    @include margin(16, top);
+    margin-bottom: 0;
+  }
+  button {
+    @include remove-button-style();
+    text-align: left;
+    display: block;
+    width: 100%;
+  }
+}
+
+.image {
+  height: 200px;
+  @media (min-width: $viewport-md) {
+    height: 300px;
+  }
+}
+.expand {
+  width: 100%;
+}
+
+.teams {
+  list-style-type: none;
+  padding: 0;
+  display: inline-block;
+  margin: 0;
+  @include margin(16, top);
+  li {
+    display: inline-block;
+    @include margin(8, left);
+
+    &:first-child {
+      margin-left: 0;
+    }
+    &::after {
+      content: ', ';
+    }
+    &:last-child {
+      &::after {
+        content: none;
+      }
+    }
+  }
+}
+
+.modal-header {
+  margin-top: 0;
+}
+
+.modal-content {
+  @include margin(32, top);
+}

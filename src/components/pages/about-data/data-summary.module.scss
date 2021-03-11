@@ -36,3 +36,47 @@ ul.toc {
     }
   }
 }
+
+.screenshot {
+  text-align: center;
+  @include margin(32, top bottom);
+}
+
+.resource {
+  @include margin(64, bottom);
+}
+
+.related-posts {
+  margin-bottom: 0;
+}
+
+.definitions {
+  strong {
+    display: inline-block;
+    @include margin(8, right);
+  }
+}
+
+.last-updated {
+  @include type-size(100);
+}
+
+.disclosure-button {
+  @include remove-button-style();
+  display: block;
+  width: 100%;
+  text-align: left;
+  @include padding(16, top bottom);
+  font-weight: bold;
+  border-bottom: 1.5px solid $color-plum-700;
+  span {
+    display: inline-block;
+    @include margin(16, left);
+  }
+}
+
+.disclosure-panel {
+  @media (min-width: $viewport-lg) {
+    @include padding(32, left);
+  }
+}

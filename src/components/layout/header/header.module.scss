@@ -56,6 +56,15 @@
   }
 }
 
+.flip-colors {
+  .atlantic-banner {
+    div {
+      border-top: 1px solid $color-plum-700;
+      opacity: 0.8;
+    }
+  }
+}
+
 .atlantic-banner {
   margin-top: spacer(16);
   display: flex;
@@ -88,6 +97,9 @@
 
 .container {
   background: $color-plum-700;
+  &.flip-colors {
+    background: white;
+  }
   padding-bottom: spacer(32);
   &.has-navigation {
     padding-bottom: 0;
@@ -124,6 +136,14 @@
     float: right;
     @media (min-width: $viewport-lg) {
       float: none;
+    }
+  }
+
+  &.flip-colors {
+    nav {
+      a {
+        color: $color-plum-700;
+      }
     }
   }
 
@@ -222,4 +242,9 @@
     // todo increase to 1rem if there's space with smaller search box
     padding: 0 spacer(8);
   }
+}
+
+.shutdown-box {
+  background: $color-honey-300;
+  @include padding(16, top bottom);
 }
