@@ -6,9 +6,11 @@ import Layout from '~components/layout'
 import Container from '~components/common/container'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
 
-import { StateRaceBarCharts } from '~components/social-media-graphics/race/social-card'
 import Hero from '~components/pages/race/breakouts/hero'
 import CumulativeNotes from '~components/pages/race/breakouts/cumulative-notes'
+import FurtherResources from '~components/pages/race/breakouts/further-resources'
+
+import { StateRaceBarCharts } from '~components/social-media-graphics/race/social-card'
 import { Notes } from '~components/pages/state/race-ethnicity/notes-and-downloads'
 import SelectorAndCharts from '~components/pages/state/race-ethnicity/selector-and-charts'
 import { addPer100kValues } from '~components/pages/state/race-ethnicity/utils'
@@ -165,7 +167,11 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
           </CtaLink>
         </CollapsibleSection>
         <CollapsibleSection title="Further Resources">
-          <p>content</p>
+          <FurtherResources
+            vaccineLink="https://nyan.cat"
+            stateName={state.name}
+            stateSlug={slug}
+          />
         </CollapsibleSection>
       </Container>
     </Layout>
