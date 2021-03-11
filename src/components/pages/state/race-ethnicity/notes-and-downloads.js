@@ -125,7 +125,13 @@ const getSmallNNote = notes => {
   )
 }
 
-const getNotes = (combined, separate, combinedTestHosp, separateTestHosp) => {
+const getNotes = (
+  combined,
+  separate,
+  combinedTestHosp,
+  separateTestHosp,
+  forBreakout = false,
+) => {
   /**
    * Creates a list of notes for this state's data.
    */
@@ -162,14 +168,16 @@ const getNotes = (combined, separate, combinedTestHosp, separateTestHosp) => {
     notesList.unshift(`${notesObject.latinxNote} ${notesObject.mutExclNote}`)
   }
 
-  notesList.unshift(
-    getDataCompletenessNote(
-      combined,
-      separate,
-      combinedTestHosp,
-      separateTestHosp,
-    ),
-  )
+  if (!forBreakout) {
+    notesList.unshift(
+      getDataCompletenessNote(
+        combined,
+        separate,
+        combinedTestHosp,
+        separateTestHosp,
+      ),
+    )
+  }
 
   if (hasSmallNNote) {
     notesList = [
@@ -187,6 +195,7 @@ const Notes = ({
   separateData,
   combinedTestHosp,
   separateTestHosp,
+  forBreakout = false,
 }) => (
   <ul>
     {getNotes(
@@ -194,6 +203,7 @@ const Notes = ({
       separateData,
       combinedTestHosp,
       separateTestHosp,
+      forBreakout,
     ).map(note => (
       <li key={note}>{note}</li>
     ))}

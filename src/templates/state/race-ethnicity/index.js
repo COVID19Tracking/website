@@ -115,6 +115,7 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
             separateData={data.covidRaceDataSeparate}
             combinedTestHosp={data.covidRaceHospTestDataCombined}
             separateTestHosp={data.covidRaceHospTestDataSeparate}
+            forBreakout
           />
         </CollapsibleSection>
         <CumulativeNotes
