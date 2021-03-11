@@ -182,12 +182,16 @@ const FederalResources = () => {
       </TableOfContentsWrapper>
       {categories.map(({ title, slug, summaries }) => (
         <>
-          <h2 className={summaryStyle.category} id={slug}>
-            {title}
-          </h2>
-          {summaries.map(summary => (
-            <Resources summary={summary} />
-          ))}
+          {summaries && summaries.find(summary => summary.resources) && (
+            <>
+              <h2 className={summaryStyle.category} id={slug}>
+                {title}
+              </h2>
+              {summaries.map(summary => (
+                <Resources summary={summary} />
+              ))}
+            </>
+          )}
         </>
       ))}
     </>
