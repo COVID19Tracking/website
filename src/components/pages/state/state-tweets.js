@@ -1,5 +1,5 @@
 import React from 'react'
-import { CtaAnchorLink } from '~components/common/landing-page/call-to-action'
+import { CtaAnchorLink } from '~components/common/call-to-action'
 import Tweet from '~components/common/tweet'
 import twitterIcon from '~images/twitter_icon.png'
 import stateTweetsStyle from './state-tweets.module.scss'

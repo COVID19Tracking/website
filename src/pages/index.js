@@ -8,7 +8,7 @@ import Footer from '~components/layout/footer'
 import HomepageAbout from '~components/pages/homepage/about'
 import HomepageImpact from '~components/pages/homepage/impact'
 import BlogList from '~components/pages/homepage/blog-list'
-import { CtaLink } from '~components/common/landing-page/call-to-action'
+import { CtaLink } from '~components/common/call-to-action'
 
 const Homepage = () => (
   <>

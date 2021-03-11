@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import CollapsibleSection from '~components/common/collapsible-section'
 import Layout from '~components/layout'
 import Container from '~components/common/container'
-import { CtaLink } from '~components/common/landing-page/call-to-action'
+import { CtaLink } from '~components/common/call-to-action'
 
 import Hero from '~components/pages/race/breakouts/hero'
 import CumulativeNotes from '~components/pages/race/breakouts/cumulative-notes'
