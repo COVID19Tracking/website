@@ -322,6 +322,13 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
+        file: './_data/crdt_vaccine_sources.json',
+        type: 'crdtVaccineSources',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
         file: './_data/hhs_testing.json',
         type: 'hhsTesting',
       },

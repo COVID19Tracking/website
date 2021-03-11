@@ -176,7 +176,7 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
         </CollapsibleSection>
         <CollapsibleSection title="Further Resources">
           <FurtherResources
-            vaccineLink="https://nyan.cat"
+            vaccineSources={data.crdtVaccineSources.sources}
             stateName={state.name}
             stateSlug={slug}
           />
@@ -190,6 +190,9 @@ export default RaceEthnicityStateTemplate
 
 export const query = graphql`
   query($state: String!) {
+    crdtVaccineSources(state: { eq: $state }) {
+      sources
+    }
     covidAcsPopulation(state: { eq: $state }) {
       aian
       asian
