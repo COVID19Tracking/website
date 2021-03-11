@@ -69,7 +69,7 @@ const Resource = ({ resource, showSummaries, showName = true }) => (
         <ul>
           {resource.data_summary.map(summary => (
             <li>
-              <Link to={`/about-data/data-summary/${summary.slug}`}>
+              <Link to={`/about-data/data-summary#${summary.slug}`}>
                 {summary.title}
               </Link>
             </li>
