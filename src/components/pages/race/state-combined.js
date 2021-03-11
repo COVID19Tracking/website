@@ -1,10 +1,10 @@
 import React from 'react'
-import HeaderSorter from './header-sorter'
-import TableNotes from './table-notes'
-import PercentageOverview from './percentage-overview'
-import anhpiNotes from './anhpi-notes'
-import cautionNotes from './caution-notes'
-import RaceTable from './race-table'
+import HeaderSorter from './dashboard/header-sorter'
+import TableNotes from './dashboard/table-notes'
+import PercentageOverview from './dashboard/percentage-overview'
+import anhpiNotes from './dashboard/anhpi-notes'
+import cautionNotes from './dashboard/caution-notes'
+import RaceTable from './dashboard/race-table'
 import stateStyle from './state.module.scss'
 
 const CombinedTableAndNotes = ({ stateData }) => {

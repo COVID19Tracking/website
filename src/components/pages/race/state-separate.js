@@ -1,14 +1,14 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import HeaderSorter from './header-sorter'
-import TableNotes from './table-notes'
-import PercentageOverview from './percentage-overview'
-import anhpiNotes from './anhpi-notes'
-import cautionNotes from './caution-notes'
-import NoData from './no-data'
-import RaceTable from './race-table'
-import EthnicityTable from './ethnicity-table'
+import HeaderSorter from './dashboard/header-sorter'
+import TableNotes from './dashboard/table-notes'
+import PercentageOverview from './dashboard/percentage-overview'
+import anhpiNotes from './dashboard/anhpi-notes'
+import cautionNotes from './dashboard/caution-notes'
+import NoData from './dashboard/no-data'
+import RaceTable from './dashboard/race-table'
+import EthnicityTable from './dashboard/ethnicity-table'
 
 import stateStyle from './state.module.scss'
 

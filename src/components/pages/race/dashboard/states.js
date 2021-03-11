@@ -3,8 +3,8 @@ import { useStaticQuery, graphql } from 'gatsby'
 import smartypants from 'smartypants'
 
 import DashboardSmallCards from './small-cards'
-import { StateSeparate } from './state-separate'
-import { StateCombined } from './state-combined'
+import { StateSeparate } from '../state-separate'
+import { StateCombined } from '../state-combined'
 
 import statesStyle from './states.module.scss'
 

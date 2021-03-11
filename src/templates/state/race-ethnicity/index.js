@@ -11,11 +11,12 @@ import CumulativeNotes from '~components/pages/race/breakouts/cumulative-notes'
 import FurtherResources from '~components/pages/race/breakouts/further-resources'
 
 import { StateRaceBarCharts } from '~components/social-media-graphics/race/social-card'
+
 import { Notes } from '~components/pages/state/race-ethnicity/notes-and-downloads'
 import SelectorAndCharts from '~components/pages/state/race-ethnicity/selector-and-charts'
 import { addPer100kValues } from '~components/pages/state/race-ethnicity/utils'
-import { SeparateTableAndNotes } from '~components/pages/race/dashboard/state-separate'
-import { CombinedTableAndNotes } from '~components/pages/race/dashboard/state-combined'
+import { SeparateTableAndNotes } from '~components/pages/race/state-separate'
+import { CombinedTableAndNotes } from '~components/pages/race/state-combined'
 
 import styles from './index.module.scss'
 
