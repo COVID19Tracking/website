@@ -34,12 +34,6 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allContentfulDataSummary {
-        nodes {
-          id
-          slug
-        }
-      }
       allContentfulPage {
         nodes {
           id
@@ -112,14 +106,6 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: node.slug,
       component: path.resolve(`./src/templates/content.js`),
-      context: node,
-    })
-  })
-
-  result.data.allContentfulDataSummary.nodes.forEach(node => {
-    createPage({
-      path: `/about-data/data-summary/${node.slug}`,
-      component: path.resolve(`./src/templates/data-summary.js`),
       context: node,
     })
   })

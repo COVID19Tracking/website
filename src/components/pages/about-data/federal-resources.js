@@ -61,7 +61,7 @@ const FederalResources = () => {
               chartLink
               geographicUnits
               queryLink
-              startDate(formatString: "MMMM d, yyyy")
+              startDate(formatString: "MMMM D, yyyy")
               timeseriesUnit
               updateFrequency
               youtubeVideoTitle

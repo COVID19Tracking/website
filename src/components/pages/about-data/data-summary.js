@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@reach/disclosure'
 import { TableOfContentsWrapper } from '~components/common/table-of-contents'
+import { Resource } from './data-summary-resources'
 import summaryStyle from './data-summary.module.scss'
 
 const categoryOrder = [
@@ -12,9 +18,24 @@ const categoryOrder = [
   'miscellaneous-repositories',
 ]
 
-const Summary = ({ summary, hideTitle = false }) => (
+const DatasetResource = ({ resource }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  return (
+    <Disclosure open={isOpen} onChange={() => setIsOpen(!isOpen)}>
+      <DisclosureButton className={summaryStyle.disclosureButton}>
+        {resource.name}
+        <span aria-hidden>{isOpen ? <>↑</> : <>↓</>}</span>
+      </DisclosureButton>
+      <DisclosurePanel className={summaryStyle.disclosurePanel}>
+        <Resource resource={resource} hideTitle={false} />
+      </DisclosurePanel>
+    </Disclosure>
+  )
+}
+
+const Summary = ({ summary }) => (
   <div className={summaryStyle.summary} id={summary.slug}>
-    {!hideTitle && <h3 className={summaryStyle.header}>{summary.title}</h3>}
+    <h3 className={summaryStyle.header}>{summary.title}</h3>
     <div
       dangerouslySetInnerHTML={{
         __html:
@@ -36,13 +57,6 @@ const Summary = ({ summary, hideTitle = false }) => (
           <a href={summary.definitionsLink}>Definitions</a>
         </li>
       )}
-      {summary.resources && !hideTitle && (
-        <li>
-          <Link to={`/about-data/data-summary/${summary.slug}`}>
-            Related federal data
-          </Link>
-        </li>
-      )}
     </ul>
     <h4 className={summaryStyle.header}>How to use it</h4>
     <div
@@ -52,6 +66,14 @@ const Summary = ({ summary, hideTitle = false }) => (
             .html,
       }}
     />
+    {summary.resources && (
+      <>
+        <h4>Related federal data</h4>
+        {summary.resources.map(resource => (
+          <DatasetResource resource={resource} />
+        ))}
+      </>
+    )}
   </div>
 )
 
@@ -80,7 +102,48 @@ const DataSummary = () => {
             }
             resources {
               name
-              id
+              contentful_id
+              updatedAt(formatString: "MMMM D, yyyy")
+              linkUrl
+              downloadLinkUrl
+              description {
+                childMarkdownRemark {
+                  html
+                }
+              }
+              data_summary {
+                title
+                slug
+              }
+              relatedPosts {
+                title
+                slug
+                sys {
+                  contentType {
+                    sys {
+                      id
+                    }
+                  }
+                }
+              }
+              agency
+              chartLink
+              geographicUnits
+              queryLink
+              startDate(formatString: "MMMM D, yyyy")
+              timeseriesUnit
+              updateFrequency
+              youtubeVideoTitle
+              youtubeVideoUrl
+              screenshots {
+                description
+                fluid(maxWidth: 2000, sizes: "4") {
+                  aspectRatio
+                  sizes
+                  src
+                  srcSet
+                }
+              }
             }
           }
         }
