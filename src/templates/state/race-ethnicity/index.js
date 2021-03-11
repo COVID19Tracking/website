@@ -131,23 +131,29 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
           combinedStates={isCombined ? [state.state] : []}
         />
       </div>
-      <Container className={styles.tablesContainer}>
-        {!isCombined ? (
-          // separate
-          <>
-            <SeparateTableAndNotes
-              stateData={{ ...coreData, ...testHospData }}
-              type="Race"
-              inEthnicityState
-            />
-            <SeparateTableAndNotes
-              stateData={{ ...coreData, ...testHospData }}
-              type="Ethnicity"
-            />
-          </>
-        ) : (
-          <CombinedTableAndNotes stateData={{ ...coreData, ...testHospData }} />
-        )}
+      <Container>
+        <CollapsibleSection title="Data Tables" open={false}>
+          <div className={styles.tablesContainer}>
+            {!isCombined ? (
+              // separate
+              <>
+                <SeparateTableAndNotes
+                  stateData={{ ...coreData, ...testHospData }}
+                  type="Race"
+                  inEthnicityState
+                />
+                <SeparateTableAndNotes
+                  stateData={{ ...coreData, ...testHospData }}
+                  type="Ethnicity"
+                />
+              </>
+            ) : (
+              <CombinedTableAndNotes
+                stateData={{ ...coreData, ...testHospData }}
+              />
+            )}
+          </div>
+        </CollapsibleSection>
       </Container>
       <Container centered>
         <CollapsibleSection title="Historical Data">
