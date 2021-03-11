@@ -252,7 +252,10 @@ const NotesAndDownloads = ({
             stateName={stateName}
             content="View racial data dashboard"
           />
-          <CrdtBreakoutSmallCard stateSlug={slug} stateName={stateName} />
+          <CrdtBreakoutSmallCard
+            stateSlug={slug}
+            stateAbbreviation={stateAbbreviation}
+          />
         </div>
       </div>
     </div>
