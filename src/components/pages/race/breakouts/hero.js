@@ -43,6 +43,7 @@ const Hero = ({
             lastUpdatedByState={coreData.stateUpdate.value}
             lastCheckedByCtp={lastUpdatedByCtp}
           />
+          <hr />
         </Container>
       </div>
       <StickyNav
