@@ -1,7 +1,7 @@
 .updated {
   display: flex;
   img {
-      @include margin(4, right);
+      @include margin(8, right);
   }
   @include margin(16, bottom);
 }

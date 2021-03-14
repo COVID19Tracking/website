@@ -4,7 +4,7 @@
   .container-inner > div {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     @include margin(8, (top, bottom));
 
     @media (max-width: $viewport-lg) {
