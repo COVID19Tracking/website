@@ -108,7 +108,7 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
         lastUpdatedByCtp={lastUpdated}
         allStates={data.allCovidStateInfo.nodes}
       />
-      <Container centered>
+      <Container centered className={styles.wrapper}>
         <CollapsibleSection title="Notes About the Data" open={false}>
           <Notes
             combinedData={data.covidRaceDataCombined}

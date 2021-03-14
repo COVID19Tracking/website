@@ -22,3 +22,7 @@
     @include type-size(400);
   }
 }
+
+.wrapper {
+  @include margin(24, top);
+}
