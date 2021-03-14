@@ -5,7 +5,8 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    @include margin(8, bottom);
+    @include margin(24, bottom);
+    @include margin(8, top);
 
     @media (max-width: $viewport-lg) {
       flex-direction: column;
