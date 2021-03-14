@@ -9,6 +9,6 @@
 }
 
 .header {
-  color: $color-plum-600;
-  @include type-size(400);
+  @include type-size(500);
+  @include margin(24, (top, bottom));
 }
