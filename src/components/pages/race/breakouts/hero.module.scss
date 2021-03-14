@@ -3,11 +3,11 @@
   // Flush with nav
   margin-top: -64px; // ignore-style-rule
   @include padding(32, top);
-  
+
   @media (max-width: $viewport-lg) {
     @include padding(16, bottom);
   }
-  
+
   h2 {
     @include margin(24, top);
     @include margin(8, bottom);
@@ -33,7 +33,6 @@
 
 .secondary {
   @include margin(32, top);
-  display: flex;
 
   div:first-child {
     flex-basis: 60%;
@@ -47,23 +46,26 @@
 .availability-wrapper {
   p {
     @include margin(4, bottom);
-    &:first-child {
-      @include margin(0, top);
-    }
+    @include margin(0, top);
   }
   .availability-grid {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-row-gap: 4px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    @include margin(32, bottom);
 
     @media (max-width: $viewport-md) {
-      grid-template-columns: auto;
+      flex-direction: column;
     }
 
     span {
       font-weight: bold;
       font-size: 21px;
     }
+  }
+
+  @media (max-width: $viewport-md) {
+    @include margin(16, bottom);
   }
 }
 
