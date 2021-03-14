@@ -24,6 +24,9 @@
 
     .sticky {
       width: 90%;
+      @media (max-width: $viewport-lg) {
+        width: 100%;
+      }
     }
   }
 
@@ -32,4 +35,11 @@
   z-index: 1;
   top: 0;
   width: calc(100% + 1px);
+}
+
+.share-container {
+  @media (max-width: $viewport-lg) {
+    @include margin(24, bottom);
+    align-self: center;
+  }
 }

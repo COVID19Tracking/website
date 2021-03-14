@@ -10,7 +10,7 @@ import styles from './sticky-nav.module.scss'
 const StickyNav = ({ stateName, stateSlug, allStates }) => (
   <div className={styles.container}>
     <Container centered className={styles.containerInner}>
-      <div>
+      <div className={styles.shareContainer}>
         <h5>
           Share <strong>{stateName}’s</strong> page:
         </h5>
