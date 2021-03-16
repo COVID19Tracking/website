@@ -16,21 +16,19 @@ const SelectorAndCharts = ({
 }) => {
   const metrics = getMetrics(completeTimeSeriesData)
 
-  if (metrics !== undefined) {
-    // Set the current metric to the first available metric
-    const metricsList = Object.keys(metrics)
-    const availableMetrics = metricsList
-      .map(metric => {
-        if (metrics[metric].available) {
-          // Metric name if available
-          return metric
-        }
-        return null // Else, null
-      })
-      .filter(metricName => metricName !== null)
-    if (availableMetrics.length > 0) {
-      setCurrentMetric(availableMetrics[0])
-    }
+  // Set the current metric to the first available metric
+  const metricsList = Object.keys(metrics)
+  const availableMetrics = metricsList
+    .map(metric => {
+      if (metrics[metric].available) {
+        // Metric name if available
+        return metric
+      }
+      return null // Else, null
+    })
+    .filter(metricName => metricName !== null)
+  if (availableMetrics.length > 0) {
+    setCurrentMetric(availableMetrics[0])
   }
   return (
     <div className={className}>

@@ -257,10 +257,6 @@ exports.createPages = async ({ graphql, actions }) => {
     },
   })
 
-  covidStateInfo = covidStateInfo
-    .filter(node => node.state !== 'VI')
-    .filter(node => node.state !== 'GU')
-
   result.data.allContentfulBlogPost.nodes.forEach(node => {
     const longPath = `/analysis-updates/${node.slug}`
     const shortPath = `/${node.contentful_id}`
