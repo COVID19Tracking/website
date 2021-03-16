@@ -9,6 +9,7 @@ const defaultReason = '-- Select a reason --'
 
 const reasons = [
   '-- Select a reason --',
+  'Testing, hospitalization, and outcomes data',
   'Race and ethnicity data',
   'Long-term care data',
   'Website content or accessibility',
@@ -73,7 +74,7 @@ const ContactOtherPage = () => {
           </Col>
         </Row>
         <Input
-          type="url"
+          type="text"
           label="URL address of the page or chart you are writing us about"
           name="url"
           id="contact-url"
