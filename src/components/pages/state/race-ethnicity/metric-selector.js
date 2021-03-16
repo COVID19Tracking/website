@@ -59,10 +59,14 @@ const MetricSelector = ({
   metrics,
   stateName,
   asOfDate,
+  isEmbed,
 }) => {
   return (
     <>
-      <div className={styles.toggle} role="radiogroup">
+      <div
+        className={classnames(styles.toggle, isEmbed && styles.embed)}
+        role="radiogroup"
+      >
         {Object.keys(metrics).map(option => (
           <Fragment key={option}>
             {!metrics[option].available ? (

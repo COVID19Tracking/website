@@ -74,6 +74,7 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
   )
 
   const [currentMetric, setCurrentMetric] = useState('Cases')
+  const [dataTablesSectionIsOpen, setDataTablesSectionIsOpen] = useState(false)
 
   const populationData = data.covidAcsPopulation
   const timeSeriesData = data.allCovidRaceDataTimeseries.nodes
@@ -133,8 +134,13 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
           combinedStates={isCombined ? [state.state] : []}
         />
       </div>
-      <Container>
-        <CollapsibleSection title="Data Tables" open={false}>
+      <Container className={!dataTablesSectionIsOpen && styles.tablesWrapper}>
+        <CollapsibleSection
+          title="Data Tables"
+          open={false}
+          isOpen={dataTablesSectionIsOpen}
+          setIsOpen={setDataTablesSectionIsOpen}
+        >
           <div className={styles.tablesContainer}>
             {!isCombined ? (
               // separate

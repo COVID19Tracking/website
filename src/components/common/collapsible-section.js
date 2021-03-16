@@ -7,11 +7,17 @@ import {
 
 import styles from './collapsible-section.module.scss'
 
-const Collapsible = ({ title, children, open = true }) => {
-  const [isOpen, setIsOpen] = useState(open)
+const Collapsible = ({ title, children, open = true, isOpen, setIsOpen }) => {
+  let [collapsibleIsOpen, setCollapsibleIsOpen] = useState(open)
+  if (isOpen) {
+    collapsibleIsOpen = isOpen
+  }
+  if (setIsOpen) {
+    setCollapsibleIsOpen = setIsOpen
+  }
 
   const toggleIsOpen = () => {
-    setIsOpen(prev => !prev)
+    setCollapsibleIsOpen(prev => !prev)
   }
 
   const CollapseButton = ({ openStatus, toggle }) => (
@@ -24,12 +30,15 @@ const Collapsible = ({ title, children, open = true }) => {
     </DisclosureButton>
   )
   return (
-    <Disclosure open={isOpen}>
+    <Disclosure open={collapsibleIsOpen}>
       <div className={styles.container}>
         <div className={styles.header}>
           <h3>{title}</h3>
           <div className={styles.buttonContainer}>
-            <CollapseButton toggle={toggleIsOpen} openStatus={isOpen} />
+            <CollapseButton
+              toggle={toggleIsOpen}
+              openStatus={collapsibleIsOpen}
+            />
           </div>
         </div>
         <DisclosurePanel className={styles.content}>{children}</DisclosurePanel>

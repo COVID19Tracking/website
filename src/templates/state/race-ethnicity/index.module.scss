@@ -23,6 +23,13 @@
   }
 }
 
+.tables-wrapper {
+  justify-content: center;
+  & > div {
+    @include col(4 6 8);
+  }
+}
+
 .wrapper {
   @include margin(24, top);
 }

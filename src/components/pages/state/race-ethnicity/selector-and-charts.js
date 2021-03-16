@@ -25,6 +25,7 @@ const SelectorAndCharts = ({
         asOfDate={
           <DataAsOf stateDate={lastReportedByState} ctpDate={asOfDate} />
         }
+        isEmbed={isEmbed}
       />
       <Charts
         timeSeriesData={completeTimeSeriesData}
