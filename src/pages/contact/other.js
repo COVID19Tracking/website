@@ -74,7 +74,7 @@ const ContactOtherPage = () => {
           </Col>
         </Row>
         <Input
-          type="url"
+          type="text"
           label="URL address of the page or chart you are writing us about"
           name="url"
           id="contact-url"
