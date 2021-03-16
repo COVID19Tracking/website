@@ -9,6 +9,7 @@ const defaultReason = '-- Select a reason --'
 
 const reasons = [
   '-- Select a reason --',
+  'Testing, hospitalization, and outcomes data',
   'Race and ethnicity data',
   'Long-term care data',
   'Website content or accessibility',
