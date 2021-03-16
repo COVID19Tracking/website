@@ -308,25 +308,4 @@ const getTypeOfRates = (state, combinedStates) => {
   return 'infection and mortality data'
 }
 
-const getBarWidth = (number, max, square, oneChart) => {
-  let maxPixels
-  if (square) {
-    if (oneChart) {
-      maxPixels = 518
-    }
-    if (!oneChart) {
-      maxPixels = 238
-    }
-  }
-  if (!square) {
-    if (oneChart) {
-      maxPixels = 525
-    }
-    if (!oneChart) {
-      maxPixels = 240
-    }
-  }
-  return (number / max) * maxPixels
-}
-
-export { getStateStatus, getGroups, getTypeOfRates, getBarWidth }
+export { getStateStatus, getGroups, getTypeOfRates }

@@ -6,11 +6,9 @@ import ChartBar from './chart-bar'
 const ChartRow = ({
   group,
   availableMetrics = ['cases', 'deaths'],
-  stateStatus,
   worstCasesValue = undefined,
   worstDeathsValue = undefined,
   worstMetrics = undefined,
-  square,
 }) => {
   const worstAllMetrics = worstMetrics
 
@@ -54,8 +52,6 @@ const ChartRow = ({
               style={style}
               metric={group[metric]}
               worstMetricValue={worstAllMetrics[metric].value}
-              square={square}
-              isOneChart={stateStatus.oneChart}
             />
           )}
         </>

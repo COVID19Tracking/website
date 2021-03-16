@@ -59,7 +59,6 @@ const StateRaceBarCharts = ({
   state,
   testHospData,
   combinedStates,
-  square = false,
 }) => {
   const { groups, worstMetrics } = getGroups(state, testHospData)
   const status = getStateStatus(state, combinedStates)
@@ -109,9 +108,7 @@ const StateRaceBarCharts = ({
         <ChartRow
           availableMetrics={availableMetrics}
           group={group}
-          stateStatus={status}
           worstMetrics={worstMetrics}
-          square={square}
         />
       ))}
     </div>
@@ -121,7 +118,6 @@ const StateRaceBarCharts = ({
 const StateRaceSocialCardInner = ({
   state,
   combinedStates,
-  square = false,
   statesReportingCases,
   statesReportingDeaths,
   lastUpdatedByCtp,
@@ -136,7 +132,7 @@ const StateRaceSocialCardInner = ({
 
   // handle empty state
   if (stateStatus.noCharts) {
-    return <NoDataSocialCard stateName={state.name} square={square} />
+    return <NoDataSocialCard stateName={state.name} />
   }
 
   const { groups } = getGroups(state)
@@ -168,12 +164,7 @@ const StateRaceSocialCardInner = ({
   )
 
   return (
-    <div
-      className={classnames(
-        socialCardStyle.wrapper,
-        square && socialCardStyle.square,
-      )}
-    >
+    <div className={classnames(socialCardStyle.wrapper)}>
       <p className={socialCardStyle.header}>
         <SocialCardHeader
           state={state}
@@ -185,7 +176,6 @@ const StateRaceSocialCardInner = ({
         headers={headers}
         state={state}
         combinedStates={combinedStates}
-        square={square}
       />
       <div className={socialCardStyle.footer}>
         <SocialCardFootnotes
