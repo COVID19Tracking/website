@@ -39,6 +39,9 @@ body {
   grid-template-rows: auto;
   column-gap: 10px;
 
+  &.one {
+    grid-template-columns: 150px 240px;
+  }
   &.two {
     grid-template-columns: 150px 240px 240px;
   }

@@ -65,6 +65,7 @@ const StateRaceBarCharts = ({
   const status = getStateStatus(state, combinedStates)
 
   const gridClasses = {
+    1: socialCardStyle.one,
     2: socialCardStyle.two,
     3: socialCardStyle.three,
     4: socialCardStyle.four,
@@ -94,7 +95,6 @@ const StateRaceBarCharts = ({
     >
       {/* Spacer for CSS Grid */}
       <span />
-      {status.oneChart && <span />}
       {headers.map((header, index) => (
         <span
           className={classnames(
