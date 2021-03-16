@@ -16,23 +16,23 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       <a
         className="wrapper"
-        href="/data/state/undefined/race-ethnicity/historical"
+        href="/data/state/undefined/race-ethnicity"
       >
         <div
           className="container"
         >
           <img
-            alt="Historical icon"
+            alt="Chart icon"
             aria-hidden={true}
             src="test-file-stub"
-            width="32px"
+            width="30px"
           />
           <span
             className="link"
           >
-            View 
+            View all of 
             Arizona
-            's historical racial data
+            's racial data
           </span>
           <span
             className="arrow"
@@ -447,23 +447,23 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       <a
         className="wrapper"
-        href="/data/state/undefined/race-ethnicity/historical"
+        href="/data/state/undefined/race-ethnicity"
       >
         <div
           className="container"
         >
           <img
-            alt="Historical icon"
+            alt="Chart icon"
             aria-hidden={true}
             src="test-file-stub"
-            width="32px"
+            width="30px"
           />
           <span
             className="link"
           >
-            View 
+            View all of 
             Washington, DC
-            's historical racial data
+            's racial data
           </span>
           <span
             className="arrow"
@@ -878,23 +878,23 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       <a
         className="wrapper"
-        href="/data/state/undefined/race-ethnicity/historical"
+        href="/data/state/undefined/race-ethnicity"
       >
         <div
           className="container"
         >
           <img
-            alt="Historical icon"
+            alt="Chart icon"
             aria-hidden={true}
             src="test-file-stub"
-            width="32px"
+            width="30px"
           />
           <span
             className="link"
           >
-            View 
+            View all of 
             Georgia
-            's historical racial data
+            's racial data
           </span>
           <span
             className="arrow"
@@ -999,23 +999,23 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
     >
       <a
         className="wrapper"
-        href="/data/state/undefined/race-ethnicity/historical"
+        href="/data/state/undefined/race-ethnicity"
       >
         <div
           className="container"
         >
           <img
-            alt="Historical icon"
+            alt="Chart icon"
             aria-hidden={true}
             src="test-file-stub"
-            width="32px"
+            width="30px"
           />
           <span
             className="link"
           >
-            View 
+            View all of 
             Washington
-            's historical racial data
+            's racial data
           </span>
           <span
             className="arrow"
