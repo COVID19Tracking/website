@@ -170,7 +170,7 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
             lastReportedByState={coreData.stateUpdate.value}
             stateName={state.name}
             currentMetric={currentMetric}
-            setCurrentMetric={setCurrentMetric}
+            setCurrentMetric={targetMetric => setCurrentMetric(targetMetric)}
             asOfDate={timeSeriesData[0].Date}
             completeTimeSeriesData={completeTimeSeriesData}
             className={styles.selectorAndCharts}
