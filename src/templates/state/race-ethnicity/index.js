@@ -284,6 +284,13 @@ export const query = graphql`
       crdt
     }
     covidRaceDataCombined(state: { eq: $state }) {
+      aianSmallN
+      apiSmallN
+      asianSmallN
+      blackSmallN
+      latinXSmallN
+      nhpiSmallN
+      whiteSmallN
       aianDeathCaution
       aianDeathDispFlag
       aianDeathPerCap
@@ -401,6 +408,13 @@ export const query = graphql`
       }
     }
     covidRaceDataSeparate(state: { eq: $state }) {
+      aianSmallN
+      apiSmallN
+      asianSmallN
+      blackSmallN
+      latinXSmallN
+      nhpiSmallN
+      whiteSmallN
       aianDeathCaution
       aianDeathDispFlag
       aianDeathPerCap

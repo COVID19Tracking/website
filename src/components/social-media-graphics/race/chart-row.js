@@ -52,6 +52,7 @@ const ChartRow = ({
               style={style}
               metric={group[metric]}
               worstMetricValue={worstAllMetrics[metric].value}
+              showAsterisk={group.showAsterisk}
             />
           )}
         </>
