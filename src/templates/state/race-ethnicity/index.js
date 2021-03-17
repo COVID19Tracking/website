@@ -280,7 +280,7 @@ export const query = graphql`
         Tests_Total
       }
     }
-    covidGradeStateAssessment {
+    covidGradeStateAssessment(state: { eq: $state }) {
       crdt
     }
     covidRaceDataCombined(state: { eq: $state }) {

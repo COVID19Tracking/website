@@ -33,7 +33,7 @@ const Hero = ({
             <GradeInner
               grade={assessment}
               title="race and ethnicity data"
-              link={`/data/state/${stateSlug}/assessment#long-term-care`}
+              link={`/data/state/${stateSlug}/assessment#race-ethnicity`}
             />
           </div>
           <AvailabilityUpdatePanel
