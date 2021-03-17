@@ -1,12 +1,12 @@
 .list {
   list-style-type: none;
   padding: 0;
-  @include type-size(300);
   li {
     @include margin(16, bottom);
   }
 }
 
 .description {
+  @include type-size(300);
   @include margin(16, bottom);
 }
