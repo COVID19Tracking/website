@@ -27,7 +27,7 @@ const CumulativeNotes = ({
       <h4 className={styles.header}>Cumulative Per Capita Data</h4>
       <p>
         In {state.name}, through{' '}
-        <FormatDate date={lastUpdated} format="LLLL d yyyy" />:
+        <FormatDate date={lastUpdated} format="LLLL d, yyyy" />:
       </p>
       <ul>
         {availableMetrics.map(metric => (
