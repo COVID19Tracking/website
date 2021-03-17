@@ -284,11 +284,8 @@ export const query = graphql`
       crdt
     }
     covidRaceDataCombined(state: { eq: $state }) {
-      aianANHPIDeathNotes
-      aianANHPIPosNotes
       aianDeathCaution
       aianDeathDispFlag
-      aianDeathNotes
       aianDeathPerCap
       aianDeaths
       aianPctDeath
@@ -297,7 +294,6 @@ export const query = graphql`
       aianPosCaution
       aianPosDispFlag
       aianPositives
-      aianPosNotes
       aianPosPerCap
       aianSmallN
       anyDeathData
@@ -306,11 +302,8 @@ export const query = graphql`
       apiNote
       apiPosPerCap
       apiSmallN
-      asianANHPIDeathNotes
-      asianANHPIPosNotes
       asianDeathCaution
       asianDeathDispFlag
-      asianDeathNotes
       asianDeathPerCap
       asianDeaths
       asianPctDeath
@@ -319,14 +312,10 @@ export const query = graphql`
       asianPosCaution
       asianPosDispFlag
       asianPositives
-      asianPosNotes
       asianPosPerCap
       asianSmallN
-      blackANHPIDeathNotes
-      blackANHPIPosNotes
       blackDeathCaution
       blackDeathDispFlag
-      blackDeathNotes
       blackDeathPerCap
       blackDeaths
       blackPctDeath
@@ -335,7 +324,6 @@ export const query = graphql`
       blackPosCaution
       blackPosDispFlag
       blackPositives
-      blackPosNotes
       blackPosPerCap
       blackSmallN
       historicalSmallNNote
@@ -344,7 +332,6 @@ export const query = graphql`
       knownRaceEthPos
       latinXDeathCaution
       latinXDeathDispFlag
-      latinXDeathNotes
       latinXDeathPerCap
       latinXDeaths
       latinxNote
@@ -354,16 +341,12 @@ export const query = graphql`
       latinXPosCaution
       latinXPosDispFlag
       latinXPositives
-      latinXPosNotes
       latinXPosPerCap
       latinXSmallN
       mutExclNote
       name
-      nhpiANHPIDeathNotes
-      nhpiANHPIPosNotes
       nhpiDeathCaution
       nhpiDeathDispFlag
-      nhpiDeathNotes
       nhpiDeathPerCap
       nhpiDeaths
       nhpiPctDeath
@@ -372,14 +355,10 @@ export const query = graphql`
       nhpiPosCaution
       nhpiPosDispFlag
       nhpiPositives
-      nhpiPosNotes
       nhpiPosPerCap
       nhpiSmallN
-      otherANHPIDeathNotes
-      otherANHPIPosNotes
       otherDeathCaution
       otherDeathDispFlag
-      otherDeathNotes
       otherDeaths
       otherNote
       otherPctDeath
@@ -388,15 +367,11 @@ export const query = graphql`
       otherPosCaution
       otherPosDispFlag
       otherPositives
-      otherPosNotes
       popTableNote
       smallNNote
       state
-      twoANHPIDeathNotes
-      twoANHPIPosNotes
       twoDeathCaution
       twoDeathDispFlag
-      twoDeathNotes
       twoDeaths
       twoPctDeath
       twoPctPop
@@ -404,14 +379,10 @@ export const query = graphql`
       twoPosCaution
       twoPosDispFlag
       twoPositives
-      twoPosNotes
       unknownRaceEthDeath
       unknownRaceEthPos
-      whiteANHPIDeathNotes
-      whiteANHPIPosNotes
       whiteDeathCaution
       whiteDeathDispFlag
-      whiteDeathNotes
       whiteDeathPerCap
       whiteDeaths
       whitePctDeath
@@ -420,7 +391,6 @@ export const query = graphql`
       whitePosCaution
       whitePosDispFlag
       whitePositives
-      whitePosNotes
       whitePosPerCap
       whiteSmallN
       stateUpdate {
@@ -431,11 +401,8 @@ export const query = graphql`
       }
     }
     covidRaceDataSeparate(state: { eq: $state }) {
-      aianANHPIDeathNotes
-      aianANHPIPosNotes
       aianDeathCaution
       aianDeathDispFlag
-      aianDeathNotes
       aianDeathPerCap
       aianDeaths
       aianPctDeath
@@ -444,7 +411,6 @@ export const query = graphql`
       aianPosCaution
       aianPosDispFlag
       aianPositives
-      aianPosNotes
       aianPosPerCap
       aianSmallN
       aianSpecialCaseNotes
@@ -454,11 +420,8 @@ export const query = graphql`
       apiNote
       apiPosPerCap
       apiSmallN
-      asianANHPIDeathNotes
-      asianANHPIPosNotes
       asianDeathCaution
       asianDeathDispFlag
-      asianDeathNotes
       asianDeathPerCap
       asianDeaths
       asianPctDeath
@@ -467,15 +430,11 @@ export const query = graphql`
       asianPosCaution
       asianPosDispFlag
       asianPositives
-      asianPosNotes
       asianPosPerCap
       asianSmallN
       asianSpecialCaseNotes
-      blackANHPIDeathNotes
-      blackANHPIPosNotes
       blackDeathCaution
       blackDeathDispFlag
-      blackDeathNotes
       blackDeathPerCap
       blackDeaths
       blackPctDeath
@@ -484,22 +443,19 @@ export const query = graphql`
       blackPosCaution
       blackPosDispFlag
       blackPositives
-      blackPosNotes
       blackPosPerCap
       blackSmallN
       blackSpecialCaseNotes
       deathEthData
       deathRaceData
+      historicalSmallNNote
       id
       knownEthDeath
       knownEthPos
       knownRaceDeath
       knownRacePos
-      latinXANHPIDeathNotes
-      latinXANHPIPosNotes
       latinXDeathCaution
       latinXDeathDispFlag
-      latinXDeathNotes
       latinXDeathPerCap
       latinXDeaths
       latinxNote
@@ -509,16 +465,12 @@ export const query = graphql`
       latinXPosCaution
       latinXPosDispFlag
       latinXPositives
-      latinXPosNotes
       latinXPosPerCap
       latinXSmallN
       mutExclNote
       name
-      nhpiANHPIDeathNotes
-      nhpiANHPIPosNotes
       nhpiDeathCaution
       nhpiDeathDispFlag
-      nhpiDeathNotes
       nhpiDeathPerCap
       nhpiDeaths
       nhpiPctDeath
@@ -527,15 +479,11 @@ export const query = graphql`
       nhpiPosCaution
       nhpiPosDispFlag
       nhpiPositives
-      nhpiPosNotes
       nhpiPosPerCap
       nhpiSmallN
       nhpiSpecialCaseNotes
-      nonhispanicANHPIDeathNotes
-      nonhispanicANHPIPosNotes
       nonhispanicDeathCaution
       nonhispanicDeathDispFlag
-      nonhispanicDeathNotes
       nonhispanicDeaths
       nonhispanicPctDeath
       nonhispanicPctPop
@@ -543,31 +491,25 @@ export const query = graphql`
       nonhispanicPosCaution
       nonhispanicPosDispFlag
       nonhispanicPositives
-      nonhispanicPosNotes
       nonhispanicSpecialCaseNotes
-      otherANHPIDeathNotes
-      otherANHPIPosNotes
       otherDeathCaution
       otherDeathDispFlag
-      otherDeathNotes
       otherDeaths
+      otherNote
       otherPctDeath
       otherPctPop
       otherPctPos
       otherPosCaution
       otherPosDispFlag
       otherPositives
-      otherPosNotes
       otherSpecialCaseNotes
+      popTableNote
       posEthData
       posRaceData
       smallNNote
       state
-      twoANHPIDeathNotes
-      twoANHPIPosNotes
       twoDeathCaution
       twoDeathDispFlag
-      twoDeathNotes
       twoDeaths
       twoPctDeath
       twoPctPop
@@ -575,17 +517,13 @@ export const query = graphql`
       twoPosCaution
       twoPosDispFlag
       twoPositives
-      twoPosNotes
       twoSpecialCaseNotes
       unknownEthDeath
       unknownEthPos
       unknownRaceDeath
       unknownRacePos
-      whiteANHPIDeathNotes
-      whiteANHPIPosNotes
       whiteDeathCaution
       whiteDeathDispFlag
-      whiteDeathNotes
       whiteDeathPerCap
       whiteDeaths
       whitePctDeath
@@ -594,7 +532,6 @@ export const query = graphql`
       whitePosCaution
       whitePosDispFlag
       whitePositives
-      whitePosNotes
       whitePosPerCap
       whiteSmallN
       whiteSpecialCaseNotes
