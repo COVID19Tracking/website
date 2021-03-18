@@ -24,7 +24,6 @@ import createRaceValues from './cards/crdt/create-race-data'
 import CrdtCasesCard from './cards/crdt/cases-card'
 import CrdtDeathsCard from './cards/crdt/deaths-card'
 import SmallCards from './cards/small-cards'
-import ViewDataSmallCard from './cards/small/view-racial-data-small-card'
 import CrdtBreakoutSmallCard from './cards/small/crdt-breakout-small-card'
 
 import summaryStyles from './summary.module.scss'
@@ -386,12 +385,6 @@ const StateSummary = ({
                       stateSlug={stateSlug}
                       stateAbbreviation={stateAbbreviation}
                     />
-                    {!hideRacialDataTracker && (
-                      <ViewDataSmallCard
-                        stateName={stateName}
-                        stateAbbreviation={stateAbbreviation}
-                      />
-                    )}
                   </SmallCards>
                 </>
               )}

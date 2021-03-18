@@ -24,7 +24,7 @@ const Hero = ({
       <div className={styles.container}>
         <Container centered>
           <div className={styles.breadcrumb}>
-            <a href="/race/dashboard">State Dashboard</a>{' '}
+            <a href="/race/dashboard">Racial Data Dashboard</a>{' '}
             <img src={rightCaret} alt="" height="12px" />{' '}
             <span>{stateName}</span>
           </div>

@@ -4,7 +4,7 @@ import { SmallCard, SmallCardIcon, SmallCardLink } from './index'
 import chartIcon from '~images/icons/chart.svg'
 
 const CrdtBreakoutSmallCard = ({ stateAbbreviation = 'US', stateSlug }) => {
-  if (['AS', 'GU', 'MP', 'VI'].indexOf(stateAbbreviation) !== -1) {
+  if (['AS', 'PR', 'MP', 'VI'].indexOf(stateAbbreviation) !== -1) {
     return <></>
   }
   return (
