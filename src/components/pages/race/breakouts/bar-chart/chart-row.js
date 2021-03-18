@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import socialCardStyle from './bar-chart.module.scss'
+import barChartStyle from './bar-chart.module.scss'
 import ChartBar from './chart-bar'
 
 const ChartRow = ({
@@ -20,7 +20,7 @@ const ChartRow = ({
   const { label, style, showCross, showAsterisk } = group
 
   const BarLabel = ({ barLabel, cross }) => (
-    <span className={socialCardStyle.barLabel}>
+    <span className={barChartStyle.barLabel}>
       {barLabel}
       {cross && '†'}
     </span>
@@ -31,8 +31,8 @@ const ChartRow = ({
     return (
       <span
         className={classnames(
-          socialCardStyle.insufficientData,
-          isDeaths && socialCardStyle.insufficientDataDeaths,
+          barChartStyle.insufficientData,
+          isDeaths && barChartStyle.insufficientDataDeaths,
         )}
       >
         {nullValue}

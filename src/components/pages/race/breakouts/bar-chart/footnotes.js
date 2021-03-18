@@ -1,9 +1,9 @@
 import React from 'react'
 
-import socialCardStyle from './bar-chart.module.scss'
+import barChartStyle from './bar-chart.module.scss'
 
 const AsteriskFootnote = ({ showSmallNFootnote, asteriskFootnote }) => (
-  <div className={socialCardStyle.asteriskFootnote}>
+  <div className={barChartStyle.asteriskFootnote}>
     {showSmallNFootnote && (
       <>
         * Based on fewer than 10 deaths among members of this race/ethnicity.
@@ -65,7 +65,7 @@ const SocialCardFootnotes = ({
   showSmallNFootnote,
   asteriskFootnote,
 }) => (
-  <div className={socialCardStyle.notes}>
+  <div className={barChartStyle.notes}>
     <div>
       <Notes state={state} stateName={state.name} />
     </div>

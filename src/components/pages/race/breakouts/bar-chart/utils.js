@@ -1,4 +1,4 @@
-import socialCardStyle from './bar-chart.module.scss'
+import barChartStyle from './bar-chart.module.scss'
 
 const getStateStatus = (state, combinedStates) => {
   let noDeaths
@@ -46,7 +46,7 @@ const getGroups = (state, testHospState = null) => {
   let groups = [
     {
       label: 'Black\u200a/\u200aAfrican American',
-      style: socialCardStyle.barBlack,
+      style: barChartStyle.barBlack,
       cases: getGroupValue(state.blackPosPerCap),
       deaths: getGroupValue(state.blackDeathPerCap),
       showAsterisk: state.blackSmallN, // show asterisk if SmallN is true
@@ -54,7 +54,7 @@ const getGroups = (state, testHospState = null) => {
     },
     {
       label: 'Hispanic\u200a/\u200aLatino',
-      style: socialCardStyle.barLatinx,
+      style: barChartStyle.barLatinx,
       cases: getGroupValue(state.latinXPosPerCap),
       deaths: getGroupValue(state.latinXDeathPerCap),
       showAsterisk: state.latinXSmallN,
@@ -62,7 +62,7 @@ const getGroups = (state, testHospState = null) => {
     },
     {
       label: 'Asian',
-      style: socialCardStyle.barAsian,
+      style: barChartStyle.barAsian,
       cases: getGroupValue(state.asianPosPerCap),
       deaths: getGroupValue(state.asianDeathPerCap),
       showAsterisk: state.asianSmallN,
@@ -70,7 +70,7 @@ const getGroups = (state, testHospState = null) => {
     },
     {
       label: 'American Indian\u200a/\u200aAlaska Native',
-      style: socialCardStyle.barAian,
+      style: barChartStyle.barAian,
       cases: getGroupValue(state.aianPosPerCap),
       deaths: getGroupValue(state.aianDeathPerCap),
       showAsterisk: state.aianSmallN,
@@ -78,7 +78,7 @@ const getGroups = (state, testHospState = null) => {
     },
     {
       label: 'White',
-      style: socialCardStyle.barWhite,
+      style: barChartStyle.barWhite,
       cases: getGroupValue(state.whitePosPerCap),
       deaths: getGroupValue(state.whiteDeathPerCap),
       showAsterisk: state.whiteSmallN,
@@ -86,7 +86,7 @@ const getGroups = (state, testHospState = null) => {
     },
     {
       label: 'Asian\u200a/\u200aPacific Islander',
-      style: socialCardStyle.barAPi,
+      style: barChartStyle.barAPi,
       cases: getGroupValue(state.apiPosPerCap),
       deaths: getGroupValue(state.apiDeathPerCap),
       showAsterisk: state.apiSmallN,
@@ -94,7 +94,7 @@ const getGroups = (state, testHospState = null) => {
     },
     {
       label: 'Native Hawaiian\u200a/\u200aPacific Islander',
-      style: socialCardStyle.barNhpi,
+      style: barChartStyle.barNhpi,
       cases: getGroupValue(state.nhpiPosPerCap),
       deaths: getGroupValue(state.nhpiDeathPerCap),
       showAsterisk: state.nhpiSmallN,

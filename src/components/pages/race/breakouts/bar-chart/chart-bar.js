@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { FormatNumber } from '~components/utils/format'
-import socialCardStyle from './bar-chart.module.scss'
+import barChartStyle from './bar-chart.module.scss'
 
 const ChartBar = ({
   style,
@@ -21,13 +21,13 @@ const ChartBar = ({
   )
 
   return (
-    <div className={socialCardStyle.barContainer}>
-      {isDeaths && <div className={socialCardStyle.deathBarSpacer} />}
+    <div className={barChartStyle.barContainer}>
+      {isDeaths && <div className={barChartStyle.deathBarSpacer} />}
       <div
         className={classnames(
-          socialCardStyle.bar,
+          barChartStyle.bar,
           style,
-          widthPercentage !== 0 && socialCardStyle.hasInnerLabel,
+          widthPercentage !== 0 && barChartStyle.hasInnerLabel,
         )}
         style={{
           width: `${widthPercentage}%`,
