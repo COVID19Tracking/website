@@ -17,7 +17,7 @@ const ChartRow = ({
     worstAllMetrics.deaths.value = worstDeathsValue
   }
 
-  const { label, style, showCross } = group
+  const { label, style, showCross, showAsterisk } = group
 
   const BarLabel = ({ barLabel, cross }) => (
     <span className={socialCardStyle.barLabel}>
@@ -52,7 +52,7 @@ const ChartRow = ({
               style={style}
               metric={group[metric]}
               worstMetricValue={worstAllMetrics[metric].value}
-              showAsterisk={group.showAsterisk}
+              showAsterisk={showAsterisk}
             />
           )}
         </>

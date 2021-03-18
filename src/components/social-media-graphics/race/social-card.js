@@ -14,11 +14,14 @@ import { getStateStatus, getGroups } from './utils'
 
 import socialCardStyle from './social-card.module.scss'
 import ChartRow from './chart-row'
+import {
+  checkIfAnyAsterisk,
+  getAsteriskFootnote,
+} from '~components/pages/data/cards/crdt/create-race-data'
 
 const getFootnoteStatuses = (stateGroups, stateName) => {
   const groups = stateGroups
   let showSmallNFootnote = false
-  let asteriskFootnote = null
 
   // if any of the showAsterisk values is true
   groups.forEach(group => {
@@ -34,8 +37,6 @@ const getFootnoteStatuses = (stateGroups, stateName) => {
         groups[index].showCross = true
       }
     })
-    asteriskFootnote =
-      'Montana includes Native Hawaiians and Other Pacific Islanders in this category.'
   }
 
   // special case to add an asterisk for New Mexico API
@@ -45,12 +46,10 @@ const getFootnoteStatuses = (stateGroups, stateName) => {
         groups[index].showCross = true
       }
     })
-    asteriskFootnote =
-      'New Mexico defines this category as Asian alone for case data, and Asian/Pacific Islander for death data.'
   }
   return {
     showSmallNFootnote,
-    asteriskFootnote,
+    asteriskFootnote: getAsteriskFootnote(stateName),
   }
 }
 
@@ -84,42 +83,52 @@ const StateRaceBarCharts = ({
   }
 
   return (
-    <div
-      className={classnames(
-        socialCardStyle.grid,
-        gridClasses[availableMetrics.length],
-        status.casesOnly && socialCardStyle.casesOnly,
-        status.deathsOnly && socialCardStyle.deathsOnly,
-      )}
-    >
-      {/* Spacer for CSS Grid */}
-      <span />
-      {headers.map((header, index) => (
-        <span
+    <>
+      <div className={socialCardStyle.innerWrapper}>
+        <div
           className={classnames(
-            socialCardStyle.barHeader,
-            index !== 0 && socialCardStyle.secondaryHeader,
+            socialCardStyle.grid,
+            gridClasses[availableMetrics.length],
+            status.casesOnly && socialCardStyle.casesOnly,
+            status.deathsOnly && socialCardStyle.deathsOnly,
           )}
         >
-          {header}
-        </span>
-      ))}
-      {groups.map(group => (
-        <ChartRow
-          availableMetrics={availableMetrics}
-          group={group}
-          worstMetrics={worstMetrics}
+          {/* Spacer for CSS Grid */}
+          <span />
+          {headers.map((header, index) => (
+            <span
+              className={classnames(
+                socialCardStyle.barHeader,
+                index !== 0 && socialCardStyle.secondaryHeader,
+              )}
+            >
+              {header}
+            </span>
+          ))}
+          {groups.map(group => (
+            <ChartRow
+              availableMetrics={availableMetrics}
+              group={group}
+              worstMetrics={worstMetrics}
+            />
+          ))}
+        </div>
+      </div>
+      <Container centered>
+        <SocialCardFootnotes
+          state={state}
+          stateName={state.name}
+          asteriskFootnote={getAsteriskFootnote(state.name)}
+          showSmallNFootnote={checkIfAnyAsterisk(groups)}
         />
-      ))}
-    </div>
+      </Container>
+    </>
   )
 }
 
 const StateRaceSocialCardInner = ({
   state,
   combinedStates,
-  statesReportingCases,
-  statesReportingDeaths,
   lastUpdatedByCtp,
 }) => {
   if (state === undefined) {
@@ -181,8 +190,6 @@ const StateRaceSocialCardInner = ({
         <SocialCardFootnotes
           state={state}
           stateName={state.name}
-          statesReportingCases={statesReportingCases}
-          statesReportingDeaths={statesReportingDeaths}
           showSmallNFootnote={showSmallNFootnote}
           asteriskFootnote={asteriskFootnote}
         />

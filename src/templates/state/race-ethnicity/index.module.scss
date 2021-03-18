@@ -3,19 +3,6 @@
   @include margin(16);
 }
 
-.bar-charts {
-  @media (max-width: $viewport-lg) {
-    overflow-x: scroll;
-  }
-  & > div {
-    margin-left: auto; // ignore-style-rule
-    margin-right: auto; // ignore-style-rule
-    @include margin(32, bottom);
-    @include margin(16, top);
-    width: max-content;
-  }
-}
-
 .tables-container {
   h3 {
     color: $color-plum-600;
