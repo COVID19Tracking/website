@@ -74,7 +74,7 @@ const getGroups = (state, testHospState = null) => {
       cases: getGroupValue(state.aianPosPerCap),
       deaths: getGroupValue(state.aianDeathPerCap),
       showAsterisk: state.aianSmallN,
-      showCross: false,
+      showCross: state.name === 'Montana',
     },
     {
       label: 'White',
@@ -90,7 +90,7 @@ const getGroups = (state, testHospState = null) => {
       cases: getGroupValue(state.apiPosPerCap),
       deaths: getGroupValue(state.apiDeathPerCap),
       showAsterisk: state.apiSmallN,
-      showCross: false,
+      showCross: state.name === 'New Mexico',
     },
     {
       label: 'Native Hawaiian\u200a/\u200aPacific Islander',
