@@ -10,7 +10,7 @@ import Hero from '~components/pages/race/breakouts/hero'
 import CumulativeNotes from '~components/pages/race/breakouts/cumulative-notes'
 import FurtherResources from '~components/pages/race/breakouts/further-resources'
 
-import { StateRaceBarCharts } from '~components/social-media-graphics/race/social-card'
+import StateRaceBarCharts from '~components/social-media-graphics/race/social-card'
 
 import { Notes } from '~components/pages/state/race-ethnicity/notes-and-downloads'
 import SelectorAndCharts from '~components/pages/state/race-ethnicity/selector-and-charts'

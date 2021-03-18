@@ -73,20 +73,9 @@ body {
   }
 }
 
-.footer {
-  color: $color-slate-700;
-  font-size: 14px; // ignore-style-rule
-  line-height: 1.2;
-
-  display: flex;
-  align-items: flex-end;
-  @include margin(16, left); // matches grid
-  justify-content: space-between;
-
-  .notes {
-    margin-top: 13px; // ignore-style-rule
-    width: 730px;
-  }
+.notes {
+  @include margin(8, top);
+  @include margin(32, bottom);
 }
 
 .national {
