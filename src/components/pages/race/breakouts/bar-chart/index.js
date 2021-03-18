@@ -2,16 +2,16 @@ import React from 'react'
 import classnames from 'classnames'
 
 import Container from '~components/common/container'
-
-import SocialCardFootnotes from './footnotes'
-import { getStateStatus, getGroups } from './utils'
-
-import socialCardStyle from './social-card.module.scss'
-import ChartRow from './chart-row'
 import {
   checkIfAnyAsterisk,
   getAsteriskFootnote,
 } from '~components/pages/data/cards/crdt/create-race-data'
+
+import SocialCardFootnotes from './footnotes'
+import { getStateStatus, getGroups } from './utils'
+import ChartRow from './chart-row'
+
+import barChartStyle from './bar-chart.module.scss'
 
 const StateRaceBarCharts = ({
   availableMetrics = ['cases', 'deaths'],
@@ -23,10 +23,10 @@ const StateRaceBarCharts = ({
   const status = getStateStatus(state, combinedStates)
 
   const gridClasses = {
-    1: socialCardStyle.one,
-    2: socialCardStyle.two,
-    3: socialCardStyle.three,
-    4: socialCardStyle.four,
+    1: barChartStyle.one,
+    2: barChartStyle.two,
+    3: barChartStyle.three,
+    4: barChartStyle.four,
   }
 
   const headers = availableMetrics
@@ -44,13 +44,13 @@ const StateRaceBarCharts = ({
 
   return (
     <>
-      <div className={socialCardStyle.innerWrapper}>
+      <div className={barChartStyle.innerWrapper}>
         <div
           className={classnames(
-            socialCardStyle.grid,
+            barChartStyle.grid,
             gridClasses[availableMetrics.length],
-            status.casesOnly && socialCardStyle.casesOnly,
-            status.deathsOnly && socialCardStyle.deathsOnly,
+            status.casesOnly && barChartStyle.casesOnly,
+            status.deathsOnly && barChartStyle.deathsOnly,
           )}
         >
           {/* Spacer for CSS Grid */}
@@ -58,8 +58,8 @@ const StateRaceBarCharts = ({
           {headers.map((header, index) => (
             <span
               className={classnames(
-                socialCardStyle.barHeader,
-                index !== 0 && socialCardStyle.secondaryHeader,
+                barChartStyle.barHeader,
+                index !== 0 && barChartStyle.secondaryHeader,
               )}
             >
               {header}

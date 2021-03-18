@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import socialCardStyle from './social-card.module.scss'
+import socialCardStyle from './bar-chart.module.scss'
 import ChartBar from './chart-bar'
 
 const ChartRow = ({

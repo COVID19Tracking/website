@@ -1,6 +1,6 @@
 import React from 'react'
 
-import socialCardStyle from './social-card.module.scss'
+import socialCardStyle from './bar-chart.module.scss'
 
 const AsteriskFootnote = ({ showSmallNFootnote, asteriskFootnote }) => (
   <div className={socialCardStyle.asteriskFootnote}>

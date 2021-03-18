@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { FormatNumber } from '~components/utils/format'
-import socialCardStyle from './social-card.module.scss'
+import socialCardStyle from './bar-chart.module.scss'
 
 const ChartBar = ({
   style,

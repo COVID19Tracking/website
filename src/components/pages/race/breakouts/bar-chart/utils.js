@@ -1,4 +1,4 @@
-import socialCardStyle from './social-card.module.scss'
+import socialCardStyle from './bar-chart.module.scss'
 
 const getStateStatus = (state, combinedStates) => {
   let noDeaths

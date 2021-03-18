@@ -1,5 +1,5 @@
 import React from 'react'
-import { getGroups } from '~components/social-media-graphics/race/utils'
+import { getGroups } from '~components/pages/race/breakouts/bar-chart/utils'
 import { FormatDate } from '~components/utils/format'
 
 import styles from './cumulative-notes.module.scss'
