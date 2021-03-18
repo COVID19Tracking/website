@@ -52,7 +52,8 @@ const ChartRow = ({
               style={style}
               metric={group[metric]}
               worstMetricValue={worstAllMetrics[metric].value}
-              showAsterisk={showAsterisk}
+              // Only allow for asterisks for deaths
+              showAsterisk={metric === 'deaths' ? showAsterisk : false}
             />
           )}
         </>
