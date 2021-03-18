@@ -30,6 +30,7 @@ const StateRaceBarCharts = ({
   }
 
   const headers = availableMetrics
+    .map(m => (m === 'hospitalizations' ? 'hosp.' : m)) // replace hospitalizations with hosp
     .map(m => m.charAt(0).toUpperCase() + m.slice(1))
     .map(m => `${m} per 100,000 people`)
 
