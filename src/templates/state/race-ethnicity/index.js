@@ -89,10 +89,8 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
     <Layout
       title={`${state.name}: All Race & Ethnicity Data`}
       returnLinks={[
-        {
-          link: '/race/dashboard/',
-          title: 'Racial Data Dashboard',
-        },
+        { link: '/data' },
+        { link: `/data/state/${slug}`, title: state.name },
       ]}
       path={path}
       description={`Historical time series of race and ethnicity data in ${state.name}.`}
