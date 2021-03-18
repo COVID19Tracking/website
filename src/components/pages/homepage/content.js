@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import Container from '~components/common/container'
 import { CtaLink } from '~components/common/landing-page/call-to-action'
+import { Row } from '~components/common/grid'
 import contentStyle from './content.module.scss'
 
 const HomepageContent = () => {
@@ -22,7 +23,7 @@ const HomepageContent = () => {
           blog_post {
             slug
             title
-            publishDate(formatString: "MMMM D, YYYY")
+            publishDate(formatString: "X")
           }
         }
       }
@@ -30,31 +31,46 @@ const HomepageContent = () => {
   `)
 
   return (
-    <Container>
+    <Container className={contentStyle.wrapper}>
       <h2>Our Analysis</h2>
-      <CtaLink bold block extraMargin to="/analysis-updates">
+      <CtaLink bold block to="/analysis-updates">
         Read all our analysis and updates
       </CtaLink>
-      {data.allContentfulBlogCategory.nodes.map(category => (
-        <Fragment key={category.slug}>
-          <h3>{category.name}</h3>
-          {category.description && (
-            <div
-              className={contentStyle.description}
-              dangerouslySetInnerHTML={{
-                __html: category.description.childMarkdownRemark.html,
-              }}
-            />
-          )}
-          <ul className={contentStyle.list}>
-            {category.blog_post.map(post => (
-              <li>
-                <Link to={`/analysis-updates/${post.slug}`}>{post.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </Fragment>
-      ))}
+      <Row>
+        {data.allContentfulBlogCategory.nodes.map(category => (
+          <div className={contentStyle.category}>
+            <h3>{category.name}</h3>
+            {category.description && (
+              <div
+                className={contentStyle.description}
+                dangerouslySetInnerHTML={{
+                  __html: category.description.childMarkdownRemark.html,
+                }}
+              />
+            )}
+            <ul className={contentStyle.list}>
+              {category.blog_post
+                .sort((a, b) =>
+                  parseInt(a.publishDate, 10) > parseInt(b.publishDate, 10)
+                    ? -1
+                    : 1,
+                )
+                .slice(0, 5)
+                .map(post => (
+                  <li>
+                    <Link to={`/analysis-updates/${post.slug}`}>
+                      {post.title}
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+
+            <CtaLink block to={`/analysis-updates/category/${category.slug}`}>
+              Read all {category.name} posts
+            </CtaLink>
+          </div>
+        ))}
+      </Row>
     </Container>
   )
 }

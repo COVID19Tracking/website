@@ -1,3 +1,7 @@
+.wrapper {
+  @include margin(64, bottom);
+}
+
 .list {
   list-style-type: none;
   padding: 0;
@@ -9,4 +13,18 @@
 .description {
   @include type-size(300);
   @include margin(16, bottom);
+}
+
+.category {
+  width: 100%;
+  @media (min-width: $viewport-lg) {
+    width: 50%;
+    &:nth-child(even) {
+      @include padding(32, left);
+    }
+
+    &:nth-child(odd) {
+      @include padding(32, right);
+    }
+  }
 }
