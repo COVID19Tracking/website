@@ -1,15 +1,9 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import { renderedComponent } from '~plugins/gatsby-render-components'
-
-import Logo from '~images/ctp-icon-small.png'
-import CarLogo from '~images/car-logo-small.png'
 import Container from '~components/common/container'
 
 import SocialCardFootnotes from './footnotes'
-import SocialCardHeader from './header'
-import NoDataSocialCard from './no-data'
 import { getStateStatus, getGroups } from './utils'
 
 import socialCardStyle from './social-card.module.scss'
@@ -18,40 +12,6 @@ import {
   checkIfAnyAsterisk,
   getAsteriskFootnote,
 } from '~components/pages/data/cards/crdt/create-race-data'
-
-const getFootnoteStatuses = (stateGroups, stateName) => {
-  const groups = stateGroups
-  let showSmallNFootnote = false
-
-  // if any of the showAsterisk values is true
-  groups.forEach(group => {
-    if (group.showAsterisk) {
-      showSmallNFootnote = true // set showSmallNFootnote to true
-    }
-  })
-
-  // special case to add an asterisk for Montana AIAN
-  if (stateName === 'Montana') {
-    groups.forEach((group, index) => {
-      if (group.label === 'American Indian/ Alaska Native') {
-        groups[index].showCross = true
-      }
-    })
-  }
-
-  // special case to add an asterisk for New Mexico API
-  if (stateName === 'New Mexico') {
-    groups.forEach((group, index) => {
-      if (group.label === 'Asian\u200a/\u200aPacific Islander') {
-        groups[index].showCross = true
-      }
-    })
-  }
-  return {
-    showSmallNFootnote,
-    asteriskFootnote: getAsteriskFootnote(stateName),
-  }
-}
 
 const StateRaceBarCharts = ({
   availableMetrics = ['cases', 'deaths'],
@@ -126,86 +86,4 @@ const StateRaceBarCharts = ({
   )
 }
 
-const StateRaceSocialCardInner = ({
-  state,
-  combinedStates,
-  lastUpdatedByCtp,
-}) => {
-  if (state === undefined) {
-    return <></>
-  }
-  if (state.name === 'Guam') {
-    return <></>
-  }
-  const stateStatus = getStateStatus(state, combinedStates)
-
-  // handle empty state
-  if (stateStatus.noCharts) {
-    return <NoDataSocialCard stateName={state.name} />
-  }
-
-  const { groups } = getGroups(state)
-
-  // sort groups by deaths if only deaths are reported
-  // (this is sorted by cases in utils.js by default)
-  if (stateStatus.deathsOnly) {
-    groups.sort((a, b) => {
-      // sort bars by # of deaths
-      if (a.deaths >= b.deaths) {
-        return -1
-      }
-      return 1
-    })
-  }
-
-  const headers = []
-  if (!stateStatus.deathsOnly) {
-    headers.push('Deaths per 100,000 people')
-  }
-
-  if (!stateStatus.casesOnly) {
-    headers.push('Cases per 100,000 people')
-  }
-
-  const { showSmallNFootnote, asteriskFootnote } = getFootnoteStatuses(
-    groups,
-    state.name,
-  )
-
-  return (
-    <div className={classnames(socialCardStyle.wrapper)}>
-      <p className={socialCardStyle.header}>
-        <SocialCardHeader
-          state={state}
-          combinedStates={combinedStates}
-          lastUpdatedByCtp={lastUpdatedByCtp}
-        />
-      </p>
-      <StateRaceBarCharts
-        headers={headers}
-        state={state}
-        combinedStates={combinedStates}
-      />
-      <div className={socialCardStyle.footer}>
-        <SocialCardFootnotes
-          state={state}
-          stateName={state.name}
-          showSmallNFootnote={showSmallNFootnote}
-          asteriskFootnote={asteriskFootnote}
-        />
-        <div className={socialCardStyle.logosContainer}>
-          <img src={CarLogo} alt="" className={socialCardStyle.carLogo} />
-          <img src={Logo} alt="" className={socialCardStyle.ctpLogo} />
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const StateRaceSocialCard = renderedComponent(({ ...props }) => (
-  <StateRaceSocialCardInner {...props} />
-))
-
-export default StateRaceSocialCard
-
-export { StateRaceSocialCard, StateRaceSocialCardInner, StateRaceBarCharts }
+export default StateRaceBarCharts
