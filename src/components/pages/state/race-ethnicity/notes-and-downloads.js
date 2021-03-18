@@ -247,14 +247,14 @@ const NotesAndDownloads = ({
            */}
         </div>
         <div className={styles.smallCards}>
+          <CrdtBreakoutSmallCard
+            stateSlug={slug}
+            stateAbbreviation={stateAbbreviation}
+          />
           <RacialDataSmallCard
             stateAbbreviation={stateAbbreviation}
             stateName={stateName}
             content="View racial data dashboard"
-          />
-          <CrdtBreakoutSmallCard
-            stateSlug={slug}
-            stateAbbreviation={stateAbbreviation}
           />
         </div>
       </div>
