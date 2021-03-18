@@ -12,6 +12,7 @@ import FurtherResources from '~components/pages/race/breakouts/further-resources
 
 import StateRaceBarCharts from '~components/pages/race/breakouts/bar-chart'
 
+import { checkIfWorstDeathsAsterisk } from '~components/pages/data/cards/crdt/create-race-data'
 import { Notes } from '~components/pages/state/race-ethnicity/notes-and-downloads'
 import SelectorAndCharts from '~components/pages/state/race-ethnicity/selector-and-charts'
 import { addPer100kValues } from '~components/pages/state/race-ethnicity/utils'
@@ -122,6 +123,10 @@ const RaceEthnicityStateTemplate = ({ pageContext, path, data }) => {
           state={coreData}
           testHospData={testHospData}
           lastUpdated={lastUpdated}
+          worstDeathsAsterisk={checkIfWorstDeathsAsterisk(
+            coreData,
+            testHospData,
+          )}
         />
       </Container>
       <div className={styles.barCharts}>

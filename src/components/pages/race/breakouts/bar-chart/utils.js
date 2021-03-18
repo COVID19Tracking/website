@@ -240,13 +240,14 @@ const getGroups = (state, testHospState = null) => {
     return {
       value: Math.round(maxValue),
       group: copyLabels[maxGroup.label],
+      hasAsterisk: maxGroup.showAsterisk,
     }
   }
 
   const worstDeaths = getMaxValueAndGroup('deaths')
 
   const worstDeathsValue = worstDeaths.value
-  const worstDeathsGroup = worstDeaths.label
+  const worstDeathsGroup = worstDeaths.group
 
   groups.sort((a, b) => {
     // sort bars by # of cases
@@ -259,7 +260,7 @@ const getGroups = (state, testHospState = null) => {
   const worstCases = getMaxValueAndGroup('cases')
 
   const worstCasesValue = worstCases.value
-  const worstCasesGroup = worstCases.label
+  const worstCasesGroup = worstCases.group
 
   groups.forEach(group => {
     /* eslint-disable no-param-reassign */
@@ -286,6 +287,7 @@ const getGroups = (state, testHospState = null) => {
     worstCasesValue,
     worstDeathsGroup,
     worstDeathsValue,
+    worstDeathsAsterisk: worstDeaths.hasAsterisk,
     worstMetrics,
   }
 }

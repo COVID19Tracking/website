@@ -1,8 +1,14 @@
+import { getGroups } from '~components/pages/race/breakouts/bar-chart/utils'
+
 const perCapTo100k = value => {
   if (value == null) {
     return 'N/A'
   }
   return Math.round(value * 100)
+}
+
+const checkIfWorstDeathsAsterisk = (coreData, testHospData) => {
+  return getGroups(coreData, testHospData).worstDeathsAsterisk
 }
 
 const checkIfAnyAsterisk = groups => {
@@ -131,4 +137,9 @@ const createValuesList = raceData => {
 
 export default createValuesList
 
-export { createValuesList, checkIfAnyAsterisk, getAsteriskFootnote }
+export {
+  createValuesList,
+  checkIfAnyAsterisk,
+  getAsteriskFootnote,
+  checkIfWorstDeathsAsterisk,
+}

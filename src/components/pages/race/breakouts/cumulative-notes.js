@@ -9,7 +9,15 @@ const CumulativeNotes = ({
   state,
   testHospData,
   lastUpdated,
+  worstDeathsAsterisk,
 }) => {
+  let metrics = availableMetrics
+
+  // Remove deaths metric if worstDeathsAsterisk
+  if (worstDeathsAsterisk) {
+    metrics = metrics.filter(metric => metric !== 'deaths')
+  }
+
   const groups = getGroups(state, testHospData)
   if (Object.keys(groups).length === 0) {
     // Handle cases like Guam w/o per capita data
@@ -30,7 +38,7 @@ const CumulativeNotes = ({
         <FormatDate date={lastUpdated} format="LLLL d, yyyy" />:
       </p>
       <ul>
-        {availableMetrics.map(metric => (
+        {metrics.map(metric => (
           <li>
             {worstMetrics[metric].group} were most likely to have{' '}
             {metricVerbs[metric]} COVID-19
