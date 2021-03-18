@@ -221,6 +221,7 @@ const Charts = ({
             metric={currentMetric}
             dataType="ethnicity"
             state={stateName}
+            lastUpdated={timeSeriesData[0].Date}
           />
         </div>
       )}
