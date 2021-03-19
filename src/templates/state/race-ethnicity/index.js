@@ -336,7 +336,6 @@ export const query = graphql`
       blackPositives
       blackPosPerCap
       blackSmallN
-      historicalSmallNNote
       id
       knownRaceEthDeath
       knownRaceEthPos
@@ -465,7 +464,6 @@ export const query = graphql`
       blackSpecialCaseNotes
       deathEthData
       deathRaceData
-      historicalSmallNNote
       id
       knownEthDeath
       knownEthPos
