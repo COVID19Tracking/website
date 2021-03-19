@@ -204,17 +204,11 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                   >
                     <span>
                       AZ
-                       does not report 
+                       did not report 
                       race/ethnicity
                        data for 
                       cases
-                      .
-                       
-                      <a
-                        href="/race/get-better-data"
-                      >
-                        Help us get better data.
-                      </a>
+                       through March 7, 2021.
                     </span>
                   </td>
                   <td
@@ -223,17 +217,11 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                   >
                     <span>
                       AZ
-                       does not report 
+                       did not report 
                       race/ethnicity
                        data for 
                       deaths
-                      .
-                       
-                      <a
-                        href="/race/get-better-data"
-                      >
-                        Help us get better data.
-                      </a>
+                       through March 7, 2021.
                     </span>
                   </td>
                   <td
@@ -242,17 +230,11 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                   >
                     <span>
                       AZ
-                       does not report 
+                       did not report 
                       race/ethnicity
                        data for 
                       tests
-                      .
-                       
-                      <a
-                        href="/race/get-better-data"
-                      >
-                        Help us get better data.
-                      </a>
+                       through March 7, 2021.
                     </span>
                   </td>
                   <td
@@ -261,17 +243,11 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                   >
                     <span>
                       AZ
-                       does not report 
+                       did not report 
                       race/ethnicity
                        data for 
                       hospitalizations
-                      .
-                       
-                      <a
-                        href="/race/get-better-data"
-                      >
-                        Help us get better data.
-                      </a>
+                       through March 7, 2021.
                     </span>
                   </td>
                 </tr>
@@ -635,17 +611,11 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                   >
                     <span>
                       DC
-                       does not report 
+                       did not report 
                       race/ethnicity
                        data for 
                       cases
-                      .
-                       
-                      <a
-                        href="/race/get-better-data"
-                      >
-                        Help us get better data.
-                      </a>
+                       through March 7, 2021.
                     </span>
                   </td>
                   <td
@@ -654,17 +624,11 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                   >
                     <span>
                       DC
-                       does not report 
+                       did not report 
                       race/ethnicity
                        data for 
                       deaths
-                      .
-                       
-                      <a
-                        href="/race/get-better-data"
-                      >
-                        Help us get better data.
-                      </a>
+                       through March 7, 2021.
                     </span>
                   </td>
                   <td
@@ -673,17 +637,11 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                   >
                     <span>
                       DC
-                       does not report 
+                       did not report 
                       race/ethnicity
                        data for 
                       tests
-                      .
-                       
-                      <a
-                        href="/race/get-better-data"
-                      >
-                        Help us get better data.
-                      </a>
+                       through March 7, 2021.
                     </span>
                   </td>
                   <td
@@ -692,17 +650,11 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
                   >
                     <span>
                       DC
-                       does not report 
+                       did not report 
                       race/ethnicity
                        data for 
                       hospitalizations
-                      .
-                       
-                      <a
-                        href="/race/get-better-data"
-                      >
-                        Help us get better data.
-                      </a>
+                       through March 7, 2021.
                     </span>
                   </td>
                 </tr>

@@ -162,17 +162,11 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
             >
               <span>
                 Alabama
-                 does not report 
+                 did not report 
                 race
                  data for 
                 cases
-                .
-                 
-                <a
-                  href="/race/get-better-data"
-                >
-                  Help us get better data.
-                </a>
+                 through March 7, 2021.
               </span>
             </td>
             <td
@@ -230,17 +224,11 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
             >
               <span>
                 Alabama
-                 does not report 
+                 did not report 
                 race
                  data for 
                 tests
-                .
-                 
-                <a
-                  href="/race/get-better-data"
-                >
-                  Help us get better data.
-                </a>
+                 through March 7, 2021.
               </span>
             </td>
             <td
@@ -249,17 +237,11 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
             >
               <span>
                 Alabama
-                 does not report 
+                 did not report 
                 race
                  data for 
                 hospitalizations
-                .
-                 
-                <a
-                  href="/race/get-better-data"
-                >
-                  Help us get better data.
-                </a>
+                 through March 7, 2021.
               </span>
             </td>
           </tr>
@@ -1191,17 +1173,11 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
             >
               <span>
                 Alabama
-                 does not report 
+                 did not report 
                 ethnicity
                  data for 
                 cases
-                .
-                 
-                <a
-                  href="/race/get-better-data"
-                >
-                  Help us get better data.
-                </a>
+                 through March 7, 2021.
               </span>
             </td>
             <td
@@ -1259,17 +1235,11 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
             >
               <span>
                 Alabama
-                 does not report 
+                 did not report 
                 ethnicity
                  data for 
                 tests
-                .
-                 
-                <a
-                  href="/race/get-better-data"
-                >
-                  Help us get better data.
-                </a>
+                 through March 7, 2021.
               </span>
             </td>
             <td
@@ -1278,17 +1248,11 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
             >
               <span>
                 Alabama
-                 does not report 
+                 did not report 
                 ethnicity
                  data for 
                 hospitalizations
-                .
-                 
-                <a
-                  href="/race/get-better-data"
-                >
-                  Help us get better data.
-                </a>
+                 through March 7, 2021.
               </span>
             </td>
           </tr>

@@ -258,17 +258,11 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
             >
               <span>
                 Alabama
-                 does not report 
+                 did not report 
                 race/ethnicity
                  data for 
                 tests
-                .
-                 
-                <a
-                  href="/race/get-better-data"
-                >
-                  Help us get better data.
-                </a>
+                 through March 7, 2021.
               </span>
             </td>
             <td
@@ -277,17 +271,11 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
             >
               <span>
                 Alabama
-                 does not report 
+                 did not report 
                 race/ethnicity
                  data for 
                 hospitalizations
-                .
-                 
-                <a
-                  href="/race/get-better-data"
-                >
-                  Help us get better data.
-                </a>
+                 through March 7, 2021.
               </span>
             </td>
           </tr>
