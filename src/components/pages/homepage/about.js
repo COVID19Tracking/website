@@ -4,13 +4,11 @@ import ColorBlock from './color-block'
 
 const HomepageAbout = () => (
   <ColorBlock
-    title="The COVID Tracking Project has come to an end."
+    title="Our data compilation is finished. Our research and analysis work continues through May."
     links={[
-      <Link to="/data">See the data</Link>,
-      <Link to="/about-data">About the data</Link>,
-      <Link to="/analysis-updates/federal-covid-data-101-how-to-find-data">
-        What to do now
-      </Link>,
+      <Link to="/analysis-updates">See our analysis</Link>,
+      <Link to="/data">See historical data</Link>,
+      <Link to="/about-data/data-summary">Get fresh federal data</Link>,
       <Link to="/about">About us</Link>,
     ]}
     topMargin
