@@ -429,7 +429,6 @@ export const query = graphql`
       aianPositives
       aianPosPerCap
       aianSmallN
-      aianSpecialCaseNotes
       anyDeathData
       anyPosData
       apiDeathPerCap
@@ -448,7 +447,6 @@ export const query = graphql`
       asianPositives
       asianPosPerCap
       asianSmallN
-      asianSpecialCaseNotes
       blackDeathCaution
       blackDeathDispFlag
       blackDeathPerCap
@@ -461,7 +459,6 @@ export const query = graphql`
       blackPositives
       blackPosPerCap
       blackSmallN
-      blackSpecialCaseNotes
       deathEthData
       deathRaceData
       id
@@ -496,7 +493,6 @@ export const query = graphql`
       nhpiPositives
       nhpiPosPerCap
       nhpiSmallN
-      nhpiSpecialCaseNotes
       nonhispanicDeathCaution
       nonhispanicDeathDispFlag
       nonhispanicDeaths
@@ -506,7 +502,6 @@ export const query = graphql`
       nonhispanicPosCaution
       nonhispanicPosDispFlag
       nonhispanicPositives
-      nonhispanicSpecialCaseNotes
       otherDeathCaution
       otherDeathDispFlag
       otherDeaths
@@ -517,7 +512,6 @@ export const query = graphql`
       otherPosCaution
       otherPosDispFlag
       otherPositives
-      otherSpecialCaseNotes
       popTableNote
       posEthData
       posRaceData
@@ -532,7 +526,6 @@ export const query = graphql`
       twoPosCaution
       twoPosDispFlag
       twoPositives
-      twoSpecialCaseNotes
       unknownEthDeath
       unknownEthPos
       unknownRaceDeath
@@ -549,7 +542,6 @@ export const query = graphql`
       whitePositives
       whitePosPerCap
       whiteSmallN
-      whiteSpecialCaseNotes
       stateUpdate {
         value
       }

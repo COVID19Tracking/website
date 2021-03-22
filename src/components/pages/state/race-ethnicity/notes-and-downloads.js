@@ -179,7 +179,7 @@ const getNotes = (
     )
   }
 
-  if (hasSmallNNote) {
+  if (hasSmallNNote && notesObject.state !== 'GU') {
     notesList = [
       ...notesList.slice(0, notesList.length - 1),
       getSmallNNote(notesObject), // splice smallNNote as the second to last note
