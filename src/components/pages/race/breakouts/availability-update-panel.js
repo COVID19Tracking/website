@@ -1,7 +1,8 @@
 import React from 'react'
 import Percent from '~components/pages/race/dashboard/percent'
-import styles from './hero.module.scss'
 import LastUpdated from './last-updated'
+
+import styles from './hero.module.scss'
 
 const AvailabilityNote = ({ core, testHosp, combined }) => {
   const Availability = ({ value, title }) => (
@@ -70,6 +71,7 @@ const AvailabilityUpdatePanel = ({
   isCombined,
   lastUpdatedByState,
   lastCheckedByCtp,
+  slug,
 }) => {
   return (
     <div className={styles.secondary}>
@@ -81,6 +83,8 @@ const AvailabilityUpdatePanel = ({
       <LastUpdated
         lastCheckedByCtp={lastCheckedByCtp}
         lastUpdatedByState={lastUpdatedByState}
+        slug={slug}
+        stateName={coreData.name}
       />
     </div>
   )

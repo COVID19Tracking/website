@@ -42,6 +42,7 @@ const Hero = ({
             isCombined={isCombined}
             lastUpdatedByState={coreData.stateUpdate.value}
             lastCheckedByCtp={lastUpdatedByCtp}
+            slug={stateSlug}
           />
           <hr />
         </Container>

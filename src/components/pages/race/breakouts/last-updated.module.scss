@@ -7,7 +7,15 @@
 }
 
 .wrapper {
+  display: flex;
+
   @media (max-width: $viewport-lg) {
     @include margin(16, top);
+    flex-direction: column;
+  }
+
+  .downloads {
+    display: flex;
+    align-items: center;
   }
 }
