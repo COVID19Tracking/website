@@ -17,7 +17,7 @@ const StickyNav = ({ stateName, stateSlug, allStates }) => (
         <SocialSharing
           shares={['facebook', 'twitter', 'link']}
           url={`https://covidtracking.com/data/state/${stateSlug}/race-ethnicity/`}
-          // text={} todo choose text
+          text={`Here’s all the #COVID19 race & ethnicity data for ${stateName}, collected by The COVID Tracking Project through March 7, 2021. #RacialDataTracker`}
         />
       </div>
       <div className={styles.sticky}>
