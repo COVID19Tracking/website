@@ -215,7 +215,7 @@ export const query = graphql`
       twoOrMore
       white
     }
-    allCovidStateInfo {
+    allCovidStateInfo(filter: { state: { nin: ["AS", "MP", "VI", "PR"] } }) {
       nodes {
         name
         state
