@@ -36,6 +36,10 @@ const RaceEthnicityHistoricalTemplate = ({ pageContext, path, data }) => {
           link: `/data/state/${slug}`,
           title: state.name,
         },
+        {
+          link: `/data/state/${slug}/race-ethnicity`,
+          title: 'Race & Ethnicity',
+        },
       ]}
       path={path}
       description={`Historical time series of race and ethnicity data in ${state.name}.`}
