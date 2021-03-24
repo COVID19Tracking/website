@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import classnames from 'classnames'
+import { Link } from 'gatsby'
 import tableStyle from '~components/common/table.module.scss'
 import summaryTableStyle from './summary-table.module.scss'
 import { FormatNumber } from '~components/utils/format'
@@ -33,16 +34,6 @@ const getAllowedCategories = data => {
   )
 }
 
-const getStaffResColumns = data => {
-  let result = false
-  Object.keys(data).forEach(field => {
-    if (field.search('resstaff') > -1 && data[field]) {
-      result = true
-    }
-  })
-  return result
-}
-
 const fields = [
   'posres_',
   'deathres_',
@@ -50,25 +41,40 @@ const fields = [
   'deathstaff_',
   'posresstaff_',
   'deathresstaff_',
+  'outbrkfac_',
 ]
 
-const CategoryRows = ({ data, category, hasStaffRes }) => (
+const CategoryRows = ({ data, category }) => (
   <>
     {fields.map(field => (
-      <Fragment key={field}>
-        {(hasStaffRes || field.search('resstaff') === -1) && (
-          <td>
-            <FormatNumber number={data[`${field}${category}`]} />
-          </td>
-        )}
-      </Fragment>
+      <td>
+        <FormatNumber number={data[`${field}${category}`]} />
+      </td>
     ))}
   </>
 )
 
-const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
-  const categories = getAllowedCategories([aggregate, outbreak])
-  const hasStaffRes = getStaffResColumns(aggregate)
+const TotalRows = ({ data, categories }) => {
+  const totals = {}
+  fields.forEach(field => {
+    totals[field] = 0
+    categories.forEach(category => {
+      totals[field] += data[`${field}${category}`]
+    })
+  })
+  return (
+    <>
+      {fields.map(field => (
+        <td>
+          <FormatNumber number={totals[field]} />
+        </td>
+      ))}
+    </>
+  )
+}
+
+const LongTermCareSummaryTable = ({ stateSlug, aggregate }) => {
+  const categories = getAllowedCategories([aggregate])
   return (
     <table className={classnames(summaryTableStyle.table, tableStyle.table)}>
       <thead>
@@ -78,58 +84,29 @@ const LongTermCareSummaryTable = ({ aggregate, outbreak }) => {
           <th scope="col">Resident deaths</th>
           <th scope="col">Staff cases</th>
           <th scope="col">Staff deaths</th>
-          {hasStaffRes && (
-            <>
-              <th scope="col">Staff &amp; Resident cases</th>
-              <th scope="col">Staff &amp; Resident deaths</th>
-            </>
-          )}
+          <th scope="col">Staff &amp; Resident cases</th>
+          <th scope="col">Staff &amp; Resident deaths</th>
+          <th scope="col">Facilities impacted</th>
         </tr>
       </thead>
       <tbody>
         {categories.map(category => (
-          <Fragment key={category}>
-            <tr aria-hidden className={summaryTableStyle.category}>
-              <th scope="row">{categoryLabels[category]}</th>
-              <td />
-              <td />
-              <td />
-              <td />
-              {hasStaffRes && (
-                <>
-                  <td />
-                  <td />
-                </>
-              )}
-            </tr>
-            <tr>
-              <th scope="row">
-                <span className={summaryTableStyle.subHeader}>
-                  <span className="a11y-only">{categoryLabels[category]}</span>{' '}
-                  Cumulative
-                </span>
-              </th>
-              <CategoryRows
-                data={aggregate}
-                category={category}
-                hasStaffRes={hasStaffRes}
-              />
-            </tr>
-            <tr>
-              <th scope="row">
-                <span className={summaryTableStyle.subHeader}>
-                  <span className="a11y-only">{categoryLabels[category]}</span>{' '}
-                  Outbreak
-                </span>
-              </th>
-              <CategoryRows
-                data={outbreak}
-                category={category}
-                hasStaffRes={hasStaffRes}
-              />
-            </tr>
-          </Fragment>
+          <tr>
+            <th scope="row">{categoryLabels[category]}</th>
+            <CategoryRows data={aggregate} category={category} />
+          </tr>
         ))}
+        <tr className={summaryTableStyle.totals}>
+          <th scope="row">
+            Totals{' '}
+            <span>
+              <Link to={`/data/state/${stateSlug}/long-term-care/history`}>
+                history
+              </Link>
+            </span>
+          </th>
+          <TotalRows data={aggregate} categories={categories} />
+        </tr>
       </tbody>
     </table>
   )

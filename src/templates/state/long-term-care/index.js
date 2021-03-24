@@ -42,7 +42,8 @@ export default ({ pageContext, path, data }) => {
           <h2 id="summary">Summary</h2>
           <LongTermCareSummaryTable
             aggregate={data.aggregate.nodes[0]}
-            outbreak={data.outbreak.nodes[0]}
+            cumulative={data.cumulative.nodes[0]}
+            stateSlug={state.childSlug.slug}
           />
           <h2 id="notes">State notes</h2>
           <div
@@ -106,14 +107,18 @@ export const query = graphql`
         deathresstaff_ltc
         deathresstaff_alf
         data_type
+        outbrkfac_other
+        outbrkfac_nh
+        outbrkfac_ltc
+        outbrkfac_alf
       }
     }
     covidGradeStateAssessment(state: { eq: $state }) {
       ltc
     }
-    outbreak: allCovidLtcStates(
+    cumulative: allCovidLtcStates(
       sort: { fields: date, order: DESC }
-      filter: { state_abbr: { eq: $state }, data_type: { eq: "Outbreak" } }
+      filter: { state_abbr: { eq: $state }, data_type: { eq: "Cumulative" } }
       limit: 1
     ) {
       nodes {
@@ -143,6 +148,10 @@ export const query = graphql`
         deathresstaff_ltc
         deathresstaff_alf
         data_type
+        outbrkfac_other
+        outbrkfac_nh
+        outbrkfac_ltc
+        outbrkfac_alf
       }
     }
     covidLtcNotes(state: { eq: $state }) {
