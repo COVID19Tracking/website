@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react'
 import classnames from 'classnames'
 import { Link } from 'gatsby'
@@ -44,11 +45,25 @@ const fields = [
   'outbrkfac_',
 ]
 
+const getValue = (data, field, category) => {
+  if (data[`${field}${category}`] || field.search('resstaff') === -1) {
+    return data[`${field}${category}`]
+  }
+  if (field === 'posresstaff_') {
+    return data[`posres_${category}`] + data[`posstaff_${category}`]
+  }
+
+  if (field === 'deathresstaff_') {
+    return data[`deathres_${category}`] + data[`deathstaff_${category}`]
+  }
+  return data[`${field}${category}`]
+}
+
 const CategoryRows = ({ data, category }) => (
   <>
     {fields.map(field => (
       <td>
-        <FormatNumber number={data[`${field}${category}`]} />
+        <FormatNumber number={getValue(data, field, category)} />
       </td>
     ))}
   </>
@@ -59,6 +74,16 @@ const TotalRows = ({ data, categories }) => {
   fields.forEach(field => {
     totals[field] = 0
     categories.forEach(category => {
+      if (field === 'posresstaff_' && !data[`${field}${category}`]) {
+        totals[field] +=
+          data[`posres_${category}`] + data[`posstaff_${category}`]
+        return
+      }
+      if (field === 'deathresstaff_' && !data[`${field}${category}`]) {
+        totals[field] +=
+          data[`deathres_${category}`] + data[`deathstaff_${category}`]
+        return
+      }
       totals[field] += data[`${field}${category}`]
     })
   })
