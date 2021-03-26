@@ -72,19 +72,31 @@ const CategoryRows = ({ data, category }) => (
 const TotalRows = ({ data, categories }) => {
   const totals = {}
   fields.forEach(field => {
-    totals[field] = 0
+    totals[field] = null
     categories.forEach(category => {
-      if (field === 'posresstaff_' && !data[`${field}${category}`]) {
+      if (
+        field === 'posresstaff_' &&
+        !data[`${field}${category}`] &&
+        (data[`posres_${category}`] !== null ||
+          data[`posstaff_${category}`] !== null)
+      ) {
         totals[field] +=
           data[`posres_${category}`] + data[`posstaff_${category}`]
         return
       }
-      if (field === 'deathresstaff_' && !data[`${field}${category}`]) {
+      if (
+        field === 'deathresstaff_' &&
+        !data[`${field}${category}`] &&
+        (data[`deathres_${category}`] !== null ||
+          data[`deathstaff_${category}`] !== null)
+      ) {
         totals[field] +=
           data[`deathres_${category}`] + data[`deathstaff_${category}`]
         return
       }
-      totals[field] += data[`${field}${category}`]
+      if (data[`${field}${category}`] !== null) {
+        totals[field] += data[`${field}${category}`]
+      }
     })
   })
   return (
