@@ -47,14 +47,42 @@ const fields = [
 
 const getValue = (data, field, category) => {
   if (data[`${field}${category}`] || field.search('resstaff') === -1) {
+    if (data[`prob${field}${category}`]) {
+      return data[`prob${field}${category}`] + data[`${field}${category}`]
+    }
     return data[`${field}${category}`]
   }
   if (field === 'posresstaff_') {
-    return data[`posres_${category}`] + data[`posstaff_${category}`]
+    let result = null
+    const fieldList = ['posres', 'posstaff', 'probposres', 'probposstaff']
+    fieldList.forEach(fieldItem => {
+      if (data[`${fieldItem}_${category}`] !== null) {
+        result += data[`${fieldItem}_${category}`]
+      }
+    })
+    return result
   }
 
   if (field === 'deathresstaff_') {
-    return data[`deathres_${category}`] + data[`deathstaff_${category}`]
+    let result = null
+    const fieldList = [
+      'deathres',
+      'deathstaff',
+      'probdeathres',
+      'probdeathstaff',
+    ]
+    fieldList.forEach(fieldItem => {
+      if (data[`${fieldItem}_${category}`] !== null) {
+        result += data[`${fieldItem}_${category}`]
+      }
+    })
+    return result
+  }
+  if (
+    data[`prob${field}${category}`] &&
+    data[`prob${field}${category}`] !== null
+  ) {
+    return data[`prob${field}${category}`] + data[`prob${field}${category}`]
   }
   return data[`${field}${category}`]
 }
@@ -82,6 +110,14 @@ const TotalRows = ({ data, categories }) => {
       ) {
         totals[field] +=
           data[`posres_${category}`] + data[`posstaff_${category}`]
+        if (
+          data[`probposres_${category}`] !== null ||
+          data[`probposstaff_${category}`] !== null
+        ) {
+          totals[field] +=
+            data[`probposres_${category}`] + data[`probposstaff_${category}`]
+        }
+
         return
       }
       if (
@@ -92,10 +128,24 @@ const TotalRows = ({ data, categories }) => {
       ) {
         totals[field] +=
           data[`deathres_${category}`] + data[`deathstaff_${category}`]
+        if (
+          data[`probdeathres_${category}`] !== null ||
+          data[`probdeathstaff_${category}`] !== null
+        ) {
+          totals[field] +=
+            data[`probdeathres_${category}`] +
+            data[`probdeathstaff_${category}`]
+        }
         return
       }
       if (data[`${field}${category}`] !== null) {
         totals[field] += data[`${field}${category}`]
+      }
+      if (
+        typeof data[`prob${field}${category}`] !== 'undefined' &&
+        data[`prob${field}${category}`] !== null
+      ) {
+        totals[field] += data[`prob${field}${category}`]
       }
     })
   })

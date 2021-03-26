@@ -111,6 +111,30 @@ export const query = graphql`
         outbrkfac_nh
         outbrkfac_ltc
         outbrkfac_alf
+        probdeathres_alf
+        probdeathres_ltc
+        probdeathres_nh
+        probdeathres_other
+        probdeathresstaff_alf
+        probdeathresstaff_ltc
+        probdeathresstaff_nh
+        probdeathresstaff_other
+        probdeathstaff_alf
+        probdeathstaff_ltc
+        probdeathstaff_nh
+        probdeathstaff_other
+        probposres_alf
+        probposres_ltc
+        probposres_nh
+        probposres_other
+        probposresstaff_alf
+        probposresstaff_ltc
+        probposresstaff_nh
+        probposresstaff_other
+        probposstaff_alf
+        probposstaff_ltc
+        probposstaff_nh
+        probposstaff_other
       }
     }
     covidGradeStateAssessment(state: { eq: $state }) {
