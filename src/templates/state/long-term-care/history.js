@@ -11,34 +11,43 @@ export default ({ pageContext, path, data }) => {
   const history = []
 
   data.aggregate.nodes.forEach(item => {
-    let staffCases = 0
-    let staffDeaths = 0
-    let residentCases = 0
-    let residentDeaths = 0
-    Object.keys(item).forEach(key => {
-      if (key.search('posres') > -1) {
-        residentCases += item[key]
-      }
-      if (key.search('posstaff') > -1) {
-        staffCases += item[key]
-      }
-      if (key.search('deathres') > -1) {
-        residentDeaths += item[key]
-      }
-      if (key.search('deathstaff') > -1) {
-        staffDeaths += item[key]
-      }
-    })
+    const getValue = field => {
+      let value = null
+      Object.keys(item).forEach(key => {
+        if (key.search(field) > -1) {
+          if (value === null && item[key] !== null) {
+            value = 0
+          }
+          if (item[key] !== null) {
+            value += item[key]
+          }
+        }
+      })
+      return value
+    }
+
     history.push({
       date: item.date,
-      cases: staffCases + residentCases,
-      deaths: staffDeaths + residentDeaths,
-      staffCases,
-      staffDeaths,
-      residentCases,
-      residentDeaths,
+      staffResidentCases: getValue('posresstaff_'),
+      staffResidentDeaths: getValue('deathresstaff_'),
+      staffCases: getValue('posstaff_'),
+      staffDeaths: getValue('deathstaff_'),
+      residentCases: getValue('posres_'),
+      residentDeaths: getValue('deathres_'),
     })
   })
+  history.forEach((item, key) => {
+    if (!item.staffResidentCases && (item.staffCases || item.residentCases)) {
+      history[key].staffResidentCases = item.staffCases + item.residentCases
+    }
+    if (
+      !item.staffResidentDeaths &&
+      (item.staffDeaths || item.residentDeaths)
+    ) {
+      history[key].staffResidentDeaths = item.staffDeaths + item.residentDeaths
+    }
+  })
+
   return (
     <Layout
       title={`${state.name}: Long-term-care historical data`}
@@ -60,6 +69,7 @@ export default ({ pageContext, path, data }) => {
           {
             field: 'date',
             label: 'Date',
+            alignLeft: true,
           },
           {
             field: 'residentCases',
@@ -82,13 +92,13 @@ export default ({ pageContext, path, data }) => {
             isNumeric: true,
           },
           {
-            field: 'cases',
-            label: 'Total Cases',
+            field: 'staffResidentCases',
+            label: 'Staff & Resident cases',
             isNumeric: true,
           },
           {
-            field: 'deaths',
-            label: 'Total Deaths',
+            field: 'staffResidentDeaths',
+            label: 'Staff & Resident deaths',
             isNumeric: true,
           },
         ]}
@@ -135,6 +145,34 @@ export const query = graphql`
         deathresstaff_ltc
         deathresstaff_alf
         data_type
+        outbrkfac_other
+        outbrkfac_nh
+        outbrkfac_ltc
+        outbrkfac_alf
+        probdeathres_alf
+        probdeathres_ltc
+        probdeathres_nh
+        probdeathres_other
+        probdeathresstaff_alf
+        probdeathresstaff_ltc
+        probdeathresstaff_nh
+        probdeathresstaff_other
+        probdeathstaff_alf
+        probdeathstaff_ltc
+        probdeathstaff_nh
+        probdeathstaff_other
+        probposres_alf
+        probposres_ltc
+        probposres_nh
+        probposres_other
+        probposresstaff_alf
+        probposresstaff_ltc
+        probposresstaff_nh
+        probposresstaff_other
+        probposstaff_alf
+        probposstaff_ltc
+        probposstaff_nh
+        probposstaff_other
       }
     }
   }
