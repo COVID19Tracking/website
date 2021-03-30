@@ -16,9 +16,9 @@ const categoryLabels = {
 const getAllowedCategories = data => {
   const categories = ['nh', 'alf', 'other', 'ltc']
   const allowedCategories = []
-  data.forEach(item => {
-    Object.keys(item).forEach(key => {
-      categories.forEach(category => {
+  categories.forEach(category => {
+    data.forEach(item => {
+      Object.keys(item).forEach(key => {
         if (
           key.search(`_${category}`) > -1 &&
           item[key] > 0 &&
