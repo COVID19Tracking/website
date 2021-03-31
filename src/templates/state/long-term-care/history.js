@@ -5,6 +5,8 @@ import TableResponsive from '~components/common/table-responsive'
 import LongTermCareAlertNote from '~components/pages/state/long-term-care/alert-note'
 import Layout from '~components/layout'
 
+const categories = ['nh', 'ltc', 'alf', 'other']
+
 export default ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
@@ -13,27 +15,47 @@ export default ({ pageContext, path, data }) => {
   data.aggregate.nodes.forEach(item => {
     const getValue = field => {
       let value = null
-      Object.keys(item).forEach(key => {
-        if (key.search(field) > -1) {
-          if (value === null && item[key] !== null) {
-            value = 0
-          }
-          if (item[key] !== null) {
-            value += item[key]
-          }
+      categories.forEach(category => {
+        if (item[`prob${field}_${category}`]) {
+          value += item[`prob${field}_${category}`]
+        }
+        if (item[`${field}_${category}`]) {
+          value += item[`${field}_${category}`]
+        }
+        if (field === 'posresstaff' && !item[`posresstaff_${category}`]) {
+          const fieldList = ['posres', 'posstaff', 'probposres', 'probposstaff']
+          fieldList.forEach(fieldItem => {
+            if (data[`${fieldItem}_${category}`] !== null) {
+              value += item[`${fieldItem}_${category}`]
+            }
+          })
+        }
+        if (field === 'deathresstaff' && !item[`deathresstaff_${category}`]) {
+          const fieldList = [
+            'deathres',
+            'deathstaff',
+            'probdeathres',
+            'probdeathstaff',
+          ]
+          fieldList.forEach(fieldItem => {
+            if (data[`${fieldItem}_${category}`] !== null) {
+              value += item[`${fieldItem}_${category}`]
+            }
+          })
         }
       })
+
       return value
     }
 
     history.push({
       date: item.date,
-      staffResidentCases: getValue('posresstaff_'),
-      staffResidentDeaths: getValue('deathresstaff_'),
-      staffCases: getValue('posstaff_'),
-      staffDeaths: getValue('deathstaff_'),
-      residentCases: getValue('posres_'),
-      residentDeaths: getValue('deathres_'),
+      staffResidentCases: getValue('posresstaff'),
+      staffResidentDeaths: getValue('deathresstaff'),
+      staffCases: getValue('posstaff'),
+      staffDeaths: getValue('deathstaff'),
+      residentCases: getValue('posres'),
+      residentDeaths: getValue('deathres'),
     })
   })
   history.forEach((item, key) => {
