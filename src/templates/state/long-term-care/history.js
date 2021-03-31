@@ -56,6 +56,7 @@ export default ({ pageContext, path, data }) => {
       staffDeaths: getValue('deathstaff'),
       residentCases: getValue('posres'),
       residentDeaths: getValue('deathres'),
+      facilities: getValue('outbrkfac'),
     })
   })
   history.forEach((item, key) => {
@@ -121,6 +122,11 @@ export default ({ pageContext, path, data }) => {
           {
             field: 'staffResidentDeaths',
             label: 'Staff & Resident deaths',
+            isNumeric: true,
+          },
+          {
+            field: 'facilities',
+            label: 'Facilities impacted',
             isNumeric: true,
           },
         ]}
