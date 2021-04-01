@@ -3,14 +3,75 @@ import { useStaticQuery, graphql } from 'gatsby'
 import smartypants from 'smartypants'
 
 import DashboardSmallCards from './small-cards'
-import StateSeparate from './state-separate'
-import StateCombined from './state-combined'
+import { StateSeparate } from '../state-separate'
+import { StateCombined } from '../state-combined'
 
 import statesStyle from './states.module.scss'
+
+const generateStates = (
+  separateStates,
+  combinedStates,
+  separateTestHosp,
+  combinedTestHosp,
+) => {
+  const states = []
+
+  separateStates.forEach(state => {
+    let testHospData
+    separateTestHosp.every(testHospState => {
+      if (testHospState.name === state.name) {
+        testHospData = testHospState
+        return false
+      }
+      return true
+    })
+    states.push({
+      ...state,
+      ...testHospData,
+      stateSeparate: true,
+    })
+  })
+
+  combinedStates.forEach(state => {
+    let testHospData
+    combinedTestHosp.every(testHospState => {
+      if (testHospState.name === state.name) {
+        testHospData = testHospState
+        return false
+      }
+      return true
+    })
+    states.push({
+      ...state,
+      ...testHospData,
+      stateSeparate: false,
+    })
+  })
+
+  return states
+    .sort((a, b) => (a.name > b.name ? 1 : -1))
+    .filter(state => state.state !== 'AS') // todo remove this
+}
 
 const CrdtDashboardStates = () => {
   const data = useStaticQuery(graphql`
     query {
+      covidRaceDataHomepage {
+        statesReportingCases
+        statesReportingDeaths
+      }
+      allCovidStateInfo {
+        nodes {
+          state
+          name
+          childSlug {
+            slug
+          }
+        }
+      }
+      covidRaceDataTimeseries(Date: { ne: null }) {
+        Date
+      }
       allCovidRaceDataCombined(
         filter: { state: { ne: "US" } }
         sort: { fields: name }
@@ -21,6 +82,7 @@ const CrdtDashboardStates = () => {
           aianDeathCaution
           aianDeathDispFlag
           aianDeathNotes
+          aianDeathPerCap
           aianDeaths
           aianPctDeath
           aianPctPop
@@ -29,13 +91,19 @@ const CrdtDashboardStates = () => {
           aianPosDispFlag
           aianPositives
           aianPosNotes
+          aianPosPerCap
+          aianSmallN
           anyDeathData
           anyPosData
+          apiDeathPerCap
+          apiPosPerCap
+          apiSmallN
           asianANHPIDeathNotes
           asianANHPIPosNotes
           asianDeathCaution
           asianDeathDispFlag
           asianDeathNotes
+          asianDeathPerCap
           asianDeaths
           asianPctDeath
           asianPctPop
@@ -44,11 +112,14 @@ const CrdtDashboardStates = () => {
           asianPosDispFlag
           asianPositives
           asianPosNotes
+          asianPosPerCap
+          asianSmallN
           blackANHPIDeathNotes
           blackANHPIPosNotes
           blackDeathCaution
           blackDeathDispFlag
           blackDeathNotes
+          blackDeathPerCap
           blackDeaths
           blackPctDeath
           blackPctPop
@@ -57,12 +128,15 @@ const CrdtDashboardStates = () => {
           blackPosDispFlag
           blackPositives
           blackPosNotes
+          blackPosPerCap
+          blackSmallN
           id
           knownRaceEthDeath
           knownRaceEthPos
           latinXDeathCaution
           latinXDeathDispFlag
           latinXDeathNotes
+          latinXDeathPerCap
           latinXDeaths
           latinXPctDeath
           latinXPctPop
@@ -71,12 +145,15 @@ const CrdtDashboardStates = () => {
           latinXPosDispFlag
           latinXPositives
           latinXPosNotes
+          latinXPosPerCap
+          latinXSmallN
           name
           nhpiANHPIDeathNotes
           nhpiANHPIPosNotes
           nhpiDeathCaution
           nhpiDeathDispFlag
           nhpiDeathNotes
+          nhpiDeathPerCap
           nhpiDeaths
           nhpiPctDeath
           nhpiPctPop
@@ -85,6 +162,8 @@ const CrdtDashboardStates = () => {
           nhpiPosDispFlag
           nhpiPositives
           nhpiPosNotes
+          nhpiPosPerCap
+          nhpiSmallN
           otherANHPIDeathNotes
           otherANHPIPosNotes
           otherDeathCaution
@@ -119,6 +198,7 @@ const CrdtDashboardStates = () => {
           whiteDeathCaution
           whiteDeathDispFlag
           whiteDeathNotes
+          whiteDeathPerCap
           whiteDeaths
           whitePctDeath
           whitePctPop
@@ -127,6 +207,8 @@ const CrdtDashboardStates = () => {
           whitePosDispFlag
           whitePositives
           whitePosNotes
+          whitePosPerCap
+          whiteSmallN
         }
       }
       allCovidRaceDataSeparate(
@@ -139,6 +221,7 @@ const CrdtDashboardStates = () => {
           aianDeathCaution
           aianDeathDispFlag
           aianDeathNotes
+          aianDeathPerCap
           aianDeaths
           aianPctDeath
           aianPctPop
@@ -147,14 +230,20 @@ const CrdtDashboardStates = () => {
           aianPosDispFlag
           aianPositives
           aianPosNotes
+          aianPosPerCap
+          aianSmallN
           aianSpecialCaseNotes
           anyDeathData
           anyPosData
+          apiDeathPerCap
+          apiPosPerCap
+          apiSmallN
           asianANHPIDeathNotes
           asianANHPIPosNotes
           asianDeathCaution
           asianDeathDispFlag
           asianDeathNotes
+          asianDeathPerCap
           asianDeaths
           asianPctDeath
           asianPctPop
@@ -163,12 +252,15 @@ const CrdtDashboardStates = () => {
           asianPosDispFlag
           asianPositives
           asianPosNotes
+          asianPosPerCap
+          asianSmallN
           asianSpecialCaseNotes
           blackANHPIDeathNotes
           blackANHPIPosNotes
           blackDeathCaution
           blackDeathDispFlag
           blackDeathNotes
+          blackDeathPerCap
           blackDeaths
           blackPctDeath
           blackPctPop
@@ -177,6 +269,8 @@ const CrdtDashboardStates = () => {
           blackPosDispFlag
           blackPositives
           blackPosNotes
+          blackPosPerCap
+          blackSmallN
           blackSpecialCaseNotes
           deathEthData
           deathRaceData
@@ -190,6 +284,7 @@ const CrdtDashboardStates = () => {
           latinXDeathCaution
           latinXDeathDispFlag
           latinXDeathNotes
+          latinXDeathPerCap
           latinXDeaths
           latinXPctDeath
           latinXPctPop
@@ -198,12 +293,15 @@ const CrdtDashboardStates = () => {
           latinXPosDispFlag
           latinXPositives
           latinXPosNotes
+          latinXPosPerCap
+          latinXSmallN
           name
           nhpiANHPIDeathNotes
           nhpiANHPIPosNotes
           nhpiDeathCaution
           nhpiDeathDispFlag
           nhpiDeathNotes
+          nhpiDeathPerCap
           nhpiDeaths
           nhpiPctDeath
           nhpiPctPop
@@ -212,6 +310,8 @@ const CrdtDashboardStates = () => {
           nhpiPosDispFlag
           nhpiPositives
           nhpiPosNotes
+          nhpiPosPerCap
+          nhpiSmallN
           nhpiSpecialCaseNotes
           nonhispanicANHPIDeathNotes
           nonhispanicANHPIPosNotes
@@ -267,6 +367,7 @@ const CrdtDashboardStates = () => {
           whiteDeathCaution
           whiteDeathDispFlag
           whiteDeathNotes
+          whiteDeathPerCap
           whiteDeaths
           whitePctDeath
           whitePctPop
@@ -275,6 +376,8 @@ const CrdtDashboardStates = () => {
           whitePosDispFlag
           whitePositives
           whitePosNotes
+          whitePosPerCap
+          whiteSmallN
           whiteSpecialCaseNotes
         }
       }
@@ -419,37 +522,12 @@ const CrdtDashboardStates = () => {
     }
   `)
 
-  const states = []
-  data.allCovidRaceDataSeparate.nodes.forEach(state => {
-    let testHospData
-    data.allCovidRaceHospTestDataSeparate.nodes.every(testHospState => {
-      if (testHospState.name === state.name) {
-        testHospData = testHospState
-        return false
-      }
-      return true
-    })
-    states.push({
-      ...state,
-      ...testHospData,
-      stateSeparate: true,
-    })
-  })
-  data.allCovidRaceDataCombined.nodes.forEach(state => {
-    let testHospData
-    data.allCovidRaceHospTestDataCombined.nodes.every(testHospState => {
-      if (testHospState.name === state.name) {
-        testHospData = testHospState
-        return false
-      }
-      return true
-    })
-    states.push({
-      ...state,
-      ...testHospData,
-      stateSeparate: false,
-    })
-  })
+  const states = generateStates(
+    data.allCovidRaceDataSeparate.nodes,
+    data.allCovidRaceDataCombined.nodes,
+    data.allCovidRaceHospTestDataSeparate.nodes,
+    data.allCovidRaceHospTestDataCombined.nodes,
+  )
 
   const getStateSlug = abbreviation => {
     let slug
@@ -463,43 +541,29 @@ const CrdtDashboardStates = () => {
     return slug
   }
 
-  /*
-  These are hardcoded territories that should not have social cards generated.
-  They will not have the CTA for viewing the race data graphically, and will
-  also not appear on the dropdown for the CRDT share images page.
-  */
-  const territoriesWithoutGraphics = ['AS', 'MP', 'VI']
-
   return (
     <section>
-      {states
-        .sort((a, b) => (a.name > b.name ? 1 : -1))
-        .map(state => (
-          <div className={statesStyle.state}>
-            <h2
-              id={`state-${state.state.toLowerCase()}`}
-              className={statesStyle.header}
-            >
-              {state.name}
-            </h2>
-            {!territoriesWithoutGraphics.includes(state.state) && (
-              <>
-                <DashboardSmallCards
-                  stateAbbreviation={state.state}
-                  stateSlug={getStateSlug(state.state)}
-                  // todo set the slug
-                />
-              </>
+      {states.map(state => (
+        <div className={statesStyle.state}>
+          <h2
+            id={`state-${state.state.toLowerCase()}`}
+            className={statesStyle.header}
+          >
+            {state.name}
+          </h2>
+          <DashboardSmallCards
+            stateAbbreviation={state.state}
+            stateSlug={getStateSlug(state.state)}
+          />
+          <div>
+            {state.stateSeparate ? (
+              <StateSeparate state={state} />
+            ) : (
+              <StateCombined state={state} />
             )}
-            <div>
-              {state.stateSeparate ? (
-                <StateSeparate state={state} />
-              ) : (
-                <StateCombined state={state} />
-              )}
-            </div>
           </div>
-        ))}
+        </div>
+      ))}
       <div className="js-disabled">
         <div
           id="notes-disparity"

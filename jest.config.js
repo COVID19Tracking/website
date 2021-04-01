@@ -40,7 +40,6 @@ module.exports = {
     '!./src/components/charts/**/*.js',
     '!./src/components/common/**/*.js',
     '!./src/components/layout/**/*.js',
-    '!./src/components/social-media-graphics/**/*.js',
     '!./src/pages/**/*.js',
     '!./src/templates/**/*.js',
     '!./src/stories/**',

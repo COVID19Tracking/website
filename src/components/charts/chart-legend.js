@@ -11,6 +11,7 @@ const ChartLegend = ({
   selectedItem,
   setSelectedItem,
   legendNames,
+  isEmbed,
 }) => {
   /**
    * Gets the appropriate classes for a legend item, based on the
@@ -24,7 +25,10 @@ const ChartLegend = ({
   }
 
   return (
-    <Col width={[4, 6, 6]} className={styles.columnWrapper}>
+    <Col
+      width={isEmbed ? [4, 6, 12] : [4, 6, 6]}
+      className={styles.columnWrapper}
+    >
       <div className={styles.legend}>
         {categories.map(category => (
           <button

@@ -134,17 +134,11 @@ exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correct
           rowSpan={2}
         >
           <span>
-             does not report 
+             did not report 
             type
              data for 
             cases
-            .
-             
-            <a
-              href="/race/get-better-data"
-            >
-              Help us get better data.
-            </a>
+             through March 7, 2021.
           </span>
         </td>
         <td
@@ -152,17 +146,11 @@ exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correct
           rowSpan={2}
         >
           <span>
-             does not report 
+             did not report 
             type
              data for 
             deaths
-            .
-             
-            <a
-              href="/race/get-better-data"
-            >
-              Help us get better data.
-            </a>
+             through March 7, 2021.
           </span>
         </td>
         <td
@@ -170,17 +158,11 @@ exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correct
           rowSpan={2}
         >
           <span>
-             does not report 
+             did not report 
             type
              data for 
             tests
-            .
-             
-            <a
-              href="/race/get-better-data"
-            >
-              Help us get better data.
-            </a>
+             through March 7, 2021.
           </span>
         </td>
         <td
@@ -188,17 +170,11 @@ exports[`Components : Pages : Race : Dashboard : Ethnicity Table renders correct
           rowSpan={2}
         >
           <span>
-             does not report 
+             did not report 
             type
              data for 
             hospitalizations
-            .
-             
-            <a
-              href="/race/get-better-data"
-            >
-              Help us get better data.
-            </a>
+             through March 7, 2021.
           </span>
         </td>
       </tr>
@@ -359,17 +335,11 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
           rowSpan={7}
         >
           <span>
-             does not report 
+             did not report 
             type
              data for 
             cases
-            .
-             
-            <a
-              href="/race/get-better-data"
-            >
-              Help us get better data.
-            </a>
+             through March 7, 2021.
           </span>
         </td>
         <td
@@ -377,17 +347,11 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
           rowSpan={7}
         >
           <span>
-             does not report 
+             did not report 
             type
              data for 
             deaths
-            .
-             
-            <a
-              href="/race/get-better-data"
-            >
-              Help us get better data.
-            </a>
+             through March 7, 2021.
           </span>
         </td>
         <td
@@ -395,17 +359,11 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
           rowSpan={7}
         >
           <span>
-             does not report 
+             did not report 
             type
              data for 
             tests
-            .
-             
-            <a
-              href="/race/get-better-data"
-            >
-              Help us get better data.
-            </a>
+             through March 7, 2021.
           </span>
         </td>
         <td
@@ -413,17 +371,11 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 1`
           rowSpan={7}
         >
           <span>
-             does not report 
+             did not report 
             type
              data for 
             hospitalizations
-            .
-             
-            <a
-              href="/race/get-better-data"
-            >
-              Help us get better data.
-            </a>
+             through March 7, 2021.
           </span>
         </td>
       </tr>
@@ -674,17 +626,11 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
           rowSpan={7}
         >
           <span>
-             does not report 
+             did not report 
             type
              data for 
             cases
-            .
-             
-            <a
-              href="/race/get-better-data"
-            >
-              Help us get better data.
-            </a>
+             through March 7, 2021.
           </span>
         </td>
         <td
@@ -692,17 +638,11 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
           rowSpan={7}
         >
           <span>
-             does not report 
+             did not report 
             type
              data for 
             deaths
-            .
-             
-            <a
-              href="/race/get-better-data"
-            >
-              Help us get better data.
-            </a>
+             through March 7, 2021.
           </span>
         </td>
         <td
@@ -710,17 +650,11 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
           rowSpan={7}
         >
           <span>
-             does not report 
+             did not report 
             type
              data for 
             tests
-            .
-             
-            <a
-              href="/race/get-better-data"
-            >
-              Help us get better data.
-            </a>
+             through March 7, 2021.
           </span>
         </td>
         <td
@@ -728,17 +662,11 @@ exports[`Components : Pages : Race : Dashboard : Race Table renders correctly 2`
           rowSpan={7}
         >
           <span>
-             does not report 
+             did not report 
             type
              data for 
             hospitalizations
-            .
-             
-            <a
-              href="/race/get-better-data"
-            >
-              Help us get better data.
-            </a>
+             through March 7, 2021.
           </span>
         </td>
       </tr>

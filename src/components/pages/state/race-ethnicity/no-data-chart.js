@@ -1,15 +1,15 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import Alert from '~components/common/alert'
+import { FormatDate } from '~components/utils/format'
 
 import styles from './no-data-chart.module.scss'
 
-const NoDataChartPlaceholder = ({ state, dataType, metric }) => (
+const NoDataChartPlaceholder = ({ state, dataType, metric, lastUpdated }) => (
   <div className={styles.noDataContainer}>
     <Alert>
-      {state} does not report {dataType.toLowerCase()} data for{' '}
-      {metric.toLowerCase()}.<br />
-      <Link to="/race/get-better-data">Help us get better data.</Link>
+      {state} did not report {dataType.toLowerCase()} data for{' '}
+      {metric.toLowerCase()} through{' '}
+      <FormatDate date={lastUpdated} format="LLLL d, yyyy" />.
     </Alert>
   </div>
 )

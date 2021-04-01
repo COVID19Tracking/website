@@ -28,156 +28,278 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
     Cases and deaths by race/ethnicity
   </h3>
   <div>
-    <table
-      className="table table"
-    >
-      <thead>
-        <tr>
-          <th
-            className="group"
-            scope="col"
-          >
-            <span
-              role="text"
-            >
-              Race/ethnicity
-            </span>
-          </th>
-          <th
-            className="borderLeft percent"
-            scope="col"
-          >
-            <span
-              role="text"
-            >
-              Percentage of
-              <br />
-              population
-            </span>
-          </th>
-          <th
-            className="percent"
-            scope="col"
-          >
-            <span
-              role="text"
+    <div>
+      <table
+        className="table table"
+      >
+        <thead>
+          <tr>
+            <th
+              className="group"
+              scope="col"
             >
               <span
-                className="headerText"
+                role="text"
               >
-                Percentage of
-                <br />
-                cases
-                <div
-                  className="symbolSpacer"
-                />
+                Race/ethnicity
               </span>
-            </span>
-          </th>
-          <th
-            className="percent"
-            scope="col"
-          >
-            <span
-              role="text"
+            </th>
+            <th
+              className="borderLeft percent"
+              scope="col"
             >
               <span
-                className="headerText"
+                role="text"
               >
                 Percentage of
                 <br />
-                deaths
-                <div
-                  className="symbolSpacer"
-                />
+                population
               </span>
-            </span>
-          </th>
-          <th
-            className="percent missingData"
-            scope="col"
-          >
-            <span
-              role="text"
+            </th>
+            <th
+              className="percent"
+              scope="col"
             >
-              <img
-                alt="Alert icon"
-                src="test-file-stub"
-              />
               <span
-                className="headerText"
+                role="text"
               >
-                Percentage of
-                <br />
+                <span
+                  className="headerText"
+                >
+                  Percentage of
+                  <br />
+                  cases
+                  <div
+                    className="symbolSpacer"
+                  />
+                </span>
+              </span>
+            </th>
+            <th
+              className="percent"
+              scope="col"
+            >
+              <span
+                role="text"
+              >
+                <span
+                  className="headerText"
+                >
+                  Percentage of
+                  <br />
+                  deaths
+                  <div
+                    className="symbolSpacer"
+                  />
+                </span>
+              </span>
+            </th>
+            <th
+              className="percent missingData"
+              scope="col"
+            >
+              <span
+                role="text"
+              >
+                <img
+                  alt="Alert icon"
+                  src="test-file-stub"
+                />
+                <span
+                  className="headerText"
+                >
+                  Percentage of
+                  <br />
+                  tests
+                </span>
+              </span>
+            </th>
+            <th
+              className="percent missingData"
+              scope="col"
+            >
+              <span
+                role="text"
+              >
+                <img
+                  alt="Alert icon"
+                  src="test-file-stub"
+                />
+                <span
+                  className="headerText"
+                >
+                  Percentage of
+                  <br />
+                  hospitalizations
+                </span>
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th
+              className="group"
+              scope="row"
+            >
+              <span
+                role="text"
+              >
+                Black or African American alone
+              </span>
+            </th>
+            <td
+              className="borderLeft"
+            >
+              22
+              %
+            </td>
+            <td
+              className=""
+            >
+              <span
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
+              >
+                <span
+                  className="highlight"
+                >
+                  3
+                  %
+                </span>
+              </span>
+              <div
+                className="symbolSpacer"
+              >
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. Sample Sample blackPos notes.
+                    </span>
+                    <span>
+                      1
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+            <td
+              className=""
+            >
+              <span
+                data-reach-tooltip-trigger=""
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseMove={[Function]}
+              >
+                <span
+                  className="highlight"
+                >
+                  0
+                  %
+                </span>
+              </span>
+              <div
+                className="symbolSpacer"
+              >
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. 
+                    </span>
+                    <span>
+                      12
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+            <td
+              className="missingData"
+              rowSpan={8}
+            >
+              <span>
+                Alabama
+                 did not report 
+                race/ethnicity
+                 data for 
                 tests
+                 through March 7, 2021.
               </span>
-            </span>
-          </th>
-          <th
-            className="percent missingData"
-            scope="col"
-          >
-            <span
-              role="text"
+            </td>
+            <td
+              className="missingData"
+              rowSpan={8}
             >
-              <img
-                alt="Alert icon"
-                src="test-file-stub"
-              />
-              <span
-                className="headerText"
-              >
-                Percentage of
-                <br />
+              <span>
+                Alabama
+                 did not report 
+                race/ethnicity
+                 data for 
                 hospitalizations
+                 through March 7, 2021.
               </span>
-            </span>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th
-            className="group"
-            scope="row"
-          >
-            <span
-              role="text"
-            >
-              Black or African American alone
-            </span>
-          </th>
-          <td
-            className="borderLeft"
-          >
-            22
-            %
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
+            </td>
+          </tr>
+          <tr>
+            <th
+              className="group"
+              scope="row"
             >
               <span
-                className="highlight"
+                role="text"
               >
-                3
-                %
+                Hispanic or Latino *
               </span>
-            </span>
-            <div
-              className="symbolSpacer"
+            </th>
+            <td
+              className="borderLeft"
+            >
+              75
+              %
+            </td>
+            <td
+              className=""
             >
               <span
-                className="note"
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -187,46 +309,46 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
-                  >
-                    This data should not be compared with percentage of the the population. Sample Sample blackPos notes.
-                  </span>
-                  <span>
-                    1
-                  </span>
-                </a>
+                  12
+                  %
+                </span>
               </span>
-            </div>
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
+              <div
+                className="symbolSpacer"
               >
-                0
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. Sample Sample latinXPos notes.
+                    </span>
+                    <span>
+                      2
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+            <td
+              className=""
             >
               <span
-                className="note"
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -236,102 +358,64 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
+                  0
+                  %
+                </span>
+              </span>
+              <div
+                className="symbolSpacer"
+              >
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
                   >
-                    This data should not be compared with percentage of the the population. 
-                  </span>
-                  <span>
-                    12
-                  </span>
-                </a>
-              </span>
-            </div>
-          </td>
-          <td
-            className="missingData"
-            rowSpan={8}
-          >
-            <span>
-              Alabama
-               does not report 
-              race/ethnicity
-               data for 
-              tests
-              .
-               
-              <a
-                href="/race/get-better-data"
-              >
-                Help us get better data.
-              </a>
-            </span>
-          </td>
-          <td
-            className="missingData"
-            rowSpan={8}
-          >
-            <span>
-              Alabama
-               does not report 
-              race/ethnicity
-               data for 
-              hospitalizations
-              .
-               
-              <a
-                href="/race/get-better-data"
-              >
-                Help us get better data.
-              </a>
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <th
-            className="group"
-            scope="row"
-          >
-            <span
-              role="text"
-            >
-              Hispanic or Latino *
-            </span>
-          </th>
-          <td
-            className="borderLeft"
-          >
-            75
-            %
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
+                    <span
+                      className="a11y-only"
+                    >
+                      Sample Sample latinXDeath notes.
+                    </span>
+                    <span>
+                      3
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th
+              className="group"
+              scope="row"
             >
               <span
-                className="highlight"
+                role="text"
               >
-                12
-                %
+                Asian alone
               </span>
-            </span>
-            <div
-              className="symbolSpacer"
+            </th>
+            <td
+              className="borderLeft"
+            >
+              85
+              %
+            </td>
+            <td
+              className=""
             >
               <span
-                className="note"
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -341,46 +425,46 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
-                  >
-                    This data should not be compared with percentage of the the population. Sample Sample latinXPos notes.
-                  </span>
-                  <span>
-                    2
-                  </span>
-                </a>
+                  52
+                  %
+                </span>
               </span>
-            </div>
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
+              <div
+                className="symbolSpacer"
               >
-                0
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. Sample Sample asianPos notes.
+                    </span>
+                    <span>
+                      4
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+            <td
+              className=""
             >
               <span
-                className="note"
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -390,64 +474,64 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
-                  >
-                    Sample Sample latinXDeath notes.
-                  </span>
-                  <span>
-                    3
-                  </span>
-                </a>
+                  0
+                  %
+                </span>
               </span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th
-            className="group"
-            scope="row"
-          >
-            <span
-              role="text"
-            >
-              Asian alone
-            </span>
-          </th>
-          <td
-            className="borderLeft"
-          >
-            85
-            %
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
+              <div
+                className="symbolSpacer"
               >
-                52
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. 
+                    </span>
+                    <span>
+                      12
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th
+              className="group"
+              scope="row"
             >
               <span
-                className="note"
+                role="text"
+              >
+                Native Hawaiian and Pacific Islander alone
+              </span>
+            </th>
+            <td
+              className="borderLeft"
+            >
+              36
+              %
+            </td>
+            <td
+              className=""
+            >
+              <span
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -457,46 +541,46 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
-                  >
-                    This data should not be compared with percentage of the the population. Sample Sample asianPos notes.
-                  </span>
-                  <span>
-                    4
-                  </span>
-                </a>
+                  26
+                  %
+                </span>
               </span>
-            </div>
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
+              <div
+                className="symbolSpacer"
               >
-                0
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. Sample Sample nhpiPos notes.
+                    </span>
+                    <span>
+                      5
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+            <td
+              className=""
             >
               <span
-                className="note"
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -506,64 +590,64 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
-                  >
-                    This data should not be compared with percentage of the the population. 
-                  </span>
-                  <span>
-                    12
-                  </span>
-                </a>
+                  0
+                  %
+                </span>
               </span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th
-            className="group"
-            scope="row"
-          >
-            <span
-              role="text"
-            >
-              Native Hawaiian and Pacific Islander alone
-            </span>
-          </th>
-          <td
-            className="borderLeft"
-          >
-            36
-            %
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
+              <div
+                className="symbolSpacer"
               >
-                26
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. Sample Sample nhpiDeath notes.
+                    </span>
+                    <span>
+                      6
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th
+              className="group"
+              scope="row"
             >
               <span
-                className="note"
+                role="text"
+              >
+                American Indian or Alaska Native alone
+              </span>
+            </th>
+            <td
+              className="borderLeft"
+            >
+              79
+              %
+            </td>
+            <td
+              className=""
+            >
+              <span
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -573,46 +657,46 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
-                  >
-                    This data should not be compared with percentage of the the population. Sample Sample nhpiPos notes.
-                  </span>
-                  <span>
-                    5
-                  </span>
-                </a>
+                  60
+                  %
+                </span>
               </span>
-            </div>
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
+              <div
+                className="symbolSpacer"
               >
-                0
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. Sample Sample aianPos notes.
+                    </span>
+                    <span>
+                      7
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+            <td
+              className=""
             >
               <span
-                className="note"
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -622,64 +706,64 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
-                  >
-                    This data should not be compared with percentage of the the population. Sample Sample nhpiDeath notes.
-                  </span>
-                  <span>
-                    6
-                  </span>
-                </a>
+                  0
+                  %
+                </span>
               </span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th
-            className="group"
-            scope="row"
-          >
-            <span
-              role="text"
-            >
-              American Indian or Alaska Native alone
-            </span>
-          </th>
-          <td
-            className="borderLeft"
-          >
-            79
-            %
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
+              <div
+                className="symbolSpacer"
               >
-                60
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. Sample Sample aianDeath notes.
+                    </span>
+                    <span>
+                      8
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th
+              className="group"
+              scope="row"
             >
               <span
-                className="note"
+                role="text"
+              >
+                Two or more races
+              </span>
+            </th>
+            <td
+              className="borderLeft"
+            >
+              99
+              %
+            </td>
+            <td
+              className=""
+            >
+              <span
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -689,46 +773,46 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
-                  >
-                    This data should not be compared with percentage of the the population. Sample Sample aianPos notes.
-                  </span>
-                  <span>
-                    7
-                  </span>
-                </a>
+                  38
+                  %
+                </span>
               </span>
-            </div>
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
+              <div
+                className="symbolSpacer"
               >
-                0
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. Sample Sample twoPos notes.
+                    </span>
+                    <span>
+                      9
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+            <td
+              className=""
             >
               <span
-                className="note"
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -738,64 +822,64 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
-                  >
-                    This data should not be compared with percentage of the the population. Sample Sample aianDeath notes.
-                  </span>
-                  <span>
-                    8
-                  </span>
-                </a>
+                  0
+                  %
+                </span>
               </span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th
-            className="group"
-            scope="row"
-          >
-            <span
-              role="text"
-            >
-              Two or more races
-            </span>
-          </th>
-          <td
-            className="borderLeft"
-          >
-            99
-            %
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
+              <div
+                className="symbolSpacer"
               >
-                38
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. Sample Sample twoDeath notes.
+                    </span>
+                    <span>
+                      10
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th
+              className="group"
+              scope="row"
             >
               <span
-                className="note"
+                role="text"
+              >
+                White alone
+              </span>
+            </th>
+            <td
+              className="borderLeft"
+            >
+              3
+              %
+            </td>
+            <td
+              className=""
+            >
+              <span
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -805,46 +889,46 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
-                  >
-                    This data should not be compared with percentage of the the population. Sample Sample twoPos notes.
-                  </span>
-                  <span>
-                    9
-                  </span>
-                </a>
+                  79
+                  %
+                </span>
               </span>
-            </div>
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
+              <div
+                className="symbolSpacer"
               >
-                0
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. Sample Sample whitePos notes.
+                    </span>
+                    <span>
+                      11
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+            <td
+              className=""
             >
               <span
-                className="note"
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -854,64 +938,64 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
-                  >
-                    This data should not be compared with percentage of the the population. Sample Sample twoDeath notes.
-                  </span>
-                  <span>
-                    10
-                  </span>
-                </a>
+                  0
+                  %
+                </span>
               </span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th
-            className="group"
-            scope="row"
-          >
-            <span
-              role="text"
-            >
-              White alone
-            </span>
-          </th>
-          <td
-            className="borderLeft"
-          >
-            3
-            %
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
+              <div
+                className="symbolSpacer"
               >
-                79
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. 
+                    </span>
+                    <span>
+                      12
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th
+              className="group"
+              scope="row"
             >
               <span
-                className="note"
+                role="text"
+              >
+                Some other race alone
+              </span>
+            </th>
+            <td
+              className="borderLeft"
+            >
+              31
+              %
+            </td>
+            <td
+              className=""
+            >
+              <span
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -921,46 +1005,46 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
-                  >
-                    This data should not be compared with percentage of the the population. Sample Sample whitePos notes.
-                  </span>
-                  <span>
-                    11
-                  </span>
-                </a>
+                  86
+                  %
+                </span>
               </span>
-            </div>
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
+              <div
+                className="symbolSpacer"
               >
-                0
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
+                >
+                  <a
+                    href="#notes-al"
+                  >
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. Sample Sample otherPos notes.
+                    </span>
+                    <span>
+                      13
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+            <td
+              className=""
             >
               <span
-                className="note"
                 data-reach-tooltip-trigger=""
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -970,333 +1054,239 @@ exports[`Components : Pages : Race : Dashboard : State Combined renders correctl
                 onMouseLeave={[Function]}
                 onMouseMove={[Function]}
               >
-                <a
-                  href="#notes-al"
+                <span
+                  className="highlight"
                 >
-                  <span
-                    className="a11y-only"
-                  >
-                    This data should not be compared with percentage of the the population. 
-                  </span>
-                  <span>
-                    12
-                  </span>
-                </a>
+                  12
+                  %
+                </span>
               </span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th
-            className="group"
-            scope="row"
-          >
-            <span
-              role="text"
-            >
-              Some other race alone
-            </span>
-          </th>
-          <td
-            className="borderLeft"
-          >
-            31
-            %
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
+              <div
+                className="symbolSpacer"
               >
-                86
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
-            >
-              <span
-                className="note"
-                data-reach-tooltip-trigger=""
-                onBlur={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                onMouseMove={[Function]}
-              >
-                <a
-                  href="#notes-al"
+                <span
+                  className="note"
+                  data-reach-tooltip-trigger=""
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseMove={[Function]}
                 >
-                  <span
-                    className="a11y-only"
+                  <a
+                    href="#notes-al"
                   >
-                    This data should not be compared with percentage of the the population. Sample Sample otherPos notes.
-                  </span>
-                  <span>
-                    13
-                  </span>
-                </a>
-              </span>
-            </div>
-          </td>
-          <td
-            className=""
-          >
-            <span
-              data-reach-tooltip-trigger=""
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-            >
-              <span
-                className="highlight"
-              >
-                12
-                %
-              </span>
-            </span>
-            <div
-              className="symbolSpacer"
-            >
-              <span
-                className="note"
-                data-reach-tooltip-trigger=""
-                onBlur={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                onMouseMove={[Function]}
-              >
-                <a
-                  href="#notes-al"
-                >
-                  <span
-                    className="a11y-only"
-                  >
-                    This data should not be compared with percentage of the the population. Sample Sample otherDeath notes.
-                  </span>
-                  <span>
-                    14
-                  </span>
-                </a>
-              </span>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <h4
-    className="header"
-    id="notes-al"
-  >
-    Notes
-     
-    <span
-      className="a11y-only"
+                    <span
+                      className="a11y-only"
+                    >
+                      This data should not be compared with percentage of the the population. Sample Sample otherDeath notes.
+                    </span>
+                    <span>
+                      14
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h4
+      className="header"
+      id="notes-al"
     >
-       for 
-      Alabama
-    </span>
-  </h4>
-  <ul
-    className="list"
-  >
-    <li>
-      <span
-        className="emptyNote"
-      >
-        *
-      </span>
-       Hispanic or Latino ethnicity, any race. All other race categories in this table are defined as Not Hispanic or Latino.
-    </li>
-    <li>
-      <span
-        aria-hidden={true}
-        className="note unlinked"
-      >
-        <span>
-          1
-        </span>
-      </span>
+      Notes
        
-      This data should not be compared with percentage of the the population. Sample Sample blackPos notes.
-    </li>
-    <li>
       <span
-        aria-hidden={true}
-        className="note unlinked"
+        className="a11y-only"
       >
-        <span>
-          2
-        </span>
+         for 
+        Alabama
       </span>
-       
-      This data should not be compared with percentage of the the population. Sample Sample latinXPos notes.
-    </li>
-    <li>
-      <span
-        aria-hidden={true}
-        className="note unlinked"
-      >
-        <span>
-          3
+    </h4>
+    <ul
+      className="list"
+    >
+      <li>
+        <span
+          className="emptyNote"
+        >
+          *
         </span>
-      </span>
-       
-      Sample Sample latinXDeath notes.
-    </li>
-    <li>
-      <span
-        aria-hidden={true}
-        className="note unlinked"
-      >
-        <span>
-          4
+         Hispanic or Latino ethnicity, any race. All other race categories in this table are defined as Not Hispanic or Latino.
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            1
+          </span>
         </span>
-      </span>
-       
-      This data should not be compared with percentage of the the population. Sample Sample asianPos notes.
-    </li>
-    <li>
-      <span
-        aria-hidden={true}
-        className="note unlinked"
-      >
-        <span>
-          5
+         
+        This data should not be compared with percentage of the the population. Sample Sample blackPos notes.
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            2
+          </span>
         </span>
-      </span>
-       
-      This data should not be compared with percentage of the the population. Sample Sample nhpiPos notes.
-    </li>
-    <li>
-      <span
-        aria-hidden={true}
-        className="note unlinked"
-      >
-        <span>
-          6
+         
+        This data should not be compared with percentage of the the population. Sample Sample latinXPos notes.
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            3
+          </span>
         </span>
-      </span>
-       
-      This data should not be compared with percentage of the the population. Sample Sample nhpiDeath notes.
-    </li>
-    <li>
-      <span
-        aria-hidden={true}
-        className="note unlinked"
-      >
-        <span>
-          7
+         
+        Sample Sample latinXDeath notes.
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            4
+          </span>
         </span>
-      </span>
-       
-      This data should not be compared with percentage of the the population. Sample Sample aianPos notes.
-    </li>
-    <li>
-      <span
-        aria-hidden={true}
-        className="note unlinked"
-      >
-        <span>
-          8
+         
+        This data should not be compared with percentage of the the population. Sample Sample asianPos notes.
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            5
+          </span>
         </span>
-      </span>
-       
-      This data should not be compared with percentage of the the population. Sample Sample aianDeath notes.
-    </li>
-    <li>
-      <span
-        aria-hidden={true}
-        className="note unlinked"
-      >
-        <span>
-          9
+         
+        This data should not be compared with percentage of the the population. Sample Sample nhpiPos notes.
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            6
+          </span>
         </span>
-      </span>
-       
-      This data should not be compared with percentage of the the population. Sample Sample twoPos notes.
-    </li>
-    <li>
-      <span
-        aria-hidden={true}
-        className="note unlinked"
-      >
-        <span>
-          10
+         
+        This data should not be compared with percentage of the the population. Sample Sample nhpiDeath notes.
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            7
+          </span>
         </span>
-      </span>
-       
-      This data should not be compared with percentage of the the population. Sample Sample twoDeath notes.
-    </li>
-    <li>
-      <span
-        aria-hidden={true}
-        className="note unlinked"
-      >
-        <span>
-          11
+         
+        This data should not be compared with percentage of the the population. Sample Sample aianPos notes.
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            8
+          </span>
         </span>
-      </span>
-       
-      This data should not be compared with percentage of the the population. Sample Sample whitePos notes.
-    </li>
-    <li>
-      <span
-        aria-hidden={true}
-        className="note unlinked"
-      >
-        <span>
-          12
+         
+        This data should not be compared with percentage of the the population. Sample Sample aianDeath notes.
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            9
+          </span>
         </span>
-      </span>
-       
-      This data should not be compared with percentage of the the population. 
-    </li>
-    <li>
-      <span
-        aria-hidden={true}
-        className="note unlinked"
-      >
-        <span>
-          13
+         
+        This data should not be compared with percentage of the the population. Sample Sample twoPos notes.
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            10
+          </span>
         </span>
-      </span>
-       
-      This data should not be compared with percentage of the the population. Sample Sample otherPos notes.
-    </li>
-    <li>
-      <span
-        aria-hidden={true}
-        className="note unlinked"
-      >
-        <span>
-          14
+         
+        This data should not be compared with percentage of the the population. Sample Sample twoDeath notes.
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            11
+          </span>
         </span>
-      </span>
-       
-      This data should not be compared with percentage of the the population. Sample Sample otherDeath notes.
-    </li>
-  </ul>
+         
+        This data should not be compared with percentage of the the population. Sample Sample whitePos notes.
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            12
+          </span>
+        </span>
+         
+        This data should not be compared with percentage of the the population. 
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            13
+          </span>
+        </span>
+         
+        This data should not be compared with percentage of the the population. Sample Sample otherPos notes.
+      </li>
+      <li>
+        <span
+          aria-hidden={true}
+          className="note unlinked"
+        >
+          <span>
+            14
+          </span>
+        </span>
+         
+        This data should not be compared with percentage of the the population. Sample Sample otherDeath notes.
+      </li>
+    </ul>
+  </div>
 </div>
 `;
