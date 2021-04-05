@@ -54,7 +54,7 @@ export default ({ pageContext, path, data }) => {
         </>
       ) : (
         <LongTermCareAlertNote>
-          {state.name} does not report long-term care data.
+          {state.name} does not report long-term-care data.
         </LongTermCareAlertNote>
       )}
     </Layout>

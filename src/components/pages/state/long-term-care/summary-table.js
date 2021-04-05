@@ -8,7 +8,7 @@ import { FormatNumber } from '~components/utils/format'
 
 const categoryLabels = {
   nh: 'Nursing home',
-  ltc: 'Long-term care facility',
+  ltc: 'Long-term-care facility',
   alf: 'Assisted-living facility',
   other: 'Other facility',
 }

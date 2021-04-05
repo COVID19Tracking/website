@@ -55,7 +55,7 @@ export default ({ data, stateName, stateDeaths, stateSlug }) => {
                 highlight: 'ltc_cases',
               })
             }}
-            label="Long-term care  cases"
+            label="Long-term-care cases"
           />
         </Statistic>
         <Statistic title="Total deaths" value={current.total_death}>
@@ -66,7 +66,7 @@ export default ({ data, stateName, stateDeaths, stateSlug }) => {
                 highlight: 'ltc_deaths',
               })
             }}
-            label="Long-term care deaths"
+            label="Long-term-care deaths"
           />
         </Statistic>
         <Statistic title="Number of facilities affected" value={facilities}>
@@ -77,7 +77,7 @@ export default ({ data, stateName, stateDeaths, stateSlug }) => {
                 highlight: 'ltc_facilities',
               })
             }}
-            label="Long-term care facilities"
+            label="Long-term-care facilities"
           />
         </Statistic>
 

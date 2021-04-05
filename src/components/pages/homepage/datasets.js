@@ -99,7 +99,7 @@ const HomepageDatasets = () => (
             title="Long-term-care data"
             link={
               <Link to="/data/longtermcare" className={datasetsStyle.stateLink}>
-                All long-term care data<span aria-hidden> →</span>
+                All long-term-care data<span aria-hidden> →</span>
               </Link>
             }
             stateLink={state =>
