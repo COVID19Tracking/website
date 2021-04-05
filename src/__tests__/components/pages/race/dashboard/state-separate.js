@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { useStaticQuery } from 'gatsby'
-import StateSeparate from '~components/pages/race/dashboard/state-separate'
+import { StateSeparate } from '~components/pages/race/state-separate'
 
 beforeEach(() => {
   useStaticQuery.mockImplementation(() => ({

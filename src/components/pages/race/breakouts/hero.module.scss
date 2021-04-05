@@ -1,0 +1,75 @@
+.container {
+  background-color: $color-plum-100;
+  // Flush with nav
+  margin-top: -64px; // ignore-style-rule
+  @include padding(32, top);
+
+  @media (max-width: $viewport-lg) {
+    @include padding(16, bottom);
+  }
+
+  h2 {
+    @include margin(24, top);
+    @include margin(8, bottom);
+  }
+
+  hr {
+    @include margin(32, (top, bottom));
+  }
+}
+
+.breadcrumb {
+  color: $color-plum-700;
+  a {
+    color: $color-plum-700;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  font-weight: bold;
+}
+
+.secondary {
+  @include margin(32, top);
+
+  div:first-child {
+    flex-basis: 60%;
+  }
+
+  @media (max-width: $viewport-md) {
+    flex-direction: column;
+  }
+}
+
+.availability-wrapper {
+  p {
+    @include margin(4, bottom);
+    @include margin(0, top);
+  }
+  .availability-grid {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    @include margin(32, bottom);
+
+    @media (max-width: $viewport-md) {
+      flex-direction: column;
+    }
+
+    span {
+      font-weight: bold;
+      font-size: 21px;
+    }
+  }
+
+  @media (max-width: $viewport-md) {
+    @include margin(16, bottom);
+  }
+}
+
+.assessment {
+  display: flex;
+  align-items: center;
+}

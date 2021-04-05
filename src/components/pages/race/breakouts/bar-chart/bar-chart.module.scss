@@ -1,0 +1,230 @@
+body {
+  background-color: white;
+}
+
+.wrapper {
+  font: normal 100%/1.5 'Helvetica', 'Arial', 'sans-serif';
+  @include margin(24, (left, right));
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 453px; // 473px - 20px bottom spacing
+}
+
+.header {
+  font-size: 18px; // ignore-style-rule
+  text-align: center;
+  line-height: 150%;
+
+  margin-right: 90px; // ignore-style-rule
+  margin-left: 90px; // ignore-style-rule
+}
+
+.square {
+  .header {
+    margin-right: 45px; // ignore-style-rule
+    margin-left: 45px; // ignore-style-rule
+  }
+  .grid {
+    @include margin(0, left);
+  }
+}
+
+.grid {
+  display: grid;
+  align-self: flex-start;
+  @include margin(16, left);
+  width: 675px;
+
+  grid-template-rows: auto;
+  column-gap: 10px;
+
+  &.one {
+    grid-template-columns: 150px 240px;
+  }
+  &.two {
+    grid-template-columns: 150px 240px 240px;
+  }
+  &.three {
+    grid-template-columns: 150px 240px 240px 240px;
+  }
+  &.four {
+    grid-template-columns: 150px 240px 240px 240px 240px;
+  }
+
+
+  .bar-header {
+    font-weight: bold;
+    @include margin(0, top);
+    margin-bottom: 5px; // ignore-style-rule
+    justify-self: start;
+    align-self: end;
+    font-size: 14px; // ignore-style-rule
+  }
+
+  .bar-label {
+    justify-self: right;
+    align-self: center;
+    text-align: right;
+    margin-left: spacer(16); // forces the category titles to wrap
+
+    font-size: 14px; // ignore-style-rule
+    line-height: 1.15;
+  }
+}
+
+.notes {
+  @include margin(8, top);
+  @include margin(32, bottom);
+}
+
+.national {
+  font-size: 13px; // ignore-style-rule
+}
+
+.asterisk-footnote {
+  @include margin(8, top);
+}
+
+.logos-container {
+  display: flex;
+  flex-direction: column;
+  @include padding(8, left);
+
+  .ctp-logo {
+    width: 108px;
+  }
+
+  .car-logo {
+    width: 68px;
+    margin-left: 20px; // ignore-style-rule
+    @include margin(16, bottom);
+  }
+}
+
+.bar-container {
+  display: flex;
+  font-size: 14px; // ignore-style-rule
+  line-height: 1;
+  align-items: flex-start;
+
+  span {
+    align-self: center;
+    margin-left: 5px; // ignore-style-rule
+  }
+}
+
+.bar {
+  height: 25px;
+  width: 0px;
+  font-size: 14px; // ignore-style-rule
+  text-align: right;
+  margin-top: 6px; // ignore-style-rule
+  margin-bottom: 6px; // ignore-style-rule
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  span {
+    line-height: 1.25;
+  }
+
+  &.has-inner-label {
+    padding-right: 10px; // ignore-style-rule
+  }
+
+  &.barBlack {
+    background: $crdt-black;
+  }
+  &.barLatinx {
+    background: $crdt-latinx;
+  }
+  &.barAll {
+    background: $color-slate-400;
+  }
+  &.barAsian {
+    background: $crdt-asian;
+    color: white;
+  }
+  &.barAian {
+    background: $crdt-aian;
+    color: white;
+  }
+  &.barWhite {
+    background: $crdt-white;
+  }
+  &.barNhpi {
+    background: $crdt-nhpi;
+    color: white;
+  }
+  &.barAPi {
+    background: $crdt-asian;
+    color: white;
+  }
+}
+
+.death-bar-spacer {
+  width: 45px;
+}
+
+.insufficient-data {
+  font-size: 14px;
+  line-height: 1;
+  align-self: center;
+  color: $color-slate-600;
+
+  &.insufficient-data-deaths {
+    margin-left: 45px; // ignore-style-rule
+  }
+}
+
+.no-data-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  @include type-size(300);
+  padding: 116px 180px; // ignore-style-rule
+
+  .logos-container {
+    flex-direction: row-reverse;
+    @include margin(16, top);
+    justify-content: center;
+
+    .ctp-logo {
+      margin-right: 6px; // ignore-style-rule
+    }
+
+    .car-logo {
+      @include margin(16, right);
+      @include margin(0, bottom);
+    }
+  }
+  .alert {
+    width: 60px;
+    margin: 0 auto; // ignore-style-rule
+  }
+
+  p {
+    text-align: center;
+    @include margin(8);
+  }
+
+  .get-better-data {
+    background-color: $color-plum-100;
+    padding: 1rem 1.5rem; // ignore-style-rule
+  }
+}
+
+.inner-wrapper {
+  @media (max-width: $viewport-lg) {
+    overflow-x: scroll;
+  }
+  & > div {
+    margin-left: auto; // ignore-style-rule
+    margin-right: auto; // ignore-style-rule
+    @include margin(32, bottom);
+    @include margin(16, top);
+    width: max-content;
+  }
+}

@@ -5,7 +5,7 @@ import Percent from '~components/pages/race/dashboard/percent'
 import { FormatDate, FormatItemList } from '~components/utils/format'
 
 import RacialDataSmallCard from '~components/pages/data/cards/small/view-racial-data-small-card'
-import DataAsGraphicSmallCard from '~components/pages/data/cards/small/data-as-graphic-small-card'
+import CrdtBreakoutSmallCard from '~components/pages/data/cards/small/crdt-breakout-small-card'
 
 import styles from './notes-and-downloads.module.scss'
 
@@ -125,7 +125,13 @@ const getSmallNNote = notes => {
   )
 }
 
-const getNotes = (combined, separate, combinedTestHosp, separateTestHosp) => {
+const getNotes = (
+  combined,
+  separate,
+  combinedTestHosp,
+  separateTestHosp,
+  forBreakout = false,
+) => {
   /**
    * Creates a list of notes for this state's data.
    */
@@ -162,16 +168,18 @@ const getNotes = (combined, separate, combinedTestHosp, separateTestHosp) => {
     notesList.unshift(`${notesObject.latinxNote} ${notesObject.mutExclNote}`)
   }
 
-  notesList.unshift(
-    getDataCompletenessNote(
-      combined,
-      separate,
-      combinedTestHosp,
-      separateTestHosp,
-    ),
-  )
+  if (!forBreakout) {
+    notesList.unshift(
+      getDataCompletenessNote(
+        combined,
+        separate,
+        combinedTestHosp,
+        separateTestHosp,
+      ),
+    )
+  }
 
-  if (hasSmallNNote) {
+  if (hasSmallNNote && notesObject.state !== 'GU') {
     notesList = [
       ...notesList.slice(0, notesList.length - 1),
       getSmallNNote(notesObject), // splice smallNNote as the second to last note
@@ -179,9 +187,28 @@ const getNotes = (combined, separate, combinedTestHosp, separateTestHosp) => {
     ]
   }
 
-  return notesList
+  return [...new Set(notesList)] // unique
 }
 
+const Notes = ({
+  combinedData,
+  separateData,
+  combinedTestHosp,
+  separateTestHosp,
+  forBreakout = false,
+}) => (
+  <ul>
+    {getNotes(
+      combinedData,
+      separateData,
+      combinedTestHosp,
+      separateTestHosp,
+      forBreakout,
+    ).map(note => (
+      <li key={note}>{note}</li>
+    ))}
+  </ul>
+)
 const NotesAndDownloads = ({
   slug,
   stateAbbreviation,
@@ -191,22 +218,16 @@ const NotesAndDownloads = ({
   combinedTestHosp,
   separateTestHosp,
 }) => {
-  const notesList = getNotes(
-    combinedData,
-    separateData,
-    combinedTestHosp,
-    separateTestHosp,
-  )
-
   return (
     <div className={styles.container}>
       <div className={styles.notes}>
         <h4>Notes</h4>
-        <ul>
-          {notesList.map(note => (
-            <li key={note}>{note}</li>
-          ))}
-        </ul>
+        <Notes
+          combinedData={combinedData}
+          separateData={separateData}
+          combinedTestHosp={combinedTestHosp}
+          separateTestHosp={separateTestHosp}
+        />
       </div>
       <div className={styles.downloadsContainer}>
         <h4>Download dataset</h4>
@@ -226,14 +247,14 @@ const NotesAndDownloads = ({
            */}
         </div>
         <div className={styles.smallCards}>
+          <CrdtBreakoutSmallCard
+            stateSlug={slug}
+            stateAbbreviation={stateAbbreviation}
+          />
           <RacialDataSmallCard
             stateAbbreviation={stateAbbreviation}
             stateName={stateName}
             content="View racial data dashboard"
-          />
-          <DataAsGraphicSmallCard
-            stateAbbreviation={stateAbbreviation}
-            stateName={stateName}
           />
         </div>
       </div>
@@ -242,3 +263,4 @@ const NotesAndDownloads = ({
 }
 
 export default NotesAndDownloads
+export { NotesAndDownloads, Notes }

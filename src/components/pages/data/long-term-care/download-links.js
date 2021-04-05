@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import {
-  CtaAnchorLink,
-  CtaLink,
-} from '~components/common/landing-page/call-to-action'
+import { CtaAnchorLink, CtaLink } from '~components/common/call-to-action'
 import StateNavigation from '~components/common/state-nav'
 import { Row, Col } from '~components/common/grid'
 import linksStyle from './download-links.module.scss'

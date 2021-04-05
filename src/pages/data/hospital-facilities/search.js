@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '~components/layout'
 import Container from '~components/common/container'
 import LongContent from '~components/common/long-content'
-import { CtaLink } from '~components/common/landing-page/call-to-action'
+import { CtaLink } from '~components/common/call-to-action'
 import ContentfulContent from '~components/common/contentful-content'
 import HHSFacilitiesSearch from '~components/pages/data/hhs-facilities/search'
 

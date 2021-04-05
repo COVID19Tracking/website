@@ -234,7 +234,14 @@ exports.createPages = async ({ graphql, actions }) => {
     const { slug } = node.childSlug
     createPage({
       path: `/data/state/${slug}/race-ethnicity/historical`,
-      component: path.resolve(`./src/templates/state/race-ethnicity.js`),
+      component: path.resolve(
+        `./src/templates/state/race-ethnicity/historical.js`,
+      ),
+      context: node,
+    })
+    createPage({
+      path: `/data/state/${slug}/race-ethnicity`,
+      component: path.resolve(`./src/templates/state/race-ethnicity/index.js`),
       context: node,
     })
   })
@@ -248,20 +255,6 @@ exports.createPages = async ({ graphql, actions }) => {
     childSlug: {
       slug: 'united-states',
     },
-  })
-
-  covidStateInfo = covidStateInfo.filter(node => node.state !== 'VI')
-  covidStateInfo = covidStateInfo.filter(node => node.state !== 'GU')
-
-  covidStateInfo.forEach(node => {
-    const { slug } = node.childSlug
-    createPage({
-      path: `/race/infection-and-mortality-data/${slug}`,
-      component: path.resolve(
-        `./src/templates/race/infection-and-mortality-data/landing.js`,
-      ),
-      context: node,
-    })
   })
 
   result.data.allContentfulBlogPost.nodes.forEach(node => {

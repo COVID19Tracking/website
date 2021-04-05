@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  CtaLink,
-  CtaAnchorLink,
-} from '~components/common/landing-page/call-to-action'
+import { CtaLink, CtaAnchorLink } from '~components/common/call-to-action'
 import ctaLinksStyle from './cta-links.module.scss'
 
 const CtaLinks = () => (
