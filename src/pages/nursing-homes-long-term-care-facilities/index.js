@@ -2,14 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import marked from 'marked'
 import Container from '~components/common/container'
-import LongContent from '~components/common/long-content'
 import ContentfulContent from '~components/common/contentful-content'
 import { BlogItem } from '~components/pages/homepage/blog-list'
-import TableauChart from '~components/charts/tableau'
 import Total from '~components/common/landing-page/total'
 import { Col, Row } from '~components/common/grid'
 import { FormatNumber } from '~components/utils/format'
-import DetailText from '~components/common/detail-text'
 import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
 
@@ -41,6 +38,8 @@ const LongTermCarePage = ({ data }) => {
           }}
         />
       </Paragraph>
+
+      <Snippet slug="ltc-top-notes" />
       <h3 className="no-margin-bottom">Cumulative</h3>
       <Row>
         <Col width={[4, 6, 4]}>
@@ -70,25 +69,12 @@ const LongTermCarePage = ({ data }) => {
           />
         </Col>
       </Row>
-      <DetailText small>
-        <Snippet slug="ltc-top-notes" />
-      </DetailText>
       <Container centered>
         <h2>Our Analysis &amp; Updates</h2>
         {data.allContentfulBlogPost.nodes.map(post => (
           <BlogItem post={post} extraMargin hideReadLink />
         ))}
-        <LongContent>
-          <Snippet slug="ltc-1" />
-        </LongContent>
       </Container>
-      <TableauChart
-        id="ltc-1"
-        height={520}
-        mobileHeight={450}
-        viewUrl="https://public.tableau.com/views/LTCDataObservations/web_FigMap?:language=en&:display_count=y&:origin=viz_share_link"
-        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/mob_FigMap?:language=en&:display_count=y&:origin=viz_share_link"
-      />
     </Layout>
   )
 }
