@@ -1,8 +1,38 @@
 import React from 'react'
+import classnames from 'classnames'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { Col, Row } from '~components/common/grid'
 import blogStyle from './blog.module.scss'
 import CleanSpacing from '~components/utils/clean-spacing'
+
+const BlogItem = ({ post, extraMargin = false, hideReadLink = false }) => (
+  <div
+    className={classnames(blogStyle.post, extraMargin && blogStyle.extraMargin)}
+  >
+    <div className={blogStyle.date}>{post.publishDate}</div>
+    <h3>
+      <Link to={`/analysis-updates/${post.slug}`}>{post.title}</Link>
+    </h3>
+    <div className={blogStyle.lede}>
+      <CleanSpacing>{post.lede.lede}</CleanSpacing>
+    </div>
+    {post.homepageImage && (
+      <img
+        src={post.homepageImage.fixed.src}
+        className={blogStyle.image}
+        srcSet={post.homepageImage.fixed.srcSet}
+        alt=""
+        aria-hidden
+      />
+    )}
+    {!hideReadLink && (
+      <Link to={`/analysis-updates/${post.slug}`} className={blogStyle.link}>
+        Read the article<span aria-hidden> →</span>
+        <span className="a11y-only">{post.title}</span>
+      </Link>
+    )}
+  </div>
+)
 
 const BlogFeatured = () => {
   const data = useStaticQuery(graphql`
@@ -40,34 +70,11 @@ const BlogFeatured = () => {
         {posts.map((post, index) => (
           <Col
             width={[4, 6, 6]}
-            className={blogStyle.post}
             paddingRight={index === 0 && [0, 0, 32]}
             paddingLeft={index === 1 && [0, 0, 32]}
             paddingBottom={[32, 0, 0]}
           >
-            <div className={blogStyle.date}>{post.publishDate}</div>
-            <h3>
-              <Link to={`/analysis-updates/${post.slug}`}>{post.title}</Link>
-            </h3>
-            <div className={blogStyle.lede}>
-              <CleanSpacing>{post.lede.lede}</CleanSpacing>
-            </div>
-            {post.homepageImage && (
-              <img
-                src={post.homepageImage.fixed.src}
-                className={blogStyle.image}
-                srcSet={post.homepageImage.fixed.srcSet}
-                alt=""
-                aria-hidden
-              />
-            )}
-            <Link
-              to={`/analysis-updates/${post.slug}`}
-              className={blogStyle.link}
-            >
-              Read the article<span aria-hidden> →</span>
-              <span className="a11y-only">{post.title}</span>
-            </Link>
+            <BlogItem post={post} />
           </Col>
         ))}
       </Row>
@@ -76,3 +83,5 @@ const BlogFeatured = () => {
 }
 
 export default BlogFeatured
+
+export { BlogItem }

@@ -4,12 +4,12 @@ import marked from 'marked'
 import Container from '~components/common/container'
 import LongContent from '~components/common/long-content'
 import ContentfulContent from '~components/common/contentful-content'
+import { BlogItem } from '~components/pages/homepage/blog-list'
 import TableauChart from '~components/charts/tableau'
 import Total from '~components/common/landing-page/total'
 import { Col, Row } from '~components/common/grid'
 import { FormatNumber } from '~components/utils/format'
 import DetailText from '~components/common/detail-text'
-import DownloadLinks from '~components/pages/data/long-term-care/download-links'
 import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
 
@@ -74,7 +74,10 @@ const LongTermCarePage = ({ data }) => {
         <Snippet slug="ltc-top-notes" />
       </DetailText>
       <Container centered>
-        <DownloadLinks />
+        <h2>Our Analysis &amp; Updates</h2>
+        {data.allContentfulBlogPost.nodes.map(post => (
+          <BlogItem post={post} extraMargin hideReadLink />
+        ))}
         <LongContent>
           <Snippet slug="ltc-1" />
         </LongContent>
@@ -86,39 +89,6 @@ const LongTermCarePage = ({ data }) => {
         viewUrl="https://public.tableau.com/views/LTCDataObservations/web_FigMap?:language=en&:display_count=y&:origin=viz_share_link"
         viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/mob_FigMap?:language=en&:display_count=y&:origin=viz_share_link"
       />
-      <Container centered>
-        <LongContent>
-          <Snippet slug="ltc-2" />
-        </LongContent>
-      </Container>
-      <TableauChart
-        id="ltc-2"
-        height={700}
-        mobileHeight={450}
-        viewUrl="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall?:language=en&:retry=yes&:display_count=y&:origin=viz_share_link"
-        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall_mob?:language=en&:display_count=y&:origin=viz_share_link"
-      />
-      <Container centered>
-        <LongContent>
-          <Snippet slug="ltc-definitions" />
-        </LongContent>
-      </Container>
-      <Container centered>
-        <DetailText small>
-          <Snippet slug="ltc-table-notes" />
-        </DetailText>
-      </Container>
-      <TableauChart
-        id="ltc-3"
-        height={1300}
-        viewUrl="https://public.tableau.com/views/LTCDataObservations/web_SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
-        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/mob_SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
-      />
-      <Container centered>
-        <LongContent>
-          <Snippet slug="ltc-thanks" />
-        </LongContent>
-      </Container>
     </Layout>
   )
 }
@@ -131,6 +101,20 @@ export const query = graphql`
       casesCumulative
       deathsCumulative
       facilitiesCumulative
+    }
+    allContentfulBlogPost(
+      limit: 4
+      sort: { fields: publishDate, order: DESC }
+      filter: { categories: { elemMatch: { slug: { eq: "long-term-care" } } } }
+    ) {
+      nodes {
+        title
+        publishDate(formatString: "MMMM D, YYYY")
+        slug
+        lede {
+          lede
+        }
+      }
     }
     contentfulSnippetCollection(slug: { eq: "long-term-care-landing-page" }) {
       snippets {
