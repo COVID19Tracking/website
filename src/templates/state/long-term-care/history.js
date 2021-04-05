@@ -11,7 +11,7 @@ export default ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
   const history = []
-
+  console.log(data.aggregate.nodes)
   data.aggregate.nodes.forEach(item => {
     const getValue = field => {
       let value = null
@@ -25,7 +25,7 @@ export default ({ pageContext, path, data }) => {
         if (field === 'posresstaff' && !item[`posresstaff_${category}`]) {
           const fieldList = ['posres', 'posstaff', 'probposres', 'probposstaff']
           fieldList.forEach(fieldItem => {
-            if (data[`${fieldItem}_${category}`] !== null) {
+            if (item[`${fieldItem}_${category}`] !== null) {
               value += item[`${fieldItem}_${category}`]
             }
           })
@@ -38,7 +38,7 @@ export default ({ pageContext, path, data }) => {
             'probdeathstaff',
           ]
           fieldList.forEach(fieldItem => {
-            if (data[`${fieldItem}_${category}`] !== null) {
+            if (item[`${fieldItem}_${category}`] !== null) {
               value += item[`${fieldItem}_${category}`]
             }
           })
