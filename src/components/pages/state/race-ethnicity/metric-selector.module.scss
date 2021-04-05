@@ -88,6 +88,13 @@
   }
 }
 
+.embed {
+  @include margin(32, top);
+  button {
+    font-size: 1.25rem; // ignore-style-rule
+  }
+}
+
 .does-not-report-container {
   img {
     width: 22px;

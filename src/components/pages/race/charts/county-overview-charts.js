@@ -7,7 +7,7 @@ import {
 } from '@reach/disclosure'
 import Feature from '~components/common/landing-page/feature'
 import LandingPageContainer from '~components/common/landing-page/container'
-import { CtaLink } from '~components/common/landing-page/call-to-action'
+import { CtaLink } from '~components/common/call-to-action'
 import chartsStyle from './charts.module.scss'
 
 import CountyTable from './county-table'

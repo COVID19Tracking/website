@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import { Byline } from '../byline'
-import { CtaLink } from '~components/common/landing-page/call-to-action'
+import { CtaLink } from '~components/common/call-to-action'
 import RelatedPostsStyles from './related-posts.module.scss'
 
 const RelatedPosts = ({ blogPost }) => {

@@ -1713,7 +1713,7 @@ exports[`Components : Pages : Data : Cards : Outcomes renders correctly 2`] = `
 exports[`Components : Pages : Data : Cards : Small Cards : View data as graphic renders correctly 1`] = `
 <a
   className="wrapper"
-  href="/race/infection-and-mortality-data#NY"
+  href="/data/state/new-york/race-ethnicity"
 >
   <div
     className="container"
@@ -1727,22 +1727,9 @@ exports[`Components : Pages : Data : Cards : Small Cards : View data as graphic 
     <span
       className="link"
     >
-      Get shareable graphic
-       
-      <span
-        className="a11y-only"
-      >
-        for 
-        's
-      </span>
-      <span
-        aria-hidden={true}
-      >
-        of 
-        NY
-        's
-      </span>
-       racial data
+      View all of 
+      NY
+      's racial data
     </span>
     <span
       className="arrow"

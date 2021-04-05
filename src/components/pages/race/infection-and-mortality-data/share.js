@@ -8,7 +8,8 @@ import {
   getGroups,
   getTypeOfRates,
   getStateStatus,
-} from '~components/social-media-graphics/race/utils'
+} from '~components/pages/race/breakouts/bar-chart/utils'
+
 import { formatDateToString } from '~components/utils/format'
 
 import shareStyles from './share.module.scss'

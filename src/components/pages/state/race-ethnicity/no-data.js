@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import alertBang from '~images/race-dashboard/alert-bang-orange.svg'
 
@@ -12,10 +11,9 @@ const NoDataPlaceholder = ({ stateName, dataType, metric }) => (
       {dataType}
     </h3>
     <p className={styles.content}>
-      {stateName} does not report {dataType.toLowerCase()} data for{' '}
-      {metric.toLowerCase()}.
+      {stateName} did not report {dataType.toLowerCase()} data for{' '}
+      {metric.toLowerCase()} through March 7, 2021.
       <br />
-      <Link to="/race/get-better-data">Help us get better data.</Link>
     </p>
   </div>
 )

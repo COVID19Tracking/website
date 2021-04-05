@@ -1,0 +1,22 @@
+.selector-and-charts {
+  @include margin(32, top);
+  @include margin(16);
+}
+
+.tables-container {
+  h3 {
+    color: $color-plum-600;
+    @include type-size(400);
+  }
+}
+
+.tables-wrapper {
+  justify-content: center;
+  & > div {
+    @include col(4 6 8);
+  }
+}
+
+.wrapper {
+  @include margin(24, top);
+}
