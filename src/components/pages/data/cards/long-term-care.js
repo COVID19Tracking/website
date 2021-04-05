@@ -12,9 +12,9 @@ import { formatDateToString } from '~components/utils/format'
 
 export default ({ data, stateName, stateDeaths, stateSlug }) => {
   const { current, last } = data
-  let facilities = 0
+  let facilities = null
   Object.keys(current).forEach(key => {
-    if (key.search('outbrkfac') > -1) {
+    if (key.search('outbrkfac') > -1 && current[key] !== null) {
       facilities += current[key]
     }
   })
