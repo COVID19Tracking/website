@@ -11,7 +11,7 @@ export default ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
   const history = []
-  console.log(data.aggregate.nodes)
+
   data.aggregate.nodes.forEach(item => {
     const getValue = field => {
       let value = null
