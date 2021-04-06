@@ -15,9 +15,9 @@ const LongTermCarePreamble = ({
   assessment,
   showFacilities = false,
 }) => {
-  let facilities = 0
+  let facilities = null
   Object.keys(overview).forEach(key => {
-    if (key.search('outbrkfac') > -1) {
+    if (key.search('outbrkfac') > -1 && overview[key] !== null) {
       facilities += overview[key]
     }
   })

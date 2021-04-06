@@ -9,13 +9,13 @@ const stateCurrent = {}
 const stateLast = {}
 
 const getTotals = state => {
-  let total_cases = 0
-  let total_death = 0
+  let total_cases = null
+  let total_death = null
   Object.keys(state).forEach(key => {
-    if (key.search(/posres|posstaff/) > -1) {
+    if (key.search(/posres|posstaff/) > -1 && state[key] !== null) {
       total_cases += state[key]
     }
-    if (key.search(/deathres|deathstaff/) > -1) {
+    if (key.search(/deathres|deathstaff/) > -1 && state[key] !== null) {
       total_death += state[key]
     }
   })
@@ -80,6 +80,7 @@ const dataDigest = crypto
       JSON.stringify(stateLast),
   )
   .digest('hex')
+
 const onCreateNode = async (
   { node, actions, createNodeId, createContentDigest },
   configOptions,
@@ -101,7 +102,7 @@ const onCreateNode = async (
       facilities:
         typeof stateFacilities[stateCode] !== 'undefined'
           ? stateFacilities[stateCode].length
-          : 0,
+          : null,
       current:
         typeof stateCurrent[stateCode] !== 'undefined' &&
         stateCurrent[stateCode],

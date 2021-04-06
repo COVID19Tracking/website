@@ -5,40 +5,72 @@ import TableResponsive from '~components/common/table-responsive'
 import LongTermCareAlertNote from '~components/pages/state/long-term-care/alert-note'
 import Layout from '~components/layout'
 
+const categories = ['nh', 'ltc', 'alf', 'other']
+
 export default ({ pageContext, path, data }) => {
   const state = pageContext
   const { slug } = state.childSlug
   const history = []
 
   data.aggregate.nodes.forEach(item => {
-    let staffCases = 0
-    let staffDeaths = 0
-    let residentCases = 0
-    let residentDeaths = 0
-    Object.keys(item).forEach(key => {
-      if (key.search('posres') > -1) {
-        residentCases += item[key]
-      }
-      if (key.search('posstaff') > -1) {
-        staffCases += item[key]
-      }
-      if (key.search('deathres') > -1) {
-        residentDeaths += item[key]
-      }
-      if (key.search('deathstaff') > -1) {
-        staffDeaths += item[key]
-      }
-    })
+    const getValue = field => {
+      let value = null
+      categories.forEach(category => {
+        if (item[`prob${field}_${category}`]) {
+          value += item[`prob${field}_${category}`]
+        }
+        if (item[`${field}_${category}`]) {
+          value += item[`${field}_${category}`]
+        }
+        if (field === 'posresstaff' && !item[`posresstaff_${category}`]) {
+          const fieldList = ['posres', 'posstaff', 'probposres', 'probposstaff']
+          fieldList.forEach(fieldItem => {
+            if (item[`${fieldItem}_${category}`] !== null) {
+              value += item[`${fieldItem}_${category}`]
+            }
+          })
+        }
+        if (field === 'deathresstaff' && !item[`deathresstaff_${category}`]) {
+          const fieldList = [
+            'deathres',
+            'deathstaff',
+            'probdeathres',
+            'probdeathstaff',
+          ]
+          fieldList.forEach(fieldItem => {
+            if (item[`${fieldItem}_${category}`] !== null) {
+              value += item[`${fieldItem}_${category}`]
+            }
+          })
+        }
+      })
+
+      return value
+    }
+
     history.push({
       date: item.date,
-      cases: staffCases + residentCases,
-      deaths: staffDeaths + residentDeaths,
-      staffCases,
-      staffDeaths,
-      residentCases,
-      residentDeaths,
+      staffResidentCases: getValue('posresstaff'),
+      staffResidentDeaths: getValue('deathresstaff'),
+      staffCases: getValue('posstaff'),
+      staffDeaths: getValue('deathstaff'),
+      residentCases: getValue('posres'),
+      residentDeaths: getValue('deathres'),
+      facilities: getValue('outbrkfac'),
     })
   })
+  history.forEach((item, key) => {
+    if (!item.staffResidentCases && (item.staffCases || item.residentCases)) {
+      history[key].staffResidentCases = item.staffCases + item.residentCases
+    }
+    if (
+      !item.staffResidentDeaths &&
+      (item.staffDeaths || item.residentDeaths)
+    ) {
+      history[key].staffResidentDeaths = item.staffDeaths + item.residentDeaths
+    }
+  })
+
   return (
     <Layout
       title={`${state.name}: Long-term-care historical data`}
@@ -60,6 +92,7 @@ export default ({ pageContext, path, data }) => {
           {
             field: 'date',
             label: 'Date',
+            alignLeft: true,
           },
           {
             field: 'residentCases',
@@ -82,13 +115,18 @@ export default ({ pageContext, path, data }) => {
             isNumeric: true,
           },
           {
-            field: 'cases',
-            label: 'Total Cases',
+            field: 'staffResidentCases',
+            label: 'Staff & Resident cases',
             isNumeric: true,
           },
           {
-            field: 'deaths',
-            label: 'Total Deaths',
+            field: 'staffResidentDeaths',
+            label: 'Staff & Resident deaths',
+            isNumeric: true,
+          },
+          {
+            field: 'facilities',
+            label: 'Facilities impacted',
             isNumeric: true,
           },
         ]}
@@ -135,6 +173,34 @@ export const query = graphql`
         deathresstaff_ltc
         deathresstaff_alf
         data_type
+        outbrkfac_other
+        outbrkfac_nh
+        outbrkfac_ltc
+        outbrkfac_alf
+        probdeathres_alf
+        probdeathres_ltc
+        probdeathres_nh
+        probdeathres_other
+        probdeathresstaff_alf
+        probdeathresstaff_ltc
+        probdeathresstaff_nh
+        probdeathresstaff_other
+        probdeathstaff_alf
+        probdeathstaff_ltc
+        probdeathstaff_nh
+        probdeathstaff_other
+        probposres_alf
+        probposres_ltc
+        probposres_nh
+        probposres_other
+        probposresstaff_alf
+        probposresstaff_ltc
+        probposresstaff_nh
+        probposresstaff_other
+        probposstaff_alf
+        probposstaff_ltc
+        probposstaff_nh
+        probposstaff_other
       }
     }
   }
