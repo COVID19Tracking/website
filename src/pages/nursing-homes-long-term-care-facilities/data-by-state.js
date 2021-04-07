@@ -3,7 +3,6 @@ import { graphql, Link } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
 import Layout from '~components/layout'
 import StateNav from '~components/common/state-nav'
-import { Row, Col } from '~components/common/grid'
 
 const LTCDataByState = ({ data }) => (
   <Layout
@@ -11,27 +10,21 @@ const LTCDataByState = ({ data }) => (
     path="/nursing-homes-long-term-care-facilities/data-by-state"
     returnLinks={[{ link: '/nursing-homes-long-term-care-facilities' }]}
   >
-    <Row>
-      <Col width={[4, 6, 8]}>
-        <ContentfulContent
-          content={
-            data.contentfulSnippet.childContentfulSnippetContentTextNode
-              .childMarkdownRemark.html
-          }
-          id={data.contentfulSnippet.contentful_id}
-        />
-      </Col>
-      <Col width={[4, 6, 4]}>
-        <StateNav
-          defaultIsOpen
-          linkAs={({ state }) => (
-            <Link to={`/data/state/${state.childSlug.slug}/long-term-care`}>
-              {state.state}
-            </Link>
-          )}
-        />
-      </Col>
-    </Row>
+    <ContentfulContent
+      content={
+        data.contentfulSnippet.childContentfulSnippetContentTextNode
+          .childMarkdownRemark.html
+      }
+      id={data.contentfulSnippet.contentful_id}
+    />
+    <StateNav
+      defaultIsOpen
+      linkAs={({ state }) => (
+        <Link to={`/data/state/${state.childSlug.slug}/long-term-care`}>
+          {state.state}
+        </Link>
+      )}
+    />
   </Layout>
 )
 

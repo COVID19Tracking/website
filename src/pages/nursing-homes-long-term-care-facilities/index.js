@@ -4,9 +4,6 @@ import marked from 'marked'
 import Container from '~components/common/container'
 import ContentfulContent from '~components/common/contentful-content'
 import { BlogItem } from '~components/pages/homepage/blog-list'
-import Total from '~components/common/landing-page/total'
-import { Col, Row } from '~components/common/grid'
-import { FormatNumber } from '~components/utils/format'
 import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
 
@@ -31,7 +28,7 @@ const LongTermCarePage = ({ data }) => {
       path="/nursing-homes-long-term-care-facilities"
       description="To date, the Long-Term Care COVID Tracker is the most comprehensive dataset about COVID-19 in US long-term care facilities."
     >
-      <Paragraph>
+      <Paragraph detail="Using state and federal data, we can estimate that as of March 2021:">
         <span
           dangerouslySetInnerHTML={{
             __html: marked.inlineLexer(data.lede.content.content, []),
@@ -40,35 +37,7 @@ const LongTermCarePage = ({ data }) => {
       </Paragraph>
 
       <Snippet slug="ltc-top-notes" />
-      <h3 className="no-margin-bottom">Cumulative</h3>
-      <Row>
-        <Col width={[4, 6, 4]}>
-          <Total
-            label="Total cases"
-            number={
-              <FormatNumber number={data.covidLtcWebsite.casesCumulative} />
-            }
-          />
-        </Col>
-        <Col width={[4, 6, 4]}>
-          <Total
-            label="Total deaths"
-            number={
-              <FormatNumber number={data.covidLtcWebsite.deathsCumulative} />
-            }
-          />
-        </Col>
-        <Col width={[4, 6, 4]}>
-          <Total
-            label="Total number of facilities affected"
-            number={
-              <FormatNumber
-                number={data.covidLtcWebsite.facilitiesCumulative}
-              />
-            }
-          />
-        </Col>
-      </Row>
+
       <Container centered>
         <h2>Our Analysis &amp; Updates</h2>
         {data.allContentfulBlogPost.nodes.map(post => (

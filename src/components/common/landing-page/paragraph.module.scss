@@ -22,4 +22,9 @@
       margin-right: auto;
     }
   }
+  .detail {
+    @include type-size(400);
+    @include margin(16, bottom);
+    font-weight: normal;
+  }
 }

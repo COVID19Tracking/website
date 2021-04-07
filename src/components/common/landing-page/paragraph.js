@@ -7,6 +7,7 @@ export default ({
   center,
   noMargin,
   narrow,
+  detail = false,
   additionalClass = '',
 }) => (
   <p
@@ -19,6 +20,7 @@ export default ({
       additionalClass,
     )}
   >
+    {detail && <div className={paragraphStyle.detail}>{detail}</div>}
     {children}
   </p>
 )
