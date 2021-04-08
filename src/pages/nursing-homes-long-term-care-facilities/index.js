@@ -7,6 +7,7 @@ import { BlogItem } from '~components/pages/homepage/blog-list'
 import ImageBlock from '~components/pages/blog/content-blocks/image-content-block'
 import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
+import HeroText from '~components/common/landing-page/hero-text'
 import { CtaLink } from '~components/common/call-to-action'
 
 const LongTermCarePage = ({ data }) => (
@@ -15,7 +16,10 @@ const LongTermCarePage = ({ data }) => (
     path="/nursing-homes-long-term-care-facilities"
     description="To date, the Long-Term Care COVID Tracker is the most comprehensive dataset about COVID-19 in US long-term care facilities."
   >
-    <Paragraph detail="Using state and federal data, we can estimate that as of March 2021:">
+    <HeroText>
+      Using state and federal data, we can estimate that as of March 2021:
+    </HeroText>
+    <Paragraph>
       <span
         dangerouslySetInnerHTML={{
           __html: marked.inlineLexer(data.lede.content.content, []),
@@ -23,10 +27,10 @@ const LongTermCarePage = ({ data }) => (
       />
     </Paragraph>
     <ContentfulContent
-      id={data.contentfulSnippet.contentful_id}
+      id={data.notes.contentful_id}
       content={
-        data.contentfulSnippet.childContentfulSnippetContentTextNode
-          .childMarkdownRemark.html
+        data.notes.childContentfulSnippetContentTextNode.childMarkdownRemark
+          .html
       }
     />
     <Container centered>
@@ -76,7 +80,7 @@ export const query = graphql`
         }
       }
     }
-    contentfulSnippet(slug: { eq: "ltc-top-notes" }) {
+    notes: contentfulSnippet(slug: { eq: "ltc-top-notes" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
