@@ -84,5 +84,10 @@ export const query = graphql`
         }
       }
     }
+    lede: contentfulSnippet(slug: { eq: "ltc-lede" }) {
+      content {
+        content
+      }
+    }
   }
 `
