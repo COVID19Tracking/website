@@ -19,6 +19,7 @@ const LTCDataByState = ({ data }) => (
     />
     <StateNav
       defaultIsOpen
+      fullWidth
       linkAs={({ state }) => (
         <Link to={`/data/state/${state.childSlug.slug}/long-term-care`}>
           {state.state}

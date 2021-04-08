@@ -4,8 +4,10 @@ import marked from 'marked'
 import Container from '~components/common/container'
 import ContentfulContent from '~components/common/contentful-content'
 import { BlogItem } from '~components/pages/homepage/blog-list'
+import ImageBlock from '~components/pages/blog/content-blocks/image-content-block'
 import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
+import { CtaLink } from '~components/common/call-to-action'
 
 const LongTermCarePage = ({ data }) => {
   const Snippet = ({ slug }) => {
@@ -37,12 +39,26 @@ const LongTermCarePage = ({ data }) => {
       </Paragraph>
 
       <Snippet slug="ltc-top-notes" />
+      <Container centered>
+        <ImageBlock
+          keepSize
+          imageUrl="/images/cms-ctp.png"
+          image={{
+            description:
+              'Chart comparing Covid Tracking Project data to federal CMS data.',
+          }}
+          caption="[TKTK]"
+        />
+      </Container>
 
       <Container centered>
         <h2>Our Analysis &amp; Updates</h2>
         {data.allContentfulBlogPost.nodes.map(post => (
           <BlogItem post={post} extraMargin hideReadLink />
         ))}
+        <CtaLink bold to="/analysis-updates/category/long-term-care">
+          See all our analysis of long-term care data
+        </CtaLink>
       </Container>
     </Layout>
   )
