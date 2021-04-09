@@ -108,7 +108,7 @@ const StateReportingAssessmentPage = ({ data }) => {
               Race and ethnicity data
             </Th>
             <Th alignLeft header>
-              Long-term care data
+              Long-term-care data
             </Th>
           </tr>
         </thead>

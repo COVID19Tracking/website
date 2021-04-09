@@ -42,7 +42,8 @@ export default ({ pageContext, path, data }) => {
           <h2 id="summary">Summary</h2>
           <LongTermCareSummaryTable
             aggregate={data.aggregate.nodes[0]}
-            outbreak={data.outbreak.nodes[0]}
+            cumulative={data.cumulative.nodes[0]}
+            stateSlug={state.childSlug.slug}
           />
           <h2 id="notes">State notes</h2>
           <div
@@ -53,7 +54,7 @@ export default ({ pageContext, path, data }) => {
         </>
       ) : (
         <LongTermCareAlertNote>
-          {state.name} does not report long-term care data.
+          {state.name} does not report long-term-care data.
         </LongTermCareAlertNote>
       )}
     </Layout>
@@ -106,14 +107,42 @@ export const query = graphql`
         deathresstaff_ltc
         deathresstaff_alf
         data_type
+        outbrkfac_other
+        outbrkfac_nh
+        outbrkfac_ltc
+        outbrkfac_alf
+        probdeathres_alf
+        probdeathres_ltc
+        probdeathres_nh
+        probdeathres_other
+        probdeathresstaff_alf
+        probdeathresstaff_ltc
+        probdeathresstaff_nh
+        probdeathresstaff_other
+        probdeathstaff_alf
+        probdeathstaff_ltc
+        probdeathstaff_nh
+        probdeathstaff_other
+        probposres_alf
+        probposres_ltc
+        probposres_nh
+        probposres_other
+        probposresstaff_alf
+        probposresstaff_ltc
+        probposresstaff_nh
+        probposresstaff_other
+        probposstaff_alf
+        probposstaff_ltc
+        probposstaff_nh
+        probposstaff_other
       }
     }
     covidGradeStateAssessment(state: { eq: $state }) {
       ltc
     }
-    outbreak: allCovidLtcStates(
+    cumulative: allCovidLtcStates(
       sort: { fields: date, order: DESC }
-      filter: { state_abbr: { eq: $state }, data_type: { eq: "Outbreak" } }
+      filter: { state_abbr: { eq: $state }, data_type: { eq: "Cumulative" } }
       limit: 1
     ) {
       nodes {
@@ -143,6 +172,10 @@ export const query = graphql`
         deathresstaff_ltc
         deathresstaff_alf
         data_type
+        outbrkfac_other
+        outbrkfac_nh
+        outbrkfac_ltc
+        outbrkfac_alf
       }
     }
     covidLtcNotes(state: { eq: $state }) {

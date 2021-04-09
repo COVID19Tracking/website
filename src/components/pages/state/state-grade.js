@@ -65,7 +65,7 @@ const StateGrade = ({ slug, assessment, date }) => {
         />
         <GradeLi
           grade={assessment.ltc}
-          title="long-term care data"
+          title="long-term-care data"
           link={`/data/state/${slug}/assessment#long-term-care`}
         />
       </ul>

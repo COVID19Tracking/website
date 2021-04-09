@@ -1147,7 +1147,7 @@ exports[`Components : Pages : Data : Cards : Long term care card renders correct
           className="info"
         >
           <button
-            aria-label="Definition of Long-term care  cases"
+            aria-label="Definition of Long-term-care cases"
             className="link"
             onClick={[Function]}
             type="button"
@@ -1177,7 +1177,7 @@ exports[`Components : Pages : Data : Cards : Long term care card renders correct
           className="info"
         >
           <button
-            aria-label="Definition of Long-term care deaths"
+            aria-label="Definition of Long-term-care deaths"
             className="link"
             onClick={[Function]}
             type="button"
@@ -1199,15 +1199,19 @@ exports[`Components : Pages : Data : Cards : Long term care card renders correct
           Number of facilities affected
         </div>
         <div
-          className="value"
+          className="value nullValue"
         >
-          0
+          <span
+            className="notReported"
+          >
+            Not Reported
+          </span>
         </div>
         <div
           className="info"
         >
           <button
-            aria-label="Definition of Long-term care facilities"
+            aria-label="Definition of Long-term-care facilities"
             className="link"
             onClick={[Function]}
             type="button"
