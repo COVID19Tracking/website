@@ -69,7 +69,6 @@ const AvailabilityUpdatePanel = ({
   coreData,
   testHospData,
   isCombined,
-  lastUpdatedByState,
   lastCheckedByCtp,
   slug,
 }) => {
@@ -82,7 +81,6 @@ const AvailabilityUpdatePanel = ({
       />
       <LastUpdated
         lastCheckedByCtp={lastCheckedByCtp}
-        lastUpdatedByState={lastUpdatedByState}
         slug={slug}
         stateName={coreData.name}
       />

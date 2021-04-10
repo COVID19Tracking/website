@@ -40,7 +40,6 @@ const Hero = ({
             coreData={coreData}
             testHospData={testHospData}
             isCombined={isCombined}
-            lastUpdatedByState={coreData.stateUpdate.value}
             lastCheckedByCtp={lastUpdatedByCtp}
             slug={stateSlug}
           />
