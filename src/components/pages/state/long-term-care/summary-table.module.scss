@@ -12,3 +12,14 @@
     line-height: 0.9;
   }
 }
+
+.totals {
+  td,
+  th {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+  }
+  th span {
+    font-weight: normal;
+  }
+}

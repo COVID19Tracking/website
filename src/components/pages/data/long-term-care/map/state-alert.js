@@ -43,7 +43,7 @@ const StateAlerts = ({ state }) => {
         >
           {adjectives[assessment.ltc]} issues exist
         </Link>{' '}
-        for long-term care data
+        for long-term-care data
       </p>
     </div>
   )
