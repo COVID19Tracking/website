@@ -34,14 +34,14 @@ const LongTermCarePreamble = ({
             </strong>
           </span>
           <a
-            href="https://github.com/COVID19Tracking/long-term-care-data/blob/master/state_overview.csv"
+            href="/.netlify/functions/ltc-download?file=state_overview.csv"
             className={downloadDataStyles.button}
           >
             Download state dataset
           </a>
           {showFacilities && (
             <a
-              href={`https://github.com/COVID19Tracking/long-term-care-data/blob/master/facilities_${state.toLowerCase()}.csv`}
+              href={`/.netlify/functions/ltc-download?file=facilities_${state.toLowerCase()}.csv`}
               className={downloadDataStyles.button}
             >
               Download facility-level dataset
