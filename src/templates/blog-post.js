@@ -253,6 +253,10 @@ export const query = graphql`
             }
             alternateText
           }
+          ... on ContentfulContentBlockImpactForm {
+            id
+            contentful_id
+          }
         }
       }
       featuredImage {
