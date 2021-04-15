@@ -6,6 +6,7 @@ import Tooltip from '~components/common/tooltip'
 import tableStyle from '~components/common/table.module.scss'
 import summaryTableStyle from './summary-table.module.scss'
 import { FormatNumber } from '~components/utils/format'
+import alert from '~images/alert/alert.svg'
 
 const categoryLabels = {
   nh: 'Nursing home',
@@ -180,7 +181,8 @@ const LongTermCareSummaryTable = ({ stateSlug, aggregate }) => {
         {categories.map(category => (
           <tr>
             <th scope="row">
-              {category === 'lumpedother' ? (
+              {categoryLabels[category]}
+              {category === 'lumpedother' && (
                 <Tooltip
                   label={
                     <span>
@@ -191,11 +193,21 @@ const LongTermCareSummaryTable = ({ stateSlug, aggregate }) => {
                     </span>
                   }
                 >
-                  <a href="#lumped">{categoryLabels[category]}</a>
+                  <button
+                    type="button"
+                    aria-hidden
+                    className={summaryTableStyle.definitionButton}
+                  >
+                    <img src={alert} alt="Definition" />
+                  </button>
                 </Tooltip>
-              ) : (
-                <>{categoryLabels[category]}</>
               )}
+              <span className="a11y-only">
+                Includes data from states that do not separate their
+                long-term-care data by facility type and facilities that are a
+                neither nursing home or assisted living facility but provide
+                care for the aged.
+              </span>
             </th>
             <CategoryRows data={aggregate} category={category} />
           </tr>
