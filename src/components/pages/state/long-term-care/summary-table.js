@@ -2,20 +2,19 @@
 import React from 'react'
 import classnames from 'classnames'
 import { Link } from 'gatsby'
+import Tooltip from '~components/common/tooltip'
 import tableStyle from '~components/common/table.module.scss'
 import summaryTableStyle from './summary-table.module.scss'
 import { FormatNumber } from '~components/utils/format'
 
 const categoryLabels = {
   nh: 'Nursing home',
-  ltc: 'Long-term-care facility',
   alf: 'Assisted-living facility',
-  other: 'Other facility',
-  lumpedother: 'Lumped or other long-term-care facilities',
+  lumpedother: 'Lumped or other facilities',
 }
 
 const getAllowedCategories = data => {
-  const categories = ['nh', 'alf', 'other', 'ltc']
+  const categories = ['nh', 'alf', 'lumpedother']
   const allowedCategories = []
   categories.forEach(category => {
     data.forEach(item => {
@@ -180,7 +179,24 @@ const LongTermCareSummaryTable = ({ stateSlug, aggregate }) => {
       <tbody>
         {categories.map(category => (
           <tr>
-            <th scope="row">{categoryLabels[category]}</th>
+            <th scope="row">
+              {category === 'lumpedother' ? (
+                <Tooltip
+                  label={
+                    <span>
+                      Includes data from states that do not separate their
+                      long-term-care data by facility type and facilities that
+                      are a neither nursing home or assisted living facility but
+                      provide care for the aged.
+                    </span>
+                  }
+                >
+                  <a href="#lumped">{categoryLabels[category]}</a>
+                </Tooltip>
+              ) : (
+                <>{categoryLabels[category]}</>
+              )}
+            </th>
             <CategoryRows data={aggregate} category={category} />
           </tr>
         ))}
