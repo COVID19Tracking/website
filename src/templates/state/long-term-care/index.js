@@ -148,31 +148,38 @@ export const query = graphql`
       nodes {
         date
         posstaff_other
+        posstaff_lumpedother
         posstaff_nh
         posstaff_ltc
         posstaff_alf
         posres_other
+        posres_lumpedother
         posres_nh
         posres_ltc
         posres_alf
         posresstaff_other
+        posresstaff_lumpedother
         posresstaff_nh
         posresstaff_ltc
         posresstaff_alf
         deathstaff_other
+        deathstaff_lumpedother
         deathstaff_nh
         deathstaff_ltc
         deathstaff_alf
         deathres_other
+        deathres_lumpedother
         deathres_nh
         deathres_ltc
         deathres_alf
         deathresstaff_other
+        deathresstaff_lumpedother
         deathresstaff_nh
         deathresstaff_ltc
         deathresstaff_alf
         data_type
         outbrkfac_other
+        outbrkfac_lumpedother
         outbrkfac_nh
         outbrkfac_ltc
         outbrkfac_alf

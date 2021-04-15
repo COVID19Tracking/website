@@ -11,6 +11,7 @@ const categoryLabels = {
   ltc: 'Long-term-care facility',
   alf: 'Assisted-living facility',
   other: 'Other facility',
+  lumpedother: 'Lumped or other long-term-care facilities',
 }
 
 const getAllowedCategories = data => {
