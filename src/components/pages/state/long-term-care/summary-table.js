@@ -8,6 +8,8 @@ import summaryTableStyle from './summary-table.module.scss'
 import { FormatNumber } from '~components/utils/format'
 import alert from '~images/alert/alert.svg'
 
+const lumpedDefinition = `‘Lumped or other facilities’ shows data from states that have not broken down their data by facility type, so it might include data from nursing homes and assisted-living facilities. It also includes some congregate living facilities for older adults that are neither nursing homes nor assisted-living facilities.`
+
 const categoryLabels = {
   nh: 'Nursing home',
   alf: 'Assisted-living facility',
@@ -183,16 +185,7 @@ const LongTermCareSummaryTable = ({ stateSlug, aggregate }) => {
             <th scope="row">
               {categoryLabels[category]}
               {category === 'lumpedother' && (
-                <Tooltip
-                  label={
-                    <span>
-                      Includes data from states that do not separate their
-                      long-term-care data by facility type and facilities that
-                      are a neither nursing home or assisted living facility but
-                      provide care for the aged.
-                    </span>
-                  }
-                >
+                <Tooltip label={<span>{lumpedDefinition}</span>}>
                   <button
                     type="button"
                     aria-hidden
@@ -202,12 +195,7 @@ const LongTermCareSummaryTable = ({ stateSlug, aggregate }) => {
                   </button>
                 </Tooltip>
               )}
-              <span className="a11y-only">
-                Includes data from states that do not separate their
-                long-term-care data by facility type and facilities that are a
-                neither nursing home or assisted living facility but provide
-                care for the aged.
-              </span>
+              <span className="a11y-only">{lumpedDefinition}</span>
             </th>
             <CategoryRows data={aggregate} category={category} />
           </tr>
