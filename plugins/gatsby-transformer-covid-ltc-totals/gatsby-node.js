@@ -2,23 +2,46 @@ const crypto = require('crypto')
 const fs = require('fs-extra')
 
 const ltcFacilities = fs.readJsonSync('./_data/long_term_care_facilities.json')
-const ltcStates = fs.readJsonSync('./_data/long_term_care_states_complete.json')
+const ltcStates = fs.readJsonSync('./_data/long_term_care_states_v3.json')
 
 const stateFacilities = {}
 const stateCurrent = {}
 const stateLast = {}
+const categories = ['nh', 'alf', 'lumpedother']
 
 const getTotals = state => {
   let total_cases = null
   let total_death = null
-  Object.keys(state).forEach(key => {
-    if (key.search(/posres|posstaff/) > -1 && state[key] !== null) {
-      total_cases += state[key]
+  categories.forEach(category => {
+    if (
+      state[`posresstaff_${category}`] ||
+      state[`probposresstaff_${category}`]
+    ) {
+      total_cases +=
+        state[`posresstaff_${category}`] + state[`probposresstaff_${category}`]
+    } else {
+      total_cases +=
+        state[`posres_${category}`] +
+        state[`probposres_${category}`] +
+        state[`posstaff_${category}`] +
+        state[`probposstaff_${category}`]
     }
-    if (key.search(/deathres|deathstaff/) > -1 && state[key] !== null) {
-      total_death += state[key]
+    if (
+      state[`deathresstaff_${category}`] ||
+      state[`probdeathresstaff_${category}`]
+    ) {
+      total_death +=
+        state[`deathresstaff_${category}`] +
+        state[`probdeathresstaff_${category}`]
+    } else {
+      total_death +=
+        state[`deathres_${category}`] +
+        state[`probdeathres_${category}`] +
+        state[`deathstaff_${category}`] +
+        state[`probdeathstaff_${category}`]
     }
   })
+
   return { total_cases, total_death }
 }
 
