@@ -111,7 +111,7 @@ const Impact = ({ press, files }) => (
           The COVID Tracking Project was cited in{' '}
           <strong>more than 1,000 academic papers</strong>, including major
           medical journals like <em>The New England Journal of Medicine</em>,{' '}
-          <em>Nature</em>, and <em>xJAMA</em>.
+          <em>Nature</em>, and <em>JAMA</em>.
         </p>
         <p>
           Our data was used by <strong>two presidential administrations</strong>{' '}
