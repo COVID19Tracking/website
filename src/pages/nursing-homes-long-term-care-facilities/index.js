@@ -41,9 +41,7 @@ const LongTermCarePage = ({ data }) => (
           description:
             'Chart comparing Covid Tracking Project data to federal CMS data.',
         }}
-        longCaption={
-          data.chartCaption.content.content
-        }
+        longCaption={data.chartCaption.content.content}
       />
     </Container>
 
