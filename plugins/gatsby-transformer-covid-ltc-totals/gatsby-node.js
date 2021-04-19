@@ -17,28 +17,49 @@ const getTotals = state => {
       state[`posresstaff_${category}`] ||
       state[`probposresstaff_${category}`]
     ) {
-      total_cases +=
-        state[`posresstaff_${category}`] + state[`probposresstaff_${category}`]
+      if (state[`posresstaff_${category}`]) {
+        total_cases += state[`posresstaff_${category}`]
+      }
+      if (state[`probposresstaff_${category}`]) {
+        total_cases += state[`probposresstaff_${category}`]
+      }
     } else {
-      total_cases +=
-        state[`posres_${category}`] +
-        state[`probposres_${category}`] +
-        state[`posstaff_${category}`] +
-        state[`probposstaff_${category}`]
+      if (state[`posres_${category}`]) {
+        total_cases += state[`posres_${category}`]
+      }
+      if (state[`probposres_${category}`]) {
+        total_cases += state[`probposres_${category}`]
+      }
+      if (state[`posstaff_${category}`]) {
+        total_cases += state[`posstaff_${category}`]
+      }
+      if (state[`probposstaff_${category}`]) {
+        total_cases += state[`probposstaff_${category}`]
+      }
     }
     if (
       state[`deathresstaff_${category}`] ||
       state[`probdeathresstaff_${category}`]
     ) {
-      total_death +=
-        state[`deathresstaff_${category}`] +
-        state[`probdeathresstaff_${category}`]
+      if (state[`deathresstaff_${category}`]) {
+        total_death += state[`deathresstaff_${category}`]
+      }
+      if (state[`probdeathresstaff_${category}`]) {
+        total_death += state[`probdeathresstaff_${category}`]
+      }
     } else {
-      total_death +=
-        state[`deathres_${category}`] +
-        state[`probdeathres_${category}`] +
-        state[`deathstaff_${category}`] +
-        state[`probdeathstaff_${category}`]
+      if (state[`deathres_${category}`]) {
+        total_death += state[`deathres_${category}`]
+      }
+      if (state[`probdeathres_${category}`]) {
+        total_death += state[`probdeathres_${category}`]
+      }
+      if (state[`deathstaff_${category}`]) {
+        total_death += state[`deathstaff_${category}`]
+      }
+      if (state[`probdeathstaff_${category}`]) {
+        total_death += state[`probdeathstaff_${category}`]
+      }
     }
   })
 
