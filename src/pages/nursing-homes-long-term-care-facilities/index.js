@@ -41,7 +41,10 @@ const LongTermCarePage = ({ data }) => (
           description:
             'Chart comparing Covid Tracking Project data to federal CMS data.',
         }}
-        caption="[TKTK]"
+        longCaption={
+          data.chartCaption.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
+        }
       />
     </Container>
 
@@ -89,6 +92,11 @@ export const query = graphql`
       }
     }
     lede: contentfulSnippet(slug: { eq: "ltc-lede" }) {
+      content {
+        content
+      }
+    }
+    chartCaption: contentfulSnippet(slug: { eq: "ltc-landing-chart-caption" }) {
       content {
         content
       }
