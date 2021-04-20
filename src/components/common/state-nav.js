@@ -8,7 +8,12 @@ import {
 } from '~components/common/tablet-disclosure'
 import stateNavStyle from './state-nav.module.scss'
 
-const StateNav = ({ className, linkAs, defaultIsOpen = false }) => {
+const StateNav = ({
+  className,
+  linkAs,
+  defaultIsOpen = false,
+  fullWidth = false,
+}) => {
   const [isOpen, setIsOpen] = useState(defaultIsOpen)
 
   const data = useStaticQuery(graphql`
@@ -26,7 +31,11 @@ const StateNav = ({ className, linkAs, defaultIsOpen = false }) => {
   `)
   return (
     <TabletDisclosure
-      className={classnames(stateNavStyle.container, className)}
+      className={classnames(
+        stateNavStyle.container,
+        className,
+        fullWidth && stateNavStyle.fullWidth,
+      )}
       sticky
     >
       <TabletDisclosureHeader

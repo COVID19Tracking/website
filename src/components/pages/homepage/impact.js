@@ -109,8 +109,8 @@ const Impact = ({ press, files }) => (
       <div className={impactStyle.examples} id="skip-volunteers">
         <p>
           The COVID Tracking Project was cited in{' '}
-          <strong>nearly 900 academic papers</strong>, including major medical
-          journals like <em>The New England Journal of Medicine</em>,{' '}
+          <strong>more than 1,000 academic papers</strong>, including major
+          medical journals like <em>The New England Journal of Medicine</em>,{' '}
           <em>Nature</em>, and <em>JAMA</em>.
         </p>
         <p>
@@ -118,12 +118,12 @@ const Impact = ({ press, files }) => (
           and an array of federal agencies, including the CDC, HHS, and FDA.
         </p>
         <p>
-          <strong>Federal lawmakers</strong> used our data in at least 10
+          <strong>Federal lawmakers</strong> used our data in at least 11
           letters demanding answers on the pandemic response from government
           leaders and commercial labs.
         </p>
         <p>
-          And our data was cited in <strong>over 7,500 news stories</strong> in
+          And our data was cited in <strong>over 7,700 news stories</strong> in
           publications including <em>The New York Times</em>,{' '}
           <em>The Washington Post</em>, <em>CNN</em>, <em>Vox</em>,{' '}
           <em>ProPublica</em>, and many more.

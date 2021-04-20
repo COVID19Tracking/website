@@ -31,6 +31,9 @@
 }
 
 .post {
+  &.extra-margin {
+    @include margin(32, bottom);
+  }
   h3 {
     margin-top: 0;
   }

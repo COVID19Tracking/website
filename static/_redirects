@@ -47,3 +47,5 @@
 /data/long-term-care/history                  /nursing-homes-long-term-care-facilities/history
 /nursing-homes/history                        /nursing-homes-long-term-care-facilities/history
 /~*                                           /thank-you#:splat
+
+/long-term-care/download/*                    https://raw.githubusercontent.com/COVID19Tracking/long-term-care-data/master/:splat 200

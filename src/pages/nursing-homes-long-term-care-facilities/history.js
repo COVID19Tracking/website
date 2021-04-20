@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import TableResponsive from '~components/common/table-responsive'
 import Layout from '~components/layout'
+import ContentfulContent from '~components/common/contentful-content'
 
 export default ({ path, data }) => {
   const history = {}
@@ -30,26 +31,17 @@ export default ({ path, data }) => {
   })
   return (
     <Layout
-      title="Long-Term Care National Historic Data"
+      title="Week-by-week Summary Totals"
       returnLinks={[{ link: '/nursing-homes-long-term-care-facilities' }]}
       path={path}
     >
-      <p>
-        Cumulative COVID-19 totals represent total cases, deaths and facilities
-        as reported by states and territories. For states who report current
-        outbreaks but not cumulative data, CTP carries the highest reported
-        outbreak case or death total. Due to outbreak reporting, CTP’s
-        aggregated cumulative data for these states under-reports actual
-        cumulative totals. This information can be found in our Aggregate
-        Dataset. States vary in their reported cumulative data start date. Not
-        all states and territories report long-term care data. Total cases
-        represent a combined total of resident and staff COVID-19 cases and
-        probable cases. Total deaths represent a combined total of resident and
-        staff COVID-19 deaths and probable deaths. Total Number of Facilities
-        represent the number of facilities affected by COVID-19. This total
-        includes Long-Term Care Facilities, Nursing Homes, Skilled Nursing
-        Facilities, and Assisted Living Facilities.
-      </p>
+      <ContentfulContent
+        id={data.contentfulSnippet.contentful_id}
+        content={
+          data.contentfulSnippet.childContentfulSnippetContentTextNode
+            .childMarkdownRemark.html
+        }
+      />
       <TableResponsive
         labels={[
           {
@@ -81,6 +73,14 @@ export default ({ path, data }) => {
 
 export const query = graphql`
   query {
+    contentfulSnippet(slug: { eq: "ltc-history-lede" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
     aggregate: allCovidLtcStates(
       sort: { fields: date, order: DESC }
       filter: { data_type: { eq: "Aggregate" } }
