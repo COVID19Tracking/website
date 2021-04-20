@@ -1,70 +1,12 @@
 const crypto = require('crypto')
 const fs = require('fs-extra')
-
+const getTotals = require('../../src/utilities/ltc-totals')
 const ltcFacilities = fs.readJsonSync('./_data/long_term_care_facilities.json')
 const ltcStates = fs.readJsonSync('./_data/long_term_care_states_v3.json')
 
 const stateFacilities = {}
 const stateCurrent = {}
 const stateLast = {}
-const categories = ['nh', 'alf', 'lumpedother']
-
-const getTotals = state => {
-  let total_cases = null
-  let total_death = null
-  categories.forEach(category => {
-    if (
-      state[`posresstaff_${category}`] ||
-      state[`probposresstaff_${category}`]
-    ) {
-      if (state[`posresstaff_${category}`]) {
-        total_cases += state[`posresstaff_${category}`]
-      }
-      if (state[`probposresstaff_${category}`]) {
-        total_cases += state[`probposresstaff_${category}`]
-      }
-    } else {
-      if (state[`posres_${category}`]) {
-        total_cases += state[`posres_${category}`]
-      }
-      if (state[`probposres_${category}`]) {
-        total_cases += state[`probposres_${category}`]
-      }
-      if (state[`posstaff_${category}`]) {
-        total_cases += state[`posstaff_${category}`]
-      }
-      if (state[`probposstaff_${category}`]) {
-        total_cases += state[`probposstaff_${category}`]
-      }
-    }
-    if (
-      state[`deathresstaff_${category}`] ||
-      state[`probdeathresstaff_${category}`]
-    ) {
-      if (state[`deathresstaff_${category}`]) {
-        total_death += state[`deathresstaff_${category}`]
-      }
-      if (state[`probdeathresstaff_${category}`]) {
-        total_death += state[`probdeathresstaff_${category}`]
-      }
-    } else {
-      if (state[`deathres_${category}`]) {
-        total_death += state[`deathres_${category}`]
-      }
-      if (state[`probdeathres_${category}`]) {
-        total_death += state[`probdeathres_${category}`]
-      }
-      if (state[`deathstaff_${category}`]) {
-        total_death += state[`deathstaff_${category}`]
-      }
-      if (state[`probdeathstaff_${category}`]) {
-        total_death += state[`probdeathstaff_${category}`]
-      }
-    }
-  })
-
-  return { total_cases, total_death }
-}
 
 ltcFacilities.forEach(facility => {
   if (typeof stateFacilities[facility.state.toLowerCase()] === 'undefined') {
@@ -103,16 +45,20 @@ ltcStates.forEach(state => {
 })
 
 Object.keys(stateCurrent).forEach(state => {
+  const { totalCases, totalDeath } = getTotals(stateCurrent[state])
   stateCurrent[state] = {
     ...stateCurrent[state],
-    ...getTotals(stateCurrent[state]),
+    total_cases: totalCases,
+    total_death: totalDeath,
   }
 })
 
 Object.keys(stateLast).forEach(state => {
+  const { totalCases, totalDeath } = getTotals(stateLast[state])
   stateLast[state] = {
     ...stateLast[state],
-    ...getTotals(stateLast[state]),
+    total_cases: totalCases,
+    total_death: totalDeath,
   }
 })
 

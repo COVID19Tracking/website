@@ -24,11 +24,7 @@ const LongTermCarePreamble = ({
   return (
     <OverviewWrapper>
       <h2 className="a11y-only">State overview</h2>
-      <LongTermCareOverview
-        facilities={facilities}
-        overview={overview}
-        stateSlug={stateSlug}
-      />
+      <LongTermCareOverview facilities={facilities} overview={overview} />
       <div className={longTermCarePreambleStyle.container}>
         <p>
           <span>
