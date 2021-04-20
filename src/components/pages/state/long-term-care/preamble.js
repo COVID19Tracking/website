@@ -58,12 +58,6 @@ const LongTermCarePreamble = ({
           <Link href="#facilities" className={downloadDataStyles.button}>
             Facilities
           </Link>
-          <Link
-            to={`/data/state/${stateSlug}/long-term-care/history`}
-            className={downloadDataStyles.button}
-          >
-            Historical totals
-          </Link>
         </p>
       </div>
       <p className={longTermCarePreambleStyle.grade}>
