@@ -24,11 +24,7 @@ const LongTermCarePreamble = ({
   return (
     <OverviewWrapper>
       <h2 className="a11y-only">State overview</h2>
-      <LongTermCareOverview
-        facilities={facilities}
-        overview={overview}
-        stateSlug={stateSlug}
-      />
+      <LongTermCareOverview facilities={facilities} overview={overview} />
       <div className={longTermCarePreambleStyle.container}>
         <p>
           <span>
@@ -38,19 +34,36 @@ const LongTermCarePreamble = ({
             </strong>
           </span>
           <a
-            href="https://github.com/COVID19Tracking/long-term-care-data/blob/master/state_overview.csv"
+            href="/long-term-care/download/state_overview.csv"
             className={downloadDataStyles.button}
+            download="state_overview.csv"
           >
             Download state dataset
           </a>
           {showFacilities && (
             <a
-              href={`https://github.com/COVID19Tracking/long-term-care-data/blob/master/facilities_${state.toLowerCase()}.csv`}
+              href={`/long-term-care/download/facilities_${state.toLowerCase()}.csv`}
               className={downloadDataStyles.button}
+              download={`facilities_${state.toLowerCase()}.csv`}
             >
               Download facility-level dataset
             </a>
           )}
+          <Link href="#summary" className={downloadDataStyles.button}>
+            Overview
+          </Link>
+          <Link href="#notes" className={downloadDataStyles.button}>
+            Notes
+          </Link>
+          <Link href="#facilities" className={downloadDataStyles.button}>
+            Facilities
+          </Link>
+          <Link
+            to={`/data/state/${stateSlug}/long-term-care/history`}
+            className={downloadDataStyles.button}
+          >
+            Historical totals
+          </Link>
         </p>
       </div>
       <p className={longTermCarePreambleStyle.grade}>
