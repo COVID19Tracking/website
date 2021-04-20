@@ -1,14 +1,14 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import Layout from '~components/layout'
-import LTCForm from '~components/pages/data/long-term-care/form'
+import { graphql, Link } from 'gatsby'
 import ContentfulContent from '~components/common/contentful-content'
+import Layout from '~components/layout'
+import StateNav from '~components/common/state-nav'
 
-const LTCContactPage = ({ data }) => (
+const LTCDataByState = ({ data }) => (
   <Layout
-    title="Help Collect Better Data"
+    title="Data by State"
+    path="/nursing-homes-long-term-care-facilities/data-by-state"
     returnLinks={[{ link: '/nursing-homes-long-term-care-facilities' }]}
-    centered
   >
     <ContentfulContent
       content={
@@ -17,15 +17,23 @@ const LTCContactPage = ({ data }) => (
       }
       id={data.contentfulSnippet.contentful_id}
     />
-    <LTCForm />
+    <StateNav
+      defaultIsOpen
+      fullWidth
+      linkAs={({ state }) => (
+        <Link to={`/data/state/${state.childSlug.slug}/long-term-care`}>
+          {state.state}
+        </Link>
+      )}
+    />
   </Layout>
 )
 
-export default LTCContactPage
+export default LTCDataByState
 
 export const query = graphql`
   query {
-    contentfulSnippet(slug: { eq: "ltc-contact-preamble" }) {
+    contentfulSnippet(slug: { eq: "ltc-data-by-sate-preamble" }) {
       contentful_id
       childContentfulSnippetContentTextNode {
         childMarkdownRemark {
