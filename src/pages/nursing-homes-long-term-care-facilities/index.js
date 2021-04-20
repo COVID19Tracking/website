@@ -12,9 +12,9 @@ import { CtaLink } from '~components/common/call-to-action'
 
 const LongTermCarePage = ({ data }) => (
   <Layout
-    title="The Long-Term Care COVID Tracker"
+    title="Long-Term-Care COVID Tracker"
     path="/nursing-homes-long-term-care-facilities"
-    description="To date, the Long-Term Care COVID Tracker is the most comprehensive dataset about COVID-19 in US long-term care facilities."
+    description="To date, the Long-Term-Care COVID Tracker is the most comprehensive dataset about COVID-19 in US long-term care facilities."
   >
     <HeroText>
       Using state and federal data, we can estimate that as of March 2021:
