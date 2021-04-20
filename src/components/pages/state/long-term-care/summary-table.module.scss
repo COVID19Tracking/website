@@ -23,3 +23,11 @@
     font-weight: normal;
   }
 }
+
+.definition-button {
+  @include remove-button-style();
+  @include margin(16, left);
+  img {
+    width: spacer(16);
+  }
+}

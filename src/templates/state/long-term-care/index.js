@@ -83,31 +83,38 @@ export const query = graphql`
       nodes {
         date
         posstaff_other
+        posstaff_lumpedother
         posstaff_nh
         posstaff_ltc
         posstaff_alf
         posres_other
+        posres_lumpedother
         posres_nh
         posres_ltc
         posres_alf
         posresstaff_other
+        posresstaff_lumpedother
         posresstaff_nh
         posresstaff_ltc
         posresstaff_alf
         deathstaff_other
+        deathstaff_lumpedother
         deathstaff_nh
         deathstaff_ltc
         deathstaff_alf
         deathres_other
+        deathres_lumpedother
         deathres_nh
         deathres_ltc
         deathres_alf
         deathresstaff_other
+        deathresstaff_lumpedother
         deathresstaff_nh
         deathresstaff_ltc
         deathresstaff_alf
         data_type
         outbrkfac_other
+        outbrkfac_lumpedother
         outbrkfac_nh
         outbrkfac_ltc
         outbrkfac_alf
@@ -115,26 +122,32 @@ export const query = graphql`
         probdeathres_ltc
         probdeathres_nh
         probdeathres_other
+        probdeathres_lumpedother
         probdeathresstaff_alf
         probdeathresstaff_ltc
         probdeathresstaff_nh
         probdeathresstaff_other
+        probdeathresstaff_lumpedother
         probdeathstaff_alf
         probdeathstaff_ltc
         probdeathstaff_nh
         probdeathstaff_other
+        probdeathstaff_lumpedother
         probposres_alf
         probposres_ltc
         probposres_nh
         probposres_other
+        probposres_lumpedother
         probposresstaff_alf
         probposresstaff_ltc
         probposresstaff_nh
         probposresstaff_other
+        probposresstaff_lumpedother
         probposstaff_alf
         probposstaff_ltc
         probposstaff_nh
         probposstaff_other
+        probposstaff_lumpedother
       }
     }
     covidGradeStateAssessment(state: { eq: $state }) {
@@ -148,31 +161,38 @@ export const query = graphql`
       nodes {
         date
         posstaff_other
+        posstaff_lumpedother
         posstaff_nh
         posstaff_ltc
         posstaff_alf
         posres_other
+        posres_lumpedother
         posres_nh
         posres_ltc
         posres_alf
         posresstaff_other
+        posresstaff_lumpedother
         posresstaff_nh
         posresstaff_ltc
         posresstaff_alf
         deathstaff_other
+        deathstaff_lumpedother
         deathstaff_nh
         deathstaff_ltc
         deathstaff_alf
         deathres_other
+        deathres_lumpedother
         deathres_nh
         deathres_ltc
         deathres_alf
         deathresstaff_other
+        deathresstaff_lumpedother
         deathresstaff_nh
         deathresstaff_ltc
         deathresstaff_alf
         data_type
         outbrkfac_other
+        outbrkfac_lumpedother
         outbrkfac_nh
         outbrkfac_ltc
         outbrkfac_alf

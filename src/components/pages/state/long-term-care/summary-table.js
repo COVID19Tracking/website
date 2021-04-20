@@ -2,19 +2,22 @@
 import React from 'react'
 import classnames from 'classnames'
 import { Link } from 'gatsby'
+import Tooltip from '~components/common/tooltip'
 import tableStyle from '~components/common/table.module.scss'
 import summaryTableStyle from './summary-table.module.scss'
 import { FormatNumber } from '~components/utils/format'
+import alert from '~images/alert/alert.svg'
+
+const lumpedDefinition = `‘Lumped or other facilities’ shows data from states that have not broken down their data by facility type, so it might include data from nursing homes and assisted-living facilities. It also includes some congregate living facilities for older adults that are neither nursing homes nor assisted-living facilities.`
 
 const categoryLabels = {
   nh: 'Nursing home',
-  ltc: 'Long-term-care facility',
   alf: 'Assisted-living facility',
-  other: 'Other facility',
+  lumpedother: 'Lumped or other facilities',
 }
 
 const getAllowedCategories = data => {
-  const categories = ['nh', 'alf', 'other', 'ltc']
+  const categories = ['nh', 'alf', 'lumpedother']
   const allowedCategories = []
   categories.forEach(category => {
     data.forEach(item => {
@@ -179,7 +182,21 @@ const LongTermCareSummaryTable = ({ stateSlug, aggregate }) => {
       <tbody>
         {categories.map(category => (
           <tr>
-            <th scope="row">{categoryLabels[category]}</th>
+            <th scope="row">
+              {categoryLabels[category]}
+              {category === 'lumpedother' && (
+                <Tooltip label={<span>{lumpedDefinition}</span>}>
+                  <button
+                    type="button"
+                    aria-hidden
+                    className={summaryTableStyle.definitionButton}
+                  >
+                    <img src={alert} alt="Definition" />
+                  </button>
+                </Tooltip>
+              )}
+              <span className="a11y-only">{lumpedDefinition}</span>
+            </th>
             <CategoryRows data={aggregate} category={category} />
           </tr>
         ))}

@@ -4,8 +4,7 @@ import StateNotes from '~components/pages/state/state-notes'
 import TableResponsive from '~components/common/table-responsive'
 import LongTermCareAlertNote from '~components/pages/state/long-term-care/alert-note'
 import Layout from '~components/layout'
-
-const categories = ['nh', 'ltc', 'alf', 'other']
+import getTotals from '~utilities/ltc-totals'
 
 export default ({ pageContext, path, data }) => {
   const state = pageContext
@@ -13,62 +12,13 @@ export default ({ pageContext, path, data }) => {
   const history = []
 
   data.aggregate.nodes.forEach(item => {
-    const getValue = field => {
-      let value = null
-      categories.forEach(category => {
-        if (item[`prob${field}_${category}`]) {
-          value += item[`prob${field}_${category}`]
-        }
-        if (item[`${field}_${category}`]) {
-          value += item[`${field}_${category}`]
-        }
-        if (field === 'posresstaff' && !item[`posresstaff_${category}`]) {
-          const fieldList = ['posres', 'posstaff', 'probposres', 'probposstaff']
-          fieldList.forEach(fieldItem => {
-            if (item[`${fieldItem}_${category}`] !== null) {
-              value += item[`${fieldItem}_${category}`]
-            }
-          })
-        }
-        if (field === 'deathresstaff' && !item[`deathresstaff_${category}`]) {
-          const fieldList = [
-            'deathres',
-            'deathstaff',
-            'probdeathres',
-            'probdeathstaff',
-          ]
-          fieldList.forEach(fieldItem => {
-            if (item[`${fieldItem}_${category}`] !== null) {
-              value += item[`${fieldItem}_${category}`]
-            }
-          })
-        }
-      })
-
-      return value
-    }
-
+    const { totalCases, totalDeath, totalFacilities } = getTotals(item)
     history.push({
       date: item.date,
-      staffResidentCases: getValue('posresstaff'),
-      staffResidentDeaths: getValue('deathresstaff'),
-      staffCases: getValue('posstaff'),
-      staffDeaths: getValue('deathstaff'),
-      residentCases: getValue('posres'),
-      residentDeaths: getValue('deathres'),
-      facilities: getValue('outbrkfac'),
+      totalCases,
+      totalDeath,
+      totalFacilities,
     })
-  })
-  history.forEach((item, key) => {
-    if (!item.staffResidentCases && (item.staffCases || item.residentCases)) {
-      history[key].staffResidentCases = item.staffCases + item.residentCases
-    }
-    if (
-      !item.staffResidentDeaths &&
-      (item.staffDeaths || item.residentDeaths)
-    ) {
-      history[key].staffResidentDeaths = item.staffDeaths + item.residentDeaths
-    }
   })
 
   return (
@@ -95,37 +45,17 @@ export default ({ pageContext, path, data }) => {
             alignLeft: true,
           },
           {
-            field: 'residentCases',
-            label: 'Resident Cases',
+            field: 'totalCases',
+            label: 'Total Cases',
             isNumeric: true,
           },
           {
-            field: 'residentDeaths',
-            label: 'Resident Deaths',
+            field: 'totalDeath',
+            label: 'Total Deaths',
             isNumeric: true,
           },
           {
-            field: 'staffCases',
-            label: 'Staff Cases',
-            isNumeric: true,
-          },
-          {
-            field: 'staffDeaths',
-            label: 'Staff Deaths',
-            isNumeric: true,
-          },
-          {
-            field: 'staffResidentCases',
-            label: 'Staff & Resident cases',
-            isNumeric: true,
-          },
-          {
-            field: 'staffResidentDeaths',
-            label: 'Staff & Resident deaths',
-            isNumeric: true,
-          },
-          {
-            field: 'facilities',
+            field: 'totalFacilities',
             label: 'Facilities impacted',
             isNumeric: true,
           },
@@ -149,31 +79,38 @@ export const query = graphql`
       nodes {
         date(formatString: "MMMM D, YYYY")
         posstaff_other
+        posstaff_lumpedother
         posstaff_nh
         posstaff_ltc
         posstaff_alf
         posres_other
+        posres_lumpedother
         posres_nh
         posres_ltc
         posres_alf
         posresstaff_other
+        posresstaff_lumpedother
         posresstaff_nh
         posresstaff_ltc
         posresstaff_alf
         deathstaff_other
+        deathstaff_lumpedother
         deathstaff_nh
         deathstaff_ltc
         deathstaff_alf
         deathres_other
+        deathres_lumpedother
         deathres_nh
         deathres_ltc
         deathres_alf
         deathresstaff_other
+        deathresstaff_lumpedother
         deathresstaff_nh
         deathresstaff_ltc
         deathresstaff_alf
         data_type
         outbrkfac_other
+        outbrkfac_lumpedother
         outbrkfac_nh
         outbrkfac_ltc
         outbrkfac_alf
@@ -181,26 +118,32 @@ export const query = graphql`
         probdeathres_ltc
         probdeathres_nh
         probdeathres_other
+        probdeathres_lumpedother
         probdeathresstaff_alf
         probdeathresstaff_ltc
         probdeathresstaff_nh
         probdeathresstaff_other
+        probdeathresstaff_lumpedother
         probdeathstaff_alf
         probdeathstaff_ltc
         probdeathstaff_nh
         probdeathstaff_other
+        probdeathstaff_lumpedother
         probposres_alf
         probposres_ltc
         probposres_nh
         probposres_other
+        probposres_lumpedother
         probposresstaff_alf
         probposresstaff_ltc
         probposresstaff_nh
         probposresstaff_other
+        probposresstaff_lumpedother
         probposstaff_alf
         probposstaff_ltc
         probposstaff_nh
         probposstaff_other
+        probposstaff_lumpedother
       }
     }
   }
