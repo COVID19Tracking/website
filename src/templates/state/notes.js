@@ -40,6 +40,8 @@ export const query = graphql`
       dateModified(formatString: "MMMM D, YYYY h:mm a")
     }
     covidGradeStateAssessment(state: { eq: $state }) {
+      taco
+      ltc
       crdt
     }
   }
