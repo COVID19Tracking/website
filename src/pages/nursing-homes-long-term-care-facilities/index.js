@@ -2,126 +2,59 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import marked from 'marked'
 import Container from '~components/common/container'
-import LongContent from '~components/common/long-content'
 import ContentfulContent from '~components/common/contentful-content'
-import TableauChart from '~components/charts/tableau'
-import Total from '~components/common/landing-page/total'
-import { Col, Row } from '~components/common/grid'
-import { FormatNumber } from '~components/utils/format'
-import DetailText from '~components/common/detail-text'
-import DownloadLinks from '~components/pages/data/long-term-care/download-links'
+import { BlogItem } from '~components/pages/homepage/blog-list'
+import ImageBlock from '~components/pages/blog/content-blocks/image-content-block'
 import Layout from '~components/layout'
 import Paragraph from '~components/common/landing-page/paragraph'
+import HeroText from '~components/common/landing-page/hero-text'
+import { CtaLink } from '~components/common/call-to-action'
 
-const LongTermCarePage = ({ data }) => {
-  const Snippet = ({ slug }) => {
-    const item = data.contentfulSnippetCollection.snippets.find(
-      snippet => snippet.slug === slug,
-    )
-    return (
-      <ContentfulContent
-        id={item.contentful_id}
-        content={
-          item.childContentfulSnippetContentTextNode.childMarkdownRemark.html
-        }
+const LongTermCarePage = ({ data }) => (
+  <Layout
+    title="Long-Term-Care COVID Tracker"
+    path="/nursing-homes-long-term-care-facilities"
+    description="To date, the Long-Term-Care COVID Tracker is the most comprehensive dataset about COVID-19 in US long-term care facilities."
+  >
+    <HeroText>
+      Using state and federal data, we can estimate that as of March 2021:
+    </HeroText>
+    <Paragraph>
+      <span
+        dangerouslySetInnerHTML={{
+          __html: marked.inlineLexer(data.lede.content.content, []),
+        }}
       />
-    )
-  }
+    </Paragraph>
+    <ContentfulContent
+      id={data.notes.contentful_id}
+      content={
+        data.notes.childContentfulSnippetContentTextNode.childMarkdownRemark
+          .html
+      }
+    />
+    <Container centered>
+      <ImageBlock
+        keepSize
+        imageUrl="/images/cms-ctp.png"
+        image={{
+          description:
+            'Chart comparing Covid Tracking Project data to federal CMS data.',
+        }}
+      />
+    </Container>
 
-  return (
-    <Layout
-      title="The Long-Term Care COVID Tracker"
-      path="/nursing-homes-long-term-care-facilities"
-      description="To date, the Long-Term Care COVID Tracker is the most comprehensive dataset about COVID-19 in US long-term care facilities."
-    >
-      <Paragraph>
-        <span
-          dangerouslySetInnerHTML={{
-            __html: marked.inlineLexer(data.lede.content.content, []),
-          }}
-        />
-      </Paragraph>
-      <h3 className="no-margin-bottom">Cumulative</h3>
-      <Row>
-        <Col width={[4, 6, 4]}>
-          <Total
-            label="Total cases"
-            number={
-              <FormatNumber number={data.covidLtcWebsite.casesCumulative} />
-            }
-          />
-        </Col>
-        <Col width={[4, 6, 4]}>
-          <Total
-            label="Total deaths"
-            number={
-              <FormatNumber number={data.covidLtcWebsite.deathsCumulative} />
-            }
-          />
-        </Col>
-        <Col width={[4, 6, 4]}>
-          <Total
-            label="Total number of facilities affected"
-            number={
-              <FormatNumber
-                number={data.covidLtcWebsite.facilitiesCumulative}
-              />
-            }
-          />
-        </Col>
-      </Row>
-      <DetailText small>
-        <Snippet slug="ltc-top-notes" />
-      </DetailText>
-      <Container centered>
-        <DownloadLinks />
-        <LongContent>
-          <Snippet slug="ltc-1" />
-        </LongContent>
-      </Container>
-      <TableauChart
-        id="ltc-1"
-        height={520}
-        mobileHeight={450}
-        viewUrl="https://public.tableau.com/views/LTCDataObservations/web_FigMap?:language=en&:display_count=y&:origin=viz_share_link"
-        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/mob_FigMap?:language=en&:display_count=y&:origin=viz_share_link"
-      />
-      <Container centered>
-        <LongContent>
-          <Snippet slug="ltc-2" />
-        </LongContent>
-      </Container>
-      <TableauChart
-        id="ltc-2"
-        height={700}
-        mobileHeight={450}
-        viewUrl="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall?:language=en&:retry=yes&:display_count=y&:origin=viz_share_link"
-        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/0_AllKeyssmall_mob?:language=en&:display_count=y&:origin=viz_share_link"
-      />
-      <Container centered>
-        <LongContent>
-          <Snippet slug="ltc-definitions" />
-        </LongContent>
-      </Container>
-      <Container centered>
-        <DetailText small>
-          <Snippet slug="ltc-table-notes" />
-        </DetailText>
-      </Container>
-      <TableauChart
-        id="ltc-3"
-        height={1300}
-        viewUrl="https://public.tableau.com/views/LTCDataObservations/web_SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
-        viewUrlMobile="https://public.tableau.com/views/LTCDataObservations/mob_SummaryTable?:language=en&:display_count=y&:origin=viz_share_link"
-      />
-      <Container centered>
-        <LongContent>
-          <Snippet slug="ltc-thanks" />
-        </LongContent>
-      </Container>
-    </Layout>
-  )
-}
+    <Container centered>
+      <h2>Our Analysis &amp; Updates</h2>
+      {data.allContentfulBlogPost.nodes.map(post => (
+        <BlogItem post={post} extraMargin hideReadLink />
+      ))}
+      <CtaLink bold to="/analysis-updates/category/long-term-care">
+        See all our analysis of long-term care data
+      </CtaLink>
+    </Container>
+  </Layout>
+)
 
 export default LongTermCarePage
 
@@ -132,14 +65,25 @@ export const query = graphql`
       deathsCumulative
       facilitiesCumulative
     }
-    contentfulSnippetCollection(slug: { eq: "long-term-care-landing-page" }) {
-      snippets {
-        contentful_id
+    allContentfulBlogPost(
+      limit: 4
+      sort: { fields: publishDate, order: DESC }
+      filter: { categories: { elemMatch: { slug: { eq: "long-term-care" } } } }
+    ) {
+      nodes {
+        title
+        publishDate(formatString: "MMMM D, YYYY")
         slug
-        childContentfulSnippetContentTextNode {
-          childMarkdownRemark {
-            html
-          }
+        lede {
+          lede
+        }
+      }
+    }
+    notes: contentfulSnippet(slug: { eq: "ltc-top-notes" }) {
+      contentful_id
+      childContentfulSnippetContentTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }

@@ -8,6 +8,9 @@
   p {
     @include margin(16, top);
     margin-bottom: 0;
+    &.links {
+      display: block;
+    }
     > span {
       margin-right: 1rem;
       display: inline-block;

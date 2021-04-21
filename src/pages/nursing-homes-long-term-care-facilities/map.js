@@ -22,6 +22,7 @@ const LTCMapPage = ({ data }) => {
   return (
     <Layout
       title="Nursing Homes and Other Long-Term-Care Facilities"
+      returnLinks={[{ link: '/nursing-homes-long-term-care-facilities' }]}
       noContainer
     >
       <Container centered>
