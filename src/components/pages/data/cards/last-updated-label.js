@@ -12,7 +12,7 @@ const LastUpdatedLabel = ({ date, label = false }) => (
       {label ? <>{label}</> : <>Data as of</>}{' '}
     </span>
     <time>
-      <FormatDate date={date} format="MMMM d, y" />
+      <FormatDate date={date} format="MMMM d, y" timezone={false} />
     </time>
   </div>
 )
