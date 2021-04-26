@@ -18,6 +18,9 @@ jobs:
           name: install
           command: 'yarn install'
       - run:
+          name: setup
+          command: 'yarn setup:api-repo'
+      - run:
           name: test
           command: 'yarn run test'
       - run:
