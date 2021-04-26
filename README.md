@@ -39,6 +39,7 @@ To run the website locally, use:
 ```shell
 yarn develop
 ```
+
 The project takes 8-10 minutes to build.
 
 The site is now running at `http://localhost:8000`. Any changes you make to code is live-updated. There is a GraphQL preview tool available at `http://localhost:8000/___graphql` to see what data is exposed to the website.
@@ -56,8 +57,6 @@ Components live in `src/components` and are organized as follows:
 - `/utils` - Utilities. (If a particular component doesn't have any associated styles, there's a good chance it's a utility.)
 
 ## Testing
-
-[![Coverage Status](https://coveralls.io/repos/github/COVID19Tracking/website/badge.svg?branch=master)](https://coveralls.io/github/COVID19Tracking/website?branch=master)
 
 We use Jest for automated testing, and all test files for Gatsby are located in `./src/__tests__`. Test files are structured following their related components. To run tests, use `yarn test`.
 
