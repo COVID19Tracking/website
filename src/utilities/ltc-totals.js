@@ -6,7 +6,7 @@ const getTotals = state => {
   let totalFacilities = null
   categories.forEach(category => {
     if (state[`outbrkfac_${category}`]) {
-      totalFacilities = state[`outbrkfac_${category}`]
+      totalFacilities += state[`outbrkfac_${category}`]
     }
     if (
       state[`posresstaff_${category}`] ||
