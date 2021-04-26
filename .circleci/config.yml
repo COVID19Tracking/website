@@ -24,7 +24,7 @@ jobs:
           name: lint
           command: 'yarn run test:lint'
       - store_test_results:
-        path: ./
+          path: ./
 
 workflows:
   version: 2
