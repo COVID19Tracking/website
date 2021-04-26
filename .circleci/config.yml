@@ -20,10 +20,12 @@ jobs:
       - run:
           name: test
           command: 'yarn run test'
-       - run:
+      - run:
           name: lint
           command: 'yarn run test:lint'
-     
+      - store_test_results:
+        path: ./
+
 workflows:
   version: 2
   test:
