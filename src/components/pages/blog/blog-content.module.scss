@@ -54,6 +54,16 @@
       white-space: initial;
     }
   }
+  pre {
+    border: 1px solid $color-slate-300;
+    border-radius: 4px;
+    @include padding(16);
+    font-family: monospace, monospace;
+    white-space: pre-wrap;
+    code {
+      background: transparent;
+    }
+  }
 }
 
 hr {
