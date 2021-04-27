@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import Container from '~components/common/container'
-import { CtaLink } from '~components/common/landing-page/call-to-action'
+import { CtaLink } from '~components/common/call-to-action'
 import { Row } from '~components/common/grid'
 import contentStyle from './content.module.scss'
 
@@ -32,10 +32,6 @@ const HomepageContent = () => {
 
   return (
     <Container className={contentStyle.wrapper}>
-      <h2>Our Analysis</h2>
-      <CtaLink bold block to="/analysis-updates">
-        Read all our analysis and updates
-      </CtaLink>
       <Row>
         {data.allContentfulBlogCategory.nodes.map(category => (
           <div className={contentStyle.category}>

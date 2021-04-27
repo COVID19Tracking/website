@@ -13,10 +13,14 @@
 .description {
   @include type-size(300);
   @include margin(16, bottom);
+  font-weight: bold;
 }
 
 .category {
   width: 100%;
+  h3 {
+    margin-bottom: 0;
+  }
   @media (min-width: $viewport-lg) {
     width: 50%;
     &:nth-child(even) {
