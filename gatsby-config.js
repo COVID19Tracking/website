@@ -238,7 +238,7 @@ const gatsbyConfig = {
     {
       resolve: 'gatsby-source-covid-tracking-api',
       options: {
-        file: './_data/long_term_care_states_complete.json',
+        file: './_data/long_term_care_states_v3.json',
         type: 'CovidLtcStates',
       },
     },
@@ -317,6 +317,13 @@ const gatsbyConfig = {
       resolve: 'gatsby-transformer-covid-volunteer-random',
       options: {
         type: 'Airtable',
+      },
+    },
+    {
+      resolve: 'gatsby-source-covid-tracking-api',
+      options: {
+        file: './_data/crdt_vaccine_sources.json',
+        type: 'crdtVaccineSources',
       },
     },
     {
