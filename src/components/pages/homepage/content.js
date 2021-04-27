@@ -15,6 +15,7 @@ const HomepageContent = () => {
         nodes {
           slug
           name
+          homepageName
           description {
             childMarkdownRemark {
               html
@@ -24,6 +25,7 @@ const HomepageContent = () => {
             slug
             title
             publishDate(formatString: "X")
+            homepageTitle
           }
         }
       }
@@ -35,7 +37,9 @@ const HomepageContent = () => {
       <Row>
         {data.allContentfulBlogCategory.nodes.map(category => (
           <div className={contentStyle.category}>
-            <h3>{category.name}</h3>
+            <h3>
+              {category.homepageName ? category.homepageName : category.name}
+            </h3>
             {category.description && (
               <div
                 className={contentStyle.description}
@@ -55,7 +59,7 @@ const HomepageContent = () => {
                 .map(post => (
                   <li>
                     <Link to={`/analysis-updates/${post.slug}`}>
-                      {post.title}
+                      {post.homepageTitle ? post.homepageTitle : post.title}
                     </Link>
                   </li>
                 ))}
