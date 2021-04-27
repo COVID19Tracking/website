@@ -1,8 +1,38 @@
+import { getGroups } from '~components/pages/race/breakouts/bar-chart/utils'
+
 const perCapTo100k = value => {
   if (value == null) {
     return 'N/A'
   }
   return Math.round(value * 100)
+}
+
+const checkIfWorstDeathsAsterisk = (coreData, testHospData) => {
+  return getGroups(coreData, testHospData).worstDeathsAsterisk
+}
+
+const checkIfAnyAsterisk = groups => {
+  let hasAsterisk = false
+
+  // check if any groups have an asterisk
+  groups.every(group => {
+    if (group.asterisk === '*' || group.showAsterisk === true) {
+      hasAsterisk = true
+      return false // break out of every
+    }
+    return true // continue
+  })
+  return hasAsterisk
+}
+
+const getAsteriskFootnote = stateName => {
+  if (stateName === 'Montana') {
+    return 'Montana includes Native Hawaiians and Other Pacific Islanders in this category.'
+  }
+  if (stateName === 'New Mexico') {
+    return 'New Mexico defines this category as Asian alone for case data, and Asian/Pacific Islander for death data.'
+  }
+  return null
 }
 
 const createValuesList = raceData => {
@@ -70,17 +100,6 @@ const createValuesList = raceData => {
     })
   }
 
-  let hasAsterisk = false
-
-  // check if any values have an asterisk
-  values.every(value => {
-    if (value.asterisk === '*') {
-      hasAsterisk = true
-      return false // break out of every
-    }
-    return true // continue
-  })
-
   let hasCases = false
 
   // check if there are any case values
@@ -110,10 +129,17 @@ const createValuesList = raceData => {
   return {
     hasCases,
     hasDeaths,
-    hasAsterisk,
+    hasAsterisk: checkIfAnyAsterisk(values),
     values,
     lastCheckDate,
   }
 }
 
 export default createValuesList
+
+export {
+  createValuesList,
+  checkIfAnyAsterisk,
+  getAsteriskFootnote,
+  checkIfWorstDeathsAsterisk,
+}

@@ -1,0 +1,39 @@
+.container {
+  border: 1px solid $color-slate-500;
+  border-radius: 4px;
+  @include padding(16, (left, right));
+  @include margin(16, (top, bottom));
+}
+
+.content {
+  @include padding(16, bottom);
+}
+
+.header {
+  h3 {
+    @include margin(0);
+
+    @media (max-width: $viewport-lg) {
+      @include type-size(400);
+    }
+  }
+  @include margin(8, (top, bottom));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.collapse-button {
+  font-weight: bold;
+  color: $text;
+  border: none;
+  cursor: pointer;
+  background: none;
+  span {
+    text-decoration: underline;
+  }
+}
+
+.button-container {
+  flex-shrink: 0;
+}

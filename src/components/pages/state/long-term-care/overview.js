@@ -3,14 +3,10 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { Row, Col } from '~components/common/grid'
 import Total from '~components/common/landing-page/total'
 import { DefinitionPanel } from '~components/pages/data/cards/definitions-panel'
-import {
-  CtaLink,
-  CtaAnchorLink,
-} from '~components/common/landing-page/call-to-action'
 import { FormatNumber } from '~components/utils/format'
 import overviewStyles from './overview.module.scss'
 
-const LongTermCareOverview = ({ facilities, overview, stateSlug }) => {
+const LongTermCareOverview = ({ facilities, overview }) => {
   const [highlightedDefinition, setHighlightedDefinition] = useState(false)
   const { allContentfulDataDefinition } = useStaticQuery(graphql`
     {
@@ -43,7 +39,7 @@ const LongTermCareOverview = ({ facilities, overview, stateSlug }) => {
         />
       )}
       <Row>
-        <Col width={[4, 6, 3]}>
+        <Col width={[4, 6, 4]}>
           <Total
             label="Total cases"
             number={<FormatNumber number={overview.total_cases} />}
@@ -60,7 +56,7 @@ const LongTermCareOverview = ({ facilities, overview, stateSlug }) => {
             </button>
           </Total>
         </Col>
-        <Col width={[4, 6, 3]}>
+        <Col width={[4, 6, 4]}>
           <Total
             label="Total deaths"
             number={<FormatNumber number={overview.total_death} />}
@@ -77,7 +73,7 @@ const LongTermCareOverview = ({ facilities, overview, stateSlug }) => {
             </button>
           </Total>
         </Col>
-        <Col width={[4, 6, 3]}>
+        <Col width={[4, 6, 4]}>
           <Total
             label="Facilities affected"
             number={<FormatNumber number={facilities} />}
@@ -93,20 +89,6 @@ const LongTermCareOverview = ({ facilities, overview, stateSlug }) => {
               Definition
             </button>
           </Total>
-        </Col>
-        <Col width={[4, 6, 3]}>
-          <CtaAnchorLink block href="#summary">
-            State overview
-          </CtaAnchorLink>
-          <CtaAnchorLink block href="#notes">
-            State notes
-          </CtaAnchorLink>
-          <CtaAnchorLink block href="#facilities">
-            All facilities
-          </CtaAnchorLink>
-          <CtaLink to={`/data/state/${stateSlug}/long-term-care/history`} block>
-            Historical totals
-          </CtaLink>
         </Col>
       </Row>
     </>

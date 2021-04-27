@@ -5,6 +5,7 @@ import LineChart from '~components/charts/line-chart'
 import colors from '~scss/colors.module.scss'
 import chartStyles from './chart.module.scss'
 import Alert from '~components/common/alert'
+import getTotals from '~utilities/ltc-totals'
 
 const chartProps = {
   height: 180, // these control the dimensions used to render the svg but not the final size
@@ -22,16 +23,7 @@ const LongTermCareCharts = ({ data }) => {
 
   data.forEach(item => {
     const date = DateTime.fromISO(item.date).toJSDate()
-    let totalCases = 0
-    let totalDeath = 0
-    Object.keys(item).forEach(key => {
-      if (key.search(/posres|posstaff/) > -1) {
-        totalCases += item[key]
-      }
-      if (key.search(/deathres|deathstaff/) > -1) {
-        totalDeath += item[key]
-      }
-    })
+    const { totalCases, totalDeath } = getTotals(item)
     caseData.push({
       date,
       value: totalCases,

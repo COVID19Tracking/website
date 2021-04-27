@@ -1,26 +1,12 @@
 const crypto = require('crypto')
 const fs = require('fs-extra')
-
+const getTotals = require('../../src/utilities/ltc-totals')
 const ltcFacilities = fs.readJsonSync('./_data/long_term_care_facilities.json')
-const ltcStates = fs.readJsonSync('./_data/long_term_care_states_complete.json')
+const ltcStates = fs.readJsonSync('./_data/long_term_care_states_v3.json')
 
 const stateFacilities = {}
 const stateCurrent = {}
 const stateLast = {}
-
-const getTotals = state => {
-  let total_cases = 0
-  let total_death = 0
-  Object.keys(state).forEach(key => {
-    if (key.search(/posres|posstaff/) > -1) {
-      total_cases += state[key]
-    }
-    if (key.search(/deathres|deathstaff/) > -1) {
-      total_death += state[key]
-    }
-  })
-  return { total_cases, total_death }
-}
 
 ltcFacilities.forEach(facility => {
   if (typeof stateFacilities[facility.state.toLowerCase()] === 'undefined') {
@@ -59,16 +45,20 @@ ltcStates.forEach(state => {
 })
 
 Object.keys(stateCurrent).forEach(state => {
+  const { totalCases, totalDeath } = getTotals(stateCurrent[state])
   stateCurrent[state] = {
     ...stateCurrent[state],
-    ...getTotals(stateCurrent[state]),
+    total_cases: totalCases,
+    total_death: totalDeath,
   }
 })
 
 Object.keys(stateLast).forEach(state => {
+  const { totalCases, totalDeath } = getTotals(stateLast[state])
   stateLast[state] = {
     ...stateLast[state],
-    ...getTotals(stateLast[state]),
+    total_cases: totalCases,
+    total_death: totalDeath,
   }
 })
 
@@ -80,6 +70,7 @@ const dataDigest = crypto
       JSON.stringify(stateLast),
   )
   .digest('hex')
+
 const onCreateNode = async (
   { node, actions, createNodeId, createContentDigest },
   configOptions,
@@ -101,7 +92,7 @@ const onCreateNode = async (
       facilities:
         typeof stateFacilities[stateCode] !== 'undefined'
           ? stateFacilities[stateCode].length
-          : 0,
+          : null,
       current:
         typeof stateCurrent[stateCode] !== 'undefined' &&
         stateCurrent[stateCode],

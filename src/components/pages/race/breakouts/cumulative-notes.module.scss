@@ -1,0 +1,14 @@
+.container {
+  p {
+    @include margin(0);
+  }
+
+  li {
+      @include margin(4, (top, bottom));
+  }
+}
+
+.header {
+  @include type-size(500);
+  @include margin(24, (top, bottom));
+}

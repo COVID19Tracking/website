@@ -69,7 +69,7 @@ const SitemapPage = ({ data }) => (
             </li>
             <li>
               <Link to={`/data/state/${state.childSlug.slug}/long-term-care`}>
-                {state.name} Long-term care facilities
+                {state.name} Long-term-care facilities
               </Link>
             </li>
           </ul>

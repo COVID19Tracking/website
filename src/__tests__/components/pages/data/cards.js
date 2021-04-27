@@ -12,7 +12,7 @@ import CrdtCasesCard from '~components/pages/data/cards/crdt/cases-card'
 import CrdtDeathsCard from '~components/pages/data/cards/crdt/deaths-card'
 
 import DefaultSmallCard from '~components/pages/data/cards/small'
-import DataAsGraphicSmallCard from '~components/pages/data/cards/small/data-as-graphic-small-card'
+import CrdtBreakoutSmallCard from '~components/pages/data/cards/small/crdt-breakout-small-card'
 import ViewRacialDataSmallCard from '~components/pages/data/cards/small/view-racial-data-small-card'
 
 describe('Components : Pages : Data : Cards : Cases', () => {
@@ -329,7 +329,7 @@ describe('Components : Pages : Data : Cards : Small Cards : View data as graphic
   it('renders correctly', () => {
     const tree = renderer
       .create(
-        <DataAsGraphicSmallCard stateAbbreviation="NY" ignoreStates={[]} />,
+        <CrdtBreakoutSmallCard stateAbbreviation="NY" stateSlug="new-york" />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

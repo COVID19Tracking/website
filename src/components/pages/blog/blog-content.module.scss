@@ -40,16 +40,9 @@
   }
 
   blockquote {
-    color: $color-plum-600;
     border-left: 2px solid $color-plum-600;
     padding-left: spacer(24);
     margin-left: spacer(4);
-    &::before {
-      content: '“';
-    }
-    &::after {
-      content: '”';
-    }
     p {
       margin: 0;
       display: inline;
@@ -59,6 +52,16 @@
   table {
     @media only screen and (max-width: $viewport-lg) {
       white-space: initial;
+    }
+  }
+  pre {
+    border: 1px solid $color-slate-300;
+    border-radius: 4px;
+    @include padding(16);
+    font-family: monospace, monospace;
+    white-space: pre-wrap;
+    code {
+      background: transparent;
     }
   }
 }

@@ -1,0 +1,45 @@
+.container {
+  background-color: $color-plum-100;
+
+  .container-inner > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    @include margin(24, bottom);
+    @include margin(8, top);
+
+    @media (max-width: $viewport-lg) {
+      flex-direction: column;
+    }
+
+    h5 {
+      @include margin(0, top);
+      @include margin(16, bottom);
+      font-weight: normal;
+    }
+  }
+
+  @media (max-width: $viewport-lg) {
+    position: inherit;
+
+    .sticky {
+      width: 90%;
+      @media (max-width: $viewport-lg) {
+        width: 100%;
+      }
+    }
+  }
+
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  width: calc(100% + 1px);
+}
+
+.share-container {
+  @media (max-width: $viewport-lg) {
+    @include margin(24, bottom);
+    align-self: center;
+  }
+}
