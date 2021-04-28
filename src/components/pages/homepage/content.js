@@ -34,6 +34,7 @@ const HomepageContent = () => {
 
   return (
     <Container className={contentStyle.wrapper}>
+      <h2 className="a11y-only">Our Analysis</h2>
       <Row>
         {data.allContentfulBlogCategory.nodes.map(category => (
           <div className={contentStyle.category}>
