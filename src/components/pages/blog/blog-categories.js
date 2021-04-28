@@ -9,7 +9,7 @@ const BlogCategories = ({ categories, lightBackground }) => {
   }
   return (
     <div className={categoryStyles.categoriesContainer}>
-      {categories.slice(0, 2).map(category => (
+      {categories.slice(0, 1).map(category => (
         <p
           className={classnames(
             categoryStyles.category,
