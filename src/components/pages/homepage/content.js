@@ -97,7 +97,7 @@ const HomepageContent = () => {
           <h3>All Our Analysis &amp; Updates</h3>
           <PostList posts={data.allContentfulBlogPost.nodes} />
           <CtaLink block bold to="/analysis-updates">
-            Read all our Analysis &amp; Updates
+            Read all Our Analysis &amp; Updates
           </CtaLink>
         </div>
       </Row>
