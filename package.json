@@ -163,7 +163,7 @@
     "storybook:deploy": "run-s storybook:build storybook:pages",
     "storybook:build": "build-storybook",
     "storybook:pages": "gh-pages -d storybook-static -r https://github.com/COVID19Tracking/website-docs",
-    "test": "jest",
+    "test": "NODE_OPTIONS=--max_old_space_size=8192 jest",
     "test:update": "jest --updateSnapshot",
     "test:coverage": "jest --coverage --maxWorkers 1",
     "test:lint": "eslint ./src",
