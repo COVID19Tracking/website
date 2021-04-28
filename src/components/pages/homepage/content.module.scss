@@ -1,0 +1,36 @@
+.wrapper {
+  @include margin(64, bottom);
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  li {
+    @include margin(16, bottom);
+  }
+}
+
+.description {
+  @include type-size(300);
+  @include margin(16, bottom);
+  font-weight: bold;
+}
+
+.category {
+  width: 100%;
+  @include margin(32, bottom);
+  h3 {
+    margin-bottom: 0;
+    @include type-size(400);
+  }
+  @media (min-width: $viewport-lg) {
+    width: 50%;
+    &:nth-child(even) {
+      @include padding(32, left);
+    }
+
+    &:nth-child(odd) {
+      @include padding(32, right);
+    }
+  }
+}
