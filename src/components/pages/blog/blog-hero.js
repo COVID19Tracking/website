@@ -29,7 +29,7 @@ const BlogHero = ({
               <Link to={`/analysis-updates/category/${category.slug}`}>
                 {category.name}
               </Link>
-              {index !== categories.length - 1 && (
+              {index !== categories.slice(0, 2).length - 1 && (
                 <span aria-hidden>&bull;</span>
               )}
             </>
