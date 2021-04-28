@@ -5,6 +5,18 @@ import { CtaLink } from '~components/common/call-to-action'
 import { Row } from '~components/common/grid'
 import contentStyle from './content.module.scss'
 
+const PostList = ({ posts }) => (
+  <ul className={contentStyle.list}>
+    {posts.map(post => (
+      <li>
+        <Link to={`/analysis-updates/${post.slug}`}>
+          {post.homepageTitle ? post.homepageTitle : post.title}
+        </Link>
+      </li>
+    ))}
+  </ul>
+)
+
 const HomepageContent = () => {
   const data = useStaticQuery(graphql`
     {
@@ -29,6 +41,17 @@ const HomepageContent = () => {
           }
         }
       }
+      allContentfulBlogPost(
+        sort: { order: DESC, fields: publishDate }
+        limit: 6
+      ) {
+        nodes {
+          slug
+          title
+          publishDate(formatString: "X")
+          homepageTitle
+        }
+      }
     }
   `)
 
@@ -50,20 +73,15 @@ const HomepageContent = () => {
               />
             )}
             <ul className={contentStyle.list}>
-              {category.blog_post
-                .sort((a, b) =>
-                  parseInt(a.publishDate, 10) > parseInt(b.publishDate, 10)
-                    ? -1
-                    : 1,
-                )
-                .slice(0, 5)
-                .map(post => (
-                  <li>
-                    <Link to={`/analysis-updates/${post.slug}`}>
-                      {post.homepageTitle ? post.homepageTitle : post.title}
-                    </Link>
-                  </li>
-                ))}
+              <PostList
+                posts={category.blog_post
+                  .sort((a, b) =>
+                    parseInt(a.publishDate, 10) > parseInt(b.publishDate, 10)
+                      ? -1
+                      : 1,
+                  )
+                  .slice(0, 5)}
+              />
             </ul>
 
             <CtaLink
@@ -75,6 +93,13 @@ const HomepageContent = () => {
             </CtaLink>
           </div>
         ))}
+        <div className={contentStyle.category}>
+          <h3>All Our Analysis &amp; Updates</h3>
+          <PostList posts={data.allContentfulBlogPost.nodes} />
+          <CtaLink block bold to="/analysis-updates">
+            Read all our Analysis &amp; Updates
+          </CtaLink>
+        </div>
       </Row>
     </Container>
   )
