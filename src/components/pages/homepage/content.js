@@ -66,7 +66,11 @@ const HomepageContent = () => {
                 ))}
             </ul>
 
-            <CtaLink block to={`/analysis-updates/category/${category.slug}`}>
+            <CtaLink
+              block
+              bold
+              to={`/analysis-updates/category/${category.slug}`}
+            >
               Read all {category.name} posts
             </CtaLink>
           </div>
