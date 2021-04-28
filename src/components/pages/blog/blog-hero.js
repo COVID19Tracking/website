@@ -24,12 +24,12 @@ const BlogHero = ({
       {categories && (
         <>
           <img src={rightCaret} alt="" height="12px" />
-          {categories.map((category, index) => (
+          {categories.slice(0, 2).map((category, index) => (
             <>
               <Link to={`/analysis-updates/category/${category.slug}`}>
                 {category.name}
               </Link>
-              {index !== categories.length - 1 && (
+              {index !== categories.slice(0, 2).length - 1 && (
                 <span aria-hidden>&bull;</span>
               )}
             </>
