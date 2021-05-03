@@ -45,7 +45,9 @@
     margin-left: spacer(4);
     p {
       margin: 0;
-      display: inline;
+      &:not(:first-child) {
+        @include margin(16, top);
+      }
     }
   }
 
