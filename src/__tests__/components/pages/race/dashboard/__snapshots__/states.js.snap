@@ -923,14 +923,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
           >
             <p>
               GA
-               does not share data about race or ethnicity.
-               
-              <a
-                href="/race/get-better-data"
-              >
-                Help us advocate for better data
-              </a>
-              .
+               does not share data about race or ethnicity. 
             </p>
           </div>
         </div>
@@ -1044,14 +1037,7 @@ exports[`Components : Pages : Race : Dashboard : States renders correctly 1`] = 
           >
             <p>
               WA
-               does not share data about race or ethnicity.
-               
-              <a
-                href="/race/get-better-data"
-              >
-                Help us advocate for better data
-              </a>
-              .
+               does not share data about race or ethnicity. 
             </p>
           </div>
         </div>

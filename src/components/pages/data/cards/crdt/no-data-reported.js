@@ -1,15 +1,9 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import Alert from '~components/common/alert'
 
 const NoDataReported = ({ stateAbbreviation }) => (
-  <Alert>
-    {stateAbbreviation} does not report this information.{' '}
-    <Link to={`/race/get-better-data#${stateAbbreviation}`}>
-      Help us get better data.
-    </Link>
-  </Alert>
+  <Alert>{stateAbbreviation} does not report this information. </Alert>
 )
 
 export default NoDataReported
