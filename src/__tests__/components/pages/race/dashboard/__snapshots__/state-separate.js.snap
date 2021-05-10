@@ -1487,14 +1487,7 @@ exports[`Components : Pages : Race : Dashboard : State Separate renders correctl
       className="content"
     >
       <p>
-         does not share data about race or ethnicity.
-         
-        <a
-          href="/race/get-better-data"
-        >
-          Help us advocate for better data
-        </a>
-        .
+         does not share data about race or ethnicity. 
       </p>
     </div>
   </div>

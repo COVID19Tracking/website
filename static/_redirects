@@ -49,3 +49,4 @@
 /~*                                           /thank-you#:splat
 
 /long-term-care/download/*                    https://raw.githubusercontent.com/COVID19Tracking/long-term-care-data/master/:splat 200
+/race/get-better-data                         /race

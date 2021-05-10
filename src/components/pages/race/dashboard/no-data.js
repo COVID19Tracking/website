@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import noDataStyles from './no-data.module.scss'
 import alertBang from '~images/race-dashboard/alert-bang-white.svg'
 
@@ -51,13 +50,7 @@ const NoData = ({ stateName }) => (
         <span>No Data</span>
       </div>
       <div className={noDataStyles.content}>
-        <p>
-          {stateName} does not share data about race or ethnicity.{' '}
-          <Link to="/race/get-better-data">
-            Help us advocate for better data
-          </Link>
-          .
-        </p>
+        <p>{stateName} does not share data about race or ethnicity. </p>
       </div>
     </div>
   </div>
