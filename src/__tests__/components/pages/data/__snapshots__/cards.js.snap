@@ -261,13 +261,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Cases renders correctly 2`] 
           className="content"
         >
           NV
-           does not report this information.
-           
-          <a
-            href="/race/get-better-data#NV"
-          >
-            Help us get better data.
-          </a>
+           does not report this information. 
         </div>
       </div>
     </div>
@@ -450,13 +444,7 @@ exports[`Components : Pages : Data : Cards : CRDT : Deaths renders correctly 2`]
           className="content"
         >
           NV
-           does not report this information.
-           
-          <a
-            href="/race/get-better-data#NV"
-          >
-            Help us get better data.
-          </a>
+           does not report this information. 
         </div>
       </div>
     </div>
