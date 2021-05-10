@@ -67,14 +67,7 @@ exports[`Components : Race : Dashboard : No Data renders correctly 1`] = `
     >
       <p>
         Arizona
-         does not share data about race or ethnicity.
-         
-        <a
-          href="/race/get-better-data"
-        >
-          Help us advocate for better data
-        </a>
-        .
+         does not share data about race or ethnicity. 
       </p>
     </div>
   </div>

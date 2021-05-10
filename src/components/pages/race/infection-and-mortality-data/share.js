@@ -19,7 +19,7 @@ const getStateSquareImageUrl = state =>
 
 const getLandingPageUrl = (state, noCharts) =>
   noCharts
-    ? 'https://covidtracking.com/race/get-better-data'
+    ? 'https://covidtracking.com'
     : `https://covidtracking.com/race/infection-and-mortality-data/${state.childSlug.slug}/`
 
 const getStateName = name => {
@@ -45,7 +45,7 @@ const getSocialCardShareText = (
   if (typeOfRates === 'no data') {
     return `In ${getStateName(
       state.name,
-    )}, race and ethnicity information is still not reported for COVID-19 cases and deaths. Help us get better data by contacting health officials at https://covidtracking.com/race/get-better-data #RacialDataTracker`
+    )}, race and ethnicity information is still not reported for COVID-19 cases and deaths. #RacialDataTracker`
   }
   if (typeOfRates === 'mortality data') {
     return `In ${getStateName(state.name)}, through ${getTweetableDate()}, ${
