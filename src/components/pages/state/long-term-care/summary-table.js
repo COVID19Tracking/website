@@ -8,7 +8,7 @@ import summaryTableStyle from './summary-table.module.scss'
 import { FormatNumber } from '~components/utils/format'
 import alert from '~images/alert/alert.svg'
 
-const lumpedDefinition = `Lumped or other facilities’ shows data from states that have not broken down their data by facility type, so it might include data from nursing homes and assisted-living facilities. It also includes some congregate living facilities for older adults that are neither nursing homes nor assisted-living facilities. For each state’s lumped/other definition, please see the state’s specific notes.`
+const lumpedDefinition = `‘Lumped or other facilities’ shows data from states that have not broken down their data by facility type, so it might include data from nursing homes and assisted-living facilities. It also includes some congregate living facilities for older adults that are neither nursing homes nor assisted-living facilities. For each state’s lumped/other definition, please see the state’s specific notes.`
 
 const categoryLabels = {
   nh: 'Nursing home',
