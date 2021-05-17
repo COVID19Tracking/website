@@ -310,6 +310,11 @@ const gatsbyConfig = {
             tableView: 'Website export',
             mapping: { Image: 'fileNode' },
           },
+          {
+            baseId: 'app3GQIjCRVSj00QL',
+            tableName: 'LTC State Notes',
+            tableView: 'Export',
+          },
         ],
       },
     },

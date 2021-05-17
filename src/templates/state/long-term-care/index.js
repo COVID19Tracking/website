@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react'
 import { graphql } from 'gatsby'
 import marked from 'marked'
@@ -32,9 +33,9 @@ export default ({ pageContext, path, data }) => {
             showFacilities
           />
           <LongTermCareBarChart data={data.aggregate.nodes} />
-          {data.covidLtcNotes.alerts && (
+          {data.notes.data.Alert_Message && (
             <LongTermCareAlertNote>
-              {data.covidLtcNotes.alerts}
+              {data.notes.data.Alert_Message}
             </LongTermCareAlertNote>
           )}
           <h2 id="facilities">Facilities</h2>
@@ -48,7 +49,9 @@ export default ({ pageContext, path, data }) => {
           <h2 id="notes">State notes</h2>
           <div
             dangerouslySetInnerHTML={{
-              __html: marked(data.covidLtcNotes.notes),
+              __html: marked(
+                data.notes.data.Manual_Public_Notes__including_timeline_,
+              ),
             }}
           />
         </>
@@ -198,9 +201,15 @@ export const query = graphql`
         outbrkfac_alf
       }
     }
-    covidLtcNotes(state: { eq: $state }) {
-      notes
-      alerts
+    notes: airtable(
+      table: { eq: "LTC State Notes" }
+      data: { State: { eq: $state } }
+    ) {
+      table
+      data {
+        Manual_Public_Notes__including_timeline_
+        Alert_Message
+      }
     }
   }
 `
