@@ -32,6 +32,7 @@
     "@reach/skip-nav": "^0.9.0",
     "@reach/tabs": "^0.12.1",
     "@reach/tooltip": "^0.10.5",
+    "@slack/web-api": "^6.2.3",
     "algoliasearch": "^4.1.0",
     "babel-eslint": "^10.1.0",
     "classnames": "^2.2.6",
