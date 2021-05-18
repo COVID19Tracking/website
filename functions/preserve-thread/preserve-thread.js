@@ -6,8 +6,9 @@ const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
 const slackClient = new WebClient(process.env.SLACK_PRESERVER_TOKEN)
 
 exports.handler = async event => {
-  if (event.queryStringParameters.challenge) {
-    return { statusCode: 200, body: event.queryStringParameters.challenge }
+  const body = JSON.parse(event.body)
+  if (typeof body.challenge !== 'undefined') {
+    return { statusCode: 200, body: body.challenge }
   }
   console.log(event)
   base('Threads')
