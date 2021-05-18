@@ -18,6 +18,8 @@ exports.handler = async event => {
     channel: body.event.channel,
   })
   console.log(event)
+  console.log(user)
+  console.log(channel)
   base('Threads')
     .create([
       {
