@@ -10,18 +10,32 @@ exports.handler = async event => {
   if (typeof body.challenge !== 'undefined') {
     return { statusCode: 200, body: body.challenge }
   }
+  if (!body.event) {
+    return { statusCode: 404 }
+  }
+  const user = await slackClient.users.info({ user: body.event.user })
+  const channel = await slackClient.conversations.info({
+    channel: body.event.channel,
+  })
   console.log(event)
   base('Threads')
     .create([
       {
         fields: {
-          ID: '1',
-          Channel: 'data-entry',
-          Link: 'http://something.com',
+          ID: body.event.thread_ts,
+          Channel: channel.channel.name,
+          User: user.user.profile.display_name,
         },
       },
     ])
     .then(response => {
+      slackClient.chat.postMessage({
+        channel: body.event.channel,
+        unfurl_links: false,
+        unfurl_media: false,
+        thread_ts: body.event.thread_ts,
+        text: `The contents of this thread will be archived in accordance with best practice.`,
+      })
       return { statusCode: 200, body: 'Success' }
     })
     .catch(error => {
