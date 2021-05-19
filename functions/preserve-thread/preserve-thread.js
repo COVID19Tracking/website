@@ -42,7 +42,7 @@ exports.handler = async event => {
     },
   ])
   let airtableId = 0
-  records.forEach(function(record) {
+  airtableResult.forEach(function(record) {
     airtableId = record.getId()
   })
   await slackClient.chat.postMessage({
