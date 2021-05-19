@@ -17,7 +17,7 @@ exports.handler = async event => {
   const channel = await slackClient.conversations.info({
     channel: body.event.channel,
   })
-  console.log([
+  await base('Threads').create([
     {
       fields: {
         ID: body.event.thread_ts,
@@ -26,28 +26,12 @@ exports.handler = async event => {
       },
     },
   ])
-  base('Threads')
-    .create([
-      {
-        fields: {
-          ID: body.event.thread_ts,
-          Channel: channel.channel.name,
-          User: user.user.profile.display_name,
-        },
-      },
-    ])
-    .then(response => {
-      console.log(response)
-      slackClient.chat.postMessage({
-        channel: body.event.channel,
-        unfurl_links: false,
-        unfurl_media: false,
-        thread_ts: body.event.thread_ts,
-        text: `The contents of this thread will be archived in accordance with best practice.`,
-      })
-      return { statusCode: 200, body: 'Success' }
-    })
-    .catch(error => {
-      console.log(error)
-    })
+  slackClient.chat.postMessage({
+    channel: body.event.channel,
+    unfurl_links: false,
+    unfurl_media: false,
+    thread_ts: body.event.thread_ts,
+    text: `<@${body.event.user}> The contents of this thread will be archived in accordance with best practice.`,
+  })
+  return { statusCode: 200, body: 'Success' }
 }
