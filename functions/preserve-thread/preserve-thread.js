@@ -26,7 +26,7 @@ exports.handler = async event => {
       },
     },
   ])
-  slackClient.chat.postMessage({
+  await slackClient.chat.postMessage({
     channel: body.event.channel,
     unfurl_links: false,
     unfurl_media: false,
