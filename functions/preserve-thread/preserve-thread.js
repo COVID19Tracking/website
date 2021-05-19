@@ -13,10 +13,21 @@ exports.handler = async event => {
   if (!body.event) {
     return { statusCode: 404 }
   }
+  console.log(body.event)
   const user = await slackClient.users.info({ user: body.event.user })
   const channel = await slackClient.conversations.info({
     channel: body.event.channel,
   })
+  if (!body.event.thread_ts) {
+    await slackClient.chat.postMessage({
+      channel: body.event.channel,
+      unfurl_links: false,
+      unfurl_media: false,
+      thread_ts: body.event.ts,
+      text: `:thread: <@${body.event.user}> I can only archive replies to threads. Try mentioning me as a reply to a thread.`,
+    })
+    return { status: 200, body: 'Not in thread' }
+  }
   await base('Threads').create([
     {
       fields: {
