@@ -28,21 +28,29 @@ exports.handler = async event => {
     })
     return { status: 200, body: 'Not in thread' }
   }
-  await base('Threads').create([
+  const airtableResult = await base('Threads').create([
     {
       fields: {
         ID: body.event.thread_ts,
         Channel: channel.channel.name,
         User: user.user.profile.display_name,
+        Link: `https://covid-tracking.slack.com/archives/C022AHS5QCS/p${body.event.thread_ts.replace(
+          '.',
+          '',
+        )}`,
       },
     },
   ])
+  let airtableId = 0
+  records.forEach(function(record) {
+    airtableId = record.getId()
+  })
   await slackClient.chat.postMessage({
     channel: body.event.channel,
     unfurl_links: false,
     unfurl_media: false,
     thread_ts: body.event.thread_ts,
-    text: `<@${body.event.user}> The contents of this thread will be archived in accordance with best practice.`,
+    text: `<@${body.event.user}> The contents of this thread will be archived in accordance with best practice. <https://airtable.com/tblq6v3wgz4De1cMT/viwOquNnSz8WW7GXB/${airtableId}|View record>`,
   })
   return { statusCode: 200, body: 'Success' }
 }
