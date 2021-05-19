@@ -17,9 +17,15 @@ exports.handler = async event => {
   const channel = await slackClient.conversations.info({
     channel: body.event.channel,
   })
-  console.log(event)
-  console.log(user)
-  console.log(channel)
+  console.log([
+    {
+      fields: {
+        ID: body.event.thread_ts,
+        Channel: channel.channel.name,
+        User: user.user.profile.display_name,
+      },
+    },
+  ])
   base('Threads')
     .create([
       {
@@ -31,6 +37,7 @@ exports.handler = async event => {
       },
     ])
     .then(response => {
+      console.log(response)
       slackClient.chat.postMessage({
         channel: body.event.channel,
         unfurl_links: false,
