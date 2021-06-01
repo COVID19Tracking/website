@@ -52,6 +52,30 @@ export default ({ pageContext, path, data }) => {
               __html: marked(data.notes.data.Public_Notes),
             }}
           />
+          {data.notes.data.generated_facility_notes_source_links_text && (
+            <>
+              <h3>Source links</h3>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: marked(
+                    data.notes.data.generated_facility_notes_source_links_text,
+                  ),
+                }}
+              />
+            </>
+          )}
+          {data.notes.data.Generated_facility_notes_full_text && (
+            <>
+              <h3>Facility notes</h3>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: marked(
+                    data.notes.data.Generated_facility_notes_full_text,
+                  ),
+                }}
+              />
+            </>
+          )}
         </>
       ) : (
         <LongTermCareAlertNote>
@@ -205,6 +229,8 @@ export const query = graphql`
     ) {
       table
       data {
+        Generated_facility_notes_full_text
+        generated_facility_notes_source_links_text
         Public_Notes
         Alert_Message
       }
