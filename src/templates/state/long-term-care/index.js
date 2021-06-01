@@ -49,9 +49,7 @@ export default ({ pageContext, path, data }) => {
           <h2 id="notes">State notes</h2>
           <div
             dangerouslySetInnerHTML={{
-              __html: marked(
-                data.notes.data.Manual_Public_Notes__including_timeline_,
-              ),
+              __html: marked(data.notes.data.Public_Notes),
             }}
           />
         </>
@@ -207,7 +205,7 @@ export const query = graphql`
     ) {
       table
       data {
-        Manual_Public_Notes__including_timeline_
+        Public_Notes
         Alert_Message
       }
     }
