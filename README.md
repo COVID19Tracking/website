@@ -4,6 +4,10 @@ The COVID Tracking Project collects information from 50 U.S. states, the Distric
 
 This repository is for the project's **website**: https://covidtracking.com/.
 
+## History
+
+A full write-up on the history of the website is availble in the [HISTORY.md](/blob/master/CONTRIBUTING.md) file.
+
 ## Documentation
 
 Additional documentation can be found [at our documentation and Storybook website](https://covid19tracking.github.io/website-docs).
