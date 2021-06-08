@@ -6,7 +6,7 @@ This repository is for the project's **website**: https://covidtracking.com/.
 
 ## History
 
-A full write-up on the history of the website is availble in the [HISTORY.md](/blob/master/CONTRIBUTING.md) file.
+A full write-up on the history of the website is availble in the [HISTORY.md](CONTRIBUTING.md) file.
 
 ## Documentation
 
