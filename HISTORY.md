@@ -1,6 +1,6 @@
 The COVID Tracking Project was propelled very quickly from a small group of individuals working on a Google sheet to a critical piece of infrastructure for the nation on the COVID crisis. This meant our website had to rapidly adapt to the needs of users. This is a history of the major changes to the website and our API service over the lifetime of the project. Links to specific Pull Requests or Commits are included to help put these big changes into context.
 
-So many people worked on these major changes, and even more whiddled away at tweaks and bug fixes. Instead of risking missing people in the credits, we are instead listing everyone who ever made a commit's Github Username below.
+So many people worked on these major changes, and even more whiddled away at tweaks and bug fixes. Many were not direct code contributors, but worked tirelessly on UX, data integrity, and design. We thank every one of you for making the best site we could possibly build and for supporting each other during a difficult time.
 
 ## March 7, 2020
 
