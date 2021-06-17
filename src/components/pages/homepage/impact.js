@@ -114,9 +114,10 @@ const Impact = ({ press, files }) => (
           <em>Nature</em>, and <em>JAMA</em>.
         </p>
         <p>
-          We recieved awards for our work from the{' '}
-          <strong>Society of Professional Journalists</strong> and{' '}
-          <strong>Sigma</strong>.
+          We received awards for our work from the{' '}
+          <strong>Society of Professional Journalists</strong>, the{' '}
+          <strong>Sigma Awards</strong>, and the{' '}
+          <strong>NYU Journalism Online Awards</strong>.
         </p>
         <p>
           Our data was used by <strong>two presidential administrations</strong>{' '}
