@@ -61,7 +61,6 @@ const formatTableValues = timeSeriesData => {
 
       if (
         typeof dataPointValue === 'number' &&
-        dataPointValue != null &&
         !dataPointName.toLowerCase().includes('date')
       ) {
         // Format the value if the value is numeric.
