@@ -1,8 +1,8 @@
-name: Run danger on PR
+name: Jest tests
 on: [pull_request]
 
 jobs:
-  danger:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -11,7 +11,9 @@ jobs:
           node-version: '12.20'
       - name: Install
         run: yarn install
-      - name: Danger JS Action
-        uses: danger/danger-js@9.1.8
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout API files
+        run: yarn setup:api-repo
+      - name: Jest tests
+        run: yarn run test
+      - name: Linting
+        run: yarn run test:lint
