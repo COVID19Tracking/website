@@ -2,7 +2,7 @@ name: Jest tests
 on: [pull_request]
 
 jobs:
-  danger:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
