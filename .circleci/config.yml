@@ -3,7 +3,7 @@ version: 2.1
 executors:
   main-executor:
     docker:
-      - image: cimg/node:12.18
+      - image: cimg/node:12.20
         environment:
           TZ: 'America/New_York'
           NODE_OPTIONS: '--max_old_space_size=4096'
