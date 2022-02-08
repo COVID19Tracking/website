@@ -1,0 +1,29 @@
+.lede {
+  color: black;
+  a {
+    color: black;
+  }
+  h1 {
+    @include type-size(600);
+    line-height: 120%;
+    margin-bottom: spacer(16);
+    margin-top: spacer(8);
+    color: black;
+  }
+  .lede-content {
+    @include type-size(400);
+    line-height: 130%;
+    color: black;
+    margin-bottom: spacer(32);
+  }
+}
+
+.byline-row {
+  color: black;
+  @media (min-width: $viewport-md) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

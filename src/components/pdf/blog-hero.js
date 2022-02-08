@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Lede from '~components/pages/blog/blog-lede'
+import Lede from './blog-lede'
 import ReturnLinks from '~components/layout/header/return-links'
 
 import rightCaret from '~images/icons/right-caret.svg'
@@ -21,7 +21,7 @@ const BlogHero = ({
 }) => (
   <div className={blogHeroStyles.container} narrow centered>
     <ReturnLinks>
-      <Link to="/analysis-updates">Analysis &amp; updates</Link>
+      <span>Categories</span>
       {categories && (
         <>
           <img src={rightCaret} alt="" height="12px" />

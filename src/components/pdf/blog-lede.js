@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Byline } from './byline'
+import { Byline } from '~components/pages/blog/byline'
 import blogLedeStyles from './blog-lede.module.scss'
 import CleanSpacing from '~components/utils/clean-spacing'
 import SocialSharing from '~components/common/social-sharing'

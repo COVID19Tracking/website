@@ -1,0 +1,56 @@
+.header {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: calc(1136px + 3rem);
+  padding: 0 spacer(32);
+  @media (max-width: $viewport-sm) {
+    padding: 0 spacer(16);
+  }
+  @media (min-width: $viewport-lg) {
+    // todo increase to 1rem if there's space with smaller search box
+    padding: 0 spacer(8);
+  }
+}
+
+.site-title-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  transition: display 150ms;
+  @include padding(24, top);
+}
+
+.atlantic-banner {
+  margin-top: spacer(16);
+  display: flex;
+  color: black;
+  text-transform: uppercase;
+  align-items: center;
+  span,
+  img {
+    display: flex;
+    margin-right: spacer(16);
+  }
+  img {
+    padding-bottom: spacer(4);
+    width: 78px;
+  }
+  span {
+    padding-bottom: 0.1rem;
+    margin-right: spacer(8);
+    font-size: 0.625rem; /* exception to the type mixins */
+    line-height: 0.8rem;
+  }
+  div {
+    display: flex;
+    border-top: 1px solid black;
+    width: 100%;
+    height: 1px;
+    opacity: 0.2;
+  }
+}

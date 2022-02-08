@@ -273,6 +273,11 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve(`./src/templates/blog-post.js`),
         context: node,
       })
+      createPage({
+        path: `/analysis-updates/pdf/${node.slug}`,
+        component: path.resolve(`./src/templates/blog-pdf.js`),
+        context: node,
+      })
 
       createRedirect({
         fromPath: shortPath,

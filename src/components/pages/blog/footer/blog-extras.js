@@ -5,7 +5,7 @@ import AuthorFooter from './author-footer'
 import DownloadLinks from './download-links'
 import blogExtrasStyles from './blog-extras.module.scss'
 
-const BlogExtras = ({ blogPost }) => {
+const BlogExtras = ({ blogPost, hideRelated = false }) => {
   const footerAuthors = blogPost.authors.filter(
     author => author.childContentfulAuthorBiographyTextNode !== null,
   ) // only keep authors with biographies
@@ -27,9 +27,11 @@ const BlogExtras = ({ blogPost }) => {
           blogExtrasStyles.fullWidth,
         )}
       />
-      <div className={blogExtrasStyles.eightColWrapper}>
-        <RelatedPosts blogPost={blogPost} />
-      </div>
+      {!hideRelated && (
+        <div className={blogExtrasStyles.eightColWrapper}>
+          <RelatedPosts blogPost={blogPost} />
+        </div>
+      )}
     </>
   )
 }
