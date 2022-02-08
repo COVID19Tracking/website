@@ -1,0 +1,16 @@
+name: Jest tests
+on: [pull_request]
+
+jobs:
+  danger:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install
+        run: yarn install
+      - name: Checkout API files
+        run: yarn setup:api-repo
+      - name: Jest tests
+        run: yarn run test
+      - name: Linting
+        run: yarn run test:lint
