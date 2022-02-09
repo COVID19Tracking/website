@@ -4,6 +4,7 @@ import React from 'react'
 import marked from 'marked'
 import ImageCredit from '~components/common/image-credit'
 import tableStyle from './table-content-block.module.scss'
+import classNames from 'classnames'
 
 const renderCell = cell =>
   marked(cell)
@@ -41,7 +42,12 @@ const TableContentBlock = ({ table, caption }) => {
   const { headers, rows } = parseMarkdownTable(table)
   return (
     <>
-      <table className={tableStyle.table}>
+      <table
+        className={classNames(
+          tableStyle.table,
+          headers.length > 4 && tableStyle.complex,
+        )}
+      >
         <thead>
           <tr className={tableStyle.header}>
             {headers.map(item => (

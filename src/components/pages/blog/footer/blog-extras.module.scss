@@ -6,10 +6,10 @@
 
 .divider {
   height: 1px;
-  background-color: $color-slate-200;
+  background-color: black;
   border: none;
   width: 67%;
-  @include margin(64, (top, bottom));
+  @include margin(32, (top, bottom));
 
   @media (max-width: $viewport-md) {
     margin: 3rem 0; // ignore-style-rule
@@ -18,5 +18,18 @@
     margin-left: calc(50% - 49vw); // ignore-style-rule
     margin-right: calc(50% - 49vw); // ignore-style-rule
     width: 98vw;
+  }
+}
+
+.categories {
+  @include row;
+  @include col(4 6 8);
+  margin: 0 auto;
+  @media (min-width: $viewport-md) {
+    margin-top: spacer(32);
+  }
+  span {
+    display: inline-block;
+    margin-left: 1.5rem;
   }
 }

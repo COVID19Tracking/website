@@ -46,7 +46,11 @@ const BlogPostTemplate = ({ data, path }) => {
         }
         contentBlocks={blogPost.blogContent.references}
       />
-      <BlogPostExtras blogPost={blogPost} hideRelated />
+      <BlogPostExtras
+        blogPost={blogPost}
+        hideRelated
+        categories={blogPost.categories}
+      />
     </Layout>
   )
 }

@@ -1,5 +1,4 @@
 .content {
-  @include type-size(300);
   h2 {
     @include margin(32, bottom);
   }

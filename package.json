@@ -79,6 +79,7 @@
     "gatsby-transformer-sharp": "^2.5.16",
     "gatsby-transformer-yaml": "^2.8.0",
     "get-contrast": "^2.0.0",
+    "glob": "^7.2.0",
     "html-pdf": "^3.0.1",
     "is-url": "^1.2.4",
     "json2csv": "^5.0.1",

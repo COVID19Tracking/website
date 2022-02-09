@@ -1,26 +1,17 @@
 import React from 'react'
 import classnames from 'classnames'
-import Img from 'gatsby-image'
 import marked from 'marked'
 import ImageCredit from '~components/common/image-credit'
 import imageContentBlockStyles from './image-content-block.module.scss'
 
-const ImageBlock = ({ imageUrl, image, keepSize }) => (
+const ImageBlock = ({ imageUrl, image }) => (
   <>
-    {keepSize ? (
-      <img
-        src={imageUrl}
-        aria-hidden={image.description ? undefined : true}
-        alt={image.description}
-        loading="lazy"
-      />
-    ) : (
-      <Img
-        fluid={image.fluid}
-        aria-hidden={image.description ? undefined : true}
-        alt={image.description}
-      />
-    )}
+    <img
+      src={imageUrl}
+      aria-hidden={image.description ? undefined : true}
+      alt={image.description}
+      loading="lazy"
+    />
   </>
 )
 

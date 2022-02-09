@@ -4,14 +4,14 @@
     color: black;
   }
   h1 {
-    @include type-size(600);
+    @include type-size(500);
     line-height: 120%;
     margin-bottom: spacer(16);
     margin-top: spacer(8);
     color: black;
   }
   .lede-content {
-    @include type-size(400);
+    @include type-size(300);
     line-height: 130%;
     color: black;
     margin-bottom: spacer(32);

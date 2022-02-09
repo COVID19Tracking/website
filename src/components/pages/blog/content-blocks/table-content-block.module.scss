@@ -20,45 +20,50 @@
   td {
     @include padding(16);
   }
+  &.complex {
+    .cell-label {
+      display: block;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 0.75rem 0;
+    }
+    .header {
+      display: none;
+    }
+
+    .row {
+      display: block;
+      border-bottom: 1px solid $color-slate-500;
+      padding: 2rem 0;
+      &:first-child {
+        padding-top: 0;
+      }
+      td {
+        margin: 0;
+        display: block;
+        border: 0;
+      }
+    }
+  }
 }
 
 .cell-label {
-  display: block;
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin: 0.75rem 0;
-  @media (min-width: $viewport-lg) {
-    display: none;
-  }
-}
-
-.header {
   display: none;
-  @media (min-width: $viewport-lg) {
-    display: table-row;
-  }
 }
 
 .row {
-  display: block;
   border-bottom: 1px solid $color-slate-500;
   padding: 2rem 0;
   &:first-child {
     padding-top: 0;
   }
-  @media (min-width: $viewport-lg) {
-    display: table-row;
-    border-bottom: 1px solid $color-slate-200;
-    transition: background-color 0.2s;
-    padding: 0;
-  }
+  border-bottom: 1px solid $color-slate-200;
+  transition: background-color 0.2s;
+  padding: 0;
+
   td {
     margin: 0;
-    display: block;
     border: 0;
-    @media (min-width: $viewport-lg) {
-      display: table-cell;
-    }
   }
 }
 
