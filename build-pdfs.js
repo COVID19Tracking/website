@@ -9,7 +9,16 @@ const urls = fs
 let i = 0
 
 const run = async () => {
+  if (typeof urls[i] === 'undefined') {
+    return
+  }
   console.log(urls[i])
+  const path = `./pdfs/${urls[i]}.pdf`
+  if (fs.existsSync(path)) {
+    i += 1
+    run()
+    return
+  }
   const browser = await puppeteer.launch({
     headless: true,
   })
@@ -22,7 +31,7 @@ const run = async () => {
   await webPage.pdf({
     printBackground: false,
     format: 'Letter',
-    path: `./pdfs/${urls[i]}.pdf`,
+    path,
     margin: {
       top: '20px',
       bottom: '40px',
@@ -32,6 +41,8 @@ const run = async () => {
   })
 
   await browser.close()
+  i += 1
+  run()
 }
 
 run()
