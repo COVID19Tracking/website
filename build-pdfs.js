@@ -16,7 +16,7 @@ const run = async () => {
 
   const webPage = await browser.newPage()
 
-  await webPage.goto(`http://localhost:8000/analysis-updates/pdf/${urls[i]}`)
+  await webPage.goto(`http://localhost:9000/analysis-updates/pdf/${urls[i]}`)
   await webPage.waitForSelector('h1')
 
   await webPage.pdf({

@@ -1,13 +1,6 @@
 .content {
-  @include row();
-  @include col(4 6 12);
   margin: 0 auto;
   overflow: visible;
-  p,
-  li {
-    page-break-after: always;
-    page-break-inside: avoid;
-  }
 
   & > *:not(.image) {
     @media (min-width: $viewport-md) and (max-width: $viewport-lg) {

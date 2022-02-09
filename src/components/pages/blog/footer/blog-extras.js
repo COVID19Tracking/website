@@ -11,11 +11,10 @@ const BlogExtras = ({ blogPost, categories, hideRelated = false }) => {
   ) // only keep authors with biographies
 
   return (
-    <>
+    <div className={blogExtrasStyles.wrapper}>
       {blogPost.chartData && <DownloadLinks links={blogPost.chartData} />}
       {footerAuthors.length > 0 && (
         <>
-          <hr className={blogExtrasStyles.divider} />
           <div className={blogExtrasStyles.eightColWrapper}>
             <AuthorFooter authors={footerAuthors} />
           </div>
@@ -39,7 +38,7 @@ const BlogExtras = ({ blogPost, categories, hideRelated = false }) => {
           <RelatedPosts blogPost={blogPost} />
         </div>
       )}
-    </>
+    </div>
   )
 }
 
