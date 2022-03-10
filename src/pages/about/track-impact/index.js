@@ -21,8 +21,13 @@ const ImpactFormPage = () => (
         confidential, and we won’t publish anything identifiable without your
         permission.
       </p>
+      <p>
+        <strong>
+          This form has been taken offline. Thank you for your interest. If you
+          would like to contact us, please <Link to="/contact">reach out</Link>.
+        </strong>
+      </p>
     </LongContent>
-    <ImpactForm />
   </Layout>
 )
 
