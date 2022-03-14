@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from '~components/layout'
-import ImpactForm from '~components/common/impact-form'
 import LongContent from '~components/common/long-content'
 
 const ImpactFormPage = () => (
