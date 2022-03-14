@@ -45,13 +45,6 @@ const DataLongTermCareLinks = () => (
         >
           View the spreadsheet
         </CtaAnchorLink>
-        <p className={linksStyle.contact}>
-          Do you have information about a long-term-care facility?{' '}
-          <Link to="/nursing-homes-long-term-care-facilities/contact">
-            We would love to hear from you
-          </Link>
-          .
-        </p>
       </Col>
       <Col width={[4, 6, 4]} paddingLeft={[0, 0, 16]}>
         <div id="state-navigation" />

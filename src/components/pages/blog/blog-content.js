@@ -10,7 +10,6 @@ import FootnoteContentBlock from './content-blocks/footnote-content-block'
 import RelatedPostsContentBlock from './content-blocks/related-posts-block'
 import FlippableCard from './content-blocks/flippable-card'
 import TableauChart from '~components/charts/tableau'
-import ImpactForm from '~components/common/impact-form'
 import blogContentStyles from './blog-content.module.scss'
 
 const BlogContent = ({ content }) => {
@@ -108,9 +107,6 @@ const BlogContent = ({ content }) => {
               linkToImage={imageLink}
             />
           )
-        }
-        if (__typename === 'ContentfulContentBlockImpactForm') {
-          return <ImpactForm />
         }
         if (__typename === 'ContentfulContentBlockMarkdown') {
           return (
