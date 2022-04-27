@@ -86,6 +86,65 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  const staticRedirects = [
+    {
+      fromPath: '/data/state',
+      toPath: '/data',
+      isPermanent: true,
+    },
+    {
+      fromPath: '/data/us-daily',
+      toPath: '/data/national',
+      isPermanent: true,
+    },
+    {
+      fromPath: '/us-daily/',
+      toPath: '/data/us-daily',
+      isPermanent: true,
+    },
+    {
+      fromPath: '/about',
+      toPath: '/about-data',
+      isPermanent: true,
+    },
+    {
+      fromPath: '/help',
+      toPath: '/get-involved',
+      isPermanent: true,
+    },
+    {
+      fromPath: '/data-definitions',
+      toPath: '/about-data/data-definitions',
+      isPermanent: true,
+    },
+    {
+      fromPath: '/nursing-homes',
+      toPath: '/nursing-homes-long-term-care-facilities',
+      isPermanent: true,
+    },
+    {
+      fromPath: '/race/get-better-data ',
+      toPath: '/race',
+      isPermanent: true,
+    },
+    {
+      fromPath: '/long-term-care/download/state_overview.csv',
+      toPath:
+        'https://raw.githubusercontent.com/COVID19Tracking/long-term-care-data/master/state_overview.csv',
+      isPermanent: true,
+    },
+    {
+      fromPath: '/long-term-care/download/facilities_all_states.csv',
+      toPath:
+        'https://raw.githubusercontent.com/COVID19Tracking/long-term-care-data/master/facilities_all_states.csv',
+      isPermanent: true,
+    },
+  ]
+
+  staticRedirects.forEach(redirect => {
+    createRedirect(redirect)
+  })
+
   const posts = result.data.allContentfulBlogPost.nodes
   const postsPerPage = 6
   const numPages = Math.ceil(posts.length / postsPerPage)
@@ -220,6 +279,12 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: `/data/state/${slug}/screenshots`,
       toPath: `https://screenshots.covidtracking.com/${slug}`,
+      isPermanent: true,
+    })
+
+    createRedirect({
+      fromPath: `/long-term-care/download/facilities_${node.state}.csv`,
+      toPath: `https://raw.githubusercontent.com/COVID19Tracking/long-term-care-data/master/facilities_${node.state}.csv`,
       isPermanent: true,
     })
   })
