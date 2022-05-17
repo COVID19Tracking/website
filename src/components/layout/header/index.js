@@ -185,28 +185,27 @@ const Header = ({
                   />
                 </Link>
               </div>
-              {showMobileMenu && (
-                <div className={headerStyle.navContainer}>
-                  <button
-                    className={classnames(
-                      flipColors && mobileMenuStyle.flipColors,
-                      mobileMenuStyle.mobileToggle,
-                    )}
-                    type="button"
-                    aria-expanded={showMobileMenu}
-                    onClick={() => {
-                      setShowMobileMenu(!showMobileMenu)
-                    }}
-                  >
-                    {showMobileMenu ? <>Close</> : <>Menu</>}
-                  </button>
-                  <HeaderNavigation
-                    topNavigation={topNavigation}
-                    subNavigation={subNavigation}
-                    flipColors={flipColors}
-                  />
-                </div>
-              )}
+              =
+              <div className={headerStyle.navContainer}>
+                <button
+                  className={classnames(
+                    flipColors && mobileMenuStyle.flipColors,
+                    mobileMenuStyle.mobileToggle,
+                  )}
+                  type="button"
+                  aria-expanded={showMobileMenu}
+                  onClick={() => {
+                    setShowMobileMenu(!showMobileMenu)
+                  }}
+                >
+                  {showMobileMenu ? <>Close</> : <>Menu</>}
+                </button>
+                <HeaderNavigation
+                  topNavigation={topNavigation}
+                  subNavigation={subNavigation}
+                  flipColors={flipColors}
+                />
+              </div>
             </div>
             <div className={headerStyle.atlanticBanner}>
               <span>At</span>{' '}
