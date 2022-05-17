@@ -121,7 +121,7 @@ const Header = ({
   // Watch resizes to un-expand the menu in large viewports.
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      handleResize()
+      setTimeout(handleResize, 250)
       window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout)
         resizeTimeout = setTimeout(handleResize, 250)
