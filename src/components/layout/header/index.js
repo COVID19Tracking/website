@@ -113,7 +113,9 @@ const Header = ({
   // Timeout id.
   let resizeTimeout
   const handleResize = () => {
-    if (window.innerWidth >= breakpoints.viewportLg.split('px')[0]) {
+    if (
+      window.innerWidth >= parseInt(breakpoints.viewportLg.split('px')[0], 10)
+    ) {
       setShowMobileMenu(false)
     }
   }
@@ -121,7 +123,11 @@ const Header = ({
   // Watch resizes to un-expand the menu in large viewports.
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setTimeout(handleResize, 250)
+      if (
+        window.innerWidth < parseInt(breakpoints.viewportLg.split('px')[0], 10)
+      ) {
+        setShowMobileMenu(false)
+      }
       window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout)
         resizeTimeout = setTimeout(handleResize, 250)
@@ -163,7 +169,7 @@ const Header = ({
           <Expand
             open={showMobileMenu}
             styles={expandStyles}
-            duration={500}
+            duration={0}
             transitions={['height', 'opacity', 'background']}
           >
             <MobileMenu
