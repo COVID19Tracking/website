@@ -177,7 +177,7 @@ const Header = ({
               topNavigation={topNavigation}
               subNavigation={subNavigation}
               hide={() => {
-                showMobileMenu(false)
+                setShowMobileMenu(false)
               }}
             />
           </Expand>
