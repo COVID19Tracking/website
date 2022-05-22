@@ -108,7 +108,7 @@ const Header = ({
     }
   }
 
-  const [showMobileMenu, setShowMobileMenu] = useState(true)
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
 
   // Timeout id.
   let resizeTimeout
