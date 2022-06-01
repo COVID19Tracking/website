@@ -14,7 +14,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
           "height": 0,
           "opacity": 0,
           "overflow": "hidden",
-          "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+          "transition": "height 0ms ease-in-out,opacity 0ms ease-in-out,background 0ms ease-in-out",
         }
       }
     >
@@ -27,60 +27,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
         }
         tabIndex="-1"
       >
-        <div
-          className="mobileSearchContainer"
-        >
-          <div
-            className="search"
-            onBlur={[Function]}
-          >
-            <label
-              className="a11y-only"
-              htmlFor="header-search-autocomplete-mobile"
-            >
-              Search
-            </label>
-            <div
-              data-reach-combobox=""
-            >
-              <input
-                aria-autocomplete="both"
-                aria-controls="listbox--1"
-                aria-expanded={false}
-                aria-haspopup="listbox"
-                autoComplete="off"
-                className="searchInput"
-                data-reach-combobox-input=""
-                id="header-search-autocomplete-mobile"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="combobox"
-                tabIndex="-1"
-                value=""
-              />
-              <span
-                className="searchLabel"
-              >
-                Search
-              </span>
-            </div>
-            <button
-              aria-label="Submit search"
-              className="searchSubmit"
-              onClick={[Function]}
-              type="button"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                src="test-file-stub"
-              />
-            </button>
-          </div>
-        </div>
         <nav
           className="js-disabled-block"
           role="navigation"
@@ -240,6 +186,7 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             />
           </a>
         </div>
+        =
         <div
           className="navContainer"
         >
@@ -386,64 +333,6 @@ exports[`Components : Layout : Header renders correctly 1`] = `
             </ul>
           </nav>
         </div>
-        <div
-          className="tools"
-        >
-          <div
-            className="searchContainer"
-          >
-            <div
-              className="search"
-              onBlur={[Function]}
-            >
-              <label
-                className="a11y-only"
-                htmlFor="header-search-autocomplete"
-              >
-                Search
-              </label>
-              <div
-                data-reach-combobox=""
-              >
-                <input
-                  aria-autocomplete="both"
-                  aria-controls="listbox--2"
-                  aria-expanded={false}
-                  aria-haspopup="listbox"
-                  autoComplete="off"
-                  className="searchInput"
-                  data-reach-combobox-input=""
-                  id="header-search-autocomplete"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  role="combobox"
-                  tabIndex="-1"
-                  value=""
-                />
-                <span
-                  className="searchLabel"
-                >
-                  Search
-                </span>
-              </div>
-              <button
-                aria-label="Submit search"
-                className="searchSubmit"
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  src="test-file-stub"
-                />
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
       <div
         className="atlanticBanner"
@@ -529,7 +418,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
           "height": 0,
           "opacity": 0,
           "overflow": "hidden",
-          "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+          "transition": "height 0ms ease-in-out,opacity 0ms ease-in-out,background 0ms ease-in-out",
         }
       }
     >
@@ -542,60 +431,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
         }
         tabIndex="-1"
       >
-        <div
-          className="mobileSearchContainer"
-        >
-          <div
-            className="search"
-            onBlur={[Function]}
-          >
-            <label
-              className="a11y-only"
-              htmlFor="header-search-autocomplete-mobile"
-            >
-              Search
-            </label>
-            <div
-              data-reach-combobox=""
-            >
-              <input
-                aria-autocomplete="both"
-                aria-controls="listbox--5"
-                aria-expanded={false}
-                aria-haspopup="listbox"
-                autoComplete="off"
-                className="searchInput"
-                data-reach-combobox-input=""
-                id="header-search-autocomplete-mobile"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="combobox"
-                tabIndex="-1"
-                value=""
-              />
-              <span
-                className="searchLabel"
-              >
-                Search
-              </span>
-            </div>
-            <button
-              aria-label="Submit search"
-              className="searchSubmit"
-              onClick={[Function]}
-              type="button"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                src="test-file-stub"
-              />
-            </button>
-          </div>
-        </div>
         <nav
           className="js-disabled-block"
           role="navigation"
@@ -755,6 +590,7 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             />
           </a>
         </div>
+        =
         <div
           className="navContainer"
         >
@@ -901,64 +737,6 @@ exports[`Components : Layout : Header renders correctly 2`] = `
             </ul>
           </nav>
         </div>
-        <div
-          className="tools"
-        >
-          <div
-            className="searchContainer"
-          >
-            <div
-              className="search"
-              onBlur={[Function]}
-            >
-              <label
-                className="a11y-only"
-                htmlFor="header-search-autocomplete"
-              >
-                Search
-              </label>
-              <div
-                data-reach-combobox=""
-              >
-                <input
-                  aria-autocomplete="both"
-                  aria-controls="listbox--6"
-                  aria-expanded={false}
-                  aria-haspopup="listbox"
-                  autoComplete="off"
-                  className="searchInput"
-                  data-reach-combobox-input=""
-                  id="header-search-autocomplete"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  role="combobox"
-                  tabIndex="-1"
-                  value=""
-                />
-                <span
-                  className="searchLabel"
-                >
-                  Search
-                </span>
-              </div>
-              <button
-                aria-label="Submit search"
-                className="searchSubmit"
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  src="test-file-stub"
-                />
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
       <div
         className="atlanticBanner"
@@ -1044,7 +822,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
           "height": 0,
           "opacity": 0,
           "overflow": "hidden",
-          "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+          "transition": "height 0ms ease-in-out,opacity 0ms ease-in-out,background 0ms ease-in-out",
         }
       }
     >
@@ -1057,60 +835,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
         }
         tabIndex="-1"
       >
-        <div
-          className="mobileSearchContainer"
-        >
-          <div
-            className="search"
-            onBlur={[Function]}
-          >
-            <label
-              className="a11y-only"
-              htmlFor="header-search-autocomplete-mobile"
-            >
-              Search
-            </label>
-            <div
-              data-reach-combobox=""
-            >
-              <input
-                aria-autocomplete="both"
-                aria-controls="listbox--8"
-                aria-expanded={false}
-                aria-haspopup="listbox"
-                autoComplete="off"
-                className="searchInput"
-                data-reach-combobox-input=""
-                id="header-search-autocomplete-mobile"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="combobox"
-                tabIndex="-1"
-                value=""
-              />
-              <span
-                className="searchLabel"
-              >
-                Search
-              </span>
-            </div>
-            <button
-              aria-label="Submit search"
-              className="searchSubmit"
-              onClick={[Function]}
-              type="button"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                src="test-file-stub"
-              />
-            </button>
-          </div>
-        </div>
         <nav
           className="js-disabled-block"
           role="navigation"
@@ -1134,11 +858,11 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                   Test A
                 </a>
                 <button
-                  aria-controls="menu--18"
+                  aria-controls="menu--17"
                   aria-haspopup={true}
                   className="caret"
                   data-reach-menu-button=""
-                  id="menu-button--menu--18"
+                  id="menu-button--menu--17"
                   onKeyDown={[Function]}
                   onMouseDown={[Function]}
                   type="button"
@@ -1169,11 +893,11 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                 hidden={true}
               >
                 <div
-                  aria-labelledby="menu-button--menu--18"
+                  aria-labelledby="menu-button--menu--17"
                   className="header-sub-menu subMenu"
                   data-reach-menu-items=""
                   data-reach-menu-list=""
-                  id="menu--18"
+                  id="menu--17"
                   onKeyDown={[Function]}
                   tabIndex={-1}
                 >
@@ -1270,6 +994,7 @@ exports[`Components : Layout : Header renders correctly 3`] = `
             />
           </a>
         </div>
+        =
         <div
           className="navContainer"
         >
@@ -1304,11 +1029,11 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                     Test A
                   </a>
                   <button
-                    aria-controls="menu--20"
+                    aria-controls="menu--19"
                     aria-haspopup={true}
                     className="caret"
                     data-reach-menu-button=""
-                    id="menu-button--menu--20"
+                    id="menu-button--menu--19"
                     onKeyDown={[Function]}
                     onMouseDown={[Function]}
                     type="button"
@@ -1339,11 +1064,11 @@ exports[`Components : Layout : Header renders correctly 3`] = `
                   hidden={true}
                 >
                   <div
-                    aria-labelledby="menu-button--menu--20"
+                    aria-labelledby="menu-button--menu--19"
                     className="header-sub-menu subMenu"
                     data-reach-menu-items=""
                     data-reach-menu-list=""
-                    id="menu--20"
+                    id="menu--19"
                     onKeyDown={[Function]}
                     tabIndex={-1}
                   >
@@ -1415,64 +1140,6 @@ exports[`Components : Layout : Header renders correctly 3`] = `
               </li>
             </ul>
           </nav>
-        </div>
-        <div
-          className="tools"
-        >
-          <div
-            className="searchContainer"
-          >
-            <div
-              className="search"
-              onBlur={[Function]}
-            >
-              <label
-                className="a11y-only"
-                htmlFor="header-search-autocomplete"
-              >
-                Search
-              </label>
-              <div
-                data-reach-combobox=""
-              >
-                <input
-                  aria-autocomplete="both"
-                  aria-controls="listbox--9"
-                  aria-expanded={false}
-                  aria-haspopup="listbox"
-                  autoComplete="off"
-                  className="searchInput"
-                  data-reach-combobox-input=""
-                  id="header-search-autocomplete"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  role="combobox"
-                  tabIndex="-1"
-                  value=""
-                />
-                <span
-                  className="searchLabel"
-                >
-                  Search
-                </span>
-              </div>
-              <button
-                aria-label="Submit search"
-                className="searchSubmit"
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  src="test-file-stub"
-                />
-              </button>
-            </div>
-          </div>
         </div>
       </div>
       <div
@@ -1563,7 +1230,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
           "height": 0,
           "opacity": 0,
           "overflow": "hidden",
-          "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+          "transition": "height 0ms ease-in-out,opacity 0ms ease-in-out,background 0ms ease-in-out",
         }
       }
     >
@@ -1576,60 +1243,6 @@ exports[`Components : Layout : Header renders correctly 4`] = `
         }
         tabIndex="-1"
       >
-        <div
-          className="mobileSearchContainer"
-        >
-          <div
-            className="search"
-            onBlur={[Function]}
-          >
-            <label
-              className="a11y-only"
-              htmlFor="header-search-autocomplete-mobile"
-            >
-              Search
-            </label>
-            <div
-              data-reach-combobox=""
-            >
-              <input
-                aria-autocomplete="both"
-                aria-controls="listbox--11"
-                aria-expanded={false}
-                aria-haspopup="listbox"
-                autoComplete="off"
-                className="searchInput"
-                data-reach-combobox-input=""
-                id="header-search-autocomplete-mobile"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="combobox"
-                tabIndex="-1"
-                value=""
-              />
-              <span
-                className="searchLabel"
-              >
-                Search
-              </span>
-            </div>
-            <button
-              aria-label="Submit search"
-              className="searchSubmit"
-              onClick={[Function]}
-              type="button"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                src="test-file-stub"
-              />
-            </button>
-          </div>
-        </div>
         <nav
           className="js-disabled-block"
           role="navigation"
@@ -1653,11 +1266,11 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                   Test A
                 </a>
                 <button
-                  aria-controls="menu--25"
+                  aria-controls="menu--23"
                   aria-haspopup={true}
                   className="caret"
                   data-reach-menu-button=""
-                  id="menu-button--menu--25"
+                  id="menu-button--menu--23"
                   onKeyDown={[Function]}
                   onMouseDown={[Function]}
                   type="button"
@@ -1688,11 +1301,11 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                 hidden={true}
               >
                 <div
-                  aria-labelledby="menu-button--menu--25"
+                  aria-labelledby="menu-button--menu--23"
                   className="header-sub-menu subMenu"
                   data-reach-menu-items=""
                   data-reach-menu-list=""
-                  id="menu--25"
+                  id="menu--23"
                   onKeyDown={[Function]}
                   tabIndex={-1}
                 >
@@ -1789,6 +1402,7 @@ exports[`Components : Layout : Header renders correctly 4`] = `
             />
           </a>
         </div>
+        =
         <div
           className="navContainer"
         >
@@ -1823,11 +1437,11 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                     Test A
                   </a>
                   <button
-                    aria-controls="menu--27"
+                    aria-controls="menu--25"
                     aria-haspopup={true}
                     className="caret"
                     data-reach-menu-button=""
-                    id="menu-button--menu--27"
+                    id="menu-button--menu--25"
                     onKeyDown={[Function]}
                     onMouseDown={[Function]}
                     type="button"
@@ -1858,11 +1472,11 @@ exports[`Components : Layout : Header renders correctly 4`] = `
                   hidden={true}
                 >
                   <div
-                    aria-labelledby="menu-button--menu--27"
+                    aria-labelledby="menu-button--menu--25"
                     className="header-sub-menu subMenu"
                     data-reach-menu-items=""
                     data-reach-menu-list=""
-                    id="menu--27"
+                    id="menu--25"
                     onKeyDown={[Function]}
                     tabIndex={-1}
                   >
@@ -1934,64 +1548,6 @@ exports[`Components : Layout : Header renders correctly 4`] = `
               </li>
             </ul>
           </nav>
-        </div>
-        <div
-          className="tools"
-        >
-          <div
-            className="searchContainer"
-          >
-            <div
-              className="search"
-              onBlur={[Function]}
-            >
-              <label
-                className="a11y-only"
-                htmlFor="header-search-autocomplete"
-              >
-                Search
-              </label>
-              <div
-                data-reach-combobox=""
-              >
-                <input
-                  aria-autocomplete="both"
-                  aria-controls="listbox--12"
-                  aria-expanded={false}
-                  aria-haspopup="listbox"
-                  autoComplete="off"
-                  className="searchInput"
-                  data-reach-combobox-input=""
-                  id="header-search-autocomplete"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  role="combobox"
-                  tabIndex="-1"
-                  value=""
-                />
-                <span
-                  className="searchLabel"
-                >
-                  Search
-                </span>
-              </div>
-              <button
-                aria-label="Submit search"
-                className="searchSubmit"
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  src="test-file-stub"
-                />
-              </button>
-            </div>
-          </div>
         </div>
       </div>
       <div
@@ -2078,7 +1634,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
           "height": 0,
           "opacity": 0,
           "overflow": "hidden",
-          "transition": "height 500ms ease-in-out,opacity 500ms ease-in-out,background 500ms ease-in-out",
+          "transition": "height 0ms ease-in-out,opacity 0ms ease-in-out,background 0ms ease-in-out",
         }
       }
     >
@@ -2091,60 +1647,6 @@ exports[`Components : Layout : Header renders correctly 5`] = `
         }
         tabIndex="-1"
       >
-        <div
-          className="mobileSearchContainer"
-        >
-          <div
-            className="search"
-            onBlur={[Function]}
-          >
-            <label
-              className="a11y-only"
-              htmlFor="header-search-autocomplete-mobile"
-            >
-              Search
-            </label>
-            <div
-              data-reach-combobox=""
-            >
-              <input
-                aria-autocomplete="both"
-                aria-controls="listbox--14"
-                aria-expanded={false}
-                aria-haspopup="listbox"
-                autoComplete="off"
-                className="searchInput"
-                data-reach-combobox-input=""
-                id="header-search-autocomplete-mobile"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="combobox"
-                tabIndex="-1"
-                value=""
-              />
-              <span
-                className="searchLabel"
-              >
-                Search
-              </span>
-            </div>
-            <button
-              aria-label="Submit search"
-              className="searchSubmit"
-              onClick={[Function]}
-              type="button"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                src="test-file-stub"
-              />
-            </button>
-          </div>
-        </div>
         <nav
           className="js-disabled-block"
           role="navigation"
@@ -2168,11 +1670,11 @@ exports[`Components : Layout : Header renders correctly 5`] = `
                   Test A
                 </a>
                 <button
-                  aria-controls="menu--32"
+                  aria-controls="menu--29"
                   aria-haspopup={true}
                   className="caret"
                   data-reach-menu-button=""
-                  id="menu-button--menu--32"
+                  id="menu-button--menu--29"
                   onKeyDown={[Function]}
                   onMouseDown={[Function]}
                   type="button"
@@ -2203,11 +1705,11 @@ exports[`Components : Layout : Header renders correctly 5`] = `
                 hidden={true}
               >
                 <div
-                  aria-labelledby="menu-button--menu--32"
+                  aria-labelledby="menu-button--menu--29"
                   className="header-sub-menu subMenu"
                   data-reach-menu-items=""
                   data-reach-menu-list=""
-                  id="menu--32"
+                  id="menu--29"
                   onKeyDown={[Function]}
                   tabIndex={-1}
                 >
@@ -2304,6 +1806,7 @@ exports[`Components : Layout : Header renders correctly 5`] = `
             />
           </a>
         </div>
+        =
         <div
           className="navContainer"
         >
@@ -2338,11 +1841,11 @@ exports[`Components : Layout : Header renders correctly 5`] = `
                     Test A
                   </a>
                   <button
-                    aria-controls="menu--34"
+                    aria-controls="menu--31"
                     aria-haspopup={true}
                     className="caret"
                     data-reach-menu-button=""
-                    id="menu-button--menu--34"
+                    id="menu-button--menu--31"
                     onKeyDown={[Function]}
                     onMouseDown={[Function]}
                     type="button"
@@ -2373,11 +1876,11 @@ exports[`Components : Layout : Header renders correctly 5`] = `
                   hidden={true}
                 >
                   <div
-                    aria-labelledby="menu-button--menu--34"
+                    aria-labelledby="menu-button--menu--31"
                     className="header-sub-menu subMenu"
                     data-reach-menu-items=""
                     data-reach-menu-list=""
-                    id="menu--34"
+                    id="menu--31"
                     onKeyDown={[Function]}
                     tabIndex={-1}
                   >
@@ -2449,64 +1952,6 @@ exports[`Components : Layout : Header renders correctly 5`] = `
               </li>
             </ul>
           </nav>
-        </div>
-        <div
-          className="tools"
-        >
-          <div
-            className="searchContainer"
-          >
-            <div
-              className="search"
-              onBlur={[Function]}
-            >
-              <label
-                className="a11y-only"
-                htmlFor="header-search-autocomplete"
-              >
-                Search
-              </label>
-              <div
-                data-reach-combobox=""
-              >
-                <input
-                  aria-autocomplete="both"
-                  aria-controls="listbox--15"
-                  aria-expanded={false}
-                  aria-haspopup="listbox"
-                  autoComplete="off"
-                  className="searchInput"
-                  data-reach-combobox-input=""
-                  id="header-search-autocomplete"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  role="combobox"
-                  tabIndex="-1"
-                  value=""
-                />
-                <span
-                  className="searchLabel"
-                >
-                  Search
-                </span>
-              </div>
-              <button
-                aria-label="Submit search"
-                className="searchSubmit"
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  src="test-file-stub"
-                />
-              </button>
-            </div>
-          </div>
         </div>
       </div>
       <div
