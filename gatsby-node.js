@@ -268,6 +268,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allContentfulBlogPost.nodes.forEach(node => {
     const longPath = `/analysis-updates/${node.slug}`
+    const oldPath = `/blog/${node.slug}`
     const shortPath = `/${node.contentful_id}`
 
     if (node.overrideBlogPage) {
@@ -285,6 +286,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
       createRedirect({
         fromPath: shortPath,
+        toPath: longPath,
+        isPermanent: true,
+      })
+
+      createRedirect({
+        fromPath: oldPath,
         toPath: longPath,
         isPermanent: true,
       })
