@@ -1,6 +1,7 @@
 const path = require('path')
 const csv = require('./src/utilities/csv')
 const createSchemaCustomization = require('./src/utilities/schema')
+const redirects = requre('./src/data/redirects.json')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
@@ -15,6 +16,14 @@ exports.createPages = async ({ graphql, actions }) => {
       statusCode: 200,
     })
   }
+
+  Object.keys(redirects).forEach(from => {
+    createRedirect({
+      fromPath: from,
+      toPath: redirects[from],
+      isPermanent: true,
+    })
+  })
 
   const result = await graphql(`
     query {
