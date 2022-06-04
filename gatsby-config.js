@@ -538,20 +538,6 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-plugin-netlify',
-      options: {
-        mergeSecurityHeaders: false,
-        headers: {
-          '/*': [
-            'X-Frame-Options: DENY',
-            'X-XSS-Protection: 1; mode=block',
-            'X-Content-Type-Options: nosniff',
-            'Referrer-Policy: strict-origin-when-cross-origin',
-          ],
-        },
-      },
-    },
-    {
       resolve: 'gatsby-transformer-covid-slug',
       options: {
         type: 'CovidStateInfo',
