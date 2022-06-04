@@ -1,7 +1,7 @@
 const path = require('path')
 const csv = require('./src/utilities/csv')
 const createSchemaCustomization = require('./src/utilities/schema')
-const redirects = requre('./src/data/redirects.json')
+const redirects = require('./src/data/redirects.json')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
