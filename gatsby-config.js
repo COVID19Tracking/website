@@ -47,6 +47,7 @@ const gatsbyConfig = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-svgr',
     'gatsby-transformer-yaml',
+    'gatsby-plugin-meta-redirect',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {

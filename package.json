@@ -60,6 +60,7 @@
     "gatsby-plugin-global-context": "^1.0.0",
     "gatsby-plugin-google-analytics-gdpr": "^0.0.5",
     "gatsby-plugin-manifest": "^2.4.32",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-nprogress": "^2.3.12",
     "gatsby-plugin-offline": "^3.2.29",
     "gatsby-plugin-polyfill-io": "^1.1.0",
