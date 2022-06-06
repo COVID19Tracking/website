@@ -991,7 +991,6 @@
 <url> <loc>https://covidtracking.com/analysis-updates/category/demographic-data</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://covidtracking.com/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://covidtracking.com/latest-build</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://covidtracking.com/search</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://covidtracking.com/thank-you</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://covidtracking.com/about</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://covidtracking.com/about/sitemap</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -1015,9 +1014,7 @@
 <url> <loc>https://covidtracking.com/about/track-impact/success</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://covidtracking.com/data/api</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://covidtracking.com/data/api/version-2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://covidtracking.com/data/hospital-facilities/anomalies</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://covidtracking.com/data/hospital-facilities</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://covidtracking.com/data/hospital-facilities/search</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://covidtracking.com/data/national/cases</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://covidtracking.com/data/national/chart-tables</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://covidtracking.com/data/national/deaths</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
