@@ -6,7 +6,6 @@ require('dotenv').config()
 const setTZ = require('set-tz')
 const { DateTime } = require('luxon')
 const fs = require('fs')
-const algoliaQueries = require('./src/utilities/algolia').queries
 const sassImports = require('./src/utilities/sass-imports.js')
 const formatStringList = require('./src/components/utils/format')
   .formatStringList
@@ -605,23 +604,6 @@ const gatsbyConfig = {
       },
     },
   ],
-}
-
-// Conditionally add Algolia plugin.
-if (
-  typeof process.env.GATSBY_ALGOLIA_INDEX_PREFIX !== 'undefined' &&
-  typeof process.env.ALGOLIA_ADMIN_KEY !== 'undefined' &&
-  (process.env.BRANCH === 'master' || process.env.CIRCLECI)
-) {
-  gatsbyConfig.plugins.push({
-    resolve: 'gatsby-plugin-algolia',
-    options: {
-      appId: process.env.GATSBY_ALGOLIA_APP_ID,
-      apiKey: process.env.ALGOLIA_ADMIN_KEY,
-      queries: algoliaQueries,
-      chunkSize: 5000,
-    },
-  })
 }
 
 module.exports = gatsbyConfig
