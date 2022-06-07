@@ -15,6 +15,7 @@ module.exports = {
     'react/no-danger': ['off'],
     'react/jsx-no-bind': ['off'],
     'import/order': ['off'],
+    'react/forbid-prop-types': ['off'],
     'react/destructuring-assignment': ['off'],
     'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
     'max-len': [
