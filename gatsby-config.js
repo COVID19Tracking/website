@@ -46,6 +46,7 @@ const gatsbyConfig = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-svgr',
     'gatsby-transformer-yaml',
+    'gatsby-plugin-meta-redirect',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
@@ -534,20 +535,6 @@ const gatsbyConfig = {
       options: {
         color: '#924F34',
         showSpinner: false,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-netlify',
-      options: {
-        mergeSecurityHeaders: false,
-        headers: {
-          '/*': [
-            'X-Frame-Options: DENY',
-            'X-XSS-Protection: 1; mode=block',
-            'X-Content-Type-Options: nosniff',
-            'Referrer-Policy: strict-origin-when-cross-origin',
-          ],
-        },
       },
     },
     {

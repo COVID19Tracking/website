@@ -34,7 +34,7 @@ const LongTermCarePreamble = ({
             </strong>
           </span>
           <a
-            href="/long-term-care/download/state_overview.csv"
+            href="https://raw.githubusercontent.com/COVID19Tracking/long-term-care-data/master/state_overview.csv"
             className={downloadDataStyles.button}
             download="state_overview.csv"
           >
@@ -42,7 +42,7 @@ const LongTermCarePreamble = ({
           </a>
           {showFacilities && (
             <a
-              href={`/long-term-care/download/facilities_${state.toLowerCase()}.csv`}
+              href={`https://raw.githubusercontent.com/COVID19Tracking/long-term-care-data/master/facilities_${state.toLowerCase()}.csv`}
               className={downloadDataStyles.button}
               download={`facilities_${state.toLowerCase()}.csv`}
             >
