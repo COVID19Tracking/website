@@ -24,8 +24,8 @@ const gatsbyConfig = {
     description:
       'The COVID Tracking Project collects and publishes the most complete testing data available for US states and territories.',
     production:
-      typeof process.env.BRANCH !== 'undefined' &&
-      process.env.BRANCH === 'master',
+      typeof process.env.GH_PAGES_PROD !== 'undefined' &&
+      process.env.GH_PAGES_PROD,
     buildTime: DateTime.local()
       .setZone('America/New_York')
       .toISO(),
