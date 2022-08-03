@@ -56,7 +56,6 @@
     "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-plugin-feed": "^2.5.13",
     "gatsby-plugin-global-context": "^1.0.0",
-    "gatsby-plugin-google-analytics-gdpr": "^0.0.5",
     "gatsby-plugin-manifest": "^2.4.32",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-nprogress": "^2.3.12",
