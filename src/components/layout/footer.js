@@ -104,7 +104,7 @@ const Footer = ({
         </p>
       )}
       <span>
-        CovidTracking.com Copyright &copy; {new Date().getFullYear()} by The
+        covidtracking.com Copyright &copy; {new Date().getFullYear()} by The
         Atlantic Monthly Group. <Link to="/license">(CC BY 4.0)</Link>
       </span>
       <a href="#reach-skip-nav" className={footerStyles.backToTop}>
